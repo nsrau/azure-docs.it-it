@@ -12,24 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 661470454775d43ce88410a6c995bbcc5e06264c
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 399230584d01986dd0f793a6ff8245ef2b4f8fb1
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Aggiungere utenti da altre directory o società partner in Azure Active Directory
-> [!div class="op_single_selector"]
-> * [Portale di Azure](active-directory-users-create-external-azure-portal.md )
-> * [Portale di Azure classico](active-directory-create-users-external.md)
->
->
 
-Questo articolo illustra come aggiungere utenti da altre directory in Azure Active Directory o aggiungere utenti da società partner. Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione e di utenti che possiedono account Microsoft, vedere [Aggiungere nuovi utenti o utenti con account Microsoft in Azure Active Directory](active-directory-create-users.md). Gli utenti aggiunti non hanno autorizzazioni di amministratore per impostazione predefinita, ma è possibile assegnare loro dei ruoli in qualsiasi momento.
+Questo articolo illustra come aggiungere utenti da altre directory in Azure Active Directory o aggiungere utenti da società partner. Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione e di utenti che possiedono account Microsoft, vedere [Aggiungere nuovi utenti o utenti con account Microsoft in Azure Active Directory](active-directory-create-users.md). 
+
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. Per informazioni su come aggiungere utenti guest di Collaborazione B2B nell'interfaccia di amministrazione di Azure AD, vedere [Informazioni su Collaborazione B2B di Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md).
+
+Gli utenti aggiunti non hanno autorizzazioni di amministratore per impostazione predefinita, ma è possibile assegnare loro dei ruoli in qualsiasi momento.
 
 ## <a name="add-a-user"></a>Aggiungere un utente
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) con un account di amministratore globale per la directory.

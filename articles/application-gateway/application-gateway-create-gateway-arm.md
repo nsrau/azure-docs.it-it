@@ -1,6 +1,6 @@
 ---
 title: Creare e gestire un gateway applicazione di Azure - PowerShell | Documentazione Microsoft
-description: Questa pagina fornisce istruzioni per la creazione, la configurazione, l&quot;avvio e l&quot;eliminazione di un gateway applicazione di Azure usando Gestione risorse di Azure
+description: Questa pagina fornisce istruzioni per la creazione, la configurazione, l'avvio e l'eliminazione di un gateway applicazione di Azure usando Gestione risorse di Azure
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 8a0eb841b1a41a14e443b6ce93e6b8fb8985a803
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6d38dd6802a25b147fd014b4d26ca432ca87a07d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Creare, avviare o eliminare un gateway applicazione tramite Gestione risorse di Azure
@@ -171,10 +170,10 @@ Questo esempio mostra due pool back-end che indirizzano il traffico di rete in b
 
 ### <a name="step-3"></a>Passaggio 3
 
-Configurare l'impostazione **poolsetting01** del gateway applicazione per il traffico di rete con carico bilanciato nel pool back-end. Ogni pool back-end può avere un'impostazione del pool back-end dedicata.  Le impostazioni di back-end HTTP vengono usate dalle regole per instradare il traffico verso i membri del pool di back-end corretti. Le impostazioni di back-end HTTP determinano il protocollo e la porta usata per l'invio di traffico ai membri del pool di back-end. Anche le sessioni basate sui cookie sono determinate dalle impostazioni HTTP di back-end.  Se abilitata, l'affinità di sessione basata su cookie invia traffico allo stesso back-end sotto forma di richieste precedenti per ogni pacchetto.
+Configurare l'impostazione **poolsetting** del gateway applicazione per il traffico di rete con carico bilanciato nel pool back-end. Ogni pool back-end può avere un'impostazione del pool back-end dedicata.  Le impostazioni di back-end HTTP vengono usate dalle regole per instradare il traffico verso i membri del pool di back-end corretti. Le impostazioni di back-end HTTP determinano il protocollo e la porta usata per l'invio di traffico ai membri del pool di back-end. Anche le sessioni basate sui cookie sono determinate dalle impostazioni HTTP di back-end.  Se abilitata, l'affinità di sessione basata su cookie invia traffico allo stesso back-end sotto forma di richieste precedenti per ogni pacchetto.
 
 ```powershell
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
+$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
 ```
 
 ### <a name="step-4"></a>Passaggio 4
@@ -206,7 +205,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 Creare la regola di routing per il bilanciamento del carico denominata **rule01** che configura il comportamento per il bilanciamento del carico. Le impostazioni del pool di back-end, il listener e il pool di back-end creati nei passaggi precedenti costituiscono la regola. In base ai criteri definiti il traffico viene indirizzato al back-end appropriato.
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting01 -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 ### <a name="step-8"></a>Passaggio 8

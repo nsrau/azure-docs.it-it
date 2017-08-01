@@ -1,6 +1,6 @@
 Per applicare un tag a una risorsa durante la distribuzione, aggiungere l'elemento `tags` alla risorsa distribuita e specificare il nome e il valore del tag.
 
-### <a name="apply-literal-value-to-tag-name"></a>Applicare un valore letterale al nome del tag
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Applicare un valore letterale al nome del tag
 L'esempio seguente illustra un account di archiviazione con due tag (`Dept` e `Environment`) impostati su valori letterali:
 
 ```json
@@ -27,7 +27,7 @@ L'esempio seguente illustra un account di archiviazione con due tag (`Dept` e `E
 }
 ```
 
-### <a name="apply-object-to-tag-element"></a>Applicare un oggetto a un elemento tag
+### <a name="apply-an-object-to-the-tag-element"></a>Applicare un oggetto all'elemento tag
 È possibile definire un parametro oggetto in cui vengono memorizzati diversi tag e applicare tale oggetto all'elemento tag. Ogni proprietà nell'oggetto diventa un tag separato per la risorsa. L'esempio seguente include un parametro denominato `tagValues` che viene applicato all'elemento tag.
 
 ```json
@@ -60,7 +60,7 @@ L'esempio seguente illustra un account di archiviazione con due tag (`Dept` e `E
 }
 ```
 
-### <a name="apply-json-string-to-tag-name"></a>Applicare una stringa JSON al nome del tag
+### <a name="apply-a-json-string-to-the-tag-name"></a>Applicare una stringa JSON al nome del tag
 
 Per memorizzare più valori in un singolo tag, è possibile applicare una stringa JSON che rappresenta tali valori. L'intera stringa JSON viene memorizzata come un unico tag che non può superare i 256 caratteri. L'esempio seguente include un tag singolo denominato `CostCenter` che contiene più valori da una stringa JSON:  
 

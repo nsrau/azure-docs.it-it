@@ -16,4 +16,4 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 L'elemento `<username>` corrisponde all'[utente della distribuzione](#configure-a-deployment-user) creato nel passaggio precedente.
 
-Salvare l'URI visualizzato, poiché sarà necessario nel passaggio successivo. 
+Copiare l'URI visualizzato che sarà necessario nel passaggio successivo.

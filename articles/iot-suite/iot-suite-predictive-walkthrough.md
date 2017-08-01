@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
 ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Procedura dettagliata della soluzione preconfigurata di manutenzione predittiva
 
-## <a name="introduction"></a>Introduzione
-
-La soluzione preconfigurata di manutenzione predittiva di IoT Suite è una soluzione end-to-end per uno scenario aziendale che consente di stimare il punto in cui è probabile che si verifichino errori. È possibile usare questa soluzione preconfigurata in modo proattivo per attività come l'ottimizzazione della manutenzione. La soluzione combina i servizi chiave di Azure IoT Suite, ad esempio Hub IoT, Analisi di flusso e un'area di lavoro di [Azure Machine Learning][lnk-machine-learning]. L'area di lavoro contiene un modello, basato su un set di dati di esempio pubblico, per stimare la vita utile rimanente del motore di un velivolo. La soluzione implementa completamente lo scenario aziendale IoT come punto di partenza per poter pianificare e implementare una soluzione che soddisfi i propri requisiti aziendali.
+La soluzione preconfigurata di manutenzione predittiva è una soluzione end-to-end per uno scenario aziendale che consente di stimare il punto in cui è probabile che si verifichino errori. È possibile usare questa soluzione preconfigurata in modo proattivo per attività come l'ottimizzazione della manutenzione. La soluzione combina i servizi chiave di Azure IoT Suite, ad esempio Hub IoT, Analisi di flusso e un'area di lavoro di [Azure Machine Learning][lnk-machine-learning]. L'area di lavoro contiene un modello, basato su un set di dati di esempio pubblico, per stimare la vita utile rimanente del motore di un velivolo. La soluzione implementa completamente lo scenario aziendale IoT come punto di partenza per poter pianificare e implementare una soluzione che soddisfi i propri requisiti aziendali.
 
 ## <a name="logical-architecture"></a>Architettura logica
 
@@ -35,7 +32,7 @@ Il diagramma seguente illustra i componenti logici della soluzione preconfigurat
 
 ![][img-architecture]
 
-Gli elementi blu sono servizi di Azure di cui viene effettuato il provisioning nell'area selezionata durante il provisioning della soluzione preconfigurata. L'elenco di aree in cui è possibile distribuire la soluzione preconfigurata viene visualizzato nella [pagina di provisioning][lnk-azureiotsuite].
+Gli elementi blu sono servizi di Azure di cui viene effettuato il provisioning nell'area in cui è stata distribuita la soluzione preconfigurata. L'elenco di aree in cui è possibile distribuire la soluzione preconfigurata viene visualizzato nella [pagina di provisioning][lnk-azureiotsuite].
 
 L'elemento verde è un dispositivo simulato che rappresenta un motore di aereo. Altre informazioni su questi dispositivi simulati sono disponibili nella sezione seguente.
 
@@ -59,13 +56,17 @@ I dispositivi simulati possono gestire i comandi seguenti inviati dall'hub IoT n
 L'hub IoT fornisce il riconoscimento dei comandi del dispositivo.
 
 ## <a name="azure-stream-analytics-job"></a>Processo di Analisi di flusso di Azure
-**Processo: Telemetria** agisce sul flusso di dati di telemetria in ingresso dai dispositivi con due istruzioni. La prima seleziona tutti i dati di telemetria dai dispositivi e li invia all'archivio BLOB da dove vengono visualizzati nell'app Web. La seconda istruzione calcola i valori medi dei sensori in una finestra temporale scorrevole di due minuti e invia i dati tramite l'Hub eventi a un **processore di eventi**.
+
+**Processo: Telemetria** agisce sul flusso di dati di telemetria in ingresso dai dispositivi con due istruzioni:
+
+* La prima seleziona tutti i dati di telemetria dai dispositivi e li invia all'archivio BLOB. Da qui vengono visualizzati nell'app Web.
+* La seconda calcola i valori medi dei sensori in una finestra temporale scorrevole di due minuti e invia i dati tramite l'hub eventi a un **processore di eventi**.
 
 ## <a name="event-processor"></a>Processore di eventi
 L'**host processore di eventi** viene eseguito in un processo Web di Azure. Il **processore di eventi** considera i valori medi dei sensori per un ciclo completato e quindi li passa a un'API che espone il modello con training per calcolare la vita utile rimanente di un motore. L'API viene esposta da un'area di lavoro di Machine Learning di cui viene effettuato il provisioning nell'ambito della soluzione.
 
 ## <a name="machine-learning"></a>Machine Learning
-Il componente Machine Learning usa un modello derivato dai dati raccolti da veri motori di aerei. È possibile passare all'area di lavoro di Machine Learning dal riquadro nella pagina [azureiotsuite.com][lnk-azureiotsuite] per la soluzione di cui è stato effettuato il provisioning quando il relativo stato è **Pronto**.
+Il componente Machine Learning usa un modello derivato dai dati raccolti da veri motori di aerei. È possibile passare all'area di lavoro di Machine Learning dal riquadro della pagina [azureiotsuite.com][lnk-azureiotsuite] per la soluzione di cui è stato effettuato il provisioning. Quando lo stato della soluzione è **Ready** (Pronto), il riquadro è disponibile.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Azure Active Directory Premium
-description: Questo argomento descrive come effettuare l&quot;iscrizione ad Azure Active Directory Premium tramite il sito Web dei contratti multilicenza.
+description: Descrive come effettuare l'iscrizione ad Azure Active Directory Premium tramite il sito Web dei contratti multilicenza.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,17 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: fac41a05c97088b55f07455133d960687227af0e
 ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="getting-started-with-azure-active-directory-premium"></a>Introduzione ad Azure Active Directory Premium
+Questo articolo illustra come iniziare a usare un'istanza di Azure Active Directory Premium acquistata tramite il programma per contratti multilicenza. Se non si ha familiarità con le diverse edizioni di Azure Active Directory, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).  
+
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. 
+
 Sono disponibili diverse opzioni per l'iscrizione ad Active Directory Premium: 
 
 **Azure oppure Office 365** : un sottoscrittore di Azure oppure Office 365 può acquistare Active Directory Premium online. Per informazioni dettagliate vedere i video relativi a [come acquistare Azure Active Directory Premium (clienti esistenti)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) o [come acquistare Azure Active Directory Premium (nuovi clienti)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
@@ -30,10 +35,8 @@ Sono disponibili diverse opzioni per l'iscrizione ad Active Directory Premium:
 
 **Contratti multilicenza Microsoft**: Azure Active Directory Premium è disponibile tramite un programma [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 o più licenze) o un programma [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (da 5 a 250 licenze).
 
-Questo argomento illustra come iniziare a usare un'istanza di Azure Active Directory Premium acquistata tramite il programma multilicenza. Se non si ha familiarità con le diverse edizioni di Azure Active Directory, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).  
-
 > [!NOTE]
-> Le edizioni Premium e Basic di Azure Active Directory sono disponibili per i clienti in Cina tramite l'istanza globale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Le edizioni Premium e Basic di Azure Active Directory sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Azure Active Directory Premium e le edizioni Basic non sono attualmente supportati nel servizio di Microsoft Azure gestito da 21Vianet in Cina. Per altre informazioni, è possibile contattare Microsoft attraverso il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 > 
 > 
 

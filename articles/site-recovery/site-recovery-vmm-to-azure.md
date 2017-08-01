@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 475b0cea9be58c9b6fa13645e3c19cc3b689aab2
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 8a03e28045019a4beb423d95a4fa00637cd66294
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Eseguire la replica di macchine virtuali Hyper-V nei cloud VMM in Azure tramite Site Recovery nel Portale di Azure
@@ -164,6 +164,11 @@ Installare il provider di Azure Site Recovery nel server VMM e registrare il ser
 
      ![Internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 7. Accettare o modificare il percorso del certificato SSL generato automaticamente per la crittografia dei dati. Questo certificato viene usato se si abilita la crittografia dei dati per un cloud protetto da Azure nel portale di Azure Site Recovery. Conservare il certificato in una posizione sicura, Se la crittografia dei dati è abilitata, quando si esegue un failover in Azure è necessario eseguire la decrittografia.
+
+    > [!NOTE]
+    > È consigliabile usare la funzionalità di crittografia offerta da Azure per crittografare i dati inattivi, anziché usare l'opzione di crittografia dei dati fornita da Azure Site Recovery. La funzionalità di crittografia disponibile in Azure può essere attivata per un account di archiviazione e consente di ottenere prestazioni superiori perché la crittografia e la decrittografia vengono gestite dal servizio di archiviazione di Azure.
+    > [Altre informazioni sulla crittografia del servizio di archiviazione in Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 8. In **Nome server**specificare un nome descrittivo per identificare il server VMM nell'insieme di credenziali. In una configurazione cluster specificare il nome del ruolo relativo al cluster VMM.
 9. Abilitare **Sincronizza i metadati cloud** per sincronizzare i metadati relativi a tutti i cloud presenti nel server VMM con l'insieme di credenziali. È necessario eseguire questa azione solo una volta in ogni server. Se non si vogliono sincronizzare tutti i cloud, è possibile lasciare deselezionata questa opzione e sincronizzare ogni cloud singolarmente nelle proprietà del cloud nella console VMM. Fare clic su **Register** per completare il processo.
 
@@ -425,6 +430,12 @@ Dove:
 * **/Credentials**: parametro obbligatorio che specifica la posizione in cui si trova il file della chiave di registrazione.  
 * **/FriendlyName**: parametro obbligatorio per il nome del server host Hyper-V che viene visualizzato nel portale di Azure Site Recovery.
 * * **/EncryptionEnabled**: parametro facoltativo usato quando si esegue la replica di macchine virtuali Hyper-V nei cloud VMM in Azure. Specificare se le macchine virtuali devono essere crittografate in Azure (crittografia dei dati inattivi). Assicurarsi che il nome del file abbia l'estensione **pfx** . La crittografia è disabilitata per impostazione predefinita.
+
+    > [!NOTE]
+    > È consigliabile usare la funzionalità di crittografia offerta da Azure per crittografare i dati inattivi, anziché usare l'opzione di crittografia fornita da Azure Site Recovery (EncryptionEnabled). La funzionalità di crittografia disponibile in Azure può essere attivata per un account di archiviazione e consente di ottenere prestazioni superiori perché la crittografia e la decrittografia vengono eseguite dal servizio di archiviazione  
+    > di Azure.
+    > [Altre informazioni sulla crittografia del servizio di archiviazione in Azure](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
+    
 * **/proxyAddress**: parametro facoltativo che specifica l'indirizzo del server proxy.
 * **/proxyport**: parametro facoltativo che specifica la porta del server proxy.
 * **/proxyUsername**: parametro facoltativo che specifica il nome utente proxy, se il proxy richiede l'autenticazione.
