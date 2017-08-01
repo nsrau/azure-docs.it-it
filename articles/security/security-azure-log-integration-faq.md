@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sull&quot;integrazione dei log di Azure | Microsoft Docs
-description: Queste domande frequenti riguardano l&quot;integrazione dei log di Azure.
+title: Domande frequenti sull'integrazione dei log di Azure | Microsoft Docs
+description: Queste domande frequenti riguardano l'integrazione dei log di Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,12 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2017
+ms.date: 06/26/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
-ms.lasthandoff: 03/31/2017
+ms.custom: azlog
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: e6aefe5f16e7148f7837a8741355c61851618495
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -33,6 +35,16 @@ Attualmente è disponibile nell'area commerciale di Azure e in Azure per enti pu
 
 ## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Come è possibile vedere gli account di archiviazione da cui l'integrazione dei log di Azure estrae i log delle VM di Azure?
 Eseguire il comando **azlog source list**.
+
+## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Come stabilire da quale sottoscrizione provengono i log dell'integrazione del Log di Azur?
+
+Nel caso dei log di controllo che sono inseriti nella directory AzureResourcemanagerJson l’ID della sottoscrizione è il nome del file di log. Questo vale anche per i log nella cartella AzureSecurityCenterJson. ad esempio:
+
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+
+I log di controllo di Azure Active Directory includono l'ID tenant come parte del nome.
+
+La lettuera dei log di diagnostica da un Hub eventi non includono l'ID sottoscrizione come parte del nome, comprendendo tuttavia il nome descrittivo specificato come parte della creazione dell'origine dell'Hub eventi. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Come è possibile aggiornare la configurazione del proxy?
 Se la configurazione del proxy non consente l'accesso di archiviazione di Azure direttamente, aprire il file **AZLOG.EXE.CONFIG** in **c:\Programmi\Integrazione dei log di Microsoft Azure**. Aggiornare il file in modo che includa la sezione **defaultProxy** con l'indirizzo del proxy dell'organizzazione. Al termine dell'aggiornamento, arrestare e avviare il servizio usando i comandi **net stop azlog** e **net start azlog**.
@@ -113,6 +125,9 @@ Dopo aver apportato modifiche, verificare l'account di archiviazione per assicur
 
 Se si verificano problemi durante l'installazione e la configurazione, aprire una [richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) e selezionare **Integrazione log** come servizio per cui si richiede il supporto.
 
+### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>È possibile utilizzare l'integrazione del Log di Azure per integrare i log di controllo di rete nel SIEM personale?
+
+Il controllo di rete genera grandi quantità di informazioni di registrazione e tali log non sono pensati per essere inviati a un SIEM. L'unica destinazione supportata per i log di controllo di rete è un account di archiviazione. Azlog non supporta la lettura di questi log e li rende disponibili per un SIEM
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
