@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 16fdd3aafef1a50554932a0e7843d347182c9b6a
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bae2e9825bf158bb015ec0affa56f15ce5baa201
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 # <a name="introduction-to-azure-file-storage"></a>Introduzione ad Archiviazione file di Azure
-Archiviazione file di Azure offre condivisioni file di rete nel cloud usando standard di settore come il [protocollo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) e [Samba/Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Le condivisioni file di Azure possono essere montate contemporaneamente da client come distribuzioni locali di Windows, macOS o Linux o da Macchine virtuali di Azure. Un account di archiviazione per utilizzo generico consente di accedere ad Archiviazione file di Azure e altri servizi come BLOB, dischi di macchine virtuali di Azure e code con un unico account.
+Archiviazione file di Azure offre condivisioni file di rete nel cloud usando standard di settore come il [protocollo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) e [Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Le condivisioni file di Azure possono essere montate contemporaneamente da client come distribuzioni locali di Windows, macOS o Linux o da Macchine virtuali di Azure. Un account di archiviazione per utilizzo generico consente di accedere ad Archiviazione file di Azure e altri servizi come BLOB, dischi di macchine virtuali di Azure e code con un unico account.
 
 
 

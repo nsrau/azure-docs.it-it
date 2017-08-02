@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
@@ -78,7 +77,7 @@ Ai fini di questo articolo, viene illustrato come accedere ad Azure in modo inte
 az login
 ```
 
-Il comando `az login` restituisce un token che verrà usato per eseguire l'autenticazione, come illustrato di seguito. Seguire le istruzioni fornite per aprire una pagina Web e inviare il token ad Azure:
+Il comando `az login` restituisce un token che può essere usato per eseguire l'autenticazione, come illustrato di seguito. Seguire le istruzioni fornite per aprire una pagina Web e inviare il token ad Azure:
 
 ![Accedere ad Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +118,10 @@ Per l'autenticazione con l'account Batch è possibile procedere in due modi:
     ```
 
 Gli esempi riportati nella sezione [Script della shell di esempio](#sample-shell-scripts) mostrano come accedere all'account Batch con l'interfaccia della riga di comando di Azure usando sia Azure AD che la chiave condivisa.
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)
+
+È possibile usare l'interfaccia della riga di comando di Azure per eseguire processi di Batch end-to-end senza scrivere codice. I file di modello del servizio Batch supportano la creazione di pool, processi e attività con l'interfaccia della riga di comando di Azure. È anche possibile usare l'interfaccia della riga di comando di Azure per caricare file di input dei processi nell'account di archiviazione di Azure associato all'account Batch e quindi scaricare file di output dei processi da tale interfaccia. Per altre informazioni, vedere [Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)](batch-cli-templates.md).
 
 ## <a name="sample-shell-scripts"></a>Script della shell di esempio
 
@@ -187,7 +190,7 @@ I suggerimenti riportati di seguito possono contribuire alla risoluzione di prob
 
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 * Per altre informazioni sulle risorse Batch, vedere la [panoramica di Azure Batch per gli sviluppatori](batch-api-basics.md).
-* Per informazioni su come usare questa funzionalità per gestire e distribuire le applicazioni eseguite nei nodi di calcolo di Batch, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
+* Per altre informazioni sull'uso dei modelli del servizio Batch per creare pool processi e attività senza scrivere codice, vedere [Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
