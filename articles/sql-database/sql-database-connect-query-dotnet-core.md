@@ -16,15 +16,15 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4b44064f05a24a25c3ac8157e4aa68a8a8d9856a
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 708c2d2f40138572c7e65938da6e863cab089cdf
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Usare .NET core (C#) per eseguire query su un database SQL di Azure
+# <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Usare .NET Core (C#) per eseguire query su un database SQL di Azure
 
-Questa esercitazione introduttiva illustra come usare [.NET core](https://www.microsoft.com/net/) in Windows/Linux/macOS per creare un programma C# per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.
+Questa esercitazione introduttiva illustra come usare [.NET Core](https://www.microsoft.com/net/) in Windows/Linux/macOS per creare un programma C# per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

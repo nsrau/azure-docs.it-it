@@ -7,7 +7,7 @@
 3. Per aggiungere un tag, digitare un nome e un valore oppure selezionarne uno esistente nel menu a discesa. Selezionare **Salva**.
 
      ![Aggiungere un nuovo tag](./media/resource-manager-tag-resources/tag-resources.png)
-3. Per visualizzare tutte le risorse con un valore di tag, selezionare **>** (Altri servizi) e immettere **Tag** nella casella di testo del filtro. Selezionare **Tag** tra le opzioni disponibili.
+3. Per visualizzare tutte le risorse con un valore di tag, selezionare **>** (**Altri servizi**) e immettere la parola **Tags** nella casella di testo del filtro. Selezionare **Tag** tra le opzioni disponibili.
    
      ![Trovare tag tramite l'hub di esplorazione](./media/resource-manager-tag-resources/browse-tags.png)
 4. Nelle sottoscrizioni viene visualizzato un riepilogo dei tag.

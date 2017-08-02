@@ -1,7 +1,7 @@
 
 ---
 title: Domande frequenti su Backup di Azure | Microsoft Docs
-description: "Risposte alle domande frequenti su: insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti."
+description: "Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. "
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,13 +14,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 3/10/2017
-ms.author: markgal;giridham;arunak;trinadhk;
+ms.date: 7/21/2017
+ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 865d8faef47e333e30c5d4084a93a52efc5eb2ad
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 6f204f2f0dca33e68b9853af3c94934af65ca1f9
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
@@ -61,6 +61,13 @@ Per un elenco dettagliato delle domande, vedere le [domande frequenti sul backup
 
 ## <a name="azure-vm-backup"></a>Backup di macchine virtuali di Azure
 Per un elenco dettagliato delle domande, vedere le [domande frequenti sul backup di macchine virtuali di Azure](backup-azure-vm-backup-faq.md)
+
+## <a name="back-up-vmware-servers"></a>Eseguire il backup dei server VMware
+
+### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>È possibile eseguire il backup dei server VMware vCenter in Azure?
+
+Sì. È possibile usare il server di Backup di Azure per eseguire il backup di VMware vCenter ed ESXi in Azure. Per informazioni sulla versione di VMware supportata, vedere l'articolo [Matrice di protezione del server di Backup di Azure](backup-mabs-protection-matrix.md). Per istruzioni dettagliate, vedere [Usare il server di Backup di Azure per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md).
+
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Server di Backup di Azure e System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>È possibile usare il server di Backup di Azure per creare un backup di ripristino bare metal per un server fisico? <br/>

@@ -8,4 +8,4 @@ Ai tag si applicano le limitazioni seguenti:
 * Il nome del tag è limitato a 512 caratteri e il valore del tag è limitato a 256 caratteri. Per gli account di archiviazione, il nome del tag è limitato a 128 caratteri e il valore a 256 caratteri.
 * I tag applicati al gruppo di risorse non vengono ereditati dalle risorse in tale gruppo di risorse. 
 
-Se si devono associare più di 15 valori a una risorsa, usare una stringa JSON come valore di tag. La stringa JSON può contenere diversi valori applicati a un singolo nome di tag. In questo articolo è illustrato un esempio di assegnazione di una stringa JSON al tag.
+Se si devono associare più di 15 valori a una risorsa, usare una stringa JSON come valore di tag. La stringa JSON può contenere diversi valori applicati a un singolo nome di tag. Questo articolo illustra un esempio di assegnazione di una stringa JSON al tag.

@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9776bd4f703227f49f83f563489cfa7c44604fb8
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1dc728cf6497d8ba0d35a7e41e51a52c5ca6d7df
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Iniziare a creare soluzioni con la libreria di client Batch per .NET
@@ -105,7 +104,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Come indicato sopra, attualmente è necessario specificare le credenziali per un account di archiviazione **per utilizzo generico** in Archiviazione di Azure. Le applicazioni Batch usano l'archivio BLOB nell'account di archiviazione **per utilizzo generico** . Non specificare credenziali per un account di archiviazione creato selezionando il tipo di account *Archiviazione BLOB* .
+> Come indicato sopra, attualmente è necessario specificare le credenziali per un account di archiviazione **per utilizzo generico**  in Archiviazione di Azure. Le applicazioni Batch usano l'archivio BLOB nell'account di archiviazione **per utilizzo generico** . Non specificare credenziali per un account di archiviazione creato selezionando il tipo di account *Archiviazione BLOB* .
 >
 >
 
@@ -363,7 +362,12 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-Quando si crea un pool con [CreatePool][net_pool_create], si specificano diversi parametri come il numero di nodi di calcolo, le [dimensioni dei nodi](../cloud-services/cloud-services-sizes-specs.md) e il sistema operativo dei nodi. In *DotNetTutorial* si usa [CloudServiceConfiguration][net_cloudserviceconfiguration] per specificare Windows Server 2012 R2 da [Servizi cloud](../cloud-services/cloud-services-guestos-update-matrix.md). Specificando invece [VirtualMachineConfiguration][net_virtualmachineconfiguration], è possibile creare pool di nodi creati da immagini del Marketplace, che includono immagini sia Windows che Linux. Per altre informazioni, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md).
+Quando si crea un pool con [CreatePool][net_pool_create], si specificano diversi parametri come il numero di nodi di calcolo, le [dimensioni dei nodi](../cloud-services/cloud-services-sizes-specs.md) e il sistema operativo dei nodi. In *DotNetTutorial* si usa [CloudServiceConfiguration][net_cloudserviceconfiguration] per specificare Windows Server 2012 R2 da [Servizi cloud](../cloud-services/cloud-services-guestos-update-matrix.md). 
+
+È anche possibile creare pool di nodi di calcolo costituiti da macchine virtuali di Azure specificando il valore [VirtualMachineConfiguration][net_virtualmachineconfiguration] per il pool. È possibile creare un pool di nodi di calcolo di tipo VM da immagini Windows o [Linux](batch-linux-nodes.md). L'origine delle immagini di VM può essere una delle seguenti:
+
+- Il [Marketplace per Macchine virtuali di Azure][vm_marketplace], che fornisce immagini Windows e Linux pronte per l'uso. 
+- Un'immagine personalizzata preparata e fornita dall'utente. Per informazioni dettagliate sulle immagini personalizzate, vedere [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
 > Vengono effettuati addebiti per le risorse di calcolo in Batch. Per ridurre al minimo i costi è possibile ridurre `targetDedicatedComputeNodes` a 1 prima di eseguire l'esempio.
@@ -788,6 +792,7 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Creare contenitori in Archiviazione di Azure"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Caricare l'applicazione dell'attività e i file di input (dati) nei contenitori"
