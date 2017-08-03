@@ -1,5 +1,5 @@
 ---
-title: Query SQL per l&quot;API di DocumentDB di Azure Cosmos DB | Microsoft Docs
+title: Query SQL per l'API di DocumentDB di Azure Cosmos DB | Microsoft Docs
 description: "Informazioni sulla sintassi SQL, sui concetti relativi ai database e sulle query SQL per Cosmos DB. SQL può essere usato come linguaggio di query JSON in Cosmos DB."
 keywords: sintassi sql, query sql, linguaggio di query json, concetti relativi ai database e query sql, funzioni di aggregazione
 services: cosmos-db
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/08/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 1241b6d97447fe6ee2a8abfb425b8b5f7d0f8a9c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 71878a5a8807b025f418b978990cb0c502e4eca7
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Query SQL per l'API di DocumentDB di Azure Cosmos DB
@@ -921,9 +920,7 @@ La parola chiave TOP può essere usata per limitare il numero di valori restitui
 
 **Risultati**
 
-    [{
-        "$1": 1
-    }]
+    [ 1 ]
 
 Le tabelle seguenti mostrano l'elenco delle funzioni di aggregazione supportate nell'API di DocumentDB. `SUM`e `AVG` vengono eseguite su valori numerici, mentre `COUNT`, `MIN` e `MAX` possono essere eseguite su numeri, stringhe, valori booleani e valori null. 
 
@@ -1206,7 +1203,7 @@ Questo esempio è un'estensione naturale del precedente e illustra l'esecuzione 
         }
     }
 
-`AndersenFamily` ha un figlio che ha un animale domestico. Il prodotto incrociato genera dunque una riga (1*1*1) da questa famiglia. Tuttavia, la famiglia WakefieldFamily ha due figli, ma un solo figlio, "Jesse", ha animali domestici. Jesse ha 2 animali domestici, il prodotto incrociato genera dunque 1*1*2 = 2 righe da questa famiglia.
+`AndersenFamily` ha un figlio che ha un animale domestico. Il prodotto incrociato genera dunque una riga (1\*1\*1) da questa famiglia. Tuttavia, la famiglia WakefieldFamily ha due figli, ma un solo figlio, "Jesse", ha animali domestici. Jesse ha 2 animali domestici, il prodotto incrociato genera dunque 1\*1\*2 = 2 righe da questa famiglia.
 
 Nell'esempio successivo è presente un filtro aggiuntivo su `pet`. In tal modo vengono escluse tutte le tuple laddove il nome dell'animale non è "Shadow". Notare che è possibile creare tuple da matrici, filtrare in base a uno qualsiasi degli elementi della tupla e proiettare qualsiasi combinazione degli elementi. 
 
@@ -1515,7 +1512,7 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di i
 | [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Restituisce un'espressione stringa dopo la conversione di dati in caratteri maiuscoli in caratteri minuscoli. |
 | [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Restituisce un'espressione stringa dopo aver convertito i caratteri minuscoli in caratteri maiuscoli. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Sostituisce tutte le occorrenze di un valore stringa specificato con un altro valore stringa. |
-| [REPLICATE (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate) |Ripete un valore stringa in un numero di volte specificato. |
+| [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |Ripete un valore stringa in un numero di volte specificato. |
 | [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Restituisce l'inverso di un valore stringa. |
 
 Usando queste funzioni, è ora possibile eseguire query come le seguenti. Ad esempio, è possibile restituire il nome della famiglia in lettere maiuscole come segue:
