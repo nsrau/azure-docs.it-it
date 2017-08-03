@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: chrande, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: fb0925f2d6eb8edede67cf208c735b7b2a0221ac
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 641afd78aae145c5e1b16a08567a22c1aafe59a8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
@@ -198,7 +197,7 @@ Funzioni consente di definire la soglia del livello di traccia per la scrittura 
 ```json
 { 
     "tracing": {      
-        "consoleLevel": "verbose"      
+        "consoleLevel": "verbose"     
     }
 }  
 ```
@@ -281,7 +280,7 @@ I passaggi seguenti consentono di includere i pacchetti nell'app per le funzioni
 2. Fare clic su **Debug Console** > **CMD** (Console di debug > CMD).
 
 3. Passare a `D:\home\site\wwwroot`, quindi trascinare il file package.json nella cartella **wwwroot** nella metà superiore della pagina.  
-    È possibile caricare i file nell'app per le funzioni anche in altri modi. Per altre informazioni, vedere [Come aggiornare i file delle app per le funzioni](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+    È possibile caricare i file nell'app per le funzioni anche in altri modi. Per altre informazioni, vedere [Come aggiornare i file delle app per le funzioni](functions-reference.md#fileupdate). 
 
 4. Dopo aver caricato il file package.json, eseguire il comando `npm install` nella  **console di esecuzione remota Kudu**.  
     Questa azione scarica i pacchetti indicati nel file package.json e riavvia l'app per le funzioni.

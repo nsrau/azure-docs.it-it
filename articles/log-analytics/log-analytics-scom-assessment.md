@@ -1,6 +1,6 @@
 ---
-title: Ottimizzare l&quot;ambiente System Center Operations Manager con Azure Log Analytics |Microsoft Docs
-description: "È possibile usare la soluzione System Center Operations Manager Assessment per valutare i rischi e l&quot;integrità degli ambienti server a intervalli regolari."
+title: Ottimizzare l'ambiente System Center Operations Manager con Azure Log Analytics |Microsoft Docs
+description: "È possibile usare la soluzione System Center Operations Manager Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 6754505e7f58a8e7305987db9204271ca9b93870
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 8094f6e619bde8b25323cddb42bc04b1ead62113
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -223,6 +222,8 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 ## <a name="ignore-recommendations"></a>Ignorare le raccomandazioni
 
 Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS userà per impedirne la visualizzazione nei risultati della valutazione.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Per identificare le raccomandazioni da ignorare
 

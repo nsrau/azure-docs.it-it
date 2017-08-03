@@ -13,14 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 14dab2197ff7c1eaff012066e321ef1b99f05bb3
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 7776942602e21cd0efc86fd471dc072564bb64a6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Creare un gateway applicazione con l'interfaccia della riga di comando di Azure 2.0
@@ -58,9 +57,6 @@ Questo scenario illustrerà come:
 * Creare un gateway applicazione Medium con due istanze.
 * Creare una rete virtuale denominata AdatumAppGatewayVNET con un blocco CIDR riservato 10.0.0.0/16.
 * Creare una subnet denominata Appgatewaysubnet che usa 10.0.0.0/28 come blocco CIDR.
-* Configurare un certificato per l'offload SSL.
-
-![Esempio dello scenario][scenario]
 
 > [!NOTE]
 > La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
@@ -128,14 +124,12 @@ az network application-gateway create \
 --subnet Appgatewaysubnet \
 ---subnet-address-prefix 10.0.0.0/28 \
 --servers 10.0.0.4 10.0.0.5 \
---cert-file /mnt/c/Users/username/Desktop/application-gateway/fabrikam.pfx \
---cert-password P@ssw0rd \
 --capacity 2 \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
 --public-ip-address AdatumAppGatewayPIP \
---frontend-port 443 \
+--frontend-port 80 \
 --routing-rule-type Basic \
 --http-settings-port 80
 
@@ -144,7 +138,7 @@ az network application-gateway create \
 > [!NOTE]
 > Per un elenco dei parametri che possono essere specificati durante la creazione, eseguire questo comando: **az network application-gateway create --help**.
 
-Questo esempio crea un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Viene anche configurato l'offload SSL. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
+Questo esempio crea un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
 Se l'applicazione Web è già stata definita con il pool back-end nei passaggi precedenti, dopo la creazione, inizia il bilanciamento del carico.
 
 ## <a name="delete-all-resources"></a>Eliminare tutte le risorse

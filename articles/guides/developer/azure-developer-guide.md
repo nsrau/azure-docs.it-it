@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: efd01bb001f4ac05f933793184b5027157f143f6
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: b53b044242f339d00dcc947c213dacb5dffdcce6
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -149,7 +148,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
     >**Uso consigliato**: quando è necessario creare ambienti scalabili e pronti per la produzione che offrano strumenti di pianificazione e gestione aggiuntivi o quando si vuole distribuire un cluster Docker Swarm.
 
-    >**Come iniziare**: [distribuire un cluster di contenitori Docker](../../container-service/container-service-deployment.md).
+    >**Come iniziare**: [distribuire un cluster di contenitori Docker](../../container-service/dcos-swarm/container-service-deployment.md).
 
 -   **Docker Machine**: consente di installare e gestire Docker Engine in host virtuali tramite comandi di Docker Machine.
 

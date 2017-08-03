@@ -1,6 +1,6 @@
 ---
-title: Ottimizzare l&quot;ambiente SQL Server con Log Analytics di Azure|Documentazione Microsoft
-description: "Con Log Analytics di Azure è possibile usare la soluzione SQL Assessment per valutare i rischi e l&quot;integrità degli ambienti SQL Server a intervalli regolari."
+title: Ottimizzare l'ambiente SQL Server con Log Analytics di Azure|Documentazione Microsoft
+description: "Con Log Analytics di Azure è possibile usare la soluzione SQL Assessment per valutare i rischi e l'integrità degli ambienti SQL Server a intervalli regolari."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 13453a831c3d42a9e291976a4d5cc80ced5c4755
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente SQL Server con la soluzione SQL Assessment in Log Analytics
@@ -170,6 +169,8 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 
 ## <a name="ignore-recommendations"></a>Ignorare le raccomandazioni
 Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS userà per impedirne la visualizzazione nei risultati della valutazione.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Per identificare le raccomandazioni che verranno ignorate
 1. Accedere all'area di lavoro e aprire Ricerca log. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.

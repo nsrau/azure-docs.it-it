@@ -1,6 +1,6 @@
 ---
-title: Monitorare e gestire Hadoop con l&quot;API REST Ambari - Azure HDInsight | Microsoft Docs
-description: "Informazioni sull&quot;uso di Ambari per monitorare e gestire i cluster Hadoop in Azure HDInsight. In questo documento si apprenderà come usare l&quot;API REST Ambari inclusa nei cluster HDInsight."
+title: Monitorare e gestire Hadoop con l'API REST Ambari - Azure HDInsight | Microsoft Docs
+description: "Informazioni sull'uso di Ambari per monitorare e gestire i cluster Hadoop in Azure HDInsight. In questo documento si apprenderà come usare l'API REST Ambari inclusa nei cluster HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 7ac80a8521b48f43538ca06a054f8302eb32eea6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 642f40de546600525fb739d8b158f06851d78406
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Ambari
@@ -258,7 +257,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 Il valore restituito è simile a uno degli esempi seguenti:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - Questo valore indica che il cluster usa un account di archiviazione di Azure come risorsa di archiviazione predefinita. Il valore `ACCOUNTNAME` è il nome dell'account di archiviazione. La porzione `CONTAINER` corrisponde al nome del contenitore BLOB nell'account di archiviazione. Il contenitore è la radice della risorsa di archiviazione compatibile con HDFS per il cluster.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - Questo valore indica che il cluster usa un account di archiviazione di Azure come risorsa di archiviazione predefinita. Il valore `ACCOUNTNAME` è il nome dell'account di archiviazione. La porzione `CONTAINER` corrisponde al nome del contenitore BLOB nell'account di archiviazione. Il contenitore è la radice della risorsa di archiviazione compatibile con HDFS per il cluster.
 
 * `adl://home` - Questo valore indica che il cluster usa Azure Data Lake Store come risorsa di archiviazione predefinita.
 

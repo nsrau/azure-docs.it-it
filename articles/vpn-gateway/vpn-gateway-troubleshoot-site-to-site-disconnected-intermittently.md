@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 9f6ea8296f1bf81813594b07c50f70dd8647f032
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 99a790617baa65116bfba976cd9279627e8775f3
 ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -41,7 +41,7 @@ Controllare il tipo di gateway di rete virtuale di Azure:
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Passaggio 1 Controllare se il dispositivo VPN locale è convalidato
 
-1. Controllare se si usano un [dispositivo VPN e una versione del sistema operativo convalidati](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). Se il dispositivo VPN non è convalidato, potrebbe essere necessario contattare il produttore del dispositivo per verificare se esiste qualche problema di compatibilità.
+1. Controllare se si usano un [dispositivo VPN e una versione del sistema operativo convalidati](vpn-gateway-about-vpn-devices.md#devicetable). Se il dispositivo VPN non è convalidato, potrebbe essere necessario contattare il produttore del dispositivo per verificare se esiste qualche problema di compatibilità.
 2. Verificare che il dispositivo VPN sia configurato correttamente. Per altre informazioni, vedere [Esempi di modifica di configurazione dispositivo](vpn-gateway-about-vpn-devices.md#editing).
 
 ### <a name="step-2-check-the-security-association-settingsfor-policy-based-azure-virtual-network-gateways"></a>Passaggio 2 Controllare le impostazioni di associazione di sicurezza (per i gateway di rete virtuale di Azure basati su criteri)

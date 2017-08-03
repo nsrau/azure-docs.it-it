@@ -1,6 +1,6 @@
 ---
-title: Pianificare processi con l&quot;hub IoT di Azure (Node) | Microsoft Docs
-description: "Come pianificare un processo dell&quot;hub IoT di Azure per richiamare un metodo diretto su più dispositivi. Usare Azure IoT SDK per Node.js per implementare le app per dispositivi simulati e un&quot;app di servizio per eseguire il processo."
+title: Pianificare processi con l'hub IoT di Azure (Node) | Microsoft Docs
+description: "Come pianificare un processo dell'hub IoT di Azure per richiamare un metodo diretto su più dispositivi. Usare Azure IoT SDK per Node.js per implementare le app per dispositivi simulati e un'app di servizio per eseguire il processo."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 223738aecd1bb0a53542bd8bcab5d24582aee02a
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 42e594dc6a8a8be619b5652bf8e44cf883650489
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Pianificare e trasmettere processi (Node)
 
-## <a name="introduction"></a>Introduzione
+[!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
+
 L'hub IoT di Azure è un servizio completamente gestito che consente a un'app back-end di creare e tenere traccia dei processi che pianificano e aggiornano milioni di dispositivi.  I processi possono essere usati per le azioni seguenti:
 
 * Aggiornare le proprietà desiderate

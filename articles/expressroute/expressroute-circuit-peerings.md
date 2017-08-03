@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/14/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: cb88ce2960d63b8a1c5861913b2095bcc977938f
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 3742fb37016db5e6230bc2b7ce11f0270d9d58b3
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuiti e domini di routing ExpressRoute
@@ -83,8 +83,7 @@ Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tr
 * Trovare un provider di servizi. Vedere l'articolo relativo ai [provider di servizi e alle località ExpressRoute](expressroute-locations.md).
 * Verificare che vengano soddisfatti tutti i prerequisiti. Vedere [Prerequisiti per ExpressRoute](expressroute-prerequisites.md).
 * Configurare la connessione ExpressRoute.
-  * [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
-  * [Configurare il routing (peering del circuito)](expressroute-howto-routing-classic.md)
-  * [Collegare una rete virtuale a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+  * [Creare e gestire circuiti ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Configurare il routing (peering) per circuiti ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 
 
