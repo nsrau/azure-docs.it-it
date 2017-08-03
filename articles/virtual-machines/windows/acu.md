@@ -3,7 +3,7 @@ title: "Panoramica delle unità di calcolo di Azure | Documentazione Microsoft"
 description: "Panoramica del concetto di unità di calcolo di Azure per Windows. Le unità di calcolo di Azure rappresentano un modo per confrontare le prestazioni della CPU tra gli SKU di Azure."
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 8be8d538b192a55d5c1ecc8cb5839f9079317d50

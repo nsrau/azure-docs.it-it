@@ -3,7 +3,7 @@ title: Dimensioni delle macchine virtuali Windows di Azure - Ottimizzate per il 
 description: Elenca le diverse dimensioni ottimizzate per il calcolo per le macchine virtuali Windows disponibili in Azure.
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/17/2017
-ms.author: cynthn
-translationtype: Human Translation
+ms.date: 07/28/2017
+ms.author: jonbeck
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: d39c4e7702c407af8809ca105fef9af8a39e1b57
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 
