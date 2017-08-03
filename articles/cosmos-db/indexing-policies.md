@@ -1,7 +1,7 @@
 ---
 title: Criteri di indicizzazione di Azure Cosmos DB | Microsoft Docs
-description: Informazioni sull&quot;indicizzazione in Azure Cosmos DB. Informazioni su come configurare e modificare i criteri di indicizzazione per l&quot;indicizzazione automatica e per ottenere prestazioni migliori.
-keywords: funzionamento dell&quot;indicizzazione, indicizzazione automatica, indicizzazione del database
+description: Informazioni sull'indicizzazione in Azure Cosmos DB. Informazioni su come configurare e modificare i criteri di indicizzazione per l'indicizzazione automatica e per ottenere prestazioni migliori.
+keywords: funzionamento dell'indicizzazione, indicizzazione automatica, indicizzazione del database
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6d5a5814977d05fbe7be52dcb482a622de1c2ef6
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
@@ -161,7 +160,7 @@ Dopo avere visto come specificare i percorsi, verranno esaminate le opzioni che 
 
 * Tipo di dati: **String**, **Number**, **Point**, **Polygon** o **LineString**; può contenere una sola voce per tipo di dati per percorso.
 * Tipologia indice: **Hash** (query di uguaglianza), **Range** (query di uguaglianza, intervallo o orderby) o **Spatial** (query spaziali) 
-* Precisione: da 1 a 8 o -1 (precisione massima) per i numeri, da 1 a 100 (precisione massima) per le stringhe
+* Precisione: per l'indice hash questo valore varia da 1 a 8 sia per le stringhe sia per i numeri con valore predefinito 3. Per l'indice range, questo valore può essere -1 (precisione massima) e variare tra 1 e 100 (precisione massima) per valori di stringa o numerici.
 
 #### <a name="index-kind"></a>Tipologia di indice
 Azure Cosmos supporta i tipi di indice hash e di intervallo per ogni percorso (che è possibile configurare per stringhe, numeri o entrambi).
@@ -229,7 +228,7 @@ Allo stesso modo i percorsi possono essere completamente esclusi dall'indicizzaz
 
 Con l'indicizzazione automatica disattivata, è comunque possibile aggiungere in modo selettivo solo documenti specifici all'indice. In alternativa, è possibile lasciare attivata l'indicizzazione automatica e scegliere di escludere in modo selettivo solo documenti specifici. Le configurazioni di attivazione o disattivazione dell'indicizzazione sono utili quando si ha un solo subset di documenti su cui eseguire query.
 
-L'esempio seguente mostra come includere un documento in modo esplicito usando [DocumentDB API .NET SDK](https://github.com/Azure/azure-documentdb-java) e la proprietà [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+L'esempio seguente mostra come includere un documento in modo esplicito usando [DocumentDB API .NET SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) e la proprietà [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -258,7 +257,7 @@ Quando si modifica il criterio di indicizzazione, il modo in cui vengono applica
 * Quando si passa alla modalità differita, la modifica dei criteri di indicizzazione viene applicata immediatamente e Azure Cosmos DB inizia a ricreare l'indice in modo asincrono. 
 * Quando ci si sposta alla modalità nessuna, l'indice viene eliminato immediatamente. Lo spostamento verso la modalità nessuna è utile quando si desidera annullare una trasformazione in corso e avviare l’aggiornamento con criteri diversi di indicizzazione. 
 
-Se si usa .NET SDK, è possibile avviare una modifica dei criteri di un'indicizzazione dei criteri usando il nuovo metodo **ReplaceDocumentCollectionAsync** e rilevando la percentuale dello stato di avanzamento della trasformazione dell'indice usando la proprietà di risposta **IndexTransformationProgress** da una chiamata **ReadDocumentCollectionAsync**. Altri SDK e l'API REST supportano metodi e proprietà equivalenti per apportare modifiche ai criteri di indicizzazione.
+Se si usa .NET SDK, è possibile avviare una modifica dei criteri di indicizzazione usando il nuovo metodo **ReplaceDocumentCollectionAsync** e rilevando la percentuale dello stato di avanzamento della trasformazione dell'indice usando la proprietà di risposta **IndexTransformationProgress** da una chiamata **ReadDocumentCollectionAsync**. Altri SDK e l'API REST supportano metodi e proprietà equivalenti per apportare modifiche ai criteri di indicizzazione.
 
 Di seguito è riportato un frammento di codice che illustra come modificare i criteri indicizzazione di una raccolta dalla modalità di indicizzazione coerente a differita.
 

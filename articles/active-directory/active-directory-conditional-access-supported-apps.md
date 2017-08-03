@@ -1,6 +1,6 @@
 ---
 title: Applicazioni e browser che usano regole di accesso condizionale in Azure Active Directory | Microsoft Docs
-description: Grazie al controllo di accesso condizionale, Azure Active Directory verifica condizioni specifiche quando esegue l&quot;autenticazione di un utente e consente l&quot;accesso all&quot;applicazione.
+description: Grazie al controllo di accesso condizionale, Azure Active Directory verifica condizioni specifiche quando esegue l'autenticazione di un utente e consente l'accesso all'applicazione.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 07/06/2017
 ms.author: markvi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 40eb1d80830818a492c78d5091aaa9cca8d48f16
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: ef01a2221eb1915ac155a14cda0ea56565603d03
 ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -38,21 +38,30 @@ Le regole di accesso condizionale sono supportate in applicazioni connesse di Az
 
 Le applicazioni seguenti supportano l'accesso condizionale per Office 365 e altre applicazioni di servizio connesse ad Azure AD:
 
-| Servizio di destinazione | Piattaforma | Applicazione |
+
+| Servizio di destinazione| Piattaforma| Applicazione |
 | --- | --- | --- |
-| Office 365 Exchange Online |Windows 10 |App Mail/Calendar/People, Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna) |
-| Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna) |
-| Office 365 Exchange Online |iOS, Android |App Outlook Mobile |
-| Office 365 Exchange Online |Mac OS X |Outlook 2016 solo per l'autenticazione a più fattori e la posizione; il supporto dei criteri basati su dispositivo è pianificato per il futuro, il supporto per Skype for Business è pianificato per il futuro |
-| Office 365 SharePoint Online |Windows 10 |app di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |App di Office 2016, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
-| Office 365 SharePoint Online |iOS, Android |App Office per dispositivi mobili |
-| Office 365 SharePoint Online |Mac OS X |App Office 2016 solo per l'autenticazione a più fattori e la posizione; il supporto dei criteri basati su dispositivo è pianificato per il futuro |
-| Office 365 Yammer |Windows 10, iOS; supporto di Android previsto per il futuro |App Office Yammer |
-| Dynamics CRM |Windows 10, Windows 8.1, Windows 7, iOS e Android |Dynamics CRM |
-| Servizio PowerBI |Windows 10, Windows 8.1, Windows 7, iOS e Android |App PowerBI |
-| Servizio app Azure Remote |Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X |App Azure Remote |
-| Qualsiasi servizio app Mie app |Android e iOS |Qualsiasi servizio app Mie app |
+| Qualsiasi servizio app Mie app| Android e iOS| MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati. |
+| Servizio app Azure Remote| Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X| App Azure Remote|
+| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS e Android| Dynamics CRM|
+| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS/Android e MAC OSX| Microsoft Team Services consente di controllare tutti i servizi che supportano i team Microsoft e tutte le app client: Windows Desktop, MAC OS X, iOS, Android, WP e web client|
+| Office 365 Exchange Online| Windows 10| App Mail/Calendar/People, Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)|
+| Office 365 Exchange Online| Windows 8.1, Windows 7| Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)|
+| Office 365 Exchange Online| iOS| App Outlook Mobile|
+| Office 365 Exchange Online| Mac OS X| Outlook 2016 solo per l'autenticazione a più fattori e la posizione; il supporto dei criteri basati su dispositivo è pianificato per il futuro, il supporto per Skype for Business è pianificato per il futuro|
+| Office 365 SharePoint Online| Windows 10| app di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro|
+| Office 365 SharePoint Online| Windows 8.1, Windows 7| App di Office 2016, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|
+| Office 365 SharePoint Online| iOS, Android| App Office per dispositivi mobili|
+| Office 365 SharePoint Online| Mac OS X| App Office 2016 solo per l'autenticazione a più fattori e la posizione; il supporto dei criteri basati su dispositivo è pianificato per il futuro|
+| Office 365 Yammer| Windows 10, iOS, Android| App Office Yammer|
+| Servizio PowerBI| Windows 10, Windows 8.1, Windows 7 e iOS| App PowerBI. L'app Power BI per Android non supporta attualmente l'accesso condizionale basato su dispositivo.|
+| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS e Android| App Visual Studio Team Services|
+
+
+
+
+
+
 
 ## <a name="applications-that-do-not-use-modern-authentication"></a>Applicazioni che non utilizzano l'autenticazione moderna
 Attualmente è necessario usare altri metodi per bloccare l'accesso ad app che non usano l'autenticazione moderna. Le regole per le app che non usano l'autenticazione moderna non vengono applicate in base all'accesso condizionale. Questo vale soprattutto per l'accesso a Exchange e SharePoint. La maggior parte delle versioni meno recenti delle app usa protocolli di controllo dell'accesso non moderni.
@@ -60,12 +69,13 @@ Attualmente è necessario usare altri metodi per bloccare l'accesso ad app che n
 ### <a name="control-access-in-office-365-sharepoint-online"></a>Controllo dell'accesso in Office 365 SharePoint Online
 È possibile disabilitare protocolli legacy per l'accesso a SharePoint usando il cmdlet Set-SPOTenant. Usare questo cmdlet per impedire ai client di Office che usano protocolli di autenticazione non moderni di accedere alle risorse di SharePoint Online.
 
-**Comando di esempio**:     `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
+**Comando di esempio**: `Set-SPOTenant -LegacyAuthProtocolsEnabled $false`
 
 ### <a name="control-access-in-office-365-exchange-online"></a>Controllo dell'accesso in Office 365 Exchange Online
 Exchange offre due categorie principali di protocolli. Esaminare le opzioni seguenti e quindi selezionare il criterio più adatto alle esigenze dell'organizzazione.
 
 * **Exchange ActiveSync**. Per impostazione predefinita, i criteri di accesso condizionale per l'autenticazione a più fattori e i criteri di posizione non vengono applicati per Exchange ActiveSync. È necessario proteggere l'accesso a questi servizi configurando i criteri di Exchange ActiveSync in modo diretto oppure bloccando Exchange ActiveSync con le regole di AD FS (Active Directory Federation Services).
+
 * <seg>
   **Protocolli legacy**.</seg> È possibile bloccare protocolli legacy con AD FS. In questo modo viene bloccato l'accesso ai client di Office meno recenti, ad esempio Office 2013 senza l'autenticazione moderna abilitata e le versioni precedenti di Office.
 
@@ -114,12 +124,14 @@ Applicando le tre regole seguenti al trust della relying party di AD FS per la p
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## <a name="supported-browsers"></a>Browser supportati
+## <a name="supported-browsers-for-device-based-policies"></a>Browser supportati per criteri basati su dispositivo
+
+L'accesso è possibile solo per i criteri basati su dispositivo, che verificano la conformità del dispositivo e l'aggiunta a un dominio quando Azure AD è in grado di identificare e autenticare il dispositivo. Mentre la maggior parte dei controlli, ad esempio posizione e MFA, possono essere eseguiti su quasi tutti i dispositivi e i browser, i criteri del dispositivo richiedono la versione del sistema operativo e i browser elencati di seguito. L’utente di un browser o sistema operativo non supportato ha l'accesso bloccato se un criterio del dispositivo è attivo.
 
 | OS                     | Browser                 | Supporto     |
 | :--                    | :--                      | :-:         |
 | Windows 10                 | Internet Explorer, Edge                 | ![Controllo][1] |
-| Windows 10                 | Chrome                   | Presto disponibile |
+| Windows 10                 | Chrome                   | Preview     |
 | Windows 8/8.1            | IE, Chrome               | ![Controllo][1] |
 | Windows 7                  | IE, Chrome               | ![Controllo][1] |
 | iOS                    | Safari                   | ![Controllo][1] |
@@ -132,10 +144,15 @@ Applicando le tre regole seguenti al trust della relying party di AD FS per la p
 | Mac OS                 | Safari                   | ![Controllo][1] |
 | Mac OS                 | Chrome                   | Presto disponibile |
 
+> [!NOTE]
+> Per il supporto di Chrome, è necessario utilizzare Windows 10 Creators Update e installare l'estensione disponibile [qui](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+>
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per maggiori dettagli, vedere [Accesso condizionale in Azure Active Directory](active-directory-conditional-access.md)
+
 
 
 

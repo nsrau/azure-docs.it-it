@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/05/2017
 ms.author: rambala
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 67f9626faadc539f26110e5aa23b3c0a878923b9
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: a13c74b9490811e61328414b6a375bc9c9f7cdb0
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
-ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata dedicata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
+ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
 
--     Rete del cliente
--      Rete del provider
--      Datacenter Microsoft
+-   Rete del cliente
+-   Rete del provider
+-   Datacenter Microsoft
 
 Lo scopo di questo documento è di aiutare l'utente a identificare dove (o anche se) esiste un problema di connettività e all'interno di quale area, in modo tale da richiedere assistenza al team appropriato per risolvere il problema. Se per risolvere un problema è necessaria l'assistenza tecnica di Microsoft, aprire un ticket di supporto al [supporto tecnico Microsoft][Support].
 
@@ -44,20 +44,20 @@ Nel diagramma precedente i numeri indicano i punti principali delle reti. Tali p
 
 A seconda del modello di connettività ExpressRoute (condivisione percorso per Cloud Exchange, connessione Ethernet punto a punto o any-to-any (IPVPN)), i punti 3 e 4 della rete potrebbero essere switch (dispositivi di livello 2). I punti principali delle reti illustrati sono i seguenti:
 
-1.    Dispositivo di calcolo del cliente (ad esempio, un server o un PC)
-2.    CE: router perimetrali del cliente 
-3.    PE (rivolti verso i CE): router/switch perimetrali del provider rivolti verso i router perimetrali del cliente
-4.    PE (rivolti verso gli MSEE): router/switch perimetrali del provider rivolti verso gli MSEE
-5.    MSEE: router ExpressRoute Microsoft Enterprise Edge (MSEE)
-6.    Gateway di rete virtuale (VNet)
-7.    Dispositivo di calcolo sulla rete virtuale di Azure
+1.  Dispositivo di calcolo del cliente (ad esempio, un server o un PC)
+2.  CE: router perimetrali del cliente 
+3.  PE (rivolti verso i CE): router/switch perimetrali del provider rivolti verso i router perimetrali del cliente. Indicata con il nome di PE-CE nel presente documento.
+4.  PE (rivolti verso gli MSEE): router/switch perimetrali del provider rivolti verso gli MSEE. Indicata con il nome di PE-MSEE nel presente documento.
+5.  MSEE: router ExpressRoute Microsoft Enterprise Edge (MSEE)
+6.  Gateway di rete virtuale (VNet)
+7.  Dispositivo di calcolo sulla rete virtuale di Azure
 
 Se vengono usati modelli di connettività di condivisione percorso per Cloud Exchange o connessione Ethernet punto a punto, il router perimetrale del cliente (2) stabilisce il peering BGP con gli MSEE (5). I punti 3 e 4 sono ancora presenti, ma in forma trasparente, come dispositivi di livello 2.
 
 Se si usa il modello di connettività any-to-any (IPVPN), i PE (rivolti verso gli MSEE) (4) stabiliscono il peering BGP con gli MSEE (5). Le route si propagano quindi nuovamente alla rete del cliente attraverso la rete del provider di servizi IPVPN.
 
 >[!NOTE]
->Per la disponibilità elevata di ExpressRoute, Microsoft richiede una coppia ridondante di sessioni BGP tra MSEE (5) e MSEE-PR (4). Si consiglia anche una coppia ridondante di percorsi di rete tra rete del cliente e MSEE-PR. Tuttavia, nel modello di connessione any-to-any (IPVPN), un singolo dispositivo CE (2) può essere collegato a uno o più PE (3).
+>Per la disponibilità elevata di ExpressRoute, Microsoft richiede una coppia ridondante di sessioni BGP tra MSEE (5) e PE-MSEE (4). Si consiglia anche una coppia ridondante di percorsi di rete tra rete del cliente e PE-CE. Tuttavia, nel modello di connessione any-to-any (IPVPN), un singolo dispositivo CE (2) può essere collegato a uno o più PE (3).
 >
 >
 
@@ -71,7 +71,7 @@ Per convalidare un circuito ExpressRoute, vengono seguiti i seguenti passaggi, c
 In futuro verranno aggiunti altri controlli e maggiori convalide. Si consiglia quindi di verificare mensilmente.
 
 ##<a name="validate-circuit-provisioning-and-state"></a>Convalidare il provisioning del circuito e lo stato
-Indipendentemente dal modello di connettività, è necessario creare un circuito ExpressRoute e, pertanto, generare una chiave del servizio per il provisioning del circuito. Il provisioning di un circuito ExpressRoute stabilisce connessioni ridondanti di livello 2 tra MSEE-PR (4) e MSEE (5). Per altre informazioni su come creare, modificare, eseguire il provisioning e verificare un circuito ExpressRoute, vedere l'articolo [Creare e modificare un circuito ExpressRoute][CreateCircuit].
+Indipendentemente dal modello di connettività, è necessario creare un circuito ExpressRoute e, pertanto, generare una chiave del servizio per il provisioning del circuito. Il provisioning di un circuito ExpressRoute stabilisce connessioni ridondanti di livello 2 tra PE-MSEE (4) e MSEE (5). Per altre informazioni su come creare, modificare, eseguire il provisioning e verificare un circuito ExpressRoute, vedere l'articolo [Creare e modificare un circuito ExpressRoute][CreateCircuit].
 
 >[!TIP]
 >Una chiave del servizio identifica in modo univoco un circuito ExpressRoute. Questa chiave è necessaria per la maggior parte dei comandi di Powershell indicati in questo documento. Se fosse necessario richiedere l'assistenza di Microsoft o di un partner ExpressRoute per risolvere un problema di ExpressRoute, fornire la chiave del servizio per identificare facilmente il circuito.
@@ -115,18 +115,18 @@ Una risposta di esempio:
     Etag                             : W/"################################"
     ProvisioningState                : Succeeded
     Sku                              : {
-                                         "Name": "Standard_UnlimitedData",
-                                         "Tier": "Standard",
-                                         "Family": "UnlimitedData"
-                                           }
+                                        "Name": "Standard_UnlimitedData",
+                                        "Tier": "Standard",
+                                        "Family": "UnlimitedData"
+                                        }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             : 
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "****",
-                                         "PeeringLocation": "******",
-                                         "BandwidthInMbps": 100
-                                           }
+                                        "ServiceProviderName": "****",
+                                        "PeeringLocation": "******",
+                                        "BandwidthInMbps": 100
+                                        }
     ServiceKey                       : **************************************
     Peerings                         : []
     Authorizations                   : []
@@ -187,10 +187,10 @@ Nel portale di Azure lo stato di un circuito ExpressRoute può essere controllat
 
 ![5][5]
 
-Nell'esempio precedente, come indicato, il contesto di routing di peering privato di Azure è abilitato, mentre i contesti di routing di peering pubblico e Microsoft non sono abilitati. Per un contesto di peering abilitato correttamente vengono anche elencate le subnet punto a punto primarie e secondarie (per il protocollo BGP). Le /30 subnet vengono usate per l'indirizzo IP dell'interfaccia degli MSEE e MSEE-PR. 
+Nell'esempio precedente, come indicato, il contesto di routing di peering privato di Azure è abilitato, mentre i contesti di routing di peering pubblico e Microsoft non sono abilitati. Per un contesto di peering abilitato correttamente vengono anche elencate le subnet punto a punto primarie e secondarie (per il protocollo BGP). Le /30 subnet vengono usate per l'indirizzo IP dell'interfaccia degli MSEE e PE-MSEE. 
 
 >[!NOTE]
->Se non è abilitato alcun peering, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione su MSEE-PR. In caso contrario, per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering]
+>Se non è abilitato alcun peering, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione su PE-MSEE. In caso contrario, per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering]
 >
 >
 
@@ -217,7 +217,7 @@ Una risposta di esempio, per un peering privato configurato correttamente:
     MicrosoftPeeringConfig     : null
     ProvisioningState          : Succeeded
 
- In un contesto di peering abilitato correttamente vengono elencati i prefissi di indirizzi primari e secondari. Le /30 subnet vengono usate per l'indirizzo IP dell'interfaccia degli MSEE e MSEE-PR.
+ In un contesto di peering abilitato correttamente vengono elencati i prefissi di indirizzi primari e secondari. Le /30 subnet vengono usate per l'indirizzo IP dell'interfaccia degli MSEE e PE-MSEE.
 
 Per ottenere i dettagli di configurazione del peering pubblico di Azure, usare i comandi seguenti:
 
@@ -244,11 +244,11 @@ Se non è configurato alcun peering, viene visualizzato un messaggio di errore. 
 >
 
 <p/>
->[!NOTE] Se non è abilitato alcun peering, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione sul MSEE-PR collegato. Controllare anche che siano usati i valori corretti di *VlandId*, *AzureASN* e *PeerASN* sugli MSEE e che tali valori corrispondano a quelli usati sul MSEE-PR collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e MSEE-PR. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].  
+>[!NOTE] Se non è abilitato alcun peering, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione sul PE-MSEE collegato. Controllare anche che siano usati i valori corretti *VlanId*, *AzureASN* e *PeerASN* sugli MSEE e che tali valori corrispondano a quelli usati sul PE-MSEE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e PE-MSEE. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].  
 >>
 >
 
-###<a name="verification-via-powershell-classic"></a>Verifica tramite PowerShell (versione classica)
+### <a name="verification-via-powershell-classic"></a>Verifica tramite PowerShell (versione classica)
 Per ottenere i dettagli di configurazione del peering privato di Azure, usare il comando seguente:
 
     Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
@@ -268,7 +268,7 @@ Una risposta di esempio, per un peering privato configurato correttamente:
     State                          : Enabled
     VlanId                         : 100
 
-In un contesto di peering abilitato correttamente vengono elencate le subnet peer primarie e secondarie. Le /30 subnet vengono usate per l'indirizzo IP dell'interfaccia degli MSEE e MSEE-PR.
+In un contesto di peering abilitato correttamente vengono elencate le subnet peer primarie e secondarie. Le /30 subnet vengono usate per l'indirizzo IP dell'interfaccia degli MSEE e PE-MSEE.
 
 Per ottenere i dettagli di configurazione del peering pubblico di Azure, usare i comandi seguenti:
 
@@ -284,12 +284,12 @@ Per ottenere i dettagli di configurazione del peering Microsoft, usare i comandi
 >
 
 <p/>
->[!NOTE] Se non è abilitato alcun peering, verificare se le subnet peer primarie e secondarie assegnate corrispondono alla configurazione sul MSEE-PR collegato. Controllare anche che siano usati i valori corretti *VlanId*, *AzureAsn* e *PeerAsn* sugli MSEE e che tali valori corrispondano a quelli usati sul MSEE-PR collegato. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
+>[!NOTE] Se non è abilitato alcun peering, verificare se le subnet peer primarie e secondarie assegnate corrispondono alla configurazione sul PE-MSEE collegato. Controllare anche che siano usati i valori corretti *VlanId*, *AzureASN* e *PeerASN* sugli MSEE e che tali valori corrispondano a quelli usati sul PE-MSEE collegato. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
 >>
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Convalidare ARP tra Microsoft e il provider di servizi
-In questa sezione vengono usati i comandi di PowerShell (versione classica). Se si usano i comandi di PowerShell basati su Azure Resource Manager, assicurarsi di disporre dell'accesso di amministratore/coamministratore alla sottoscrizione tramite il [portale di Azure classico][OldPortal]
+In questa sezione vengono usati i comandi di PowerShell (versione classica). Se si usano i comandi di PowerShell basati su Azure Resource Manager, assicurarsi di disporre dell'accesso di amministratore/coamministratore alla sottoscrizione tramite il [portale di Azure classico][OldPortal]. Per la risoluzione dei problemi tramite i comandi di Azure Resource Manager, vedere il documento [Recupero di tabelle ARP nel modello di distribuzione Resource Manager][ARP].
 
 >[!NOTE]
 >Per ottenere ARP, è possibile usare sia il portale di Azure sia i comandi di PowerShell basati su Azure Resource Manager. In caso di errori con i comandi di PowerShell basati su Azure Resource Manager, i comandi classici di PowerShell dovrebbero essere operativi in quanto tali comandi funzionano anche con circuiti ExpressRoute in Azure Resource Manager.
@@ -305,7 +305,7 @@ Un esempio di risposta per il comando, nello scenario di esito positivo:
     ARP Info:
 
                  Age           Interface           IpAddress          MacAddress
-                 113             On-Prem       10.0.0.1            e8ed.f335.4ca9
+                 113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
 Allo stesso modo è possibile controllare la tabella ARP dal MSEE nel percorso *Primary*/*Secondary* per peering *Private*/*Public*/*Microsoft*.
@@ -321,7 +321,7 @@ L'esempio seguente mostra la risposta del comando per un peering inesistente.
 >
 >
 
-##<a name="validate-bgp-and-routes-on-the-msee"></a>Convalidare BGP e route sul MSEE
+## <a name="validate-bgp-and-routes-on-the-msee"></a>Convalidare BGP e route sul MSEE
 In questa sezione vengono usati i comandi di PowerShell (versione classica). Se si usano i comandi di PowerShell basati su Azure Resource Manager, assicurarsi di disporre dell'accesso di amministratore/coamministratore alla sottoscrizione tramite il [portale di Azure classico][OldPortal]
 
 >[!NOTE]
@@ -343,7 +343,7 @@ Una risposta di esempio:
 Come illustrato nell'esempio precedente, il comando è utile per determinare da quanto tempo è stato stabilito il contesto di routing. Indica inoltre il numero di prefissi di route annunciati dal router di peering.
 
 >[!NOTE]
->Se lo stato è attivo o inattivo, verificare se le subnet peer primarie e secondarie assegnate corrispondono alla configurazione sul MSEE-PR collegato. Controllare anche che siano usati i valori corretti *VlanId*, *AzureAsn* e *PeerAsn* sugli MSEE e che tali valori corrispondano a quelli usati sul MSEE-PR collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e MSEE-PR. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
+>Se lo stato è attivo o inattivo, verificare se le subnet peer primarie e secondarie assegnate corrispondono alla configurazione sul PE-MSEE collegato. Controllare anche che siano usati i valori corretti *VlanId*, *AzureASN* e *PeerASN* sugli MSEE e che tali valori corrispondano a quelli usati sul PE-MSEE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e PE-MSEE. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
 >
 >
 
@@ -410,6 +410,7 @@ Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [OldPortal]: https://manage.windowsazure.com
+[ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
 
 
 

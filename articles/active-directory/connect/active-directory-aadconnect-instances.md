@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 07/12/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: ce4d51c4ed38645ee81325404ff7214f845d5bf0
-ms.openlocfilehash: 317f3be6cb39da7c7c57f7f368c750672609726e
-ms.lasthandoff: 01/31/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 37df8d66d0a3ce738db2960d4283bdc672fb0fc4
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerazioni speciali per le istanze
@@ -39,7 +39,7 @@ Funzionalità attualmente non presenti in Microsoft Cloud Germany:
 
 * **Azure AD Connect Health** non è disponibile.
 * **Aggiornamenti automatici** non è disponibile.
-* Il **writeback delle password** non è disponibile.
+* **Writeback delle password** è disponibile in anteprima con Azure AD Connect versione 1.1.570.0 e successive.
 * Altri servizi di Azure AD Premium non sono disponibili.
 
 ## <a name="microsoft-azure-government-cloud"></a>Cloud di Microsoft Azure per enti pubblici
@@ -50,6 +50,7 @@ Il [cloud di Microsoft Azure per enti pubblici](https://azure.microsoft.com/feat
 | URL da aprire nel server proxy |
 | --- |
 | \*.microsoftonline.com |
+| \*. microsoftonline.us |
 | \*.gov.us.microsoftonline.com |
 | +Elenchi di revoche dei certificati |
 
@@ -64,7 +65,7 @@ Funzionalità attualmente non presenti nel cloud di Microsoft Azure per enti pub
 
 * **Azure AD Connect Health** non è disponibile.
 * **Aggiornamenti automatici** non è disponibile.
-* Il **writeback delle password** non è disponibile.
+* **Writeback delle password** è disponibile in anteprima con Azure AD Connect versione 1.1.570.0 e successive.
 * Altri servizi di Azure AD Premium non sono disponibili.
 
 ## <a name="next-steps"></a>Passaggi successivi

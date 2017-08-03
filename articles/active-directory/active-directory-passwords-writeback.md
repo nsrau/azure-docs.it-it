@@ -6,22 +6,21 @@ keywords: gestione delle password in Active Directory, gestione delle password, 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: fde08bfc3a73c54ee53b5d8efffd3001894416b3
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7783d0fc30b4b7d098a89595771993b33fb0aa97
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="password-writeback-overview"></a>Panoramica del writeback delle password
@@ -188,7 +187,7 @@ I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazi
 
 * [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
 * [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
-* [**Dati**](active-directory-passwords-data.md) - Informazioni sui dati necessari e su come vengono usati per la gestione delle password
+* [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
 * [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo
 * [**Personalizzazione**](active-directory-passwords-customize.md) - personalizzare l'aspetto dell'esperienza della reimpostazione password self-service per l'azienda.
 * [**Criteri**](active-directory-passwords-policy.md) - comprendere e impostare i criteri password di Azure AD
@@ -198,3 +197,4 @@ I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazi
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Abilitare il writeback delle password in Azure AD Connect"
+
