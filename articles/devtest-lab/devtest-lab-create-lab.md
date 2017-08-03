@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/30/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 015782373e59d1aaf10a7b089c84c982031b36b2
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 265a968f902f53c7561c8c7e937f8eacfdb37167
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Creare un lab di sviluppo/test di Azure
@@ -64,6 +63,6 @@ Una volta creato il lab, ecco alcuni passaggi successivi da considerare:
 * [Definire i criteri del lab](devtest-lab-set-lab-policy.md).
 * [Creare un modello di lab](devtest-lab-create-template.md).
 * [Creare elementi personalizzati per le VM](devtest-lab-artifact-author.md).
-* [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
+* [Aggiungere una VM con elementi a un lab](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/).
 
 

@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c7d54f8355803933e0d581470804ee98a0172937
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 105dab17823a7e7f6957a604833f4ecad35c14bd
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Usare .NET (C#) con Visual Studio Code per connettersi a un database SQL ed eseguire query
@@ -74,7 +74,6 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 8. Se viene visualizzata una finestra **Accettazione della licenza** fare clic su **Accetto**.
 
 ## <a name="insert-code-to-query-sql-database"></a>Inserire il codice per eseguire query sul database SQL
-
 1. Passare a (o aprire, se necessario) **Program.cs**
 
 2. Sostituire il contenuto di **Program.cs** con il codice seguente e aggiungere i valori appropriati per il server, il database, l'utente e la password.
@@ -141,7 +140,7 @@ namespace sqltest
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [connettersi ed eseguire query su un database SQL di Azure usando .NET Core](sql-database-connect-query-dotnet-core.md) in Windows/Linux/macOS.  
-- Informazioni su come [iniziare a usare .NET Core in Windows/Linux/macOS con la riga di comando](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- Informazioni su come [iniziare a usare .NET Core in Windows/Linux/macOS con la riga di comando](/dotnet/core/tutorials/using-with-xplat-cli).
 - Informazioni su come [progettare il primo database SQL di Azure con SSMS](sql-database-design-first-database.md) o su come [progettare il primo database SQL di Azure con .NET](sql-database-design-first-database-csharp.md).
 - Per altre informazioni su .NET, vedere la [documentazione di .NET](https://docs.microsoft.com/dotnet/).
 
