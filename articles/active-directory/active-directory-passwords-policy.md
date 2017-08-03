@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f1aadca95c4c4e3974e9d1c708ae6963f5de3391
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4b35c5d126375735f070a7fe2331896c524b5a61
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
@@ -105,7 +104,7 @@ In qualità di amministratore globale per un servizio cloud Microsoft, è possib
 
 ## <a name="set-or-check-password-policies-using-powershell"></a>Impostare o verificare i criteri password tramite PowerShell
 
-Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Al termine dell'installazione è possibile eseguire la procedura seguente per configurare ogni campo.
+Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Al termine dell'installazione è possibile eseguire la procedura seguente per configurare ogni campo.
 
 ### <a name="how-to-check-expiration-policy-for-a-password"></a>Come controllare i criteri di scadenza per una password
 1. Connettersi a Windows PowerShell utilizzando le credenziali aziendali di amministratore.
