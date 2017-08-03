@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 3dd84ade3d3ad5f6982f8ab34dd72c2937d21410
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 8ac757a84a932c434b508aa33c343c866a40bf02
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/31/2017
 
 ---
 
@@ -533,9 +533,9 @@ Le macchine virtuali possono disporre di uno o più [dischi dati](../../storage/
             vm)
 
         return add_result.result()
-        ```
+    ```
 
-2. To call the function that you previously added, add this code under the **if** statement at the end of the .py file:
+2. Per chiamare la funzione aggiunta in precedenza, aggiungere questo codice sotto l'istruzione **if** alla fine del file con estensione py:
 
     ```python
     add_result = add_datadisk(compute_client)

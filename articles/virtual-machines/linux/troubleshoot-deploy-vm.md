@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 931749522ec3743b979a491137f670a502a19e0a
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 66f04537c7846b5511a032007e09b0d4e8ae1615
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Linux in Azure
@@ -42,7 +41,7 @@ productPesIds="1234, 5678"
 - Se le dimensioni della VM richieste non possono essere modificate:
     - Arrestare tutte le VM nel set di disponibilità. Fare clic su **Gruppi di risorse** > il proprio gruppo di risorse > **Risorse** > il proprio set di disponibilità > **Macchine virtuali** > la propria macchina virtuale > **Arresta**.
     - Dopo l'arresto di tutte le VM creare la VM con le dimensioni desiderate.
-    - Avviare prima di tutto la nuova VM, quindi selezionare ogni VM arrestata e fare clic su Avvia.
+    - Avviare prima la nuova VM, quindi selezionare ogni VM arrestata e fare clic su Avvia.
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Il cluster non ha risorse disponibili
@@ -78,11 +77,11 @@ Per usufruire delle funzionalità GPU delle VM serie N di Azure che eseguono Win
 
 ## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>Durante il ridimensionamento della VM non è possibile visualizzare la famiglia Dimensioni macchina virtuale desiderata.
 
-Quando una macchina virtuale è in esecuzione, viene distribuita su un server fisico. I server fisici nelle aree di Azure sono raggruppati in cluster di hardware fisico comune. Il ridimensionamento di una VM che ne richiede lo spostamento in un cluster hardware diverso varia a seconda del modello usato per la distribuzione della VM.
+Quando una VM è in esecuzione, viene distribuita su un server fisico. I server fisici nelle aree di Azure sono raggruppati in cluster di hardware fisico comune. Il ridimensionamento di una VM che ne richiede lo spostamento in un cluster hardware diverso varia a seconda del modello usato per la distribuzione della VM.
 
 - Nel caso delle VM distribuite con il modello di distribuzione classica è necessario rimuovere e ripetere la distribuzione del servizio cloud per impostare le VM su dimensioni appartenenti a un'altra famiglia di dimensioni.
 
-- Nel caso delle VM distribuite con il modello di distribuzione Resource Manager, prima di modificare le dimensioni di una VM è necessario arrestare tutte le VM del set di disponibilità.
+- Nel caso delle VM distribuite con il modello di distribuzione di Gestione risorse, prima di modificare le dimensioni di una VM è necessario arrestare tutte le VM del set di disponibilità.
 
 ## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>Le dimensioni della VM elencate non sono supportate durante la distribuzione nel set di disponibilità.
 
@@ -94,7 +93,7 @@ Scegliere dimensioni supportate nel cluster del set di disponibilità. Quando si
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>È possibile aggiungere una VM classica esistente a un set di disponibilità?
 
-Sì. È possibile aggiungere una macchina virtuale classica esistente a un set di disponibilità nuovo o esistente. Per altre informazioni, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](../windows/classic/configure-availability.md#a-idaddmachine-aoption-2-add-an-existing-virtual-machine-to-an-availability-set).
+Sì. È possibile aggiungere una VM classica esistente a un set di disponibilità nuovo o esistente. Per altre informazioni, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](../windows/classic/configure-availability.md#addmachine).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

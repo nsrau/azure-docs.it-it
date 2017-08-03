@@ -1,6 +1,6 @@
 ---
-title: Usare l&quot;estensione di macchina virtuale Docker in Azure con l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Informazioni su come usare l&quot;estensione di VM Docker per distribuire in modo rapido e sicuro un ambiente Docker in Azure con i modelli di Resource Manager.
+title: Usare l'estensione di macchina virtuale Docker in Azure con l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Informazioni su come usare l'estensione di VM Docker per distribuire in modo rapido e sicuro un ambiente Docker in Azure con i modelli di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: fb84ca46bdb02df315c078889f49db545fee1d64
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a3cbcf63533f4042dcd695e141655c5814bd7068
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>Creare un ambiente Docker in Azure usando l'estensione di macchina virtuale Docker con l'interfaccia della riga di comando di Azure 1.0
@@ -29,7 +28,7 @@ Per altre informazioni sui diversi metodi di distribuzione, incluso l'uso di Doc
 
 * Per creare rapidamente il prototipo di un'applicazione, è possibile creare un singolo host di Docker usando [Docker Machine](docker-machine.md).
 * Per gli ambienti più stabili ed estesi è possibile usare l'estensione di VM Docker di Azure che supporta anche [Docker Compose](https://docs.docker.com/compose/overview/) per generare distribuzioni di contenitore coerenti. Questo articolo descrive come usare l'estensione di VM Docker di Azure.
-* Per creare ambienti scalabili e pronti per la produzione che offrono maggiori strumenti di pianificazione e gestione, è possibile distribuire un [cluster Docker Swarm nei servizi contenitore di Azure](../../container-service/container-service-deployment.md).
+* Per creare ambienti scalabili e pronti per la produzione che offrono maggiori strumenti di pianificazione e gestione, è possibile distribuire un [cluster Docker Swarm nei servizi contenitore di Azure](../../container-service/dcos-swarm/container-service-deployment.md).
 
 ## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
@@ -201,6 +200,6 @@ Per altre informazioni sulle opzioni di distribuzione di Docker aggiuntive in Az
 
 * [Usare Docker Machine con il driver di Azure](docker-machine.md)  
 * [Introduzione a Docker e Compose per definire ed eseguire un'applicazione multi-contenitore in una macchina virtuale di Azure](docker-compose-quickstart.md).
-* [Distribuire un cluster del servizio contenitore di Azure](../../container-service/container-service-deployment.md)
+* [Distribuire un cluster del servizio contenitore di Azure](../../container-service/dcos-swarm/container-service-deployment.md)
 
 

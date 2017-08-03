@@ -1,14 +1,13 @@
 --- 
 layout: HubPage
 hide_bc: true
-experiment_id: 81ba5f65-59fb-4d
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: b2bac33c6613cc96942acef4df3b8a0f579c9795
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 282e1da4a5ec8ccb3c6119c6de6fd37b83bbb71e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 <div id="main" class="v2">

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 51459dae8d09d7051ab74c9fe57cc29e38b8b9ab
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: a0bf8995913511b0e14304a1259f13de4aa9e04b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
@@ -132,7 +132,7 @@ Ai tenant nel piano Premium configurati per la distribuzione in più aree viene 
 Per informazioni su come configurare un server di autorizzazione OAuth 2.0 con la sicurezza di Active Directory Federation Services (AD FS), vedere [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/) (Uso di AD FS in Gestione API).
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>Quale metodo di routing usa Gestione API nelle distribuzioni in più posizioni geografiche?
-Gestione API usa il [metodo di routing del traffico relativo alle prestazioni](../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method) nelle distribuzioni in più posizioni geografiche. Il traffico in ingresso viene instradato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Altre informazioni sui metodi di routing sono disponibili in [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
+Gestione API usa il [metodo di routing del traffico relativo alle prestazioni](../traffic-manager/traffic-manager-routing-methods.md#priority) nelle distribuzioni in più posizioni geografiche. Il traffico in ingresso viene instradato al gateway API più vicino. Quando un'area diventa offline, il traffico in ingresso viene automaticamente indirizzato al gateway successivo più vicino. Altre informazioni sui metodi di routing sono disponibili in [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>È possibile usare un modello di Azure Resource Manager per creare un'istanza del servizio Gestione API?
 Sì. Vedere i modelli di avvio rapido del [Servizio Gestione API di Azure](http://aka.ms/apimtemplate).

@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 07/28/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f8f58f7007b6a52f0955232ad1492b25f3e851f0
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 56dd07de81e322aa66587ee160beb734811285dc
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Hadoop in HDInsight
@@ -36,12 +35,10 @@ Hadoop ottiene alta disponibilità e affidabilità replicando i servizi e i dati
 
 ## <a name="availability-and-reliability-of-nodes"></a>Disponibilità e affidabilità dei nodi
 
-I nodi in un cluster HDInsight vengono implementati con macchine virtuali di Azure. In caso di errore di un nodo, questo viene messo offline e viene creato un nuovo nodo per sostituirlo. Mentre il nodo è offline, viene usato un altro nodo dello stesso tipo fino a quando il nuovo nodo viene messo online.
+I nodi in un cluster HDInsight vengono implementati con macchine virtuali di Azure. Le sezioni seguenti illustrano i singoli tipi di nodo usati con HDInsight. 
 
 > [!NOTE]
-> Se il nodo sta analizzando dati quando si verifica l'errore, l'avanzamento dell'analisi nel processo viene perso. Il processo viene nuovamente inviato a un altro nodo.
-
-Le sezioni seguenti illustrano i singoli tipi di nodo usati con HDInsight. Non tutti i tipi di nodo vengono usati per un tipo di cluster. Ad esempio, un tipo di cluster Hadoop non ha alcun nodo Nimbus. Per altre informazioni sui nodi usati dai tipi di cluster HDInsight, vedere la sezione Tipi di cluster del documento [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+> Non tutti i tipi di nodo vengono usati per un tipo di cluster. Ad esempio, un tipo di cluster Hadoop non ha alcun nodo Nimbus. Per altre informazioni sui nodi usati dai tipi di cluster HDInsight, vedere la sezione Tipi di cluster del documento [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ### <a name="head-nodes"></a>Nodi head
 

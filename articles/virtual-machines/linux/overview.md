@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 981b87540070dff18a01d6bf3dce24a675b451aa
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c82459bfddc2755a56fdad6eb8ab4c8bb41862f6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -135,7 +135,7 @@ La VM è ora in esecuzione in Azure ed è possibile eseguire l'accesso.  L'uso d
 ## <a name="containers"></a>Contenitori
 * [Macchine virtuali e contenitori in Azure](containers.md)
 * [Introduzione al servizio contenitore di Azure](../../container-service/container-service-intro.md)
-* [Distribuire un cluster del servizio contenitore di Azure](../../container-service/container-service-deployment.md)
+* [Distribuire un cluster del servizio contenitore di Azure](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Quella descritta è panoramica di Linux in Azure.  Il passaggio successivo consiste nella creazione di alcune macchine virtuali.

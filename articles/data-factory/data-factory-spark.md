@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: dbee3f1d0aae885325ef9efe9c2f48961495e8b9
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: c5eda443dcd41a481ad952d8472f7f67f4517abd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
@@ -231,7 +230,7 @@ In questo passaggio viene creata una pipeline con un'**attività HDInsightSpark*
 
     ![Risultati della query Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-Per informazioni dettagliate, vedere la sezione [Eseguire una query SQL Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-an-interactive-spark-sql-query). 
+Per informazioni dettagliate, vedere la sezione [Eseguire una query SQL Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql). 
 
 ### <a name="troubleshooting"></a>Risoluzione dei problemi
 Poiché **getDebugInfo** è impostato su **Sempre**, è possibile vedere una sottocartella **log** nella cartella **pyFiles** nel contenitore BLOB di Azure. Il file di log nella cartella di registro offre dettagli aggiuntivi. Tale file è particolarmente utile quando si verifica un errore. In un ambiente di produzione può risultare utile impostarlo su **Errore**.

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: ramankum
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c905bfe672d1027916d7f273ab5ac79ceec9a4d9
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 94ae2fa4600c007725ae2615554144d12306e833
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM
@@ -59,7 +58,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
 * **Limiti dei dischi di Archiviazione Premium**
 
-    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS e Fs. È possibile scegliere fra sette dimensioni di disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Attualmente le dimensioni di disco P4 e P6 sono supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#premium-storage-scalability-and-performance-targets).
+    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. L'archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls e Fs. È possibile scegliere fra sette dimensioni di disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Attualmente le dimensioni di disco P4 e P6 sono supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#scalability-and-performance-targets).
 
 * **BLOB di pagine Premium**
 

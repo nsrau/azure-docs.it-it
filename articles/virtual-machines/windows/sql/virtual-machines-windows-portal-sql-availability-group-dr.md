@@ -1,6 +1,6 @@
 ---
 title: "Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: ripristino di emergenza | Documentazione Microsoft"
-description: "Questo articolo illustra come configurare un gruppo di disponibilità SQL Server nelle macchine virtuali di Azure con una replica in un&quot;area diversa."
+description: "Questo articolo illustra come configurare un gruppo di disponibilità SQL Server nelle macchine virtuali di Azure con una replica in un'area diversa."
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: e9a2c3230ec5081a0cfb57ef1dbf311a87bb26b5
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: ddc391127d43a954f555943d27258593eba02df2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -108,7 +107,7 @@ Per creare una replica in un data center remoto, seguire questa procedura:
 
 1. Nella nuova istanza di SQL Server in Gestione configurazione SQL Server [abilitare i gruppi di disponibilità AlwaysOn](http://msdn.microsoft.com/library/ff878259.aspx).
 
-1. [Aprire le porte del firewall nella nuova istanza di SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm).
+1. [Aprire le porte del firewall nella nuova istanza di SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
    I numeri di porta che è necessario aprire dipendono dall'ambiente. Aprire le porte per l'endpoint del mirroring e il probe di integrità di bilanciamento del carico di Azure.
 

@@ -1,5 +1,5 @@
 ---
-title: Informazioni su come proteggere l&quot;accesso ai dati in Azure Cosmos DB | Microsoft Docs
+title: Informazioni su come proteggere l'accesso ai dati in Azure Cosmos DB | Microsoft Docs
 description: Informazioni sui concetti di controllo di accesso in Azure Cosmos DB, tra cui chiavi master, chiavi di sola lettura, utenti e autorizzazioni.
 services: cosmos-db
 author: mimig1
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b57a157bc47b09af34684b0d85ce4538782a5ff2
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 383e04f91eec2f465b381ce30f2d6d24c488b731
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protezione dell'accesso ai dati in Azure Cosmos DB
@@ -46,7 +45,7 @@ Ogni account è costituito da due chiavi master: una chiave primaria e una chiav
 
 Oltre alle due chiavi master per l'account Cosmos DB, sono disponibili due chiavi di sola lettura. Queste chiavi consentono solo operazioni di lettura per l'account. Le chiavi di sola lettura non forniscono l'accesso in lettura alle risorse di autorizzazione.
 
-Le chiavi master primaria, secondaria, di sola lettura e di lettura/scrittura possono essere recuperate e rigenerate nel portale di Azure. Per istruzioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+Le chiavi master primaria, secondaria, di sola lettura e di lettura/scrittura possono essere recuperate e rigenerate nel portale di Azure. Per istruzioni, vedere [Visualizzare, copiare e rigenerare le chiavi di accesso](manage-account.md#keys).
 
 ![Controllo di accesso (IAM) nel portale di Azure: dimostrazione della sicurezza del database NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -59,7 +58,7 @@ Il processo di rotazione della chiave master è semplice. Passare al portale di 
 L'esempio di codice seguente illustra come usare un endpoint dell'account Cosmos DB e la chiave master per creare un'istanza di DocumentClient e un database. 
 
 ```csharp
-//Read the DocumentDB endpointUrl and authorization keys from config.
+//Read the Azure Cosmos DB endpointUrl and authorization keys from config.
 //These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
@@ -183,6 +182,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulla sicurezza dei database Cosmos DB, vedere [Cosmos DB: Database security](database-security.md) (Cosmos DB: sicurezza dei database).
-* Per informazioni sulla gestione delle chiavi master e di sola lettura, vedere [Come gestire un account Azure Cosmos DB](manage-account.md#a-idkeysaview-copy-and-regenerate-access-keys).
+* Per informazioni sulla gestione delle chiavi master e di sola lettura, vedere [Come gestire un account Azure Cosmos DB](manage-account.md#keys).
 * Per informazioni su come costruire i token di autorizzazione di Azure Cosmos DB, vedere [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources) (Controllo di accesso per le risorse di Azure Cosmos DB).
 

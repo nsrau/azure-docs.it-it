@@ -15,14 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 72d7aefc6a51944eac8075760486dc1a583a171d
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: b86605c49291a99f49c4b2841d46324cfd0db56d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Sviluppare programmi MapReduce per la creazione di flussi Python per HDInsight
@@ -80,7 +79,7 @@ Python è in grado di gestire facilmente questi requisiti usando il modulo `sys`
    def main(separator='\t'):
        # Read the data using read_input
        data = read_input(sys.stdin)
-       # Process each words returned from read_input
+       # Process each word returned from read_input
        for words in data:
            # Process each word
            for word in words:
@@ -153,7 +152,7 @@ Usare lo script di PowerShell seguente per caricare i file, eseguire il processo
     Questo comando copia i file dal sistema locale nel nodo head.
 
     > [!NOTE]
-    > Se è stata usata una password per proteggere l'account SSH, viene richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata, ad esempio `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
+    > Se è stata usata una password per proteggere l'account SSH, viene richiesto di specificarla. Se è stata usata una chiave SSH, potrebbe essere necessario usare il parametro `-i` e il percorso della chiave privata. Ad esempio, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Connettersi al cluster usando SSH:
 
