@@ -11,7 +11,7 @@
 
 <br>
 
-| Famiglia SKU | ACU/Core |
+| Famiglia SKU | Unità di calcolo di Azure |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |

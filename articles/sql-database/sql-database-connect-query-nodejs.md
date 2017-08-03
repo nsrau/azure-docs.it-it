@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 56696c6c85f117449e7fb80b0daca707267d41c1
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Usare Node.js per eseguire query su un database SQL di Azure
@@ -141,7 +141,7 @@ Aprire un prompt dei comandi e creare una cartella denominata *sqltest*. Passare
 
 - Informazioni sul [driver Microsoft Node.js per SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/).
 - Informazioni su come [connettersi ed eseguire query su un database SQL di Azure usando .NET Core](sql-database-connect-query-dotnet-core.md) in Windows/Linux/macOS.  
-- Informazioni su come [iniziare a usare .NET Core in Windows/Linux/macOS con la riga di comando](/dotnet/core/tutorials/using-with-xplat-cli.md).
+- Informazioni su come [iniziare a usare .NET Core in Windows/Linux/macOS con la riga di comando](/dotnet/core/tutorials/using-with-xplat-cli).
 - Informazioni su come [progettare il primo database SQL di Azure con SSMS](sql-database-design-first-database.md) o su come [progettare il primo database SQL di Azure con .NET](sql-database-design-first-database-csharp.md).
 - Informazioni su come [connettersi ed eseguire query con SSMS](sql-database-connect-query-ssms.md).
 - Informazioni su come [connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).
