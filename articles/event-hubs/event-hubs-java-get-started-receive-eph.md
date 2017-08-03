@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 852a0fab2fa7a50eb315e7107749e391031b463e
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: 024a9dd00d086d5c1cc14d6731b34ee0eab3b2c5
 ms.contentlocale: it-it
-ms.lasthandoff: 02/02/2017
+ms.lasthandoff: 06/29/2017
 
 
 ---
 
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Ricevere eventi da Hub eventi di Azure usando Java
+
 
 ## <a name="introduction"></a>Introduzione
 Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di accettare milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione.
@@ -68,6 +69,11 @@ La libreria client Java per Hub eventi è disponibile per l'uso nei progetti Mav
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
     <version>{VERSION}</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-eventhubs-eph</artifactId>
+  <version>0.14.0</version>
 </dependency>
 ```
 
@@ -220,7 +226,7 @@ Per diversi tipi di ambienti di compilazione, è possibile ottenere in modo espl
     ```
 
 > [!NOTE]
-> Questa esercitazione usa una singola istanza di EventProcessorHost. Per aumentare la velocità effettiva è consigliabile eseguire più istanze di EventProcessorHost. In questi casi, le varie istanze si coordinano automaticamente tra loro per ottenere il bilanciamento del carico relativo agli eventi ricevuti. Se si vuole che ognuno dei vari ricevitori elabori *tutti* gli eventi, è necessario usare il concetto **ConsumerGroup** . Quando si ricevono eventi da più macchine, potrebbe risultare utile specificare nomi per le istanze di EventProcessorHost in base alle macchine (o ai ruoli) in cui sono distribuite.
+> Questa esercitazione usa una singola istanza di EventProcessorHost. Per aumentare la velocità effettiva è consigliabile eseguire più istanze di EventProcessorHost, preferibilmente su macchine separate.  Ciò fornirà anche ridondanza.   In questi casi, le varie istanze si coordinano automaticamente tra loro per ottenere il bilanciamento del carico relativo agli eventi ricevuti. Se si vuole che ognuno dei vari ricevitori elabori *tutti* gli eventi, è necessario usare il concetto **ConsumerGroup** . Quando si ricevono eventi da più macchine, potrebbe risultare utile specificare nomi per le istanze di EventProcessorHost in base alle macchine (o ai ruoli) in cui sono distribuite.
 > 
 > 
 

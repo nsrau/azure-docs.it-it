@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: curtand
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7b267f11a2989b1e621906a46ea4e3bf7f58ca2b
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2adf6d6758c260f539277dafe8b9fadc3d9acb8b
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -81,7 +81,7 @@ Per altre informazioni sull'impostazione di un indirizzo IP statico, vedere [Con
 Accedere a una macchina virtuale e verificare che sia disponibile la connettività nella VPN da sito a sito o la connessione ExpressRoute alle risorse sulla rete locale, quindi installare Servizi di dominio Active Directory nelle macchine virtuali di Azure. È possibile usare la stessa procedura che consente di installare un controller di dominio aggiuntivo nella rete locale (interfaccia utente, Windows PowerShell o un file di risposta). Durante l'installazione di Servizi di dominio Active Directory, assicurarsi di specificare il nuovo volume per il percorso del database Active Directory, i log e SYSVOL. Se è necessario un aggiornamento nell'installazione di Active Directory Domain Services, vedere [Installazione di Active Directory Domain Services (Livello 100)](https://technet.microsoft.com/library/hh472162.aspx) o [Installare un Controller di dominio Windows Server 2012 Replica in un dominio esistente (livello 200)](https://technet.microsoft.com/library/jj574134.aspx).
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Riconfigurare il server DNS per la rete virtuale
-1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic sul nome della rete virtuale e quindi fare clic sulla scheda **Configura** per [riconfigurare gli indirizzi IP del server DNS per la rete virtuale](../virtual-network/virtual-networks-manage-dns-in-vnet.md) allo scopo di usare gli indirizzi IP statici assegnati ai controller di dominio di replica invece degli indirizzi IP di server DNS locali.
+1. Nel [portale di Azure](https://portal.azure.com), all’interno della casella **Ricerca risorse** immettere *Reti virtuali*, quindi fare clic su **Reti virtuali (classico)** tra i risultati della ricerca. Fare clic sul nome della rete virtuale e quindi [riconfigurare gli indirizzi IP del server DNS per la rete virtuale](../virtual-network/virtual-network-manage-network.md#dns-servers) allo scopo di usare gli indirizzi IP statici assegnati ai controller di dominio di replica invece degli indirizzi IP di server DNS locali.
 2. Per garantire che tutte le macchine virtuali dei controller di dominio di replica sulla rete virtuale siano configurate per usare i server DNS sulla rete virtuale, fare clic su **Macchine virtuali**, fare clic sulla colonna di stato per ogni macchina virtuale e quindi fare clic su **Riavvia**. Attendere fino a quando la macchina virtuale mostra lo stato **In esecuzione** prima di provare a effettuare l'accesso.
 
 ## <a name="create-vms-for-application-servers"></a>Creare macchine virtuali per server applicazioni

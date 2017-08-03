@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 3979593a399ed701fb1985152379818a0417f122
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 45c04c395c474f1fe6ff042776ef0e89470b280f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -52,6 +52,10 @@ Hub eventi consente un controllo granulare degli autori di eventi tramite *crite
 ```
 
 Non è necessario creare nomi di autore prima di procedere, ma devono corrispondere al token SAS utilizzato quando si pubblica un evento, al fine di garantire le identità di autore indipendenti. Quando si utilizzano criteri di autore, il valore **PartitionKey** è impostato sul nome dell’autore. Per il corretto funzionamento, questi valori devono corrispondere.
+
+## <a name="capture"></a>Acquisizione
+
+[Acquisizione dell'hub eventi](event-hubs-capture-overview.md) consente di acquisire il flusso di dati nell'hub eventi e di archiviarlo automaticamente in un account di archiviazione Blob di propria scelta. È possibile abilitare la funzione di acquisizione dal portale di Azure e specificare una dimensione minima e l'intervallo di tempo per eseguire l'acquisizione. Acquisizione di Hub eventi consente di specificare l'account di archiviazione BLOB di Azure e il contenitore che vengono usati per salvare i dati acquisiti. I dati acquisiti vengono scritti nel formato di Apache Avro.
 
 ## <a name="partitions"></a>Partitions
 

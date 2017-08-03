@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2016
+ms.date: 07/20/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 7d0c5f83d907af9109e27d69806d6106d4bc3214
-ms.lasthandoff: 03/28/2017
-
+ms.custom: aaddev
+ms.reviewer: anchitn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: d1d72932d8156fdada44ad6f375fe81c0428846c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durata dei token configurabili in Azure Active Directory (anteprima pubblica)
@@ -73,8 +75,8 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 | --- | --- | --- | --- | --- | --- |
 | Durata dei token di accesso |AccessTokenLifetime |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
 | Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |14 giorni |10 minuti |90 giorni |
-| Validità massima token di aggiornamento a fattore singolo |MaxAgeSingleFactor |Token di aggiornamento (per tutti gli utenti) |90 giorni |10 minuti |Fino alla revoca<sup>1</sup> |
-| Validità massima token di aggiornamento a più fattori |MaxAgeMultiFactor |Token di aggiornamento (per tutti gli utenti) |90 giorni |10 minuti |Fino alla revoca<sup>1</sup> |
+| Validità massima token di aggiornamento a fattore singolo |MaxAgeSingleFactor |Token di aggiornamento (per tutti gli utenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
+| Validità massima token di aggiornamento a più fattori |MaxAgeMultiFactor |Token di aggiornamento (per tutti gli utenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 | Validità massima token di sessione a fattore singolo |MaxAgeSessionSingleFactor<sup>2</sup> |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 | Validità massima token di sessione a più fattori |MaxAgeSessionMultiFactor<sup>3</sup> |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 
@@ -85,9 +87,11 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 ### <a name="exceptions"></a>Eccezioni
 | Proprietà | Impatto | Default |
 | --- | --- | --- |
-| Tempo inattività massimo token di aggiornamento (rilasciata a utenti federati con informazioni sulla revoca insufficienti) |Token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti) |12 ore |
+| Validità massima dei token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |Token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |12 ore |
 | Tempo inattività massimo token di aggiornamento (rilasciata a client riservati) |Token di aggiornamento (rilasciati a client riservati) |90 giorni |
 | Validità massima token di aggiornamento (rilasciata a client riservati) |Token di aggiornamento (rilasciati a client riservati) |Fino a revoca |
+
+* <sup>1</sup>Gli utenti federati con informazioni di revoca insufficienti comprendono tutti gli utenti che non dispongono dell'attributo "LastPasswordChangeTimestamp" sincronizzato. Questi utenti hanno una validità massima breve perché AAD non è in grado di verificare in quale momento revocare i token che sono collegati a una credenziale precedente (ad esempio una password che è stata modificata) e devono eseguire più spesso nuove verifiche per garantire che l'utente e i token associati siano ancora attivi. Per migliorare questa esperienza, gli amministratori del tenant devono assicurare che la sincronizzazione dell'attributo "LastPasswordChangeTimestamp" sia in corso (può essere impostata sull'oggetto utente tramite Powershell o AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Definizione della priorità e valutazione dei criteri
 È possibile creare e quindi assegnare criteri per la durata dei token a un'applicazione specifica, all'organizzazione e alle entità servizio. A un'applicazione specifica si possono applicare più criteri. Di seguito sono riportate le regole su cui si basano i criteri per la durata dei token validi:

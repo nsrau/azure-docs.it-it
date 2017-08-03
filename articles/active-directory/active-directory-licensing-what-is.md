@@ -17,21 +17,20 @@ ms.date: 05/08/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
-ms.openlocfilehash: 7df8805139b6e3cc23041a8201b496fb7fce8063
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 684cb55c0bf2abfa1fc1410d7fc1224a220c2713
 ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
 # <a name="what-is-microsoft-azure-active-directory-licensing-in-the-azure-classic-portal"></a>Che cos'è la gestione delle licenze di Microsoft Azure Active Directory nel portale di Azure classico?
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](active-directory-licensing-get-started-azure-portal.md)
-> * [portale di Azure classico](active-directory-licensing-what-is.md)
+> * [Istruzioni del portale di Azure](active-directory-licensing-get-started-azure-portal.md)
+> * [Informazioni sul portale di Azure classico](active-directory-licensing-what-is.md)
 >
 >
-
 
 Azure Active Directory (Azure AD) è una soluzione e piattaforma IDaaS (Identity as a Service) di Microsoft. Azure AD è offerta in varie versioni funzionali e tecniche che spaziano da Azure AD Free, disponibile con qualsiasi servizio Microsoft come Office 365, Dynamics, Microsoft Intune e Azure (Azure AD non genera alcun addebito di utilizzo in questa modalità), alle versioni Azure AD a pagamento quali Enterprise Mobility Suite (EMS), Azure AD Premium e Basic nonché Azure Multi-Factor Authentication (MFA). Come molti servizi online Microsoft, la maggior parte delle versioni a pagamento di Azure AD sono fornite tramite diritti per utente in quanto sono in Office 365, Microsoft Intune e Azure AD. In questi casi, l'acquisto del servizio è rappresentato da una o più sottoscrizioni e ogni sottoscrizione include un numero di licenze pre-acquisto nel tenant. I diritti per utente vengono ottenuti tramite assegnazione delle licenze, creazione di un collegamento tra l'utente e il prodotto, abilitazione dei componenti del servizio per l'utente e utilizzo di una delle licenze prepagate.
 

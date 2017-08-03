@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2776f640bc192b0775b0ccbaaf62bb719b3bb790
-ms.lasthandoff: 04/18/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: dfccb182ffdc43d5437efd7e4f736998c5fa9433
+ms.contentlocale: it-it
+ms.lasthandoff: 07/26/2017
 
 ---
 
-# <a name="diagnose-on-premise-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite gateway VPN
+# <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite i gateway VPN
 
-Il gateway VPN di Azure consente di creare una soluzione ibrida per soddisfare l'esigenza di una connessione sicura tra la rete locale e la rete virtuale di Azure. I requisiti variano a seconda dell'organizzazione, quindi la scelta del dispositivo VPN locale varia di conseguenza. Azure supporta attualmente [diversi dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides) costantemente convalidati in collaborazione con i fornitori di dispositivi. Esaminare le impostazioni di configurazione specifiche del dispositivo prima di configurare il dispositivo VPN locale. Analogamente, il gateway VPN di Azure viene configurato con un set di [parametri IPsec supportati](../vpn-gateway/vpn-gateway-about-vpn-devices.md#a-nameipsecaipsecike-parameters) che vengono usati per stabilire le connessioni. Non è attualmente possibile immettere o selezionare una combinazione specifica di parametri IPsec dal gateway VPN di Azure. Per stabilire una connessione tra la rete locale e Azure, le impostazioni del dispositivo VPN locale devono essere conformi ai parametri IPsec prescritti dal gateway VPN di Azure per evitare la perdita della connettività. La risoluzione di questi problemi era sinora complessa ed erano generalmente necessarie ore per identificare e risolvere il problema.
+Il gateway VPN di Azure consente di creare una soluzione ibrida per soddisfare l'esigenza di una connessione sicura tra la rete locale e la rete virtuale di Azure. I requisiti variano a seconda dell'organizzazione, quindi la scelta del dispositivo VPN locale varia di conseguenza. Azure supporta attualmente [diversi dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) costantemente convalidati in collaborazione con i fornitori di dispositivi. Esaminare le impostazioni di configurazione specifiche del dispositivo prima di configurare il dispositivo VPN locale. Analogamente, il gateway VPN di Azure viene configurato con un set di [parametri IPsec supportati](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) che vengono usati per stabilire le connessioni. Non è attualmente possibile immettere o selezionare una combinazione specifica di parametri IPsec dal gateway VPN di Azure. Per stabilire una connessione tra la rete locale e Azure, le impostazioni del dispositivo VPN locale devono essere conformi ai parametri IPsec prescritti dal gateway VPN di Azure per evitare la perdita della connettività. La risoluzione di questi problemi era sinora complessa ed erano generalmente necessarie ore per identificare e risolvere il problema.
 
 Con la funzionalità di risoluzione dei problemi di Azure Network Watcher è possibile diagnosticare eventuali problemi con il gateway e le connessioni e ottenere in pochi minuti informazioni sufficienti per prendere una decisione informata per risolvere il problema.
 
@@ -33,7 +34,7 @@ Si vuole configurare una connessione da sito a sito tra Azure e la rete locale t
 
 1. Gateway di rete virtuale, ovvero il gateway VPN di Azure
 1. Gateway di rete locale, ovvero la rappresentazione del [gateway VPN (ASA CISCO) locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) nel cloud di Azure
-1. Connessione da sito a sito basata su criteri, ovvero [connessione tra il gateway VPN e il dispositivo CISCO ASA locale](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#a-namecreateconnectiona8-create-a-site-to-site-vpn-connection)
+1. Connessione da sito a sito basata su criteri, ovvero [connessione tra il gateway VPN e il dispositivo CISCO ASA locale](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
 1. [Configurazione di CISCO ASA](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)
 
 Per istruzioni dettagliate per la configurazione di una connessione da sito a sito, vedere: [Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

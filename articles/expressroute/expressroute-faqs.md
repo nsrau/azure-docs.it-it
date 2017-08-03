@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.date: 07/05/2017
 ms.author: cherylmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 3f9fb86a5bf63d24432c1ba9945a4da6cf794f13
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 42e53835c49f502ac41c08031a477e3c6bbd60fa
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -104,7 +104,7 @@ No, è sufficiente una connessione fisica se il provider di servizi è in grado 
 No. Non sono supportate estensioni alla connettività di livello 2 in Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>La sottoscrizione può includere più di un circuito ExpressRoute?
-Sì. La sottoscrizione può includere più di un circuito ExpressRoute. Il limite predefinito per il numero di circuiti dedicati è impostato su 10. Se necessario, contattare il supporto tecnico Microsoft per aumentare il limite.
+Sì. La sottoscrizione può includere più di un circuito ExpressRoute. Il limite predefinito è impostato a 10. Se necessario, contattare il supporto tecnico Microsoft per aumentare il limite.
 
 ### <a name="can-i-have-expressroute-circuits-from-different-service-providers"></a>Si possono usare circuiti ExpressRoute di diversi provider di servizi?
 Sì. È possibile usare i circuiti ExpressRoute con molti provider di servizi. Ogni circuito ExpressRoute sarà associato a un solo provider di servizi. 
@@ -185,7 +185,7 @@ I passaggi seguenti permettono ad Azure di riconoscere la richiesta di attivazio
 Sì, è possibile provare ad aumentare la larghezza di banda del circuito ExpressRoute nel portale di Azure o con PowerShell. Se è disponibile capacità sulla porta fisica in cui è stato creato il circuito, la modifica avrà esito positivo. Se la modifica ha esito negativo, significa che la capacità residua sulla porta corrente non è sufficiente e che è necessario creare un nuovo circuito ExpressRoute con maggiore larghezza di banda OPPURE che il percorso non ha altra capacità. In quest'ultimo caso non sarà possibile aumentare la larghezza di banda. Sarà anche necessario contattare il provider di connettività per assicurare che aggiorni le limitazioni della propria rete per supportare l'incremento della larghezza di banda. Non è tuttavia possibile ridurre la larghezza di banda del circuito ExpressRoute. Sarà necessario creare un nuovo circuito ExpressRoute con larghezza di banda inferiore ed eliminare il circuito precedente.
 
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Come si modifica la larghezza di banda di un circuito ExpressRoute?
-È possibile aggiornare la larghezza di banda del circuito ExpressRoute usando l'API dedicata per l'aggiornamento del circuito e il cmdlet di PowerShell.
+È possibile aggiornare la larghezza di banda del circuito ExpressRoute usando l'API REST dedicata e il cmdlet di PowerShell.
 
 ## <a name="expressroute-premium"></a>ExpressRoute Premium
 ### <a name="what-is-expressroute-premium"></a>Che cos'è ExpressRoute Premium?
@@ -202,10 +202,10 @@ Le tabelle seguenti illustrano i limiti di ExpressRoute e il numero di reti virt
 [!INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 ### <a name="how-do-i-enable-expressroute-premium"></a>Come si abilita ExpressRoute Premium?
-Le funzionalità di ExpressRoute Premium possono essere abilitate quando si attiva la funzionalità e possono essere arrestate tramite l'aggiornamento dello stato del circuito. È possibile abilitare ExpressRoute Premium in fase di creazione del circuito oppure chiamare l'API dedicata per l'aggiornamento del circuito o il cmdlet di PowerShell per abilitare ExpressRoute Premium.
+Le funzionalità di ExpressRoute Premium possono essere abilitate quando si attiva la funzionalità e possono essere arrestate tramite l'aggiornamento dello stato del circuito. È possibile abilitare ExpressRoute Premium in fase di creazione del circuito oppure chiamare l'API REST o il cmdlet di PowerShell per abilitare ExpressRoute Premium.
 
 ### <a name="how-do-i-disable-expressroute-premium"></a>Come si disabilita ExpressRoute Premium?
-È possibile disabilitare ExpressRoute Premium chiamando l'API o il cmdlet di PowerShell dedicata per l'aggiornamento del circuito. È necessario assicurarsi di avere ridimensionato le esigenze di connettività per soddisfare i limiti predefiniti prima di disabilitare ExpressRoute Premium. La richiesta di disabilitazione di ExpressRoute Premium avrà esito negativo se l'utilizzo supera i limiti predefiniti.
+È possibile disabilitare ExpressRoute Premium chiamando l'API REST o il cmdlet di PowerShell. È necessario assicurarsi di avere ridimensionato le esigenze di connettività per soddisfare i limiti predefiniti prima di disabilitare ExpressRoute Premium. La richiesta di disabilitazione di ExpressRoute Premium avrà esito negativo se l'utilizzo supera i limiti predefiniti.
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>È possibile scegliere solo alcune funzionalità di ExpressRoute Premium?
 No. Non sarà possibile selezionare le funzionalità necessarie. Quando si attiva ExpressRoute Premium, vengono abilitate tutte le funzionalità.

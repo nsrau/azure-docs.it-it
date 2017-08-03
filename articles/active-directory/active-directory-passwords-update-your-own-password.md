@@ -1,41 +1,46 @@
 ---
 title: 'Azure AD: reimpostare la password | Microsoft Docs'
-description: Usare la reimpostazione della password self-service per recuperare l&quot;accesso al proprio account aziendale o dell&quot;istituto di istruzione
+description: Utilizzare la funzione di reimpostazione della password self-service per recuperare l'accesso al proprio account utente aziendale o dell'istituto di istruzione
 services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: end-user
 ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 19a17951b40dcad26c846a45ee786ab5339e59b8
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 6ee3d1319e7727b1134472a1b62a3de7a3571997
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>Password di Azure AD dimenticata
 
-Se si dimentica la password, la si vuole modificare, il personale IT non l'ha mai inviata oppure l'account è stato bloccato, procedere come segue.
+Se si dimentica la password, la si vuole modificare, il personale IT non l'ha mai inviata oppure l'account è stato bloccato, procedere come segue. Se si conosce la password ed necessario soltanto modificarla, procedere fino alla sezione [Cambiare la password](#change-my-password) in basso.
+
+   > [!NOTE]
+   > Se si sta provando ad accedere nuovamente al proprio account personale come hotmail.com o outlook.com, provare i [suggerimenti disponibili in questo articolo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+   >
 
 ## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>Reimpostare o sbloccare la password per un account aziendale o dell'istituto di istruzione
 
-Per accedere all'account aziendale o dell'istituto di istruzione, seguire questa procedura per la reimpostazione della password self-service di Azure AD.
+Se è impossibile accedere al proprio account per una delle seguenti condizioni:
+
+* La password non funziona e si desidera ripristinarla.
+* Si conosce la password, ma l'account è bloccato e si desidera sbloccare l'account.
+
+Eseguire i passaggi descritti di seguito per ripristinare la password self-service di Azure AD, procedura chiamata anche SSPR, e per poter effettuare nuovamente accesso all'account.
 
 1. In qualsiasi pagina di accesso aziendale o dell'istituto di istruzione fare clic sul collegamento **Problemi di accesso all'account?** e quindi su **Account aziendale o dell'istituto di istruzione** oppure passare direttamente alla [pagina per la reimpostazione della password](https://passwordreset.microsoftonline.com/).
-
-   > [!NOTE]
-   > Se si sta provando a riaccedere a un account personale come hotmail.com o outlook.com, provare i [suggerimenti disponibili in questo articolo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
-   >
 
     ![Problemi di accesso all'account?][Login]
 
@@ -43,7 +48,9 @@ Per accedere all'account aziendale o dell'istituto di istruzione, seguire questa
 
    > [!NOTE]
    > Se il personale IT non ha abilitato questa funzionalità, viene visualizzato un collegamento "Contattare l'amministratore" che consente di ricevere assistenza per posta elettronica o tramite un portale Web.
-   >
+   > 
+   > Se è necessario sbloccare l'account, scegliere qui l'opzione "Ricordo la password, ma non riesco ad accedere".
+   > 
 
 3. A seconda della configurazione definita dal personale IT, verranno visualizzate una o più delle opzioni seguenti per la reimpostazione della password self-service. Prima di usare l'articolo [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md), l'utente o il personale IT hanno specificato alcune di queste informazioni.
 
@@ -59,11 +66,6 @@ Per accedere all'account aziendale o dell'istituto di istruzione, seguire questa
 
 4. Il personale IT può richiedere un'altra verifica. In questo caso sarà necessario ripetere il passaggio 3 con un'opzione diversa.
 5. Nella pagina **Scegliere una nuova password** immettere una nuova password e confermarla, quindi fare clic su **Fine**. È consigliabile che la password contenga una combinazione di 8-16 caratteri minuscoli, maiuscoli, numeri e caratteri speciali.
-
-   > [!NOTE]
-   > Se è necessario sbloccare l'account, a questo punto scegliere l'opzione per sbloccare l'account o per modificare la password e sbloccare l'account.
-   >
-
 6. Quando viene visualizzato il messaggio **La password è stata reimpostata**, è possibile accedere con la nuova password.
 
     ![La password è stata reimpostata][Complete]
@@ -100,8 +102,8 @@ Usare questo metodo se in genere si accede alle applicazioni tramite il portale 
 
 | Scenario di errore| Tipo di errore visualizzato| Soluzione |
 | --- | --- | --- |
-| Dopo aver immesso l'ID utente viene visualizzata una pagina "Contattare l'amministratore" | Contattare l'amministratore <br> <br> È stato rilevato che la password dell'account utente non è gestita da Microsoft. Di conseguenza, non può essere reimpostata automaticamente. <br> <br> È necessario contattare il personale IT per ricevere assistenza aggiuntiva. | Questo messaggio viene visualizzato perché il personale IT gestisce la password nell'ambiente locale e non consente di reimpostarla dal collegamento "Problemi di accesso all'account?". <br> <br> Per reimpostare la password, contattare direttamente il personale IT per ricevere assistenza e informarne i membri che si intende reimpostare la password da Office 365 in modo che abilitino questa funzionalità per l'utente.|
-| Dopo aver immesso l'ID utente viene visualizzato il messaggio di errore "Account non abilitato per la reimpostazione della password"  | Account non abilitato per la reimpostazione della password <br> <br> Il personale IT non ha configurato l'account per l'uso di questo servizio. <br> <br> Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password. | Questo messaggio viene visualizzato perché il personale IT non ha abilitato la reimpostazione della password per l'organizzazione dal collegamento "Problemi di accesso all'account?" o non consente all'utente di usare la funzionalità. <br> <br> Per reimpostare la password, fare clic sul collegamento per contattare un amministratore e inviare un messaggio di posta elettronica al personale IT della società per richiedere che venga abilitata la funzionalità di reimpostazione della password da Office 365 per l'utente. |
+| Dopo aver immesso l'ID utente viene visualizzata una pagina "Contattare l'amministratore" | Contattare l'amministratore <br> <br> È stato rilevato che la password dell'account utente non è gestita da Microsoft. Di conseguenza, non può essere reimpostata automaticamente. <br> <br> È necessario contattare il personale IT per ricevere assistenza aggiuntiva. | Questo messaggio viene visualizzato perché il personale IT gestisce la password nell'ambiente locale e non consente di reimpostarla dal collegamento "Problemi di accesso all'account?". <br> <br> Per reimpostare la password, contattare direttamente il personale IT per ricevere assistenza e informarne i membri che si intende reimpostare la password, in modo che abilitino questa funzionalità per l'utente.|
+| Dopo aver immesso l'ID utente viene visualizzato il messaggio di errore "Account non abilitato per la reimpostazione della password"  | Account non abilitato per la reimpostazione della password <br> <br> Il personale IT non ha configurato l'account per l'uso di questo servizio. <br> <br> Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password. | Questo messaggio viene visualizzato perché il personale IT non ha abilitato la reimpostazione della password per l'organizzazione dal collegamento "Problemi di accesso all'account?" o non consente all'utente di usare la funzionalità. <br> <br> Per reimpostare la password, fare clic sul collegamento per contattare un amministratore e inviare un messaggio di posta elettronica al personale IT della società per richiedere che venga abilitata la funzionalità di reimpostazione della password per l'utente. |
 | Dopo aver immesso l'ID utente viene visualizzato il messaggio di errore "Non è stato possibile verificare l'account". | Non è stato possibile verificare l'account <br> <br> Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password. | Questo messaggio viene visualizzato perché è abilitata la reimpostazione della password da parte dell'utente, ma non è stata eseguita la registrazione per usare il servizio. Per registrarsi per la reimpostazione della password, andare alla pagina http://aka.ms/ssprsetup dopo aver recuperato l'accesso al proprio account. <br> <br> Per reimpostare la password, fare clic sul collegamento per contattare un amministratore e inviare un messaggio di posta elettronica al personale della società. |
 
 ## <a name="next-steps"></a>Passaggi successivi
