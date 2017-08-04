@@ -1,7 +1,6 @@
 ---
-
 title: Sicurezza di rete di Azure | Microsoft Docs
-description: "Informazioni sui servizi di calcolo basati sul cloud che includono un&quot;ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell&quot;applicazione o dell&quot;organizzazione."
+description: "Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione."
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: a8443e58b5f0b56eed01327f7ae656ad952999ef
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bec61dd630348e4657862077f07b1313ed0ed373
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -51,7 +49,7 @@ I destinatari di questo white paper includono:
 
 - Responsabili tecnici, amministratori di rete e sviluppatori che cercano soluzioni di sicurezza disponibili e supportate in Azure.
 
--    PMI o responsabili dei processi aziendali che cercano una panoramica generale dei servizi e delle tecnologie di rete di Azure attinenti a discussioni sulla sicurezza di rete nel cloud pubblico di Azure.
+-   PMI o responsabili dei processi aziendali che cercano una panoramica generale dei servizi e delle tecnologie di rete di Azure attinenti a discussioni sulla sicurezza di rete nel cloud pubblico di Azure.
 
 ## <a name="azure-networking-big-picture"></a>Quadro generale della rete di Azure
 Microsoft Azure include una solida infrastruttura di rete per supportare i requisiti di connettività di applicazioni e servizi. La connettività di rete è possibile tra le risorse disponibili in Azure, le risorse locali e quelle ospitate in Azure, nonché da e verso Internet e Azure.
@@ -70,13 +68,13 @@ Azure ha diversi componenti di rete rilevanti per le discussioni sulla sicurezza
 
 Questo documento illustra le seguenti funzionalità aziendali della rete di Azure:
 
--    Connettività di rete di base
+-   Connettività di rete di base
 
--    Connettività ibrida
+-   Connettività ibrida
 
--    Security Controls
+-   Security Controls
 
--    Convalida della rete
+-   Convalida della rete
 
 ### <a name="basic-network-connectivity"></a>Connettività di rete di base
 
@@ -107,19 +105,19 @@ Per altre informazioni sulla connessione di reti virtuali con una connessione da
 
 Una rete virtuale di Azure fornisce le macchine virtuali per la connessione alla rete, in modo che possano connettersi ad altre risorse di rete in modo sicuro. Tuttavia, la connettività di base è solo l'inizio. Le seguenti funzionalità del servizio di rete virtuale di Azure espongono le caratteristiche di sicurezza della rete virtuale di Azure:
 
--    Isolamento
+-   Isolamento
 
--    Connettività Internet
+-   Connettività Internet
 
--    Connettività delle risorse di Azure
+-   Connettività delle risorse di Azure
 
--    Connettività di rete virtuale
+-   Connettività di rete virtuale
 
--    Connettività locale
+-   Connettività locale
 
--    Filtro del traffico
+-   Filtro del traffico
 
--    Routing.
+-   Routing.
 
 **Isolamento**
 
@@ -129,11 +127,11 @@ Azure offre la risoluzione dei nomi interna per le VM e le istanze del ruolo [Se
 
 È possibile implementare più reti virtuali in ogni [sottoscrizione](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) e [area](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure. Ogni rete virtuale è isolata dalle altre. Per ogni rete virtuale è possibile:
 
--    Specificare uno spazio indirizzi IP privato personalizzato con indirizzi pubblici e privati (RFC 1918). Azure assegna alle risorse connesse alla rete virtuale un indirizzo IP privato dello spazio indirizzi specificato.
+-   Specificare uno spazio indirizzi IP privato personalizzato con indirizzi pubblici e privati (RFC 1918). Azure assegna alle risorse connesse alla rete virtuale un indirizzo IP privato dello spazio indirizzi specificato.
 
--    Segmentare la rete virtuale in una o più subnet e allocare una parte dello spazio indirizzi della rete virtuale a ogni subnet.
+-   Segmentare la rete virtuale in una o più subnet e allocare una parte dello spazio indirizzi della rete virtuale a ogni subnet.
 
--    Usare la risoluzione dei nomi fornita da Azure oppure specificare un server DNS personalizzato che verrà usato dalle risorse connesse a una rete virtuale. Per altre informazioni sulla risoluzione dei nomi nelle reti virtuali, vedere [Risoluzione dei nomi per macchine virtuali e servizi cloud](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+-   Usare la risoluzione dei nomi fornita da Azure oppure specificare un server DNS personalizzato che verrà usato dalle risorse connesse a una rete virtuale. Per altre informazioni sulla risoluzione dei nomi nelle reti virtuali, vedere [Risoluzione dei nomi per macchine virtuali e servizi cloud](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 **Connettività Internet**
 
@@ -194,13 +192,13 @@ Per impostazione predefinita, Azure crea tabelle di route che consentono alle ri
 ### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Connettività Internet ibrida: connettersi a una rete locale
 È possibile connettere la rete locale a una rete virtuale usando qualsiasi combinazione delle opzioni seguenti.
 
--    Connettività Internet
+-   Connettività Internet
 
--    VPN da punto a sito
+-   VPN da punto a sito
 
--    VPN da sito a sito
+-   VPN da sito a sito
 
--    ExpressRoute
+-   ExpressRoute
 
 #### <a name="internet-connectivity"></a>Connettività Internet
 
@@ -252,17 +250,17 @@ Una rete virtuale di Azure offre una rete logica e sicura, isolata dalle altre r
 
 Di seguito sono riportati i controlli di sicurezza che è possibile usare nelle reti virtuali di Azure:
 
--    Controlli di accesso alla rete
+-   Controlli di accesso alla rete
 
--    Route definite dall'utente
+-   Route definite dall'utente
 
--    Appliance di sicurezza di rete
+-   Appliance di sicurezza di rete
 
--    gateway applicazione
+-   gateway applicazione
 
--    Web application firewall di Azure
+-   Web application firewall di Azure
 
--    Controllo di disponibilità di rete
+-   Controllo di disponibilità di rete
 
 #### <a name="network-access-controls"></a>Controlli di accesso alla rete
 Se da un lato la rete virtuale di Azure è il fulcro del modello di rete di Azure e offre isolamento e protezione, i [gruppi di sicurezza di rete](https://blogs.msdn.microsoft.com/igorpag/2016/05/14/azure-network-security-groups-nsg-best-practices-and-lessons-learned/) rappresentano lo strumento principale per applicare e controllare le regole del traffico di rete a livello di rete.
@@ -276,23 +274,23 @@ Nel diagramma, sia le reti virtuali che i gruppi di sicurezza di rete si trovano
 
 I gruppi di sicurezza di rete usano 5 tuple per valutare il traffico (usate nelle regole configurate per il gruppo di sicurezza di rete):
 
--    [Indirizzo IP di origine e di destinazione](https://support.microsoft.com/help/969029/the-functionality-for-source-ip-address-selection-in-windows-server-2008-and-in-windows-vista-differs-from-the-corresponding-functionality-in-earlier-versions-of-windows)
+-   [Indirizzo IP di origine e di destinazione](https://support.microsoft.com/help/969029/the-functionality-for-source-ip-address-selection-in-windows-server-2008-and-in-windows-vista-differs-from-the-corresponding-functionality-in-earlier-versions-of-windows)
 
--    [Porta di origine e di destinazione](https://technet.microsoft.com/library/dd197515)
+-   [Porta di origine e di destinazione](https://technet.microsoft.com/library/dd197515)
 
--    Protocollo: [Transmission Control Protocol (TCP)](https://technet.microsoft.com/library/cc940037.aspx) o [User Datagram Protocol (UDP)](https://technet.microsoft.com/library/cc940034.aspx)
+-   Protocollo: [Transmission Control Protocol (TCP)](https://technet.microsoft.com/library/cc940037.aspx) o [User Datagram Protocol (UDP)](https://technet.microsoft.com/library/cc940034.aspx)
 
 Ciò significa che è possibile controllare l'accesso tra una macchina virtuale singola e un gruppo di macchine virtuali o una macchina virtuale singola e un'altra macchina virtuale singola o tra intere subnet. Anche in questo caso, occorre tenere presente che si tratta di un semplice filtro dei pacchetti con stato, non di un'ispezione completa dei pacchetti. In un gruppo di sicurezza di rete non c'è alcuna convalida del protocollo, IDS a livello di rete o funzionalità IPS.
 
 Il gruppo di sicurezza di rete include alcune regole predefinite che è opportuno conoscere. Si tratta di:
 
--    **Consenti tutto il traffico all'interno di una rete virtuale specifica:** tutte le macchine virtuali nella stessa rete virtuale di Azure possono comunicare tra loro.
+-   **Consenti tutto il traffico all'interno di una rete virtuale specifica:** tutte le macchine virtuali nella stessa rete virtuale di Azure possono comunicare tra loro.
 
--    **Consenti il traffico in ingresso per il bilanciamento del carico di Azure:**  questa regola consente il traffico da qualsiasi indirizzo di origine a qualsiasi indirizzo di destinazione per il servizio di bilanciamento del carico di Azure.
+-   **Consenti il traffico in ingresso per il bilanciamento del carico di Azure:**  questa regola consente il traffico da qualsiasi indirizzo di origine a qualsiasi indirizzo di destinazione per il servizio di bilanciamento del carico di Azure.
 
--    **Nega tutto il traffico in ingresso:**  questa regola blocca tutto il traffico proveniente da Internet che è stato consentito in modo esplicito.
+-   **Nega tutto il traffico in ingresso:**  questa regola blocca tutto il traffico proveniente da Internet che è stato consentito in modo esplicito.
 
--    **Consenti tutto il traffico in uscita verso Internet:** questa regola consente alle macchine virtuali di avviare connessioni a Internet. Se si preferisce che tali connessioni non vengano avviate, è necessario creare una regola per bloccare le connessioni o applicare il tunneling forzato.
+-   **Consenti tutto il traffico in uscita verso Internet:** questa regola consente alle macchine virtuali di avviare connessioni a Internet. Se si preferisce che tali connessioni non vengano avviate, è necessario creare una regola per bloccare le connessioni o applicare il tunneling forzato.
 
 #### <a name="system-routes-and-user-defined-routes"></a>Route di sistema e route definite dall'utente
 
@@ -304,17 +302,17 @@ Lo stesso vale per la comunicazione tra macchine virtuali e rete Internet pubbli
 
 Questo flusso di comunicazione è possibile perché Azure utilizza una serie di route di sistema per definire il flusso di traffico IP. I route di sistema controllano il flusso delle comunicazioni negli scenari seguenti:
 
--    All'interno della stessa subnet.
+-   All'interno della stessa subnet.
 
--    Da una subnet a altra all'interno di una rete virtuale.
+-   Da una subnet a altra all'interno di una rete virtuale.
 
--    Da macchine virtuali a Internet.
+-   Da macchine virtuali a Internet.
 
--    Da una rete virtuale a un'altra rete virtuale tramite un gateway VPN.
+-   Da una rete virtuale a un'altra rete virtuale tramite un gateway VPN.
 
--    Da una rete virtuale a un'altra tramite il peering di rete virtuale ([concatenamento dei servizi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)).
+-   Da una rete virtuale a un'altra tramite il peering di rete virtuale ([concatenamento dei servizi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)).
 
--    Da una rete virtuale alla rete locale tramite un gateway VPN.
+-   Da una rete virtuale alla rete locale tramite un gateway VPN.
 
 Molte aziende hanno rigidi requisiti di sicurezza e conformità che richiedono l'ispezione locale di tutti i pacchetti di rete per l'applicazione di criteri specifici. Azure offre un meccanismo denominato [tunneling forzato](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) che instrada il traffico dalle macchine virtuali alla rete locale, creando una route personalizzata o per mezzo di annunci [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) tramite ExpressRoute o VPN. annunci tramite ExpressRoute o VPN.
 
@@ -322,19 +320,19 @@ Il tunneling forzato in Azure viene configurato tramite route di rete virtuale d
 
 Nella sezione seguente viene elencata la limitazione attuale della tabella di routing e delle route per una rete virtuale di Azure:
 
--    Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
+-   Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
 
- -    **Route della rete virtuale locale:** direttamente alla destinazione di macchine virtuali nella stessa rete virtuale
+ -  **Route della rete virtuale locale:** direttamente alla destinazione di macchine virtuali nella stessa rete virtuale
 
  - **Route locale:** al gateway VPN di Azure
 
- -    **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati che non rientrano nelle due route precedenti vengono eliminati.
+ -  **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati che non rientrano nelle due route precedenti vengono eliminati.
 
--    Con il rilascio di route definite dall'utente, è possibile creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alla subnet della rete virtuale per abilitare il tunneling forzato su tali subnet.
+-   Con il rilascio di route definite dall'utente, è possibile creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alla subnet della rete virtuale per abilitare il tunneling forzato su tali subnet.
 
--    È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale.
+-   È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale.
 
--    Il tunneling forzato deve essere associato a una rete virtuale che disponga di un gateway VPN (non un gateway statico).
+-   Il tunneling forzato deve essere associato a una rete virtuale che disponga di un gateway VPN (non un gateway statico).
 
 - Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute.
 
@@ -348,27 +346,27 @@ Anche se i gruppi di sicurezza di rete e le route definite dall'utente possono o
 
 Le appliance di sicurezza di rete di Azure migliorano la sicurezza della rete virtuale e le funzioni di rete. In [Azure Marketplace](https://azuremarketplace.microsoft.com) sono disponibili appliance di diversi fornitori. È possibile distribuire le appliance di sicurezza virtuale allo scopo di garantire quanto segue:
 
--    Firewall a disponibilità elevata
+-   Firewall a disponibilità elevata
 
--    Prevenzione delle intrusioni
+-   Prevenzione delle intrusioni
 
--    Rilevamento delle intrusioni
+-   Rilevamento delle intrusioni
 
--    Web application firewall
+-   Web application firewall
 
--    Ottimizzazione WAN
+-   Ottimizzazione WAN
 
--    Routing.
+-   Routing.
 
--    Bilanciamento del carico.
+-   Bilanciamento del carico.
 
--    VPN
+-   VPN
 
--    Gestione dei certificati
+-   Gestione dei certificati
 
--    Active Directory
+-   Active Directory
 
--    Autenticazione a più fattori
+-   Autenticazione a più fattori
 
 #### <a name="application-gateway"></a>gateway applicazione
 
@@ -378,13 +376,13 @@ Il [gateway applicazione di Microsoft Azure](https://docs.microsoft.com/azure/ap
 
 Il gateway applicazione consente di ottimizzare le prestazioni e la disponibilità delle Web farm eseguendo l'offload al gateway applicazione della terminazione SSL con utilizzo elevato di CPU (offload SSL). Offre inoltre funzionalità di routing di livello 7, tra cui:
 
--    Distribuzione round-robin del traffico in ingresso
+-   Distribuzione round-robin del traffico in ingresso
 
--    Affinità di sessione basata su cookie
+-   Affinità di sessione basata su cookie
 
--    Routing basato su percorsi URL
+-   Routing basato su percorsi URL
 
--    Possibilità di ospitare più siti Web dietro un gateway applicazione singolo
+-   Possibilità di ospitare più siti Web dietro un gateway applicazione singolo
 
 
 Nel gateway applicazione è incluso anche un [Web application firewall (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview). Questo offre alle applicazioni Web la protezione da exploit e vulnerabilità Web comuni. Il gateway applicazione può essere configurato come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni.
@@ -416,11 +414,11 @@ Sono disponibili diverse opzioni per distribuire il traffico di rete tramite Mic
 
 Di seguito sono indicati i controlli di disponibilità di rete:
 
--    Azure Load Balancer
+-   Azure Load Balancer
 
--    gateway applicazione
+-   gateway applicazione
 
--    Gestione traffico
+-   Gestione traffico
 
 **Azure Load Balancer**
 
@@ -431,11 +429,11 @@ Garantisce livelli elevati di disponibilità e prestazioni di rete per le applic
 
 Azure Load Balancer può essere configurato per:
 
--    Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali. Questa configurazione è nota come [bilanciamento del carico Internet tra più macchine virtuali o servizi](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview).
+-   Bilanciare il carico del traffico Internet in ingresso nelle macchine virtuali. Questa configurazione è nota come [bilanciamento del carico Internet tra più macchine virtuali o servizi](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview).
 
--    Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. Questa configurazione è nota come [bilanciamento del carico interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview).
+-   Bilanciare il carico del traffico tra macchine virtuali in una rete virtuale, tra macchine virtuali nei servizi cloud o tra computer locali e macchine virtuali in una rete virtuale cross-premise. Questa configurazione è nota come [bilanciamento del carico interno](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview).
 
--    Inoltrare il traffico esterno a una specifica macchina virtuale.
+-   Inoltrare il traffico esterno a una specifica macchina virtuale.
 
 Tutte le risorse nel cloud richiedono un indirizzo IP pubblico per poter essere raggiungibili da Internet. L'infrastruttura cloud di Azure usa per le proprie risorse indirizzi IP non instradabili. Azure usa Network Address Translation (NAT) con indirizzi IP pubblici per comunicare con Internet.
 
@@ -453,9 +451,9 @@ Gestione traffico di Azure consente di controllare in che modo il traffico viene
 
 Gestione traffico offre due vantaggi principali:
 
--    Distribuzione del traffico in base a uno dei diversi [metodi di routing del traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods).
+-   Distribuzione del traffico in base a uno dei diversi [metodi di routing del traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods).
 
--    [Monitoraggio continuo dell'integrità degli endpoint](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) e failover automatico quando si verificano errori sugli endpoint.
+-   [Monitoraggio continuo dell'integrità degli endpoint](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) e failover automatico quando si verificano errori sugli endpoint.
 
 Quando un client tenta di connettersi a un servizio, è necessario prima risolvere il nome DNS del servizio a un indirizzo IP. Il client si connette quindi a questo indirizzo IP per accedere al servizio. Gestione traffico usa DNS per indirizzare i client a specifici endpoint di servizio in base alle regole del metodo di routing del traffico. I client si connettono direttamente all'endpoint selezionato. Gestione traffico non è un proxy o un gateway. Gestione traffico non visualizza il traffico tra il client e il servizio.
 
@@ -465,17 +463,17 @@ La convalida della rete di Azure permette di accertare il funzionamento della re
 
 La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti ai clienti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. La sicurezza operativa di Azure è basata su un framework che incorpora le conoscenze acquisite tramite varie funzionalità esclusive di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
 
--    [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+-   [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
--    [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+-   [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
--    [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
+-   [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
--    [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+-   [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
 
--    [Azure Storage analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
+-   [Azure Storage analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
--    Gestione risorse di Azure
+-   Gestione risorse di Azure
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -489,19 +487,19 @@ L'infrastruttura per l'applicazione è in genere costituita da vari componenti, 
 
 Gestione risorse offre numerosi vantaggi:
 
--    È possibile distribuire, gestire e monitorare tutte le risorse per la soluzione come un gruppo, anziché gestire singolarmente tali risorse.
+-   È possibile distribuire, gestire e monitorare tutte le risorse per la soluzione come un gruppo, anziché gestire singolarmente tali risorse.
 
--    È possibile distribuire ripetutamente la soluzione nel corso del ciclo di vita dello sviluppo garantendo al contempo che le risorse vengano distribuite in uno stato coerente.
+-   È possibile distribuire ripetutamente la soluzione nel corso del ciclo di vita dello sviluppo garantendo al contempo che le risorse vengano distribuite in uno stato coerente.
 
--    È possibile gestire l'infrastruttura con modelli dichiarativi, piuttosto che con script.
+-   È possibile gestire l'infrastruttura con modelli dichiarativi, piuttosto che con script.
 
--    È possibile definire le dipendenze tra le risorse in modo che vengano distribuite nell'ordine corretto.
+-   È possibile definire le dipendenze tra le risorse in modo che vengano distribuite nell'ordine corretto.
 
--    è possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo di accesso basato sui ruoli (RBAC) è integrato in modo nativo nella piattaforma di gestione.
+-   è possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo di accesso basato sui ruoli (RBAC) è integrato in modo nativo nella piattaforma di gestione.
 
--    È possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
+-   È possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
 
--    È possibile ottenere informazioni dettagliate sulla fatturazione per l'organizzazione visualizzando i costi di un gruppo di risorse che condividono un tag.
+-   È possibile ottenere informazioni dettagliate sulla fatturazione per l'organizzazione visualizzando i costi di un gruppo di risorse che condividono un tag.
 
 > [!Note]
 > Gestione risorse offre un nuovo modo per distribuire e gestire le soluzioni. Per informazioni sulle modifiche introdotte rispetto al modello di distribuzione precedente, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
@@ -510,11 +508,11 @@ Gestione risorse offre numerosi vantaggi:
 
 Azure offre diversi strumenti che permettono di monitorare, prevenire, rilevare e rispondere agli eventi di sicurezza di rete. Alcuni degli strumenti più potenti disponibili includono:
 
--    Network Watcher
+-   Network Watcher
 
--    Monitoraggio a livello di risorsa di rete
+-   Monitoraggio a livello di risorsa di rete
 
--    Log Analytics
+-   Log Analytics
 
 ### <a name="network-watcher"></a>Network Watcher
 
@@ -570,9 +568,9 @@ Network Watcher offre numerose funzionalità che consentono di comprendere le ri
 
 Questa sezione illustra le diverse attività di gestione attualmente disponibili per la risoluzione dei problemi relativi alle risorse.
 
--    [Risolvere i problemi relativi a un gateway di rete virtuale](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [Risolvere i problemi relativi a un gateway di rete virtuale](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
 
--    [Risolvere i problemi relativi a una connessione](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [Risolvere i problemi relativi a una connessione](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
 
 #### <a name="network-subscription-limits"></a>Limite sottoscrizioni di rete
 
@@ -616,37 +614,37 @@ Network Watcher offre una visualizzazione dei log di diagnostica contenente tutt
 
 Log Analytics offre le seguenti soluzioni per il monitoraggio delle reti:
 
--    Monitoraggio delle prestazioni di rete
+-   Monitoraggio delle prestazioni di rete
 
--    Analisi gateway applicazione di Azure
+-   Analisi gateway applicazione di Azure
 
--    Analisi gruppo di sicurezza di rete di Azure
+-   Analisi gruppo di sicurezza di rete di Azure
 
 #### <a name="network-performance-monitor-npm"></a>Monitoraggio prestazioni rete (NPM)
 La soluzione di gestione [Monitoraggio prestazioni rete](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor) consente di monitorare l'integrità, la disponibilità e la raggiungibilità delle reti.
 
 Viene usata per monitorare la connettività tra:
 
--    cloud pubblico e risorse locali
+-   cloud pubblico e risorse locali
 
--    data center e percorsi utente (filiali)
+-   data center e percorsi utente (filiali)
 
--    subnet che ospita i diversi livelli di un'applicazione a più livelli.
+-   subnet che ospita i diversi livelli di un'applicazione a più livelli.
 
 
 #### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Analisi gateway applicazione di Azure in Log Analytics
 
 I log seguenti sono supportati per i gateway applicazione:
 
--    ApplicationGatewayAccessLog
+-   ApplicationGatewayAccessLog
 
--    ApplicationGatewayPerformanceLog
+-   ApplicationGatewayPerformanceLog
 
--    ApplicationGatewayFirewallLog
+-   ApplicationGatewayFirewallLog
 
 Le metriche seguenti sono supportate per i gateway applicazione:
 
--    Velocità effettiva in cinque minuti
+-   Velocità effettiva in cinque minuti
 
 #### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Analisi gruppo di sicurezza di rete di Azure in Log Analytics
 
@@ -659,13 +657,13 @@ I log seguenti sono supportati per i [gruppi di sicurezza di rete](https://docs.
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla sicurezza, vedere alcuni degli approfondimenti sull'argomento:
 
--    [Log Analytics per i gruppi di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Log Analytics per i gruppi di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
--    [Networking innovations that drive the cloud disruption (Innovazioni di rete che determinano l'interruzione del cloud)](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
+-   [Networking innovations that drive the cloud disruption (Innovazioni di rete che determinano l'interruzione del cloud)](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 
--    [SONiC: The networking switch software that powers the Microsoft Global Cloud (SONiC: il software di commutazione di rete su cui si basa il cloud globale Microsoft)](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
+-   [SONiC: The networking switch software that powers the Microsoft Global Cloud (SONiC: il software di commutazione di rete su cui si basa il cloud globale Microsoft)](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
 
--    [How Microsoft builds its fast and reliable global network (Informazioni sul modo in cui Microsoft crea una rete globale veloce e affidabile)](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
+-   [How Microsoft builds its fast and reliable global network (Informazioni sul modo in cui Microsoft crea una rete globale veloce e affidabile)](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 
--    [Lighting up network innovation (Realizzare l'innovazione della rete)](https://azure.microsoft.com/blog/lighting-up-network-innovation/)
+-   [Lighting up network innovation (Realizzare l'innovazione della rete)](https://azure.microsoft.com/blog/lighting-up-network-innovation/)
 

@@ -1,6 +1,6 @@
 ---
 title: Introduzione al server Web ASP.NET per Azure AD v2 - Installazione | Microsoft Docs
-description: Implementazione di accessi Microsoft in una soluzione ASP.NET con un&quot;applicazione tradizionale basata su Web browser tramite lo standard OpenID Connect
+description: Implementazione di accessi Microsoft in una soluzione ASP.NET con un'applicazione tradizionale basata su Web browser tramite lo standard OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,8 +16,8 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 0807e37632f9d817b22735103514f7bd03c05d59
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ebf54f5a203adb7f0e5b0c47dcc07595e269e218
 ms.contentlocale: it-it
 
 
@@ -27,7 +27,7 @@ ms.contentlocale: it-it
 
 Questa sezione illustra la procedura per l'installazione e la configurazione della pipeline di autenticazione tramite middleware OWIN in un progetto ASP.NET mediante OpenID Connect. 
 
-> Se invece si preferisce scaricare questo progetto Visual Studio di esempio, è possibile [scaricare il progetto](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) e passare direttamente al [configurazione](#create-an-application-express "passaggio di configurazione") per configurare il codice di esempio prima di eseguirlo.
+> Se invece si preferisce scaricare questo progetto Visual Studio di esempio, [Scaricare un progetto](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) e passare direttamente al [passaggio di configurazione](#create-an-application-express) per configurare il codice di esempio prima di eseguirlo.
 
 <!--start-collapse-->
 > ### <a name="create-your-aspnet-project"></a>Creare un progetto ASP.NET

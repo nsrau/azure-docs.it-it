@@ -1,7 +1,6 @@
 ---
-
 title: "Funzionalità tecniche per la sicurezza di Azure | Microsoft Docs"
-description: "Informazioni sui servizi di calcolo basati sul cloud che includono un&quot;ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell&quot;applicazione o dell&quot;organizzazione."
+description: "Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione."
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 549f11d3d55d13f3a2ddf7bd0a2bc58e527d1d11
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
@@ -196,7 +194,7 @@ Per crittografare i dati, supportare almeno uno dei modelli di crittografia cons
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Crittografia server | Crittografia server | Crittografia server | Crittografia client
 | Crittografia lato server con chiavi gestite dal servizio | Crittografia lato server con chiavi gestite dal cliente in Azure Key Vault | Crittografia lato server con chiavi gestite dal cliente in locale |
-| •    I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia <br> •    Microsoft gestisce le chiavi <br>•    Funzionalità cloud complete | •    I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia<br>•    Il cliente controlla le chiavi tramite Azure Key Vault<br>•    Funzionalità cloud complete | •    I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia <br>•    Il cliente controlla le chiave in locale <br> •    Funzionalità cloud complete| •    I servizi di Azure non possono visualizzare i dati decrittografati <br>•    I clienti mantengono le chiavi in locale o in altri archivi sicuri. Le chiavi non sono disponibili per i servizi di Azure <br>•    Funzionalità cloud ridotte|
+| • I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia <br> •    Microsoft gestisce le chiavi <br>•    Funzionalità cloud complete | •    I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia<br>•  Il cliente controlla le chiavi tramite Azure Key Vault<br>• Funzionalità cloud complete | •    I provider di risorse di Azure eseguono le operazioni di crittografia e decrittografia <br>• Il cliente controlla le chiavi in locale <br> •   Funzionalità cloud complete| • I servizi di Azure non possono visualizzare i dati decrittografati <br>•  I clienti mantengono le chiavi in locale o in altri archivi sicuri. Le chiavi non sono disponibili per i servizi di Azure <br>• Funzionalità cloud ridotte|
 
 ### <a name="enabling-encryption-at-rest"></a>Abilitazione della crittografia dei dati inattivi
 

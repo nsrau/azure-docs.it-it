@@ -5,17 +5,17 @@ services: networking
 author: tracsman
 manager: rossort
 tags: azure-resource-manager
-ms.service: networking
+ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: df2e834dd06a00716aa4991af62277791b6768f5
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 487c2dc22acc5194ef103ebef01c62c887580335
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -36,7 +36,7 @@ Il diagramma distribuzione cloud seguente illustra alcuni esempi di lacune nella
 
 Il data center virtuale è nato da questa necessità di ridimensionamento per poter supportare carichi di lavoro aziendali e dall'esigenza di gestire i problemi derivanti dal supporto di applicazioni su larga scala nel cloud pubblico.
 
-Un data center virtuale non comprende solo i carichi di lavoro delle applicazioni nel cloud, ma anche la rete, la sicurezza, la gestione e l'infrastruttura (ad esempio, DNS e servizi directory). In genere fornisce anche una connessione privata a una rete o data center locale. Poiché sempre più carichi di lavoro passano ad Azure, è importante considerare l'infrastruttura di supporto e gli oggetti in cui questi carichi di lavoro vengono inseriti. Un'attenta valutazione di come le risorse sono strutturate può evitare il proliferare di centinaia di "isole di carichi di lavoro" che devono essere gestite separatamente, ognuna con i propri flussi di dati, modelli di sicurezza e problematiche di conformità.
+Un data center virtuale non comprende solo i carichi di lavoro delle applicazioni nel cloud, ma anche la rete, la sicurezza, la gestione e l'infrastruttura (ad esempio, DNS e servizi directory). In genere offre anche una connessione privata a una rete o data center locale. Poiché sempre più carichi di lavoro passano ad Azure, è importante considerare l'infrastruttura di supporto e gli oggetti in cui questi carichi di lavoro vengono inseriti. Un'attenta valutazione di come le risorse sono strutturate può evitare il proliferare di centinaia di "isole di carichi di lavoro" che devono essere gestite separatamente, ognuna con i propri flussi di dati, modelli di sicurezza e problematiche di conformità.
 
 Un data center virtuale è fondamentalmente una raccolta di entità separate, ma correlate, con funzioni, funzionalità e infrastruttura di supporto comuni. Visualizzando i carichi di lavoro come data center virtuale integrato, è possibile ridurre i costi grazie alle economie di scala, ottimizzare la sicurezza tramite componenti e flussi di dati centralizzati e semplificare operazioni, gestione e controlli della conformità.
 
