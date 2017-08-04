@@ -1,6 +1,6 @@
 ---
-title: Ottimizzazione del download di file di grandi dimensioni mediante la rete CDN di Azure
-description: Approfondimento dell'ottimizzazione del download di file di grandi dimensioni
+title: Ottimizzazione del download di file di grandi dimensioni tramite la rete di distribuzione dei contenuti di Azure
+description: Descrizione approfondita dell'ottimizzazione dei download di file di grandi dimensioni
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -14,67 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 27e202b05f86eeee7071f3fae145caeba3d66827
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7a5d5d1d0de24ebb0a5115ede1e572f38454bd78
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="large-file-download-optimization-via-azure-cdn"></a>Ottimizzazione del download di file di grandi dimensioni mediante la rete CDN di Azure
+# <a name="large-file-download-optimization-via-the-azure-content-delivery-network"></a>Ottimizzazione del download di file di grandi dimensioni tramite la rete di distribuzione dei contenuti di Azure
 
-La dimensione di file dei contenuti pubblicati su Internet è aumentata costantemente come conseguenza delle funzionalità avanzate, della grafica migliorata e dei contenuti multimediali ricchi. Questo ha origine da numerosi fattori, tra cui la penetrazione della banda larga, dispositivi di archiviazione più grandi ed economici, proliferazione dei video in alta definizione, dispositivi connessi a Internet (IoT) e così via.  Fornire un meccanismo di recapito più veloce ed efficiente per questi file di grandi dimensioni è fondamentale per garantire un'esperienza utente uniforme e semplice. 
+Le dimensioni di file dei contenuti distribuiti in Internet continua ad aumentare come conseguenza delle funzionalità avanzate, della grafica migliorata e della complessità dei contenuti multimediali. Questa crescita è determinata da diversi fattori: penetrazione della banda larga, dispositivi di archiviazione economici e con capacità maggiore, elevata diffusione di video ad alta definizione e dispositivi connessi a Internet (IoT). Un meccanismo di distribuzione rapido ed efficiente per file di grandi dimensioni è essenziale per garantire a ogni cliente un'esperienza uniforme e soddisfacente.
 
-La distribuzione di file di grandi dimensioni comporta diverse sfide. In primo luogo il tempo medio per scaricare un file di grandi dimensioni può essere significativo e molte applicazioni non possono scaricare in modo sequenziale tutti i dati. In alcuni casi le applicazioni potrebbero scaricare l'ultima parte di un file prima della prima. Pertanto, quando è richiesta solo una piccola parte di un file o l'utente mette in pausa il download, il download può non andare a buon fine o essere ritardato fino a dopo che l'intero file è stato recuperato dall'origine attraverso la rete CDN. 
+La distribuzione di file di grandi dimensioni pone diverse sfide. In primo luogo, il tempo medio per scaricare un file di grandi dimensioni può essere significativo, in quanto molte applicazioni potrebbero non scaricare tutti i dati in sequenza. In alcuni casi, le applicazioni potrebbero scaricare l'ultima parte di un file prima della prima. Quando è necessaria solo una piccola parte di un file o un utente sospende un download, il download può non riuscire. Il download può anche subire ritardi, finché la rete per la distribuzione di contenuti (rete CDN) non recupera l'intero file dal server di origine. 
 
-In secondo luogo, con l'aumentare del numero di file di grandi dimensioni su Internet, gli utenti spesso osservano che in definitiva è la latenza tra l'utente e il file a determinare la velocità effettiva o la velocità con cui gli utenti possono visualizzare il contenuto. Inoltre, anche i problemi di congestione e capacità della rete influiscono sulla velocità effettiva e questi problemi, associati con la maggiore distanza tra il server e l'utente finale, crea ulteriori opportunità di perdita di pacchetti, riducendo ulteriormente la qualità. La riduzione della qualità causata dalla velocità effettiva limitata e dalla maggiore perdita di pacchetti può manifestarsi in un tempo di attesa notevolmente maggiore per il completamento del download di un file. 
+In secondo luogo, la latenza tra il computer di un utente e il file determina la velocità a cui l'utente può visualizzare il contenuto. Inoltre, problemi di congestione e capacità di rete possono influire sulla velocità effettiva. Distanze maggiori tra server e utenti creano rischi aggiuntivi di perdita dei pacchetti, riducendo la qualità. La qualità inferiore causata dalla velocità effettiva limitata e dalla crescente perdita di pacchetti può comportare tempi di attesa notevolmente superiori per il completamento del download di un file. 
 
-Infine, molti file di grandi dimensioni non vengono recapitati interamente. Gli utenti possono annullare un download a metà o guardare solo i primi minuti di un video MP4 lungo. Pertanto è utile, per molte aziende di software e provider di contenuti multimediali, recapitare solo la parte di un file richiesta dall'utente finale. In questo modo solo le parti richieste vengono distribuite in modo efficiente ai destinatari più lontani su Internet, riducendo il traffico in uscita dall'origine e di conseguenza la pressione sulla memoria e dull'IO nel server di origine. 
+In terzo luogo, molti file di grandi dimensioni non vengono distribuiti interamente. Gli utenti potrebbero annullare un download a metà o guardare solo i primi minuti di un lungo video MP4. Di conseguenza, per molte aziende di distribuzione di software e contenuti multimediali può essere utile distribuire solo la parte richiesta di un file. Una distribuzione efficiente delle parti richieste riduce il traffico in uscita dal server di origine. Una distribuzione efficiente riduce anche la pressione in termini di memoria e I/O sul server di origine. 
 
-La rete CDN di Azure di Akamai offre ora una funzionalità finalizzata a fornire file di grandi dimensioni in modo efficiente agli utenti finali in tutto il mondo su larga scala e con bassa latenza, riducendo al contempo il carico sul server di origine. Questa caratteristica è disponibile tramite la funzionalità "Ottimizzato per" sull'endpoint della rete CDN di Azure creata in un profilo di rete CDN di Azure con il piano tariffario "Standard Akamai".
+La rete di distribuzione dei contenuti di Azure con tecnologia Akamai offre ora una funzionalità che permette di distribuire in modo efficiente e scalabile file di grandi dimensioni agli utenti di tutto il mondo. Questa funzionalità riduce le latenze perché riduce il carico sui server di origine. Questa funzionalità è disponibile con il piano tariffario Standard di Akamai.
 
-## <a name="configuring-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configurazione dell'endpoint della rete CDN per ottimizzare il recapito dei file di grandi dimensioni
+## <a name="configure-a-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configurare un endpoint di rete CDN per ottimizzare la distribuzione di file di grandi dimensioni
 
-È possibile configurare l'endpoint della rete CDN in modo da ottimizzare il recapito dei file di grandi dimensioni tramite il portale di Azure, selezionando l'opzione "Download di file di grandi dimensioni" sotto la selezione per la proprietà "Ottimizzato per" durante la creazione dell'endpoint. A tale scopo è anche possibile usare le API REST o qualsiasi SDK client. Le schermate riportate di seguito illustrano il processo tramite il portale di Azure.
+È possibile configurare l'endpoint di rete CDN per ottimizzare la distribuzione di file di grandi dimensioni tramite il portale di Azure. A tale scopo è anche possibile usare le API REST o qualsiasi SDK client. I passaggi seguenti mostrano il processo tramite il portale di Azure.
 
-![Nuovo endpoint della rete CDN](./media/cdn-large-file-optimization/01_Adding.png)  
+1. Per aggiungere un nuovo endpoint, nella pagina **Profilo CDN** selezionare **Endpoint**.
+
+    ![Nuovo endpoint](./media/cdn-large-file-optimization/01_Adding.png)  
  
-*Figura 1: Aggiunta di un nuovo endpoint della rete CDN dal profilo della rete CDN*
- 
-![LFO selezionato](./media/cdn-large-file-optimization/02_Creating.png)
+2. Nell'elenco a discesa **Ottimizzato per** selezionare **Download di file di grandi dimensioni**.
 
-*Figura 2: Creazione di un endpoint della rete CDN con l'opzione per l'ottimizzazione del download dei file di grandi dimensioni selezionata*
+    ![Selezione dell'ottimizzazione per file di grandi dimensioni](./media/cdn-large-file-optimization/02_Creating.png)
 
-Una volta creato l'endpoint della rete CDN, applicherà le ottimizzazioni per i file di grandi dimensioni per tutti i file che corrispondono a determinati criteri. La sezione seguente descrive questo aspetto in modo dettagliato.
 
-## <a name="optimizing-for-delivery-of-large-files-with-azure-cdn-from-akamai"></a>Ottimizzazione per la distribuzione dei file di grandi dimensioni con la rete CDN di Azure di Akamai
+Dopo aver creato l'endpoint di rete CDN, a tutti i file che soddisfano determinati criteri viene applicata l'ottimizzazione per file di grandi dimensioni. La sezione seguente descrive questo processo.
 
-Per la rete CDN di Azure di Akamai è possibile usare la funzionalità di ottimizzazione per i file di grandi dimensioni per attivare le ottimizzazioni e le configurazioni di rete che consentono di recapitare i file di grandi dimensioni in modo più rapido e dinamico. Il recapito Web generico con Akamai è in grado di memorizzare in cache soltanto i file minori di 1,8 GB e di eseguire il tunnelling (non la memorizzazione in cache) dei file fino a 150 GB, mentre l'ottimizzazione dei file di grandi dimensioni consente di memorizzare nella cache i file fino a 150 GB.
+## <a name="optimize-for-delivery-of-large-files-with-the-azure-content-delivery-network-from-akamai"></a>Ottimizzare la distribuzione di file di grandi dimensioni con la rete di distribuzione dei contenuti di Azure con tecnologia Akamai
 
-L'ottimizzazione dei file di grandi dimensioni viene applicata quando sono soddisfatte determinate condizioni riguardanti il funzionamento del server di origine, i tipi di file richiesti e la dimensione dei file richiesti. Prima di entrare nei dettagli di ognuno di questi aspetti, è importante conoscere una panoramica generale del funzionamento dell'ottimizzazione. 
+La funzionalità di ottimizzazione per file di grandi dimensioni attiva le ottimizzazioni e le configurazioni di rete per consentire la distribuzione di file di grandi dimensioni più rapidamente e tempestivamente. La distribuzione Web generica con Akamai memorizza nella cache solo i file con dimensioni inferiori a 1,8 GB e può effettuare il tunneling (senza memorizzazione nella cache) dei file di dimensioni fino a 150 GB. L'ottimizzazione per file di grandi dimensioni memorizza nella cache file di dimensioni fino a 150 GB.
+
+Questa ottimizzazione è efficace in determinate condizioni. Le condizioni includono il modo in cui opera il server di origine e le dimensioni e i tipi dei file richiesti. Prima di affrontare dettagliatamente questi argomenti, è utile comprendere il funzionamento dell'ottimizzazione. 
 
 ### <a name="object-chunking"></a>Suddivisione degli oggetti in blocchi 
 
-La rete CDN di Azure di Akamai usa una tecnica di suddivisione degli oggetti in blocchi in cui la rete CDN recupera piccole parti del file dall'origine quando viene richiesto un file di grandi dimensioni. Quando il server CDN perimetrale/POP riceve una richiesta di file completa o espressa come intervallo di byte da un utente finale, verifica innanzitutto se il tipo di file appartiene all'elenco dei tipi di file supportati per l'ottimizzazione e se soddisfa i requisiti di dimensione. Se la dimensione del file è maggiore di 10 MB, viene avviato il server perimetrale della rete CDN che richiede il file dal server di origine in blocchi di 2 MB. Quando il blocco arriva al perimetro della rete CDN, viene memorizzato nella cache e viene immediatamente servito all'utente finale, mentre la rete CDN "pre-recupera" il blocco successivo in parallelo. Questo "pre-recupero" assicura che il contenuto sia disponibile più rapidamente, rimanendo avanti di un blocco rispetto all'utente e riducendo la latenza verso l'utente finale. Questo processo continua finché l'intero file viene scaricato (se l'utente finale ha richiesto l'intero file), fino a quando non sono disponibili tutti gli intervalli di byte richiesti (se l'utente finale ha richiesto intervalli di byte) o il client termina la connessione. 
+La rete di distribuzione dei contenuti di Azure con tecnologia Akamai usa una tecnica chiamata suddivisione degli oggetti in blocchi. Quando viene richiesto un file di grandi dimensioni, la rete CDN recupera piccole parti del file dall'origine. Dopo che il server perimetrale/POP della rete CDN riceve la richiesta di un file completo o di un intervallo di byte, controlla se il tipo di file è supportato per l'ottimizzazione. Controlla inoltre che il tipo di file soddisfi i requisiti di dimensioni dei file. Se il file ha dimensioni maggiori di 10 MB, il server perimetrale della rete CDN richiede il file dall'origine in blocchi di 2 MB. 
 
-I dettagli della richiesta di intervalli di byte sono reperibili nella [RFC 7233](https://tools.ietf.org/html/rfc7233).
+Quando il blocco arriva al server perimetrale della rete CDN, viene memorizzato nella cache e reso immediatamente disponibile all'utente. La rete CDN esegue la prelettura del blocco successivo in parallelo. Questa prelettura fa sì che il contenuto resti in anticipo di un blocco rispetto all'utente, riducendo la latenza. Questo processo continua finché non viene scaricato l'intero file (se richiesto), non sono disponibili tutti gli intervalli di byte (se richiesto) o il client non termina la connessione. 
 
-La rete CDN memorizzerà nella cache tutti i blocchi non appena vengono ricevuti e non richiede che l'intero file sia memorizzato nella cache della rete CDN. Le richieste successive per file o intervalli di byte verranno servite dalla cache della rete CDN e sarà utilizzato il "pre-recupero" per richiedere i blocchi dall'origine, se non tutti i blocchi sono memorizzati nella cache della rete CDN. Come si può notare, questa ottimizzazione fa affidamento sul fatto che il server di origine supporti le richieste di intervalli di byte. _Se il server di origine non supporta le richieste di intervalli di byte, questa ottimizzazione non sarà operativa._ 
+Per altre informazioni sulla richiesta di intervalli di byte, vedere [RFC 7233](https://tools.ietf.org/html/rfc7233).
+
+La rete CDN memorizza nella cache tutti i blocchi alla loro ricezione. Il file non deve essere memorizzato interamente nella cache della rete CDN. Le richieste successive del file o di intervalli di byte vengono soddisfatte dalla cache della rete CDN. Se non tutti i blocchi vengono memorizzati nella cache della rete CDN, viene usata la prelettura per richiedere i blocchi dall'origine. Questa ottimizzazione presuppone il fatto che il server di origine supporti le richieste di intervalli di byte. _Se il server di origine non supporta le richieste di intervalli di byte, questa ottimizzazione non è efficace._ 
 
 ### <a name="caching"></a>Memorizzazione nella cache
-I file di grandi dimensioni usano tempi di scadenza della cache predefiniti diversi rispetto al recapito generico. Differenzia la memorizzazione nella cache positiva e negativa in base ai codici di risposta HTTP. Se l'origine specifica un'ora utilizzando un'ora di scadenza tramite l'intestazione Cache-Control o Expires nella risposta, la rete CDN rispetterà sempre tale valore. Quando l'origine non specificata nulla e il file soddisfa le condizioni riguardanti il tipo e la dimensione del file per questo tipo di ottimizzazione, la rete CDN utilizzerà i valori predefiniti per l'ottimizzazione dei file di grandi dimensioni. In caso contrario, la rete CDN utilizzerà i valori predefiniti per il recapito Web generico.
+L'ottimizzazione per file di grandi dimensioni usa tempi di scadenza della memorizzazione nella cache predefiniti diversi rispetto alla distribuzione Web generica. Differenzia la memorizzazione nella cache positiva e negativa in base ai codici di risposta HTTP. Se il server di origine specifica una scadenza tramite l'intestazione Cache-Control o Expires nella risposta, la rete CDN rispetta questo valore. Quando l'origine non specifica alcuna scadenza e il file soddisfa le condizioni di tipo e dimensioni per questo tipo di ottimizzazione, la rete CDN usa i valori predefiniti per l'ottimizzazione per file di grandi dimensioni. In caso contrario, la rete CDN usa i valori predefiniti per la distribuzione Web generica.
 
- 
-|    | Web generico | Ottimizzazione dei file di grandi dimensioni 
+
+|    | Distribuzione Web generica | Ottimizzazione per file di grandi dimensioni 
 --- | --- | --- 
-Memorizzazione nella cache - Positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |1 giorno  
-Memorizzazione nella cache - Negativa <br> HTTP 204, 305, 404, <br> e 405 | Nessuno | 1 secondo 
+Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |1 giorno  
+Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | None | 1 secondo 
 
-### <a name="dealing-with-origin-failure"></a>Gestione degli errori di origine
+### <a name="deal-with-origin-failure"></a>Gestire gli errori di origine
 
-Nel tipo di ottimizzazione dei file di grandi dimensioni, la durata del timeout di lettura originale aumenta dai 2 secondi del recapito Web generico a 2 minuti, per tenere conto della maggiore dimensione, in modo da non mandare in timeout la connessione prematuramente.
+La durata del timeout di lettura dell'origine aumenta da due secondi per la distribuzione Web generica a due minuti per il tipo di ottimizzazione per file di grandi dimensioni. Questo aumento è dovuto alle dimensioni di file maggiori, per evitare il timeout prematuro della connessione.
 
-Come nel recapito Web generico, quando una connessione va in timeout, l'operazione viene ritentata un determinato numero di volte prima dell'invio dell'errore di timeout gateway 504 al client. 
+Quando si verifica il timeout di una connessione, la rete CDN esegue un certo numero di tentativi prima di inviare l'errore "504 - Timeout gateway" al client. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Condizioni per l'ottimizzazione dei file di grandi dimensioni
 
@@ -83,42 +86,45 @@ La tabella seguente elenca il set di criteri che devono essere soddisfatti per l
 Condizione | Valori 
 --- | --- 
 Tipi di file supportati | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
-Minima dimensione di file | 10 MB 
-Massima dimensione di file | 150 GB 
-Caratteristiche del server di origine | Deve supportare le richieste di intervalli di byte 
+Dimensione minima dei file | 10 MB 
+Dimensione massima dei file | 150 GB 
+Caratteristiche del server di origine | Deve supportare richieste di intervalli di byte 
 
-## <a name="optimizing-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Ottimizzazione per il recapito dei file di grandi dimensioni con la rete CDN di Azure di Akamai
+## <a name="optimize-for-delivery-of-large-files-with-the-azure-content-delivery-network-from-verizon"></a>Ottimizzare la distribuzione di file di grandi dimensioni con la rete di distribuzione dei contenuti di Azure con tecnologia Verizon
 
-La rete CDN di Azure di Verizon è in grado di recapitare file di grandi dimensioni senza un limite sulla dimensione del file e dispone di varie funzionalità, attivate per impostazione predefinita, che rendono più veloce il recapito dei file di grandi dimensioni.
+La rete di distribuzione dei contenuti di Azure con tecnologia Verizon distribuisce file di grandi dimensioni senza alcun limite riguardo alle dimensioni dei file. Altre funzionalità sono attivate per impostazione predefinita per accelerare la distribuzione di file di grandi dimensioni.
 
-### <a name="complete-cache-fill"></a>Completa riempimento cache
+### <a name="complete-cache-fill"></a>Riempimento completo della cache
 
-La rete CDN di Azure di Verizon include una caratteristica predefinita, chiamata riempimento completo della cache, in cui la rete CDN esegue il pull di un file nella cache quando la richiesta iniziale viene abbandonata o persa. 
+La funzionalità predefinita di riempimento completo della cache permette alla rete CDN di eseguire il pull di un file nella cache quando la richiesta iniziale viene abbandonata o persa. 
 
-Questa funzionalità è particolarmente utile per gli asset di grandi dimensioni che gli utenti in genere non scaricano per intero (ad esempio i video con download progressivo). Ecco perché questa funzionalità è abilitata per impostazione predefinita con la rete CDN di Azure di Verizon. Questo comportamento predefinito prevede di obbligare il server periferico a inizializzare il recupero in background dell'asset dal server di origine. Al termine di questa operazione, l'asset si trova nella cache locale del server perimetrale. Una volta che l'oggetto completo è nella cache, il dispositivo perimetrale può soddisfare le richieste di intervalli di byte per la rete CDN per l'oggetto memorizzato nella cache.
+Il riempimento completo della cache è particolarmente utile per asset di grandi dimensioni. In genere, gli utenti non scaricano questi asset dall'inizio alla fine, ma usano il download progressivo. Il comportamento predefinito forza il server perimetrale ad avviare un recupero in background dell'asset dal server di origine. Al termine di questa operazione, l'asset si trova nella cache locale del server perimetrale. Quando l'oggetto si trova interamente nella cache, il server perimetrale può soddisfare le richieste di intervalli di byte alla rete CDN per l'oggetto memorizzato nella cache.
 
-È possibile disabilitare il comportamento predefinito di riempimento completo della cache tramite il motore delle regole nel livello Verizon Premium.
+È possibile disabilitare il comportamento predefinito tramite il motore delle regole nel livello Premium di Verizon.
 
-### <a name="peer-cache-fill-hotfiling"></a>Hotfiling del riempimento della cache peer
+### <a name="peer-cache-fill-hot-filing"></a>Hotfiling del riempimento della cache peer
 
-Questa è una funzionalità predefinita della rete CDN di Azure di Verizon, in cui un sofisticato algoritmo proprietario può sfruttare server di cache periferici aggiuntivi in base a metriche come la larghezza di banda e le richieste aggregate, per soddisfare le richieste client per oggetti di grandi dimensioni molto popolari. Ciò impedisce che si verifichino situazioni in cui un numero elevato di richieste aggiuntive viene inviato al server di origine di un cliente. 
+Questa funzionalità predefinita usa un sofisticato algoritmo proprietario. La funzionalità usa server perimetrali aggiuntivi per la memorizzazione nella cache in base alla larghezza di banda e ad altre metriche delle richieste aggregate per soddisfare le richieste client di oggetti di grandi dimensioni e usati spesso. Questa funzionalità previene situazioni in cui un numero elevato di richieste aggiuntive viene inviato al server di origine di un utente. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Condizioni per l'ottimizzazione dei file di grandi dimensioni
 
-Le funzionalità di ottimizzazione per Verizon sono attivate per impostazione predefinita e non esistono limiti alle dimensioni massime del file. 
+Le funzionalità di ottimizzazione per Verizon sono attivate per impostazione predefinita. Non viene applicato alcun limite per le dimensioni massime dei file. 
 
-## <a name="additional-considerations"></a>Considerazione aggiuntive
+## <a name="additional-considerations"></a>Ulteriori considerazioni
 
-Quando si usa questo tipo di ottimizzazione, esistono alcuni aspetti aggiuntivi da considerare.
+Per questo tipo di ottimizzazione, tenere presenti gli aspetti aggiuntivi seguenti.
  
-### <a name="azure-cdn-from-akamai"></a>Rete CDN di Azure di Akamai
+### <a name="azure-content-delivery-network-from-akamai"></a>Rete di distribuzione dei contenuti di Azure con tecnologia Akamai
 
-- Il processo di suddivisione in blocchi genera richieste aggiuntive al server di origine, ma il numero complessivo dei dati recapitati dall'origine sarà molto inferiore, poiché la suddivisione in blocchi migliora le caratteristiche di memorizzazione nella cache per la rete CDN.
-- Ci sarà anche un altro vantaggio dato dalla minore pressione sulla memoria e sull'IO dell'origine, grazie al recapito di parti più piccole del file. 
-- Per i blocchi che vengono memorizzati nella cache nella rete CDN non ci saranno richieste aggiuntive all'origine finché il contenuto non scadrà dalla cache o verrà rimosso dalla cache per altri motivi. 
-- L'utente può effettuare richieste di intervallo alla rete CDN e saranno trattate come qualsiasi normale file. L'ottimizzazione verrà applicata solo se il tipo di file è valido e l'intervallo di byte è compreso tra 10 e 150 GB. Se la dimensiona media dei file richiesta è minore di 10 MB, è preferibile usare il recapito Web generico.
+- Il processo di suddivisione in blocchi genera richieste aggiuntive al server di origine. Tuttavia, il volume complessivo dei dati distribuiti dall'origine è notevolmente inferiore. La suddivisione in blocchi assicura caratteristiche di memorizzazione nella cache migliori nella rete CDN.
 
-### <a name="azure-cdn-from-verizon"></a>Rete CDN di Azure di Verizon
+- La pressione in termini di memoria e I/O risulta ridotta nell'origine, perché vengono distribuite piccole parti del file.
 
-L'ottimizzazione del recapito Web generico è in grado di recapitare file di grandi dimensioni.
+- Per i blocchi memorizzati nella cache nella rete CDN non vi sono richieste aggiuntive all'origine fino alla scadenza del contenuto o finché il contenuto non viene rimosso dalla cache.
+
+- L'utente può effettuare richieste di intervalli di byte alla rete CDN, che vengono considerate normali richieste di file. L'ottimizzazione viene applicata solo se il tipo di file è valido e l'intervallo di byte è compreso tra 10 MB e 150 GB. Se la dimensione media dei file richiesta è inferiore a 10 MB, può essere preferibile usare la distribuzione Web generica.
+
+### <a name="azure-content-delivery-network-from-verizon"></a>Rete di distribuzione dei contenuti di Azure con tecnologia Verizon
+
+L'ottimizzazione basata sulla distribuzione Web generica è in grado di distribuire file di grandi dimensioni.
 
