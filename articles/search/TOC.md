@@ -66,8 +66,9 @@
 ### [Esplorazione in base a facet](search-faceted-navigation.md)
 ### [Sinonimi (anteprima)](search-synonyms.md)
 
-# Riferimento
+# riferimento
 
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=search)
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (gestione)](/dotnet/api/?term=microsoft.azure.management.search)
 ## [Python (gestione)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
@@ -78,6 +79,7 @@
 ## [Versioni dell'API](search-api-versions.md)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/search/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [REST del servizio (anteprima)](search-api-2015-02-28-preview.md)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=search)
 ## Corsi ed esercitazioni

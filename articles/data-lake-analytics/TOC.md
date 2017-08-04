@@ -39,7 +39,8 @@
 ### [Esecuzione e debug locale in Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
 ### [Guida di programmabilità di U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
 ## [PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
@@ -53,5 +54,6 @@
 ## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)

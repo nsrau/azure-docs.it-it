@@ -32,7 +32,8 @@
 ### [Automazione di Azure](automation-manage-key-vault.md)
 ### [Creare e gestire con l'interfaccia della riga di comando 2.0](key-vault-manage-with-cli2.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Interfaccia della riga di comando di Azure 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -55,3 +56,4 @@
 ## [Esempi di codice](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

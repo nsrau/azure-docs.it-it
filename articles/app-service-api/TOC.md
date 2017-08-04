@@ -158,6 +158,7 @@
 ## [Portale di Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Elenco delle risorse per processi Web](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [SDK di Processi Web](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 

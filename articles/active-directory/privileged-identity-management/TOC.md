@@ -23,8 +23,12 @@
 ### [Richiedere l'autenticazione MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ### [Usare il log di controllo](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Risorse correlate
 ## [Azure Active Directory](/azure/active-directory/)
 ## [Controllo degli accessi in base al ruolo](../role-based-access-control-what-is.md)
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

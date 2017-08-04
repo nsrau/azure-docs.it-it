@@ -112,5 +112,6 @@
 # Risorse
 ## [Aree di Azure](https://azure.microsoft.com/regions/)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Esempi](https://azure.microsoft.com/resources/samples/)
 ## [Video](https://azure.microsoft.com/resources/videos/home/)

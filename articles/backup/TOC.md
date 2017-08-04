@@ -2,9 +2,9 @@
 # Panoramica
 ## [Informazioni su Backup di Azure](backup-introduction-to-azure-backup.md)
 
-# Attività iniziali
-## [Eseguire il backup delle macchine virtuali di Azure](backup-azure-vms-first-look-arm.md)
-## [Eseguire il backup di file e cartelle](backup-try-azure-backup-in-10-mins.md)
+# Introduzione
+## [Eseguire un backup delle VM di Azure](backup-azure-vms-first-look-arm.md)
+## [Eseguire un backup di Windows Server o di computer Windows](backup-try-azure-backup-in-10-mins.md)
 ## [Eseguire il backup dei server VMware](backup-azure-backup-server-vmware.md)
 
 # Procedure
@@ -27,16 +27,19 @@
 #### [Ripristinare macchine virtuali distribuite con Resource Manager nel portale di Azure](backup-azure-arm-restore-vms.md)
 #### [Ripristinare le macchine virtuali crittografate](backup-azure-vms-encryption.md)
 #### [Ripristinare macchine virtuali in Azure](backup-azure-restore-vms.md)
-#### [Ripristinare la chiave di Key Vault e il segreto per le macchine virtuali crittografate con Backup di Azure](backup-azure-restore-key-secret.md)
+#### [Ripristinare la chiave e il segreto di Key Vault per le macchine virtuali crittografate](backup-azure-restore-key-secret.md)
 
 
-## File e cartelle di Windows
-### [Windows Server con il modello di distribuzione Resource Manager](backup-configure-vault.md)
-### [Windows Server con il modello di distribuzione classica](backup-configure-vault-classic.md)
+## Windows Server
+### [Eseguire un backup dei file e delle cartelle di Windows Server](backup-configure-vault.md)
+### [Eseguire un backup dello stato del sistema Windows Server](backup-azure-system-state.md)
+### [Recuperare i file da Azure a Windows Server](backup-azure-restore-windows-server.md)
+### [Ripristinare lo stato del sistema Windows Server](backup-azure-restore-system-state.md)
 ### [Monitorare e gestire insiemi di credenziali di Servizi di ripristino](backup-azure-manage-windows-server.md)
-### [Gestire insiemi di credenziali di Backup con il modello di distribuzione classica](backup-azure-manage-windows-server-classic.md)
-### [Ripristinare file in un server Windows usando il modello di distribuzione Resource Manager](backup-azure-restore-windows-server.md)
-### [Ripristinare file in un server Windows usando il modello di distribuzione classica](backup-azure-restore-windows-server-classic.md)
+### Eseguire un backup e ripristino con il portale classico
+#### [Windows Server con il modello di distribuzione classica](backup-configure-vault-classic.md)
+#### [Gestire insiemi di credenziali di Backup con il modello di distribuzione classica](backup-azure-manage-windows-server-classic.md)
+#### [Ripristinare file in un server Windows usando il modello di distribuzione classica](backup-azure-restore-windows-server-classic.md)
 
 ## Server di backup di Azure
 ### [Matrice di protezione del server di Backup di Azure](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/backup/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=backup)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=backup)

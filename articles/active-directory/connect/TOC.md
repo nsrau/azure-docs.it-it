@@ -38,6 +38,7 @@
 ##### [Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Limitazioni correnti](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Come funziona?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Aggiornare gli agenti di anteprima](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
 ##### [Blocco intelligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Domande frequenti](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
@@ -81,7 +82,8 @@
 ### [Errore LargeObject provocato da userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Come eseguire il ripristino dal limite di 10 GB per LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Sincronizzazione delle identità e resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](active-directory-aadconnect-ports.md)
 ## [Funzionalità in anteprima](active-directory-aadconnect-feature-preview.md)
@@ -109,3 +111,5 @@
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Domande frequenti su Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Deprecazione di DirSync](active-directory-aadconnect-dirsync-deprecated.md)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+

@@ -29,9 +29,15 @@
       href: container-instances-multi-container-group.md
     - name: Gestione dello stato con le condivisioni file di Azure
       href: container-instances-mounting-azure-files-volume.md
+- name: riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure 2.0
+      href: /cli/azure/container
 - name: Risorse
   items:
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Aree di disponibilità
       href: 'https://azure.microsoft.com/regions/services/'
