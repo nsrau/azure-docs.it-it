@@ -12,52 +12,59 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/01/2017
+ms.date: 07/13/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 80ede2ffc7380145e3bfca48abf0d05f0a79585a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
-Il servizio Ricerca di Azure è un servizio di ricerca ospitato sul cloud che rende più semplice fornire un'esperienza di ricerca eccellente. Prima di poter eseguire ricerche, è necessario popolare un indice di Ricerca di Azure con i dati. Se i dati si trovano in un database SQL di Azure, il nuovo **Indicizzatore di Ricerca di Azure per il database SQL di Azure** (o in breve **Indicizzatore SQL di Azure**) è in grado di automatizzare il processo di indicizzazione. Ciò significa che è necessario scrivere meno codice e preoccuparsi di meno infrastruttura.
 
-In questo articolo vengono illustrati i meccanismi di uso degli indicizzatori, ma vengono anche descritte le funzionalità disponibili solo con i database SQL (ad esempio, il rilevamento delle modifiche integrato). Ricerca di Azure supporta anche altre origini dati, ad esempio Azure Cosmos DB, Archiviazione BLOB e Archiviazione tabelle. Se si desidera visualizzare il supporto per altre origini dati, fornire commenti e suggerimenti nel [forum relativo a commenti e suggerimenti su Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
+Prima di poter eseguire una query nell'[indice di Ricerca di Azure](search-what-is-an-index.md), è necessario inserirvi i propri dati. Se i dati si trovano in un database SQL di Azure, l'**Indicizzatore di Ricerca di Azure per il database SQL di Azure**, o in breve **Indicizzatore SQL di Azure**, è in grado di automatizzare il processo di indicizzazione. Questo implica che la quantità di codice da scrivere è inferiore, così come l'infrastruttura di cui occuparsi.
+
+In questo articolo vengono illustrati i meccanismi di uso degli [indicizzatori](search-indexer-overview.md), ma vengono anche descritte le funzionalità disponibili solo con i database SQL, ad esempio, il rilevamento delle modifiche integrato. 
+
+Oltre ai database SQL di Azure, Ricerca di Azure offre indicizzatori per [Azure Cosmos DB](search-howto-index-documentdb.md), [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md) e [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md). Per richiedere il supporto per altre origini dati, inviare commenti e suggerimenti nel [forum relativo a commenti e suggerimenti di Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indicizzatori e origini dati
-È possibile impostare e configurare un indicizzatore SQL di Azure usando:
 
-* Importazione guidata dati nel [portale di Azure](https://portal.azure.com)
-* [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) Ricerca di Azure
-* [API REST](http://go.microsoft.com/fwlink/p/?LinkID=528173) Ricerca di Azure
+Un'**origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati, ovvero righe nuove, modificate o eliminate. È definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
-In questo articolo si userà l'API REST per mostrare come creare e gestire **indicizzatori** e **origini dati**.
-
-Un' **origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati (righe nuove, modificate o eliminate). È definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
-
-Un **indicizzatore** è una risorsa che connette le origini dati agli indici di ricerca di destinazione. Un indicizzatore viene usato nei modi seguenti:
+Un **indicizzatore** è una risorsa che connette una singola origine dati agli indici di ricerca di destinazione. Un indicizzatore viene usato nei modi seguenti:
 
 * Eseguire una copia occasionale dei dati per popolare un indice.
 * Aggiornare un indice con le modifiche nell'origine dati in base a una pianificazione.
 * Eseguire aggiornamenti su richiesta in un indice in base alle esigenze.
 
+Un singolo indicizzatore può usare solo una tabella o una vista, ma è possibile creare più indicizzatori se si desidera compilare indici di ricerca multipli. Per altre informazioni sui concetti, vedere [Operazioni degli indicizzatori: flusso di lavoro tipico](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+
+È possibile impostare e configurare un indicizzatore SQL di Azure usando:
+
+* Importazione guidata dati nel [portale di Azure](https://portal.azure.com)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) Ricerca di Azure
+* [API REST](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations) Ricerca di Azure
+
+In questo articolo si userà l'API REST per creare gli **indicizzatori** e le **origini dati**.
+
 ## <a name="when-to-use-azure-sql-indexer"></a>Quando usare l’indicizzatore SQL di Azure
-In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL di Azure potrebbe non essere appropriato. Se i dati soddisfano i seguenti requisiti, è possibile utilizzare l’indicizzatore SQL di Azure:
+In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL di Azure potrebbe non essere appropriato. Se i dati soddisfano i requisiti seguenti, è possibile usare l’indicizzatore SQL di Azure.
 
-* Tutti i dati provengono da una singola tabella o vista
-  * Se i dati sono sparsi tra più tabelle, è possibile creare una vista e utilizzarla con l'indicizzatore. Tuttavia, se si usa una vista, non sarà possibile usare il rilevamento delle modifiche integrato di SQL Server. Per altre informazioni, vedere [questa sezione](#CaptureChangedRows).
-* I tipi di dati utilizzati nell'origine dati sono supportati dall’indicizzatore. È supportata la maggior parte dei tipi SQL, ma non tutti. Per ulteriori informazioni, vedere [Mapping dei tipi di dati per gli indicizzatori in Ricerca di Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105).
-* Non sono necessari aggiornamenti quasi in tempo reale dell’indice quando viene modificata una riga.
-  * L'indicizzatore può reindicizzare la tabella al massimo ogni 5 minuti. Se i dati vengono modificati di frequente ed è necessario riflettere le modifiche nell’indice entro pochi secondi o pochi minuti, è consigliabile utilizzare direttamente l’ [API dell’indice di Ricerca di Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx) .
-* Se si dispone di un set di dati di grandi dimensioni e si prevede di eseguire l'indicizzatore in una pianificazione, lo schema consente di identificare in modo efficiente le righe modificate (ed eliminate, se applicabili). Per ulteriori informazioni, vedere "Acquisizione delle righe modificate ed eliminate", di seguito.
-* La dimensione dei campi indicizzati in una riga non supera la dimensione massima di una richiesta di indicizzazione di Ricerca di Azure, vale a dire 16 MB.
+| Criteri | Dettagli |
+|----------|---------|
+| I dati provengono da una singola tabella o vista | Se i dati sono sparsi tra più tabelle, è possibile creare un'unica vista dei dati. Tuttavia, se si usa una vista, non sarà possibile usare il rilevamento delle modifiche integrato di SQL Server per aggiornare un indice con le modifiche incrementali. Per altre informazioni, vedere [Acquisizione delle righe modificate ed eliminate](#CaptureChangedRows) di seguito. |
+| Tipi di dati compatibili | Nell'indice di Ricerca di Azure è supportata la maggior parte dei tipi SQL, ma non tutti. Per un elenco, vedere [Elenco dei tipi di dati](#TypeMapping). |
+| La sincronizzazione dei dati in tempo reale non è necessaria | Un indicizzatore può reindicizzare la tabella al massimo ogni 5 minuti. Se i dati vengono modificati di frequente ed è necessario riflettere le modifiche nell’indice entro pochi secondi o pochi minuti, è consigliabile usare l'[API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) o [l'SDK .NET](search-import-data-dotnet.md) per eseguire direttamente il push delle righe aggiornate. |
+| L'indicizzazione incrementale è possibile | Se si dispone di un set di dati di grandi dimensioni e si prevede di eseguire l'indicizzatore in una pianificazione, Ricerca di Azure deve essere in grado di identificare in modo efficiente le righe modificate, nuove ed eliminate. L'indicizzazione incrementale è consentito solo se si esegue l'indicizzazione su richiesta, non programmata, o se la si esegue per meno di 100.000 righe. Per altre informazioni, vedere [Acquisizione delle righe modificate ed eliminate](#CaptureChangedRows) di seguito. |
 
-## <a name="create-and-use-an-azure-sql-indexer"></a>Creare e utilizzare un indicizzatore SQL di Azure
-Creare, innanzitutto, l'origine dati:
+## <a name="create-an-azure-sql-indexer"></a>Creare un indicizzatore SQL di Azure
 
+1. Creare l'origine dati:
+
+   ```
     POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -68,14 +75,15 @@ Creare, innanzitutto, l'origine dati:
         "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
         "container" : { "name" : "name of the table or view that you want to index" }
     }
+   ```
 
+   È possibile ottenere la stringa di connessione dal [portale di Azure](https://portal.azure.com). Usare l'opzione `ADO.NET connection string`.
 
-È possibile ottenere la stringa di connessione dal [portale di Azure classico](https://portal.azure.com). Usare l'opzione `ADO.NET connection string`.
+2. Creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile creare un indice usando il [portale](https://portal.azure.com) o [l'API Crea indice](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. Per informazioni dettagliate, vedere [Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure](#TypeMapping).
 
-Quindi, creare un indice di Ricerca di Azure di destinazione, se non ne è già disponibile uno. È possibile creare un indice usando l'[interfaccia utente del portale](https://portal.azure.com) o [Create Indexer API](https://msdn.microsoft.com/library/azure/dn798941.aspx) (Creare un'API di indicizzatore). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. Per informazioni dettagliate, vedere [Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure](#TypeMapping).
+3. Creare l'indicizzatore assegnandogli un nome e il riferimento all’origine dati e all'indice di destinazione:
 
-Infine, creare l'indicizzatore assegnandogli un nome e il riferimento all’origine dati e all’indice di destinazione:
-
+    ```
     POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
     api-key: admin-key
@@ -85,15 +93,16 @@ Infine, creare l'indicizzatore assegnandogli un nome e il riferimento all’orig
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
+    ```
 
 Un indicizzatore creato in questo modo non dispone di una pianificazione. Viene eseguito non appena viene creato. È possibile rieseguirlo in qualsiasi momento mediante una richiesta di **esecuzione indicizzatore** :
 
     POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
     api-key: admin-key
 
-È possibile personalizzare alcuni aspetti del comportamento dell'indicizzatore, ad esempio le dimensioni del batch e il numero di documenti che è possibile ignorare prima che un'esecuzione dell'indicizzatore abbia esito negativo. Per altre informazioni, vedere [Create Indexer API](https://msdn.microsoft.com/library/azure/dn946899.aspx)(Creare un'API di indicizzatore).
+È possibile personalizzare alcuni aspetti del comportamento dell'indicizzatore, ad esempio le dimensioni del batch e il numero di documenti che è possibile ignorare prima che un'esecuzione dell'indicizzatore abbia esito negativo. Per altre informazioni, vedere [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)(Creare un'API di indicizzatore).
 
-Potrebbe essere necessario consentire ai servizi di Azure di connettersi al database. Vedere [Connessione da Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) per istruzioni su come eseguire questa operazione.
+Potrebbe essere necessario consentire ai servizi di Azure di connettersi al database. Vedere [Connessione da Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) per istruzioni su come eseguire questa operazione.
 
 Per monitorare lo stato dell'indicizzatore e la cronologia di esecuzione (numero di elementi indicizzati, errori e così via), utilizzare una richiesta di **stato indicizzatore** :
 
@@ -171,21 +180,23 @@ Di seguito è illustrato ciò che accade:
 
 <a name="CaptureChangedRows"></a>
 
-## <a name="capturing-new-changed-and-deleted-rows"></a>Acquisizione di righe nuove, modificate ed eliminate
-Se la tabella contiene molte righe, è necessario usare un criterio di rilevamento modifiche di dati. Il rilevamento delle modifiche consente di recuperare in modo efficace solo le righe nuove o modificate senza dover ripetere l'indicizzazione dell'intera tabella.
+## <a name="capture-new-changed-and-deleted-rows"></a>Acquisire righe nuove, modificate ed eliminate
+
+Ricerca di Azure usa l'**indicizzazione incrementale** per evitare di reindicizzare l'intera tabella o vista ogni volta che viene eseguito un indicizzatore. Ricerca di Azure offre che due criteri per il rilevamento delle modifiche per supportare l'indicizzazione incrementale. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>Criteri di rilevamento delle modifiche integrati di SQL
-Se il database SQL supporta il [rilevamento delle modifiche](https://msdn.microsoft.com/library/bb933875.aspx), è consigliabile usare i **criteri di rilevamento delle modifiche integrati di SQL**. Questo è il criterio più efficiente. Inoltre consente a Ricerca di Azure di identificare le righe eliminate senza dover aggiungere allo schema una colonna di "eliminazione temporanea" esplicita.
+Se il database SQL supporta il [rilevamento delle modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), è consigliabile usare i **criteri di rilevamento delle modifiche integrati di SQL**. Questo è il criterio più efficiente. Inoltre consente a Ricerca di Azure di identificare le righe eliminate senza dover aggiungere allo schema una colonna di "eliminazione temporanea" esplicita.
 
-Il rilevamento delle modifiche integrato è supportata a partire dalle seguenti versioni di database di SQL Server:
+#### <a name="requirements"></a>Requisiti 
 
-* SQL Server 2008 R2 e versioni successive, se si utilizza SQL Server nelle macchine virtuali di Azure.
-* Database SQL di Azure V12, se si utilizza il database SQL di Azure SQL.
++ Requisiti sulla versione del database:
+  * SQL Server 2012 SP3 e versioni successive, se si usa SQL Server nelle macchine virtuali di Azure.
+  * Database SQL di Azure V12, se si utilizza il database SQL di Azure SQL.
++ Solo tabelle, nessuna vista. 
++ Nel database [abilitare il rilevamento della modifica](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) per la tabella. 
++ Nessuna chiave primaria composta, ovvero una chiave primaria che contiene più di una colonna, nella tabella.  
 
-> [!IMPORTANT] 
-> Questi criteri possono essere usati solo con le tabelle, ma non con le visualizzazioni. Prima di poter usare questi criteri, è necessario abilitare il rilevamento delle modifiche per la tabella in uso. Per istruzioni, vedere [Abilitare e disabilitare il rilevamento delle modifiche](https://msdn.microsoft.com/library/bb964713.aspx) .
-> 
-> Inoltre, è possibile usare questo criterio se la tabella usa una chiave primaria, ovvero una chiave primaria contenente più di una colonna.  
+#### <a name="usage"></a>Utilizzo
 
 Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indicato di seguito:
 
@@ -204,15 +215,20 @@ Quando si usano i criteri di rilevamento delle modifiche integrati di SQL, non s
 <a name="HighWaterMarkPolicy"></a>
 
 ### <a name="high-water-mark-change-detection-policy"></a>Criteri di rilevamento delle modifiche con limite massimo
-Anche se sono consigliati, i criteri di rilevamento modifiche integrato di SQL possono essere usati solo con le tabelle, non con le viste. Se si usa una vista, è consigliabile usare i criteri di limite massimo. Questi criteri possono essere usati se la tabella o la vista contiene una colonna che soddisfa i criteri seguenti:
+
+Questi criteri di rilevamento delle modifiche si basano su una colonna di "livello più alto" che acquisisce la versione o l'ora dell'ultimo aggiornamento di una riga. Se si usa una vista, è consigliabile usare i criteri di livello più alto. La colonna di livello più alto deve soddisfare i requisiti seguenti.
+
+#### <a name="requirements"></a>Requisiti 
 
 * Tutti gli inserimenti specificano un valore per la colonna.
 * Tutti gli aggiornamenti a un elemento modificano anche il valore della colonna.
 * Il valore di questa colonna aumenta in base a ogni modifica o aggiornamento.
-* Le query con le clausole QUERY e ORDER BY seguenti possono essere eseguite in modo efficiente: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
+* Le query con le clausole QUERY e ORDER BY seguenti possono essere eseguite in modo efficiente: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
-> È consigliabile usare una colonna **rowversion** per il rilevamento delle modifiche. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore.
+> È consigliabile usare il tipo di dati [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) per la colonna di livello più alto. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore. Quando si usa **rowversion** in una configurazione con le repliche di sola lettura, è necessario puntare l'indicizzatore alla replica primaria. Per scenari di sincronizzazione dei dati, è possibile usare solo una replica primaria.
+
+#### <a name="usage"></a>Utilizzo
 
 Per usare questo criterio di limite massimo, creare o aggiornare l'origine dati nel modo seguente:
 
@@ -268,7 +284,7 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
 
 <a name="TypeMapping"></a>
 
-## <a name="mapping-between-sql-data-types-and-azure-search-data-types"></a>Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure
+## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mapping tra tipi di dati SQL e tipi di dati di Ricerca di Azure
 | Tipo di dati SQL | Tipi di campi dell'indice di destinazione consentiti | Note |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
@@ -299,24 +315,47 @@ Queste impostazioni vengono usate nell'oggetto `parameters.configuration` nella 
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-## <a name="frequently-asked-questions"></a>Domande frequenti
-**D:** Posso utilizzare l'indicizzatore SQL di Azure SQL con i database SQL in esecuzione sulle macchine virtuali IaaS in Azure?
+## <a name="faq"></a>Domande frequenti
 
-A: Sì. Tuttavia, è necessario consentire al servizio di ricerca di connettersi al database. Per altre informazioni, vedere l'articolo [Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) .
+**D: Posso usare l'indicizzatore di Azure SQL con i database SQL in esecuzione sulle macchine virtuali IaaS in Azure?**
 
-**D:** Posso utilizzare l'indicizzatore SQL di Azure SQL con i database SQL in esecuzione locale?
+Sì. Tuttavia, è necessario consentire al servizio di ricerca di connettersi al database. Per altre informazioni, vedere l'articolo [Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) .
 
-R: Tale operazione non è consigliata né supportata, in quanto richiederebbe l’apertura dei database al traffico Internet.
+**D: Posso usare l'indicizzatore di Azure SQL con i database SQL in esecuzione locale?**
 
-**D:** Posso utilizzare l'indicizzatore SQL di Azure SQL con database diversi da SQL Server in esecuzione in IaaS in Azure?
+Non direttamente. La connessione diretta non è consigliata né supportata, in quanto richiederebbe l’apertura dei database al traffico Internet. I clienti hanno avuto esito positivo in questo scenario grazie all'uso delle tecnologie bridge come Azure Data Factory. Per altre informazioni vedere [Push dei dati in un indice di Ricerca di Azure con Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-R: Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
+**D: Posso usare l'indicizzatore di Azure SQL con database diversi da SQL Server in esecuzione in IaaS in Azure?**
 
-**D:** Posso creare più indicizzatori in esecuzione in una pianificazione?
+No. Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
 
-A: Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un nodo. Se è necessario eseguire più indicizzatori contemporaneamente, considerare il ridimensionamento del servizio di ricerca a più unità di ricerca.
+**D: Posso creare più indicizzatori in esecuzione in una pianificazione?**
 
-**D:** L’esecuzione di un indicizzatore influisce sul carico di lavoro della query?
+Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un nodo. Se è necessario eseguire più indicizzatori contemporaneamente, considerare il ridimensionamento del servizio di ricerca a più unità di ricerca.
 
-A: Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono un’indicizzazione e dei carichi di lavoro di query intensivi e si verifica una frequenza elevata di errori 503 o un aumento dei tempi di risposta, considerare il ridimensionamento del servizio di ricerca.
+**D: L’esecuzione di un indicizzatore influisce sul carico di lavoro della query?**
+
+Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono un'indicizzazione e carichi di lavoro di query intensivi e si verifica una frequenza elevata di errori 503 o un aumento dei tempi di risposta, considerare il [ridimensionamento del servizio di ricerca](search-capacity-planning.md).
+
+**D: Posso usare una replica secondaria in un [cluster di failover](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) come origine dati?**
+
+Dipende. Per l'indicizzazione completa di una tabella o vista, è possibile usare una replica secondaria. 
+
+Per l'indicizzazione incrementale, Ricerca di Azure supporta due criteri di rilevamento delle modifiche: il rilevamento delle modifiche integrato di SQL e il livello più alto.
+
+Nelle repliche di sola lettura il database SQL non supporta il rilevamento delle modifiche integrato. Pertanto, è necessario usare il criterio del livello più alto. 
+
+È consigliabile sempre usare il tipo di dati rowversion per la colonna di livello più alto. Tuttavia, l'uso di rowversion si basa sulla funzione `MIN_ACTIVE_ROWVERSION` del Database SQL, che non è supportata nelle repliche di sola lettura. Pertanto, se si usa rowversion è necessario puntare l'indicizzatore a una replica primaria.
+
+Se si tenta di usare rowversion su una replica di sola lettura, si visualizzerà l'errore seguente: 
+
+    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+
+**D: Posso usare una colonna diversa, non rowversion, per il rilevamento delle modifiche del livello più alto?**
+
+Non è consigliabile. Solo **rowversion** consente una sincronizzazione dei dati affidabile. Tuttavia, a seconda della logica dell'applicazione, potrebbe essere sicuro:
+
++ Accertarsi che, durante l'esecuzione dell'indicizzatore, non siano presenti transazioni in sospeso nella tabella che si sta indicizzando. Ad esempio, tutti gli aggiornamenti della tabella vengono eseguiti come batch in una pianificazione e la pianificazione dell'indicizzatore di Ricerca di Azure è impostato per evitare la sovrapposizione con la pianificazione dell'aggiornamento della tabella.  
+
++ Eseguire periodicamente una reindicizzazione completa per prelevare le righe mancanti. 
 
