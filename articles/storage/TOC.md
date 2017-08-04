@@ -178,7 +178,8 @@
 #### [Annullamento ed eliminazione dei processi](storage-import-export-cancelling-and-deleting-jobs.md)
 #### [Backup dei manifesti delle unità](storage-import-export-backing-up-drive-manifests.md)
 #### [Diagnostica e ripristino dagli errori per i processi di Importazione/Esportazione](storage-import-export-diagnostics-and-error-recovery.md)
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/storage)
 ## .NET
@@ -210,6 +211,7 @@
 ## [Strumenti client di Archiviazione di Azure](storage-explorers.md)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [Storage Explorer (anteprima)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [Gestire BLOB con Storage Explorer (anteprima)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [Uso di Storage Explorer (anteprima) con Archiviazione file di Azure](../vs-azure-tools-storage-explorer-files.md)
+### [Note sulla versione di Storage Explorer (anteprima)](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## Pacchetti NuGet
 ### [Libreria client di archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

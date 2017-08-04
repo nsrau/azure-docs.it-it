@@ -39,6 +39,8 @@
       href: functions-create-serverless-api.md
 - name: Esempi
   items:
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
     - name: Interfaccia della riga di comando di Azure
       href: functions-cli-samples.md
 - name: Concetti
@@ -133,6 +135,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Forum MSDN

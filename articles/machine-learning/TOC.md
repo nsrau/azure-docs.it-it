@@ -171,8 +171,9 @@
 #### [Usare SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 #### [Usare SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
 
-# Riferimenti
+# riferimento
 
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [Modulo di PowerShell (nuovo)](/powershell/module/azurerm.machinelearning)
 ## [Modulo di PowerShell (classico)](machine-learning-powershell-module.md)
 ## [Informazioni di riferimento su algoritmi e moduli](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -215,6 +216,7 @@
 
 ## [Linguaggio delle reti neurali Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

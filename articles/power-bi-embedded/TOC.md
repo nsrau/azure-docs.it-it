@@ -23,7 +23,8 @@
 ### [Autenticazione e autorizzazione](power-bi-embedded-app-token-flow.md)
 ### [Sicurezza a livello di riga con Power BI Embedded](power-bi-embedded-rls.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
 ## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [Azure Resource Manager .NET](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [Download di .NET SDK](https://www.nuget.org/profiles/powerbi)
@@ -38,5 +39,6 @@
 ## [Repository Git JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Repository Git C# per Power BI](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Community di Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Applicazione di esempio](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

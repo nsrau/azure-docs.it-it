@@ -5,3 +5,4 @@
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=compute)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

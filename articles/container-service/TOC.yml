@@ -6,3 +6,5 @@
   items:
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=containers'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'

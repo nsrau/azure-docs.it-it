@@ -106,7 +106,8 @@
 #### [Domande frequenti su connettività e rete](cloud-services-connectivity-and-networking-faq.md)
 #### [Domande frequenti sulla distribuzione](cloud-services-deployment-faq.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [XML Schema .csdef](https://msdn.microsoft.com/library/azure/ee758711)
 ## [XMLSchema .cscfg](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
@@ -116,5 +117,6 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
