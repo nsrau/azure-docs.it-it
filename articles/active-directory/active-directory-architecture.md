@@ -1,5 +1,5 @@
 ---
-title: Informazioni sull&quot;architettura di Azure Active Directory | Microsoft Docs
+title: Informazioni sull'architettura di Azure Active Directory | Microsoft Docs
 description: Illustra il significato di tenant di Azure AD e come gestire Azure con Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: 5c60fa737c0133482af8b653f795bf9086c39969
 ms.contentlocale: it-it
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Informazioni sull'architettura di Azure Active Directory
@@ -31,10 +30,10 @@ Con Azure AD, è possibile creare e gestire utenti e gruppi e abilitare le autor
 L'architettura distribuita geograficamente di Azure AD combina funzionalità complete di monitoraggio, reindirizzamento automatizzato, failover e ripristino che consentono di offrire ai clienti disponibilità e prestazioni a livello di organizzazione.
 
 In questo articolo vengono illustrati gli elementi dell'architettura seguenti:
- *    Progettazione dell'architettura del servizio
- *    Scalabilità 
- *    Disponibilità continua
- *    Data center
+ *  Progettazione dell'architettura del servizio
+ *  Scalabilità 
+ *  Disponibilità continua
+ *  Data center
 
 ### <a name="service-architecture-design"></a>Progettazione dell'architettura del servizio
 L'approccio più diffuso per la compilazione di un sistema scalabile, con disponibilità elevata e ad alto contenuto di dati consiste nell'usare blocchi predefiniti o unità di scala indipendenti per il livello dati di Azure AD. Le unità di scala sono denominate *partizioni*. 
@@ -87,7 +86,7 @@ Azure AD opera nei data center con le caratteristiche seguenti:
 
  * Autenticazione, Graph e gli altri servizi di AD si trovano dietro il servizio gateway. Il gateway gestisce il bilanciamento del carico di questi servizi. Verrà eseguito il failover automatico se viene rilevato che server non integri usano probe di integrità transazionali. In base a questi probe di integrità, il gateway instrada in modo dinamico il traffico ai data center integri.
  * Per le *operazioni di lettura*, la directory ha repliche secondarie e servizi front-end corrispondenti in una configurazione attiva/attiva che operano in più data center. In caso di errore di un intero data center, il traffico verrà automaticamente instradato a un altro data center.
- *    Per le *operazioni di scrittura*, la directory eseguirà il failover della replica primaria (master) nei data center tramite procedure di failover pianificate (la nuova replica primaria viene sincronizzata con quella precedente) o di emergenza. La durabilità dei dati si ottiene replicando i commit in almeno due data center.
+ *  Per le *operazioni di scrittura*, la directory eseguirà il failover della replica primaria (master) nei data center tramite procedure di failover pianificate (la nuova replica primaria viene sincronizzata con quella precedente) o di emergenza. La durabilità dei dati si ottiene replicando i commit in almeno due data center.
 
 **Coerenza dei dati**
 

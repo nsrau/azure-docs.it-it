@@ -1,5 +1,5 @@
 ---
-title: Come controllare lo stato dei processi mediante l&quot;API REST | Microsoft Docs
+title: Come controllare lo stato dei processi mediante l'API REST | Microsoft Docs
 description: Informazioni su come tenere traccia dello stato dei processi.
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 08/01/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: 0f66bb4291d4e8c457f592734437513a727ecc29
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/13/2017
 
 ---
 # <a name="how-to-check-job-progress"></a>Procedura: Controllare lo stato dei processi
@@ -65,10 +66,5 @@ Risposta:
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
