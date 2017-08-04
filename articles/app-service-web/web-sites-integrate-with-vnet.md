@@ -1,6 +1,6 @@
 ---
-title: Integrazione di un&quot;app in una rete virtuale di Azure
-description: Illustra come connettere un&quot;app del servizio app di Azure a una rete virtuale di Azure nuova o esistente
+title: Integrazione di un'app in una rete virtuale di Azure
+description: Illustra come connettere un'app del servizio app di Azure a una rete virtuale di Azure nuova o esistente
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2016
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 5c8268a90c5e14839ed97daa6a186d170f5a4cc3
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 31b4f69a2870e619255feac6bed3679efb03f568
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
-Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).  Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso.  Queste reti possono quindi essere connesse alle reti locali con diverse tecnologie VPN.  Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure][VNETOverview].  
+Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).  Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso.  Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN.  Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure][VNETOverview].  
 
 Il servizio app di Azure è disponibile in due forme.  
 
@@ -95,7 +95,7 @@ Se la rete virtuale non ha un gateway e non è da punto a sito, è necessario es
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Abilitare la connessione da punto a sito in una rete virtuale di Resource Manager
-Per configurare una connessione da punto a sito in una rete virtuale di Resource Manager con un gateway, è possibile usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][V2VNETP2S] o usare il portale di Azure come descritto in [Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure][V2VNETPortal].  L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. 
+Per configurare una connessione da punto a sito in una rete virtuale di Resource Manager con un gateway, è possibile usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][V2VNETP2S] o usare il portale di Azure come descritto in [Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure][V2VNETPortal].  L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. Tenere presente che la configurazione da punto a sito non richiede la creazione di certificati, poiché viene configurata automaticamente quando si connette l'app Web alla rete virtuale. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Creazione di una rete virtuale preconfigurata
 Se si vuole creare una nuova rete virtuale configurata con un gateway e una connessione da punto a sito, è possibile usare l'interfaccia utente di rete del servizio app, ma solo per una rete virtuale di Resource Manager.  Se si vuole creare una rete virtuale classica con un gateway e una connessione da punto a sito, l'operazione deve essere eseguita manualmente tramite l'interfaccia utente di rete. 
@@ -152,7 +152,7 @@ Le informazioni ora disponibili nell'interfaccia utente di integrazione rete vir
 * Stato dei gateway: se i gateway sono inattivi per qualsiasi motivo, l'app non può accedere alle risorse nella rete virtuale.  
 * Spazio di indirizzi della rete virtuale: lo spazio di indirizzi IP della rete virtuale.  
 * Spazio di indirizzi da punto a sito: lo spazio di indirizzi IP da punto a sito della rete virtuale.  L'app visualizza le comunicazioni come provenienti da uno degli IP in questo spazio di indirizzi.  
-* Spazio di indirizzi da sito a sito: è possibile usare una VPN da sito a sito per connettere la rete virtuale alle risorse locali o ad altre reti virtuali.  Se questa impostazione è configurata, gli intervalli IP specificati con la connessione VPN vengono visualizzati qui.
+* Spazio di indirizzi da sito a sito: è possibile usare una connessione VPN da sito a sito per connettere la rete virtuale alle risorse locali o ad altre reti virtuali.  Se questa impostazione è configurata, gli intervalli IP specificati con la connessione VPN vengono visualizzati qui.
 * Server DNS: qui sono elencati gli eventuali server DNS configurati con la rete virtuale.
 * Indirizzi IP instradati alla rete virtuale: l'elenco di indirizzi IP per cui è stato specificato il routing nella rete virtuale  viene visualizzato qui.  
 
@@ -177,11 +177,11 @@ Sono disponibili due azioni principali.  La prima è la possibilità di aggiunge
 **Certificati** : lo stato dei certificati riflette un controllo eseguito dal servizio app per verificare la validità dei certificati usati per la connessione VPN.  Quando la funzionalità Integrazione rete virtuale è abilitata, alla prima integrazione nella rete virtuale da una qualsiasi app in questo ASP è necessario uno scambio di certificati per garantire la sicurezza della connessione.  Con i certificati si ottengono la configurazione DNS, le route e altre informazioni simili che descrivono la rete.
 Se vengono modificati i certificati o le informazioni di rete, è necessario eseguire nuovamente la sincronizzazione della rete.  **NOTA**: la sincronizzazione della rete provoca una breve interruzione della connettività tra l'app e la rete virtuale.  L'app non viene riavviata, ma la perdita di connettività potrebbe causare il funzionamento non corretto del sito.  
 
-## <a name="accessing-on-premise-resources"></a>Accesso alle risorse in sede
-Uno dei vantaggi della funzionalità Integrazione rete virtuale è la possibilità per le app di accedere alle risorse locali dall'app, se la rete virtuale è connessa alla rete locale con una VPN da sito a sito.  Perché ciò sia possibile, potrebbe essere necessario aggiornare il gateway VPN locale con le route per l'intervallo IP da punto a sito.  Quando la connessione VPN da sito a sito viene configurata per la prima volta, gli script usati per la configurazione devono impostare route che includono la VPN da punto a sito.  Se la VPN da punto a sito viene aggiunta dopo aver creato la VPN da sito a sito, è necessario aggiornare le route manualmente.  Le informazioni dettagliate su come eseguire questa operazione variano in base al gateway e non sono descritte in questo documento.  
+## <a name="accessing-on-premises-resources"></a>Accesso alle risorse locali
+Uno dei vantaggi offerti dalla funzionalità Integrazione rete virtuale è la possibilità per le app di accedere alle risorse locali direttamente dall'app, se la rete virtuale è connessa alla rete locale con una VPN da sito a sito.  A questo scopo, tuttavia, è possibile che sia necessario aggiornare il gateway VPN locale con le route per l'intervallo IP da punto a sito.  Quando la connessione VPN da sito a sito viene configurata per la prima volta, gli script usati per la configurazione devono impostare route che includono la VPN da punto a sito.  Se la VPN da punto a sito viene aggiunta dopo aver creato la VPN da sito a sito, è necessario aggiornare le route manualmente.  Le informazioni dettagliate su come eseguire questa operazione variano in base al gateway e non sono descritte in questo documento.  
 
 > [!NOTE]
-> La funzionalità Integrazione rete virtuale permette di accedere alle risorse locali con una VPN da sito a sito. Attualmente non è possibile fare lo stesso con una VPN ExpressRoute.  Questo vale per l'integrazione con una rete virtuale classica o con una rete virtuale di Resource Manager.  Se si desidera accedere alle risorse tramite una VPN ExpressRoute è possibile usare un ambiente ASE che può essere eseguito nella rete virtuale. 
+> La funzionalità Integrazione rete virtuale non consente l'integrazione di un'app con una rete virtuale dotata di un gateway ExpressRoute, anche se il gateway ExpressRoute è configurato in [modalità di coesistenza][VPNERCoex]. Se è necessario accedere alle risorse tramite una connessione ExpressRoute, è possibile usare un [ambiente del servizio app][ASE] eseguito nella rete virtuale.
 > 
 > 
 
@@ -249,15 +249,15 @@ Di seguito è riportata la procedura di debug aggiuntiva:
 
 * Accedere a un'altra macchina virtuale nella rete virtuale e provare a raggiungere la combinazione host:porta della risorsa da lì.  A questo scopo è possibile usare alcune utilità ping TCP o telnet, se necessario.  In questo caso si vuole solo determinare se è disponibile la connettività dall'altra macchina virtuale. 
 * Visualizzare un'applicazione in un'altra macchina virtuale e testare l'accesso all'host e alla porta dalla console dell'app.  
-  ####<a name="on-premise-resources"></a>Risorse locali####
-  Se non si riesce a raggiungere le risorse locali, è necessario prima di tutto verificare se è possibile raggiungere una risorsa nella rete virtuale.  Se ciò è possibile, i passaggi successivi sono piuttosto semplici.  Cercare di raggiungere l'applicazione locale da una macchina virtuale nella rete virtuale.  A questo scopo è possibile usare telnet o un'utilità ping TCP.  Se la macchina virtuale non riesce a raggiungere la risorsa locale, verificare il funzionamento della connessione VPN da sito a sito.  Se questa funziona, controllare quanto indicato in precedenza nonché la configurazione e lo stato del gateway locale.  
+  ####<a name="on-premises-resources"></a>risorse locali####
+  Se non si riesce a raggiungere le risorse locali, è necessario prima di tutto verificare se è possibile raggiungere una risorsa nella rete virtuale.  Se ciò è possibile, i passaggi successivi sono piuttosto semplici.  Cercare di raggiungere l'applicazione locale da una macchina virtuale presente nella rete virtuale.  A questo scopo è possibile usare telnet o un'utilità ping TCP.  Se la macchina virtuale non riesce a raggiungere la risorsa locale, verificare che la connessione VPN da sito a sito funzioni correttamente.  Se la connessione funziona, eseguire gli stessi controlli descritti in precedenza, nonché la configurazione e lo stato del gateway locale.  
 
-A questo punto, se la macchina virtuale ospitata su VNET può raggiungere il sistema locale ma l'app non ci riesce, la causa è probabilmente una delle seguenti:
+A questo punto, se la macchina virtuale ospitata nella rete virtuale può raggiungere il sistema locale ma l'app non ci riesce, la causa è probabilmente una delle seguenti:
 
-* le route non sono configurate con gli intervalli di IP Da punto a sito all'interno del gateway locale
-* i gruppi di sicurezza della rete bloccano l'accesso all'intervallo di IP Da punto a sito
-* i firewall locali bloccano il traffico proveniente dall'intervallo di IP Da punto a sito
-* in VNET è presente una route definita dall'utente (UDR) che impedisce al traffico Da punto a sito di raggiungere la rete locale
+* le route non sono configurate con gli intervalli di IP da punto a sito nel gateway locale
+* i gruppi di sicurezza della rete bloccano l'accesso all'intervallo di IP da punto a sito
+* i firewall locali bloccano il traffico proveniente dall'intervallo di IP da punto a sito
+* nella rete virtuale è presente una route definita dall'utente (UDR) che impedisce al traffico da punto a sito di raggiungere la rete locale
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>Connessioni ibride e ambienti del servizio App
 Sono disponibili 3 funzioni che consentono l'accesso alle risorse ospitate su reti virtuali.  Vale a dire:
@@ -266,7 +266,7 @@ Sono disponibili 3 funzioni che consentono l'accesso alle risorse ospitate su re
 * connessioni ibride
 * Ambienti del servizio app
 
-Per le connessioni ibride è necessario installare nella rete un agente di inoltro denominato Gestione connessione ibrida.  Gestione connessione ibrida deve potersi connettere ad Azure e anche all'applicazione.  Questa soluzione è particolarmente utile da una rete remota, ad esempio la rete locale o perfino un'altra rete ospitata su cloud, perché non richiede un endpoint accessibile da Internet.  Gestione connessione ibrida può essere eseguita solo su sistemi Windows e prevede un massimo di 5 istanze in esecuzione per garantire un'elevata disponibilità.  Le connessioni ibride, tuttavia, supportano solo il TCP e ogni endpoint di connessione ibrida deve corrispondere a una combinazione host:porta specifica.  
+Per le connessioni ibride è necessario installare nella rete un agente di inoltro denominato Gestione connessione ibrida.  Gestione connessione ibrida deve potersi connettere ad Azure e anche all'applicazione.  Questa soluzione è particolarmente vantaggiosa se adottata da una rete remota, come la propria rete locale o un'altra rete ospitata sul cloud, poiché non richiede un endpoint accessibile da Internet.  Gestione connessione ibrida può essere eseguita solo su sistemi Windows e prevede un massimo di 5 istanze in esecuzione per garantire un'elevata disponibilità.  Le connessioni ibride, tuttavia, supportano solo il TCP e ogni endpoint di connessione ibrida deve corrispondere a una combinazione host:porta specifica.  
 
 La funzionalità Ambiente del servizio app consente di eseguire un'istanza del servizio app di Azure nella propria rete virtuale.  In questo modo le app possono accedere alle risorse nella rete virtuale senza eseguire altri passaggi.  Tra i vantaggi dell'ambiente del servizio app c'è la possibilità di usare 8 processi di lavoro dedicati alla memoria centrale con 14 GB di RAM.  Un altro vantaggio è la possibilità di ridimensionare il sistema in base alle esigenze.  A differenza degli ambienti multi-tenant, in cui l'ASP ha dimensioni limitate, in un ambiente del servizio app è possibile controllare il numero di risorse da assegnare al sistema.  Per quanto riguarda l'argomento di questo documento, uno dei vantaggi dell'ambiente del servizio app rispetto all'integrazione di reti virtuali è che il primo è compatibile con una VPN ExpressRoute.  
 
@@ -276,7 +276,7 @@ Nonostante ci sia una parziale sovrapposizione, nessuna di queste funzionalità 
 * Una grande organizzazione che voglia inserire un gran numero di proprietà Web nel cloud pubblico e gestirle nella propria rete, può usare Ambiente del servizio app.  
 * Per accedere alle risorse nella rete virtuale con un numero elevato di app ospitate nel servizio app, è possibile usare la funzionalità Integrazione rete virtuale.  
 
-Oltre ai casi d'uso è opportuno tenere conto di alcuni aspetti relativi alla semplicità.  Se la rete virtuale è già connessa alla rete locale, l'integrazione di reti virtuali o un ambiente del servizio app rappresenta un modo semplice per utilizzare le risorse locali.  Se invece la rete virtuale non è connessa alla rete locale, è molto più complicato configurare una VPN da sito a sito con la rete virtuale che installare Gestione connessione ibrida.  
+Oltre ai casi d'uso è opportuno tenere conto di alcuni aspetti relativi alla semplicità.  Se la rete virtuale è già connessa alla rete locale, uno dei modi più semplici per usare le risorse locali è costituito dall'integrazione della rete virtuale o dall'utilizzo di un ambiente del servizio app.  Se invece la rete virtuale non è connessa alla rete locale, è molto più complicato configurare una VPN da sito a sito con la rete virtuale piuttosto che installare Gestione connessione ibrida.  
 
 Oltre a differenze funzionali, vanno considerate le differenze di prezzo.  La funzionalità Ambiente del servizio app è un'offerta di servizio Premium che garantisce il massimo delle possibilità di configurazione di rete e altre funzionalità.  La funzionalità Integrazione rete virtuale può essere usata con ASP Standard o Premium ed è ideale per l'utilizzo sicuro delle risorse in una rete virtuale dal servizio App multi-tenant.  La funzionalità Connessioni ibride dipende attualmente da un account BizTalk che prevede diversi piani tariffari, da quello gratuito a quello meno economico, a seconda della quantità richiesta.  Per l'uso su più reti, tuttavia, la scelta ideale è la funzionalità Connessioni ibride, che permette di accedere a risorse in oltre 100 reti separate.    
 
@@ -301,4 +301,6 @@ Oltre a differenze funzionali, vanno considerate le differenze di prezzo.  La fu
 [ASEintro]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 [V2VNETPortal]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+[VPNERCoex]: http://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager
+[ASE]: http://docs.microsoft.com/azure/app-service/app-service-environment/intro
 

@@ -12,19 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/15/2017
+ms.date: 08/02/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 337da13d4448090f320fa53a789d97f9843804d3
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: ac11c6c8532007ee40db128dd9933c99a32a9420
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
-È possibile usare il servizio Gestione dispositivi di StorSimple per monitorare dispositivi specifici all'interno della soluzione StorSimple. È possibile creare grafici personalizzati basati su prestazioni I/O, uso della capacità, velocità effettiva della rete e metriche delle prestazioni del dispositivo, per poi aggiungerli al dashboard. Per altre informazioni, vedere [customize your portal dashboard](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md) (personalizzare il dashboard del portale).
+È possibile usare il servizio Gestione dispositivi di StorSimple per monitorare dispositivi specifici all'interno della soluzione StorSimple. È possibile creare grafici personalizzati basati su prestazioni I/O, uso della capacità, velocità effettiva della rete e metriche delle prestazioni del dispositivo, per poi aggiungerli al dashboard. Per altre informazioni, vedere [customize your portal dashboard](/articles/azure-portal/azure-portal-dashboards.md) (personalizzare il dashboard del portale).
 
 Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, nel portale di Azure selezionare il servizio Gestione dispositivi di StorSimple. Selezionare il dispositivo dall'elenco dei dispositivi e passare a **Monitoraggio**. Sarà quindi possibile visualizzare i grafici **Capacità**, **Utilizzo** e **Prestazioni** per il dispositivo selezionato.
 

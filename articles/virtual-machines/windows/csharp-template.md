@@ -13,253 +13,319 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 07/14/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: daff6ab4c0eaf17d1cb488f1c16aa111b6ed9a88
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bd1c860db026f948202cd1f3aa763b4547c597b4
 ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager
-Questo articolo descrive come distribuire un modello di Azure Resource Manager tramite C#. Il [modello](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) consente di distribuire una singola macchina virtuale che esegue Windows Server in una nuova rete virtuale con un'unica subnet.
+Questo articolo descrive come distribuire un modello di Azure Resource Manager tramite C#. Il modello creato consente di distribuire una singola macchina virtuale che esegue Windows Server in una nuova rete virtuale con un'unica subnet.
 
 Per una descrizione dettagliata della risorsa macchina virtuale, vedere [Virtual machines in an Azure Resource Manager template](template-description.md) (Macchine virtuali in un modello di Azure Resource Manager). Per altre informazioni su tutte le risorse in un modello, vedere [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md) (Procedura dettagliata sui modelli di Azure Resource Manager).
 
 L'esecuzione di questi passaggi richiede circa 10 minuti.
 
-## <a name="step-1-create-a-visual-studio-project"></a>Passaggio 1: creare un progetto di Visual Studio
+## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
 In questo passaggio, ci si assicura che Visual Studio sia installato e si crea un'applicazione console da usare per distribuire il modello.
 
-1. Se non è già installato, installare [Visual Studio](https://www.visualstudio.com/).
+1. Se non è già installato, installare [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selezionare **Sviluppo per desktop .NET** nella pagina Carichi di lavoro e quindi fare clic su **Installa**. Nel riepilogo si noti che **Strumenti di sviluppo per .NET Framework 4-4.6** viene selezionato automaticamente. Se Visual Studio è già stato installato, è possibile aggiungere il carico di lavoro .NET usando l'utilità di avvio di Visual Studio.
 2. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
-3. In **Modelli** > **Visual C#** selezionare **App console (.NET Framework)**, immettere il nome e il percorso del progetto e quindi fare clic su **OK**.
+3. In **Modelli** > **Visual C#** selezionare **App console (.NET Framework)**, immettere *myDotnetProject* come nome del progetto, selezionare il percorso del progetto e quindi fare clic su **OK**.
 
-## <a name="step-2-install-libraries"></a>Passaggio 2: installare le librerie
+## <a name="install-the-packages"></a>Installare i pacchetti
 
-I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare questi passaggi. Sono necessarie la libreria di Azure Resource Manager e Azure Active Directory Authentication Library per creare le risorse. Per ottenere queste librerie in Visual Studio, seguire questa procedura:
+I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare questi passaggi. Per ottenere le librerie necessarie in Visual Studio, eseguire questa procedura:
 
-1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni, scegliere **Gestisci pacchetti NuGet per la soluzione...** e fare clic su **Sfoglia**.
-2. Digitare *Microsoft.IdentityModel.Clients.ActiveDirectory* nella casella di ricerca, selezionare il progetto, fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
-3. Nella parte superiore della pagina selezionare **Includi versione preliminare**. Digitare *Microsoft.Azure.Management.ResourceManager* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
-
-È ora possibile iniziare a usare le librerie per creare l'applicazione.
-
-## <a name="step-3-create-credentials-used-to-authenticate-requests"></a>Passaggio 3: creare le credenziali usate per autenticare le richieste
-
-Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità servizio Active Directory](../../resource-group-authenticate-service-principal.md). Dall'entità servizio si acquisisce un token per autenticare le richieste ad Azure Resource Manager.
-
-1. Aprire il file Program.cs per il progetto creato e quindi aggiungere le istruzioni using seguenti alle istruzioni esistenti all'inizio del file:
+1. Fare clic su **Strumenti** > **Gestione pacchetti Nuget** e quindi su **Console di Gestione Pacchetti**.
+2. Nella console digitare questi comandi:
 
     ```
-    using Microsoft.Azure;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.Azure.Management.ResourceManager.Models;
-    using Microsoft.Rest;
-    using System.IO;
+    Install-Package Microsoft.Azure.Management.Fluent
+    Install-Package WindowsAzure.Storage
     ```
 
-2. Aggiungere questo metodo alla classe Program per ottenere il token necessario per creare le credenziali:
+## <a name="create-the-files"></a>Creare i file
 
-    ```
-    private static async Task<AuthenticationResult> GetAccessTokenAsync()
+In questo passaggio si crea un file di modello che consente di distribuire le risorse e un file di parametri che fornisce i valori dei parametri nel modello. È possibile anche creare un file di autorizzazione da usare per eseguire operazioni in Azure Resource Manager.
+
+### <a name="create-the-template-file"></a>Creare il file di modello
+
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Aggiungi** > **Nuovo elemento** e quindi selezionare **File di testo** in *Elementi di Visual C#*. Assegnare un nome al file *CreateVMTemplate.json* e quindi fare clic su **Aggiungi**.
+2. Aggiungere questo codice JSON al file appena creato:
+
+    ```json
     {
-      var cc = new ClientCredential("client-id", "client-secret");
-      var context = new AuthenticationContext("https://login.windows.net/tenant-id");
-      var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
-      if (token == null)
-      {
-        throw new InvalidOperationException("Could not get the token.");
-      } 
-      return token;
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "adminUsername": { "type": "string" },
+        "adminPassword": { "type": "securestring" }
+      },
+      "variables": {
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+      },
+      "resources": [
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/publicIPAddresses",
+          "name": "myPublicIPAddress",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "publicIPAllocationMethod": "Dynamic",
+            "dnsSettings": {
+              "domainNameLabel": "myresourcegroupdns1"
+            }
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/virtualNetworks",
+          "name": "myVNet",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
+            "subnets": [
+              {
+                "name": "mySubnet",
+                "properties": { "addressPrefix": "10.0.0.0/24" }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-03-30",
+          "type": "Microsoft.Network/networkInterfaces",
+          "name": "myNic",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/publicIPAddresses/', 'myPublicIPAddress')]",
+            "[resourceId('Microsoft.Network/virtualNetworks/', 'myVNet')]"
+          ],
+          "properties": {
+            "ipConfigurations": [
+              {
+                "name": "ipconfig1",
+                "properties": {
+                  "privateIPAllocationMethod": "Dynamic",
+                  "publicIPAddress": { "id": "[resourceId('Microsoft.Network/publicIPAddresses','myPublicIPAddress')]" },
+                  "subnet": { "id": "[variables('subnetRef')]" }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2016-04-30-preview",
+          "type": "Microsoft.Compute/virtualMachines",
+          "name": "myVM",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/networkInterfaces/', 'myNic')]"
+          ],
+          "properties": {
+            "hardwareProfile": { "vmSize": "Standard_DS1" },
+            "osProfile": {
+              "computerName": "myVM",
+              "adminUsername": "[parameters('adminUsername')]",
+              "adminPassword": "[parameters('adminPassword')]"
+            },
+            "storageProfile": {
+              "imageReference": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2012-R2-Datacenter",
+                "version": "latest"
+              },
+              "osDisk": {
+                "name": "myManagedOSDisk",
+                "caching": "ReadWrite",
+                "createOption": "FromImage"
+              }
+            },
+            "networkProfile": {
+              "networkInterfaces": [
+                {
+                  "id": "[resourceId('Microsoft.Network/networkInterfaces','myNic')]"
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
     ```
 
-    Sostituire questi valori:
-    
-    - *client-id* con l'identificatore dell'applicazione Azure Active Directory. È possibile trovare questo identificatore nel pannello Proprietà dell'applicazione AD. Per individuare l'applicazione AD nel Portale di Azure, fare clic su **Azure Active Directory** nel menu di risorse e quindi fare clic su **Registrazioni per l'app**.
-    - *client-secret* con la chiave di accesso dell'applicazione AD. È possibile trovare questo identificatore nel pannello Proprietà dell'applicazione AD.
-    - *tenant-id* con l'identificatore del tenant della sottoscrizione. È possibile trovare l'identificatore del tenant nel pannello Proprietà di Azure Active Directory nel Portale di Azure. È indicato come *ID directory*.
+3. Salvare il file CreateVMTemplate.json.
 
-3. Per chiamare il metodo appena aggiunto, aggiungere questo codice al metodo Main:
+### <a name="create-the-parameters-file"></a>Creare il file dei parametri
 
-    ```
-    var token = GetAccessTokenAsync();
-    var credential = new TokenCredentials(token.Result.AccessToken);
-    ```
+Per specificare i valori per i parametri delle risorse definiti nel modello, creare un file dei parametri contenente i valori.
 
-4. Salvare il file Program.cs.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Aggiungi** > **Nuovo elemento** e quindi selezionare **File di testo** in *Elementi di Visual C#*. Assegnare un nome al file *Parameters.json* e quindi fare clic su **Aggiungi**.
+2. Aggiungere questo codice JSON al file appena creato:
 
-## <a name="step-4-create-a-resource-group"></a>Passaggio 4: Creare un gruppo di risorse
-
-Sebbene sia possibile creare un gruppo di risorse da un modello, il modello usato dalla raccolta non ne crea uno. In questo passaggio, si aggiunge il codice per creare un gruppo di risorse.
-
-1. Per specificare valori per l'applicazione, aggiungere le variabili al metodo Main della classe Program:
-
-    ```
-    var groupName = "myResourceGroup";
-    var subscriptionId = "subsciptionId";
-    var deploymentName = "deploymentName";
-    var location = "location";
-    ```
-
-    Sostituire questi valori:
-    
-    - *myResourceGroup* con il nome del gruppo di risorse in fase di creazione.
-    - *subscriptionId* con l'ID sottoscrizione. È possibile reperire l'ID sottoscrizione nel pannello Sottoscrizioni nel Portale di Azure.
-    - *deploymentName* con il nome della distribuzione.
-    - *location* con l'[area di Azure](https://azure.microsoft.com/regions/) in cui si vogliono creare le risorse.
-
-2. Aggiungere questo metodo alla classe Program per creare il gruppo di risorse:
-
-    ```
-    public static async Task<ResourceGroup> CreateResourceGroupAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId,
-      string location)
-    {
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-
-      Console.WriteLine("Creating the resource group...");
-      var resourceGroup = new ResourceGroup { Location = location };
-      return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(
-        groupName, 
-        resourceGroup);
-    }
-    ```
-
-3. Per chiamare il metodo appena aggiunto, aggiungere questo codice al metodo Main:
-
-    ```
-    var rgResult = CreateResourceGroupAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location);
-    Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
-    Console.ReadLine();
-    ```
-
-## <a name="step-5-create-a-parameters-file"></a>Passaggio 5: creare un file dei parametri
-
-Per specificare i valori per i parametri delle risorse definiti nel modello, creare un file dei parametri contenente i valori. Il file dei parametri viene usato durante la distribuzione del modello. Il modello usato dalla raccolta richiede valori per i parametri *adminUserName*, *adminPassword* e *dnsLabelPrefix*.
-
-In Visual Studio seguire questa procedura:
-
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse, quindi scegliere **Aggiungi** > **Nuovo elemento**.
-2. Fare clic su **Web**, selezionare il **file JSON**, immettere *Parameters.json* come nome e quindi fare clic su **Aggiungi**.
-3. Aprire il file Parameters.json e quindi aggiungere il contenuto JSON seguente:
-
-    ```
+    ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "adminUserName": { "value": "mytestacct1" },
-        "adminPassword": { "value": "mytestpass1" },
-        "dnsLabelPrefix": { "value": "mydns1" }
+        "adminUserName": { "value": "azureuser" },
+        "adminPassword": { "value": "Azure12345678" }
       }
     }
     ```
 
-    Sostituire i valori dei parametri con valori appropriati all'ambiente.
-
 4. Salvare il file Parameters.json.
 
-## <a name="step-6-deploy-a-template"></a>Passaggio 6: distribuire un modello
+### <a name="create-the-authorization-file"></a>Creare il file di autorizzazione
 
-In questo esempio si distribuisce un modello dalla raccolta di modelli di Azure e si indicano i valori dei parametri dal file locale creato. 
+Prima di poter distribuire un modello, è necessario assicurarsi di avere accesso a un'[entità servizio Active Directory](../../resource-group-authenticate-service-principal.md). Dall'entità servizio si acquisisce un token per autenticare le richieste ad Azure Resource Manager. È necessario anche registrare l'ID dell'applicazione, la chiave di autenticazione e l'ID del tenant necessari nel file di autorizzazione.
 
-1. Per distribuire il modello, aggiungere questo metodo alla classe Program:
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Aggiungi** > **Nuovo elemento** e quindi selezionare **File di testo** in *Elementi di Visual C#*. Assegnare un nome al file *azureauth.properties* e quindi fare clic su **Aggiungi**.
+2. Aggiungere queste proprietà di autorizzazione:
 
     ```
-    public static async Task<DeploymentExtended> CreateTemplateDeploymentAsync(
-      TokenCredentials credential,
-      string groupName,
-      string deploymentName,
-      string subscriptionId)
-    {
+    subscription=<subscription-id>
+    client=<application-id>
+    key=<authentication-key>
+    tenant=<tenant-id>
+    managementURI=https://management.core.windows.net/
+    baseURL=https://management.azure.com/
+    authURL=https://login.windows.net/
+    graphURL=https://graph.windows.net/
+    ```
+
+    Sostituire **&lt;subscription-id&gt;** con l'identificatore della sottoscrizione, **&lt;application-id&gt;** con l'identificatore dell'applicazione Active Directory, **&lt;authentication-key&gt;** con la chiave dell'applicazione e **&lt;tenant-id&gt;** con l'identificatore del tenant.
+
+3. Salvare il file azureauth.properties.
+4. Impostare una variabile di ambiente Windows denominata AZURE_AUTH_LOCATION con il percorso completo al file di autorizzazione creato. È possibile usare, ad esempio, il comando PowerShell seguente:
+
+    ```
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    ```
     
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
+## <a name="create-the-management-client"></a>Creare il client di gestione
 
-      Console.WriteLine("Creating the template deployment...");
-      var deployment = new Deployment();
-      deployment.Properties = new DeploymentProperties
-        {
-          Mode = DeploymentMode.Incremental,
-          TemplateLink = new TemplateLink("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json"),
-          Parameters = File.ReadAllText("..\\..\\Parameters.json")
-        };
-      
-      return await resourceManagementClient.Deployments.CreateOrUpdateAsync(
-        groupName,
-        deploymentName,
-        deployment
-      );
-    }
-    ```
-
-    È inoltre possibile distribuire un modello da una cartella locale tramite la proprietà Template anziché la proprietà TemplateLink.
-
-2. Per chiamare il metodo appena aggiunto, aggiungere questo codice al metodo Main:
+1. Aprire il file Program.cs per il progetto creato e quindi aggiungere le istruzioni using seguenti alle istruzioni esistenti all'inizio del file:
 
     ```
-    var dpResult = CreateTemplateDeploymentAsync(
-      credential,
-      groupName,
-      deploymentName,
-      subscriptionId);
-    Console.WriteLine(dpResult.Result.Properties.ProvisioningState);
-    Console.ReadLine();
+    using Microsoft.Azure.Management.Compute.Fluent;
+    using Microsoft.Azure.Management.Compute.Fluent.Models;
+    using Microsoft.Azure.Management.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
     ```
 
-## <a name="step-7-delete-the-resources"></a>Passaggio 7: eliminare le risorse
+2. Per creare il client di gestione, aggiungere questo codice al metodo Main:
 
-Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre consigliabile eliminare le risorse che non sono più necessarie. Non è necessario eliminare separatamente ogni risorsa da un gruppo di risorse. Eliminando il gruppo di risorse, tutte le relative risorse verranno eliminate automaticamente.
+    ```
+    var credentials = SdkContext.AzureCredentialsFactory
+        .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
-1. Per eliminare il gruppo di risorse, aggiungere questo metodo alla classe Program:
+    var azure = Azure
+        .Configure()
+        .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
+        .Authenticate(credentials)
+        .WithDefaultSubscription();
+    ```
 
-   ```
-   public static async void DeleteResourceGroupAsync(
-     TokenCredentials credential,
-     string groupName,
-     string subscriptionId)
-   {
-     Console.WriteLine("Deleting resource group...");
-     var resourceManagementClient = new ResourceManagementClient(credential)
-       { SubscriptionId = subscriptionId };
-     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-   }
-   ```
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-2. Per chiamare il metodo appena aggiunto, aggiungere questo codice al metodo Main:
+Per specificare i valori per l'applicazione, aggiungere il codice necessario al metodo Main:
 
-   ```
-   DeleteResourceGroupAsync(
-     credential,
-     groupName,
-     subscriptionId);
-   Console.ReadLine();
-   ```
+```
+var groupName = "myResourceGroup";
+var location = Region.USWest;
 
-## <a name="step-8-run-the-console-application"></a>Passaggio 8: Eseguire l'applicazione console
+var resourceGroup = azure.ResourceGroups.Define(groupName)
+    .WithRegion(location)
+    .Create();
+```
+
+## <a name="create-a-storage-account"></a>Creare un account di archiviazione
+
+Il modello e i parametri vengono distribuiti da un account di archiviazione in Azure. In questo passaggio si creerà l'account e si caricheranno i file. 
+
+Per creare l'account, aggiungere questo codice al metodo Main:
+
+```
+string storageAccountName = SdkContext.RandomResourceName("st", 10);
+
+Console.WriteLine("Creating storage account...");
+var storage = azure.StorageAccounts.Define(storageAccountName)
+    .WithRegion(Region.USWest)
+    .WithExistingResourceGroup(resourceGroup)
+    .Create();
+
+var storageKeys = storage.GetKeys();
+string storageConnectionString = "DefaultEndpointsProtocol=https;"
+    + "AccountName=" + storage.Name
+    + ";AccountKey=" + storageKeys[0].Value
+    + ";EndpointSuffix=core.windows.net";
+
+var account = CloudStorageAccount.Parse(storageConnectionString);
+var serviceClient = account.CreateCloudBlobClient();
+
+Console.WriteLine("Creating container...");
+var container = serviceClient.GetContainerReference("templates");
+container.CreateIfNotExistsAsync().Wait();
+var containerPermissions = new BlobContainerPermissions()
+    { PublicAccess = BlobContainerPublicAccessType.Container };
+container.SetPermissionsAsync(containerPermissions).Wait();
+
+Console.WriteLine("Uploading template file...");
+var templateblob = container.GetBlockBlobReference("CreateVMTemplate.json");
+templateblob.UploadFromFile("..\\..\\CreateVMTemplate.json");
+
+Console.WriteLine("Uploading parameters file...");
+var paramblob = container.GetBlockBlobReference("Parameters.json");
+paramblob.UploadFromFile("..\\..\\Parameters.json");
+```
+
+## <a name="deploy-the-template"></a>Distribuire il modello
+
+Distribuire il modello e i parametri dall'account di archiviazione appena creato. 
+
+Per distribuire il modello, aggiungere questo codice al metodo Main:
+
+```
+var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
+var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
+var deployment = azure.Deployments.Define("myDeployment")
+    .WithExistingResourceGroup(groupName)
+    .WithTemplateLink(templatePath, "1.0.0.0")
+    .WithParametersLink(paramPath, "1.0.0.0")
+    .WithMode(Microsoft.Azure.Management.ResourceManager.Fluent.Models.DeploymentMode.Incremental)
+    .Create();
+Console.WriteLine("Press enter to delete the resource group...");
+Console.ReadLine();
+```
+
+## <a name="delete-the-resources"></a>Eliminare le risorse
+
+Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre consigliabile eliminare le risorse che non sono più necessarie. Non è necessario eliminare separatamente ogni risorsa da un gruppo di risorse. Eliminando il gruppo di risorse, tutte le relative risorse verranno eliminate automaticamente. 
+
+Per eliminare il gruppo di risorse, aggiungere questo codice al metodo Main:
+
+```
+azure.ResourceGroups.DeleteByName(groupName);
+```
+
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
 L'esecuzione completa dell'applicazione console dall'inizio alla fine richiederà circa cinque minuti. 
 
-1. Per eseguire l'applicazione console, fare clic su **Avvia** in Visual Studio e accedere ad Azure AD usando le stesse credenziali specificate per la sottoscrizione.
+1. Per eseguire l'applicazione console, fare clic su **Avvia**.
 
-2. Premere **INVIO** dopo la visualizzazione dello stato *Riuscito*. 
-
-    Dovrebbe essere visualizzato **1 Riuscito** in Distribuzioni nel pannello Panoramica per il gruppo di risorse nel Portale di Azure.
-
-3. Prima di premere **INVIO** per avviare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica della creazione delle risorse nel Portale di Azure. Fare clic sullo stato della distribuzione per visualizzare le informazioni corrispondenti.
+2. Prima di premere **INVIO** per avviare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica della creazione delle risorse nel Portale di Azure. Fare clic sullo stato della distribuzione per visualizzare le informazioni corrispondenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Se si sono verificati problemi con la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
