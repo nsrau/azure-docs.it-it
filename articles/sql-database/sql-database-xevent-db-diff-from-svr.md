@@ -126,7 +126,7 @@ Per gli eventi estesi sono disponibili DMV aggiuntive comuni a Microsoft SQL Ser
 
 È possibile eseguire un semplice **SELECT** di SQL per ottenere un elenco di eventi, azioni e destinazioni disponibili.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],
