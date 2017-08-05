@@ -197,8 +197,8 @@ L'output è simile al seguente:
   - Il dominio di distribuzione radice configurato per il mapping all'indirizzo IP esterno di ingresso di Kubernetes (in questo caso, `squillace.io`)
 
   Chiamare `draft init`. Il processo di configurazione chiederà i valori indicati sopra. Alla prima esecuzione, il processo è simile al seguente.
-    ```
-    draft init
+ ```bash
+    $ draft init
     Creating pack ruby...
     Creating pack node...
     Creating pack gradle...
