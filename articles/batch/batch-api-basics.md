@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 346e7abf862330afe64dc5685737a9301d7d861a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
@@ -177,10 +177,14 @@ Vedere la sezione [Account](#account) per informazioni sull'impostazione della m
 
 Per usare un'immagine personalizzata per il provisioning di pool di macchine virtuali, creare l'account Batch con la modalità di allocazione pool di tipo Sottoscrizione utente. Con questa modalità, i pool di Batch vengono allocati nella sottoscrizione in cui si trova l'account. Vedere la sezione [Account](#account) per informazioni sull'impostazione della modalità di allocazione dei pool quando si crea un account Batch.
 
-Per usare un'immagine personalizzata, sarà necessario preparare l'immagine generalizzandola. Per informazioni sulla preparazione di immagini di Linux personalizzate dalle macchine virtuali di Azure, vedere [Acquisire una VM Linux da usare come modello](../virtual-machines/linux/capture-image-nodejs.md). Per informazioni sulla preparazione di immagini di Windows personalizzate dalle macchine virtuali di Azure, vedere [Creare immagini personalizzate di VM con Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). Durante la preparazione dell'immagine, è necessario tenere presente quanto segue:
+Per usare un'immagine personalizzata, sarà necessario preparare l'immagine generalizzandola. Per informazioni sulla preparazione di immagini di Linux personalizzate dalle macchine virtuali di Azure, vedere [Acquisire una VM Linux da usare come modello](../virtual-machines/linux/capture-image-nodejs.md). Per informazioni sulla preparazione di immagini di Windows personalizzate dalle macchine virtuali di Azure, vedere [Creare immagini personalizzate di VM con Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
 
-- Assicurarsi che l'immagine del sistema operativo di base usata per il provisioning dei pool di Batch non includa alcuna estensione di Azure preinstallata, ad esempio l'estensione Script personalizzato. Se l'immagine contiene un'estensione preinstallata, è possibile che Azure rilevi problemi durante la distribuzione della VM.
-- Assicurarsi che l'immagine del sistema operativo di base fornita usi l'unità temporanea predefinita, perché l'agente del nodo Batch prevede attualmente l'unità temporanea predefinita.
+> [!IMPORTANT]
+> Durante la preparazione dell'immagine personalizzata, tenere presente quanto segue:
+> - Assicurarsi che l'immagine del sistema operativo di base usata per il provisioning dei pool di Batch non includa alcuna estensione di Azure preinstallata, ad esempio l'estensione Script personalizzato. Se l'immagine contiene un'estensione preinstallata, è possibile che Azure rilevi problemi durante la distribuzione della VM.
+> - Assicurarsi che l'immagine del sistema operativo di base fornita usi l'unità temporanea predefinita, perché l'agente del nodo Batch prevede attualmente l'unità temporanea predefinita.
+>
+>
 
 Per creare un pool con l'opzione Configurazione macchina virtuale usando un'immagine personalizzata, sono necessari uno o più account di Archiviazione di Azure standard per archiviare le immagini del disco rigido virtuale personalizzate. Le immagini personalizzate vengono archiviate come BLOB. Per fare riferimento alle immagini personalizzate quando si crea un pool, specificare gli URI dei BLOB dei dischi rigidi virtuali delle immagini personalizzate per la proprietà [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) della proprietà [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
 

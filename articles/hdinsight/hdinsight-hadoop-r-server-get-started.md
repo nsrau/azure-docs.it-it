@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 07/13/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ee4298b91f4e2b215b5faabaad96323f4ef234b8
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f0ee0d23f28df2824ea41f7c9f7490e1ec62d041
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>Introduzione all'uso di R Server su HDInsight
@@ -367,7 +367,7 @@ Si noti anche gli utenti appena aggiunti non hanno privilegi a livello radice ne
 
 4. È anche possibile usare l'indirizzamento in stile WASB.
 
-    rxHadoopListFiles("wasbs:///")
+    rxHadoopListFiles("wasb:///")
 
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Utilizzare R Server in HDI da un'istanza remota di Microsoft R Server o Microsoft R Client

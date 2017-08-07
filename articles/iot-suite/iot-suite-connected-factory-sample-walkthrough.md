@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3011fd608ba83561c319e57c8a7b5a4f3c4c2284
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procedura dettagliata per la soluzione preconfigurata di connected factory
@@ -47,6 +46,13 @@ Questo articolo illustra alcuni degli elementi principali della soluzione di con
 Il diagramma seguente illustra i componenti logici della soluzione preconfigurata:
 
 ![Architettura logica di connected factory][connected-factory-logical]
+
+## <a name="communication-patterns"></a>Modelli di comunicazione
+
+La soluzione usa la [specifica OPC UA Pub/Sub](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) per inviare i dati di telemetria OPC UA all'hub IoT in formato JSON. La soluzione usa il [modulo di pubblicazione OPC](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge per questo scopo.
+
+La soluzione ha anche un client OPC UA integrato in un'applicazione Web che può stabilire connessioni con server OPC UA locali. Il client usa un [proxy inverso](https://wikipedia.org/wiki/Reverse_proxy) e riceve assistenza dall'hub IoT per stabilire la connessione senza che sia necessario aprire le porte nel firewall locale. Questo modello di comunicazione è denominato [modello di comunicazione assistita con servizi](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). La soluzione usa il modulo [proxy OPC](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge per questo scopo.
+
 
 ## <a name="simulation"></a>Simulazione
 

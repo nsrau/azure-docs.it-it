@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 82e8d7e0ea975f140eaf73a625d181a4ec68eaa7
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
@@ -317,6 +317,15 @@ Per altre informazioni, vedere [Modalità di gestione temporanea](active-directo
 
 ### <a name="verify-your-federation-configuration"></a>Verificare la configurazione della federazione
 Azure AD Connect verifica automaticamente le impostazioni DNS quando si fa clic sul pulsante Verifica.
+
+**Controlli della connettività Intranet**
+
+* Risoluzione del nome di dominio completo della federazione: per garantire la connettività, Azure AD Connect controlla se il nome di dominio completo della federazione può essere risolto da DNS. Se Azure AD Connect non può risolvere il nome di dominio completo, la verifica avrà esito negativo. Per completare correttamente la verifica, assicurarsi che sia presente un record DNS per il nome di dominio completo del servizio federativo.
+* Record DNS A: Azure AD Connect controlla se è presente un record A per il servizio federativo. In assenza di un record A, la verifica avrà esito negativo. Per completare correttamente la verifica, creare un record A e non un record CNAME per il nome di dominio completo della federazione.
+
+**Controlli della connettività Extranet**
+
+* Risoluzione del nome di dominio completo della federazione: per garantire la connettività, Azure AD Connect controlla se il nome di dominio completo della federazione può essere risolto da DNS.
 
 ![Complete](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

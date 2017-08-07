@@ -1,6 +1,6 @@
 ---
-title: Creare un gruppo multicontenitore con Istanze di contenitore di Azure | Azure Docs
-description: Creare un gruppo multicontenitore e distribuirlo in Istanze di contenitore di Azure dal Registro contenitori di Azure
+title: Esercitazione su Istanze di contenitore di Azure - Preparare l'app | Azure Docs
+description: Preparare un'app per la distribuzione in Istanze di contenitore di Azure
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/20/2017
+ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: b5f16f0c4b15c02bbc0ee8a9fb9424467a39ee4d
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 07ad1a6edbcb4d6160b37b4923586e23058f3c04
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 

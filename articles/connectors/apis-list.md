@@ -15,16 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1e2dad92647630c8b9a4e7676eee9288c87daf44
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
-# Elenco dei connettori
-<a id="connectors-list" class="xliff"></a>
+# <a name="connectors-list"></a>Elenco dei connettori
 > [!TIP]
 > La sezione [Elenco completo dalla A alla Z](#az) di questo argomento elenca tutti i connettori disponibili che possono essere usati nelle app per la logica. [Connector details](/connectors/) (Dettagli connettore) offre un elenco dei trigger e delle azioni inclusi nella definizione Swagger, nonché degli eventuali limiti per ogni connettore.
 
@@ -40,8 +38,7 @@ I connettori sono una parte essenziale della creazione di app per la logica. Usa
 
 Per altri dettagli sui costi, vedere [Prezzi di App per la logica ](https://azure.microsoft.com/pricing/details/logic-apps/) e [Modello di determinazione prezzi delle app per la logica](../logic-apps/logic-apps-pricing.md). 
 
-## Connettori più diffusi
-<a id="popular-connectors" class="xliff"></a>
+## <a name="popular-connectors"></a>Connettori più diffusi
 Migliaia di applicazioni e milioni di esecuzioni elaborano correttamente dati e informazioni usando questi connettori. La tabella seguente elenca i connettori più diffusi e alcuni connettori preferiti dagli utenti:
 
 | |  |  |  |
@@ -54,8 +51,7 @@ Migliaia di applicazioni e milioni di esecuzioni elaborano correttamente dati e 
 |  [![API Icon][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Se si lavora con SharePoint e l'automazione potrebbe risultare utile, è consigliabile prendere in considerazione questo connettore. Può essere usato con SharePoint locale e SharePoint Online. | [![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Uno dei connettori più usati, consente di connettersi a un'istanza locale di SQL Server e a un database SQL di Azure. | 
 | [![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] | Accedere con facilità con un account Twitter e quindi avviare un flusso di lavoro quando viene inserito un nuovo tweet. Salvare quindi i tweet in un database SQL o in un elenco di SharePoint. | | | 
 
-## Connettori dell'account di integrazione
-<a id="integration-account-connectors" class="xliff"></a> 
+## <a name="integration-account-connectors"></a>Connettori dell'account di integrazione 
 
 Enterprise Integration Pack (EIP) include connettori noti alla community di BizTalk Server. Quando si acquista un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), si ottengono anche i connettori seguenti: 
 
@@ -65,8 +61,7 @@ Enterprise Integration Pack (EIP) include connettori noti alla community di BizT
 [![API Icon][flatfileicon]<br/>**Codifica</br>file flat**][flatfiledoc] | [![API Icon][flatfileicon]<br/>**Decodifica</br>file flat**][flatfiledecodedoc] | [![API Icon][integrationaccounticon]<br/>**Integrazione<br/>account**][integrationaccountdoc] | [![API Icon][xmltransformicon]<br/>**Trasforma<br/>XML**][xmltransformdoc] |
 | [![API Icon][x12icon]<br/>**Decodifica</br> X12**][x12decode] | [![API Icon][x12icon]<br/>**Codifica</br> X12**][x12encode] | [![API Icon][xmlvalidateicon]<br/>**Convalida <br/>XML**][xmlvalidatedoc] | |
 
-## Connettori aziendali
-<a id="enterprise-connectors" class="xliff"></a>
+## <a name="enterprise-connectors"></a>Connettori aziendali
 
 È possibile connettersi alle applicazioni aziendali all'interno delle app per la logica.
 
@@ -86,13 +81,12 @@ Enterprise Integration Pack (EIP) include connettori noti alla community di BizT
 
 | | |
 |---|---|
-|<a name="1"></a>10to8 Appointment Scheduling<br/><br/><a name="a"></a>Act!<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory (AD)<br/>Gestione API di Azure<br/>Servizi app di Azure<br/>Applicazione di Azure<br/>Automazione di Azure<br/>[Archiviazione BLOB di Azure][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure DocumentDB (Cosmos DB)<br/>[Funzioni di Azure][azure-functionsdoc]<br/>[App per la logica di Azure][nested-logic-appdoc]<br/>AzureML<br/>Code di Azure<br/>Gestione risorse di Azure<br/>[Database SQL di Azure][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Batch<br/>Benchmark Email<br/>Ricerca Bing<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Calendly<br/>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito Forms<br/>API Visione artificiale di Servizi cognitivi<br/>API Viso di Servizi cognitivi<br/>LUIS di Servizi cognitivi<br/>Analisi del testo di Servizi cognitivi<br/>Common Data Service<br/>Conversione del contenuto<br/>Control-Terminate<br/>[API/app Web personalizzate][api/web-appdoc]<br/><br/><a name="d"></a>Operazioni dati<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Hub eventi][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[File System][filesystemdoc]<br/>[File flat][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>FreshService<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google Calendar<br/>Google Contacts<br/>Google Drive<br/>Google Sheets<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[Webhook HTTP][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Account di integrazione<br/>Intercom | <a name="j"></a>JotForm<br/>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Media<br/>Microsoft Forms<br/>Microsoft Teams<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN Meteo<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Utenti di Office 365<br/>Office 365 Video<br/>OneDrive<br/>OneDrive for Business<br/>OneNote (Business)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer Manager<br/>Attività di Outlook<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Richiesta/Risposta][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[Server applicazioni SAP][sapconnector]<br/>[Server messaggi SAP][sapconnector]<br/>[Pianificare][recurrencedoc]<br/>Scope<br/>SendGrid<br/>Inviare messaggi a un batch<br/>[Bus di servizio][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointdoc]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teamwork Projects<br/>Teradata<br/>Todoist<br/>Toodledo<br/>[Trasformare XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Variabili<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[Convalida XML][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
+|<a name="1"></a>10to8 Appointment Scheduling<br/><br/><a name="a"></a>Act!<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory (AD)<br/>Gestione API di Azure<br/>Servizi app di Azure<br/>Applicazione di Azure<br/>Automazione di Azure<br/>[Archiviazione BLOB di Azure][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure DocumentDB (Cosmos DB)<br/>[Funzioni di Azure][azure-functionsdoc]<br/>[App per la logica di Azure][nested-logic-appdoc]<br/>AzureML<br/>Code di Azure<br/>Gestione risorse di Azure<br/>[Database SQL di Azure][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Batch<br/>Benchmark Email<br/>Ricerca Bing<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Calendly<br/>Campfire<br/>Capsule CRM<br/>Chatter<br/>Cognito Forms<br/>API Visione artificiale di Servizi cognitivi<br/>API Viso di Servizi cognitivi<br/>LUIS di Servizi cognitivi<br/>Analisi del testo di Servizi cognitivi<br/>Common Data Service<br/>Conversione del contenuto<br/>Control-Terminate<br/>[API/app Web personalizzate][api/web-appdoc]<br/><br/><a name="d"></a>Operazioni dati<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Hub eventi][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[File System][filesystemdoc]<br/>[File flat][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>FreshService<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google Calendar<br/>Google Contacts<br/>Google Drive<br/>Google Sheets<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[Webhook HTTP][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Account di integrazione<br/>Intercom | <a name="j"></a>JotForm<br/>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Media<br/>Microsoft Forms<br/>Microsoft Teams<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN Meteo<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Utenti di Office 365<br/>Office 365 Video<br/>OneDrive<br/>OneDrive for Business<br/>OneNote (Business)<br/>[Oracle Database][oracle-db-doc]<br/>Outlook Customer Manager<br/>Attività di Outlook<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Richiesta/Risposta][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[Server applicazioni SAP][sapconnector]<br/>[Server messaggi SAP][sapconnector]<br/>[Pianificare][recurrencedoc]<br/>Scope<br/>SendGrid<br/>Inviare messaggi a un batch<br/>[Bus di servizio][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointserver]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Teamwork Projects<br/>Teradata<br/>Todoist<br/>Toodledo<br/>[Trasformare XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Variabili<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[Convalida XML][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
 
 > [!TIP]
 > Per iniziare a usare le app per la logica di Azure prima di creare un account di Azure, vedere [Provare le app per la logica](https://tryappservice.azure.com/?appservice=logic). È possibile creare immediatamente un'app per la logica di base temporanea. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 
-## Connettori come trigger e azioni
-<a id="connectors-as-triggers-and-actions" class="xliff"></a>
+## <a name="connectors-as-triggers-and-actions"></a>Connettori come trigger e azioni
 
 Un **trigger** avvia o esegue un'istanza dell'app per la logica. Alcuni connettori forniscono trigger che possono inviare notifiche all'app quando si verifica un evento specifico. Il connettore FTP include ad esempio il trigger `OnUpdatedFile` che avvia l'app per la logica quando viene aggiornato un file. 
 
@@ -112,8 +106,7 @@ I connettori forniscono anche **azioni** che è possibile usare nel flusso di la
 > Per altri dettagli su trigger e azioni, vedere [Panoramica dei connettori](connectors-overview.md). 
 
 
-## Azioni di modifica dei messaggi
-<a id="message-manipulation-actions" class="xliff"></a>
+## <a name="message-manipulation-actions"></a>Azioni di modifica dei messaggi
 
 Le app per la logica includono azioni predefinite che consentono di modificare i dati del payload. Il connettore predefinito **Operazioni dati**: 
 
@@ -126,15 +119,13 @@ Le app per la logica includono azioni predefinite che consentono di modificare i
 | **Analizza JSON** | È possibile escludere tramite analisi e accedere a valori da un oggetto JSON nella finestra di progettazione. Se ad esempio Funzioni di Azure restituisce un payload JSON, è possibile analizzarlo per accedere alle proprietà JSON in un passaggio successivo. L'azione convalida anche la corrispondenza di JSON con lo schema specificato in fase di runtime. | 
 | **Selezionare** | Selezionare alcune proprietà di una matrice per un'elaborazione aggiuntiva. Se si elencano record da SQL e vengono restituite 15 colonne, selezionare solo alcune colonne per un'elaborazione aggiuntiva. L'output è una matrice che contiene solo le proprietà selezionate. |
 
-## Connettori personalizzati e certificazione per Azure
-<a id="custom-connectors-and-azure-certification" class="xliff"></a> 
+## <a name="custom-connectors-and-azure-certification"></a>Connettori personalizzati e certificazione per Azure 
 
 Per chiamare API che eseguono codice personalizzato o non sono disponibili come connettori, è possibile estendere la piattaforma di App per la logica [creando app per le API basate su REST come connettori personalizzati](../logic-apps/logic-apps-create-api-app.md). 
 
 Se si vuole rendere pubbliche le app per le API personalizzate e renderle disponibile per l'uso in Azure, inviare le candidature al [programma Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
 
-## Ottenere aiuto
-<a id="get-help" class="xliff"></a>
+## <a name="get-help"></a>Ottenere aiuto
 
 Per porre domande, fornire risposte e ottenere informazioni sulle attività degli altri utenti delle app per la logica di Azure, vedere il [forum sulle app per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
@@ -142,8 +133,7 @@ Per contribuire al miglioramento di App per la logica di Azure e dei connettori,
 
 Se manca un argomento sui connettori o qualche dettaglio che si ritiene sia importante, aggiungerlo agli argomenti esistenti o scrivere un argomento personalizzato. La documentazione è open source e ospitata su GitHub. Introduzione al [repository GitHub](https://github.com/Microsoft/azure-docs). 
 
-## Passaggi successivi
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Passaggi successivi
 * [Creare la prima app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
 * [Creare API personalizzate per app per la logica](../logic-apps/logic-apps-create-api-app.md)
 * [Monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -171,6 +161,7 @@ Se manca un argomento sui connettori o qualche dettaglio che si ritiene sia impo
 [sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Connettersi a un sistema SAP locale"
 [service-busdoc]: ./connectors-create-api-servicebus.md "Inviare messaggi da code e argomenti del bus di servizio e ricevere messaggi da code e sottoscrizioni del bus di servizio"
 [sharepointdoc]: ./connectors-create-api-sharepointonline.md "Connettersi a SharePoint Online. Gestire documenti, elementi elenco e altro ancora"
+[sharepointserver]: ./connectors-create-api-sharepointserver.md "Connettersi al server locale di SharePoint. Gestire documenti, elementi elenco e altro ancora"
 [sql-serverdoc]: ./connectors-create-api-sqlazure.md "Connettersi a SQL Server o database SQL di Azure. Creare, aggiornare, recuperare ed eliminare voci in una tabella del database SQL"
 [twitterdoc]: ./connectors-create-api-twitter.md "Connettersi a Twitter. Ottenere cronologie, pubblicare tweet e altro ancora"
 [webhookdoc]: ./connectors-native-webhook.md "Aggiungere azioni e trigger webhook alle app per la logica"

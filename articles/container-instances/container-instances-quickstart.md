@@ -18,10 +18,10 @@ ms.date: 07/26/2017
 ms.author: seanmck
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 933299ce5a5d6f5b2262d40ae768019ccaf8796a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-I comandi dell'interfaccia della riga di comando di Istanze di contenitore di Azure attualmente sono disponibili solo in Azure Cloud Shell.
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.12 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -52,8 +52,6 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-container"></a>Creare un contenitore
 
 Per creare un contenitore, specificare un nome, un'immagine Docker e un gruppo di risorse di Azure. È facoltativamente possibile esporre il contenitore a Internet con un indirizzo IP pubblico. In questo caso, verrà usato un contenitore che ospita un'app Web molto semplice scritta in [Node.js](http://nodejs.org).
-
-I comandi dell'interfaccia della riga di comando di Istanze di contenitore di Azure attualmente sono disponibili solo in Azure Cloud Shell.
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 

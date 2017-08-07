@@ -1,5 +1,5 @@
 ---
-title: 'Panoramica del gateway VPN: creare connessioni VPN cross-premise alle reti virtuali di Azure | Documentazione Microsoft'
+title: 'Panoramica del gateway VPN: creare connessioni VPN cross-premise alle reti virtuali di Azure | Microsoft Docs'
 description: Questa panoramica del gateway VPN illustra i modi per connettersi alle reti virtuali di Azure usando una connessione VPN tramite Internet. Sono inclusi i diagrammi delle configurazioni della connessione di base.
 services: vpn-gateway
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6ab2b4c905d2095e8eec09ccebcb8ebdfa91bb3a
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="about-vpn-gateway"></a>Informazioni sul gateway VPN
@@ -44,7 +44,7 @@ Una connessione gateway VPN si basa su più risorse configurate con impostazioni
 
 ### <a name="settings"></a>Impostazioni
 
-Le impostazioni scelte per ogni risorsa sono fondamentali per creare una connessione corretta. Per informazioni sulle singole risorse e le impostazioni per il gateway VPN, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md). Si troveranno informazioni su tipi di gateway, tipi di VPN, tipi di connessione, subnet del gateway, gateway di rete locale e diverse altre impostazioni delle risorse che potrebbero essere utili.
+Le impostazioni scelte per ogni risorsa sono fondamentali per creare una connessione corretta. Per informazioni sulle singole risorse e le impostazioni per il gateway VPN, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md). L'articolo contiene informazioni su tipi di gateway, tipi di VPN, tipi di connessione, subnet del gateway, gateway di rete locali e diverse altre impostazioni delle risorse che potrebbero risultare utili.
 
 ### <a name="deployment-tools"></a>Strumenti di distribuzione
 
@@ -68,7 +68,7 @@ Usare i diagrammi e le descrizioni per selezionare la topologia di connessione p
 
 ### <a name="S2S"></a>Da sito a sito
 
-Una connessione gateway VPN da sito a sito (S2S) avviene tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Questo tipo di connessione richiede un dispositivo VPN che si trova in locale con un indirizzo IP pubblico assegnato e non dietro una NAT. Le connessioni S2S possono essere usate per le configurazioni cross-premise e ibride.   
+Una connessione gateway VPN da sito a sito (S2S) avviene tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Una connessione da sito a sito richiede un dispositivo VPN in locale con un indirizzo IP pubblico assegnato e non situato dietro una NAT. Le connessioni S2S possono essere usate per le configurazioni cross-premise e ibride.   
 
 ![Esempio di connessione gateway VPN di Azure da sito a sito](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

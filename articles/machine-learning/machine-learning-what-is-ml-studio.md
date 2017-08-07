@@ -1,6 +1,6 @@
 ---
 title: Informazioni su Azure Machine Learning Studio | Documentazione Microsoft
-description: Panoramica di Azure ML Studio, uno strumento di trascinamento per la creazione rapida di modelli da una libreria di algoritmi e moduli pronta per l&quot;uso.
+description: Panoramica di Azure ML Studio, uno strumento di trascinamento per la creazione rapida di modelli da una libreria di algoritmi e moduli pronta per l'uso.
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
-ms.lasthandoff: 12/14/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 70a1d0acb8ec9bbb591f696281ea5e975b443a15
+ms.contentlocale: it-it
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Informazioni su Azure Machine Learning Studio
@@ -78,7 +78,7 @@ Un esperimento è costituito da set di dati che forniscono i dati a moduli di an
 * Tutte le porte di input per i moduli devono avere un collegamento al flusso di dati.
 * Tutti i parametri necessari per ogni modulo devono essere impostati.
 
-È possibile creare un esperimento da zero oppure è possibile usare un esperimento di esempio esistente come modello. Per altre informazioni, vedere [Usare gli esperimenti di esempio per creare nuovi esperimenti](machine-learning-sample-experiments.md).
+È possibile creare un esperimento da zero oppure è possibile usare un esperimento di esempio esistente come modello. Per altre informazioni, vedere [Copiare gli esperimenti di esempio per creare nuovi esperimenti di Machine Learning](machine-learning-sample-experiments.md).
 
 Per un esempio di creazione di un esperimento semplice, vedere [Creare un semplice esperimento in Azure Machine Learning Studio](machine-learning-create-experiment.md).
 

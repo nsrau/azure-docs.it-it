@@ -1,6 +1,6 @@
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| VM per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area |10.000 per area |
+| VM per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |10.000<sup>1</sup> per area |10.000 per area |
 | Numero totale di core della VM per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area | Contattare il supporto tecnico |
 | Core di VM per ogni serie (Dv2, F e così via) per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area | Contattare il supporto tecnico |
 | [Coamministratori](../articles/billing-add-change-azure-subscription-administrator.md) per sottoscrizione |Senza limiti |Senza limiti |

@@ -1,6 +1,6 @@
 ---
-title: 'Connettere un computer a una rete virtuale di Azure da punto a sito: portale | Documentazione Microsoft'
-description: Connettersi in modo sicuro a una rete virtuale di Azure creando una connessione gateway VPN da punto a sito con Resource Manager e il portale di Azure.
+title: 'Connettere un computer a una rete virtuale da punto a sito con l''autenticazione del certificato: portale di Azure | Microsoft Docs'
+description: Connettere in modo sicuro un computer alla rete virtuale di Azure creando una connessione gateway VPN da punto a sito con l'autenticazione del certificato. Questo articolo si applica al modello di distribuzione Resource Manager e usa il portale di Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,19 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 4045dd501ba70b04cb8ea06901c76072fc009018
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 171159fece2e3927458aff6e6185b96c792e17c8
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-<a id="configure-a-point-to-site-connection-to-a-vnet-using-the-azure-portal" class="xliff"></a>
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato: portale di Azure
 
-# Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure
-
-Questo articolo illustra come creare una rete virtuale con una connessione da punto a sito nel modello di distribuzione Resource Manager usando il portale di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
+Questo articolo illustra come creare una rete virtuale con una connessione da punto a sito nel modello di distribuzione Resource Manager usando il portale di Azure. Questa configurazione usa i certificati per autenticare il client di connessione. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -38,17 +35,18 @@ Questo articolo illustra come creare una rete virtuale con una connessione da pu
 
 Una configurazione da punto a sito (P2S) permette di creare una connessione protetta da un singolo computer client a una rete virtuale. Una soluzione Da punto a sito è utile quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale. La connessione VPN da punto a sito viene avviata dal computer client usando il client VPN di Windows nativo. I client che si connettono usano i certificati per eseguire l'autenticazione. 
 
-
 ![Diagramma da punto a sito](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
 
-Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità Da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol). Sul lato server sono supportate le versioni 1.0, 1.1 e 1.2 di SSTP. Il client decide quale versione usare. Per Windows 8.1 e versioni successive, SSTP usa per impostazione predefinita la versione 1.2. Per altre informazioni sulla connettività da punto a sito, consultare le [Domande frequenti sulla connettività da punto a sito](#faq) alla fine di questo articolo.
-
-Le connessioni da punto a sito richiedono gli elementi seguenti:
+Le connessioni da punto a sito con l'autenticazione del certificato richiedono gli elementi seguenti:
 
 * Un gateway VPN RouteBased.
 * La chiave pubblica (file CER) per un certificato radice, caricato in Azure. Questo viene considerato un certificato attendibile e viene usato per l'autenticazione.
 * Un certificato client generato dal certificato radice e installato in ogni computer client che effettuerà la connessione. Questo certificato viene usato per l'autenticazione client.
 * Un pacchetto di configurazione client VPN deve essere generato e installato in ogni computer client che effettua la connessione. Il pacchetto di configurazione client configura il client VPN nativo già disponibile nel sistema operativo con le informazioni necessarie per la connessione alla rete virtuale.
+
+Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico locale. La connessione VPN viene creata tramite SSTP (Secure Sockets Tunneling Protocol). Sul lato server sono supportate le versioni 1.0, 1.1 e 1.2 di SSTP. Il client decide quale versione usare. Per Windows 8.1 e versioni successive, SSTP usa per impostazione predefinita la versione 1.2. 
+
+Per altre informazioni sulla connettività da punto a sito, consultare le [Domande frequenti sulla connettività da punto a sito](#faq) alla fine di questo articolo.
 
 ### <a name="example"></a>Valori di esempio
 
@@ -87,9 +85,7 @@ Prima di connettere la rete virtuale a un gateway, è necessario creare la subne
 
 Gli screenshot di questa sezione servono come esempio di riferimento. Assicurarsi di usare l'intervallo di indirizzi GatewaySubnet corrispondente ai valori obbligatori per la configurazione.
 
-<a id="to-create-a-gateway-subnet" class="xliff"></a>
-
-### Per creare una subnet del gateway
+### <a name="to-create-a-gateway-subnet"></a>Per creare una subnet del gateway
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
@@ -106,9 +102,7 @@ Le connessioni da punto a sito richiedono le impostazioni seguenti.
 * Tipo di gateway: VPN
 * Tipo VPN: Basato su route
 
-<a id="to-create-a-virtual-network-gateway" class="xliff"></a>
-
-### Per creare un gateway di rete virtuale
+### <a name="to-create-a-virtual-network-gateway"></a>Per creare un gateway di rete virtuale
 
 [!INCLUDE [create a vnet gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
@@ -120,11 +114,11 @@ Se usati, i certificati autofirmati devono essere creati con parametri specifici
 
 ### <a name="getcer"></a>Passaggio 1: Ottenere il file CER per il certificato radice
 
-[!INCLUDE [obtain root certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
+[!INCLUDE [get the root certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
 ### <a name="generateclientcert"></a>Passaggio 2: Generare un certificato client
 
-[!INCLUDE [generate client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
+[!INCLUDE [generates client certificate](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
 ## <a name="addresspool"></a>7 - Aggiungere il pool di indirizzi client
 
@@ -156,9 +150,7 @@ Per connettersi a una rete virtuale tramite VPN da punto a sito, ogni client dev
 
 È possibile usare lo stesso pacchetto di configurazione del client VPN in ogni computer client, a condizione che la versione corrisponda all'architettura del client. Per l'elenco dei sistemi operativi client supportati, vedere [Domande frequenti sulla connettività da punto a sito](#faq) alla fine di questo articolo.
 
-<a id="step-1---download-the-client-configuration-package" class="xliff"></a>
-
-### Passaggio 1: Scaricare il pacchetto di configurazione del client
+### <a name="step-1---download-the-client-configuration-package"></a>Passaggio 1: Scaricare il pacchetto di configurazione del client
 
 1. Nel pannello **Configurazione da punto a sito** fare clic su **Download VPN client** (Scarica client VPN) per aprire il pannello **Download VPN client** (Scarica client VPN). La generazione del pacchetto richiede un paio di minuti.
 
@@ -167,9 +159,7 @@ Per connettersi a una rete virtuale tramite VPN da punto a sito, ogni client dev
 
   ![Download del client VPN 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-<a id="step-2---install-the-client-configuration-package" class="xliff"></a>
-
-### Passaggio 2: Installare il pacchetto di configurazione del client
+### <a name="step-2---install-the-client-configuration-package"></a>Passaggio 2: Installare il pacchetto di configurazione del client
 
 1. Copiare il file di configurazione in locale nel computer che si vuole connettere alla rete virtuale. 
 2. Fare doppio clic sul file con estensione exe per installare il pacchetto nel computer client. Dato che è stato creato dall'utente, il pacchetto di configurazione non è firmato e potrebbe essere visualizzato un avviso. Se viene visualizzato un popup Windows SmartScreen, fare clic su **Altre informazioni** (a sinistra) e quindi su **Esegui comunque** per installare il pacchetto.
@@ -191,31 +181,25 @@ Se si vuole creare una connessione da punto a sito da un computer client diverso
 
   ![Connessione stabilita](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
-In caso di problemi di connessione, effettuare i controlli seguenti:
-
-- Aprire **Gestire i certificati utente** e passare ad **Autorità di certificazione radice attendibili\Certificati**. Verificare che il certificato radice sia incluso nell'elenco. Per il corretto funzionamento dell'autenticazione è necessario che il certificato radice sia presente. Quando si esporta un certificato client con estensione pfx con il valore predefinito "Se possibile, includi tutti i certificati nel percorso certificazione", vengono esportate anche le informazioni del certificato radice. Durante l'installazione del certificato client, nel computer client viene quindi installato anche il certificato radice. 
-
-- Se si usa un certificato che è stato rilasciato tramite una soluzione CA globale e si riscontrano problemi durante l'autenticazione, controllare l'ordine di autenticazione del certificato client. È possibile controllare l'ordine dell'elenco di autenticazione facendo doppio clic sul certificato client e andando in **Dettagli > Utilizzo chiavi avanzato**. Assicurarsi che l'elenco mostri "Autenticazione client" come primo elemento. In caso contrario, è necessario emettere un certificato client in base al modello di utente con l'autenticazione client come primo elemento nell'elenco.
-
+[!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>12 - Verificare la connessione
 
 1. Per verificare che la connessione VPN è attiva, aprire un prompt dei comandi con privilegi elevati ed eseguire *ipconfig/all*.
 2. Visualizzare i risultati. Si noti che l'indirizzo IP ricevuto è uno degli indirizzi compresi nel pool di indirizzi del client VPN da punto a sito specificato al momento della configurazione. I risultati sono simili a questo esempio:
-   
-        PPP adapter VNet1:
-            Connection-specific DNS Suffix .:
-            Description.....................: VNet1
-            Physical Address................:
-            DHCP Enabled....................: No
-            Autoconfiguration Enabled.......: Yes
-            IPv4 Address....................: 172.16.201.3(Preferred)
-            Subnet Mask.....................: 255.255.255.255
-            Default Gateway.................:
-            NetBIOS over Tcpip..............: Enabled
 
-
-In caso di problemi durante la connessione a una macchina virtuale tramite P2S, usare "ipconfig" per controllare l'indirizzo IPv4 assegnato alla scheda Ethernet nel computer da cui viene effettuata la connessione. Se l'indirizzo IP è compreso nell'intervallo di indirizzi della rete virtuale a cui ci si connette o nell'intervallo di indirizzi del pool di indirizzi del client VPN, si verifica la cosiddetta sovrapposizione dello spazio indirizzi. Con questo tipo di sovrapposizione, il traffico di rete non raggiunge Azure e rimane nella rete locale. Se gli spazi indirizzi di rete non si sovrappongono ma non è comunque possibile connettersi alla VM, vedere l'articolo [Risolvere i problemi di connessione con Desktop remoto di una macchina virtuale di Azure](../virtual-machines/windows/troubleshoot-rdp-connection.md).
+  ```
+  PPP adapter VNet1:
+      Connection-specific DNS Suffix .:
+      Description.....................: VNet1
+      Physical Address................:
+      DHCP Enabled....................: No
+      Autoconfiguration Enabled.......: Yes
+      IPv4 Address....................: 172.16.201.3(Preferred)
+      Subnet Mask.....................: 255.255.255.255
+      Default Gateway.................:
+      NetBIOS over Tcpip..............: Enabled
+  ```
 
 ## <a name="connectVM"></a>Connettersi a una macchina virtuale
 
@@ -225,15 +209,11 @@ In caso di problemi durante la connessione a una macchina virtuale tramite P2S, 
 
 È possibile aggiungere e rimuovere certificati radice attendibili da Azure. Quando si rimuove un certificato radice, i client con un certificato generato da tale radice non potranno eseguire l'autenticazione e quindi non potranno connettersi. Per consentire ai client di eseguire l'autenticazione e connettersi, è necessario installare un nuovo certificato client generato da un certificato radice considerato attendibile (caricato) in Azure.
 
-<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
-
-### Per aggiungere un certificato radice attendibile
+### <a name="to-add-a-trusted-root-certificate"></a>Per aggiungere un certificato radice attendibile
 
 In Azure è possibile aggiungere fino a 20 file CER di certificato radice trusted. Per istruzioni, vedere la sezione relativa al [caricamento di un certificato radice attendibile](#uploadfile) in questo articolo.
 
-<a id="to-remove-a-trusted-root-certificate" class="xliff"></a>
-
-### Per rimuovere un certificato radice attendibile
+### <a name="to-remove-a-trusted-root-certificate"></a>Per rimuovere un certificato radice attendibile
 
 1. Per rimuovere un certificato radice attendibile, passare al pannello **Configurazione da punto a sito** per il gateway di rete virtuale.
 2. Nella sezione **Certificato radice** del pannello individuare il certificato che si vuole rimuovere.
@@ -245,9 +225,7 @@ In Azure è possibile aggiungere fino a 20 file CER di certificato radice truste
 
 La regola generale è quella di usare il certificato radice per gestire l'accesso a livello di team o organizzazione, usando i certificati client revocati per il controllo di accesso con granularità fine su singoli utenti.
 
-<a id="to-revoke-a-client-certificate" class="xliff"></a>
-
-### Per revocare un certificato client
+### <a name="to-revoke-a-client-certificate"></a>Per revocare un certificato client
 
 È possibile revocare un certificato client aggiungendo l'identificazione personale all'elenco di revoche di certificati.
 
@@ -256,15 +234,12 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 3. Passare al gateway di rete virtuale nel pannello **Configurazione da punto a sito** che è stato usato anche per [caricare un certificato radice attendibile](#uploadfile).
 4. Nella sezione **Certificati revocati** immettere un nome descrittivo per il certificato (non deve corrispondere necessariamente alle credenziali del certificato).
 5. Copiare e incollare la stringa di identificazione personale nel campo **Identificazione personale**.
-6. L'identificazione personale verrà convalidata e aggiunta automaticamente all'elenco di revoche. Verrà visualizzato un messaggio che segnala che è in corso l'aggiornamento dell'elenco. 
+6. L'identificazione personale viene convalidata e aggiunta automaticamente all'elenco di revoche. Verrà visualizzato un messaggio che segnala che è in corso l'aggiornamento dell'elenco. 
 7. Dopo aver completato l'aggiornamento, il certificato non può più essere usato per la connessione. Ai client che provano a connettersi con questo certificato verrà visualizzato un messaggio che informa che il certificato non è più valido.
 
 ## <a name="faq"></a>Domande frequenti sulla connettività da punto a sito
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Per altre informazioni sulla rete e sulle macchine virtuali, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/linux/azure-vm-network-overview.md).
-

@@ -1,6 +1,6 @@
 ---
-title: 'Connettere un computer a una rete virtuale di Azure da punto a sito: PowerShell | Documentazione Microsoft'
-description: Connetter in modo sicuro un computer alla rete virtuale di Azure attraverso la creazione di una connessione gateway VPN da punto a sito.
+title: 'Connettere un computer a una rete virtuale di Azure da punto a sito con l''autenticazione del certificato: PowerShell | Microsoft Docs'
+description: Connettere in modo sicuro un computer alla rete virtuale di Azure creando una connessione gateway VPN da punto a sito con l'autenticazione del certificato. Questo articolo si applica al modello di distribuzione di Resource Manager e usa PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,20 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7abc3f238d08694c9f7359479cdce07bfb3d87bd
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 27484932f13a85bef29b7a19b4f06b75722b4c38
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-<a id="configure-a-point-to-site-connection-to-a-vnet-using-powershell" class="xliff"></a>
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato: PowerShell
 
-# Configurare una connessione da punto a sito a una rete virtuale usando PowerShell
-
-
-Questo articolo illustra come creare una rete virtuale con una connessione da punto a sito nel modello di distribuzione Resource Manager usando PowerShell. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
+Questo articolo illustra come creare una rete virtuale con una connessione da punto a sito nel modello di distribuzione Resource Manager usando PowerShell. Questa configurazione usa i certificati per autenticare il client di connessione. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -41,19 +37,18 @@ Una configurazione da punto a sito (P2S) permette di creare una connessione prot
 
 ![Connettere un computer a una rete virtuale di Azure: diagramma di connessione da punto a sito](./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png)
 
-Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità Da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol). Sul lato server sono supportate le versioni 1.0, 1.1 e 1.2 di SSTP. Il client decide quale versione usare. Per Windows 8.1 e versioni successive, SSTP usa per impostazione predefinita la versione 1.2. Per altre informazioni sulla connettività da punto a sito, consultare le [Domande frequenti sulla connettività da punto a sito](#faq) alla fine di questo articolo.
-
-Le connessioni da punto a sito richiedono gli elementi seguenti:
+Le connessioni da punto a sito con l'autenticazione del certificato richiedono gli elementi seguenti:
 
 * Un gateway VPN RouteBased.
 * La chiave pubblica (file CER) per un certificato radice, caricato in Azure. Questo viene considerato un certificato attendibile e viene usato per l'autenticazione.
 * Un certificato client generato dal certificato radice e installato in ogni computer client che effettuerà la connessione. Questo certificato viene usato per l'autenticazione client.
 * Un pacchetto di configurazione client VPN deve essere generato e installato in ogni computer client che effettua la connessione. Il pacchetto di configurazione client configura il client VPN nativo già disponibile nel sistema operativo con le informazioni necessarie per la connessione alla rete virtuale.
 
+Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico locale. La connessione VPN viene creata tramite SSTP (Secure Sockets Tunneling Protocol). Sul lato server sono supportate le versioni 1.0, 1.1 e 1.2 di SSTP. Il client decide quale versione usare. Per Windows 8.1 e versioni successive, SSTP usa per impostazione predefinita la versione 1.2. 
 
-<a id="before-beginning" class="xliff"></a>
+Per altre informazioni sulla connettività da punto a sito, consultare le [Domande frequenti sulla connettività da punto a sito](#faq) alla fine di questo articolo.
 
-## Prima di iniziare
+## <a name="before-beginning"></a>Prima di iniziare
 
 * Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial).
 * Installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
@@ -231,11 +226,7 @@ Se si vuole creare una connessione da punto a sito da un computer client diverso
 
   ![Connessione stabilita](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
-In caso di problemi di connessione, effettuare i controlli seguenti:
-
-- Aprire **Gestire i certificati utente** e passare ad **Autorità di certificazione radice attendibili\Certificati**. Verificare che il certificato radice sia incluso nell'elenco. Per il corretto funzionamento dell'autenticazione è necessario che il certificato radice sia presente. Quando si esporta un certificato client con estensione pfx con il valore predefinito "Se possibile, includi tutti i certificati nel percorso certificazione", vengono esportate anche le informazioni del certificato radice. Durante l'installazione del certificato client, nel computer client viene quindi installato anche il certificato radice. 
-
-- Se si usa un certificato che è stato rilasciato tramite una soluzione CA globale e si riscontrano problemi durante l'autenticazione, controllare l'ordine di autenticazione del certificato client. È possibile controllare l'ordine dell'elenco di autenticazione facendo doppio clic sul certificato client e andando in **Dettagli > Utilizzo chiavi avanzato**. Assicurarsi che l'elenco mostri "Autenticazione client" come primo elemento. In caso contrario, è necessario emettere un certificato client in base al modello di utente con l'autenticazione client come primo elemento nell'elenco.  
+[!INCLUDE [verify client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ## <a name="verify"></a>9 - Verificare la connessione
 
@@ -255,7 +246,6 @@ In caso di problemi di connessione, effettuare i controlli seguenti:
       NetBIOS over Tcpip..............: Enabled
   ```
 
-
 ## <a name="connectVM"></a>Connettersi a una macchina virtuale
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
@@ -264,9 +254,7 @@ In caso di problemi di connessione, effettuare i controlli seguenti:
 
 È possibile aggiungere e rimuovere certificati radice attendibili da Azure. Quando si rimuove un certificato radice, i client con un certificato generato da tale radice non potranno eseguire l'autenticazione e quindi non potranno connettersi. Per consentire ai client di eseguire l'autenticazione e connettersi, è necessario installare un nuovo certificato client generato da un certificato radice considerato attendibile (caricato) in Azure.
 
-<a id="to-add-a-trusted-root-certificate" class="xliff"></a>
-
-### Per aggiungere un certificato radice attendibile
+### <a name="to-add-a-trusted-root-certificate"></a>Per aggiungere un certificato radice attendibile
 
 In Azure è possibile aggiungere fino a 20 file CER di certificato radice. La procedura seguente consente di aggiungere un certificato radice:
 
@@ -297,9 +285,7 @@ In Azure è possibile aggiungere fino a 20 file CER di certificato radice. La pr
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-<a id="to-remove-a-root-certificate" class="xliff"></a>
-
-### Per rimuovere un certificato radice
+### <a name="to-remove-a-root-certificate"></a>Per rimuovere un certificato radice
 
 1. Dichiarare le variabili.
 
@@ -327,9 +313,7 @@ In Azure è possibile aggiungere fino a 20 file CER di certificato radice. La pr
 
 La regola generale è quella di usare il certificato radice per gestire l'accesso a livello di team o organizzazione, usando i certificati client revocati per il controllo di accesso con granularità fine su singoli utenti.
 
-<a id="to-revoke-a-client-certificate" class="xliff"></a>
-
-### Per revocare un certificato client
+### <a name="to-revoke-a-client-certificate"></a>Per revocare un certificato client
 
 1. Ottenere l'identificazione personale del certificato client. Per altre informazioni, vedere [Procedura: recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copiare le informazioni in un editor di testo e rimuovere tutti gli spazi in modo che sia una stringa continua. Questa stringa viene dichiarata come variabile nel passaggio successivo.
@@ -355,9 +339,7 @@ La regola generale è quella di usare il certificato radice per gestire l'access
   ```
 6. Dopo aver aggiunto l'identificazione personale, il certificato non può più essere usato per la connessione. Ai client che provano a connettersi con questo certificato verrà visualizzato un messaggio che informa che il certificato non è più valido.
 
-<a id="to-reinstate-a-client-certificate" class="xliff"></a>
-
-### Per reintegrare un certificato client
+### <a name="to-reinstate-a-client-certificate"></a>Per reintegrare un certificato client
 
 È possibile reintegrare un certificato client rimuovendo l'identificazione personale dall'elenco dei certificati client revocati.
 
@@ -385,8 +367,5 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Per altre informazioni sulla rete e sulle macchine virtuali, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/linux/azure-vm-network-overview.md).
-
