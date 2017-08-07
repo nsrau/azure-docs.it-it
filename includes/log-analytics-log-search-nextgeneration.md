@@ -1,0 +1,2 @@
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](../articles/log-analytics/log-analytics-log-search-upgrade.md), è necessario convertire le query seguenti. È possibile usare il [convertitore di linguaggio](../articles/log-analytics/log-analytics-log-search-transition.md#language-converter) per eseguire questa conversione.

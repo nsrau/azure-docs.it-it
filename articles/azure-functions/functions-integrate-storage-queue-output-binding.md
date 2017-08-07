@@ -16,30 +16,24 @@ ms.workload: na
 ms.date: 05/02/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: d1ddfbe9a0a0c7c7e0a060776938bd68a87e1ba5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
 ms.contentlocale: it-it
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/02/2017
 
 ---
-<a id="add-messages-to-an-azure-storage-queue-using-functions" class="xliff"></a>
-
-# Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
+# <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 
 In Funzioni di Azure, i binding di input e di output forniscono una modalità dichiarativa per connettersi a dati di servizio esterni dalla funzione. Questo argomento illustra come aggiornare una funzione esistente mediante l'aggiunta di un binding di output che invia messaggi all'archiviazione code di Azure.  
 
 ![Visualizzare il messaggio nei log.](./media/functions-integrate-storage-queue-output-binding/functions-integrate-storage-binding-in-portal.png)
 
-<a id="prerequisites" class="xliff"></a>
-
-## Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 [!INCLUDE [Previous topics](../../includes/functions-quickstart-previous-topics.md)]
 
 * Installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)] 
 
 ## <a name="add-binding"></a>Aggiungere un binding di output
  
@@ -49,7 +43,7 @@ In Funzioni di Azure, i binding di input e di output forniscono una modalità di
     
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Usare le impostazioni come indicato nella tabella e quindi selezionare **Salva**: 
+3. Usare le impostazioni specificate nella tabella: 
 
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -59,11 +53,11 @@ In Funzioni di Azure, i binding di input e di output forniscono una modalità di
     | **Connessione dell'account di archiviazione** | AzureWebJobStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
     | **Nome del parametro del messaggio** | outQueueItem | Nome del parametro di binding di output. | 
 
+4. Fare clic su **Salva** per aggiungere il binding.
+ 
 Dopo aver definito un binding di output, è necessario ora aggiornare il codice in modo da usare il binding per aggiungere messaggi a una coda.  
 
-<a id="update-the-function-code" class="xliff"></a>
-
-## Aggiornare il codice funzione
+## <a name="update-the-function-code"></a>Aggiornare il codice funzione
 
 1. Selezionare la funzione per visualizzare il codice funzione nell'editor. 
 
@@ -92,9 +86,7 @@ Dopo aver definito un binding di output, è necessario ora aggiornare il codice 
 
 Il valore passato al trigger HTTP è incluso in un messaggio aggiunto alla coda.
  
-<a id="test-the-function" class="xliff"></a>
-
-## Testare la funzione 
+## <a name="test-the-function"></a>Testare la funzione 
 
 1. Dopo aver salvato le modifiche al codice, selezionare **Esegui**. 
 
@@ -104,9 +96,7 @@ Il valore passato al trigger HTTP è incluso in un messaggio aggiunto alla coda.
 
 È possibile quindi connettersi all'account di archiviazione per verificare la nuova coda e il messaggio aggiunto. 
 
-<a id="connect-to-the-queue" class="xliff"></a>
-
-## Connettersi alla coda
+## <a name="connect-to-the-queue"></a>Connettersi alla coda
 
 Ignorare i primi tre passaggi se Esplora archivi è già stato installato e connesso all'account di archiviazione.    
 
@@ -127,15 +117,11 @@ Ignorare i primi tre passaggi se Esplora archivi è già stato installato e conn
     ![Creare una coda di archiviazione.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  
 
-<a id="clean-up-resources" class="xliff"></a>
-
-## Pulire le risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 È stato aggiunto un binding di output a una funzione esistente. 
 

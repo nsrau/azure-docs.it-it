@@ -14,7 +14,7 @@ A causa delle differenze in termini di contratti di servizio e set di funzionali
 | **Sviluppo e test o modello di verifica**   | Basic                  |
 |                                    |                        |
 
-Se si usano gli SKU di versione precedente, per la produzione sono consigliati gli SKU Standard e HighPerformance. Per informazioni sugli SKU di versione precedente, vedere [Gateway SKUs (old)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) (SKU del gateway (versione precedente)).
+Se si usano gli SKU di versione precedente, per la produzione sono consigliati gli SKU Standard e HighPerformance. Per informazioni sugli SKU precedenti, vedere [SKU del gateway (legacy)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 
 ###  <a name="feature"></a>Set di funzionalità degli SKU del gateway
 

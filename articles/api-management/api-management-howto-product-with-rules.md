@@ -1,9 +1,9 @@
 ---
-title: Proteggere l&quot;API con Gestione API di Azure | Microsoft Azure
-description: Informazioni su come proteggere l&quot;API con criteri di quota e limitazione (limitazione della frequenza).
+title: Proteggere l'API con Gestione API di Azure | Microsoft Azure
+description: Informazioni su come proteggere l'API con criteri di quota e limitazione (limitazione della frequenza).
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 9dba928b78c11213d4b0098986561b09678444eb
+ms.contentlocale: it-it
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Proteggere le API con limiti di frequenza usando Gestione API di Azure
@@ -53,7 +54,7 @@ Fare clic su **Aggiungi prodotto** (Aggiungi prodotto) per visualizzare la fines
 
 Nella casella **Titolo** digitare **Free Trial**.
 
-Digitare **I sottoscrittori potranno eseguire 10 chiamate al minuto per un massimo di 200 chiamate alla settimana, dopodiché l'accesso verrà negato** nella casella di testo  **Descrizione**.
+Digitare **I sottoscrittori potranno eseguire 10 chiamate al minuto per un massimo di 200 chiamate alla settimana, dopodiché l'accesso verrà negato** nella casella di testo **Descrizione**.
 
 Lo stato dei prodotti in Gestione API può essere Aperto o Protetto. Per poter usare i prodotti protetti, è necessario eseguire la sottoscrizione, mentre i prodotti aperti possono essere usati senza sottoscrizione. Per creare un prodotto protetto che richieda una sottoscrizione, assicurarsi che l'opzione **Require subscription** (Richiedi sottoscrizione) sia selezionata. Questa è l'impostazione predefinita.
 
@@ -95,7 +96,9 @@ Selezionare **Echo API** (API Echo) e quindi fare clic su **Salva**.
 ![Add Echo API][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Per configurare i criteri relativi a limiti di frequenza e quota delle chiamate
-I limiti di frequenza e le quote vengono configurate nell'editor dei criteri. Scegliere **Criteri** dal menu **Gestione API** a sinistra. Nell'elenco **Prodotto** fare clic su **Free Trial**.
+I limiti di frequenza e le quote vengono configurate nell'editor dei criteri. In questa esercitazione verranno aggiunti i due criteri [Limit call rate per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) (Limita frequenza delle chiamate per sottoscrizione) e [Set usage quota per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) (Imposta quota di utilizzo per sottoscrizione). Questi criteri devono essere applicati nell'ambito del prodotto.
+
+Scegliere **Criteri** dal menu **Gestione API** a sinistra. Nell'elenco **Prodotto** fare clic su **Free Trial**.
 
 ![Product policy][api-management-product-policy]
 
@@ -103,11 +106,11 @@ Fare clic su **Aggiungi criteri** per importare il modello dei criteri e iniziar
 
 ![Aggiungi criteri][api-management-add-policy]
 
-Per inserire criteri, posizionare il cursore nella sezione **inbound** o **outbound** del modello dei criteri. I criteri relativi a limiti di frequenza e quota sono criteri in ingresso, di conseguenza posizionare il cursore nell'elemento in ingresso.
+I criteri relativi a limiti di frequenza e quota sono criteri in ingresso, di conseguenza posizionare il cursore nell'elemento in ingresso.
 
 ![Policy editor][api-management-policy-editor-inbound]
 
-I due criteri che verranno aggiunti in questa esercitazione sono [Limit call rate per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) (Limita frequenza chiamate per sottoscrizione) e [Set usage quota per subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) (Imposta quota di utilizzo per sottoscrizione).
+Scorrere l'elenco dei criteri e individuare la voce del criterio **Limit call rate per subscription** (Limita frequenza delle chiamate per sottoscrizione).
 
 ![Policy statements][api-management-limit-policies]
 
@@ -121,7 +124,7 @@ Dopo aver posizionato il cursore nell'elemento dei criteri **inbound**, fare cli
 </rate-limit>
 ```
 
-**Limita frequenza chiamate per sottoscrizione** a livello di prodotto, oltre che a livello di nome di singola operazione e di API. In questa esercitazione vengono usati solo criteri a livello di prodotto, quindi eliminare gli elementi **api** e **operation** dall'elemento **rate-limit**, in modo che resti solo l'elemento **rate-limit** esterno, come illustrato nell'esempio seguente.
+Come è possibile rilevare dal frammento, il criterio consente di impostare limiti per le operazioni e le API del prodotto. In questa esercitazione non verrà usata tale funzionalità, quindi eliminare gli elementi **api** e **operation** dall'elemento **rate-limit**, in modo che resti solo l'elemento **rate-limit** esterno, come illustrato nell'esempio seguente.
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
@@ -135,7 +138,7 @@ Nel prodotto Free Trial la frequenza massima consentita è pari a 10 chiamate al
 </rate-limit>
 ```
 
-Per configurare i criteri **Set usage quota per subscription** (Imposta quota utilizzo per sottoscrizione), posizionare il cursore immediatamente sotto il nuovo elemento **rate-limit** aggiunto nell'elemento **inbound** e fare clic sulla freccia a sinistra di **Set usage quota per subscription** (Imposta quota utilizzo per sottoscrizione).
+Per configurare il criterio **Set usage quota per subscription** (Imposta quota di utilizzo per sottoscrizione), posizionare il cursore immediatamente sotto il nuovo elemento **rate-limit** aggiunto nell'elemento **inbound** e quindi individuare la freccia a sinistra di **Set usage quota per subscription** (Imposta quota di utilizzo per sottoscrizione) e fare clic su di essa.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -145,7 +148,7 @@ Per configurare i criteri **Set usage quota per subscription** (Imposta quota ut
 </quota>
 ```
 
-Dal momento che questi criteri devono essere intesi anche a livello di prodotto, eliminare gli elementi name di **api** e **operation**, come illustrato nell'esempio seguente.
+Analogamente al criterio **Limit call rate per subscription** (Limita frequenza delle chiamate per sottoscrizione), il criterio **Set usage quota per subscription** (Imposta quota di utilizzo per sottoscrizione) consente di impostare limiti massimi per le operazioni e le API del prodotto. In questa esercitazione non verrà usata tale funzionalità, quindi eliminare gli elementi **api** e **operation** dall'elemento **quota**, come illustrato nell'esempio seguente.
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
@@ -323,9 +326,4 @@ Quando sono attivi i criteri dei limiti di frequenza pari a 10 chiamate al minut
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

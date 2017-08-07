@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 07/14/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 153b4cc668fdebd28cec5f3d95093a595064202a
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Creare un'applicazione Node.js tramite l'API Graph
@@ -141,9 +141,11 @@ module.exports = config;
 
 È ora possibile tornare a Esplora dati nel portale di Azure per visualizzare, modificare e usare i nuovi dati del grafo ed eseguire query su di essi.
 
-In Esplora dati il nuovo database viene visualizzato nel riquadro **Raccolte**. Espandere **graphdb**, **graphcoll** e quindi fare clic su **Graph** (Grafo).
+In Esplora dati il nuovo database viene visualizzato nel riquadro **Graph**. Espandere il database e la raccolta, quindi fare clic su **Grafico**.
 
-I dati generati dall'app di esempio vengono visualizzati nel riquadro **Graphs** (Grafi).
+I dati generati dall'app di esempio vengono visualizzati nel riquadro successivo nella scheda **Grafico** quando si fa clic su **Applica filtro**.
+
+Provare a completare `g.V()` con `.has('firstName', 'Thomas')` per testare il filtro. Si noti che il valore distingue tra maiuscole e minuscole.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 
