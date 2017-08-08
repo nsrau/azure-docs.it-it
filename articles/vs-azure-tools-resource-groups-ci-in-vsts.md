@@ -142,7 +142,7 @@ Le procedure seguenti illustrano i passaggi necessari per configurare la distrib
 3. Scegliere la categoria **Deploy task** (Distribuisci attività), selezionare l'attività **Copia dei file di Azure** e quindi scegliere il pulsante **Aggiungi**.
    
    ![Aggiungere l'attività Copia dei file di Azure][14]
-4. Scegliere l'attività  **	Distribuzione gruppo di risorse di Azure**, quindi scegliere il pulsante **Aggiungi** e quindi **Chiudi** per il **catalogo delle attività**.
+4. Scegliere l'attività **Distribuzione gruppo di risorse di Azure**, quindi scegliere il pulsante **Aggiungi** e quindi **Chiudi** per il **catalogo delle attività**.
    
    ![Aggiungere attività Distribuzione gruppo di risorse di Azure][15]
 5. Scegliere l'attività **Copia dei file di Azure** e compilare i relativi valori.
