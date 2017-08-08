@@ -127,7 +127,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-happyfox-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di HappyFox** fare clic su **Configura HappyFox** per aprire la finestra **Configura accesso**. Copiare l'URL del servizio Single Sign-On SAML**** dalla **sezione Riferimento rapido**.
+6. Nella sezione **Configurazione di HappyFox** fare clic su **Configura HappyFox** per aprire la finestra **Configura accesso**. Copiare **l'URL del servizio Single Sign-On SAML** dalla **sezione Riferimento rapido**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-happyfox-tutorial/tutorial_happyfox_configure.png) 
 
@@ -139,7 +139,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-happyfox-tutorial/configure.png) 
 
-9. Nella sezione di configurazione di SAML incollare l'URL del servizio Single Sign-On SAML****  copiato dal portale di Azure nella casella di testo **SSO Target URL** (URL di destinazione SSO).
+9. Nella sezione di configurazione di SAML incollare **l'URL del servizio Single Sign-On SAML** copiato dal portale di Azure nella casella di testo **SSO Target URL** (URL di destinazione SSO).
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-happyfox-tutorial/targeturl.png)
 
