@@ -80,7 +80,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordina i livelli di registrazione in base al numero (decrescente) e memorizza i risultati in RESULT</td>
     </tr>
     </table>
-6.È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE`. Ad esempio, il seguente comando salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster:
+6. È anche possibile salvare i risultati di una trasformazione usando `STORE` l'istruzione. Ad esempio, il seguente comando salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
