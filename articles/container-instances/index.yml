@@ -37,3 +37,11 @@ sections:
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Creare il pacchetto di un'applicazione in un'immagine del contenitore</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Creare un'istanza di Registro contenitori di Azure e caricare l'immagine del contenitore</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Distribuire l'immagine del contenitore in un'istanza di contenitore di Azure</a>
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Interfaccia della riga di comando di Azure
+            html: <p><a href="/cli/azure/container">Interfaccia della riga di comando di Azure 2.0</a></p>
