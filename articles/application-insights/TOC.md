@@ -92,6 +92,7 @@
 
 ### Utilizzo
 #### [Panoramica](app-insights-usage-overview.md)
+#### [Inviare il contesto utente](app-insights-usage-send-user-context.md)
 #### [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
 #### [Grafici a imbuto](usage-funnels.md)
 #### [Conservazione](app-insights-usage-retention.md)
