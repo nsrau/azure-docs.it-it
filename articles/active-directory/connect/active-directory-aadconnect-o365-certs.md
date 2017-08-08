@@ -104,7 +104,7 @@ Non è necessario eseguire passaggi manuali se vengono soddisfatte entrambe le c
 
 Verificare quanto segue per assicurarsi che il certificato possa essere aggiornato.
 
-**1. La proprietà AutoCertificateRollover di AD FS deve essere impostata su True. ** Ciò indica che AD FS genererà automaticamente nuovi certificati per la firma di token e certificati di decrittografia token prima della scadenza di quelli precedenti.
+**1. La proprietà AutoCertificateRollover di AD FS deve essere impostata su True.** Ciò indica che AD FS genererà automaticamente nuovi certificati per la firma di token e certificati di decrittografia token prima della scadenza di quelli precedenti.
 
 **2. I metadati della federazione di AD FS sono accessibili pubblicamente.** Verificare che i metadati di federazione siano accessibili pubblicamente, passare all'URL seguente da un computer sulla rete Internet pubblica (all'esterno della rete aziendale):
 
