@@ -25,10 +25,14 @@
       href: container-instances-orchestrator-relationship.md
 - name: Guide alle procedure
   items:
-    - name: Gruppi di più contenitori
+    - name: Distribuire gruppi di più contenitori
       href: container-instances-multi-container-group.md
-    - name: Gestione dello stato con le condivisioni file di Azure
+    - name: Gestire lo stato con le condivisioni file di Azure
       href: container-instances-mounting-azure-files-volume.md
+    - name: Eseguire la distribuzione dal Registro contenitori di Azure
+      href: container-instances-using-azure-container-registry.md
+    - name: Risolvere i problemi di distribuzione in Istanze di contenitore di Azure
+      href: container-instances-troubleshooting.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure 2.0
