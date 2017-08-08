@@ -38,7 +38,7 @@ Per configurare il monitoraggio degli eventi in modo che un'app per la logica po
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Controllare le autorizzazioni dello spazio dei nomi di Hub eventi e trovare la stringa di connessione
 
 Per consentire all'app per la logica di accedere a qualsiasi servizio, è necessario creare una [*connessione*](./connectors-overview.md) tra l'app per la logica e il servizio, se non è già presente. Questa connessione autorizza l'app per la logica ad accedere ai dati.
-Affinché l'app per la logica possa accedere all'hub eventi, è necessario avere le autorizzazioni di**** gestione e la stringa di connessione per lo spazio dei nomi di Hub eventi.
+Affinché l'app per la logica possa accedere all'hub eventi, è necessario avere le autorizzazioni di **gestione** e la stringa di connessione per lo spazio dei nomi di Hub eventi.
 
 Per controllare le autorizzazioni e ottenere la stringa di connessione, seguire questa procedura.
 
