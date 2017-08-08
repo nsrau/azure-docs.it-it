@@ -51,6 +51,8 @@
       href: sql-database-implement-geo-distributed-database.md
 - name: Esempi
   items:
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: Interfaccia della riga di comando di Azure
       href: sql-database-cli-samples.md
     - name: PowerShell
@@ -97,11 +99,6 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Introduzione al rilevamento delle minacce
           href: sql-database-threat-detection.md
-        - name: TDE con database SQL
-          href: 'https://msdn.microsoft.com/library/dn948096'
-        - name: Always Encrypted
-          href: >-
-            https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine
         - name: Maschera dati
           href: sql-database-dynamic-data-masking-get-started.md
     - name: Continuità aziendale
@@ -121,8 +118,7 @@
         - name: Progettazione di app e ripristino
           href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
         - name: Progettazione di app e pool
-          href: >-
-            sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+          href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
         - name: Progettazione di app e aggiornamenti di app
           href: sql-database-manage-application-rolling-upgrade.md
         - name: Ripristino dopo un'interruzione del servizio
@@ -260,8 +256,7 @@
         - name: Caricare dati con BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Caricare dati con ADF
-          href: >-
-            ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
         - name: Sincronizzare i dati
           href: sql-database-get-started-sql-data-sync.md
     - name: Monitorare e ottimizzare
@@ -307,8 +302,7 @@
         - name: Creare contatori
           href: sql-database-elastic-database-perf-counters.md
         - name: Usare Entity Framework
-          href: >-
-            sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+          href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
         - name: Aggiornare i client
           href: sql-database-elastic-scale-upgrade-client-library.md
         - name: Installare processi elastici
@@ -336,10 +330,9 @@
 - name: Riferimento
   items:
     - name: PowerShell
-      href: 'https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/#sql'
+      href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell (database elastico)
-      href: >-
-        https://docs.microsoft.com/en-us/powershell/module/elasticdatabasejobs/#elasticdatabasejobs
+      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: Interfaccia della riga di comando di Azure 2.0
       href: /cli/azure/sql
     - name: .NET
@@ -347,40 +340,40 @@
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
     - name: Node.js
-      href: 'https://msdn.microsoft.com/library/mt652093.aspx'
+      href: /sql/connect/node-js/node-js-driver-for-sql-server
     - name: Python
-      href: 'https://msdn.microsoft.com/library/mt652092.aspx'
+      href: /sql/connect/python/python-driver-for-sql-server
     - name: Ruby
-      href: 'https://msdn.microsoft.com/library/mt691981.aspx'
+      href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: PHP
-      href: 'https://msdn.microsoft.com/library/dn865013.aspx'
+      href: /sql/connect/php/microsoft-php-driver-for-sql-server
     - name: T-SQL
-      href: 'https://msdn.microsoft.com/library/bb510741.aspx'
+      href: /sql/t-sql/language-reference
     - name: REST
-      href: 'https://msdn.microsoft.com/library/mt163571.aspx'
+      href: /rest/api/sql/
     - name: Strumenti di SQL Server
-      href: 'https://msdn.microsoft.com/library/mt238365.aspx'
+      href: /sql/tools/overview-sql-tools
     - name: SQL Server Management Studio (SSMS)
-      href: 'https://msdn.microsoft.com/library/mt238290.aspx'
+      href: /sql/ssms/download-sql-server-management-studio-ssms
     - name: SQL Server Data Tools (SSDT)
-      href: 'https://msdn.microsoft.com/library/mt204009.aspx'
+      href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
-      href: 'https://msdn.microsoft.com/library/ms162802.aspx'
+      href: /sql/tools/bcp-utility
     - name: SQLCMD
-      href: 'https://msdn.microsoft.com/library/ms162773.aspx'
+      href: /sql/tools/sqlcmd-utility
     - name: SqlPackage
       href: 'https://msdn.microsoft.com/hh550080.aspx'
     - name: Pacchetto della libreria di gestione del database SQL
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
     - name: Driver di SQL Server
-      href: 'https://msdn.microsoft.com/library/mt654049.aspx'
+      href: /sql/connect/sql-server-drivers
       items:
         - name: ADO.NET
-          href: 'https://msdn.microsoft.com/library/mt657768.aspx'
+          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
         - name: JDBC
-          href: 'https://msdn.microsoft.com/library/mt484311.aspx'
+          href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
         - name: ODBC
-          href: 'https://msdn.microsoft.com/library/mt654048.aspx'
+          href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Risorse
   items:
     - name: Roadmap per Azure
@@ -390,8 +383,7 @@
     - name: Set di dati pubblici
       href: sql-database-public-data-sets.md
     - name: Risolvere i problemi di connettività
-      href: >-
-        https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
+      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/sql-database/'
     - name: Forum MSDN
@@ -399,24 +391,10 @@
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/sql-azure'
     - name: Video
-      href: >-
-        https://azure.microsoft.com/documentation/videos/index/?services=sql-database
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?service=sql-database'
     - name: Linee guida per l'architettura
-      href: 'https://docs.microsoft.com/sql/#pivot=architecture'
-    - name: Implementazioni dei clienti
-      href: sql-database-customer-implementations.md
-    - name: Applicazioni di esempio
-      items:
-        - name: Tailspin Surveys
-          href: >-
-            https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
-        - name: Contoso Clinic
-          href: 'https://github.com/Microsoft/azure-sql-security-sample'
-        - name: Telemetria dei pool elastici
-          href: >-
-            https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools
-        - name: Dashboard personalizzato dei pool elastici
-          href: >-
-            https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard
+      href: /azure/architecture/guide/
+    - name: Casi di successo dei clienti
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
