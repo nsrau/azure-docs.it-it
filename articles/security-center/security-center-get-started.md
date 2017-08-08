@@ -68,7 +68,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 
 1. Selezionare il riquadro **Criteri** nel pannello **Centro sicurezza**.
 2. Selezionare una sottoscrizione nel pannello **Security policy - Define policy per subscription** (Criteri di sicurezza - Definire il criterio per ogni sottoscrizione).
-3. Nel pannello **Criteri di sicurezza** **Raccolta dati** è abilitato per raccogliere automaticamente i log. Il provisioning dell'estensione di monitoraggio viene effettuato in tutte le VM correnti e nuove nella sottoscrizione. Nel livello gratuito del Centro sicurezza, è possibile rifiutare esplicitamente la raccolta dei dati impostando **Raccolta dati** su **Non attivo**, in questo modo il Centro sicurezza non potrà inviare avvisi e raccomandazioni sulla sicurezza.********
+3. Nel pannello **Criteri di sicurezza** **Raccolta dati** è abilitato per raccogliere automaticamente i log. Il provisioning dell'estensione di monitoraggio viene effettuato in tutte le VM correnti e nuove nella sottoscrizione. Nel livello gratuito del Centro sicurezza, è possibile rifiutare esplicitamente la raccolta dei dati impostando **Raccolta dati** su **Non attivo**, **in questo modo** il Centro sicurezza **non** potrà inviare avvisi e raccomandazioni sulla sicurezza.
 4. Selezionare **Criteri di prevenzione** nel pannello **Criteri di sicurezza**. Verrà visualizzato il pannello **Criteri di prevenzione**.
 5. Nel pannello **Criteri di prevenzione** attivare le raccomandazioni da visualizzare nell'ambito dei criteri di sicurezza. Esempi:
 
