@@ -44,7 +44,7 @@ Per controllare le autorizzazioni e ottenere la stringa di connessione, seguire 
 
 1.  Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure"). 
 
-2.  Passare allo *spazio dei nomi* di Hub eventi, non all'hub eventi specifico. Nel pannello dello spazio dei nomi scegliere **Criteri di accesso condivisi** in **Impostazioni**. In **Attestazioni** controllare di avere le autorizzazioni di**** gestione per lo spazio dei nomi.
+2.  Passare allo *spazio dei nomi* di Hub eventi, non all'hub eventi specifico. Nel pannello dello spazio dei nomi scegliere **Criteri di accesso condivisi** in **Impostazioni**. In **Attestazioni** controllare di avere le autorizzazioni di **gestione** per lo spazio dei nomi.
 
     ![Gestire le autorizzazioni per lo spazio dei nomi di Hub eventi](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
