@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 062ab97d00622419e2bca1fcd0a17f6b6b4f6f81
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 793803bfc12059a68ec881da9de37116f7a0eb8c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-metadata-service---scheduled-events-preview"></a>Servizio metadati di Azure - Eventi pianificati (anteprima)
@@ -42,8 +41,8 @@ In molti altri casi, la disponibilità generale del servizio può essere miglior
 Ci sono casi in cui è possibile migliorare l'utilità delle applicazioni ospitate nel cloud avvisando un amministratore della presenza di un evento imminente o registrando tale evento.
 
 Il Servizio metadati di Azure presenta gli eventi pianificati nei seguenti casi d'uso:
--    Manutenzione avviata dalla piattaforma, ad esempio implementazione del sistema operativo host
--    Chiamate avviate dall'utente, ad esempio riavvii iniziati dall'utente o ridistribuzione di una macchina virtuale
+-   Manutenzione avviata dalla piattaforma, ad esempio implementazione del sistema operativo host
+-   Chiamate avviate dall'utente, ad esempio riavvii iniziati dall'utente o ridistribuzione di una macchina virtuale
 
 
 ## <a name="scheduled-events---the-basics"></a>Eventi pianificati: nozioni di base  
@@ -69,9 +68,16 @@ Quando si eseguono query sul Servizio metadati, è necessario specificare l'inte
 ### <a name="enabling-scheduled-events"></a>Attivazione degli eventi pianificati
 La prima volta che si emette una richiesta per gli eventi pianificati, Azure abilita in modo implicito la funzionalità nella macchina virtuale. Di conseguenza la prima chiamata potrebbe ricevere una risposta con un ritardo massimo di due minuti.
 
-### <a name="testing-your-logic-with-user-initiated-operations"></a>Test della logica con le operazioni avviate dall'utente
-Per testare la logica è possibile usare il Portale di Azure, l'API, l'interfaccia della riga di comando o PowerShell, in modo da avviare le operazioni che determinano gli eventi pianificati. Il riavvio di una macchina virtuale determina un evento pianificato con un tipo di evento uguale a `Reboot`. La ridistribuzione di una macchina virtuale determina un evento pianificato con un tipo di evento uguale a `Redeploy`.
-In entrambi i casi l'operazione avviata dall'utente richiede più tempo per il completamento poiché gli eventi pianificati lasciano un tempo più lungo per la corretta chiusura di un'applicazione. 
+### <a name="user-initiated-maintenance"></a>Manutenzione avviata dall'utente
+La manutenzione delle macchine virtuali avviata dall'utente tramite il portale, l'API o l'interfaccia della riga di comando di Azure oppure tramite PowerShell darà luogo a eventi pianificati. In questo modo è possibile testare la logica di preparazione della manutenzione dell'applicazione e permettere all'applicazione di prepararsi per la manutenzione avviata dall'utente.
+
+Il riavvio di una macchina virtuale pianificherà un evento di tipo `Reboot`. La ridistribuzione di una macchina virtuale pianificherà un evento di tipo `Redeploy`.
+
+> [!NOTE] 
+> Attualmente è possibile pianificare un massimo di 10 operazioni di manutenzione avviata dall'utente. Questo limite viene aumentato prima della disponibilità generale di eventi pianificati.
+
+> [!NOTE] 
+> Attualmente la manutenzione avviata dall'utente che dà luogo a eventi pianificati non è configurabile. Questa funzionalità è pianificata per una versione successiva.
 
 ## <a name="using-the-api"></a>Uso dell'API
 
@@ -373,3 +379,4 @@ if __name__ == '__main__':
 - Altre informazioni sulle API disponibili nel [servizio metadati dell'istanza](virtual-machines-instancemetadataservice-overview.md).
 - Informazioni sulla [manutenzione pianificata per le macchine virtuali Windows in Azure](windows/planned-maintenance.md).
 - Informazioni sulla [manutenzione pianificata per le macchine virtuali Linux in Azure](linux/planned-maintenance.md).
+

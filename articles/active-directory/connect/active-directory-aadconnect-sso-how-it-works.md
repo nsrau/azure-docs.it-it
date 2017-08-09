@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6db2fa2f568c3cf8296bd91214b380a01b85c134
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 1f12a8e3e11bc7eee1fc536e231f71c1d17c3fe4
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 06/16/2017
 
 Questo articolo riporta i dettagli tecnici del funzionamento dell'accesso Single Sign-On (SSO) facile di Azure Active Directory.
 
-## <a name="how-does-azure-ad-seamless-sso-work"></a>Come opera la funzionalità Seamless SSO di Azure AD?
+## <a name="how-does-seamless-sso-work"></a>Come opera la SSO facille?
 
 Questa sezione è composta da due parti:
 1. Installazione della funzionalità di accesso SSO facile.
@@ -41,6 +41,9 @@ L'accesso SSO facile viene abilitato con Azure AD Connect, come illustrato [qui]
 
 >[!NOTE]
 > L'account computer e gli SPN Kerberos vengono creati in ogni foresta di AD che si sincronizza con Azure AD, tramite Azure AD Connect, e per i cui utenti si vuole abilitare l'accesso SSO facile. Spostare l'account computer `AZUREADSSOACCT` in un'unità organizzativa in cui sono archiviati altri account computer per assicurarsi che venga gestito allo stesso modo e non venga eliminato.
+
+>[!IMPORTANT]
+>È consigliabile [rinnovare la chiave di decrittografia di Kerberos](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account) dell'account computer `AZUREADSSOACCT` almeno ogni 30 giorni.
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>Funzionamento dell'accesso SSO facile
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/24/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 451d4fd24dc506fb4a659edb710ab67a66cbbde7
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -33,6 +33,7 @@ Per distribuire l'accesso SSO facile, è necessario seguire questa procedura:
 2. *Abilitare la funzionalità*: attivare l'accesso SSO facile nel tenant tramite Azure AD Connect.
 3. *Distribuire la funzionalità*: usare Criteri di gruppo per distribuire la funzionalità ad alcuni utenti o a tutti.
 4. *Testare la funzionalità*: testare l'accesso utente tramite SSO facile.
+5. *Rinnovo delle chiavi*: rinnovare di frequente le chiavi di decrittografia di Kerberos degli account computer.
 
 ## <a name="step-1-check-prerequisites"></a>Passaggio 1: Verificare i prerequisiti
 
@@ -104,14 +105,19 @@ Mozilla Firefox non esegue automaticamente l'autenticazione Kerberos. Ogni utent
 4. Immettere "https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net" nel campo.
 5. Fare clic su "OK" e riaprire il browser.
 
->[!NOTE]
->L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.
+#### <a name="safari-on-mac-os"></a>Safari su Mac OS
 
-#### <a name="google-chrome-on-mac"></a>Google Chrome su Mac
+Verificare che il computer che esegue Mac OS sia stato aggiunto a un dominio di AD. [Qui](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf) sono disponibili istruzioni su come eseguire l'operazione.
 
-Per Google Chrome su Mac e altre piattaforme non Windows, fare riferimento a [questo articolo](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) per informazioni su come aggiungere gli URL di Azure AD all'elenco degli elementi consentiti per l'autenticazione integrata.
+#### <a name="google-chrome-on-mac-os"></a>Google Chrome su Mac OS
+
+Per Google Chrome su Mac OS e altre piattaforme non Windows, fare riferimento a [questo articolo](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) per informazioni su come aggiungere gli URL di Azure AD all'elenco degli elementi consentiti per l'autenticazione integrata.
 
 L'uso delle estensioni dei Criteri di gruppo di Active Directory di terze parti per distribuire gli URL di Azure AD in Firefox e Google Chrome su Mac esula dall'ambito di questo articolo.
+
+#### <a name="known-limitations"></a>Limitazioni note
+
+L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox e nel browser Edge. Non funziona inoltre in Internet Explorer se il browser è in esecuzione in modalità di protezione avanzata.
 
 ## <a name="step-4-test-the-feature"></a>Passaggio 4: Testare la funzionalità
 
@@ -127,6 +133,13 @@ Per testare lo scenario in cui l'utente immette solo il nome utente ma non la pa
 Per testare lo scenario in cui l'utente non è obbligato a immettere nome utente o password: 
 - Accedere a *https://myapps.microsoft.com/contoso.onmicrosoft.com* in una nuova sessione del browser privata. Sostituire "*contoso*" con il nome del tenant.
 - In alternativa, accedere a *https://myapps.microsoft.com/contoso.com* in una nuova sessione del browser privata. Sostituire "*contoso.com*" con un dominio verificato, non un dominio federato, nel tenant.
+
+## <a name="step-5-roll-over-keys"></a>Passaggio 5: Rinnovare le chiavi
+
+Nel passaggio 2, Azure AD Connect crea gli account computer, che rappresentano Azure AD, in tutte le foreste di AD in cui è stato abilitato l'accesso SSO facile. [Qui](active-directory-aadconnect-sso-how-it-works.md) sono disponibili informazioni dettagliate a riguardo. Per una maggiore sicurezza, è consigliabile rinnovare spesso le chiavi di decrittografia di Kerberos di questi account computer.
+
+>[!IMPORTANT]
+>Non è necessario farlo _subito_ dopo aver abilitato la funzionalità. Rinnovare le chiave di decrittografia di Kerberos almeno ogni 30 giorni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

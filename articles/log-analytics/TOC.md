@@ -84,6 +84,7 @@
 ### [Valutazione di malware](log-analytics-malware.md)
 ### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 ### [Monitoraggio delle prestazioni di rete](log-analytics-network-performance-monitor.md)
+### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Assessment](log-analytics-scom-assessment.md)
 ### [Controllo di sicurezza](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Service Fabric](log-analytics-service-fabric.md)

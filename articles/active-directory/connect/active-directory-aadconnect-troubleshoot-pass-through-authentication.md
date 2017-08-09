@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/28/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 05d7c50aaa1209220b6cff3305fdb05dd2c421f8
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 4a687e1edbb2c9b3db3079a70162886092ede521
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -30,6 +30,14 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 >Se si verificano problemi di accesso utente con l'autenticazione pass-through, non disabilitare la funzionalità o disinstallare gli agenti di autenticazione pass-through se non è disponibile un account amministratore globale solo cloud per eseguire il fallback. Informazioni su come [aggiungere un account amministratore globale di tipo solo cloud](../active-directory-users-create-azure-portal.md). L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
 
 ## <a name="general-issues"></a>Problemi generali
+
+### <a name="check-status-of-the-feature-and-authentication-agents"></a>Controllare lo stato della funzionalità e degli agenti di autenticazione
+
+Verificare che la funzionalità di autenticazione pass-through sia ancora **abilitata** nel tenant e che lo stato degli agenti di autenticazione mostri **Attivo**e non **Inattivo**. È possibile verificarlo aprendo il pannello **Azure AD Connect** nel [portale di Azure](https://portal.azure.com/).
+
+![Portale di Azure - Pannello Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+
+![Portale di Azure - Pannello Autenticazione pass-through](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### <a name="user-facing-sign-in-error-messages"></a>Messaggi di errore visualizzati in fase di accesso
 
@@ -43,13 +51,13 @@ Se l'utente non è in grado di accedere usando l'autenticazione pass-through, è
 |AADSTS80005|La convalida ha rilevato un errore WebException imprevedibile|Errore temporaneo. ripetere la richiesta. Se il problema persiste, contattare il supporto Microsoft.
 |AADSTS80007|Errore durante la comunicazione con Active Directory|Controllare i registri dell'agente per altre informazioni e verificare che Active Directory funzioni come previsto.
 
-### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivi degli errori di accesso dell'interfaccia di amministrazione di Azure Active Directory
+### <a name="sign-in-failure-reasons-on-the-azure-portal"></a>Cause dell'errore di accesso nel portale di Azure
 
-Un buon punto di partenza per la risoluzione dei problemi relativi all'accesso utente con l'autenticazione pass-through è esaminare il [report sull'attività di accesso](../active-directory-reporting-activity-sign-ins.md) nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
+Iniziare la risoluzione di problemi di accesso dell'utente esaminando il [report delle attività di accesso](../active-directory-reporting-activity-sign-ins.md) nel [portale di Azure](https://portal.azure.com/).
 
 ![Report sugli accessi](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
+Passare ad **Azure Active Directory** -> **Accessi** nel [portale di Azure](https://portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
 |Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
 | --- | --- | ---
@@ -64,10 +72,6 @@ Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di ammini
 | 80011 | L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemi di installazione dell'agente di autenticazione
-
-### <a name="an-azure-ad-application-proxy-connector-already-exists"></a>Un connettore del proxy di applicazione di Azure AD esiste già
-
-Un agente di autenticazione pass-through non può essere installato nello stesso server di un connettore [proxy dell'applicazione AD Azure](../../active-directory/active-directory-application-proxy-get-started.md). Installare l'agente di autenticazione pass-through in un server separato.
 
 ### <a name="an-unexpected-error-occurred"></a>Si è verificato un errore imprevisto
 
@@ -115,16 +119,16 @@ In base al tipo di problema, i registri dell'agente di autenticazione pass-throu
 
 ### <a name="authentication-agent-event-logs"></a>Registri eventi dell'agente di autenticazione
 
-Per gli errori correlati all'agente di autenticazione aprire l'applicazione Visualizzatore eventi sul server e controllare in **Application and Service Logs\Microsoft\AadApplicationProxy\Connector\Admin**.
+Per gli errori correlati all'agente di autenticazione aprire l'applicazione Visualizzatore eventi sul server e controllare in **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 Per un'analisi dettagliata, abilitare il registro "Session". Non eseguire l'agente di autenticazione con questo registro abilitato durante il funzionamento normale, usarlo solo per la risoluzione dei problemi. Il contenuto del registro è visibile solo dopo che il registro è stato nuovamente disattivato.
 
 ### <a name="detailed-trace-logs"></a>Log di traccia dettagliati
 
-Per risolvere gli errori di accesso utente, esaminare i registri di traccia in **C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. Questi log includono i motivi per cui l'accesso di un utente specifico non è riuscito tramite la funzionalità di autenticazione pass-through. Questi errori sono anche associati ai motivi degli errori di accesso indicati nella [tabella](#sign-in-failure-reasons-on-the-Azure-portal) precedente. Di seguito è riportato un esempio di voce di registro:
+Per risolvere gli errori di accesso utente, esaminare i registri di traccia in **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Questi log includono i motivi per cui l'accesso di un utente specifico non è riuscito tramite la funzionalità di autenticazione pass-through. Questi errori sono anche associati ai motivi degli errori di accesso indicati nella [tabella](#sign-in-failure-reasons-on-the-Azure-portal) precedente. Di seguito è riportato un esempio di voce di registro:
 
 ```
-    ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
+    AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
         ThreadId=5
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
@@ -142,7 +146,7 @@ Se la registrazione di controllo è abilitata, sono disponibili informazioni agg
 ```
     <QueryList>
     <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
+    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft Azure AD Connect Authentication Agent\AzureADConnectAuthenticationAgentService.exe')]]</Select>
     </Query>
     </QueryList>
 ```
