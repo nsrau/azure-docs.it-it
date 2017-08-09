@@ -1,6 +1,6 @@
 ---
-title: Informazioni sugli avvisi in Log Analytics di OMS | Microsoft Docs
-description: Gli avvisi in Log Analytics identificano le informazioni importanti nel repository OMS e possono notificare i problemi all&quot;utente in modo proattivo o richiamare le azioni per tentare di correggerle.  In questo articolo vengono descritti i diversi tipi di regole di avviso e come vengono definite.
+title: Informazioni sugli avvisi in Log Analytics di Azure | Microsoft Docs
+description: Gli avvisi in Log Analytics identificano le informazioni importanti nel repository OMS e possono notificare i problemi all'utente in modo proattivo o richiamare le azioni per tentare di correggerle.  In questo articolo vengono descritti i diversi tipi di regole di avviso e come vengono definite.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
+ms.date: 07/26/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 76db33674c5a3b9e323a1890c0d48d98dc3f03cf
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Informazioni sugli avvisi in Log Analytics
 
 Gli avvisi in Log Analytics identificano informazioni importanti nel repository di Log Analytics.  Questo articolo contiene informazioni dettagliate sul funzionamento delle regole di avviso in Log Analytics e la descrizione delle differenze tra diversi tipi di regole di avviso.
 
-Per il processo di creazione delle regole di avviso, vedere gli articoli seguenti.
+Per il processo di creazione delle regole di avviso, vedere gli articoli seguenti:
 
 - Creare regole di avviso tramite il [portale di Azure](log-analytics-alerts-creating.md)
 - Creare regole di avviso tramite il [modello di Resource Manager](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
@@ -38,25 +38,25 @@ Gli avvisi vengono creati da regole di avviso che eseguono automaticamente ricer
 
 ![Avvisi Log Analytics](media/log-analytics-alerts/overview.png)
 
-Le regole di avviso vengono definite dai dettagli seguenti.
+Le regole di avviso vengono definite dai dettagli seguenti:
 
-- **Ricerca log**.  Si tratta della query che verrà eseguita ogni volta che viene attivata la regola di avviso.  I record restituiti da questa query verranno usati per determinare se viene creato un avviso.
-- **Intervallo di tempo**.  Specifica l'intervallo di tempo per la query.  La query restituisce solo i record creati in questo intervallo dell'ora corrente.  Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore. Ad esempio, se l'intervallo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15 , verranno restituiti solo i record creati tra 12.15 e le 13.15.
+- **Ricerca log**.  La query eseguita ogni volta che viene attivata la regola di avviso.  I record restituiti da questa query vengono usati per determinare se viene creato un avviso.
+- **Intervallo di tempo**.  Specifica l'intervallo di tempo per la query.  La query restituisce solo i record creati in questo intervallo dell'ora corrente.  Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore. Ad esempio, se l'intervallo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15 , vengono restituiti solo i record creati tra le 12.15 e le 13.15.
 - **Frequenza**.  Specifica la frequenza con cui deve essere eseguita la query. Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore. Deve essere uguale o minore dell'intervallo di tempo.  Se il valore è maggiore dell'intervallo di tempo, si rischia di omettere il record.<br>Si considerino ad esempio un intervallo di tempo di 30 minuti e una frequenza pari a 60 minuti.  Una query eseguita alle 13:00 restituirà i record compresi tra le 12:30 e le 13:00.  La volta successiva, la query verrà eseguita alle 14:00 e restituirà i record compresi tra le 13:30 e le 14:00.  Qualsiasi record creato tra le 13:00 e 13:30 non verrà mai valutato.
 - **Soglia**.  Per determinare se è necessario creare un avviso, vengono valutati i risultati della ricerca log.  La soglia è diversa per i diversi tipi di regole di avviso.
 
-Ogni regola di avviso in Log Analytics apparterrà a uno dei due tipi seguenti.  Ognuno di questi tipi viene descritto in dettaglio nelle sezioni seguenti.
+Ogni regola di avviso di Log Analytics è di uno fra due tipi.  Ognuno di questi tipi viene descritto in dettaglio nelle sezioni seguenti.
 
 - **[Numero di risultati](#number-of-results-alert-rules)**. Singolo avviso creato quando i record di numeri restituiti dalla ricerca log superano un numero specificato.
-- **[Unità di misura della metrica](#metric-measurement-alert-rules)**.  Avviso creato per ogni oggetto nei risultati della ricerca log quando i valori superano la soglia specificata. 
+- **[Unità di misura della metrica](#metric-measurement-alert-rules)**.  Avviso creato per ogni oggetto nei risultati della ricerca log quando i valori superano la soglia specificata.
 
 Di seguito sono riportate le differenze tra i tipi di regola di avviso.
 
-- La regola di avvivo **Numero di risultati** creerà sempre un avviso singolo mentre le regola di avviso **Unità di misura della metrica** creerà un avviso per ogni oggetto che supera la soglia.
-- Le regole di avviso **Numero di risultati** creeranno un avviso quando la soglia viene superata una sola volta. Le regole di avviso **Unità di misura della metrica** possono creare un avviso quando viene superata la soglia più di una volta in un intervallo di tempo specifico.
+- La regola di avvivo **Numero di risultati** crea sempre un avviso singolo, mentre le regola di avviso **Unità di misura della metrica** crea un avviso per ogni oggetto che supera la soglia.
+- Le regole di avviso **Numero di risultati** creano un avviso quando la soglia viene superata una sola volta. Le regole di avviso **Unità di misura della metrica** possono creare un avviso quando viene superata la soglia più di una volta in un intervallo di tempo specifico.
 
 ## <a name="number-of-results-alert-rules"></a>Regole di avviso Numero di risultati
-Le regole di avviso **Numero di risultati** creano un singolo avviso quando il numero di record restituiti dalla query di ricerca supera la soglia specificata. 
+Le regole di avviso **Numero di risultati** creano un singolo avviso quando il numero di record restituiti dalla query di ricerca supera la soglia specificata.
 
 ### <a name="threshold"></a>Soglia
 La soglia per una regola di avviso **Numero di risultati** è semplicemente maggiore o minore di un particolare valore.  Se il numero di record restituiti dalla ricerca log corrisponde a questi criteri, viene creato un avviso.
@@ -64,9 +64,9 @@ La soglia per una regola di avviso **Numero di risultati** è semplicemente magg
 ### <a name="scenarios"></a>Scenari
 
 #### <a name="events"></a>Eventi
-Questo tipo di regola di avviso è adatta per l'uso di eventi quali i log eventi di Windows, Syslog e di log personalizzati.  È consigliabile creare un avviso quando viene creato un evento di errore specifico o vengono creati più eventi di errore entro un intervallo di tempo specifico.
+Questo tipo di regola di avviso è adatto per l'uso con eventi come quelli dei log eventi di Windows, Syslog e log personalizzati.  È consigliabile creare un avviso quando viene creato un evento di errore specifico o vengono creati più eventi di errore entro un intervallo di tempo specifico.
 
-Per generare un avviso su un singolo evento, impostare un numero di risultati maggiore di 0 e la frequenza e l'intervallo di tempo su 5 minuti.  Queste impostazioni attivano l'esecuzione della query ogni 5 minuti e la ricerca dell'occorrenza di un singolo evento creato dall'ultima esecuzione della query.  Una frequenza maggiore può ritardare il tempo tra l'evento raccolto e la creazione dell'avviso.
+Per generare un avviso su un singolo evento, impostare un numero di risultati maggiore di 0 e la frequenza e l'intervallo di tempo su 5 minuti.  Queste impostazioni attivano l'esecuzione della query ogni 5 minuti e controllano l'occorrenza di un singolo evento che è stato creato dopo l'ultima esecuzione della query.  Una frequenza maggiore può ritardare il tempo tra l'evento raccolto e la creazione dell'avviso.
 
 Alcune applicazioni possono registrare un errore occasionale che non deve necessariamente generare un avviso.  Ad esempio, l'applicazione può ripetere il processo che ha creato l'evento di errore e riuscire quindi al tentativo al successivo.  In questo caso, non è consigliabile creare l'avviso, a meno che in un intervallo di tempo specifico non vengano creati più eventi.  
 
@@ -79,9 +79,14 @@ Ad esempio, se si vuole generare un avviso quando il processore è in esecuzione
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Se si vuole generare un avviso quando la media del processore è oltre il 90% per un determinato intervallo di tempo, usare una query con il [comando measure](log-analytics-search-reference.md#commands) come la seguente con la soglia per la regola di avviso **maggiore di 0**. 
+Se si vuole generare un avviso quando la media del processore è oltre il 90% per un determinato intervallo di tempo, usare una query con il [comando measure](log-analytics-search-reference.md#commands) come la seguente con la soglia per la regola di avviso **maggiore di 0**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
+
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query precedenti verranno sostituite da quelle seguenti: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
+
 
 ## <a name="metric-measurement-alert-rules"></a>Regole di avviso Unità di misura della metrica
 
@@ -93,12 +98,12 @@ Le regole di avviso **Unità di misura della metrica** creano un avviso per ogni
 #### <a name="log-search"></a>Ricerca log
 Sebbene sia possibile usare qualsiasi query per una regola di avviso **Numero di risultati**, esistono requisiti specifici della query per una regola di avviso per l'unità di misura della metrica.  Deve includere un [comando di misurazione](log-analytics-search-reference.md#commands) per raggruppare i risultati in un campo specifico. Questo comando deve includere gli elementi seguenti.
 
-- **Funzione di aggregazione**.  Determina il calcolo che verrà eseguito e potenzialmente un campo numerico da aggregare.  Ad esempio, **count()** restituirà il numero di record nella query, **avg(CounterValue)** restituirà la media del campo CounterValue nell'intervallo.
-- **Campo Gruppo**.  Verrà creato un record con un valore aggregato per ogni istanza di questo campo e può essere generato un avviso per ognuno di essi.  Ad esempio, se si desidera generare un avviso per ogni computer, si userà **dal Computer**.   
+- **Funzione di aggregazione**.  Determina il calcolo che viene eseguito e potenzialmente un campo numerico da aggregare.  Ad esempio, **count()** restituirà il numero di record nella query, **avg(CounterValue)** restituirà la media del campo CounterValue nell'intervallo.
+- **Campo Gruppo**.  Viene creato un record con un valore aggregato per ogni istanza di questo campo e può essere generato un avviso per ognuno di essi.  Ad esempio, se si desidera generare un avviso per ogni computer, si userà **dal Computer**.   
 - **Intervallo**.  Definisce l'intervallo di tempo in cui i dati vengono aggregati.  Ad esempio, se è stato specificato **5minutes**, viene creato un record per ogni istanza del campo Gruppo aggregato a intervalli di 5 minuti nella finestra temporale specificata per l'avviso.
 
 #### <a name="threshold"></a>Soglia
-La soglia per le regole di avviso Unità di misurazione della metrica è definita da un valore di aggregazione e da un numero di violazioni della sicurezza.  Se qualsiasi punto dati in una ricerca di log supera questo valore, viene considerata una violazione.  Se il numero di violazioni per un oggetto nei risultati supera il valore specificato, viene creato un avviso per l'oggetto.
+La soglia per le regole di avviso Unità di misurazione della metrica è definita da un valore di aggregazione e da un numero di violazioni della sicurezza.  Se qualsiasi punto dati in una ricerca di log supera questo valore, ciò viene considerato una violazione.  Se il numero di violazioni per un oggetto nei risultati supera il valore specificato, viene creato un avviso per l'oggetto.
 
 #### <a name="example"></a>Esempio
 Si consideri uno scenario in cui si desidera creare un avviso se l'uso del processo di un computer supera il 90% tre volte in 30 minuti.  Si deve creare una regola di avviso con i dettagli seguenti.  
@@ -137,9 +142,8 @@ Sono disponibili altri tipi di record di avviso creati dalla [soluzione Gestione
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Installare la [soluzione Gestione avvisi](log-analytics-solution-alert-management.md) per analizzare gli avvisi creati in Log Analytics con gli avvisi raccolti da System Center Operations Manager (SCOM).
+* Installare la [soluzione Gestione avvisi](log-analytics-solution-alert-management.md) per analizzare gli avvisi creati in Log Analytics insieme agli avvisi raccolti da System Center Operations Manager.
 * Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) che possono generare avvisi.
 * Completare una procedura dettagliata per la [configurazione di un webhook](log-analytics-alerts-webhooks.md) con una regola di avviso.  
 * Informazioni su come scrivere [runbook in Automazione di Azure](https://azure.microsoft.com/documentation/services/automation) per la risoluzione dei problemi identificati dagli avvisi.
-
 

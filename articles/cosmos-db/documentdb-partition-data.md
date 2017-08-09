@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e62b9742875512e70e5369978c1c90bdc9c6c1cb
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 3fbb2f0629e510dfa9dac8e363eafb8e668e81d4
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Partizionamento in Azure Cosmos DB con l'API DocumentDB
@@ -77,7 +76,7 @@ Per iniziare a usare il codice, scaricare il progetto dell'[esempio di driver di
 
 Di seguito viene esaminato come la scelta della chiave di partizione influisce sulle prestazioni dell'applicazione.
 
-## <a name="working-with-the-documentdb-sdks"></a>Uso di DocumentDB SDK
+## <a name="working-with-the-azure-cosmos-db-sdks"></a>Utilizzo di Azure Cosmos DB SDK
 Azure Cosmos DB ha aggiunto il supporto per il partizionamento automatico con la [versione 2015-12-16 dell'API REST](/rest/api/documentdb/). Per creare contenitori partizionati, è necessario scaricare la versione 1.6.0 o una successiva dell'SDK in una delle piattaforme di SDK supportate (.NET, Node.js, Java, Python e MongoDB). 
 
 ### <a name="creating-containers"></a>Creazione di contenitori
@@ -207,7 +206,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 * Impostando `MaxDegreeOfParallelism` è possibile controllare il grado di parallelismo, ossia il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questo valore su -1, il grado di parallelismo viene gestito dall'SDK. Se `MaxDegreeOfParallelism` non è specificato o è impostato su 0, ovvero il valore predefinito, esisterà una sola connessione di rete alle partizioni del contenitore.
 * Impostando `MaxBufferedItemCount` è possibile raggiungere un compromesso tra latenza della query e uso della memoria dal lato client. Se si omette questo parametro o si imposta su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
-Considerato lo stato della raccolta, una query in parallelo restituirà i risultati nello stesso ordine dell'esecuzione seriale. Quando si esegue una query tra partizioni che include l'ordinamento (ORDER BY e/o TOP), l'SDK di DocumentDB esegue la query in parallelo tra le partizioni e unisce i risultati ordinati parzialmente sul lato client per produrre risultati ordinati a livello globale.
+Considerato lo stato della raccolta, una query in parallelo restituirà i risultati nello stesso ordine dell'esecuzione seriale. Quando si esegue una query tra partizioni che include l'ordinamento (ORDER BY e/o TOP), Azure Cosmos DB SDK esegue la query in parallelo tra le partizioni e unisce i risultati ordinati parzialmente sul lato client per produrre risultati ordinati a livello globale.
 
 ### <a name="executing-stored-procedures"></a>Esecuzione di stored procedure
 È anche possibile eseguire transazioni atomiche su documenti con lo stesso ID dispositivo, ad esempio se si gestiscono le aggregazioni o lo stato più recente di un dispositivo in un singolo elemento. 
@@ -222,9 +221,9 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 Nella sezione successiva verrà illustrato come passare a contenitori partizionati da contenitori a partizione singola.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stata offerta una panoramica dell'uso del partizionamento dei contenitori Cosmos DB con l'API DocumentDB. Per una panoramica dei concetti e delle procedure consigliate per il partizionamento con qualsiasi API di Azure Cosmos DB, vedere anche l'articolo relativo a [partizionamento e scalabilità orizzontale](../cosmos-db/partition-data.md). 
+Questo articolo include una panoramica dell'uso del partizionamento dei contenitori Azure Cosmos DB con l'API DocumentDB. Per una panoramica dei concetti e delle procedure consigliate per il partizionamento con qualsiasi API di Azure Cosmos DB, vedere anche l'articolo relativo a [partizionamento e scalabilità orizzontale](../cosmos-db/partition-data.md). 
 
-* Eseguire il test delle prestazioni e della scalabilità con Cosmos DB. Per un esempio, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
+* Eseguire il test delle prestazioni e della scalabilità con Azure Cosmos DB. Per un esempio, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
 * Introduzione alla programmazione con gli [SDK](documentdb-sdk-dotnet.md) o l'[API REST](/rest/api/documentdb/)
 * Informazioni sulla [velocità effettiva di provisioning in Azure Cosmos DB](request-units.md)
 

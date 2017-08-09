@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 71a839d9c076d33c404a56bf0544666dc86eaa4d
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
 
-Informazioni su come abilitare la registrazione diagnostica per l'account di Data Lake Analytics e su come visualizzare i log raccolti per l'account.
-
-Le organizzazioni possono abilitare la registrazione diagnostica per il proprio account di Azure Data Lake Analytics per raccogliere gli audit trail dell'accesso ai dati. Questi registri includono informazioni quali:
+La registrazione diagnostica consente di raccogliere audit trail di accesso ai dati. Questi registri includono informazioni quali:
 
 * Un elenco di utenti che hanno avuto accesso ai dati.
 * La frequenza con cui si accede ai dati.
@@ -34,7 +31,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il proprio 
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
-1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Aprire l'account Data Lake Analytics e selezionare **Log di diagnostica** dalla sezione __Monitoraggio__. Selezionare quindi __Turn on diagnostics__ (Attiva diagnostica).
 
@@ -46,34 +43,29 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il proprio 
 
    * Impostare lo **Stato** su **Attivo** per abilitare la registrazione diagnostica.
 
-   * È possibile scegliere di archiviare/elaborare i dati in due modi diversi.
+   * È possibile scegliere di archiviare/elaborare i dati in tre modi diversi.
 
      * Selezionare __Archive to a storage account__ (Archivia in un account di archiviazione) per archiviare i log in un account di archiviazione di Azure. Usare questa opzione se si vogliono archiviare i dati. Se si seleziona questa opzione è necessario fornire un account di archiviazione di Azure in cui salvare i log.
 
-     * Selezionare **Stream to an Event Hub** (Esegui streaming in un Hub eventi) per trasmettere i dati di log a un Hub eventi di Azure. Usare questa opzione se si ha una pipeline di elaborazione a valle per analizzare in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
+     * Selezionare **Stream to an Event Hub** (Esegui streaming in un Hub eventi) per trasmettere i dati di log a un Hub eventi di Azure. Usare questa opzione se si ha una pipeline di elaborazione downstream che analizza in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
 
      * Selezionare __Send to Log Analytics__ (Invia a Log Analytics) per inviare i dati al servizio Log Analytics. Usare questa opzione per raccogliere e analizzare i log con Log Analytics.
-   * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.
+   * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.  Un log delle richieste acquisisce tutte le richieste API. Un log di controllo registra tutte le operazioni attivate dalla richiesta dell'API.
 
-   * Specificare il numero di giorni per cui devono essere conservati i dati.
+   * Per __Archivia in un account di archiviazione__ specificare il numero di giorni per cui i dati verranno conservati.
 
-   * Fare clic su **Save**.
+   * Fare clic su __Salva__.
 
         > [!NOTE]
-        > È necessario selezionare una tra le opzioni __Archive to a storage account__ (Archivia in un account di archiviazione), __Stream to an Event Hub__ (Esegui streaming in un Hub eventi) o __Send to Log Analytics__ (Invia a Log Analytics) prima di usare il pulsante __Salva__.
+        > È necessario selezionare una tra le opzioni __Archivia in un account di archiviazione__, __Streaming in un hub eventi__ o __Invia a Log Analytics__ prima di fare clic sul pulsante __Salva__.
 
-Dopo aver attivato le impostazioni di diagnostica, è possibile tornare al pannello __Log di diagnostica__ per visualizzare i log.
+Dopo avere abilitato le impostazioni di diagnostica, è possibile tornare al pannello __Log di diagnostica__ per visualizzare i log.
 
 ## <a name="view-logs"></a>Visualizzare i log
 
-Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytics.
+### <a name="use-the-data-lake-analytics-view"></a>Usare la visualizzazione di Data Lake Analytics
 
-* Dalle impostazioni dell'account Data Lake Analytics
-* Dall'account di Archiviazione di Azure dove sono archiviati i dati
-
-### <a name="using-the-data-lake-analytics-settings-view"></a>Usando la visualizzazione Impostazioni dell'account Data Lake Analytics
-
-1. Dal pannello dell'account Data Lake Analytics selezionare **Log di diagnostica** e quindi la voce per la quale visualizzare i log.
+1. Dal pannello dell'account Data Lake Analytics selezionare **Log di diagnostica** in **Monitoraggio** e quindi selezionare una voce per la quale visualizzare i log.
 
     ![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Visualizzare i log di diagnostica")
 
@@ -82,19 +74,19 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytic
     ![Voci del log](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * I log delle richieste acquisiscono tutte le richieste API fatte nell'account di Data Lake Analytics.
-   * I log di controllo sono simili a quelli delle richieste ma forniscono una suddivisione più dettagliata delle operazioni eseguite nell'account di Data Lake Analytics. Ad esempio, una singola chiamata API di caricamento nei log delle richieste potrebbe risultare in molteplici operazioni di "Aggiungi" nei log di controllo.
+   * I log di controllo sono simili a quelli delle richieste ma forniscono una suddivisione più dettagliata delle operazioni. Ad esempio, una singola chiamata API di caricamento in un log delle richieste può restituire più operazioni di aggiunta nel log di controllo.
 
-3. Fare clic sul link **Scarica** di una voce di log per scaricare i log.
+3. Fare clic sul collegamento **Scarica** di una voce di log per scaricare il log.
 
-### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Dall'account di Archiviazione di Azure che contiene i dati di log
+### <a name="use-the-azure-data-lake-storage-account-that-contains-log-data"></a>Usare l'account di archiviazione di Azure Data Lake che contiene i dati del log
 
-1. Aprire il pannello Account di Archiviazione di Azure associato a Data Lake Analytics per la registrazione e quindi fare clic su BLOB. Il pannello **Servizio BLOB** elenca due contenitori.
+1. Aprire il pannello dell'account di archiviazione di Azure Data Lake associato a Data Lake Analytics per la registrazione e quindi fare clic su __BLOB__. Il pannello **Servizio BLOB** elenca due contenitori.
 
     ![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
 
    * Il contenitore **insights-logs-audit** contiene i log di controllo.
    * Il contenitore **insights-logs-requests** contiene i log delle richieste.
-2. All'interno di questi contenitori i log vengono archiviati con la struttura seguente.
+2. All'interno di questi contenitori i log vengono archiviati con la struttura seguente:
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -125,7 +117,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Analytic
 
 ## <a name="log-structure"></a>Struttura di log
 
-I log di controllo e delle richieste sono in formato JSON. In questa sezione, viene esaminata la struttura di JSON per i log delle richieste e di controllo.
+I log di controllo e delle richieste sono in formato JSON strutturato.
 
 ### <a name="request-logs"></a>Request Logs
 
@@ -164,12 +156,12 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |String |Il timestamp del log (fusorario UTC) |
-| resourceId |String |L’ID della risorsa interessata dall’operazione |
+| resourceId |String |Identificatore della risorsa interessata dall'operazione |
 | category |String |La categoria di log. Ad esempio, **Richieste**. |
 | operationName |String |Il nome dell'operazione registrata. Ad esempio, GetAggregatedJobHistory. |
 | resultType |String |Lo stato dell'operazione, ad esempio 200. |
 | callerIpAddress |String |L’indirizzo IP del client che esegue la richiesta |
-| correlationId |String |L'id del log. Questo valore può essere usato per raggruppare un set di voci di log correlate |
+| correlationId |String |Identificatore del log. Questo valore può essere usato per raggruppare un set di voci di log correlate. |
 | identity |Oggetto |L'identità che ha generato il log |
 | properties |JSON |Per informazioni dettagliate, vedere la sezione successiva (Schema delle proprietà del log di richiesta) |
 
@@ -180,7 +172,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | HttpMethod |String |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
 | Path |String |Il percorso coinvolto nell'operazione |
 | RequestContentLength |int |La lunghezza del contenuto della richiesta HTTP |
-| ClientRequestId |String |L’ID che identifica in modo univoco la richiesta |
+| ClientRequestId |String |Identificatore che identifica in modo univoco la richiesta |
 | StartTime |String |L'ora in cui il server ha ricevuto la richiesta |
 | EndTime |String |L'ora in cui il server ha inviato una risposta |
 
@@ -216,7 +208,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | time |String |Il timestamp del log (fusorario UTC) |
-| resourceId |String |L’ID della risorsa interessata dall’operazione |
+| resourceId |String |Identificatore della risorsa interessata dall'operazione |
 | category |String |La categoria di log. Ad esempio, **Audit**. |
 | operationName |String |Il nome dell'operazione registrata. Ad esempio, JobSubmitted. |
 | resultType |String |Stato secondario per lo stato del processo (operationName). |
@@ -225,7 +217,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | properties |JSON |Per informazioni dettagliate, vedere la sezione successiva (Schema delle proprietà del log di controllo) |
 
 > [!NOTE]
-> **resultType** e **resultSignature** offrono informazioni sul risultato di un'operazione e contengono un valore solo se un'operazione è stata completata. Ad esempio, contengono un valore quando **operationName** contiene un valore **JobStarted** o **JobEnded**.
+> **resultType** e **resultSignature** offrono informazioni sul risultato di un'operazione e contengono un valore solo se un'operazione è stata completata. Ad esempio, contengono un valore solo quando **operationName** contiene un valore **JobStarted** o **JobEnded**.
 >
 >
 
@@ -237,12 +229,12 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | JobName |String |Il nome fornito per il processo |
 | JobRunTime |String |Il runtime usato per l'elaborazione del processo |
 | SubmitTime |String |Ora (UTC) in cui è stato inviato il processo |
-| StartTime |String |Ora di avvio dell'esecuzione del processo dopo l'invio (in UTC). |
-| EndTime |String |Ora di termine del processo. |
-| Parallelismo |String |Il numero di unità di Data Lake Analytics richiesto per questo processo durante l'invio. |
+| StartTime |String |Ora di avvio dell'esecuzione del processo dopo l'invio (in UTC) |
+| EndTime |String |Ora di fine del processo |
+| Parallelismo |String |Numero di unità di Data Lake Analytics richieste per questo processo durante l'invio |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime** e **Parallelism** offrono informazioni su un'operazione e contengono un valore solo se un'operazione è stata avviata o completata. Ad esempio, **SubmitTime** contiene un valore dopo che **operationName** indica **JobSubmitted**.
+> **SubmitTime**, **StartTime**, **EndTime** e **Parallelism** forniscono informazioni su un'operazione. Queste voci contengono un valore solo se l'operazione è stata avviata o completata. Ad esempio, **SubmitTime** contiene un valore solo dopo che **operationName** ha il valore **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Elaborare i dati di log
 

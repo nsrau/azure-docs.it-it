@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 224aa0db2feb7a83bec5b4ec46140046d10f012e
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3ee146a0be3c3338cf0037e2ec92a3b8d0c05a4e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -109,11 +108,11 @@ Questo scenario illustrerà come:
 
    ![Pannello con impostazioni di base][2-2]
 
-1. Nel pannello **Impostazioni** che viene visualizzato in **Rete virtuale**, fare clic su **Scegliere una rete virtuale**. Si aprirà il pannello **Scegliere una rete virtuale**.  Fare clic su **Crea nuovo** per aprire il pannello **Crea rete virtuale**.
+1. Nel pannello **Impostazioni** che viene visualizzato in **Rete virtuale**, fare clic su **Scegliere una rete virtuale**. Si apre il pannello **Scegli rete virtuale**.  Fare clic su **Crea nuovo** per aprire il pannello **Crea rete virtuale**.
 
    ![scegliere una rete virtuale][2]
 
-1. Nel pannello **Crea rete virtuale** immettere i valori seguenti e quindi fare clic su **OK**. Questa operazione chiuderà i pannelli **Crea rete virtuale** e **Scegliere una rete virtuale**. Il campo **Subnet** nel pannello **Impostazioni** verrà inoltre popolato con la subnet selezionata.
+1. Nel pannello **Crea rete virtuale** immettere i valori seguenti e quindi fare clic su **OK**. I pannelli **Crea rete virtuale** e **Scegli rete virtuale** vengono chiusi. Il campo **Subnet** nel pannello **Impostazioni** verrà inoltre popolato con la subnet selezionata.
 
    |**Impostazione** | **Valore** | **Dettagli** |
    |---|---|---|
@@ -128,7 +127,7 @@ Questo scenario illustrerà come:
 
    ![scegliere un indirizzo IP pubblico][3]
 
-1. Nel pannello **Crea indirizzo IP pubblico** accettare il valore predefinito e fare clic su **OK**. Questo chiuderà i pannelli **Scegliere un indirizzo IP pubblico** e **Crea indirizzo IP pubblico** e inserirà l'indirizzo IP selezionato nel campo **Indirizzo IP pubblico**.
+1. Nel pannello **Crea indirizzo IP pubblico** accettare il valore predefinito e fare clic su **OK**. Questo chiude i pannelli **Scegli indirizzo IP pubblico** e **Crea indirizzo IP pubblico** e inserirà l'indirizzo IP selezionato nel campo **Indirizzo IP pubblico**.
 
 1. Nel pannello **Impostazioni** in **Configurazione listener** fare clic su **HTTP** in **Protocollo**. Per usare **HTTPS**è necessario un certificato. Poiché è necessaria la chiave privata del certificato, si devono specificare un file di esportazione con estensione pfx del certificato e la password per il file.
 
@@ -152,6 +151,8 @@ Questi passaggi creano un gateway applicazione di base con le impostazioni prede
 > I gateway applicazione creati con la configurazione di base del web application firewall sono configurati con CRS 3.0 per la protezione.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Successivamente, è possibile imparare a configurare un alias di dominio personalizzato per l'[indirizzo IP pubblico](../dns/dns-custom-domain.md#public-ip-address) tramite DNS di Azure o un altro provider DNS.
 
 Per informazioni su come configurare la registrazione diagnostica, per registrare gli eventi che vengono rilevati o bloccati con il web application firewall, visitare [Registrazione diagnostica per il gateway applicazione](application-gateway-diagnostics.md)
 

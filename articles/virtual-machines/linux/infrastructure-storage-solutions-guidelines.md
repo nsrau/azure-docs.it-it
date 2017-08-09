@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 771e3d1e728f6c85d9f63111b2483d08396ef530
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7c5089b9db945b0e0f4523e53bb44c178ffd0781
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-linux-vms"></a>Linee guida per l'infrastruttura di archiviazione di Azure per macchine virtuali Linux
@@ -73,7 +72,7 @@ Quanto all'archiviazione delle applicazioni, è possibile archiviare dati oggett
 ## <a name="striped-disks"></a>Dischi con striping
 Oltre a consentire di creare dischi di dimensioni superiori a 1023 GB, in molti casi l'uso dello striping per i dischi dati contribuisce a migliorare le prestazioni, consentendo a più BLOB di supportare l'archiviazione per un singolo volume. Con lo striping, le operazioni I/O necessarie per scrivere e leggere dati da un singolo disco logico procedono in parallelo.
 
-Azure impone limiti riguardo al numero di dischi dati e alla quantità della larghezza di banda disponibile a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali] (sizes.md
+Azure impone limiti riguardo al numero di dischi dati e alla quantità della larghezza di banda disponibile a seconda delle dimensioni della macchina virtuale. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](sizes.md)
 
 Se si usa lo striping del disco per i dischi dati di Azure, considerare le linee guida seguenti:
 

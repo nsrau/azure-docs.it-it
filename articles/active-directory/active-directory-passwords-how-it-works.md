@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 44426571e3fd8aed090ccccc0dcc46dca8098906
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Approfondimenti sulla reimpostazione della password self-service in Azure AD
@@ -225,7 +225,7 @@ Lo strumento Azure AD Connect invia ping/keep-alive periodici agli endpoint di S
 
 L'account specificato nell'utilità di Azure AD Connect deve avere i diritti estesi per le opzioni Reimposta password, Modifica password, Autorizzazioni di scrittura per lockoutTime e Autorizzazioni di scrittura per pwdLastSet, per uno oggetto radice di **ogni dominio** nella foresta **O** nelle Unità organizzative dell'utente che si desidera avere nell'ambito per la reimpostazione della password self-service.
 
-Se non si è certi dell'identità dell'account al quale si fa riferimento, aprire l'interfaccia utente della configurazione di Azure Active Directory Connect e fare clic sull'opzione Verifica della soluzione. L'account a cui è necessario aggiungere le autorizzazioni è elencato in "Directory sincronizzate"
+Se non si è certi dell'identità dell'account al quale si fa riferimento, aprire l'interfaccia utente della configurazione di Azure Active Directory Connect e fare clic sull'opzione Visualizza configurazione corrente. L'account a cui è necessario aggiungere le autorizzazioni è elencato in "Directory sincronizzate"
 
 L'impostazione di queste autorizzazioni consente all'account del servizio MA per ogni foresta di gestire le password per conto di account utente all'interno di tale foresta. **Se non si assegnano tali autorizzazioni, anche se il writeback è configurato correttamente, gli utenti visualizzeranno errori durante il tentativo di gestione delle password locali dal cloud.**
 

@@ -1,6 +1,6 @@
 ---
 title: "Supporto di Azure Application Insights per più componenti, microservizi e contenitori | Microsoft Docs"
-description: "Monitoraggio di applicazioni costituite da più componenti o ruoli per le prestazioni e l&quot;uso."
+description: "Monitoraggio di applicazioni costituite da più componenti o ruoli per le prestazioni e l'uso."
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 9b26ade6c3a90e6ebe49bfbc6f3fa801dc7f8d20
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: d8b466caba7201a5bb8612e773ad61943f6d1cf2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Monitorare le applicazioni multi-componente con Application Insights (anteprima)
@@ -30,7 +29,9 @@ Il termine "componente" usato di seguito indica qualsiasi parte funzionante di u
 
 ### <a name="sharing-a-single-application-insights-resource"></a>Condivisione di una singola risorsa di Application Insights 
 
-La tecnica chiave consiste nell'inviare i dati di telemetria da ogni componente nell'applicazione alla stessa risorsa di Application Insights, usando la proprietà `cloud_RoleName` per distinguere i componenti quando necessario. 
+La tecnica chiave consiste nell'inviare i dati di telemetria da ogni componente nell'applicazione alla stessa risorsa di Application Insights, usando la proprietà `cloud_RoleName` per distinguere i componenti quando necessario. L'SDK di Application Insights aggiunge la proprietà `cloud_RoleName` all'emissione dei componenti di telemetria. Ad esempio, l'SDK aggiungerà un nome del sito Web o il nome del ruolo di servizio alla proprietà `cloud_RoleName`. È possibile eseguire l'override di questo valore con un Telemetryinitializer. La mappa delle applicazioni usa la proprietà `cloud_RoleName` per identificare i componenti sulla mappa.
+
+Per altre informazioni su come eseguire l'override dell proprietà `cloud_RoleName`, vedere [Aggiungere proprietà: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
 In alcuni casi questo può non essere appropriato e si potrebbe preferire l'uso di risorse separate per i diversi gruppi di componenti. Ad esempio, potrebbe essere necessario usare risorse diverse per la gestione o la fatturazione. Se si usano risorse separate, non sono visibili tutti i componenti visualizzati in una singola Mappa delle applicazioni e non è possibile eseguire query tra i componenti in [Analisi](app-insights-analytics.md). È anche necessario configurare le risorse separate.
 
