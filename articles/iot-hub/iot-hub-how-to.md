@@ -1,5 +1,5 @@
 ---
-title: Utilizzo dell&quot;hub IoT di Azure | Documentazione Microsoft
+title: Utilizzo dell'hub IoT di Azure | Documentazione Microsoft
 description: "In che modo gli sviluppatori usano le varie funzionalità di hub IoT?"
 services: iot-hub
 documentationcenter: 
@@ -12,25 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 6fbdebd316cd00e7dd762487848e616fdd2317e8
-ms.openlocfilehash: 358fd0888049f97e5fde6e2a6303ea6c4cf65da9
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 786121ae249d69376b4be4c74000868cbb208989
+ms.contentlocale: it-it
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Procedure: Usare l'hub IoT di Azure
 
-Sono disponibili varie opzioni per apprendere come sviluppare per il servizio hub IoT. È possibile leggere gli articoli teorici che descrivono le funzionalità di hub IoT in dettaglio o mettere in pratica una delle esercitazioni che illustrano le diverse funzionalità di hub IoT.
+Sono disponibili varie opzioni per apprendere come sviluppare per il servizio hub IoT:
 
-## <a name="the-developer-guide"></a>Guida per sviluppatori
+* Leggere gli articoli concettuali che descrivono le funzionalità dell'hub IoT in dettaglio.
+* Seguire una delle esercitazioni che illustrano le varie funzionalità dell'hub IoT.
 
-Gli sviluppatori possono leggere le linee guida teoriche e dettagliate relative all'hub IoT nella [Guida per gli sviluppatori][lnk-devguide]. Questa guida include descrizioni dettagliate di tutte le funzionalità dell'hub IoT, che aiutano a comprenderne l'uso e a scegliere tra le varie opzioni disponibili.
+## <a name="developer-guide"></a>Guida per sviluppatori
 
+Gli sviluppatori possono leggere le linee guida teoriche e dettagliate relative all'hub IoT nella [Guida per gli sviluppatori][lnk-devguide]. Questa guida include:
 
-## <a name="the-tutorials"></a>Esercitazioni
+* Descrizioni dettagliate di tutte le funzionalità dell'hub IoT utili per imparare a usarle.
+* Linee guida per la scelta quando sono disponibili più opzioni.
+
+## <a name="tutorials"></a>Esercitazioni
 
 Se si preferisce apprendere le specifiche funzionalità di hub IoT tramite esercizi pratici, sono disponibili numerose esercitazioni tra cui scegliere. Molte esercitazioni sono disponibili anche in più linguaggi di programmazione. Le esercitazioni comprendono:
 
@@ -44,11 +49,11 @@ Se si preferisce apprendere le specifiche funzionalità di hub IoT tramite eserc
 
 - [Usare metodi diretti][lnk-methods-tutorial]. Questa esercitazione illustra come usare metodi diretti. Aggiungere un gestore per un metodo diretto nel dispositivo simulato e richiamare il metodo diretto dall'hub IoT.
 
-- [Introduzione alla gestione dei dispositivi][lnk-dm-tutorial]. Questa esercitazione illustra come usare le principali funzionalità di gestione dei dispositivi, ad esempio i dispositivi gemelli e i metodi diretti per riavviare in remoto il dispositivo simulato.
+- [Introduzione alla gestione dei dispositivi][lnk-dm-tutorial]. Questa esercitazione illustra come usare le principali funzionalità di gestione dei dispositivi, ad esempio i dispositivi gemelli e i metodi diretti. Queste funzionalità consentono di riavviare in remoto il dispositivo simulato.
 
-- [Usare le proprietà desiderate per configurare i dispositivi][lnk-properties-tutorial]. Questa esercitazione illustra come usare le proprietà desiderate del dispositivo gemello in combinazione con le proprietà segnalate per configurare in remoto il dispositivo.
+- [Usare le proprietà desiderate per configurare i dispositivi][lnk-properties-tutorial]. Questa esercitazione illustra come usare le proprietà desiderate e segnalate del dispositivo gemello per configurare in remoto il dispositivo.
 
-- [Usare i processi del dispositivo per avviare un aggiornamento del firmware del dispositivo][lnk-jobs-tutorial]. Questa esercitazione illustra come usare le principali funzionalità di gestione dei dispositivi, ad esempio i dispositivi gemelli e i metodi diretti per aggiornare in remoto il firmware del dispositivo.
+- [Usare i processi del dispositivo per avviare un aggiornamento del firmware del dispositivo][lnk-jobs-tutorial]. Questa esercitazione illustra come usare le principali funzionalità di gestione dei dispositivi, ad esempio i dispositivi gemelli e i metodi diretti. Si impareranno a usare queste funzionalità per aggiornare in remoto il firmware del dispositivo.
 
 - [Pianificare e trasmettere processi][lnk-schedule-tutorial]. Questa esercitazione illustra come usare le proprietà desiderate e i metodi diretti per interagire con più dispositivi a un orario pianificato.
 

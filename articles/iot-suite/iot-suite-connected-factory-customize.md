@@ -13,14 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: ec4b2808e6984821200be182183e53b69887b912
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 86a4d6d3ab4d29fba8f554265958ffa079b69ec2
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizzare la modalità di visualizzazione dei dati dai server OPC UA da parte della soluzione di fabbrica connessa
@@ -69,7 +68,7 @@ La soluzione di fabbrica connessa visualizza dati dai server OPC UA connessi all
 
 ## <a name="map-the-data"></a>Eseguire il mapping di dati
 
-La soluzione di fabbrica connessa mappa e aggrega gli elementi di dati pubblicati dal server OPC UA alle varie viste nella soluzione. La soluzione di fabbrica connessa viene distribuita nell'account Azure dell'utente quando ne viene effettuato il provisioning. Le informazioni di mapping sono contenute in un file JSON nella soluzione di fabbrica connessa Visual Studio. È possibile visualizzare e modificare questo file di configurazione JSON nella soluzione di fabbrica connessa Visual Studio per poi distribuirlo nuovamente.
+La soluzione di fabbrica connessa mappa e aggrega gli elementi di dati pubblicati dal server OPC UA alle varie viste nella soluzione. La soluzione di fabbrica connessa viene distribuita nell'account Azure dell'utente quando ne viene effettuato il provisioning. Le informazioni di mapping sono contenute in un file JSON nella soluzione di fabbrica connessa Visual Studio. È possibile visualizzare e modificare questo file di configurazione JSON nella soluzione di fabbrica connessa Visual Studi. È possibile ridistribuire la soluzione dopo aver apportato una modifica.
 
 È possibile usare il file di configurazione per:
 

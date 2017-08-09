@@ -12,14 +12,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 021bf7c3ce70d9857b14597a2d378d7baad5aab2
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 54503d5d6a636239d240509d7d09cf334234bac7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>Connettere Raspberry Pi 3 alla soluzione di monitoraggio remoto e attivare gli aggiornamenti del firmware remoto usando Node.js
@@ -36,7 +35,6 @@ L'esercitazione usa:
 - Il sistema operativo Raspbian, il linguaggio di programmazione Node.js e Microsoft Azure IoT SDK per Node.js per implementare un dispositivo di esempio.
 - La soluzione preconfigurata di monitoraggio remoto IoT Suite come back-end basato su cloud.
 
-
 ## <a name="overview"></a>Panoramica
 
 In questa esercitazione si completa la procedura seguente:
@@ -51,7 +49,7 @@ In questa esercitazione si completa la procedura seguente:
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> La soluzione di monitoraggio remoto esegue il provisioning di un set di servizi di Azure nella sottoscrizione di Azure. La distribuzione riflette un'architettura enterprise reale. Per evitare costi di consumo di Azure non necessari, eliminare l'istanza della soluzione preconfigurata in azureiotsuite.com al completamento. Se la soluzione preconfigurata occorre nuovamente, è possibile ricrearla facilmente. Per altre informazioni sulla riduzione del consumo durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi).
+> La soluzione di monitoraggio remota esegue il provisioning di un set di servizi di Azure nella sottoscrizione di Azure. La distribuzione riflette un'architettura enterprise reale. Per evitare costi di consumo di Azure non necessari, eliminare l'istanza della soluzione preconfigurata in azureiotsuite.com al completamento. Se la soluzione preconfigurata occorre nuovamente, è possibile ricrearla facilmente. Per altre informazioni sulla riduzione del consumo durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi).
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
@@ -67,33 +65,44 @@ Se non è già stato fatto, installare Node.js in Raspberry Pi. IoT SDK per Node
 
 1. Usare il comando seguente per aggiornare Raspberry Pi:
 
-    `sudo apt-get update`
+    ```sh
+    sudo apt-get update
+    ```
 
 1. Usare il comando seguente per scaricare i file binari di Node.js su Raspberry Pi:
 
-    `wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Usare il comando seguente per installare i file binari:
 
-    `sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz`
+    ```sh
+    sudo tar -C /usr/local --strip-components 1 -xzf node-v6.10.2-linux-armv7l.tar.gz
+    ```
 
 1. Usare il comando seguente per verificare di aver installato correttamente Node.js v6.10.2:
 
-    `node --version`
+    ```sh
+    node --version
+    ```
 
 ### <a name="clone-the-repositories"></a>Clonare i repository
 
 Se non è già stato fatto, clonare i repository necessari eseguendo i comandi seguenti nel Pi:
 
-`cd ~`
-
-`git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git`
+```sh
+cd ~
+git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit.git
+```
 
 ### <a name="update-the-device-connection-string"></a>Aggiornare la stringa di connessione del dispositivo
 
 Aprire il file di configurazione di esempio nell'editor **nano** usando il comando seguente:
 
-`nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo`
+```sh
+nano ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/config/deviceinfo
+```
 
 Sostituire i valori segnaposto con l'id del dispositivo e informazioni dell'hub IoT creati e salvati all'inizio di questa esercitazione.
 
@@ -110,29 +119,32 @@ Salvare le modifiche (**Ctrl+O**, **INVIO**) e chiudere l'editor (**Ctrl+X**).
 
 Eseguire i comandi seguenti per installare i pacchetti prerequisiti per l'esempio:
 
-`cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0`
-
-`npm install`
+```sh
+cd ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advance/1.0
+npm install
+```
 
 È ora possibile eseguire il programma di esempio su Raspberry Pi. Immettere il comando:
 
-`sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js`
+```sh
+sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/remote_monitoring.js
+```
 
 L'output seguente riporta un esempio dell'output visualizzato al prompt dei comandi su Raspberry Pi:
 
 ![Output dell'app Raspberry Pi][img-raspberry-output]
 
-Premere **Ctrl-C** per uscire dal programma in qualsiasi momento.
+Premere **CTRL+C** per uscire dal programma in qualsiasi momento.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry-advanced](../../includes/iot-suite-raspberry-pi-kit-view-telemetry-advanced.md)]
 
-1. Nel dashboard della soluzione, fare clic su **Dispositivi** per visitare la pagina **Dispositivi**. Selezionare Raspberry Pi in **Elenco dei dispositivi**. Scegliere quindi **Metodi**:
+1. Nel dashboard della soluzione fare clic su **Dispositivi** per passare alla pagina **Dispositivi**. Selezionare Raspberry Pi in **Elenco dispositivi**. Quindi scegliere **Metodi**:
 
-    ![Elenca i dispositivi nel dashboard][img-list-devices]
+    ![Elencare i dispositivi nel dashboard][img-list-devices]
 
 1. Nella pagina **Richiama metodo**, scegliere **InitiateFirmwareUpdate** nell'elenco a discesa **Metodo**.
 
-1. Nel campo **FWPackageURI** immettere **https://raw.githubusercontent.com/IoTChinaTeam/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Questo file contiene l'implementazione della versione 2.0 del firmware.
+1. Nel campo **FWPackageURI** immettere **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**. Questo file contiene l'implementazione della versione 2.0 del firmware.
 
 1. Scegliere **InvokeMethod**. L'app su Raspberry Pi invia un riconoscimento al dashboard della soluzione. Avvia quindi il processo di aggiornamento del firmware scaricando la nuova versione del firmware:
 
@@ -151,12 +163,12 @@ Premere **Ctrl-C** per uscire dal programma in qualsiasi momento.
 
 1. È possibile visualizzare lo stato dell'aggiornamento del firmware, come segnalato dal dispositivo, nel portale della soluzione. La schermata seguente mostra lo stato e la durata di ogni fase del processo di aggiornamento e la nuova versione del firmware:
 
-    ![Visualizzare lo stato del processo][img-job-status]
+    ![Mostra lo stato del processo][img-job-status]
 
     Se si passa nuovamente al dashboard, è possibile verificare che il dispositivo sta ancora inviando i dati di telemetria dopo l'aggiornamento del firmware.
 
 > [!WARNING]
-> Se si lascia la soluzione di monitoraggio remoto in esecuzione nel proprio account Azure, verrà addebitato il tempo dell'esecuzione. Per altre informazioni sulla riduzione del consumo durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi). Eliminare la soluzione preconfigurata dall'account di Azure dopo aver finito di usarla.
+> Se si lascia la soluzione di monitoraggio remoto in esecuzione nell'account Azure, verrà addebitato il tempo dell'esecuzione. Per altre informazioni sulla riduzione del consumo durante l'esecuzione della soluzione di monitoraggio remoto, vedere [Configuring Azure IoT Suite preconfigured solutions for demo purposes][lnk-demo-config] (Configurazione di soluzioni preconfigurate di Azure IoT Suite per scopi dimostrativi). Al termine, eliminare la soluzione preconfigurata dall'account Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

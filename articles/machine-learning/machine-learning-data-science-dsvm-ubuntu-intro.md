@@ -1,6 +1,6 @@
 ---
-title: Effettuare il provisioning di una macchina virtuale per l&quot;analisi scientifica dei dati per Linux (Ubuntu) in Azure | Microsoft Docs
-description: "Configurare e creare una macchina virtuale per l&quot;analisi scientifica dei dati per Linux (Ubuntu) in Azure per attività di analisi e Machine Learning."
+title: Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu) in Azure | Microsoft Docs
+description: "Configurare e creare una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu) in Azure per attività di analisi e Machine Learning."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 548b4af7619521e4b61b99b94c1d40f835e6efdb
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 148603618a7da05d250a6c4f789a212e98791e53
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
@@ -151,6 +150,13 @@ Per altre informazioni, vedere la sezione CNTK di [GitHub](https://github.com/Mi
 
 #### <a name="caffe"></a>Caffe
 Caffe è un framework di apprendimento avanzato del Berkeley Vision and Learning Center. È disponibile in /opt/caffe. Esempi sono disponibili in /opt/caffe/examples.
+
+#### <a name="caffe2"></a>Caffe2
+Caffe2 è un framework di Facebook per l'apprendimento avanzato, basato su Caffe. È disponibile in Python 2.7 nell'ambiente radice Conda. Per attivarlo, usare il comando seguente dalla shell:
+
+    source /anaconda/bin/activate root
+
+Sono disponibili alcuni notebook di esempio in JupyterHub.
 
 #### <a name="h2o"></a>H2O
 H2O è una piattaforma rapida, in memoria e distribuita di analisi predittiva e Machine Learning. Un pacchetto Python è installato negli ambienti root e py35 Anaconda. Viene installato anche un pacchetto R. Per avviare H2O dalla riga di comando, eseguire `java -jar /dsvm/tools/h2o/current/h2o.jar`. A questo punto vi saranno diverse [opzioni della riga di comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) da configurare. È possibile accedere all'interfaccia utente Web di Flow passando a http://localhost:54321 per iniziare. Sono anche disponibili notebook di esempio in JupyterHub.

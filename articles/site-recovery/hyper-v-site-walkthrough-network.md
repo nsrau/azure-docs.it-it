@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 4cacf3ca47b215bc23545d8a0b5c9b6fbd66a8df
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 100b9d8a55c2c163e7a04680f0f7d7963315ee73
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -35,34 +34,31 @@ Questo articolo riepiloga le considerazioni relative alla pianificazione di rete
 Quando si pianifica la strategia di replica e failover, una delle domande principali riguarda la modalità di connessione alla VM di Azure dopo il failover. Quando si progetta la strategia di rete per la replica di VM di Azure, ci sono due opzioni:
 
 - **Indirizzo IP diverso**: è possibile scegliere di usare un intervallo di indirizzi IP diverso per la rete di VM di Azure di cui viene eseguita la replica. In questo scenario, la VM ottiene un nuovo indirizzo IP dopo il failover ed è necessario un aggiornamento del DNS. [Altre informazioni](site-recovery-test-failover-vmm-to-vmm.md#prepare-the-infrastructure-for-test-failover)
-- **Stesso indirizzo IP**: si potrebbe voler usare lo stesso intervallo di indirizzi IP in Azure dopo il failover di quello presente nel sito primario locale. In un normale scenario sarà necessario aggiornare le route con la nuova posizione degli indirizzi IP. Se tuttavia è stata distribuita una VLAN estesa tra il sito primario e Azure, mantenere gli indirizzi IP per le macchine virtuali diventa un'opzione valida. Mantenere gli stessi indirizzi IP semplifica il ripristino riducendo i problemi di rete dopo il failover.
+- **Stesso indirizzo IP**: si potrebbe voler usare lo stesso intervallo di indirizzi IP della rete locale primaria per la rete di Azure dopo il failover.  Il mantenimento degli stessi indirizzi IP semplifica il ripristino riducendo i problemi di rete dopo il failover. Quando si esegue la replica in Azure, è tuttavia necessario aggiornare le route con la nuova posizione degli indirizzi IP dopo il failover.
 
 
 ## <a name="retain-ip-addresses"></a>Mantenere gli indirizzi IP
 
-Dal punto di vista del ripristino di emergenza, l'uso di indirizzi IP fissi sembra essere il metodo più semplice, ma ci sono diverse problematiche potenziali. Site Recovery consente di mantenere gli indirizzi IP quando viene eseguito il failover in Azure, con failover sulla subnet.
+Site Recovery consente di mantenere gli indirizzi IP fissi durante il failover in Azure, con un failover sulla subnet.
 
-
-### <a name="subnet-failover"></a>Failover sulla subnet
-
-In questo scenario è presente una subnet specifica nel sito 1 o nel sito 2, ma mai in entrambi i siti contemporaneamente. Per mantenere lo spazio degli indirizzi IP in caso di failover, è possibile programmare l'infrastruttura del router per lo spostamento delle subnet da un sito a un altro. Durante il failover, le subnet vengono spostate con le VM protette associate. Lo svantaggio principale di questo approccio è che, in caso di errore, è necessario spostare l'intera subnet e ciò può influire sulle considerazioni relative alla granularità del failover.
+Con il failover sulla subnet è presente una subnet specifica nel sito 1 o nel sito 2, ma mai in entrambi i siti contemporaneamente. Per mantenere lo spazio degli indirizzi IP in caso di failover, si programma l'infrastruttura del router per lo spostamento delle subnet da un sito a un altro. Durante il failover, le subnet vengono spostate con le VM protette associate. Il principale svantaggio è che in caso di errore è necessario spostare l'intera subnet.
 
 
 ### <a name="failover-example"></a>Esempio di failover
 
-Si esaminerà ora un esempio di failover in Azure.
+Esaminiamo ora un esempio di failover in Azure.
 
-- Una società fittizia, Woodgrove Bank, ha un'infrastruttura locale che ospita le app aziendali. Le applicazioni per dispositivi mobili sono ospitate in Azure.
+- Una società fittizia, Woodgrove Bank, dispone di un'infrastruttura locale che ospita le app aziendali. Le applicazioni per dispositivi mobili sono ospitate in Azure.
 - La connettività tra le VM di Woodgrove Bank in Azure e i server locali è fornita da una connessione (VPN) da sito a sito tra la rete perimetrale locale e la rete virtuale di Azure.
 - La presenza della VPN implica che la rete virtuale dell'azienda in Azure sia visualizzata come estensione della rete locale.
 - Woodgrove vuole usare Site Recovery per replicare i carichi di lavoro locali in Azure.
  - Woodgrove deve tenere conto delle applicazioni e delle configurazioni che dipendono da indirizzi IP hardcoded, quindi deve mantenere gli indirizzi IP delle applicazioni dopo il failover in Azure.
- - Woodgrove ha assegnato gli indirizzi IP dall'intervallo 172.16.1.0/24, 172.16.2.0/24 alle risorse in esecuzione in Azure.
+ - Woodgrove ha assegnato gli indirizzi IP nell'intervallo 172.16.1.0/24, 172.16.2.0/24 alle risorse in esecuzione in Azure.
 
 
-Ecco cosa deve fare Woodgrove per poter replicare le VM in Azure mantenendo gli indirizzi IP:
+Ecco cosa deve fare Woodgrove per poter replicare le macchine virtuali in Azure mantenendo gli indirizzi IP:
 
-1. Creare una rete virtuale di Azure Deve trattarsi di un'estensione della rete locale, per consentire un facile failover delle applicazioni.
+1. Creare una rete virtuale di Azure Deve trattarsi di un'estensione della rete locale, per agevolare il failover delle applicazioni.
 2. Azure consente di aggiungere connettività VPN da sito a sito, oltre che connettività da punto a sito, alle reti virtuali create in Azure.
 3. Quando si configura la connessione da sito a sito, nella rete di Azure è possibile instradare il traffico verso il percorso locale (rete locale) solo se l'intervallo di indirizzi IP è diverso da quello degli indirizzi IP locali.
     - Ciò è dovuto al fatto che Azure non supporta le subnet estese. Se si ha quindi una subnet 192.168.1.0/24 locale, non è possibile aggiungere una rete locale 192.168.1.0/24 nella rete di Azure.
@@ -80,7 +76,7 @@ Ecco cosa deve fare Woodgrove per poter replicare le VM in Azure mantenendo gli 
     ![Proprietà di rete](./media/hyper-v-site-walkthrough-network/network-design8.png)
 
 4. Dopo l'attivazione del failover e la creazione delle VM in Azure con l'indirizzo IP richiesto, è possibile connettersi alla rete tramite una [connessione da rete virtuale a rete virtuale](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Questa azione può essere eseguita tramite script.
-5. Le route devono essere modificate in modo appropriato per indicare lo spostamento di 192.168.1.0/24 in Azure.
+5. Le route devono essere modificate adeguatamente in modo da indicare lo spostamento di 192.168.1.0/24 ad Azure.
 
     ![Dopo il failover sulla subnet](./media/hyper-v-site-walkthrough-network/network-design9.png)
 
@@ -90,9 +86,9 @@ Se non si ha una rete di Azure come illustrato in precedenza, è possibile crear
 
 ## <a name="change-ip-addresses"></a>Modificare gli indirizzi IP
 
-Questo [post di blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) spiega come configurare l'infrastruttura di rete di Azure quando non è necessario mantenere gli indirizzi IP dopo il failover. Inizia con una descrizione dell'applicazione, analizza come impostare la rete locale e in Azure e si conclude con informazioni sull'esecuzione del failover.  
+Questo [post di blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) spiega come configurare l'infrastruttura di rete di Azure quando non è necessario mantenere gli indirizzi IP dopo il failover. Inizia con una descrizione dell'applicazione, analizza come impostare la rete locale e in Azure e conclude con informazioni sull'esecuzione dei failover.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Andare a [Passaggio 5: Preparare Azure](hyper-v-site-walkthrough-prepare-azure.md)
+Andare al [Passaggio 5: Preparare Azure](hyper-v-site-walkthrough-prepare-azure.md)
 
