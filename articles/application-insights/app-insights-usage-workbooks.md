@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 44ea03d30c1f2eabc92af63b549823c03a6901e2
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: ecd3d86db1d6b3b65015d1d560027cedb4f2df58
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -88,9 +88,9 @@ Le sezioni delle query di Analisi consentono di aggiungere query arbitrarie nei 
 
 * Quante eccezioni ha generato il sito nello stesso periodo di tempo come riduzione dell'utilizzo?
 * Qual è stata la distribuzione dei tempi di caricamento della pagina per gli utenti che visualizzano una pagina?
-* Quanti utenti hanno visualizzato un insieme di pagine nel sito ma non un altro insieme di pagine? Queste informazioni possono essere utili per comprendere se sono presenti cluster di utenti che usano sottoinsiemi di funzionalità del sito diversi (usare l'operatore `join` con il modificatore `kind=leftanti` nel linguaggio della query di Analisi).
+* Quanti utenti hanno visualizzato un insieme di pagine nel sito ma non un altro insieme di pagine? Queste informazioni possono essere utili per comprendere se sono presenti cluster di utenti che usano sottoinsiemi diversi di funzionalità del sito (usare l'operatore `join` con il modificatore `kind=leftanti` nel linguaggio di query di Log Analytics).
 
-Usare le [informazioni di riferimento sul linguaggio delle query di Analisi](app-insights-analytics-reference.md) per altre informazioni sulla scrittura delle query.
+Usare le [informazioni di riferimento sul linguaggio di query di Log Analytics](https://docs.loganalytics.io/) per altre informazioni sulla scrittura di query.
 
 ## <a name="adding-text-and-markdown-sections"></a>Aggiunta di sezioni di testo e Markdown
 

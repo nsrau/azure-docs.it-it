@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/25/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8f61e947d9667f5047729ac19dc2bf1e03a48c6b
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: ad72f768add7edc1d34a85c27dc2aa1b4e4b3a50
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Aggiungere un nome di dominio personalizzato ad Azure Active Directory
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/08/2017
 > * [portale di Azure classico](active-directory-add-domain.md)
 > 
 
-L'organizzazione usa uno o più nomi di dominio per svolgere attività commerciali e gli utenti accedono alla rete aziendale con il nome di dominio aziendale. Tramite Azure Active Directory (Azure AD) è possibile anche aggiungere il nome di dominio aziendale ad Azure AD. Nella directory si potranno così assegnare nomi utente familiari, ad esempio "alice@contoso.com". Il processo è semplice:
+Tramite Azure Active Directory (Azure AD) è possibile anche aggiungere il nome di dominio aziendale ad Azure AD. Può essere presente un nome di dominio aziendale usato dall'organizzazione per le attività aziendali e dagli utenti per l'accesso. Aggiungendo il nome di dominio ad Azure AD, nella directory si potranno assegnare nomi utente familiari, ad esempio "alice@contoso.com". Il processo è semplice:
 
 1. Aggiungere il nome di dominio personalizzato alla directory
 2. Aggiungere una voce DNS per il nome di dominio nel registrar

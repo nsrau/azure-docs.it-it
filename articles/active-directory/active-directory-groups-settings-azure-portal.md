@@ -1,5 +1,4 @@
 ---
-
 title: "Gestire le proprietà di un gruppo in Azure Active Directory | Microsoft Docs"
 description: "Come modificare le proprietà e altre impostazioni di configurazione per un gruppo in Azure Active Directory"
 services: active-directory
@@ -13,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ad714d4543f2c1990a2262de456f607c876f738d
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 24f5da884a7d9f1d07c32419316d2c046d54d739
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>Gestire le impostazioni per un gruppo in Azure Active Directory
@@ -31,10 +29,10 @@ Questo articolo descrive come cambiare le impostazioni per un gruppo in Azure Ac
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
 
-   ![Apertura di Gestione utenti](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
+   ![Apertura del pannello Utenti e gruppi](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
 
-   ![Apertura del pannello Gruppi](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
+   ![Apertura del pannello Tutti i gruppi](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Nel pannello **Utenti e gruppi - Tutti i gruppi** selezionare un gruppo.
 5. Nel pannello **Gruppo - *nomegruppo*** selezionare **Proprietà**.
 

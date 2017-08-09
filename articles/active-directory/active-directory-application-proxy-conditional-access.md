@@ -1,28 +1,32 @@
 ---
 title: 'Accesso condizionale alle app locali: Azure AD | Microsoft Docs'
-description: Viene descritto come configurare l&quot;accesso condizionale per le applicazioni pubblicate per l&quot;accesso in remoto tramite Proxy dell&quot;applicazione AD Azure.
+description: Viene descritto come configurare l'accesso condizionale per le applicazioni pubblicate per l'accesso in remoto tramite Proxy dell'applicazione AD Azure.
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 2e97722b-eb4e-4078-b607-9fed210d8a0f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 07/23/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: c16e07925389cc17ff156cae767366223fefa18f
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Uso dell'accesso condizionale nel proxy applicazione di Azure AD
+
+>[!NOTE]
+>Questo articolo si applica solo al portale di Azure classico, che sta per essere ritirato. È consigliabile usare il [portale di Azure](https://portal.azure.com). Nel portale di Azure le app del proxy di applicazione hanno le stesse funzionalità di accesso condizionale di qualsiasi altra app SaaS. Per altre informazioni sull'accesso condizionale, vedere [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+
 È possibile configurare regole di accesso per concedere accesso condizionale alle applicazioni pubblicate tramite il proxy di applicazione. Ciò consente di:
 
 * Richiedere l'autenticazione a più fattori per ogni applicazione

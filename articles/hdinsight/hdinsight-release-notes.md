@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 782cab231e1b152c720abebff1fc76ae0559d12a
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 91620e993ae0413080dad03344290e971bf74949
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Note sulla versione di componenti Hadoop in Azure HDInsight
@@ -43,7 +42,7 @@ Questo articolo include informazioni sugli aggiornamenti di versione di Azure HD
 
 * **Supporto per Hive View 2.0**. Questa vista migliora l'esperienza utente in Interactive Hive. Per altre informazioni, vedere la [documentazione di Hortonworks](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
 
-* **Miglioramenti delle prestazioni con Hive LLAP**. Per altre informazioni, vedere la [documentazione Hortonworks](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/).
+* **Miglioramenti delle prestazioni con Hive LLAP**. Per altre informazioni, vedere la [documentazione di Hortonworks](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/).
 
 * **Nuove funzionalità di Hive**. Per altre informazioni, vedere la [documentazione Hortonworks](https://hortonworks.com/apache/hive/#section_4).
 

@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un nome di dominio personalizzato ad Azure Active Directory | Documentazione Microsoft
+title: Aggiungere un nome di dominio personalizzato ad Azure Active Directory | Microsoft Docs
 description: Informazioni su come aggiungere i nomi di dominio dell'azienda ad Azure Active Directory e come verificare il nome di dominio.
 services: active-directory
 documentationcenter: 
@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
-ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 0228bf7ce261cfccdec9431d3c9fb67f461eefbd
 ms.contentlocale: it-it
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="add-a-custom-domain-name-to-azure-active-directory"></a>Aggiungere un nome di dominio personalizzato ad Azure Active Directory
@@ -34,10 +36,10 @@ L'organizzazione usa uno o più nomi di dominio per svolgere attività commercia
 2. Aggiungere una voce DNS per il nome di dominio nel registrar
 3. Verificare il nome di dominio personalizzato in Azure AD
 
-> [!NOTE]
-> Se si prevede di configurare il nome di dominio personalizzato da usare con Active Directory Federation Services (AD FS) o un servizio token di sicurezza diverso nella rete aziendale, seguire le istruzioni disponibili in [Add and configure a domain for federation with Azure Active Directory](active-directory-add-domain-federated.md)(Aggiungere e configurare un dominio per la federazione con Azure Active Directory). Ciò risulta utile se si prevede di sincronizzare gli utenti della directory aziendale con Azure AD e la [configurazione della sincronizzazione degli hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) non rispetta i requisiti.
-> 
-> 
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. Per informazioni su come aggiungere il nome di dominio aziendale nell'interfaccia di amministrazione di Azure AD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-domains-add-azure-portal.md).
+
+Se si prevede di configurare il nome di dominio personalizzato da usare con Active Directory Federation Services (AD FS) o un servizio token di sicurezza diverso nella rete aziendale, seguire le istruzioni disponibili in [Add and configure a domain for federation with Azure Active Directory](active-directory-add-domain-federated.md)(Aggiungere e configurare un dominio per la federazione con Azure Active Directory). Ciò risulta utile se si prevede di sincronizzare gli utenti della directory aziendale con Azure AD e la [configurazione della sincronizzazione degli hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) non rispetta i requisiti.
 
 ## <a name="add-a-custom-domain-name-to-your-directory"></a>Aggiungere un nome di dominio personalizzato alla directory
 1. Accedere al [portale di Azure classico](https://manage.windowsazure.com/) con un account utente amministratore globale per la directory di Azure AD.
