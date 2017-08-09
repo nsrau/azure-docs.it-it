@@ -1,6 +1,6 @@
 ---
 title: Integrazione del controllo del codice sorgente di Automazione di Azure con GitHub Enterprise | Documentazione Microsoft
-description: Descrive nei dettagli come configurare l&quot;integrazione con GitHub Enterprise per il controllo del codice sorgente dei runbook di Automazione.
+description: Descrive nei dettagli come configurare l'integrazione con GitHub Enterprise per il controllo del codice sorgente dei runbook di Automazione.
 services: automation
 documentationCenter: 
 authors: mgoedtel
@@ -12,11 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 07/26/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: f8d515c6a8b1332ccb338cb5ec2c16daa5725281
-ms.openlocfilehash: 9590135c351c4d4355ed208eaae469cac17972fa
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 62793dcdbbf4c83161e95d1c165d5c231245f7c6
+ms.contentlocale: it-it
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -24,7 +26,7 @@ ms.openlocfilehash: 9590135c351c4d4355ed208eaae469cac17972fa
 
 Automazione supporta attualmente l'integrazione del controllo del codice sorgente che consente di associare i runbook dell'account di Automazione a un repository di controllo del codice sorgente su GitHub.  Tuttavia, i clienti che hanno distribuito [GitHub Enterprise](https://enterprise.github.com/home) per supportare le procedure DevOps vogliono anche usarlo per gestire il ciclo di vita dei runbook sviluppati per automatizzare i processi aziendali e le operazioni di gestione dei servizi.  
 
-In questo scenario sarà necessario un computer Windows nel proprio data center configurato come un ruolo di lavoro ibrido per runbook con installati i moduli RM di Azure e gli strumenti Git.  Il computer con ruolo di lavoro ibrido avrà un clone del repository Git locale.  Quando il runbook viene eseguito nel ruolo di lavoro ibrido, la directory Git viene sincronizzata e il contenuto del file runbook viene importato nell'account di Automazione.
+In questo scenario è necessario un computer Windows nel data center configurato come un ruolo di lavoro ibrido per runbook con i moduli di Azure Resource Manager e gli strumenti Git installati.  Il computer con ruolo di lavoro ibrido avrà un clone del repository Git locale.  Quando il runbook viene eseguito nel ruolo di lavoro ibrido, la directory Git viene sincronizzata e il contenuto del file runbook viene importato nell'account di Automazione.
 
 Questo articolo descrive come eseguire questa configurazione nell'ambiente di Automazione di Azure. Si inizierà configurando Automazione con le credenziali di sicurezza, i runbook necessari per supportare questo scenario e la distribuzione di un ruolo di lavoro ibrido per runbook nel data center per eseguire i runbook e accedere al repository GitHub Enterprise al fine di sincronizzare i runbook con l'account di Automazione.  
 
@@ -37,14 +39,14 @@ Questo scenario è costituito da due runbook di PowerShell che è possibile impo
 
 Runbook | Descrizione| 
 --------|------------|
-Export-RunAsCertificateToHybridWorker | Runbook esporterà un certificato RunAs da un account di Automazione in un ruolo di lavoro ibrido, in modo che i runbook nel ruolo di lavoro possano eseguire l'autenticazione con Azure per importare i runbook nell'account di Automazione.| 
-Sync-LocalGitFolderToAutomationAccount | Runbook sincronizzerà la cartella Git locale nel computer ibrido e quindi importerà i file runbook (*. ps1) nell'account di Automazione.|
+Export-RunAsCertificateToHybridWorker | Runbook esporta un certificato RunAs da un account di Automazione in un ruolo di lavoro ibrido, in modo che i runbook nel ruolo di lavoro possano eseguire l'autenticazione con Azure per importare i runbook nell'account di Automazione.| 
+Sync-LocalGitFolderToAutomationAccount | Runbook sincronizza la cartella Git locale nel computer ibrido e quindi importa i file runbook (con estensione ps1) nell'account di Automazione.|
 
 ### <a name="credentials"></a>Credenziali
 
 Credenziali | Descrizione|
 -----------|------------|
-GitHRWCredential | Asset credenziali che sarà creato e conterrà il nome utente e la password per un utente dotato delle autorizzazioni per il ruolo di lavoro ibrido.|
+GitHRWCredential | Asset credenziali che viene creato per contenere il nome utente e la password per un utente dotato delle autorizzazioni per il ruolo di lavoro ibrido.|
 
 ## <a name="installing-and-configuring-this-scenario"></a>Installazione e configurazione dello scenario
 
@@ -52,16 +54,16 @@ GitHRWCredential | Asset credenziali che sarà creato e conterrà il nome utente
 
 1. Il runbook Sync-LocalGitFolderToAutomationAccount esegue l'autenticazione usando l'[account RunAs di Azure](automation-sec-configure-azure-runas-account.md). 
 
-2. È inoltre necessaria un'area di lavoro di Microsoft Operations Management Suite (OMS) in cui sia abilitata e configurata la soluzione Automazione di Azure.  Se non si dispone di un'area di lavoro associata con l'account di Automazione utilizzato per installare e configurare questo scenario, verrà creata e configurata automaticamente quando si esegue lo script **New-OnPremiseHybridWorker.ps1** dal ruolo di lavoro ibrido per runbook.        
+2. È inoltre necessaria un'area di lavoro di Microsoft Operations Management Suite (OMS) in cui sia abilitata e configurata la soluzione Automazione di Azure.  Se non si ha un'area di lavoro associata all'account di Automazione usato per installare e configurare questo scenario, viene creata e configurata automaticamente quando si esegue lo script **New-OnPremiseHybridWorker.ps1** dal ruolo di lavoro ibrido per runbook.        
 
     > [!NOTE]
-    > Le uniche aree per l'integrazione di Automazione supportate con OMS sono attualmente **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale** ed **Europa occidentale**. 
+    > Attualmente, l'integrazione di Automazione con OMS è supportata solo nelle aree seguenti: **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale** ed **Europa occidentale**. 
 
 3. Un computer che può essere usato come ruolo di lavoro ibrido per runbook dedicato che ospiterà anche il software GitHub e manterrà i file runbook (*runbook*.ps1) in una directory di origine nel file system per la sincronizzazione tra GitHub e l'account di Automazione.
 
 ### <a name="import-and-publish-the-runbooks"></a>Importare e pubblicare i runbook
 
-Per importare i runbook *Export-RunAsCertificateToHybridWorker* e *Sync-LocalGitFolderToAutomationAccount* dalla raccolta di runbook dell'account di Automazione nel portale di Azure, seguire le procedure descritte in [Raccolte di runbook e moduli per l'automazione di Azure](automation-runbook-gallery.md#to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal). Pubblicare i runbook dopo che sono stati importati correttamente nell'account di Automazione.
+Per importare i runbook *Export-RunAsCertificateToHybridWorker* e *Sync-LocalGitFolderToAutomationAccount* dalla raccolta di runbook dell'account di Automazione nel portale di Azure, seguire le procedure descritte in [Importare un runbook dalla raccolta di runbook](automation-runbook-gallery.md#to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal). Pubblicare i runbook dopo che sono stati importati correttamente nell'account di Automazione.
 
 ### <a name="deploy-and-configure-hybrid-runbook-worker"></a>Distribuire e configurare un ruolo di lavoro ibrido per runbook
 
@@ -72,9 +74,9 @@ Se un ruolo di lavoro ibrido per runbook non è già stato distribuito nel data 
 3. Dall'account di Automazione [modificare il runbook](automation-edit-textual-runbook.md) **Export-RunAsCertificateToHybridWorker** e cambiare il valore della variabile *$Password* con una password complessa.  Dopo aver modificato il valore, fare clic su **Pubblica** per pubblicare la versione bozza del runbook. 
 5. Avviare il runbook **Export-RunAsCertificateToHybridWorker** e, nel pannello **Avvia runbook**, in **Impostazioni di esecuzione**, selezionare l'opzione **Ruolo di lavoro ibrido** quindi, nell'elenco a discesa, selezionare il gruppo ruolo di lavoro ibrido creato in precedenza per questo scenario.  
 
-    Verrà così esportato un certificato nel ruolo di lavoro ibrido, in modo che i runbook del ruolo di lavoro possano eseguire l'autenticazione con Azure usando la connessione RunAs per gestire le risorse di Azure (in particolare per questo scenario importare i runbook nell'account di Automazione).
+    Viene così esportato un certificato nel ruolo di lavoro ibrido, in modo che i runbook del ruolo di lavoro possano eseguire l'autenticazione con Azure usando la connessione RunAs per gestire le risorse di Azure (in particolare, per questo scenario, importare i runbook nell'account di Automazione).
 
-4. Dall'account di Automazione selezionare il gruppo ruolo di lavoro ibrido creato in precedenza e [specificare un account RunAs](automation-hybrid-runbook-worker.md#runas-account) per il gruppo stesso, quindi scegliere l'asset credenziali creato.  Questo assicura che il runbook Sync possa eseguire i comandi Git. 
+4. Dall'account di Automazione selezionare il gruppo ruolo di lavoro ibrido creato in precedenza, [specificare un account RunAs](automation-hrw-run-runbooks.md#runas-account) per il gruppo e scegliere l'asset credenziali creato.  Questo assicura che il runbook Sync possa eseguire i comandi Git. 
 5. Avviare il runbook **Sync-LocalGitFolderToAutomationAccount**, fornire i seguenti valori richiesti per i parametri di input e, nel pannello **Avvia runbook**, in **Impostazioni di esecuzione**, selezionare l'opzione **Ruolo di lavoro ibrido** quindi, nell'elenco a discesa, selezionare il gruppo ruolo di lavoro ibrido creato in precedenza per questo scenario:
     * *ResourceGroupName*: nome del gruppo di risorse associato all'account di Automazione
     * *AutomationAccountName* : nome dell'account di Automazione.
@@ -90,9 +92,4 @@ Se un ruolo di lavoro ibrido per runbook non è già stato distribuito nel data 
 
 -  Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)
 -  Per altre informazioni sulla funzionalità di supporto degli script PowerShell, vedere il blog relativo al [supporto di script PowerShell nativi in Automazione di Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

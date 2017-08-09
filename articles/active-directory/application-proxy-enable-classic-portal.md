@@ -5,21 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 07/02/2017
 ms.author: kgremban
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: dc49397f76f982cc7d35bbe3e073cb828a4965c6
+ms.reviewer: harshja
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: ea97fdc8d146ed524a932018b572ceda0982738b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -54,7 +54,7 @@ Per preparare l'ambiente per il proxy di applicazione di Azure AD, è necessario
    >
    >Per informazioni sull'aggiornamento dei connettori alla versione più recente, vedere [Comprendere i connettori del proxy di applicazione di Azure AD](application-proxy-understand-connectors.md#automatic-updates).
 
-2. Se il firewall o il proxy consente di inserire nell'elenco elementi consentiti DNS, è possibile aggiungere connessioni a msappproxy.net e servicebus.windows.net. Altrimenti è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) che vengono aggiornati ogni settimana.
+2. Se il firewall o il proxy consente di inserire DNS nell'elenco elementi consentiti, è possibile aggiungere connessioni a msappproxy.net e servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) che vengono aggiornati ogni settimana.
 
 3. Usare lo [strumento per il test delle porte del connettore Proxy di applicazione Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) per verificare che il connettore possa raggiungere il servizio Proxy di applicazione. Assicurarsi almeno che l'area Stati Uniti centrali e l'area più vicina all'utente abbiano segni di spunta verdi. La presenza di più segni di spunta verdi indica una maggiore resilienza.
 
@@ -76,13 +76,13 @@ Per preparare l'ambiente per il proxy di applicazione di Azure AD, è necessario
 
    * Fornire le credenziali di amministratore globale di Azure AD. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
    * Verificare che l'amministratore che registra il connettore si trovi nella stessa directory in cui è stato abilitato il servizio proxy dell'applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias di tale dominio.
-   * Se la **sicurezza avanzata di Internet Explorer** è impostata su **Attiva** nel server in cui si vuole installare il connettore, la schermata di registrazione potrebbe essere bloccata. Seguire le istruzioni nel messaggio di errore per consentire l'accesso. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
+   * Se l'opzione **Configurazione sicurezza avanzata IE** è impostata su **Sì** nel server, è possibile che la schermata di registrazione venga bloccata. Per consentire l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
    * Se la registrazione del connettore non riesce, vedere [Risolvere i problemi del Proxy applicazione](active-directory-application-proxy-troubleshoot.md).  
 4. Al termine dell'installazione, due nuovi servizi vengono aggiunti al server:
 
    * **Microsoft AAD Application Proxy Connector** abilita la connettività.
 
-     * **Microsoft AAD Application Proxy Connector Updater** è un servizio di aggiornamento automatico che verifica periodicamente la presenza di nuove versioni del connettore e aggiorna il connettore in base alle esigenze.
+     * **Microsoft AAD Application Proxy Connector Updater** è un servizio di aggiornamento automatico. Controlla periodicamente la presenza di nuove versioni del connettore e aggiorna il connettore in base alle esigenze.
 
      ![Servizi del connettore proxy di applicazione - Screenshot](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 5. Fare clic su **Fine** nella finestra di installazione.
