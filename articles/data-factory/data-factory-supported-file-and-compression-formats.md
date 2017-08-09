@@ -14,18 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 15dc58a1a607ef40c52dcd62ee9ed0df273fc011
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: f4746e0dd249e417b8077a9bc733d2886daafdf2
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 
-<a id="file-and-compression-formats-supported-by-azure-data-factory" class="xliff"></a>
-
-# Informazioni sui formati di compressione e sui file supportati da Azure Data Factory
+# <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Informazioni sui formati di compressione e sui file supportati da Azure Data Factory
 *Questo argomento si applica ai connettori seguenti: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [BLOB di Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [file system](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) e [SFTP](data-factory-sftp-connector.md).*
 
 Azure Data Factory supporta i tipi di formato di file seguenti:
@@ -36,9 +33,7 @@ Azure Data Factory supporta i tipi di formato di file seguenti:
 * [Formato ORC](#orc-format)
 * [Formato Parquet](#parquet-format)
 
-<a id="text-format" class="xliff"></a>
-
-## Formato testo
+## <a name="text-format"></a>Formato testo
 Se si vuole leggere da un file di testo o scrivere in un file di testo, impostare la proprietà `type` nella sezione `format` del set di dati **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
@@ -53,9 +48,7 @@ Se si vuole leggere da un file di testo o scrivere in un file di testo, impostar
 | skipLineCount |Indica il numero di righe da ignorare durante la lettura di dati da file di input. Se sono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No |
 | treatEmptyAsNull |Specifica se considerare una stringa vuota o null come valore null durante la lettura di dati da un file di input. |**True (impostazione predefinita)**<br/>False |No |
 
-<a id="textformat-example" class="xliff"></a>
-
-### Esempio di TextFormat
+### <a name="textformat-example"></a>Esempio di TextFormat
 Nella definizione JSON seguente per un set di dati sono specificate alcune proprietà facoltative.
 
 ```json
@@ -83,16 +76,12 @@ Per usare `escapeChar` invece di `quoteChar`, sostituire la riga con `quoteChar`
 "escapeChar": "$",
 ```
 
-<a id="scenarios-for-using-firstrowasheader-and-skiplinecount" class="xliff"></a>
-
-### Scenari di utilizzo di firstRowAsHeader e skipLineCount
+### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Scenari di utilizzo di firstRowAsHeader e skipLineCount
 * Si desidera copiare da un'origine non basata su file in un file di testo e aggiungere una riga di intestazione contenente i metadati dello schema (ad esempio: schema SQL). Per questo scenario specificare `firstRowAsHeader` come true nel set di dati di output.
 * Si desidera copiare da un file di testo contenente una riga di intestazione a un sink non basato su file ed eliminare tale riga. Specificare `firstRowAsHeader` come true nel set di dati di input.
 * Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non contengono né dati né un'intestazione. Specificare `skipLineCount` per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è anche possibile specificare `firstRowAsHeader`. Se sono specificati sia `skipLineCount` che `firstRowAsHeader`, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input.
 
-<a id="json-format" class="xliff"></a>
-
-## Formato JSON
+## <a name="json-format"></a>Formato JSON
 Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, vedere la sezione [Importare/Esportare documenti JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo [Spostare dati da e verso Azure Cosmos DB](data-factory-azure-documentdb-connector.md).
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
@@ -105,9 +94,7 @@ Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la propr
 | encodingName |Specificare il nome della codifica. Per l'elenco di nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) . Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No |
 
-<a id="json-file-patterns" class="xliff"></a>
-
-### Modelli di file JSON
+### <a name="json-file-patterns"></a>Modelli di file JSON
 
 L'attività di copia può eseguire l'analisi dei seguenti modelli di file JSON:
 
@@ -198,9 +185,7 @@ L'attività di copia può eseguire l'analisi dei seguenti modelli di file JSON:
     ]
     ```
 
-<a id="jsonformat-example" class="xliff"></a>
-
-### Esempio JsonFormat
+### <a name="jsonformat-example"></a>Esempio JsonFormat
 
 **Caso 1: Copia di dati dai file JSON**
 
@@ -241,7 +226,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraend
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione [Definizione della struttura per i set di dati rettangolari](#specifying-structure-definition-for-rectangular-datasets) per altri dettagli.
+- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altri dettagli, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](data-factory-map-columns.md).
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare i dati dalla matrice, è possibile usare **array[x].property** per estrarre il valore della proprietà specificata dall'oggetto xth oppure è possibile usare **array[*].property** per trovare il valore in qualsiasi oggetto contenente tale proprietà.
 
 ```json
@@ -314,7 +299,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione [Definizione della struttura per i set di dati rettangolari](#specifying-structure-definition-for-rectangular-datasets) per altri dettagli.
+- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altri dettagli, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](data-factory-map-columns.md).
 - `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto le righe ordine della **matrice**.
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. In questo esempio "ordernumber", "orderdate" e "city" sono sotto l'oggetto radice con il percorso JSON che inizia con "$.", mentre "order_pd" e "order_price" sono definiti con il percorso derivato dall'elemento matrice senza "$.".
 
@@ -414,9 +399,7 @@ Il set di dati di output con il tipo **JsonFormat** è definito come segue (defi
 }
 ```
 
-<a id="avro-format" class="xliff"></a>
-
-## Formato AVRO
+## <a name="avro-format"></a>Formato AVRO
 Per analizzare i file Avro o scrivere i dati in formato Avro, impostare la proprietà `format` `type` su **AvroFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
@@ -432,9 +415,7 @@ Tenere presente quanto segue:
 
 * I [tipi di dati complessi](http://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e dati fissi).
 
-<a id="orc-format" class="xliff"></a>
-
-## Formato ORC
+## <a name="orc-format"></a>Formato ORC
 Per analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprietà `format` `type` su **OrcFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
@@ -454,9 +435,7 @@ Tenere presente quanto segue:
 * Tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION)
 * Il file ORC dispone di tre [opzioni relative alla compressione](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per leggere i dati, Data Factoy usa la compressione codec dei metadati. Tuttavia, durante la scrittura in un file ORC, Data Factory sceglie ZLIB che è il valore predefinito per ORC. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
-<a id="parquet-format" class="xliff"></a>
-
-## Formato Parquet
+## <a name="parquet-format"></a>Formato Parquet
 Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la proprietà `format` `type` su **ParquetFormat**. Non è necessario specificare le proprietà nella sezione Format all'interno della sezione typeProperties. Esempio:
 
 ```json
@@ -475,9 +454,7 @@ Tenere presente quanto segue:
 * Tipi di dati complessi non sono supportati (MAP, LIST)
 * Un file Parquet ha le seguenti opzioni relative alla compressione: NONE, SNAPPY, GZIP e LZO. Data Factory supporta la lettura dei dati dal file ORC in uno di questi formati compressi. Per la lettura dei dati usa il codec di compressione nei metadati. Tuttavia, durante la scrittura in un file Parquet, Data Factory sceglie SNAPPY, cioè il valore predefinito per il formato Parquet. Al momento non esiste alcuna opzione per ignorare tale comportamento.
 
-<a id="compression-support" class="xliff"></a>
-
-## Supporto della compressione
+## <a name="compression-support"></a>Supporto della compressione
 L'elaborazione di set di dati di grandi dimensioni può causare colli di bottiglia I/O e di rete. Pertanto, i dati compressi negli archivi possono non solo velocizzare il trasferimento dei dati attraverso la rete e risparmiare spazio su disco, ma apportare anche miglioramenti significativi delle prestazioni nell'elaborazione di dati di grandi dimensioni. Attualmente, la compressione è supportata per gli archivi di dati basati su file, ad esempio BLOB di Azure o il file system locale.  
 
 Per specificare la compressione per un set di dati, usare la proprietà **compression** nel set di dati JSON come illustrato di seguito:   
@@ -527,9 +504,7 @@ Quando si specifica una proprietà `compression` in un set di dati di input JSON
 * Leggere i dati compressi GZIP da un BLOB di Azure, decomprimerli, comprimerli usando BZIP2 e scrivere i dati del risultato in un BLOB di Azure. In questo caso, il set di dati di input del BLOB di Azure viene definito con `compression` `type` impostato su GZIP e il set di dati di output viene definito con `compression` `type` impostato su BZIP2.   
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Per gli archivi dati basati su file supportati da Azure Data Factory, vedere i seguenti articoli:
 
 - [Archiviazione BLOB di Azure](data-factory-azure-blob-connector.md)

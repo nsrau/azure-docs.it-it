@@ -1,6 +1,6 @@
 ---
-title: Gestione dell&quot;accesso Single Sign-On per le app aziendali con Azure Active Directory | Microsoft Docs
-description: Informazioni su come gestire l&quot;accesso Single Sign-On per app aziendali usando Azure Active Directory
+title: Gestione dell'accesso Single Sign-On per le app aziendali con Azure Active Directory | Microsoft Docs
+description: Informazioni su come gestire l'accesso Single Sign-On per app aziendali usando Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: asmalser
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/26/2017
 ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 118b77064a96585b0d5b951ca56313776021624e
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: c975428550690254ba989935fe5110c5903e7102
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gestione dell'accesso Single Sign-On per le app aziendali
@@ -28,15 +27,14 @@ ms.lasthandoff: 05/08/2017
 > * [portale di Azure classico](active-directory-sso-integrate-saas-apps.md)
 > 
 
-Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com) per gestire le impostazioni dell'accesso Single Sign-On per le applicazioni, in particolare per le applicazioni aggiunte dalla [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com) per gestire impostazioni del Single Sign-On per le applicazioni aziendali. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione. Questo articolo si applica in particolare alle app aggiunte dalla [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
-## <a name="finding-your-apps"></a>Individuazione delle app
 ## <a name="finding-your-apps-in-the-portal"></a>Individuazione delle app nel portale
-Tutte le applicazioni configurate per l'accesso Single Sign-On in una directory da un amministratore di directory che usa la [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) possono essere visualizzate e gestite nel [portale di Azure](https://portal.azure.com). Le applicazioni sono disponibili nella sezione **More Services** (Altri servizi) &gt; **Applicazioni aziendali** del portale. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione.
+Tutte le app aziendali impostate per il Single Sign-On possono essere visualizzate e gestite nel portale di Azure. Le applicazioni sono disponibili nella sezione **More Services** (Altri servizi) &gt; **Applicazioni aziendali** del portale. 
 
 ![Pannello Applicazioni aziendali][1]
 
-Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta. Se si seleziona un'app, viene caricato il pannello delle risorse per tale app, in cui è possibile visualizzare i report per l'app e gestire diverse impostazioni.
+Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le app che sono state configurate. Se si seleziona un'app, viene caricato il pannello delle risorse per tale app, in cui è possibile visualizzare i report per l'app e gestire diverse impostazioni.
 
 Per gestire le impostazioni dell'accesso Single Sign-On, selezionare **Single Sign-On**.
 
@@ -51,7 +49,7 @@ Il pannello **Single Sign-On** inizia con un menu **Modalità** che consente di 
 
 Per altre informazioni su queste modalità, vedere [Come funziona Single Sign-On con Azure Active Directory (PHP)?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-## <a name="saml-based-sign-on"></a>SAML-based sign on
+## <a name="saml-based-sign-on"></a>Accesso basato su SAML
 L'opzione **SAML-based sign on** (Accesso basato su SAML) consente di visualizzare un pannello suddiviso in quattro sezioni:
 
 ### <a name="domains-and-urls"></a>Domains and URLs (Domini e URL)

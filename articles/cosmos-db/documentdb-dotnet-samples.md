@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: esempi .NET dell&quot;API DocumentDB | Microsoft Docs'
+title: 'Azure Cosmos DB: esempi .NET dell''API DocumentDB | Microsoft Docs'
 description: "Esempi C# .NET in GitHub per attività comuni in DocumentDB, tra cui operazioni CRUD."
 keywords: Esempi di NoSQL
 services: cosmos-db
@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 196be1e8185a08394944b0f334fcf21f237464dd
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: e7b910ae94b178b5370d4938698e8bcce10775ea
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-net-examples"></a>Esempi di .NET in DocumentDB
+# <a name="azure-cosmos-db-net-examples-for-the-documentdb-api"></a>Azure Cosmos DB: esempi .NET dell'API DocumentDB
 > [!div class="op_single_selector"]
 > * [Esempi di .NET](documentdb-dotnet-samples.md)
 > * [Esempi di Node.js](documentdb-nodejs-samples.md)
@@ -101,7 +100,7 @@ Il metodo [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/e
 | [Usare gli indici di intervallo sulle stringhe](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405) |[IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx) |
 | [Eseguire una trasformazione di indice](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L407-L464) |[ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx) |
 
-Per altre informazioni sull'indicizzazione, vedere [Criteri di indicizzazione di DocumentDB](indexing-policies.md).
+Per altre informazioni sull'indicizzazione, vedere [Criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md).
 
 ## <a name="geospatial-examples"></a>Esempi geospaziali
 Il file di esempio geospaziale, [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), illustra come eseguire le attività seguenti.  
@@ -137,7 +136,7 @@ Il file di documento della query, [azure-documentdb-dotnet/samples/code-samples/
 | [Raccolte partizionate di query in parallelo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L664-L734) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Eseguire una query con Order by per le raccolte partizionate](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 
-Per altre informazioni sulla scrittura di query, vedere [Query SQL in DocumentDB](documentdb-sql-query.md).
+Per altre informazioni sulla scrittura di query, vedere [Query SQL in Azure Cosmos DB](documentdb-sql-query.md).
 
 ## <a name="server-side-programming-examples"></a>Esempi di programmazione lato server
 Il file di programmazione lato server, [azure-documentdb-net/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), illustra come eseguire le attività seguenti.

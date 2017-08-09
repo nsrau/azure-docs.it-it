@@ -1,6 +1,6 @@
 ---
 title: Test di penetrazione | Microsoft Docs
-description: L&quot;articolo offre una panoramica del processo del test di penetrazione e di come eseguire il test di penetrazione sulle app in esecuzione nell&quot;infrastruttura di Azure.
+description: L'articolo offre una panoramica del processo del test di penetrazione e di come eseguire il test di penetrazione sulle app in esecuzione nell'infrastruttura di Azure.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5d58d9dd6c92c81328f89a703b3bc8529aff8dc0
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bc8ca9bb349f41a6ae7371b4fc33cc09fb179c11
+ms.contentlocale: it-it
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="pen-testing"></a>Test di penetrazione
@@ -33,7 +34,7 @@ Quando si esegue il test di penetrazione delle applicazioni, potrebbe sembrare u
 
 Cosa fare?
 
-Quando si è pronti per eseguire il test di penetrazione delle applicazioni ospitate in Azure, comunicarlo a Microsoft. Sapendo che stanno per essere eseguiti test specifici, Microsoft eviterà di bloccare inavvertitamente gli utenti (ad esempio, bloccando l'indirizzo IP da cui si esegue il test), purché i test siano conformi ai termini e alle condizioni per i test di penetrazione di Azure.
+Quando si è pronti per eseguire il test di penetrazione delle applicazioni ospitate in Azure, [comunicarlo a Microsoft](https://portal.msrc.microsoft.com/en-us/engage/pentest). Sapendo che stanno per essere eseguiti test specifici, Microsoft eviterà di bloccare inavvertitamente gli utenti (ad esempio, bloccando l'indirizzo IP da cui si esegue il test), purché i test siano conformi ai termini e alle condizioni per i test di penetrazione di Azure descritti in [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://technet.microsoft.com/en-us/mt784683) (Regole d'ingaggio del test di penetrazione unificato di Microsoft Cloud).
 I test standard che è possibile eseguire includono:
 
 * Test sugli endpoint per scoprire le [prime 10 vulnerabilità OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
@@ -43,9 +44,4 @@ I test standard che è possibile eseguire includono:
 Tra i tipi di test che non è possibile eseguire sono incluse tutte le tipologie di attacco [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack), tra cui l'avvio di un attacco DoS vero e proprio o l'esecuzione di test correlati che possono determinare, dimostrare o simulare tutti i tipi di attacco DoS.
 
 Si è pronti a iniziare il test di penetrazione delle applicazioni ospitate in Microsoft Azure? Se la risposta è sì, andare alla pagina [Panoramica del test di penetrazione](https://security-forms.azure.com/penetration-testing/terms) e fare clic sul pulsante per la creazione di una richiesta di test alla fine della pagina. Sono disponibili anche altre informazioni sui termini e sulle condizioni del test di penetrazione e utili collegamenti per poter segnalare i problemi di sicurezza correlati ad Azure o ad altri servizi Microsoft.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

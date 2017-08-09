@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/28/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c1bc7cc5fe53d04019f68a520fb03c9187a6148b
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 643937093ac04a9543ad3386fdc400a2909c1aa6
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -26,9 +26,12 @@ ms.lasthandoff: 07/06/2017
 
 L'autenticazione pass-through di Azure Active Directory (Azure AD) consente agli utenti di accedere sia ad applicazioni in locale che a quelle basate sul cloud usando le stesse password. L'accesso degli utenti avviene tramite la convalida delle password direttamente in Active Directory locale.
 
+>[!IMPORTANT]
+>L'autenticazione pass-through di Azure AD è attualmente in fase di anteprima. Se si usa questa funzionalità tramite l'anteprima, è necessario assicurarsi di aggiornare le versioni di anteprima degli agenti di autenticazione attenendosi alle istruzioni fornite [qui](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+
 ## <a name="how-to-deploy-azure-ad-pass-through-authentication"></a>Come distribuire l'autenticazione pass-through di Azure AD
 
-Per distribuire l'autenticazione pass-through, è necessario eseguire questi passaggi:
+Per distribuire l'autenticazione pass-through, è necessario eseguire seguire queste istruzioni:
 1. *Verificare i prerequisiti*: configurare l'ambiente locale e il tenant correttamente prima di abilitare la funzionalità.
 2. *Abilitare la funzionalità*: attivare l'autenticazione pass-through nel tenant e installare un agente lightweight locale per gestire le richieste di convalida delle password.
 3. *Testare la funzionalità*: testare l'accesso degli utenti mediante l'autenticazione pass-through.
@@ -46,11 +49,11 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
 1. Identificare un server che esegue Windows Server 2012 R2 o versione successiva in cui eseguire Azure AD Connect. Aggiungere il server alla stessa foresta AD degli utenti le cui password devono essere convalidate.
-2. Installare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) sul server identificato nel passaggio 2. Se Azure AD Connect è già in esecuzione, assicurarsi che la versione sia 1.1.486.0 o successiva.
-3. Identificare un server aggiuntivo che esegue Windows Server 2012 R2 o versione successiva in cui eseguire un agente di autenticazione autonomo. La versione dell'agente di autenticazione deve essere 1.5.58.0 o successiva. Questo server è necessario per garantire la disponibilità elevata delle richieste di accesso. Aggiungere il server alla stessa foresta AD degli utenti le cui password devono essere convalidate.
+2. Installare la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) sul server identificato nel passaggio 2. Se Azure AD Connect è già in esecuzione, assicurarsi che la versione sia 1.1.557.0 o successiva.
+3. Identificare un server aggiuntivo che esegue Windows Server 2012 R2 o versione successiva in cui eseguire un agente di autenticazione autonomo. La versione dell'agente di autenticazione deve essere 1.5.193.0 o successiva. Questo server è necessario per garantire la disponibilità elevata delle richieste di accesso. Aggiungere il server alla stessa foresta AD degli utenti le cui password devono essere convalidate.
 4. Se è presente un firewall tra i server e Azure AD, è necessario configurare gli elementi seguenti:
-   - Aprire le porte: verificare che gli agenti di autenticazione dei server possano effettuare richieste in uscita ad Azure AD sulle porte 80 e 443. Se il firewall impone le regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete.
-   - Consentire gli endpoint di Azure AD: se è abilitato il filtro degli URL, verificare che gli agenti di autenticazione possano comunicare con **\*.msappproxy.net** e **\*.servicebus.windows.net**.
+   - Aprire le porte: verificare che gli agenti di autenticazione installati nei server possano eseguire richieste in uscita ad Azure AD tramite le porte **80** (per il download di elenchi di revoche di certificati (CRL) durante la convalida del certificato SSL) e **443** (tutte le comunicazioni in uscita con il nostro servizio). Se il firewall impone le regole in base agli utenti di origine, aprire queste porte per il traffico proveniente da servizi di Windows in esecuzione come servizio di rete.
+   - Consentire gli endpoint di Azure AD: se è abilitato il filtro degli URL, verificare che gli agenti di autenticazione possano comunicare con **login.windows.net**, **login.microsoftonline.com**, **\*.msappproxy.net** e **\*.servicebus.windows.net**.
    - Verificare le connessioni IP dirette: assicurare che gli agenti di autenticazione dei server possano effettuare connessioni IP dirette agli [intervalli IP dei data center di Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 ## <a name="step-2-enable-the-feature"></a>Passaggio 2: Abilitare la funzionalità
@@ -73,28 +76,33 @@ Se Azure AD Connect è già installata, (usando il percorso di [installazione ra
 
 ## <a name="step-3-test-the-feature"></a>Passaggio 3: Testare la funzionalità
 
-Dopo il passaggio 2, gli utenti di tutti i domini gestiti nel tenant accederanno usando l'autenticazione pass-through. Gli utenti dei domini federati continueranno invece a eseguire l'accesso con Active Directory Federation Services (ADFS) o qualsiasi altro provider di federazione configurato in precedenza. Se si converte un dominio da federato a gestito, tutti gli utenti del dominio inizieranno automaticamente a eseguire l'accesso usando l'autenticazione pass-through. La funzionalità di autenticazione pass-through non ha alcun impatto sugli utenti solo cloud.
+Seguire queste istruzioni per verificare che l'autenticazione pass-through sia stata attivata correttamente:
+
+1. Accedere al [portale di Azure](https://portal.azure.com) con le credenziali di amministratore globale del tenant.
+2. Selezionare **Azure Active Directory** nell'opzione di spostamento a sinistra.
+3. Selezionare **Azure AD Connect**.
+4. Verificare che la funzionalità di **autenticazione pass-through** indichi **Abilitato**.
+5. Selezionare **Autenticazione pass-through**. Questo pannello elenca i server sono installati gli agenti di autenticazione.
+
+![Portale di Azure - Pannello di Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+
+![Portale di Azure - Pannello Autenticazione pass-through](./media/active-directory-aadconnect-pass-through-authentication/pta8.png)
+
+Dopo questo passaggio, gli utenti di tutti i domini gestiti nel tenant possono accedere usando l'autenticazione pass-through. Gli utenti dei domini federati continueranno invece a eseguire l'accesso con Active Directory Federation Services (ADFS) o qualsiasi altro provider di federazione configurato in precedenza. Se si converte un dominio da federato a gestito, tutti gli utenti del dominio inizieranno automaticamente a eseguire l'accesso usando l'autenticazione pass-through. La funzionalità di autenticazione pass-through non ha alcun impatto sugli utenti solo cloud.
 
 ## <a name="step-4-ensure-high-availability"></a>Passaggio 4: Garantire la disponibilità elevata
 
 Se si prevede di distribuire l'autenticazione pass-through in un ambiente di produzione, è necessario installare un agente di autenticazione autonomo. Installare questo secondo agente di autenticazione in un server _diverso_ da quello dove è in esecuzione Azure AD Connect e il primo agente di autenticazione. Questa configurazione fornisce la disponibilità elevata delle richieste di accesso. Per distribuire un agente di autenticazione, seguire queste istruzioni:
 
-### <a name="download-and-install-the-authentication-agent-software-on-your-server"></a>Scaricare e installare il software dell'agente di autenticazione nel server
+1. **Scaricare la versione più recente dell'agente di autenticazione (versioni 1.5.193.0 o successiva)**: accedere al [portale di Azure](https://portal.azure.com) con credenziali di amministratore globale del tenant.
+2. Selezionare **Azure Active Directory** nell'opzione di spostamento a sinistra.
+3. Selezionare **Azure AD Connect****, quindi** Autenticazione pass-through. Selezionare quindi **Scarica agente**.
+4. Fare clic sul pulsante **Accept terms & download** (Accetta i termini e scarica).
+5. **Installare la versione più recente dell'agente di autenticazione**: eseguire il file eseguibile scaricato nel passaggio 4. Fornire le credenziali di amministratore globale del tenant quando viene richiesto.
 
-1.  [Scaricare](https://go.microsoft.com/fwlink/?linkid=837580) il software più recente dell'agente di autenticazione. Verificare che la versione sia 1.5.58.0 o successiva.
-2.  Aprire il prompt dei comandi come amministratore.
-3.  Eseguire il comando riportato di seguito (il parametro **/q** significa "installazione non interattiva", ovvero durante l'installazione non viene richiesto di accettare il contratto di licenza con l'utente finale):`
-AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
-`
+![Portale di Azure - Pulsante Download Authentication Agent (Scarica agente di autenticazione)](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
->[!NOTE]
->È possibile installare solo un singolo agente di autenticazione per ciascun server.
-
-### <a name="register-the-authentication-agent-with-azure-ad"></a>Registrare l'agente di autenticazione con Azure AD
-
-1.  Aprire una finestra di PowerShell come amministratore.
-2.  Passare a **C:\Programmi\Microsoft AAD App Proxy Connector** ed eseguire lo script, come segue: `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
-3.  Quando richiesto, immettere le credenziali dell'account amministratore globale per il tenant di Azure AD.
+![Portale di Azure - Pannello per scaricare l'agente di autenticazione](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) (Limitazioni correnti): questa funzionalità è attualmente in anteprima. Informazioni su quali scenari sono supportati e quali non lo sono.

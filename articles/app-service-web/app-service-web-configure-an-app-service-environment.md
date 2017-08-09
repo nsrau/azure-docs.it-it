@@ -1,6 +1,6 @@
 ---
-title: Come configurare un ambiente del servizio app | Documentazione Microsoft
-description: Configurazione, gestione e monitoraggio degli ambienti del servizio app
+title: Come configurare un ambiente del servizio app v1
+description: Configurazione, gestione e monitoraggio dell'ambiente del servizio app v1
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,17 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 85a4c87447681bd21698143b4228d94c0877d1b9
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: ae99f5a412f73cddc28543ba12c66c82f1a7835a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="configuring-an-app-service-environment"></a>Configurazione di un ambiente del servizio app
+# <a name="configuring-an-app-service-environment-v1"></a>Configurazione di un ambiente del servizio app v1
+
+> [!NOTE]
+> Questo articolo fa riferimento all'ambiente del servizio app v1  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione ad Ambiente del servizio app](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Panoramica
 A livello generale, un ambiente del servizio app di Azure è costituito da vari componenti principali:
 
@@ -44,25 +48,25 @@ La modifica della quantità o delle dimensioni è denominata operazione di ridim
 
 * Un ambiente del servizio app include inizialmente due P2, sufficienti per carichi di lavoro di sviluppo e test e carichi di lavoro di produzione di basso livello. Per carichi di lavoro di produzione da moderati a elevati è consigliabile usare P3.
 * Per carichi di lavoro di produzione da moderati a elevati, è consigliabile avere almeno quattro P3 per garantire l'esecuzione di un numero sufficiente di front-end durante la manutenzione pianificata. Nelle attività di manutenzione pianificata, verrà arrestato un front-end per volta e la capacità complessiva disponibile di front-end risulterà così ridotta.
-* Non è possibile aggiungere immediatamente una nuova istanza front-end. Il provisioning può richiedere da 2 a 3 ore.
+* Il provisioning del front-end può richiedere fino a un'ora. 
 * Per ottimizzare ulteriormente il ridimensionamento, è consigliabile monitorare le metriche Percentuale CPU, Percentuale memoria e Richieste attive del pool front-end. Se la percentuale di CPU o memoria è superiore al 70% durante l'esecuzione di P3, aggiungere altri front-end. È consigliabile aggiungere altri front-end anche in caso di valore medio delle richieste attive compreso tra 15.000 e 20.000 per front-end. Durante l'esecuzione di P3, l'obiettivo generale è mantenere le percentuali di CPU e memoria inferiori al 70% e la media delle richieste attive al di sotto di 15.000 richieste per front-end.  
 
 **Ruoli di lavoro**: i ruoli di lavoro sono la posizione in cui le app vengono effettivamente eseguite. Quando si passa a un piano di servizio app superiore, vengono usati i ruoli di lavoro del pool di lavoro associato.
 
-* Non è possibile aggiungere immediatamente ruoli di lavoro. Il provisioning può richiedere da 2 a 3 ore, indipendentemente dal numero di ruoli aggiunti.
-* Il ridimensionamento di una risorsa di calcolo di qualsiasi pool richiederà da 2 a 3 ore per ogni dominio di aggiornamento. Sono disponibili 20 domini di aggiornamento in un ambiente del servizio app. Il ridimensionamento del calcolo di un pool di lavoro con 10 istanze, ad esempio, potrebbe richiedere da 20 a 30 ore.
+* Non è possibile aggiungere immediatamente ruoli di lavoro. Il provisioning può richiedere fino a un'ora.
+* Il ridimensionamento di una risorsa di calcolo di un qualsiasi pool richiederà meno di un'ora per ogni dominio di aggiornamento. Sono disponibili 20 domini di aggiornamento in un ambiente del servizio app. Il ridimensionamento del calcolo di un pool di lavoro con 10 istanze potrebbe richiedere fino a 10 ore.
 * Se si modificano le dimensioni delle risorse di calcolo usate in un pool di lavoro, si verificheranno avvii a freddo delle app in esecuzione nel pool di lavoro.
 
 Il modo più rapido per modificare le dimensioni delle risorse di calcolo di un pool di lavoro che non esegue alcuna app consiste nel:
 
-* Ridurre il numero di istanze a 0. La deallocazione delle istanze richiederà circa 30 minuti.
-* Selezionare le nuove dimensioni di calcolo e il nuovo numero di istanze. A questo punto, il completamento dell'operazione richiederà da 2 a 3 ore.
+* Ridurre la quantità di ruoli di lavoro a 2.  La dimensione di ridimensionamento minima nel portale è pari a 2. La deallocazione delle istanze richiederà qualche minuto. 
+* Selezionare le nuove dimensioni di calcolo e il nuovo numero di istanze. A questo punto, il completamento dell'operazione richiederà fino a 2 ore.
 
 Se le app richiedono dimensioni delle risorse di calcolo superiori, le indicazioni precedenti non risulteranno utili. Anziché modificare le dimensioni del pool di lavoro che ospita tali app, è possibile popolare un altro pool di lavoro con ruoli di lavoro delle dimensioni desiderate e spostare le app in tale pool.
 
-* Creare le istanze aggiuntive delle dimensioni di calcolo necessarie in un altro pool di lavoro. Questa operazione richiederà da 2 a 3 ore.
+* Creare le istanze aggiuntive delle dimensioni di calcolo necessarie in un altro pool di lavoro. Il completamento dell'operazione richiederà fino a un'ora.
 * Riassegnare i piani di servizio app che ospitano le app che richiedono dimensioni superiori al pool di lavoro appena configurato. Questa operazione è rapida e richiede meno di un minuto per il completamento.  
-* Se le istanze inutilizzate non sono più necessarie, ridurre il primo pool di lavoro. Questa operazione richiede circa 30 minuti.
+* Se le istanze inutilizzate non sono più necessarie, ridurre il primo pool di lavoro. Il completamento dell'operazione richiede alcuni minuti.
 
 **Ridimensionamento automatico**: uno degli strumenti che consentono di gestire l'utilizzo delle risorse di calcolo è il ridimensionamento automatico, che può essere usato per pool di lavoro o front-end. È ad esempio possibile aumentare e successivamente ridurre nell'arco della stessa giornata le istanze di qualsiasi tipo di pool o eventualmente aggiungere istanze quando il numero dei ruoli di lavoro disponibili in un pool di lavoro scende al di sotto di una determinata soglia.
 

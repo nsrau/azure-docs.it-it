@@ -1,5 +1,5 @@
 ---
-title: Abilitare l&quot;accesso remoto a SharePoint con il proxy di applicazione di Azure AD | Microsoft Docs
+title: Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD | Microsoft Docs
 description: Offre le informazioni di base necessarie per integrare un server SharePoint locale con il proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: 
@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 07/21/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 93b36891c960582563a4ff9c622cd5ac3198dfeb
-ms.lasthandoff: 04/17/2017
-
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 97eeec3b3936bcbef6ac3966b890332901bcb153
+ms.contentlocale: it-it
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -29,11 +31,9 @@ Per abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azur
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che SharePoint 2013 o versione successiva sia già installato e in esecuzione nell'ambiente. Tenere in considerazione anche i seguenti prerequisiti:
+Questo articolo presuppone che SharePoint 2013 o versione successiva sia già installato nell'ambiente. Tenere in considerazione anche i seguenti prerequisiti:
 
-* Il proxy di applicazione di Azure AD è una funzionalità disponibile solo se è stato eseguito l'aggiornamento all'edizione Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
-
-* SharePoint include il supporto nativo di Kerberos. Gli utenti che accedono in remoto ai siti interni tramite il proxy di applicazione di Azure AD possono quindi presumere di usufruire dell'accesso Single Sign-On.
+* SharePoint include il supporto nativo di Kerberos. Di conseguenza, gli utenti che accedono in remoto ai siti interni tramite il proxy di applicazione di Azure AD possono presumere di essere in possesso dell'esperienza Single Sign-On.
 
 * È necessario apportare alcune modifiche di configurazione al server SharePoint. Si consiglia di usare un ambiente di gestione temporanea. In questo modo, è possibile apportare aggiornamenti al server di gestione temporanea e quindi facilitare un ciclo di test prima del passaggio in produzione.
 
@@ -45,13 +45,13 @@ I clienti vogliono disporre di un semplice accesso SSO alle applicazioni back-en
 
 Per le applicazioni locali che richiedono o usano l'autenticazione di Windows è possibile ottenere l'accesso SSO usando il protocollo di autenticazione Kerberos e una funzionalità denominata delega vincolata Kerberos (KCD). Se configurata, questa funzionalità consente al connettore del proxy di applicazione di ottenere un ticket/token di Windows per un utente, anche se questi non ha eseguito l'accesso direttamente in Windows. Per altre informazioni sulla delega vincolata Kerberos, vedere [Panoramica della delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx).
 
-Per configurare la delega vincolata Kerberos per un server SharePoint, usare le procedure descritte nelle sezioni seguenti.
+Per configurare la delega vincolata Kerberos per un server SharePoint, usare le procedure descritte nelle sezioni seguenti:
 
 ### <a name="ensure-that-sharepoint-is-running-under-a-service-account"></a>Verificare che SharePoint sia in esecuzione in un account di servizio
 
-Verificare che SharePoint sia in esecuzione in un account di servizio definito, non in un sistema locale, un servizio locale o un servizio di rete. È necessario eseguire questa operazione in modo da poter associare i nomi di entità servizio (SPN) a un account valido. I nomi SPN sono usati dal protocollo Kerberos per identificare i diversi servizi e saranno necessari in seguito per configurare la delega vincolata Kerberos.
+Verificare che SharePoint sia in esecuzione in un account di servizio definito, non in un sistema locale, un servizio locale o un servizio di rete. Eseguire questa operazione in modo da poter associare i nomi di entità servizio (SPN) a un account valido. I nomi SPN sono usati dal protocollo Kerberos per identificare i diversi servizi e saranno necessari in seguito per configurare la delega vincolata Kerberos.
 
-Per garantire che i siti siano in esecuzione in un account di servizio definito, procedere come segue:
+Per garantire che i siti siano in esecuzione in un account di servizio definito, seguire questa procedura:
 
 1. Aprire il sito **Amministrazione centrale SharePoint 2013**.
 2. Passare a **Sicurezza** e selezionare **Configura account di servizio**.
@@ -99,7 +99,7 @@ Nel formato SPN:
 
 * La _classe di servizio_ è un nome univoco per il servizio. Per SharePoint si usa **HTTP**.
 
-* L'_host_ è il nome di dominio completo o il nome Netbios dell'host in cui il servizio è in esecuzione. Nel caso di un sito di SharePoint può essere necessario che si tratti dell'URL del sito, a seconda della versione di IIS in uso.
+* L'_host_ è il nome di dominio completo o il nome Netbios dell'host in cui il servizio è in esecuzione. Per un sito di SharePoint può essere necessario questo testo sia l'URL del sito, a seconda della versione di IIS in uso.
 
 * La _porta_ è opzionale.
 
@@ -138,13 +138,13 @@ Klist restituisce quindi il set di nomi SPN di destinazione. In questo esempio i
 
  Questo comando imposta il nome SPN per l'account del servizio SharePoint in esecuzione come _demo\sp_svc_.
 
- Sostituire _http/sharepoint.demo.o365identity.us_ con il nome SPN per il server e _demo\sp_svc_ con l'account del servizio nel proprio ambiente. Il comando Setspn cercherà il nome SPN prima di aggiungerlo. In questo caso è possibile che venga restituito un errore di **valore SPN duplicato**. Se viene visualizzato questo errore, assicurarsi che il valore sia associato con l'account del servizio.
+ Sostituire _http/sharepoint.demo.o365identity.us_ con il nome SPN per il server e _demo\sp_svc_ con l'account del servizio nel proprio ambiente. Il comando Setspn cerca il nome SPN prima di aggiungerlo. In questo caso è possibile che venga restituito un errore di **valore SPN duplicato**. Se viene visualizzato questo errore, assicurarsi che il valore sia associato con l'account del servizio.
 
 È possibile verificare che il nome SPN sia stato aggiunto tramite il comando Setspn con l'opzione -l. Per altre informazioni su questo comando, vedere [Setspn](https://technet.microsoft.com/library/cc731241.aspx).
 
 ### <a name="ensure-that-the-connector-is-set-as-a-trusted-delegate-to-sharepoint"></a>Verificare che il connettore sia impostato come delegato attendibile a SharePoint
 
-Configurare la delega vincolata Kerberos in modo che il servizio proxy di applicazione di Azure AD possa delegare le identità utente al servizio SharePoint. A questo scopo, consentire al connettore del proxy di applicazione di recuperare i ticket Kerberos per gli utenti che si sono autenticati in Azure AD. Quindi il server passerà il contesto all'applicazione di destinazione o, in questo caso, a SharePoint.
+Configurare la delega vincolata Kerberos in modo che il servizio proxy di applicazione di Azure AD possa delegare le identità utente al servizio SharePoint. A questo scopo, consentire al connettore del proxy di applicazione di recuperare i ticket Kerberos per gli utenti che si sono autenticati in Azure AD. Quindi il server passa il contesto all'applicazione di destinazione o, in questo caso, a SharePoint.
 
 Per configurare la delega vincolata Kerberos, ripetere i passaggi seguenti per ogni computer di connessione:
 
@@ -181,15 +181,15 @@ Per eseguire la procedura seguente è necessario essere un membro del ruolo Ammi
 5. Dopo la pubblicazione dell'app fare clic sulla scheda **Configura**.
 6. Scorrere fino all'opzione **Convertire l'URL nelle intestazioni**. Il valore predefinito è **SÌ**. Modificarlo in **NO**.
 
- SharePoint usa il valore _Intestazione host_ per cercare il sito e, in base a questo valore, genera i collegamenti. In questo modo si ha la sicurezza che qualsiasi collegamento generato da SharePoint sia un URL pubblicato correttamente impostato per l'uso dell'URL esterno. Impostando il valore su **SÌ** si consente al connettore di inoltrare la richiesta all'applicazione back-end. Se invece si imposta il valore su **NO**, il connettore non invierà il nome host interno, ma invierà l'intestazione host come URL pubblicato per l'applicazione back-end.
+ SharePoint usa il valore _Intestazione host_ per cercare il sito e, in base a questo valore, genera i collegamenti. In questo modo si ha la sicurezza che qualsiasi collegamento generato da SharePoint sia un URL pubblicato correttamente impostato per l'uso dell'URL esterno. Impostando il valore su **SÌ** si consente al connettore di inoltrare la richiesta all'applicazione back-end. Se invece si imposta il valore su **NO**, il connettore non invierà il nome host interno, ma invia l'intestazione host come URL pubblicato per l'applicazione back-end.
 
- Per essere certi che SharePoint accetti questo URL, è necessario completare anche un'altra configurazione nel server SharePoint. Questa operazione viene illustrata nella sezione seguente.
+ Inoltre, per garantire che SharePoint accetti questo URL, è necessario completare un'ulteriore configurazione nel server SharePoint. Questa operazione viene illustrata nella sezione seguente.
 
 7. Impostare **Metodo di autenticazione interna** su **Autenticazione integrata di Windows**. Se il tenant Azure AD usa nel cloud un UPN diverso rispetto a quello locale, aggiornare anche l'opzione **Identità di accesso delegata**.
 8. Impostare **Nome dell'entità servizio dell'applicazione interna** sul valore impostato in precedenza, ad esempio **http/sharepoint.demo.o365identity.us**.
 9. Assegnare l'applicazione agli utenti di destinazione.
 
-L'applicazione dovrebbe essere simile alla seguente:
+L'applicazione dovrebbe essere simile al seguente esempio:
 
   ![Applicazione finita](./media/application-proxy-remote-sharepoint/remote-sharepoint-internal-application-spn.png)
 
