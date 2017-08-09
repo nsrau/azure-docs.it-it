@@ -1,6 +1,6 @@
 ---
-title: Introduzione all&quot;ambiente del servizio app
-description: "Informazioni sulla funzionalità Ambiente del servizio app che offre unità di scala dedicate, aggiunte alla rete virtuale e sicure per l&quot;esecuzione di tutte le app."
+title: Introduzione all'ambiente del servizio app (versione 1)
+description: "Informazioni sull'ambiente del servizio app (versione 1), che offre unità di scala dedicate, aggiunte alla rete virtuale e sicure per l'esecuzione di tutte le app."
 services: app-service
 documentationcenter: 
 author: stefsch
@@ -12,16 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: stefsch
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 91b1d6315a9414789b28442f3f19d14c2aed8f00
-ms.lasthandoff: 03/01/2017
-
+ms.date: 07/11/2017
+ms.author: ccompy
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 38cb79eb32bd61cdbfb6da91d50e6713d71a2b0d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="introduction-to-app-service-environment"></a>Introduzione all'ambiente del servizio app
+# <a name="introduction-to-app-service-environment-v1"></a>Introduzione all'ambiente del servizio app (versione 1)
+
+> [!NOTE]
+> Questo articolo fa riferimento all'ambiente del servizio app (versione 1),  una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione all'ambiente del servizio app](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Panoramica
 Un ambiente di servizio app è un'opzione del piano di servizio [Premium][PremiumTier] di Servizio app di Azure che fornisce un ambiente completamente isolato e dedicato all'esecuzione sicura delle app di Servizio di Azure su larga scala, tra cui [app Web][WebApps], [app per dispositivi mobili][MobileApps], e [app per le API][APIApps].  
 
