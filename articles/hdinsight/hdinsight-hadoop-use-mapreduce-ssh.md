@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/03/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 7af00e78536907a983285ef271e7945b83bd5619
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: eaf6278f97cd5ddd7e049ff4745181f39d7949a0
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Usare MapReduce con Hadoop in HDInsight con SSH
@@ -46,11 +45,15 @@ Informazioni su come inviare processi MapReduce da una connessione Secure Shell 
 
 Connettersi al cluster tramite SSH. Il comando seguente, ad esempio, stabilisce la connessione a un cluster denominato **myhdinsight**:
 
-    ssh admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **Se si usa una chiave del certificato per l'autenticazione SSH**, è possibile che sia necessario specificare il percorso della chiave privata nel sistema client, ad esempio:
 
-    ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+```
 
 **Se si usa una password per l'autenticazione SSH**, è necessario fornire la password quando viene richiesta.
 
@@ -93,7 +96,7 @@ Per altre informazioni sull'uso di SSH con HDInsight, vedere l'articolo [Usare S
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    Viene visualizzato un elenco di parole contenute nel file **wasbs://example/data/gutenberg/davinci.txt** e il numero di occorrenze di ogni parola. Di seguito è riportato un esempio dei dati contenuti nel file:
+    Viene visualizzato un elenco di parole contenute nel file **wasb://example/data/gutenberg/davinci.txt** e il numero di occorrenze di ogni parola. Di seguito è riportato un esempio dei dati contenuti nel file:
 
         wreathed        3
         wreathing       1

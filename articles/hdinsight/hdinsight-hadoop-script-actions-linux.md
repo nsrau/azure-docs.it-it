@@ -1,6 +1,6 @@
 ---
 title: Sviluppo di azioni script con HDInsight basato su Linux - Azure | Documentazione Microsoft
-description: 'Informazioni su come personalizzare cluster HDInsight basati su Linux con Azioni script. Le azioni script consentono di personalizzare i cluster Azure HDInsight specificando le impostazioni di configurazione del cluster oppure installando servizi, strumenti o altri componenti software nel cluster. '
+description: "Informazioni su come usare script Bash per personalizzare cluster HDInsight basati su Linux. La funzionalità di azione script in HDInsight consente di eseguire script durante o dopo la creazione del cluster. Gli script possono essere usati per modificare le impostazioni di configurazione del cluster o per installare software aggiuntivo."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: cc4326a72e2124034606e25fe8f75b330726e68e
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
@@ -62,7 +61,7 @@ Quando si sviluppa uno script personalizzato per un cluster HDInsight, è opport
 * [Usare la logica di ripetizione dei tentativi per il ripristino da errori temporanei](#bps9)
 
 > [!IMPORTANT]
-> Le azioni script devono essere completate entro 60 minuti; in caso contrario, lo script non riesce. Durante il provisioning dei nodi, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
+> Le azioni di script devono essere completate entro 60 minuti; in caso contrario il processo avrà esito negativo. Durante il provisioning dei nodi, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script può richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
 
 ### <a name="bPS1"></a>Usare la versione di Hadoop
 
@@ -120,11 +119,11 @@ Lo script e le risorse associate devono rimanere disponibili per tutta la durata
 > [!IMPORTANT]
 > L'account di archiviazione usato deve essere quello predefinito per il cluster o un contenitore pubblico di sola lettura per qualsiasi altro account di archiviazione.
 
-Gli esempi forniti da Microsoft, ad esempio, vengono archiviati nell'account di archiviazione [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) , un contenitore pubblico di sola lettura gestito dal team di HDInsight.
+Gli esempi forniti da Microsoft, ad esempio, vengono archiviati nell'account di archiviazione [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Si tratta di un contenitore pubblico e di sola lettura, gestito dal team di HDInsight.
 
 ### <a name="bPS4"></a>Usare risorse precompilate
 
-Per ridurre il tempo necessario per eseguire lo script, evitare operazioni di compilazione delle risorse dal codice sorgente. Precompilare le risorse e archiviarle nell'archiviazione BLOB di Azure, in modo che possano essere scaricate rapidamente.
+Per ridurre il tempo necessario per eseguire lo script, evitare operazioni di compilazione delle risorse dal codice sorgente. Ad esempio, precompilare le risorse e archiviarle in un BLOB dell'account di archiviazione di Azure nello stesso data center di HDInsight.
 
 ### <a name="bPS3"></a>Assicurarsi che lo script di personalizzazione del cluster sia idempotente
 

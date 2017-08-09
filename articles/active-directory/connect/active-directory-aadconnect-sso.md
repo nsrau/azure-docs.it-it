@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 72b5217bd8de29fdad753d89f34934f64c551ff2
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: c4cd80c50dca5b97c36f1c9785d8ea347b35285c
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -35,14 +35,14 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 >[!NOTE]
 >L'accesso SSO facile _non_ è applicabile ad Active Directory Federation Services (AD FS) che include già questa funzionalità.
 
-## <a name="key-benefits-of-using-azure-ad-seamless-sso"></a>Vantaggi principali dell'uso dell'accesso SSO facile di Azure AD
+## <a name="key-benefits"></a>Vantaggi principali
 
 - *Miglioramento dell'esperienza utente*
   - Gli utenti vengono automaticamente connessi sia alle applicazioni locali che a quelle basate sul cloud.
   - Gli utenti non devono immettere ripetutamente le proprie password.
 - *Facilità di distribuzione e gestione*
   - Non sono necessari componenti aggiuntivi locali per usare la funzionalità.
-  - Funziona con qualsiasi metodo di autenticazione gestita: [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md).
+  - Funziona con qualsiasi metodo di autenticazione cloud: [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md).
   - Può essere implementata per alcuni o tutti gli utenti con Criteri di gruppo.
   - Registrare i dispositivi non Windows 10 con Azure AD. È necessaria la versione 2.1 o successiva del [client Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -57,11 +57,11 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 | SO\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sì|Non supportate|Sì|Sì\*|N/D 
-|Windows 8.1|Sì|Non supportate|Sì|Sì\*|N/D 
-|Windows 8|Sì|Non supportate|Sì|Sì\*|N/D 
-|Windows 7|Sì|Non supportate|Sì|Sì\*|N/D
-|Mac OS X|N/D |N/D |Sì\*|Sì\*|Non supportate
+|Windows 10|Sì|Sì|Sì|Sì\*|N/D 
+|Windows 8.1|Sì|N/D|Sì|Sì\*|N/D 
+|Windows 8|Sì|N/D|Sì|Sì\*|N/D 
+|Windows 7|Sì|N/D|Sì|Sì\*|N/D
+|Mac OS X|N/D |N/D |Sì\*|Sì\*|Sì\*
 
 \*Richiede una [configurazione aggiuntiva](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 

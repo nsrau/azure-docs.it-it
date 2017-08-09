@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1477ed13ef0434ed86938c49e6bb815837cb40fb
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
@@ -127,9 +127,9 @@ Quando si usa __Archiviazione di Azure__, usare uno degli schemi URI seguenti:
 
 * `wasb:///`: per accedere allo spazio di archiviazione predefinito usando la comunicazione non crittografata.
 
-* `wasbs:///`: per accedere allo spazio di archiviazione predefinito usando la comunicazione crittografata.
+* `wasbs:///`: per accedere allo spazio di archiviazione predefinito usando la comunicazione crittografata.  Lo schema wasbs è supportato solo da HDInsight versione 3.6 in poi.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: usato durante la comunicazione con un account di archiviazione non predefinito, ad esempio quando si dispone di un account di archiviazione aggiuntivo o quando si accede a dati archiviati in un account di archiviazione pubblicamente accessibile.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: usato durante la comunicazione con un account di archiviazione non predefinito, ad esempio quando si dispone di un account di archiviazione aggiuntivo o quando si accede a dati archiviati in un account di archiviazione pubblicamente accessibile.
 
 Quando si usa __Data Lake Store__, usare uno degli schemi URI seguenti:
 
@@ -153,7 +153,7 @@ Ambari consente di recuperare le informazioni relative alla configurazione di ar
 
 Il comando restituisce un valore simile all'URI seguente:
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net` se si usa un account di archiviazione di Azure.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` se si usa un account di archiviazione di Azure.
 
     Il nome dell'account è il nome dell'account di archiviazione di Azure, mentre il nome del contenitore è il contenitore BLOB che è la radice del cluster di archiviazione.
 

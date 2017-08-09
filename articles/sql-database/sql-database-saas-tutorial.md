@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 83d357bd046814c690b8b11841e5c8ebebd0df0e
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b09bfa8a5bc22a092e963f351e99c16d0e9a57ba
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Distribuire ed esplorare un'applicazione multi-tenant che utilizza il database SQL di Azure - SaaS Wingtip
@@ -54,7 +53,9 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 
 Distribuire l'app SaaS Wingtip:
 
-1. Fare clic sul pulsante **Distribuisci in Azure** per aprire il portale di Azure con il modello di distribuzione SaaS Wingtip. Il modello richiede due valori di parametro, un nome per un nuovo gruppo di risorse e un nome utente che distingue questa distribuzione da altre distribuzioni dell'app SaaS Wingtip. Il passaggio seguente fornisce dettagli per l'impostazione di questi valori. Assicurarsi di annotare i valori esatti utilizzati che sarà necessario immettere in un file di configurazione in un secondo momento.
+1. Fare clic sul pulsante **Distribuisci in Azure** per aprire il portale di Azure con il modello di distribuzione SaaS Wingtip. Il modello richiede due valori di parametro, un nome per un nuovo gruppo di risorse e un nome utente che distingue questa distribuzione da altre distribuzioni dell'app SaaS Wingtip. Il passaggio seguente fornisce dettagli per l'impostazione di questi valori.
+
+   Assicurarsi di annotare i valori esatti utilizzati che sarà necessario immettere in un file di configurazione in un secondo momento.
 
    <a href="http://aka.ms/deploywtpapp" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
@@ -63,7 +64,7 @@ Distribuire l'app SaaS Wingtip:
     > [!IMPORTANT]
     > Alcune impostazioni di autenticazione e per i firewall server sono intenzionalmente non protette a scopo dimostrativo. **Creare un nuovo gruppo di risorse** e non utilizzare gruppi di risorse, server o pool esistenti. Non utilizzare l'applicazione o le risorse che crea per la produzione. Eliminare questo gruppo di risorse quando non è più necessario usare l'applicazione, per interrompere la fatturazione correlata.
 
-    * **Gruppo di risorse**: selezionare **Crea nuovo** e specificare **Nome** e **Posizione**.
+    * **Gruppo di risorse**: selezionare **Crea nuovo** e specificare il **nome** del nuovo gruppo di risorse. Selezionare un **percorso** nell'elenco a discesa.
     * **Utente**: alcune risorse richiedono nomi univoci a livello globale. Per garantire l'univocità, ogni volta che si distribuisce l'applicazione fornire un valore per distinguere le risorse create da quelle create da altre distribuzioni dell'applicazione Wingtip. È consigliabile usare un nome **Utente** breve, come le iniziali più un numero (ad esempio, *bg1*), quindi usare tale nome nel nome del gruppo di risorse (ad esempio, *wingtip-bg1*). Il parametro **Utente** può contenere solo lettere, numeri e trattini (senza spazi). Il primo e ultimo carattere devono essere una lettera o un numero (si consiglia di usare solo lettere minuscole).
 
 
@@ -109,7 +110,7 @@ L'app presenta sedi di eventi, come sale concerto, jazz club e club sportivi. Qu
 
 Un **Events Hub** (Hub eventi) centrale presenta un elenco degli URL dei tenant specifici della distribuzione.
 
-1. Aprire l'_hub eventi_: http://events.wtp.&lt;UTENTE&gt;.trafficmanager.net (sostituire con il nome utente della distribuzione):
+1. Aprire l'_hub eventi_ nel Web browser: http://events.wtp.&lt;UTENTE&gt;.trafficmanager.net (sostituire con il nome utente della distribuzione):
 
     ![Hub eventi](media/sql-database-saas-tutorial/events-hub.png)
 
@@ -130,7 +131,7 @@ Dopo la distribuzione, è possibile utilizzare l'app. Lo script di PowerShell *D
 1. Premere **F5** per eseguire lo script e avviare il generatore di carico (lasciare i valori dei parametri predefiniti per il momento).
 
 > [!IMPORTANT]
-> Il generatore di carico esegue una serie di processi nella sessione di PowerShell locale. Lo script *Demo-LoadGenerator.ps1* avvia lo script del generatore del carico effettivo che viene eseguito come attività di primo piano oltre a una serie di processi di generazione del carico in background. Un processo del generatore di carico viene richiamato per ogni database registrato nel catalogo. I processi sono in esecuzione nella sessione di PowerShell locale, pertanto la chiusura della sessione di PowerShell arresta tutti i processi. Se si sospende il computer, la generazione del carico viene messa in pausa e riprende quando si riattiva il computer.
+> Per eseguire altri script, aprire una nuova finestra di PowerShell ISE. Il generatore di carico esegue una serie di processi nella sessione di PowerShell locale. Lo script *Demo-LoadGenerator.ps1* avvia lo script del generatore del carico effettivo che viene eseguito come attività di primo piano oltre a una serie di processi di generazione del carico in background. Un processo del generatore di carico viene richiamato per ogni database registrato nel catalogo. I processi sono in esecuzione nella sessione di PowerShell locale, pertanto la chiusura della sessione di PowerShell arresta tutti i processi. Se si sospende il computer, la generazione del carico viene messa in pausa e riprende quando si riattiva il computer.
 
 Quando il generatore di carico richiama i processi di generazione del carico per ogni tenant, l'attività di primo piano rimane nello stato di richiamo del processo in cui processi aggiuntivi in background sono avviati per eventuali nuovi tenant di cui viene eseguito il provisioning successivamente. È possibile utilizzare *CTRL-C* o premere il pulsante *Interrompi* per arrestare l'attività in primo piano, ma i processi in background esistenti continueranno a generare il carico in ogni database. Se si desidera monitorare e controllare i processi in background, utilizzare *Get-Job*, *Receive-Job* e *Stop-Job*. Durante l'esecuzione dell'attività in primo piano, non è possibile utilizzare la stessa sessione di PowerShell per eseguire altri script. Per eseguire altri script, aprire una nuova finestra di PowerShell ISE.
 
@@ -160,11 +161,11 @@ Aggiornare l'*hub eventi* e verificare che il nuovo tenant sia incluso nell'elen
 
 Dopo aver avviato l'esecuzione di un carico sulla raccolta di tenant, è tempo di esaminare alcune delle risorse distribuite:
 
-1. Nel [portale di Azure](http://portal.azure.com) aprire il server **catalog-&lt;UTENTE&gt;**. Il server di catalogo contiene due database: **tenantcatalog** e **basetenantdb**, ovvero un database *di riferimento* o di esempio vuoto copiato per creare i nuovi tenant.
+1. Nel [portale di Azure](http://portal.azure.com) passare all'elenco dei server SQL e aprire il server **catalog-&lt;UTENTE&gt;**. Il server di catalogo contiene due database: **tenantcatalog** e **basetenantdb**, ovvero un database *di riferimento* o di esempio vuoto copiato per creare i nuovi tenant.
 
    ![database](./media/sql-database-saas-tutorial/databases.png)
 
-1. Aprire il server **tenants1-&lt;UTENTE&gt;** che include i database tenant. Ogni database tenant è un database _standard elastico_ in un pool standard da 50 eDTU. Si noti anche che è presente un database per _Red Maple Racing_, ovvero il database tenant di cui è stato eseguito il provisioning in precedenza.
+1. Tornare all'elenco dei server SQL e aprire il server **tenants1-&lt;UTENTE&gt;** che include i database tenant. Ogni database tenant è un database _standard elastico_ in un pool standard da 50 eDTU. Si noti anche che è presente un database per _Red Maple Racing_, ovvero il database tenant di cui è stato eseguito il provisioning in precedenza.
 
    ![server](./media/sql-database-saas-tutorial/server.png)
 

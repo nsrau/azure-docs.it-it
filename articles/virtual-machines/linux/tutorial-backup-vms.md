@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/05/2017
+ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 4dcfad63fdc610160bd47a3b900591fb06585005
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: d0cbf7883a8737bcb10e9dd251c9792a12993f77
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Eseguire il backup di macchine virtuali Linux in Azure
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/31/2017
 
 Quando il servizio Backup di Azure avvia un processo di backup, attiva l'estensione per il backup per acquisire uno snapshot temporizzato. Il servizio Backup di Azure usa l'estensione _VMSnapshotLinux_ in Linux. L'estensione viene installata durante il primo backup della macchina virtuale se la macchina virtuale è in esecuzione. Se la macchina virtuale non è in esecuzione, il servizio Backup crea uno snapshot dell'archivio sottostante (poiché non si verifica alcuna scrittura di applicazione durante l'arresto della macchina virtuale).
 
-Dopo che il servizio Backup di Azure crea lo snapshot, i data vengono trasferiti nell'insieme di credenziali. Per offrire la massima efficienza, il servizio identifica e trasferisce solo i blocchi di dati che sono stati modificati dall'ultimo backup.
+Per impostazione predefinita, Backup di Azure esegue un backup coerente del file system per macchine virtuali Linux ma può essere configurato per eseguire un [backup coerente dell'applicazione tramite un framework di script pre e post-backup](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Dopo che il servizio Backup di Azure crea lo snapshot, i data vengono trasferiti nell'insieme di credenziali. Per offrire la massima efficienza, il servizio identifica e trasferisce solo i blocchi di dati che sono stati modificati dall'ultimo backup.
 
 Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e viene creato un punto di ripristino.
 
@@ -95,7 +95,7 @@ Questo esempio illustra come ripristinare la pagina Web di nginx predefinita /va
 6. Nel menu a sinistra selezionare **Macchine virtuali**. 
 7. Selezionare la macchina virtuale dall'elenco.
 8. Nel pannello della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. Verrà visualizzato il pannello **Backup**. 
-9. Nel menu nella parte superiore del pannello selezionare **Ripristino file (anteprima)**. Si apre il pannello **Ripristino di file (anteprima)**.
+9. Dal menu nella parte superiore del pannello scegliere **Ripristino file**. Verrà aperto il pannello **Ripristino file**.
 10. In **Passaggio 1: Selezionare il punto di recupero** selezionare un punto di recupero dall'elenco a discesa.
 11. In **Passaggio 2: Scaricare lo script per cercare e ripristinare i file** fare clic sul pulsante **Scarica eseguibile**. Salvare il file scaricato nel computer locale in uso.
 7. Fare clic su **Scarica script** per scaricare il file di script in locale.
