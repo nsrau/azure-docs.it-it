@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: anilmur;juliako;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/27/2017
 
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Ritagliare video con Media Encoder Standard
@@ -142,9 +143,4 @@ Alla funzionalità di ritaglio si applicano le limitazioni seguenti. Se queste l
 Vedere i percorsi di apprendimento di Servizi multimediali di Azure per informazioni sulle potenti funzionalità offerte da Servizi multimediali di Azure.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

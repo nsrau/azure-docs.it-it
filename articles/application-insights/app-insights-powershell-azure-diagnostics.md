@@ -1,6 +1,6 @@
 ---
 title: Uso di PowerShell per la configurazione di Application Insights in Azure | Microsoft Docs
-description: Configurazione automatizzata del servizio Diagnostica di Azure per l&quot;inoltro tramite pipe ad Application Insights.
+description: Configurazione automatizzata del servizio Diagnostica di Azure per l'inoltro tramite pipe ad Application Insights.
 services: application-insights
 documentationcenter: .net
 author: sbtron
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2015
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
 ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
 ms.contentlocale: it-it
 ms.lasthandoff: 11/16/2016
-
 
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Uso di PowerShell per la configurazione di Application Insights per un'app Web di Azure

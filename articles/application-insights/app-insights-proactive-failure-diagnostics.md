@@ -1,6 +1,6 @@
 ---
 title: Rilevamento intelligente - Anomalie degli errori in Application Insights | Documentazione Microsoft
-description: "Avvisa sui cambiamenti insoliti nella frequenza delle richieste non riuscite all&quot;app Web e offre un&quot;analisi diagnostica. Non è necessaria alcuna configurazione."
+description: "Avvisa sui cambiamenti insoliti nella frequenza delle richieste non riuscite all'app Web e offre un'analisi diagnostica. Non è necessaria alcuna configurazione."
 services: application-insights
 documentationcenter: 
 author: yorac
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: 24ca63e69d181f0d2c236b1fb6761984ce89520b
 ms.contentlocale: it-it
 ms.lasthandoff: 02/02/2017
-
 
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
