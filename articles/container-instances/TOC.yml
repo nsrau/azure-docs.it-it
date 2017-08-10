@@ -23,6 +23,8 @@
   items:
     - name: Relazione con agenti di orchestrazione
       href: container-instances-orchestrator-relationship.md
+    - name: Gruppi di contenitori
+      href: container-instances-container-groups.md
 - name: Guide alle procedure
   items:
     - name: Distribuire gruppi di più contenitori

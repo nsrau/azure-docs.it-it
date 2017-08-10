@@ -9,6 +9,7 @@
 ## [Come ottenere un tenant di Azure Active Directory](active-directory-howto-tenant.md)
 ## [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md)
 ## [Associare le sottoscrizioni di Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Guida introduttiva: reimpostazione password self-service](active-directory-passwords-getting-started.md)
 ## Gestire le licenze di Azure AD
 ### [Portale di Azure](active-directory-licensing-get-started-azure-portal.md)
 ### [Portale classico](active-directory-licensing-what-is.md)
@@ -18,7 +19,7 @@
 #### [Eseguire la migrazione di singoli utenti con licenza alle licenze basate sui gruppi](active-directory-licensing-group-migration-azure-portal.md)
 #### [Scenari aggiuntivi per le licenze basate sui gruppi](active-directory-licensing-group-advanced.md)
 #### [Esempi di PowerShell per le licenze basate sui gruppi](active-directory-licensing-ps-examples.md)
-## [Come ottenere supporto per Azure Active Directory](active-directory-troubleshooting-support-howto.md)
+## [Ottenere supporto per Azure Active Directory](active-directory-troubleshooting-support-howto.md)
 ## [Esercitazioni sull'integrazione di app SaaS](active-directory-saas-tutorial-list.md)
 
 # Procedure
@@ -78,6 +79,7 @@
 #### [Eseguire la migrazione di singoli utenti con licenza alle licenze basate sui gruppi](active-directory-licensing-group-migration-azure-portal.md)
 #### [Scenari aggiuntivi per le licenze basate sui gruppi](active-directory-licensing-group-advanced.md)
 #### [Esempi di PowerShell per le licenze basate sui gruppi](active-directory-licensing-ps-examples.md)
+### [Configurare la scadenza dei gruppi di Office 365](active-directory-groups-lifecycle-azure-portal.md)
 ### [Visualizzare tutti i gruppi](active-directory-groups-view-azure-portal.md)
 ### [Abilitare i gruppi dedicati](active-directory-accessmanagement-dedicated-groups.md)
 ### [Aggiungere l'accesso dei gruppi alle app SaaS](active-directory-accessmanagement-group-saasapps.md)
@@ -124,7 +126,6 @@
 #### [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md)
 #### [Procedure consigliate per le password](active-directory-secure-passwords.md)
 #### [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md)
-### [Guida introduttiva: reimpostazione self-service delle password](active-directory-passwords-getting-started.md)
 ### [Concedere in licenza SSPR](active-directory-passwords-licensing.md)
 ### [Distribuire SSPR](active-directory-passwords-best-practices.md)
 ### Amministratori IT: reimpostare le password
