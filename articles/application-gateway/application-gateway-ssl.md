@@ -1,5 +1,5 @@
 ---
-title: Configurare l&quot;offload SSL - Gateway applicazione di Azure - PowerShell versione classica | Documentazione Microsoft
+title: Configurare l'offload SSL - Gateway applicazione di Azure - PowerShell versione classica | Documentazione Microsoft
 description: Questo articolo fornisce istruzioni per la creazione di un gateway applicazione con offload SSL tramite il modello di distribuzione classica di Azure.
 documentationcenter: na
 services: application-gateway
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 9c56914091ecac3eb97977dd5afc2dc4588a052c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2eba6fb24c11add12ac16d04d3445e19a3486216
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurare un gateway applicazione per l'offload SSL tramite il modello di distribuzione classica
@@ -26,6 +27,7 @@ ms.openlocfilehash: 9c56914091ecac3eb97977dd5afc2dc4588a052c
 > * [Portale di Azure](application-gateway-ssl-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [PowerShell per Azure classico](application-gateway-ssl.md)
+> * [Interfaccia della riga di comando di Azure 2.0](application-gateway-ssl-cli.md)
 
 Il gateway applicazione di Azure può essere configurato per terminare la sessione Secure Sockets Layer (SSL) nel gateway ed evitare costose attività di decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
@@ -210,10 +212,5 @@ Per altre informazioni generali sulle opzioni di bilanciamento del carico, veder
 
 * [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

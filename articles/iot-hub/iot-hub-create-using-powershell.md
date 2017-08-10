@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 8271c10cceb7a98879b06704b65a716cd9ac6822
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 02227adeb8a9a7463506efa44ddc2977f8aae65a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>Creare un hub IoT usando il cmdlet New-AzureRmIotHub
@@ -30,7 +29,7 @@ ms.lasthandoff: 05/16/2017
 È possibile usare i cmdlet di Azure PowerShell per creare e gestire hub IoT di Azure. In questa esercitazione viene illustrato come creare un hub IoT con PowerShell.
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [modello di distribuzione classica e Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).  In questo articolo viene illustrato l'uso del modello di distribuzione Azure Resource Manager.
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e classico](../azure-resource-manager/resource-manager-deployment-model.md). In questo articolo viene illustrato l'uso del modello di distribuzione Azure Resource Manager.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -87,8 +86,10 @@ New-AzureRmIotHub `
     -Location "East US"
 ```
 
-> [!NOTE]
-> Il nome dell'hub IoT deve essere univoco.
+Il nome dell'hub IoT deve essere univoco.
+
+[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 
 È possibile elencare tutti gli hub IoT nella sottoscrizione con il comando seguente:
 

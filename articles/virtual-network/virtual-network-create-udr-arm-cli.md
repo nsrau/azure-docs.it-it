@@ -1,6 +1,6 @@
 ---
-title: Controllare il routing e i dispositivi virtuali usando l&quot;interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Informazioni su come controllare il routing e i dispositivi virtuali mediante l&quot;interfaccia della riga di comando di Azure 2.0.
+title: Controllare il routing e i dispositivi virtuali usando l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
+description: Informazioni su come controllare il routing e i dispositivi virtuali mediante l'interfaccia della riga di comando di Azure 2.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 3a85fa624dc55f31822f00910b6d124c1d37323f
-ms.lasthandoff: 03/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: e5d9519998346619093f443b740c8904283f76e8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>Creare route definite dall'utente con l'interfaccia della riga di comando di Azure 2.0
@@ -192,7 +192,7 @@ Per creare la tabella di route e la route necessarie per la subnet back-end in b
 
 Per abilitare l'inoltro dell'indirizzo IP nella scheda di interfaccia di rete usata da **FW1**, seguire questa procedura:
 
-1. Eseguire il comando [az network nic show](/cli/az/network/nic#show) con un filtro JMESPATH per visualizzare il valore **enable-ip-forwarding** corrente per **Enable IP forwarding** (Abilita inoltro IP). Il valore deve essere impostato su *false*.
+1. Eseguire il comando [az network nic show](/cli/azure/network/nic#show) con un filtro JMESPATH per visualizzare il valore **enable-ip-forwarding** corrente per **Enable IP forwarding** (Abilita inoltro IP). Il valore deve essere impostato su *false*.
 
     ```azurecli
     az network nic show \

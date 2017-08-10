@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bba753c4a4657a611503bb99aa8d714286ebcea5
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 9a91aedf452a391f23b1e5773ec12e2de5d4a288
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Creare una macchina virtuale Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure 2.0
@@ -165,7 +165,7 @@ Il caricamento del disco rigido virtuale potrebbe richiedere qualche minuto.
 ### <a name="create-a-managed-disk"></a>Creare un disco gestito
 
 
-Creare un disco gestito dal disco rigido virtuale con [az disk create](/cli/azure/disk/create). Nell'esempio seguente viene creato un disco gestito denominato *myManagedDisk* dal disco rigido virtuale caricato nell'account di archiviazione e nel contenitore denominati:
+Creare un disco gestito dal disco rigido virtuale con [az disk create](/cli/azure/disk#create). Nell'esempio seguente viene creato un disco gestito denominato *myManagedDisk* dal disco rigido virtuale caricato nell'account di archiviazione e nel contenitore denominati:
 
 ```azurecli
 az disk create \

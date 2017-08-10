@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: c0026cc516834c57ad5707b5e8684f963dca7c71
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 9dd85d38a64f0557fb4ef250b0e177e21bb84e53
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -61,7 +61,7 @@ az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
-Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Creare un indirizzo IP pubblico con [az network public-ip create](/cli/azure/public-ip#create). Nell'esempio seguente viene creato un indirizzo IP pubblico denominato *myPublicIP* nel gruppo di risorse *myResourceGroupLoadBalancer*:
+Per accedere all'app in Internet, assegnare un indirizzo IP pubblico al servizio di bilanciamento del carico. Creare un indirizzo IP pubblico con [az network public-ip create](/cli/azure/network/public-ip#create). Nell'esempio seguente viene creato un indirizzo IP pubblico denominato *myPublicIP* nel gruppo di risorse *myResourceGroupLoadBalancer*:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -120,7 +120,7 @@ az network lb rule create \
 Prima di distribuire alcune macchine virtuali e testare il servizio di bilanciamento, creare le risorse di rete virtuale di supporto. Per altre informazioni sulle reti virtuali, vedere l'esercitazione [Gestire le reti virtuali di Azure](tutorial-virtual-network.md).
 
 ### <a name="create-network-resources"></a>Creare risorse di rete
-Creare una rete virtuale con [az network vnet create](/cli/azure/vnet#create). L'esempio seguente crea una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet*:
+Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet#create). L'esempio seguente crea una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet*:
 
 ```azurecli-interactive 
 az network vnet create \

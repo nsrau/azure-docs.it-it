@@ -15,17 +15,15 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: d51ba4a40ff39f84ccad28c953fe57c845542b38
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f2153e783adb955cf9055b09ba9aa2592f51e4b4
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti ai clienti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. La [sicurezza operativa di Azure](https://docs.microsoft.com/azure/security/azure-operational-security) è un framework che incorpora le conoscenze acquisite tramite una varietà di funzionalità esclusive di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
-
-La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti ai clienti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure.
 
 Questa panoramica sulla sicurezza operativa di Azure è incentrata sulle aree seguenti:
 
