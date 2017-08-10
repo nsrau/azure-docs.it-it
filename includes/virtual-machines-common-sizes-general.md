@@ -71,6 +71,9 @@ ACU: 210-250
 <br>
 
 ## <a name="ds-series"></a>Serie DS
+
+ACU: 160
+
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3,5 |7 |2 |4.000/32 (43) |3.200/32 |2 / 500 |
@@ -79,6 +82,7 @@ ACU: 210-250
 | Standard_DS4 |8 |28 |56 |16 |32.000/256 (344) |25.600/256 |8 / 4000 |
 
 <br>
+
 ## <a name="d-series"></a>Serie D 
 
 ACU: 160

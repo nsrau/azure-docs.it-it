@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: syntaxc4
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 8dc965df2cd45366970effb29f246b0045a94717
 ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="create-a-xamarinios-app"></a>Creare un'app per Xamarin.iOS
@@ -35,11 +35,6 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
 * Un account Azure attivo. Se non è disponibile un account, iscriversi per accedere a una versione di valutazione di Azure e ottenere un massimo di 10 app per dispositivi mobili gratuite che potranno essere usate anche dopo il termine del periodo di valutazione. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Visual Studio con Xamarin. Per le istruzioni vedere [Configurazione e installazione di Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) .
 * Un computer Mac in cui siano stati installati Xcode v7.0 o versione successiva e Xamarin Studio Community. Vedere [Configurazione e installazione per Visual Studio e Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) e [Configurazione, installazione e verifiche per gli utenti Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
-
-> [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, passare alla pagina [Prova il servizio app](https://azure.microsoft.com/try/app-service/mobile/). È possibile creare immediatamente un'app per dispositivi mobili di base temporanea nel servizio app. Non è richiesta una carta di credito, né occorre impegnarsi in alcun modo.
->
->
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Creare un back-end dell'app per dispositivi mobili di Azure
 Seguire questa procedura per creare un back-end dell'app per dispositivi mobili.
