@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: 3b22dee95d064de8190d7429cc4118884fb81172
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 1a6c4b19261aa34e668554ccad2b6340cddf9bf5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: fornire l'iscrizione e l'accesso agli utenti con account LinkedIn
@@ -45,7 +44,7 @@ Per utilizzare LinkedIn come provider di identità in Azure Active Directory (Az
     ![LinkedIn - Installazione app](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
 ## <a name="configure-linkedin-as-an-identity-provider-in-your-tenant"></a>Configurare LinkedIn come provider di identità nel tenant
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
+1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
 2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Fornire un **Nome** per la configurazione del provider di identità. Ad esempio, immettere "LI".

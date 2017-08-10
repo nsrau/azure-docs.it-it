@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: de7e77b7d4c26b08e73036b8da67489823100f4c
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 2366905b8160675f77cbc41ba97540af70be8c01
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -122,7 +122,7 @@ Per prima cosa, deallocare la VM.
 az vm deallocate --resource-group myRGNetwork --name myFrontEndVM
 ```
 
-Usare il comando [az network public-ip update](/azure/network/public-ip#update) per aggiornare il metodo di allocazione. In questo caso, si imposta `--allocaion-metod` su *static*.
+Usare il comando [az network public-ip update](/cli/azure/network/public-ip#update) per aggiornare il metodo di allocazione. In questo caso, si imposta `--allocation-method` su *static*.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myFrontEndIP --allocation-method static

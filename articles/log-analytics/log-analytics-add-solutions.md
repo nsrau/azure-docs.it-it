@@ -16,10 +16,10 @@ ms.date: 07/27/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 494d9445ac1e1add24d085bd33ccd73aa152ec47
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: ee0191c63f12ae32708095362b8028a61ca731cc
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro
@@ -156,7 +156,7 @@ L'agente Windows per Log Analytics e l'agente System Center Operations Manager s
 | Monitoraggio delle prestazioni di rete | Windows | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | TCP esegue handshake ogni 5 secondi e i dati vengono inviati ogni 3 minuti |
 | Office 365 Analytics (anteprima) |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |su notifica |
 | Service Fabric Analytics |Windows |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |5 minuti |
-| Elenco dei servizi | Windows e Linux | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | 5 secondi |
+| Elenco dei servizi | Windows e Linux | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | 5 secondi |
 | SQL Assessment |Windows |![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) |![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) |7 giorni |
 | SurfaceHub |Windows |![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |![No](./media/log-analytics-add-solutions/oms-bullet-red.png) |all'arrivo |
 | System Center Operations Manager Assessment (anteprima) | Windows | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![No](./media/log-analytics-add-solutions/oms-bullet-red.png) | ![Sì](./media/log-analytics-add-solutions/oms-bullet-green.png) | 7 giorni |

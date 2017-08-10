@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 06c126f7fde27d17ceab5897fc6439a2513ed362
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 9e5eed35334f1b95441b8181c8e90645be78b389
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
@@ -168,7 +167,7 @@ Sì. Tutte le immagini e gli snapshot gestiti creati dopo il 9 giugno 2017 vengo
 
 **È possibile convertire macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
-No. Questa funzionalità non è ancora supportata. È prevista per la fine di luglio. 
+Sì
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 

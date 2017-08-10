@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 7134467421927e9a26e23f89684eeb6864a2f9a3
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C: uso della personalizzazione della lingua
@@ -25,22 +24,22 @@ ms.lasthandoff: 05/11/2017
 >[!NOTE] 
 >Questa funzionalità è disponibile in anteprima pubblica.  È consigliabile usare un tenant di test quando si usa questa funzionalità.  Tra la versione di anteprima e quella di disponibilità generale non sono previste modifiche di rilievo, ma Microsoft si riserva il diritto di apportare modifiche per migliorare la funzionalità.  Microsoft sarà lieta di ricevere commenti e suggerimenti sull'esperienza di utilizzo della funzionalità provata al fine di migliorarla.  Per fornire commenti e suggerimenti è possibile usare lo strumento smile in alto a destra nel portale di Azure.   Specificando a Microsoft eventuali requisiti aziendali e scenari per l'attivazione di questa funzionalità durante la fase di anteprima, sarà possibile ricevere le informazioni e l'assistenza necessarie.  È possibile scrivere a [aadb2cpreview@microsoft.com](mailto:aadb2cpreview@microsoft.com).
 
-La personalizzazione della lingua consente di modificare la lingua del percorso utente in base alle esigenze dei clienti.  Sono disponibile traduzioni in 37 lingue. Vedere in proposito la sezione [Informazioni aggiuntive](#additional-information).  Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare il testo nelle pagine in base alle esigenze.  
+La personalizzazione della lingua consente di modificare la lingua del percorso utente in base alle esigenze dei clienti.  Sono disponibili traduzioni in 36 lingue. Vedere a tal proposito la sezione [Informazioni aggiuntive](#additional-information).  Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare il testo nelle pagine in base alle esigenze.  
 
 ## <a name="how-does-language-customization-work"></a>Funzionamento della personalizzazione della lingua
-La personalizzazione della lingua consente di selezionare le lingue in cui è disponibile il percorso utente.  Dopo aver abilitato la funzionalità, è possibile specificare il parametro della stringa di query, ui_locales, dall'applicazione.  Quando si esegue la chiamata ad Azure AD B2C, la pagina viene convertita nelle impostazioni locali indicate.  L'uso del tipo di configurazione garantisce il controllo completo sulle lingue del percorso utente e ignora le impostazioni della lingua del browser del cliente.  Potrebbe non essere necessario un tale livello di controllo sulle lingue visualizzate dal cliente.  Se non si specifica un parametro ui_locales, l'esperienza del cliente è determinata dalle impostazioni del browser.  È comunque possibile controllare le lingue in cui il percorso utente è tradotto aggiungendole come lingue supportate.  Se il browser del cliente è impostato su una lingua che non si vuole supportare, viene visualizzata la lingua selezionata come impostazione predefinita nelle impostazioni cultura supportate.
+La personalizzazione della lingua consente di selezionare le lingue in cui è disponibile il percorso utente.  Dopo aver abilitato la funzionalità, è possibile specificare il parametro della stringa di query, ui_locales, dall'applicazione.  Quando si esegue la chiamata ad Azure AD B2C, la pagina viene convertita nelle impostazioni locali indicate.  L'uso del tipo di configurazione garantisce il controllo completo sulle lingue del percorso utente e ignora le impostazioni della lingua del browser del cliente. Potrebbe non essere necessario un tale livello di controllo sulle lingue visualizzate dal cliente.  Se non si specifica un parametro ui_locales, l'esperienza del cliente è determinata dalle impostazioni del browser.  È comunque possibile controllare le lingue in cui il percorso utente è tradotto aggiungendole come lingue supportate.  Se il browser del cliente è impostato su una lingua che non si vuole supportare, viene visualizzata la lingua selezionata come impostazione predefinita nelle impostazioni cultura supportate.
 
 1. **Lingua specificata tramite ui-locales**: dopo aver abilitato la personalizzazione della lingua, il percorso utente viene tradotto nella lingua qui specificata.
 2. **Lingua richiesta dal browser**: se il parametro ui-locales non è stato specificato, la pagina viene tradotta nella lingua richiesta dal browser, **se inclusa nelle lingue supportate**.
-3. **Lingua predefinita nei criteri**: se non è stata specificata alcuna lingua oppure è stata specificata una lingua non supportata, la pagina viene tradotta nella lingua predefinita nei criteri.
+3. **Lingua predefinita nei criteri**: se il browser non specifica alcuna lingua oppure è stata specificata una lingua non supportata, la pagina viene tradotta nella lingua predefinita nei criteri
 
 >[!NOTE]
->Se si fa uso di attributi utente personalizzati, è necessario fornire le traduzioni.  Per informazioni dettagliate, vedere la sezione [Personalizzazione delle stringhe](#customize-your-strings).
+>Se si fa uso di attributi utente personalizzati, è necessario fornire le traduzioni. Per informazioni dettagliate, vedere la sezione [Personalizzazione delle stringhe](#customize-your-strings).
 >
 
 ## <a name="support-uilocales-requested-languages"></a>Supporto di lingue richieste dal parametro ui_locales 
 Se si abilita la personalizzazione della lingua nei criteri, è ora possibile controllare la lingua del percorso utente aggiungendo il parametro ui_locales.
-1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-the-b2c-features-blade).
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings).
 2. Passare al criterio da abilitare per le traduzioni.
 3. Fare clic su **Personalizzazione della lingua**.
 4. Leggere attentamente l'avviso.  Non è possibile disabilitare la personalizzazione della lingua dopo averla abilitata.
@@ -51,7 +50,7 @@ Se si abilita la personalizzazione della lingua nei criteri, è ora possibile co
 Creare un elenco delle lingue consentite in cui tradurre il percorso utente quando non viene specificato il parametro ui_locales.
 1. Assicurarsi che la personalizzazione della lingua sia abilitata nei criteri in base alle istruzioni precedenti.
 2. Nel pannello **Modifica criterio** selezionare **Personalizzazione della lingua**.
-3. Verrà visualizzato il pannello **Lingue supportate**.  Da qui è possibile selezionare **Aggiungi risorsa**.
+3. Verrà visualizzato il pannello **Lingue supportate**.  Da qui è possibile selezionare **Aggiungi lingua**.
 4. Selezionare tutte le lingue da supportare.  
 
 >[!NOTE]
@@ -151,6 +150,8 @@ Se si vuole specificare un elenco preimpostato di valori per le risposte, è nec
 Quando si abilita la personalizzazione della lingua, le modifiche precedenti apportate alle etichette usando la personalizzazione dell'interfaccia utente della pagina vengono rimosse, ad eccezione degli attributi utente personalizzati.  Questo avviene allo scopo di evitare conflitti dovuti alla possibilità modificare le stringhe.  È possibile continuare a modificare le etichette e le altre stringhe caricando le risorse di lingua nella funzionalità di personalizzazione della lingua.
 ### <a name="microsoft-is-committed-to-provide-the-most-up-to-date-translations-for-your-use"></a>Microsoft si impegna a fornire le traduzioni più aggiornate
 Microsoft continuerà a migliorare le traduzioni e a garantirne la conformità.  Verranno identificati i bug e le modifiche alla terminologia globale e verranno eseguiti aggiornamenti compatibili con il percorso utente.
+### <a name="support-for-right-to-left-languages"></a>Supporto per lingue da destra a sinistra
+Non è disponibile il supporto per le lingue da destra a sinistra; se è necessaria questa funzionalità, richiederla in [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traduzioni per provider di identità basati su social network
 Vengono fornito il parametro OIDC ui_locales per gli account di accesso ai social network, che però non viene riconosciuto da alcuni provider di identità basati su social network, tra cui Facebook e Google. 
 ### <a name="browser-behavior"></a>Comportamento dei browser
@@ -175,7 +176,6 @@ Chrome e Firefox richiedono entrambi la relativa lingua preimpostata. Se è supp
 | Finlandese               | fi            |
 | Francese                | fr            |
 | Gujarati              | gu            |
-| Ebraico                | he            |
 | Hindi                 | hi            |
 | Croato              | hr            |
 | Ungherese             | hu            |

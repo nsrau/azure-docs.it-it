@@ -1,6 +1,6 @@
 ---
-title: Usare PowerShell per creare e configurare un&quot;area di lavoro di Log Analytics | Documentazione Microsoft
-description: "Log Analytics usa i dati provenienti dai server nell&quot;infrastruttura locale o cloud. È possibile raccogliere i dati del computer dall&quot;archiviazione di Azure quando vengono generati dalla diagnostica di Azure."
+title: Usare PowerShell per creare e configurare un'area di lavoro di Log Analytics | Documentazione Microsoft
+description: "Log Analytics usa i dati provenienti dai server nell'infrastruttura locale o cloud. È possibile raccogliere i dati del computer dall'archiviazione di Azure quando vengono generati dalla diagnostica di Azure."
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -14,10 +14,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-translationtype: Human Translation
-ms.sourcegitcommit: b39cd142925be91bd7a90183cada7ba040a344c0
-ms.openlocfilehash: b8ebf6a2b3c8d2e5b173e429f39c9836e7d214ac
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 6d9509935ad1924845e1e8d13778f4f52335ff89
+ms.contentlocale: it-it
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gestire Log Analytics con PowerShell
@@ -212,7 +213,7 @@ Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la dia
 
 Per informazioni dettagliate sulle metriche disponibili, vedere [Metriche supportate con il monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-Per informazioni dettagliate sui registri disponibili, vedere [Servizi supportati e schema per i log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
+Per informazioni dettagliate sui registri disponibili, vedere [Servizi supportati e schema per i log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-resource-diagnostic-logs).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -265,10 +266,5 @@ Lo script precedente può essere usato anche per la raccolta di log da account d
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [cmdlet di PowerShell per Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) .
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

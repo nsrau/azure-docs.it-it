@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
-ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 195751d4c5ac4021eb929e96d39b9d0e72d3070f
 ms.contentlocale: it-it
-ms.lasthandoff: 12/10/2016
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiviare il log attività di Azure
@@ -28,7 +28,7 @@ In questo articolo viene illustrato come è possibile usare il Portale di Azure,
 Prima di iniziare, è necessario [creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in cui poter archiviare il log attività. È consigliabile non usare un account di archiviazione esistente in cui sono archiviati altri dati non di monitoraggio, per poter controllare meglio l'accesso ai dati di monitoraggio. Se tuttavia in un account di archiviazione si archiviano anche log di diagnostica e metriche, può avere senso non solo usare tale account di archiviazione per il log attività, ma anche tenere tutti i dati di monitoraggio in una posizione centrale. L'account di archiviazione usato deve essere un account di archiviazione per utilizzo generico, non un account di archiviazione BLOB. L'account di archiviazione non deve trovarsi nella stessa sottoscrizione della sottoscrizione che emette log, purché l'utente che configura l'impostazione abbia un accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 ## <a name="log-profile"></a>Profilo del log
-Per archiviare il log attività con uno dei metodi seguenti, impostare il **profilo del log** per una sottoscrizione. Il profilo del log definisce il tipo di eventi archiviati o trasmessi e gli output (account di archiviazione e/o hub eventi). Definisce anche i criteri di conservazione (numero di giorni di conservazione) per gli eventi archiviati in un account di archiviazione. Se il criterio di conservazione viene impostato su zero, gli eventi vengono archiviati a tempo indeterminato. In caso contrario, si può impostare un valore qualsiasi compreso tra 1 e 2147483647. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata non rientrano quindi più nei criteri di conservazione e verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata attuale vengono eliminati i log relativi alla giornata precedente a ieri. [Fare clic qui per altre informazioni sui profili dei log](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles). 
+Per archiviare il log attività con uno dei metodi seguenti, impostare il **profilo del log** per una sottoscrizione. Il profilo del log definisce il tipo di eventi archiviati o trasmessi e gli output (account di archiviazione e/o hub eventi). Definisce anche i criteri di conservazione (numero di giorni di conservazione) per gli eventi archiviati in un account di archiviazione. Se il criterio di conservazione viene impostato su zero, gli eventi vengono archiviati a tempo indeterminato. In caso contrario, si può impostare un valore qualsiasi compreso tra 1 e 2147483647. I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata non rientrano quindi più nei criteri di conservazione e verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata attuale vengono eliminati i log relativi alla giornata precedente a ieri. [Fare clic qui per altre informazioni sui profili dei log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Archiviare il log attività con il portale
 1. Nel portale fare clic sul collegamento **Log attività** a sinistra. Se il collegamento Log attività non è visualizzato, fare prima clic sul collegamento **Altri servizi** .

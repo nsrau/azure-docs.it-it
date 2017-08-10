@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: disabilitare la verifica tramite posta elettronica durante l&quot;iscrizione dell&quot;utente | Documentazione Microsoft'
-description: Questo argomento illustra come disabilitare la verifica tramite posta elettronica durante l&quot;iscrizione dell&quot;utente in Azure Active Directory B2C
+title: 'Azure Active Directory B2C: disabilitare la verifica tramite posta elettronica durante l''iscrizione dell''utente | Documentazione Microsoft'
+description: Questo argomento illustra come disabilitare la verifica tramite posta elettronica durante l'iscrizione dell'utente in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/06/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: cedc7d3c16dd8acac2700f461305d28a8ba6c802
-ms.openlocfilehash: 5ab121e536479ef5584b222456e127d5bb12e24d
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: d8e44a8aade60d21734477d60bccc2bd5194436e
+ms.contentlocale: it-it
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: disabilitare la verifica tramite posta elettronica durante l'iscrizione dell'utente
@@ -27,7 +28,7 @@ Alcuni sviluppatori di applicazioni preferiscono ignorare la verifica tramite po
 
 Per impostazione predefinita, nei criteri di iscrizione la verifica tramite posta elettronica è abilitata. Per disabilitarla, seguire questa procedura:
 
-1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Fare clic su **Criteri di iscrizione** o su **Criteri di iscrizione o di accesso**, a seconda della configurazione usata per l'iscrizione.
 3. Fare clic sul criterio, ad esempio "B2C_1_SiUp", per aprirlo. Fare clic su **Modifica** nella parte superiore del pannello.
 4. Fare clic su **Personalizzazione dell'interfaccia utente della pagina**.
@@ -43,8 +44,3 @@ Per impostazione predefinita, nei criteri di iscrizione la verifica tramite post
 > 
 
 Commenti e suggerimenti sono sempre graditi. In caso di difficoltà con questo argomento o di suggerimenti per migliorarne il contenuto, è possibile lasciare un commento nella parte inferiore della pagina. Le richieste di funzionalità possono essere aggiunte in [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -1,7 +1,7 @@
 
 ---
 title: Creare un cluster di Service Fabric nel portale di Azure | Documentazione Microsoft
-description: Questo articolo descrive come configurare un cluster di Service Fabric protetto in Azure tramite il portale di Azure e l&quot;insieme di credenziali delle chiavi di Azure.
+description: Questo articolo descrive come configurare un cluster di Service Fabric protetto in Azure tramite il portale di Azure e l'insieme di credenziali delle chiavi di Azure.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2017
+ms.date: 06/21/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
-ms.openlocfilehash: c413f415cb056f079ed30cf444af4edbe20364ea
-ms.lasthandoff: 01/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7dda9520ce3d93bf0e86bd2481ad06c268d087c7
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
@@ -42,7 +42,7 @@ Questo articolo contiene una guida dettagliata che illustra i passaggi per la co
 
 Un cluster protetto è un cluster che impedisce l'accesso non autorizzato alle operazioni di gestione, tra cui distribuzione, aggiornamento ed eliminazione di applicazioni, servizi e dati in esso contenuti. Un cluster non protetto è un cluster a cui tutti gli utenti possono connettersi in qualsiasi momento ed eseguire operazioni di gestione. Sebbene sia possibile creare un cluster non protetto, è **consigliabile creare un cluster protetto**. Un cluster non protetto **non può essere protetto in un secondo momento**. Sarà necessario crearne uno nuovo.
 
-I concetti sono gli stessi per la creazione di cluster protetti, sia Linux che Windows. Per altre informazioni e script helper per la creazione di cluster Linux protetti, vedere [Creare cluster protetti in Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-cluster). I parametri ottenuti dallo script helper fornito possono essere immessi direttamente nel portale come descritto nella sezione [Creare un cluster nel portale di Azure](#create-cluster-portal).
+I concetti sono gli stessi per la creazione di cluster protetti, sia Linux che Windows. Per altre informazioni e script helper per la creazione di cluster Linux protetti, vedere [Creare cluster protetti in Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). I parametri ottenuti dallo script helper fornito possono essere immessi direttamente nel portale come descritto nella sezione [Creare un cluster nel portale di Azure](#create-cluster-portal).
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 Questa guida usa [Azure PowerShell][azure-powershell]. Quando si avvia una nuova sessione di PowerShell, accedere al proprio account Azure e selezionare la sottoscrizione prima di eseguire i comandi di Azure.
@@ -297,7 +297,7 @@ La sezione **Node Monitor** (Monitoraggio dei nodi) nel pannello del dashboard d
 > 
 
 ## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
-Ognuno dei tipi di nodo specificati nel cluster determina la configurazione di un set di scalabilità di macchine virtuali. Per informazioni dettagliate, vedere [Connessione remota a un'istanza di set di scalabilità di macchine virtuali][remote-connect-to-a-vm-scale-set].
+Ognuno dei tipi di nodo specificati nel cluster determina la configurazione di un set di scalabilità di macchine virtuali. Per i dettagli, vedere [Connessione remota a un'istanza di set di scalabilità di macchine virtuali][remote-connect-to-a-vm-scale-set].
 
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, è stato creato un cluster protetto tramite i certificati per l'autenticazione di gestione. Successivamente, [connettersi al cluster](service-fabric-connect-to-secure-cluster.md) e scoprire come [gestire i segreti delle applicazioni](service-fabric-application-secret-management.md).  Vedere anche [Service Fabric support options](service-fabric-support.md) (Opzioni di supporto di Service Fabric).

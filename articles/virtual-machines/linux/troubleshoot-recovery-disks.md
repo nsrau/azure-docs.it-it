@@ -1,7 +1,6 @@
 ---
-
-title: Usare una macchina virtuale per la risoluzione dei problemi relativi a Linux con l&quot;interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: Informazioni su come risolvere i problemi delle macchine virtuali Linux connettendo il disco del sistema operativo a una macchina virtuale di ripristino tramite l&quot;interfaccia della riga di comando di Azure 2.0
+title: Usare una macchina virtuale per la risoluzione dei problemi relativi a Linux con l'interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
+description: Informazioni su come risolvere i problemi delle macchine virtuali Linux connettendo il disco del sistema operativo a una macchina virtuale di ripristino tramite l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationCenter: 
 authors: iainfoulds
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 518a21896ddfc34156615907b710b421bcea42c1
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 7a28accce1bd328b2b486b588c44d91b03e42122
+ms.contentlocale: it-it
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -169,7 +168,7 @@ Per creare una macchina virtuale dal disco rigido virtuale originale, usare [que
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-Il modello distribuisce una macchina virtuale usando l'URI del disco rigido virtuale dal comando precedente. Distribuire il modello con il comando [az group deployment create](/cli/azure/vm/deployment#create). Specificare l'URI per il disco rigido virtuale originale e quindi specificare il tipo di sistema operativo e le dimensioni e il nome della macchina virtuale nel modo seguente:
+Il modello distribuisce una macchina virtuale usando l'URI del disco rigido virtuale dal comando precedente. Distribuire il modello con il comando [az group deployment create](/cli/azure/group/deployment#create). Specificare l'URI per il disco rigido virtuale originale e quindi specificare il tipo di sistema operativo e le dimensioni e il nome della macchina virtuale nel modo seguente:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: bfa902aae0b1ab4ca6a93387106b40a16c7288cd
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Supporto SSH per App Web di Azure in Linux
@@ -55,7 +55,7 @@ Se non lo si è già fatto, è necessario eseguire l'autenticazione con la sotto
 
 Affinché un'immagine Docker personalizzata supporti la comunicazione SSH tra il contenitore e il client nel portale di Azure, eseguire la procedura seguente per l'immagine Docker. 
 
-Questa procedura viene mostrata nell'archivio del Servizio app di Azure come esempio [qui](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1).
+Questa procedura viene mostrata nell'archivio del Servizio app di Azure come esempio [qui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Includere l'installazione `openssh-server` nell'[istruzione `RUN`](https://docs.docker.com/engine/reference/builder/#run) in Dockerfile per l'immagine e impostare la password per l'account radice su `"Docker!"`. 
 

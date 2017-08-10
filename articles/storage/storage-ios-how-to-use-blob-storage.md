@@ -1,6 +1,6 @@
 ---
-title: Come usare l&quot;archiviazione BLOB di Azure da iOS | Microsoft Docs
-description: Archiviare i dati non strutturati nel cloud con l&quot;archivio BLOB (archivio di oggetti) di Azure.
+title: Come usare l'archiviazione BLOB di Azure da iOS | Microsoft Docs
+description: Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure.
 services: storage
 documentationcenter: ios
 author: michaelhauss
@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: d5c004f3123c203a665fb421f81f4a14cfbeb26c
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: cb2810636c8c23dbd476dc2adf58b17d1887d575
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Come usare l'archivio BLOB da iOS
@@ -224,7 +223,8 @@ L'esempio seguente mostra come elencare tutti i BLOB in un contenitore. Quando s
 
 * **continuationToken** : il token di continuazione indica dove deve iniziare l'operazione di elenco. Se non viene specificato alcun token, i BLOB verranno elencati dall'inizio. È possibile elencare qualsiasi numero di BLOB, da zero a un massimo impostato. Anche se questo metodo restituisce zero risultati, se `results.continuationToken` non è nil, il servizio potrebbe includere altri BLOB che non sono stati elencati.
 * **prefix** : è possibile specificare il prefisso da usare per l'elenco di BLOB. Verranno elencati solo i BLOB che iniziano con questo prefisso.
-* **useFlatBlobListing** : come accennato nella sezione [Assegnazione di nome e riferimento a contenitori e BLOB](#naming-and-referencing-containers-and-blobs) , anche se il servizio BLOB è uno schema di Archiviazione semplice, è possibile creare una gerarchia virtuale assegnando ai BLOB un nome con le informazioni sul percorso. Gli elenchi non semplici, tuttavia, non sono attualmente supportati. Questa funzionalità sarà disponibile a breve. Per ora, questo valore dovrebbe essere **YES** (Sì).
+* **useFlatBlobListing** : come accennato nella sezione [Assegnazione di nome e riferimento a contenitori e BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) , anche se il servizio BLOB è uno schema di Archiviazione semplice, è possibile creare una gerarchia virtuale assegnando ai BLOB un nome con le informazioni sul percorso. Gli elenchi non semplici, tuttavia, non sono attualmente supportati. Questa funzionalità sarà disponibile a breve. Per ora, questo valore dovrebbe essere **YES** (Sì).
+
 * **blobListingDetails** : è possibile specificare quali elementi includere quando si elencano i BLOB
   * _AZSBlobListingDetailsNone_: elenca solo i BLOB di cui è stato eseguito il commit e non restituisce i metadati dei BLOB.
   * _AZSBlobListingDetailsSnapshots_: elenca i BLOB di cui è stato eseguito il commit e gli snapshot dei BLOB.

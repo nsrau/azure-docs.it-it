@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: Configurazione dell&quot;account Microsoft | Documentazione Microsoft'
-description: Fornire la registrazione e l&quot;accesso agli utenti con account Microsoft nelle applicazioni protette da Azure Active Directory B2C
+title: 'Azure Active Directory B2C: Configurazione dell''account Microsoft | Documentazione Microsoft'
+description: Fornire la registrazione e l'accesso agli utenti con account Microsoft nelle applicazioni protette da Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: 866d2b54b0b517cb9984fd5e98840fe3a6c69965
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 59879dc0b3fc1d7af3e2a1f67f1701f451de9126
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C: Fornire la registrazione e l'accesso agli utenti con account Microsoft
@@ -54,7 +53,7 @@ Per usare un account Microsoft come provider di identità in Azure Active Direct
     ![Account Microsoft - Supporto Live SDK](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
 
 ## <a name="configure-microsoft-account-as-an-identity-provider-in-your-tenant"></a>Configurare un account Microsoft come provider di identità nel tenant
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
+1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
 2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Fornire un **Nome** per la configurazione del provider di identità. Ad esempio, immettere "MSA".
