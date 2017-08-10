@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/01/2017
 ms.author: krnese
 ms.translationtype: HT
 ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
@@ -60,8 +60,7 @@ In questo articolo viene fornito un esempio di come è possibile usare Automatio
 
   > [!NOTE]
   > Se si desidera usare DSC per computer Windows su cui è installato WMF 4.0, vedere la sezione [Uso di DSC in ambienti non connessi](## Use DSC in disconnected environments).
-  >
-  >
+  
 
 Il servizio Mobility può essere installato tramite la riga di comando e accetta diversi argomenti. Ecco perché è necessario disporre dei file binari (dopo averli estratti dalla configurazione) e archiviarli in un punto in cui è possibile recuperarli usando una configurazione DSC.
 

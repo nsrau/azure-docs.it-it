@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
 ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
@@ -35,7 +35,7 @@ Questo articolo illustra come usare l'interfaccia della riga di comando di Azure
 >
 
 
-![Diagramma della connessione cross-premise gateway VPN da sito a sito](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-connection-diagram.png)
+![Diagramma della connessione cross-premise gateway VPN da sito a sito](./media/vpn-gateway-howto-site-to-site-resource-manager-cli/site-to-site-diagram.png)
 
 Una connessione gateway VPN da sito a sito viene usata per connettere la rete locale a una rete virtuale di Azure tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Questo tipo di connessione richiede un dispositivo VPN che si trova in locale con un indirizzo IP pubblico esterno assegnato. Per altre informazioni sui gateway VPN, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 
@@ -58,10 +58,10 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 VnetName                = TestVNet1 
 ResourceGroup           = TestRG1 
 Location                = eastus 
-AddressSpace            = 10.12.0.0/16 
+AddressSpace            = 10.11.0.0/16 
 SubnetName              = Subnet1 
-Subnet                  = 10.12.0.0/24 
-GatewaySubnet           = 10.12.255.0/27 
+Subnet                  = 10.11.0.0/24 
+GatewaySubnet           = 10.11.255.0/27 
 LocalNetworkGatewayName = Site2 
 LNG Public IP           = <VPN device IP address>
 LocalAddrPrefix1        = 10.0.0.0/24
@@ -92,7 +92,7 @@ Se non si ha già una rete virtuale, crearne una usando il comando [az network v
 L'esempio seguente crea una rete virtuale denominata "TestVNet1" e una subnet "Subnet1".
 
 ```azurecli
-az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.12.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.12.0.0/24
+az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
 ## 4. <a name="gwsub"></a>Creare la subnet del gateway
@@ -106,7 +106,7 @@ Le dimensioni della subnet del gateway specificata dipendono dalla configurazion
 Usare il comando [az network vnet subnet create](/cli/azure/network/vnet/subnet#create) per creare la subnet gateway.
 
 ```azurecli
-az network vnet subnet create --address-prefix 10.12.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
+az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
 
 ## <a name="localnet"></a>5. Creare il gateway di rete locale
