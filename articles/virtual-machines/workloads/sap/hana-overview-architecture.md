@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7270d4a2b01d0e746a575e6ec7f0e786684c7e3d
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 073763143e1131aded74f610037cd4aa1fd92f5e
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA (istanze di grandi dimensioni) in Azure 
@@ -111,7 +111,7 @@ Così come è possibile scegliere tra diversi tipi di VM con Macchine virtuali d
 
 A partire da luglio 2017, SAP HANA in Azure (istanze Large) è disponibile in diverse configurazioni nelle aree di Azure Stati Uniti occidentali, Stati Uniti orientali, Australia orientale, Australia sud-orientale, Europa occidentale ed Europa settentrionale:
 
-| Soluzione SAP | CPU | RAM | Archiviazione | Disponibilità |
+| Soluzione SAP | CPU | Memoria | Archiviazione | Disponibilità |
 | --- | --- | --- | --- | --- |
 | Ottimizzata per OLAP: SAP BW, BW/4HANA<br /> o SAP HANA per carico di lavoro OLAP generico | SAP HANA in Azure S72<br /> – 2 x processore Intel® Xeon® E7-8890 v3 |  768 GB |  3 TB | Disponibile |
 | --- | SAP HANA in Azure S144<br /> – 4 x processore Intel® Xeon® E7-8890 v3 |  1,5 TB |  6 TB | Non più disponibile |
@@ -290,8 +290,8 @@ Per l'allocazione dello spazio di archiviazione, vedere la tabella seguente, che
 | S192 | 4608 GB | 1024 GB | 1536 GB | 1024 GB |
 | S192m | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S384 | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
-| S384m | 12.000 GB | 2050 GB | 2050 GB | 20.450 GB |
-| S384xm | 16.000 GB | 2050 GB | 2050 GB | 2050 GB |
+| S384m | 12.000 GB | 2050 GB | 2050 GB | 2040 GB |
+| S384xm | 16.000 GB | 2050 GB | 2050 GB | 2040 GB |
 | S576 | 20.000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S768 | 28.000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S960 | 36.000 GB | 4100 GB | 2050 GB | 4100 GB |

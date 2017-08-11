@@ -8,18 +8,18 @@ manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.devlang: 
 ms.topic: 
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 692391385e0fbfd6c7fdd0d04464ebe1cc4dc482
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: a9dfb0af80ef018e5e655e6e5c78fb0b7e426794
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -191,7 +191,7 @@ Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a u
 
 Per poter usare i servizi di Azure è necessaria una sottoscrizione. Sono disponibili diversi tipi di sottoscrizione.
 
-**Account gratuito**: il collegamento per la registrazione di un account gratuito è nel [sito Web Azure](https://azure.microsoft.com/). Questo account offre un credito di 200 dollari per 30 giorni per provare una qualsiasi combinazione di risorse in Azure. Se si supera il credito disponibile, l'account viene sospeso. Alla fine del periodo di prova, i servizi vengono ritirati e non funzionano più. È possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
+**Account gratuito**: il collegamento per la registrazione di un account gratuito è nel [sito Web Azure](https://azure.microsoft.com/). Questo account offre un credito di 30 giorni per provare una qualsiasi combinazione di risorse in Azure. Se si supera il credito disponibile, l'account viene sospeso. Alla fine del periodo di prova, i servizi vengono ritirati e non funzionano più. È possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
 
 **Sottoscrizioni MSDN**: con una sottoscrizione MSDN si ottiene un credito Azure di un certo importo ogni mese. Ad esempio, con una sottoscrizione Microsoft Visual Studio Enterprise 2015 con MSDN si ottiene un credito Azure di \$ 150 al mese.
 
@@ -408,7 +408,7 @@ L'archiviazione file di Azure offre condivisioni file nel cloud tramite il proto
 
 Poiché una condivisione di Archiviazione file è una condivisione file SMB standard, le applicazioni in esecuzione in Azure possono accedere ai dati nella condivisione tramite le API di I/O del file system. Gli sviluppatori possono quindi usare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. I professionisti IT possono usare i cmdlet di PowerShell per creare, montare e gestire condivisioni di Archiviazione file nell'ambito delle attività di amministrazione delle applicazioni di Azure.
 
-Per altre informazioni, vedere [Mount an Azure File share and access the share in Windows](../../storage/storage-dotnet-how-to-use-files.md) (Montare una condivisione file di Azure e accedervi in Windows) o [Come usare l'archiviazione file di Azure con Linux](../../storage/storage-how-to-use-files-linux.md).
+Per altre informazioni, vedere [Introduzione ad Archiviazione file di Azure in Windows](../../storage/storage-file-how-to-use-files-windows.md) o [Come usare l'archiviazione file di Azure con Linux](../../storage/storage-how-to-use-files-linux.md).
 
 **Archiviazione tabelle**
 

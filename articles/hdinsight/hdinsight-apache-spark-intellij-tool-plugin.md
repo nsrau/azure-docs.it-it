@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a034276b893da2e08c40098090efb72fe9d54da3
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 2a7d0f2d557f33531a2d11f857594680e064da9f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Spark per il cluster HDInsight
@@ -106,12 +106,12 @@ Per le istruzioni di installazione vedere [Installazione del Toolkit di Azure pe
                 val conf = new SparkConf().setAppName("MyClusterApp")
                 val sc = new SparkContext(conf)
 
-                val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+                val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
                 //find the rows that have only one digit in the seventh column in the CSV file
                 val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 
-                rdd1.saveAsTextFile("wasbs:///HVACOut")
+                rdd1.saveAsTextFile("wasb:///HVACOut")
               }
 
             }

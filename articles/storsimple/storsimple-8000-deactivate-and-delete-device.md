@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5128f90ac477b67317bb30e0bc614ce35e9b3d46
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Disattivare ed eliminare un dispositivo StorSimple
@@ -53,6 +52,10 @@ Se si vuole eliminare completamente il dispositivo senza conservarne i dati, seg
 #### <a name="to-deactivate-the-device-and-delete-the-data"></a>Per disattivare il dispositivo ed eliminare i dati
 
 1. Prima di disattivare un dispositivo, è necessario eliminare i contenitori del volume (e i volumi) associati al dispositivo. È possibile eliminare i contenitori dei volumi solo dopo aver eliminato i backup associati.
+
+    > [!NOTE]
+    > Prima di disattivare un dispositivo fisico StorSimple o un’appliance cloud, assicurarsi che i dati del contenitore di volumi eliminato vengano effettivamente eliminati dal dispositivo. È possibile monitorare i grafici relativi all'utilizzo del cloud, e nel momento in cui viene visualizzato che l'utilizzo del cloud è in diminuzione a causa dei backup che sono stati eliminati, allora è possibile disattivare il dispositivo. Se si disattiva il dispositivo prima che si verifichi questo calo, i dati rimangono bloccati nell'account di archiviazione e ne conseguono addebiti.
+
 2. Disattivare il dispositivo come segue:
    
    1. Passare al servizio Gestione dispositivi StorSimple e fare clic su **Dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo che si desidera disattivare, fare clic con il tasto destro del mouse e quindi fare clic su **Disattiva**.

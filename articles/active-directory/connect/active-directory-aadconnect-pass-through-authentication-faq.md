@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/28/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ae45179d51fd093f1a3704690dd1b795533d9700
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: b8a08eb8fd036ad07ee6ce4cf624e8b5bc4c3ddc
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -52,7 +52,7 @@ No, la sincronizzazione dell'hash delle password non è un fallback generico per
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>È possibile installare un connettore del [proxy di applicazione di Azure AD](../active-directory-application-proxy-get-started.md) nello stesso server in cui è presente un agente di autenticazione pass-through?
 
-No, questa configurazione _non_ è supportata.
+Sì, questa configurazione è supportata con le versioni dell'agente di autenticazione pass-through ridenominate (versioni 1.5.193.0 o successive).
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Quali versioni di Azure AD Connect e dell'agente di autenticazione pass-through sono necessarie?
 
@@ -63,6 +63,10 @@ Per usare questa funzionalità, è necessario disporre della versione 1.1.486.0 
 Se è stato configurato il [writeback delle password](../active-directory-passwords-update-your-own-password.md) per un utente specifico e se l'utente esegue l'accesso usando l'autenticazione pass-through, questi può modificare o reimpostare la password. Le password vengono riscritte in Active Directory locale come previsto.
 
 Se invece il writeback delle password non è configurato o se l'utente non dispone di una licenza di Azure AD valida, l'utente non può aggiornare la propria password nel cloud, neanche se la password è scaduta. L'utente vedrà un messaggio simile a questo: "L'organizzazione non consente l'aggiornamento della password in questo sito. Aggiornare la password usando il metodo consigliato dall'organizzazione oppure contattare l'amministratore, se è necessaria assistenza". L'utente o l'amministratore deve reimpostare la password in Active Directory locale.
+
+## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>La modalità autenticazione pass-through è una protezione dagli attacchi di forza bruta alle password?
+
+Per maggiori informazioni, leggere [questo articolo](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Cosa comunicano gli agenti di autenticazione pass-through sulle porte 80 e 443?
 
