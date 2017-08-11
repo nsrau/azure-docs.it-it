@@ -1,8 +1,8 @@
 ---
 title: 'Azure AD Connect: autenticazione pass-through | Documentazione Microsoft'
-description: Questo articolo descrive l&quot;autenticazione pass-through di Azure Active Directory (Azure AD) e come consenta gli accessi ad Azure AD tramite la convalida delle password degli utenti in Active Directory locale.
+description: Questo articolo descrive l'autenticazione pass-through di Azure Active Directory (Azure AD) e come consenta gli accessi ad Azure AD tramite la convalida delle password degli utenti in Active Directory locale.
 services: active-directory
-keywords: "cos&quot;è l&quot;autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
+keywords: "cos'è l'autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
 documentationcenter: 
 author: swkrish
 manager: femila
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 07/27/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: f16299407a905b51b6e3f22dfb214cc71c1b9f9a
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 6acbc347d7b187a6aac603dd05cf95c6aba54475
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -34,6 +34,9 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 
 È possibile combinare l'autenticazione pass-through con la funzionalità [Accesso Single Sign-On facile](active-directory-aadconnect-sso.md). In questo modo, quando gli utenti accedono ad applicazioni dai computer aziendali all'interno della rete aziendale, non devono digitare la password per eseguire l'accesso.
 
+>[!IMPORTANT]
+>L'autenticazione pass-through di Azure AD è attualmente in fase di anteprima.
+
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Vantaggi principali dell'uso dell'autenticazione pass-through di Azure AD
 
 - *Miglioramento dell'esperienza utente*
@@ -47,7 +50,7 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 - *Proteggere*
   - Le password locali non vengono mai archiviate nel cloud in alcuna forma.
   - L'agente esegue solo le connessioni in uscita dalla rete. Pertanto, non è necessario installarlo in una rete perimetrale.
-  - Consente di proteggere gli account utente operando senza problemi con [i criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md), tra cui l'autenticazione a più fattori (MFA, Multi-Factor Authentication).
+  - Consente di proteggere gli account utente operando senza problemi con [i criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md), tra cui l'autenticazione a più fattori (MFA, Multi-Factor Authentication) e [filtrando gli attacchi di forza bruta alle password](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
 - *Disponibilità elevata*
   - È possibile installare altri agenti su più server locali per ottenere una disponibilità elevata delle richieste di accesso.
 
@@ -61,6 +64,7 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 - È possibile abilitarla tramite [Azure AD Connect](active-directory-aadconnect.md).
 - Usa un agente leggero locale che resta in ascolto e risponde alle richieste di convalida delle password.
 - L'installazione di più agenti garantisce la disponibilità elevata di richieste di accesso.
+- [Protegge](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) gli account locali dagli attacchi di forza bruta alle password nel cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -69,6 +73,6 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 - [**Approfondimento tecnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
 - [**Domande frequenti**](active-directory-aadconnect-pass-through-authentication-faq.md): risposte alle domande più frequenti.
 - [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
-- [**Accesso SSO facile di Azure AD**](active-directory-aadconnect-sso.md): altre informazioni su questa funzionalità complementare.
+- [**Seamless Single Sign-On di Azure AD**](active-directory-aadconnect-sso.md): altre informazioni su questa funzionalità complementare.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.
 

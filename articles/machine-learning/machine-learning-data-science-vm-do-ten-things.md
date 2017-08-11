@@ -1,5 +1,5 @@
 ---
-title: Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati | Documentazione Microsoft
+title: Dieci cose da fare con la macchina virtuale data science | Documentazione Microsoft
 description: "Eseguire diverse attività di esplorazione e modellazione dei dati nella macchina virtuale per l'analisi scientifica dei dati."
 services: machine-learning
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: gokuma;weig;bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b6ad821a89df17441921a157f136f3ca0869c8fb
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b154bd42c0f8bc6e185fa871b21249cad2869e72
 ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0c44d5bda8eb5b2e667fa888c9afcf58aec13534
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: c64417c136340b3ffa5d67c618c6fe037d2992b5
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Esercitazione: Integrazione di Azure Active Directory con Klue
@@ -122,13 +122,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
      
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, aggiornarli con l'URL di risposta, l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Klue](mailto:gsar@klue.com).
+    > Poiché questi non sono i valori reali, aggiornarli con l'URL di risposta, l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Klue](mailto:support@klue.com).
 
 5. L'applicazione Klue prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. 
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-klue-tutorial/attribute.png)
 
-6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente e seguire questa procedura:
+6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente ed eseguire i passaggi descritti di seguito:
     
     | Nome attributo      | Valore attributo      |
     | ------------------- | -------------------- |
@@ -160,11 +160,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-klue-tutorial/tutorial_klue_configure.png) 
 
-10. Per configurare l'accesso Single Sign-On sul lato **Klue**, è necessario inviare il **certificato (Base64) scaricato, l'URL del servizio Single Sign-On SAML e l'ID di entità SAML** al [team di supporto di Klue](mailto:gsar@klue.com).
+10. Per configurare l'accesso Single Sign-On sul lato **Klue**, è necessario inviare il **certificato (Base64) scaricato, l'URL del servizio Single Sign-On SAML e l'ID di entità SAML** al [team di supporto di Klue](mailto:support@klue.com).
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -199,7 +198,10 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-a-klue-test-user"></a>Creazione di un utente di test di Klue
 
-In questa sezione viene creato un utente di nome Britta Simon in Klue. Collaborare con il [team di supporto di Klue](mailto:gsar@klue.com) per aggiungere gli utenti alla piattaforma Klue. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Klue. Klue supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Klue viene creato un nuovo utente, se questo non esiste già.
+
+>[!Note]
+>Se è necessario creare un utente manualmente, contattare il [team di supporto di Klue](mailto:support@klue.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 

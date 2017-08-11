@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: d3c68e8a1bd7ec97d7dd14c3ba87cc886e2935ae
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
 ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI usando gli strumenti di visualizzazione di dati con Azure HDInsight
@@ -42,6 +42,10 @@ Questa esercitazione è disponibile anche come notebook di Jupyter in un cluster
 ## <a name="hivetable"></a>Preparare i dati per la visualizzazione dei dati di Spark
 
 In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) da un cluster Spark in HDInsight per eseguire i processi che elaborano i dati di esempio non elaborati e li salvano come tabella. I dati di esempio sono un file con estensione csv (hvac.csv) disponibile in tutti i cluster per impostazione predefinita. Dopo avere salvato i dati come tabella, nella sezione successiva vengono usati gli strumenti di business intelligence per connettersi alla tabella ed eseguire visualizzazioni di dati.
+
+> [!NOTE]
+> Se si eseguono i passaggi descritti in questo articolo dopo aver completato le istruzioni in [Eseguire query interattive in un cluster HDInsight Spark](hdinsight-apache-spark-load-data-run-query.md), è possibile procedere al passaggio 8 riportato di seguito.
+>
 
 1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark, se è stato aggiunto sulla Schermata iniziale. È anche possibile passare al cluster da **Esplora tutto** > **Cluster HDInsight**.   
 
@@ -71,7 +75,7 @@ In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) da u
     In una cella vuota incollare il frammento di codice seguente e premere **MAIUSC+INVIO**. Questo frammento di codice consente di registrare i dati in una tabella denominata **hvac**.
 
         # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         # Create a schema for our data
         Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
@@ -202,8 +206,9 @@ Dopo aver salvato i dati come una tabella, è possibile usare Power BI per conne
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Finora è stato descritto come creare un cluster, frame di dati Spark e quindi accedere ai dati dagli strumenti di BI. È ora possibile esaminare le istruzioni su come gestire le risorse del cluster ed eseguire il debug dei processi in esecuzione in un cluster HDInsight Spark.
+Finora è stato descritto come creare un cluster, frame di dati Spark per i dati query e quindi accedere ai dati dagli strumenti di BI. È ora possibile esaminare le istruzioni su come gestire le risorse del cluster ed eseguire il debug dei processi in esecuzione in un cluster HDInsight Spark.
 
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
+
 
