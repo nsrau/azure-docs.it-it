@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3ab0f37147330cb55da8b0955a359cca27750e70
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: d55cecf20abdf1637f0537e63a3dba5992a68741
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
@@ -35,6 +34,74 @@ Argomento |  Dettagli
 Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect.
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Scaricare| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="115610"></a>1.1.561.0
+Stato: 23 luglio 2017
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+
+#### <a name="fixed-issue"></a>Problema risolto
+
+* È stato risolto un problema che causava la rimozione della regola di sincronizzazione predefinita "Uscita ad Active Directory - Utente ImmutableId":
+
+  * Il problema si verifica quando viene aggiornato Azure AD Connect o quando l'opzione dell’attività *Aggiorna configurazione di sincronizzazione* nella procedura guidata di AD Azure Connect viene usata per aggiornare la configurazione di sincronizzazione di Azure AD Connect.
+  
+  * Questa regola di sincronizzazione è applicabile ai clienti che hanno attivato la [funzione msDS-ConsistencyGuid come ancoraggio di origine](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). Questa funzione è stata introdotta nella versione 1.1.524.0 e successive. Quando la regola di sincronizzazione viene rimossa, Azure AD Connect non può più popolare l'attributo locale ms-DS-ConsistencyGuid di Active Directory con il valore dell'attributo ObjectGuid. Ciò non impedisce il provisioning di nuovi utenti in Azure AD.
+  
+  * La correzione assicura che la regola di sincronizzazione non venga più rimossa durante l'aggiornamento o durante la modifica della configurazione, purché la funzione sia abilitata. Per i clienti esistenti interessati da questo problema, la correzione assicura inoltre che la regola di sincronizzazione venga nuovamente aggiunta dopo l'aggiornamento a questa versione di Azure AD Connect.
+
+* È stato risolto un problema che imposta la precedenza delle regole di sincronizzazione predefinite a un valore minore di 100:
+
+  * in generale, i valori di priorità 0 - 99 sono riservati alle regole di sincronizzazione personalizzate. Durante l'aggiornamento, vengono aggiornati i valori di precedenza delle regole di sincronizzazione predefinite per implementare le modifiche alle regole di sincronizzazione. A causa di questo problema, può essere assegnato un valore di precedenza alle regole di sincronizzazione predefinite minore di 100.
+  
+  * La correzione impedisce che il problema si verifichi durante l'aggiornamento. Tuttavia, non verranno ripristinati i valori di priorità per i clienti esistenti che sono stati interessati dal problema. Verrà fornita in futuro una correzione separata per facilitare il ripristino.
+
+* È stato risolto un problema che nella [schermata di dominio e filtro dell’unità organizzativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) della procedura guidata di AD Azure Connect mostra l’opzione *Sincronizza tutti i domini e le unità organizzative* come selezionata, anche se è abilitato il filtro basato sulle unità organizzative.
+
+*   È stato risolto un problema che causava la comparsa di un errore nella [schermata Configura partizioni di Directory](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) all’interno del Synchronization Service Manager quando si faceva clic sul pulsante *Aggiorna*. Il messaggio di errore è *"Si è verificato un errore durante l'aggiornamento dei domini: impossibile eseguire il cast dell'oggetto di tipo 'System.Collections.ArrayList' al tipo 'Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject'."* L'errore si verifica quando il nuovo dominio di Active Directory è stato aggiunto a una foresta di Active Directory esistente e si sta tentando di aggiornare Azure AD Connect con il pulsante Aggiorna.
+
+#### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
+
+* La [funzionalità di aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) è stata ampliata per supportare i clienti con le seguenti configurazioni:
+  * È stata abilitata la funzionalità di writeback dei dispositivi.
+  * È stata abilitata la funzionalità di writeback dei gruppi.
+  * L'installazione non è un aggiornamento delle impostazioni rapide o di DirSync.
+  * Il metaverse include più di 100.000 oggetti.
+  * Viene stabilita la connessione a più foreste. L'installazione rapida si connette a una sola foresta.
+  * L'account AD Connect non è più l'account MSOL_ predefinito.
+  * Il server è in modalità di staging.
+  * È stata abilitata la funzionalità di writeback degli utenti.
+  
+  >[!NOTE]
+  >L'espansione dell'ambito di applicazione della funzionalità di aggiornamento automatico interessa i clienti di Azure AD Connect con build 1.1.105.0 e successive. Se non si desidera l'aggiornamento automatico del server di Azure AD Connect, è necessario eseguire il seguente cmdlet nel server di Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Per maggiori informazioni su come abilitare/disabilitare l'aggiornamento automatico, vedere l'articolo [Azure AD Connect: aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md).
+
+## <a name="115580"></a>1.1.558.0
+Stato: non verrà rilasciato. Le modifiche apportate a questa build sono incluse nella versione 1.1.561.0.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+
+#### <a name="fixed-issue"></a>Problema risolto
+
+* È stato risolto un problema che causava la rimozione della regola di sincronizzazione predefinita "Uscita ad Active Directory - Utente ImmutableId" in caso di aggiornamento della configurazione del filtro basato sulle unità organizzative. Questa regola di sincronizzazione è richiesta per la [funzione msDS-ConsistencyGuid come ancoraggio di origine](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+
+* È stato risolto un problema che nella [schermata di dominio e filtro dell’unità organizzativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) della procedura guidata di AD Azure Connect mostra l’opzione *Sincronizza tutti i domini e le unità organizzative* come selezionata, anche se è abilitato il filtro basato sulle unità organizzative.
+
+*   È stato risolto un problema che causava la comparsa di un errore nella [schermata Configura partizioni di Directory](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) all’interno del Synchronization Service Manager quando si faceva clic sul pulsante *Aggiorna*. Il messaggio di errore è *"Si è verificato un errore durante l'aggiornamento dei domini: impossibile eseguire il cast dell'oggetto di tipo 'System.Collections.ArrayList' al tipo 'Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject'."* L'errore si verifica quando il nuovo dominio di Active Directory è stato aggiunto a una foresta di Active Directory esistente e si sta tentando di aggiornare Azure AD Connect con il pulsante Aggiorna.
+
+#### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
+
+* La [funzionalità di aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) è stata ampliata per supportare i clienti con le seguenti configurazioni:
+  * È stata abilitata la funzionalità di writeback dei dispositivi.
+  * È stata abilitata la funzionalità di writeback dei gruppi.
+  * L'installazione non è un aggiornamento delle impostazioni rapide o di DirSync.
+  * Il metaverse include più di 100.000 oggetti.
+  * Viene stabilita la connessione a più foreste. L'installazione rapida si connette a una sola foresta.
+  * L'account AD Connect non è più l'account MSOL_ predefinito.
+  * Il server è in modalità di staging.
+  * È stata abilitata la funzionalità di writeback degli utenti.
+  
+  >[!NOTE]
+  >L'espansione dell'ambito di applicazione della funzionalità di aggiornamento automatico interessa i clienti di Azure AD Connect con build 1.1.105.0 e successive. Se non si desidera l'aggiornamento automatico del server di Azure AD Connect, è necessario eseguire il seguente cmdlet nel server di Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Per maggiori informazioni su come abilitare/disabilitare l'aggiornamento automatico, vedere l'articolo [Azure AD Connect: aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md).
 
 ## <a name="115570"></a>1.1.557.0
 Stato: luglio 2017
@@ -222,8 +289,8 @@ Servizio di sincronizzazione Azure AD Connect
 * Azure AD Connect abilita ora automaticamente l'uso dell'attributo ConsistencyGuid come l'attributo sourceAnchor per gli oggetti AD locali. Inoltre, Azure AD Connect popola l'attributo ConsistencyGuid con il valore dell'attributo objectGuid se è vuoto. Questa funzionalità è applicabile soltanto alla nuova distribuzione. Per altre informazioni su questa funzionalità, consultare la sezione [Azure AD Connect: Concetti relativi alla progettazione - Uso di msDS-ConsistencyGuid come sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
 * È stato aggiunto il nuovo cmdlet di risoluzione dei problemi Invoke-ADSyncDiagnostics. Il cmdlet facilita la diagnosi dei problemi relativi alla sincronizzazione dell'hash delle password. Per informazioni sull'uso del cmdlet, vedere l'articolo [Risolvere i problemi di sincronizzazione della password con il servizio di sincronizzazione Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
 * Azure AD Connect supporta ora la sincronizzazione delle cartelle pubbliche abilitate alla posta elettronica da AD locale ad Azure AD. È possibile abilitare la funzionalità tramite la procedura guidata di Azure AD Connect, in Funzionalità facoltative. Per altre informazioni su questa funzionalità, vedere l'articolo [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders) (Supporto del blocco Edge basato sulla directory di Office 365 per le cartelle pubbliche abilitate alla posta elettronica in locale).
-* Azure AD Connect richiede gli account AD DS per la sincronizzazione da AD locale. In precedenza, se si installava Azure AD Connect con la modalità di installazione rapida, era possibile fornire le credenziali di un account amministratore dell'organizzazione. Era Azure AD Connect a creare l'account AD DS necessario. Tuttavia, per le installazioni personalizzate e per l'aggiunta di foreste a una distribuzione esistente, è necessario invece fornire l'account AD DS. Ora è possibile specificare le credenziali di un account amministratore dell'organizzazione durante l'installazione personalizzata e lasciare che Azure AD Connect crei l'account di AD DS necessario.
-* Azure AD Connect supporta ora SQL AOA. È necessario abilitare SQL prima di installare Azure AD Connect. Durante l'installazione, Azure AD Connect rileva se l'istanza SQL specificata è abilitata per SQL AOA oppure no. Se SQL AOA è abilitato, Azure AD Connect rileva quindi se SQL AOA è configurato per usare la replica sincrona o asincrona. Quando si configura il listener del gruppo di disponibilità, è consigliabile impostare la proprietà RegisterAllProvidersIP su 0. Ciò perché Azure AD Connect usa il client nativo di SQL per connettersi a SQL e il client nativo SQL non supporta l'uso della proprietà MultiSubNetFailover.
+* Azure AD Connect richiede un account AD DS per la sincronizzazione da AD locale. In precedenza, se era stato installato Azure AD Connect usando la modalità rapida, era possibile fornire le credenziali di un account amministratore Enterprise e Azure AD Connect creava quindi l'account Active Directory Domain Services necessario. Tuttavia, per le installazioni personalizzate e per l'aggiunta di foreste a una distribuzione esistente, era necessario invece fornire l'account Active Directory Domain Services. Ora è possibile specificare le credenziali di un account amministratore Enterprise durante un'installazione personalizzata e lasciare che Azure AD Connect crei l'account di AD DS necessario.
+* Azure AD Connect supporta ora SQL AOA. È necessario abilitare SQL AOA prima di installare Azure AD Connect. Durante l'installazione, Azure AD Connect rileva se l'istanza SQL specificata è abilitata per SQL AOA oppure no. Se SQL AOA è abilitato, Azure AD Connect rileva quindi se SQL AOA è configurato per usare la replica sincrona o asincrona. Quando si configura il listener del gruppo di disponibilità, è consigliabile impostare la proprietà RegisterAllProvidersIP su 0. Ciò perché Azure AD Connect usa il client nativo di SQL per connettersi a SQL e il client nativo SQL non supporta l'uso della proprietà MultiSubNetFailover.
 * Se si usa LocalDB come database di Azure AD Connect ed è stato raggiunto il limite di 10 GB, il servizio di sincronizzazione non si avvia. In precedenza, era necessario eseguire l'operazione ShrinkDatabase su LocalDB per recuperare lo spazio sufficiente per l'avvio del servizio di sincronizzazione. Dopo questa operazione, era possibile usare Synchronization Service Manager per eliminare la cronologia dell'esecuzione e recuperare spazio per il database. Ora è possibile usare il cmdlet ADSyncPurgeRunHistory per eseguire la pulizia dei dati della cronologia di esecuzione da LocalDB e recuperare spazio per il database. Questo cmdlet supporta una modalità offline (specificando il parametro -offline) che può essere usata quando il servizio di sincronizzazione non è in esecuzione. Nota: la modalità offline può essere usata solo se il servizio di sincronizzazione non è in esecuzione e se il database in uso è LocalDB.
 * Per ridurre lo spazio di archiviazione necessario, Azure AD Connect consente ora di comprimere i dettagli degli errori di sincronizzazione prima di archiviarli nei database LocalDB/SQL. Durante l'aggiornamento da una versione precedente di Azure AD Connect a questa versione, Azure AD Connect esegue una singola compressione dei dettagli di errore di sincronizzazione esistenti.
 * In precedenza, dopo l'aggiornamento della configurazione del filtro dell'unità organizzativa, era necessario eseguire manualmente l'importazione completa per verificare che gli oggetti esistenti fossero correttamente inclusi/esclusi dalla sincronizzazione della directory. Ora Azure AD Connect attiva automaticamente l'importazione completa durante il ciclo di sincronizzazione successivo. Inoltre, l'importazione completa viene applicata soltanto ai connettori AD interessati dall'aggiornamento. Nota: questo miglioramento è applicabile agli aggiornamenti del filtro dell'unità organizzativa, eseguiti soltanto con la procedura guidata di Azure AD Connect. Non è applicabile all'aggiornamento del filtro dell'unità organizzativa eseguito tramite Synchronization Service Manager.

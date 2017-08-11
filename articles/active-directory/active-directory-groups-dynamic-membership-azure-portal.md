@@ -1,7 +1,6 @@
 ---
-
 title: Appartenenza dinamica ai gruppi basata su attributi in Azure Active Directory | Microsoft Docs
-description: Procedura per creare regole avanzate per l&quot;appartenenza dinamica ai gruppi, inclusi i parametri e gli operatori supportati per le regole delle espressioni.
+description: Procedura per creare regole avanzate per l'appartenenza dinamica ai gruppi, inclusi i parametri e gli operatori supportati per le regole delle espressioni.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,19 +15,29 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 2f1d68c7127324477cfc8b87df0fd82dee7cd1d6
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 0b861bea8948c7022d2ce95a2a7975a5ad7ad8a7
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
-In Azure Active Directory (Azure AD) è possibile creare regole avanzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica.
+In Azure Active Directory (Azure AD) è possibile creare regole avanzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi.
 
-## <a name="to-create-the-advanced-rule"></a>Per creare la regola avanzata
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
+Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica attiverà aggiunte o rimozioni nel gruppo. Se un utente o un dispositivo soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfano la regola, vengono rimossi.
+
+> [!NOTE]
+> - È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365.
+>
+> - Questa funzionalità richiede una licenza Azure AD Premium P1 per ogni utente membro per almeno un gruppo dinamico.
+>
+> - Sebbene sia possibile creare un gruppo dinamico per i dispositivi o gli utenti, non è possibile creare una regola che contenga sia oggetti utente che dispositivo.
+
+> - Al momento non è possibile creare un gruppo di dispositivi in base agli attributi dell'utente proprietario. Le regole di appartenenza dispositivo possono fare riferimento solo ad attributi immediati degli oggetti dispositivo nella directory.
+
+## <a name="to-create-an-advanced-rule"></a>Per creare una regola avanzata
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale o amministratore di account utente.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
 
    ![Apertura di Gestione utenti](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
@@ -90,7 +99,8 @@ Tutti gli operatori sono elencati di seguito in base alla precedenza, dal minore
 
 Tutti gli operatori possono essere usati con o senza trattino come prefisso.
 
-Si noti che le parentesi non sono sempre necessarie. Le parentesi devono essere aggiunte solo quando la precedenza non rispetta i requisiti specifici, ad esempio:
+Si noti che le parentesi non sono sempre necessarie. Le parentesi devono essere aggiunte solo quando la precedenza non rispetta i requisiti specifici,
+ad esempio:
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
@@ -150,7 +160,7 @@ Operatori consentiti
 | --- | --- | --- |
 | city |Qualsiasi valore stringa o $null |(user.city -eq "valore") |
 | country |Qualsiasi valore stringa o $null |(user.country -eq "valore") |
-| CompanyName | Qualsiasi valore stringa o $null | (user.CompanyName -eq "valore") |
+| companyName | Qualsiasi valore stringa o $null | (user.companyName -eq "value") |
 | department |Qualsiasi valore stringa o $null |(user.department -eq "valore") |
 | displayName |Qualsiasi valore stringa. |(user.displayName -eq "valore") |
 | facsimileTelephoneNumber |Qualsiasi valore stringa o $null |(user.facsimileTelephoneNumber -eq "valore") |
@@ -160,7 +170,7 @@ Operatori consentiti
 | mailNickName |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
 | mobile |Qualsiasi valore stringa o $null |(user.mobile -eq "valore") |
 | objectId |GUID dell'oggetto utente |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
-| onPremisesSecurityIdentifier | ID di sicurezza (SID) locale per gli utenti sincronizzati da un ambiente locale al cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| onPremisesSecurityIdentifier | Identificatore di sicurezza (SID) locale per gli utenti sincronizzati da un ambiente locale al cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Nessuno DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Qualsiasi valore stringa o $null |(user.physicalDeliveryOfficeName -eq "valore") |
 | postalCode |Qualsiasi valore stringa o $null |(user.postalCode -eq "valore") |
@@ -191,9 +201,9 @@ Operatori consentiti
 * -any (soddisfatto quando almeno un elemento della raccolta corrisponde alla condizione)
 * -all (soddisfatto quando tutti gli elementi della raccolta corrispondono alla condizione)
 
-| Proprietà | Valori | Utilizzo |
+| Proprietà | Valori | Uso |
 | --- | --- | --- |
-| assigendPlans |Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| assignedPlans |Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. È possibile usare gli operatori -any e -all per applicare una condizione rispettivamente a uno o a tutti gli elementi della raccolta. ad esempio:
 
