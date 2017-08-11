@@ -1,6 +1,6 @@
 ---
 title: API per clienti Enterprise per la fatturazione di Azure | Microsoft Docs
-description: Informazioni sulle API di creazione di report che consentono ai clienti Enterprise di Azure di estrarre i dati sull&quot;uso a livello di codice.
+description: Informazioni sulle API di creazione di report che consentono ai clienti Enterprise di Azure di estrarre i dati sull'uso a livello di codice.
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,19 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 343b71e28adfd32295b837a40ecf64083341b972
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: e3a5f9bcd6b54a51c29df649f1ae8ac185b153a1
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="overview-of-reporting-apis-for-enterprise-customers-preview"></a>Panoramica delle API di creazione di report per i clienti Enterprise (anteprima)
+# <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Panoramica delle API di creazione di report per i clienti Enterprise
 Le API di creazione di report consentono ai clienti Enterprise di Azure di estrarre i dati di fatturazione e sull'uso a livello di codice per inserirli negli strumenti di analisi preferiti. 
 
 ## <a name="enabling-data-access-to-the-api"></a>Abilitazione dell'API per l'accesso ai dati
-* **Generare\Recuperare la chiave API** - Accedere a Enterprise Portal e seguire l'esercitazione disponibile nella sezione della Guida relativa alle API di creazione di report. La prima sezione in tale articolo illustra come generare/recuperare la chiave API per la registrazione specificata.
+* **Generare o recuperare la chiave API**: accedere a Enterprise Portal e seguire l'esercitazione disponibile nella sezione della Guida relativa alle API di creazione di report. La prima sezione in tale articolo illustra come generare o recuperare la chiave API per la registrazione specificata.
 * **Passare le chiavi nell'API** - La chiave API deve essere passata per ogni chiamata per l'autenticazione e l'autorizzazione. La proprietà seguente deve essere passata alle intestazioni HTTP:
 
 |Chiave intestazione necessaria | Valore|
@@ -35,7 +34,7 @@ Le API di creazione di report consentono ai clienti Enterprise di Azure di estra
 |Authorization| Specificare il valore nel formato: **bearer {API_KEY}** <br/> Esempio: bearer eyr....09|
 
 ## <a name="consumption-apis"></a>API per l'uso
-Per le API descritte di seguito, [qui](https://consumption.azure.com/v1/swagger) è disponibile un endpoint Swagger che deve consentire una facile analisi dell'API e la possibilità di generare SDK client tramite [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](http://swagger.io/swagger-codegen/). I dati a partire dal 1° maggio 2014 sono disponibili tramite questa API. 
+Per le API descritte di seguito, [qui](https://consumption.azure.com/swagger/ui/index) è disponibile un endpoint Swagger che deve consentire una facile analisi dell'API e la possibilità di generare SDK client tramite [AutoRest](https://github.com/Azure/AutoRest) o [Swagger CodeGen](http://swagger.io/swagger-codegen/). I dati a partire dal 1° maggio 2014 sono disponibili tramite questa API. 
 
 * **Saldi e riepilogo** - L'[API per saldi e riepilogo](billing-enterprise-api-balance-summary.md) offre un riepilogo mensile delle informazioni su saldi, nuovi acquisti, addebiti per il servizio Azure Marketplace e spese per modifiche e da pagare in eccedenza.
 
