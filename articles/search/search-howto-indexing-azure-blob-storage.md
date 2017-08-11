@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/15/2017
+ms.date: 07/22/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: faa6d403aa130738ae0b58ba1ffc828a1e37e9f4
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b60662cbe655eea11cba2aaaaa4671209bf018f4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -34,12 +34,13 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 * XML
 * ZIP
 * EML
-* File di testo normale  
-* JSON (vedere la funzionalità in anteprima [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md))
+* RTF
+* File di testo normale (vedere anche [Indicizzazione di testo normale](#IndexingPlainText))
+* JSON (vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md))
 * CSV (vedere la funzionalità in anteprima [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md))
 
 > [!IMPORTANT]
-> Il supporto per gli array in formato CSV e JSON è attualmente in anteprima. Tali formati sono disponibili solo usando la versione **2015-02-28-Preview** dell'API REST o la versione 2.x-preview dell'SDK .NET. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
+> Il supporto per gli array in formato CSV e JSON è attualmente in anteprima. Tali formati sono disponibili solo usando la versione **2016-09-01-Preview** dell'API REST o la versione 2.x-preview dell'SDK .NET. Si ricordi che le API di anteprima servono per il test e la valutazione e non devono essere usate negli ambienti di produzione.
 >
 >
 
@@ -88,8 +89,8 @@ Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare u
 Per specificare le credenziali per il contenitore BLOB, sono disponibili questi modi:
 
 - **Stringa di connessione dell'account di archiviazione per accesso completo**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Per ottenere la stringa di connessione dal portale di Azure, passare al pannello dell'account di archiviazione e quindi selezionare Impostazioni > Chiavi (per gli account di archiviazione della versione classica) oppure Impostazioni > Chiavi di accesso (per gli account di archiviazione di Azure Resource Manager).
-- Stringa di connessione della **firma di accesso condiviso dell'account di archiviazione**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. La firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori e gli oggetti (BLOB).
--  **Firma di accesso condiviso per il contenitore**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. La firma di accesso condiviso deve avere le autorizzazioni per le operazioni di elenco e lettura sul contenitore.
+- **Stringa di connessione della firma di accesso condiviso (SAS) dell'account di archiviazione**: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` la SAS deve avere le autorizzazioni per le operazioni di elenco e lettura per i contenitori e gli oggetti (oggetti binario di grandi dimensioni).
+-  **Firma di accesso condiviso**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`la firma di accesso condiviso (SAS) deve avere le autorizzazioni per le operazioni di elenco e lettura sul contenitore.
 
 Per altre informazioni sulle firme di accesso condiviso per l'archiviazione, vedere [Uso delle firme di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -141,7 +142,7 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
 
 > [!NOTE]
 > Per impostazione predefinita, i BLOB con contenuto strutturato, come quelli in formato JSON o CSV, vengono indicizzati come un unico blocco di testo. Per indicizzare i BLOB JSON e CSV in modo strutturato, vedere le funzionalità in anteprima [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) e [Indicizzazione di BLOB CSV](search-howto-index-csv-blobs.md).
-> 
+>
 > Anche un documento composito o incorporato (ad esempio, un archivio ZIP o un documento di Word con una e-mail di Outlook incorporata con allegati) viene indicizzato come documento singolo.
 
 * Il contenuto di testo del documento viene estratto in un campo di tipo stringa denominato `content`.
@@ -339,13 +340,35 @@ L'indicizzazione di BLOB può richiedere molto tempo. Quando si hanno milioni di
 
 - Creare un indicizzatore corrispondente per ogni origine dati. Tutti gli indicizzatori possono puntare allo stesso indice di ricerca di destinazione.  
 
+- Un'unità di ricerca del servizio permette di eseguire un indicizzatore in qualsiasi momento. La creazione di più indicizzatori come descritto in precedenza è utile solo se effettivamente eseguiti in parallelo. Per eseguire più indicizzatori in parallelo, scalare orizzontalmente il servizio di ricerca mediante la creazione di un numero appropriato di partizioni e repliche. Ad esempio, se il servizio di ricerca dispone di 6 unità di ricerca (ad esempio 2 partizioni x 3 repliche), con 6 indicizzatori che possono quindi essere eseguiti contemporaneamente, viene determinato un aumento della velocità effettiva di indicizzazione pari a sei volte. Per ulteriori informazioni sulla scalabilità e la pianificazione della capacità, vedere [Ridimensionare i livelli di risorse per i carichi di lavoro di indicizzazione e query in Ricerca di Azure](search-capacity-planning.md).
+
 ## <a name="indexing-documents-along-with-related-data"></a>Indicizzazione di documenti con dati correlati
 
-I documenti possono avere metadati associati, ad esempio il reparto che ha creato il documento, che vengono archiviati come dati strutturati in una delle posizioni seguenti.
--   In un archivio dati separato, ad esempio il database SQL o Azure Cosmos DB.
--   Associati direttamente a ogni documento nell'Archiviazione BLOB di Azure come metadati personalizzati. Per altre informazioni, vedere [Impostazione e recupero di proprietà e metadati per le risorse BLOB](https://docs.microsoft.com/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).
+Si consiglia di "comporre" i documenti da più origini nell'indice. Ad esempio, è possibile unire testo dagli oggetti binari di grandi dimensioni con altri metadati archiviati in Cosmos DB. È anche possibile utilizzare l'API di indicizzazione push insieme a diversi indicizzatori per compilare i documenti di ricerca da più parti. 
 
-È possibile indicizzare i documenti e i relativi metadati assegnando lo stesso valore chiave univoco a ogni documento e ai relativi metadati e specificando l'azione `mergeOrUpload` per ogni indicizzatore. Per una descrizione dettagliata di questa soluzione, vedere l'articolo esterno: [Combine documents with other data in Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Combinare documenti con altri dati in Ricerca di Azure).
+Per funzionare, tutti gli indicizzatori e altri componenti devono concordare sulla chiave del documento. Per una descrizione dettagliata, vedere l'articolo esterno: [Combinare documenti con altri dati in Ricerca di Azure ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+
+<a name="IndexingPlainText"></a>
+## <a name="indexing-plain-text"></a>Indicizzazione di testo normale 
+
+Se tutti gli oggetti binari di grandi dimensioni contengono testo normale nella stessa codifica, è possibile migliorare in modo significativo le prestazioni di indicizzazione utilizzando la **modalità di analisi del testo**. Per utilizzare la modalità di analisi del testo, impostare la `parsingMode` proprietà di configurazione su `text`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text" } }
+    }
+
+Per impostazione predefinita, verrà utilizzata la codifica `UTF-8`. Per specificare una codifica diversa, utilizzare la proprietà di configurazione `encoding`: 
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+    }
+
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Proprietà di metadati specifiche del tipo di contenuto
@@ -366,7 +389,9 @@ La tabella seguente riepiloga l'elaborazione eseguita per ogni formato di docume
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Rimozione del markup XML ed estrazione del testo |
 | JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Estrazione del testo<br/>NOTA: per conoscere i dettagli su come estrarre più campi documento da un BLOB JSON, vedere [Indicizzazione di BLOB JSON](search-howto-index-json-blobs.md) |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Estrazione del testo, inclusi gli allegati |
-| Testo normale (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
+| RTF (application/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Estrazione del testo|
+| Testo normale (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Estrazione del testo|
+
 
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
 Per richieste di funzionalità o idee su miglioramenti da apportare, è possibile usare il [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
