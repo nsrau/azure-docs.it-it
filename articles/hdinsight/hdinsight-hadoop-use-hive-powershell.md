@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/16/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a235496728b4eeacb6b3e11d1d33363d28420fa8
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: e1cb2e4a1fc82fb43082e79a5feba71b81b3eaa8
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="run-hive-queries-using-powershell"></a>Esecuzione di query Hive usando PowerShell
@@ -89,7 +88,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
    > [!NOTE]
    > Per query HiveQL più lunghe, è possibile usare il cmdlet **Here-Strings** di Azure PowerShell o un file di script HiveQL. Nel frammento di codice seguente viene illustrato come usare il cmdlet **Invoke-Hive** per eseguire un file di script HiveQL. Il file di script HiveQL deve essere caricato in wasb://.
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > Per altre informazioni su **Here-Strings**, vedere <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell "Here-Strings"</a> (Uso di Here-Strings di Windows PowerShell).
 

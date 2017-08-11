@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
-ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="intro"></a> Integrare un servizio cloud con la rete CDN di Azure
@@ -163,11 +162,11 @@ In effetti, con la configurazione precedente, è possibile ospitare l'intero ser
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
-Ciò non significa, ad ogni modo, che sia sempre una buona idea (o almeno in generale) rendere disponibile un intero servizio cloud attraverso la rete CDN. È necessario valutare diversi aspetti:
+Ciò non significa, ad ogni modo, che sia sempre una buona idea rendere disponibile un intero servizio cloud attraverso la rete CDN di Azure. 
 
-* Questo approccio richiede di rendere pubblico l'intero sito, perché la rete CDN di Azure non può gestire contenuti privati al momento.
-* Se l'endpoint della rete CDN passa alla modalità offline per un qualsiasi motivo, che si tratti di manutenzione pianificata o un errore dell'utente, l'intero servizio cloud viene portato offline, a meno che sia possibile reindirizzare i clienti all'URL di origine **http://*&lt;serviceName>*.cloudapp.net/**.
-* Anche con le impostazioni di controllo della cache (vedere [Configurare le opzioni di memorizzazione nella cache dei file statici nel servizio cloud](#caching)), un endpoint della rete CDN non migliora le prestazioni dei contenuti altamente dinamici. Se si è provato a caricare la home page dall'endpoint della rete CDN come sopra illustrato, si è osservato che il caricamento della pagina iniziale predefinita, cioè una pagina abbastanza semplice, ha richiesto almeno cinque secondi la prima volta. Si può dunque immaginare quale sarebbe l'esperienza del cliente se questa pagina includesse contenuto dinamico da aggiornare ogni minuto. Gestire contenuti dinamici da un endpoint della rete CDN richiede una scadenza breve della cache, che si traduce in frequenti mancati riscontri nella cache sull'endpoint della rete CDN. Ciò influisce negativamente sulle prestazioni del servizio cloud e vanifica lo scopo di una rete CDN.
+Una rete CDN con ottimizzazione della distribuzione statica non velocizza necessariamente la distribuzione degli asset dinamici, che non sono progettati per la memorizzazione nella cache o che vengono aggiornati molto spesso, poiché la rete CDN deve eseguire molto spesso il pull di una nuova versione dell'asset dal server di origine. Per questo scenario è possibile abilitare l'ottimizzazione [Accelerazione sito dinamico](cdn-dynamic-site-acceleration.md) nell'endpoint di rete CDN che usa diverse tecniche per velocizzare la distribuzione di asset dinamici non memorizzabili nella cache. 
+
+Se è presente un sito con una combinazione di contenuto statico e dinamico, è possibile scegliere di fornire il contenuto statico dalla rete CDN con un tipo di ottimizzazione statica, ad esempio la distribuzione generale sul Web, e di fornire il contenuto dinamico direttamente dal server di origine oppure tramite un endpoint di rete CDN con l'ottimizzazione Accelerazione sito dinamico attivata in base al caso specifico. A tale scopo, si è già visto come accedere ai singoli file di contenuto dall'endpoint della rete CDN. Più avanti, in Gestire il contenuto dalle azioni del controller attraverso la rete CDN di Azure, verrà illustrato come gestire una specifica azione del controller attraverso l'endpoint di rete CDN.
 
 L'alternativa consiste nel determinare quale contenuto rendere disponibile dalla rete CDN di Azure, valutando caso per caso nel servizio cloud. A tale scopo, si è già visto come accedere ai singoli file di contenuto dall'endpoint della rete CDN. Più avanti verrà illustrato come gestire una specifica azione del controller attraverso l'endpoint CDN in [Gestire il contenuto dalle azioni del controller attraverso la rete CDN di Azure](#controller).
 

@@ -1,6 +1,6 @@
 ---
 title: Usare Azure Media Encoder Standard per generare automaticamente un bitrate ladder | Microsoft Docs
-description: "In questo argomento viene illustrato come usare Media Encoder Standard (MES) per generare automaticamente un bitrate ladder in base alla risoluzione di input e alla velocità in bit. La risoluzione di input e la velocità in bit non vengono mai superate. Ad esempio, se l&quot;input è 720p a 3 Mbps, l&quot;output resterà al massimo a 720p e inizierà a una velocità inferiore a 3 Mbps."
+description: "In questo argomento viene illustrato come usare Media Encoder Standard (MES) per generare automaticamente un bitrate ladder in base alla risoluzione di input e alla velocità in bit. La risoluzione di input e la velocità in bit non vengono mai superate. Ad esempio, se l'input è 720p a 3 Mbps, l'output resterà al massimo a 720p e inizierà a una velocità inferiore a 3 Mbps."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 3bad3219b087523125047f24d643ffdc5e24caa0
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e4bc03c624c9930d7a9b0bef22d3179633de3365
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usare Azure Media Encoder Standard per generare automaticamente un bitrate ladder
@@ -28,10 +27,13 @@ ms.lasthandoff: 06/07/2017
 
 In questo argomento viene illustrato come usare Media Encoder Standard (MES) per generare automaticamente un bitrate ladder (coppia risoluzione-velocità in bit) in base alla risoluzione di input e alla velocità in bit. Il set di impostazioni generate automaticamente non supererà mai la risoluzione di input e la velocità in bit. Ad esempio, se l'input è 720p a 3 Mbps, l'output resterà al massimo a 720p e inizierà a una velocità inferiore a 3 Mbps.
 
-Per usare questa funzionalità, durante la creazione di un'attività di codifica è necessario specificare il set di impostazioni **Flusso adattivo**. Quando si usa il set di impostazioni **Flusso adattivo** il codificatore MES userà in modo intelligente un bitrate ladder. Tuttavia, non sarà possibile controllare i costi di codifica, poiché il servizio determina il numero di livelli da usare e la risoluzione. È possibile vedere esempi dei livelli di output prodotti da MES in seguito alla codifica con il set di impostazioni **Flusso adattivo** alla [fine](#output) di questo argomento.
+### <a name="encoding-for-streaming-only"></a>Codifica solo per lo streaming
 
->[!NOTE]
-> Questo set di impostazioni deve essere usato solo quando si vuole produrre un asset di output abilitato per lo streaming. In particolare, l'asset di output conterrà i file con estensione mp4 in cui audio e video non sono con interleave. Se è necessario che l'output contenga file con estensione mp4 contenenti video e audio con interleave, ad esempio perché siano usati come file di download progressivo, usare una delle impostazioni predefinite [in questa sezione](media-services-mes-presets-overview.md).
+Se si intende codificare il video di origine solo per lo streaming, è necessario usare il set di impostazioni "Flusso adattivo" quando si crea un'attività di codifica. Quando si usa il set di impostazioni **Flusso adattivo** il codificatore MES userà in modo intelligente un bitrate ladder. Tuttavia, non sarà possibile controllare i costi di codifica, poiché il servizio determina il numero di livelli da usare e la risoluzione. È possibile vedere esempi dei livelli di output prodotti da MES in seguito alla codifica con il set di impostazioni **Flusso adattivo** alla fine di questo argomento. L'asset di output conterrà i file MP4 in cui audio e video non sono di tipo Interleaved.
+
+### <a name="encoding-for-streaming-and-progressive-download"></a>Codifica per streaming e download progressivo
+
+Se si intende codificare un video di origine per lo streaming e per produrre file MP4 per il download progressivo, è necessario usare il set di impostazioni "Content Adaptive Multiple Bitrate MP4" durante la creazione di un'attività di codifica. Quando si usa il set di impostazioni **Content Adaptive Multiple Bitrate MP4**, il codificatore MES applicherà la stessa logica di codifica illustrata in precedenza, ma ora l'asset di output conterrà file MP4 in cui audio e video sono di tipo Interleaved. È possibile usare uno di questi file MP4 (ad esempio la versione con bitrate più elevato) come file di download progressivo.
 
 ## <a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 
@@ -44,116 +46,117 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 - Aggiungere un gestore eventi per controllare l'avanzamento del processo.
 - Inviare il processo.
 
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
+#### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-        namespace AdaptiveStreamingMESPresest
+Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+
+#### <a name="example"></a>Esempio
+
+    using System;
+    using System.Configuration;
+    using System.Linq;
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System.Threading;
+
+    namespace AdaptiveStreamingMESPresest
+    {
+        class Program
         {
-            class Program
-            {
-            // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-            // Field for service context.
-            private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
-            static void Main(string[] args)
-            {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                        _mediaServicesAccountName,
-                        _mediaServicesAccountKey);
-                // Used the chached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+        // Field for service context.
+        private static CloudMediaContext _context = null;
 
-                // Get an uploaded asset.
-                var asset = _context.Assets.FirstOrDefault();
+        static void Main(string[] args)
+        {
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                // Encode and generate the output using the "Adaptive Streaming" preset.
-                EncodeToAdaptiveBitrateMP4Set(asset);
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                Console.ReadLine();
-            }
+            // Get an uploaded asset.
+            var asset = _context.Assets.FirstOrDefault();
 
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
-                // Declare a new job.
-                IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+            // Encode and generate the output using the "Adaptive Streaming" preset.
+            EncodeToAdaptiveBitrateMP4Set(asset);
 
-                // Get a media processor reference, and pass to it the name of the 
-                // processor to use for the specific task.
-                IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-                // Create a task
-                ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
-                processor,
-                "Adaptive Streaming",
-                TaskOptions.None);
-
-                // Specify the input asset to be encoded.
-                task.InputAssets.Add(asset);
-                // Add an output asset to contain the results of the job. 
-                // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
-                task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
-
-                job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-                job.Submit();
-                job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-                return job.OutputMediaAssets[0];
-            }
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
-                Console.WriteLine("Job state changed event:");
-                Console.WriteLine("  Previous state: " + e.PreviousState);
-                Console.WriteLine("  Current state: " + e.CurrentState);
-                switch (e.CurrentState)
-                {
-                case JobState.Finished:
-                    Console.WriteLine();
-                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                    break;
-                case JobState.Canceling:
-                case JobState.Queued:
-                case JobState.Scheduled:
-                case JobState.Processing:
-                    Console.WriteLine("Please wait...\n");
-                    break;
-                case JobState.Canceled:
-                case JobState.Error:
-
-                    // Cast sender as a job.
-                    IJob job = (IJob)sender;
-
-                    // Display or log error details as needed.
-                    break;
-                default:
-                    break;
-                }
-            }
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
-                var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-                ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-                if (processor == null)
-                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-                return processor;
-            }
-
-            }
-
+            Console.ReadLine();
         }
+
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+
+            // Get a media processor reference, and pass to it the name of the 
+            // processor to use for the specific task.
+            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+            // Create a task
+            ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+            processor,
+            "Adaptive Streaming",
+            TaskOptions.None);
+
+            // Specify the input asset to be encoded.
+            task.InputAssets.Add(asset);
+            // Add an output asset to contain the results of the job. 
+            // This output is specified as AssetCreationOptions.None, which 
+            // means the output asset is not encrypted. 
+            task.OutputAssets.AddNew("Output asset",
+            AssetCreationOptions.None);
+
+            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+            job.Submit();
+            job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+            return job.OutputMediaAssets[0];
+        }
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
+            Console.WriteLine("Job state changed event:");
+            Console.WriteLine("  Previous state: " + e.PreviousState);
+            Console.WriteLine("  Current state: " + e.CurrentState);
+            switch (e.CurrentState)
+            {
+            case JobState.Finished:
+                Console.WriteLine();
+                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                break;
+            case JobState.Canceling:
+            case JobState.Queued:
+            case JobState.Scheduled:
+            case JobState.Processing:
+                Console.WriteLine("Please wait...\n");
+                break;
+            case JobState.Canceled:
+            case JobState.Error:
+
+                // Cast sender as a job.
+                IJob job = (IJob)sender;
+
+                // Display or log error details as needed.
+                break;
+            default:
+                break;
+            }
+        }
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
+            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+            if (processor == null)
+            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+            return processor;
+        }
+        }
+    }
 
 ## <a id="output"></a>Output
 

@@ -1,6 +1,6 @@
 ---
 title: Come codificare un asset di Azure mediante Media Encoder Standard| Microsoft Docs
-description: Informazioni su come usare Media Encoder Standard per codificare contenuti multimediali in Servizi multimediali di Azure. Negli esempi di codice viene usata l&quot;API REST.
+description: Informazioni su come usare Media Encoder Standard per codificare contenuti multimediali in Servizi multimediali di Azure. Negli esempi di codice viene usata l'API REST.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 4e56b8d97a650813dcea1fde9d74ddc29154605d
-ms.lasthandoff: 03/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 50cff5d8e2d88b855bb0297bef1d183ab1533801
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Come codificare un asset mediante Media Encoder Standard
@@ -54,7 +54,7 @@ Se l'asset di output è protetto con crittografia di archiviazione, è necessari
 >
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Configurazione dello sviluppo dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 >
-> Dopo aver stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md).
+> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 >
 > Se si usa JSON e si specifica di usare la parola chiave **__metadata** nella richiesta (ad esempio, per fare riferimento a un oggetto collegato) è necessario impostare l'intestazione **Accetta** sul [formato JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accetta: application/json;odata=verbose.
 >

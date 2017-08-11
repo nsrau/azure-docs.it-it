@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 18a2f6fba707ad920df96117f1c5fb4c8cf9142a
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 8051742c7c368d1ed84bcd90ab75b20f62105e2f
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modello di risorsa gerarchico e concetti di base relativi ad Azure Cosmos DB
@@ -39,7 +38,7 @@ Dopo aver letto questo articolo, si riuscirà a rispondere alle domande seguenti
 Come illustrato nel diagramma seguente, il **modello di risorsa** gerarchico di Cosmos DB è costituito da set di risorse associate a un account di database, ognuna indirizzabile tramite un URI logico e stabile. Un set di risorse viene definito **feed** in questo articolo. 
 
 > [!NOTE]
-> Cosmos DB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[API .NET client DocumentDB](documentdb-sdk-dotnet.md).
+> Azure Cosmos DB offre un protocollo TCP molto efficiente, con un modello di comunicazione di tipo RESTful, disponibile tramite l'[API .NET client DocumentDB](documentdb-sdk-dotnet.md).
 > 
 > 
 
@@ -194,7 +193,7 @@ Il criterio di indicizzazione di ogni raccolta rende possibili i compromessi tra
 Il criterio di indicizzazione può essere modificato tramite l'esecuzione di un'operazione PUT sulla raccolta. Può essere ottenuto tramite l'[SDK client](documentdb-sdk-dotnet.md), il [portale di Azure](https://portal.azure.com) o le [API REST](/rest/api/documentdb/).
 
 ### <a name="querying-a-collection"></a>Esecuzione di query su una raccolta
-I documenti in una raccolta possono avere schemi arbitrari ed è possibile eseguire query sui documenti in una raccolta senza fornire anticipatamente alcuno schema o alcun indice secondario. È possibile eseguire query sulla raccolta usando la [sintassi SQL dell'API di DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx), che offre avanzati operatori gerarchici, relazionali e spaziali ed estendibilità tramite funzioni definite dall'utente basate su JavaScript. La grammatica JSON permette la modellazione di documenti JSON come alberi con etichette come nodi dell'albero. Viene usata dalle tecniche di indicizzazione automatica dell'API di DocumentDB e dal dialetto SQL dell'API di DocumentDB. Il linguaggio di query dell'API di DocumentDB è caratterizzato da tre aspetti principali:   
+I documenti in una raccolta possono avere schemi arbitrari ed è possibile eseguire query sui documenti in una raccolta senza fornire anticipatamente alcuno schema o alcun indice secondario. È possibile eseguire query sulla raccolta seguendo la procedura descritta in [API di DocumentDB per Azure Cosmos DB: riferimento per la sintassi SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx), che offre avanzati operatori gerarchici, relazionali e spaziali ed estendibilità tramite funzioni definite dall'utente basate su JavaScript. La grammatica JSON permette la modellazione di documenti JSON come alberi con etichette come nodi dell'albero. Viene usata dalle tecniche di indicizzazione automatica dell'API di DocumentDB e dal dialetto SQL dell'API di DocumentDB. Il linguaggio di query dell'API di DocumentDB è caratterizzato da tre aspetti principali:   
 
 1. Un set ridotto di operazioni di query mappate in modo naturale alla struttura ad albero, che include query e proiezioni gerarchiche. 
 2. Un sottoinsieme di operazioni relazionali, incluse la composizione, l'applicazione di filtri, le proiezioni, le aggregazioni e i self join. 

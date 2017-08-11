@@ -1,5 +1,4 @@
 ---
-
 title: Monitorare i gateway VPN con la risoluzione dei problemi di Azure Network Watcher | Microsoft Docs
 description: "Questo articolo illustra come diagnosticare la connettività locale con Automazione di Azure e Network Watcher"
 services: network-watcher
@@ -14,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: af60b39eb4409a544a8186fb233d12bfd022a8e1
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 55ec52dd0d94a0347cc67a8785b89611da955111
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -44,18 +42,18 @@ Questo scenario illustrerà come:
 
 Prima di iniziare questo scenario, sono necessari i prerequisiti seguenti:
 
-- Un account di automazione di Azure in Azure.
+- Un account di automazione di Azure in Azure. Assicurarsi che l'account di automazione abbia i moduli più recenti e anche il modulo AzureRM.Network. Il modulo AzureRM.Network è disponibile nella raccolta di moduli, se è necessario aggiungerlo all'account di automazione.
 - Un set di credenziali configurato in Automazione di Azure. Per altre informazioni, vedere l'articolo relativo alla [sicurezza in Automazione di Azure](../automation/automation-security-overview.md).
 - Un server SMTP valido, che sia di Office 365, della posta elettronica in locale o altro, e credenziali definite in Automazione di Azure.
 - Un gateway di rete virtuale configurato in Azure.
-- Un account di archiviazione esistente nel quale archiviare i log.
+- Un account di archiviazione esistente con un contenitore esistente in cui archiviare i log.
 
 > [!NOTE]
 > L'infrastruttura mostrata nell'immagine precedente è a scopo illustrativo e non è stata creata con la procedura descritta in questo articolo.
 
 ### <a name="create-the-runbook"></a>Creare il runbook
 
-Il primo passaggio per la configurazione dell'esempio consiste nel creare il runbook. Questo esempio usa un account RunAs. Per altre informazioni sugli account RunAs, vedere [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md#create-an-automation-account-from-the-azure-portal).
+Il primo passaggio per la configurazione dell'esempio consiste nel creare il runbook. Questo esempio usa un account RunAs. Per altre informazioni sugli account RunAs, vedere [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md).
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -88,14 +86,27 @@ In questo passaggio viene creato il runbook. L'esempio di codice seguente contie
 Usare il codice seguente e fare clic su **Salva**.
 
 ```PowerShell
+# Set these variables to the proper values for your environment
+$o365AutomationCredential = "<Office 365 account>"
+$fromEmail = "<from email address>"
+$toEmail = "<to email address>"
+$smtpServer = "<smtp.office365.com>"
+$smtpPort = 587
+$runAsConnectionName = "<AzureRunAsConnection>"
+$subscriptionId = "<subscription id>"
+$region = "<Azure region>"
+$vpnConnectionName = "<vpn connection name>"
+$vpnConnectionResourceGroup = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$storageAccountResourceGroup = "<resource group name>"
+$storageAccountContainer = "<container name>"
+
 # Get credentials for Office 365 account
-$MyCredential = "Office 365 account"
-$Cred = Get-AutomationPSCredential -Name $MyCredential
+$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
 
 # Get the connection "AzureRunAsConnection "
-$connectionName = "AzureRunAsConnection"
-$servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-$subscriptionId = "<subscription id>"
+$servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName
+
 "Logging in to Azure..."
 Add-AzureRmAccount `
     -ServicePrincipal `
@@ -105,31 +116,32 @@ Add-AzureRmAccount `
 "Setting context to a specific subscription"
 Set-AzureRmContext -SubscriptionId $subscriptionId
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $region }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
-$sa = Get-AzureRmStorageAccount -Name "<storage account name>" -ResourceGroupName "<resource group name" 
-$result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)logs"
-
+$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $vpnConnectionName -ResourceGroupName $vpnConnectionResourceGroup
+$sa = Get-AzureRmStorageAccount -Name $storageAccountName -ResourceGroupName $storageAccountResourceGroup 
+$storagePath = "$($sa.PrimaryEndpoints.Blob)$($storageAccountContainer)"
+$result = Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath $storagePath
 
 if($result.code -ne "Healthy")
     {
-        $Body = "Connection for ${vpnconnectionName} is: $($result.code). View the logs at $($sa.PrimaryEndpoints.Blob)logs to learn more."
-        $subject = "${connectionname} Status"
+        $body = "Connection for $($connection.name) is: $($result.code) `n$($result.results[0].summary) `nView the logs at $($storagePath) to learn more."
+        Write-Output $body
+        $subject = "$($connection.name) Status"
         Send-MailMessage `
-        -To 'admin@contoso.com' `
+        -To $toEmail `
         -Subject $subject `
-        -Body $Body `
+        -Body $body `
         -UseSsl `
-        -Port 587 `
-        -SmtpServer 'smtp.office365.com' `
-        -From "${$username}" `
+        -Port $smtpPort `
+        -SmtpServer $smtpServer `
+        -From $fromEmail `
         -BodyAsHtml `
-        -Credential $Cred
+        -Credential $cred
     }
 else
     {
-    Write-Output ("Connection Status is: $($result.connectionStatus)")
+    Write-Output ("Connection Status is: $($result.code)")
     }
 ```
 

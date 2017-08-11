@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 7055e207cfbcc9de02669be9f0e97045769ef217
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: d1aca8f39e305105d4ec9f63fbe7bee95487e294
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-java"></a>Elaborare messaggi da dispositivo a cloud dell'hub IoT (Java)
@@ -33,11 +32,11 @@ Questa esercitazione è basata sul codice mostrato nell'esercitazione [Get start
 Al termine di questa esercitazione, vengono eseguite tre app console Java:
 
 * **SimulatedDevice**, una versione modificata dell'app creata nell'esercitazione [Get started with IoT Hub] , che invia messaggi di punti dati da dispositivo a cloud ogni secondo e messaggi interattivi da dispositivo a cloud ogni 10 secondi. Questa app usa il protocollo AMQP per comunicare con l'hub IoT.
-* **read-d2c-messages** consente di visualizzare i dati di telemetria inviati dall'app per dispositivo simulato.
+* **read-d2c-messages** consente di visualizzare i dati di telemetria inviati dall'app per dispositivo.
 * **read-critical-queue** rimuove dalla coda i messaggi dalla coda importanti della coda del bus di servizio collegato all'hub IoT.
 
 > [!NOTE]
-> L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Per istruzioni su come sostituire il dispositivo simulato in questa esercitazione con un dispositivo fisico e su come connettere dispositivi a un hub IoT, fare riferimento al [Centro per sviluppatori Azure IoT].
+> L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Per istruzioni su come sostituire il dispositivo in questa esercitazione con un dispositivo fisico e su come connettere dispositivi a un hub IoT, fare riferimento al [Centro per sviluppatori Azure IoT].
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -48,9 +47,8 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 È necessaria una conoscenza di base di [Archiviazione di Azure] e del [bus di servizio di Azure].
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Inviare messaggi interattivi da un'app per dispositivo simulato
-
-In questa sezione viene modificata l'app per il dispositivo simulato creata nell'esercitazione [Get started with IoT Hub] (Introduzione all'hub IoT) per inviare occasionalmente messaggi che richiedono un intervento immediato.
+## <a name="send-interactive-messages-from-a-device-app"></a>Inviare messaggi interattivi da un'app per dispositivi
+In questa sezione viene modificata l'app per dispositivi creata nell'esercitazione [Get started with IoT Hub] per inviare occasionalmente messaggi che richiedono un intervento immediato.
 
 1. Usare un editor di testo per aprire il file simulated-device\src\main\java\com\mycompany\app\App.java. Questo file contiene il codice dell'app **simulated-device** creata durante l'esercitazione di [Get started with IoT Hub] .
 
@@ -101,11 +99,11 @@ In questa sezione viene modificata l'app per il dispositivo simulato creata nell
         }
     }
     ```
-
-    Con questo metodo la proprietà `"level": "critical"` verrà aggiunta in modo casuale ai messaggi inviati dal dispositivo simulato, che simula un messaggio che richiede un intervento immediato del back-end dell'applicazione. L'applicazione passa queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che l'hub IoT possa indirizzare il messaggio alla destinazione messaggi appropriata.
-
-    > [!NOTE]
-    > È possibile usare le proprietà del messaggio per indirizzare i messaggi in diversi scenari, tra cui l'elaborazione del percorso a freddo, oltre all'esempio del percorso a caldo mostrato qui.
+   
+    Questo metodo aggiunge in modo casuale la proprietà `"level": "critical"` ai messaggi inviati dal dispositivo, simulando così un messaggio che richiede l'intervento immediato del back-end dell'applicazione. L'applicazione passa queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che l'hub IoT possa indirizzare il messaggio alla destinazione messaggi appropriata.
+   
+   > [!NOTE]
+   > È possibile usare le proprietà del messaggio per indirizzare i messaggi in diversi scenari, tra cui l'elaborazione del percorso a freddo, oltre all'esempio del percorso a caldo mostrato qui.
 
 2. Salvare e chiudere il file simulated-device\src\main\java\com\mycompany\app\App.java.
 

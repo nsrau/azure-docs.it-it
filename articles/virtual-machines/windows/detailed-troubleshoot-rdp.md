@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dettagliata dei problemi di Desktop remoto in Azure | Documentazione Microsoft
-description: "Rivedere i passaggi dettagliati della procedura di risoluzione dei problemi riguardo all&quot;impossibilità di Desktop remoto di connettersi a una macchina virtuale di Windows in Azure."
+description: "Rivedere i passaggi dettagliati della procedura di risoluzione dei problemi riguardo all'impossibilità di Desktop remoto di connettersi a una macchina virtuale di Windows in Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: genlin
@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/31/2017
+ms.date: 07/25/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: bd832efd3902dd61be1a8b64396eaadf1cd76e24
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7a9d994e10ec79437d6ccf60531cb12b86f34151
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto con le macchine virtuali Windows in Azure
@@ -110,16 +109,9 @@ Se è possibile connettersi tramite Desktop remoto a una macchina virtuale nello
 Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="source-4-network-security-groups"></a>Origine 4: gruppi di sicurezza di rete
-I gruppi di sicurezza di rete consentono un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Verificare le regole del gruppo di sicurezza di rete per assicurarsi che sia consentito il traffico di Desktop remoto da Internet:
+I gruppi di sicurezza di rete consentono un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure.
 
-* Nel portale di Azure selezionare la macchina virtuale.
-* Fare clic su **Tutte le impostazioni** | **Interfacce di rete** e selezionare la propria interfaccia di rete.
-* Fare clic su **Tutte le impostazioni** | **Gruppo di sicurezza di rete** e selezionare il proprio gruppo di sicurezza di rete.
-* Fare clic su **Tutte le impostazioni** | **Regole di sicurezza in ingresso** e assicurarsi che sia disponibile una regola che consente RDP sulla porta TCP 3389.
-  * Se non è presente alcuna regola, fare clic su **Aggiungi** per creare una regola. Immettere **TCP** per il protocollo e quindi **3389** per l'intervallo di porte di destinazione.
-  * Assicurarsi che l'azione sia impostata su **Consenti** e fare clic su OK per salvare la nuova regola in ingresso.
-
-Per ulteriori informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md)
+Usare la [verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare che una regola in un gruppo di sicurezza di rete blocchi il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere [Uso di regole di sicurezza effettive per risolvere i problemi di flusso del traffico delle VM](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Origine 5: Macchina virtuale di Azure basata su Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

@@ -1,6 +1,6 @@
 ---
-title: Configurazione dei criteri di distribuzione degli asset usando l&quot;API REST di Servizi multimediali | Microsoft Docs
-description: Questo argomento illustra come configurare criteri di distribuzione degli asset differenti utilizzando l&quot;API REST di Servizi multimediali.
+title: Configurazione dei criteri di distribuzione degli asset usando l'API REST di Servizi multimediali | Microsoft Docs
+description: Questo argomento illustra come configurare criteri di distribuzione degli asset differenti utilizzando l'API REST di Servizi multimediali.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 255cc9f08862ff7babf8d8847c88a72a4c88582c
-ms.lasthandoff: 01/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 9a22608f63d749c9e28640485698d77a17fcb1b7
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configurazione dei criteri di distribuzione degli asset
@@ -67,12 +67,12 @@ Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere 
 > 
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 > 
-> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md).
+> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
 ## <a name="clear-asset-delivery-policy"></a>Criteri di distribuzione degli asset Clear
-### <a name="a-idcreateassetdeliverypolicyacreate-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Creare criteri di distribuzione degli asset
+### <a id="create_asset_delivery_policy"></a>Creare criteri di distribuzione degli asset
 La seguente richiesta HTTP crea criteri di distribuzione degli asset che indicano di non applicare la crittografia dinamica e di distribuire il flusso con uno dei seguenti protocolli: MPEG DASH, HLS e Smooth Streaming. 
 
 Per informazioni sui valori che è possibile specificare quando si crea un oggetto AssetDeliveryPolicy, vedere la sezione [Tipi usati durante la definizione di AssetDeliveryPolicy](#types) .   
@@ -121,7 +121,7 @@ Risposta:
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a name="a-idlinkassetwithassetdeliverypolicyalink-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Collegare un asset ai criteri di distribuzione
+### <a id="link_asset_with_asset_delivery_policy"></a>Collegare un asset ai criteri di distribuzione
 La seguente richiesta HTTP collega l'asset specificato ai relativi criteri di distribuzione.
 
 Richiesta:
@@ -148,7 +148,7 @@ Risposta:
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Creare una chiave simmetrica di tipo EnvelopeEncryption e collegarla all'asset
 Quando si specificano criteri di distribuzione DynamicEnvelopeEncryption, è necessario assicurarsi di collegare l'asset a una chiave simmetrica di tipo EnvelopeEncryption. Per altre informazioni, vedere [Creazione di una chiave simmetrica](media-services-rest-create-contentkey.md)).
 
-### <a name="a-idgetdeliveryurlaget-delivery-url"></a><a id="get_delivery_url"></a>Ottenere l'URL di distribuzione
+### <a id="get_delivery_url"></a>Ottenere l'URL di distribuzione
 Ottenere l'URL relativo al metodo di distribuzione specificato per la chiave simmetrica creata nel passaggio precedente. Un client usa l'URL restituito per richiedere una chiave AES oppure una licenza PlayReady allo scopo di riprodurre contenuto protetto.
 
 Specificare il tipo di URL da ottenere nel corpo della richiesta HTTP. Se si desidera proteggere i contenuti con PlayReady, richiedere un URL di acquisizione licenza di PlayReady per Servizi multimediali, usando 1 per keyDeliveryType: {"keyDeliveryType":1}. Se si desidera proteggere i contenuti con la crittografia envelope, richiedere un URL di acquisizione chiave specificando 2 per keyDeliveryType: {"keyDeliveryType":2}.
@@ -273,11 +273,12 @@ ad esempio:
 ### <a name="link-asset-with-asset-delivery-policy"></a>Collegare un asset ai criteri di distribuzione
 Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_delivery_policy)
 
-## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>
+## <a id="types"></a>
+
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
-    /// <summary>
-    /// Delivery protocol for an asset delivery policy.
-    /// </summary>
+
+L'enumerazione seguente descrive i valori che è possibile impostare per il protocollo di recapito di risorse.
+
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -301,6 +302,8 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
         /// </summary>
         HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+ 
         /// <summary>
         /// Include all protocols.
         /// </summary>
@@ -308,9 +311,9 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
     }
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
-    /// <summary>
-    /// Policy type for dynamic encryption of assets.
-    /// </summary>
+
+L'enumerazione seguente descrive i valori che è possibile impostare per il tipo di criterio di recapito.  
+
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -341,10 +344,9 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
         }
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
-    /// <summary>
-    /// Delivery method of the content key to the client.
-    ///
-    </summary>
+
+L'enumerazione seguente descrive i valori che è possibile usare per configurare il metodo di recapito della chiave simmetrica al client.
+    
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -375,9 +377,8 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
 
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
-    /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
-    /// </summary>
+
+L'enumerazione seguente descrive i valori che è possibile impostare per configurare le chiavi usate per ottenere una configurazione specifica per un criterio di recapito di risorse.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -421,7 +422,6 @@ Vedere [Collegare un asset ai criteri di distribuzione](#link_asset_with_asset_d
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
-
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

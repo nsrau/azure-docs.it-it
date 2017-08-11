@@ -1,5 +1,5 @@
 ---
-title: " Eliminare un insieme di credenziali di Backup in Azure | Microsoft Docs "
+title: " Eliminare un insieme di credenziali dei servizi di ripristino in Azure | Microsoft Docs "
 description: "Procedura per eliminare un insieme di credenziali di Backup di Azure e dei Servizi di ripristino. Un insieme di credenziali di backup può essere definito come un insieme di credenziali cloud o un insieme di credenziali di ripristino di Azure. Risoluzione dei problemi quando non è possibile eliminare un insieme di credenziali di backup nel portale classico o nel portale di Azure."
 services: service-name
 documentationcenter: dev-center-name
@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/14/2017
+ms.date: 07/21/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: d8be07fe4cd3fd50827fb7021a75eb05b6f075e0
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: e72ccd2efc271956c688e70804cef915c257a2e3
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="delete-an-azure-backup-vault"></a>Eliminare un insieme di credenziali di Backup di Azure
+# <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 Il servizio Backup di Azure presenta insiemi di credenziali di due tipi: l'insieme di credenziali per il backup e l'insieme di credenziali dei servizi di ripristino. L'insieme di credenziali per il backup è stato creato per primo. L'insieme di credenziali dei servizi di ripristino è stato creato in seguito per supportare le distribuzioni Resource Manager espanse. A causa delle funzionalità espanse e delle dipendenze delle informazioni che devono essere archiviate nell'insieme di credenziali, l'eliminazione di un insieme di credenziali di Backup o dei Servizi di ripristino può sembrare complessa. In questo articolo viene illustrato come eliminare gli insiemi di credenziali nel portale classico e nel portale di Azure.  
 
 | **Tipo di distribuzione** | **Portale** | **Nome dell'insieme di credenziali** |
@@ -86,7 +85,7 @@ Se l'insieme di credenziali dei servizi di ripristino è già aperto, procedere 
     ![Elimina dati di backup](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
     È facoltativamente possibile specificare un motivo per l'eliminazione dei dati e aggiungere commenti. Dopo avere selezionato **Arresta backup**, è necessario consentire il completamento del processo di eliminazione prima di provare a eliminare l'insieme di credenziali. Per verificare il completamento del processo, controllare i messaggi di Azure ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
-    Al termine del processo, verrà visualizzato un messaggio che indica che il processo di backup è stato arrestato e che i dati di backup sono stati eliminati per l'elemento specifico.
+    Al termine del processo, verrà visualizzato un messaggio che indica che il processo di backup è stato arrestato e che i dati di backup per l'elemento specifico sono stati eliminati.
 
     c. Dopo l'eliminazione di un elemento dall'elenco, scegliere **Aggiorna** dal menu **Elementi di backup** per visualizzare gli elementi rimanenti nell'insieme di credenziali.
 

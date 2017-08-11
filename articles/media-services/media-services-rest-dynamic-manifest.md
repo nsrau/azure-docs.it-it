@@ -1,5 +1,5 @@
 ---
-title: Creazione di filtri con l&quot;API REST di Servizi multimediali di Azure | Microsoft Docs
+title: Creazione di filtri con l'API REST di Servizi multimediali di Azure | Microsoft Docs
 description: "Questo argomento descrive come creare filtri che il client può usare per trasmettere in streaming sezioni specifiche di un flusso. Servizi multimediali crea manifesti dinamici per consentire questo streaming selettivo."
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/31/2017
 ms.author: juliako;cenkdin
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: e10c7b29469f9756803aaba64596bf86830893fa
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 1179644298b5a1e32ddf150724eb52a4ca839111
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure
@@ -47,8 +47,7 @@ Durante la creazione dei filtri vengono usati i tipi seguenti:
 > 
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 > 
-> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md). 
-> 
+> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 
 ## <a name="create-filters"></a>Creare filtri

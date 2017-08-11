@@ -1,37 +1,37 @@
 ---
 title: Eseguire query sui dati dell'ambiente Azure Time Series Insights tramite C# | Microsoft Docs
-description: Questa esercitazione illustra come eseguire query sui dati dall'ambiente Time Series Insights tramite C#
+description: Questa esercitazione illustra come eseguire query sui dati dall'ambiente Time Series Insights tramite C#, con codice di esempio.
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: ankryach
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 07/20/2017
 ms.author: ankryach
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 81d16b4093a4eef77e5a9c88cb39f2dd36bcba4e
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 99507a7bf9ca332f0b7adc56c2d8df0240f29b06
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-by-using-c"></a>Eseguire query sui dati dell'ambiente Azure Time Series Insights tramite C#
+# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Eseguire query sui dati dell'ambiente Azure Time Series Insights tramite C#
 
 Questo esempio in C# illustra come eseguire query sui dati dall'ambiente Azure Time Series Insights.
 L'esempio mostra alcuni esempi di base relativi all'uso dell'API Query:
-1. Come passaggio preliminare, è necessario acquisire il token di accesso tramite l'API di Azure Active Directory. Questo token deve essere passato nell'intestazione `Authorization` di ogni richiesta dell'API query. Per la configurazione di applicazioni non interattive, vedere l'articolo [Authentication and authorization](time-series-insights-authentication-and-authorization.md) (Autenticazione e autorizzazione).
+1. Come passaggio preliminare, è necessario acquisire il token di accesso tramite l'API di Azure Active Directory. Passare questo token nell'intestazione `Authorization` di ogni richiesta dell'API Query. Per la configurazione di applicazioni non interattive, vedere [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md).
 2. Viene fornito l'elenco degli ambienti a cui l'utente può accedere. Uno degli ambienti viene selezionato come ambiente d'interesse e vengono eseguite altre query sui dati per questo ambiente.
 3. Come esempio della richiesta HTTPS, vengono richiesti dati di disponibilità per l'ambiente di interesse.
 4. Come esempio della richiesta di Web Socket, vengono richiesti dati relativi alle aggregazioni di eventi per l'ambiente di interesse. Vengono richiesti dati per l'intero intervallo di tempo di disponibilità.
 
-## <a name="c-sample"></a>Esempio C#
+## <a name="c-example"></a>Esempio in C#
 
 ```csharp
 using System;

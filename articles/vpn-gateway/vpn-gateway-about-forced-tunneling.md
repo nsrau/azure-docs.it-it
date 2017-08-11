@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 08/01/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 568d8a31306b7065765ea73e831697c9de7e60e6
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 79bf6892c823da282c3e763921e830f986419854
+ms.contentlocale: it-it
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configurare il tunneling forzato con il modello di distribuzione classico
 
-Il tunneling forzato consente di reindirizzare o "forzare" tutto il traffico associato a Internet verso la posizione locale tramite un tunnel VPN da sito a sito per l'ispezione e il controllo. Si tratta di un requisito di sicurezza critico per la maggior parte dei criteri IT aziendali. Senza il tunneling forzato, il traffico associato a Internet dalle macchine virtuali in Azure raggiungerà direttamente Internet attraversando sempre l'infrastruttura di rete di Azure, senza l'opzione che consente di ispezionare o controllare il traffico. L'accesso a Internet non autorizzato potrebbe provocare la divulgazione di informazioni o altri tipi di violazioni della sicurezza
+Il tunneling forzato consente di reindirizzare o "forzare" tutto il traffico associato a Internet verso la posizione locale tramite un tunnel VPN da sito a sito per l'ispezione e il controllo. Si tratta di un requisito di sicurezza critico per la maggior parte dei criteri IT aziendali. Senza il tunneling forzato, il traffico associato a Internet dalle macchine virtuali in Azure raggiungerà direttamente Internet attraversando sempre l'infrastruttura di rete di Azure, senza l'opzione che consente di ispezionare o controllare il traffico. L'accesso a Internet non autorizzato potrebbe provocare la divulgazione di informazioni o altri tipi di violazioni della sicurezza.
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -40,11 +40,11 @@ Questo articolo illustra la configurazione del tunneling forzato per le reti vir
 Il tunneling forzato in Azure viene configurato tramite route di rete virtuale definite dall'utente. Il reindirizzamento del traffico a un sito locale viene espresso come route predefinita al gateway VPN di Azure. Nella sezione seguente viene elencata la limitazione attuale della tabella di routing e delle route per una rete virtuale di Azure:
 
 * Ciascuna subnet della rete virtuale dispone di una tabella di routing di sistema integrata. La tabella di routing di sistema include i tre gruppi di route seguenti:
-  
-  * **Route della rete virtuale locale:** direttamente alla destinazione di macchine virtuali nella stessa rete virtuale
-  * **Route locale:** al gateway VPN di Azure
+
+  * **Route della rete virtuale locale:** direttamente alle macchine virtuali di destinazione nella stessa rete virtuale.
+  * **Route locali:** al gateway VPN di Azure.
   * **Route predefinita:** direttamente a Internet. I pacchetti destinati agli indirizzi IP privati non rientranti nelle due route precedenti verranno eliminati.
-* Con il rilascio di route definite dall'utente, è possibile creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alle subnet della rete virtuale per abilitare il tunneling forzato su tali subnet.
+* Con il rilascio di route definite dall'utente, è possibile creare una tabella di routing per aggiungere una route predefinita, quindi associare la tabella di routing alle subnet della rete virtuale per abilitare il tunneling forzato in tali subnet.
 * È necessario impostare un "sito predefinito" tra i siti locali cross-premise connessi alla rete virtuale.
 * Il tunneling forzato deve essere associato a una rete virtuale che disponga di un gateway VPN (non un gateway statico).
 * Il tunneling forzato ExpressRoute non viene configurato mediante questo meccanismo, ma è abilitato annunciando una route predefinita tramite le sessioni di peering BGP ExpressRoute. Per altre informazioni, vedere la [documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) .
@@ -104,9 +104,9 @@ La procedura seguente consentirà di specificare il tunneling forzato per una re
     </VirtualNetworkSite>
 ```
 
-In questo esempio la rete virtuale "MultiTier-VNet" include tre subnet (*Frontend*, *Midtier* e *Backend*) con quattro connessioni di più sedi locali (*DefaultSiteHQ*) e tre *Branch*. 
+In questo esempio, la rete virtuale 'MultiTier-VNet' include tre subnet: 'Frontend', 'Midtier' e 'Backend' con quattro connessioni cross-premise: 'DefaultSiteHQ' e tre rami. 
 
-La procedura consente di impostare *DefaultSiteHQ* come connessione predefinita del sito per il tunneling forzato e di configurare le subnet Midtier e Backend per l'uso del tunneling forzato.
+La procedura consente di impostare 'DefaultSiteHQ' come connessione predefinita del sito per il tunneling forzato e di configurare le subnet Midtier e Backend per l'uso del tunneling forzato.
 
 1. Creare una tabella di routing. Utilizzare il cmdlet seguente per creare la tabella route.
 
@@ -114,23 +114,23 @@ La procedura consente di impostare *DefaultSiteHQ* come connessione predefinita 
   New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
   ```
 2. Aggiungere una route predefinita alla tabella di routing. 
-   
-    L'esempio seguente aggiunge una route predefinita alla tabella di routing creata nel passaggio 1. Notare che l'unica route supportata è il prefisso di destinazione di "0.0.0.0/0" su NextHop "VPNGateway".
+
+  L'esempio seguente aggiunge una route predefinita alla tabella di routing creata nel passaggio 1. Notare che l'unica route supportata è il prefisso di destinazione di "0.0.0.0/0" su NextHop "VPNGateway".
 
   ```powershell
   Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
   ```
 3. Associare la tabella di routing alle subnet. 
-   
-    Dopo aver creato una tabella di routing e aggiunto una route, usare l'esempio seguente per aggiungere o associare la tabella di route a una subnet della rete virtuale. L'esempio aggiunge la tabella di route "MyRouteTable" alle subnet Midtier e Backend della rete virtuale MultiTier-VNet.
+
+  Dopo aver creato una tabella di routing e aggiunto una route, usare l'esempio seguente per aggiungere o associare la tabella di route a una subnet della rete virtuale. L'esempio aggiunge la tabella di route "MyRouteTable" alle subnet Midtier e Backend della rete virtuale MultiTier-VNet.
 
   ```powershell
   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
   ```
 4. Assegnare un sito predefinito per il tunneling forzato. 
-   
-    Nel passaggio precedente, gli script di cmdlet di esempio hanno consentito di creare la tabella route e di associarla a due delle subnet della rete virtuale. L'ultimo passaggio consiste nel selezionare un sito locale tra le connessioni multisito della rete virtuale come sito predefinito o tunnel.
+
+  Nel passaggio precedente, gli script di cmdlet di esempio hanno consentito di creare la tabella route e di associarla a due delle subnet della rete virtuale. L'ultimo passaggio consiste nel selezionare un sito locale tra le connessioni multisito della rete virtuale come sito predefinito o tunnel.
 
   ```powershell
   $DefaultSite = @("DefaultSiteHQ")
@@ -173,10 +173,3 @@ Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <
 ```powershell
 Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 ```
-
-
-
-
-
-
-

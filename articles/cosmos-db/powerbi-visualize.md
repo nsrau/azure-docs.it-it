@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2016
+ms.date: 07/25/2016
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6221f5fa113bf58ed3f5e0767b79b2b647005c71
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 398abb0a56f1a12ad563dce889c602af4a5b9bcf
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Esercitazione su Power BI per Azure Cosmos DB: visualizzare dati tramite il connettore per Power BI
@@ -37,7 +36,7 @@ Dopo aver completato questa esercitazione su Power BI, si potrà rispondere alle
 * Come è possibile pubblicare e condividere i report personalizzati in PowerBI.com?
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare che siano disponibili gli elementi seguenti:
+Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare di avere accesso alle risorse seguenti:
 
 * [La versione più recente di Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Accesso all'account demo o ai dati nell'account Cosmos DB.
@@ -49,7 +48,7 @@ Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare c
 Per condividere i report in PowerBI.com, è necessario avere un account in PowerBI.com.  Per altre informazioni su Power BI in versione gratuita o Power BI Pro, visitare il sito [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
 ## <a name="lets-get-started"></a>Attività iniziali
-In questa esercitazione si immagini di essere un geologo che studia i vulcani di tutto il mondo.  I dati sui vulcani sono archiviati in un account Cosmos DB e i documenti JSON hanno un aspetto simile al seguente.
+In questa esercitazione si immagini di essere un geologo che studia i vulcani di tutto il mondo.  I dati sui vulcani sono archiviati in un account Cosmos DB e i documenti JSON hanno un aspetto simile al documento di esempio seguente.
 
     {
         "Volcano Name": "Rainier",
@@ -68,7 +67,7 @@ In questa esercitazione si immagini di essere un geologo che studia i vulcani di
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Si vogliono recuperare i dati sui vulcani dall'account Cosmos DB e visualizzare dati in un report di Power BI interattivo, come quello riportato di seguito.
+Si vogliono recuperare i dati sui vulcani dall'account Cosmos DB e visualizzare dati in un report di Power BI interattivo, come il report seguente.
 
 ![Dopo aver completato questa esercitazione Power BI con il connettore Power BI, sarà possibile visualizzare i dati con il report volcano Power BI Desktop](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
@@ -82,30 +81,35 @@ Ecco come fare una prova. Di seguito sono riportati i requisiti iniziali.
    
     ![Visualizzazione report di Power BI Desktop - Connettore Power BI](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
 4. Selezionare **Home** sulla barra multifunzione, quindi fare clic su **Recupera dati**.  Verrà visualizzata la finestra **Recupera dati** .
-5. Fare clic su **Azure**, selezionare **Microsoft Azure Cosmos DB (Beta)** e quindi fare clic su **Connetti**.  Verrà visualizzata la finestra **Connetti di Microsoft Azure Cosmos DB**.
-   
-    ![Recupero di dati in Power BI Desktop - Connettore Power BI](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)
-6. Specificare l'URL dell'endpoint dell'account Cosmos DB da cui recuperare i dati, come illustrato di seguito, quindi fare clic su **OK**. È possibile recuperare l'URL dalla casella URI del pannello **[Chiavi](manage-account.md#keys)** del portale di Azure oppure l'account demo e, in questo caso, l'URL è `https://analytics.documents.azure.com`. 
+5. Fare clic su **Azure**, selezionare **Microsoft Azure DocumentDB (Beta)**, quindi fare clic su **Connetti**. 
+
+    ![Recupero di dati in Power BI Desktop - Connettore Power BI](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
+6. Nella pagina **Anteprima connettore** fare clic su **Continua**. Viene visualizzata la finestra **Connetti di Microsoft Azure DocumentDB**.
+7. Specificare l'URL dell'endpoint dell'account Cosmos DB da cui recuperare i dati, come illustrato di seguito, quindi fare clic su **OK**. Per usare il proprio account, è possibile recuperare l'URL dalla casella URI del pannello **[Chiavi](manage-account.md#keys)** del portale di Azure. Per usare l'account demo, immettere `https://analytics.documents.azure.com` come URL. 
    
     Lasciare vuoti i campi Nome database, Nome raccolta e iItruzione SQL poiché si tratta di campi facoltativi.  Si userà invece lo strumento di navigazione per selezionare il database e la raccolta per identificare la provenienza dei dati.
    
     ![Esercitazione su Power BI per il connettore Azure Cosmos DB per Power BI: finestra di connessione desktop](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. Se ci si connette a questo endpoint per la prima volta, verrà richiesta la chiave dell'account.  È possibile recuperare la chiave dalla casella **Chiave primaria** nel pannello **[Chiavi di sola lettura](manage-account.md#keys)** del portale di Azure oppure l'account demo e, in questo caso, l'URL è `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Immettere la chiave dell'account e fare clic su **Connetti**.
+8. Se ci si connette a questo endpoint per la prima volta, viene richiesta la chiave dell'account. Per il proprio account, recuperare la chiave dalla casella **Chiave primaria** nel pannello **[Chiavi di sola lettura](manage-account.md#keys)** del portale di Azure. Per l'account demo, la chiave è `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Immettere la chiave appropriata e quindi fare clic su **Connetti**.
    
     È consigliabile usare la chiave di sola lettura durante la creazione di report.  In questo modo si impedirà un'inutile esposizione della chiave master a potenziali rischi di sicurezza. La chiave di sola lettura è disponibile nel pannello [Chiavi](manage-account.md#keys) del portale di Azure oppure si possono usare le informazioni dell'account demo fornite in precedenza.
    
     ![Esercitazione su Power BI per il connettore Azure Cosmos DB per Power BI: chiave dell'account](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
-8. Una volta che l'account è connesso, viene visualizzato lo **Strumento di navigazione** .  Lo **Strumento di navigazione** visualizza un elenco dei database che fanno parte dell'account.
-9. Fare clic per espandere il database di origine dei dati per il report e se si usa l'account demo, selezionare **volcanodb**.   
-10. A questo punto, selezionare una raccolta dalla quale si recupereranno i dati. Se si usa l'account demo, selezionare **volcano1**.
+    
+    > [!NOTE] 
+    > Se viene visualizzato l'errore "Il database specificato non è stato trovato", vedere i passaggi della soluzione alternativa in questo [problema di Power BI](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
+    
+9. Una volta che l'account è connesso, viene visualizzato lo **Strumento di navigazione** .  Lo **Strumento di navigazione** visualizza un elenco dei database che fanno parte dell'account.
+10. Fare clic per espandere il database di origine dei dati per il report e se si usa l'account demo, selezionare **volcanodb**.   
+11. A questo punto, selezionare una raccolta dalla quale si recupereranno i dati. Se si usa l'account demo, selezionare **volcano1**.
     
     Il riquadro di anteprima mostra un elenco di elementi **Record** .  In Power BI un documento viene rappresentato come tipo di **Record** . In modo analogo, anche un blocco JSON annidato in un documento è un **Record**.
     
     ![Esercitazione su Power BI per il connettore Azure Cosmos DB per Power BI: finestra di spostamento](./media/powerbi-visualize/power_bi_connector_pbinavigator.png)
-11. Fare clic su **Modifica** per avviare l'Editor di query che consente di trasformare i dati.
+12. Fare clic su **Modifica** per avviare l'Editor di query in una nuova finestra per trasformare i dati.
 
 ## <a name="flattening-and-transforming-json-documents"></a>Rendere flat e trasformare i documenti JSON
-1. Nel riquadro centrale dell'Editor di Query di Power BI verrà visualizzata una colonna **Documento** .
+1. Passare alla finestra Editor di Query di Power BI, dove viene visualizzata la colonna **Documento** nel riquadro centrale.
    ![Editor di Query di Power BI Desktop](./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png)
 2. Fare clic sul pulsante di espansione a destra dell'intestazione della colonna **Documento** .  Verrà visualizzato il menu di scelta rapida con un elenco di campi.  Selezionare i campi necessari per il report, ad esempio, nome del vulcano, paese, area geografica, località, altezza, tipo, stato e ultima eruzione nota, quindi fare clic su **OK**.
    

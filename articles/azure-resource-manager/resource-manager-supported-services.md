@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 07/25/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 09537fb4058f1fd27469fb9386bc52d938c027ec
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -55,7 +55,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Per impostazione predefinita, molti provider di risorse sono registrati automaticamente. Tuttavia, potrebbe essere necessario registrare alcuni provider di risorse manualmente. Per registrare un provider di risorse, specificare lo spazio dei nomi:
+La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione `/register/action` per il provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -69,6 +69,8 @@ RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
+
+Non è possibile annullare la registrazione di un provider di risorse quando nella sottoscrizione sono ancora presenti tipi di risorsa di tale provider di risorse.
 
 Per visualizzare informazioni su un provider di risorse specifico, usare il comando seguente:
 
@@ -157,13 +159,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Per impostazione predefinita, molti provider di risorse sono registrati automaticamente. Tuttavia, potrebbe essere necessario registrare alcuni provider di risorse manualmente. Per registrare un provider di risorse, specificare lo spazio dei nomi:
+La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione `/register/action` per il provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
 Che restituisce un messaggio di registrazione in corso.
+
+Non è possibile annullare la registrazione di un provider di risorse quando nella sottoscrizione sono ancora presenti tipi di risorsa di tale provider di risorse.
 
 Per visualizzare informazioni su un provider di risorse specifico, usare il comando seguente:
 
@@ -255,9 +259,11 @@ Selezionare **Provider di risorse** e visualizzare l'elenco dei provider di riso
 
 ![visualizzare i provider di risorse](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Per impostazione predefinita, molti provider di risorse sono registrati automaticamente. Tuttavia, potrebbe essere necessario registrare alcuni provider di risorse manualmente. Per registrare un provider di risorse, selezionare **Registra**.
+La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione `/register/action` per il provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Per registrare un provider di risorse, selezionare **Registra**.
 
 ![registrare un provider di risorse](./media/resource-manager-supported-services/register-provider.png)
+
+Non è possibile annullare la registrazione di un provider di risorse quando nella sottoscrizione sono ancora presenti tipi di risorsa di tale provider di risorse.
 
 Per visualizzare informazioni su un provider di risorse specifico, selezionare **Altri servizi**.
 
