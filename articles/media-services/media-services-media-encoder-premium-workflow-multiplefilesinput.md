@@ -300,7 +300,7 @@ Di seguito sono descritti i passaggi per creare un flusso di lavoro che ha due f
 
 Aprire **Progettazione flussi di lavoro** e selezionare **File** > **New Workspace (Nuova area di lavoro)** > **Transcode Blueprint**.
 
-Il nuovo flusso di lavoro visualizzerà&3; elementi:
+Il nuovo flusso di lavoro visualizzerà 3 elementi:
 
 * Primary Source File
 * Clip List XML

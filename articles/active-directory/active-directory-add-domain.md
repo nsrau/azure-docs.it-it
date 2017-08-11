@@ -3,7 +3,7 @@ title: Aggiungere un nome di dominio personalizzato ad Azure Active Directory | 
 description: Informazioni su come aggiungere i nomi di dominio dell'azienda ad Azure Active Directory e come verificare il nome di dominio.
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
