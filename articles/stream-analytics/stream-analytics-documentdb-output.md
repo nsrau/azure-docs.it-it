@@ -1,10 +1,10 @@
 ---
 title: Output JSON per Analisi di flusso | Microsoft Docs
-description: "Informazioni su come l&quot;analisi di flusso può usare Azure Cosmos DB per l&quot;output JSON, consentendo l&quot;esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati."
+description: "Informazioni su come l'analisi di flusso può usare Azure Cosmos DB per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati."
 keywords: Output JSON
 documentationcenter: 
 services: stream-analytics,documentdb
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
+ms.author: samacha
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: cb85dff7f8bf8a8715aaa9ecd02da59b9108915c
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Usare Azure Cosmos DB per l'output JSON dell'analisi di flusso

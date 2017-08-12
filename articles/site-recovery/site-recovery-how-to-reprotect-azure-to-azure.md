@@ -1,6 +1,6 @@
 ---
-title: Come riproteggere le macchine virtuali di Azure sottoposte a failover nell&quot;area di Azure primaria | Microsoft Docs
-description: "Dopo il failover delle macchine virtuali da un&quot;area di Azure a un&quot;altra, è possibile utilizzare Azure Site Recovery per proteggere le macchine nella direzione inversa. Imparare i passaggi per eseguire la riprotezione prima di un failover."
+title: Come riproteggere le macchine virtuali di Azure sottoposte a failover nell'area di Azure primaria | Microsoft Docs
+description: "Dopo il failover delle macchine virtuali da un'area di Azure a un'altra, è possibile utilizzare Azure Site Recovery per proteggere le macchine nella direzione inversa. Imparare i passaggi per eseguire la riprotezione prima di un failover."
 services: site-recovery
 documentationcenter: 
 author: ruturaj
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/13/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 92a3250a4b07a8a473bd3343181176a2623cd476
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Eseguire la riprotezione dall'area di Azure sottoposta a failover nell'area primaria
