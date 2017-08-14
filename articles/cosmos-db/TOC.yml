@@ -105,9 +105,6 @@
       href: consistency-levels.md
     - name: Velocità effettiva
       href: request-units.md
-      items:
-        - name: Unità richieste al minuto
-          href: request-units-per-minute.md
     - name: API a più modelli
       items:
         - name: DocumentDB

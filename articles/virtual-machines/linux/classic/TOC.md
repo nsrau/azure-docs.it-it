@@ -4,13 +4,13 @@
 ## [Disponibilità](configure-availability.md)
 ## [Domande frequenti](faq.md)
 
-# [Attività iniziali](../opensource-links.md)
+# Attività iniziali
 ## [Creare una macchina virtuale Linux con il portale](createportal.md)
 ## [Installare l'interfaccia da riga di comando di Azure](../../../cli-install-nodejs.md)
 ## [Creare chiavi SSH](../mac-create-ssh-keys.md)
 
 # Procedure
-## [Calcolo](../intro-on-azure.md)
+## Calcolo
 ### [Creare una VM personalizzata](create-custom.md)
 ### [Acquisire una VM](capture-image.md)
 ### [Usare Desktop remoto con una VM Linux](remote-desktop.md)
