@@ -96,6 +96,7 @@
 #### [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
 #### [Grafici a imbuto](usage-funnels.md)
 #### [Conservazione](app-insights-usage-retention.md)
+#### [Flussi](app-insights-usage-flows.md)
 #### [Cartelle di lavoro](app-insights-usage-workbooks.md)
 
 ### Analytics

@@ -50,34 +50,28 @@
     - name: Aree e disponibilità
       href: regions-and-availability.md
     - name: Archiviazione
-      href: >-
-        ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Rete
       href: network-overview.md
     - name: Set di scalabilità delle VM
-      href: >-
-        ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Servizio metadati dell'istanza
       href: ../virtual-machines-instancemetadataservice-overview.md
     - name: Contenitori
       href: containers.md
     - name: Gestione risorse
-      href: >-
-        ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       items:
         - name: Modelli di distribuzione
-          href: >-
-            ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Modelli per le VM
           href: template-description.md
     - name: Agente Windows di Azure
       href: agent-user-guide.md
     - name: Centro sicurezza di Azure
-      href: >-
-        ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../security-center/security-center-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Ripristino di emergenza
-      href: >-
-        ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Manutenzione pianificata
       href: planned-maintenance.md
       items:
@@ -107,198 +101,157 @@
           href: acu.md
         - name: Calcolare i punteggi di benchmark
           href: compute-benchmark-scores.md
-        - name: Procedure consigliate per l'esecuzione di una VM Windows
-          href: guidance-compute-single-vm.md
     - name: Considerazioni sulla distribuzione
       items:
-        - name: Linee guida per l'infrastruttura
-          href: infrastructure-virtual-machine-guidelines.md
-        - name: Sottoscrizioni e account
-          href: infrastructure-subscription-accounts-guidelines.md
-        - name: Denominazione
-          href: infrastructure-naming-guidelines.md
-        - name: Gruppi di risorse
-          href: infrastructure-resource-groups-guidelines.md
-        - name: Archiviazione
-          href: infrastructure-storage-solutions-guidelines.md
-        - name: Rete
-          href: infrastructure-networking-guidelines.md
-        - name: Set di disponibilità
-          href: infrastructure-availability-sets-guidelines.md
-        - name: Esempio di infrastruttura
+        - name: Esempio di distribuzione di base
           href: infrastructure-example.md
 - name: Guide alle procedure
   items:
     - name: Creare VM
       items:
-        - name: Panoramica della creazione di VM
-          href: creation-choices.md
-        - name: Creare una VM da un disco rigido virtuale specializzato
-          href: create-vm-specialized.md
-        - name: Creare una VM con un modello
-          href: ps-template.md
-        - name: 'Creare/gestire macchine virtuali con C#'
+        - name: 'Usare C#'
           href: csharp.md
-        - name: 'Creare una VM con C# e un modello'
+        - name: 'Usare un modello con C#'
           href: csharp-template.md
-        - name: Creare una VM con Chef
-          href: chef-automation.md
-        - name: Creare/gestire macchine virtuali con Python
+        - name: Usare Python
           href: python.md
-        - name: Creare una VM con Terraform
-          items:
-            - name: Installare e configurare
-              href: ../terraform-install-configure.md
-            - name: Creare l'infrastruttura di base
-              href: ../terraform-create-complete-vm.md
-        - name: Creare una VM con framework applicazioni comuni
-          href: app-frameworks.md
-        - name: Spostare una VM tra sottoscrizioni
-          href: move-vm.md
-    - name: Configurare le VM
+        - name: Usare un modello
+          href: ps-template.md
+        - name: Connettersi a una macchina virtuale
+          href: connect-logon.md
+        - name: Usare licenze AHUB
+          href: hybrid-use-benefit-licensing.md
+    - name: Proteggere le macchine virtuali
       items:
-        - name: Ridimensionare una VM
-          href: resize-vm.md
-        - name: Usare i tag
-          href: >-
-            ../../resource-group-using-tags.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-          items:
-            - name: Assegnare un tag a una VM
-              href: tag.md
-        - name: Eseguire il backup con Servizi di ripristino
-          href: >-
-            ../../backup/backup-azure-vms-first-look-arm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Gestire i backup con PowerShell
-          href: >-
-            ../../backup/backup-azure-vms-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Scaricare un modello di VM
-          href: download-template.md
+        - name: Crittografare il contenuto
+          href: encrypt-disks.md
+        - name: Usare WinRM
+          href: winrm.md
+        - name: Usare i controlli di accesso
+          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Usare i criteri
+          href: policy.md
+        - name: Creare un insieme di credenziali delle chiavi
+          href: key-vault-setup.md
+    - name: Gestire le macchine virtuali
+      items:
         - name: Attività comuni di PowerShell
           href: ps-common-ref.md
-        - name: Attività comuni dell'interfaccia della riga di comando
-          href: cli-manage.md
-        - name: Gestire macchine virtuali con l'interfaccia della riga di comando
-          href: cli-deploy-templates.md
-    - name: Connettersi con RDP
+        - name: Spostare una macchina virtuale
+          href: move-vm.md
+        - name: Modificare le dimensioni della macchina virtuale
+          href: resize-vm.md
+        - name: Assegnare un tag a una VM
+          href: tag.md
+        - name: Eseguire script in una macchina virtuale
+          href: extensions-customscript.md
+        - name: Modificare la lettera dell'unità temporanea
+          href: change-drive-letter.md
+        - name: Modificare il set di disponibilità
+          href: change-availability-set.md
+        - name: Scaricare il modello
+          href: download-template.md
+        - name: Agente VM di Azure
+          href: agent-user-guide.md
+    - name: Usare immagini
       items:
-        - name: Accedere a una macchina virtuale
-          href: connect-logon.md
-    - name: Gestire immagini di VM
-      items:
-        - name: Trovare immagini di VM del Marketplace
+        - name: Trovare e usare immagini
           href: cli-ps-findimage.md
-        - name: Vantaggio Azure Hybrid Use
-          href: hybrid-use-benefit-licensing.md
+        - name: Preparare la macchina virtuale per il caricamento
+          href: prepare-for-upload-vhd-image.md
+        - name: Usare un'immagine generalizzata
+          href: create-vm-generalized-managed.md
+        - name: Usare un'immagine specializzata
+          href: create-vm-specialized.md
+        - name: Acquisire la macchina virtuale in un'immagine
+          href: capture-image-resource.md
+        - name: Creare un'immagine con Packer
+          href: build-image-with-packer.md
         - name: Usare immagini client Windows
           href: client-images.md
-        - name: Scaricare il VHD
+        - name: Scaricare un disco esistente
           href: download-vhd.md
-        - name: Preparare un disco rigido virtuale per il caricamento
-          href: prepare-for-upload-vhd-image.md
-        - name: Creare l'immagine di un disco gestito
-          href: capture-image-resource.md
-        - name: Creare una VM da un'immagine di disco gestito generalizzato
-          href: create-vm-generalized-managed.md
-        - name: Create un'immagine con Packer
-          href: build-image-with-packer.md
-    - name: Gestire le risorse di archiviazione delle VM
+    - name: Disponibilità e scalabilità
       items:
-        - name: Creare un disco gestito
-          href: create-managed-disk-ps.md
-        - name: Eseguire la migrazione di VM a Managed Disks
-          href: migrate-to-managed-disks.md
+        - name: Set di scalabilità di macchine virtuali
+          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Disponibilità elevata
+          href: manage-availability.md
+        - name: Aumento delle prestazioni
+          href: vertical-scaling-automation.md
+    - name: Usare strumenti di automazione
+      items:
+        - name: Chef
+          href: chef-automation.md
+    - name: Eseguire le applicazioni
+      items:
+        - name: SQL Server
+          href: /sql/virtual-machines-windows-sql-server-iaas-overview
+        - name: MongoDB
+          href: install-mongodb.md
+        - name: SAP in Azure
+          href: ../workloads/sap/get-started.md
+        - name: Cluster MATLAB
+          href: matlab-mdcs-cluster.md
+        - name: High Performance Computing (HPC)
+          href: hpcpack-cluster-options.md
           items:
-            - name: Eseguire la conversione da dischi non gestiti a Managed Disks
-              href: convert-unmanaged-to-managed-disks.md
-            - name: Eseguire la migrazione di una VM classica a Managed Disks
-              href: migrate-single-classic-to-resource-manager.md
-        - name: Creare uno snapshot di un disco gestito
-          href: snapshot-copy-managed-disk.md
-        - name: Collegare il disco dati
+            - name: Cluster HPC Pack 2016
+              href: hpcpack-2016-cluster.md
+            - name: Integrazione di Azure Active Directory con HPC Pack 2016
+              href: hpcpack-cluster-active-directory.md
+            - name: Nodo head HPC Pack 2012 R2
+              href: hpcpack-cluster-headnode.md
+            - name: Inviare processi locali a HPC Pack 2012 R2
+              href: hpcpack-cluster-submit-jobs.md
+            - name: Excel in HPC Pack
+              href: excel-cluster-hpcpack.md
+    - name: Gestire l'archiviazione
+      items:
+        - name: Aggiungere un disco
           items:
-            - name: Azure PowerShell
+            - name: Azure Powershell
               href: attach-disk-ps.md
             - name: Portale di Azure
               href: attach-managed-disk-portal.md
-        - name: Scollegare un disco dati
+        - name: Scollegare un disco
           href: detach-disk.md
-        - name: Espandere il disco del sistema operativo
+        - name: Ridimensionare un disco
           href: expand-os-disk.md
-        - name: Espandere un disco dati
-          href: expand-data-disks.md
-        - name: Usare una condivisione file
+        - name: Snapshot di un disco
+          href: snapshot-copy-managed-disk.md
+        - name: Convertire il disco tra archiviazione Standard e Premium
+          href: convert-disk-storage.md
+        - name: Domande frequenti sui dischi
+          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Usare Archiviazione file
           href: mount-azure-file-storage.md
-        - name: Usare D come disco dati
-          href: change-drive-letter.md
-    - name: Rete VM
+        - name: Eseguire la migrazione a Managed Disks
+          href: migrate-to-managed-disks.md
+          items:
+            - name: VM non gestita a Managed Disks
+              href: convert-unmanaged-to-managed-disks.md
+            - name: VM classica singola a Resource Manager
+              href: migrate-single-classic-to-resource-manager.md
+    - name: Gestire la rete
       href: ps-common-network-ref.md
       items:
-        - name: Creare reti virtuali
-          href: >-
-            ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Creare una macchina virtuale con più NIC
-          href: multiple-nics.md
-        - name: Creare un IP pubblico statico
-          href: >-
-            ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: 'Configurare porte, endpoint e sicurezza'
-          href: endpoints-in-resource-manager.md
-        - name: Consentire l'accesso a una VM
+        - name: Creare una rete virtuale
+          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Aprire porte per una VM
           items:
-            - name: Azure PowerShell
-              href: nsg-quickstart-powershell.md
             - name: Portale di Azure
               href: nsg-quickstart-portal.md
-        - name: Opzioni di risoluzione dei nomi DNS
-          href: >-
-            ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Creare un nome di dominio completo usando il portale
+            - name: Azure PowerShell
+              href: nsg-quickstart-powershell.md
+        - name: Assegnare un indirizzo IP pubblico
+          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Usare più schede di interfaccia di rete
+          href: multiple-nics.md
+        - name: Assegnare un nome DNS pubblico
           href: portal-create-fqdn.md
-    - name: Scalabilità e disponibilità
-      items:
-        - name: Disponibilità di macchine virtuali
-          href: manage-availability.md
-        - name: Creare un set di disponibilità
-          href: create-availability-set.md
-        - name: Modificare il set di disponibilità per una VM
-          href: change-availability-set.md
-        - name: Panoramica del bilanciamento del carico
-          href: load-balance.md
-          items:
-            - name: Creare un servizio di bilanciamento del carico
-              href: >-
-                ../../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Ridimensionare più VM con set di scalabilità di macchine virtuali
-          href: vmss-powershell-creating.md
-        - name: Creazione di più macchine virtuali di Azure
-          href: multiple-vms.md
-        - name: >-
-            Scalabilità verticale di macchine virtuali tramite Automazione di
-            Azure
-          href: vertical-scaling-automation.md
-        - name: Creare VM con monitoraggio e diagnostica
-          href: extensions-diagnostics-template.md
-        - name: Panoramica di Automazione di Azure
-          href: manage-using-azure-automation.md
-    - name: Gestire la sicurezza delle VM
-      items:
-        - name: Reimpostazione delle password
-          href: reset-local-password-without-agent.md
-        - name: >-
-            Creare un'identità aziendale o dell'istituto di istruzione in Azure
-            AD
-          href: create-aad-work-id.md
-        - name: Gestire l'accesso
-          href: >-
-            ../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Crittografare un disco
-          href: encrypt-disks.md
-        - name: Applicare i criteri alle macchine virtuali
-          href: policy.md
-        - name: Configurare l'insieme di credenziali delle chiavi
-          href: key-vault-setup.md
-        - name: Configurare WinRM
-          href: winrm.md
+        - name: Risoluzione DNS
+          href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Usare le estensioni di VM
       items:
         - name: Panoramica delle estensioni di VM
@@ -318,50 +271,26 @@
           href: log-collector-extension.md
         - name: Estensione Diagnostica di Azure
           href: ps-extensions-diagnostics.md
-        - name: Estensioni nei modelli
-          href: extensions-authoring-templates.md
         - name: Esportazione delle estensioni di VM
           href: extensions-export-templates.md
-        - name: Esempi di configurazione
-          href: extensions-configuration-samples.md
         - name: Risoluzione dei problemi relativi alle estensioni
           href: extensions-troubleshoot.md
-    - name: Eseguire le applicazioni
-      items:
-        - name: SQL Server
-          href: ./sql/virtual-machines-windows-sql-server-iaas-overview.md
-        - name: SharePoint
-          href: sharepoint-farm.md
-        - name: >-
-            Configurazione di un'applicazione LOB basata sul Web in un cloud
-            ibrido per l'esecuzione di test
-          href: ps-hybrid-cloud-test-env-lob.md
-        - name: >-
-            Configurazione di un ambiente cloud ibrido simulato per l'esecuzione
-            di test
-          href: ps-hybrid-cloud-test-env-sim.md
-        - name: MongoDB
-          href: install-mongodb.md
-        - name: HPC (High Performance Computing)
-          href: hpcpack-cluster-options.md
-        - name: MATLAB
-          href: matlab-mdcs-cluster.md
-        - name: SAP in Azure
-          href: ../workloads/sap/get-started.md
+        - name: Estensione di monitoraggio e diagnostica
+          href: extensions-diagnostics-template.md
+        - name: Agente Network Watcher
+          href: extensions-nwa.md
     - name: Eseguire la migrazione di VM
       items:
-        - name: 'Eseguire la migrazione di VM locali e AWS ad Azure: panoramica'
+        - name: Eseguire la migrazione di AWS e macchine virtuali locali
           href: on-prem-to-azure.md
           items:
-            - name: Eseguire la migrazione da Amazon Web Services (AWS) ad Azure
-              href: aws-to-azure.md
-            - name: >-
-                Caricare e creare una VM da un disco rigido virtuale
-                generalizzato
+            - name: Caricare una macchina virtuale locale
               href: upload-generalized-managed.md
-        - name: >-
-            Eseguire la migrazione dal modello di distribuzione classica ad
-            Azure Resource Manager
+            - name: Da Amazon Web Services (AWS)
+              href: aws-to-azure.md
+            - name: Usare Azure Site Recovery
+              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Eseguire la migrazione dal modello di distribuzione classica ad Azure Resource Manager
           href: migration-classic-resource-manager-overview.md
           items:
             - name: Approfondimento sulla migrazione
@@ -378,12 +307,6 @@
               href: migration-classic-resource-manager-faq.md
     - name: Risoluzione dei problemi
       items:
-        - name: >-
-            Supporto dell'aggiunta di una macchina virtuale di VM a un set di
-            disponibilità esistente
-          href: ../virtual-machines-availability-set-supportability.md
-        - name: Informazioni sul riavvio del sistema
-          href: understand-vm-reboot.md
         - name: Connessioni Desktop remoto
           href: troubleshoot-rdp-connection.md
           items:
@@ -393,6 +316,10 @@
               href: troubleshoot-specific-rdp-errors.md
         - name: Reimpostare la password RDP
           href: reset-rdp.md
+        - name: Reimpostare la password locale senza l'agente di Azure
+          href: reset-local-password-without-agent.md
+        - name: Informazioni sul riavvio del sistema
+          href: understand-vm-reboot.md
         - name: Reimpostare la scheda di interfaccia di rete
           href: reset-network-interface.md
         - name: Diagnostica di avvio
@@ -413,17 +340,15 @@
           href: redeploy-to-new-node.md
         - name: Messaggi di errore comuni
           href: error-messages.md
-        - name: >-
-            Collegare un disco rigido virtuale alla VM di risoluzione dei
-            problemi
+        - name: Accesso di ripristino di macchine virtuali
           items:
             - name: Azure PowerShell
               href: troubleshoot-recovery-disks.md
             - name: Portale di Azure
               href: troubleshoot-recovery-disks-portal.md
-        - name: Usare PerfInsights per risolvere i problemi delle prestazioni
+        - name: Usare PerfInsights
           href: how-to-use-perfInsights.md
-- name: Riferimento
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/vm
@@ -444,8 +369,7 @@
 - name: Risorse
   items:
     - name: Creare modelli
-      href: >-
-        ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modelli della community
@@ -457,7 +381,6 @@
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Video
-      href: >-
-        https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: domande frequenti
       href: faq.md
