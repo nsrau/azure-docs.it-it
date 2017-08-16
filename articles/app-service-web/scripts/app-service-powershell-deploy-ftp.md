@@ -1,6 +1,6 @@
 ---
-title: Esempio di script di Azure PowerShell - Caricare i file in un&quot;app Web usando FTP | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Caricare i file in un&quot;app Web usando FTP
+title: Esempio di script di Azure PowerShell - Caricare i file in un'app Web usando FTP | Microsoft Docs
+description: Esempio di script di Azure PowerShell - Caricare i file in un'app Web usando FTP
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -11,7 +11,7 @@ ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc

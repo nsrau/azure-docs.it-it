@@ -30,6 +30,9 @@ Il gateway applicazione consente di usare un'app Web di Azure o un altro servizi
 L'esempio seguente aggiunge un'app Web come membro del pool back-end in un gateway applicazione esistente. Per il funzionamento delle app Web, è necessario specificare sia l'opzione `-PickHostNamefromBackendHttpSettings` nella configurazione del probe che `-PickHostNameFromBackendAddress` nelle impostazioni HTTP del back-end.
 
 ```powershell
+# FQDN of the web app
+$webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
+
 # Retrieve an existing application gateway
 $gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
 
@@ -46,7 +49,7 @@ $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -Applicatio
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
-Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses mywebapp.azurewebsites.net
+Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses $webappFQDN
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -72,7 +75,7 @@ New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName 
 # Creates a web app
 $webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs
 
-# Configure GitHub deployment from your GitHub repo and deploy once.
+# Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script di Azure PowerShell - Monitorare un&quot;app Web con i log del server Web | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Monitorare un&quot;app Web con i log del server Web
+title: Esempio di script di Azure PowerShell - Monitorare un'app Web con i log del server Web | Microsoft Docs
+description: Esempio di script di Azure PowerShell - Monitorare un'app Web con i log del server Web
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -10,7 +10,7 @@ tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.service: app-service
 ms.devlang: multiple
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017

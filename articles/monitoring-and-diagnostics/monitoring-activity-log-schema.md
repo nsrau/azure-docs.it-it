@@ -26,7 +26,7 @@ Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a 
 Questa categoria contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi "create virtual machine" e "delete network security group". Ogni azione eseguita da un utente o da un'applicazione usando Resource Manager viene modellata come operazione in un determinato tipo di risorsa. Se l'operazione è di tipo scrittura, eliminazione o azione, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria amministrativa. La categoria amministrativa include anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione.
 
 ### <a name="sample-event"></a>Evento di esempio
-```
+```json
 {
   "authorization": {
     "action": "microsoft.support/supporttickets/write",
@@ -128,7 +128,7 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 Questa categoria contiene il record degli eventi imprevisti di integrità del servizio che si sono verificati in Azure. Un esempio del tipo di evento visualizzato in questa categoria è "SQL Azure in East US is experiencing downtime". Gli eventi di integrità del servizio sono di sei tipi: Action Required, Assisted Recovery, Incident, Maintenance, Information o Security, che vengono visualizzati solo se una risorsa della sottoscrizione è interessata dall'evento.
 
 ### <a name="sample-event"></a>Evento di esempio
-```
+```json
 {
   "channels": "Admin",
   "correlationId": "c550176b-8f52-4380-bdc5-36c1b59d3a44",
@@ -217,7 +217,7 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 
 ### <a name="sample-event"></a>Evento di esempio
 
-```
+```json
 {
   "caller": "Microsoft.Insights/alertRules",
   "channels": "Admin, Operation",
@@ -329,7 +329,7 @@ Il campo delle proprietà conterrà valori diversi a seconda dell'origine dell'e
 Questa categoria contiene il record degli eventi correlati all'operazione del motore di ridimensionamento automatico in base alle impostazioni di scalabilità automatica definite nella sottoscrizione. Un esempio del tipo di evento visualizzato in questa categoria è "Autoscale scale up action failed". Con il ridimensionamento automatico è possibile aumentare o ridurre automaticamente il numero di istanze in un tipo di risorsa supportato in base all'ora del giorno e/o ai dati di caricamento (metrica) usando un'impostazione di ridimensionamento automatico. Quando vengono soddisfatte le condizioni per aumentare o ridurre le prestazioni, gli eventi di avvio riusciti o quelli non riusciti verranno registrati in questa categoria.
 
 ### <a name="sample-event"></a>Evento di esempio
-```
+```json
 {
   "caller": "Microsoft.Insights/autoscaleSettings",
   "channels": "Admin, Operation",
