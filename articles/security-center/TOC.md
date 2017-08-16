@@ -57,9 +57,10 @@
 ## Rilevare e rispondere
 ### [Funzionalità di rilevamento](security-center-detection-capabilities.md)
 ### [Gestire gli avvisi di sicurezza](security-center-managing-and-responding-alerts.md)
+### [Tipi di avvisi di sicurezza](security-center-alerts-type.md)
+### [Convalida degli avvisi](security-center-alert-validation.md)
 ### [Gestire gli eventi imprevisti della sicurezza](security-center-incident.md)
 ### [Integrazione dei log di Azure](security-center-integrating-alerts-with-log-integration.md)
-### [Tipi di avvisi di sicurezza](security-center-alerts-type.md)
 ### [Report di intelligence sulle minacce](security-center-threat-report.md)
 
 ## Risoluzione dei problemi
