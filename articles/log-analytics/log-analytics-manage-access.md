@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/06/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="manage-workspaces"></a>Gestire le aree di lavoro
@@ -108,7 +107,60 @@ Le attività seguenti richiedono anche le autorizzazioni di Azure:
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gestione dell'accesso a Log Analytics con le autorizzazioni di Azure
 Per concedere l'accesso all'area di lavoro di Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md).
 
-Avendo almeno l'autorizzazione di lettura di Azure per l'area di lavoro di Log Analytics, è possibile aprire il portale di OMS facendo clic sull'attività **Portale di OMS** quando si visualizza l'area di lavoro di Log Analytics.
+Azure offre due ruoli utente predefiniti per Log Analytics:
+- Lettore di Log Analytics
+- Collaboratore di Log Analytics
+
+I membri del ruolo *Lettore di Log Analytics* possono eseguire queste operazioni:
+- Visualizzare e cercare tutti i dati di monitoraggio 
+- Visualizzare le impostazioni di monitoraggio, inclusa la configurazione della diagnostica di Azure in tutte le risorse di Azure.
+
+| Tipo    | Autorizzazione | Descrizione |
+| ------- | ---------- | ----------- |
+| Azione | `*/read`   | Consente di visualizzare tutte le risorse e le configurazioni delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse |
+| Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Consente di eseguire query di ricerca log versione 2 |
+| Azione | `Microsoft.OperationalInsights/workspaces/search/action` | Consente di eseguire query di ricerca log versione 1 |
+| Azione | `Microsoft.Support/*` | Consente di aprire casi di supporto |
+|Non azione | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Impedisce la lettura della chiave dell'area di lavoro, necessaria per l'uso dell'API di raccolta dati e per l'installazione degli agenti |
+
+
+I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste operazioni:
+- Leggere tutti i dati di monitoraggio 
+- Creare e configurare account di automazione
+- Aggiungere e rimuovere soluzioni di gestione
+- Leggere le chiavi degli account di archiviazione 
+- Configurare la raccolta di log da Archiviazione di Azure
+- Modificare le impostazioni di monitoraggio per le risorse di Azure, tra cui
+  - Aggiunta dell'estensione macchina virtuale alle VM
+  - Configurazione della diagnostica di Azure in tutte le risorse di Azure
+
+> [!NOTE] 
+> È possibile usare la possibilità di aggiungere un'estensione macchina virtuale a una VM per ottenere il controllo completo su di essa.
+
+| Autorizzazione | Descrizione |
+| ---------- | ----------- |
+| `*/read`     | Consente di visualizzare tutte le risorse e le configurazioni delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse |
+| `Microsoft.Automation/automationAccounts/*` | Consente di creare e configurare account di automazione di Azure, inclusa l'aggiunta e modifica di runbook |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Consente di aggiungere, aggiornare e rimuovere estensioni macchina virtuale, inclusa l'estensione Microsoft Monitoring Agent e l'estensione agente OMS per Linux |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Consente di visualizzare la chiave dell'account di archiviazione, è necessaria per configurare Log Analytics per la lettura dei log dagli account di archiviazione di Azure |
+| `Microsoft.Insights/alertRules/*` | Consente di aggiungere, aggiornare e rimuovere regole di avviso |
+| `Microsoft.Insights/diagnosticSettings/*` | Consente di aggiungere, aggiornare e rimuovere impostazioni di diagnostica dalle risorse di Azure |
+| `Microsoft.OperationalInsights/*` | Consente di aggiungere, aggiornare e rimuovere configurazioni per le aree di lavoro di Log Analytics |
+| `Microsoft.OperationsManagement/*` | Consente di aggiungere e rimuovere soluzioni di gestione |
+| `Microsoft.Resources/deployments/*` | Consente di creare ed eliminare distribuzioni, è necessaria per aggiungere e rimuovere soluzioni, aree di lavoro e account di automazione |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | Consente di creare ed eliminare distribuzioni, è necessaria per aggiungere e rimuovere soluzioni, aree di lavoro e account di automazione |
+
+Per aggiungere e rimuovere utenti da un ruolo utente, è necessario avere le autorizzazioni `Microsoft.Authorization/*/Delete` e `Microsoft.Authorization/*/Write`.
+
+Usare questi ruoli per concedere agli utenti l'accesso ad ambiti diversi:
+- Sottoscrizione: accesso a tutte le aree di lavoro nella sottoscrizione
+- Gruppo di risorse: accesso a tutte le aree di lavoro nel gruppo di risorse
+- Risorsa: accesso alla sola area di lavoro specificata
+
+Usare i [ruoli personalizzati](../active-directory/role-based-access-control-custom-roles.md) per creare ruoli con le autorizzazioni specifiche necessarie.
+
+### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Ruoli utente di Azure e ruoli utente del portale di Log Analytics
+Se è disponibile almeno l'autorizzazione di lettura di Azure per l'area di lavoro di Log Analytics, è possibile aprire il portale di Log Analytics facendo clic sull'attività **Portale di OMS** quando si visualizza l'area di lavoro di Log Analytics.
 
 Quando si apre il portale di Log Analytics, si passa all'uso dei ruoli utente di Log Analytics legacy. Se non si ha un'assegnazione di ruolo nel portale di Log Analytics, il servizio [controlla le autorizzazioni di Azure disponibili per l'area di lavoro](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
 L'assegnazione di ruolo nel portale di Log Analytics viene determinata come segue:
@@ -195,7 +247,7 @@ Per rimuovere un utente da un'area di lavoro, seguire questa procedura. La rimoz
 4. Selezionare il gruppo nei risultati dell'elenco e quindi fare clic su **Aggiungi**.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Collegare un'area di lavoro esistente a una sottoscrizione di Azure
-Tutte le aree di lavoro create dopo il 26 settembre 2016 devono essere collegate a una sottoscrizione di Azure al momento della creazione. All'accesso successivo, le aree di lavoro create prima di tale data devono essere collegate a un'area di lavoro. Quando si crea l'area di lavoro dal portale di Azure o si collega l'area di lavoro a una sottoscrizione di Azure, Azure Active Directory viene collegato come account aziendale.
+Tutte le aree di lavoro create dopo il 26 settembre 2016 devono essere collegate a una sottoscrizione di Azure al momento della creazione. All'accesso, le aree di lavoro create prima di tale data devono essere collegate a un'area di lavoro. Quando si crea l'area di lavoro dal portale di Azure o si collega l'area di lavoro a una sottoscrizione di Azure, Azure Active Directory viene collegato come account aziendale.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Per collegare un'area di lavoro a una sottoscrizione di Azure nel portale di OMS
 

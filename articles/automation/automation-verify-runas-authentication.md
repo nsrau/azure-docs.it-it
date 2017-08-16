@@ -1,6 +1,6 @@
 ---
-title: Convalidare la configurazione dell&quot;account di Automazione di Azure | Microsoft Docs
-description: Questo articolo descrive come verificare che la configurazione dell&quot;account di Automazione sia impostata correttamente.
+title: Convalidare la configurazione dell'account di Automazione di Azure | Microsoft Docs
+description: Questo articolo descrive come verificare che la configurazione dell'account di Automazione sia impostata correttamente.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 08/07/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 5bed2616e15a2e5f52e79d0c28159b568e7a1de3
-ms.lasthandoff: 04/15/2017
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 804e05f596e1d6d5f650e4c94a18eff6b7c3ba4e
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -25,31 +26,89 @@ ms.lasthandoff: 04/15/2017
 Al termine della creazione di un account di Automazione, è possibile eseguire un semplice test per verificare di poter completare l'autenticazione in Azure Resource Manager o nella distribuzione classica di Azure con l'account RunAs di Automazione appena creato o aggiornato.    
 
 ## <a name="automation-run-as-authentication"></a>Autenticazione con l'account RunAs di Automazione
+Usare il codice di esempio seguente per [creare un runbook di PowerShell](automation-creating-importing-runbook.md) per verificare l'autenticazione usando l'account RunAs e anche nei runbook personalizzati per autenticare e gestire le risorse di Resource Manager con l'account di Automazione.   
 
-1. Nel Portale di Azure aprire l'account di Automazione creato in precedenza.  
-2. Fare clic sul riquadro **Runbook** per aprire l'elenco dei runbook.
-3. Selezionare il runbook **AzureAutomationTutorialScript** e quindi fare clic su **Avvia** per avviarlo.  Verrà visualizzata la richiesta di confermare l'avvio del runbook.
-4. Verrà creato un [processo del runbook](automation-runbook-execution.md) e verrà visualizzato il pannello Processo con lo stato del processo nel riquadro **Riepilogo processi** .  
-5. Lo stato del processo è inizialmente *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi ad *Avvio in corso* quando un ruolo di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  
-6. Al termine del processo del runbook, lo stato visualizzato dovrebbe essere **Completato**.<br> ![Verifica del runbook dell'entità di sicurezza](media/automation-verify-runas-authentication/job-summary-automationtutorialscript.png)<br>
-7. Per visualizzare i risultati dettagliati del runbook, fare clic sul riquadro **Output** .
-8. Nel pannello **Output** dovrebbe risultare che l'autenticazione è stata completata e che è stato restituito un elenco di tutte le risorse disponibili nel gruppo di risorse.
-9. Chiudere il pannello **Output** per tornare al pannello **Riepilogo processi**.
-10. Chiudere **Riepilogo processi** e il pannello del runbook **AzureAutomationTutorialScript** corrispondente.
+    $connectionName = "AzureRunAsConnection"
+    try
+    {
+        # Get the connection "AzureRunAsConnection "
+        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+        "Logging in to Azure..."
+        Add-AzureRmAccount `
+           -ServicePrincipal `
+           -TenantId $servicePrincipalConnection.TenantId `
+           -ApplicationId $servicePrincipalConnection.ApplicationId `
+           -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+    }
+    catch {
+       if (!$servicePrincipalConnection)
+       {
+          $ErrorMessage = "Connection $connectionName not found."
+          throw $ErrorMessage
+      } else{
+          Write-Error -Message $_.Exception
+          throw $_.Exception
+      }
+    }
+
+    #Get all ARM resources from all resource groups
+    $ResourceGroups = Get-AzureRmResourceGroup 
+
+    foreach ($ResourceGroup in $ResourceGroups)
+    {    
+       Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
+       $Resources = Find-AzureRmResource -ResourceGroupNameContains $ResourceGroup.ResourceGroupName | Select ResourceName, ResourceType
+       ForEach ($Resource in $Resources)
+       {
+          Write-Output ($Resource.ResourceName + " of type " +  $Resource.ResourceType)
+       }
+       Write-Output ("")
+    } 
+
+Si noti che il cmdlet usato per l'autenticazione nel runbook (**Add-AzureRmAccount**) usa il set di parametri *ServicePrincipalCertificate*  ed esegue l'autenticazione usando il certificato dell'entità servizio, non le credenziali.  
+
+Quando si [esegue il runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) per convalidare l'account RunAs, viene creato un [processo del runbook](automation-runbook-execution.md) e viene visualizzato il pannello Processo con lo stato del processo nel riquadro **Riepilogo processi**. Lo stato del processo è inizialmente *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi ad *Avvio in corso* quando un ruolo di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  Al termine del processo del runbook, lo stato visualizzato dovrebbe essere **Completato**.
+
+Per visualizzare i risultati dettagliati del runbook, fare clic sul riquadro **Output** .  Nel pannello **Output** dovrebbe risultare che l'autenticazione è stata completata e viene restituito un elenco di tutte le risorse in tutti i gruppi di risorse della sottoscrizione.  
+
+Ricordare di rimuovere il blocco di codice che inizia con il commento `#Get all ARM resources from all resource groups` quando si usa di nuovo il codice per i runbook.
 
 ## <a name="classic-run-as-authentication"></a>Autenticazione con l'account RunAs classico
-Se le risorse verranno gestite nel modello di distribuzione classica, seguire questa procedura per verificare di poter completare l'autenticazione con il nuovo account RunAs classico.     
+Usare il codice di esempio seguente per [creare un runbook di PowerShell](automation-creating-importing-runbook.md) per verificare l'autenticazione usando l'account RunAs classico e anche nei runbook personalizzati per autenticare e gestire le risorse nel modello di distribuzione classica.  
 
-1. Nel Portale di Azure aprire l'account di Automazione creato in precedenza.  
-2. Fare clic sul riquadro **Runbook** per aprire l'elenco dei runbook.
-3. Selezionare il runbook **AzureClassicAutomationTutorialScript** e quindi fare clic su **Avvia** per avviarlo.  Verrà visualizzata la richiesta di confermare l'avvio del runbook.
-4. Verrà creato un [processo del runbook](automation-runbook-execution.md) e verrà visualizzato il pannello Processo con lo stato del processo nel riquadro **Riepilogo processi** .  
-5. Lo stato del processo è inizialmente *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi ad *Avvio in corso* quando un ruolo di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  
-6. Al termine del processo del runbook, lo stato visualizzato dovrebbe essere **Completato**.<br><br> ![Verifica del runbook dell'entità di sicurezza](media/automation-verify-runas-authentication/job-summary-automationclassictutorialscript.png)<br>  
-7. Per visualizzare i risultati dettagliati del runbook, fare clic sul riquadro **Output** .
-8. Nel pannello **Output** dovrebbe risultare che l'autenticazione è stata completata e che è stato restituito un elenco di tutte le VM classiche nella sottoscrizione.
-9. Chiudere il pannello **Output** per tornare al pannello **Riepilogo processi**.
-10. Chiudere **Riepilogo processi** e il pannello del runbook **AzureClassicAutomationTutorialScript** corrispondente.
+    $ConnectionAssetName = "AzureClassicRunAsConnection"
+    # Get the connection
+    $connection = Get-AutomationConnection -Name $connectionAssetName        
+
+    # Authenticate to Azure with certificate
+    Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
+    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
+    if ($Conn -eq $null)
+    {
+       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
+    }
+
+    $CertificateAssetName = $Conn.CertificateAssetName
+    Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
+    $AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
+    if ($AzureCert -eq $null)
+    {
+       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
+    }
+
+    Write-Verbose "Authenticating to Azure with certificate." -Verbose
+    Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
+    Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
+    
+    #Get all VMs in the subscription and return list with name of each
+    Get-AzureVM | ft Name
+
+Quando si [esegue il runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) per convalidare l'account RunAs, viene creato un [processo del runbook](automation-runbook-execution.md) e viene visualizzato il pannello Processo con lo stato del processo nel riquadro **Riepilogo processi**. Lo stato del processo è inizialmente *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi ad *Avvio in corso* quando un ruolo di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  Al termine del processo del runbook, lo stato visualizzato dovrebbe essere **Completato**.
+
+Per visualizzare i risultati dettagliati del runbook, fare clic sul riquadro **Output** .  Nel pannello **Output** dovrebbe risultare che l'autenticazione è stata completata e viene restituito un elenco di tutte le VM di Azure per nome VM visualizzate nella sottoscrizione.  
+
+Ricordare di rimuovere il cmdlet **Get-AzureVM** quando si usa di nuovo il codice per i runbook.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per iniziare a usare i runbook PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md).

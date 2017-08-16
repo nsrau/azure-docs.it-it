@@ -1,7 +1,7 @@
-È ora possibile usare Esplora dati per creare un contenitore di grafi e aggiungere dati al database. 
+È ora possibile usare lo strumento Esplora dati nel portale di Azure per creare un database a grafo. 
 
-1. Nel menu di navigazione del portale di Azure fare clic su **Esplora dati**. 
-2. Nel pannello Esplora dati fare clic su **New Graph** (Nuovo grafo) e quindi compilare i campi della pagina con le informazioni seguenti.
+1. Nel menu di navigazione a sinistra del portale di Azure fare clic su **Esplora dati (anteprima)**. 
+2. Nel pannello **Esplora dati (anteprima)** fare clic su **New Graph** (Nuovo grafo) e quindi compilare i campi della pagina con le informazioni seguenti.
 
     ![Esplora dati nel portale di Azure](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 

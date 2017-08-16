@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 23715879b46dd6d56a91fac2908964ea87fe569a
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>Guida introduttiva: Reimpostazione self-service della password di Azure AD
+# <a name="quickstart-azure-ad-self-service-password-reset"></a>Guida introduttiva: Reimpostazione self-service della password di Azure AD
+
+> [!IMPORTANT]
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="rapidly-deploy-self-service-password-reset"></a>Distribuire rapidamente la reimpostazione self-service della password
 
@@ -77,6 +80,12 @@ Per abilitare la sincronizzazione delle identità locali con Azure AD è necessa
 Per disabilitare la reimpostazione self-service della password è sufficiente aprire il tenant di Azure AD e passare a **Reimpostazione password > Proprietà** e scegliere **Nessuno** in **Reimpostazione password self-service abilitata**
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+In questa guida introduttiva è stato illustrato come configurare la reimpostazione self-service della password per gli utenti. Per passare al portale di Azure per completare questa procedura, seguire il collegamento seguente per il portale.
+
+> [!div class="nextstepaction"]
+> [Abilitare la reimpostazione self-service delle password](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
 
 * [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
