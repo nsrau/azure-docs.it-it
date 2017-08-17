@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c82459bfddc2755a56fdad6eb8ab4c8bb41862f6
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -100,7 +100,7 @@ Per iniziare a usare Azure, è necessario un account Azure, aver installato l'in
 Il primo passaggio quando si usa il cloud di Azure è effettuare l'iscrizione per un account Azure.  Per iniziare, accedere alla pagina relativa alla [creazione di un account Azure](https://azure.microsoft.com/pricing/free-trial/) .
 
 ### <a name="install-the-cli"></a>Installare l'interfaccia della riga di comando
-Con il nuovo account di Azure, è possibile iniziare a usare immediatamente il portale di Azure, che è un pannello di amministrazione basato sul Web.  Per gestire il cloud di Azure tramite la riga di comando, installare `azure-cli`.  Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install) sulla workstation Mac o Linux in uso.
+Con il nuovo account di Azure, è possibile iniziare a usare immediatamente il portale di Azure, che è un pannello di amministrazione basato sul Web.  Per gestire il cloud di Azure tramite la riga di comando, installare `azure-cli`.  Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) nella workstation Mac o Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
 A questo punto si dispone di un account Azure, del portale Web di Azure e dell'interfaccia della riga di comando di Azure.  Il passaggio successivo consiste nel creare una coppia di chiavi SSH per accedere tramite SSH in Linux senza specificare una password.  [Creare le chiavi SSH in Linux e Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per abilitare gli accessi senza password e migliorare la sicurezza.
@@ -117,8 +117,6 @@ La creazione di una VM Linux nel portale Web di Azure consente di selezionare fa
 
 ### <a name="login-using-ssh-without-a-password"></a>Accesso tramite SSH senza una password
 La VM è ora in esecuzione in Azure ed è possibile eseguire l'accesso.  L'uso di password per l'accesso tramite SSH non è sicuro e richiede tempo.  L'uso delle chiavi SSH è il modo più sicuro e rapido per eseguire l'accesso.  Quando si crea una VM Linux tramite il portale o l'interfaccia della riga di comando, sono disponibili due opzioni di autenticazione.  Se si sceglie una password per SSH, Azure configura la VM in modo da consentire gli accessi tramite password.  Se si sceglie di usare una chiave pubblica SSH, Azure configura la VM per consentire solo gli accessi tramite le chiavi SSH e disabilita gli accessi tramite password. Per proteggere la VM Linux consentendo solo gli accessi tramite le chiavi SSH, usare l'opzione di chiave pubblica SSH durante la creazione della VM nel portale o nell'interfaccia della riga di comando.
-
-* [Disabilitare le password SSH nella VM Linux configurando SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="related-azure-components"></a>Componenti di Azure correlati
 ## <a name="storage"></a>Archiviazione
