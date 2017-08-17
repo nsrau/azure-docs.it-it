@@ -127,7 +127,7 @@ Nell'esempio illustrato nel diagramma:
 
 
 ## <a name="restrictions-on-cropping"></a>Restrizioni relative al ritaglio
-La funzionalità di ritaglio è concepita per essere manuale. Sarà necessario caricare il video di input in uno strumento di editing valido che consenta di selezionare i frame di interesse, posizionare il cursore per determinare gli offset del rettangolo di ritaglio, per determinare il set di impostazioni di codifica ottimale per quel particolare video e così via. Questa funzionalità non è progettata per consentire ad esempio il rilevamento e la rimozione automatici dei bordi neri formato&16;:9 e formato&4;:3 nel video di input.
+La funzionalità di ritaglio è concepita per essere manuale. Sarà necessario caricare il video di input in uno strumento di editing valido che consenta di selezionare i frame di interesse, posizionare il cursore per determinare gli offset del rettangolo di ritaglio, per determinare il set di impostazioni di codifica ottimale per quel particolare video e così via. Questa funzionalità non è progettata per consentire ad esempio il rilevamento e la rimozione automatici dei bordi neri formato 16:9 e formato 4:3 nel video di input.
 
 Alla funzionalità di ritaglio si applicano le limitazioni seguenti. Se queste limitazioni non vengono osservate, l'attività di codifica produrrà errori o un output imprevisto.
 
