@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: c46a85aaf5237a2a7643cc9069255bdad9ab1d69
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
@@ -227,15 +228,28 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
     </outbound>  
 </policies>  
 ```  
+In questo esempio il criterio del servizio back-end indirizza le richieste in base al valore di versione passato nella stringa di query a un servizio back-end diverso rispetto a quello specificato nell'API.
   
- In questo esempio il criterio del servizio back-end indirizza le richieste in base al valore di versione passato nella stringa di query a un servizio back-end diverso rispetto a quello specificato nell'API.  
+Inizialmente l'URL di base del servizio back-end è quello specificato nelle impostazioni dell'API. Pertanto, l'URL della richiesta `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` diventa `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` dove `http://contoso.com/api/10.4/` è l'URL del servizio back-end specificato nelle impostazioni dell'API.  
   
- Inizialmente l'URL di base del servizio back-end è quello specificato nelle impostazioni dell'API. Pertanto, l'URL della richiesta `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` diventa `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` dove `http://contoso.com/api/10.4/` è l'URL del servizio back-end specificato nelle impostazioni dell'API.  
+Quando viene applicata l'istruzione del criterio [<choose\>](api-management-advanced-policies.md#choose), l'URL di base del servizio back-end può essere di nuovo modificato in `http://contoso.com/api/8.2` o `http://contoso.com/api/9.1`, a seconda del valore del parametro della query versione richiesta. Se, ad esempio, il valore è `"2013-15"`, l'URL della richiesta finale sarà `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
   
- Quando viene applicata l'istruzione del criterio [<choose\>](api-management-advanced-policies.md#choose), l'URL di base del servizio back-end può essere di nuovo modificato in `http://contoso.com/api/8.2` o `http://contoso.com/api/9.1`, a seconda del valore del parametro della query versione richiesta. Se, ad esempio, il valore è `"2013-15"`, l'URL della richiesta finale sarà `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.  
+Se occorre un'ulteriore trasformazione della richiesta, è possibile usare altri [criteri di trasformazione](api-management-transformation-policies.md#TransformationPolicies). Ad esempio, per rimuovere il parametro della query di versione una volta instradata la richiesta verso un back-end specifico, ad esempio, è possibile usare il criterio [Imposta parametro della stringa di query](api-management-transformation-policies.md#SetQueryStringParameter) per rimuovere l'attributo della versione divenuta ridondante.  
   
- Se occorre un'ulteriore trasformazione della richiesta, è possibile usare altri [criteri di trasformazione](api-management-transformation-policies.md#TransformationPolicies). Ad esempio, per rimuovere il parametro della query di versione una volta instradata la richiesta verso un back-end specifico, ad esempio, è possibile usare il criterio [Imposta parametro della stringa di query](api-management-transformation-policies.md#SetQueryStringParameter) per rimuovere l'attributo della versione divenuta ridondante.  
+### <a name="example"></a>Esempio  
   
+```xml  
+<policies>  
+    <inbound>  
+        <set-backend-service backend-id="my-sf-service" sf-partition-key="@(context.Request.Url.Query.GetValueOrDefault("userId","")" sf-replica-type="primary" /> 
+    </inbound>  
+    <outbound>  
+        <base />  
+    </outbound>  
+</policies>  
+```  
+In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastruttura del servizio tramite la stringa di query dell'ID utente come chiave di partizione e tramite la replica della partizione primaria.  
+
 ### <a name="elements"></a>Elementi  
   
 |Nome|Descrizione|Obbligatorio|  
@@ -246,8 +260,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |Nome|Descrizione|Obbligatorio|Default|  
 |----------|-----------------|--------------|-------------|  
-|base-url|Nuovo URL di base del servizio back-end.|Sì|N/D|  
-  
+|base-url|Nuovo URL di base del servizio back-end.|No|N/D|  
+|backend-id|Identificatore del back-end verso cui avviene il routing.|No|N/D|  
+|sf-partition-key|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Usato per risolvere una partizione specifica dal servizio di risoluzione del nome.|No|N/D|  
+|sf-replica-type|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Controlla se la richiesta deve passare alla replica primaria o secondaria di una partizione. |No|N/D|    
+|sf-resolve-condition|Applicabile solo quando il back-end è un servizio di Service Fabric. Condizione che identifica se la chiamata al back-end di Service Fabric deve essere ripetuta con una nuova risoluzione.|No|N/D|    
+|sf-service-instance-name|Applicabile solo quando il back-end è un servizio di Service Fabric. Consente di modificare le istanze del servizio durante il runtime. |No|N/D |    
+
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
@@ -655,7 +674,7 @@ OriginalUrl.
   <outbound>  
       <base />  
       <xsl-transform>  
-          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
+        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">  
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />  
             <!-- Copy all nodes directly-->  
             <xsl:template match="node()| @*|*">  
@@ -663,7 +682,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />  
                 </xsl:copy>  
             </xsl:template>  
-          </xsl:stylesheet>  
+        </xsl:stylesheet>  
     </xsl-transform>  
   </outbound>  
 </policies>  

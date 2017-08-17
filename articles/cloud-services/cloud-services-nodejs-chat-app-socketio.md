@@ -1,6 +1,6 @@
 ---
 title: Applicazione Node.js con Socket.io | Documentazione Microsoft
-description: Informazioni su come usare socket.io in un&quot;applicazione node.js ospitata in Azure.
+description: Informazioni su come usare socket.io in un'applicazione node.js ospitata in Azure.
 services: cloud-services
 documentationcenter: nodejs
 author: rmcmurray
@@ -14,10 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: e9607d2426192eca990261e5ef3b4e06b25b1dec
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
+ms.openlocfilehash: efa459f6b382ff22c94802e1250836d5f622b4ed
+ms.contentlocale: it-it
+ms.lasthandoff: 06/29/2017
 
 
 ---
@@ -80,6 +81,7 @@ Prima di testare l'applicazione nell'emulatore di Azure, è necessario apportare
          , nib = require('nib')
        //, sio = require('..//..//lib//socket.io'); //Original
          , sio = require('socket.io');                //Updated
+         var port = process.env.PORT || 3000;         //Updated
 3. Per assicurarsi che l'applicazione resti in ascolto sulla porta corretta, aprire il file server.js nel Blocco note o in un altro editor di testo e quindi modificare la riga seguente sostituendo **3000** con **process.env.port**, come illustrato di seguito:
    
        //app.listen(3000, function () {            //Original
@@ -105,6 +107,15 @@ Dopo aver salvato le modifiche apportate al file **server.js**, eseguire la proc
 1. Avviare l'emulatore immettendo il comando seguente:
    
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
+   
+   > [!NOTE]
+   > Se si verificano problemi con l'avvio dell'emulatore, ad esempio Start-AzureEmulator: Errore imprevisto.  Dettagli: Errore imprevisto Impossibile utilizzare l'oggetto di comunicazione, System.ServiceModel.Channels.ServiceChannel per la comunicazione perché è nello stato Faulted.
+   
+      reinstallare AzureAuthoringTools 2.7.1 e AzureComputeEmulator 2.7 - verificare che la versione corrisponda.
+   >
+   >
+
+
 2. Aprire un browser e passare a **http://127.0.0.1**.
 3. Quando si apre la finestra del browser, immettere un nome alternativo e premere INVIO.
    In questo modo sarà possibile inviare messaggi con un nome alternativo specifico. Per testare la funzionalità multiutente, aprire altre finestre del browser usando lo stesso URL e immettere nomi alternativi diversi.
