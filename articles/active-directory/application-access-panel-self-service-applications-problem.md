@@ -1,6 +1,6 @@
 ---
-title: Errore durante l&quot;accesso alle applicazioni self-service | Microsoft Docs
-description: Risoluzione dei problemi relativi all&quot;accesso alle applicazioni self-service
+title: Errore durante l'accesso alle applicazioni self-service | Microsoft Docs
+description: Risoluzione dei problemi relativi all'accesso alle applicazioni self-service
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 4d8c241344485e50a1afde3cd67adf3d0a7c041f
-ms.lasthandoff: 04/11/2017
-
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 217726709a1fdb02275de5a76a1352ea9c350600
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -45,7 +46,7 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
 
@@ -78,13 +79,13 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 
 Dopo aver completato la configurazione dell'applicazione self-service, gli utenti possono accedere al [Pannello di accesso dell'applicazione](https://myapps.microsoft.com/) e fare clic sul pulsante **+Aggiungi** per trovare le app per cui è stato abilitato l'accesso self-service. Anche i responsabili approvazione aziendali visualizzano una notifica nel loro [Pannello di accesso dell'applicazione](https://myapps.microsoft.com/). È possibile abilitare un messaggio di posta elettronica per informare i responsabili dell'approvazione quando un utente richiede l'accesso a un'applicazione per cui è necessaria l'approvazione. 
 
-Tali approvazioni supportano solo flussi di lavoro di approvazione individuali. Se si specificano pertanto più responsabili approvazione, uno qualsiasi di esso potrà approvare l'accesso all'applicazione.
+Tali approvazioni supportano solo flussi di lavoro di approvazione individuali. Se si specificano pertanto più responsabili approvazione, uno qualsiasi di essi potrà approvare l'accesso all'applicazione.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Se questi passaggi di risoluzione dei problemi non risolvono il problema 
+## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Se questi passaggi per la risoluzione dei problemi non risolvono il problema 
 
-aprire un ticket di supporto con le informazioni seguenti, se disponibili:
+Aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 
--   ID errore correlazione
+-   ID errore di correlazione
 
 -   UPN (indirizzo di posta elettronica dell'utente)
 
@@ -92,7 +93,7 @@ aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 
 -   Tipo di browser
 
--   Fuso orario e l'ora o intervallo di tempo durante il quale si verifica l'errore
+-   Fuso orario e ora o intervallo di tempo durante il quale si verifica l'errore
 
 -   Tracce Fiddler
 

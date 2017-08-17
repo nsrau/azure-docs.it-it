@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 782489e7551fef3daed4de8212821e93f7777535
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: da5995535d42ed52772cb09e0f4da51bbf878748
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi
@@ -38,16 +37,22 @@ Per aggiungere un utente come amministratore per una sottoscrizione nel portale 
 
     ![Schermata che mostra una sottoscrizione selezionata](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. Nel pannello della sottoscrizione selezionare **Controllo di accesso (IAM)**> **Aggiungi**.
+3. Nel pannello della sottoscrizione selezionare **Controllo di accesso (IAM)**.
+4. Selezionare **Aggiungi** > **Ruolo** > **Proprietario**. Immettere l'indirizzo di posta elettronica dell'utente che si vuole aggiungere, selezionare l'utente e quindi selezionare **Salva**.
 
-    ![Schermata che mostra il pulsante Aggiungi selezionato](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. Selezionare **Selezionare un ruolo** > **Proprietario**.
+    ![Schermata che mostra il pulsante Proprietario selezionato](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-    ![Schermata che mostra il pulsante Proprietario selezionato](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5. Se si desidera aggiungere l'account del proprietario come coamministratore, nella pagina **Controllo di accesso (IAM)** fare clic con il pulsante destro del mouse sull'utente e quindi selezionare **Aggiungi come coamministratore**. Questa funzionalità è ora disponibile nel [portale di anteprima di Azure](https://preview.portal.azure.com/). 
 
-5. Immettere l'indirizzo di posta elettronica dell'utente che si vuole aggiungere, fare clic sull'utente e quindi su **Seleziona**.
+     ![Schermata per l'aggiunta di un coamministratore](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    ![Schermata che mostra un messaggio di posta elettronica di un utente aggiunto e selezionato](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+    >[!TIP]
+    >È necessario aggiungere l'utente "Proprietario" come coamministratore se l'utente deve gestire i servizi di Azure nel [portale di Azure classico](https://manage.windowsazure.com/).
+
+    Per rimuovere l'autorizzazione di coamministratore, fare clic sull'utente "coamministratore" e quindi selezionare **Rimuovi coamministratore**.
+
+    ![Schermata per la rimozione di un coamministratore](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
 
 **portale di Azure classico**
 
@@ -68,14 +73,12 @@ L'indirizzo di posta elettronica seguente può essere aggiunto come co-amministr
 
     utente@&lt;dominio&gt;.onmicrosoft.com
 
-
-
 ## <a name="change-service-administrator-for-a-subscription"></a>Modificare l'amministratore del servizio per una sottoscrizione
 Solo l'amministratore account può modificare l'amministratore del servizio per una sottoscrizione.
 
 1. Accedere al [Centro account di Azure](https://account.windowsazure.com/subscriptions) come amministratore account.
 2. Selezionare la sottoscrizione da modificare.
-3. Sul lato destro fare clic sui dettagli di **Modifica sottoscrizione** . </br>
+3. Sul lato destro selezionare i dettagli di **Modifica sottoscrizione**. </br>
 
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 4. Nel casella **AMMINISTRATORE DEL SERVIZIO** immettere l'indirizzo di posta elettronica del nuovo amministratore del servizio. </br>

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 7ddce64d7ce6107f530b970235bc33a05f49480f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 90e08b9cf2feb93de4877bec9734352949896dca
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox
@@ -144,7 +143,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 10. Nel riquadro di spostamento a sinistra, fare clic su **Security Controls** (Controlli di sicurezza) e quindi fare clic su **Single Sign-On Settings** (Impostazioni Single Sign-On).
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/IC781025.png)
-11. Nella sezione Impostazioni Single Sign-On eseguire la procedura seguente:  ![Configurazione dell'accesso Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png)
+11. Nella sezione Impostazioni Single Sign-On eseguire la procedura seguente: ![Configurazione dell'accesso Single Sign-On](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png)
      
      a.  Selezionare **Abilitato SAML**. 
 
@@ -168,7 +167,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 
     g. Incollare **URL servizio Single Sign-On** nella casella di testo **URL di accesso provider di identità**. 
 
-    h. SFDC non supporta la disconnessione SAML.  Come soluzione alternativa, incollare 'https://login.windows.net/common/wsfederation?wa=wsignout1.0' nella casella di testo **Identity Provider Logout URL** (URL di disconnessione provider di identità).
+    h. SFDC non supporta la disconnessione SAML.  Come soluzione alternativa, incollare "https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0" nella casella di testo **Identity Provider Logout URL** (URL di disconnessione provider di identità).
 
     i. In **Service Provider Initiated Request Binding** (Binding richiesta avviato dal provider di servizi) selezionare **HTTP POST**. 
 

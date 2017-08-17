@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/22/2017
+ms.date: 07/12/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 9cecbfd1fd5db8fffc9fbdfb2d6ca949b6ff385a
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
 ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
@@ -29,11 +29,28 @@ Questo argomento fornisce informazioni sugli aspetti da conoscere e su ciò che 
 
 ## <a name="what-you-should-know"></a>Informazioni utili
 
-### <a name="do-i-need-to-assign-a-user-to-my-policy"></a>È necessario assegnare un utente al criterio?
+### <a name="whats-required-to-make-a-policy-work"></a>Elementi necessari per il funzionamento di un criterio
 
-Quando si configura un criterio di accesso condizionale, è consigliabile assegnargli almeno un gruppo. Un criterio di accesso condizionale a cui non sono assegnati utenti e gruppi non viene mai attivato.
+Quando si crea un nuovo criterio, non sono selezionti utenti, gruppi, app o controlli di accesso.
 
-Quando si vogliono assegnare più utenti e gruppi a un criterio, è consigliabile iniziare assegnando un solo utente o gruppo e quindi testare la configurazione. Se il criterio funziona come previsto, sarà quindi possibile aggiungergli altre assegnazioni.  
+![App cloud](./media/active-directory-conditional-access-best-practices/02.png)
+
+
+Per far funzionare il criterio, è necessario configurare quanto segue:
+
+
+|Cosa           | Come                                  | Motivo|
+|:--            | :--                                  | :-- |
+|**App cloud** |È necessario selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di ottimizzare il modo in cui gli utenti autorizzati possono accedere alle app.|
+| **Utenti e gruppi** | È necessario selezionare almeno un utente o gruppo che è autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale a cui non sono assegnati utenti e gruppi non viene mai attivato. |
+| **Controlli di accesso** | È necessario selezionare almeno un controllo di accesso. | Il processore del criterio deve sapere cosa fare se vengono soddisfatte le condizioni.|
+
+
+Oltre a questi requisiti di base, in molti casi è necessario anche configurare una condizione. Mentre un criterio funzionerebbe anche senza una condizione configurata, le condizioni rappresentano il fattore determinante per ottimizzare l'accesso alle app.
+
+
+![App cloud](./media/active-directory-conditional-access-best-practices/04.png)
+
 
 
 ### <a name="how-are-assignments-evaluated"></a>Come vengono valutate le assegnazioni?

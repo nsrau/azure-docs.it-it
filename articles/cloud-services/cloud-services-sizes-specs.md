@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/12/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: aee9d9b735358c3800f8f97f78dd2d3ad1e5e8a8
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
@@ -42,7 +42,7 @@ La dimensione della macchina virtuale influisce sul prezzo. Influisce, inoltre, 
 
 Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una dimensione:
 
-* Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 a 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 a 3,2 GHz. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 a 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 a 3,2 GHz. Per informazioni e considerazioni dettagliate sull'uso di queste dimensioni, vedere [Dimensioni delle VM High Performance Computing (HPC)](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * La serie Dv2, D e G sono ideali per le applicazioni che richiedono CPU più veloci, prestazioni migliori del disco locale o requisiti di memoria superiori. Offrono una potente combinazione per molte applicazioni di livello aziendale.
 * Alcuni degli host fisici nei data center di Azure potrebbero non supportare macchine virtuali di dimensioni superiori, ad esempio da A5 ad A11. Di conseguenza, potrebbe essere visualizzato il messaggio di errore **Impossibile configurare la macchina virtuale {nome macchina virtuale}** o **Impossibile creare la macchina virtuale {nome macchina virtuale}** quando si configura una macchina virtuale esistente in base a una nuova dimensione, si crea una nuova macchina virtuale in una rete virtuale creata prima del 16 aprile 2013 o si aggiunge una nuova macchina a un servizio cloud esistente. Vedere [Errore: "Impossibile configurare la macchina virtuale"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) nel forum di supporto per le soluzioni alternative per ogni scenario di distribuzione.
 * La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni . Per aumentare la quota, contattare il supporto tecnico di Azure.
@@ -93,7 +93,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 | A7              | 8         | 56           | 2040                 | 4/alta |
 
 ## <a name="a-series---compute-intensive-instances"></a>Serie A - Istanze a elevato utilizzo di calcolo
-Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensioni delle VM High Performance Computing (HPC)](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Dimensione            | Core CPU | Memoria: GiB  | Unità HDD locale: GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -197,5 +197,5 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
-* Per altre informazioni, vedere [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../virtual-machines/windows/a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per carichi di lavoro come High-Performance Computing (HPC).
+* Altre informazioni [sulle Dimensioni delle VM High Performance Computing (HPC)](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per carichi di lavoro HPC.
 

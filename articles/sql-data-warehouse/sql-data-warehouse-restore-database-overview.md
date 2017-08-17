@@ -1,5 +1,5 @@
 ---
-title: Ripristinare un&quot;istanza di Azure Data Warehouse - Ridondanza geografica e locale | Documentazione Microsoft
+title: Ripristinare un'istanza di Azure Data Warehouse - Ridondanza geografica e locale | Documentazione Microsoft
 description: Panoramica delle opzioni di ripristino del database per ripristinare un database in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 104986e88ededf2137725fe258b6ce51f608b37d
-ms.lasthandoff: 01/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-data-warehouse-restore"></a>Ripristino di SQL Data Warehouse
@@ -58,7 +58,12 @@ Yes, you can restore the last available restore point.
 Yes, for the next seven calendar days. When you delete a data warehouse, SQL Data Warehouse actually keeps the data warehouse and its snapshots for seven days just in case you need the data. After seven days, you won't be able to restore to any of the restore points. -->
 
 ## <a name="geo-redundant-restore"></a>Ripristino con ridondanza geografica
-Se si usa l'archiviazione con ridondanza geografica è possibile ripristinare il data warehouse al [data center associato](../best-practices-availability-paired-regions.md) in un'area geografica diversa. Il data warehouse viene ripristinato dall'ultimo backup giornaliero. 
+È possibile ripristinare il data warehouse in qualsiasi area che supporta Azure SQL Data Warehouse con il livello di prestazioni scelto. Si noti che le capacità DWU 9000 e 18000 non sono supportate in tutte le aree durante l'anteprima.
+
+> [!NOTE]
+> Per eseguire un ripristino con ridondanza geografica, è necessario non avere rifiutato esplicitamente questa funzionalità.
+> 
+> 
 
 ## <a name="restore-timeline"></a>Sequenza temporale del ripristino
 È possibile ripristinare un database a qualsiasi punto di ripristino disponibile degli ultimi sette giorni. Gli snapshot vengono eseguiti ogni quattro-otto ore e sono disponibili per sette giorni. Quando uno snapshot supera i sette giorni di vita, scade e il relativo punto di ripristino non è più disponibile.

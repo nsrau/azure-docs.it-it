@@ -1,9 +1,32 @@
+---
+title: "Ricevere gli avvisi del log attività nelle notifiche del servizio di Azure | Microsoft Docs"
+description: Ricevere le notifiche tramite SMS, posta elettronica o webhook quando si verificano problemi in un servizio di Azure.
+author: johnkemnetz
+manager: orenr
+editor: 
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/31/2017
+ms.author: johnkem
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c8339c08333aaa471b42f6468ca2a59ee4efacf9
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
+
+---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
-Per definizione, un gruppo di azioni consente di configurare gli endpoint webhook in modo da ricevere le notifiche per gli avvisi del log attività. I webhook consentono di instradare queste notifiche ad altri sistemi per la post-elaborazione o le azioni personalizzate. L'articolo illustra anche il modo in cui il payload per il protocollo HTTP POST viene percepito da un webhook.
+Nella definizione di un gruppo di azioni è possibile configurare gli endpoint webhook in modo da ricevere le notifiche per gli avvisi del log attività. I webhook consentono di instradare queste notifiche ad altri sistemi per la post-elaborazione o le azioni personalizzate. L'articolo illustra anche il modo in cui il payload per il protocollo HTTP POST viene percepito da un webhook.
 
-Per informazioni su configurazione e schema per gli avvisi relativi al log attività di Azure, [vedere invece questa pagina](monitoring-activity-log-alerts.md).
+Per informazioni sulla creazione di avvisi relativi al log attività di Azure, [vedere invece questa pagina](monitoring-activity-log-alerts.md).
 
-Per informazioni su configurazione e schema per i gruppi di attività, [vedere invece questa pagina](monitoring-action-groups.md).
+Per informazioni sulla creazione di gruppi di azioni, [vedere invece questa pagina](monitoring-action-groups.md).
 
 ## <a name="authenticating-the-webhook"></a>Autenticazione del webhook
 Il webhook può eseguire l'autenticazione con l'autorizzazione basata su token - L'URI del webhook viene salvato con un ID token, ad esempio `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -90,7 +113,7 @@ Il payload JSON contenuto nell'operazione POST varia a seconda del campo data.co
                     "stage": "Active",
                     "communicationId": "...",
                     "version": "0.1"
-                },
+                }
             }
         },
         "properties": {}
@@ -136,3 +159,4 @@ Per trovare dettagli specifici per gli schemi negli avvisi relativi ai log attiv
 * [Usare l'app per la logica per inviare SMS tramite Twilio da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del registro attività.
 * [Usare l'app per la logica per inviare un messaggio Slack da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del registro attività.
 * [Usare l'app per la logica per inviare un messaggio a una coda di Azure da un avviso di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Questo esempio si riferisce agli avvisi relativi alle metriche, ma può essere modificato per funzionare con un avviso del registro attività.
+

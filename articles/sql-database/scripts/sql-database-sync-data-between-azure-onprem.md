@@ -3,7 +3,7 @@ title: Esempio di sincronizzazione di PowerShell tra database SQL e SQL Server o
 description: Script di esempio di Azure PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server
 services: sql-database
 documentationcenter: sql-database
-author: douglaslms
+author: jognanay
 manager: jhubbard
 editor: 
 tags: 

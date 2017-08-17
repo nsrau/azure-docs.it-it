@@ -1,6 +1,6 @@
 ---
 title: Backup di Azure SQL Data Warehouse - Snapshot e ridondanza geografica | Documentazione Microsoft
-description: Informazioni sui backup dei database predefiniti di SQL Data Warehouse che consentono di ripristinare SQL Data Warehouse di Azure in un punto di ripristino o in un&quot;area geografica diversa.
+description: Informazioni sui backup dei database predefiniti di SQL Data Warehouse che consentono di ripristinare SQL Data Warehouse di Azure in un punto di ripristino o in un'area geografica diversa.
 services: sql-data-warehouse
 documentationcenter: 
 author: Lakshmi1812
@@ -15,12 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
 ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Backup di SQL Data Warehouse
@@ -54,6 +53,11 @@ Questa funzionalità è attivata per impostazione predefinita. Se non si desider
 > [!NOTE]
 > In Archiviazione di Azure il termine *replica* fa riferimento alla copia dei file da una località a un'altra. La *replica di database* di SQL fa riferimento a più database secondari sincronizzati con un database primario. 
 > 
+> 
+
+> [!NOTE]
+> È possibile rifiutare esplicitamente i backup con ridondanza geografica con 9000 DWU e 18000 DWU. 
+>
 > 
 
 Per altre informazioni su:

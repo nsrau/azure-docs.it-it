@@ -1,11 +1,11 @@
 ---
-title: Aggiungere notifiche push all&quot;app Apache Cordova con App per dispositivi mobili di Azure | Documentazione Microsoft
-description: Informazioni su come usare App per dispositivi mobili di Azure per inviare notifiche push all&quot;app Apache Cordova.
+title: Aggiungere notifiche push all'app Apache Cordova con App per dispositivi mobili di Azure | Documentazione Microsoft
+description: Informazioni su come usare App per dispositivi mobili di Azure per inviare notifiche push all'app Apache Cordova.
 services: app-service\mobile
 documentationcenter: javascript
-manager: adrianha
+manager: syntaxc4
 editor: 
-author: ysxu
+author: ggailey777
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 47063276d7bb6bb3b3aac0cca4290dfbea5488f7
-ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
-ms.lasthandoff: 12/01/2016
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Aggiungere notifiche push all'app Apache Cordova
@@ -74,7 +74,7 @@ Eseguire il comando seguente:
 
 **Da Visual Studio:**
 
-1. In Esplora soluzioni aprire il file `config.xml`, fare clic su **Plug-in** > **Personalizza**, selezionare **Git** come origine dell'installazione e quindi immettere `https://github.com/phonegap/phonegap-plugin-push` come origine.
+1. In Esplora soluzioni aprire il file `config.xml`, fare clic su **Plug-in**>**Personalizza**, selezionare **Git** come origine dell'installazione e quindi immettere `https://github.com/phonegap/phonegap-plugin-push` come origine.
 
    ![][img1]
 
@@ -156,7 +156,7 @@ Viene inizialmente incluso un codice minimo per Android. Modificare quindi l'app
 
         pushRegistration.on('error', handleError);
         }
-3. (Android) Nel codice precedente sostituire `Your_Project_ID` con l'ID progetto numerico dell'app indicato nella  [Console per gli sviluppatori di Google][18].
+3. (Android) Nel codice precedente sostituire `Your_Project_ID` con l'ID progetto numerico dell'app indicato nella [Console per gli sviluppatori di Google][18].
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(Facoltativo) Configurare ed eseguire l'app in Android
 Completare questa sezione per abilitare le notifiche push per Android.
@@ -187,15 +187,15 @@ Aprire index.js e aggiornare il codice per usare l'ID progetto numerico.
 #### <a name="configure-device"></a>Configurare il dispositivo Android per il debug USB
 Prima di poter distribuire l'applicazione al dispositivo Android, è necessario abilitare il debug USB.  Sul telefono Android seguire questa procedura:
 
-1. Passare a **Settings** (Impostazioni) > **About phone** (Info sul dispositivo) e toccare **Build number** (Numero build) circa sette volte finché non sarà abilitata la modalità sviluppatore.
-2. Tornare in **Settings** (Impostazioni) > **Developer Options** (Opzioni per gli sviluppatori), abilitare **USB debugging** (Debug USB), quindi connettere lo smartphone Android al PC di sviluppo con un cavo USB.
+1. Passare a **Settings** (Impostazioni)>**About phone** (Info sul dispositivo) e toccare **Build number** (Numero build) circa sette volte finché non sarà abilitata la modalità sviluppatore.
+2. Tornare in **Settings** (Impostazioni)>**Developer Options** (Opzioni per gli sviluppatori), abilitare **USB debugging** (Debug USB), quindi connettere lo smartphone Android al PC di sviluppo con un cavo USB.
 
 Per questo test è stato usato un dispositivo Google Nexus 5X con Android 6.0 (Marshmallow).  Tuttavia, le tecniche sono comuni a qualsiasi versione moderna di Android.
 
 #### <a name="install-google-play-services"></a>Installare servizi Google Play
 Il plug-in di push si basa su servizi Google Play Android per notifiche push.
 
-1. In Visual Studio fare clic su **Strumenti** > **Android** > **Android SDK Manager**, espandere la cartella **Funzionalità aggiuntive** e selezionare la casella per assicurarsi che tutti gli SDK seguenti siano installati.
+1. In Visual Studio fare clic su **Strumenti**>**Android**>**Android SDK Manager**, espandere la cartella **Funzionalità aggiuntive** e selezionare la casella per assicurarsi che tutti gli SDK seguenti siano installati.
 
    * Android 2.3 o versione successiva
    * Google Repository 27 o versione successiva
@@ -266,8 +266,7 @@ Se l'ID app creato nell'account per sviluppatori Apple corrisponde già all'ID d
 5. Ricompilare il progetto.
 
 ##### <a name="test-push-notifications-in-your-ios-app"></a>Testare le notifiche push nell'app iOS
-1. In Visual Studio verificare che sia selezionato **iOS** come destinazione di distribuzione e quindi scegliere **Dispositivo**
-    per l'esecuzione nel dispositivo iOS connesso.
+1. In Visual Studio verificare che sia selezionato **iOS** come destinazione di distribuzione e quindi scegliere **Dispositivo** per l'esecuzione nel dispositivo iOS connesso.
 
     È possibile eseguire il progetto in un dispositivo iOS connesso al PC usando iTunes. Il simulatore iOS non supporta le notifiche push.
 

@@ -1,7 +1,7 @@
 ---
-title: Le 5 domande sull&quot;analisi scientifica dei dati - Analisi scientifica dei dati per principianti - Azure | Documentazione Microsoft
-description: "È possibile ottenere una rapida introduzione all&quot;analisi scientifica dei dati grazie alla serie Analisi scientifica dei dati per principianti, cinque brevi video che iniziano con le 5 domande a cui risponde l&quot;analisi scientifica dei dati."
-keywords: eseguire l&quot;analisi scientifica dei dati, analisi scientifica dei dati per principianti, fondamenti dell&quot;analisi scientifica dei dati, domande sull&quot;analisi scientifica dei dati, video sull&quot;analisi scientifica dei dati, introduzione all&quot;analisi scientifica dei dati
+title: Le 5 domande su data science - Data Science per principianti - Azure Machine Learning | Microsoft Docs
+description: "La serie di Data Science per principianti illustra i concetti di base in 5 brevi video, partendo con \"The 5 Questions Data Science Answers\" (Le 5 domande a cui Data Science può rispondere). Da Azure Machine Learning."
+keywords: eseguire l'analisi scientifica dei dati, analisi scientifica dei dati per principianti, fondamenti dell'analisi scientifica dei dati, domande sull'analisi scientifica dei dati, video sull'analisi scientifica dei dati, introduzione all'analisi scientifica dei dati
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
-ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e77e7e99747995a4a6ad800e391f0c063bded82f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
 La serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti) offre in cinque brevi video una rapida introduzione all'analisi scientifica dei dati offerta da un esperto in materia. Questi video sono basilari, ma utili per chi è interessati a eseguire l'analisi scientifica dei dati oppure lavora con addetti a questa operazione.
 
 Il primo video contiene le tipologie di domande a cui l'analisi scientifica dei dati può rispondere. Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
 >
 >
 
 ## <a name="other-videos-in-this-series"></a>Altri video della serie
-*Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in circa 25 minuti. Sono disponibili altri quattro video:
+*Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in circa 25 minuti. Estrarre tutti i cinque video:
 
 * Video 1: 5 domande a cui può rispondere l'analisi scientifica dei dati
 * Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
@@ -58,14 +58,14 @@ Potrebbe essere sorprendente, ma *esistono solo cinque domande a cui l'analisi s
 * In che modo sono organizzati i dati?
 * Qual è il prossimo passo da fare?
 
-  La risposta a ciascuna di queste domande viene fornita da una famiglia a parte di metodi di apprendimento automatico, detti algoritmi.
+La risposta a ciascuna di queste domande viene fornita da una famiglia a parte di metodi di apprendimento automatico, detti algoritmi.
 
 È utile pensare a un algoritmo come una ricetta e ai dati come gli ingredienti. Un algoritmo specifica come combinare e mettere insieme i dati per ottenere una risposta. I computer sono simili ai frullatori. Svolgono la maggior parte del lavoro più impegnativo dell'algoritmo per l'utente e lo fanno in modo abbastanza veloce.
 
 ## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>Domanda 1: È A o B? usa gli algoritmi di classificazione
 Ecco la prima domanda: È A o B?
 
-![Algoritmi di classificazione: È A o B?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-classification-algorithms.png)
+![Algoritmi di classificazione: È A o B?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
 Questa famiglia di algoritmi viene detta classificazione a due classi.
 
@@ -81,7 +81,7 @@ Questa domanda può anche essere riformulata per includere più di due opzioni: 
 ## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>Domanda 2: È strano? usa gli algoritmi di rilevamento delle anomalie
 La domanda successiva a cui l'analisi scientifica dei dati può rispondere è: È strano? A questa domanda risponde una famiglia di algoritmi detta rilevamento delle anomalie.
 
-![Algoritmi di rilevamento delle anomalie: È strano?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-anomaly-detection-algorithms.png)
+![Algoritmi di rilevamento delle anomalie: È strano?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
 Chi usa una carta di credito, conosce già i vantaggi del rilevamento delle anomalie. La società della carta di credito analizza i modelli di acquisto, in modo tale da avvisare gli utenti di possibili episodi di frodi. Addebiti "strani" potrebbero essere acquisti presso un negozio in cui non si effettuano compere abitualmente o acquisti di articoli eccezionalmente costosi.
 
@@ -95,7 +95,7 @@ Il rilevamento delle anomalie segnala eventi o comportamenti imprevisti o insoli
 ## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>Domanda 3: In che quantità? o In che numero? usa algoritmi di regressione
 L'apprendimento automatico può anche prevedere la risposta alla domanda In che quantità? o In che numero? La famiglia di algoritmi che risponde a questa domanda è detta regressione.
 
-![Algoritmi di regressione: In che quantità? o In che numero?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-regression-algorithms.png)
+![Algoritmi di regressione: In che quantità? o In che numero?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
 Gli algoritmi di regressione effettuano previsioni numeriche, ad esempio:
 
@@ -111,7 +111,7 @@ Talvolta si desidera capire la struttura di un set di dati: In che modo sono org
 
 Esistono diversi modi per comprendere la struttura dei dati. Un approccio è il clustering. Separa i dati in "gruppi" naturali per un'interpretazione più semplice. Con il clustering non vi è un'unica risposta corretta.
 
-![Algoritmi di clustering: In che modo sono organizzati i dati?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-clustering-algorithms.png)
+![Algoritmi di clustering: In che modo sono organizzati i dati?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
 Esempi comuni di domande di clustering sono:
 
@@ -127,7 +127,7 @@ L'apprendimento per rinforzo è stato ispirato dal modo in cui il cervello di to
 
 In genere, l'apprendimento per rinforzo è una buona scelta per i sistemi automatizzati che devono prendere tante piccole decisioni senza la guida umana.
 
-![Algoritmi di apprendimento per rinforzo: Qual è il prossimo passo da fare?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/machine-learning-data-science-reinforcement-learning-algorithms.png)
+![Algoritmi di apprendimento per rinforzo: Qual è il prossimo passo da fare?](./media/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
 Le domande a cui risponde riguardano sempre l'azione da intraprendere, di solito da una macchina o un robot. Alcuni esempi:
 

@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 6baf1a642778bdd281ae641611bc09ee26aaec70
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
 ms.contentlocale: it-it
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurare una rete virtuale (classica) usando un file di configurazione di rete
@@ -32,7 +31,7 @@ ms.lasthandoff: 06/24/2017
 
 La creazione e la configurazione di una rete virtuale (classica) con un file di configurazione di rete prevede l'esportazione, la modifica e l'importazione del file.
 
-## <a name="export-a-network-configuration-file"></a>Esportare un file di configurazione di rete
+## <a name="export"></a>Esportare un file di configurazione di rete
 
 È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per esportare un file di configurazione di rete. PowerShell esporta un file XML, mentre l'interfaccia della riga di comando di Azure esporta un file json.
 
@@ -120,7 +119,7 @@ L'esempio di file di configurazione di rete seguente illustra come creare una re
 
 Se il file di configurazione di rete esportato non include alcun contenuto, è possibile copiare il codice json dell'esempio precedente e incollarlo in un nuovo file.
 
-## <a name="import-a-network-configuration-file"></a>Importare un file di configurazione di rete
+## <a name="import"></a>Importare un file di configurazione di rete
 
 È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per importare un file di configurazione di rete. PowerShell importa un file XML, mentre l'interfaccia della riga di comando di Azure importa un file json. Se l'importazione non riesce, verificare che il file sia conforme allo [schema di configurazione di rete](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
@@ -143,3 +142,4 @@ Se il file di configurazione di rete esportato non include alcun contenuto, è p
     ```azurecli
     azure network import c:\azure\networkconfig.json
     ```
+

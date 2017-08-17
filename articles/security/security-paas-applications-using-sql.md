@@ -1,5 +1,5 @@
 ---
-title: Protezione di applicazioni Web e per dispositivi mobili in PaaS usando il database SQL e SQL Data Warehouse | Microsoft Docs
+title: Protezione di database PaaS in Azure | Microsoft Docs
 description: " Informazioni sulle procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS tramite il database SQL di Azure e SQL Data Warehouse. "
 services: security
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/11/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: be00c1427d57b96506ec8b0ac881b7c1bd09e4de
-ms.lasthandoff: 03/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18509b3fc3a73118f67583a0b087c58f0e51993c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="securing-paas-web-and-mobile-applications-using-sql-database-and-sql-data-warehouse"></a>Protezione di applicazioni Web e per dispositivi mobili in PaaS usando il database SQL e SQL Data Warehouse
+# <a name="securing-paas-databases-in-azure"></a>Protezione di database PaaS in Azure
 
 In questo articolo vengono illustrate varie procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante il [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) e [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/). Le procedure consigliate si basano sull'esperienza di tecnici e clienti con Azure.
 
@@ -77,15 +77,15 @@ Per altre informazioni sul firewall SQL di Azure e sulle restrizioni per gli ind
 - [Configurare una regola firewall a livello di server per il database SQL di Azure tramite il portale di Azure](../sql-database/sql-database-configure-firewall-settings.md)
 
 ### <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
-La funzione [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049) crittografa file di dati di SQL Server, database SQL di Azure e SQL Data Warehouse di Azure, noti anche come dati inattivi. È possibile adottare diverse precauzioni per proteggere il database, ad esempio la progettazione di un sistema sicuro, la crittografia di asset riservati e la creazione di un firewall che protegga i server di database. Tuttavia, in uno scenario in cui i supporti fisici come unità o nastri di backup dovessero essere rubati, un malintenzionato potrebbe ripristinare o collegare il database e accedere ai dati in esso contenuti. Una soluzione consiste nel crittografare i dati riservati nel database e proteggere con un certificato le chiavi utilizzate per crittografarli. In questo modo, senza disporre delle chiavi nessuno potrà usare i dati. Tuttavia, questo tipo di protezione deve essere pianificato in anticipo.
+La funzionalità [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049) è abilitata per impostazione predefinita. Crittografa in modo trasparente i file di log e dati di SQL Server, del database SQL di Azure e Microsoft Azure SQL Data Warehouse. Questa crittografia consente di proteggere da una violazione di accesso diretto ai file o ai backup. Ciò consente di crittografare i dati inattivi senza modificare le applicazioni esistenti. La funzionalità Transparent Data Encryption deve essere sempre attivata; un malintenzionato potrà comunque eseguire un attacco tramite il percorso di accesso normale. Offre inoltre la possibilità di conformarsi a diverse leggi, normative e linee guida stabilite in vari settori.
 
-TDE protegge i dati inattivi, ovvero i file di dati e di log. Offre inoltre la possibilità di conformarsi a diverse leggi, normative e linee guida stabilite in vari settori. Questa soluzione consente agli sviluppatori di software di crittografare i dati usando algoritmi di crittografia standard del settore senza modificare le applicazioni esistenti.
+Azure SQL gestisce i principali problemi correlati per TDE. Come con TDE, è necessario prestare particolare attenzione al livello locale per garantire la recuperabilità e lo spostamento di database. In scenari più sofisticati, le chiavi possono essere gestite in modo esplicito in Azure Key Vault tramite Extensible Key Management (vedere [Abilitare TDE in SQL Server con EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). Ciò consente anche l'uso di Bring Your Own Key (BYOK) tramite la capacità BYOK di Azure Key Vault.
 
-È consigliabile usare la crittografia TDE se le normative la richiedono espressamente. Tenere presente, tuttavia, che un malintenzionato potrà comunque eseguire un attacco tramite il percorso di accesso normale. La crittografia TDE viene usata per proteggersi in quei casi estremamente rari in cui potrebbe essere necessaria una crittografia aggiuntiva a livello di applicazione, ad esempio la crittografia fornita da SQL di Azure per righe e colonne o la crittografia a livello di applicazione.
+Azure SQL fornisce la crittografia per le colonne tramite [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Questa crittografia consente solo alle applicazioni autorizzate l'accesso alle colonne sensibili. L'uso di questo tipo di crittografia limita le query SQL per le colonne crittografate a valori basati sull'uguaglianza.
 
-La crittografia a livello di applicazione deve essere usata anche per dati selettivi. È possibile limitare le problematiche legate alla sovranità dei dati crittografandoli con una chiave da conservare nel paese appropriato. In questo modo si impedisce anche che un trasferimento accidentale dei dati possa rappresentare un problema, perché sarà comunque impossibile decrittografarli senza la chiave, presupponendo che venga usato un algoritmo avanzato come AES 256.
+La crittografia a livello di applicazione deve essere usata anche per dati selettivi. È possibile talvolta limitare le problematiche legate alla sovranità dei dati crittografandoli con una chiave da conservare nel paese appropriato. In questo modo si impedisce anche che un trasferimento accidentale dei dati possa rappresentare un problema, perché è comunque impossibile decrittografarli senza la chiave, presupponendo che venga usato un algoritmo avanzato come AES 256.
 
-La crittografia offerta da SQL di Azure per righe e colonne può essere usata solo per consentire l'accesso agli utenti autorizzati ([RBAC](../active-directory/role-based-access-built-in-roles.md)) e impedisce agli utenti con autorizzazioni inferiori di visualizzare colonne o righe.
+È possibile usare diverse precauzioni per proteggere il database, ad esempio la progettazione di un sistema sicuro, la crittografia di risorse riservate e la creazione di un firewall che protegga i server di database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo sono state illustrate varie procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante il database SQL e SQL Data Warehouse. Per altre informazioni sulla protezione delle distribuzioni PaaS, vedere:

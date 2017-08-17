@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
-ms.openlocfilehash: 5f02d36bfc5aa390bba345f084ce530c27bb6520
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Come creare un set di scalabilità di macchine virtuali con Visual Studio
@@ -92,7 +91,7 @@ Al termine della distribuzione, è possibile visualizzare il nuovo set di scalab
 
 ![Cloud Explorer][cloud_explorer]
 
- Il portale è il modo migliore per gestire la visualizzazione dell'infrastruttura di Azure con un Web browser, mentre Esplora risorse di Azure offre un modo semplice per esplorare le risorse di Azure ed eseguirne il debug, offrendo una "visualizzazione per istanza" e visualizzando anche i comandi PowerShell per le risorse che si stanno analizzando. Mentre i set di scalabilità di macchine virtuali sono visualizzati in anteprima, Esplora inventario risorse mostra il livello massimo di dettaglio per i set di scalabilità di macchine virtuali.
+ Il portale rappresenta il modo migliore per gestire la visualizzazione dell'infrastruttura di Azure con un Web browser, mentre Azure Resource Explorer offre un modo semplice per esplorare le risorse di Azure ed eseguirne il debug, offrendo una "visualizzazione per istanza" e visualizzando anche i comandi PowerShell per le risorse che si stanno analizzando.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver distribuito i set di scalabilità di macchine virtuali tramite Visual Studio è possibile personalizzare ulteriormente il progetto in base alle esigenze dell'applicazione. Ad esempio, è possibile configurare la scalabilità automatica aggiungendo una risorsa di **Insights**, aggiungendo l'infrastruttura al modello (ad esempio macchine virtuali autonome) o distribuendo applicazioni con l'estensione dello script personalizzata. Alcuni esempi utili di modelli sono disponibili nel repository GitHub dedicato ai [modelli della guida introduttiva di Azure](https://github.com/Azure/azure-quickstart-templates) (cercare "vmss").

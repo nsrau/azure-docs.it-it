@@ -1,6 +1,6 @@
 ---
-title: "Spostare dati con l&quot;attività di copia | Microsoft Docs"
-description: "Informazioni sullo spostamento di dati in pipeline di Data Factory: migrazione di dati tra archivi cloud e tra archivi locali e cloud. Usare l&quot;attività di copia."
+title: "Spostare dati con l'attività di copia | Microsoft Docs"
+description: "Informazioni sullo spostamento di dati in pipeline di Data Factory: migrazione di dati tra archivi cloud e tra archivi locali e cloud. Usare l'attività di copia."
 keywords: copiare dati, spostamento di dati, migrazione di dati, trasferire dati
 services: data-factory
 documentationcenter: 
@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
@@ -187,6 +186,12 @@ La pianificazione definita nel set di dati di output determina quando viene eseg
 
 ## <a name="performance-and-tuning"></a>Prestazioni e ottimizzazione
 Vedere l'articolo [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md), che descrive i fattori chiave che influiscono sulle prestazioni di spostamento dei dati (attività di copia) in Data Factory di Azure. Vengono anche elencate le prestazioni osservate durante il test interni e vengono descritti i modi per ottimizzare le prestazioni dell'attività di copia.
+
+## <a name="fault-tolerance"></a>Tolleranza di errore
+Per impostazione predefinita, l'attività di copia interromperà la copia dei dati e restituirà un errore quando rileva dati incompatibili tra l'origine e il sink; è possibile chiedere in modo esplicito di ignorare e registrare le righe incompatibili, quindi copiare solo i dati compatibili perché la copia abbia esito positivo. Per altri dettagli, vedere la [Tolleranza di errore dell'attività di copia: ignorare le righe incompatibili](data-factory-copy-activity-fault-tolerance.md).
+
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+Vedere [Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati](data-factory-data-movement-security-considerations.md) che descrive l'infrastruttura di sicurezza usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati.
 
 ## <a name="scheduling-and-sequential-copy"></a>Pianificazione e copia sequenziale
 Vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md) per informazioni dettagliate sul funzionamento della pianificazione e dell'esecuzione in Data Factory. È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Vedere la sezione [Copiare in sequenza](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).

@@ -73,7 +73,7 @@ $rg = New-AzureRmResourceGroup -Name ContosoRG -Location Eastus
 New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName $rg.ResourceGroupName -Tier Free
 
 # Creates a web app
-$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs
+$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs -AppServicePlan $webappname
 
 # Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
@@ -162,3 +162,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come configurare il reindirizzamento, vedere [Configurare il reindirizzamento nel gateway applicazione con PowerShell](application-gateway-configure-redirect-powershell.md).
+

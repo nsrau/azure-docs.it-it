@@ -1,5 +1,5 @@
 ---
-title: Configurare cluster HDInsight aggiunti al dominio - Azure | Documentazione Microsoft
+title: Configurare cluster HDInsight aggiunti al dominio - Azure | Microsoft Docs
 description: Maggiori informazioni su come configurare i cluster HDInsight aggiunti al dominio
 services: hdinsight
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e789114a9b3faee73d264eded52c35cedd9cf98f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -255,7 +255,7 @@ In questa sezione viene creato un cluster Hadoop basato su Linux in HDInsight us
      
      * **Tipo di cluster**: Hadoop. HDInsight aggiunto al dominio è attualmente supportato solo nei cluster Hadoop.
      * **Sistema operativo**: Linux.  HDInsight aggiunto al dominio è supportato solo nei cluster HDInsight basati su Linux.
-     * **Versione**: Hadoop 2.7.3 (HDI 3.5). HDInsight aggiunto al dominio è supportato solo nei cluster HDInsight versione 3.5.
+     * **Versione**: HDI 3.6. HDInsight aggiunto al dominio è supportato solo nei cluster HDInsight versione 3.6.
      * **Tipo di cluster**: PREMIUM
        
        Fare clic su **Seleziona** per salvare le modifiche.

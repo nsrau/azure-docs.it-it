@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: sviluppare con l&quot;API di DocumentDB in .NET | Documentazione Microsoft'
-description: Informazioni su come sviluppare con l&quot;API di DocumentDB di Azure Cosmos DB usando .NET
+title: 'Azure Cosmos DB: sviluppare con l''API di DocumentDB in .NET | Documentazione Microsoft'
+description: Informazioni su come sviluppare con l'API di DocumentDB di Azure Cosmos DB usando .NET
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 485fb2e8ac96e2cdb8e4293b63971af1c1b9baf4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2eed74ae9bd173b0944ec190dfe5d9a4bdc54c37
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -108,7 +108,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB, fare clic su **Chiavi*
 
 Copiare l'URI dal portale e incollarlo su `<your endpoint URL>` nel file program.cs. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla su `<your primary key>`. Assicurarsi di rimuovere `<` e `>` dai valori.
 
-![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account Azure Cosmos DB, il pulsante CHIAVI evidenziato nel pannello dell'account Azure Cosmos DB e i valori URI e CHIAVE PRIMARIA evidenziati nel pannello Chiavi] [keys]
+![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account Azure Cosmos DB, il pulsante CHIAVI evidenziato nel pannello dell'account Azure Cosmos DB e i valori URI e CHIAVE PRIMARIA evidenziati nel pannello Chiavi](./media/tutorial-develop-documentdb-dotnet/nosql-tutorial-keys.png)
 
 ## <a id="instantiate"></a>Creare un'istanza di DocumentClient
 

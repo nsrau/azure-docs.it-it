@@ -1,8 +1,8 @@
 ---
-title: Procedura dettagliata sull&quot;API REST di Monitoraggio di Azure | Microsoft Docs
-description: Come autenticare le richieste e usare l&quot;API REST di monitoraggio di Azure.
+title: Procedura dettagliata sull'API REST di Monitoraggio di Azure | Microsoft Docs
+description: Come autenticare le richieste e usare l'API REST di monitoraggio di Azure.
 author: mcollier
-manager: carolz
+manager: 
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fcf9cc661da0d8e65b385bfddeded0a3e5d0d3e2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 454a85c4752ec9c7522ef147d5ce594ef5992c32
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procedura dettagliata sull'API REST di monitoraggio di Azure
@@ -32,7 +31,7 @@ Oltre a essere compatibile con vari punti dati della metrica, come illustrato in
 ## <a name="authenticating-azure-monitor-requests"></a>Autenticazione delle richieste di monitoraggio di Azure
 Innanzitutto è necessario autenticare la richiesta.
 
-Tutte le attività eseguite sull'API di monitoraggio di Azure usano il modello di autenticazione Azure Resource Manager. Di conseguenza, tutte le richieste devono essere autenticate con Azure Active Directory (Azure AD). Un approccio per autenticare l'applicazione client consiste nel creare un'entità servizio di Azure AD e recuperare il token di autenticazione (JTW). Il seguente script di esempio mostra la creazione di un'entità servizio di Azure AD tramite PowerShell. Per una procedura più dettagliata, fare riferimento alla documentazione sull' [uso di Azure PowerShell per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). È anche possibile [creare un'entità servizio tramite il portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Tutte le attività eseguite sull'API di monitoraggio di Azure usano il modello di autenticazione Azure Resource Manager. Di conseguenza, tutte le richieste devono essere autenticate con Azure Active Directory (Azure AD). Un approccio per autenticare l'applicazione client consiste nel creare un'entità servizio di Azure AD e recuperare il token di autenticazione (JTW). Il seguente script di esempio mostra la creazione di un'entità servizio di Azure AD tramite PowerShell. Per una procedura più dettagliata, fare riferimento alla documentazione sull' [uso di Azure PowerShell per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). È possibile anche [creare un'entità di sicurezza tramite il portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -70,7 +69,7 @@ $subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
 
 $clientId = $azureAdApplication.ApplicationId.Guid
 $tenantId = $subscription.TenantId
-$authUrl = "https://login.windows.net/${tenantId}"
+$authUrl = "https://login.microsoftonline.com/${tenantId}"
 
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
 $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($clientId, $pwd)

@@ -1,6 +1,6 @@
 ---
 title: Partner di integrazione di dati di SQL Data Warehouse | Documentazione Microsoft
-description: Elenco di partner di terze parti con soluzioni per l&quot;integrazione dei dati che supportano Azure SQL Data Warehouse.
+description: Elenco di partner di terze parti con soluzioni per l'integrazione dei dati che supportano Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: partners
 ms.date: 01/30/2017
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9436796373af55a18c0b6fbfc036bd6616bbe4f
-ms.openlocfilehash: ea9c6be4dce0b0812ac780257732321444a57beb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 892a7f2727ab899ef539ac4ae06a8669512e6fef
 ms.contentlocale: it-it
-ms.lasthandoff: 01/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partner di integrazione di dati di SQL Data Warehouse
@@ -34,7 +33,7 @@ Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tr
 | ![Sistemi Bryte][3] |**Sistemi Bryte**<br>Bryte Systems automatizza il trasferimento di dati in SQL Data Warehouse da svariati database e origini diverse. Bryte Systems è specializzata in tecnologie per lo spostamento e l'integrazione dei dati Sviluppa data warehouse e data lake scalabili basati sul cloud per individuare informazioni utili. |[Marketplace][bryte_systems_marketplace]<br>[Sito Web][bryte_systems_azure_website] | |
 | ![Informatica][4] |**Servizi Informatica Cloud per Azure: pagamento in base al consumo**<br> Ottimizzare il valore dei servizi di Azure e ottenere informazioni approfondite utilizzabili da tutti i set di dati ibridi con servizi Informatica Cloud per Azure: pagamento in base al consumo. Informatica Cloud offre una soluzione di alto livello per l'integrazione di dati, l'analisi nel cloud, l'integrazione delle applicazioni e la gestione dei dati. Grazie alle funzionalità integrazione, di gestione e di migrazione dei dati in modalità self-service, i clienti possono importare, esportare, sincronizzare e pianificare in modo rapido e affidabile petabyte di dati in Azure provenienti da un'ampia gamma di origini, ad esempio applicazioni SaaS, data lake basati su Hadoop e altre origini dati locali (Oracle, SAP).  I servizi Informatica Cloud per Azure offrono connettività nativa, ad alto volume e ad alte prestazioni ad Azure SQL Data Warehouse, database SQL, Archiviazione BLOB, Data Lake Store e DocumentDB. |[Marketplace][informatica_Cloud_Services_marketplace]<br>[Versione di prova gratuita][informatica_cloud_free_trial]<br>[Guida alla configurazione][informatica_cloud_services_config]<br>[Sito Web][informatica_Cloud_Services_website]<br>[Foglio dati][informatica_cloud_datasheet]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
 | ![Informatica][4] |**Informatica PowerCenter**<br>Informatica è uno dei più noti fornitori indipendenti mondiali di software per l'integrazione dei dati. PowerCenter costituisce la base per tutte le iniziative di integrazione di dati. Usare PowerCenter per analisi e data warehousing, migrazione delle applicazioni o consolidamento e governance dei dati. |[Marketplace (Standard)][informatica_PowerCenter_std_marketplace]<br>[Marketplace (Avanzato)][informatica_PowerCenter_adv_marketplace]<br>[Sito Web][informatica_PowerCenter_website]<br>[Foglio dati][informatica_powercenter_datasheet]<br>[Twitter][informatica_powercenter_twitter]<br>[YouTube][informatica_powercenter_youtube] | |
-| ![Redgate][5] |**Data Platform Studio di Redgate (anteprima)**<br>Redgate's Data Platform Studio fornisce un modo semplice e affidabile per eseguire la migrazione di database SQL locali in Azure SQL Data Warehouse. La sua struttura consente di adottare decisioni appropriate per una migrazione completamente automatizzata ed è gratuito per le migrazioni occasionali. |[Sito Web][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Video di Redgate](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
+| ![Redgate][5] |**Data Platform Studio di Redgate (anteprima)**<br>Data Platform Studio di Redgate fornisce un modo semplice e affidabile per eseguire la migrazione di database SQL locali in Azure SQL Data Warehouse. La sua struttura consente di adottare decisioni appropriate per una migrazione completamente automatizzata ed è gratuito per le migrazioni occasionali. |[Sito Web][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Video di Redgate](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
 | ![SnapLogic][6] |**SnapLogic**<br>La piattaforma di integrazione come servizio (iPaaS, Integration Platform as a Service) di SnapLogic permette ai clienti di trasferire rapidamente i dati da e verso Microsoft Azure SQL Data Warehouse.  SnapLogic offre la possibilità di integrare centinaia di applicazioni, servizi e scenari IoT in un'unica soluzione. Fornisce approfondimenti rapidamente e in modo efficace nel cloud, in locale o in modalità ibrida. |[Marketplace][snaplogic_marketplace]<br>[Sito Web][snaplogic_website]<br>[Foglio dati][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Video di snaplogic](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 56d6f7b5858a0e2122021e02718050a26e6defe4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f31c0eec6b570c4d9f798185f8f0f8c49a7e400d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
@@ -158,7 +157,7 @@ Con questa configurazione, la funzione può ora essere indirizzata con la route 
 In questo modo il codice della funzione può supportare due parametri nell'indirizzo: "category" e "id". I parametri sono compatibili con qualsiasi [vincolo di route dell'API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints). Il codice di funzione C# seguente usa entrambi i parametri.
 
 ```csharp
-    public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+    public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
                                                     TraceWriter log)
     {
         if (id == null)
@@ -290,6 +289,22 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     return name == null
         ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
         : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+}
+```
+
+È anche possibile eseguire l'associazione a un POCO invece di `HttpRequestMessage`. POCO sarà idratato dal corpo della richiesta e analizzato come JSON. Analogamente, un tipo può essere passato all'associazione dell'output di risposta HTTP e verrà restituito come corpo della risposta, con un codice di stato 200.
+```csharp
+using System.Net;
+using System.Threading.Tasks;
+
+public static string Run(CustomObject req, TraceWriter log)
+{
+    return "Hello " + req?.name;
+}
+
+public class CustomObject {
+     public String name {get; set;}
+}
 }
 ```
 

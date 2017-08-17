@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: pkc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: de5795d4781d8c01bce7313ae53ad801a0e48149
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 70b2fefa654a73693a8064654cde1d767bfdd496
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
@@ -42,7 +41,7 @@ Altre informazioni su:
 
 ## <a name="report-production-or-live-site-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Segnalare problemi di produzione o relativi al sito live o richiedere supporto a pagamento per i cluster di Service Fabric autonomi
 
-Per la segnalazione di problemi relativi al sito live nel cluster di Service Fabric distribuito in locale o in altri cloud, aprire un ticket per il supporto professionale nel [portale di supporto Microsoft](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Per la segnalazione di problemi relativi al sito live nel cluster di Service Fabric distribuito in locale o in altri cloud, aprire un ticket per il supporto professionale nel [portale del supporto tecnico di Microsoft](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Altre informazioni su:
 

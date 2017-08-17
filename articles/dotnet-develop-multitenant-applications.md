@@ -1,6 +1,6 @@
 ---
 title: Modello di applicazione Web multi-tenant | Microsoft Docs
-description: Sono disponibili informazioni generali sull&quot;architettura e modelli di progettazione che descrivono come implementare un&quot;applicazione Web multi-tenant in Azure.
+description: Sono disponibili informazioni generali sull'architettura e modelli di progettazione che descrivono come implementare un'applicazione Web multi-tenant in Azure.
 services: 
 documentationcenter: .net
 author: wadepickett
@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c1614eeac922a4fc496be77b4d1d1588f28b4284
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 57ba0e46139bda2d74c9f7db0ffab2f2122b0df2
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="multitenant-applications-in-azure"></a>Applicazioni multi-tenant in Azure
@@ -41,7 +42,7 @@ Un'applicazione multi-tenant correttamente implementata offre agli utenti i vant
 
 In breve, benché sia necessario prendere in considerazione vari aspetti al fine di fornire un servizio altamente scalabile, vi è anche una serie di obiettivi e requisiti comuni a molte applicazioni multi-tenant. Alcuni potrebbero non essere pertinenti in scenari specifici e l'importanza dei singoli obiettivi e requisiti varierà in ogni scenario. Anche il fornitore di un'applicazione multi-tenant avrà obiettivi e requisiti, ad esempio soddisfare gli obiettivi e i requisiti dei tenant, redditività, fatturazione, vari livelli di servizio, provisioning, monitoraggio della manutenibilità e automazione.
 
-Per altre informazioni sulle considerazioni di progettazione di un'applicazione multi-tenant vedere [Hosting di un'applicazione multi-tenant in Azure][Hosting di un'applicazione multi-tenant in Azure] (Hosting di un'applicazione multi-tenant in Azure). Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Per altre informazioni sulle considerazioni di progettazione di un'applicazione multi-tenant vedere [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure] (Hosting di un'applicazione multi-tenant in Azure). Per informazioni sugli schemi di architettura dati comuni delle applicazioni di database multi-tenant software come un servizio (SaaS), vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
 
 Azure offre molte funzionalità che consentono di risolvere i principali problemi riscontrati durante la progettazione di un sistema multi-tenant.
 
@@ -90,11 +91,6 @@ Azure offre diverse modalità per eseguire il provisioning di nuovi tenant per l
 
 <!--links-->
 
-[Hosting di un'applicazione multi-tenant in Azure]: http://msdn.microsoft.com/library/hh534480.aspx
-[Progettazione di applicazioni multi-tenant in Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 

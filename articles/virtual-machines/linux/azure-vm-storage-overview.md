@@ -1,6 +1,6 @@
 ---
 title: VM Linux di Azure e Archiviazione di Azure | Microsoft Docs
-description: Descrive l&quot;archiviazione Standard e Premium di Azure, Managed Disks e i dischi non gestiti con le macchine virtuali Linux.
+description: Descrive l'archiviazione Standard e Premium di Azure, Managed Disks e i dischi non gestiti con le macchine virtuali Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0151e188fde38c7a617cf2070939c6498142dd71
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Archiviazione delle macchine virtuali Linux e Azure
@@ -48,71 +48,37 @@ Durante la creazione di una macchina virtuale da `azure-cli` è possibile scegli
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Creazione di una macchina virtuale con un disco gestito
 
-L'esempio seguente richiede l'interfaccia della riga di comando di Azure 2.0, [installabile da qui].
+L'esempio seguente richiede l'interfaccia della riga di comando di Azure 2.0, [installabile da qui](/cli/azure/install-azure-cli).
 
-Creare innanzitutto un gruppo di risorse per gestire le risorse:
+Creare innanzitutto un gruppo di risorse per gestire le risorse con [az group create](/cli/azure/group#create):
 
 ```azurecli
 az group create --location westus --name myResourceGroup
 ```
 
-Quindi creare la macchina virtuale con il comando `az vm create`, come nell'esempio seguente. È necessario specificare un argomento `--public-ip-address-dns-name` univoco, poiché `manageddisks` sarà probabilmente in uso.
+Creare quindi una VM con il comando [az vm create](/cli/azure/vm#create). Specificare un argomento `--public-ip-address-dns-name` univoco, in quanto viene usato probabilmente `mypublicdns`.
 
 ```azurecli
 az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns
 ```
 
 L'esempio precedente crea una macchina virtuale con un disco gestito in un account di archiviazione Standard. Per usare un account di archiviazione Premium, aggiungere l'argomento `--storage-sku Premium_LRS`, come nell'esempio seguente:
 
 ```azurecli
 az vm create \
---storage-sku Premium_LRS
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
-```
-
-
-### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>Creare una macchina virtuale con un disco Standard non gestito tramite l'interfaccia della riga di comando di Azure 1.0
-
-È naturalmente possibile usare anche l'interfaccia della riga di comando di Azure 1.0 per creare macchine virtuali con dischi Standard e Premium. In questo momento non è possibile usare tale interfaccia per creare macchine virtuali con Managed Disks.
-
-L'opzione `-z` sceglie Standard_A1, che rappresenta una macchina virtuale Linux basata sull'archiviazione Standard.
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_A1
-```
-
-### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>Creare una macchina virtuale con archiviazione Premium usando l'interfaccia della riga di comando di Azure 1.0
-L'opzione `-z` sceglie Standard_DS1, che rappresenta una macchina virtuale Linux basata sull'archiviazione Premium.
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_DS1
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns \
+    --storage-sku Premium_LRS
 ```
 
 ## <a name="standard-storage"></a>Archiviazione standard
@@ -144,7 +110,7 @@ Di seguito sono riportate le distribuzioni di Linux convalidate con Archiviazion
 | Centos |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7+ |
 | RHEL |6.8+, 7.2+ | |
 
-## <a name="file-storage"></a>Archiviazione file
+## <a name="azure-file-storage"></a>Archiviazione file di Azure
 L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. Con l’archiviazione file di Azure è possibile migrare le applicazioni aziendali basate su server di file in Azure. Le applicazioni in esecuzione in Azure possono montare condivisioni file dalle macchine virtuali di Azure con Linux. Con la versione più recente dell’archiviazione di file, è inoltre possibile montare una condivisione di file da un'applicazione locale che supporta SMB 3.0.  Poiché le condivisioni file sono condivisioni SMB, è possibile accedervi tramite le API del file system standard.
 
 Il servizio di archiviazione file è basato sulla stessa tecnologia dei servizi BLOB, tabelle e archiviazione code e può quindi sfruttare le funzionalità di disponibilità, durabilità, scalabilità e ridondanza geografica integrate nella piattaforma di archiviazione di Azure. Per informazioni sugli obiettivi di prestazioni e sui limiti di Archiviazione file, vedere Obiettivi di scalabilità e prestazioni per Archiviazione di Azure.
@@ -226,7 +192,7 @@ Il piano di gestione è costituito dalle risorse usate per gestire l'account di 
 Questa sezione illustra come concedere l'accesso agli oggetti dati effettivi nell'account di archiviazione, ad esempio BLOB, file, code e tabelle, usando firme di accesso condiviso e criteri di accesso archiviati. Vengono trattate anche le firme di accesso condiviso sia a livello di servizio che di account. Si vedrà anche come limitare l'accesso a un indirizzo IP specifico, o un intervallo di indirizzi IP, come limitare il protocollo usato per HTTPS e come revocare una firma di accesso condiviso senza attendere che scada.
 
 ## <a name="encryption-in-transit"></a>Crittografia in transito
-Questa sezione descrive come proteggere i dati durante il trasferimento da e verso Archiviazione di Azure. Si esamineranno l'uso consigliato di HTTPS e la crittografia usata da SMB 3.0 per Condivisioni file di Azure. Si osserverà anche la crittografia lato client, che consente di crittografare i dati prima che siano trasferiti nel servizio di archiviazione in un'applicazione client e di decrittografarli dopo il trasferimento dal servizio di archiviazione.
+Questa sezione descrive come proteggere i dati durante il trasferimento da e verso Archiviazione di Azure. Si esaminerà l'uso consigliato di HTTPS e la crittografia utilizzata da SMB 3.0 per le condivisioni file di Azure. Si osserverà anche la crittografia lato client, che consente di crittografare i dati prima che siano trasferiti nel servizio di archiviazione in un'applicazione client e di decrittografarli dopo il trasferimento dal servizio di archiviazione.
 
 ## <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 Si discuterà di Crittografia del servizio di archiviazione (SSE) e come è possibile abilitarla per un account di archiviazione, determinando la crittografia automatica dei BLOB in blocchi, BLOB di pagine e BLOB aggiunti al momento della scrittura nell'Archiviazione di Azure. Verrà illustrato anche come è possibile usare Crittografia dischi di Azure e si esamineranno differenze di base e casi relativi a Crittografia dischi rispetto a SSE e alla crittografia lato client. Si esaminerà brevemente la conformità FIPS per i computer del Governo degli Stati Uniti.
@@ -234,7 +200,7 @@ Si discuterà di Crittografia del servizio di archiviazione (SSE) e come è poss
 * [Guida alla sicurezza di Archiviazione di Azure](../../storage/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>Disco temporaneo
-Ogni VM contiene un disco temporaneo. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance) o la [ridistribuzione di una VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Durante un riavvio standard della VM, i dati nell'unità temporanea vengono mantenuti.
+Ogni VM contiene un disco temporaneo. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o la [ridistribuzione di una VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Durante un riavvio standard della VM, i dati nell'unità temporanea vengono mantenuti.
 
 Nelle macchine virtuali Linux il disco è in genere **/dev/sdb** e viene formattato e montato in **/mnt** dall'agente Linux di Azure. Le dimensioni del disco temporaneo variano in base alle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni per le macchine virtuali Linux](sizes.md).
 

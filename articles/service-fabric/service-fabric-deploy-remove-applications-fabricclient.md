@@ -1,5 +1,5 @@
 ---
-title: Distribuzione dell&quot;applicazione Azure Service Fabric | Microsoft Docs
+title: Distribuzione dell'applicazione Azure Service Fabric | Microsoft Docs
 description: Usare le API del client Fabric per distribuire e rimuovere le applicazioni in Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2017
+ms.date: 07/07/2017
 ms.author: ryanwi
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: edc1a2b42f1148923b8acfd8b3ee35f790d7f230
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ebe8b9f0cace419125bde84a9ff2a912af061156
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -55,7 +55,7 @@ FabricClient fabricClient = new FabricClient();
 ```
 
 ## <a name="upload-the-application-package"></a>Caricare il pacchetto applicazione
-Si supponga di compilare e assemblare un'applicazione denominata *MyApplication* in Visual Studio 2015. Per impostazione predefinita, il nome del tipo di applicazione elencato nel file ApplicationManifest.xml è "MyApplicationType".  Il pacchetto dell'applicazione, che contiene il manifesto dell'applicazione necessario, i manifesti dei servizi e i pacchetti di codice, configurazione e dati, si trova in *C:\Users\\<username\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug*.
+Si supponga di compilare e assemblare un'applicazione denominata *MyApplication* in Visual Studio. Per impostazione predefinita, il nome del tipo di applicazione elencato nel file ApplicationManifest.xml è "MyApplicationType".  Il pacchetto dell'applicazione, che contiene il manifesto dell'applicazione necessario, i manifesti dei servizi e i pacchetti di codice, configurazione e dati, si trova in *C:\Users\&lt;username&gt;\Documents\Visual Studio 2017\Projects\MyApplication\MyApplication\pkg\Debug*.
 
 Quando si carica il pacchetto dell'applicazione, lo si inserisce in un percorso accessibile ai componenti interni di Service Fabric. Service Fabric verifica il pacchetto dell'applicazione durante la registrazione. Tuttavia, se si desidera verificare il pacchetto dell'applicazione in locale, ad esempio prima di caricarlo, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps).
 
@@ -180,7 +180,7 @@ static void Main(string[] args)
     string serviceName = "fabric:/MyApplication/Stateless1";
     string imageStoreConnectionString = "file:C:\\SfDevCluster\\Data\\ImageStoreShare";
     string packagePathInImageStore = "MyApplication";
-    string packagePath = "C:\Users\username\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug";
+    string packagePath = "C:\\Users\\username\\Documents\\Visual Studio 2017\\Projects\\MyApplication\\MyApplication\\pkg\\Debug";
     string serviceType = "Stateless1Type";
 
     // Connect to the cluster.

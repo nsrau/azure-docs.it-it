@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a12e9d342daf41ee9f83cadb9e29ee867be055de
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 65e9bba4ce9ac41ae2a9a8c3fa7f661165fc1403
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creare un probe personalizzato per un gateway applicazione con il portale
@@ -74,7 +73,7 @@ Ora che il probe è stato creato, deve essere aggiunto al gateway. Le impostazio
 1. Nel pannello delle impostazioni **appGatewayBackEndHttpSettings** selezionare la casella di controllo **Usa probe personalizzato** e scegliere il probe creato nella sezione [Creare il probe](#createprobe) nell'elenco a discesa **Probe personalizzato**.
 Al termine fare clic su **Salva** per applicare le impostazioni.
 
-Il probe predefinito controlla l'accesso predefinito all'applicazione Web. Ora che è stato creato un probe personalizzato, il gateway applicazione usa il percorso personalizzato definito per monitorare l'integrità per i server back-end. In base ai criteri definiti, il gateway applicazione controlla il percorso specificato nel probe. Se la chiamata a host:Porta/percorso non restituisce una risposta di stato HTTP 200-299, dopo che è stata raggiunta la soglia di non integrità il server viene escluso dalla rotazione. Il probe continua a essere eseguito sull'istanza non integra per determinare quando risulterà di nuovo integra. Quando l'istanza viene nuovamente aggiunta al pool di server integri, il flusso del traffico verso l'istanza riprenderà e il relativo probe verrà eseguito all'intervallo normale specificato dall'utente.
+Il probe predefinito controlla l'accesso predefinito all'applicazione Web. Ora che è stato creato un probe personalizzato, il gateway applicazione usa il percorso personalizzato definito per monitorare l'integrità per i server back-end. In base ai criteri definiti, il gateway applicazione controlla il percorso specificato nel probe. Se la chiamata a host:Porta/percorso non restituisce una risposta di stato HTTP 200-399, dopo che è stata raggiunta la soglia di non integrità il server viene escluso dalla rotazione. Il probe continua a essere eseguito sull'istanza non integra per determinare quando risulterà di nuovo integra. Quando l'istanza viene nuovamente aggiunta al pool di server integri, il flusso del traffico verso l'istanza riprenderà e il relativo probe verrà eseguito all'intervallo normale specificato dall'utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

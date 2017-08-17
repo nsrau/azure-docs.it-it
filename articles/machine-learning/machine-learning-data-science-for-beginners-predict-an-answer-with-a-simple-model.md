@@ -1,5 +1,5 @@
 ---
-title: Prevedere una risposta con un modello basato sulla regressione semplice - Azure | Documentazione Microsoft
+title: Prevedere una risposta con un modello basato sulla regressione semplice - Azure Machine Learning | Microsoft Docs
 description: "Per sapere come creare un modello di regressione semplice per prevedere un prezzo, è disponibile il quarto video di Analisi scientifica dei dati per principianti. Include una regressione lineare con i dati di destinazione."
 keywords: creare un modello, modello semplice, previsione prezzi, modello di regressione semplice
 services: machine-learning
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: b82c293065446f9f9016015d68db972d71cecd2f
-ms.lasthandoff: 02/10/2017
-
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ef651e3faa2abd7c1becb5dc2888d465330d4d73
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/10/2017
 È possibile scoprire come creare un modello di regressione semplice per prevedere il prezzo di un diamante guardando il quarto video della serie Analisi scientifica dei dati per principianti. Verrà rappresentato un modello di regressione con i dati di destinazione.
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 >
@@ -76,7 +77,7 @@ Adesso, per registrare il prezzo verrà tracciato un asse verticale che sarà co
 
 Questi dati verranno adesso convertiti in un *grafico di dispersione*, un'ottima soluzione per visualizzare i set di dati numerici.
 
-Per il primo punto di dati verrà tracciata una linea verticale fino a 1,01 carati. Poi, una linea orizzontale fino a $&7;.366. Laddove si intersecano, verrà disegnato un punto. Questo rappresenta il primo diamante.
+Per il primo punto di dati verrà tracciata una linea verticale fino a 1,01 carati. Poi, una linea orizzontale fino a $ 7.366. Laddove si intersecano, verrà disegnato un punto. Questo rappresenta il primo diamante.
 
 Adesso farò la stessa cosa per ogni diamante presente nell'elenco. Una volta terminato, questo è quello che si ottiene: un mucchio di punti, uno per ogni diamante.
 

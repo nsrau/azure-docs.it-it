@@ -1,6 +1,6 @@
 ---
-title: Inserimento dell&quot;applicazione nella raccolta di applicazioni Azure Active Directory
-description: Come elencare un&quot;applicazione che supporta l&quot;accesso Single Sign-On nella raccolta di Azure Active Directory | Microsoft Azure
+title: Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory
+description: Come elencare un'applicazione che supporta l'accesso Single Sign-On nella raccolta di Azure Active Directory | Microsoft Azure
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 28712a9898bf2449de53d21fd87f1ce53da71ff8
-ms.openlocfilehash: df60c4737954e79ff860601412dffa58d4dbb471
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
 ms.contentlocale: it-it
-ms.lasthandoff: 02/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory
@@ -45,7 +44,7 @@ Per integrare l'applicazione con Azure AD, seguire [le istruzioni per sviluppato
 > 
 > Nome dell'applicazione:
 > 
-> Descrizione dell'applicazione (max 256 caratteri):
+> Descrizione dell'applicazione (max 200 caratteri):
 > 
 > Sito Web dell'applicazione (informazioni):
 > 
@@ -79,7 +78,7 @@ Qualsiasi app che supporta SAML 2.0 può essere integrata direttamente con un te
 > 
 > Nome dell'applicazione:
 > 
-> Descrizione dell'applicazione (max 256 caratteri):
+> Descrizione dell'applicazione (max 200 caratteri):
 > 
 > Sito Web dell'applicazione (informazioni):
 > 

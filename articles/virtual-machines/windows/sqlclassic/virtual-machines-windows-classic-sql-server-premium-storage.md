@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: aba69b95db8313dd9ce711ddc6c26e5df55d79a4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e8f191e7bc0ce49abc3f1b4b2329a0ee3b38cd4e
 ms.contentlocale: it-it
-ms.lasthandoff: 04/04/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
@@ -253,7 +252,7 @@ Nell'esempio seguente viene illustrato come collocare il disco rigido virtuale d
 
 
 ### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Creare una nuova VM per usare Archiviazione Premium con un'immagine personalizzata
-Questo scenario mostra la posizione delle immagini personalizzate esistenti che risiedono in un account di Archiviazione Standard. Come accennato, se si desidera collocare il disco rigido virtuale del sistema operativo su Archiviazione Premium, è necessario copiare l'immagine esistente nell'account di Archiviazione Standard e trasferirlo a una Archiviazione Premium prima che possa essere utilizzato. Se si dispone di un'immagine locale, è possibile utilizzare questo metodo per copiarla direttamente nell'account di Archiviazione Premium.
+Questo scenario mostra la posizione delle immagini personalizzate esistenti che risiedono in un account di Archiviazione Standard. Come accennato, se si desidera collocare il disco rigido virtuale del sistema operativo su Archiviazione Premium, è necessario copiare l'immagine esistente nell'account di Archiviazione Standard e trasferirlo a una Archiviazione Premium prima che possa essere utilizzato. Se si dispone di un'immagine locale, è possibile usare questo metodo per copiarla direttamente nell'account di archiviazione Premium.
 
 #### <a name="step-1-create-storage-account"></a>Passaggio 1: Creare l’account di archiviazione
     $mysubscription = "DansSubscription"
@@ -625,7 +624,7 @@ Quando ci si connette a SQL Sevrer, il driver del client SQL Server recupera i r
 
 Il numero di record DNS simultanei associati al nome del listener dipende non solo dal numero di indirizzi IP associati, ma anche dall'impostazione 'RegisterAllIpProviders' in Clustering di failover per la risorsa nome di rete virtuale di AlwaysOn.
 
-Quando si distribuisce AlwaysOn in Azure, sono disponibili diversi passaggi per creare il listener e gli indirizzi IP. È necessario configurare manualmente su 1 l'impostazione 'RegisterAllIpProviders', diversamente dalla distribuzione di AlwaysOn locale, dove è già impostata su 1.
+Quando si distribuisce AlwaysOn in Azure, sono disponibili diversi passaggi per creare il listener e gli indirizzi IP. È necessario configurare manualmente su 1 l'impostazione "RegisterAllIpProviders", diversamente dalla distribuzione di AlwaysOn locale, dove è già impostata su 1.
 
 Se 'RegisterAllIpProviders' è 0, verrà visualizzato solo un record DNS nel DNS associato il listener:
 
@@ -681,7 +680,7 @@ Per ulteriori informazioni sulla gestione e configurazione del quorum del cluste
 Salvarli in un file di testo.
 
 #### <a name="step-7-change-failover-partners-and-replication-modes"></a>Passaggio 7: Modificare i partner di failover e le modalità di replica
-Se si dispone di più di 2 SQL Server, è necessario impostare su 'Sincrono' il failover di un’altra replica secondari in un altro centro dati o locale e renderlo Partner di failover automatico (AFP) in modo da mantenere la disponibilità elevata mentre si apportano modifiche. A tale scopo, è possibile utilizzare TSQL o SSMS:
+Se si dispone di più di 2 SQL Server, è necessario impostare su "Sincrono" il failover di un'altra replica secondaria in un altro centro dati o locale e renderlo Partner di failover automatico (AFP) in modo da mantenere la disponibilità elevata mentre si apportano modifiche. A tale scopo, è possibile utilizzare TSQL o SSMS:
 
 ![Appendix6][16]
 

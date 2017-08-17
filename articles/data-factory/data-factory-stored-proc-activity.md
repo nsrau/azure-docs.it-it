@@ -14,17 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 0bba06d4d4b8377fe9e4e605754e3322a2828c64
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6505d9aa2c7ae003bd928e2fa82cd923a9615394
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-<a id="sql-server-stored-procedure-activity" class="xliff"></a>
-
-# Attività di stored procedure di SQL Server
+# <a name="sql-server-stored-procedure-activity"></a>Attività di stored procedure di SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Attività Hive](data-factory-hive-activity.md) 
 > * [Attività di Pig](data-factory-pig-activity.md)
@@ -37,9 +34,7 @@ ms.lasthandoff: 07/06/2017
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata di .NET](data-factory-use-custom-activities.md)
 
-<a id="overview" class="xliff"></a>
-
-## Panoramica
+## <a name="overview"></a>Panoramica
 Le attività di trasformazione dei dati in una [pipeline](data-factory-create-pipelines.md) di Data factory trasformano ed elaborano i dati non elaborati in stime e approfondimenti. L'attività di stored procedure è una delle attività di trasformazione supportate da Data factory. Questo articolo si basa sull'articolo relativo alle [attività di trasformazione dei dati](data-factory-data-transformation-activities.md) che presenta una panoramica generale della trasformazione dei dati e le attività di trasformazione supportate in Data Factory.
 
 È possibile usare l'attività stored procedure per richiamare una stored procedure in uno dei seguenti archivi dati presenti in azienda o in una macchina virtuale di Azure: 
@@ -49,19 +44,15 @@ Le attività di trasformazione dei dati in una [pipeline](data-factory-create-pi
 - Database di SQL Server.  Se si usa SQL Server, è necessario installare Gateway di gestione dati nello stesso computer che ospita il database o in un computer separato che ha accesso al database. Gateway di gestione dati è un componente che connette in modo sicuro e gestito origini dati presenti in locale o in macchine virtuali di Azure ai servizi cloud. Per informazioni dettagliate, vedere [Data Management Gateway](data-factory-data-management-gateway.md) (Gateway di gestione dati).
 
 > [!IMPORTANT]
-> Quando si copiano dati in SQL Server o nel Database SQL di Azure, è possibile configurare **SqlSink** nell'attività di copia per richiamare una stored procedure tramite la proprietà **sqlWriterStoredProcedureName**. Per altre informazioni, vedere [Chiamare una stored procedure da un'attività di copia](data-factory-invoke-stored-procedure-from-copy-activity.md). Per informazioni dettagliate sulla proprietà, vedere gli articoli connettore seguenti: [Database SQL di Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties).
+> Quando si copiano dati in SQL Server o nel Database SQL di Azure, è possibile configurare **SqlSink** nell'attività di copia per richiamare una stored procedure tramite la proprietà **sqlWriterStoredProcedureName**. Per altre informazioni, vedere [Chiamare una stored procedure da un'attività di copia](data-factory-invoke-stored-procedure-from-copy-activity.md). Per informazioni dettagliate sulla proprietà, vedere gli articoli connettore seguenti: [Database SQL di Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). Non è possibile richiamare una stored procedure durante la copia dei dati in un Azure SQL Data Warehouse tramite un'attività di copia. Tuttavia, è possibile usare l'attività di stored procedure per richiamare una stored procedure in un SQL Data Warehouse. 
 >  
 > Quando si copiano dati in SQL Server, nel Database SQL di Azure o in Azure SQL Data Warehouse, è possibile configurare **SqlSink** nell'attività di copia per richiamare una stored procedure che consenta di leggere i dati dal database di origine tramite la proprietà **sqlReaderStoredProcedureName**. Per altre informazioni, vedere gli articoli connettore seguenti: [Database SQL di Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
 
 
 La procedura dettagliata seguente usa l'attività stored procedure in una pipeline per richiamare una stored procedure in un database SQL di Azure. 
 
-<a id="walkthrough" class="xliff"></a>
-
-## Procedura dettagliata
-<a id="sample-table-and-stored-procedure" class="xliff"></a>
-
-### Tabella di esempio e stored procedure
+## <a name="walkthrough"></a>Procedura dettagliata
+### <a name="sample-table-and-stored-procedure"></a>Tabella di esempio e stored procedure
 1. Creare la seguente **tabella** nel database SQL di Azure usando SQL Server Management Studio o qualsiasi altro strumento conosciuto. La colonna datetimestamp riporta la data e l'ora in cui viene generato l'ID corrispondente.
 
     ```SQL
@@ -95,9 +86,7 @@ La procedura dettagliata seguente usa l'attività stored procedure in una pipeli
    > [!IMPORTANT]
    > Il **nome** e la **combinazione di maiuscole e minuscole** per il parametro (DateTime in questo esempio) devono corrispondere a quelli del parametro specificato nel codice JSON per la pipeline/attività. Nella definizione della stored procedure assicurarsi che **@** sia usato come prefisso per il parametro.
 
-<a id="create-a-data-factory" class="xliff"></a>
-
-### Creare un'istanza di Data factory
+### <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **NUOVO** nel menu a sinistra e quindi su **Intelligence e analisi** e **Data factory**.
 
@@ -116,9 +105,7 @@ La procedura dettagliata seguente usa l'attività stored procedure in una pipeli
 
    ![Home page di Data factory](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
-<a id="create-an-azure-sql-linked-service" class="xliff"></a>
-
-### Creare un servizio collegato SQL di Azure
+### <a name="create-an-azure-sql-linked-service"></a>Creare un servizio collegato SQL di Azure
 Dopo aver creato la data factory, si crea un servizio collegato SQL di Azure che collega alla data factory il database SQL di Azure, contenente la tabella sampletable e la stored procedure sp_sample.
 
 1. Fare clic su **Creare e distribuire** nel pannello **Data Factory** per **SProcDF** per avviare l'editor di Data Factory.
@@ -137,9 +124,7 @@ Dopo aver creato la data factory, si crea un servizio collegato SQL di Azure che
 
     ![Visualizzazione albero con servizio collegato](media/data-factory-stored-proc-activity/tree-view.png)
 
-<a id="create-an-output-dataset" class="xliff"></a>
-
-### Creare un set di dati di output
+### <a name="create-an-output-dataset"></a>Creare un set di dati di output
 È necessario specificare un set di dati di output per un'attività stored procedure, anche se questa non produce alcun dato. È il set di dati di output, infatti, che determina la pianificazione dell'attività (la frequenza con cui l'attività viene eseguita: ogni ora, ogni settimana e così via). Il set di dati di output deve usare un **servizio collegato** che faccia riferimento a un database SQL di Azure, a un Azure SQL Data Warehouse o a un database SQL Server in cui si vuole che venga eseguita la stored procedure. Il set di dati di output può essere usato per passare il risultato della stored procedure per la successiva elaborazione da parte di un'altra attività, [concatenamento di attività](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline), nella pipeline. Data Factory non scrive tuttavia automaticamente l'output di una stored procedure in questo set di dati. È la stored procedure a scrivere dati in una tabella SQL cui punta il set di dati di output. In alcuni casi, il set di dati di output può essere un **set di dati fittizio** (un set di dati che punta a una tabella che in realtà non contiene alcun output della stored procedure). Il set di dati fittizio viene usato solo per specificare la pianificazione di esecuzione dell'attività stored procedure. 
 
 1. Fare clic su **... Altro** sulla barra degli strumenti, fare clic su **Nuovo set di dati**, fare clic su **SQL Azure**. **Nuovo set di dati** sulla barra dei comandi e selezionare **Azure SQL**.
@@ -167,9 +152,7 @@ Dopo aver creato la data factory, si crea un servizio collegato SQL di Azure che
 
     ![Visualizzazione albero con servizi collegati](media/data-factory-stored-proc-activity/tree-view-2.png)
 
-<a id="create-a-pipeline-with-sqlserverstoredprocedure-activity" class="xliff"></a>
-
-### Creare una pipeline con l'attività SqlServerStoredProcedure
+### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>Creare una pipeline con l'attività SqlServerStoredProcedure
 Si crea ora una pipeline con un'attività stored procedure. 
 
 Tenere presenti le proprietà seguenti: 
@@ -214,9 +197,7 @@ Tenere presenti le proprietà seguenti:
     ```
 3. Per distribuire la pipeline, fare clic su **Distribuisci** sulla barra degli strumenti.  
 
-<a id="monitor-the-pipeline" class="xliff"></a>
-
-### Monitorare la pipeline
+### <a name="monitor-the-pipeline"></a>Monitorare la pipeline
 1. Fare clic su **X** per chiudere i pannelli dell'editor di Data Factory, tornare al pannello Data Factory e quindi fare clic su **Diagramma**.
 
     ![Riquadro Diagramma](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
@@ -233,14 +214,10 @@ Tenere presenti le proprietà seguenti:
    Vedere [Monitorare la pipeline](data-factory-monitor-manage-pipelines.md) per informazioni dettagliate sul monitoraggio delle pipeline di Data Factory di Azure.  
 
 
-<a id="specify-an-input-dataset" class="xliff"></a>
-
-## Specificare un set di dati di input
+## <a name="specify-an-input-dataset"></a>Specificare un set di dati di input
 Nella procedura dettagliata, l'attività stored procedure non contiene alcun set di dati di input. Se si specifica un set di dati di input, l'attività stored procedure non viene eseguita fino a quando la porzione del set di dati input non è disponibile (in stato Ready). Il set di dati può essere esterno (non generato da un'altra attività nella stessa pipeline) o interno, ovvero generato da un'attività upstream (l'attività eseguita prima dell'attività corrente). Per l'attività stored procedure è possibile specificare più set di dati di input. In questo caso, l'attività stored procedure viene eseguita solo quando sono disponibili tutte le porzioni di set di dati di input (in stato Ready). Il set di dati di input non può essere usato nella stored procedure come parametro. Viene usato solo per verificare la dipendenza prima di iniziare l'attività della stored procedure.
 
-<a id="chaining-with-other-activities" class="xliff"></a>
-
-## Concatenamento con altre attività
+## <a name="chaining-with-other-activities"></a>Concatenamento con altre attività
 Se si vuole concatenare un'attività upstream con questa attività, specificare l'output dell'attività upstream come input di questa attività. In questo caso, l'attività stored procedure non viene eseguita fino a quando non viene completata l'attività upstream e il set di dati di output dell'attività upstream non è disponibile (in stato Ready). È possibile specificare i set di dati di output di più attività upstream come set di dati di input dell'attività stored procedure. In questo caso, l'attività stored procedure viene eseguita solo quando sono disponibili tutte le porzioni di set di dati di input.  
 
 Nell'esempio seguente, l'output dell'attività di copia è OutputDataset, ossia un input dell'attività stored procedure. L'attività stored procedure, quindi, non viene eseguita fino a quando non viene completata l'attività di copia e la porzione OutputDataset non è disponibile (in stato Ready). Se si specificano più set di dati di input, l'attività stored procedure non viene eseguita fino a quando non sono disponibili (in stato Ready) le varie porzioni del set di dati input. Non è possibile usare i set di dati di input direttamente come parametri dell'attività stored procedure. 
@@ -305,9 +282,7 @@ Analogamente, per collegare l'attività stored procedure con **attività downstr
 >  
 > Quando si copiano dati in SQL Server, nel Database SQL di Azure o in Azure SQL Data Warehouse, è possibile configurare **SqlSink** nell'attività di copia per richiamare una stored procedure che consenta di leggere i dati dal database di origine tramite la proprietà **sqlReaderStoredProcedureName**. Per altre informazioni, vedere gli articoli connettore seguenti: [Database SQL di Azure](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)          
 
-<a id="json-format" class="xliff"></a>
-
-## Formato JSON
+## <a name="json-format"></a>Formato JSON
 Di seguito è riportato il formato JSON per la definizione di un'attività di Stored Procedure:
 
 ```JSON
@@ -341,9 +316,7 @@ La tabella seguente illustra queste proprietà JSON:
 | storedProcedureName |Specificare il nome della stored procedure nel database SQL di Azure, nel database SQL Server o in Azure SQL Data Warehouse rappresentato dal servizio collegato usato dalla tabella di output. |Sì |
 | storedProcedureParameters |Specificare i valori dei parametri della stored procedure. Se è necessario passare null per un parametro, usare la sintassi "param1": null (tutte lettere minuscole). Vedere l'esempio seguente per informazioni sull'uso di questa proprietà. |No |
 
-<a id="passing-a-static-value" class="xliff"></a>
-
-## Passaggio di un valore statico
+## <a name="passing-a-static-value"></a>Passaggio di un valore statico
 A questo punto, si consideri l'aggiunta di un'altra colonna denominata 'Scenario' nella tabella contenente un valore statico denominato 'Document sample'.
 
 ![Dati di esempio 2](./media/data-factory-stored-proc-activity/sample-data-2.png)

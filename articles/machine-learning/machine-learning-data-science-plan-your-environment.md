@@ -1,6 +1,6 @@
 ---
 title: Identificare gli scenari e pianificare il processo di analisi - Azure | Documentazione Microsoft
-description: Pianificare l&quot;analisi avanzata prendendo in considerazione una serie di domande chiave.
+description: Pianificare l'analisi avanzata prendendo in considerazione una serie di domande chiave.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a712baabf2674bda0a53de63e7c204b08ba9d105
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9297b241c047bf9feb68ced8da467c62e7f5acca
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
@@ -47,7 +47,7 @@ Le domande di logistica riguardano la posizione dell'**origine dati**, la **dest
    
    * [Caricare i dati in ambienti di archiviazione per l'analisi](machine-learning-data-science-ingest-data.md)
    * [Importare dati di training in Azure Machine Learning Studio da varie origini dati](machine-learning-data-science-import-data.md).
-4. **I dati devono essere spostati a intervalli regolari o modificati durante la migrazione?** È consigliabile usare il Data factory di Azure (ADF) quando è necessario migrare continuamente i dati, soprattutto in uno scenario ibrido che accede a risorse locali e cloud o in presenza di dati transazionali, che devono essere modificati o ai quali va aggiunta una logica di business durante la migrazione. Per altre informazioni, vedere [Spostare i dati da un server SQL locale a SQL Azure con il Data factory di Azure](machine-learning-data-science-move-sql-azure-adf.md)
+4. **I dati devono essere spostati a intervalli regolari o modificati durante la migrazione?** È consigliabile usare Azure Data Factory (ADF) quando è necessario migrare continuamente i dati, soprattutto in uno scenario ibrido che accede a risorse locali e cloud o in presenza di dati transazionali, che devono essere modificati o ai quali va aggiunta una logica di business durante la migrazione. Per altre informazioni, vedere [Spostare i dati da un server SQL locale a SQL Azure con Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
 5. **Quanta parte dei dati deve essere spostata in Azure?** I set di dati molto grandi potrebbero superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione sui limiti di dimensione per Machine Learning Studio nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md)(Campionare i dati nel Processo di analisi scientifica dei dati per i team).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Domande sulle caratteristiche dei dati: tipo, formato e dimensione

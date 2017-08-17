@@ -1,230 +1,231 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con SanSan | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e SanSan.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Sansan | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Sansan.
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/16/2017
+ms.date: 07/05/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
-ms.openlocfilehash: 87236d58018cd6696a97fad5d1413fa0975519b0
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e1a9653d5feea910308cefabdbdfe3a6af44bbe4
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Esercitazione: integrazione di Azure Active Directory con SanSan
-Questa esercitazione descrive come integrare SanSan con Azure Active Directory (Azure AD).
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Esercitazione: integrazione di Azure Active Directory con Sansan
 
-L'integrazione di SanSan con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Sansan con Azure Active Directory (Azure AD).
 
-* È possibile controllare in Azure AD chi può accedere a SanSan
-* È possibile abilitare gli utenti per l'accesso Single Sign-On automatico a SanSan (SSO) con i propri account Azure AD
-* È possibile gestire gli account da una posizione centrale: il portale di Azure classico
+L'integrazione di Sansan con Azure AD offre i vantaggi seguenti:
+
+- È possibile controllare in Azure AD chi può accedere a Sansan
+- È possibile abilitare gli utenti per l'accesso automatico a Sansan (Single Sign-On) con i propri account Azure AD
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per configurare l'integrazione di Azure AD con SanSan, sono necessari gli elementi seguenti:
 
-* Sottoscrizione di Azure AD.
-* Sottoscrizione di Samanage abilitata per l'accesso Single Sign-On (SSO)
+Per configurare l'integrazione di Azure AD con Sansan, sono necessari gli elementi seguenti:
 
->[!NOTE]
->Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione. 
-> 
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Sansan abilitata per l'accesso Single Sign-On
+
+> [!NOTE]
+> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-* Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
+- Non usare l'ambiente di produzione a meno che non sia necessario.
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Microsoft Azure AD in un ambiente di test. 
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+1. Aggiunta di Sansan dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-1. Aggiunta di SanSan dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On di Microsoft Azure AD
+## <a name="adding-sansan-from-the-gallery"></a>Aggiunta di Sansan dalla raccolta
+Per configurare l'integrazione di Sansan in Azure AD, è necessario aggiungere Sansan dalla raccolta al proprio elenco di app SaaS gestite.
 
-## <a name="add-sansan-from-the-gallery"></a>Aggiungere SanSan dalla raccolta
-Per configurare l'integrazione di SanSan in Azure AD, è necessario aggiungere SanSan dalla raccolta al proprio elenco di app SaaS gestite.
+**Per aggiungere Sansan dalla raccolta, seguire questa procedura:**
 
-**Per aggiungere SanSan dalla raccolta, seguire questa procedura:**
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
-   
     ![Active Directory][1]
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
-   
-    ![Applications][2]
-4. Fare clic su **Add** nella parte inferiore della pagina.
-   
+
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+
+    ![Applicazioni][2]
+    
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+
     ![Applicazioni][3]
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
-   
-    ![Applicazioni][4]
-6. Nella casella di ricerca digitare **SanSan**.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_01.png)
-7. Nel riquadro dei risultati selezionare **SanSan**, quindi fare clic su **Completa** per aggiungere l'applicazione.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_06.png)
 
-## <a name="configure-and-test-microsoft-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Microsoft Azure AD
-In questa sezione viene configurato e testato l'accesso SSO di Microsoft Azure AD con SanSan in base a un utente test di nome "Britta Simon".
+4. Nella casella di ricerca digitare **Sansan**.
 
-Per il funzionamento dell'accesso SSO, Azure AD deve conoscere qual è l'utente di SanSan che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SanSan.
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_search.png)
 
-La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente) in SanSan.
+5. Nel pannello dei risultati selezionare **Sansan** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-Per configurare e testare l'accesso Single Sign-On di Microsoft Azure AD con SanSan, è necessario completare i blocchi predefiniti seguenti:
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_addfromgallery.png)
 
-1. **[Configurazione dell'accesso Single Sign-On di Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Microsoft Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di SanSan](#creating-an-sansan-test-user)** : per avere una controparte di Britta Simon in SanSan collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Microsoft Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Sansan in base a un utente di test di nome "Britta Simon".
 
-### <a name="configure-microsoft-azure-ad-sso"></a>Configurare l'accesso Single Sign-On di Microsoft Azure AD
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Sansan che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Sansan.
 
-In questa sezione viene abilitato l'accesso Single Sign-On di Microsoft Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione SanSan.
+Per stabilire la relazione di collegamento, in Sansan assegnare il valore di **nome utente** in Azure AD come valore di **Username**.
 
-**Per configurare Single Sign-On di Microsoft Azure AD con SanSan, seguire questa procedura:**
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Sansan, è necessario completare i blocchi predefiniti seguenti:
 
-1. Nella pagina di integrazione dell'applicazione **SanSan** del portale di Azure classico, fare clic su Configura accesso Single Sign-On per aprire la finestra di dialogo Configura accesso Single Sign-On.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_general_05.png) 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a SanSan** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_03.png) 
-3. Nella pagina **Configurare le impostazioni dell'app** seguire questa procedura:
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_04.png)    
-  1. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente:
-   
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente di test di Sansan](#creating-a-sansan-test-user)**: per avere una controparte di Britta Simon in Sansan collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Sansan.
+
+**Per configurare l'accesso Single Sign-On di Azure AD con Sansan, seguire questa procedura:**
+
+1. Nella pagina di integrazione dell'applicazione **Sansan** del portale di Azure fare clic su **Single Sign-On**.
+
+    ![Configura accesso Single Sign-On][4]
+
+2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+ 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_samlbase.png)
+
+3. Nella sezione **URL e dominio Sansan** seguire questa procedura:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url.png)
+
+    a. Nella casella di testo **URL di accesso** digitare un URL usando i criteri seguenti: 
+    
     | Environment | URL |
     |:--- |:--- |
     | Web PC |`https://ap.sansan.com/v/saml2/<company name>/acs` |
     | App per dispositivi mobili nativa |`https://internal.api.sansan.com/saml2/<company name>/acs` |
-    | Impostazioni del browser per dispositivi mobili |`https://ap.sansan.com/s/saml2/<company name>/acs` 
-  2. Nella casella di testo **Identificatore** digitare l'URL usando il modello seguente: 
+    | Impostazioni del browser per dispositivi mobili |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
+    b. Nella casella di testo **Identificatore** digitare un URL usando i criteri seguenti:
     | Environment             | URL |
-    | :--                     | :-- |
+    | :-- | :-- |
     | Web PC                  | `https://ap.sansan.com/v/saml2/<company name>`|
     | App per dispositivi mobili nativa       | `https://internal.api.sansan.com/saml2/<company name>` |
     | Impostazioni del browser per dispositivi mobili | `https://ap.sansan.com/s/saml2/<company name>` |
-  3. Fare clic su **Avanti**.
 
-1. Nella pagina **Configura accesso Single Sign-On in SanSan** seguire questa procedura:
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_05.png) 
-  1. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
-  2. Fare clic su **Avanti**.
-2. Al fine di configurare l'accesso SSO per l'applicazione, contattare il team di supporto di SanSan che fornirà l'aiuto richiesto. Specificare le informazioni seguenti:
-   
-  * Il **certificato** scaricato
-  * **ID provider di identità**   
-  * **URL SAML SSO**
-  * **URL del servizio Single Sign-Out**
+    > [!NOTE] 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto client di Sansan](https://www.sansan.com/form/contact). 
+
+4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_certificate.png) 
+
+5. Fare clic sul pulsante **Salva** .
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_general_400.png)
+
+6. Nella sezione **Configurazione di Sansan** fare clic su **Configura Sansan** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
+
+7. Per configurare l'accesso Single Sign-On sul lato **Sansan**, è necessario inviare il **Certificato** scaricato, l'**URL di disconnessione**, l'**ID entità SAML** e l'**URL del servizio Single Sign-On SAML** al [team di supporto di Sansan](https://www.sansan.com/form/contact). Questa impostazione viene configurata in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 >[!NOTE]
 >Le impostazioni del browser PC sono applicabili anche alle app per dispositivi mobili e al browser per dispositivi mobili, oltre che per Web PC.  
-> 
 
-1. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
-   
-    ![Single Sign-On di Microsoft Azure AD][10]
-2. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
-   
-    ![Single Sign-On di Microsoft Azure AD][11]
+> [!TIP]
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
-In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-* Nell'elenco di utenti selezionare **Britta Simon**.
-
-![Creare un utente di Azure AD][20]
+![Creare un utente di Azure AD][100]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_09.png) 
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_03.png) 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_04.png) 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_05.png)  
-  1. In Tipo di utente selezionare Nuovo utente nell'organizzazione. 
-  2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-  3. Fare clic su **Avanti**.
-6. Nella pagina **Profilo utente** seguire questa procedura:
-   
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_06.png) 
-  1. Nella casella di testo **Nome** digitare **Britta**.  
-  2. Nella casella di testo **Cognome** digitare **Simon**.
-  3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-  4. Nell'elenco **Ruolo** selezionare **Utente**.
-  5. Fare clic su **Avanti**.
-7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_07.png) 
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_08.png) 
-   1. Prendere nota del valore visualizzato in **Nuova password**.
-   2. Fare clic su **Completa**.   
+1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-### <a name="create-an-sansan-test-user"></a>Creare un utente test di SanSan
-In questa sezione viene creato un utente chiamato Britta Simon in SanSan. L'applicazione SanSan richiede che venga eseguito il provisioning dell'utente all'interno dell'applicazione prima di eseguire l'accesso Single Sign-On. 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_01.png) 
+
+2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_02.png) 
+
+3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+ 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_03.png) 
+
+4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+ 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-sansan-tutorial/create_aaduser_04.png) 
+
+    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+
+    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+
+    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+
+    d. Fare clic su **Crea**.
+ 
+### <a name="creating-a-sansan-test-user"></a>Creazione di un utente di test di Sansan
+
+In questa sezione viene creato un utente chiamato Britta Simon in SanSan. L'applicazione Sansan richiede che venga eseguito il provisioning dell'utente all'interno dell'applicazione prima di eseguire l'accesso Single Sign-On. 
 
 >[!NOTE]
->Se si deve creare un utente manualmente o creare un batch di utenti, è necessario contattare il team di supporto SanSan. 
-> 
+>Se si deve creare un utente manualmente o creare un batch di utenti, è necessario contattare il [team di supporto Sansan](https://www.sansan.com/form/contact). 
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SanSan.
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Sansan.
 
 ![Assegna utente][200] 
 
-**Per assegnare Britta Simon ad SanSan, seguire questa procedura:**
+**Per assegnare Britta Simon a Sansan, seguire questa procedura:**
 
-1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
-   
+1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+
     ![Assegna utente][201] 
-2. Nell'elenco delle applicazioni, selezionare **SanSan**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_50.png) 
-3. Scegliere **Utenti**dal menu in alto.
-   
-    ![Assegna utente][203] 
-4. Nell'elenco di utenti selezionare **Britta Simon**.
-5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
-   
-    ![Assegna utente][205]
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Microsoft Azure AD usando il pannello di accesso.
+2. Nell'elenco delle applicazioni selezionare **Sansan**.
 
-Quando si fa clic sul riquadro SanSan nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SanSan.
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_app.png) 
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Assegna utente][202] 
+
+4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Assegna utente][203]
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+
+6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+
+7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+    
+### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+
+Quando si fa clic sul riquadro Sansan nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Sansan.
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
+
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
@@ -235,14 +236,11 @@ Quando si fa clic sul riquadro SanSan nel pannello di accesso, si dovrebbe acced
 [3]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_205.png
+
 
