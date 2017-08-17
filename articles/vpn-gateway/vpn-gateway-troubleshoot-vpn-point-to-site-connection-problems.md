@@ -139,7 +139,7 @@ Estrarre il pacchetto di configurazione del client VPN e trovare il file con est
 
 Quando si prova a salvare le modifiche per il gateway VPN nel portale di Azure, viene visualizzato il messaggio di errore seguente:
 
-**Non è stato possibile salvare il gateway di rete virtuale&lt;*nome gateway*&gt;. Data for certificate &lt;*certificate ID*&gt; is invalid.** (I dati per il certificato ID certificato non sono validi.**)
+**Non è stato possibile salvare il gateway di rete virtuale&lt;*nome gateway*&gt;. Data for certificate &lt;*certificate ID*&gt; is invalid.** (I dati per il certificato ID certificato non sono validi.)
 
 ### <a name="cause"></a>Causa 
 
@@ -174,7 +174,7 @@ Verificare che i dati nel certificato non contengano caratteri non validi, ad es
 
 Quando si prova a salvare le modifiche per il gateway VPN nel portale di Azure, viene visualizzato il messaggio di errore seguente: 
 
-**Non è stato possibile salvare il gateway di rete virtuale&lt;*nome gateway*&gt;. Resource name &lt;*certificate name you try to upload*&gt; is invalid**. (Nome risorsa <nome certificato da caricare> non valido**.)
+**Non è stato possibile salvare il gateway di rete virtuale&lt;*nome gateway*&gt;. Resource name &lt;*certificate name you try to upload*&gt; is invalid**. (Nome risorsa <nome certificato da caricare> non valido.)
 
 ### <a name="cause"></a>Causa
 

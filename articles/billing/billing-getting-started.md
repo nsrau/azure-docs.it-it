@@ -3,7 +3,7 @@ title: Evitare costi imprevisti e gestire la fatturazione - Azure | Microsoft Do
 description: "Informazioni su come evitare addebiti imprevisti nella fattura di Azure. Usare le funzionalità di gestione e verifica dei costi per una sottoscrizione di Microsoft Azure."
 services: 
 documentationcenter: 
-author: jlian
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
-ms.author: jlian
+ms.date: 08/10/2017
+ms.author: tonguyen
+experimental_id: a2b2579c-cd2e-41
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
 ms.contentlocale: it-it
 ms.lasthandoff: 04/26/2017
 
-
 ---
+
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Evitare costi imprevisti con la gestione dei costi e alla fatturazione di Azure
 
 Quando si effettua l'iscrizione ad Azure, è consigliabile eseguire alcune operazioni per conoscere meglio la spesa sostenuta. Nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), quando si seleziona la sottoscrizione, è possibile visualizzare la scomposizione dei costi e la velocità attuali, nonché [scaricare le fatture precedenti e i file dei dati dettagliati di uso](billing-download-azure-invoice-daily-usage-date.md). Se si desidera raggruppare i costi per le risorse usate per diversi progetti o team, esaminare i [tag delle risorse](../azure-resource-manager/resource-group-using-tags.md). Se l'organizzazione dispone di un sistema di creazione report, vedere le [API per la fatturazione](billing-usage-rate-card-overview.md). 
@@ -39,7 +40,7 @@ Se la sottoscrizione è una versione di valutazione gratuita, di [Visual Studio]
 
 Usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) e il [calcolatore del costo totale di proprietà](https://aka.ms/azure-tco-calculator) per ottenere una stima del costo mensile del servizio a cui si è interessati. Per una macchina virtuale (VM) Windows A1 mantenuta costantemente in esecuzione, ad esempio, il costo stimato in ore di calcolo è $66,96 USD/mese:
 
-![Screenshot del calcolatore dei prezzi che mostra che il costo stimato di una VM Windows A1 è 66,96 USD al mese](./media/billing-getting-started/pricing-calc.PNG)
+![Screenshot del calcolatore dei prezzi che mostra che il costo stimato di una VM Windows A1 è 66,96 USD al mese](./media/billing-getting-started/pricing-calcVM.png)
 
 Per altre informazioni, vedere le [domande frequenti sui prezzi](https://azure.microsoft.com/pricing/faq/). Per parlare con un operatore, chiamare il numero 1-800-867-1389.
 
@@ -136,7 +137,7 @@ Quando i servizi sono in esecuzione, controllare regolarmente a quanto ammonta i
 
 7. Fare clic su una risorsa per visualizzare la cronologia di spesa e il costo giorno per giorno.
 
-    ![Screenshot della visualizzazione della cronologia di spesa nel portale di Azure](./media/billing-getting-started/spend-history.PNG)
+    ![Screenshot della visualizzazione della cronologia di spesa nel portale di Azure](./media/billing-getting-started/costhistory.PNG)
 
 È consigliabile confrontare tali costi con le stime visualizzate al momento della selezione dei servizi. In caso di differenza significativa tra i costi e le stime, ricontrollare il piano tariffario selezionato per le risorse (VM A1 o A0, ad esempio). 
 
@@ -187,3 +188,4 @@ Se si è responsabili della gestione IT per un'organizzazione di grandi dimensio
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
