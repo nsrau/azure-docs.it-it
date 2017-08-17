@@ -17,10 +17,10 @@ ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>Guida introduttiva: Reimpostazione self-service della password di Azure AD
@@ -79,13 +79,7 @@ Per abilitare la sincronizzazione delle identità locali con Azure AD è necessa
 
 Per disabilitare la reimpostazione self-service della password è sufficiente aprire il tenant di Azure AD e passare a **Reimpostazione password > Proprietà** e scegliere **Nessuno** in **Reimpostazione password self-service abilitata**
 
-## <a name="next-steps"></a>Passaggi successivi
-
-In questa guida introduttiva è stato illustrato come configurare la reimpostazione self-service della password per gli utenti. Per passare al portale di Azure per completare questa procedura, seguire il collegamento seguente per il portale.
-
-> [!div class="nextstepaction"]
-> [Abilitare la reimpostazione self-service delle password](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
+### <a name="learn-more"></a>Altre informazioni
 I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
 
 * [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
@@ -97,4 +91,12 @@ I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazi
 * [**Approfondimento tecnico**](active-directory-passwords-how-it-works.md): approfondimento sul funzionamento
 * [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
+
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa guida introduttiva è stato illustrato come configurare la reimpostazione self-service della password per gli utenti. Per passare al portale di Azure per completare questa procedura, seguire il collegamento seguente per il portale.
+
+> [!div class="nextstepaction"]
+> [Abilitare la reimpostazione self-service delle password](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 

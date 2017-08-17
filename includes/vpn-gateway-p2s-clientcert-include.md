@@ -7,7 +7,7 @@ Ogni computer client che si connette a una rete virtuale usando la soluzione Da 
 - **Certificato aziendale:**
 
   - Se si usa una soluzione aziendale per la creazione di certificati, generare un certificato client con il valore di nome comune nel formato "name@yourdomain.com", invece che nel formato "nome dominio\nome utente".
-  - Verificare che il certificato client sia basato sul modello di certificato "Utente" con "Autenticazione client" come primo elemento nell'elenco d'uso, invece di Accesso smart card e così via. È possibile controllare il certificato facendo doppio clic sul certificato client e aprendo *Dettagli > Utilizzo chiavi avanzato*.
+  - Verificare che il certificato client sia basato sul modello di certificato "Utente" con "Autenticazione client" come primo elemento nell'elenco d'uso, invece di Accesso smart card e così via. È possibile controllare il certificato facendo doppio clic sul certificato client e aprendo **Dettagli > Utilizzo chiavi avanzato**.
 
 - **Certificato radice autofirmato:** è importante seguire i passaggi di uno dei due articoli seguenti relativi ai certificati da punto a sito (P2S). In caso contrario, i certificati client creati non saranno compatibili con le connessioni da punto a sito e i client riceveranno un errore quando provano a connettersi. I passaggi in uno degli articoli seguenti generano un certificato client compatibile: 
 
