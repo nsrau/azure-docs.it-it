@@ -1,6 +1,6 @@
 ---
 title: 'Backup di Azure: preparare il backup di macchine virtuali | Microsoft Docs'
-description: Assicurarsi che l&quot;ambiente sia pronto per il backup di macchine virtuali in Azure.
+description: Assicurarsi che l'ambiente sia pronto per il backup di macchine virtuali in Azure.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/7/2017
+ms.date: 7/10/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: c1185358cc10e450c0c67baab407c49de56ad767
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: eb6a7069da36a462f8dd27454bc1834d2e3844f0
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
@@ -57,10 +56,10 @@ Se nell'ambiente esistono già queste condizioni, passare all'articolo [Eseguire
 Prima di preparare l'ambiente, è importante capire le limitazioni.
 
 * Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
-* Il backup di macchine virtuali con dischi da 4 TB non è supportato. 
+* Il backup delle macchine virtuali con dischi dati maggiori di 1023 GB non è supportato.
 * Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 * Il backup di macchine virtuali crittografate solo con BEK non è supportato. Il backup delle macchine virtuali Linux crittografate con la crittografia LUKS non è supportato.
-* Il backup delle macchine virtuali Linux con estensione Docker non è supportato.
+* Il backup delle VM nelle configurazioni di file server scalabili orizzontalmente non è consigliato.
 * I dati di backup non includono le unità di rete montate collegate alla macchina virtuale.
 * La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. Se si tenta di ripristinare una macchina virtuale che esiste, l'operazione di ripristino non viene eseguita.
 * L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.

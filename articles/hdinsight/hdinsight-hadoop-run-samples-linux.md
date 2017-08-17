@@ -23,7 +23,6 @@ ms.openlocfilehash: 07b292064178aee9ff94dc47554be2b0098ef807
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Eseguire gli esempi di MapReduce inclusi in HDInsight
 
@@ -224,7 +223,6 @@ In questo articolo si è appreso come eseguire gli esempi inclusi nei cluster HD
 * [Usare Hive con Hadoop in HDInsight][hdinsight-use-hive]
 * [Usare MapReduce con Hadoop in HDInsight][hdinsight-use-mapreduce]
 
-[hdinsight-errors]: hdinsight-debug-jobs.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

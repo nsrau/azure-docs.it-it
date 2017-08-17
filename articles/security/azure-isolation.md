@@ -1,7 +1,6 @@
 ---
-
 title: Isolamento nel cloud pubblico di Azure | Microsoft Docs
-description: "Informazioni sui servizi di calcolo basati sul cloud che includono un&quot;ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell&quot;applicazione o dell&quot;organizzazione."
+description: "Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione."
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: a167f15b1c885c51c9a85c501a9a9a60992cdf5d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2559bdbca8002392ef925e0eddfd23044cc563b5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -116,9 +114,9 @@ Altre funzionalità di Azure Active Directory includono:
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolamento da amministratori Microsoft ed eliminazione dei dati
 Microsoft adotta misure sicure per proteggere i dati da accessi e usi impropri da parte di persone non autorizzate. Questi processi operativi e controlli sono supportati dalle [condizioni di Microsoft Online Services](http://aka.ms/Online-Services-Terms), che offrono impegni contrattuali che regolano l'accesso ai dati.
 
--    Gli esperti Microsoft non hanno l'accesso predefinito ai dati nel cloud. L'accesso viene loro concesso sotto supervisione e solo quando necessario. Viene anche attentamente controllato e registrato e revocato quando non è più necessario.
+-   Gli esperti Microsoft non hanno l'accesso predefinito ai dati nel cloud. L'accesso viene loro concesso sotto supervisione e solo quando necessario. Viene anche attentamente controllato e registrato e revocato quando non è più necessario.
 
--    Microsoft può ricorrere ad altre società per la fornitura di servizi limitati per suo conto. Le società esterne possono accedere ai dati dei clienti solo per fornire i servizi dei quali sono state incaricate e non sono autorizzate a usare i dati per altri scopi. Sono anche vincolate per contratto a tutelare la riservatezza delle informazioni dei clienti.
+-   Microsoft può ricorrere ad altre società per la fornitura di servizi limitati per suo conto. Le società esterne possono accedere ai dati dei clienti solo per fornire i servizi dei quali sono state incaricate e non sono autorizzate a usare i dati per altri scopi. Sono anche vincolate per contratto a tutelare la riservatezza delle informazioni dei clienti.
 
 I servizi aziendali con certificazioni sottoposte a auditing, ad esempio ISO/IEC 27001, vengono verificati regolarmente da Microsoft e da società di auditing accreditate tramite controlli a campione per attestare che l'accesso avvenga solo per scopi commerciali legittimi. Il cliente può accedere ai propri dati in qualsiasi momento e per qualunque motivo.
 
@@ -176,9 +174,9 @@ Per impostazione predefinita, tutto il traffico viene bloccato quando viene crea
 
 Sono previste due categorie di regole:
 
--    **Regole di configurazione macchina virtuale o di infrastruttura**: per impostazione predefinita, vengono bloccate tutte le comunicazioni. Alcune eccezioni consentono a una macchina virtuale di inviare e ricevere il traffico DHCP e DNS. Le macchine virtuali possono anche inviare il traffico a Internet "pubblico" e ad altre macchine virtuali nella stessa rete virtuale di Azure e nel server di attivazione del sistema operativo. L'elenco di destinazioni in uscita consentite delle macchine virtuali non include subnet di router di Azure, la gestione di Azure e altre proprietà Microsoft.
+-   **Regole di configurazione macchina virtuale o di infrastruttura**: per impostazione predefinita, vengono bloccate tutte le comunicazioni. Alcune eccezioni consentono a una macchina virtuale di inviare e ricevere il traffico DHCP e DNS. Le macchine virtuali possono anche inviare il traffico a Internet "pubblico" e ad altre macchine virtuali nella stessa rete virtuale di Azure e nel server di attivazione del sistema operativo. L'elenco di destinazioni in uscita consentite delle macchine virtuali non include subnet di router di Azure, la gestione di Azure e altre proprietà Microsoft.
 
--    **File di configurazione dei ruoli**: definisce gli elenchi di controllo di accesso (ACL) in ingresso in base al modello di servizio del tenant.
+-   **File di configurazione dei ruoli**: definisce gli elenchi di controllo di accesso (ACL) in ingresso in base al modello di servizio del tenant.
 
 ### <a name="vlan-isolation"></a>Isolamento VLAN
 In ogni cluster sono presenti tre VLAN:
@@ -186,11 +184,11 @@ In ogni cluster sono presenti tre VLAN:
 ![Isolamento VLAN](./media/azure-isolation/azure-isolation-fig8.jpg)
 
 
--    VLAN principale: crea l'interconnessione tra i nodi non attendibili del cliente
+-   VLAN principale: crea l'interconnessione tra i nodi non attendibili del cliente
 
--    VLAN del controller di infrastruttura (FC): contiene controller di infrastruttura attendibili e sistemi di supporto
+-   VLAN del controller di infrastruttura (FC): contiene controller di infrastruttura attendibili e sistemi di supporto
 
--    VLAN dei dispositivi: contiene dispositivi di rete attendibili e altri dispositivi dell'infrastruttura
+-   VLAN dei dispositivi: contiene dispositivi di rete attendibili e altri dispositivi dell'infrastruttura
 
 La comunicazione è consentita dalla VLAN del controller di infrastruttura alla VLAN principale, ma non dalla VLAN principale alla VLAN del controller di infrastruttura. La comunicazione è anche bloccata dalla VLAN principale alla VLAN dei dispositivi. Questo assicura che anche se un nodo che esegue il codice del cliente è compromesso, non potrà attaccare nodi sulla VLAN dei dispositivi o sulla VLAN del controller di infrastruttura.
 
@@ -215,27 +213,27 @@ I dati di archiviazione IP possono essere protetti da utenti non autorizzati tra
 
 ### <a name="encryption"></a>Crittografia
 Azure offre i tipi di crittografia seguenti per proteggere i dati:
--    Crittografia in transito
+-   Crittografia in transito
 
--    Crittografia di dati inattivi
+-   Crittografia di dati inattivi
 
 #### <a name="encryption-in-transit"></a>Crittografia in transito
 La crittografia in transito è un meccanismo di protezione dei dati durante la trasmissione tra le reti. Con Archiviazione di Azure è possibile proteggere i dati con:
 
--    [Crittografia a livello di trasporto](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di Archiviazione di Azure.
+-   [Crittografia a livello di trasporto](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), ad esempio HTTPS quando si trasferiscono dati all'interno o all'esterno di Archiviazione di Azure.
 
--    [Crittografia di rete](https://docs.microsoft.com/azure/storage/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), ad esempio la crittografia SMB 3.0 per le condivisioni file di Azure.
+-   [Crittografia di rete](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), ad esempio la crittografia SMB 3.0 per le condivisioni file di Azure.
 
--    [Crittografia lato client](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), per crittografare i dati prima che siano trasferiti nella risorsa di archiviazione e decrittografarli dopo il trasferimento dalla risorsa di archiviazione.
+-   [Crittografia lato client](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), per crittografare i dati prima che siano trasferiti nella risorsa di archiviazione e decrittografarli dopo il trasferimento dalla risorsa di archiviazione.
 
 #### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 Per molte organizzazioni, [la crittografia dei dati inattivi](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy dei dati, la conformità e la sovranità dei dati. Esistono tre funzionalità di Azure che consentono di crittografare dati inattivi:
 
--    [Crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
+-   [Crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
 
--    [Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) offre anche la funzionalità di crittografia dei dati inattivi.
+-   [Client-side Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) offre anche la funzionalità di crittografia dei dati inattivi.
 
--    [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
+-   [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) per le macchine virtuali consente di soddisfare i requisiti di conformità e sicurezza dell'organizzazione, grazie alla possibilità di crittografare i dischi delle macchine virtuali, inclusi i dischi di avvio e di dati, con chiavi e criteri gestiti in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
@@ -243,39 +241,39 @@ Per molte organizzazioni, [la crittografia dei dati inattivi](https://blogs.micr
 La soluzione Crittografia dischi per Windows è basata su [Crittografia unità BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Microsoft e la soluzione Linux è basata su [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 La soluzione supporta gli scenari seguenti per le macchine virtuali IaaS, se abilitati in Microsoft Azure:
--    Integrazione dell'insieme di credenziali delle chiavi di Azure.
+-   Integrazione dell'insieme di credenziali delle chiavi di Azure.
 
--    Macchine virtuali di livello Standard: serie A, D, DS, G, GS e così via per VM IaaS
+-   Macchine virtuali di livello Standard: serie A, D, DS, G, GS e così via per VM IaaS
 
--    Abilitazione della crittografia nelle macchine virtuali IaaS Windows e Linux
+-   Abilitazione della crittografia nelle macchine virtuali IaaS Windows e Linux
 
--    Disabilitazione della crittografia nel sistema operativo e nelle unità dati per le VM IaaS Windows
+-   Disabilitazione della crittografia nel sistema operativo e nelle unità dati per le VM IaaS Windows
 
--    Disabilitazione della crittografia nelle unità dati per le macchine virtuali IaaS Linux
+-   Disabilitazione della crittografia nelle unità dati per le macchine virtuali IaaS Linux
 
--    Abilitazione della crittografia in macchine virtuali IaaS in esecuzione nel sistema operativo client Windows
+-   Abilitazione della crittografia in macchine virtuali IaaS in esecuzione nel sistema operativo client Windows
 
--    Abilitazione della crittografia su volumi con percorsi di montaggio
+-   Abilitazione della crittografia su volumi con percorsi di montaggio
 
--    Abilitazione della crittografia nelle macchine virtuali Linux configurate con striping del disco (RAID) tramite [mdadm](https://en.wikipedia.org/wiki/Mdadm)
+-   Abilitazione della crittografia nelle macchine virtuali Linux configurate con striping del disco (RAID) tramite [mdadm](https://en.wikipedia.org/wiki/Mdadm)
 
--    Abilitazione della crittografia nelle macchine virtuali Linux usando [LVM (Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) per i dischi di dati
+-   Abilitazione della crittografia nelle macchine virtuali Linux usando [LVM (Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) per i dischi di dati
 
--    Abilitazione della crittografia nelle macchine virtuali Windows configurate usando spazi di archiviazione
+-   Abilitazione della crittografia nelle macchine virtuali Windows configurate usando spazi di archiviazione
 
--    Sono supportate tutte le aree geografiche pubbliche di Azure
+-   Sono supportate tutte le aree geografiche pubbliche di Azure
 
 La soluzione non supporta gli scenari, le funzionalità e la tecnologia seguenti in questa versione:
 
--    VM IaaS del piano Basic
+-   VM IaaS del piano Basic
 
--    Disabilitazione della crittografia in un'unità del sistema operativo per le VM IaaS Linux
+-   Disabilitazione della crittografia in un'unità del sistema operativo per le VM IaaS Linux
 
--    Macchine virtuali IaaS create usando il metodo di creazione classico per le macchine virtuali
+-   Macchine virtuali IaaS create usando il metodo di creazione classico per le macchine virtuali
 
--    Integrazione con il servizio di gestione delle chiavi locale.
+-   Integrazione con il servizio di gestione delle chiavi locale.
 
--    File di Azure (file system condiviso), file system di rete (NFS, Network File System), volumi dinamici e macchine virtuali Windows configurate con sistemi RAID basati su software
+-   File di Azure (file system condiviso), file system di rete (NFS, Network File System), volumi dinamici e macchine virtuali Windows configurate con sistemi RAID basati su software
 
 ## <a name="sql-azure-database-isolation"></a>Isolamento del database SQL Azure
 Il database SQL è un servizio di database relazionale sul cloud Microsoft basato sul motore Microsoft SQL Server, leader di mercato, e in grado di gestire carichi di lavoro di importanza strategica. Il database SQL di Azure offre isolamento prevedibile dei dati a livello di account, in base all'area geografica e alla rete, con esigenze di amministrazione quasi nulle.
@@ -298,9 +296,9 @@ I server SQL Azure non sono istanze di macchine virtuali o fisiche, ma sono racc
 
 I database master logici includono:
 
--    Account di accesso SQL usati per connettersi al server
+-   Account di accesso SQL usati per connettersi al server
 
--    Regole del firewall
+-   Regole del firewall
 
 Le informazioni sulla fatturazione e l'uso per i database SQL di Azure dello stesso server logico non si trovano necessariamente nella stessa istanza fisica del cluster di SQL Azure, mentre le applicazioni devono fornire il nome del database di destinazione durante la connessione.
 
@@ -311,13 +309,13 @@ Dal punto di vista del cliente, un server logico viene creato in un'area geograf
 Quando viene creato un server logico e viene registrato il relativo nome DNS, questo nome punta all'indirizzo denominato "Gateway VIP" nel data center in cui si trova il server.
 
 Dietro l'indirizzo VIP (indirizzo IP virtuale) è presente una raccolta di servizi di gateway senza stato. In generale, i gateway vengono coinvolti quando è necessario coordinare più origini dati, ovvero database master, database utente e così via. I servizi gateway implementano gli elementi seguenti:
--    **Inoltro dei dati tramite connessione TDS.** Comprende l'identificazione del database utente nel cluster back-end, l'implementazione della sequenza di accesso e quindi l'inoltro dei pacchetti TDS al back-end e viceversa.
+-   **Inoltro dei dati tramite connessione TDS.** Comprende l'identificazione del database utente nel cluster back-end, l'implementazione della sequenza di accesso e quindi l'inoltro dei pacchetti TDS al back-end e viceversa.
 
--    **Gestione database.** Comprende l'implementazione di una raccolta di flussi di lavoro per eseguire operazioni di database CREATE/ALTER/DROP. Le operazioni di database possono essere richiamate analizzando pacchetti TDS o API OData esplicite.
+-   **Gestione database.** Comprende l'implementazione di una raccolta di flussi di lavoro per eseguire operazioni di database CREATE/ALTER/DROP. Le operazioni di database possono essere richiamate analizzando pacchetti TDS o API OData esplicite.
 
--    Operazioni CREATE/ALTER/DROP per account di accesso/utenti
+-   Operazioni CREATE/ALTER/DROP per account di accesso/utenti
 
--    Operazioni di gestione di server logici tramite API OData
+-   Operazioni di gestione di server logici tramite API OData
 
 ![Isolamento tramite la topologia della rete](./media/azure-isolation/azure-isolation-fig12.png)
 

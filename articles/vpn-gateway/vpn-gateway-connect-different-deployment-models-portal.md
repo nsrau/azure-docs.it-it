@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9e0dbb028c668aad182e2c1c54fb397ffe99a0a0
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1b7b67ec28986b7c20b3e990e3565265f74c28e6
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
@@ -84,7 +84,16 @@ La tabella seguente illustra un esempio di come sono definiti le reti virtuali e
 
 ## <a name="classicvnet"></a>1. Configurare la rete virtuale classica
 
-In questa sezione vengono creati il gateway di rete locale (sito locale) e il gateway di rete virtuale per la rete virtuale classica. Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale classica, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra. Se si dispone già di una rete virtuale con un gateway VPN, verificare che il gateway sia dinamico. Se è statico, è necessario eliminare il gateway VPN prima di procedere.
+In questa sezione vengono creati il gateway di rete locale (sito locale) e il gateway di rete virtuale per la rete virtuale classica. Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale classica, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
+
+Quando si usa il portale per creare una rete virtuale classica, è necessario passare al pannello della rete virtuale tramite la procedura seguente; in caso contrario l'opzione per creare una rete virtuale classica non viene visualizzata:
+
+1. Fare clic su "+" per aprire il pannello "Nuovo".
+2. Nel campo "Cerca nel Marketplace" digitare "Rete virtuale". Se invece si seleziona Rete -> Rete virtuale, non sarà possibile ottenere l'opzione per creare una rete virtuale classica.
+3. Cercare "Rete virtuale" nell'elenco restituito e fare clic per aprire il pannello Rete virtuale. 
+4. Nel pannello della rete virtuale, selezionare "Classica" per creare una rete virtuale classica. 
+
+Se si dispone già di una rete virtuale con un gateway VPN, verificare che il gateway sia dinamico. Se è statico, è necessario eliminare il gateway VPN prima di procedere.
 
 Gli screenshot sono forniti come esempio. Sostituire i valori con i valori personalizzati o usare i valori dell'[Esempio](#values).
 

@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con FreshGrade | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e FreshGrade.
+title: 'Esercitazione: Integrazione di Azure Active Directory con FreshGrade | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e FreshGrade.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 07/08/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: b8c60d60862ecc546d60043508fe2b500c86818c
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3ff3e5aab679f8ee610c98f8a4089308adcce48f
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Esercitazione: Integrazione di Azure Active Directory con FreshGrade
@@ -141,7 +140,27 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_configure.png) 
 
-7. Per configurare l'accesso Single Sign-On sul lato **FreshGrade**, è necessario inviare il file **XML metadati** scaricato e il valore **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) al [team di supporto di FreshGrade](mailTo:support@freshgrade.com). L'applicazione viene configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
+7. Per generare l'URL dei **metadati**, seguire questa procedura:
+
+    a. Fare clic su **Registrazioni per l'app**.
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_appregistrations.png)
+   
+    b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_endpointicon.png)
+
+    c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_endpoint.png)
+     
+    d. Passare ora alla pagina delle proprietà di **FreshGrade**, copiare l'**ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
+ 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-freshgrade-tutorial/tutorial_freshgrade_appid.png)
+
+    e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+8. Per configurare l'accesso Single Sign-On sul lato **FreshGrade**, è necessario inviare il file **URL dei metadati** e il valore **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) al [team di supporto di FreshGrade](mailTo:support@freshgrade.com). Questa impostazione viene configurata in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

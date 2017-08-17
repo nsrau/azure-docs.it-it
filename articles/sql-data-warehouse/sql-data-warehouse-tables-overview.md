@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
+ms.date: 06/29/2016
 ms.author: shigu;jrj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 914d85267e82ce6a2e60f3841889935046f17c87
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c16fef2f302dbc56f257eaf2f0d2b68b6a3c1852
 ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Panoramica delle tabelle in SQL Data Warehouse
@@ -50,7 +49,7 @@ RENAME OBJECT Customer TO CustomerOrig;
  ```
 
 ## <a name="distributed-tables"></a>Tabelle con distribuzione
-Un nuovo attributo fondamentale introdotto da sistemi distribuiti come SQL Data Warehouse è la **colonna di distribuzione**.  Il nome stesso è indicativo di cosa sia una colonna di distribuzione.  Si tratta della colonna che determina come distribuire, o dividere, i dati in background.  Quando si crea una tabella senza specificare la colonna di distribuzione, la tabella viene automaticamente distribuita mediante **round robin**.  Sebbene le tabelle round robin possano essere sufficiente in alcuni scenari, definire le colonne di distribuzione può ridurre considerevolmente lo spostamento dei dati durante le query, ottimizzando così le prestazioni.  Per altre informazioni su come selezionare una colonna di distribuzione, vedere [Distribuzione di una tabella][Distribute].
+Un nuovo attributo fondamentale introdotto da sistemi distribuiti come SQL Data Warehouse è la **colonna di distribuzione**.  Il nome stesso è indicativo di cosa sia una colonna di distribuzione.  Si tratta della colonna che determina come distribuire, o dividere, i dati in background.  Quando si crea una tabella senza specificare la colonna di distribuzione, la tabella viene automaticamente distribuita mediante **round robin**.  Sebbene le tabelle round robin possano essere sufficiente in alcuni scenari, definire le colonne di distribuzione può ridurre considerevolmente lo spostamento dei dati durante le query, ottimizzando così le prestazioni.  In situazioni in cui esiste una piccola quantità di dati in una tabella, scegliendo di creare la tabella con il tipo di distribuzione di **replica** si copiano i dati in ogni nodo di calcolo e si evita di spostare i dati in fase di esecuzione della query. Per altre informazioni su come selezionare una colonna di distribuzione, vedere [Distribuzione di una tabella][Distribute].
 
 ## <a name="indexing-and-partitioning-tables"></a>Indicizzazione e partizionamento delle tabelle
 Con l'acquisizione di maggiore esperienza nell'uso di SQL Data Warehouse e il desiderio di ottimizzare le prestazioni, l'utente vorrà trovare ulteriori informazioni sulla progettazione della tabella.  Per altre informazioni, vedere gli articoli su [tipi di dati di una tabella][Data Types], [distribuzione di una tabella][Distribute], [indicizzazione di una tabella][Index] e [partizionamento di una tabella][Partition].
@@ -69,7 +68,6 @@ Mentre SQL Data Warehouse contiene molte delle stesse funzionalità delle tabell
 
 | Funzionalità non supportate |
 | --- |
-| [Proprietà Identity][Identity Property] (vedere [Soluzione alternativa per l'assegnazione di chiavi sostitutive][Assigning Surrogate Key Workaround]) |
 | [Vincoli di tabella][Table Constraints] Primary key, Foreign key, Unique e Check |
 | [Indici univoci][Unique Indexes] |
 | [Colonne calcolate][Computed Columns] |
@@ -202,7 +200,7 @@ FROM size
 ```
 
 ### <a name="table-space-summary"></a>Riepilogo dello spazio della tabella
-Questa query restituisce le righe e lo spazio per singola tabella.  È una query molto utile per verificare quali sono le tabelle più grandi e se sono con distribuzione hash o round robin.  Per le tabelle con distribuzione hash viene mostrata anche la colonna di distribuzione.  Nella maggior parte dei casi le tabelle più grandi devono essere con distribuzione hash e avere un indice columnstore cluster.
+Questa query restituisce le righe e lo spazio per singola tabella.  È una query molto utile per verificare quali sono le tabelle più grandi e se sono con distribuzione hash, replicata o round robin.  Per le tabelle con distribuzione hash viene mostrata anche la colonna di distribuzione.  Nella maggior parte dei casi le tabelle più grandi devono essere con distribuzione hash e avere un indice columnstore cluster.
 
 ```sql
 SELECT 
@@ -295,8 +293,6 @@ Per altre informazioni, vedere gli articoli su [tipi di dati di una tabella][Dat
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Identity Property]: https://msdn.microsoft.com/library/ms186775.aspx
-[Assigning Surrogate Key Workaround]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/18/assigning-surrogate-key-to-dimension-tables-in-sql-dw-and-aps/
 [Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
 [Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
 [Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx

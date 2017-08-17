@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: f98b876658c3257ad2b9162dea053f879ba1f1f0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 57379d318ab01310388f55c8ec0b9751e909cb9e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Esecuzione del mapping di un nome DNS personalizzato esistente con un app Web di Azure
@@ -39,7 +39,9 @@ In questa esercitazione si apprenderà come:
 È possibile utilizzare un **record CNAME** o un **record A** per eseguire il mapping di un nome DNS personalizzato con un servizio app. 
 
 > [!NOTE]
-> È consigliabile usare un record CNAME per tutti i nomi DNS personalizzati tranne il dominio radice (ad esempio, `contoso.com`). 
+> È consigliabile usare un record CNAME per tutti i nomi DNS personalizzati tranne il dominio radice (ad esempio, `contoso.com`).
+
+Per eseguire la migrazione di un sito in tempo reale e del relativo nome di dominio DNS al servizio app, vedere [Migrare un nome DNS attivo nel servizio app di Azure](app-service-custom-domain-name-migrate.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,6 +71,8 @@ Dal menu a sinistra selezionare **Servizi app** e quindi selezionare il nome del
 
 Viene visualizzata la pagina di gestione dell'app del servizio app.  
 
+<a name="checkpricing"></a>
+
 ### <a name="check-the-pricing-tier"></a>Scegliere il piano tariffario
 
 Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)**.
@@ -80,6 +84,8 @@ Il livello corrente dell'app è evidenziato da un bordo blu. Verificare che l'ap
 ![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 Se il piano del servizio app non è **Gratuito**, chiudere la pagina **Scegli il piano tariffario** e passare a [Esecuzione del mapping di un record CNAME](#cname).
+
+<a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Passare a un piano di servizio app di livello superiore
 
@@ -99,22 +105,7 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 
 nell'esempio dell'esercitazione si aggiunge un record CNAME per il sottodominio `www`, ad esempio `www.contoso.com`.
 
-### <a name="access-dns-records-with-domain-provider"></a>Accedere ai record DNS con il provider di dominio
-
-Accedere al sito Web del provider di dominio.
-
-Individuare la pagina relativa alla gestione dei record DNS. Poiché ogni provider di dominio ha una propria interfaccia per i record DNS, vedere la documentazione del provider. Individuare collegamenti o aree del sito denominate **Domain Name**, **DNS** o **Name Server Management**. 
-
-È spesso possibile visualizzare la pagina di gestione dei record DNS visualizzando le informazioni dell'account e cercando un collegamento come **Domini personali**. Passare alla pagina e quindi cercare un collegamento con un titolo simile a **File di zona**, **Record DNS** o **Configurazione avanzata**.
-
-Lo screenshot seguente è un esempio di pagina di gestione dei record DNS:
-
-![Pagina record DNS di esempio](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-Nello screenshot di esempio si seleziona **Aggiungi** per creare un record. Per alcuni provider esistono collegamenti diversi per aggiungere tipi di record diversi. Anche in questo caso, vedere la documentazione del provider.
-
-> [!NOTE]
-> Per alcuni provider, ad esempio GoDaddy, le modifiche ai record DNS vengono applicate solo dopo la selezione di un collegamento separato di tipo **Salva modifiche**. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>Creazione di un record CNAME
 
@@ -176,24 +167,9 @@ Nel riquadro di spostamento a sinistra della pagina dell'app nel portale di Azur
 
 Nella pagina **Domini personalizzati**, copiare l'indirizzo IP dell'applicazione.
 
-![Passare all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="access-dns-records-with-domain-provider"></a>Accedere ai record DNS con il provider di dominio
-
-Accedere al sito Web del provider di dominio.
-
-Individuare la pagina relativa alla gestione dei record DNS. Poiché ogni provider di dominio ha una propria interfaccia per i record DNS, vedere la documentazione del provider. Individuare collegamenti o aree del sito denominate **Domain Name**, **DNS** o **Name Server Management**. 
-
-È spesso possibile visualizzare la pagina di gestione dei record DNS visualizzando le informazioni dell'account e cercando un collegamento come **Domini personali**. Passare alla pagina e quindi cercare un collegamento con un titolo simile a **File di zona**, **Record DNS** o **Configurazione avanzata**.
-
-Lo screenshot seguente è un esempio di pagina di gestione dei record DNS:
-
-![Pagina record DNS di esempio](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-Nello screenshot di esempio si seleziona **Aggiungi** per creare un record. Per alcuni provider esistono collegamenti diversi per aggiungere tipi di record diversi. Anche in questo caso, vedere la documentazione del provider.
-
-> [!NOTE]
-> Per alcuni provider, ad esempio GoDaddy, le modifiche ai record DNS vengono applicate solo dopo la selezione di un collegamento separato di tipo **Salva modifiche**. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-a-record"></a>Creazione di un record A
 
@@ -249,22 +225,7 @@ Se è stato saltato un passaggio o è stato inserito un errore di digitazione, n
 
 Nell'esempio dell'esercitazione si esegue il mapping di un [nome DNS con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record), ad esempio `*.contoso.com`, all'app del servizio app aggiungendo un record CNAME. 
 
-### <a name="access-dns-records-with-domain-provider"></a>Accedere ai record DNS con il provider di dominio
-
-Accedere al sito Web del provider di dominio.
-
-Individuare la pagina relativa alla gestione dei record DNS. Poiché ogni provider di dominio ha una propria interfaccia per i record DNS, vedere la documentazione del provider. Individuare collegamenti o aree del sito denominate **Domain Name**, **DNS** o **Name Server Management**. 
-
-È spesso possibile visualizzare la pagina di gestione dei record DNS visualizzando le informazioni dell'account e cercando un collegamento come **Domini personali**. Passare alla pagina e quindi cercare un collegamento con un titolo simile a **File di zona**, **Record DNS** o **Configurazione avanzata**.
-
-Lo screenshot seguente è un esempio di pagina di gestione dei record DNS:
-
-![Pagina record DNS di esempio](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-Nello screenshot di esempio si seleziona **Aggiungi** per creare un record. Per alcuni provider esistono collegamenti diversi per aggiungere tipi di record diversi. Anche in questo caso, vedere la documentazione del provider.
-
-> [!NOTE]
-> Per alcuni provider, ad esempio GoDaddy, le modifiche ai record DNS vengono applicate solo dopo la selezione di un collegamento separato di tipo **Salva modifiche**. 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>Creazione di un record CNAME
 

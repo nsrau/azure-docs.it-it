@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/16/2016
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 4ed240c0e636bb0b482c103bbe8462d86769ecc3
-ms.openlocfilehash: 13fa1bc8278460c1195ec553c32ff79d11240be3
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9b284ef33be4b935569fc368d81ddf040b2c2b7d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -34,27 +35,27 @@ In questo scenario, i dati sono distribuiti in modo non uniforme tra tutti gli e
 
 Gli Strumenti Azure Data Lake per Visual Studio consentono di rilevare eventuali problemi di asimmetria dei dati all'interno dei processi. Se si verifica un problema, è possibile risolverlo tramite le soluzioni presentate in questa sezione.
 
-### <a name="solution-1-improve-table-partitioning"></a>Soluzione 1. Migliorare il partizionamento delle tabelle
+## <a name="solution-1-improve-table-partitioning"></a>Soluzione 1. Migliorare il partizionamento delle tabelle
 
-#### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opzione 1. Filtrare in anticipo un valore chiave differente
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opzione 1. Filtrare in anticipo un valore chiave differente
 
 Se ciò non influisce sulla logica di business, è possibile filtrare in anticipo i valori a frequenza più elevata. Ad esempio, se sono presenti molti 000-000-000 nella colonna GUID, l'utente potrebbe scegliere di non aggregare tale valore. Prima di eseguire l'aggregazione, è possibile scrivere "WHERE GUID != "000-000-000"" per filtrare il valore ad alta frequenza.
 
-#### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opzione 2. Selezionare una chiave di partizione o distribuzione differente
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opzione 2. Selezionare una chiave di partizione o distribuzione differente
 
 Nell'esempio precedente, se si desidera solo verificare il carico di lavoro della verifica fiscale in tutto il paese, è possibile migliorare la distribuzione dei dati selezionando il numero ID come chiave. La scelta di una chiave di partizione o distribuzione differente consente talvolta di distribuire i dati in modo più uniforme, ma è necessario verificare che la scelta non abbia impatto sulla logica di business. Ad esempio, per calcolare l'importo dell'imposta per ogni stato, è consigliabile specificare _Stato_ come chiave di partizione. Se il problema persiste, provare con l'opzione 3.
 
-#### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opzione 3. Aggiungere più chiavi di partizione o distribuzione
+### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opzione 3. Aggiungere più chiavi di partizione o distribuzione
 
 Invece di usare solo _Stato_ come chiave di partizione, è possibile impiegare più di una chiave per il partizionamento. Ad esempio, è consigliabile aggiungere un _CAP_ come chiave di partizione aggiuntiva per ridurre le dimensioni della partizione dei dati e distribuire i dati in modo più uniforme.
 
-#### <a name="option-4-use-round-robin-distribution"></a>Opzione 4. Usare la distribuzione round robin
+### <a name="option-4-use-round-robin-distribution"></a>Opzione 4. Usare la distribuzione round robin
 
 Qualora non sia possibile trovare una chiave adeguata per la partizione e la distribuzione, si può usare la distribuzione round robin. La distribuzione round robin considera tutte le righe in modo uguale e le inserisce in modo casuale nei bucket corrispondenti. I dati vengono distribuiti uniformemente ma si perdono le informazioni sulla località, uno svantaggio che riduce anche le prestazioni del processo rispetto ad alcune operazioni. In aggiunta, se si sta eseguendo un'aggregazione per risolvere un problema di chiave differente, il problema dell'asimmetria dei dati non verrà risolto. Per altre informazioni sulla distribuzione round robin, vedere la sezione U-SQL Table Distributions (Distribuzioni di tabelle U-SQL) in [CREATE TABLE (U-SQL): Creating a Table with Schema](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch) (CREATE TABLE (U-SQL): creazione di una tabella con Schema).
 
-### <a name="solution-2-improve-the-query-plan"></a>Soluzione 2. Migliorare il piano di query
+## <a name="solution-2-improve-the-query-plan"></a>Soluzione 2. Migliorare il piano di query
 
-#### <a name="option-1-use-the-create-statistics-statement"></a>Opzione 1. Usare l'istruzione CREATE STATISTICS
+### <a name="option-1-use-the-create-statistics-statement"></a>Opzione 1. Usare l'istruzione CREATE STATISTICS
 
 U-SQL fornisce l'istruzione CREATE STATISTICS nelle tabelle. Questa istruzione offre al Query Optimizer altre informazioni relative alle caratteristiche dei dati, ad esempio la distribuzione dei valori, archiviati in una tabella. Per la maggior parte delle query, il Query Optimizer genera già le statistiche necessarie per un piano di query di elevata qualità. In alcuni casi, potrebbe essere necessario migliorare le prestazioni delle query creando statistiche aggiuntive con CREATE STATISTICS o modificando la struttura delle query. Per altre informazioni, vedere la pagina [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt771898.aspx) (CREATE STATISTICS (U-SQL)).
 
@@ -65,7 +66,7 @@ Esempio di codice:
 >[!NOTE]
 >Le informazioni statistiche non vengono aggiornate in automatico. Se si aggiornano i dati in una tabella senza generare nuovamente le statistiche, le prestazioni delle query potrebbero risultare ridotte.
 
-#### <a name="option-2-use-skewfactor"></a>Opzione 2. Utilizzo di SKEWFACTOR
+### <a name="option-2-use-skewfactor"></a>Opzione 2. Utilizzo di SKEWFACTOR
 
 Se si desidera sommare le imposte per ogni stato, è necessario usare lo stato GROUP BY, un approccio che non evita il problema dell'asimmetria dei dati. Tuttavia, è possibile inserire un suggerimento dati nella query per identificare le asimmetrie dei dati nelle chiavi, in modo da preparare un piano di esecuzione personale.
 
@@ -103,6 +104,7 @@ Esempio di codice:
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
+### <a name="option-3-use-rowcount"></a>Opzione 3: Usare ROWCOUNT  
 Oltre a SKEWFACTOR, per casi specifici di unioni di chiavi asimmetriche, se si sa che gli altri set di righe unite sono ridotti, è possibile indicarlo all'Optimizer tramite l'aggiunta di un suggerimento ROWCOUNT nell'istruzione U-SQL prima di JOIN. In questo modo, l'Optimizer può scegliere una strategia di aggregazione della trasmissione per migliorare le prestazioni. Tenere presente che ROWCOUNT non risolve il problema dell'asimmetria dei dati, ma può offrire aiuto aggiuntivo.
 
     OPTION(ROWCOUNT = n)
@@ -127,11 +129,11 @@ Esempio di codice:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-### <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Soluzione 3. Migliorare il riduttore e il combinatore definiti dall'utente
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Soluzione 3. Migliorare il riduttore e il combinatore definiti dall'utente
 
 A volte per gestire una logica di processo complessa viene usato un operatore definito dall'utente; in alcuni casi, un riduttore e un combinatore ben scritti possono ridurre il problema dell'asimmetria dei dati.
 
-#### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opzione 1. Usare un riduttore ricorsivo se possibile
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Opzione 1. Usare un riduttore ricorsivo se possibile
 
 Per impostazione predefinita, un riduttore definito dall'utente viene eseguito in modalità non ricorsiva, ovvero il lavoro di riduzione per una chiave verrà distribuito su un unico vertice. In caso di asimmetria dei dati, i set di dati di grandi dimensioni potrebbero essere elaborati in un unico vertice e richiedere un tempo di esecuzione lungo.
 
@@ -155,7 +157,7 @@ Esempio di codice:
         }
     }
 
-#### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opzione 2. Usare la modalità di combinazione a livello di riga, se possibile
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Opzione 2. Usare la modalità di combinazione a livello di riga, se possibile
 
 Analogamente al suggerimento ROWCOUNT per specifici casi di unioni di chiavi asimmetriche, la modalità del combinatore tenta di distribuire set di valori di chiavi asimmetriche su più vertici, in modo da ottenere un'esecuzione simultanea. La modalità del combinatore non può risolvere il problema dell'asimmetria dei dati, ma può offrire un aiuto aggiuntivo per set di valori di chiavi asimmetriche di grandi dimensioni.
 
@@ -189,9 +191,4 @@ Esempio di codice:
         //Your combiner code goes here.
         }
     }
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

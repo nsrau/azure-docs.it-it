@@ -13,7 +13,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/12/2017
+ms.date: 8/16/2017
 ms.author: xshi
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
@@ -161,7 +161,7 @@ L'applicazione di esempio è ospitata in GitHub. Clonare il repository di esempi
 1. Fare clic su **File** > **Preferenze** (Windows/Linux) o su **Arduino** > **Preferenze** (Mac) e copiare e incollare il collegamento seguente nell'opzione **Additional Boards Manager URLs** (URL di gestione schede aggiuntive) nelle preferenze dell'IDE Arduino.
    
    ```
-   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
 1. Fare clic su **Strumenti** > **Scheda** > **Boards Manager** (Gestione schede) e quindi installare `Arduino SAMD Boards` version `1.6.2` o versione successiva. 

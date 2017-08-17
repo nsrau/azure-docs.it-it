@@ -11,17 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/11/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 4835610eed8df46f3ba9302cf87163b37a6fa124
+ms.reviewer: nigu
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 781f868c87cea3cd790d89c61e26eecf352babea
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Domande frequenti su Azure Active Directory Identity Protection
+
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>Perché alcuni eventi di rischio hanno lo stato "Closed (system)" (Chiuso (sistema))?
 
@@ -39,5 +40,9 @@ ms.lasthandoff: 05/17/2017
 
 ---
 
+## <a name="what-happens-when-your-azure-active-directory-premium-2-trial-expires"></a>Cosa accade quando scade la versione di valutazione gratuita di Azure Active Directory Premium 2?
 
+**R:** Se la versione di valutazione gratuita di Azure Active Directory Premium 2 è scaduta nella versione Azure Active Directory Free, Basic o Premium 1, ed era abilitata la Protezione Identità, sarà comunque possibile accedere ad essa, anche se non in mancanza di conformità con la licenza.
+
+---
 

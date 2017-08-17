@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 12502c91f7dff01651e3edcfd1dfa6a9d5ffe234
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d645855e8edddee092d244e18c9937c19237a49a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurare criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale
@@ -39,7 +38,9 @@ Questo articolo fornisce istruzioni per creare e configurare un criterio IPsec/I
 * [Parte 5: Gestire (creare, aggiungere, rimuovere) criteri IPsec/IKE per una connessione](#managepolicy)
 
 > [!IMPORTANT]
-> 1. Notare che i criteri IPsec/IKE funzionano solo nei gateway VPN ***Standard*** e ***Prestazioni elevate*** ***basati su route*** di Azure.
+> 1. Si noti che il criterio IPsec/IKE funziona solo sugli SKU dei gateway seguenti:
+>     - ***VpnGw1, VpnGw2, VpnGw3*** (basato su route)
+>     - ***Standard*** e ***HighPerformance*** (basato su route)
 > 2. Per una determinata connessione è possibile specificare ***una*** sola combinazione di criteri.
 > 3. È necessario specificare tutti gli algoritmi e i parametri sia per IKE (modalità principale) che per IPsec (modalità rapida). Non è consentito specificare criteri parziali.
 > 4. Consultare le specifiche del fornitore del dispositivo VPN per verificare che i criteri siano supportati nei dispositivi VPN locali. Non è possibile stabilire connessioni da sito a sito o da rete virtuale a rete virtuale se i criteri non sono compatibili.
@@ -64,23 +65,38 @@ La tabella seguente riporta l'elenco degli algoritmi di crittografia e dei tipi 
 | ---              | ---                                                                         |
 | Crittografia IKEv2 | AES256, AES192, AES128, DES3, DES                                           |
 | Integrità IKEv2  | SHA384, SHA256, SHA1, MD5                                                   |
-| Gruppo DH         | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
+| Gruppo DH         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
 | Crittografia IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
 | Integrità IPsec  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                          |
-| Gruppo PFS        | ECP384, ECP256, PFS24, PFS2048, PFS14, PFS2, PFS1, None                     |
-| Durata associazione di sicurezza in modalità rapida*  | Secondi (integer) e kilobyte (integer)                                      |
-| Selettore di traffico | UsePolicyBasedTrafficSelectors** ($True/$False - default $False)            |
+| Gruppo PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                            |
+| Durata associazione di sicurezza in modalità rapida   | (**Facoltativo**: se non diversamente specificato, vengono usati i valori predefiniti)<br>Secondi (intero; **min. 300**/valore predefinito di 27000 secondi)<br>Kilobyte (intero; **min 1024**/valore predefinito di 102400000 KB)                                                                                |
+| Selettore di traffico | UsePolicyBasedTrafficSelectors** ($True/$False; **Optional**, $False predefinito, se non diversamente specificato)                                                                         |
 |                  |                                                                             |
 
-> [!NOTE]
-> * (*) Nei gateway VPN di Azure, la durata dell'associazione di sicurezza IKEv2 (modalità principale) è fissata a 28.800 secondi.
-> * (**) Impostando "UsePolicyBasedTrafficSelectors" su $True per una connessione, si configura il gateway VPN di Azure per la connessione al firewall VPN basato su criteri locale. Se si abilita PolicyBasedTrafficSelectors, è necessario verificare che i selettori di traffico corrispondenti siano definiti nel dispositivo VPN con tutte le combinazioni dei prefissi della rete locale (gateway di rete locale) da/verso i prefissi della rete virtuale di Azure, anziché any-to-any. Se i prefissi della rete locale sono 10.1.0.0/16 e 10.2.0.0/16 e i prefissi della rete virtuale sono 192.168.0.0/16 e 172.16.0.0/16, ad esempio, è necessario specificare i selettori di traffico seguenti:
->   * 10.1.0.0/16 <====> 192.168.0.0/16
->   * 10.1.0.0/16 <====> 172.16.0.0/16
->   * 10.2.0.0/16 <====> 192.168.0.0/16
->   * 10.2.0.0/16 <====> 172.16.0.0/16
+> [!IMPORTANT]
+> 1. **Se GCMAES viene usato per l'algoritmo di crittografia IPsec, è necessario selezionare lo stesso algoritmo GCMAES e la stessa lunghezza della chiave per l'integrità IPsec; ad esempio, tramite GCMAES128 per entrambe**
+> 2. Nei gateway VPN di Azure la durata dell'associazione di sicurezza IKEv2 (modalità principale) è fissata a 28800 secondi
+> 3. Impostando "UsePolicyBasedTrafficSelectors" su $True per una connessione, si configura il gateway VPN di Azure per la connessione al firewall VPN locale basato su criteri. Se si abilita PolicyBasedTrafficSelectors, è necessario verificare che i selettori di traffico corrispondenti siano definiti nel dispositivo VPN con tutte le combinazioni dei prefissi della rete locale (gateway di rete locale) da/verso i prefissi della rete virtuale di Azure, anziché any-to-any. Se i prefissi della rete locale sono 10.1.0.0/16 e 10.2.0.0/16 e i prefissi della rete virtuale sono 192.168.0.0/16 e 172.16.0.0/16, ad esempio, è necessario specificare i selettori di traffico seguenti:
+>    * 10.1.0.0/16 <====> 192.168.0.0/16
+>    * 10.1.0.0/16 <====> 172.16.0.0/16
+>    * 10.2.0.0/16 <====> 192.168.0.0/16
+>    * 10.2.0.0/16 <====> 172.16.0.0/16
 
 Per altri dettagli sui selettori di traffico basati su criteri, vedere l'articolo su come [connettere più dispositivi VPN basati su criteri locali](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+
+La tabella seguente elenca i gruppi di Diffie-Hellman corrispondenti supportati dal criterio personalizzato:
+
+| **Gruppo Diffie-Hellman**  | **DHGroup**              | **PFSGroup** | **Lunghezza chiave** |
+| ---                       | ---                      | ---          | ---            |
+| 1                         | DHGroup1                 | PFS1         | MODP a 768 bit   |
+| 2                         | DHGroup2                 | PFS2         | MODP a 1024 bit  |
+| 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | MODP a 2048 bit  |
+| 19                        | ECP256                   | ECP256       | ECP a 256 bit    |
+| 20                        | ECP384                   | ECP284       | ECP a 384 bit    |
+| 24                        | DHGroup24                | PFS24        | MODP a 2048 bit  |
+|                           |                          |              |                |
+
+Per altre informazioni, vedere [RFC3526](https://tools.ietf.org/html/rfc3526) e [RFC5114](https://tools.ietf.org/html/rfc5114).
 
 ## <a name ="crossprem"></a>Parte 3: Creare una nuova connessione VPN da sito a sito con criteri IPsec/IKE
 
@@ -159,11 +175,21 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Creare criteri IPsec/IKE
 Lo script di esempio seguente crea un criterio IPsec/IKE con gli algoritmi e i parametri seguenti:
+
 * IKEv2: AES256, SHA384, DHGroup24
 * IPsec: AES256, SHA256, PFS24, durata dell'associazione di sicurezza 7200 secondi e 2048 KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+```
+
+Se si usa GCMAES per IPsec, è necessario usare lo stesso algoritmo e la stessa lunghezza della chiave GCMAES per la crittografia e l'integrità IPsec, ad esempio:
+
+* IKEv2: AES256, SHA384, DHGroup24
+* IPsec: **GCMAES256, GCMAES256**, PFS24, durata dell'associazione di sicurezza 7200 secondi e 2048 KB
+
+```powershell
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2. Creare la connessione VPN da sito a sito con i criteri IPsec/IKE

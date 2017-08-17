@@ -7,6 +7,8 @@
 - name: Guide introduttive
   expanded: true
   items:
+    - name: Docker Swarm Linux
+      href: container-service-swarm-walkthrough.md
     - name: Linux con DC/OS
       href: container-service-dcos-quickstart.md
 - name: Esercitazioni
@@ -29,7 +31,7 @@
       href: container-service-connect.md
     - name: Ridimensionare un cluster del servizio contenitore di Azure
       href: container-service-scale.md
-    - name: Gestire con DC/OS
+    - name: Controller di dominio/sistema operativo
       items:
         - name: 'Gestione dei contenitori: interfaccia utente di DC/OS'
           href: container-service-mesos-marathon-ui.md
@@ -55,8 +57,10 @@
               href: container-service-monitoring-sysdig.md
             - name: Monitorare con Dynatrace
               href: container-service-monitoring-dynatrace.md
-    - name: Gestire con Docker Swarm
+    - name: Docker Swarm
       items:
+        - name: Swarm con modalità di avvio rapido
+          href: container-service-swarm-mode-walkthrough.md
         - name: Docker e Docker Compose
           href: container-service-docker-swarm.md
         - name: Integrazione continua e distribuzione continua con Docker Swarm e VSTS

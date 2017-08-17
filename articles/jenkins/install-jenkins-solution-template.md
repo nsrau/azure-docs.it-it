@@ -16,10 +16,10 @@ ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f892ec7bd61124f7958a50ebdfb49c7310d4ee18
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 06d6d305eb9711768dc62a04726359e6280d1b69
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -48,7 +48,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 I modelli di avvio rapido di Azure consentono di distribuire in modo rapido e affidabile tecnologie complesse in Azure.  Azure Resource Manager consente di effettuare il provisioning delle applicazioni usando un [modello dichiarativo](https://azure.microsoft.com/en-us/resources/templates/?term=jenkins). In un unico modello, è possibile distribuire più servizi con le relative dipendenze. Si usa lo stesso modello per distribuire più volte l'applicazione durante ogni fase del ciclo di vita dell'applicazione.
 
-Visualizzare le informazioni su [piani e prezzi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.jenkins?tab=PlansAndPrice) per questo modello per comprendere le opzioni di costo.
+Visualizzare le informazioni su [piani e prezzi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) per questo modello per comprendere le opzioni di costo.
 
 Andare all'[immagine del Marketplace per Jenkins](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-oss.jenkins?tab=Overview) e fare clic su **GET IT NOW** (Ottieni subito).  
 

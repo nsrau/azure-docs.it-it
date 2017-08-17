@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 07/04/2017
 ms.author: pratshar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 960fb84c309b18c7f9741bb60b52cfcc3753a07d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ef586191f0b89dca89810644d45503fe42538635
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -38,10 +38,12 @@ Questa procedura descrive come eseguire un failover per un [piano di ripristino]
 
 1. Selezionare **Piani di ripristino** > *nome_pianodiripristino*. Fare clic su **Failover**.
 2. Nella schermata **Failover** selezionare un **punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
-    1.    **Più recente** (opzione predefinita): con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni macchina virtuale e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso, perché la macchina virtuale creata dopo il failover contiene tutti i dati che sono stati replicati nel servizio Site Recovery all'attivazione del failover.
+    1.  **Più recente** (opzione predefinita): con questa opzione vengono prima elaborati tutti i dati inviati al servizio Site Recovery per creare un punto di ripristino per ogni macchina virtuale e quindi viene eseguito il failover in tale punto di ripristino. Questa opzione offre il valore RPO (Recovery Point Objective) più basso, perché la macchina virtuale creata dopo il failover contiene tutti i dati che sono stati replicati nel servizio Site Recovery all'attivazione del failover.
     1.  **Punto di ripristino elaborato più recente**: con questa opzione viene eseguito il failover di tutte le macchine virtuali del piano di ripristino nell'ultimo punto di ripristino elaborato dal servizio Site Recovery. Quando si esegue il failover di test di una macchina virtuale, viene visualizzato anche il timestamp del punto di ripristino elaborato più recente. Se si esegue il failover di un piano di ripristino, per ottenere tali informazioni è possibile passare alla singola macchina virtuale ed esaminare il riquadro **Latest Recovery Points** (Punti di ripristino più recenti). Dato che non viene impiegato tempo per elaborare dati non elaborati, questa opzione offre un failover con valore RTO (Recovery Time Objective) basso.
-    1.    **Punto di ripristino più recente coerente con l'applicazione**: con questa opzione viene eseguito il failover di tutte le macchine virtuali del piano di ripristino nell'ultimo punto di ripristino coerente con l'applicazione elaborato dal servizio Site Recovery. Quando si esegue il failover di test di una macchina virtuale, viene visualizzato anche il timestamp del punto di ripristino coerente con l'app più recente. Se si esegue il failover di un piano di ripristino, per ottenere tali informazioni è possibile passare alla singola macchina virtuale ed esaminare il riquadro **Latest Recovery Points** (Punti di ripristino più recenti).
-    1.    **Personalizzato**: in caso di failover di test di una macchina virtuale, è possibile usare questa opzione per eseguire il failover in un determinato punto di ripristino.
+    1.  **Punto di ripristino più recente coerente con l'applicazione**: con questa opzione viene eseguito il failover di tutte le macchine virtuali del piano di ripristino nell'ultimo punto di ripristino coerente con l'applicazione elaborato dal servizio Site Recovery. Quando si esegue il failover di test di una macchina virtuale, viene visualizzato anche il timestamp del punto di ripristino coerente con l'app più recente. Se si esegue il failover di un piano di ripristino, per ottenere tali informazioni è possibile passare alla singola macchina virtuale ed esaminare il riquadro **Latest Recovery Points** (Punti di ripristino più recenti).
+    1.  **Latest multi-VM processed** (Più recente coerente tra più VM elaborato): questa opzione è disponibile solo per i piani di ripristino con almeno una macchina virtuale in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di recupero coerente tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di recupero più recente elaborato.  
+    1.  **Latest multi-VM app-consistent** (Più recente coerente con l'applicazione tra più VM): questa opzione è disponibile solo per i piani di ripristino con almeno una macchina virtuale in cui è abilitata la coerenza tra più macchine virtuali. Le macchine virtuali che fanno parte di un gruppo di replica eseguono il failover nel punto di recupero coerente a livello applicazione tra più macchine comune più recente. Le altre macchine virtuali eseguono il failover nel relativo punto di recupero più recente coerente con l'applicazione.
+    1.  **Personalizzato**: in caso di failover di test di una macchina virtuale, è possibile usare questa opzione per eseguire il failover in un determinato punto di ripristino.
 
     > [!NOTE]
     > La possibilità di scegliere un punto di ripristino è disponibile solo quando viene eseguito il failover in Azure.
@@ -59,11 +61,11 @@ Questa procedura descrive come eseguire un failover per un [piano di ripristino]
     >
 
 1. Nella pagina **Processi** è possibile seguire lo stato del failover. Anche se si verificano errori durante un failover non pianificato, il piano di ripristino viene eseguito fino al completamento.
-1. Dopo il failover, convalidare la macchina virtuale eseguendo l'accesso. Per passare a un altro punto di ripristino per la macchina virtuale, è possibile usare l'opzione **Modifica punto di ripristino**.
+1. Dopo il failover, convalidare la macchina virtuale eseguendo l'accesso ad essa. Per passare a un altro punto di ripristino per la macchina virtuale, è possibile usare l'opzione **Modifica punto di ripristino**.
 1. Quando la macchina virtuale sottoposta a failover è pronta, è possibile eseguire il **commit** del failover. Questa operazione elimina tutti i punti di ripristino disponibili con il servizio e l'opzione **Modifica punto di ripristino** non sarà disponibile.
 
 ## <a name="planned-failover"></a>Failover pianificato
-Oltre al failover, le macchine virtuali Hyper-V protette con Site Recovery supportano anche il **failover pianificato**. Si tratta di un'opzione di failover senza alcuna perdita di dati. Quando viene attivato un failover pianificato, prima di tutto le macchine virtuali di origine vengono arrestate, vengono sincronizzati i dati non ancora sincronizzati e quindi viene attivato il failover.
+Oltre al failover, le macchine virtuali Hyper-V protette con Site Recovery supportano anche il **failover pianificato**. Si tratta di un'opzione di failover senza alcuna perdita di dati. Quando viene attivato un failover pianificato, prima le macchine virtuali di origine vengono arrestate, vengono sincronizzati i dati non ancora sincronizzati e quindi viene attivato il failover.
 
 > [!NOTE]
 > Quando si esegue il failover di macchine virtuali Hyper-V da un sito locale a un altro sito locale, per tornare al sito locale primario è prima necessario **eseguire la replica inversa** della macchina virtuale nel sito primario e quindi attivare il failover. Se la macchina virtuale primaria non è disponibile, prima di avviare la **replica inversa** è necessario ripristinare la macchina virtuale da un backup.   

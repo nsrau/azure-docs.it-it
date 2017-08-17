@@ -1,52 +1,51 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Trello | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Trello.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Trello.
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
 ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 07/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f3e607fbff1aa8c6a652dae452c75554a59828d9
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Esercitazione: Integrazione di Azure Active Directory con Trello
+
 Questa esercitazione descrive come integrare Trello con Azure Active Directory (Azure AD).
 
 L'integrazione di Trello con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a Trello
-* È possibile abilitare gli utenti per l'accesso automatico con Single Sign-On (SSO) a Trello con i propri account Azure AD
-* È possibile gestire gli account da una posizione centrale: il portale di Azure classico
+- È possibile controllare in Azure AD chi può accedere a Trello
+- È possibile abilitare gli utenti per l'accesso automatico a Trello (Single Sign-On) con i propri account Azure AD
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per configurare l'integrazione di Azure AD con Trello, sono necessari gli elementi seguenti:
 
-* Sottoscrizione di Azure AD.
-* Sottoscrizione di **Trello** abilitata per l'accesso Single Sign-On
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Trello abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-> 
-> 
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-* Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
+- Non usare l'ambiente di produzione a meno che non sia necessario.
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
@@ -54,207 +53,197 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 1. Aggiunta di Trello dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-## <a name="add-trello-from-the-gallery"></a>Aggiungere Trello dalla raccolta
+## <a name="adding-trello-from-the-gallery"></a>Aggiunta di Trello dalla raccolta
 Per configurare l'integrazione di Trello in Azure AD, è necessario aggiungere Trello dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Trello dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
-   
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+
     ![Active Directory][1]
 
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
-   
-    ![Applications][2]
+    ![Applicazioni][2]
+    
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-4. Fare clic su **Add** nella parte inferiore della pagina.
-   
     ![Applicazioni][3]
 
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
-   
-    ![Applicazioni][4]
+4. Nella casella di ricerca digitare **Trello**.
 
-6. Nella casella di ricerca digitare **Trello**.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_01.png)
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_search.png)
 
-7. Nel riquadro dei risultati selezionare **Trello** e quindi fare clic su **Completa** per aggiungere l'applicazione.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_02.png)
+5. Nel pannello dei risultati selezionare **Trello** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso Single Sign-On (SSO) di Azure AD
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/tutorial_trello_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Trello in base a un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso SSO, Azure AD deve conoscere qual è l'utente di Trello che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Trello.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Trello che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Trello.
 
-La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente) in Trello. Per configurare e testare l'accesso SSO di Azure AD con Trello, è necessario completare i blocchi predefiniti seguenti:
+Per stabilire la relazione di collegamento, in Trello assegnare il valore di **nome utente** in Azure AD come valore di **Username**.
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Trello, è necessario completare i blocchi predefiniti seguenti:
+
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Trello](#creating-a-the-funding-portal-test-user)** : per avere una controparte di Britta Simon in Trello collegata alla relativa rappresentazione in Azure AD.
+3. **[Creazione di un utente di test di Trello](#creating-a-trello-test-user)**: per avere una controparte di Britta Simon in Trello collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
-Questa sezione descrive come abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure classico e configurare l'accesso Single Sign-On nell'applicazione Trello.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
-L'applicazione Trello prevede che le asserzioni SAML contengano attributi specifici. Configurare gli attributi seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda **"Attributes"** (Attributi) dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
-
-![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_03.png) 
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Trello.
 
 **Per configurare Single Sign-On di Azure AD con Trello, seguire questa procedura:**
 
-1. Nel menu visualizzato nella parte superiore della pagina di integrazione dell'applicazione **Trello** del portale di Azure classico fare clic su **Attributi**.
-   
-    ![Configura accesso Single Sign-On][5]
+1. Nella pagina di integrazione dell'applicazione **Trello** del portale di Azure fare clic su **Single Sign-On**.
 
-2. Nella finestra di dialogo **Attributi token SAML** seguire questa procedura per ciascuna riga della tabella:
+    ![Configura accesso Single Sign-On][4]
 
+2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+ 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_samlbase.png)
+
+3. Per configurare l'applicazione in modalità avviata da **IDP**, nella sezione **URL e dominio Trello** seguire questa procedura:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
+
+    Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://trello.com/auth/saml/consume/<enterprise>`
+
+4. Per configurare l'applicazione in modalità avviata da **SP**, nella sezione **URL e dominio Trello** seguire questa procedura:
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+
+    a. Fare clic su **Mostra impostazioni URL avanzate**.
+
+    b. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://trello.com/auth/saml/consume/<enterprise>`
+
+    >[!NOTE]
+    >È necessario ottenere il campo dati dinamico **\<enterprise\>** da Trello. Se non si dispone del valore per il campo dati dinamico, contattare il [team di supporto di Trello](mailto:support@trello.com) per ottenere il campo relativo all'organizzazione.
+    > 
+
+5. L'applicazione Trello prevede che le asserzioni SAML contengano attributi specifici. Configurare gli attributi seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda **"Attributi utente"** dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_attribute.png)
+
+6. Nella finestra di dialogo **Attributi token SAML** seguire questa procedura per ciascuna riga della tabella:
+ 
     | Nome attributo | Valore attributo |
-    | --- | --- |    
+    | --- | --- |
     | User.Email | user.mail |
     | User.FirstName | user.givenname |
     | User.LastName | user.surname |
 
-   1. Fare clic su **aggiungi attributo utente** per aprire la finestra di dialogo **Aggiungi attributo utente**.
+    a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_05.png)
-   2. Nella casella di testo **Nome attributo** , digitare il nome dell'attributo indicato per quella riga.
-   3. Nell'elenco **Valore attributo** selezionare il valore indicato per quella riga.
-   4. Fare clic su **Complete**. Fare quindi clic su **Salva le modifiche** nella parte inferiore della pagina.
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_officespace_04.png)
 
-1. Nel menu in alto fare clic su **Avvio rapido**.
-   
-    ![Configura accesso Single Sign-On][6]
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_officespace_05.png)
 
-2. Nella pagina di integrazione dell'applicazione **Trello** del portale di Azure classico, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
-   
-    ![Configura accesso Single Sign-On][7] 
+    b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga. 
 
-3. Nella pagina **Stabilire come si desidera che gli utenti accedano a Trello** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_06.png)
+    c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
+    
+    d. Fare clic su **OK**. 
+ 
+7. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-4. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, se si desidera configurare l'applicazione in **modalità iniziata da IDP**,seguire la procedura seguente:
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_07.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_certificate.png) 
 
-   1. Nella casella di testo URL di risposta digitare l'URL usando il modello seguente: `https://trello.com/auth/saml/consume/<enterprise>`
-   2. Fare clic su **Avanti**.
+8. Fare clic sul pulsante **Salva** .
 
-    >[!NOTE]
-    >È necessario ottenere il campo dati dinamico **\<enterprise\>** da Trello. Se non si dispone del valore per il campo dati dinamico, contattare il team di supporto di Trello all'indirizzo <mailto:support@trello.com> per ottenere il campo relativo all'organizzazione.
-    > 
-    > 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_general_400.png)
 
-5. Se si desidera configurare l'applicazione in **SP initiated mode** (Modalità iniziata dal provider di servizi) nella finestra di dialogo **Configurare le impostazioni dell'app** fare clic su **"Mostra opzioni avanzate (facoltativo)"** e digitare l'**URL di accesso**:
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_08.png)
-   
-   1. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://trello.com/auth/saml/consume/<enterprise>`
-   2. Fare clic su **Avanti**.
+6. Nella sezione **Configurazione di Trello** fare clic su **Configura Trello** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
-6. Nella pagina **Configura accesso Single Sign-On in Trello** fare clic su **Scarica certificato** e quindi salvare il file nel computer.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_09.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_configure.png) 
 
-7. Per configurare l'SSO per l'applicazione, passare alla pagina [Configurazione Trello enterprise SSO](https://trello.com/sso-configuration) per inviare al team di Trello l'URL di accesso e allegare il certificato scaricato.
-8. Nel portale classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Avanti**.
-   
-    ![Single Sign-On di Microsoft Azure AD][10]
+9. Per configurare l'SSO per l'applicazione, passare alla pagina [Configurazione di Trello enterprise SSO](https://trello.com/sso-configuration) per inviare al [team di supporto di Trello](mailto:support@trello.com) l'**URL del servizio Single Sign-On SAML** e allegare il **Certificato (Base64)**.
 
-9. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
-   
-    ![Single Sign-On di Microsoft Azure AD][11]
+> [!TIP]
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> 
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
-In questa sezione viene creato un utente test chiamato Britta Simon nel portale classico.
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-![Creare un utente di Azure AD][20]
+![Creare un utente di Azure AD][100]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_09.png) 
+1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_01.png) 
 
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
-   
+2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_02.png) 
+
+3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+ 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_03.png) 
 
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
-   
+4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+ 
     ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_04.png) 
 
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_05.png) 
-   
-   1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
-   2. Nella casella di testo **Nome utente** digitare **BrittaSimon**.
-   3. Fare clic su **Avanti**.
+    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
 
-6. Nella pagina **Profilo utente** seguire questa procedura:
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_06.png) 
-   
-   1. Nella casella di testo **Nome** digitare **Britta**.  
-   2. Nella casella di testo **Cognome** digitare **Simon**.
-   3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**.
-   4. Nell'elenco **Ruolo** selezionare **Utente**.
-   5. Fare clic su **Avanti**.
+    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
 
-7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_07.png) 
+    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-trello-tutorial/create_aaduser_08.png) 
-   
-   1. Prendere nota del valore visualizzato in **Nuova password**.
-   2. Fare clic su **Complete**.   
+    d. Fare clic su **Crea**.
+ 
+### <a name="creating-a-trello-test-user"></a>Creazione di un utente test di Trello
 
-### <a name="create-a-trello-test-user"></a>Creare un utente di test di Trello
-In questa sezione viene creato un utente di nome Britta Simon in Trello. In questa sezione viene creato un utente di nome Britta Simon in Trello. Trello supporta il provisioning JIT. Al primo accesso ad Azure AD, verrà creato un nuovo account.
+In questa sezione viene creato un utente di nome Britta Simon in Trello. In questa sezione viene creato un utente di nome Britta Simon in Trello. Trello supporta il provisioning JIT. Al primo accesso ad Azure AD viene creato un nuovo account.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Trello.
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Trello.
 
 ![Assegna utente][200] 
 
 **Per assegnare Britta Simon a Trello, seguire questa procedura:**
 
-1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione Directory fare clic su **Applicazioni** nel menu in alto.
-   
+1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+
     ![Assegna utente][201] 
 
 2. Nell'elenco delle applicazioni selezionare **Trello**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_10.png) 
 
-3. Scegliere **Utenti**dal menu in alto.
-   
-    ![Assegna utente][203] 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_app.png) 
 
-4. Nell'elenco Tutti gli utenti selezionare **Britta Simon**.
-5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
-   
-    ![Assegna utente][205]
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+    ![Assegna utente][202] 
+
+4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Assegna utente][203]
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+
+6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+
+7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+    
+### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Trello nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Trello.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
+
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 
@@ -263,17 +252,11 @@ Quando si fa clic sul riquadro Trello nel pannello di accesso, si dovrebbe acced
 [3]: ./media/active-directory-saas-trello-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-trello-tutorial/tutorial_general_04.png
 
-
-[5]: ./media/active-directory-saas-trello-tutorial/tutorial_general_05.png
-[6]: ./media/active-directory-saas-trello-tutorial/tutorial_general_06.png
-[7]:  ./media/active-directory-saas-trello-tutorial/tutorial_general_050.png
-[10]: ./media/active-directory-saas-trello-tutorial/tutorial_general_060.png
-[11]: ./media/active-directory-saas-trello-tutorial/tutorial_general_070.png
-[20]: ./media/active-directory-saas-trello-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-trello-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-trello-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-trello-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-trello-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trello-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-trello-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-trello-tutorial/tutorial_general_205.png
+
 

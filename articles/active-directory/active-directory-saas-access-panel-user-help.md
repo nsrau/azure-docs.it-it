@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 07/15/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 2f28a63b2c3310523fb85d5aba9602359c7c2d87
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="do-you-need-help-with-the-myapps-portal"></a>Problemi riscontrati con il portale App personali
+# <a name="do-you-need-help-with-the-my-apps-portal"></a>Problemi riscontrati con il portale App personali
 
 Questa pagina viene in genere visualizzata quando si verifica un problema durante l'uso del portale App personali. In alcuni casi il problema richiede l'intervento del supporto tecnico o dell'amministratore, ma in altri casi può essere utile vedere prima uno dei seguenti argomenti di risoluzione dei problemi.
 
-## <a name="i-cannot-sign-in-to-myappsmicrosoftcom"></a>Non è possibile accedere a myapps.microsoft.com
+## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Si è verificato un problema durante l'accesso al portale App personali
 
 Problemi generali da verificare:
 
@@ -47,7 +47,7 @@ Se i problemi persistono e non consentono l'accesso, rivolgersi all'amministrato
 
 Se si dimentica la password, la si vuole modificare, il personale IT non l'ha mai inviata oppure se l'account è stato bloccato, vedere [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md) (Password di Azure AD dimenticata).
 
-##<a name="how-do-i-register-for-password-reset"></a>Come registrarsi per la reimpostazione della password
+## <a name="how-do-i-register-for-password-reset"></a>Come registrarsi per la reimpostazione della password
 
 Come utente finale, è possibile reimpostare la password o sbloccare l'account senza la necessità di rivolgersi a un'altra persona usando la funzionalità di reimpostazione della password self-service (SSPR). Per poter usare questa funzionalità, è prima necessario registrare i metodi di autenticazione o confermare i metodi di autenticazione predefiniti inseriti dall'amministratore. Per altre informazioni, vedere [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md).
 
@@ -64,21 +64,19 @@ Verificare se i requisiti del browser sono soddisfatti:
     - Chrome in Windows 7 o versione successiva e in MacOS X o versione successiva
     - Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
-È anche possibile scaricare l'estensione per Chrome, Edge e Firefox dai collegamenti diretti seguenti:
+È anche possibile scaricare l'estensione per Chrome ed Edge dai collegamenti diretti seguenti:
 
 - [Estensione per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 - [Estensione per Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-- [Estensione per Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
-
 Se dopo l'installazione si riscontrano problemi, seguire questa procedura:
 
 - Verificare che l'estensione sia abilitata nelle impostazioni delle estensioni del browser.
 
-- Provare a riavviare il browser e accedere al portale App personali.
+- Riavviare il browser e accedere al portale App personali.
 
-- Cancellare i cookie del browser e riprovare ad accedere.
+- Cancellare i cookie del browser e accedere al portale App personali.
 
 ## <a name="how-do-i-add-a-new-app"></a>Come aggiungere una nuova app
 

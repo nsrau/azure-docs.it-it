@@ -1,6 +1,6 @@
 ---
 title: Risoluzione dei problemi relativi a Diagnostica di Azure | Documentazione Microsoft
-description: Risoluzione dei problemi per l&quot;uso di Diagnostica di Azure nelle macchine virtuali di Azure, in Service Fabric o in Servizi cloud.
+description: Risoluzione dei problemi per l'uso di Diagnostica di Azure nelle macchine virtuali di Azure, in Service Fabric o in Servizi cloud.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0764b9f3ac262b7c65944d6e2c82490daefa54c3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
@@ -43,6 +42,7 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nella 
 | **File di configurazione dell'agente di monitoraggio** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<NomeRuolo>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Pacchetto dell'estensione di diagnostica di Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versione> |
 | **Percorso dell'utilità di raccolta dei log** | %SystemDrive%\Packages\GuestAgent\ |
+| **File di log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 | Elemento | Path |
@@ -54,9 +54,12 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nella 
 | **File di stato** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versione>\Status |
 | **Pacchetto dell'estensione di diagnostica di Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<VersioneDiagnostica>|
 | **Percorso dell'utilità di raccolta dei log** | C:\WindowsAzure\Packages |
+| **File di log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="azure-diagnostics-is-not-starting"></a>Mancato avvio di Diagnostica Azure
-Per informazioni sui motivi del mancato avvio della diagnostica, controllare i file **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** dal percorso dei file di log indicato in precedenza.  
+Per informazioni sui motivi del mancato avvio della diagnostica, controllare i file **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** dal percorso dei file di log indicato in precedenza. 
+
+Se questi log indicano `Monitoring Agent not reporting success after launch`, significa che si è verificato un errore di avvio di MonAgentHost.exe. Esaminare i log relativi nella posizione indicata per `MonAgentHost log file` nella sezione precedente.
 
 L'ultima riga del file di log contiene il codice di uscita.  
 
@@ -86,7 +89,7 @@ La configurazione della diagnostica include la parte che indica il tipo di dati 
 - **Contatori delle prestazioni**: aprire perfmon e controllare il contatore.
 - **Log di traccia**: connettersi tramite desktop remoto alla macchina virtuale e aggiungere TextWriterTraceListener al file di configurazione dell'app.  Vedere http://msdn.microsoft.com/en-us/library/sk36c28t.aspx per impostare il listener di testo.  Verificare che l'elemento `<trace>` includa `<trace autoflush="true">`.<br />
 Se i log di traccia non vengono generati, seguire le istruzioni in [Altre informazioni sui log di traccia mancanti](#more-about-trace-logs-missing).
- - **Tracce ETW**: connettersi tramite desktop remoto alla macchina virtuale e installare PerfView.  In PerfView eseguire File -> User Command -> Listen etwprovder1,etwprovider2 (File -> Comando utente -> Attesa etwprovder1,etwprovider2) e così via.  Si noti che nel comando di attesa viene fatta distinzione tra maiuscole e minuscole e non possono essere presenti spazi nell'elenco dei provider ETW separato da virgole.  Se il comando non viene eseguito è possibile fare clic sul pulsante 'Log' nella parte inferiore destra dello strumento Perfview per visualizzare i tentativi di esecuzione e i risultati.  Presupponendo che l'input sia corretto, viene visualizzata una nuova finestra e dopo pochi secondi saranno visibili le tracce ETW.
+- **Tracce ETW**: connettersi tramite desktop remoto alla macchina virtuale e installare PerfView.  In PerfView eseguire File -> User Command -> Listen etwprovder1,etwprovider2 (File -> Comando utente -> Attesa etwprovder1,etwprovider2) e così via.  Si noti che nel comando di attesa viene fatta distinzione tra maiuscole e minuscole e non possono essere presenti spazi nell'elenco dei provider ETW separato da virgole.  Se il comando non viene eseguito è possibile fare clic sul pulsante 'Log' nella parte inferiore destra dello strumento Perfview per visualizzare i tentativi di esecuzione e i risultati.  Presupponendo che l'input sia corretto, viene visualizzata una nuova finestra e dopo pochi secondi saranno visibili le tracce ETW.
 - **Log eventi**: connettersi tramite desktop remoto alla macchina virtuale. Aprire `Event Viewer` e assicurarsi che gli eventi siano presenti.
 #### <a name="is-data-getting-captured-locally"></a>I dati vengono acquisiti in locale:
 Assicurarsi quindi che i dati vengano acquisiti in locale.
@@ -241,4 +244,3 @@ Il portale delle macchine virtuali visualizza determinati contatori delle presta
 - Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non sarà in grado di correlare il contatore configurato e il contatore raccolto.
 
 **Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. Pannello di controllo -> Area geografica -> Opzioni di amministrazione -> Impostazioni copia -> deselezionare "Schermata iniziale e account di sistema" in modo che la lingua personalizzata non venga applicata all'account di sistema. Assicurarsi anche di non usare caratteri jolly per consentire al portale di rappresentare l'esperienza di utilizzo principale.
-

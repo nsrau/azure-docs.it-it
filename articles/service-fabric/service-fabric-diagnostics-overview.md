@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 571c31b9e6514b44d6a8a69fe8a6a0806e4b80e3
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 88f4a23f89a1c8fd88db1df3a7ff03ae5df64c0f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -37,7 +36,7 @@ Gli obiettivi principali di monitoraggio e diagnostica sono:
 
 Il flusso di lavoro generale di monitoraggio e diagnostica è costituito da tre passaggi:
 
-1. **Generazione di eventi**: sono inclusi eventi, ovvero log, tracce, eventi personalizzati, sia a livello di infrastruttura, cioè cluster, che a livello di applicazione/servizio
+1. **Generazione di eventi**: sono inclusi eventi, ovvero log, tracce, eventi personalizzati, sia a livello infrastruttura, cioè cluster, che a livello piattaforma e applicazione/servizio
 2. **Aggregazione di eventi**: gli eventi generati devono essere raccolti e aggregati prima di poter essere visualizzati
 3. **Analisi**: gli eventi devono essere visualizzati e devono essere accessibili in un formato, per consentirne l'analisi e la visualizzazione in base alle esigenze specifiche
 
@@ -45,9 +44,9 @@ Sono disponibili molti prodotti che coprono le tre aree. Gli utenti sono liberi 
 
 ## <a name="event-generation"></a>Generazione di eventi
 
-Il primo passaggio nel flusso di lavoro del monitoraggio e della diagnostica è la creazione e la generazione di eventi e log. Gli eventi, i log e le tracce possono essere generati da due livelli: dal livello dell'infrastruttura, ovvero elementi del cluster, computer o azioni di Service Fabric, o dal livello dell'applicazione, ovvero qualsiasi strumentazione aggiunta alle app e ai servizi distribuiti nel cluster. Gli eventi di ognuno di questi livelli sono personalizzabili, anche se Service Fabric offre alcuni strumenti per impostazione predefinita.
+Il primo passaggio nel flusso di lavoro del monitoraggio e della diagnostica è la creazione e la generazione di eventi e log. Gli eventi, i log e le tracce possono essere generati a due livelli: al livello piattaforma, inclusi cluster, computer o azioni di Service Fabric, o al livello applicazione, ovvero qualsiasi strumentazione aggiunta alle app e ai servizi distribuiti nel cluster. Gli eventi di ognuno di questi livelli sono personalizzabili, anche se Service Fabric offre alcuni strumenti per impostazione predefinita.
 
-Per comprendere ciò che viene offerto e come aggiungere altri strumenti leggere altre informazioni su [eventi a livello di infrastruttura](service-fabric-diagnostics-event-generation-infra.md) ed [eventi a livello di applicazione](service-fabric-diagnostics-event-generation-app.md).
+Per comprendere ciò che viene offerto e come aggiungere altri strumenti, leggere altre informazioni su [eventi a livello piattaforma](service-fabric-diagnostics-event-generation-infra.md) ed [eventi a livello di applicazione](service-fabric-diagnostics-event-generation-app.md).
 
 Dopo aver deciso quale provider di log usare, è necessario assicurarsi che i log vengono aggregati e archiviati correttamente.
 
@@ -69,7 +68,7 @@ L'uso di [EventFlow](https://github.com/Azure/diagnostics-eventflow) consente di
 * Accesso al contesto e ai dati di applicazione interni
     * Il sottosistema di diagnostica in esecuzione nel processo dell'applicazione o del servizio può facilmente aumentare le tracce con informazioni contestuali
 
-È importante sottolineare che queste due opzioni non si escludono a vicenda. Pertanto se è possibile eseguire un processo simile usando l'uno o l'altro, sarebbe opportuno configurare entrambi. Nella maggior parte dei casi, la combinazione di un agente con la raccolta nel processo potrebbe comportare un flusso di lavoro del monitoraggio più affidabile. L'estensione Diagnostica di Azure (agente) potrebbe essere il percorso scelto per i log a livello di infrastruttura, mentre EventFlow,ovvero la raccolta nel processo, potrebbe essere usata per i log a livello di applicazione. Dopo aver individuato la soluzione più adatta per l'utente, è necessario pensare al modo in cui i dati devono essere analizzati e visualizzati.
+È importante sottolineare che queste due opzioni non si escludono a vicenda. Pertanto se è possibile eseguire un processo simile usando l'uno o l'altro, sarebbe opportuno configurare entrambi. Nella maggior parte dei casi, la combinazione di un agente con la raccolta nel processo potrebbe comportare un flusso di lavoro del monitoraggio più affidabile. L'estensione Diagnostica di Azure (agente) potrebbe essere il percorso scelto per i log a livello piattaforma, mentre EventFlow, ovvero la raccolta In-Process, potrebbe essere usata per i log a livello applicazione. Dopo aver individuato la soluzione più adatta per l'utente, è necessario pensare al modo in cui i dati devono essere analizzati e visualizzati.
 
 ## <a name="event-analysis"></a>Analisi di eventi
 
@@ -85,7 +84,7 @@ Oltre alla piattaforma scelta, quando si configura un cluster di Service Fabric 
 
 ![Visualizzazione del portale di Azure dei dati di metrica raccolti](media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
-Per personalizzare i grafici, seguire le istruzioni disponibili in [Metriche in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). È anche possibile creare avvisi in base a queste metriche, come illustrato in [Creare avvisi in Monitoraggio di Azure per servizi di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). È possibile inviare avvisi a un servizio di notifica usando webhook, come illustrato in [Configurare un webhook in un avviso relativo alle metriche di Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Monitoraggio di Azure supporta solo una sottoscrizione. Se è necessario monitorare più sottoscrizioni o se sono necessarie funzionalità aggiuntive, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), incluso in Microsoft Operations Management Suite, fornisce una soluzione olistica di gestione IT per infrastrutture locali e basate sul cloud. È possibile indirizzare i dati di Monitoraggio di Azure direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
+Per personalizzare i grafici, seguire le istruzioni disponibili in [Metriche in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). È anche possibile creare avvisi in base a queste metriche, come illustrato in [Creare avvisi in Monitoraggio di Azure per servizi di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). È possibile inviare avvisi a un servizio di notifica usando webhook, come illustrato in [Configurare un webhook in un avviso relativo alle metriche di Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Monitoraggio di Azure supporta solo una sottoscrizione. Se è necessario monitorare più sottoscrizioni o se sono necessarie funzionalità aggiuntive, [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), incluso in Microsoft Operations Management Suite, fornisce una soluzione olistica di gestione IT per l'infrastruttura locale e basata sul cloud. È possibile indirizzare i dati di Monitoraggio di Azure direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -93,4 +92,4 @@ Per personalizzare i grafici, seguire le istruzioni disponibili in [Metriche in 
 
 Un watchdog è un servizio separato che può controllare l'integrità e il carico tra servizi e creare report di integrità per l'intera gerarchia di modello. Questo consente di evitare errori che non verrebbero rilevati visualizzando un singolo servizio. Anche i watchdog sono utili per ospitare il codice che esegue azioni correttive senza l'intervento dell'utente, ad esempio, la cancellazione dei file di log nell'archiviazione a determinati intervalli di tempo. È possibile trovare un'implementazione di esempio del servizio watchdog [qui](https://github.com/Azure-Samples/service-fabric-watchdog-service).
 
-Introduzione alla generazione di eventi e log a [livello di infrastruttura](service-fabric-diagnostics-event-generation-infra.md) e a [livello di applicazione](service-fabric-diagnostics-event-generation-app.md).
+Introduzione alla generazione di eventi e log a [livello piattaforma](service-fabric-diagnostics-event-generation-infra.md) e a [livello di applicazione](service-fabric-diagnostics-event-generation-app.md).

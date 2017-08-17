@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/01/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 2ef14fccda5c38ebdbf9d64b4766b45503755af0
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
 ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -34,15 +33,25 @@ ms.lasthandoff: 05/04/2017
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario (Basic o Standard). Scegliere anche una sottoscrizione, un gruppo di risorse e una località di Azure in cui creare la risorsa. 
-1. Fare clic su **Crea** per creare lo spazio dei nomi.
-1. Nell'elenco degli spazi dei nomi di Hub eventi fare clic sullo spazio dei nomi appena creato.      
-   
-    ![](./media/event-hubs-create/create-event-hub2.png)
-1. Nel pannello dello spazio dei nomi fare clic su **Hub eventi**.
-   
-    ![](./media/event-hubs-create/create-event-hub3.png)
+1. Fare clic su **Crea** per creare lo spazio dei nomi. Per il provisioning completo delle risorse da parte del sistema, potrebbero essere necessari alcuni minuti.
+2. Nell'elenco di spazi dei nomi del portale fare clic sullo spazio dei nomi appena creato.
+2. Fare clic su **Criteri di accesso condivisi** e quindi su **RootManageSharedAccessKey**.
+    
+    ![](./media/event-hubs-create/create-event-hub7.png)
+
+3. Fare clic sul pulsante di copia per copiare la stringa di connessione **RootManageSharedAccessKey** negli Appunti. Salvare la stringa di connessione in una posizione temporanea, ad esempio il Blocco note, per usarla in seguito.
+    
+    ![](./media/event-hubs-create/create-event-hub8.png)
 
 ## <a name="create-an-event-hub"></a>Creare un hub eventi
+
+1. Nell'elenco di spazi dei nomi di Hub eventi fare clic sullo spazio dei nomi appena creato.      
+   
+    ![](./media/event-hubs-create/create-event-hub2.png) 
+
+2. Nel pannello dello spazio dei nomi fare clic su **Hub eventi**.
+   
+    ![](./media/event-hubs-create/create-event-hub3.png)
 
 1. Nella parte superiore del pannello fare clic su **Aggiungi hub eventi**.
    
@@ -50,15 +59,6 @@ ms.lasthandoff: 05/04/2017
 1. Digitare un nome per l'hub eventi e quindi fare clic su **Crea**.
    
     ![](./media/event-hubs-create/create-event-hub5.png)
-1. Nell'elenco degli hub eventi fare clic sul nome dell'hub eventi appena creato. 
-    
-    ![](./media/event-hubs-create/create-event-hub6.png)
-1. Nel pannello dello spazio dei nomi (non in quello dello specifico hub eventi) fare clic su **Criteri di accesso condivisi** e quindi su **RootManageSharedAccessKey**.
-    
-    ![](./media/event-hubs-create/create-event-hub7.png)
-1. Fare clic sul pulsante di copia per copiare la stringa di connessione **RootManageSharedAccessKey** negli Appunti. Salvare questa stringa di connessione per usarla più avanti nell'esercitazione.
-    
-    ![](./media/event-hubs-create/create-event-hub8.png)
 
 L'hub eventi è stato creato e sono disponibili le stringhe di connessione necessarie per inviare e ricevere eventi.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 179cac8856cd42cfad4a4d4aaa6301afb2c58329
-ms.openlocfilehash: 6d802148cec5b12004d1d374485f56af8eae64f8
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 303d7b06d259bc42c8093fb20a0e4a55410e28f5
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Spostare dati da o verso un archivio BLOB di Azure con connettori SSIS
@@ -82,7 +82,7 @@ I parametri usati dall'attività sono descritti di seguito:
 > 
 
 ## <a name="download-data-from-azure-blob-storage"></a>Scaricare i dati da un archivio BLOB di Azure
-Per scaricare i dati da un archivio BLOB di Azure a un archivio locale con SSIS, usare un'istanza di [Azure Blob Upload Task](https://msdn.microsoft.com/library/mt146779.aspx).
+Per scaricare i dati di Archiviazione BLOB di Azure in un archivio locale con SSIS, usare un'istanza di [Azure Blob Upload Task](https://msdn.microsoft.com/library/mt146779.aspx).
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>Altri scenari avanzati di SSIS-Azure
 Il Feature Pack di SSIS consente di gestire flussi più complessi creando pacchetti di attività. Ad esempio, è possibile eseguire il feed dei dati BLOB direttamente in un cluster HDInsight, il cui output può essere scaricato di nuovo in un BLOB e quindi in un archivio locale. SSIS può eseguire processi Hive e Pig in un cluster HDInsight usando connessioni SSIS aggiuntive:

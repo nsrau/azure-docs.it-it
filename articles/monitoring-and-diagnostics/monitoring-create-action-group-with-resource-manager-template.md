@@ -2,7 +2,7 @@
 title: Creare gruppi di azione con i modelli di Resource Manager | Microsoft Docs
 description: I gruppi di azione consentono di inviare una notifica tramite posta elettronica, un SMS o chiamare webhook quando si verificano determinati eventi.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 2dd7b14f1466fa7244a2af2c030d8b794658aaad
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 88e7b2e7781b80ea360531f4c3a45256de83b594
 ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -28,10 +27,10 @@ L'articolo illustra come usare un [modello di Azure Resource Manager](https://do
 
 I passaggi di base sono i seguenti:
 
-1.    Creare un modello come file JSON che descriva come creare il gruppo di azione.
-2.    [Distribuire il modello con un metodo di distribuzione qualsiasi](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+1.  Creare un modello come file JSON che descriva come creare il gruppo di azione.
+2.  [Distribuire il modello con un metodo di distribuzione qualsiasi](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-La sezione seguente descrive come creare un modello di Resource Manager prima solo per un gruppo di azione e poi per un gruppo di azione durante la creazione di un'altra risorsa.
+Di seguito viene descritto come creare un modello di Resource Manager prima per un gruppo di azioni in cui le definizioni delle azioni sono hardcoded nel modello, quindi per un modello che accetta le informazioni di configurazione del webhook come parametri di input in fase di distribuzione del modello.
 
 ## <a name="resource-manager-template-for-an-action-group"></a>Modello di Resource Manager per un gruppo di azione
 

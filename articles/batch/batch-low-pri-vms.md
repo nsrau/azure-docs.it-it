@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/05/2017
+ms.date: 07/21/2017
 ms.author: markscu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0f839072d9603e83b0ca493c9a7bab0e71a682c5
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bf0ac322020d8a8453011c3207c1930175db6d3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -171,6 +171,22 @@ Le macchine virtuali in alcuni casi possono essere interrotte. In questo caso, B
 -   La macchina virtuale viene eliminata in modo efficace e tutti i dati memorizzati in locale nella macchina virtuale andranno persi.
 -   Il pool tenta continuamente raggiungere il numero stabilito di nodi con priorità bassa disponibili. Quando viene individuata una capacità di sostituzione, i nodi mantengono il proprio ID, ma vengono inizializzati di nuovo, attraversando gli stati **Creazione in corso** e **Avvio in corso** prima che siano disponibili per la pianificazione delle attività.
 -   Il numero delle priorità è disponibile come metrica nel portale di Azure.
+
+## <a name="metrics"></a>Metriche
+
+Per i nodi con priorità bassa sono disponibili nuove metriche nel [portale di Azure](https://portal.azure.com). Le metriche sono:
+
+- Numero di nodi a bassa priorità
+- Numero di core a bassa priorità 
+- Numero di nodi annullati
+
+Per visualizzare le metriche nel portale di Azure:
+
+1. Passare all'account Batch nel portale e visualizzare le impostazioni per l'account Batch.
+2. Selezionare **Metrica** dalla sezione **Monitoraggio**.
+3. Selezionare le metriche da usare dall'elenco **Metriche disponibili**.
+
+![Metriche per i nodi a priorità bassa](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

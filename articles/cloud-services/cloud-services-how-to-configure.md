@@ -1,6 +1,6 @@
 ---
 title: Come configurare un servizio cloud (portale classico) | Documentazione Microsoft
-description: Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l&quot;accesso remoto per le istanze del ruolo.
+description: Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo.
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 838be613a35ac4af988e089efb57e45365cc7636
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 39bb294c96ce0c12d91cf8b3488ac3e1a7b2f7b2
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
@@ -42,10 +43,9 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 2. In **monitoraggio**impostare il livello di monitoraggio su Dettagliato o Minimo e configurare le stringhe di connessione di diagnostica necessarie per il monitoraggio dettagliato.
 3. Per i ruoli del servizio (raggruppati per ruolo) è possibile aggiornare le impostazioni seguenti:
    
-    * **Impostazioni** 
-      : modificare i valori di varie impostazioni di configurazione specificate negli elementi *ConfigurationSettings* del file di configurazione del servizio (.cscfg).
+    * **Impostazioni**: modificare i valori di varie impostazioni di configurazione specificate negli elementi *ConfigurationSettings* del file di configurazione del servizio (.cscfg).
 
-    * **Certificati**  
+    * **Certificates**  
         : modificare l'identificazione personale del certificato utilizzato nella crittografia SSL per un ruolo. Prima di cambiare un certificato, è necessario caricarne uno nuovo nella pagina **Certificates** . Quindi aggiornare l'identificazione personale nella stringa del certificato visualizzata nelle impostazioni del ruolo.
 4. In **sistema operativo** è possibile modificare la famiglia o la versione del sistema operativo per le istanze del ruolo oppure scegliere **Automatico** per abilitare gli aggiornamenti automatici della versione corrente del sistema operativo. Le impostazioni del sistema operativo si applicano a ruoli Web e ruoli di lavoro, ma non hanno effetto sulle macchine virtuali.
    
@@ -77,10 +77,5 @@ Azure può garantire il 99,95 di disponibilità del servizio durante gli aggiorn
 * [Gestire il servizio cloud](cloud-services-how-to-manage.md).
 * [Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure](cloud-services-role-enable-remote-desktop.md)
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

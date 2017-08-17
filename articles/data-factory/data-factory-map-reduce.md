@@ -1,6 +1,6 @@
 ---
 title: Richiamare il programma MapReduce da Data factory di Azure
-description: Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un&quot;istanza di Data factory di Azure.
+description: Informazioni su come elaborare i dati eseguendo programmi MapReduce in un cluster Azure HDInsight da un'istanza di Data factory di Azure.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/24/2017
+ms.date: 08/14/2017
 ms.author: shlo
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: e5dfe0cf0ba7b77a5b23dddc5c5d784e0a0565cc
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Richiamare i programmi MapReduce da Data factory

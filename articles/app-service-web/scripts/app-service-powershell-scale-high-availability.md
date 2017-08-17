@@ -1,6 +1,6 @@
 ---
-title: "Esempio di script di Azure PowerShell - Ridimensionare un&quot;app Web a livello globale con un&quot;architettura a disponibilità elevata | Microsoft Docs"
-description: "Esempio di script di Azure PowerShell - Ridimensionare un&quot;app Web a livello globale con un&quot;architettura a disponibilità elevata"
+title: "Esempio di script di Azure PowerShell - Ridimensionare un'app Web a livello globale con un'architettura a disponibilità elevata | Microsoft Docs"
+description: "Esempio di script di Azure PowerShell - Ridimensionare un'app Web a livello globale con un'architettura a disponibilità elevata"
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -10,7 +10,7 @@ tags: azure-service-management
 ms.assetid: 470f0129-1efe-462c-a029-5c66e04158a8
 ms.service: app-service
 ms.devlang: multiple
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017

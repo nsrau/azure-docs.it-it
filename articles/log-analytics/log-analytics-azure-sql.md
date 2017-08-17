@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/13/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: f5f9aa186480926df1110928983566e05f79efb8
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -104,19 +103,31 @@ Fare clic sul riquadro **Analisi SQL di Azure** per aprire il dashboard Analisi 
 
 ### <a name="analyze-data-and-create-alerts"></a>Analizzare i dati e creare avvisi
 
-La soluzione include query utili per l'analisi dei dati. Se si scorre verso destra, il dashboard elencherà diverse query comuni che è possibile selezionare per eseguire una [ricerca log](log-analytics-log-searches.md) per dati di Azure SQL.
+È possibile creare facilmente avvisi con i dati provenienti dalle risorse del database SQL di Azure. Di seguito sono riportati due query utili di [ricerca nei log](log-analytics-log-searches.md) che è possibile usare per gli avvisi:
 
-![query](./media/log-analytics-azure-sql/azure-sql-queries.png)
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-La soluzione include alcune *query basate su avvisi*, come illustrato sopra, che è possibile usare per creare avvisi per soglie specifiche sia per i database SQL di Azure che per i pool elastici.
+
+*Elevato utilizzo di DTU nel database SQL di Azure*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+```
+
+*Elevato utilizzo di DTU nel pool elastico del database SQL di Azure*
+
+```
+Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+```
+
+È possibile usare queste query basate su avvisi per creare avvisi per soglie specifiche sia per i database SQL di Azure che per i pool elastici. Per configurare un avviso per l'area di lavoro OMS:
 
 #### <a name="to-configure-an-alert-for-your-workspace"></a>Per configurare un avviso per l'area di lavoro
 
 1. Aprire il [portale di OMS](http://mms.microsoft.com/) e accedere.
 2. Aprire l'area di lavoro configurata per la soluzione.
 3. Nella pagina Panoramica fare clic sul riquadro **Azure SQL Analytics (anteprima)**.
-4. Scorrere verso destra e fare clic su una query per iniziare a creare un avviso.  
-![Query di avviso](./media/log-analytics-azure-sql/alert-query.png)
+4. Eseguire una delle query di esempio.
 5. In Ricerca log fare clic su **Avviso**.  
 ![Creare un avviso nella ricerca](./media/log-analytics-azure-sql/create-alert01.png)
 6. Nella pagina **Aggiungi regola di avviso** configurare le proprietà necessarie e le soglie specifiche desiderate e quindi fare clic su **Salva**.  
@@ -131,6 +142,11 @@ Eseguendo la query di ricerca log seguente, è possibile capire facilmente se si
 ```
 Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
 ```
+
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
+>
+>`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
 
 Nell'esempio seguente è possibile osservare che un pool elastico ha un utilizzo elevato, prossimo al 100% dell'unità DTU, mentre gli altri hanno un utilizzo molto basso. È possibile eseguire un'indagine più approfondita per risolvere i problemi delle potenziali modifiche recenti dell'ambiente usando i log attività di Azure.
 

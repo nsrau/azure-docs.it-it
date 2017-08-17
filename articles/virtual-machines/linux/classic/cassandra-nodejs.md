@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: hanuk;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 7dc61a4ea5f7ce9749a3280562e42223dfdbde17
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: acfa9f6f0166167341fc54c4d55fb37e0a338024
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Esecuzione di Cassandra con Linux in Azure e accesso da Node.js
@@ -80,7 +79,7 @@ Configurazione del cluster Cassandra in un'area singola:
 
 **Considerazioni di Azure per Cluster Cassandra:** la funzionalità Macchine virtuali di Microsoft Azure utilizza l'archiviazione BLOB di Azure per la persistenza del disco; Archiviazione di Azure consente di salvare 3 repliche di ciascun disco per garantire una durabilità elevata. Ciò significa che ogni riga di dati inserita in una tabella di Cassandra è già archiviata in 3 repliche e, pertanto, la coerenza dei dati è già assicurata anche se il fattore di replica (RF) è 1. Il problema principale con un fattore di replica pari a 1 è che l'applicazione subirà tempi di inattività anche in caso di errore di un singolo nodo di Cassandra. Tuttavia, se un nodo è inattivo per problemi riconosciuti dal Controller di infrastruttura di Azure, ad esempio errori hardware o del software di sistema, verrà effettuato il provisioning di un nuovo nodo utilizzando le stesse unità di archiviazione. Il provisioning di un nuovo nodo per sostituire quello vecchio potrebbe richiedere alcuni minuti.  Allo stesso modo, per le attività di manutenzione pianificata come le modifiche del sistema operativo guest, gli aggiornamenti e le modifiche dell’applicazione di Cassandra, il controller di infrastruttura di Azure esegue in sequenza gli aggiornamenti dei nodi del cluster.  Gli aggiornamenti in sequenza potrebbero comportare l’inattività di alcuni nodi, per cui nel cluster potrebbe verificarsi breve periodo di inattività per alcune partizioni. Tuttavia, i dati non saranno persi grazie alla ridondanza di archiviazione di Azure incorporata.  
 
-Per i sistemi distribuiti in Azure che non richiedono una disponibilità elevata (ad esempio circa 99,9, equivalente a 8,76 ore/anno; per i dettagli, vedere [Disponibilità elevata](http://en.wikipedia.org/wiki/High_availability) ), è possibile l'esecuzione con RF=1 e livello di coerenza = UNO.  Per le applicazioni con requisiti di disponibilità elevata, RF=3 e Consistency Level=QUORUM consentiranno di tollerare il tempo di inattività di uno dei nodi delle repliche. RF=1 nelle distribuzioni tradizionali (ad esempio, locali) non può essere usato a causa della possibile perdita di dati causata da problemi come gli errori dei dischi.   
+Per i sistemi distribuiti in Azure che non richiedono una disponibilità elevata (ad esempio circa 99,9, equivalente a 8,76 ore/anno; per i dettagli, vedere [Disponibilità elevata](http://en.wikipedia.org/wiki/High_availability) ), è possibile l'esecuzione con RF=1 e livello di coerenza = UNO.  Per le applicazioni con requisiti di disponibilità elevata, RF=3 e Consistency Level=QUORUM consentiranno di tollerare il tempo di inattività di uno dei nodi delle repliche. RF=1 nelle distribuzioni tradizionali (ad esempio quelle locali) non può essere usato a causa della possibile perdita di dati causata da problemi come gli errori dei dischi.   
 
 ## <a name="multi-region-deployment"></a>Distribuzione in più aree
 Il modello descritto di replica e coerenza con riconoscimento del data center di Cassandra è di aiuto nella distribuzione in più aree predefinita, senza necessità di alcuno strumento esterno. La differenza con i tradizionali database relazionali, in cui la configurazione per il mirroring del database per le scritture multimaster può essere molto complessa, è considerevole. Cassandra in una configurazione a più aree può essere utile negli scenari d'utilizzo seguenti:

@@ -1,6 +1,6 @@
 ---
 title: Interfaccia utente di StorSimple Snapshot Manager | Documentazione Microsoft
-description: Viene descritta l&quot;interfaccia utente di StorSimple Snapshot Manager e viene illustrato come utilizzarla per gestire i processi di backup e il catalogo di backup.
+description: Viene descritta l'interfaccia utente di StorSimple Snapshot Manager e viene illustrato come utilizzarla per gestire i processi di backup e il catalogo di backup.
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 06/05/2017
 ms.author: v-sharos
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 7651a2ba6c206bb39d7cf8839f6f0f828fb3bc16
-ms.openlocfilehash: 25265349cb8cb47e93b7bea7103f1d06878a6158
-ms.lasthandoff: 02/28/2017
+ms.custom: 
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -126,7 +127,7 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di StorSi
 | Ripetere la scansione dei volumi |Fare clic con il pulsante destro del mouse sul nodo **Volumi** . |Fare clic su **Nuova scansione volumi** per aggiornare l'elenco dei volumi visualizzati nel riquadro **Risultati**. |
 | Ripristino |Espandere **Catalogo backup**, espandere un gruppo di volumi, quindi **Snapshot locali** o **Snapshot cloud** e fare clic con il pulsante destro del mouse su un backup. |Fare clic su **Ripristina** per sostituire i dati del gruppo di volumi corrente con i dati del backup selezionato. |
 | Esegui backup |Eseguire una di queste operazioni:<ul><li>Espandere **Gruppi volumi**, quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Espandere **Catalogo backup**, quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Esegui backup** per avviare immediatamente un processo di backup. |
-| Visualizza/Nascondi importazioni |Fare clic con il pulsante destro del mouse sul nodo principale nel riquadro **Ambito**, ovvero il nodo **StorSimple Snapshot Manager** negli esempi. |Fare clic su **Visualizza/Nascondi importazioni** per mostrare o nascondere i gruppi di volumi e i backup associati importati dal dashboard del servizio StorSimple Manager. |
+| Visualizza/Nascondi importazioni |Fare clic con il pulsante destro del mouse sul nodo principale nel riquadro **Ambito**, ovvero il nodo **StorSimple Snapshot Manager** negli esempi. |Fare clic su **Visualizza/Nascondi importazioni** per mostrare o nascondere i gruppi di volumi e i backup associati importati dal dashboard del servizio Gestione dispositivi StorSimple. |
 
 ### <a name="view-menu"></a>Menu Visualizza
 Usare il menu **Visualizza** per creare una visualizzazione personalizzata dei contenuti del riquadro **Risultati**. Il menu **Visualizza** contiene le opzioni **Aggiungi/Rimuovi colonne** e **Personalizza**.
@@ -273,8 +274,7 @@ I criteri di backup sono pianificazioni dei processi per snapshot locali e cloud
 
 > [!NOTE]
 > È possibile conservare un massimo di 64 backup.
-> 
-> 
+
 
 ### <a name="backup-catalog-node"></a>Nodo Catalogo di backup
 Il nodo **Catalogo di backup** contiene gli elenchi dei backup locali in sede e fuori sede dei volumi StorSimple di Azure. Questo nodo è organizzato per gruppo di volumi e il contenitore di ogni gruppo di volumi contiene strutture separate per gli snapshot locali (il nodo **Snapshot locali**) e gli snapshot cloud (il nodo **Snapshot cloud**). Se viene espanso, il contenitore di ciascun gruppo di volumi elenca tutti i backup riusciti che sono stati eseguiti in modo interattivo o da un criterio configurato.
@@ -429,7 +429,7 @@ Nelle tabelle seguenti vengono illustrate le combinazioni dei tasti di scelta ra
 | V |Consente di aprire il menu **Visualizza** . |
 | W |Consente di aprire una nuova console di StorSimple Snapshot Manager incentrata sul nodo **Gruppi di volumi** . |
 | F |Consente di aggiornare la console di StorSimple Snapshot Manager. |
-| L |Consente di aprire la pagina **Esporta elenco **. |
+| L |Consente di aprire la pagina **Esporta elenco**. |
 | H |Consente di aprire la guida in linea. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Tasti di scelta rapida del nodo Catalogo di backup

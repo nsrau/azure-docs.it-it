@@ -1,5 +1,5 @@
 ---
-title: Backup automatico e con ridondanza geografica del database di SQL | Documentazione Microsoft
+title: Backup automatici e con ridondanza geografica del database SQL di Azure | Microsoft Docs
 description: Il database SQL crea automaticamente e ripetutamente una copia di backup locale del database a pochi minuti l'una dall'altra e usa l'archiviazione con ridondanza geografica e accesso in lettura di Azure per la ridondanza geografica.
 services: sql-database
 documentationcenter: 
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: cfd0d130186f851bc306065893b137c94cfb7d3d
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 5e07dd0412570eedf69609fb42ec329d3b0c1936
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
-# <a name="learn-about-sql-database-backups"></a>Informazioni sul backup del database SQL
+# <a name="learn-about-automatic-sql-database-backups"></a>Informazioni sui backup automatici del database SQL
 
 Il database SQL crea automaticamente un backup del database e usa l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) di Azure per fornire una ridondanza geografica. Questi backup vengono creati automaticamente e senza costi aggiuntivi. Non è necessario intervenire manualmente per eseguire i backup. I backup dei database sono una parte essenziale di qualsiasi strategia di continuità aziendale e ripristino di emergenza, perché proteggono i dati dal danneggiamento o dall'eliminazione accidentale. Se si desidera mantenere i backup in un contenitore di archiviazione è possibile configurare un criterio di conservazione dei backup a lungo termine. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 

@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/18/2017
+ms.date: 07/06/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: f31f17121fdb42f4ae911efde9e98bbd223d0680
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Procedura dettagliata di risoluzione dei problemi di connessione SSH a una macchina virtuale Linux in Azure
@@ -34,28 +33,14 @@ Il diagramma seguente illustrati i componenti coinvolti.
 
 I passaggi seguenti sono utili per isolare l'origine dell'errore e individuare le soluzioni.
 
-Prima di tutto controllare lo stato della VM nel portale.
+1. Controllare lo stato della VM nel portale.
+   Nel [portale di Azure](https://portal.azure.com) selezionare **Macchine virtuali** > *Nome macchina virtuale*.
 
-Nel [portale di Azure](https://portal.azure.com):
+   Nel riquadro di stato relativo alla VM deve essere visualizzata l'opzione **In esecuzione**. Scorrere verso il basso per visualizzare le recenti attività di elaborazione e archiviazione e le risorse di rete.
 
-1. Per le macchine virtuali create con il modello di Resource Manager, selezionare **Macchine virtuali** > *Nome macchina virtuale*.
-   
-    -OPPURE-
-   
-    Per le VM create con il modello di distribuzione classica, selezionare **Macchine virtuali (classico)** > *Nome macchina virtuale*.
-   
-    Nel riquadro di stato relativo alla VM deve essere visualizzata l'opzione **In esecuzione**. Scorrere verso il basso per visualizzare le recenti attività di elaborazione e archiviazione e le risorse di rete.
+2. Selezionare **Impostazioni** per esaminare gli endpoint, gli indirizzi IP, i gruppi di sicurezza di rete e altre impostazioni.
 
-2. Selezionare **Impostazioni** per esaminare gli endpoint, gli indirizzi IP e altre impostazioni.
-   
-    Per identificare gli endpoint nelle VM create con Resource Manager, verificare che sia stato definito un [gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md) . Verificare anche che al gruppo di sicurezza di rete siano state applicate le regole e che nella subnet sia fatto riferimento ad esse.
-
-Nel [portale di Azure classico](https://manage.windowsazure.com)per le VM create con il modello di distribuzione classica:
-
-1. Fare clic su **Macchine virtuali** > *Nome macchina virtuale*.
-2. Selezionare il **dashboard** della VM per controllarne lo stato.
-3. Selezionare **Monitoraggio** per visualizzare le recenti attività di calcolo e archiviazione e le risorse di rete.
-4. Selezionare **Endpoint** per verificare che sia presente un endpoint per il traffico SSH.
+   La macchina virtuale deve disporre di un endpoint definito per il traffico SSH che è possibile visualizzare in **Endpoint** o in **[Gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md)**. Gli endpoint nelle VM create tramite Resource Manager vengono archiviati in un gruppo di sicurezza di rete. Verificare anche che al gruppo di sicurezza di rete siano state applicate le regole e che nella subnet sia fatto riferimento ad esse.
 
 Per verificare la connettività di rete, controllare gli endpoint configurati e determinare se è possibile raggiungere la macchina virtuale tramite un altro protocollo, ad esempio HTTP o un altro servizio.
 
@@ -118,7 +103,7 @@ Se non si dispone di un'altra macchina virtuale nella stessa rete virtuale, è p
 
 Se è possibile creare una connessione SSH con una macchina virtuale presente nella stessa rete virtuale, verificare quanto segue:
 
-* **La configurazione dell'endpoint per il traffico SSH sulla macchina virtuale di destinazione.** La porta TCP privata dell'endpoint dovrebbe corrispondere alla porta TCP su cui è in ascolto il servizio SSH nella macchina virtuale (per impostazione predefinita è la porta 22). Per le macchine virtuali create con il modello di distribuzione Resource Manager, verificare il numero di porta TCP SSH nel portale di Azure selezionando **Macchine virtuali** > *Nome macchina virtuale* > **Impostazioni** > **Endpoint**.
+* **La configurazione dell'endpoint per il traffico SSH sulla macchina virtuale di destinazione.** La porta TCP privata dell'endpoint dovrebbe corrispondere alla porta TCP su cui è in ascolto il servizio SSH nella macchina virtuale (per impostazione predefinita è la porta 22). Verificare il numero di porta TCP SSH nel portale di Azure selezionando **Macchine virtuali** > *Nome macchina virtuale* > **Impostazioni** > **Endpoint**.
 * **L'ACL relativa all'endpoint per il traffico SSH sulla macchina virtuale di destinazione.** Gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico SSH in ingresso nell'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Informazioni sugli elenchi di controllo di accesso (ACL) di rete](../../virtual-network/virtual-networks-acl.md).
 
 Per escludere l'endpoint come origine del problema, rimuovere l'endpoint corrente, creare un nuovo endpoint e specificare il nome SSH (porta TCP 22 per il numero di porta pubblica e privata). Per altre informazioni, vedere [Configurare endpoint in una macchina virtuale in Azure](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -128,6 +113,8 @@ Per escludere l'endpoint come origine del problema, rimuovere l'endpoint corrent
 ## <a name="source-4-network-security-groups"></a>Origine 4: gruppi di sicurezza di rete
 I gruppi di sicurezza di rete consentono di avere un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Controllare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico SSH da Internet.
 Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md).
+
+È anche possibile usare la funzione di verifica IP per convalidare la configurazione del gruppo di sicurezza di rete. Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Origine 5: macchina virtuale di Azure basata su Linux
 L'ultima origine di possibili problemi corrisponde alla stessa macchina virtuale di Azure.
@@ -145,5 +132,4 @@ Provare nuovamente la connessione dal computer. Se ancora non riesce, alcuni dei
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 Per ulteriori informazioni sulla risoluzione dei problemi di accesso dell'applicazione, vedere [Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](troubleshoot-app-connection.md)
-
 

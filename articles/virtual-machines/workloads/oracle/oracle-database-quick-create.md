@@ -1,9 +1,9 @@
 ---
-title: Creare un database Oracle Database 12c in una macchina virtuale di Azure | Microsoft Docs
+title: Creare un database Oracle in una VM di Azure | Microsoft Docs
 description: Ottenere rapidamente un database Oracle 12c operativo nell'ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: tonyguid
+author: rickstercdn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: 95e37d57ad92ef47a358527189997e7dd29d7b8d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-<a id="create-an-oracle-database-12c-database-in-an-azure-virtual-machine" class="xliff"></a>
+# <a name="create-an-oracle-database-in-an-azure-vm"></a>Creare un database Oracle in una VM di Azure
 
-# Creare un database Oracle Database 12c in una macchina virtuale di Azure
-
-Questa guida descrive nei dettagli l'uso dell'interfaccia della riga di comando di Azure per distribuire una macchina virtuale di Azure dall'[immagine della raccolta Marketplace di Oracle](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) per creare un database Oracle 12c. Dopo la distribuzione del server, verrà creata una connessione SSH per completare la configurazione del database Oracle. 
+Questa guida descrive nei dettagli l'uso dell'interfaccia della riga di comando di Azure per distribuire una macchina virtuale di Azure dall'[immagine della raccolta Marketplace di Oracle](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) per creare un database Oracle 12c. Dopo avere distribuito il server, verrà effettuata la connessione via SSH per configurare il database Oracle. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -35,9 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
-<a id="create-a-resource-group" class="xliff"></a>
-
-## Creare un gruppo di risorse
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
@@ -46,9 +42,7 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-<a id="create-virtual-machine" class="xliff"></a>
-
-## Crea macchina virtuale
+## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
 Per crea una macchina virtuale (VM), usare il comando [az vm create](/cli/azure/vm#create). 
 
@@ -79,19 +73,15 @@ In seguito alla creazione della VM, l'interfaccia della riga di comando di Azure
 }
 ```
 
-<a id="connect-to-the-vm" class="xliff"></a>
-
-## Connettersi alla VM
+## <a name="connect-to-the-vm"></a>Connettersi alla VM
 
 Per creare una sessione SSH con la VM, usare il comando seguente. Sostituire l'indirizzo IP con il valore di `publicIpAddress` della VM.
 
 ```bash 
-ssh azureuser@<publicIpAddress>
+ssh <publicIpAddress>
 ```
 
-<a id="create-the-database" class="xliff"></a>
-
-## Creare il database
+## <a name="create-the-database"></a>Creare il database
 
 Il software Oracle è già installato nell'immagine del Marketplace. Creare un database di esempio come segue. 
 
@@ -133,7 +123,7 @@ Il software Oracle è già installato nell'immagine del Marketplace. Creare un d
 2.  Creare il database:
 
     ```bash
-    $ dbca -silent \
+    dbca -silent \
            -createDatabase \
            -templateName General_Purpose.dbc \
            -gdbname cdb1 \
@@ -159,72 +149,74 @@ Il software Oracle è già installato nell'immagine del Marketplace. Creare un d
 Prima della connessione, è necessario configurare due variabili di ambiente: *ORACLE_HOME* e *ORACLE_SID*.
 
 ```bash
-$ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=cdb1; export ORACLE_SID
+ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
+ORACLE_SID=cdb1; export ORACLE_SID
 ```
-È anche possibile aggiungere le variabili ORACLE_HOME e ORACLE_SID al file con estensione bashrc. In questo modo, le variabili di ambiente verranno salvate per gli accessi successivi. Aggiungere le istruzioni seguenti al file con estensione bashrc usando l'editor preferito.
+È anche possibile aggiungere le variabili ORACLE_HOME e ORACLE_SID al file con estensione bashrc. In questo modo, le variabili di ambiente verranno salvate per gli accessi successivi. Verificare che le seguenti istruzioni siano state aggiunte al file `~/.bashrc` usando l'editor scelto.
 
-```
+```bash
 # Add ORACLE_HOME. 
 export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1 
 # Add ORACLE_SID. 
 export ORACLE_SID=cdb1 
 ```
 
-<a id="oracle-em-express-connectivity" class="xliff"></a>
-
-## Connettività a Oracle EM Express
+## <a name="oracle-em-express-connectivity"></a>Connettività a Oracle EM Express
 
 Per ottenere uno strumento di gestione dell'interfaccia utente grafica da usare per esplorare il database, configurare Oracle EM Express. Per connettersi a Oracle EM Express, prima di tutto è necessario configurare la porta in Oracle. 
 
 1. Connettersi al database usando sqlplus:
 
     ```bash
-    $ sqlplus / as sysdba
+    sqlplus / as sysdba
     ```
 
 2. Dopo la connessione, impostare la porta 5502 per EM Express
 
     ```bash
-    SQL> exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
+    exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
 
 3. Aprire il contenitore PDB1 se non è già aperto, ma prima controllare lo stato:
 
     ```bash
-    SQL> select con_id, name, open_mode from v$pdbs;
- 
+    select con_id, name, open_mode from v$pdbs;
+    ```
+
+    L'output è simile al seguente:
+
+    ```bash
       CON_ID NAME                           OPEN_MODE 
       ----------- ------------------------- ---------- 
       2           PDB$SEED                  READ ONLY 
       3           PDB1                      MOUNT
     ```
 
-4. Se OPEN_MODE non è READ WRITE, usare i comandi seguenti per aprire PDB1:
+4. Se OPEN_MODE per `PDB1` non è READ WRITE, usare i comandi seguenti per aprire PDB1:
 
    ```bash
-    SQL> alter session set container=pdb1;
-    SQL> alter database open;
+    alter session set container=pdb1;
+    alter database open;
    ```
 
-<a id="automate-database-startup-and-shutdown" class="xliff"></a>
+È necessario digitare `quit` per terminare la sessione sqlplus e `exit` per disconnettere l'utente Oracle.
 
-## Automatizzare l'avvio e l'arresto del database
+## <a name="automate-database-startup-and-shutdown"></a>Automatizzare l'avvio e l'arresto del database
 
 Per impostazione predefinita, il database Oracle non viene avviato automaticamente quando si riavvia la VM. Per configurare il database Oracle perché venga avviato automaticamente, accedere prima di tutto come utente ROOT. Quindi creare e aggiornare alcuni file di sistema.
 
 1. Accedere come utente ROOT
     ```bash
-    $ sudo su -
+    sudo su -
     ```
 
-2.  Modificare il file */etc/oratab* e sostituire l'impostazione predefinita `N` con `Y`:
+2.  Usando l'editor preferito modificare il file `/etc/oratab` e il valore predefinito `N` in `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Creare un file denominato */etc/init.d/dbora* e incollare i contenuti seguenti:
+3.  Creare un file denominato `/etc/init.d/dbora` e incollare i contenuti seguenti:
 
     ```
     #!/bin/sh
@@ -258,33 +250,31 @@ Per impostazione predefinita, il database Oracle non viene avviato automaticamen
 4.  Modificare le autorizzazioni nei file con *chmod* come segue:
 
     ```bash
-    # chgrp dba /etc/init.d/dbora
-    # chmod 750 /etc/init.d/dbora
+    chgrp dba /etc/init.d/dbora
+    chmod 750 /etc/init.d/dbora
     ```
 
 5.  Creare collegamenti simbolici per l'avvio e l'arresto come segue:
 
     ```bash
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
-    # ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc0.d/K01dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc3.d/S99dbora
+    ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
 6.  Per testare le modifiche, riavviare la VM:
 
     ```bash
-    # reboot
+    reboot
     ```
 
-<a id="open-ports-for-connectivity" class="xliff"></a>
-
-## Aprire le porte per la connettività
+## <a name="open-ports-for-connectivity"></a>Aprire le porte per la connettività
 
 Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per configurare il gruppo di sicurezza di rete di Azure che protegge la VM, prima di tutto chiudere la sessione SSH nella VM, anche se la sessione dovrebbe essere stata chiusa durante il riavvio nel passaggio precedente. 
 
 1.  Per aprire l'endpoint usato per accedere al database Oracle in modalità remota, creare una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule#create) come segue: 
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule create \
         --resource-group myResourceGroup\
         --nsg-name myVmNSG \
@@ -296,7 +286,7 @@ Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per config
 
 2.  Per aprire l'endpoint usato per accedere a Oracle EM Express in modalità remota, creare una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule#create) come segue:
 
-    ```azurecli
+    ```azurecli-interactive
     az network nsg rule create \
         --resource-group myResourceGroup \
         --nsg-name myVmNSG \
@@ -308,7 +298,7 @@ Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per config
 
 3. Se necessario, ottenere di nuovo l'indirizzo IP pubblico della VM con [az network public-ip show](/cli/azure/network/public-ip#show).
 
-    ```azurecli
+    ```azurecli-interactive
     az network public-ip show \
         --resource-group myResourceGroup \
         --name myVMPublicIP \
@@ -316,29 +306,25 @@ Il passaggio finale consiste nel configurare alcuni endpoint esterni. Per config
         --output tsv
     ```
 
-4.  Connettersi a EM Express dal browser: 
+4.  Connettersi a EM Express dal browser. Verificare che il browser sia compatibile con EM Express. È necessario installare Flash. 
 
     ```
     https://<VM ip address or hostname>:5502/em
     ```
 
-È possibile eseguire l'accesso usando l'account *SYS* e selezionare la casella di controllo *as sysdba*. Usare la password *OraPasswd1* impostata durante l'installazione. Verificare che il browser sia conforme a EM Express. Potrebbe essere necessario installare Flash.
+È possibile eseguire l'accesso usando l'account **SYS** e selezionare la casella di controllo **as sysdba**. Usare la password **OraPasswd1** impostata durante l'installazione. 
 
 ![Screenshot della pagina di accesso a Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-<a id="clean-up-resources" class="xliff"></a>
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-## Pulire le risorse
-
-Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Al termine dell'esplorazione di un primo database Oracle in Azure e quando la macchina virtuale non è più necessaria, è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuovere il gruppo di risorse la macchina virtuale e tutte le risorse correlate.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su altre [soluzioni Oracle in Azure](oracle-considerations.md). 
 

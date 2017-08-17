@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 635affebf9130c2bfb38e84cc144ee4838504777
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -297,6 +297,8 @@ A questo punto è possibile abilitare di nuovo l'utilità di pianificazione.
 
 ## <a name="group-based-filtering"></a>Filtri basati sui gruppi
 È possibile configurare il filtro basato su gruppi la prima volta che si installa Azure AD Connect tramite l'[installazione personalizzata](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Tale filtro è progettato per una distribuzione pilota in cui si desidera solo un piccolo gruppo di oggetti da sincronizzare. Dopo essere stato disabilitato, il filtro basato su gruppi non può essere abilitato nuovamente. L'uso del filtro basato su gruppi *non è supportato* in una configurazione personalizzata, ma è supportato solo per configurare questa funzionalità tramite l'installazione guidata. Dopo aver completato il progetto pilota, usare solo una delle altre opzioni di filtro descritte in questo argomento. Se si usa un filtro basato su unità organizzative insieme al filtro basato su gruppi, è necessario includere le unità organizzative in cui si trovano il gruppo e i relativi membri.
+
+Quando si sincronizzano più foreste di AD, è possibile configurare i filtri basati sui gruppi specificando un gruppo diverso per ogni istanza di AD Connector. Per sincronizzare un utente in una foresta di AD e lo stesso utente ha uno o più oggetti entità di protezione esterna corrispondenti nelle altre foreste di AD, è necessario assicurarsi che l'oggetto utente e tutti gli oggetti entità di protezione esterna corrispondenti siano inclusi nell'ambito dei filtri basati sui gruppi. Se uno o più oggetti entità di protezione esterna vengono esclusi dai filtri basati sui gruppi, l'oggetto utente non verrà sincronizzato con Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulla configurazione del [servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md).

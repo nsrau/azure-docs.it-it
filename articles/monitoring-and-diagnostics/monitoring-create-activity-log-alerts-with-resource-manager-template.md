@@ -2,7 +2,7 @@
 title: "Creare un avviso di log attività con un modello di Resource Manager | Microsoft Docs"
 description: Ricevere notifica della creazione di risorse di Azure.
 author: anirudhcavale
-manager: carmonm
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 07/06/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 239b8fe2a7724bb34e7060c90af73825e61d8398
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 26b140fef46a176b21bddbd7588543e71c251ed6
 ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Creare un avviso di log attività con un modello di Resource Manager
@@ -27,10 +26,8 @@ L'articolo descrive come usare un [modello di Azure Resource Manager](https://do
 
 I passaggi di base sono i seguenti:
 
-1.    Creare un modello come file JSON che descrive come creare l'avviso del log attività.
-2.    [Distribuire il modello con un metodo di distribuzione qualsiasi](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
-
-La sezione seguente descrive come creare un modello di Resource Manager prima solo per un avviso del log attività e poi per un avviso del log attività durante la creazione di un'altra risorsa.
+1.  Creare un modello come file JSON che descrive come creare l'avviso del log attività.
+2.  [Distribuire il modello con un metodo di distribuzione qualsiasi](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ## <a name="resource-manager-template-for-an-activity-log-alert"></a>Modello di Resource Manager per un avviso del log attività
 Per creare un avviso del log attività usando un modello di Resource Manager, creare una risorsa di tipo `microsoft.insights/activityLogAlerts` e completare tutte le proprietà correlate. Il modello seguente crea un avviso del log attività.
@@ -101,7 +98,11 @@ Per creare un avviso del log attività usando un modello di Resource Manager, cr
 }
 ```
 
+È anche possibile [visitare la raccolta di modelli di avvio rapido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) per alcuni esempi di modelli di avvisi del log attività.
+
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sugli [Avvisi](monitoring-overview-alerts.md)  
-Come aggiungere [gruppi di azione usando un modello di Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
+- Altre informazioni sugli [Avvisi](monitoring-overview-alerts.md)  
+- Come aggiungere [gruppi di azione usando un modello di Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
+- [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script di Azure PowerShell - Creare un&quot;app Web e distribuire il codice nell&quot;ambiente di gestione temporanea | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Creare un&quot;app Web e distribuire il codice nell&quot;ambiente di gestione temporanea
+title: Esempio di script di Azure PowerShell - Creare un'app Web e distribuire il codice nell'ambiente di gestione temporanea | Microsoft Docs
+description: Esempio di script di Azure PowerShell - Creare un'app Web e distribuire il codice nell'ambiente di gestione temporanea
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -11,7 +11,7 @@ ms.assetid: 27cf0680-c3a9-4a58-9f71-6dec09f6b874
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc

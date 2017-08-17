@@ -4,7 +4,7 @@ description: "Usare la funzionalità App Web di Azure del Servizio app di Micros
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: visualizzazione dei dati in tempo reale, visualizzazione dei dati dal vivo, visualizzazione dei dati del sensore
 ms.assetid: e42b07a8-ddd4-476e-9bfb-903d6b033e91
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 74f95d571da2e3066958cf3c5ab1938a5c631f7d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4f30643926def3259e603a94c741b8f65427b8da
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure usando la funzionalità App Web del Servizio App di Azure
@@ -84,7 +83,7 @@ Su GitHub è disponibile un'applicazione Web che consente di visualizzare i dati
 
    ![Configurare la distribuzione dell'app Web per l'uso del repository Git](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
-2. Fare clic su **Credenziali per la distribuzione**, creare un nome utente e una password da usare per connettersi al repository Git in Azure, quindi scegliere **OK**.
+2. Fare clic su **Credenziali per la distribuzione**, creare un nome utente e una password da usare per connettersi al repository Git in Azure, quindi scegliere **Salva**.
 
 3. Fare clic su **Panoramica** e prendere nota del valore di **URL clone GIT**.
 

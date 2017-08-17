@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 83bb2090d3a2fbd4fabdcd660c72590557cfcafc
-ms.openlocfilehash: 46702abb229ba0a6512f336cb0aa4e4a75b51771
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
 ms.contentlocale: it-it
-ms.lasthandoff: 02/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Riferimento al token di Azure AD
@@ -98,7 +97,7 @@ Quando si riscattano i token di aggiornamento per un nuovo token di accesso, vie
 
 ## <a name="validating-tokens"></a>Convalida dei token
 
-Per convalidare un id_token o un access_token, l'app deve convalidarne la firma e le attestazioni. Per convalidare i token di accesso, l'applicazione deve convalidare anche l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova in [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration). Il middleware di Azure AD dispone di funzionalità incorporate per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) per trovarne uno nel linguaggio di interesse. Per altre informazioni sulla convalida esplicita di un token JWT, vedere l'[esempio di convalida JWT manuale](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Per convalidare un id_token o un access_token, l'app deve convalidarne la firma e le attestazioni. Per convalidare i token di accesso, l'applicazione deve convalidare anche l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova in [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Il middleware di Azure AD dispone di funzionalità incorporate per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) per trovarne uno nel linguaggio di interesse. Per altre informazioni sulla convalida esplicita di un token JWT, vedere l'[esempio di convalida JWT manuale](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Sono disponibili librerie ed esempi di codice che illustrano come gestire facilmente la convalida dei token. Le informazioni seguenti vengono fornite a titolo esemplificativo per chi vuole comprenderne il processo sottostante.  Sono disponibili anche numerose librerie open source di terze parti per la convalida dei token JWT. Esiste almeno un'opzione per ogni piattaforma e linguaggio disponibili. Per altre informazioni sulle librerie di autenticazione di Azure AD e per ottenere esempi di codice, vedere [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md).
 

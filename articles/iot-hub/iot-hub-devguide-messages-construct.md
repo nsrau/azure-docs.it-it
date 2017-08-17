@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: be467cf7d3ada41f110f4f6aea686b3d40e01ffa
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: e6eafb1a0030b022da2b5d0b787e092f3067c99f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creare e leggere messaggi dell'hub IoT
@@ -50,8 +49,8 @@ La tabella seguente riporta il set delle proprietà di sistema nei messaggi dell
 | UserId |ID usato per specificare l'origine dei messaggi. Quando i messaggi vengono generati dall'hub IoT, viene impostata su `{iot hub name}`. |
 | Ack |Generatore di messaggi con commenti. Questa proprietà viene usata nei messaggi da cloud a dispositivo per richiedere all'hub IoT di generare messaggi con commenti come risultato dell'utilizzo del messaggio da parte del dispositivo. I valori possibili sono i seguenti: **none** (predefinito): non viene generato alcun messaggio con commenti, **positive**: si riceve un messaggio con commenti se il messaggio è stato completato, **negative**: si riceve un messaggio con commenti se il messaggio è scaduto o se è stato raggiunto il numero massimo di recapiti senza il completamento da parte del dispositivo, **full**: sia per esito positivo che negativo. Per altre informazioni, vedere [Commenti sui messaggi][lnk-feedback]. |
 | ConnectionDeviceId |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il valore **deviceId** del dispositivo che ha inviato il messaggio. |
-| ConnectionDeviceGenerationId |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il valore **generationId** del dispositivo che ha inviato il messaggio, come indicato in [Proprietà delle identità dei dispositivi][lnk-device-properties]. |
-| ConnectionAuthMethod |Metodo di autenticazione impostato dall'hub IoT sui messaggi da dispositivo a cloud. Questa proprietà contiene informazioni sul metodo di autenticazione usato per autenticare il dispositivo che invia il messaggio. Per altre informazioni, vedere la sezione [Anti-spoofing da dispositivo a cloud][lnk-antispoofing]. |
+| ConnectionDeviceGenerationId |ID impostato dall'hub IoT sui messaggi da dispositivo a cloud. Contiene il valore **generationId** (come indicato in [Proprietà delle identità dei dispositivi][lnk-device-properties]) del dispositivo che ha inviato il messaggio. |
+| ConnectionAuthMethod |Metodo di autenticazione impostato dall'hub IoT sui messaggi da dispositivo a cloud. Questa proprietà contiene informazioni sul metodo di autenticazione usato per autenticare il dispositivo che invia il messaggio. Per altre informazioni, vedere la sezione sull'[anti-spoofing da dispositivo a cloud][lnk-antispoofing]. |
 
 ## <a name="message-size"></a>Dimensioni dei messaggi
 
@@ -75,4 +74,7 @@ Per informazioni su come creare e leggere i messaggi dell'hub IoT in diversi lin
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md
-[[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties [lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-propertiess
+[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
+[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
+[lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties
+

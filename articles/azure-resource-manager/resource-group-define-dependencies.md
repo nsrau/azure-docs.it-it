@@ -1,6 +1,6 @@
 ---
-title: Impostare l&quot;ordine di distribuzione per le risorse di Azure | Documentazione Microsoft
-description: Descrive come impostare una risorsa come dipendente da un&quot;altra risorsa durante la distribuzione per garantire che le risorse vengano distribuite nell&quot;ordine corretto.
+title: Impostare l'ordine di distribuzione per le risorse di Azure | Documentazione Microsoft
+description: Descrive come impostare una risorsa come dipendente da un'altra risorsa durante la distribuzione per garantire che le risorse vengano distribuite nell'ordine corretto.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5617f6453cb5dbb1c86ec41d7b9649356a3d9c78
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3d6a46116ae9d7d940bc10dfa832540f42c0af7e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definire l'ordine per la distribuzione delle risorse nei modelli di Azure Resource Manager
@@ -154,7 +153,7 @@ Resource Manager identifica le dipendenze circolari durante la convalida del mod
 3. L'estensione in VM 1 dipende da VM 1 e VM 2. L'estensione imposta in VM 1 valori ottenuti da VM 2.
 4. L'estensione in VM 2 dipende da VM 1 e VM 2. L'estensione imposta in VM 2 valori ottenuti da VM 1.
 
-Per informazioni sulla valutazione dell'ordine di distribuzione e la risoluzione degli errori relativi alle dipendenze, vedere [Controllare la sequenza di distribuzione](resource-manager-common-deployment-errors.md#check-deployment-sequence).
+Per informazioni sulla valutazione dell'ordine di distribuzione e la risoluzione degli errori di dipendenza, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni sulla risoluzione dei problemi relativi alle dipendenze durante la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).

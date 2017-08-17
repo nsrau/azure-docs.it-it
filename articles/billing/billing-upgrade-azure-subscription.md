@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
 ms.contentlocale: it-it
-ms.lasthandoff: 03/17/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo
@@ -35,6 +35,6 @@ Aggiornare la propria sottoscrizione [Versione di valutazione gratuita](https://
    
     ![Schermata che mostra gli elementi da selezionare per confermare che si desidera aggiornare la sottoscrizione](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-Usare i vantaggi rimasti della versione di valutazione gratuita come il credito di 200 dollari o il limite di 30 giorni. Dopo aver usato tutti i vantaggi, la sottoscrizione viene aggiornata.
+Usare i vantaggi rimasti della versione di valutazione gratuita come il credito o il limite di 30 giorni. Dopo aver usato tutti i vantaggi, la sottoscrizione viene aggiornata.
 
 

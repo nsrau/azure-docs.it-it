@@ -1,6 +1,6 @@
 ---
 title: API per clienti Enterprise per la fatturazione di Azure - Spese per il Marketplace | Microsoft Docs
-description: Informazioni sulle API di creazione di report che consentono ai clienti Enterprise di Azure di estrarre i dati sull&quot;uso a livello di codice.
+description: Informazioni sulle API di creazione di report che consentono ai clienti Enterprise di Azure di estrarre i dati sull'uso a livello di codice.
 services: 
 documentationcenter: 
 author: aedwin
@@ -15,28 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 9f084dce3f01466aaa0e4c32d339c925d9faccd3
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 5539623f7ae35e14b6dafe6fdf9efe4bcaba4fd3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="reporting-apis-for-enterprise-customers---marketplace-charges-preview"></a>API di creazione report per clienti Enterprise - Spese per il Marketplace (anteprima)
+# <a name="reporting-apis-for-enterprise-customers---marketplace-store-charge"></a>API di creazione report per clienti Enterprise - Spese per il Marketplace Store
 
 L'API per spese per il Marketplace Store restituisce le spese giornaliere dettagliate in base all'uso correlate al Marketplace per il periodo di fatturazione specificato o per le date di inizio e fine indicate (le spese una tantum non sono incluse).
 
 ##<a name="request"></a>Richiesta 
-Le proprietà di intestazione comuni che devono essere aggiunte vengono specificate [qui](billing-enterprise-api.md). Se non viene specificato alcun periodo di fatturazione, vengono restituiti i dati per il periodo di fatturazione corrente. Gli intervalli di tempo personalizzati possono essere specificati con i parametri di data di inizio e l'inizio e di fine nel formato aaaa-MM-gg e l'intervallo di tempo massimo supportato è 36 mesi.  
+Le proprietà di intestazione comuni che devono essere aggiunte vengono specificate [qui](billing-enterprise-api.md). Se non viene specificato alcun periodo di fatturazione, vengono restituiti i dati per il periodo di fatturazione corrente. Gli intervalli di tempo personalizzati possono essere specificati con i parametri di data di inizio di fine nel formato aaaa-MM-gg e l'intervallo di tempo massimo supportato è 36 mesi.  
 
 |Metodo | URI della richiesta|
 |-|-|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
-|GET|https://consumption.azure.com/v1/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges|
+|GET|https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10|
 
-## <a name="response"></a>Risposta
+> [!Note]
+> Per usare la versione di anteprima dell'API, sostituire v2 con v1 nell'URL precedente.
+>
+
+## <a name="response"></a>Response
  
     
         [
@@ -100,6 +103,7 @@ Le proprietà di intestazione comuni che devono essere aggiunte vengono specific
 |extendedCost|decimal|Spesa prevista in base alla quantità usata e al costo esteso|
 <br/>
 ## <a name="see-also"></a>Vedere anche
+
 * [API per periodi di fatturazione](billing-enterprise-api-billing-periods.md)
 
 * [API per dettagli sull'uso](billing-enterprise-api-usage-detail.md) 

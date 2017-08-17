@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 5c22c2d8c00882c45ecc2991916e389b2a00586d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 62cd62ec3a2900f06acacc0852a48b5e3ff1c8cd
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>Risolvere i problemi di archiviazione file di Azure in Linux
@@ -84,11 +83,11 @@ Se non è possibile eseguire l'aggiornamento alle versioni del kernel più recen
 
 ### <a name="cause"></a>Causa
 
-Le distribuzioni di Linux non supportano ancora le funzionalità di crittografia disponibili in SMB 3.0. In alcune distribuzioni, a causa di una funzionalità mancante, gli utenti potrebbero ricevere un messaggio di errore "115" se tentano di eseguire il montaggio dell'archiviazione file di Azure usando SMB 3.0.
+Alcune distribuzioni Linux non supportano le funzionalità di crittografia in SMB 3.0 e gli utenti potrebbero ricevere un messaggio di errore "115" se tentano di eseguire il montaggio dell'archiviazione file di Azure usando SMB 3.0.
 
 ### <a name="solution"></a>Soluzione
 
-Se il client SMB Linux non supporta la crittografia, eseguire il montaggio dell'archiviazione file di Azure tramite SMB 2.1 da una VM Linux di Azure presente nello stesso data center dell'account di archiviazione file.
+La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente il montaggio della condivisione File di Azure in locale o in un'altra area di Azure. Al momento della pubblicazione, di questa funzionalità è stato eseguito il backport in Ubuntu 17.04 e Ubuntu 16.10. Se il client Linux SMB non supporta la crittografia, montare l'archiviazione file di Azure usando SMB 2.1 da una VM Linux di Azure presente nello stesso data center dell'account di archiviazione file.
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Rallentamento delle prestazioni in una condivisione file di Azure montata in una VM Linux
@@ -111,18 +110,7 @@ In alcuni scenari, l'opzione di montaggio **serverino** può far sì che il coma
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Se l'opzione **cache=strict** o **serverino** non è presente, smontare e montare nuovamente l'archiviazione file di Azure eseguendo il comando di montaggio dalla [documentazione](storage-how-to-use-files-linux.md#mount-the-file-share). Verificare quindi di nuovo che la voce **/etc/fstab** disponga delle opzioni corrette.
-
-<a id="error11"></a>
-## <a name="mount-error11-resource-temporarily-unavailable-when-youre-mounting-to-an-ubuntu-48-kernel"></a>"Errore di montaggio (11): Risorsa temporaneamente non disponibile" quando si esegue il montaggio in un kernel di Ubuntu 4.8
-
-### <a name="cause"></a>Causa
-
-Nel kernel di Ubuntu 16.10 (versione 4.8), nella documentazione del client si dichiara che il client supporta la crittografia, ma in realtà non è vero.
-
-### <a name="solution"></a>Soluzione
-
-Fintanto che Ubuntu 16.10 non viene corretto, specificare l'opzione di montaggio `vers=2.1` oppure usare Ubuntu 16.04.
+Se l'opzione **cache=strict** o **serverino** non è presente, smontare e montare nuovamente l'archiviazione file di Azure eseguendo il comando di montaggio dalla [documentazione](storage-how-to-use-files-linux.md). Verificare quindi di nuovo che la voce **/etc/fstab** disponga delle opzioni corrette.
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>I timestamp sono andati persi durante la copia dei file da Windows a Linux

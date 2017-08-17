@@ -1,6 +1,6 @@
 ---
 title: Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure | Microsoft Docs
-description: Riepiloga le configurazioni e i sistemi operativi supportati per la replica di Azure Site Recovery di macchine virtuali di Azure (VM) da un&quot;area a un&quot;altra qualora si renda necessario un ripristino di emergenza.
+description: Riepiloga le configurazioni e i sistemi operativi supportati per la replica di Azure Site Recovery di macchine virtuali di Azure (VM) da un'area a un'altra qualora si renda necessario un ripristino di emergenza.
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 7c30f5164b9fe7ff6044bbf23767a5db9a0f7c30
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
@@ -63,16 +62,35 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 
 #### <a name="windows"></a>Windows
 
-- Windows Server 2012 R2 a 64 bit
+- Windows Server 2016 (Server Core e Server con esperienza desktop)*
+- Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 con almeno SP1
 
+>[!NOTE]
+>
+> \*Windows Server 2016 Nano Server non è supportato.
+
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
 - CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2, 7.3
+- Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+- Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3)
 - SUSE Linux Enterprise Server 11 SP3
+
+>[!NOTE]
+>
+> Per i server Ubuntu che usano l'accesso e l'autenticazione basati su password e che usano il pacchetto cloud-init per configurare le macchine virtuali nel cloud, è possibile che l'accesso basato su password venga disabilitato in caso di failover, a seconda della configurazione di cloudinit. L'accesso basato su password può essere riabilitato nella macchina virtuale reimpostando la password dal menu Impostazioni (nella sezione SUPPORTO + RISOLUZIONE DEI PROBLEMI) di tale macchina virtuale con failover nel portale di Azure.
+
+### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel Ubuntu supportate per macchine virtuali di Azure
+
+**Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
+--- | --- | --- |
+14.04 LTS | 9.9 | Da 3.13.0-24 generica a 3.13.0-117 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-75 generica |
+14.04 LTS | 9.10 | Da 3.13.0-24 generica a 3.13.0-121 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-81 generica |
+16.04 LTS | 9.10 | Da 4.4.0-21 generica a 4.4.0-81 generica<br/>Da 4.8.0-34 generica a 4.8.0-56 generica<br/>Da 4.10.0-14 generica a 4.10.0-24 generica |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>File system e configurazioni di archiviazione guest supportati nelle macchine virtuali di Azure che eseguono il sistema operativo Linux
 
@@ -88,7 +106,7 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 -- | --
 America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali
 Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale, Europa occidentale
-Asia | India meridionale, India centrale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale
+Asia | India meridionale, India centrale, Asia sud-orientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale
 Australia   | Australia orientale, Australia sudorientale
 
 >[!NOTE]
@@ -113,16 +131,16 @@ Macchine virtuali migrate tramite Site Recovery | Supportato | Se si tratta di u
 
 **Configurazione** | **Supportato/Non supportato** | **Osservazioni**
 --- | --- | ---
-Dimensioni massime del disco del sistema operativo | Dimensioni massime del disco del sistema operativo supportate da Azure| Vedere [Dischi usati dalle VM.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
-Dimensioni massime del disco dati | Dimensioni massime del disco dati supportate da Azure| Vedere [Dischi usati dalle VM.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+Dimensioni massime del disco del sistema operativo | 1023 GB | Vedere [Dischi usati dalle VM.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+Dimensioni massime del disco dati | 1023 GB | Vedere [Dischi usati dalle VM.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
 Numero di dischi dati | Fino a 64 come supportato da una dimensione specifica di una macchina virtuale di Azure | Vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/windows/sizes.md)
 Disco temporaneo | Sempre escluso dalla replica | Il disco temporaneo è sempre escluso dalla replica. Non è opportuno inserire dati persistenti su un disco temporaneo in base alle indicazioni di Azure. Vedere [Disco temporaneo sulle macchine virtuali di Azure](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk) per ulteriori dettagli.
-Frequenza di modifica dei dati sul disco | Massimo 6 MB/s per disco | Se la frequenza di modifica dei dati sul disco supera costantemente 6 MB/s, la replica non si riprenderà. Se invece si tratta di un picco di dati occasionale e la frequenza di modifica dei dati supera 6 MB/s solo per un breve intervallo, la replica si riprenderà. In questo caso, potrebbero verificarsi punti di ripristino leggermente ritardati.
+Frequenza di modifica dei dati sul disco | Massimo 6 MB/s per disco | Se la frequenza di modifica dei dati sul disco supera costantemente 6 MB/s, la replica non verrà aggiornata. Se invece si tratta di un picco di dati occasionale e la frequenza di modifica dei dati supera 6 MB/s solo per un breve intervallo, la replica verrà aggiornata. In questo caso, potrebbero verificarsi punti di ripristino leggermente ritardati.
 Dischi su account di archiviazione standard | Supportato |
 Dischi su account di archiviazione premium | Supportato | Se una macchina virtuale dispone di dischi distribuiti tra account di archiviazione standard e premium, è possibile selezionare un account di archiviazione di destinazione diverso per ogni disco per assicurarsi di avere la stessa configurazione di archiviazione nell'area di destinazione
 Dischi gestiti standard | Non supportate |  
 Dischi gestiti premium | Non supportate |
-Spazi di archiviazione | Non supportate |         
+Spazi di archiviazione | Supportato |         
 Crittografia per dati inattivi (SSE) | Supportato | Per gli account di archiviazione della cache e di destinazione, è possibile selezionare un account di archiviazione SSE abilitato.     
 Crittografia dischi di Azure (ADE) | Non supportate |
 Aggiunta/rimozione a caldo disco | Non supportate | Se si aggiungono o rimuovono dischi dati dalla macchina virtuale, è necessario disabilitare la replica e abilitarla nuovamente per la macchina virtuale.
@@ -130,7 +148,7 @@ Esclusione disco | Non supportate|   Il disco temporaneo è escluso per impostaz
 Archiviazione con ridondanza locale | Supportato |
 Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |
-ZRS | Supportato |  
+ZRS | Non supportate |  
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 
 >[!IMPORTANT]

@@ -1,6 +1,6 @@
 ---
 title: Aggregazione di eventi di Azure Service Fabric con Diagnostica di Azure per Linux | Microsoft Docs
-description: Informazioni sull&quot;aggregazione e la raccolta di eventi con LAD per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
+description: Informazioni sull'aggregazione e la raccolta di eventi con LAD per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1152893c4c686fa69f7e06ffa7e2d2b2272bc772
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: bcc3a229369a065cfcfbd32eadbf3f6ae6fe0036
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -34,9 +33,9 @@ Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i
 
 Un modo per caricare e raccogliere i registri consiste nell'usare l'estensione Diagnostica di Azure per Linux, ovvero LAD, che consente di caricare i registri nell'Archiviazione di Azure e di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in una piattaforma di analisi come [Log Analytics di OMS](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi di registrazione.
 
-## <a name="log-and-event-sources"></a>Origini di eventi e registri
+## <a name="log-and-event-sources"></a>Origini di log ed eventi
 
-### <a name="service-fabric-infrastructure-events"></a>Eventi dell'infrastruttura di Service Fabric
+### <a name="service-fabric-platform-events"></a>Eventi della piattaforma Service Fabric
 Service Fabric emette alcuni registri pronti all'uso tramite [LTTng](http://lttng.org), inclusi gli eventi operativi o gli eventi di runtime. Questi log vengono archiviati nel percorso specificato dal cluster del modello di Resource Manager. Per ottenere e impostare i dettagli dell'account di archiviazione, cercare il tag **AzureTableWinFabETWQueryable** e quindi **StoreConnectionString**.
 
 ### <a name="application-events"></a>Eventi dell'applicazione

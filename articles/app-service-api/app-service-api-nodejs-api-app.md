@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 49f6a49f3f97841e896ff2d497555c42a1ec8e0d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 806585edd43b9d2d678bfa41523e4d9d40af8cba
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Compilare un'API RESTful Node.js e distribuirla a un'app per le API in Azure
@@ -64,12 +64,12 @@ In questa sezione dell'esercitazione viene modellato un flusso di lavoro di svil
 
 Modificare la directory per impostarla sulla cartella di *avvio* e quindi eseguire `yo swaggerize`. Swaggerize crea un progetto Node.js per l'API dalla definizione Swagger in *api.json*.
 
-    ```bash
-    cd start
-    yo swaggerize --apiPath api.json --framework express
-    ```
+```bash
+cd start
+yo swaggerize --apiPath api.json --framework express
+```
 
-     When Swaggerize asks for a project name, use *ContactList*.
+Quando Swaggerize chiede un nome di progetto, usare *ContactList*.
    
    ```bash
    Swaggerize Generator

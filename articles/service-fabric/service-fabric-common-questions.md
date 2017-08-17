@@ -3,7 +3,7 @@ title: Domande frequenti su Microsoft Azure Service Fabric | Microsoft Docs
 description: Domande frequenti su Service Fabric e relative risposte
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: chackdan
 manager: timlt
 editor: 
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2017
-ms.author: seanmck
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 0d1d795a4d6965de6cdc2b9bd81a24a27a255566
+ms.date: 06/20/2017
+ms.author: chackdan
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ce6debc0832da565d24a3ca82e2fa5bf7b797f8a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -41,7 +41,7 @@ Non ancora, ma si tratta di una richiesta comune che abbiamo intenzione di imple
 
 Il problema con gli aggiornamenti del sistema operativo è che solitamente richiedono un riavvio della macchina, causando così una perdita temporanea di disponibilità. Di per sé non sarebbe un problema, poiché Service Fabric reindirizzerà automaticamente verso altri nodi il traffico di tali servizi. Tuttavia, se gli aggiornamenti del sistema operativo non vengono coordinati all'interno del cluster, esiste il rischio di interruzione simultanea per parecchi nodi. Tali riavvii simultanei possono causare la perdita totale di disponibilità per un servizio o, perlomeno, per una partizione specifica (per un servizio con stato).
 
-In futuro Microsoft supporterà un criterio di aggiornamento del sistema operativo completamente automatico e coordinato tra i vari domini di aggiornamento, per garantire la disponibilità nonostante i riavvii e altri guasti o errori imprevisti.
+In futuro Microsoft intende supportare un criterio di aggiornamento del sistema operativo completamente automatico e coordinato tra i vari domini di aggiornamento, per garantire la disponibilità nonostante i riavvii e altri guasti o errori imprevisti.
 
 Nel frattempo è stato [messo a disposizione uno script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) che un amministratore del cluster può usare per avviare manualmente l'applicazione sicura di patch di ogni nodo.
 
@@ -90,7 +90,7 @@ Il problema è stato segnalato nei cluster versione 5.6.204.9494
 
 **Mitigazione**: seguire [questo documento](service-fabric-dnsservice.md) per abilitare il servizio DNS di Service Fabric nel cluster.
 
-**Correzione**: eseguire l'aggiornamento a una versione del cluster supportata superiore a 5.6.204.9494, se disponibile. Se il cluster è impostato per gli aggiornamenti automatici, verrà aggiornato automaticamente alla versione in cui questo problema è stato risolto.
+**Correzione**: eseguire l'aggiornamento a una versione del cluster supportata successiva a 5.6.204.9494, se disponibile. Se il cluster è impostato per gli aggiornamenti automatici, verrà aggiornato automaticamente alla versione in cui questo problema è stato risolto.
 
   
 ## <a name="application-design"></a>Progettazione di applicazioni

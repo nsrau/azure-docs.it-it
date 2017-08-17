@@ -1,11 +1,11 @@
 ---
-title: Eseguire il provisioning di nuovi tenant in un&quot;app multi-tenant che usa il database SQL di Azure | Microsoft Docs
-description: Informazioni su come eseguire il provisioning di nuovi tenant e catalogarli nell&quot;app SaaS Wingtip
+title: Eseguire il provisioning di nuovi tenant in un'app multi-tenant che usa il database SQL di Azure | Microsoft Docs
+description: Informazioni su come eseguire il provisioning di nuovi tenant e catalogarli nell'app SaaS Wingtip
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: f6beb62246aaf59bfd81467f07d347913a20677b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 658c316d8d9d14ce11dbb92188afbf0e68c00493
 ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
@@ -70,7 +69,7 @@ Eseguire lo script *Demo-ProvisionAndCatalog* per creare velocemente un tenant e
 1. Aprire **Demo-ProvisionAndCatalog.ps1** in PowerShell ISE e impostare i valori seguenti:
    * **$TenantName** = nome della nuova sede di eventi, ad esempio *Bushwillow Blues*.
    * **$VenueType** = uno dei tipi di sedi predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer.
-   * **$DemoScenario** = 1, lasciare il valore impostato su _1_ per **effettuare il provisioning di un singolo tenant**.
+   * **$DemoScenario** = 1, lasciare il valore impostato su _1_ per *effettuare il provisioning di un singolo tenant*.
 
 1. Premere **F5** ed eseguire lo script.
 
@@ -83,15 +82,15 @@ Dopo il completamento dello script, viene effettuato il provisioning del nuovo t
 
 Questo esercizio descrive come effettuare il provisioning di un batch di altri tenant. È consigliabile eseguire il provisioning di un batch di tenant prima del completamento delle altre esercitazioni su SaaS Wingtip in modo da avere più database da usare.
 
-1. Aprire ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in *PowerShell ISE* e impostare il valore seguente:
-   * **$DemoScenario** = **3**, impostare su **3** per **effettuare il provisioning di un batch di tenant**.
+1. Aprire ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in *PowerShell ISE* e impostare il parametro *$DemoScenario* su 3:
+   * **$DemoScenario** = **3**, impostare su **3** per *effettuare il provisioning di un batch di tenant*.
 1. Premere **F5** ed eseguire lo script.
 
 Lo script distribuisce un batch di altri tenant e usa [modello di Azure Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md) che controlla il batch, quindi delega il provisioning di ogni database a un modello collegato. L'uso dei modelli in questo modo consente ad Azure Resource Manager di gestire il processo di provisioning per lo script. I modelli effettuano il provisioning dei database in parallelo, quando possibile, e gestiscono la ripetizione dei tentativi se necessario, ottimizzando il processo nel suo complesso. Lo script è idempotent, pertanto, se non riesce o si interrompe per qualsiasi motivo, eseguirlo nuovamente.
 
 ### <a name="verify-the-batch-of-tenants-successfully-deployed"></a>Verificare la corretta distribuzione del batch di tenant
 
-* Aprire il server *tenants1* nel [portale di Azure](https://portal.azure.com) e fare clic su **Database SQL**:
+* Aprire il server *tenants1* passando all'elenco dei server nel [portale di Azure](https://portal.azure.com), fare clic su **database SQL** e verificare che il batch di 17 database aggiuntivi sia ora nell'elenco:
 
    ![elenco di database](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
@@ -103,13 +102,13 @@ Per capire meglio come l'applicazione Wingtip implementa il provisioning di nuov
 1. Aprire ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ e impostare i parametri seguenti:
    * **$TenantName** = i nomi dei tenant devono essere univoci, quindi impostare un nome diverso da quello dei tenant esistenti, ad esempio *Hackberry Hitters*.
    * **$VenueType** = usare uno dei tipi di sedi predefiniti, ad esempio *judo*.
-   * **$DemoScenario** = 1, impostare su **1** per **effettuare il provisioning di un singolo tenant**.
+   * **$DemoScenario** = **1**, impostare su **1** per *effettuare il provisioning di un singolo tenant*.
 
 1. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga seguente: *New-Tenant `* e premere **F9**.
 
    ![punto di interruzione](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Premere **F5** per eseguire lo script. Quando viene raggiunto il punto di interruzione, premere **F11** per eseguire l'istruzione. Tracciare l'esecuzione dello script usando **F10** e **F11** per eseguire un'istruzione alla volta o singolarmente le varie funzioni chiamate. [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+1. Premere **F5** per eseguire lo script. Quando viene raggiunto il punto di interruzione, premere **F11** per eseguire l'istruzione. Tenere traccia dell'esecuzione dello script usando le opzioni del menu di debug **F10** e **F11** per eseguire le istruzioni delle funzioni chiamate. Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>Esaminare nei dettagli l'implementazione di provisioning e catalogazione eseguendo lo script un'istruzione alla volta
 

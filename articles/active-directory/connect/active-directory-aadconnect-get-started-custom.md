@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
@@ -278,6 +278,9 @@ Il servizio ADFS richiede un account di servizio del dominio per autenticare gli
 * **Account utente di dominio** : questo tipo di account richiede di fornire una password e di aggiornarla regolarmente in caso di modifica o di scadenza. Usare questa opzione solo se il dominio a cui appartengono i server AD FS non include controller di dominio di Windows Server 2012.
 
 Se è stato selezionato l'account del servizio gestito del gruppo e questa funzionalità non è mai stata usata in Active Directory, vengono richieste anche le credenziali di amministratore dell'organizzazione. Queste credenziali vengono usate per avviare l'archivio chiavi e abilitare la funzionalità di Active Directory.
+
+> [!NOTE]
+> Azure AD Connect esegue una verifica per rilevare se il servizio Active Directory Federation Services è già registrato come SPN nel dominio.  Active Directory Domain Services non consentirà la registrazione di SPN duplicati.  Se viene trovato un SPN duplicato, non sarà possibile continuare fino alla rimozione del valore SPN.
 
 ![Account del servizio ADFS](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 

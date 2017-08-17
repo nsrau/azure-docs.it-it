@@ -3,7 +3,7 @@ title: Progettare il primo database SQL di Azure | Microsoft Docs
 description: Informazioni su come progettare il primo database SQL di Azure.
 services: sql-database
 documentationcenter: 
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 06/20/2017
-ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 8af9ea0a76b9a0606284505195ee3f52b1964604
+ms.date: 07/31/2017
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: ec3b2debcd65f733041462940196a61c109bf051
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -42,13 +41,15 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, assicurarsi di aver installato la versione più recente di [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS). 
+Per completare questa esercitazione, accertarsi di avere installato:
+- La versione più recente di [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS).
+- La versione più recente di [BCP e SQLCMD] [https://www.microsoft.com/download/details.aspx?id=36433].
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database-in-the-azure-portal"></a>Creare un database SQL vuoto nel portale di Azure
+## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
 
 Un database SQL di Azure viene creato con un set definito di [risorse di calcolo e di archiviazione](sql-database-service-tiers.md). Il database viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) e in un [server logico di database SQL di Azure](sql-database-features.md). 
 
@@ -96,7 +97,7 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
 
    ![notifica](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creare una regola del firewall a livello di server nel portale di Azure
+## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
 
 Il servizio di database SQL crea un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o ai database sul server a meno che non venga creata una regola del firewall per aprire il firewall per indirizzi IP specifici. Seguire questi passaggi per creare una [regola del firewall a livello di server di database SQL](sql-database-firewall-configure.md) per l'indirizzo IP del client e abilitare la connettività esterna tramite il firewall del database SQL solo per il proprio indirizzo IP. 
 
@@ -110,7 +111,7 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
    > Questo nome completo del server è necessario per connettersi al server e ai relativi database nelle guide introduttive successive.
    > 
 
-   ![Nome del server](./media/sql-database-get-started-portal/server-name.png) 
+   ![Nome del server](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 2. Fare clic su **Imposta firewall server** sulla barra degli strumenti, come illustrato nell'immagine precedente. Si apre la pagina **Impostazioni del firewall** per il server del database SQL. 
 
@@ -130,7 +131,7 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
 > [!IMPORTANT]
 > Per impostazione predefinita, l'accesso attraverso il firewall del database SQL è abilitato per tutti i servizi di Azure. Selezionando **NO** in questa pagina permette di disabilitare tutti i servizi di Azure.
 
-## <a name="get-connection-information-in-the-azure-portal"></a>Ottenere informazioni di connessione nel portale di Azure
+## <a name="sql-server-connection-information"></a>Informazioni di connessione SQL Server
 
 Ottenere il nome completo del server per il server del database SQL di Azure nel portale di Azure. Usare il nome completo del server per connettersi al server tramite SQL Server Management Studio.
 
@@ -138,7 +139,7 @@ Ottenere il nome completo del server per il server del database SQL di Azure nel
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
 3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**.
 
-   ![informazioni di connessione](./media/sql-database-get-started-portal/server-name.png)
+   ![informazioni di connessione](./media/sql-database-connect-query-dotnet/server-name.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Connettersi al database con SSMS
 
@@ -168,7 +169,7 @@ Usare [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
    ![oggetti di database](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="create-tables-in-the-database-with-ssms"></a>Creare tabelle nel database con SQL Server Management Studio 
+## <a name="create-tables-in-the-database"></a>Creare tabelle nel database 
 
 Creare uno schema di database con quattro tabelle che modellano un sistema di gestione degli studenti per le università tramite [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference):
 
@@ -239,7 +240,7 @@ Nel diagramma seguente viene illustrato come queste tabelle sono correlate tra l
 
    ![tabelle create con SQL Server Management Studio](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="load-data-into-the-tables-with-ssms"></a>Caricare i dati nelle tabelle con SQL Server Management Studio
+## <a name="load-data-into-the-tables"></a>Caricare i dati nelle tabelle
 
 1. Creare una cartella denominata **SampleTableData** nella cartella download per archiviare i dati di esempio per il database. 
 
@@ -263,7 +264,7 @@ Nel diagramma seguente viene illustrato come queste tabelle sono correlate tra l
 
 A questo punto, sono stati caricati i dati di esempio nelle tabelle create in precedenza.
 
-## <a name="query-the-tables-with-ssms"></a>Eseguire una query nelle tabelle con SQL Server Management Studio
+## <a name="query-data"></a>Eseguire query sui dati
 
 Eseguire le query seguenti per recuperare informazioni dalle tabelle del database. Vedere [Writing SQL Queries](https://technet.microsoft.com/library/bb264565.aspx) (Scrittura di query SQL) per altre informazioni sulla scrittura di query SQL. La prima query unisce tutte e quattro le tabelle per trovare tutti gli studenti a cui ha insegnato "Dominick Pope" che hanno un livello superiore al 75% nella sua classe. La seconda query unisce tutte e quattro le tabelle e trova tutti i corsi in cui si è registrato "Noe Coleman".
 
@@ -300,7 +301,7 @@ Eseguire le query seguenti per recuperare informazioni dalle tabelle del databas
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time-using-the-azure-portal"></a>Ripristinare un database a un momento precedente con il portale di Azure
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>Ripristinare un database a un momento precedente
 
 Si supponga di aver eliminato accidentalmente una tabella. Si tratta di un elemento che non è facile da ripristinare. Il Database SQL di Azure consente di tornare in qualsiasi punto degli ultimi 35 giorni e di ripristinare questo punto nel tempo in un nuovo database. È possibile usare questo database per ripristinare i dati eliminati. La procedura seguente consente di ripristinare il database di esempio in un punto precedente all'aggiunta delle tabelle.
 
@@ -329,8 +330,10 @@ Questa esercitazione ha illustrato le attività di base che è possibile eseguir
 > * Creare tabelle
 > * Eseguire il caricamento bulk dei dati
 > * Eseguire query sui dati
-> * Ripristinare il database a un momento precedente usando le funzionalità di [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) del database SQL. Passare all'esercitazione successiva per informazioni sulla migrazione dei dati.
+> * Ripristinare il database a un momento precedente usando le funzionalità di [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) del database SQL
+
+Per informazioni sulla progettazione di un database con Visual Studio e C#, passare all'esercitazione successiva.
 
 > [!div class="nextstepaction"]
->[Eseguire la migrazione di un database SQL Server a un database SQL di Azure](sql-database-migrate-your-sql-server-database.md)
+>[Progettare un database SQL di Azure e connettersi con C# e ADO.NET](sql-database-design-first-database-csharp.md)
 

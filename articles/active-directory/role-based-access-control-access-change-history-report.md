@@ -1,31 +1,32 @@
 ---
-title: Creazione di report sull&quot;accesso - Controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
-description: Generare un report che elenca tutte le modifiche nell&quot;accesso alle sottoscrizioni di Azure con il controllo degli accessi in base al ruolo negli ultimi 90 giorni.
+title: Creazione di report sull'accesso - Controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
+description: Generare un report che elenca tutte le modifiche nell'accesso alle sottoscrizioni di Azure con il controllo degli accessi in base al ruolo negli ultimi 90 giorni.
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: kgremban
+ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: 433dc731c342924d962e2f08e392556558a0168d
-ms.lasthandoff: 02/28/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 43ddeebfea4c914b8377d3363ba3d0c12db0adca
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Creare un report degli accessi per il controllo degli accessi in base al ruolo
 Ogni volta che un utente concede o revoca l'accesso all'interno delle sottoscrizioni, le modifiche vengono registrate negli eventi di Azure. È possibile creare report della cronologia delle modifiche relative all'accesso per visualizzare tutte le modifiche degli ultimi 90 giorni.
 
 ## <a name="create-a-report-with-azure-powershell"></a>Creare un rapporto con Azure PowerShell
-Per creare un report della cronologia delle modifiche relative all'accesso in PowerShell, usare il comando `Get-AzureRMAuthorizationChangeLog` . Ulteriori dettagli su questo cmdlet sono disponibili in [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.Storage/1.0.6/Content/ResourceManagerStartup.ps1).
+Per creare un report della cronologia delle modifiche relative all'accesso in PowerShell, usare il comando [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog).
 
 Quando si chiama questo comando, è possibile specificare la proprietà delle assegnazioni da elencare, ad esempio:
 
@@ -33,18 +34,17 @@ Quando si chiama questo comando, è possibile specificare la proprietà delle as
 | --- | --- |
 | **Azione** |Indica se l'accesso è stato concesso o revocato. |
 | **Chiamante** |Proprietario responsabile della modifica all'accesso. |
-| **Data** |Data e ora in cui l'accesso è stato modificato. |
-| **DirectoryName** |Directory di Azure Active Directory. |
+| **PrincipalId** | L'identificatore univoco dell'utente, del gruppo o dell'applicazione che è stato assegnato al ruolo |
 | **PrincipalName** |Nome dell'utente, del gruppo o dell'applicazione. |
 | **PrincipalType** |Indica se l'assegnazione era destinata a un utente, un gruppo o un'applicazione |
-| **RoleId** |GUID del ruolo concesso o revocato. |
+| **RoleDefinitionId** |GUID del ruolo concesso o revocato. |
 | **RoleName** |Ruolo concesso o revocato. |
+| **Ambito** | L'identificatore univoco della sottoscrizione, del gruppo di risorse o della risorsa a cui si applica l'assegnazione | 
 | **ScopeName** |Nome della sottoscrizione, del gruppo di risorse o della risorsa. |
 | **ScopeType** |Indica se l'assegnazione era a livello di ambito della sottoscrizione, del gruppo di risorse e della risorsa. |
-| **SubscriptionId** |GUID della sottoscrizione di Azure. |
-| **SubscriptionName** |Nome della sottoscrizione di Azure. |
+| **Timestamp** |Data e ora in cui l'accesso è stato modificato. |
 
-Questo comando di esempio elenca tutte le modifiche relative all'accesso nella sottoscrizione per gli ultimi&7; giorni.
+Questo comando di esempio elenca tutte le modifiche relative all'accesso nella sottoscrizione per gli ultimi 7 giorni.
 
 ```
 Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName

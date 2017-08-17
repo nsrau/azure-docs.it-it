@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2017
+ms.date: 07/20/2017
 ms.author: pullabhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c65976c7394c7f9691526c0914854ef09184ab07
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae7c345c11a7db25413d60ad822f16f84ca37362
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="recover-files-from-azure-virtual-machine-backup-preview"></a>Ripristinare i file da un backup della macchina virtuale di Azure (anteprima)
+# <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
 Backup di Azure consente di ripristinare [i dischi e le VM di Azure](./backup-azure-arm-restore-vms.md) dai backup delle VM di Azure. Questo articolo illustra come è possibile ripristinare elementi, come file e cartelle, da un backup di VM di Azure.
 
@@ -35,7 +34,7 @@ Backup di Azure consente di ripristinare [i dischi e le VM di Azure](./backup-az
 
 1. Accedere al [portale di Azure](http://portal.Azure.com). Cercare l'insieme di credenziali di Servizi di ripristino pertinente e la voce di backup necessaria.
 
-2. Nel pannello Elemento di backup fare clic su **Ripristino file (anteprima)**
+2. Nel pannello Elemento di backup fare clic su **Ripristino file**
 
     ![Aprire la voce di backup dell'insieme di credenziali di Servizi di ripristino](./media/backup-azure-restore-files-from-vm/open-vault-item.png)
 
@@ -49,13 +48,19 @@ Backup di Azure consente di ripristinare [i dischi e le VM di Azure](./backup-az
 
   Il file eseguibile/script crea una connessione tra il computer locale e il punto di ripristino specificato.
 
-5. Eseguire il file eseguibile/script nel computer in cui si vogliono ripristinare i file. È necessario eseguire il file eseguibile/script con le credenziali di amministratore. Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
+5. Per eseguire lo script o il file eseguibile scaricato è necessaria una password. È possibile copiare la password dal portale usando il pulsante Copia vicino alla password generata
 
-    - go.microsoft.com
+    ![Password generata](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
+
+6. Eseguire il file eseguibile/script nel computer in cui si vogliono ripristinare i file. È necessario eseguire il file eseguibile/script con le credenziali di amministratore. Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
+
+    - download.microsoft.com
     - Endpoint di Azure usati per i backup di VM di Azure
     - porta in uscita 3260
 
    Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se tali componenti non esistono nel computer in cui lo script è in esecuzione, verrà richiesta l'autorizzazione per installare i componenti rilevanti, che saranno installati dopo avere ottenuto il consenso.
+   
+   Immettere la password copiata dal portale quando richiesto. Dopo avere immesso la password valida, gli script si connettono al punto di ripristino.
       
     ![Pannello Ripristino file](./media/backup-azure-restore-files-from-vm/executable-output.png)
     

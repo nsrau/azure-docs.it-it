@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: babanisa;sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 775900fcae1b2832a5d0951e2a4053562c21455e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -33,11 +33,11 @@ ms.lasthandoff: 06/28/2017
 
 I log di diagnostica sono disabilitati per impostazione predefinita. Per abilitare i log di diagnostica, eseguire la procedura seguente:
 
-1.  Nel [portale di Azure](https://portal.azure.com) passare al pannello Processo di streaming.
+1.  Nel [portale di Azure](https://portal.azure.com) in **Monitoraggio + Gestione** fare clic su **Log di diagnostica**.
 
-2.  In **Monitoraggio** andare al pannello **Log di diagnostica**.
+    ![navigazione al pannello dei log di diagnostica](./media/service-bus-diagnostic-logs/image1.png)
 
-    ![navigazione al pannello dei log di diagnostica](./media/service-bus-diagnostic-logs/image1.png)  
+2. Fare clic sulla risorsa da monitorare.  
 
 3.  Fare clic su **Attiva diagnostica**.
 
@@ -49,9 +49,7 @@ I log di diagnostica sono disabilitati per impostazione predefinita. Per abilita
 
 5.  Impostare la destinazione di archiviazione desiderata, ad esempio un account di archiviazione, un hub eventi o Azure Log Analytics.
 
-6.  Selezionare le categorie di log da raccogliere, ad esempio **Esecuzione** o **Creazione e modifica**.
-
-7.  Salvare le nuove impostazioni di diagnostica.
+6.  Salvare le nuove impostazioni di diagnostica.
 
 Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, all'interno del pannello **Log di diagnostica**.
 
@@ -61,11 +59,11 @@ Per altre informazioni sulla configurazione della diagnostica, vedere la [panora
 
 Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogni voce presenta campi stringa che usano il formato descritto nella sezione seguente.
 
-## <a name="operation-logs-example"></a>Esempio di log operazioni
+## <a name="operational-logs-schema"></a>Schema di log operativi
 
 I log nella categoria **OperationalLogs** acquisiscono i dati relativi al funzionamento del bus di servizio. In particolare, questi log acquisiscono il tipo di operazione, tra cui la creazione delle code, le risorse usate e lo stato dell'operazione.
 
-Le stringhe JSON dei log operazioni includono gli elementi elencati nella tabella seguente:
+Le stringhe JSON dei log operativi includono gli elementi elencati nella seguente tabella:
 
 Nome | Descrizione
 ------- | -------
@@ -79,7 +77,7 @@ Status | Stato dell'operazione
 Chiamante | Chiamante dell'operazione (Portale di Azure o client di gestione)
 category | OperationalLogs
 
-Di seguito è riportato un esempio di stringa JSON di log operazioni:
+Di seguito è riportato un esempio di stringa JSON di log operativo:
 
 ```json
 {

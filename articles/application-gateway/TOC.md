@@ -7,6 +7,7 @@
 ## [Routing degli URL](application-gateway-url-route-overview.md)
 ## [Multisito](application-gateway-multi-site-overview.md)
 ## [Panoramica di SSL end-to-end](application-gateway-backend-ssl.md)
+## [Criteri SSL](application-gateway-ssl-policy-overview.md)
 ## [Reindirizzamento](application-gateway-redirect-overview.md)
 ## [Supporto multi-tenant](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## Personalizzare le regole di Web Application Firewall
 ### [Portale](application-gateway-customize-waf-rules-portal.md)
 ### [Interfaccia della riga di comando di Azure 2.0](application-gateway-customize-waf-rules-cli.md)
-## Eseguire la configurazione per l'offload SSL
+## Configurare SSL
 ### [Portale](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (classico)](application-gateway-ssl.md)
 ### [Interfaccia della riga di comando di Azure 2.0](application-gateway-ssl.md)
-### [Criteri e applicazione end-to-end](application-gateway-end-to-end-ssl-powershell.md)
+### [End-to-end](application-gateway-end-to-end-ssl-powershell.md)
+### [Criteri SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Configurare un routing basato su percorsi URL
 ### [Portale](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

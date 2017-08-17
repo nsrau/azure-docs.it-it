@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/30/2017
+ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ea438530808b418e1a3b4673a72de5df0738e797
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
@@ -65,6 +64,11 @@ Usare la procedura seguente per configurare l'account di archiviazione per l'arc
 
       ![Selezionare l'account di archiviazione - Passaggio 6](./media/backup-azure-configure-reports/save-configuration.png)
 7. Esaminare tutte le modifiche e fare clic sul pulsante **Salva** nella parte superiore, come illustrato nella figura precedente. Questa azione assicura che tutte le modifiche vengano salvate e che l'account di archiviazione sia ora configurato per l'archiviazione dei dati dei report.
+
+> [!NOTE]
+> Dopo aver configurato i report con il salvataggio dell'account di archiviazione, è consigliabile **attendere 24 ore** affinché venga completato il push di dati iniziale. È consigliabile importare il pacchetto di contenuto di Backup di Azure in Power BI solo dopo tale intervallo. Per altri dettagli, vedere la [sezione delle domande frequenti](#frequently-asked-questions). 
+>
+>
 
 ## <a name="view-reports-in-power-bi"></a>Visualizzare i report in Power BI 
 Dopo aver configurato l'account di archiviazione per i report usando l'insieme di credenziali di Servizi di ripristino, il trasferimento dei dati dei report inizierà dopo circa 24 ore. Trascorse 24 ore per la configurazione dell'account di archiviazione, usare la procedura seguente per visualizzare i report in Power BI:

@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;app line-of-business in Azure con l&quot;autenticazione di Azure Active Directory | Documentazione Microsoft
-description: Informazioni su come creare un&quot;applicazione line-of-business ASP.NET MVC nel servizio app di Azure che esegue l&quot;autenticazione con Azure Active Directory
+title: Creare un'app line-of-business in Azure con l'autenticazione di Azure Active Directory | Documentazione Microsoft
+description: Informazioni su come creare un'applicazione line-of-business ASP.NET MVC nel servizio app di Azure che esegue l'autenticazione con Azure Active Directory
 services: app-service\web, active-directory
 documentationcenter: .net
 author: cephalin
@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 2576b658eaf1df95aa9700e06559edf6066cc534
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>Creare un'app line-of-business in Azure con l'autenticazione di Azure Active Directory
 Questo articolo illustra come creare un'app line-of-business .NET nelle [app Web del servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) usando la funzionalità [Autenticazione/Autorizzazione](../app-service/app-service-authentication-overview.md). Spiega inoltre come usare l' [API Graph di Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) per eseguire query sui dati della directory nell'applicazione.
 
-Il tenant di Azure Active Directory usato può essere una directory solo di Azure. In alternativa, può essere [sincronizzato con l'istanza di Active Directory locale](../active-directory/active-directory-aadconnect.md) per creare un'esperienza Single Sign-On per gli utenti locali e remoti. In questo articolo si usa la directory predefinita per l'account Azure.
+Il tenant di Azure Active Directory usato può essere una directory solo di Azure. In alternativa, può essere [sincronizzato con l'istanza di Active Directory locale](../active-directory/active-directory-aadconnect.md) per creare un'unica esperienza Single Sign-On per gli utenti locali e remoti. In questo articolo si usa la directory predefinita per l'account Azure.
 
 <a name="bkmk_build"></a>
 

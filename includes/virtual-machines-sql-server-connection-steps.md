@@ -28,19 +28,8 @@
 Aprire altre porte per altri componenti in base alle esigenze. Per ulteriori informazioni, vedere [Configurare Windows Firewall per consentire l'accesso a SQL Server](http://msdn.microsoft.com/library/cc646023.aspx).
 
 ### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>Configurare SQL Server per l'ascolto sul protocollo TCP
-1. Mentre si è connessi alla macchina virtuale, nella pagina iniziale digitare **Gestione configurazione SQL Server** e premere INVIO.
-   
-    ![Apertura di SQL Server Management Studio](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. In Gestione configurazione SQL Server, nel riquadro console espandere **Configurazione di rete SQL Server**.
-3. Nel riquadro console fare clic su **Protocolli per MSSQLSERVER** (nome predefinito dell'istanza). Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **TCP** e quindi scegliere **Abilita** se l'opzione non è già abilitata.
-   
-    ![Abilitazione del protocollo TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. Nel riquadro console fare clic su **Servizi di SQL Server**. Nel riquadro dei dettagli fare clic con il pulsante destro del mouse su **SQL Server (*nome istanza*)** e quindi scegliere **Riavvia** per arrestare e riavviare l'istanza di SQL Server. L'istanza predefinita è **SQL Server (MSSQLSERVER)**.
-   
-    ![Riavvio del motore di database](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. Chiudere Gestione configurazione SQL Server.
 
-Per ulteriori informazioni su come abilitare i protocolli per il motore di database di SQL Server, vedere [Abilitare o disabilitare un protocollo di rete del server](http://msdn.microsoft.com/library/ms191294.aspx).
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ### <a name="configure-sql-server-for-mixed-mode-authentication"></a>Configurare SQL Server per l'autenticazione in modalità mista
 Il motore di database di SQL Server non può utilizzare l'Autenticazione di Windows senza ambiente di dominio. Per connettersi al motore di database da un altro computer, configurare SQL Server per l'autenticazione in modalità mista. L'autenticazione in modalità mista consente sia l'autenticazione di SQL Server sia l'autenticazione di Windows.

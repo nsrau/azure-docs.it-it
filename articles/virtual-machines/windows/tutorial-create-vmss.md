@@ -1,6 +1,6 @@
 ---
 title: "Creare un set di scalabilità di macchine virtuali Windows in Azure | Documentazione Microsoft"
-description: "Creare e distribuire un&quot;applicazione a disponibilità elevata in VM Windows usando un set di scalabilità di macchine virtuali"
+description: "Creare e distribuire un'applicazione a disponibilità elevata in VM Windows usando un set di scalabilità di macchine virtuali"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: iainfoulds
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: Human Translation
@@ -169,7 +169,7 @@ Add-AzureRmVmssNetworkInterfaceConfiguration `
 New-AzureRmVmss `
   -ResourceGroupName myResourceGroupScaleSet `
   -Name myScaleSet `
-  -VirtualMachineScaleSet $vmssConfig     
+  -VirtualMachineScaleSet $vmssConfig
 ```
 
 La creazione e la configurazione di tutte le macchine virtuali e risorse del set di scalabilità richiedono alcuni minuti.
@@ -202,7 +202,7 @@ $scaleset = Get-AzureRmVmss `
   -VMScaleSetName myScaleSet
 
 # Loop through the instanaces in your scale set
-for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
+for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
     Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
       -VMScaleSetName myScaleSet `
       -InstanceId $i
@@ -242,10 +242,10 @@ Anziché scalare manualmente il numero di istanze del set di scalabilità, si de
 
 ```powershell
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription).SubscriptionId
+$mySubscriptionId = (Get-AzureRmSubscription).Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
-$myLocation = "West US"
+$myLocation = "East US"
 
 # Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
 $myRuleScaleUp = New-AzureRmAutoscaleRule `

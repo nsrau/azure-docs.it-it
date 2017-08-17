@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: f7b21cc941f17d0815316dfe7013e9f97a95c223
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: usare attributi personalizzati per raccogliere informazioni sugli utenti
@@ -31,7 +30,7 @@ La directory Azure Active Directory (Azure AD) B2C viene fornita con un set pred
 > 
 
 ## <a name="create-a-custom-attribute"></a>Creare un attributo personalizzato
-1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Fare clic su **Attributi utente**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Fornire un **Nome** per l'attributo personalizzato (ad esempio, "ShoeSize") e, facoltativamente, una **Descrizione**. Fare clic su **Crea**.
@@ -44,7 +43,7 @@ La directory Azure Active Directory (Azure AD) B2C viene fornita con un set pred
 L'attributo personalizzato è ora disponibile nell'elenco degli **Attributi utente**e per l'uso nei criteri di iscrizione.
 
 ## <a name="use-a-custom-attribute-in-your-sign-up-policy"></a>Usare un attributo personalizzato nei criteri di iscrizione
-1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Fare clic su **Criteri di iscrizione**.
 3. Fare clic sul criterio di iscrizione (ad esempio, "B2C_1_SiUp") per aprirlo. Fare clic su **Modifica** nella parte superiore del pannello.
 4. Fare clic su **Attributi iscrizione** e selezionare l'attributo personalizzato (ad esempio, "ShoeSize"). Fare clic su **OK**.

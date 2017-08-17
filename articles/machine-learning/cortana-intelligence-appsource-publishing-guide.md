@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 67e2e7906df78ff3e57765e0a6706f98123c3428
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
 ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
+ms.lasthandoff: 07/08/2017
 
 --- 
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guida alla pubblicazione di Cortana Intelligence in AppSource
@@ -30,11 +30,13 @@ I partner Microsoft possono trarre notevoli vantaggi dalla pubblicazione in AppS
 - La soluzione/app risolve un problema aziendale specifico.
 - Sono stati creati moduli o proprietà intellettuale che i clienti possono riusare piuttosto rapidamente in modo prevedibile.
 
+Dare un'occhiata alle [soluzioni Cortana Intelligence](https://appsource.microsoft.com/en-us/marketplace/apps?product=cortana-intelligence&page=1) che sono già pubblicate in AppSource. 
+
 In questo articolo verranno illustrati i passaggi per ottenere una soluzione Cortana Intelligence di un partner pubblicata in AppSource
 
 ## <a name="getting-started"></a>Introduzione
 1. Nel documento [Partner Community Benefits Guide](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Partner%20Community%20Benefits%20Guide%20-%20Cloud%20and%20Enterprise.pdf) (PDF), consultare la pagina 9 per essere pubblicati come partner Advanced Analytics.
-1. Compilare il modulo per [inviare l'app](https://appsource.microsoft.com/en-us/).
+1. Compilare il modulo per [inviare l'app](https://appsource.microsoft.com/en-us/partners/list-an-app).
 
     Alla domanda *"Choose the products that your app is built for*" (Scegliere i prodotti per cui è stata creata l'app), selezionare la casella di controllo **Other** (Altro) e inserire "Cortana Intelligence" nel controllo di modifica.
 1. Affinché un'app Cortana Intelligence possa essere caricata in AppSource, è necessario ottenere la certificazione dal team Partner Solution Technology di Cortana Intelligence. Per avviare il processo, condividere i dettagli sull'app compilando il modulo di sondaggio alla pagina [Cortana Intelligence solution evaluation for AppSource publishing](https://aka.ms/cisappsrceval) (Valutazione della soluzione Cortana Intelligence per la pubblicazione in AppSource). Questo sito è protetto da password e contiene istruzioni su come ottenerne una.
@@ -63,7 +65,7 @@ Ecco l'elenco dei criteri che l'app deve soddisfare
 1. Uso di Power BI nella soluzione: requisito facoltativo ma consigliato poiché è stato dimostrato che genera un numero di lead più elevato.
 
 ## <a name="devcenter-account-setup"></a>Configurazione dell'account Dev Center
-Si tratta del processo di registrazione dell'azienda come entità di pubblicazione con Microsoft. Se è già presente un'entità di pubblicazione registrata con un account Dev Center esistente, condividere l'ID di posta elettronica associato all'account. 
+Si tratta del processo di registrazione dell'azienda come entità di pubblicazione con Microsoft. Se è già presente un'entità di pubblicazione registrata con un account Dev Center esistente, condividere l'ID di posta elettronica associato all'account. Dopo che l'applicazione è stata approvata per la pubblicazione, si otterrà l'accesso alla documentazione completa sul [profilo di editore Cloud Portal Manage](https://cloudpartner.azure.com/#documentation/manage-publisher-profile)
 
 In caso contrario, di seguito sono riportati i passaggi principali per configurare un account Dev Center.
 1. Creare un account Microsoft [qui](https://signup.live.com/signup.aspx).

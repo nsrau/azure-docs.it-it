@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 39dd726078c4dcc55063300bdca998ad822feadd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: ba3cf4c6834279bbd7f94d666fd8abbb7ac05bf0
+ms.contentlocale: it-it
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>Come eseguire la migrazione di dati in entrata e in uscita da Azure RemoteApp
@@ -61,5 +61,11 @@ Anche se non è possibile abilitare l'agente di sincronizzazione OneDrive for Bu
 
 ## <a name="copy-files-by-using-drive-redirection"></a>Copiare i file usando il reindirizzamento delle unità
 Se è stato abilitato il [reindirizzamento delle unità](remoteapp-redirection.md), è già stata creata un'unità mappata per gli utenti. In questo caso, è possibile comprimere i file sull'unità reindirizzata e salvarli nel PC locale.
+
+## <a name="how-administrators-can-export-data"></a>Modalità di esportazione dei dati degli amministratori
+
+Gli amministratori per Azure RemoteApp possono esportare tutti i dischi dei profili utente (UPD) per tutte le raccolte all'interno di una sottoscrizione di Archiviazione di Azure usando il cmdlet di Azure PowerShell, Export-AzureRemoteAppUserDisk.  Non è possibile selezionare singoli UPD.  Quando viene eseguito il comando PowerShell, le dimensioni del disco rigido di ogni disco utente sarà di 50 GB e l'esportazione verrà eseguita nell'archiviazione di Azure.  I costi di archiviazione di Azure verranno generati immediatamente per questa risorsa di archiviazione.  Quando si esegue questo comando verificare che non esistano sessioni; in caso contrario l'esportazione avrà esito negativo.
+
+Gli UPD per le distribuzioni di Azure RemoteApp aggiunte a un dominio possono solo essere riusati in una distribuzione di Servizi desktop remoto; non è possibile usare distribuzioni non aggiunte a dominio.  Se questi dischi verranno usati in una distribuzione di Servizi desktop remoto è consigliabile usare gli [script automatizzati](https://github.com/arcadiahlyy/aramigration) che esporteranno, convertiranno e importeranno gli UPD in una distribuzione di Servizi desktop remoto.
 
 
