@@ -1,6 +1,6 @@
 ---
-title: "Progettazione di applicazioni a disponibilità elevata con l&quot;archiviazione con ridondanza geografica e accesso in lettura di Azure (RA-GRS) | Documentazione Microsoft"
-description: "Informazioni su come usare l&quot;archiviazione RA-GRS di Azure per progettare un&quot;applicazione a disponibilità elevata con flessibilità sufficiente per la gestione delle interruzioni."
+title: "Progettazione di applicazioni a disponibilità elevata con l'archiviazione con ridondanza geografica e accesso in lettura di Azure (RA-GRS) | Documentazione Microsoft"
+description: "Informazioni su come usare l'archiviazione RA-GRS di Azure per progettare un'applicazione a disponibilità elevata con flessibilità sufficiente per la gestione delle interruzioni."
 services: storage
 documentationcenter: .net
 author: robinsh
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 3b7eca721181155cd2bcc619d517c9b5a6a89a0d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Progettazione di applicazioni a disponibilità elevata con RA-GRS
@@ -37,7 +37,7 @@ Prima di descrivere come usare l'archiviazione con ridondanza geografica e acces
 
 * La copia di sola lettura ha [coerenza finale](https://en.wikipedia.org/wiki/Eventual_consistency) con i dati dell'area primaria.
 
-* Per BLOB, tabelle e code è possibile eseguire query nell'area secondaria per trovare un valore *Ora ultima sincronizzazione* che indica quando è stata eseguita l'ultima replica dall'area primaria all'area secondaria. Questa operazione non è supportata per File di Azure, che non ha attualmente l'archiviazione con ridondanza geografica e accesso in lettura.
+* Per BLOB, tabelle e code è possibile eseguire query nell'area secondaria per trovare un valore *Ora ultima sincronizzazione* che indica quando è stata eseguita l'ultima replica dall'area primaria all'area secondaria. Questa operazione non è supportata per Archiviazione file di Azure, che non ha attualmente l'archiviazione con ridondanza geografica e accesso in lettura.
 
 * È possibile usare la libreria client di archiviazione per interagire con i dati nell'area primaria o secondaria. È anche possibile reindirizzare automaticamente le richieste di lettura all'area secondaria in caso di timeout della richiesta di lettura per l'area primaria.
 

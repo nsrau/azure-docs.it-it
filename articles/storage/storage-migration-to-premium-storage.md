@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 82485e569d91a082f72725ecfb04e75f0820cf02
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 373dde7b751156490fafd3e052b32310c497b43b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrazione in Archiviazione Premium di Azure (dischi non gestiti)
@@ -238,7 +237,7 @@ Se si esegue la migrazione del disco rigido virtuale dall’archiviazione cloud 
 ##### <a name="copy-a-vhd-from-other-non-azure-cloud"></a>Copia di un disco rigido virtuale da altri cloud non Azure
 Se si esegue la migrazione del disco rigido virtuale dall’archiviazione cloud non Azure ad Azure, è necessario innanzitutto esportare il disco rigido virtuale in una directory locale. Copiare il percorso di origine completo della directory locale in cui è archiviato il disco rigido virtuale.
 
-##### <a name="copy-a-vhd-from-on-premise"></a>Copia di un disco rigido virtuale da locale
+##### <a name="copy-a-vhd-from-on-premises"></a>Copia di un disco rigido virtuale da locale
 Se si esegue la migrazione del disco rigido virtuale da un ambiente locale, è necessario il percorso di origine completo in cui è archiviato il disco rigido virtuale. Il percorso di origine può essere un percorso server o una condivisione file.
 
 #### <a name="step-2-create-the-destination-for-your-vhd"></a>Passaggio 2. Crea la destinazione per il disco rigido virtuale

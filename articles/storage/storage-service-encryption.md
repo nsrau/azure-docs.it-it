@@ -1,6 +1,6 @@
 ---
 title: Crittografia del servizio di archiviazione di Azure per dati inattivi | Microsoft Docs
-description: "La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare l&quot;archivio BLOB di Azure sul lato del servizio durante l&quot;archiviazione dei dati e di decrittografarlo durante il recupero dei dati."
+description: "La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare l'archivio BLOB di Azure sul lato del servizio durante l'archiviazione dei dati e di decrittografarlo durante il recupero dei dati."
 services: storage
 documentationcenter: .net
 author: robinsh
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7b91be16b5820f379f7408b477311ea86b213ccd
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dcd843ae1ba768ce02256dcc91c61693730c60e4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
@@ -40,7 +39,7 @@ La crittografia del servizio di archiviazione esegue la crittografia dei dati du
 
 Per altre informazioni, vedere le domande frequenti.
 
-Per abilitare o disabilitare la crittografia del servizio di archiviazione per un account di archiviazione, accedere al [portale di Azure](https://azure.portal.com) e selezionare un account di archiviazione. Nel pannello delle impostazioni cercare la sezione Servizio BLOB, illustrata in questo screenshot, e fare clic su Crittografia.
+Per abilitare o disabilitare la crittografia del servizio di archiviazione per un account di archiviazione, accedere al [portale di Azure](https://portal.azure.com) e selezionare un account di archiviazione. Nel pannello delle impostazioni cercare la sezione Servizio BLOB, illustrata in questo screenshot, e fare clic su Crittografia.
 
 ![Screenshot del portale che illustra l'opzione Crittografia](./media/storage-service-encryption/image1.png)
 <br/>*Figura 1: abilitare la crittografia del servizio di archiviazione per il servizio BLOB (passaggio 1)*
@@ -85,7 +84,7 @@ AzCopy è un'utilità della riga di comando di Windows progettata la copia dei d
 Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
 #### <a name="using-smb"></a>Con SMB
-L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. È possibile montare una condivisione di file da un client in locale o in Azure. Dopo aver montato la condivisione è possibile usare strumenti come Robocopy per copiare i file in condivisioni file di Azure. Per altre informazioni, vedere [come montare condivisioni file di Azure in Windows](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-files#mount-the-file-share) e [come montare condivisioni file di Azure in Linux](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share).
+L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. È possibile montare una condivisione di file da un client in locale o in Azure. Dopo aver montato la condivisione è possibile usare strumenti come Robocopy per copiare i file in condivisioni file di Azure. Per altre informazioni, vedere [Come montare condivisioni file di Azure in Windows](storage-file-how-to-use-files-windows.md) e [Come montare condivisioni file di Azure in Linux](storage-how-to-use-files-linux.md).
 
 
 #### <a name="using-the-storage-client-libraries"></a>Con le librerie dei client di archiviazione

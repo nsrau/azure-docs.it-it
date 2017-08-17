@@ -13,12 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ccb6978dd5f191e070b4828d32124c9e993924b1
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4b2e8d17811df58fdc628de7140cdb0a4800476d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Concetti fondamentali sulla gestione delle identità di Azure
@@ -33,8 +32,7 @@ Questo breve video offre una rapida panoramica delle funzionalità di protezione
 
 Microsoft non offre soltanto un'identità che permette di accedere ovunque, ma anche un set di strumenti per l'automazione, la protezione e la gestione dell'IT all'interno dell'organizzazione. Nonostante l'avvento del cloud computing, è ancora necessario gestire e controllare alcune attività IT, come le chiamate al supporto tecnico per la reimpostazione delle password utente, la gestione dei gruppi di utenti e le richieste di applicazioni. A complicare ulteriormente la situazione c'è il fatto che ora i dipendenti possono portare i dispositivi personali al lavoro e usare applicazioni SaaS subito disponibili. Mantenere il controllo sulle applicazioni nei data center aziendali e nelle piattaforme cloud pubbliche diventa sempre più difficile.
 
-> [!Note]
-> Le funzionalità descritte in questo articolo richiedono una sottoscrizione di Azure Active Directory P1 o P2, acquistata separatamente o come parte di una sottoscrizione [Enterprise Mobility + Security E3 o E5](https://docs.microsoft.com/enterprise-mobility-security/solutions/learn-about-ems).
+[!INCLUDE [identity](../../includes/azure-ad-licenses.md)]
 
 ## <a name="connect-on-premises-active-directory-with-azure-ad-and-office-365"></a>Connettere Active Directory locale con Azure AD e Office 365
 Le organizzazioni che hanno effettuato grossi investimenti in Active Directory locale possono estendere tali investimenti al cloud, integrando le directory locali con Azure AD in una [soluzione ibrida di gestione delle identità](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). In questo modo è possibile aumentare la produttività degli utenti grazie a un'identità comune per l'accesso alle risorse, indipendentemente dalla località. Utenti e organizzazioni possono quindi usare Single Sign-On (SSO) per accedere alle risorse locali e a servizi cloud quali Office 365.

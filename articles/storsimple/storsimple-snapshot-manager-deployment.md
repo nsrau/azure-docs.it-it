@@ -4,7 +4,7 @@ description: "Informazioni su come scaricare e installare Snapshot StorSimple Ma
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/24/2016
+ms.date: 06/05/2017
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: 19a19938bd4c86ab56fb2da52e2f80877397ca94
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cde355381b0d726a1ab340bc4230b2dc8f6e2c56
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Distribuire lo snap-in di StorSimple Snapshot Manager
+
 ## <a name="overview"></a>Panoramica
 StorSimple Snapshot Manager è uno snap-in Microsoft Management Console (MMC) che semplifica la protezione dei dati e la gestione dei backup in un ambiente di Microsoft Azure StorSimple. Con StorSimple Snapshot Manager è possibile gestire Microsoft Azure StorSimple in locale e archiviare nella cloud come se fosse un sistema di archiviazione completamente integrato, semplificando i processi di backup e ripristino e riducendo i costi di conseguenza. 
 
@@ -29,19 +32,18 @@ In questa esercitazione vengono descritti i requisiti di configurazione, nonché
 > [!NOTE]
 > * Non è possibile usare Gestione Snapshot StorSimple per gestire gli array virtuali di Microsoft Azure StorSimple (noti anche come dispositivi virtuali StorSimple locali).
 > * Se si prevede di installare l'aggiornamento 2 di StorSimple sul dispositivo StorSimple, assicurarsi di scaricare la versione più recente di StorSimple Snapshot Manager e installarla **prima di installare l'aggiornamento 2 di StorSimple**. La versione più recente di StorSimple Snapshot Manager è compatibile con le versioni precedenti e funziona con tutte le versioni rilasciate di Microsoft Azure StorSimple. Se si utilizza la versione precedente di StorSimple Snapshot Manager, è necessario aggiornarla (non è necessario disinstallare la versione precedente prima di installare la nuova versione).
-> 
-> 
+
 
 ## <a name="storsimple-snapshot-manager-installation"></a>Installazione di StorSimple Snapshot Manager
-StorSimple Snapshot Manager può essere installato nei computer che eseguono il sistema operativo Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2. Nei server che eseguono Windows 2008 R2, è necessario installare Windows Server 2008 SP1 e Windows Management Framework 3.0. 
+StorSimple Snapshot Manager può essere installato nei computer che eseguono il sistema operativo Windows Server 2008 R2 SP1, Windows Server 2012 o Windows Server 2012 R2. Nei server che eseguono Windows 2008 R2, è necessario installare Windows Server 2008 SP1 e Windows Management Framework 3.0.
 
-Prima di installare o aggiornare lo StorSimple Snapshot Manager per Microsoft Management Console (MMC), assicurarsi che il dispositivo di Microsoft Azure StorSimple e l'host siano configurati correttamente. 
+Prima di installare o aggiornare lo StorSimple Snapshot Manager per Microsoft Management Console (MMC), assicurarsi che il dispositivo di Microsoft Azure StorSimple e l'host siano configurati correttamente.
 
 ## <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
-I passaggi seguenti forniscono una panoramica generale delle attività di configurazione che è necessario completare prima di installare StorSimple Snapshot Manager. Per informazioni complete sulla configurazione  e sull’installazione di Microsoft Azure StorSimple, inclusi i requisiti di sistema e istruzioni dettagliate, vedere [Distribuire dispositivo StorSimple in locale](storsimple-deployment-walkthrough.md).
+I passaggi seguenti forniscono una panoramica generale delle attività di configurazione che è necessario completare prima di installare StorSimple Snapshot Manager. Per informazioni complete sulla configurazione  e sull’installazione di Microsoft Azure StorSimple, inclusi i requisiti di sistema e istruzioni dettagliate, vedere [Distribuire dispositivo StorSimple in locale](storsimple-8000-deployment-walkthrough-u2.md).
 
 > [!IMPORTANT]
-> Prima di iniziare, consultare [Elenco di controllo configurazione della distribuzione](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) e i [Prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites) in [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough.md).
+> Prima di iniziare, consultare [Elenco di controllo configurazione della distribuzione](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist) e i [Prerequisiti di distribuzione](storsimple-8000-deployment-walkthrough-u2.md#deployment-prerequisites) in [Distribuire un dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md).
 > <br>
 > 
 > 
@@ -54,10 +56,10 @@ I passaggi seguenti forniscono una panoramica generale delle attività di config
    * Windows Server 2012
    * Windows Server 2012 R2
      
-     Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure. 
-3. Assicurarsi che siano soddisfatti i requisiti di configurazione Microsoft Azure StorSimple. Per ulteriori informazioni, vedere [Prerequisiti di distribuzione](storsimple-deployment-walkthrough.md#deployment-prerequisites).
-4. Connettere il dispositivo all'host ed eseguire la configurazione iniziale. Per ulteriori informazioni, vedere [passaggi di distribuzione](storsimple-deployment-walkthrough.md#deployment-steps).
-5. Creare i volumi nel dispositivo, assegnarli all'host e verificare che l'host sia in grado di montarli e utilizzarli. StorSimple Snapshot Manager supporta i tipi di volumi seguenti: 
+     Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
+3. Assicurarsi che siano soddisfatti i requisiti di configurazione Microsoft Azure StorSimple. Per ulteriori informazioni, vedere [Prerequisiti di distribuzione](storsimple-8000-deployment-walkthrough-u2.md#deployment-prerequisites).
+4. Connettere il dispositivo all'host ed eseguire la configurazione iniziale. Per ulteriori informazioni, vedere [passaggi di distribuzione](storsimple-8000-deployment-walkthrough-u2.md#deployment-steps).
+5. Creare i volumi nel dispositivo, assegnarli all'host e verificare che l'host sia in grado di montarli e utilizzarli. StorSimple Snapshot Manager supporta i tipi di volumi seguenti:
    
    * Volumi di base
    * Volumi semplici
@@ -65,7 +67,7 @@ I passaggi seguenti forniscono una panoramica generale delle attività di config
    * Volumi dinamici con mirroring (RAID 1)
    * Volumi condivisi del cluster
      
-     Per informazioni sulla creazione di volumi nel dispositivo StorSimple o nel dispositivo virtuale StorSimple, vedere [Passaggio 6: Creare un volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) in [Distribuire dispositivo StorSimple in locale](storsimple-deployment-walkthrough.md).
+     Per informazioni sulla creazione di volumi nel dispositivo StorSimple o nel dispositivo virtuale StorSimple, vedere [Passaggio 6: Creare un volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) in [Distribuire dispositivo StorSimple in locale](storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="install-a-new-storsimple-snapshot-manager"></a>Installare un nuovo StorSimple Snapshot Manager
 Prima di installare StorSimple Snapshot Manager, assicurarsi che i volumi creati nel dispositivo StorSimple o nel dispositivo virtuale StorSimple siano montati, inizializzati e formattati come descritto in [Prerequisiti di configurazione](#configure-prerequisites).
@@ -74,8 +76,6 @@ Prima di installare StorSimple Snapshot Manager, assicurarsi che i volumi creati
 > * Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure. 
 > * L'host deve eseguire Windows 2008 R2, Windows Server 2012 o Windows Server 2012 R2. Se il server esegue Windows Server 2008 R2, è necessario installare anche Windows Server 2008 SP1 e Windows Management Framework 3.0.
 > * Prima di poter connettere il dispositivo di StorSimple Snapshot Manager, è necessario configurare una connessione iSCSI dall'host al dispositivo StorSimple.
-> 
-> 
 
 Seguire questi passaggi per completare una nuova installazione di StorSimple Snapshot Manager. Se si installa un aggiornamento, passare a [Aggiorna o reinstalla StorSimple Snapshot Manager](#upgrade-or-reinstall-storsimple-snapshot-manager).
 
@@ -89,7 +89,7 @@ Utilizzare la procedura seguente per installare StorSimple Snapshot Manager.
 #### <a name="to-install-storsimple-snapshot-manager"></a>Per installare StorSimple Snapshot Manager
 1. Scaricare il software StorSimple Snapshot Manager (Vai al [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220) in Microsoft Download Center) e salvarlo localmente nell'host.
 2. In File Explorer fare clic sul pulsante destro del mouse sulla cartella compressa, quindi fare clic su **Estrai tutto**.
-3. Nella finestra **Estrazione cartelle compresse**, nel riquadro **Selezionare una destinazione ed estrarre i file** digitare o selezionare il percorso in cui si desidera estrarre i file. 
+3. Nella finestra **Estrazione cartelle compresse**, nel riquadro **Selezionare una destinazione ed estrarre i file** digitare o selezionare il percorso in cui si desidera estrarre i file.
    
     > [!IMPORTANT]
     > È necessario installare StorSimple Snapshot Manager sull'unità C.
@@ -108,9 +108,9 @@ Attenersi alla seguente procedura per la connessione di StorSimple Snapshot Mana
 #### <a name="to-connect-storsimple-snapshot-manager-to-a-device"></a>Per connettere StorSimple Snapshot Manager a un dispositivo
 1. Fare clic sull’icona StorSimple Snapshot Manager sul desktop. Verrà visualizzata la finestra di StorSimple Snapshot Manager. La finestra contiene un riquadro **Ambito**, un riquadro **Risultati** e un riquadro **Azioni**. 
    
-    ![Interfaccia utente di StorSimple Snapshot Manager](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png) 
+    ![Interfaccia utente di StorSimple Snapshot Manager](./media/storsimple-snapshot-manager-deployment/HCS_SSM_gui_panes.png)
    
-   * Il riquadro **Ambito** (riquadro a sinistra) contiene un elenco di nodi organizzati in una struttura ad albero. È possibile espandere alcuni nodi per selezionare una vista o dati specifici relativi a tale nodo. Fare clic sull'icona di freccia per espandere o comprimere un nodo. Fare doppio clic su un elemento nel riquadro **Ambito** per visualizzare un elenco di azioni disponibili per quell'elemento. 
+   * Il riquadro **Ambito** (riquadro a sinistra) contiene un elenco di nodi organizzati in una struttura ad albero. È possibile espandere alcuni nodi per selezionare una vista o dati specifici relativi a tale nodo. Fare clic sull'icona di freccia per espandere o comprimere un nodo. Fare doppio clic su un elemento nel riquadro **Ambito** per visualizzare un elenco di azioni disponibili per quell'elemento.
    * Il riquadro **Risultati** (riquadro centrale) contiene informazioni dettagliate sul nodo, vista o dati selezionati nel riquadro **Ambito**.
    * Il pannello **Azioni** elenca le operazioni che è possibile eseguire sul nodo, visualizzazione o i dati selezionati nel riquadro **Ambito**.
      
@@ -118,7 +118,7 @@ Attenersi alla seguente procedura per la connessione di StorSimple Snapshot Mana
 2. Nel riquadro **Ambito**, fare clic con il pulsante destro del mouse sul nodo **Dispositivi**, quindi fare clic su **Configura un dispositivo**. Viene visualizzata la finestra di dialogo **Configura un dispositivo** .
    
     ![Configura un dispositivo](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png) 
-3. Nella casella di riepilogo **Dispositivo** , selezionare l'indirizzo IP del dispositivo StorSimple di Microsoft Azure o del dispositivo virtuale. Nella casella di testo **Password** , digitare la password di Gestione snapshot StorSimple creata per il dispositivo nel portale di Azure classico. Fare clic su **OK**.
+3. Nella casella di riepilogo **Dispositivo** , selezionare l'indirizzo IP del dispositivo StorSimple di Microsoft Azure o del dispositivo virtuale. Nella casella di testo **Password**, digitare la password di StorSimple Snapshot Manager creata per il dispositivo nel portale di Azure. Fare clic su **OK**.
 4. Gestione snapshot StorSimple esegue la ricerca del dispositivo identificato. Se il dispositivo è disponibile, StorSimple Snapshot Manager aggiunge una connessione. È possibile [verificare la connessione al dispositivo](#to-verify-the-connection) per verificare che la connessione sia stata aggiunta correttamente.
    
     Se il dispositivo non è disponibile per qualsiasi motivo, Gestione snapshot StorSimple restituisce un messaggio di errore. Fare clic su **OK** per chiudere il messaggio di errore e quindi fare clic su **Annulla** per chiudere la finestra di dialogo **Configurare un dispositivo**.
@@ -174,13 +174,12 @@ Utilizzare la procedura seguente per creare e salvare una copia del database di 
    3. Nella pagina **Servizi** selezionare **Microsoft StorSimple Management Service**.
    4. Nel riquadro a destra, sotto **Microsoft StorSimple Management Service**, fare clic su **Arresta il servizio**.
       
-        ![Arrestare il servizio StorSimple Manager](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
+        ![Arrestare il servizio Gestione dispositivi StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 2. Passare a C:\ProgramData\Microsoft\StorSimple\BACatalog. 
    
    > [!NOTE]
    > ProgramData è una cartella nascosta.
-   > 
-   > 
+  
 3. Individuare il file XML di catalogo, copiare il file e archiviare la copia in un luogo sicuro o nel cloud.
    
     ![File catalogo di backup di StorSimple](./media/storsimple-snapshot-manager-deployment/HCS_SSM_bacatalog.png)
@@ -200,7 +199,7 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in [Installare 
    2. Nel Dashboard di Server Manager, selezionare **Servizi** dal menu **Strumenti**.
    3. Nella pagina **Servizi** selezionare **Microsoft StorSimple Management Service**.
    4. Nel riquadro a destra, sotto **Microsoft StorSimple Management Service**, fare clic su **Arresta il servizio**.
-2. Passare a C:\ProgramData\Microsoft\StorSimple\BACatalog. 
+2. Passare a C:\ProgramData\Microsoft\StorSimple\BACatalog.
    
    > [!NOTE]
    > ProgramData è una cartella nascosta.
@@ -217,10 +216,5 @@ Per reinstallare StorSimple Snapshot Manager, seguire i passaggi in [Installare 
 * Per ulteriori informazioni su StorSimple Snapshot Manager, passare a [Cos'è StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md).
 * Per ulteriori informazioni sull'interfaccia utente di Gestione snapshot StorSimple, passare a [Interfaccia utente di StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 * Per ulteriori informazioni sull'utilizzo di gestione Snapshot StorSimple, passare a [utilizzare StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

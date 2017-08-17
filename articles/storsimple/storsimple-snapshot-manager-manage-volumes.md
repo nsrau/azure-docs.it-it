@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -94,7 +96,7 @@ Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali
    |:--- |:--- |
    |  Nome |Il **colonna** Nome, contiene la lettera di unità assegnata a ogni volume individuato. |
    |  Dispositivo |La **colonna** dispositivo contiene l'indirizzo IP del dispositivo connesso al computer. |
-   |  Nome Dispositivo Volume |La **Colonna** Nome Dispositivo Volume contiene il nome del volume del dispositivo a cui appartiene il volume selezionato. Questo è il nome del volume definito nel portale di Azure classico per il volume specifico. |
+   |  Nome Dispositivo Volume |La **Colonna** Nome Dispositivo Volume contiene il nome del volume del dispositivo a cui appartiene il volume selezionato. Questo è il nome del volume definito nel portale di Azure per il volume specifico. |
    |  Percorsi di accesso |La **colonna** Percorsi di Accesso mostra il percorso di accesso al volume. Si tratta del punto di montaggio o lettera di unità in cui il volume è accessibile nel computer. |
 
 ## <a name="delete-a-volume"></a>Eliminare un volume
@@ -102,8 +104,6 @@ Utilizzare la procedura seguente per eliminare un volume da StorSimple Snapshot 
 
 > [!NOTE]
 > Non è possibile eliminare un volume se fa parte di un gruppo di volumi. (L'opzione di eliminazione non è disponibile per i volumi che sono membri di un gruppo di volumi). È necessario eliminare l'intero gruppo di volumi per eliminare il volume.
-> 
-> 
 
 #### <a name="to-delete-a-volume"></a>Per eliminare un volume
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
@@ -162,7 +162,7 @@ Per configurare il backup di un volume con mirroring dinamico, seguire questa pr
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare:
 
-* Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
+* Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md).
 * Installare e configurare Snapshot StorSimple Manager. Per altre informazioni, vedere l'argomento relativo alla [distribuzione di StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 * Configurare due volumi sul dispositivo StorSimple. Negli esempi i volumi disponibili sono **Disco 1** e **Disco 2**. 
 
@@ -212,9 +212,4 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
