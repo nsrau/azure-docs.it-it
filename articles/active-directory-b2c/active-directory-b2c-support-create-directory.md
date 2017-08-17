@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory: Creare un argomento di supporto al tenant | Documentazione Microsoft'
-description: 'Creazione di un tenant di Azure Active Directory o di un tenant di Azure Active Directory B2C: problemi e soluzioni'
+title: 'Azure Active Directory B2C: Risoluzione dei problemi per la creazione di tenant | Documentazione Microsoft'
+description: Problemi e soluzioni per la creazione di un tenant di Azure Active Directory o di un tenant di Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 42c00632fee16b61f502b5a8ac15825788403ab8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 81af4536fc223319369aff262d42149cfbf1a1e9
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="creating-an-azure-active-directory-azure-ad-tenant-or-azure-ad-b2c-tenant-issues-and-resolutions"></a>Creazione di un tenant Azure Active Directory (Azure AD) o di un tenant Azure AD B2C: problemi e soluzioni
-## <a name="creating-an-azure-ad-tenant"></a>Creazione di un tenant di Azure AD
-Se non è possibile creare un tenant di Azure AD la prima volta, riprovare. Se il problema persiste, contattare il supporto tecnico.
+# <a name="troubleshoot-creating-an-azure-active-directory-or-azure-active-directory-b2c-tenant"></a>Risoluzione dei problemi per la creazione di un tenant di Azure Active Directory o di un tenant di Azure Active Directory B2C 
 
-## <a name="creating-an-azure-ad-b2c-tenant"></a>Creazione di un tenant di Azure AD B2C
-Se si verificano problemi durante la [creazione di un tenant Azure AD B2C](active-directory-b2c-get-started.md), provare quanto segue:
+## <a name="create-an-azure-ad-tenant"></a>Come creare un tenant di Azure Active Directory
+Se non è possibile creare un tenant Azure Active Directory (Azure AD) al primo tentativo, riprovare. Se il problema persiste, contattare il supporto di Azure.
 
-* Se il tenant di Azure AD B2C non viene visualizzato nell'elenco di tenant, riprovare.
-* Se il tenant di Azure AD B2C è mostrato nell'elenco dei tenant e si riceve un messaggio di errore ("Impossibile completare la creazione del tenant di B2C 'contosob2c'. Visitare questo [collegamento](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) per altre informazioni."), eliminare il tenant appena creato e riprovare.
-* Si noti che si verificano problemi noti quando si elimina un tenant B2C esistente e lo si crea nuovamente con lo stesso nome di dominio. È necessario creare un tenant B2C con un nome di dominio diverso.
-* Se nessuna di queste soluzioni risolve il problema, contattare il Supporto. Altre informazioni su [come presentare richieste di supporto per Azure AD B2C](active-directory-b2c-support.md).
+## <a name="create-an-azure-ad-b2c-tenant"></a>Creare un tenant di Azure AD B2C
+Se si verificano problemi quando si [crea un tenant di Azure Active Directory B2C (Azure AD B2C)](active-directory-b2c-get-started.md), provare le seguenti opzioni:
 
+* Se il tenant di Azure AD B2C non viene visualizzato nell'elenco di tenant, riprovare a creare il tenant.
+* Se il tenant di Azure Active Directory B2C viene visualizzato nell'elenco di tenant e compare il seguente messaggio di errore, eliminare il tenant e crearlo di nuovo:
 
-
-
-<!--HONumber=Dec16_HO4-->
+    "Impossibile completare la creazione del tenant B2C 'contosob2c'. Fare clic su questo [collegamento](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409) per maggiori informazioni. "
+* Si verificano problemi noti quando si elimina un tenant Azure AD B2C esistente e lo si crea nuovamente utilizzando lo stesso nome di dominio. Quando si crea un nuovo tenant di Azure AD B2C, è necessario utilizzare un nome di dominio diverso.
+* Se nessuna di queste soluzioni risolve il problema, contattare il supporto di Azure. Per maggiori informazioni, vedere [Presentare richieste di supporto per Azure AD B2C](active-directory-b2c-support.md).
 
 

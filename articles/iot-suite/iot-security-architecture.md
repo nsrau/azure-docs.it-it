@@ -1,6 +1,6 @@
 ---
 title: Architettura di sicurezza IoT | Documentazione Docs
-description: Considerazioni e indicazioni sull&quot;architettura di sicurezza IoT
+description: Considerazioni e indicazioni sull'architettura di sicurezza IoT
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 07/03/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: de7db3f353f1f6c815ee61cbdfbf9b2b38471a8d
-ms.openlocfilehash: 938a08016b7566fde61e5b98a5da884ea9c5bd9d
-ms.lasthandoff: 03/02/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
+ms.contentlocale: it-it
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -169,7 +170,7 @@ In ognuna delle categorie descritte nell'architettura IoT di Azure, si proverà 
 | Dispositivo |S |Assegnazione dell'identità al dispositivo e autenticazione del dispositivo |Sostituzione del dispositivo o di parte dello stesso con un altro dispositivo Come stabilire che si sta comunicando con il dispositivo giusto? |Autenticazione del dispositivo con Transport Layer Security (TLS) o IPSec. L'infrastruttura deve supportare l'uso di una chiave precondivisa (PSK) nei dispositivi che non riescono a gestire la crittografia asimmetrica completa. Usare Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
 | TRID |Applicare meccanismi a prova di manomissione al dispositivo, ad esempio rendendo difficile, se non impossibile, estrarre chiavi e altro materiale crittografico dallo stesso. |Il rischio esiste se un utente sta manomettendo il dispositivo (intromissione fisica). Come è possibile accertarsi che il dispositivo non sia stato manomesso. |La soluzione più efficace è una funzionalità TPM (Trusted Platform Module) che consente l'archiviazione delle chiavi in speciali circuiti su chip da cui non è possibile leggerle, ma solo usarle per le operazioni di crittografia che le adoperano, senza mai divulgarle. Crittografia della memoria del dispositivo. Gestione delle chiavi per il dispositivo. Firma del codice. | |
 | E |Avere il controllo di accesso del dispositivo. Schema di autorizzazione. |Se il dispositivo consente di eseguire singole azioni in base ai comandi da un'origine esterna o persino a sensori compromessi, l'attacco potrà eseguire operazioni non altrimenti accessibili. |Avere uno schema di autorizzazione per il dispositivo | |
-| Gateway sul campo |S |Autenticazione del gateway sul campo al gateway cloud (basata sul certificato, PSK, basata su attestazione) |Se qualcuno riesce a effettuare lo spoofing del gateway sul campo, questo potrà presentarsi come qualsiasi dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Tutti gli stessi principali problemi di archiviazione e attestazione dei dispositivi in generale: il miglior caso è l'uso di TPM. Estensione&6;LowPAN per IPSec per supportare le reti WSN (Wireless Sensor Network). |
+| Gateway sul campo |S |Autenticazione del gateway sul campo al gateway cloud (basata sul certificato, PSK, basata su attestazione) |Se qualcuno riesce a effettuare lo spoofing del gateway sul campo, questo potrà presentarsi come qualsiasi dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Tutti gli stessi principali problemi di archiviazione e attestazione dei dispositivi in generale: il miglior caso è l'uso di TPM. Estensione 6LowPAN per IPSec per supportare le reti WSN (Wireless Sensor Network). |
 | TRID |Proteggere il gateway sul campo da eventuali manomissioni (TPM)? |Gli attacchi di spoofing che simulano la comunicazione tra il gateway cloud e il gateway sul campo potrebbero comportare la divulgazione delle informazioni e la manomissione dei dati |Crittografia della memoria, TPM, autenticazione. | |
 | E |Meccanismo di controllo di accesso per il gateway sul campo | | | |
 
