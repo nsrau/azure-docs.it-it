@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 6d54203797ad970d590b853b171b383708dbcb5d
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ee4ea351866b23b10cb8b6ebd7f5a674e5aea158
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-data-from-db2-using-azure-data-factory"></a>Spostare i dati da DB2 mediante Data factory di Azure
@@ -48,7 +48,9 @@ Il connettore DB2 supporta le piattaforme e le versioni di IBM DB2 seguenti con 
 * IBM DB2 per LUW 10.1
 
 > [!TIP]
-> Se viene visualizzato l'errore "Non è stato trovato il pacchetto corrispondente a una richiesta di esecuzione dell'istruzione SQL. SQLSTATE = 51002 SQLCODE =-805", l'utente beneficia di un account con privilegi elevati (utente avanzato o amministratore) per eseguire una sola volta l'attività di copia, quindi il pacchetto necessario verrà creato automaticamente durante la copia. In seguito è possibile tornare a essere un utente normale per le successive esecuzioni delle operazioni di copia.
+> Se si riceve un messaggio d'errore che indica che "Non è stato trovato il pacchetto corrispondente a una richiesta di esecuzione dell'istruzione SQL. SQLSTATE=51002 SQLCODE=805", il motivo è che non viene creato un pacchetto necessario per un utente normale in tale sistema operativo. Seguire le istruzioni riportate di seguito in base al tipo di server DB2:
+> - DB2 per i (AS400): consente all'utente esperto di creare una raccolta per l'utente di accesso prima di usare l'attività di copia. Comando: `create collection <username>`
+> - DB2 per z/OS o LUW: usare un account con privilegi elevati - utente esperto o amministratore con autorità di pacchetto e autorizzazioni BIND, BINDADD, GRANT EXECUTE TO PUBLIC, per eseguire una volta l'attività di copia, quindi il pacchetto necessario verrà creato automaticamente durante la copia. In seguito è possibile tornare a essere un utente normale per le successive esecuzioni delle operazioni di copia.
 
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso un archio dati DB2 usando diversi strumenti/API. 

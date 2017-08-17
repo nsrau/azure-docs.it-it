@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 99c8067cf08b8ae7650c240c9d69d2fe1c18f9c8
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 50c463588356cc4725b038cbf89a49b6ce2bdc3b
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>Utilizzo di Desktop remoto con i ruoli Azure
-Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azure e alle macchine virtuali ospitate da Azure. In Visual Studio è possibile configurare Servizi Desktop remoto da un progetto Azure. Per abilitare Servizi Desktop remoto, è necessario creare un progetto di lavoro contenente uno o più ruoli e quindi pubblicarlo in Azure.
+Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azure e alle macchine virtuali ospitate da Azure. In Visual Studio è possibile configurare Servizi Desktop remoto da un progetto del servizio cloud di Azure. Per abilitare Servizi Desktop remoto, è necessario creare un progetto di lavoro contenente uno o più ruoli e quindi pubblicarlo in Azure.
 
 > [!IMPORTANT]
 > Accedere a un ruolo di Azure solo per la risoluzione dei problemi o lo sviluppo. Lo scopo di ogni macchina virtuale è eseguire un ruolo specifico nell'applicazione di Azure e non eseguire altre applicazioni client. Se si vuole usare Azure per ospitare una macchina virtuale che è possibile usare per qualsiasi scopo, vedere Accesso alle macchine virtuali di Azure da Esplora server.
@@ -29,7 +31,7 @@ Usando Azure SDK e Servizi Desktop remoto, è possibile accedere ai ruoli di Azu
 > 
 
 ## <a name="to-enable-and-use-remote-desktop-for-an-azure-role"></a>Per abilitare e usare Desktop remoto per un ruolo di Azure
-1. In Esplora soluzioni aprire il menu di scelta rapida per il progetto e quindi scegliere **Pubblica**.
+1. In Esplora soluzioni aprire il menu di scelta rapida per il progetto del servizio cloud e quindi scegliere **Pubblica**.
    
     Verrà visualizzata la procedura guidata **Pubblica l'applicazione Azure** .
    
@@ -76,10 +78,5 @@ Dopo aver pubblicato il servizio cloud in Azure, è possibile usare Esplora Serv
    
     ![Connessione tramite Desktop remoto](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 3. Immettere il nome utente e la password creati in precedenza. L'accesso alla sessione remota è stato completato.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: API Node.js, risorse e SDK per Azure DocumentDB | Microsoft Docs
-description: Tutte le informazioni sull'SDK e sull'API di Node.js, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB Node.js SDK.
+title: 'Azure Cosmos DB: risorse, SDK e API Node.js | Microsoft Docs'
+description: Informazioni complete sull'SDK e sull'API Node.js, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB Node.js SDK.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: fd221f624e64e6b1ffcc4d28608b8fa2936400ae
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 297fe8850499212ca41b0b5ca132b7de8c761297
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-nodejs-sdk-release-notes-and-resources"></a>DocumentDB Node.js SDK: note sulla versione e risorse
+# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Feed delle modifiche .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -50,7 +50,7 @@ ms.lasthandoff: 06/20/2017
 
 <tr><td>**Esercitazione introduttiva**</td><td>[Introduzione all'SDK di Node.js](documentdb-nodejs-get-started.md)</td></tr>
 
-<tr><td>**Esercitazione sull'app Web**</td><td>[Creare un'applicazione Web Node.js con DocumentDB](documentdb-nodejs-application.md)</td></tr>
+<tr><td>**Esercitazione sull'app Web**</td><td>[Creare un'applicazione Web Node.js con Azure Cosmos DB](documentdb-nodejs-application.md)</td></tr>
 
 <tr><td>**Piattaforma attualmente supportata**</td><td> 
 [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
@@ -71,7 +71,7 @@ ms.lasthandoff: 06/20/2017
 ### <a name="1.11.0"/>1.11.0</a>
 * Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
 * Aggiunta dell'opzione per il controllo del grado di parallelismo per query nella partizione.
-* Aggiunta dell'opzione per la disabilitazione della verifica SSL durante l'esecuzione nell'emulatore DocumentDB.
+* Aggiunta dell'opzione per disabilitare la verifica SSL durante l'esecuzione sull'emulatore Azure Cosmos DB.
 * Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
 * Correzione del bug del token di continuazione per raccolta a partizione singola (github #107).
 * Correzione del bug executeStoredProcedure nella gestione di 0 come parametro singolo (github #155).
@@ -89,7 +89,7 @@ ms.lasthandoff: 06/20/2017
 * Aggiunta del supporto per le query TOP/ORDER BY nelle raccolte partizionate.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Aggiunta del supporto per il criterio di ripetizione dei tentativi delle richieste limitate (le richieste limitate ricevano un'eccezione troppo grande per la frequenza delle richieste, con codice di errore 429). Per impostazione predefinita, DocumentDB esegue nove tentativi per ogni richiesta quando viene rilevato il codice di errore 429, rispettando il tempo di RetryAfter nell'intestazione della risposta. Adesso è possibile impostare un intervallo di tempo fisso per i tentativi come parte della proprietà RetryOptions nell'oggetto ConnectionPolicy se si desidera ignorare il tempo di retryAfter restituito dal server tra i tentativi. Ora, DocumentDB attende al massimo 30 secondi per ciascuna richiesta che viene limitata (indipendentemente dal numero di tentativi) e restituisce la risposta con il codice di errore 429. Questo tempo può essere sottoposto a override nella proprietà RetryOptions dell'oggetto ConnectionPolicy.
+* Aggiunta del supporto per il criterio di ripetizione dei tentativi delle richieste limitate (le richieste limitate ricevano un'eccezione troppo grande per la frequenza delle richieste, con codice di errore 429). Per impostazione predefinita, Cosmos DB esegue nove tentativi per ogni richiesta con codice di errore 429, rispettando l'intervallo di tempo di retryAfter specificato nell'intestazione della risposta. Adesso è possibile impostare un intervallo di tempo fisso per i tentativi come parte della proprietà RetryOptions nell'oggetto ConnectionPolicy se si desidera ignorare il tempo di retryAfter restituito dal server tra i tentativi. Azure Cosmos DB attende al massimo 30 secondi per ogni richiesta che viene limitata (indipendentemente dal numero di tentativi) e restituisce la risposta con il codice di errore 429. Questo tempo può essere sottoposto a override nella proprietà RetryOptions dell'oggetto ConnectionPolicy.
 * Cosmos DB restituisce ora i parametri x-ms-throttle-retry-count e x-ms-throttle-retry-wait-time-ms come intestazioni di risposta in ogni richiesta per indicare il numero di nuovi tentativi di limitazione e il tempo cumulativo di attesa della richiesta tra i tentativi.
 * La classe RetryOptions è stata aggiunta, esponendo la proprietà RetryOptions nella classe ConnectionPolicy che può essere utilizzata per eseguire l'override di alcune opzioni di ripetizione dei tentativi predefinite.
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 06/20/2017
 * Corretto hashParitionResolver resolveForRead(): quando la mancata indicazione di una chiave di partizione generava un'eccezione, invece di restituire un elenco di tutti i collegamenti registrati.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di DocumentDB. Usare un agente dedicato per tutte le richieste della libreria.
+* Correzione del problema [n. 100](https://github.com/Azure/azure-documentdb-node/issues/100) relativo all'agente HTTPS dedicato: evitare di modificare l'agente globale per gli scopi di Azure Cosmos DB. Usare un agente dedicato per tutte le richieste della libreria.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Correzione del problema [n. 81](https://github.com/Azure/azure-documentdb-node/issues/81) : gestione corretta dei trattini negli ID dei file multimediali.

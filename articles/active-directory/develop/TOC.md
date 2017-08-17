@@ -33,12 +33,13 @@
 # Guide
 ## [Registrazione dell'applicazione](active-directory-integrating-applications.md)
 ## [App multi-tenant](active-directory-devhowto-multi-tenant-overview.md)
+## [Accesso condizionale](active-directory-conditional-access-developer.md)
 ## OAuth e OpenID Connect
 ### [Protocollo OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Concessione del codice di autenticazione OAuth 2.0](active-directory-protocols-oauth-code.md)
 ### [Concessione implicita OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Personalizzare le attestazioni](active-directory-saml-claims-customization.md)
+### [Personalizzazione delle attestazioni](active-directory-saml-claims-customization.md)
 ### [Eseguire il debug di Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 ### [Protocollo SAML per Single Sign-On](active-directory-single-sign-on-protocol-reference.md)
 ### [Protocollo SAML per Single Sign-Out](active-directory-single-sign-out-protocol-reference.md)
@@ -90,7 +91,7 @@
 #### [Android](guidedsetups/active-directory-android.md)
 #### [.NET per Windows Desktop](guidedsetups/active-directory-windesktop.md)
 ### App Web
-#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
+#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [Server Web ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [App Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Guide

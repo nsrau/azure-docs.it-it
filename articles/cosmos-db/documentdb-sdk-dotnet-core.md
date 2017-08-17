@@ -1,6 +1,6 @@
 ---
-title: API .NET Core, risorse e SDK per Azure DocumentDB | Microsoft Docs
-description: Tutte le informazioni sull'SDK e sull'API .NET Core, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB .NET Core SDK.
+title: 'Azure Cosmos DB: risorse, SDK e API .NET Core | Microsoft Docs'
+description: Informazioni complete sull'SDK e sull'API .NET Core, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: c1f0bbfd1bea292eedaaf8904a2f60e9415dcbcf
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 28eb505bf58943f7a687b79af3427a0ee74fe9bb
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-net-core-sdk-release-notes-and-resources"></a>DocumentDB .NET Core SDK: note sulla versione e risorse
+# <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Feed delle modifiche .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -44,19 +44,19 @@ ms.lasthandoff: 06/20/2017
 
 <tr><td>**Esempi**</td><td>[Esempi di codice .NET](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Attività iniziali**</td><td>[Introduzione a DocumentDB .NET Core SDK](documentdb-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Introduzione**</td><td>[Introduzione ad Azure Cosmos DB .NET Core SDK](documentdb-dotnetcore-get-started.md)</td></tr>
 
-<tr><td>**Esercitazione sull'app Web**</td><td>[Sviluppo di applicazioni Web con DocumentDB](documentdb-dotnet-application.md)</td></tr>
+<tr><td>**Esercitazione sull'app Web**</td><td>[Sviluppo di applicazioni Web con Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
 <tr><td>**Framework attualmente supportato**</td><td>[.NET standard 1.6 e .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
 
-DocumentDB .NET Core SDK ha le stesse funzionalità delle versione più recente di [DocumentDB .NET SDK](documentdb-sdk-dotnet.md).
+Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più recente di [Azure Cosmos DB .NET SDK](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> DocumentDB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+> Azure Cosmos DB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 
@@ -64,7 +64,7 @@ DocumentDB .NET Core SDK ha le stesse funzionalità delle versione più recente 
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 
-*   Risolto un problema che riguardava i computer x64 computer che non supportano l'istruzione SSE4 e generano SEHException durante l'esecuzione di query di DocumentDB.
+*   Risoluzione di un problema riguardante i computer x64 che non supportano l'istruzione SSE4 e generano SEHException durante l'esecuzione di query di Azure Cosmos DB.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
@@ -107,13 +107,13 @@ DocumentDB .NET Core SDK ha le stesse funzionalità delle versione più recente 
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
-DocumentDB .NET Core SDK consente di compilare app [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) veloci e multipiattaforma da eseguire in Windows, Mac e Linux. La versione più recente di DocumentDB .NET Core SDK è completamente compatibile con [Xamarin](https://www.xamarin.com) e può essere usata per compilare applicazioni destinate a iOS, Android e Mono (Linux).  
+Azure Cosmos DB .NET Core SDK consente di compilare app [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) veloci e multipiattaforma da eseguire in Windows, Mac e Linux. L'ultima versione di Azure Cosmos DB .NET Core SDK è completamente compatibile con [Xamarin](https://www.xamarin.com) e può essere usata per compilare applicazioni destinate a iOS, Android e Mono (Linux).  
 
 ### <a name="a-name010-preview010-preview"></a><a name="0.1.0-preview"/>0.1.0-preview
 
-DocumentDB .NET Core Preview SDK consente di compilare app [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) veloci e multipiattaforma da eseguire in Windows, Mac e Linux.
+Azure Cosmos DB .NET Core Preview SDK consente di compilare app [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) veloci e multipiattaforma da eseguire in Windows, Mac e Linux.
 
-DocumentDB .NET Core Preview SDK ha le stesse funzionalità della versione più recente di [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) e supporta quanto segue:
+Azure Cosmos DB .NET Core Preview SDK ha le stesse funzionalità della versione più recente di [Azure Cosmos DB .NET SDK](documentdb-sdk-dotnet.md) e supporta quanto segue.
 * Tutte le [modalità di connessione](performance-tips.md#networking): modalità gateway, TCP diretto e HTTP diretti. 
 * Tutti i [livelli di coerenza](consistency-levels.md): assoluta, di sessione, con decadimento ristretto e finale.
 * [Raccolte partizionate](partition-data.md). 

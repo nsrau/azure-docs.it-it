@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 4043c68a3c8559eab6f5e4352bb599015366e5b5
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrare il traffico di rete con gruppi di sicurezza di rete
@@ -50,7 +49,7 @@ Le regole dei gruppi di sicurezza di rete contengono le proprietà seguenti:
 | --- | --- | --- | --- |
 | **Nome** |Nome della regola. |Deve essere univoco nell'area.<br/>Può contenere lettere, numeri, caratteri di sottolineatura, punti e trattini.<br/>Deve iniziare con una lettera o un numero.<br/>Deve terminare con una lettera, un numero o un carattere di sottolineatura.<br/>Non può superare gli 80 caratteri. |Dato che un gruppo di sicurezza di rete potrebbe contenere più regole, assicurarsi di seguire una convenzione di denominazione che consenta di identificare la funzione della regola. |
 | **Protocollo** |Protocollo per la regola. |TCP, UDP o * |L'uso di * come protocollo include ICMP (solo traffico orizzontale destra-sinistra), oltre a TCP e UDP, e può ridurre il numero delle regole necessarie.<br/>Al tempo stesso, l'uso di * potrebbe essere un approccio troppo ampio, quindi è consigliabile usare * solo quando necessario. |
-| **Intervallo porte di origine** |Intervallo di porte di origine per la regola. |Singolo numero di porta da 1 a 65535, intervallo di porte (ad esempio, 1-65635) o * (per tutte le porte). |Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare * nella maggior parte dei casi.<br/>Cercare di usare il più possibile intervalli di porte per evitare di dover applicare più regole.<br/>Non è possibile raggruppare più porte o intervalli di porte con una virgola. |
+| **Intervallo porte di origine** |Intervallo di porte di origine per la regola. |Singolo numero di porta da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o * (per tutte le porte). |Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare * nella maggior parte dei casi.<br/>Cercare di usare il più possibile intervalli di porte per evitare di dover applicare più regole.<br/>Non è possibile raggruppare più porte o intervalli di porte con una virgola. |
 | **Intervallo di porte di destinazione** |Intervallo di porte di destinazione per la regola. |Singolo numero di porta da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o \* (per tutte le porte). |Cercare di usare il più possibile intervalli di porte per evitare di dover applicare più regole.<br/>Non è possibile raggruppare più porte o intervalli di porte con una virgola. |
 | **Prefisso dell'indirizzo di origine** |Prefisso o tag dell'indirizzo di origine per la regola. |Singolo indirizzo IP (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#default-tags) o * (per tutti gli indirizzi). |È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole. |
 | **Prefisso dell’indirizzo di destinazione** |Prefisso o tag dell'indirizzo di destinazione per la regola. | Singolo indirizzo IP (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#default-tags) o * (per tutti gli indirizzi). |È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole. |

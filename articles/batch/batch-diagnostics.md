@@ -1,6 +1,6 @@
 ---
 title: Abilitare la registrazione diagnostica per eventi di Batch - Azure | Documentazione Microsoft
-description: "Registrare e analizzare gli eventi di registrazione diagnostica per le risorse dell&quot;account Azure Batch, come pool e attività."
+description: "Registrare e analizzare gli eventi di registrazione diagnostica per le risorse dell'account Azure Batch, come pool e attività."
 services: batch
 documentationcenter: 
 author: tamram
@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
 ms.contentlocale: it-it
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Registrare gli eventi per la diagnostica e il monitoraggio delle soluzioni Batch
@@ -46,7 +45,7 @@ Come per molti servizi di Azure, il servizio Batch genera eventi di log per dete
 ## <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
 Per impostazione predefinita, la registrazione diagnostica non è abilitata per l'account Batch. È necessario abilitare esplicitamente la registrazione diagnostica per ogni account Batch da monitorare:
 
-[Come abilitare la raccolta dei log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[Come abilitare la raccolta dei log di diagnostica](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 È consigliabile leggere fino in fondo l'articolo [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per comprendere non solo come abilitare la registrazione, ma anche le categorie di log supportate dai vari servizi di Azure. Ad esempio, Batch di Azure supporta attualmente una categoria di log: i **log del servizio**.
 

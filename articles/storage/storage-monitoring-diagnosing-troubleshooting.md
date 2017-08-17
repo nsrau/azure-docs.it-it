@@ -1,6 +1,6 @@
 ---
 title: Monitorare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Microsoft Azure | Documentazione Microsoft
-description: "Usare funzionalità quali l&quot;analisi dell&quot;archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Azure."
+description: "Usare funzionalità quali l'analisi dell'archiviazione, la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi correlati ad Archiviazione di Azure."
 services: storage
 documentationcenter: 
 author: fhryo-msft
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8598e18aeb0552455a6e5344f10eb48382e8c2f4
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c6bf7cd3bd16d8af30fed09f7878a0e68748a971
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
@@ -31,7 +30,7 @@ La diagnosi e la risoluzione dei problemi in un'applicazione distribuita ospitat
 Per gestire in modo efficace queste applicazioni, è necessario monitorarle attivamente e capire in che modo diagnosticare e risolvere i problemi correlati a tutti gli aspetti delle applicazioni e delle tecnologie dipendenti. L'utente dei servizi di archiviazione di Azure deve monitorare continuamente i servizi di archiviazione usati dall'applicazione per riscontrare eventuali cambiamenti inattesi nel comportamento, ad esempio tempi di risposta insolitamente lenti, e deve usare la registrazione per raccogliere dati più dettagliati e analizzare i problemi più in profondità. Le informazioni di diagnostica ottenute dal monitoraggio e dalla registrazione consentiranno di determinare la causa principale del problema riscontrato dall'applicazione. Sarà quindi possibile identificare il problema e determinare le misure appropriate per risolverlo. L'Archiviazione di Azure è uno dei principali servizi di Azure ed è un componente importante della maggior parte delle soluzioni distribuite dai client nell'infrastruttura Azure. Include funzionalità che consentono di semplificare le attività di monitoraggio, diagnostica e risoluzione dei problemi di archiviazione nelle applicazioni basate su cloud.
 
 > [!NOTE]
-> Il servizio File di Azure attualmente non supporta la registrazione.
+> Archiviazione file di Azure attualmente non supporta la registrazione.
 > 
 
 Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazioni di Archiviazione di Azure, vedere la pagina relativa alla [risoluzione dei problemi end-to-end usando Metriche e Registrazione di Archiviazione di Azure, AzCopy e Analizzatore messaggi](storage-e2e-troubleshooting.md).
@@ -72,7 +71,7 @@ Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazio
   * [Il problema è dovuto all'uso dell'emulatore di archiviazione per attività di sviluppo o test]
   * [Si stanno verificando problemi di installazione di Azure SDK per .NET]
   * [Si è verificato un problema diverso con un servizio di archiviazione]
-  * [Risoluzione dei problemi dei file di Azure in Windows e Linux](storage-troubleshoot-file-connection-problems.md)
+  * [Risoluzione dei problemi di Archiviazione file di Azure in Windows e Linux](storage-troubleshoot-file-connection-problems.md)
 * [Appendici]
   * [Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS]
   * [Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]
@@ -570,11 +569,11 @@ La tabella che segue mostra un esempio di messaggio del log lato server generato
 | Orario di inizio richiesta | 2014-05-30T06:17:48.4473697Z |
 | Tipo di operazione     | GetBlobProperties            |
 | Stato della richiesta     | SASAuthorizationError        |
-| Stato codice HTTP   | 404                            |
+| Stato codice HTTP   | 404                          |
 | Tipo di autenticazione| Sas                          |
 | Tipo di servizio       | BLOB                         |
-| URL richiesta         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| URL richiesta        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | intestazione dell'ID richiesta  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID richiesta client  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 

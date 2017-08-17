@@ -1,6 +1,6 @@
 ---
 title: Come vengono visualizzate le applicazioni nel pannello di accesso | Microsoft Docs
-description: Risolvere i problemi relativi alla visualizzazione di un&quot;applicazione nel panello di accesso
+description: Risolvere i problemi relativi alla visualizzazione di un'applicazione nel panello di accesso
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 2429ebef69aaddf28d10cd77bf4ce9072ea71476
-ms.lasthandoff: 04/11/2017
-
+ms.reviewr: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f8ccf2cf66b49940bc7f2b9f4764020efc04838e
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -29,7 +30,7 @@ Il pannello di accesso è un portale basato sul Web e consente a un utente che h
 
 -   Se un'applicazione è stata appena rimossa da un utente o da un gruppo di cui l'utente è membro, provare ad accedere e a disconnettersi di nuovo dal pannello di accesso dell'utente dopo alcuni minuti per vedere se l'applicazione è stata rimossa.
 
--   Se una licenza è stata appena rimossa da un utente o da un gruppo di cui l'utente è membro, l'implementazione delle modifiche potrebbe richiedere molto tempo, a seconda delle dimensioni e complessità del gruppo. Attendere un tempo più lungo prima di accedere al pannello di accesso.
+-   Se è stata appena rimossa una licenza da un utente o da un gruppo di cui l'utente è membro, l'aggiornamento della visualizzazione potrebbe richiedere molto tempo a seconda delle dimensioni e della complessità del gruppo. Attendere un tempo più lungo prima di accedere al pannello di accesso.
 
 ## <a name="problems-related-to-assigning-applications-to-users"></a>Problemi relativi all'assegnazione di applicazioni agli utenti
 
@@ -42,13 +43,13 @@ Un utente potrebbe vedere un'applicazione nel proprio pannello di accesso perch�
 
 ### <a name="check-if-a-user-is-assigned-to-the-application"></a>Controllare se un utente è assegnato all'applicazione
 
-Per controllare se un utente è assegnato all'applicazione, seguire i passaggi seguenti:
+Per controllare se un utente è assegnato all'applicazione, seguire questa procedura:
 
-1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
 
@@ -64,19 +65,19 @@ Per controllare se un utente è assegnato all'applicazione, seguire i passaggi s
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Controllare se un utente è incluso nella licenza relativa all'applicazione
 
-Per controllare le licenze assegnate agli utenti, seguire i passaggi seguenti:
+Per controllare le licenze assegnate a un utente, seguire questa procedura:
 
-1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
 5.  Fare clic su **Tutti gli utenti**.
 
-6.  **Ricercare** l'utente per cui si vuole verificare la licenza e **fare clic sulla relativa riga** per selezionarlo.
+6.  **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
 
 7.  Fare clic su **Licenze** per verificare quali licenze sono assegnate all'utente.
 
@@ -84,7 +85,7 @@ Per controllare le licenze assegnate agli utenti, seguire i passaggi seguenti:
 
 ## <a name="problems-related-to-assigning-applications-to-groups"></a>Problemi relativi all'assegnazione di applicazioni a gruppi
 
-Un utente potrebbe visualizzare un'applicazione nel proprio pannello di accesso perché è membro di un gruppo assegnato all'applicazione. Di seguito sono elencate alcuni modi per verificare questa situazione:
+Un utente può visualizzare un'applicazione nel pannello di accesso perché è membro di un gruppo assegnato all'applicazione. Alcune procedure per verificare questa situazione sono elencate di seguito:
 
 -   [Controllare le appartenenze a gruppi dell'utente ](#check-a-users-group-memberships)
 
@@ -92,13 +93,13 @@ Un utente potrebbe visualizzare un'applicazione nel proprio pannello di accesso 
 
 ### <a name="check-a-users-group-memberships"></a>Controllare le appartenenze a gruppi dell'utente
 
-Per controllare un'appartenenza a un gruppo, seguire i passaggi seguenti:
+Per controllare l'appartenenza a un gruppo, seguire questa procedura:
 
-1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
@@ -118,7 +119,7 @@ Per controllare un'appartenenza a un gruppo, seguire i passaggi seguenti:
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare **"Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
@@ -147,7 +148,7 @@ aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 
 -   Tipo di browser
 
--   Fuso orario e l'ora o intervallo di tempo durante il quale si verifica l'errore
+-   Fuso orario e ora o intervallo di tempo durante il quale si verifica l'errore
 
 -   Tracce Fiddler
 

@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/02/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5de7b134d99a0b7887acb9d7f87991056e4d608a
-ms.lasthandoff: 04/27/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e7323325c303c26e2ea4d9f2a8ac5178fa33b875
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Gestire il controllo degli accessi in base al ruolo con Azure PowerShell
@@ -128,7 +128,7 @@ Per rimuovere l'accesso per utenti, gruppi e applicazioni, usare:
 ## <a name="create-a-custom-role"></a>Creare un ruolo personalizzato
 Per creare un ruolo personalizzato, usare il comando ```New-AzureRmRoleDefinition``` . Esistono due metodi per strutturare il ruolo, usare PSRoleDefinitionObject o un modello JSON. 
 
-## <a name="get-actions-from-particular-resource-provider"></a>Ottenere azioni da un determinato provider di risorse
+## <a name="get-actions-for-a-resource-provider"></a>Ottenere le azioni per un provider di risorse
 Quando si creano ruoli personalizzati da zero, è importante conoscere tutte le operazioni possibili dei provider di risorse.
 Utilizzare il comando ```Get-AzureRMProviderOperation``` per ottenere queste informazioni.
 Ad esempio, se si desidera controllare tutte le operazioni disponibili per la macchina virtuale usare questo comando:
@@ -166,7 +166,7 @@ New-AzureRmRoleDefinition -Role $role
 ![Controllo degli accessi in base al ruolo di PowerShell - Get-AzureRmRoleDefinition - Schermata](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
 ### <a name="create-role-with-json-template"></a>Creare un ruolo con il modello JSON
-È possibile usare un modello JSON come definizione di origine per il ruolo personalizzato. Nell'esempio seguente viene creato un ruolo personalizzato che consente di accedere in lettura all'archiviazione e alle risorse di calcolo, di accedere come supporto e di aggiungere tale ruolo a due sottoscrizioni. Creare un nuovo file `C:\CustomRoles\customrole1.json` con il contenuto seguente. L'ID deve essere impostato su `null` all'inizio della creazione del ruolo quando viene generato in automatico un nuovo ID. 
+È possibile usare un modello JSON come definizione di origine per il ruolo personalizzato. Nell'esempio seguente viene creato un ruolo personalizzato che consente di accedere in lettura all'archiviazione e alle risorse di calcolo, di accedere come supporto e di aggiungere tale ruolo a due sottoscrizioni. Creare un nuovo file `C:\CustomRoles\customrole1.json` con il seguente esempio. L'ID deve essere impostato su `null` all'inizio della creazione del ruolo quando viene generato in automatico un nuovo ID. 
 
 ```
 {

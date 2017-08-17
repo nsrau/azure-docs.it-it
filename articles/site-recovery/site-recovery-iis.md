@@ -1,5 +1,5 @@
 ---
-title: Eseguire la replica di un&quot;applicazione Web multilivello basata su IIS usando Azure Site Recovery | Microsoft Docs
+title: Eseguire la replica di un'applicazione Web multilivello basata su IIS usando Azure Site Recovery | Microsoft Docs
 description: Questo articolo illustra come eseguire la replica di macchine virtuali della Web farm IIS usando Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 08/11/2017
 ms.author: nisoneji
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: b23624fc7e82af1cb593a1aedd138ae0d6637ae7
 ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione Web multilivello basata su IIS usando Azure Site Recovery

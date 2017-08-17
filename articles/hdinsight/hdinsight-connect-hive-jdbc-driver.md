@@ -14,14 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/14/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 14bfdd8554b075b0c19a75bb572f1214a45ff471
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Hive tramite il driver JDBC in HDInsight
@@ -143,7 +142,7 @@ SQuirreL SQL è un client JDBC che può essere usato per eseguire in modalità r
 
     * **Password**: password per l'account di accesso del cluster.
 
-    ![finestra di dialogo add alias](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
+ ![finestra di dialogo add alias](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
     Usare il pulsante **Test** per verificare il funzionamento della connessione. Quando viene visualizzata la finestra di dialogo **Connect to: Hive on HDInsight** (Connetti a: Hive in HDInsight), selezionare **Connect** (Connetti) per eseguire il test. Se il test ha esito positivo, verrà visualizzata la finestra di dialogo **Connection successful** (Connessione riuscita).
 

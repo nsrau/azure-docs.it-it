@@ -1,6 +1,6 @@
 ---
 title: Funzioni del modello di Azure Resource Manager - matrici e oggetti | Microsoft Docs
-description: Descrive le funzioni da usare in un modello di Azure Resource Manager per l&quot;uso di matrici e oggetti.
+description: Descrive le funzioni da usare in un modello di Azure Resource Manager per l'uso di matrici e oggetti.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 74982663b0501d3a5c7973a5f383e14e0f964696
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funzioni di matrice e oggetto per i modelli di Azure Resource Manager 
@@ -34,6 +33,7 @@ Resource Manager offre diverse funzioni per l'uso di matrici e oggetti.
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
+* [json](#json)
 * [last](#last)
 * [length](#length)
 * [min](#min)
@@ -613,6 +613,53 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | ---- | ---- | ----- |
 | objectOutput | Oggetto | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
+
+
+## <a name="json"></a>json
+`json(arg1)`
+
+Restituisce un oggetto JSON.
+
+### <a name="parameters"></a>parameters
+
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sì |string |Valore da convertire in JSON. |
+
+
+### <a name="return-value"></a>Valore restituito
+
+Oggetto JSON dalla stringa specificata o un oggetto vuoto quando viene specificato **null**.
+
+### <a name="example"></a>Esempio
+
+L'esempio seguente mostra come usare l'intersezione con matrici e oggetti:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "jsonOutput": {
+            "type": "object",
+            "value": "[json('{\"a\": \"b\"}')]"
+        },
+        "nullOutput": {
+            "type": "bool",
+            "value": "[empty(json('null'))]"
+        }
+    }
+}
+```
+
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| jsonOutput | Oggetto | {"a": "b"} |
+| nullOutput | Boolean | True  |
 
 <a id="last" />
 

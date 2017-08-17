@@ -4,7 +4,7 @@ description: Esercitazione introduttiva per la soluzione IoT di Analisi di fluss
 keywords: soluzione IOT, funzioni finestra
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 43acd0e8e6b106013fc4491e3785f6efefc51493
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 1031cd63dede9ed202fdc11b153a550766d9cb19
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -131,7 +130,7 @@ Se non si ha un account Azure, è possibile [richiedere una versione di valutazi
 > 
 > 
 
-Per poter usare al meglio il credito Azure gratuito pari a 200 dollari, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
+Per poter usare al meglio il credito Azure gratuito, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Eseguire il provisioning delle risorse di Azure necessarie per l'esercitazione
 Questa esercitazione richiede due hub eventi per ricevere i flussi di dati *in ingresso* e *in uscita*. Il database SQL di Azure restituisce i risultati dei processi di Analisi di flusso. In Archiviazione di Azure vengono memorizzati i dati di riferimento di registrazione dei veicoli.

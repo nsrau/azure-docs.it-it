@@ -1,6 +1,6 @@
 ---
 title: Usare Analisi archiviazione di Azure per raccogliere dati di metriche e log | Microsoft Docs
-description: Analisi archiviazione consente di tenere traccia dei dati delle metriche per tutti i servizi di archiviazione e di raccogliere i log per l&quot;archiviazione di BLOB, code e tabelle.
+description: Analisi archiviazione consente di tenere traccia dei dati delle metriche per tutti i servizi di archiviazione e di raccogliere i log per l'archiviazione di BLOB, code e tabelle.
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: robinsh
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: da581b2e22f85152ae7bc5f0d403b2fc0aaf0e54
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a477c1eaf2388f31d4fd36b90f9a830c782873d3
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="storage-analytics"></a>di Analisi archiviazione
@@ -38,7 +38,7 @@ Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite
 
 Le voci di log vengono create solo in presenza di attività del servizio di archiviazione. Se, ad esempio, un account di archiviazione presenta un'attività nel servizio BLOB, ma non nei servizi di tabelle o di accodamento, saranno creati solo log relativi al servizio BLOB.
 
-La registrazione di Analisi archiviazione non è disponibile per Servizio file di Azure.
+La registrazione di Analisi archiviazione non è disponibile per Archiviazione file di Azure.
 
 ### <a name="logging-authenticated-requests"></a>Registrazione delle richieste autenticate
 Vengono registrati i seguenti tipi di richieste autenticate:

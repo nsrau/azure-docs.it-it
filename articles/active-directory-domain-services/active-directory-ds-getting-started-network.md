@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Introduzione | Documentazione Microsoft'
+title: 'Azure Active Directory Domain Services: Introduzione | Microsoft Docs'
 description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure (anteprima)
 services: active-directory-ds
 documentationcenter: 
@@ -12,21 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 07/15/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 5e08c37ea63ca45efb4098ca032e1e9e9ffd3c78
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7f420d60862adf61e4f21e5abac2932a742bd55d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure (anteprima)
-
-> [!div class="op_single_selector"]
-> * [ANTEPRIMA - Abilitare Azure AD Domain Services tramite il portale di Azure](active-directory-ds-getting-started-network.md)
-> * [Abilitare Azure AD Domain Services tramite il portale di Azure classico](active-directory-ds-getting-started-create-group.md)
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -39,7 +34,7 @@ L'attività di configurazione successiva consiste nel creare una rete virtuale d
 1. Fare clic su **Rete virtuale** per selezionare una rete virtuale.
 2. Nel pannello **Scegli rete virtuale** vengono visualizzate tutte le reti virtuali esistenti. Vengono visualizzate solamente le reti virtuali che appartengono al gruppo di risorse e la posizione di Azure selezionata nella pagina di procedura guidata **Nozioni di base**.
 
-3. Scegliere la rete virtuale esistente in cui Azure Active Directory Domain Services deve essere abilitata. Fare clic su **Crea nuovo** se si preferisce creare una nuova rete virtuale.
+3. Scegliere la rete virtuale in cui abilitare Azure AD Domain Services. Fare clic su **Crea nuovo** se si preferisce creare una nuova rete virtuale. È consigliabile l'utilizzo di una subnet dedicata per Azure AD Domain Services. Se si seleziona una rete virtuale esistente, [creare una subnet dedicata usando l'estensione di reti virtuali](../virtual-network/virtual-networks-create-vnet-arm-pportal.md), quindi selezionare la subnet. 
 
     ![Selezionare una rete virtuale](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
@@ -49,8 +44,9 @@ L'attività di configurazione successiva consiste nel creare una rete virtuale d
 
   > [!NOTE]
   > **Linee guida per la selezione di una subnet**
-  > 1. Non selezionare la subnet del Gateway per l’implementazione di Azure AD Domain Services poiché non si tratta di una configurazione supportata.
-  2. Verificare che la subnet selezionata disponga di sufficiente spazio per gli indirizzi (almeno 3-5 indirizzi IP disponibili).
+  > 1. Usare una subnet dedicata per Azure AD Domain Services. Non distribuire eventuali altre macchine virtuali per questa subnet. Questa configurazione consente di configurare gruppi di sicurezza di rete per le macchine virtuali/carichi di lavoro senza interromperne il dominio gestito. Per i dettagli vedere [Considerazioni sulla rete per Azure Active Directory Domain Services](active-directory-ds-networking.md).
+  2. Non selezionare la subnet del Gateway per l’implementazione di Azure AD Domain Services poiché non si tratta di una configurazione supportata.
+  3. Verificare che la subnet selezionata disponga di sufficiente spazio per gli indirizzi (almeno 3-5 indirizzi IP disponibili).
   >
 
 5. Al termine, fare clic su **OK** per passare alla pagina **Gruppo amministratore** della procedura guidata.

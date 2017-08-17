@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2bd54b85f4c9f9ff13b8975eee15649f607a9194
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: e141c15b9999a33206285290b9a34c8616bf3791
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opzioni e prestazioni di Database di Azure per PostgreSQL: funzionalità disponibili in ogni piano tariffario
@@ -43,7 +43,7 @@ La tabella seguente elenca esempi dei piani tariffari ottimali per i diversi car
 
 Per scegliere il piano tariffario, iniziare determinando se il proprio carico di lavoro necessita di operazioni di I/O al secondo garantite. In caso affermativo, scegliere il piano tariffario Standard.
 
-| **Funzionalità del piano tariffario** | **Basic** | **Standard** |
+| **Caratteristiche del piano tariffario** | **Basic** | **Standard** |
 | :------------------------ | :-------- | :----------- |
 | Unità di calcolo massime | 100 | 800 | 
 | Archiviazione massima totale | 1 TB | 1 TB | 
@@ -53,7 +53,10 @@ Per scegliere il piano tariffario, iniziare determinando se il proprio carico di
 
 Durante il periodo di anteprima non è possibile modificare il piano tariffario dopo aver creato il server. In futuro sarà possibile effettuare l'upgrade o il downgrade di un server da un piano tariffario a un altro.
 
-## <a name="choose-a-performance-level-compute-units"></a>Scegliere un livello di prestazioni (unità di calcolo)
+## <a name="understand-the-price"></a>Informazioni sul prezzo
+Quando si crea un nuovo database di Azure per PostgreSQL all'interno del [portale di Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), fare clic sul pannello **Piano tariffario** per visualizzare il costo mensile in base alle opzioni selezionate. Se non è disponibile una sottoscrizione di Azure, usare il calcolatore dei prezzi di Azure per ottenere una stima di prezzo. Passare al sito Web del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/), quindi fare clic su **Aggiungi elementi**, espandere la categoria **Database** e scegliere **Database di Azure per PostgreSQL** per personalizzare le opzioni.
+
+## <a name="choose-a-performance-level-compute-units"></a>Scegliere un livello di prestazioni, ovvero le unità di calcolo
 Dopo avere determinato il piano tariffario per l'istanza di Database di Azure per il server PostgreSQL è possibile stabilire il livello di prestazioni selezionando il numero di unità di calcolo necessarie. Si può iniziare con 200 e 400 unità di calcolo per le applicazioni che richiedono maggiore concorrenza degli utenti per i propri carichi di lavoro analitici o Web, quindi aumentare il valore in base alle esigenze. 
 
 Le unità sono una misura della velocità effettiva di elaborazione della CPU garantita come disponibile per un singolo database di Azure per il server PostgreSQL. Un'unità di calcolo è una misura combinata di risorse di CPU e memoria.  Per altre informazioni, vedere [Spiegazione delle unità di calcolo](concepts-compute-unit-and-storage.md)

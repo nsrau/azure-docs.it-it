@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB .NET SDK e risorse | Microsoft Docs
-description: Tutte le informazioni sull'SDK e sull'API .NET, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB .NET SDK.
+title: Risorse e SDK .NET per Azure Cosmos DB | Documentazione Microsoft
+description: Tutte le informazioni sull'SDK e sull'API .NET, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di Azure Cosmos DB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -16,13 +16,13 @@ ms.date: 07/05/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a41df84034dbc2f1ec6c61d027ced77694354d51
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 8d6b953ae95713dc8b5a4037fa59bec49ea52b85
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 07/25/2017
 
 ---
-# <a name="documentdb-net-sdk-download-and-release-notes"></a>DocumentDB .NET SDK: download e note sulla versione
+# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: download e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/21/2017
 
 <tr><td>**Esempi**</td><td>[Esempi di codice .NET](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Introduzione**</td><td>[Introduzione a DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**Attività iniziali**</td><td>[Introduzione ad Azure Cosmos DB .NET SDK](documentdb-get-started.md)</td></tr>
 
 <tr><td>**Esercitazione sull'app Web**</td><td>[Sviluppo di applicazioni Web con Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 07/21/2017
 *   Aggiunta del supporto per la definizione di JsonSerializerSettings personalizzate durante la creazione di un'istanza di [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   Risolto un problema che interessava i computer x64 che non supportano l'istruzione SSE4 e generano una SEHException durante l'esecuzione di query nell'API di DocumentDB.
+*   Risolto un problema che interessava i computer x64 che non supportano l'istruzione SSE4 e generano una SEHException durante l'esecuzione di query nell'API di DocumentDB di Azure Cosmos DB.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   Aggiunta del supporto per la funzionalità di unità richiesta al minuto (UR/m).
@@ -143,7 +143,7 @@ ms.lasthandoff: 07/21/2017
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * Aggiunta del supporto per le query parallele nelle raccolte partizionate.
 * Aggiunta del supporto ORDER BY e TOP tra partizioni per le raccolte partizionate.
-* Correzione di riferimenti mancanti a DocumentDB.Spatial.Sql.dll e Microsoft.Azure.Documents.ServiceInterop.dll, necessari quando si fa riferimento a un progetto di DocumentDB con riferimento al pacchetto Nuget DocumentDB.
+* Correzione di riferimenti mancanti a DocumentDB.Spatial.Sql.dll e Microsoft.Azure.Documents.ServiceInterop.dll, necessari quando si fa riferimento a un progetto di Azure Cosmos DB con riferimento al pacchetto Nuget Azure Cosmos DB.
 * Correzione della possibilità di usare parametri di tipi diversi per le funzioni definite dall'utente in LINQ. 
 * Risoluzione di un bug per gli account replicati a livello globale in cui le chiamate Upsert sono state indirizzate verso posizioni di lettura invece di posizioni di scrittura.
 * Aggiunta di metodi mancanti all'interfaccia IDocumentClient: 
@@ -156,7 +156,7 @@ ms.lasthandoff: 07/21/2017
 * Aggiunta del supporto per gli account di database con più aree.
 * Aggiunta del supporto per la ripetizione dei tentativi delle richieste limitate.  L'utente può personalizzare il numero di tentativi e il tempo di attesa massimo configurando la proprietà ConnectionPolicy.RetryOptions.
 * Aggiunta di una nuova interfaccia IDocumentClient che definisce le firme di tutti i metodi e di tutte le proprietà DocumenClient.  Come parte di questa modifica, anche i metodi di estensione che creano IQueryable e IOrderedQueryable sono stati modificati in metodi sulla stessa classe DocumentClient.
-* Aggiunta dell'opzione di configurazione per impostare ServicePoint.ConnectionLimit per un URI dell'endpoint di DocumentDB specifico.  Usare ConnectionPolicy.MaxConnectionLimit per modificare il valore predefinito, impostato su 50.
+* Aggiunta dell'opzione di configurazione per impostare ServicePoint.ConnectionLimit per un URI dell'endpoint di Azure Cosmos DB specifico.  Usare ConnectionPolicy.MaxConnectionLimit per modificare il valore predefinito, impostato su 50.
 * IPartitionResolver e la relativa implementazione sono stati deprecati.  Il supporto per IPartitionResolver è ora obsoleto. È consigliabile usare le raccolte partizionate per un'archiviazione e una velocità effettiva superiori.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
@@ -172,7 +172,7 @@ ms.lasthandoff: 07/21/2017
 * Implementazione delle [raccolte partizionate](partition-data.md) e dei [livelli di prestazioni definiti dall'utente](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Correzione]** Se si eseguono query nell'endpoint DocumentDB viene generato il messaggio seguente: "System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso".
+* **[Correzione]** Se si eseguono query nell'endpoint Azure Cosmos DB viene generato il messaggio seguente: "System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso".
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Supporto LINQ espanso, tra cui nuovi operatori per il paging, espressioni condizionali e confronto di intervalli.

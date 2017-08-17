@@ -1,6 +1,6 @@
 ---
 title: Estensione script personalizzata di Azure per Windows | Microsoft Docs
-description: "Automatizzare le attività di configurazione delle macchine virtuali Windows usando l&quot;estensione script personalizzata"
+description: "Automatizzare le attività di configurazione delle macchine virtuali Windows usando l'estensione script personalizzata"
 services: virtual-machines-windows
 documentationcenter: 
 author: neilpeterson
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 07/16/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 957fb7bf1bd646ae5e4d27350502bdf14b0f00c3
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: a6f417ea6575b81258998ae3b31c10e9df59b603
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
@@ -37,7 +36,7 @@ L'estensione di script personalizzata per Windows può essere eseguita in Window
 
 ### <a name="script-location"></a>Percorso dello script
 
-Lo script deve essere archiviato nell'archiviazione di Azure o in un altro percorso accessibile tramite un URL valido.
+Lo script deve essere archiviato nell'archiviazione BLOB di Azure o in un altro percorso accessibile tramite un URL valido.
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
@@ -63,7 +62,7 @@ Il codice JSON seguente mostra lo schema dell'estensione di script personalizzat
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.8",
+        "typeHandlerVersion": "1.9",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -86,7 +85,7 @@ Il codice JSON seguente mostra lo schema dell'estensione di script personalizzat
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |
 | type | Estensioni |
-| typeHandlerVersion | 1.8 |
+| typeHandlerVersion | 1.9 |
 | fileUris (es.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (es.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
 | storageAccountName (es.) | examplestorageacct |

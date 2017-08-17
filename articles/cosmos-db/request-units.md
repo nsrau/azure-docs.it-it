@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 88edb489d967a5bc5cc1c4aa1aeb5abcd6539d12
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
@@ -191,7 +191,7 @@ L'uso dello strumento è molto semplice:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Usare l'intestazione della risposta di addebito della richiesta di Azure Cosmos DB
-Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK di DocumentDB. In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.  Per quanto riguarda le query, Esplora query di Azure Cosmos DB nel portale di Azure fornisce informazioni sull'addebito per le richieste relative alle query eseguite.
+Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK di Azure Cosmos DB. In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.  Per quanto riguarda le query, Esplora query di Azure Cosmos DB nel portale di Azure fornisce informazioni sull'addebito per le richieste relative alle query eseguite.
 
 ![Analisi degli addebiti delle unità richiesta in Esplora Query][1]
 

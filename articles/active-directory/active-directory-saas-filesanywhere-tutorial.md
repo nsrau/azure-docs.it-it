@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con FilesAnywhere | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e FilesAnywhere.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e FilesAnywhere.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 40164cfba8b54634278194c599a4493a5b7910b2
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 4153056bd21006061c6ad8ff9cf3c17de9248628
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Esercitazione: Integrazione di Azure Active Directory con FilesAnywhere
@@ -117,6 +117,8 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Configura accesso Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
     a. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+> [!NOTE]
+> Si noti che il valore **215** di **clientid** è solo un esempio. È necessario sostituirlo con il valore clientid effettivo.
 
 4. Nella sezione **URL e dominio FilesAnywhere**, se si vuole configurare l'applicazione in **modalità avviata da SP**, seguire questa procedura:
     
@@ -170,7 +172,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_FilesAnywhere_configuresignon.png)
 
-10.    Per completare la configurazione dell'accesso Single Sign-On per l'applicazione sul lato FilesAnywhere, indicare al [team di supporto di FilesAnywhere](mailto:support@FilesAnywhere.com) il certificato di firma del token SAML scaricato e l'URL di Single Sign-On (SSO).
+10. Per completare la configurazione dell'accesso Single Sign-On per l'applicazione sul lato FilesAnywhere, indicare al [team di supporto di FilesAnywhere](mailto:support@FilesAnywhere.com) il certificato di firma del token SAML scaricato e l'URL di Single Sign-On (SSO).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 Questa sezione descrive come creare un utente test chiamato Britta Simon nel portale di gestione di Azure.

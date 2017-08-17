@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 08/02/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f5db73d93276f8da223f03fa672af02a3bc9b54d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a95283a5c52a2860a4c4ac9e47938fe7c6b1be84
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurare una connessione da rete virtuale a rete virtuale (versione classica)
@@ -86,7 +85,16 @@ La tabella seguente mostra un esempio di come definire le reti virtuali. Usare g
 
 ## <a name="vnetvalues"></a>Passaggio 2: Creare le reti virtuali
 
-Creare due reti virtuali nel [portale di Azure](https://portal.azure.com). Per altre informazioni sulla procedura per creare reti virtuali classiche, vedere [Creare una rete virtuale classica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Quando si segue questo articolo come esercizio, è possibile usare i valori di esempio seguenti:
+Creare due reti virtuali nel [portale di Azure](https://portal.azure.com). Per altre informazioni sulla procedura per creare reti virtuali classiche, vedere [Creare una rete virtuale classica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
+
+Quando si usa il portale per creare una rete virtuale classica, è necessario passare al pannello della rete virtuale tramite la procedura seguente; in caso contrario l'opzione per creare una rete virtuale classica non viene visualizzata:
+
+1. Fare clic su "+" per aprire il pannello "Nuovo".
+2. Nel campo "Cerca nel Marketplace" digitare "Rete virtuale". Se invece si seleziona Rete -> Rete virtuale, non sarà possibile ottenere l'opzione per creare una rete virtuale classica.
+3. Cercare "Rete virtuale" nell'elenco restituito e fare clic per aprire il pannello Rete virtuale. 
+4. Nel pannello della rete virtuale, selezionare "Classica" per creare una rete virtuale classica. 
+
+Quando si segue questo articolo come esercizio, è possibile usare i valori di esempio seguenti:
 
 **Valori per TestVNet1**
 

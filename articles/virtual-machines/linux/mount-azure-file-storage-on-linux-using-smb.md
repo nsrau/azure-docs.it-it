@@ -1,6 +1,6 @@
 ---
-title: Montare Archiviazione file di Azure su macchine virtuali Linux usando SMB | Documentazione Microsoft
-description: Procedura su come montare l&quot;archiviazione file di Azure su VM Linux usando SMB con l&quot;interfaccia della riga di comando di Azure 2.0
+title: Montare l'archiviazione file di Azure su VM Linux usando SMB | Microsoft Docs
+description: Come montare l'archiviazione file di Azure su VM Linux usando SMB con l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 279b165cbdb924dcae0cb95ad9f9d187aed1a1b3
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montare Archiviazione file di Azure su macchine virtuali Linux usando SMB
+# <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montare l'archiviazione file di Azure su VM Linux usando SMB
 
 Questo articolo descrive come usare il servizio di archiviazione file di Azure su una VM Linux usando un montaggio SMB con l'interfaccia della riga di comando di Azure 2.0. L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). I requisiti sono:
 

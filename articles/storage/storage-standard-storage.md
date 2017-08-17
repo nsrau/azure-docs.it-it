@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 01597767a03a5959c4c0cde994b6a7b8a34bfb7e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: cdcc06844dce5df09b50a9a5f6a97a7a96a9ef48
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Archiviazione Standard conveniente e dischi gestiti e non gestiti delle macchine virtuali di Azure
@@ -49,7 +48,7 @@ Per informazioni su come creare una VM con Managed Disks, vedere uno degli artic
 
 Di seguito sono illustrate alcune delle funzionalità di Archiviazione Standard. Per altri dettagli, vedere [Introduzione ad Archiviazione di Azure](storage-introduction.md).
 
-**Archiviazione Standard**: Archiviazione Standard di Azure supporta dischi, BLOB, file, tabelle e code di Azure. Per usare i servizi Archiviazione Standard, per prima cosa [creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account).
+**Archiviazione Standard**: Archiviazione Standard di Azure supporta dischi, BLOB, archiviazione di file, tabelle e code di Azure. Per usare i servizi Archiviazione Standard, per prima cosa [creare un account di archiviazione di Azure](storage-create-storage-account.md#create-a-storage-account).
 
 **Dischi di Archiviazione Standard**: i dischi di Archiviazione Standard possono essere collegati a tutte le VM di Azure, incluse le VM di serie di dimensioni usate con Archiviazione Premium come DSv2 e GS. Un disco di Archiviazione Standard può essere collegato a una sola VM. È tuttavia possibile collegare a una VM uno o più dischi di questo tipo, fino al numero massimo di dischi definito per la specifica dimensione di VM. Nella sezione seguente sugli obiettivi di scalabilità e prestazioni di Archiviazione Standard verranno descritte in dettaglio le specifiche. 
 

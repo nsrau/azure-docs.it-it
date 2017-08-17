@@ -1,10 +1,10 @@
 ---
-title: Informazioni su Node.js - Esercitazione su Azure Cosmos DB per Node.js | Microsoft Docs
-description: Informazioni su Node.js. Questa esercitazione illustra come usare il servizio Microsoft Azure Cosmos DB per archiviare e accedere ai dati da un'applicazione Web Node.js Express ospitata in Siti Web di Azure.
-keywords: Sviluppo di applicazioni, esercitazione sul database, informazioni su node.js, esercitazione su node.js, DocumentDB, Azure, Microsoft Azure
+title: Compilare un'app Web Node.js per Azure Cosmos DB | Microsoft Docs
+description: Questa esercitazione di Node.js illustra come usare il servizio Microsoft Azure Cosmos DB per archiviare e accedere ai dati da un'applicazione Web Node.js Express ospitata in siti Web di Azure.
+keywords: Sviluppo di applicazioni, esercitazione sul database, informazioni su node.js, esercitazione su node.js
 services: cosmos-db
 documentationcenter: nodejs
-author: syamkmsft
+author: mimig1
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: syamk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 511c9e4d6f68b3e063559acb5996111acd3c653f
+ms.date: 07/06/2017
+ms.author: mimig
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: e5f7697b1069186b9ab6b6594fa5efb069252475
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="_Toc395783175"></a>Creare un'applicazione Web Node.js con Azure Cosmos DB
@@ -50,7 +49,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
 
    OPPURE
 
-   Un'installazione locale dell'[emulatore Azure Cosmos DB](local-emulator.md).
+   Un'installazione locale dell'[emulatore Azure Cosmos DB](local-emulator.md) (solo Windows).
 * [Node.js][Node.js] 0.10.29 o versione successiva.
 * [Generatore di Express](http://www.expressjs.com/starter/generator.html), installabile tramite `npm install express-generator -g`
 * [Git][Git].
@@ -62,7 +61,7 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account o si 
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>Passaggio 2: Informazioni su come creare una nuova applicazione Node.js
+## <a name="_Toc395783178"></a>Passaggio 2: Creare una nuova applicazione Node.js
 A questo punto si creerà un progetto base Node.js Hello World usando il framework [Express](http://expressjs.com/) .
 
 1. Aprire il terminale preferito, ad esempio il prompt dei comandi di Node.js.
@@ -89,7 +88,7 @@ Il file **package.json** è uno di quelli creati nella radice del progetto. Ques
 1. Tornare al terminale e installare il modulo **async** tramite npm.
    
         npm install async --save
-2. Installare il modulo **documentdb** tramite npm. Questo è il modulo in cui risiedono tutte le funzionalità avanzate di DocumentDB.
+2. Installare il modulo **documentdb** tramite npm. Questo è il modulo in cui risiedono tutte le funzionalità avanzate di Azure Cosmos DB.
    
         npm install documentdb --save
 3. Con un rapido controllo del file **package.json** dell'applicazione si dovrebbero notare i moduli aggiuntivi. Questo file indica ad Azure quali pacchetti scaricare e installare durante l'esecuzione dell'applicazione. Dovrebbe essere simile all'esempio seguente.
@@ -391,8 +390,8 @@ Al termine delle operazioni iniziali di installazione e configurazione, si può 
    
         var config = {}
    
-        config.host = process.env.HOST || "[the URI value from the DocumentDB Keys blade on http://portal.azure.com]";
-        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the DocumentDB Keys blade on http://portal.azure.com]";
+        config.host = process.env.HOST || "[the URI value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
+        config.authKey = process.env.AUTH_KEY || "[the PRIMARY KEY value from the Azure Cosmos DB Keys blade on http://portal.azure.com]";
         config.databaseId = "ToDoList";
         config.collectionId = "Items";
    
@@ -435,22 +434,25 @@ Al termine delle operazioni iniziali di installazione e configurazione, si può 
 
 1. Il file **layout.jade** della directory **views** viene usato come modello globale per altri file **.jade**. In questo passaggio verrà modificato in modo da usare [Twitter Bootstrap](https://github.com/twbs/bootstrap), un toolkit che semplifica la progettazione di un sito Web di aspetto gradevole. 
 2. Aprire il file **layout.jade** nella cartella **views** e sostituire il contenuto con quanto segue:
-   
-        doctype html
-        html
-           head
-             title= title
-             link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-             link(rel='stylesheet', href='/stylesheets/style.css')
-           body
-             nav.navbar.navbar-inverse.navbar-fixed-top
-               div.navbar-header
-                 a.navbar-brand(href='#') My Tasks
-             block content
-             script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-             script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+
+    ```
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body
+        nav.navbar.navbar-inverse.navbar-fixed-top
+          div.navbar-header
+            a.navbar-brand(href='#') My Tasks
+        block content
+        script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+    ```
 
     Ciò in effetti comunica al motore **Jade** di eseguire il rendering di una parte del codice HTML per l'applicazione e crea un **blocco** denominato **content** tramite cui è possibile fornire il layout per le pagine di contenuto.
+
     Salvare e chiudere il file **layout.jade** .
 
 3. Aprire il file **index.jade** , la visualizzazione che sarà usata dall'applicazione, quindi sostituire il contenuto del file con quanto segue:
@@ -482,44 +484,28 @@ Al termine delle operazioni iniziali di installazione e configurazione, si può 
                      td #{month + "/" + day + "/" + year}
                      td
                        input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-             button.btn(type="submit") Update tasks
+             button.btn.btn-primary(type="submit") Update tasks
            hr
            form.well(action="/addtask", method="post")
-             label Item Name:
-             input(name="name", type="textbox")
-             label Item Category:
-             input(name="category", type="textbox")
+             .form-group
+               label(for="name") Item Name:
+               input.form-control(name="name", type="textbox")
+             .form-group
+               label(for="category") Item Category:
+               input.form-control(name="category", type="textbox")
              br
              button.btn(type="submit") Add item
    
+
     Questo estende il layout e fornisce contenuto per il segnaposto **content** già visto in precedenza nel file **layout.jade**.
    
-    In questo layout sono stati creati due moduli HTML. 
+    In questo layout sono stati creati due moduli HTML.
+
     Il primo modulo contiene una tabella per i dati e un pulsante che consente di aggiornare gli elementi mediante la pubblicazione nel metodo **/completetask** del controller.
+    
     Il secondo modulo contiene due campi di input e un pulsante che consente di creare un nuovo elemento tramite la pubblicazione nel metodo **/addtask** del controller.
-   
+
     Ciò è tutto quanto è necessario per il funzionamento dell'applicazione.
-4. Aprire il file **style.css** nella directory **public\stylesheets** e sostituire il codice con quanto segue:
-   
-        body {
-          padding: 50px;
-          font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-        }
-        a {
-          color: #00B7FF;
-        }
-        .well label {
-          display: block;
-        }
-        .well input {
-          margin-bottom: 5px;
-        }
-        .btn {
-          margin-top: 5px;
-          border: outset 1px #C8C8C8;
-        }
-   
-    Salvare e chiudere questo file **style.css** .
 
 ## <a name="_Toc395783181"></a>Passaggio 6: Esecuzione dell'applicazione in locale
 1. Per testare l'applicazione nel computer locale, eseguire `npm start` nel terminale per avviare l'applicazione, quindi aggiornare la pagina [http://localhost:3000](http://localhost:3000) del browser. L'aspetto della pagina dovrebbe essere simile all'immagine seguente:

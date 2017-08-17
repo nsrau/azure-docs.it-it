@@ -12,16 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c8bb1161e874a3adda4a71ee889ca833db881e20
-ms.openlocfilehash: cd70b0b5656bef08a8be1c1a67754b203cceb905
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>iOS SDK per Azure Mobile Engagement
-Da qui, è possibile visualizzare tutti i dettagli su come integrare Azure Mobile Engagement in un'app per iOS. Se si vuole fare prima una prova, eseguire l' [esercitazione di&15; minuti](mobile-engagement-ios-get-started.md).
+Da qui, è possibile visualizzare tutti i dettagli su come integrare Azure Mobile Engagement in un'app per iOS. Se si vuole fare prima una prova, eseguire l' [esercitazione di 15 minuti](mobile-engagement-ios-get-started.md).
 
 Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-ios-sdk-content.md)
 
@@ -31,8 +32,11 @@ Fare clic per visualizzare il [contenuto dell'SDK](mobile-engagement-ios-sdk-con
 3. Implementazione del piano di tag: [Come usare l'API per l'assegnazione di tag avanzata di Mobile Engagement in un'app per iOS](mobile-engagement-ios-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Note sulla versione
-### <a name="401-12132016"></a>4.0.1 (12/13/2016)
-* Recapito del log migliorato in background.
+### <a name="410-07172017"></a>4.1.0 (07/17/2017)
+* Risolto il problema delle notifiche cancellate in background.
+* Risolto il problema degli avvisi in XCode 9 sulle API non chiamate nella coda principale.
+* Risolto un problema di memoria nei poll di copertura.
+* Eliminazione del supporto per iOS 6.X. A partire da questa versione, la destinazione della distribuzione dell'applicazione deve essere almeno iOS 7.
 
 Per le versioni precedenti, vedere le [note sulla versione complete](mobile-engagement-ios-release-notes.md)
 
@@ -49,8 +53,8 @@ XCode 8 è un componente obbligatorio a partire dalla versione 4.0.0 dell'SDK.
 
 > [!NOTE]
 > Se si dipende davvero da XCode 7, è possibile usare [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). Esiste un bug noto nel modulo di copertura della versione precedente durante l'esecuzione su dispositivi iOS 10: le notifiche di sistema non vengono attivate. Per risolvere il problema è necessario implementare l'API deprecata `application:didReceiveRemoteNotification:` nel delegato dell'app come segue:
-> 
-> 
+>
+>
 
     - (void)application:(UIApplication*)application
     didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -60,8 +64,8 @@ XCode 8 è un componente obbligatorio a partire dalla versione 4.0.0 dell'SDK.
 
 > [!IMPORTANT]
 > **Questa soluzione non è consigliata** dal momento che tale comportamento può cambiare in qualsiasi aggiornamento della versione iOS imminente (anche minore), poiché questa API iOS è deprecata. È opportuno passare a XCode 8 il prima possibile.
-> 
-> 
+>
+>
 
 #### <a name="usernotifications-framework"></a>Framework di UserNotifications
 È necessario aggiungere il framework di `UserNotifications` nelle fasi di compilazione.
@@ -72,7 +76,7 @@ Nell'area di esplorazione dei progetti aprire il riquadro del progetto, quindi s
 XCode 8 può ripristinare la funzionalità di push dell'app; controllarla attentamente nella scheda `capability` della finestra di destinazione selezionata.
 
 #### <a name="add-the-new-ios-10-notification-registration-code"></a>Aggiungere il nuovo codice di registrazione delle notifiche iOS 10
-Il frammento di codice precedente per registrare l'app per le notifiche funziona ancora, ma usa API deprecate pur essendo eseguito in iOS 10. 
+Il frammento di codice precedente per registrare l'app per le notifiche funziona ancora, ma usa API deprecate pur essendo eseguito in iOS 10.
 
 Importare il framework `User Notification` :
 
@@ -115,7 +119,7 @@ Un delegato `UNUserNotificationCenter` viene usato dall'SDK per monitorare il ci
 
 A questo scopo è possibile procedere in due modi:
 
-Proposta 1: inoltrando semplicemente le chiamate del delegato all'SDK
+Proposta 1: inoltrare semplicemente le chiamate del delegato all'SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -142,7 +146,7 @@ Proposta 1: inoltrando semplicemente le chiamate del delegato all'SDK
     }
     @end
 
-Proposta 2: ereditandola dalla classe `AEUserNotificationHandler`
+Proposta 2: ereditare dalla classe `AEUserNotificationHandler`
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -171,19 +175,13 @@ Proposta 2: ereditandola dalla classe `AEUserNotificationHandler`
 > [!NOTE]
 > È possibile determinare se una notifica proviene o meno da Engagement passando il suo dizionario `userInfo` al metodo della classe dell'agente `isEngagementPushPayload:`.
 
-Assicurarsi che il delegato dell'oggetto `UNUserNotificationCenter` sia impostato sul delegato entro il metodo `application:willFinishLaunchingWithOptions:` o il metodo `application:didFinishLaunchingWithOptions:` del delegato dell'applicazione.
+Assicurarsi che il delegato dell'oggetto `UNUserNotificationCenter` sia impostato sul delegato nel metodo `application:willFinishLaunchingWithOptions:` o nel metodo `application:didFinishLaunchingWithOptions:` del delegato dell'applicazione.
 Se, ad esempio, è stata implementata la Proposta 1 precedente:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
-  
+
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

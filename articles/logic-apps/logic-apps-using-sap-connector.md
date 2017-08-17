@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 89cd987cee841ea24dce85c0249e0eb3489c8d90
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
@@ -36,9 +36,7 @@ Il gateway dati locale consente di gestire i dati e accedere in modo sicuro alle
 
 - Scaricare e installare la libreria client SAP più recente nello stesso computer in cui è stato installato il gateway dati. È possibile usare una delle versioni SAP seguenti: 
     - Server SAP
-        - SAP ECC 6.0 Unicode
-        - SAP ECC 6.0 Unicode con EHP 4.0
-        - SAP ECC 6.0 con EHP 7.0 e tutte le precedenti versioni EHP
+        - Qualsiasi Server SAP che supporti il connettore .NET (NCo) 3.0
  
     - Client SAP
         - SAP Connettore .NET (NCo) 3.0

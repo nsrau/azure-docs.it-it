@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
 ms.author: mfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 69c517da6c23df1708f94ef7486b8c3b5b4edcaa
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 471ec6f45f4152fbac56242ef3ce906f8af00b54
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenari di applicazione di Service Fabric
@@ -36,7 +35,7 @@ La piattaforma Service Fabric in Azure è ideale per le categorie di applicazion
 Numerosi clienti hanno realizzato sistemi IoT usando Service Fabric, ad esempio [BMW](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/24/service-fabric-customer-profile-bmw-technology-corporation/), [Schneider Electric](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/05/service-fabric-customer-profile-schneider-electric/) e [Mesh Systems](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/20/service-fabric-customer-profile-mesh-systems/).
 
 ## <a name="application-design-case-studies"></a>Case study sulla progettazione delle applicazioni
-Nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) e sul [sito delle soluzioni di microservizi](https://azure.microsoft.com/solutions/microservice-applications/) sono pubblicati numerosi case study sul modo di usare Service Fabric per progettare le applicazioni
+Nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) e sul [sito delle soluzioni di microservizi](https://azure.microsoft.com/solutions/microservice-applications/) sono pubblicati numerosi case study sul modo di usare Service Fabric per progettare le applicazioni.
 
 ## <a name="design-applications-composed-of-stateless-and-stateful-microservices"></a>Progettare applicazioni costituite da microservizi con e senza stato
 La compilazione di applicazioni con ruoli di lavoro del servizio cloud di Azure è un esempio di servizio senza stato. Al contrario, i microservizi con stato mantengono lo stato autorevole oltre alla richiesta e alla relativa risposta. In questo modo è possibile ottenere disponibilità elevata e coerenza dello stato attraverso semplici API che forniscono garanzie transazionali supportate dalla replica. I servizi con stato di Service Fabric portano la disponibilità elevata a tutti i tipi di applicazioni, non solo a database e altri archivi di dati. Si tratta di un progresso naturale. Le applicazioni sono già passate dall'uso di database puramente relazionali per la disponibilità elevata a database NoSQL. Ora le applicazioni stesse possono avere un proprio stato "attivo" e i dati possono essere gestiti al loro interno per migliorare ancora le prestazioni senza compromettere l'affidabilità, la coerenza o la disponibilità.

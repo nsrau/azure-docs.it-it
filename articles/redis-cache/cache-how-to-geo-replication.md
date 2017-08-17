@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: sdanie
 ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: ed05b369d882d2d9853b87a87fd91fe927ab15ba
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 71b0d4add7e642487f6d67cda692c500ee78b0e6
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -45,10 +45,11 @@ Dopo aver configurato la replica geografica, si applicano le restrizioni seguent
 - Non è possibile avviare un'[operazione di ridimensionamento](cache-how-to-scale.md) nella cache o [modificare il numero di partizioni](cache-how-to-premium-clustering.md) se la cache ha il clustering abilitato.
 - Non è possibile abilitare la persistenza in nessuna delle cache.
 - È possibile usare [Esporta](cache-how-to-import-export-data.md#export) con entrambe le cache, ma l'opzione [Importa](cache-how-to-import-export-data.md#import) è abilitata solo nella cache collegata primaria.
+- Non è possibile eliminare la cache collegata o il gruppo di risorse che le contiene, fino a quando non si rimuove il collegamento di replica geografica. Per altre informazioni, vedere [Perché, quando si è tentato di eliminare la cache collegata, l'operazione non è riuscita?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - Se le due cache si trovano in aree diverse, i costi di rete in uscita verranno applicati ai dati replicati nelle aree geografiche della cache collegata secondaria. Per altre informazioni, vedere [Quanto costa replicare i dati nelle aree di Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - Se la cache primaria (e relativa replica) si disattivano, non si verifica alcun failover automatico nella cache collegata secondaria. Per eseguire il failover delle applicazioni del client, è necessario rimuovere manualmente il collegamento di replica geografica e rivolgere le applicazioni del client verso la cache che in precedenza era la cache collegata secondaria. Per altre informazioni, vedere [Come funziona il failover nella cache collegata secondaria?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
-## <a name="to-add-a-cache-replication-link"></a>Per aggiungere un collegamento di replica della cache
+## <a name="add-a-geo-replication-link"></a>Aggiungere un collegamento di replica geografica
 
 1. Per collegare due cache Premium per la replica geografica, fare clic su **Replica geografica** dal menu Risorsa della cache che va considerata come quella collegata primaria e quindi fare clic su **Add cache replication link** (Aggiungi collegamento di replica della cache) dal pannello **Replica geografica**.
 
@@ -80,7 +81,7 @@ Dopo aver configurato la replica geografica, si applicano le restrizioni seguent
 
     Durante il processo di collegamento, la cache collegata primaria resta disponibile per l'uso, ma la cache collegata secondaria non è disponibile finché non viene completato il processo di collegamento.
 
-## <a name="to-remove-a-geo-replication-link"></a>Per rimuovere un collegamento di replica geografica
+## <a name="remove-a-geo-replication-link"></a>Rimuovere un collegamento di replica geografica
 
 1. Per rimuovere il collegamento tra due cache e arrestare la replica geografica, fare clic su **Unlink caches** (Scollega cache) dal pannello **Replica geografica**.
     
@@ -104,6 +105,7 @@ Dopo aver configurato la replica geografica, si applicano le restrizioni seguent
 - [È possibile usare la replica geografica con le cache in una rete virtuale?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 - [È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per gestire la replica geografica?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [Quanto costa replicare i dati nelle aree di Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- [Perché, quando si è tentato di eliminare la cache collegata, l'operazione non è riuscita?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [Quale area si deve usare per la cache collegata secondaria?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [Come funziona il failover nella cache collegata secondaria?](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
@@ -146,6 +148,10 @@ In questo momento è possibile gestire la replica geografica solo tramite il por
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Quanto costa replicare i dati nelle aree di Azure?
 
 Quando si usa la replica geografica, i dati dalla cache collegata primaria vengono replicati nella cache collegata secondaria. Se le due cache collegate si trovano nella stessa area di Azure, non è previsto alcun addebito per il trasferimento dei dati. Se le due cache collegate si trovano in diverse aree di Azure, l'addebito per il trasferimento dei dati della replica geografica corrisponde al costo della larghezza di banda della replica di quei dati nelle altre aree di Azure. Per altre informazioni, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>Perché, quando si è tentato di eliminare la cache collegata, l'operazione non è riuscita?
+
+Quando due cache sono collegate, non è possibile eliminare una delle cache o il gruppo di risorse che le contiene fino a quando non si rimuove il collegamento di replica geografica. Se si tenta di eliminare il gruppo di risorse che contiene una o entrambe le cache collegate, vengono eliminate le altre risorse nel gruppo di risorse, ma il gruppo di risorse rimane nello stato `deleting` mentre le cache collegate nel gruppo di risorse rimangono nello stato `running`. Per completare l'eliminazione del gruppo di risorse e le cache collegate all'interno di esso, interrompere il collegamento di replica geografica, come descritto in [Rimuovere un collegamento di replica geografica](#remove-a-geo-replication-link).
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>Quale area si deve usare per la cache collegata secondaria?
 

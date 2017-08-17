@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: marsma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 9820cef564e291d1c8aee7c360198de1dc05379e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5b9e497078fe0b276ec8a717b43a0080e1667592
 ms.contentlocale: it-it
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
@@ -209,6 +208,10 @@ All'archiviazione tabelle nell'emulatore si applicano le seguenti differenze:
 Non esistono differenze specifiche per l'archiviazione di accodamento nell'emulatore.
 
 ## <a name="storage-emulator-release-notes"></a>Note sulla versione dell'emulatore di archiviazione
+### <a name="version-52"></a>Versione 5.2
+* L'emulatore di archiviazione supporta ora la versione 2017-04-17 dei servizi di archiviazione per gli endpoint dei servizi BLOB, di accodamento e tabelle.
+* È stato risolto un bug per cui i valori delle proprietà di tabella non venivano codificati correttamente.
+
 ### <a name="version-51"></a>Versione 5.1
 * È stato risolto un bug per cui l'emulatore di archiviazione restituiva l'intestazione `DataServiceVersion` in risposte in cui il servizio non era presente.
 

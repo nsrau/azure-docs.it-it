@@ -20,7 +20,6 @@ ms.openlocfilehash: a6cfd7d3f1dd41968004ae93b1d6aa9977e6f55a
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -105,7 +104,7 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
     </dependency>
     ```
 

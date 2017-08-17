@@ -1,5 +1,5 @@
 ---
-title: Configurare una rete virtuale per un&quot;istanza di Cache Redis di Azure Premium | Documentazione Microsoft
+title: Configurare una rete virtuale per un'istanza di Cache Redis di Azure Premium | Microsoft Docs
 description: In questo articolo viene illustrato come creare e gestire il supporto di una rete virtuale per le istanze di Cache Redis di Azure Premium.
 services: redis-cache
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 06/07/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 945da7ce2ab5f2d479d96a6ed2896a0ba7e0747e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c758aa5955362d04abf69c760d2aed7983cdf102
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure
@@ -40,7 +39,7 @@ Il supporto della rete virtuale viene configurato nel pannello **Nuova cache Red
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-Dopo aver selezionato un piano tariffario Premium, è possibile configurare l'integrazione rete virtuale di Cache Redis selezionando una rete virtuale nella stessa sottoscrizione e nella stessa posizione della cache. Per usare una nuova rete virtuale, è necessario prima crearla seguendo i passaggi in [Creare una rete virtuale usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o in [Creare una rete virtuale (classica) usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md), quindi tornare al pannello **Nuova cache Redis** per creare e configurare la cache Premium.
+Dopo aver selezionato un piano tariffario Premium, è possibile configurare l'integrazione rete virtuale di Cache Redis selezionando una rete virtuale nella stessa sottoscrizione e nella stessa posizione della cache. Per usare una nuova rete virtuale, è necessario prima crearla seguendo i passaggi in [Creare una rete virtuale usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) o in [Creare una rete virtuale (classica) usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md), quindi tornare al pannello **Nuova cache Redis** per creare e configurare la cache Premium.
 
 Per configurare la rete virtuale per la nuova cache, fare clic su **Rete virtuale** nel pannello **Nuova cache Redis** e selezionare la rete virtuale desiderata dall'elenco a discesa.
 
@@ -85,6 +84,7 @@ Per connettersi all'istanza di Cache Redis di Azure quando si usa una rete virtu
 Nell'elenco seguente sono fornite le risposte alle domande poste comunemente sulla rete virtuale di Cache Redis di Azure.
 
 * [Quali sono alcuni problemi comuni di configurazione errata per Cache Redis di Azure e le reti virtuali?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* [Come è possibile verificare che la cache funzioni in una rete virtuale?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [È possibile usare reti virtuali con una cache Standard o Basic?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * [Perché la creazione di una cache Redis ha esito negativo in alcune subnet e non in altre?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 * [Quali sono i requisiti di spazio per gli indirizzi di subnet?](#what-are-the-subnet-address-space-requirements)
@@ -105,7 +105,7 @@ Quando Cache Redis di Azure è ospitata in una rete virtuale, vengono usate le p
 
 Vi sono sette requisiti delle porte in uscita.
 
-- Se lo si desidera, tutte le connessioni a Internet in uscita possono essere effettuate tramite un dispositivo di controllo locale del cliente.
+- Se lo si desidera, tutte le connessioni a Internet in uscita possono essere eseguite tramite un dispositivo di controllo locale del cliente.
 - Tre delle porte instradano il traffico a endpoint di Azure che servono Archiviazione di Azure e Azure DNS.
 - Gli intervalli di porte rimanenti sono destinati alle comunicazioni interne subnet di Redis. Per le comunicazioni subnet interne di Redis non è richiesta alcuna regola NSG subnet.
 
@@ -144,6 +144,26 @@ Esistono requisiti di connettività di rete per Cache Redis di Azure che potrebb
 * La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Questi requisiti DNS possono essere soddisfatti garantendo che un'infrastruttura DNS valida venga configurata e mantenuta per la rete virtuale.
 * Connettività di rete in uscita agli endpoint di Monitoraggio di Azure seguenti, che vengono risolti nei domini DNS seguenti: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
 
+### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Come è possibile verificare che la cache funzioni in una rete virtuale?
+
+>[!IMPORTANT]
+>Quando ci si connette a un'istanza di Cache Redis di Azure ospitata in una rete virtuale, i client della cache devono trovarsi nella stessa rete virtuale, incluse eventuali applicazioni di test o strumenti di diagnostica ping.
+>
+>
+
+Dopo aver configurato i requisiti delle porte come descritto nella sezione precedente, è possibile verificare che la cache funzioni eseguendo la procedura seguente.
+
+- [Riavviare](cache-administration.md#reboot) tutti i nodi della cache. Se non è possibile raggiungere tutte le dipendenze della cache richieste (come descritto in [Requisiti delle porte in ingresso](cache-how-to-premium-vnet.md#inbound-port-requirements) e [Requisiti delle porte in uscita](cache-how-to-premium-vnet.md#outbound-port-requirements)), la cache non sarà in grado di riavviarsi.
+- Dopo il riavvio dei nodi della cache (come riportato dallo stato della cache nel portale di Azure), è possibile eseguire i test seguenti:
+  - eseguire il ping dell'endpoint della cache (tramite la porta 6380) da un computer che si trova all'interno della stessa rete virtuale della cache tramite [tcping](https://www.elifulkerson.com/projects/tcping.php). ad esempio:
+    
+    `tcping.exe contosocache.redis.cache.windows.net 6380`
+    
+    Se lo strumento `tcping` indica che la porta è aperta, la cache è disponibile per la connessione dai client nella rete virtuale.
+
+  - Un altro modo per eseguire il test è quello di creare un client della cache di test (che potrebbe essere una semplice applicazione della console tramite StackExchange.Redis) che si connette alla cache, aggiunge e recupera alcuni elementi dalla cache. Installare l'applicazione client di esempio in una macchina virtuale che si trova nella stessa rete virtuale della cache ed eseguirla per verificare la connettività alla cache.
+
+
 ### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>È possibile usare reti virtuali con una cache Standard o Basic?
 Le reti virtuali possono essere usate solo con cache Premium.
 
@@ -165,9 +185,9 @@ Quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale
 ## <a name="use-expressroute-with-azure-redis-cache"></a>Usare ExpressRoute con Cache Redis di Azure
 I clienti possono connettere un circuito [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) all'infrastruttura di rete virtuale per estendere la rete locale ad Azure. 
 
-Per impostazione predefinita, un circuito ExpressRoute appena creato annuncia una route predefinita che consente la connettività Internet in uscita. Con questa configurazione le applicazioni client saranno in grado di connettersi ad altri endpoint di Azure tra cui Cache Redis di Azure.
+Per impostazione predefinita, un circuito ExpressRoute appena creato non esegue il tunneling forzato (annuncio della route predefinita, 0.0.0.0/0) in una rete virtuale. Di conseguenza, la connettività Internet in uscita è consentita direttamente dalla rete virtuale e le applicazioni client sono in grado di connettersi agli altri endpoint di Azure tra cui la Cache Redis di Azure.
 
-Tuttavia, secondo una diffusa configurazione, i clienti definiscono la propria route predefinita (0.0.0.0/0) verso la quale viene forzato il traffico Internet in uscita invece di far passare il flusso localmente. Questo flusso di traffico interrompe la connettività con Cache Redis di Azure se il traffico in uscita viene quindi bloccato in locale in modo da impedire all'istanza di Cache Redis di Azure di comunicare con le proprie dipendenze.
+Tuttavia, una configurazione comune dei clienti è quella di usare il tunneling forzato (segnalare una route predefinita) verso la quale viene forzato il traffico Internet in uscita invece di far passare il flusso localmente. Questo flusso di traffico interrompe la connettività con Cache Redis di Azure se il traffico in uscita viene quindi bloccato in locale in modo da impedire all'istanza di Cache Redis di Azure di comunicare con le proprie dipendenze.
 
 La soluzione consiste nel definire una o più route definite dall'utente (UDR, User Defined Route) nella subnet contenente la Cache Redis di Azure. Una route UDR definisce le route specifiche della subnet che verranno accettate invece della route predefinita.
 

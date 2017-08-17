@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/06/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: ef01a2221eb1915ac155a14cda0ea56565603d03
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 38c8cb00b21416add28eeb06187b89f64518dc92
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="applications-and-browsers-that-use-conditional-access-rules-in-azure-active-directory"></a>Applicazioni e browser che usano regole di accesso condizionale in Azure Active Directory
@@ -75,7 +75,6 @@ Attualmente è necessario usare altri metodi per bloccare l'accesso ad app che n
 Exchange offre due categorie principali di protocolli. Esaminare le opzioni seguenti e quindi selezionare il criterio più adatto alle esigenze dell'organizzazione.
 
 * **Exchange ActiveSync**. Per impostazione predefinita, i criteri di accesso condizionale per l'autenticazione a più fattori e i criteri di posizione non vengono applicati per Exchange ActiveSync. È necessario proteggere l'accesso a questi servizi configurando i criteri di Exchange ActiveSync in modo diretto oppure bloccando Exchange ActiveSync con le regole di AD FS (Active Directory Federation Services).
-
 * <seg>
   **Protocolli legacy**.</seg> È possibile bloccare protocolli legacy con AD FS. In questo modo viene bloccato l'accesso ai client di Office meno recenti, ad esempio Office 2013 senza l'autenticazione moderna abilitata e le versioni precedenti di Office.
 
@@ -124,9 +123,9 @@ Applicando le tre regole seguenti al trust della relying party di AD FS per la p
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
-## <a name="supported-browsers-for-device-based-policies"></a>Browser supportati per criteri basati su dispositivo
+## <a name="supported-browsers-for-device-based-policies"></a>Browser supportati per criteri basati su dispositivo 
 
-L'accesso è possibile solo per i criteri basati su dispositivo, che verificano la conformità del dispositivo e l'aggiunta a un dominio quando Azure AD è in grado di identificare e autenticare il dispositivo. Mentre la maggior parte dei controlli, ad esempio posizione e MFA, possono essere eseguiti su quasi tutti i dispositivi e i browser, i criteri del dispositivo richiedono la versione del sistema operativo e i browser elencati di seguito. L’utente di un browser o sistema operativo non supportato ha l'accesso bloccato se un criterio del dispositivo è attivo.
+È possibile ottenere l'accesso solo per i criteri basati su dispositivo, che verificano la conformità del dispositivo e l'aggiunta a un dominio quando Azure AD è in grado di identificare e autenticare il dispositivo. Mentre la maggior parte dei controlli, ad esempio posizione e MFA, possono essere eseguiti su quasi tutti i dispositivi e i browser, i criteri del dispositivo richiedono la versione del sistema operativo e i browser elencati di seguito. L'accesso è bloccato per gli utenti su browser o sistemi operativi non supportati quando sono in uso criteri del dispositivo. 
 
 | OS                     | Browser                 | Supporto     |
 | :--                    | :--                      | :-:         |

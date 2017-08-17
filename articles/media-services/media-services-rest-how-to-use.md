@@ -1,6 +1,6 @@
 ---
-title: Informazioni generali sull&quot;API REST di Servizi multimediali | Documentazione Microsoft
-description: Informazioni generali sull&quot;API REST di Servizi multimediali
+title: Informazioni generali sull'API REST di Servizi multimediali | Documentazione Microsoft
+description: Informazioni generali sull'API REST di Servizi multimediali
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 07/12/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f4d2fe502e6b6a93c0e455a5369b63deb9074c82
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali
@@ -27,6 +28,7 @@ L'**API REST di Servizi multimediali** viene usata per la creazione di processi,
 
 Servizi multimediali di Microsoft Azure è un servizio che accetta richieste HTTP basate su OData e può rispondere in formato JSON dettagliato o atom+pub. Poiché Servizi multimediali è conforme alle linee guida di progettazione di Azure, esiste un set di intestazioni HTTP obbligatorie che devono essere usate da ogni client per la connessione a Servizi multimediali, oltre a un set di intestazioni facoltative. Le seguenti sezioni descrivono le intestazioni e i verbi HTTP che è possibile usare quando si creano richieste e si ricevono risposte da Servizi multimediali.
 
+Questo argomento offre una panoramica su come usare REST v2 con Servizi multimediali.
 
 ## <a name="considerations"></a>Considerazioni
 
@@ -109,15 +111,14 @@ Per rendere più facilmente individuabili le entità di Servizi multimediali, è
 
 Aggiungere "?api-version=2.x" alla fine dell'URI se si desidera visualizzare i metadati in un browser o se nella richiesta non è stata inclusa l'intestazione x-ms-version.
 
+## <a name="next-steps"></a>Passaggi successivi
+
+Per accedere all'API di AMS con REST, vedere [Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con REST](media-services-rest-connect-with-aad.md).
+
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

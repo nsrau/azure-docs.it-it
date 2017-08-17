@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: bbd57547a0cc486a9cf7c8030dccaaf6f46c9860
-ms.lasthandoff: 04/11/2017
-
+ms.reviwer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 28d91237adf745e591b02322de7881c8122827ac
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -57,20 +58,18 @@ Se un utente ha una sottoscrizione per Azure o un abbonamento a Office 365 e ha 
 
 ## <a name="meeting-browser-requirements-for-the-access-panel"></a>Applicazione dei requisiti del browser per il pannello di accesso
 
-Per il pannello di accesso è necessario un browser che supporti JavaScript e in cui sia abilitato CSS. Per usare Single Sign-On (SSO) basato su password, è necessario installare l'estensione del pannello di accesso nel browser dell'utente. Questa estensione viene scaricata automaticamente quando un utente seleziona un'applicazione configurata per il servizio Single Sign-On basato su password.
+Per il pannello di accesso è necessario un browser che supporti JavaScript e in cui sia abilitato CSS. Per usare il servizio Single Sign-On (SSO) basato su password nel pannello di accesso, è necessario installare l'estensione del pannello di accesso nel browser dell'utente. Questa estensione viene scaricata automaticamente quando un utente seleziona un'applicazione configurata per il servizio Single Sign-On basato su password.
 
 Per l'accesso Single Sign-On basato su password il browser dell'utente finale può essere uno dei seguenti:
 
 -   Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive
 
+-   Edge su Windows 10 Anniversary Edition o versioni successive 
+
 -   Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 
 -   Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
->[!NOTE] 
->L'estensione SSO basata su password sarà disponibile per Edge in Windows 10 quando le estensioni del browser saranno supportate per Edge.
->
->
 
 ## <a name="problems-with-the-users-account"></a>Problemi relativi all'account dell'utente
 
@@ -102,7 +101,7 @@ Per controllare se l'account di un utente è presente, eseguire questa procedura
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca di filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
@@ -120,7 +119,7 @@ Per controllare lo stato dell'account di un utente, eseguire questa procedura:
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca di filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
@@ -140,7 +139,7 @@ Per reimpostare la password di un utente, eseguire questa procedura:
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca di filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
@@ -172,7 +171,7 @@ Per controllare lo stato di autenticazione a più fattori di un utente, eseguire
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca di filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
@@ -199,7 +198,7 @@ Per controllare le informazioni di contatto per l'autenticazione di un utente us
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca di filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
@@ -221,7 +220,7 @@ Per controllare le appartenenze ai gruppi di un utente, eseguire questa procedur
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca di filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
@@ -239,7 +238,7 @@ Per controllare le licenze assegnate di un utente, eseguire questa procedura:
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca di filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 
@@ -257,7 +256,7 @@ Per assegnare una licenza a un utente, eseguire questa procedura:
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca di filtro e selezionare l'elemento **Azure Active Directory**.
+3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4.  Fare clic su **Utenti e gruppi** nel menu di navigazione.
 

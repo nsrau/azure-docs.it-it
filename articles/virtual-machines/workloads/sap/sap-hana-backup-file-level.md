@@ -13,11 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 047d9191e2c844a591c35279ff7b143906087f56
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b7e17b83afb7306b74b8769f31188642b54566ca
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -135,11 +135,11 @@ La condivisione NFS era un set di striping veloce, come quella nel server SAP HA
 
 L'alternativa di eseguire un backup in un set di striping locale e di copiarlo nella condivisione NFS a livello di sistema operativo (un semplice comando **cp - avr**) non è stata molto più rapida. Ha impiegato 1 ora e 43 minuti.
 
-Dunque funziona, ma le prestazioni non sono state buone per il test di backup di 230 GB. La situazione dovrebbe essere ancora più grave per più terabyte.
+Funziona, ma le prestazioni non sono state buone per il test di backup di 230 GB. La situazione dovrebbe essere ancora più grave per più terabyte.
 
 ## <a name="copy-sap-hana-backup-files-to-azure-file-service"></a>Copiare i file di backup di SAP HANA nel Servizio file di Azure
 
-È possibile montare una condivisione di file di Azure all'interno di una macchina virtuale Linux di Azure. L'articolo [Come usare l'archiviazione file di Azure con Linux](../../../storage/storage-how-to-use-files-linux.md) offre dettagli su come usarla. Tenere presente che esiste attualmente un limite di quota di 5 TB di una condivisione di file di Azure e un limite di dimensione del file di 1 TB per ogni file. Per altre informazioni sui limiti di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../../storage/storage-scalability-targets.md).
+È possibile montare una condivisione di file di Azure all'interno di una macchina virtuale Linux di Azure. L'articolo [Come usare l'archiviazione file di Azure con Linux](../../../storage/storage-how-to-use-files-linux.md) descrive l'uso in dettaglio. Tenere presente che esiste attualmente un limite di quota di 5 TB di una condivisione di file di Azure e un limite di dimensione del file di 1 TB per ogni file. Per altre informazioni sui limiti di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../../storage/storage-scalability-targets.md).
 
 I test hanno dimostrato, tuttavia, che il backup di SAP HANA non funziona direttamente con questo tipo di montaggio CIFS. Nella [Nota SAP 1820529](https://launchpad.support.sap.com/#/notes/1820529) si dichiara anche che il CIFS non è consigliato.
 

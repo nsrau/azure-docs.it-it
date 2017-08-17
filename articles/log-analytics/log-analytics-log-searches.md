@@ -1,6 +1,6 @@
 ---
 title: Trovare dati con ricerche nei log in Log Analytics di Azure | Documentazione Microsoft
-description: "Le ricerche nei log permettono di combinare e correlare i dati del computer provenienti da più origini nell&quot;ambiente corrente."
+description: "Le ricerche nei log permettono di combinare e correlare i dati del computer provenienti da più origini nell'ambiente corrente."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/26/2017
 ms.author: bwren
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: b005d0fb25483f3dce14133038d7759dff07fc7c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="find-data-using-log-searches"></a>Trovare dati tramite ricerche nei log
+# <a name="find-data-using-log-searches-in-log-analytics"></a>Trovare dati con ricerche nei log in Log Analytics
+
+>[!NOTE]
+> Questo articolo descrive le ricerche nei log con l'attuale linguaggio di query di Log Analytics.  Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), è consigliabile vedere [Informazioni sulle ricerche log in Log Analytics](log-analytics-log-search-new.md).
+
 
 Un elemento fondamentale di Log Analytics è la funzionalità di ricerca nei log, che permette di combinare e correlare i dati del computer da più origini all'interno dell'ambiente. Anche le soluzioni sono basate sulla ricerca log, per offrire metriche specifiche per una particolare area problematica.
 
@@ -135,6 +137,24 @@ Analogamente ,la query seguente restituisce **% CPU Time** solo per i due comput
 
 ```
 CounterName="% Processor Time"  AND InstanceName="_Total" AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com)
+```
+
+### <a name="field-types"></a>Tipi di campo
+Quando si creano filtri, è importante comprendere le differenze di utilizzo dei diversi tipi di campi restituiti nelle ricerche di log.
+
+**I campi ricercabili** sono in blu nei risultati della ricerca.  È possibile usare i campi ricercabili in condizioni di ricerca specifiche per il campo, ad esempio le seguenti:
+
+```
+Type: Event EventLevelName: "Error"
+Type: SecurityEvent Computer:Contains("contoso.com")
+Type: Event EventLevelName IN {"Error","Warning"}
+```
+
+**I campi ricercabili a testo libero** vengono visualizzati in grigio nei risultati della ricerca.  Non possono essere usati con le condizioni di ricerca specifiche per il campo come i campi ricercabili.  La ricerca viene eseguita qui solo quando si esegue una query su tutti i campi, ad esempio nei casi seguenti.
+
+```
+"Error"
+Type: Event "Exception"
 ```
 
 
@@ -249,7 +269,7 @@ Il comando SELECT si comporta come Select-Object in PowerShell. Restituisce i ri
 3. Selezionare alcune proprietà in modo esplicito, la query viene modificata in `Type=Event | Select Computer,EventID,RenderedDescription`.  
     ![selezione della ricerca](./media/log-analytics-log-searches/oms-search-select.png)
 
-Si tratta di comando particolarmente utile quando si desidera controllare l'output di ricerca e scegliere solo le parti di dati davvero importanti per l'esplorazione, che spesso non corrispondono al record completo. Il comando è utile anche quando record di tipo diverso hanno *alcune* proprietà comuni, ma non *tutte*. È possibile generare un output simile a una tabella o che funziona bene quando esportato in un file CSV e quindi modificato in Excel.
+Si tratta di comando particolarmente utile quando si vuole controllare l'output di ricerca e scegliere solo le parti di dati davvero importanti per l'esplorazione, che spesso non corrispondono al record completo. Il comando è utile anche quando record di tipo diverso hanno *alcune* proprietà comuni, ma non *tutte*. È possibile generare un output simile a una tabella o che funziona bene quando esportato in un file CSV e quindi modificato in Excel.
 
 ## <a name="use-the-measure-command"></a>Usare il comando measure
 MEASURE è uno dei comandi più versatili nelle ricerche di Log Analytics. Consente di applicare *funzioni* statistiche ai dati e di aggregare i risultati raggruppati in base a un determinato campo. Esistono più funzioni statistiche supportate dal comando Measure.

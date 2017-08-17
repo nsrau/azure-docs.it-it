@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 0691d6730fddbf9b6145d4a39da94a1762516c2c
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: c77357b2cefc8081728cb20d08b00656ba60bea6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
@@ -201,7 +200,7 @@ Quando viene apportata una modifica che influisce su uno degli attributi del blo
 ## <a name="the-search-box"></a>Casella di ricerca
 Gli utenti generano molti contenuti e devono avere la possibilità di cercare e trovare anche contenuti non presenti direttamente nel proprio flusso di contenuti, perché non seguono gli autori o semplicemente perché si tratta di post vecchi di 6 mesi.
 
-Grazie ad Azure DocumentDB è possibile implementare facilmente un motore di ricerca tramite [Ricerca di Azure](https://azure.microsoft.com/services/search/) , in breve tempo e senza dover aggiungere altro codice oltre al processo di ricerca e all'interfaccia utente.
+Grazie ad Azure Cosmos DB è possibile implementare facilmente un motore di ricerca tramite [Ricerca di Azure](https://azure.microsoft.com/services/search/), in breve tempo e senza dover aggiungere altro codice oltre al processo di ricerca e all'interfaccia utente.
 
 Perché è così semplice?
 

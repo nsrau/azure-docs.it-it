@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/29/2017
+ms.date: 07/12/2017
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ec9b3cc391a75b4f3a75f95a2ff9613c0317bfa2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>Dati distribuiti e tabelle distribuite per l'elaborazione parallela elevata (Massively Parallel Processing, MPP)
@@ -68,7 +67,7 @@ Ogni nodo di calcolo ha un ID nodo ed è visibile nelle visualizzazioni di siste
 ## <a name="Replicated"></a>Tabelle replicate
 Una tabella replicata include una copia completa della tabella archiviata in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Le tabelle replicate sono realizzabili con tabelle di piccole dimensioni a causa della memoria aggiuntiva necessaria per archiviare l'intera tabella in ogni nodo di calcolo.  
 
-La figura seguente illustra una tabella replicata archiviata in ogni nodo di calcolo. Per SQL Data Warehouse, la tabella replicata è gestita da una tabella round-robin e viene copiata per intero nel primo database di distribuzione in ogni nodo di calcolo. Per Parallel Data Warehouse, la tabella replicata è archiviata in tutti i dischi assegnati al nodo di calcolo.  Questa strategia di archiviazione su disco viene implementata usando i filegroup di SQL Server.  
+La figura seguente illustra una tabella replicata archiviata in ogni nodo di calcolo. Per SQL Data Warehouse, la tabella replicata viene copiata per intero in un database di distribuzione in ogni nodo di calcolo. Per Parallel Data Warehouse, la tabella replicata è archiviata in tutti i dischi assegnati al nodo di calcolo.  Questa strategia di archiviazione su disco viene implementata usando i filegroup di SQL Server.  
 
 ![Tabella replicata](media/sql-data-warehouse-distributed-data/replicated-table.png "Tabella replicata") 
 

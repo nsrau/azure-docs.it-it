@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/05/2017
+ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c97ac8f6df1e0fd669b3789d402e1e60f2154205
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Eseguire il backup di macchine virtuali Windows in Azure
@@ -81,7 +81,7 @@ Questo esempio spiega come ripristinare il file di immagine usato nella pagina W
 5. Nel computer locale aprire una nuova scheda e passare al [portale di Azure](https://portal.azure.com).
 6. Nel menu a sinistra selezionare **Macchine virtuali** e selezionare la macchina virtuale dall'elenco.
 8. Nel pannello della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. Verrà visualizzato il pannello **Backup**. 
-9. Nel menu nella parte superiore del pannello selezionare **Ripristino file (anteprima)**. Verrà aperto il pannello **Ripristino file (anteprima).
+9. Dal menu nella parte superiore del pannello scegliere **Ripristino file**. Verrà aperto il pannello **Ripristino file**.
 10. In **Passaggio 1: Selezionare il punto di recupero** selezionare un punto di recupero dall'elenco a discesa.
 11. In **Passaggio 2: Scaricare lo script per cercare e ripristinare i file** fare clic sul pulsante **Scarica eseguibile**. Salvare il file nella cartella **Downloads**.
 12. Nel computer locale aprire **Esplora file**, andare alla cartella **Downloads** e copiare il file con estensione exe scaricato. Il nome del file verrà preceduto dal nome della macchina virtuale. 

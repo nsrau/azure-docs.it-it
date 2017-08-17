@@ -1,5 +1,5 @@
 ---
-title: 'Personalizzazione: reimpostazione password self-service di Azure AD | Documentazione Microsoft'
+title: 'Personalizzazione: reimpostazione password self-service di Azure AD | Microsoft Docs'
 description: Opzioni di personalizzazione per la reimpostazione della password self-service di Azure AD
 services: active-directory
 keywords: 
@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 5de3e36a97ead2f5ddfe57591e7c80a6df64c064
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ee58d0c6703d7e6688ba9959a7f75c3b52a9411c
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la Reimpostazione self-service delle password
@@ -37,6 +36,8 @@ Anche se la SSPR non è abilitata gli utenti possono ancora usare un collegament
 3. Se nessuno dei ruoli precedenti è stato assegnato, la notifica sarà inviata agli **Amministratori globali**
 
 In tutti i casi, viene inviata una notifica a un massimo di 100 destinatari totali.
+
+Per altre informazioni sui diversi ruoli di amministratore e su come assegnarli vedere il documento [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md)
 
 ### <a name="disable-contact-your-administrator-emails"></a>Disabilitare i messaggi di posta elettronica Contattare l'amministratore
 

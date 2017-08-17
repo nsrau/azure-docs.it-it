@@ -1,7 +1,7 @@
 ---
-title: Informazioni sulle macchine virtuali per l&quot;analisi scientifica dei dati | Documentazione Microsoft
-description: "Informazioni su scenari chiave, funzionalità e installazione di macchine virtuali per l&quot;analisi scientifica dei dati, un ambiente e un toolkit pronti per l&quot;analisi."
-keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l&quot;analisi scientifica dei dati, strumenti per l&quot;analisi scientifica dei dati, analisi scientifica dei dati per Linux
+title: Informazioni sulle macchine virtuali per l'analisi scientifica dei dati | Documentazione Microsoft
+description: Come iniziare a eseguire gli scenari chiave di analisi con le macchine virtuali di Data Science.
+keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
-ms.author: gokuma
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 77b4f634c2a30d0cbec92d34a7f83866541d7d84
-ms.lasthandoff: 04/15/2017
-
+ms.date: 07/21/2017
+ms.author: gokuma;bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d6346419756cb0841c23f3ba63e479ba2397af54
+ms.contentlocale: it-it
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="introduction-to-the-cloud-based-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale per l'analisi scientifica dei dati basata su cloud per Linux e Windows
-La macchina virtuale per l'analisi scientifica dei dati (DSVM) è un'immagine VM personalizzata nel cloud di Microsoft Azure creata in modo specifico per l'analisi scientifica dei dati. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata. È disponibile in Windows Server 2012 e in Linux. Si offre la versione Linux di DSVM in Ubuntu 16.04 LTS o nelle distribuzioni di Linux basate su CentOS di OpenLogic 7.2. 
+La macchina virtuale per l'analisi scientifica dei dati (DSVM) è un'immagine VM personalizzata nel cloud di Microsoft Azure creata in modo specifico per l'analisi scientifica dei dati. Include diversi strumenti comuni per l'analisi scientifica dei dati e altri strumenti preinstallati e preconfigurati per implementare rapidamente la creazione di applicazioni intelligenti per l'analisi avanzata. È disponibile in Windows Server e in Linux. L'edizione della DSVM per Windows è disponibile in Windows Server 2016 e Windows Server 2012. L'edizione della DSVM per Linux è disponibile in Ubuntu 16.04 LTS e nelle distribuzioni Linux basate su OpenLogic 7.2 CentOS. 
 
 Questo argomento illustra le operazioni possibili con la VM per l'analisi scientifica dei dati, descrive alcuni degli scenari chiave per l'uso della VM, indica in modo dettagliato le funzionalità principali disponibili nelle versioni per Windows e Linux e include le istruzioni su come iniziare a usarle.
 
@@ -48,7 +48,7 @@ Gli hackathon e i concorsi di analisi scientifica dei dati o la modellazione e l
 La VM per l'analisi scientifica dei dati può essere usata per valutare o imparare a usare strumenti quali Microsoft R Server, SQL Server, strumenti di Visual Studio, Jupyter, toolkit di deep learning/ML e i nuovi strumenti popolari nella comunità con il minimo sforzo di installazione. La VM per l'analisi scientifica dei dati può essere configurata rapidamente, pertanto può essere usata anche in altri scenari di utilizzo a breve termine, ad esempio nella replica di esperimenti pubblicati, nell'esecuzione di demo e di procedure dettagliate in sessioni online, nonché in esercitazioni in conferenza.
 
 ### <a name="deep-learning"></a>Apprendimento avanzato
-La VM di analisi scientifica dei dati può essere usata per il training del modello usando gli algoritmi di apprendimento avanzato sull'hardware basato su GPU (unità di elaborazione grafica). La VM di analisi scientifica dei dati è utile per usare l'hardware basato su GPU nel cloud solo se richiesto quando si deve eseguire il training di modelli di grandi dimensioni o se occorrono calcoli ad alta velocità che sfruttano la potenza di una GPU.  In Windows viene attualmente fornito il [toolkit di apprendimento avanzato per la VM di analisi scientifica dei dati](http://aka.ms/dsvm/deeplearning) come un componente aggiuntivo nella parte superiore della VM di analisi scientifica dei dati. Questo componente aggiuntivo installa automaticamente i driver di GPU, i framework e la versione di GPU degli algoritmi di apprendimento avanzato durante la creazione di un'istanza di macchina virtuale. In Linux l'apprendimento avanzato su GPU è abilitato solo nell'[edizione della VM di analisi scientifica dei dati per Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). È possibile distribuire l'edizione Ubuntu della VM di analisi scientifica dei dati alla macchina virtuale di Azure non basata su GPU, nel qual caso tutti i framework di apprendimento avanzato eseguiranno il fallback alla modalità CPU. L'edizione Linux basata su CentOS della VM di analisi scientifica dei dati contiene solo le build CPU di alcuni strumenti di apprendimento avanzato (CNTK, Tensorflow, MXNet), senza avere i framework e i driver di GPU preinstallati. 
+La VM di analisi scientifica dei dati può essere usata per il training del modello usando gli algoritmi di apprendimento avanzato sull'hardware basato su GPU (unità di elaborazione grafica). Grazie alle funzioni di scalabilità delle VM del cloud di Azure, la DSVM consente di usare hardware basato su GPU nel cloud in base alle necessità. È possibile passare a una VM basata su GPU durante il training di modelli di grandi dimensioni o quando sono necessari calcoli ad alta velocità, mantenendo lo stesso disco del sistema operativo.  Nell'edizione Windows Server 2016 della DSVM sono preinstallati i driver GPU, i framework e la versione GPU degli algoritmi di apprendimento avanzato. In Linux l'apprendimento avanzato su GPU è abilitato solo nell'[edizione della VM di analisi scientifica dei dati per Linux (Ubuntu)](http://aka.ms/dsvm/ubuntu). È possibile distribuire l'edizione Ubuntu/Windows 2016 della VM di analisi scientifica dei dati alla macchina virtuale di Azure non basata su GPU, nel qual caso tutti i framework di apprendimento avanzato eseguiranno il fallback alla modalità CPU. Per Windows Server 2012 è stato in precedenza pubblicato un [toolkit di apprendimento avanzato](http://aka.ms/dsvm/deeplearning), ma ora è consigliabile usare Windows Server 2016 per i carichi di lavoro di apprendimento avanzato basati su Windows. L'edizione Linux basata su CentOS della VM di analisi scientifica dei dati contiene solo le build CPU di alcuni strumenti di apprendimento avanzato (CNTK, Tensorflow, MXNet), senza avere i framework e i driver di GPU preinstallati. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Funzionalità incluse nella VM per l'analisi scientifica dei dati
 La macchina virtuale per l'analisi scientifica dei dati ha già installati e configurati numerosi strumenti comuni per l'analisi scientifica dei dati e l'apprendimento avanzato. Include inoltre strumenti che semplificano l'uso di vari prodotti di Azure per l'analisi e per i dati. È possibile esplorare e creare modelli predittivi in set di dati su larga scala usando Microsoft R Server o SQL Server 2016. Sono inclusi anche una serie di altri strumenti della community open source e di Microsoft, nonché esempi di codice e blocchi appunti. La tabella seguente indica in modo dettagliato e confronta i componenti principali inclusi nelle edizioni per Windows e Linux della macchina virtuale per l'analisi scientifica dei dati.
@@ -58,6 +58,7 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) con i pacchetti più diffusi pre-installati   |S                      | S             |
 | [Microsoft R Server](https://msdn.microsoft.com/microsoft-r/) Developer Edition include <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-getting-started) parallelo e framework R distribuito ad alte prestazioni<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://msdn.microsoft.com/microsoft-r/microsoftml-introduction): nuovi algoritmi ML all'avanguardia da Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [Operazionalizzazione R](https://msdn.microsoft.com/microsoft-r/operationalize/about)                                            |S                      | S <br/> (MicrosoftML non ancora disponibile)|
+| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus con attivazione condivisa - Excel, Word e PowerPoint   |S                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 con i pacchetti più diffusi pre-installati    |S                      |S              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) con i pacchetti più diffusi pre-installati per il linguaggio di programmazione Julia                         |S                      |S              |
 | Database relazionali                                                            | [SQL Server 2016 SP1](https://www.microsoft.com/sql-server/sql-server-2016) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) |
@@ -72,7 +73,7 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | S |
 | JupyterHub (server notebook multiutente)| N | S |
 | **Strumenti di sviluppo, editor di codice e IDE**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2015 (Community Edition)](https://www.visualstudio.com/community/) > con Git Plugin, Azure HDInsight (Hadoop), Data Lake, strumenti SQL Server Data, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) e [strumenti R per Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | S | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) >con plug-in Git, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) e [R Tools per Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | S |
@@ -103,7 +104,7 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](http://rattle.togaware.com/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (soltanto Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/) | N | Y (soltanto Ubuntu) |
-| **Strumenti di apprendimento avanzato basati sulla GPU** |Usare il [toolkit di apprendimento avanzato per DSVM](http://aka.ms/dsvm/deeplearning) |Solo edizione Ubuntu|
+| **Strumenti di apprendimento avanzato basati sulla GPU** |Edizione Windows Server 2016  |Edizione Ubuntu |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](http://cntk.ai) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Tensorflow](https://www.tensorflow.org/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | S | S|
@@ -120,14 +121,25 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Introduzione alla VM Windows per l'analisi scientifica dei dati
-* Creare un'istanza della VM in Windows, passando a [questa pagina](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) e selezionando il pulsante verde **Crea macchina virtuale**.
+* Creare un'istanza dell'edizione Windows desiderata per la DSVM passando a
+  * [DSVM basata su Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
+  
+  oppure 
+  * [DSVM basata su Windows Server 2012](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) 
+* Fare clic sul pulsante **SCARICA ADESSO**.
 * Accedere alla VM dal desktop remoto usando le credenziali specificate durante la creazione della VM.
 * Per individuare e avviare gli strumenti disponibili, fare clic sul menu **Start**.
 
 ## <a name="get-started-with-the-linux-data-science-vm"></a>Introduzione alla VM Linux per l'analisi scientifica dei dati
-* Creare un'istanza della macchina virtuale in Linux
-  * Per l'edizione basata su CentOS di OpenLogic accedere a [questa pagina](http://aka.ms/dsvm/centos) e selezionare il pulsante **Get it now** (Ottieni subito).
-  * Per l'edizione di Ubuntu accedere a [questa pagina](http://aka.ms/dsvm/ubuntu) e selezionare il pulsante **Get it now** (Ottieni subito).
+* Creare un'istanza dell'edizione Linux desiderata per la DSVM passando a 
+  * [DSVM basata su Ubuntu](http://aka.ms/dsvm/ubuntu)
+
+  oppure
+
+  * [DSVM basata su OpenLogic CentOS](http://aka.ms/dsvm/centos)
+
+  
+* Fare clic sul pulsante **Scarica adesso**.
 * Accedere alla VM da un client SSH, ad esempio Putty o SSH Command, usando le credenziali specificate durante la creazione della VM.
 * Nel prompt della shell immettere dsvm-more-info.
 * Per un desktop grafico scaricare [qui](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) il client X2Go per la piattaforma client e seguire le istruzioni riportate nel documento relativo alla VM Linux per l'analisi scientifica dei dati [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](machine-learning-data-science-linux-dsvm-intro.md#installing-and-configuring-x2go-client).

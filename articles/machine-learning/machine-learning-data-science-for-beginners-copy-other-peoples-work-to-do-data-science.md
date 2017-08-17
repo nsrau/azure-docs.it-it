@@ -1,6 +1,6 @@
 ---
-title: Copiare gli esempi di altre persone per l&quot;analisi scientifica dei dati - Machine Learning | Documentazione Microsoft
-description: 'Il segreto commerciale dell&quot;analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. Esempi di Machine Learning dalla raccolta Cortana Analytics.'
+title: Copiare gli esempi di data science di altre persone - Azure Machine Learning | Microsoft Docs
+description: 'Il segreto commerciale dell''analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. Esempi di Machine Learning dalla raccolta Cortana Analytics.'
 keywords: esempi di analisi scientifica dei dati, esempio di Machine Learning, algoritmo di clustering
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
-ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
-ms.lasthandoff: 02/10/2017
-
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 440a1ded1f1dc1b8fbe73e3bbcbbd68ec9422bf8
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
@@ -27,6 +27,7 @@ ms.lasthandoff: 02/10/2017
 Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svolgere il proprio lavoro ad altre persone. È necessario individuare un esempio di algoritmo di clustering nella raccolta Cortana Analytics da usare per l'esperimento di Machine Learning.
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
 >
@@ -42,7 +43,7 @@ Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'ele
 * Video 5: Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 
 ## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Trascrizione: Copiare il lavoro di altre persone per l'analisi scientifica dei dati
-Benvenuti al quinto video della serie "Analisi scientifica dei dati per principianti".
+Benvenuti al quinto video della serie "Data Science for Beginners" (Data Science per principianti).
 
 In questo video si scoprirà dove trovare esempi che è possibile usare come punto di partenza per la propria attività. Per ottenere il massimo da questo video, è consigliabile guardare prima i video precedenti di questa serie.
 
@@ -51,7 +52,7 @@ Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svo
 ## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Trovare esempi in Cortana Intelligence Gallery
 Microsoft offre un servizio basato su cloud, chiamato [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), che può essere valutato gratuitamente. Offre un'area di lavoro in cui si possono provare i diversi algoritmi di Machine Learning e, una volta creata la soluzione personalizzata, si potrà avviarla come servizio Web.
 
-Parte di questo servizio è un componente chiamato **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. Contiene un'ampia gamma di risorse, una delle quali è una raccolta di esperimenti di Azure Machine Learning, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate.
+Parte di questo servizio è un componente chiamato **[Cortana Intelligence Gallery](http://aka.ms/CortanaIntelligenceGallery)**. Contiene risorse, come una raccolta di esperimenti di Azure Machine Learning, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate.
 
 È possibile trovare la raccolta all'indirizzo [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). La raccolta è disponibile per chiunque voglia prenderne visione.
 
@@ -60,7 +61,7 @@ Parte di questo servizio è un componente chiamato **[Cortana Intelligence Galle
 Se si fa clic su **Experiments** (Esperimenti) nella parte superiore, verranno visualizzati numerosi esperimenti tra i più recenti e diffusi disponibili nella raccolta. È possibile cercare nel resto degli esperimenti facendo clic su **Browse All** (Esplora tutto) nella parte superiore dello schermo e quindi immettere i termini di ricerca e scegliere i filtri di ricerca.
 
 ## <a name="find-and-use-a-clustering-algorithm-example"></a>Trovare e usare un esempio di algoritmo di clustering
-Si supponga, ad esempio, di voler vedere un esempio del funzionamento del clustering. Si cercheranno quindi gli esperimenti relativi a **"clustering"**.
+Si supponga, ad esempio, di voler vedere un esempio del funzionamento del clustering. Si cercheranno quindi gli esperimenti relativi a **"clustering sweep"**.
 
 ![Cercare esperimenti di clustering](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 

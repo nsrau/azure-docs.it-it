@@ -15,17 +15,15 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 59f92f94bcd9e01aeaedf7df01ac194c774e5f8d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 76584799ad98edc9af1580af4f5bd1bbd20a7e85
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
 
-<a id="security-frame-input-validation--mitigations" class="xliff"></a>
-
-# Infrastruttura di sicurezza: convalida dell'input - Procedure di mitigazione 
+# <a name="security-frame-input-validation--mitigations"></a>Infrastruttura di sicurezza: convalida dell'input - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
 | Applicazione Web. | <ul><li>[Disabilitare gli script XSLT per tutte le trasformazioni con fogli di stile non attendibili](#disable-xslt)</li><li>[Verificare che ogni pagina che potrebbe includere contenuti controllabili dall'utente rifiuti esplicitamente l'analisi MIME automatica](#out-sniffing)</li><li>[Applicare la protezione avanzata o la disabilitazione della risoluzione di entità XML](#xml-resolution)</li><li>[Verifica della canonizzazione degli URL nelle applicazioni che utilizzano http.sys](#app-verification)</li><li>[Verificare la presenza dei controlli appropriati quando si accettano file dagli utenti](#controls-users)</li><li>[Verificare che nell'applicazione Web vengano usati parametri indipendenti dai tipi per l'accesso ai dati](#typesafe)</li><li>[Usare classi di associazione di modelli separate o elenchi di filtri di associazione per prevenire la vulnerabilità dell'assegnazione di massa in MVC](#binding-mvc)</li><li>[Codificare l'output Web non attendibile prima del rendering](#rendering)</li><li>[Eseguire la convalida dell'input e applicare filtri a tutte le proprietà del modello di tipo stringa](#typemodel)</li><li>[Applicazione della purificazione nei campi modulo che accettano tutti i caratteri, ad esempio un editor di testo RTF](#richtext)</li><li>[Non assegnare elementi DOM a sink senza codifica incorporata](#inbuilt-encode)</li><li>[Convalidare come chiusi o sicuri tutti i reindirizzamenti nell'applicazione](#redirect-safe)</li><li>[Implementare la convalida dell'input in un tutti i parametri di tipo stringa accettati dai metodi del controller](#string-method)</li><li>[Impostare il limite massimo di timeout per l'elaborazione di espressioni regolari per impedire attacchi DoS causati da espressioni regolari errate](#dos-expression)</li><li>[Evitare di usare Html.Raw nelle visualizzazioni Razor](#html-razor)</li></ul> | 
@@ -45,27 +43,21 @@ ms.lasthandoff: 07/06/2017
 | Riferimenti              | [Sicurezza XSLT ](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [Proprietà XsltSettings.EnableScript](http://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
 | Passi | XSLT supporta l'inserimento di script all'interno dei fogli di stile con l'elemento `<msxml:script>`. Ciò consente di usare funzioni personalizzate in una trasformazione XSLT. Lo script viene eseguito nel contesto del processo che esegue la trasformazione. Lo script XSLT può essere disabilitato in un ambiente non attendibile per impedire l'esecuzione di codice non attendibile. *Se si usa .NET*, gli script XSLT sono disabilitati per impostazione predefinita. È tuttavia necessario verificare che non siano stati abilitati in modo esplicito tramite la proprietà `XsltSettings.EnableScript`.|
 
-<a id="example" class="xliff"></a>
-
-### Esempio 
+### <a name="example"></a>Esempio 
 
 ```C#
 XsltSettings settings = new XsltSettings();
 settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Se si usa MSXML 6.0, gli script XSLT sono disabilitati per impostazione predefinita. È tuttavia necessario verificare che non siano stati abilitati in modo esplicito tramite la proprietà AllowXsltScript dell'oggetto DOM XML. 
 
 ```C#
 doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Se si usa MSXML 5 o versione inferiore, gli script XSLT sono abilitati per impostazione predefinita e devono essere disabilitati in modo esplicito. Impostare la proprietà AllowXsltScript dell'oggetto DOM XML su false. 
 
 ```C#
@@ -83,9 +75,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | Riferimenti              | [IE8 Security Part V: Comprehensive Protection](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx) (Sicurezza di IE8 parte V: protezione completa)  |
 | Passi | <p>Per ogni pagina che potrebbe includere contenuti controllabili dall'utente, è necessario usare l'intestazione HTTP `X-Content-Type-Options:nosniff`. Per rispettare questo requisito, è possibile impostare l'intestazione necessaria pagina per pagina solo per le pagine che potrebbero includere contenuti controllabili dall'utente oppure eseguire l'impostazione a livello globale per tutte le pagine nell'applicazione.</p><p>A ogni tipo di file fornito da un server Web è associato un [tipo MIME](http://en.wikipedia.org/wiki/Mime_type) (denominato anche *content-type*) che descrive la natura del contenuto (immagine, testo, applicazione e così via).</p><p>L'intestazione X-Content-Type-Options è un'intestazione HTTP che consente agli sviluppatori di specificare che il contenuto non deve essere sottoposto ad analisi MIME. Questa intestazione è progettata per mitigare gli attacchi basati sull'analisi MIME. Il supporto per questa intestazione è stato aggiunto in Internet Explorer 8 (IE8).</p><p>Solo gli utenti di Internet Explorer 8 (IE8) potranno usufruire di X-Content-Type-Options. Le versioni precedenti di Internet Explorer attualmente non rispettano l'intestazione X-Content-Type-Options.</p><p>Internet Explorer 8 e le versioni successive sono gli unici browser principali che implementano una funzionalità di rifiuto esplicito dell'analisi MIME. Se e quando gli altri browser principali (Firefox, Safari e Chrome) implementeranno funzionalità simili, questa raccomandazione verrà aggiornata per includere anche la sintassi per tali browser.</p>|
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Per abilitare l'intestazione necessaria a livello globale per tutte le pagine nell'applicazione, eseguire una di queste operazioni: 
 
 * Aggiungere l'intestazione nel file web.config se l'applicazione è ospitata da Internet Information Services (IIS) 7 
@@ -154,9 +144,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 | Riferimenti              | [Espansione di entità XML](http://capec.mitre.org/data/definitions/197.html), [Attacchi Denial of Service e difese in XML](http://msdn.microsoft.com/magazine/ee335713.aspx), [Cenni preliminari sulla sicurezza MSXML](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [Procedure consigliate per la protezione del codice MSXML](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [Informazioni di riferimento sul protocollo NSXMLParserDelegate](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [Risoluzione di riferimenti esterni](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
 | Passi| <p>Nonostante non sia largamente usata, esiste una funzionalità di XML che consente al parser XML di espandere macro entità con valori definiti all'interno del documento stesso o da origini esterne. Ad esempio, il documento potrebbe definire un'entità "companyname" con il valore "Microsoft" in modo che ogni occorrenza del testo "&companyname;" nel documento venga automaticamente sostituita con il testo "Microsoft". In alternativa, il documento potrebbe definire un'entità "MSFTStock" che fa riferimento a un servizio Web esterno per recuperare il valore corrente delle azioni Microsoft.</p><p>Ogni occorrenza di "&MSFTStock;" nel documento verrà quindi automaticamente sostituita con il prezzo corrente del titolo azionario. Questa funzionalità può tuttavia essere usata in modo improprio per creare condizioni di Denial of Service (DoS). Un utente malintenzionato può annidare più entità per creare un'espansione esponenziale di XML che userà tutta la memoria disponibile nel sistema. </p><p>In alternativa, può creare un riferimento esterno che trasmette una quantità infinita di dati o semplicemente blocca il thread. Di conseguenza, tutti i team devono disabilitare interamente la risoluzione di entità XML interne e/o esterne se non viene usata dall'applicazione oppure, se tale funzionalità è assolutamente necessaria, limitare manualmente la quantità di memoria e di tempo utilizzabile dall'applicazione per la risoluzione di entità. Se la risoluzione di entità non è richiesta dall'applicazione, disabilitarla. </p>|
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Per il codice .NET Framework, è possibile usare gli approcci seguenti:
 
 ```C#
@@ -174,9 +162,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 Si noti che il valore predefinito di `ProhibitDtd` in `XmlReaderSettings` è true, ma in `XmlTextReader` è false. Se si usa XmlReaderSettings, non è necessario impostare ProhibitDtd su true in modo esplicito, ma è consigliabile ai fini della sicurezza. Si noti anche che la classe XmlDocument consente la risoluzione di entità per impostazione predefinita. 
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Per disabilitare la risoluzione di entità per le classi XmlDocument, usare l'overload `XmlDocument.Load(XmlReader)` del metodo Load e impostare le proprietà appropriate nell'argomento XmlReader per disabilitare la risoluzione, come illustrato nel codice seguente: 
 
 ```C#
@@ -187,9 +173,7 @@ XmlDocument doc = new XmlDocument();
 doc.Load(reader);
 ```
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Se non è possibile disabilitare la risoluzione di entità per l'applicazione, impostare la proprietà XmlReaderSettings.MaxCharactersFromEntities su un valore ragionevole in base alle esigenze dell'applicazione. Verrà così limitato l'impatto dei potenziali attacchi DoS con espansione esponenziale. Il codice seguente offre un esempio di questo approccio: 
 
 ```C#
@@ -199,9 +183,7 @@ settings.MaxCharactersFromEntities = 1000;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Se è necessario risolvere entità incorporate ma non entità esterne, impostare la proprietà XmlReaderSettings.XmlResolver su null. Ad esempio: 
 
 ```C#
@@ -235,9 +217,7 @@ Si noti che in MSXML6, la proprietà ProhibitDTD è impostata su true (in modo d
 | Riferimenti              | [Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload) (Caricamento di file senza restrizioni), [File Signature Table](http://www.garykessler.net/library/file_sigs.html) (Tabella delle firme dei file) |
 | Passi | <p>I file caricati rappresentano un rischio significativo per le applicazioni.</p><p>Il primo passaggio di numerosi attacchi consiste nell'inserire codice nel sistema da attaccare. È quindi sufficiente trovare un modo per far sì che il codice venga eseguito. Il caricamento di un file consente all'utente malintenzionato di portare a termine il primo passaggio. Le conseguenze del caricamento di file senza restrizioni possono variare dalla completa acquisizione della proprietà del sistema al sovraccarico del file system o del database, all'inoltro di attacchi ai sistemi back-end e al semplice danneggiamento.</p><p>Ciò dipende da come il file caricato viene usato dall'applicazione e soprattutto dalla posizione in cui viene archiviato. La convalida sul lato server dei caricamenti di file non è disponibile. Per la funzionalità di caricamento file devono essere implementati i controlli di sicurezza seguenti:</p><ul><li>Controllo dell'estensione di file (deve essere accettato solo un set valido di tipi di file consentiti)</li><li>Limite di dimensione massima dei file</li><li>I file non devono essere caricati in webroot, ma in una directory in un'unità non di sistema</li><li>Deve essere seguita la convenzione di denominazione in modo da garantire una certa casualità nel nome del file caricato e impedire le sovrascritture di file</li><li>I file devono essere sottoposti ad analisi antivirus prima della scrittura sul disco</li><li>Verificare che il nome file e tutti gli altri metadati (ad esempio, il percorso file) vengano convalidati in relazione alla presenza di caratteri dannosi</li><li>La firma del formato di file deve essere controllata per impedire a un utente di caricare un file mascherato (ad esempio, caricare un file EXE modificandone l'estensione in txt)</li></ul>| 
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Per informazioni dettagliate sull'ultimo punto relativo alla convalida della firma del formato di file, vedere la classe seguente: 
 
 ```C#
@@ -353,9 +333,7 @@ Per informazioni dettagliate sull'ultimo punto relativo alla convalida della fir
 | Riferimenti              | N/D  |
 | Passi | <p>Se si usa la raccolta Parameters, SQL considera l'input come un valore letterale anziché come codice eseguibile. La raccolta Parameters può essere usata per imporre vincoli di tipo e lunghezza sui dati di input. I valori non compresi nell'intervallo attivano un'eccezione. Se non vengono usati parametri SQL indipendenti dai tipi, gli utenti malintenzionati potrebbero eseguire attacchi di tipo injection incorporati nell'input non filtrato.</p><p>Quando si costruiscono query SQL, usare parametri indipendenti dai tipi per evitare gli attacchi SQL injection che possono verificarsi con input non filtrato. È possibile usare parametri indipendenti dai tipi con stored procedure e con istruzioni SQL dinamiche. I parametri vengono considerati dal database come valori letterali e non come codice eseguibile. Viene anche eseguito il controllo del tipo e della lunghezza dei parametri.</p>|
 
-<a id="example" class="xliff"></a>
-
-### Esempio 
+### <a name="example"></a>Esempio 
 Il codice seguente illustra come usare parametri indipendenti dai tipi con SqlParameterCollection quando si chiama una stored procedure. 
 
 ```C#
@@ -396,9 +374,7 @@ Nell'esempio di codice precedente, la lunghezza del valore di input non può ess
 | Riferimenti              | [How to prevent Cross-site scripting in ASP.NET](http://msdn.microsoft.com/library/ms998274.aspx) (Come impedire attacchi tramite script da altri siti in ASP.NET), [Cross-site Scripting](http://cwe.mitre.org/data/definitions/79.html) (Attacchi tramite script da altri siti), [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) (Foglio informativo sulla prevenzione degli attacchi tramite script da altri siti) |
 | Passi | Gli attacchi tramite script da altri siti (comunemente abbreviati in XSS, Cross-Site Scripting) sono un vettore di attacco per i servizi online o qualsiasi applicazione/componente che utilizza input dal Web. Le vulnerabilità XSS possono consentire a un utente malintenzionato di eseguire script sul computer di un altro utente tramite un'applicazione Web vulnerabile. Gli script dannosi possono essere usati per rubare cookie o manomettere in altro modo il computer di una vittima tramite JavaScript. È possibile impedire attacchi XSS convalidando l'input utente e verificando che il formato e la codifica siano corretti prima di eseguirne il rendering in una pagina Web. La convalida dell'input e la codifica dell'output possono essere eseguite con Web Protection Library. Per il codice gestito (C\#, VB.net e così via), usare uno o più metodi di codifica appropriati di Web Protection (Anti-XSS) Library, a seconda del contesto in cui si manifesta l'input utente.| 
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 
 ```C#
 * Encoder.HtmlEncode 
@@ -445,9 +421,7 @@ Nell'esempio di codice precedente, la lunghezza del valore di input non può ess
 | Riferimenti              | N/D  |
 | Passi | Molte funzioni JavaScript non eseguono la codifica per impostazione predefinita. L'assegnazione di input non attendibile a elementi DOM tramite funzioni di questo tipo può determinare attacchi tramite script da altri siti (XSS).| 
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Gli esempi seguenti non sono sicuri: 
 
 ```
@@ -491,9 +465,7 @@ Non usare `innerHtml`. Usare invece `innerText`. Analogamente, usare `$("#elm").
 | Riferimenti              | [Proprietà DefaultRegexMatchTimeout](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
 | Passi | Per prevenire attacchi Denial of Service contro espressioni regolari create in modo non corretto, che causano un elevato backtracking, impostare il timeout predefinito globale. Se il tempo necessario per l'elaborazione è superiore al limite massimo definito, verrà generata un'eccezione di timeout. In assenza di configurazione, il timeout sarà infinito.| 
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 La configurazione seguente, ad esempio, genera un'eccezione RegexMatchTimeoutException se l'elaborazione richiede più di 5 secondi: 
 
 ```C#
@@ -511,9 +483,7 @@ La configurazione seguente, ad esempio, genera un'eccezione RegexMatchTimeoutExc
 | Riferimenti              | N/D  |
 | Passaggio | Le pagine Web ASP.Net (Razor) eseguono la codifica HTML automatica. A tutte le stringhe stampate da nugget di codice incorporati (blocchi @) viene applicata automaticamente la codifica HTML. Quando viene richiamato `HtmlHelper.Raw`, tuttavia, questo metodo restituisce markup senza codifica HTML. Se viene usato il metodo helper `Html.Raw()`, questo ignora la protezione con codifica automatica fornita da Razor.|
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 L'esempio seguente non è sicuro: 
 
 ```C#
@@ -538,9 +508,7 @@ Non usare `Html.Raw()` a meno che non sia necessario visualizzare markup. Questo
 | Riferimenti              | N/D  |
 | Passi | <p>Un attacco SQL injection sfrutta le vulnerabilità nella convalida dell'input per eseguire comandi arbitrari nel database. Può verificarsi quando l'applicazione usa l'input per costruire istruzioni SQL dinamiche per accedere al database, nonché se il codice usa stored procedure costituite da stringhe passate contenenti input utente non elaborato. Con l'attacco SQL injection, l'utente malintenzionato può eseguire comandi arbitrari nel database. Tutte le istruzioni SQL, incluse quelle nelle stored procedure, devono includere parametri. Le istruzioni SQL con parametri accetteranno senza problemi caratteri con un significato speciale per SQL (come la virgoletta singola) perché sono fortemente tipizzate. |
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 L'esempio seguente è una stored procedure dinamica non sicura: 
 
 ```C#
@@ -568,9 +536,7 @@ AS
  END
 ```
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Di seguito è riportata la stessa stored procedure implementata in modo sicuro: 
 ```C#
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
@@ -602,9 +568,7 @@ AS
 | Riferimenti              | [Model Validation in ASP.NET Web API ](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) (Convalida dei modelli in un'API Web ASP.NET) |
 | Passi | Quando un client invia dati a un'API Web, è obbligatorio convalidare i dati prima di eseguire qualsiasi elaborazione. Per le API Web ASP.NET che accettano modelli come input, usare le annotazioni dei dati nei modelli per impostare le regole di convalida nelle proprietà dei modelli.|
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Il codice seguente illustra quanto descritto sopra: 
 
 ```C#
@@ -625,9 +589,7 @@ namespace MyApi.Models
 }
 ```
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Nel metodo di azione dei controller dell'API la validità del modello deve essere selezionata in modo esplicito come illustrato di seguito: 
 
 ```C#
@@ -674,9 +636,7 @@ namespace MyApi.Controllers
 | Riferimenti              | N/D  |
 | Passi | <p>Se si usa la raccolta Parameters, SQL considera l'input come un valore letterale anziché come codice eseguibile. La raccolta Parameters può essere usata per imporre vincoli di tipo e lunghezza sui dati di input. I valori non compresi nell'intervallo attivano un'eccezione. Se non vengono usati parametri SQL indipendenti dai tipi, gli utenti malintenzionati potrebbero eseguire attacchi di tipo injection incorporati nell'input non filtrato.</p><p>Quando si costruiscono query SQL, usare parametri indipendenti dai tipi per evitare gli attacchi SQL injection che possono verificarsi con input non filtrato. È possibile usare parametri indipendenti dai tipi con stored procedure e con istruzioni SQL dinamiche. I parametri vengono considerati dal database come valori letterali e non come codice eseguibile. Viene anche eseguito il controllo del tipo e della lunghezza dei parametri.</p>|
 
-<a id="example" class="xliff"></a>
-
-### Esempio
+### <a name="example"></a>Esempio
 Il codice seguente illustra come usare parametri indipendenti dai tipi con SqlParameterCollection quando si chiama una stored procedure. 
 
 ```C#

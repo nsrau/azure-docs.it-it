@@ -59,7 +59,7 @@
       href: sql-database-powershell-samples.md
 - name: Concetti
   items:
-    - name: Database e server
+    - name: Funzionalità del servizio
       items:
         - name: Panoramica
           href: sql-database-servers-databases.md
@@ -69,6 +69,8 @@
           href: sql-database-elastic-pool.md
         - name: Architettura della connettività
           href: sql-database-connectivity-architecture.md
+        - name: Regole del firewall
+          href: sql-database-firewall-configure.md
         - name: DTU ed eDTU
           href: sql-database-what-is-a-dtu.md
         - name: Benchmark DTU
@@ -77,7 +79,25 @@
           href: sql-database-resource-limits.md
         - name: PaaS o IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Funzionalità
+        - name: Controllo
+          href: sql-database-auditing.md
+        - name: Introduzione al rilevamento delle minacce
+          href: sql-database-threat-detection.md
+        - name: Backup del database
+          href: sql-database-automated-backups.md
+        - name: Conservazione backup
+          href: sql-database-long-term-retention.md
+        - name: Gruppi di failover
+          href: sql-database-geo-replication-overview.md
+        - name: Libreria di client elastici
+          href: sql-database-elastic-database-client-library.md
+        - name: Query elastiche
+          href: sql-database-elastic-query-overview.md
+        - name: Transazioni elastiche
+          href: sql-database-elastic-transactions-overview.md
+        - name: Processi elastici
+          href: sql-database-elastic-jobs-overview.md
+        - name: Funzionalità comuni di SQL Server
           href: sql-database-features.md
     - name: Sicurezza
       items:
@@ -85,34 +105,22 @@
           href: sql-database-security-overview.md
         - name: Controllo di accesso
           href: sql-database-control-access.md
-        - name: Regole del firewall
-          href: sql-database-firewall-configure.md
         - name: Azure AD
           href: sql-database-aad-authentication.md
         - name: Account di accesso e utenti
           href: sql-database-manage-logins.md
         - name: Autenticazione a più fattori
           href: sql-database-ssms-mfa-authentication.md
-        - name: Controllo
-          href: sql-database-auditing.md
         - name: Controllo Tabella e TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Introduzione al rilevamento delle minacce
-          href: sql-database-threat-detection.md
         - name: Maschera dati
           href: sql-database-dynamic-data-masking-get-started.md
     - name: Continuità aziendale
       items:
         - name: Panoramica
           href: sql-database-business-continuity.md
-        - name: Backup del database
-          href: sql-database-automated-backups.md
-        - name: Conservazione backup
-          href: sql-database-long-term-retention.md
         - name: Ripristino del database
           href: sql-database-recovery-using-backups.md
-        - name: Gruppi di failover
-          href: sql-database-geo-replication-overview.md
         - name: Configurare la sicurezza
           href: sql-database-geo-replication-security-config.md
         - name: Progettazione di app e ripristino
@@ -159,16 +167,10 @@
           href: sql-database-compatibility-level-query-performance-130.md
         - name: Monitorare in memoria
           href: sql-database-in-memory-oltp-monitoring.md
-    - name: Aumentare il numero di istanze delle app
+    - name: Scalabilità orizzontale
       items:
         - name: Panoramica
           href: sql-database-elastic-scale-introduction.md
-        - name: Modelli di progettazione SaaS
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-        - name: Sicurezza delle app SaaS
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-        - name: Libreria di client elastici
-          href: sql-database-elastic-database-client-library.md
         - name: Mappe delle partizioni
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routing delle query
@@ -185,16 +187,12 @@
           href: sql-database-elastic-scale-working-with-dapper.md
         - name: Domande frequenti sugli strumenti elastici
           href: sql-database-elastic-scale-faq.md
-        - name: Query elastiche
-          href: sql-database-elastic-query-overview.md
-        - name: Dati orizzontali
-          href: sql-database-elastic-query-horizontal-partitioning.md
-        - name: Dati verticali
-          href: sql-database-elastic-query-vertical-partitioning.md
-        - name: Transazioni
-          href: sql-database-elastic-transactions-overview.md
-        - name: Processi elastici
-          href: sql-database-elastic-jobs-overview.md
+    - name: SaaS multi-tenant
+      items:
+        - name: Modelli di progettazione SaaS
+          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+        - name: Sicurezza delle app SaaS
+          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: Sviluppare database
       items:
         - name: Dati JSON
@@ -225,6 +223,26 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Guide alle procedure
   items:
+    - name: Funzionalità del servizio
+      items:
+        - name: Aggiornare la libreria client dei database elastici
+          href: sql-database-elastic-scale-upgrade-client-library.md
+        - name: Installare processi elastici
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: 'Creare un processo: portale'
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: 'Creare un processo: PowerShell'
+          href: sql-database-elastic-jobs-powershell.md
+        - name: 'Creare un processo: app di esempio'
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: Disinstallare processi elastici
+          href: sql-database-elastic-jobs-uninstall.md
+        - name: Eseguire query su dati con partizionamento verticale
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: Creare report in un livello dati con aumento del numero di istanze
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: Eseguire query in tabelle con schemi diversi
+          href: sql-database-elastic-query-vertical-partitioning.md
     - name: Sicurezza
       items:
         - name: Configurare l'autorizzazione di Azure AD
@@ -285,10 +303,12 @@
           href: sql-database-manage-automation.md
         - name: Azure RemoteApp
           href: sql-database-ssms-remoteapp.md
-    - name: Aumentare il numero di istanze delle app
+    - name: Scalabilità orizzontale
       items:
         - name: Creare un'app partizionata
           href: sql-database-elastic-scale-get-started.md
+        - name: Eseguire query su dati con partizionamento orizzontale
+          href: sql-database-elastic-query-getting-started.md
         - name: Spostare dati partizionati
           href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
         - name: Configurazione di sicurezza
@@ -303,24 +323,26 @@
           href: sql-database-elastic-database-perf-counters.md
         - name: Usare Entity Framework
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-        - name: Aggiornare i client
-          href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Installare processi elastici
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: 'Creare un processo: portale'
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: 'Creare un processo: PowerShell'
-          href: sql-database-elastic-jobs-powershell.md
-        - name: 'Creare un processo: app di esempio'
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Disinstallare processi elastici
-          href: sql-database-elastic-jobs-uninstall.md
-        - name: Eseguire query su dati orizzontali
-          href: sql-database-elastic-query-getting-started.md
-        - name: Eseguire query su dati verticali
-          href: sql-database-elastic-query-getting-started-vertical.md
-        - name: Esercitazione sulle app SaaS
+    - name: SaaS multi-tenant
+      items:
+        - name: Introduzione dell'esercitazione
           href: sql-database-wtp-overview.md
+        - name: Distribuire un'applicazione di esempio
+          href: sql-database-saas-tutorial.md
+        - name: Effettuare il provisioning di tenant
+          href: sql-database-saas-tutorial-provision-and-catalog.md
+        - name: Monitorare le prestazioni del database
+          href: sql-database-saas-tutorial-performance-monitoring.md
+        - name: Monitorare con Log Analytics
+          href: sql-database-saas-tutorial-log-analytics.md
+        - name: Ripristinare un tenant singolo
+          href: sql-database-saas-tutorial-restore-single-tenant.md
+        - name: Gestire uno schema di tenant
+          href: sql-database-saas-tutorial-schema-management.md
+        - name: Eseguire query ad hoc
+          href: sql-database-saas-tutorial-adhoc-analytics.md
+        - name: ETL per l'analisi
+          href: sql-database-saas-tutorial-tenant-analytics.md
     - name: Sviluppo di applicazioni
       items:
         - name: C e C++

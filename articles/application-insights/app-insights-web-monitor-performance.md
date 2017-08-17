@@ -1,6 +1,6 @@
 ---
-title: "Monitoraggio dell&quot;integrità e dell&quot;utilizzo di un&quot;app con Application Insights"
-description: "Introduzione a Application Insights. Analizzare l&quot;uso, la disponibilità e le prestazioni delle applicazioni locali o Microsoft Azure."
+title: "Monitoraggio dell'integrità e dell'utilizzo di un'app con Application Insights"
+description: "Introduzione a Application Insights. Analizzare l'uso, la disponibilità e le prestazioni delle applicazioni locali o Microsoft Azure."
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2015
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 4fbf4fcfba4452111f406fe0f2303731877eba71
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 69ead621c179bf49f17ed3274be4b625fc587556
 ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorare le prestazioni di applicazioni Web

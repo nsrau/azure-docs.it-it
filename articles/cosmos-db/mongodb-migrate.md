@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 3823cfc0696c917a66d41e9dbde4349f635a4011
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -31,7 +31,7 @@ Per eseguire la migrazione di dati da MongoDB in un account Azure Cosmos DB per 
 * Scaricare *mongoimport.exe* o *mongorestore.exe* dall'[area download MongoDB](https://www.mongodb.com/download-center).
 * Ottenere l'[API per la stringa di connessione di MongoDB](connect-mongodb-account.md).
 
-Se si importano dati da MongoDB e si prevede di usarli con l'API di DocumentDB, è necessario usare l'[Utilità di migrazione dati](import-data.md) per importare i dati.
+Se si importano dati da MongoDB e si prevede di usarli con Azure Cosmos DB, è necessario usare lo [strumento di migrazione dei dati](import-data.md) per importare i dati.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -130,7 +130,7 @@ Esempio:
     
     * Se la dimensione calcolata *batchSize* > 24, impostare il valore di *batchSize* su 24.
     
-    * Per *numInsertionWorkers* usare questa equazione:   *numInsertionWorkers = (velocità effettiva con provisioning * latenza in secondi) / (dimensione del batch * unità richiesta consumate per una singola operazione di scrittura)*.
+    * Per *numInsertionWorkers* usare questa equazione: *numInsertionWorkers = (velocità effettiva con provisioning * latenza in secondi) / (dimensioni del batch * unità richiesta utilizzate per una singola operazione di scrittura)*.
         
     |Proprietà|Valore|
     |--------|-----|

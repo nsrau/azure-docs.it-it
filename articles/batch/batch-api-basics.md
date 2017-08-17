@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
@@ -98,17 +98,18 @@ La decisione sulla modalità di allocazione pool da usare si basa sulla valutazi
 
 La tabella seguente confronta le modalità di allocazione pool di tipo Servizio Batch e Sottoscrizione utente.
 
-| **Modalità di allocazione pool:**                 | **Servizio Batch**                                                                                       | **Sottoscrizione utente**                                                              |
+| **Modalità di allocazione pool**                 | **Servizio Batch**                                                                                       | **Sottoscrizione utente**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Posizione di allocazione dei pool:**               | Sottoscrizione gestita da Azure                                                                           | Sottoscrizione utente in cui viene creato l'account Batch                        |
-| **Configurazioni supportate:**             | <ul><li>Configurazione di tipo servizio cloud</li><li>Configurazione di tipo macchina virtuale (Linux e Windows)</li></ul> | <ul><li>Configurazione di tipo macchina virtuale (Linux e Windows)</li></ul>                |
-| **Immagini delle VM supportate:**                  | <ul><li>Immagini di Azure Marketplace</li></ul>                                                              | <ul><li>Immagini di Azure Marketplace</li><li>Immagini personalizzate</li></ul>                   |
-| **Tipi di nodi di calcolo supportati:**         | <ul><li>Nodi dedicati</li><li>Nodi a priorità bassa</li></ul>                                            | <ul><li>Nodi dedicati</li></ul>                                                  |
-| **Autenticazione supportata:**             | <ul><li>Chiave condivisa</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault necessario:**             | No                                                                                                      | Sì                                                                                |
-| **Quota core:**                           | Determinato dalla quota core del servizio Batch                                                                          | Determinato dalla quota core della sottoscrizione                                              |
-| **Supporto per le reti virtuali di Azure:** | Pool creati con la configurazione di tipo servizio cloud                                                      | Pool creati con la configurazione di tipo macchina virtuale                               |
-| **Modello di distribuzione supportato per le reti virtuali:**      | Reti virtuali create con il modello di distribuzione classica                                                             | Reti virtuali create con il modello di distribuzione classica o Azure Resource Manager |
+| **Posizione di allocazione dei pool**               | Sottoscrizione gestita da Azure                                                                           | Sottoscrizione utente in cui viene creato l'account Batch                        |
+| **Configurazioni supportate**             | <ul><li>Configurazione di tipo servizio cloud</li><li>Configurazione di tipo macchina virtuale (Linux e Windows)</li></ul> | <ul><li>Configurazione di tipo macchina virtuale (Linux e Windows)</li></ul>                |
+| **Immagini delle VM supportate**                  | <ul><li>Immagini di Azure Marketplace</li></ul>                                                              | <ul><li>Immagini di Azure Marketplace</li><li>Immagini personalizzate</li></ul>                   |
+| **Tipi di nodi di calcolo supportati**         | <ul><li>Nodi dedicati</li><li>Nodi a priorità bassa</li></ul>                                            | <ul><li>Nodi dedicati</li></ul>                                                  |
+| **Autenticazione supportata**             | <ul><li>Chiave condivisa</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Azure Key Vault necessario**             | No                                                                                                      | Sì                                                                                |
+| **Quota core**                           | Determinato dalla quota core del servizio Batch                                                                          | Determinato dalla quota core della sottoscrizione                                              |
+| **Supporto per le reti virtuali di Azure** | Pool creati con la configurazione di tipo servizio cloud                                                      | Pool creati con la configurazione di tipo macchina virtuale                               |
+| **Modello di distribuzione supportato per le reti virtuali**      | Reti virtuali create con il modello di distribuzione classica                                                             | Reti virtuali create con il modello di distribuzione classica o Azure Resource Manager |
+
 ## <a name="azure-storage-account"></a>Account di archiviazione di Azure
 
 La maggior parte delle soluzioni Batch usa l'Archiviazione di Azure per archiviare i file delle risorse e i file di output.  
@@ -171,6 +172,8 @@ Quando si crea un pool di Batch, è possibile specificare la configurazione dell
     * Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una *Versione sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la sezione [Informazioni sui servizi cloud](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) in [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
     * Analogamente ai ruoli di lavoro, è consigliabile specificare `*` per la *Versione sistema operativo*, in modo che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare la compatibilità delle applicazioni, che permette l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la *Versione sistema operativo* per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione vengono interrotte e accodate di nuovo.
 
+Quando si crea un pool, è necessario selezionare il valore appropriato di **nodeAgentSkuId**, a seconda del sistema operativo dell'immagine di base del disco rigido virtuale. È possibile ottenere un mapping tra gli ID SKU dell'agente del nodo e i relativi riferimenti all'immagine del sistema operativo chiamando l'operazione di [elenco degli SKU degli agenti dei nodi supportati](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+
 Vedere la sezione [Account](#account) per informazioni sull'impostazione della modalità di allocazione dei pool quando si crea un account Batch.
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Immagini personalizzate per pool di macchine virtuali
@@ -195,8 +198,6 @@ Assicurarsi che gli account di archiviazione soddisfino i criteri seguenti:
 - Attualmente sono supportati solo gli account di archiviazione Standard per utilizzo generico. Il supporto per Archiviazione Premium di Azure verrà aggiunto in futuro.
 - È possibile specificare un account di archiviazione con più BLOB dei dischi rigidi virtuali personalizzati o più account di archiviazione ognuno con un singolo BLOB. È consigliabile usare più account di archiviazione per ottenere prestazioni migliori.
 - Un BLOB del disco rigido virtuale di un'immagine personalizzata univoco può supportare fino a 40 istanze di VM Linux o 20 istanze di VM Windows. Per creare pool con più VM, è necessario creare copie del BLOB del disco rigido virtuale. Un pool con 200 VM Windows richiede ad esempio 10 BLOB dei dischi rigidi virtuali univoci specificati per la proprietà **osDisk**.
-
-Quando si crea un pool, è necessario selezionare il valore appropriato di **nodeAgentSkuId**, a seconda del sistema operativo dell'immagine di base del disco rigido virtuale. È possibile ottenere un mapping tra gli ID SKU dell'agente del nodo e i relativi riferimenti all'immagine del sistema operativo chiamando l'operazione di [elenco degli SKU degli agenti dei nodi supportati](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
 
 Per creare un pool da un'immagine personalizzata tramite il portale di Azure:
 

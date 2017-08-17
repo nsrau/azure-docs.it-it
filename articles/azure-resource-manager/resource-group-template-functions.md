@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: b5085f98d01c91ecabb690ad2aaf5992b707f302
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 1324bed07e991e9d84cb6832afe78bdb2d3348fa
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funzioni del modello di Azure Resource Manager
@@ -58,6 +58,7 @@ Resource Manager include numerose funzioni per gestire gli array e gli oggetti.
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
 * [intersection](resource-group-template-functions-array.md#intersection)
+* [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
 * [min](resource-group-template-functions-array.md#min)
@@ -104,6 +105,15 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori dalle sezio
 <a id="mul" />
 <a id="sub" />
 
+## <a name="logical-functions"></a>Funzioni logiche
+Resource Manager fornisce le funzioni seguenti per utilizzare le condizioni logiche:
+
+* [and](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
+
 ## <a name="numeric-functions"></a>Funzioni numeriche
 Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
 
@@ -139,7 +149,6 @@ Gestione risorse fornisce le funzioni seguenti per ottenere i valori delle risor
 <a id="base64" />
 <a id="base64tojson" />
 <a id="base64tostring" />
-<a id="bool" />
 <a id="concat" />
 <a id="containsstring" />
 <a id="datauri" />
@@ -173,7 +182,6 @@ Gestione risorse fornisce le funzioni seguenti per usare le stringhe:
 * [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
 * [base64ToString](resource-group-template-functions-string.md#base64tostring)
-* [bool](resource-group-template-functions-string.md#bool)
 * [concat](resource-group-template-functions-string.md#concat)
 * [contains](resource-group-template-functions-string.md#contains)
 * [dataUri](resource-group-template-functions-string.md#datauri)

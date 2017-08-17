@@ -15,10 +15,10 @@ ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: da885141a18e9a862c6db1005805fca247b75f25
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -194,7 +194,7 @@ L'attività **Distribuzione gruppo di risorse di Azure** viene usata per creare 
 
 * **Abilita i prerequisiti**: `Configure with Deployment Group agent`
 
-* **Endpoint TFS/VSTS**: scegliere **Aggiungi** e, nella finestra di dialogo "Aggiungi nuova connessione Team Foundation Server/Team Services", selezionare **Autenticazione basata su Token**. Immettere un nome per la connessione e l'URL del progetto team. Quindi generare e immettere un [token di accesso personale]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md) per autenticare la connessione al progetto team.
+* **Endpoint TFS/VSTS**: scegliere **Aggiungi** e, nella finestra di dialogo "Aggiungi nuova connessione Team Foundation Server/Team Services", selezionare **Autenticazione basata su Token**. Immettere un nome per la connessione e l'URL del progetto team. Quindi generare e immettere un [token di accesso personale]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) per autenticare la connessione al progetto team.
 
   ![Creare un token di accesso personale](media/tutorial-build-deploy-jenkins/create-a-pat.png)
 
@@ -258,4 +258,4 @@ In questa esercitazione è stato automatizzata la distribuzione di un'app in Azu
 Seguire questo collegamento per vedere esempi di script predefiniti delle macchine virtuali.
 
 > [!div class="nextstepaction"]
-> [Esempi di script delle macchine virtuali Linux](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cli-samples.md)
+> [Esempi di script delle macchine virtuali Linux](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)

@@ -1,6 +1,6 @@
 ---
-title: Uso di Azure Application Insights in Visual Studio | Microsoft Docs
-description: Diagnostica e analisi delle prestazioni delle app Web durante il debug e nell&quot;ambiente di produzione.
+title: Eseguire il debug delle applicazioni con Azure Application Insights in Visual Studio | Microsoft Docs
+description: Diagnostica e analisi delle prestazioni delle app Web durante il debug e nell'ambiente di produzione.
 services: application-insights
 documentationcenter: .net
 author: CFreemanwa
@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2016
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7fe1b572104416fec62261c60228fa966d197dd9
+ms.date: 07/7/2017
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 93e97cbc5d9bf55334a481183f40083a6f3b99a4
 ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="working-with-azure-application-insights-in-visual-studio"></a>Uso di Azure Application Insights in Visual Studio
+# <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Eseguire il debug delle applicazioni con Azure Application Insights in Visual Studio
 In Visual Studio 2015 e versioni successive è possibile analizzare le prestazioni e diagnosticare i problemi nell'app Web ASP.NET sia durante il debug che nell'ambiente di produzione, usando i dati di telemetria di [Azure Application Insights](app-insights-overview.md).
 
 Se l'app web ASP.NET è stata creata con Visual Studio 2017 o versioni successive, include già Application Insights SDK. In caso contrario, se non è ancora stato fatto, [aggiungere Application Insights all'app](app-insights-asp-net.md).
@@ -38,7 +37,7 @@ In Visual Studio viene visualizzato un conteggio degli eventi registrati dal mod
 Fare clic su questo pulsante per cercare nei dati di telemetria. 
 
 ## <a name="application-insights-search"></a>Ricerca in Application Insights
-La finestra di ricerca di Application Insights mostra gli eventi che sono stati registrati. Se è stato eseguito l'accesso ad Azure durante la configurazione di Application Insights, sarà possibile cercare gli stessi eventi nel portale di Azure.
+La finestra di ricerca di Application Insights mostra gli eventi che sono stati registrati. Se è stato eseguito l'accesso ad Azure durante la configurazione di Application Insights, è possibile cercare gli stessi eventi nel portale di Azure.
 
 ![Fare clic con il pulsante destro del mouse sul progetto e scegliere Application Insights, Cerca.](./media/app-insights-visual-studio/34.png)
 
@@ -58,14 +57,14 @@ Per le richieste all'app Web, è possibile fare clic per visualizzare il codice.
 
 ![In Dettagli richiesta scorrere fino agli elementi correlati](./media/app-insights-visual-studio/41.png)
 
-## <a name="exceptions-and-failed-requests"></a>Eccezioni e richieste non riuscite
+## <a name="view-exceptions-and-failed-requests"></a>Visualizzare le eccezioni e le richieste non riuscite
 I report delle eccezioni vengono visualizzati nella finestra di ricerca. In alcuni tipi di applicazioni ASP.NET meno recenti è necessario [configurare il monitoraggio delle eccezioni](app-insights-asp-net-exceptions.md) per visualizzare le eccezioni gestite dal framework.
 
 Fare clic su un'eccezione per ottenere un'analisi dello stack. Se il codice dell'app è aperto in Visual Studio, è possibile fare clic nell'analisi dello stack per visualizzare la relativa riga del codice.
 
 ![Analisi dello stack delle eccezioni](./media/app-insights-visual-studio/17.png)
 
-## <a name="request-and-exception-summaries-in-the-code"></a>Riepiloghi di eccezioni e richieste nel codice
+## <a name="view-request-and-exception-summaries-in-the-code"></a>Visualizzare i riepiloghi delle richieste ed eccezioni nel codice
 Nella riga CodeLens sopra ogni metodo del gestore viene visualizzato un conteggio delle richieste e delle eccezioni registrate da Application Insights nelle ultime 24 ore.
 
 ![Analisi dello stack delle eccezioni](./media/app-insights-visual-studio/21.png)
@@ -88,7 +87,7 @@ Per trovare le anomalie nei dati, scegliere una delle opzioni relative alle anom
 [Altre informazioni su Tendenze](app-insights-visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Monitoraggio locale
-(Da Visual Studio 2015 Update 2) Se l'SDK non è stato configurato per l'invio della telemetria al portale di Application Insights (e quindi non è presente nessuna chiave di strumentazione in ApplicationInsights.config), la finestra di diagnostica visualizzerà la telemetria dalla sessione di debug più recente. 
+(Da Visual Studio 2015 Update 2) Se l'SDK non è stato configurato per l'invio della telemetria al portale di Application Insights (e quindi non è presente nessuna chiave di strumentazione in ApplicationInsights.config), la finestra di diagnostica visualizza la telemetria dalla sessione di debug più recente. 
 
 Questo è consigliabile se è già stata pubblicata una versione precedente dell'app. Si vuole però evitare di combinare la telemetria delle sessioni di debug con la telemetria nel portale di Application Insights dell'app pubblicata.
 
@@ -100,10 +99,10 @@ Questo è consigliabile se è già stata pubblicata una versione precedente dell
   * Per arrestare l'invio dei dati di telemetria al portale, impostare come commento la riga `<instrumentationkey>...` di ApplicationInsights.config. Quando si è pronti a inviare nuovamente i dati di telemetria al portale, rimuovere il commento.
 
 
-## <a name="whats-next"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 |  |  |
 | --- | --- |
 | **[Aggiungere altri dati](app-insights-asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
-| **[Uso del portale Application Insights](app-insights-dashboards.md)**<br/>Dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
+| **[Uso del portale Application Insights](app-insights-dashboards.md)**<br/>Visualizzare i dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, una mappa attiva delle dipendenze dell'applicazione e i dati di telemetria esportati. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
 
 

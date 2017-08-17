@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2017
 ms.author: dekapur
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 29dd21511b23e6dffdb1daf8b75ece28989c16e7
-ms.lasthandoff: 04/26/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 08998340afb2f242b9a268331607b0d1ddb9b0c6
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -66,6 +67,6 @@ Dopo aver aggiunto il tracciamento ETW personalizzato al codice del servizio, sa
 Lo stesso codice di traccia aggiunto all'applicazione precedente per la diagnostica locale potrà essere usato con gli stessi strumenti di cui è possibile avvalersi per visualizzare gli eventi quando si esegue l'applicazione in un cluster di Azure. Leggere questi articoli che illustrano le diverse opzioni per gli strumenti e descrivono come configurarle.
 
 * [Come raccogliere log con Diagnostica di Azure](service-fabric-diagnostics-how-to-setup-wad.md)
-* [Raccogliere log direttamente da un processo di servizio](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+* [Aggregazione e raccolta di eventi con EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
 
 

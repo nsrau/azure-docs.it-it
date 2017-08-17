@@ -1,6 +1,5 @@
 ---
-
-title: Assegnare licenze a un gruppo in Azure Active Directory | Documentazione Microsoft
+title: Assegnare licenze a un gruppo in Azure Active Directory | Microsoft Docs
 description: Come assegnare licenze agli utenti usando le licenze dei gruppi di Azure Active Directory
 services: active-directory
 keywords: Licenze di Azure AD
@@ -17,12 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 2af42c34306dd6fe3174187892c109ae866a2f87
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 42b18eab9cb419e6ada72ba72dc8be8d7f7b2eed
 ms.contentlocale: it-it
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -85,6 +83,8 @@ In questo esempio il tenant contiene un gruppo di sicurezza denominato **HR Depa
    - Attività: **iniziare ad applicare agli utenti le licenze basate sui gruppi**. Viene registrato quando il sistema preleva la modifica dell'assegnazione della licenza per il gruppo e inizia ad applicarla a tutti i membri utente. Contiene informazioni sulla modifica apportata.
 
    - Attività: **finire di applicare agli utenti le licenze basate sui gruppi**. Viene registrato quando il nostro sistema completa l'elaborazione di tutti gli utenti del gruppo. Contiene un riepilogo di quanti utenti sono stati elaborati correttamente e il numero di utenti a cui non è stato possibile assegnare le licenze di gruppo.
+
+   [Leggere questa sezione](./active-directory-licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) per ulteriori informazioni su come usare i log di controllo per analizzare le modifiche apportate dalle licenze basate sui gruppi.
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passaggio 3: Controllare i problemi relativi alle licenze e risolverli
 

@@ -13,14 +13,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 6f204f2f0dca33e68b9853af3c94934af65ca1f9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
@@ -53,8 +53,9 @@ Purtroppo no, non è possibile eseguire la migrazione del contenuto di un insiem
 I punti di ripristino delle macchine virtuali classiche in un insieme di credenziali per il backup non eseguono automaticamente la migrazione a un insieme di credenziali dei Servizi di ripristino quando si sposta la macchina virtuale dalla modalità classica alla modalità di Resource Manager. Seguire questa procedura per trasferire i backup di macchine virtuali:
 
 1. Nell'insieme di credenziali di backup passare alla scheda **Elementi protetti** e selezionare la VM. Fare clic su [Arresta protezione](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Lasciare *deselezionata* l'opzione **Elimina i dati di backup associati**.
-2. Eseguire la migrazione della macchina virtuale dalla modalità classica alla modalità Resource Manager. Assicurarsi di eseguire la migrazione alla modalità Resource Manager anche delle informazioni di rete e archiviazione corrispondenti alla macchina virtuale.
-3. Creare un insieme di credenziali dei Servizi di ripristino e configurare il backup della macchina virtuale migrata usando l'azione **Backup** nella parte superiore del dashboard dell'insieme di credenziali. Per informazioni dettagliate sul backup di una macchina virtuale in un insieme di credenziali dei Servizi di ripristino, vedere l'articolo [Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md).
+2. Eliminare l'estensione di backup/snapshot dalla VM.
+3. Eseguire la migrazione della macchina virtuale dalla modalità classica alla modalità Resource Manager. Assicurarsi di eseguire la migrazione alla modalità Resource Manager anche delle informazioni di rete e archiviazione corrispondenti alla macchina virtuale.
+4. Creare un insieme di credenziali dei Servizi di ripristino e configurare il backup della macchina virtuale migrata usando l'azione **Backup** nella parte superiore del dashboard dell'insieme di credenziali. Per informazioni dettagliate sul backup di una macchina virtuale in un insieme di credenziali dei Servizi di ripristino, vedere l'articolo [Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md).
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 Per un elenco dettagliato delle domande, vedere le [domande frequenti sul backup di file-cartelle di Azure](backup-azure-file-folder-backup-faq.md)

@@ -1,5 +1,5 @@
 ---
-title: Pianificare l&quot;infrastruttura di backup delle VM in Azure | Documentazione Microsoft
+title: Pianificare l'infrastruttura di backup delle VM in Azure | Documentazione Microsoft
 description: Considerazioni importanti sulla pianificazione del backup di macchine virtuali in Azure
 services: backup
 documentationcenter: 
@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/22/2017
+ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d44bb8207edae22ab9d6b1c7b9a3e4da888aa06e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Pianificare l'infrastruttura di backup delle VM in Azure
@@ -40,6 +39,7 @@ Quando il trasferimento dei dati è completato, lo snapshot viene rimosso e vien
 > [!NOTE]
 > 1. Durante il processo di backup, il servizio Backup di Azure non include il disco temporaneo collegato alla macchina virtuale. Per altre informazioni, vedere il blog sull'[archiviazione temporanea](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 > 2. Poiché il servizio Backup di Azure crea uno snapshot a livello di archiviazione e lo trasferisce nell'insieme di credenziali, non modificare le chiavi dell'account di archiviazione fino al termine del processo di backup.
+> 3. Per le VM Premium, lo snapshot deve essere copiato nell'account di archiviazione. Si procede in questo modo per assicurarsi che il servizio di Backup di Azure ottenga IOPS sufficienti per il trasferimento dei dati nell'insieme di credenziali. Questa copia aggiuntiva della risorsa di archiviazione viene addebitata in base alla dimensione allocata della VM. 
 >
 
 ### <a name="data-consistency"></a>Coerenza dei dati
