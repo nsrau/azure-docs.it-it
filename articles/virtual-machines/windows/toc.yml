@@ -55,8 +55,6 @@
       href: network-overview.md
     - name: Set di scalabilità delle VM
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Servizio metadati dell'istanza
-      href: ../virtual-machines-instancemetadataservice-overview.md
     - name: Contenitori
       href: containers.md
     - name: Gestione risorse
@@ -153,6 +151,10 @@
           href: download-template.md
         - name: Agente VM di Azure
           href: agent-user-guide.md
+        - name: Eventi pianificati
+          href: scheduled-events.md
+        - name: Monitorare i metadati
+          href: instance-metadata-service.md
     - name: Usare immagini
       items:
         - name: Trovare e usare immagini
