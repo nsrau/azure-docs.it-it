@@ -1,5 +1,5 @@
 ---
-title: Distribuire nel servizio app di Azure con Jenkins e l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Eseguire l'interfaccia della riga di comando di Azure con Jenkins | Microsoft Docs
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per distribuire un'app web di Java in Azure in Jenkins Pipeline
 services: app-service\web
 documentationcenter: 
@@ -7,19 +7,19 @@ author: mlearned
 manager: douge
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: jenkins
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 73dd4b7ecde2b334fa01d105c27eba602b887aca
+ms.custom: Jenkins
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 5ca8338d4bf343f08fe70081cff755fa76a126a9
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -143,15 +143,13 @@ Aprire il repository [Simple Java Web App for Azure](https://github.com/azure-de
 
 ```java
 def resourceGroup = '<myResourceGroup>'
-
 def webAppName = '<app_name>'
-
 ```
+
 * Modificare la riga 23 per aggiornare l'ID delle credenziali nell'istanza di Jenkins
 
 ```java
-withCredentials([azureServicePrincipal('<azsrvprincipal>')]) {
-
+withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ```
 
 ## <a name="create-jenkins-pipeline"></a>Creare una pipeline Jenkins
@@ -172,14 +170,59 @@ Aprire Jenkins in un Web browser, fare clic su **New Item**.
 Per verificare che il file WAR sia stato distribuito correttamente nell'app Web. Aprire un Web browser:
 
 * Passare a http://&lt;app_name>.azurewebsites.net/api/calculator/ping  
-Viene visualizzata “**pong!**” come risposta.
+Verranno visualizzati:
 
-![Ping pong](./media/execute-cli-jenkins-pipeline/pingpong.png)
+        Welcome to Java Web App!!! This is updated!
+        Sun Jun 17 16:39:10 UTC 2017
 
 * Passare a http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (sostituire &lt;x> e &lt;y> con numeri qualsiasi) per ottenere la somma di x e y
 
 ![Calcolatrice: aggiungi](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
+## <a name="deploy-to-azure-web-app-on-linux"></a>Distribuire un'app Web di Azure in Linux
+Ora che si è appreso come usare l'interfaccia della riga di comando di Azure nella pipeline di Jenkins, è possibile modificare lo script per la distribuzione di un'app Web di Azure in Linux.
+
+L'app Web in Linux supporta un modo diverso di esecuzione della distribuzione, che consiste nell'usare Docker. Per la distribuzione è necessario fornire un Dockerfile che include l'app Web in runtime di servizio in un'immagine Docker. Il plug-in compilerà l'immagine, la inserirà in un registro Docker e la distribuirà nell'app Web.
+
+* Seguire i passaggi indicati [qui](/azure/app-service-web/app-service-linux-how-to-create-web-app) per creare un'app Web di Azure in esecuzione in Linux.
+* Installare Docker nell'istanza Jenkins seguendo le istruzioni riportate in questo [articolo](https://docs.docker.com/engine/installation/linux/ubuntu/).
+* Creare un registro contenitori nel portale di Azure seguendo i passaggi indicati [qui](/azure/container-registry/container-registry-get-started-azure-cli).
+* Nello stesso repository [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample) con fork modificare il file **Jenkinsfile2**:
+    * Riga 18-21, aggiornare rispettivamente i nomi del gruppo di risorse, l'app Web e il record di controllo di accesso. 
+        ```
+        def webAppResourceGroup = '<myResourceGroup>'
+        def webAppName = '<app_name>'
+        def acrName = '<myRegistry>'
+        ```
+
+    * Riga 24, aggiornare \<azsrvprincipal\> all'ID delle credenziali
+        ```
+        withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
+        ```
+
+* Creare una nuova pipeline Jenkins come per la distribuzione dell'app Web di Azure in Windows; solo questa volta usare invece **Jenkinsfile2**.
+* Eseguire il nuovo processo.
+* Per verificare, nell'interfaccia della riga di comando di Azure eseguire:
+
+    ```
+    az acr repository list -n <myRegistry> -o json
+    ```
+
+    Si ottiene il risultato seguente:
+    
+    ```
+    [
+    "calculator"
+    ]
+    ```
+    
+    Passare a http://&lt;app_name>.azurewebsites.net/api/calculator/ping. Viene visualizzato il messaggio: 
+    
+        Welcome to Java Web App!!! This is updated!
+        Sun Jul 09 16:39:10 UTC 2017
+
+    Passare a http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (sostituire &lt;x> e &lt;y> con numeri qualsiasi) per ottenere la somma di x e y
+    
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stata configurata la pipeline Jenkins che estrae il codice sorgente nel repository GitHub. Esegue Maven per compilare un file WAR e quindi usa l'interfaccia della riga di comando di Azure per distribuire nel servizio App di Azure. Si è appreso come:
 

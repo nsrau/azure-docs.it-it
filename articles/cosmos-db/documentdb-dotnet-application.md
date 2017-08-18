@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/25/2016
+ms.date: 08/03/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: cc8d26864f455572ad4e2652afbff7447f87f726
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 86b34c6c44b957009610f20ee0b9d7ed7fc441be
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="_Toc395809351"></a>Esercitazione su ASP.NET MVC: Sviluppo di applicazioni Web con Azure Cosmos DB
@@ -33,9 +33,9 @@ ms.lasthandoff: 07/28/2017
 
 Per illustrare come sfruttare in modo efficiente Azure Cosmos DB per archiviare ed eseguire query su documenti JSON, questo articolo include una procedura dettagliata end-to-end che illustra come creare un'app todo con Azure Cosmos DB. Le attività verranno memorizzate come documenti JSON in Azure Cosmos DB.
 
-![Schermata dell'applicazione Web MVC per un elenco di azioni creata in questa esercitazione - Esercitazione dettagliata su MVC ASP NET](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image1.png)
+![Schermata dell'applicazione Web MVC per un elenco di azioni creata in questa esercitazione - Esercitazione dettagliata su MVC ASP NET](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
-La procedura guidata illustra come usare il servizio Azure Cosmos DB fornito da Azure per archiviare i dati e accedervi da un'applicazione Web MVC ASP.NET ospitata in Azure. Se si preferisce un'esercitazione che illustra solo Azure Cosmos DB e non i componenti ASP.NET MVC, vedere [Compilare un'applicazione console C# di Azure Cosmos DB](documentdb-get-started.md).
+La procedura guidata illustra come usare il servizio Azure Cosmos DB per archiviare i dati e accedervi da un'applicazione Web MVC ASP.NET ospitata in Azure. Se si preferisce un'esercitazione che illustra solo Azure Cosmos DB e non i componenti ASP.NET MVC, vedere [Compilare un'applicazione console C# di Azure Cosmos DB](documentdb-get-started.md).
 
 > [!TIP]
 > Questa esercitazione presuppone già una certa esperienza nell'uso di MCV ASP.NET e di Siti Web di Azure. Se non si ha alcuna esperienza con ASP.NET o gli [strumenti richiesti come prerequisiti](#_Toc395637760), è consigliabile scaricare il progetto di esempio completo da [GitHub][GitHub] e seguire le relative istruzioni. Una volta creata la soluzione, è possibile leggere questo articolo per approfondire il codice nel contesto del progetto.
@@ -50,13 +50,13 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
     OPPURE
 
     Un'installazione locale dell'[emulatore Azure Cosmos DB](local-emulator.md).
-* [Visual Studio 2015](http://www.visualstudio.com/) oppure Visual Studio 2013 Update 4 o versione successiva. Se si usa Visual Studio 2013 è necessario installare il [pacchetto NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) per aggiungere il supporto per C# 6.0. 
-* Azure SDK per .NET versione 2.5.1 o successiva, disponibile tramite [Installazione guidata piattaforma Web Microsoft][Microsoft Web Platform Installer].
+* [Visual Studio 2017](http://www.visualstudio.com/).  
+* Microsoft Azure SDK per .NET per Visual Studio 2017, disponibile tramite il programma di installazione di Visual Studio.
 
-Tutte le schermate presenti in questo articolo sono state acquisite da Visual Studio 2013 con Update 4 applicato e Azure SDK per .NET versione 2.5.1. Se il sistema in uso è configurato con versioni diverse, è probabile che le schermate e le opzioni non siano interamente corrispondenti. Se si soddisfano i prerequisiti precedenti, la soluzione dovrebbe funzionare comunque.
+Tutte le schermate in questo articolo sono state ottenute usando Microsoft Visual Studio Community 2017. Se il sistema in uso è configurato con versioni diverse, è probabile che le schermate e le opzioni non siano interamente corrispondenti. Se si soddisfano i prerequisiti precedenti, la soluzione dovrebbe funzionare comunque.
 
 ## <a name="_Toc395637761"></a>Passaggio 1: Creare un account del database di Azure Cosmos DB
-Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account o si usa l'emulatore Azure Cosmos DB per questa esercitazione, è possibile proseguire con il passaggio [Creare una nuova applicazione MVC ASP.NET](#_Toc395637762).
+Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account SQL (DocumentDB) per Azure Cosmos DB o si usa l'emulatore Azure Cosmos DB per questa esercitazione, è possibile proseguire con il passaggio [Creare una nuova applicazione MVC ASP.NET](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -66,34 +66,25 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account o si 
 Verrà ora illustrata in modo dettagliato la procedura per creare un'applicazione MVC ASP.NET completamente nuova. 
 
 ## <a name="_Toc395637762"></a>Passaggio 2: Creare una nuova applicazione MVC ASP.NET
-A questo punto, dopo aver creato un account, creare il nuovo progetto ASP.NET.
 
-1. Scegliere **Nuovo** dal menu **File** di Visual Studio e quindi fare clic su **Progetto**.
-   
-       The **New Project** dialog box appears.
+1. Scegliere **Nuovo** dal menu **File** di Visual Studio e quindi fare clic su **Progetto**. Verrà visualizzata la finestra di dialogo **Nuovo progetto** .
+
 2. Nel riquadro **Tipi progetto** espandere **Modelli**, **Visual C#**, **Web** e quindi selezionare **Applicazione Web ASP.NET**.
-   
-      ![Schermata della finestra di dialogo Nuovo progetto con il tipo di progetto applicazione Web ASP.NET evidenziato](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image10.png)
+
+      ![Schermata della finestra di dialogo Nuovo progetto con il tipo di progetto applicazione Web ASP.NET evidenziato](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+
 3. Nella casella **Nome** digitare il nome del progetto. Questa esercitazione usa il nome "todo". Se si sceglie di usare un valore diverso da questo, quindi ogni volta che in questa esercitazione viene descritto lo spazio dei nomi todo, è necessario modificare gli esempi di codice forniti per usare il nome assegnato all'applicazione. 
 4. Fare clic su **Sfoglia** per passare alla cartella in cui si vuole creare il progetto e quindi fare clic su **OK**.
    
-      Verrà visualizzata la finestra di dialogo **Nuovo progetto ASP.NET** .
+      Viene visualizzata la finestra di dialogo **Nuova applicazione Web ASP.NET**.
    
-      ![Schermata della finestra di dialogo Nuovo progetto ASP.NET con il modello dell’applicazione MVC evidenziato e la casella Ospita nel cloud selezionata](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-image11.png)
+    ![Schermata della finestra della nuova applicazione Web ASP.NET con il modello di applicazione MVC evidenziato](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. Nel riquadro dei modelli selezionare **MVC**.
-6. Se si prevede di ospitare l'applicazione in Azure, selezionare **Ospita nel cloud** in basso a destra per impostare questo comportamento. È stato scelto di ospitare l'applicazione nel cloud e di eseguirla in un sito Web di Azure. Se si seleziona questa opzione, verrà eseguito il pre-provisioning di un sito Web di Azure, in modo da semplificare notevolmente la distribuzione dell'applicazione funzionante finale. Se si intende ospitare l'applicazione altrove o non si vuole configurare Azure in anticipo, deselezionare l'opzione **Ospita nel cloud**.
-7. Fare clic su **OK** e lasciare che Visual Studio esegua le operazioni necessarie per lo scaffolding del modello MVC ASP.NET vuoto. 
 
-    Se viene restituito il messaggio "Errore durante l'elaborazione della richiesta" vedere la sezione [Risoluzione dei problemi](#troubleshooting).
+6. Fare clic su **OK** e lasciare che Visual Studio esegua le operazioni necessarie per lo scaffolding del modello MVC ASP.NET vuoto. 
 
-8. Se si è scelto di ospitare l'applicazione nel cloud, verrà visualizzata almeno un'altra schermata che richiede di accedere all'account Azure e di specificare alcuni valori per il nuovo sito Web. Specificare tutti i valori aggiuntivi e continuare. 
-   
-      Qui non è stato selezionato "Server di database" perché non si intende usare un server di database SQL di Azure, ma verrà creato un nuovo account Azure Cosmos DB successivamente nel portale di Azure.
-   
-    Per altre informazioni sulla scelta di un **piano di servizio app** e del **gruppo di risorse**, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-   
-      ![Schermata della finestra di dialogo Configura sito Web di Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
-9. Al termine della creazione dell'applicazione MVC standard da parte di Visual Studio, sarà disponibile un'applicazione ASP.NET vuota eseguibile in locale.
+          
+7. Al termine della creazione dell'applicazione MVC standard da parte di Visual Studio, sarà disponibile un'applicazione ASP.NET vuota eseguibile in locale.
    
     L'esecuzione locale del progetto verrà ignorata perché è già stata mostrata per l'applicazione ASP.NET "Hello World". Si passerà direttamente all'aggiunta di Azure Cosmos DB al progetto e alla compilazione dell'applicazione.
 
@@ -102,21 +93,22 @@ Ora che è disponibile la maggior parte del plumbing MVC ASP.NET necessario per 
 
 1. Azure Cosmos DB .NET SDK è distribuito come pacchetto NuGet. Per ottenere il pacchetto NuGet in Visual Studio, usare Gestione pacchetti NuGet in Visual Studio facendo clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e quindi scegliendo **Gestisci pacchetti NuGet**.
    
-      ![Screenshot delle opzioni del menu di scelta rapida per il progetto applicazione Web in Esplora soluzioni, con Gestisci pacchetti NuGet evidenziato.](./media/documentdb-dotnet-application/image21.png)
+    ![Screenshot delle opzioni del menu di scelta rapida per il progetto applicazione Web in Esplora soluzioni, con Gestisci pacchetti NuGet evidenziato.](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     Viene visualizzata la finestra di dialogo **Gestione pacchetti NuGet** .
-2. Nella casella **Sfoglia** di NuGet digitare ***Azure Cosmos DB***.
+2. Nella casella **Sfoglia** di NuGet digitare ***Azure DocumentDB***. Il nome del pacchetto non è stato aggiornato in Azure Cosmos DB.
    
-    Dai risultati installare il pacchetto delle **librerie client Microsoft Azure Cosmos DB**. Il pacchetto Azure Cosmos DB verrà scaricato e installato, con tutte le dipendenze, ad esempio Newtonsoft.Json. Fare clic su **OK** nella finestra **Anteprima** e su **Accetto** nella finestra **Accettazione della licenza** per completare l'installazione.
+    Dai risultati installare il pacchetto **Microsoft.Azure.DocumentDB by Microsoft**. Il pacchetto Azure Cosmos DB verrà scaricato e installato, con tutte le dipendenze, ad esempio Newtonsoft.Json. Fare clic su **OK** nella finestra **Anteprima** e su **Accetto** nella finestra **Accettazione della licenza** per completare l'installazione.
    
-      ![Schermata della finestra Gestisci pacchetti NuGet, con la libreria del client di Microsoft Azure Cosmos DB evidenziata](./media/documentdb-dotnet-application/nuget.png)
+    ![Schermata della finestra Gestisci pacchetti NuGet, con la libreria del client di Microsoft Azure DocumentDB evidenziata](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       In alternativa, è possibile usare la console di Gestione pacchetti per installare il pacchetto. A tale scopo, scegliere **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi fare clic su **Console di Gestione pacchetti**. Al prompt dei comandi, immettere quanto segue.
    
         Install-Package Microsoft.Azure.DocumentDB
+        
 3. Una volta installato il pacchetto, la soluzione di Visual Studio dovrebbe assomigliare alla seguente, con due nuovi riferimenti aggiunti, Microsoft.Azure.Documents.Client e Newtonsoft.Json.
    
-      ![Schermata dei due riferimenti aggiunti al progetto di dati JSON in Esplora soluzioni](./media/documentdb-dotnet-application/image22.png)
+    ![Schermata dei due riferimenti aggiunti al progetto di dati JSON in Esplora soluzioni](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
 ## <a name="_Toc395637763"></a>Passaggio 4: Configurare l'applicazione MVC ASP.NET
 Vengono ora aggiunti i modelli, le visualizzazioni e i controller all'applicazione MVC:
@@ -170,14 +162,14 @@ Una volta creato il modello **M**, si passa alla creazione di una classe control
     Verrà visualizzata la finestra di dialogo **Aggiungi scaffolding** .
 2. Selezionare **Controller MVC 5 - Vuoto** e quindi fare clic su **Aggiungi**.
    
-    ![Schermata della finestra di dialogo Aggiungi scaffolding con l'opzione Controller MVC 5 - Vuoto evidenziata](./media/documentdb-dotnet-application/image14.png)
+    ![Schermata della finestra di dialogo Aggiungi scaffolding con l'opzione Controller MVC 5 - Vuoto evidenziata](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. Assegnare al controller il nome **ItemController.**
    
-    ![Schermata della finestra di dialogo Aggiungi controller](./media/documentdb-dotnet-application/image15.png)
+    ![Schermata della finestra di dialogo Aggiungi controller](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
    
     Una volta creato il file, la soluzione di Visual Studio deve essere simile alla seguente, con il nuovo file ItemController.cs in **Esplora soluzioni**. Viene anche visualizzato il nuovo file Item.cs creato in precedenza.
    
-    ![Schermata della soluzione Visual Studio - Esplora soluzioni con il nuovo file ItemController.cs e il file Item.cs evidenziati](./media/documentdb-dotnet-application/image16.png)
+    ![Schermata della soluzione Visual Studio - Esplora soluzioni con il nuovo file ItemController.cs e il file Item.cs evidenziati](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
    
     È possibile chiudere il file ItemController.cs. Si tornerà a questo file in un secondo momento. 
 
@@ -191,16 +183,15 @@ A questo punto è necessario creare le visualizzazioni **V** in MVC:
 #### <a name="AddItemIndexView"></a>Aggiungere una visualizzazione Indice elemento
 1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni**, fare clic con il pulsante destro del mouse sulla cartella **Item** vuota creata prima da Visual Studio quando è stato aggiunto **ItemController**, scegliere **Aggiungi** e quindi fare clic su **Visualizzazione**.
    
-    ![Schermata di Esplora soluzioni con la cartella Item creata da Visual Studio con i comandi Aggiungi visualizzazione evidenziati](./media/documentdb-dotnet-application/image17.png)
+    ![Schermata di Esplora soluzioni con la cartella Item creata da Visual Studio con i comandi Aggiungi visualizzazione evidenziati](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view.png)
 2. Nella finestra di dialogo **Aggiungi visualizzazione** eseguire le operazioni seguenti:
    
    * Nella casella **Nome visualizzazione** digitare ***Index***.
    * Nella casella **Modello** selezionare ***Elenco***.
    * Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
-   * Lasciare vuota la casella **Classe contesto dati** . 
    * Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
      
-     ![Schermata con la finestra di dialogo Aggiungi visualizzazione](./media/documentdb-dotnet-application/image18.png)
+   ![Schermata con la finestra di dialogo Aggiungi visualizzazione](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
 3. Una volta impostati tutti questi valori, fare clic su **Aggiungi** , in modo che venga creata una nuova visualizzazione modello in Visual Studio. Al termine, verrà aperto il file con estensione cshtml creato. È ora possibile chiudere questo file in Visual Studio, perché vi si tornerà di nuovo più avanti.
 
 #### <a name="AddNewIndexView"></a>Aggiungere una visualizzazione Nuovo elemento
@@ -212,10 +203,9 @@ Viene ora creata una nuova visualizzazione per la creazione di nuovi oggetti **I
    * Nella casella **Nome visualizzazione** digitare ***Create***.
    * Nella casella **Modello** selezionare ***Create***.
    * Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
-   * Lasciare vuota la casella **Classe contesto dati** .
    * Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
    * Fare clic su **Aggiungi**.
-
+   
 #### <a name="_Toc395888515"></a>Aggiungere una visualizzazione Modifica elemento
 È infine possibile aggiungere un'ultima visualizzazione per la modifica di un oggetto **Item** , allo stesso modo in cui sono state create le altre.
 
@@ -225,7 +215,6 @@ Viene ora creata una nuova visualizzazione per la creazione di nuovi oggetti **I
    * Nella casella **Nome visualizzazione** digitare ***Edit***.
    * Nella casella **Modello** selezionare ***Edit***.
    * Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
-   * Lasciare vuota la casella **Classe contesto dati** . 
    * Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
    * Fare clic su **Aggiungi**.
 
@@ -252,7 +241,8 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
         using System.Configuration;
         using System.Linq.Expressions;
         using System.Threading.Tasks;
-   
+        using System.Net
+        
     A questo punto sostituire il codice 
    
         public class DocumentDBRepository
@@ -317,7 +307,7 @@ La prima cosa da fare è aggiungere una classe che contenga tutta la logica per 
         }
    
    > [!TIP]
-   > Quando si crea un nuovo DocumentCollection è possibile fornire un parametro RequestOptions facoltativo di OfferType, che consente di specificare il livello di prestazioni della nuova raccolta. Se questo parametro non viene passato verrà usato il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di Azure Cosmos DB, vedere [Livelli di prestazioni in Azure Cosmos DB](performance-levels.md)
+   > Quando si crea un nuovo DocumentCollection è possibile fornire un parametro RequestOptions facoltativo di OfferType, che consente di specificare il livello di prestazioni della nuova raccolta. Se questo parametro non viene passato verrà usato il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di Azure Cosmos DB, vedere [Livelli di prestazioni in Azure Cosmos DB](performance-levels.md).
    > 
    > 
 3. Poiché alcuni valori vengono letti dalla configurazione, aprire il file **Web.config** dell'applicazione e aggiungere le righe seguenti dopo la sezione `<AppSettings>`.
@@ -389,7 +379,7 @@ A questo punto se si esegue l'applicazione, verrà eseguita una chiamata in **It
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente.    
 
-![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/documentdb-dotnet-application/image23.png)
+![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/documentdb-dotnet-application/build-and-run-the-project-now.png)
 
 ### <a name="_Toc395637771"></a>Aggiungere elementi
 Vengono ora inseriti alcuni elementi nel database, in modo che la griglia non sia più vuota.
@@ -516,55 +506,48 @@ Per testare l'applicazione nel computer locale, eseguire le operazioni seguenti:
 
 1. Premere F5 in Visual Studio per compilare l'applicazione in modalità di debug. L'applicazione verrà compilata e verrà avviato un browser con la pagina di griglia vuota osservata sopra:
    
-    ![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/documentdb-dotnet-application/image24.png)
+    ![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
-    Se si usa Visual Studio 2013 e viene visualizzato l'errore "Non è possibile includere un elemento await nel corpo di una clausola catch", è necessario installare il [pacchetto NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/). È anche possibile confrontare il codice con quello del progetto di esempio in [GitHub][GitHub]. 
+     
 2. Fare clic sul collegamento **Crea nuovo** e specificare i valori dei campi **Nome** e **Descrizione**. Lasciare deselezionata la casella di controllo **Completed**. In caso contrario, il nuovo oggetto **Item** verrà aggiunto con uno stato completato e non sarà visualizzato nell'elenco iniziale.
    
-    ![Schermata della visualizzazione Create](./media/documentdb-dotnet-application/image25.png)
+    ![Schermata della visualizzazione Create](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
 3. Fare clic su **Create** per tornare di nuovo alla visualizzazione **Index** e visualizzare **Item** nell'elenco.
    
-    ![Schermata della visualizzazione Index](./media/documentdb-dotnet-application/image26.png)
+    ![Schermata della visualizzazione Index](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
    
     È possibile aggiungere altri oggetti **Item** all'elenco di azioni.
+    
 4. Fare clic su **Edit** accanto a un oggetto **Item** nell'elenco per tornare alla visualizzazione **Edit**, in cui è possibile aggiornare qualsiasi proprietà dell'oggetto, incluso il flag **Completed**. Se si seleziona il flag **Completed** e si fa clic su **Salva**, l'oggetto **Item** viene rimosso dall'elenco di attività incomplete.
    
-    ![Schermata della visualizzazione Index con la casella Completed selezionata](./media/documentdb-dotnet-application/image27.png)
+    ![Schermata della visualizzazione Index con la casella Completed selezionata](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Una volta testata l'app, premere CTRL+F5 per arrestarne il debug. È ora possibile distribuire l'app.
 
-## <a name="_Toc395637774"></a>Passaggio 7: Distribuire l'applicazione in Siti Web di Azure
-Poiché ora è completa e funziona correttamente con Azure Cosmos DB, è possibile distribuire questa app Web in Siti Web di Azure. Se alla creazione del progetto MVC ASP.NET vuoto si è selezionato **Ospita nel cloud** , Visual Studio semplifica notevolmente le operazioni eseguendo la maggior parte dei passaggi automaticamente. 
+## <a name="_Toc395637774"></a>Passaggio 7: Distribuire l'applicazione nel Servizio app di Azure 
+Poiché ora è completa e funziona correttamente con Azure Cosmos DB, è possibile distribuire questa app Web nel Servizio app di Azure.  
 
 1. Per pubblicare l'applicazione, è sufficiente fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica**.
    
-    ![Schermata dell'opzione Pubblica in Esplora soluzioni](./media/documentdb-dotnet-application/image28.png)
-2. Ogni impostazione dovrebbe già essere configurata in base alle credenziali e in effetti il sito Web è già stato creato in Azure secondo il valore specificato in **URL di destinazione** ed è sufficiente fare clic su **Pubblica**.
+    ![Schermata dell'opzione Pubblica in Esplora soluzioni](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish.png)
+
+2. Nella finestra di dialogo **Pubblica** fare clic su **Servizio app di Microsoft Azure**, quindi selezionare **Crea nuovo** per creare un profilo di servizio app o fare clic su **Seleziona esistente** per usare un profilo esistente.
+
+    ![Finestra di dialogo Pubblica in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
+
+3. Se si dispone di un profilo del Servizio app di Azure esistente, immettere il nome della sottoscrizione. Usare il filtro di **visualizzazione** per eseguire l'ordinamento in base al gruppo d risorse o al tipo di risorsa, quindi selezionare il Servizio app di Azure in uso. 
    
-    ![Schermata della finestra di dialogo Pubblica sito Web in Visual Studio - Esercitazione dettagliata su MVC ASP NET](./media/documentdb-dotnet-application/image29.png)
+    ![Finestra di dialogo del servizio app in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-app-service.png)
+
+4. Per creare un nuovo profilo del Servizio app di Azure, fare clic su **Crea nuovo** nella finestra di dialogo **Pubblica**. Nella finestra di dialogo **Crea servizio app** immettere il nome dell'app Web e la sottoscrizione appropriata, il gruppo di risorse e il piano di servizio app, quindi fare clic su **Crea**.
+
+    ![Finestra di dialogo Crea servizio app in Visual Studio](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
 Dopo alcuni secondi, Visual Studio completerà la pubblicazione dell'applicazione Web e avvierà un browser in cui sarà possibile ammirare il proprio lavoro in esecuzione in Azure.
 
-## <a name="Troubleshooting"></a>Risoluzione dei problemi
-
-Se viene restituito il messaggio "Errore durante l'elaborazione della richiesta" durante il tentativo di distribuire l'app Web, procedere come segue: 
-
-1. Chiudere il messaggio di errore e selezionare nuovamente **App Web di Microsoft Azure**. 
-2. Eseguire l'accesso e quindi selezionare **Nuovo** per creare una nuova app Web. 
-3. Nella schermata **Crea un'app Web in Microsoft Azure** eseguire le operazioni seguenti: 
-    
-    - Nome dell'app Web: "todo-net-app"
-    - Piano di servizio app: crearne uno nuovo, denominato "todo-net-app"
-    - Gruppo di risorse: crearne uno nuovo, denominato "todo-net-app"
-    - Area: selezionare l'area geografica più vicina agli utenti dell'app
-    - Server di database: non selezionare database e quindi fare clic su **Crea**. 
-
-4. Nella "schermata todo-net-app * " fare clic su **Convalida connessione**. Dopo aver verificato la connessione, **Pubblica**. 
-    
-    L'app verrà visualizzata nel browser.
 
 
 ## <a name="_Toc395637775"></a>Passaggi successivi
-Congratulazioni. È stata creata la prima applicazione Web MVC ASP.NET con Azure Cosmos DB che è stata quindi pubblicata in Siti Web di Azure. Il codice sorgente per l'applicazione completa, insieme alle funzionalità di eliminazione e relative ai dettagli non incluse in questa esercitazione, può essere scaricato o clonato da [GitHub][GitHub]. Per aggiungere queste funzionalità all'app, recuperare il codice e aggiungerlo all'app.
+Congratulazioni. È stata creata la prima applicazione Web MVC ASP.NET con Azure Cosmos DB che è stata quindi pubblicata in Azure. Il codice sorgente per l'applicazione completa, insieme alle funzionalità di eliminazione e relative ai dettagli non incluse in questa esercitazione, può essere scaricato o clonato da [GitHub][GitHub]. Per aggiungere queste funzionalità all'app, recuperare il codice e aggiungerlo all'app.
 
 Per aggiungere altre funzionalità all'applicazione, esaminare le API disponibili nella raccolta [Azure Cosmos DB .NET Library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) (Libreria .NET per Azure Cosmos DB), in cui è anche possibile aggiungere il proprio contributo in [GitHub][GitHub]. 
 

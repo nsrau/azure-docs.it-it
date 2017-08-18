@@ -1,6 +1,6 @@
 ---
 title: Estensione macchina virtuale di Azure OMS per Linux | Documentazione Microsoft
-description: Distribuire l&quot;agente OMS in una macchina virtuale Linux usando un&quot;estensione macchina virtuale.
+description: Distribuire l'agente OMS in una macchina virtuale Linux usando un'estensione macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: 
 author: neilpeterson
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 05f823955eb5c47ce024c2b7d246e361e1302d78
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 138fc8c98ea6f409b28407b20851c96ecc618b09
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale OMS per Linux
@@ -64,7 +63,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -82,7 +81,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. 
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.3 |
+| typeHandlerVersion | 1.4 |
 | workspaceId (esempio) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (esempio) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -91,7 +90,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. 
 
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione, ad esempio il caricamento in OMS. Un esempio di modello di Resource Manager che include l'estensione macchina virtuale Agente OMS è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-Il codice JSON per un'estensione della macchina virtuale può essere nidificato nella risorsa della macchina virtuale o posizionato nel livello radice o nel livello superiore di un modello JSON di Resource Manager. Il posizionamento di JSON influisce sul valore del nome e tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md) (Impostare il nome e il tipo per le risorse figlio). 
+La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md) (Impostare il nome e il tipo per le risorse figlio). 
 
 L'esempio seguente presuppone che l'estensione OMS sia annidata all'interno della risorsa della macchina virtuale. Quando la risorsa di estensione viene nidificata, JSON viene inserito nell'oggetto `"resources": []` della macchina virtuale.
 
@@ -107,7 +106,7 @@ L'esempio seguente presuppone che l'estensione OMS sia annidata all'interno dell
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -132,7 +131,7 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -153,7 +152,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.0 --protected-settings '{"workspaceKey": "omskey"}' \
+  --version 1.4 --protected-settings '{"workspaceKey": "omskey"}' \
   --settings '{"workspaceId": "omsid"}'
 ```
 
@@ -177,23 +176,12 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 
 | Codice di errore | Significato | Azione possibile |
 | :---: | --- | --- |
-| 2 | Opzione non valida generata per l'aggregazione della shell | |
-| 3 | Nessuna opzione generata per l'aggregazione della shell | |
-| 4 | Tipo di pacchetto non valido | |
-| 5 | L'aggregazione della shell deve essere eseguita come radice | |
-| 6 | Architettura del pacchetto non valida | |
 | 10 | La macchina virtuale è già connessa a un'area di lavoro OMS | Per connettere la macchina virtuale all'area di lavoro specificata nello schema dell'estensione, impostare stopOnMultipleConnections su false nelle impostazioni pubbliche o rimuovere questa proprietà. Questa macchina virtuale viene fatturata una volta per ogni area di lavoro a cui è connessa. |
 | 11 | Configurazione non valida generata per l'estensione | Seguire l'esempio precedente per impostare tutti i valori della proprietà necessari alla distribuzione. |
-| 20 | Installazione di SCX/OMI non riuscita | |
-| 21 | Installazione di SCX/kit del provider non riuscita | |
-| 22 | Installazione del pacchetto di aggregazione non riuscita | |
-| 23 | Pacchetto SCX oppure OMI già installato | |
-| 30 | Errore interno aggregazione | |
+| 12 | La gestione di pacchetti dpkg è bloccata | Assicurarsi che tutte le operazioni di aggiornamento dpkg sul computer siano state completate e riprovare. |
+| 20 | Chiamata Enable anomala | [Aggiornare l'agente Linux di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) all'ultima versione disponibile. |
 | 51 | Questa estensione non è supportata sul sistema operativo della macchina virtuale | |
-| 60 | Versione di OpenSSL non supportata | Installare una versione di OpenSSL che soddisfi [i requisiti dei pacchetti](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#package-requirements). |
-| 61 | Libreria ctypes Python mancante | Installare la libreria o il pacchetto ctypes Python (python-ctypes). |
-| 62 | Programma tar mancante | Installare tar. |
-| 63 | Programma sed mancante | Installare sed. |
+| 55 | Non è possibile connettersi al servizio Microsoft Operations Management Suite | Verificare che il sistema disponga dell'accesso a Internet o che sia stato fornito un proxy HTTP valido. Verificare anche la correttezza dell'ID dell'area di lavoro. |
 
 Altre informazioni sulla risoluzione dei problemi possono essere consultate nella [Guida alla risoluzione dei problemi per l'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#).
 
