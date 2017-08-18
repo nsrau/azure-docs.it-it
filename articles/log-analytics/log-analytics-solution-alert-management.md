@@ -64,7 +64,7 @@ Quando si aggiunge la soluzione Alert Management all'area di lavoro di OMS, il r
 
 ![Riquadro di Alert Management](media/log-analytics-solution-alert-management/tile.png)
 
-Fare clic su sul riquadro **Gestione avvisi** per aprire il relativo**** dashboard.  Il dashboard include le colonne nella tabella seguente.  Ogni colonna elenca i primi 10 avvisi per numero corrispondente ai criteri della colonna per l'ambito e l'intervallo di tempo specificati.  È possibile eseguire una ricerca di log che fornisce l'intero elenco facendo clic su **Visualizza tutto** nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
+Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboard.  Il dashboard include le colonne nella tabella seguente.  Ogni colonna elenca i primi 10 avvisi per numero corrispondente ai criteri della colonna per l'ambito e l'intervallo di tempo specificati.  È possibile eseguire una ricerca di log che fornisce l'intero elenco facendo clic su **Visualizza tutto** nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
 
 | Colonna | Descrizione |
 |:--- |:--- |

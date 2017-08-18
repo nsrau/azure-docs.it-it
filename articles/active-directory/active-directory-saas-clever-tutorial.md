@@ -189,7 +189,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
       
       b. Per **Identity System** (Sistema di identità) scegliere **ADFS**.
 
-      c. Digitare l'**URL dei metadati** nella relativa**** casella di testo.
+      c. Digitare l'**URL dei metadati** nella relativa **casella** di testo.
       
       d. Fare clic su **Salva**.
 
