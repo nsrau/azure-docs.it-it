@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f86d37e32b77dc8411138542de573ee840bf9a64
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -38,10 +38,11 @@ Per distribuire correttamente il proxy di applicazione, è necessario almeno un 
 Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](active-directory-application-proxy-enable.md).
 
 ## <a name="maintenance"></a>Manutenzione 
-I connettori e il servizio si occupano di tutte le attività che richiedono disponibilità elevata. Possono essere aggiunti o rimossi in modo dinamico. Ogni volta che arriva una nuova richiesta, questa viene indirizzata a uno dei connettori attualmente disponibili. Se un connettore non è temporaneamente disponibile, non risponde a questo traffico.
+I connettori e il servizio si occupano di tutte le attività che richiedono disponibilità elevata. Possono essere aggiunti o rimossi in modo dinamico. Ogni volta che arriva una nuova richiesta, questa viene indirizzata a uno dei connettori attualmente disponibili. Se un connettore è temporaneamente non disponibile, non risponde a questo traffico.
 
 I connettori sono senza stato e senza dati di configurazione nel computer. Gli unici dati che archiviano sono le impostazioni per la connessione del servizio e il relativo certificato di autenticazione. Quando si connettono al servizio, eseguono il pull di tutti i dati di configurazione necessari e li aggiornano ogni due minuti.
-Eseguono inoltre il polling del server per verificare se è disponibile una versione più recente del connettore. Se ne viene individuata una, i connettori vengono aggiornati.
+
+I connettori eseguono inoltre il polling del server per verificare se è disponibile una versione più recente del connettore. Se ne viene individuata una, i connettori vengono aggiornati.
 
 È possibile monitorare i connettori dal computer in cui vengono eseguiti usando il registro eventi e i contatori delle prestazioni. In alternativa è possibile vedere lo stato dalla pagina del proxy di applicazione del portale di Azure:
 
@@ -63,13 +64,11 @@ Potrebbero verificarsi tempi di inattività quando viene aggiornato il connettor
 
 ## <a name="creating-connector-groups"></a>Creazione di gruppi di connettori
 
-Esistono diversi motivi che giustificano la creazione di gruppi di connettori, tra cui:
+I gruppi di connettori consentono di assegnare connettori specifici per gestire applicazioni specifiche. È possibile raggruppare una serie di connettori e quindi assegnare ogni applicazione a un gruppo. 
 
-* Maggiore disponibilità
-* Latenza migliorata per i tenant con applicazioni in più aree
-* Risorse organizzate più facili da gestire
+I gruppi di connettori rendono più semplice gestire le distribuzioni di grandi dimensioni. Migliorano inoltre la latenza per i tenant che dispongono di applicazioni ospitate in diverse aree geografiche, poiché è possibile creare gruppi di connettori basati sulla posizione per gestire solo le applicazioni in locale. 
 
-Per ulteriori informazioni sui vantaggi dei gruppi di connettori, vedere [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](active-directory-application-proxy-connectors-azure-portal.md).
+Per altre informazioni sui gruppi di connettori, vedere [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](active-directory-application-proxy-connectors-azure-portal.md).
 
 ## <a name="security-and-networking"></a>Sicurezza e rete
 
@@ -141,7 +140,7 @@ I connettori hanno sia log di amministrazione che log di sessione. I log di ammi
 
 Per visualizzare i registri, passare al Visualizzatore eventi, aprire il menu **Visualizza** e abilitare **Visualizza registri analitici e di debug**. È necessario abilitarli per avviare la raccolta degli eventi. Questi log non appaiono nel proxy applicazione Web in Windows Server 2012 R2, in quanto i connettori sono basati su una versione più recente.
 
-È possibile esaminare lo stato del servizio nella finestra Servizi. Il connettore è costituito da due servizi di Windows, ovvero il connettore stesso e il programma di aggiornamento. Entrambi devono essere eseguiti ininterrottamente.
+È possibile esaminare lo stato del servizio nella finestra Servizi. Il connettore è costituito da due servizi di Windows, ovvero il connettore stesso e il programma di aggiornamento. Entrambi devono essere eseguiti costantemente.
 
  ![Servizi Azure AD locali](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
