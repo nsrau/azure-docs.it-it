@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/03/2017
 ms.author: robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: c42e419984ee4b7f30c8423b9a0c420e2c981949
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 44d350d2d098be14ad254066a8528fe117200ec4
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Acquistare un nome di dominio personalizzato per app Web Azure
 
 I domini del servizio app (anteprima) sono i domini di primo livello che sono gestiti direttamente in Azure. Semplificano le operazioni di gestione dei domini personalizzati per le [app Web di Azure](app-service-web-overview.md). In questa esercitazione viene illustrato come acquistare un dominio del servizio app e come assegnare i nomi DNS alle app Web di Azure.
 
-L'articolo è dedicato ai Servizi app di Azure (App Web, App per le API, App per dispositivi mobili, App per la logica). Per i Servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
+Questo articolo è per il Servizio app di Azure (app Web, app per le API, app per dispositivi mobili, app per la logica). Per una macchina virtuale di Azure o per Archiviazione di Azure, vedere [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Assegnare il dominio del servizio app alla macchina virtuale di Azure o ad Archiviazione di Azure). Per i servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

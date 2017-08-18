@@ -13,10 +13,10 @@ ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ffd19e25e2931ac7af472b4c88eccbce73b10ff4
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -92,6 +92,7 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2012 - Datacenter e Standard|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione: computer Hyper-V, volumi condivisi cluster<br /><br />Ripristino: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2008 R2 SP1 - Enterprise e Standard|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione: computer Hyper-V, volumi condivisi cluster<br /><br />Ripristino: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2008|Server fisico<br /><br />Macchina virtuale Hyper-V locale|N|N|Protezione: computer Hyper-V, volumi condivisi cluster<br /><br />Ripristino: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
+|VM VMware|Server VMware 5.5, 6.0 o 6.5 |Macchina virtuale Hyper-V locale|S|Y (con UR1)|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Ripristino a livello di elemento di file e cartelle disponibili solo per Windows<br /> VMware vApps non è supportato|
 |Linux|Linux in esecuzione come guest Hyper-V o VMware|Macchina virtuale Hyper-V locale|S|S|Hyper-V deve essere in esecuzione in Windows Server 2012 R2 o Windows Server 2016. Protezione: intera macchina virtuale<br /><br />Ripristino: intera macchina virtuale|
 
 ## <a name="cluster-support"></a>Supporto di cluster

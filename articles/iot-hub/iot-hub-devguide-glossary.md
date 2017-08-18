@@ -1,6 +1,6 @@
 ---
-title: Glossario dei termini dell&quot;hub IoT di Azure | Documentazione Microsoft
-description: Guida per sviluppatori - Glossario dei termini comuni relativi all&quot;hub IoT di Azure.
+title: Glossario dei termini dell'hub IoT di Azure | Documentazione Microsoft
+description: Guida per sviluppatori - Glossario dei termini comuni relativi all'hub IoT di Azure.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c3646fef95bc06f8febe45718f4f9aeb9aefb42a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
@@ -107,7 +106,7 @@ Si riferisce alle informazioni sullo stato del dispositivo, ad esempio il metodo
 Per dati del dispositivo si intendono i dati di ogni dispositivo archiviati nel [registro delle identità](#identity-registry) di Hub IoT. È possibile importare ed esportare questi dati.
 
 ## <a name="device-explorer"></a>Esplora dispositivi
-[Esplora dispositivi](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) è uno strumento eseguito in Windows che consente di gestire i dispositivi nel [registro delle identità](#identity-registry) e di inviare e ricevere messaggi nei dispositivi.
+[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) è uno strumento eseguito in Windows che consente di gestire i dispositivi nel [registro delle identità](#identity-registry), nonché di inviare messaggi dai dispositivi e riceverli.
 
 ## <a name="device-identities-rest-api"></a>API REST per le identità dei dispositivi
 L'[API REST per le identità dei dispositivi](https://docs.microsoft.com/rest/api/iothub/iothubresource) consente di gestire i dispositivi registrati nel [registro delle identità](#identity-registry) usando un'API REST. In genere è consigliabile usare uno degli [SDK per servizi](#azure-iot-service-sdks) di livello superiore, come illustrato nelle esercitazioni su Hub IoT.
