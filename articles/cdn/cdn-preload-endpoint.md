@@ -3,7 +3,7 @@ title: Precaricare asset in un endpoint della rete CDN di Azure | Documentazione
 description: Informazioni su come precaricare il contenuto memorizzato nella cache in un endpoint della rete CDN di Azure.
 services: cdn
 documentationcenter: 
-author: zhangmanling
+author: smcevoy
 manager: erikre
 editor: 
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
-ms.lasthandoff: 03/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 1f2dcd9a91bb6e883cbef06373c1acd98bf8d45f
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -64,7 +65,7 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
     ![Pulsante Carica](./media/cdn-preload-endpoint/cdn-load-button.png)
 
 > [!NOTE]
-> Le richieste di caricamento sono limitate a un massimo di 10 al minuto per ogni profilo di rete CDN.
+> Le richieste di caricamento sono limitate a un massimo di 10 al minuto per ogni profilo di rete CDN. Sono consentiti 50 percorsi per richiesta. Ogni percorso ha un limite di lunghezza di 1024 caratteri.
 > 
 > 
 

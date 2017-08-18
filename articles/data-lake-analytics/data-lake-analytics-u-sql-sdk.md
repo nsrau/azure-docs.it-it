@@ -1,6 +1,6 @@
 ---
-title: Ridimensionare esecuzione e test locali di U-SQL con l&quot;SDK U-SQL di Azure Data Lake | Microsoft Docs
-description: Informazioni su come usare l&quot;SDK U-SQL di Azure Data Lake per ridimensionare l&quot;esecuzione e il test locali di processi U-SQL con le interfacce di programmazione e della riga di comando nella workstation locale.
+title: Ridimensionare esecuzione e test locali di U-SQL con l'SDK U-SQL di Azure Data Lake | Microsoft Docs
+description: Informazioni su come usare l'SDK U-SQL di Azure Data Lake per ridimensionare l'esecuzione e il test locali di processi U-SQL con le interfacce di programmazione e della riga di comando nella workstation locale.
 services: data-lake-analytics
 documentationcenter: 
 author: 
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
-translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: c40d7107e407a089ea1515357cf9f47d5833edc9
-ms.lasthandoff: 03/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
+ms.contentlocale: it-it
+ms.lasthandoff: 06/20/2017
 
 
 ---
@@ -39,7 +40,7 @@ L'SDK U-SQL di Data Lake richiede le dipendenze seguenti:
 - [Microsoft .NET Framework 4.6 o versione successiva](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 e Windows SDK 10.0.10240.0 o versione successiva (CppSDK in questo articolo). Esistono due modi per ottenerlo:
 
-    - Installare [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Sarà presente la cartella \Windows Kits\10 all'interno della cartella Programmi, ad esempio C:\Programmi (x86)\Windows Kits\10\. Sarà disponibile anche la versione Windows 10 SDK in \Windows Kits\10\Lib. Se queste cartelle non sono presenti, reinstallare Visual Studio e selezionare Windows 10 SDK durante l'installazione. Se è installato con Visual Studio, verrà trovato automaticamente dal compilatore locale U-SQL.
+    - Installare [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Sarà presente la cartella \Windows Kits\10 sotto la cartella Programmi, ad esempio C:\Programmi (x86)\Windows Kits\10. Sarà disponibile anche la versione Windows 10 SDK in \Windows Kits\10\Lib. Se queste cartelle non sono presenti, reinstallare Visual Studio e selezionare Windows 10 SDK durante l'installazione. Se è installato con Visual Studio, verrà trovato automaticamente dal compilatore locale U-SQL.
 
     ![Windows 10 SDK ad esecuzione locale degli strumenti di Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
@@ -144,21 +145,21 @@ Il comando **run** viene usato per compilare lo script ed eseguire i risultati c
 Di seguito sono indicati gli argomenti facoltativi per **run**:
 
 
-|Argomento|Descrizione|
-|--------|-----------|
-|-CodeBehind [valore predefinito 'False']|Lo script ha code-behind con estensione cs|
-|-CppSDK [valore predefinito '']|Directory CppSDK|
-|-DataRoot [valore predefinito 'DataRoot environment variable']|DataRoot per l'esecuzione locale, impostazione predefinita su variabile di ambiente 'LOCALRUN_DATAROOT'|
-|-MessageOut [valore predefinito '']|Messaggi dump sulla console a un file|
-|-Parallel [valore predefinito '1']|Esegue il piano con il parallelismo specificato|
-|-References [valore predefinito '']|Elenco di percorsi agli assembly di riferimento aggiuntivi o a file di dati code-behind, separati da ";"|
-|-UdoRedirect [valore predefinito 'False']|Genera la configurazione di reindirizzamento di assembly Udo|
-|-UseDatabase [valore predefinito 'master']|Database da usare per la registrazione di assembly temporanei code-behind|
-|-Verbose [valore predefinito 'False']|Mostrare gli output dettagliati dal runtime|
-|-WorkDir [valore predefinito 'Current Directory']|Directory per l'uso del compilatore e gli output|
-|-RunScopeCEP [valore predefinito '0']|Modalità ScopeCEP da usare|
-|-ScopeCEPTempPath [valore predefinito 'temp']|Percorso temporaneo da usare per lo streaming di dati|
-|-OptFlags [valore predefinito '']|Elenco delimitato da virgole con i flag di ottimizzazione|
+|Argomento|Valore predefinito|Descrizione|
+|--------|-------------|-----------|
+|-CodeBehind|False|Lo script ha code-behind con estensione cs|
+|-CppSDK| |Directory CppSDK|
+|-DataRoot| Variabile di ambiente DataRoot|DataRoot per l'esecuzione locale, impostazione predefinita su variabile di ambiente 'LOCALRUN_DATAROOT'|
+|-MessageOut| |Messaggi dump sulla console a un file|
+|-Parallel|1|Esegue il piano con il parallelismo specificato|
+|-References| |Elenco di percorsi agli assembly di riferimento aggiuntivi o a file di dati code-behind, separati da ";"|
+|-UdoRedirect|False|Genera la configurazione di reindirizzamento di assembly Udo|
+|-UseDatabase|master|Database da usare per la registrazione di assembly temporanei code-behind|
+|-Verbose|False|Mostrare gli output dettagliati dal runtime|
+|-WorkDir|Directory corrente|Directory per l'uso del compilatore e gli output|
+|-RunScopeCEP|0|Modalità ScopeCEP da usare|
+|-ScopeCEPTempPath|temp|Percorso temporaneo da usare per lo streaming di dati|
+|-OptFlags| |Elenco delimitato da virgole con i flag di ottimizzazione|
 
 
 Ad esempio:
@@ -392,10 +393,7 @@ Verificare quanto segue:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
-* Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-* Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 * Per registrare informazioni di diagnostica, vedere [Accesso ai log di diagnostica per Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md).
 * Per visualizzare una query più complessa, vedere [Analizzare i log dei siti Web con Analisi Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
 * Per visualizzare i dettagli del processo, vedere [Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).

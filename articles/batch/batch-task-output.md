@@ -1,8 +1,7 @@
 ---
-title: "Rendere persistenti l&quot;output di attività e processi - Azure Batch | Documentazione Microsoft"
-description: "Informazioni su come usare Archiviazione di Azure come archivio permanente per l&quot;output di attività e processi di Batch e abilitare la visualizzazione di questo output permanente nel portale di Azure."
+title: "Rendere persistenti i risultati o i log da processi e attività completati in un archivio dati - Azure Batch | Microsoft Docs"
+description: "Informazioni su diverse opzioni per rendere persistenti i dati di output da attività e processi di Batch. È possibile rendere persistenti i dati in Archiviazione di Azure o in un altro archivio dati."
 services: batch
-documentationcenter: .net
 author: tamram
 manager: timlt
 editor: 
@@ -12,243 +11,121 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 06/16/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 3b3aa18eb52993843be1feeb8e0b2a43339413c3
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 3ca93e823f02b1483ed290cf89de191937d1e2c3
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="persist-results-from-completed-jobs-and-tasks-to-azure-storage"></a>Rendere persistenti i risultati di processi e attività completati in Archiviazione di Azure
+# <a name="persist-job-and-task-output"></a>Rendere persistente l'output di processi e attività
 
-Le attività eseguite in Batch in genere producono output che deve essere archiviato e quindi recuperato in un secondo momento da altre attività del processo, dall'applicazione client che ha eseguito il processo o entrambe. L'output può essere costituito da file creati dall'elaborazione dei dati di input o da file di log associati all'esecuzione di attività. Questo articolo presenta una libreria di classi .NET che usa una tecnica basata su convenzioni per salvare in modo permanente l'output delle attività nell'archivio BLOB di Azure, rendendolo disponibile anche dopo l'eliminazione di pool, processi e nodi di calcolo.
+[!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Con la tecnica descritta in questo articolo, è anche possibile visualizzare l'output delle attività in **Saved output files** (File di output salvati) e **Saved logs** (Log salvati) nel [portale di Azure][portal].
+Alcuni esempi comuni di output delle attività includono:
 
-![Selettori di file di output salvati e di log salvati nel portale][1]
+- File creati mentre l'attività elabora i dati di input.
+- File di log associati all'esecuzione dell'attività. 
 
-> [!NOTE]
-> La libreria di classi .NET [Azure Batch File Conventions][nuget_package] illustrata in questo articolo è attualmente in anteprima. Alcune funzionalità descritte in questo articolo potrebbero subire modifiche prima della disponibilità a livello generale.
-> 
-> 
+Questo articolo descrive diverse opzioni per rendere persistente l'output delle attività e gli scenari in cui è più appropriata ogni opzione.   
 
-## <a name="task-output-considerations"></a>Considerazioni sull'output delle attività
-Quando si progetta una soluzione Batch, è necessario considerare diversi fattori correlati agli output di processi e attività.
+## <a name="about-the-batch-file-conventions-standard"></a>Informazioni sullo standard Batch File Conventions
 
-* **Durata dei nodi di calcolo**: questi nodi sono spesso temporanei, in particolare nei pool abilitati per il ridimensionamento automatico. Gli output delle attività eseguite in un nodo sono disponibili solo finché il nodo esiste e solo durante periodo di conservazione dei file impostato per l'attività. Per assicurare che l'output delle attività venga salvato in modo permanente, le attività devono quindi caricare i file di output in una risorsa di archiviazione permanente, ad esempio Archiviazione di Azure.
-* **Archiviazione dell'output**: per salvare in modo permanente i dati di output delle attività in un archivio permanente, è possibile usare [Azure Storage SDK](../storage/storage-dotnet-how-to-use-blobs.md) nel codice dell'attività per caricare il relativo output in un contenitore di archiviazione BLOB. Se si implementa un contenitore e una convenzione di denominazione dei file, l'applicazione client o altre attività nel processo possono quindi individuare e scaricare l'output in base alla convenzione.
-* **Recupero dell'output**: è possibile recuperare l'output delle attività direttamente dai nodi di calcolo nel pool o da Archiviazione di Azure se le attività salvano in modo permanente il relativo output. Per recuperare l'output di un'attività direttamente da un nodo di calcolo, è necessario il nome del file e il relativo percorso di output nel nodo. Se si salva in modo permanente l'output in Archiviazione di Azure, le attività downstream o l'applicazione client deve avere il percorso completo del file in Archiviazione di Azure per scaricarlo usando Azure Storage SDK.
-* **Visualizzazione dell'output**: quando si passa a un'attività di Batch nel portale di Azure e si seleziona **File nel nodo**, vengono visualizzati tutti i file associati all'attività, non solo i file di output a cui si è interessati. Anche in questo caso, i file nei nodi di calcolo sono disponibili solo finché il nodo esiste e solo durante periodo di conservazione dei file impostato per l'attività. Per visualizzare l'output delle attività salvato in modo permanente in Archiviazione di Azure nel portale o in un'applicazione come [Azure Storage Explorer][storage_explorer], è necessario conoscerne la posizione e passare direttamente al file.
+Batch definisce un set facoltativo di convenzioni per la denominazione dei file di output delle attività in Archiviazione di Azure. Lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) descrive queste convenzioni. Lo standard File Conventions determina i nomi del percorso del contenitore e del BLOB di destinazione in Archiviazione di Azure per un file di output specificato in base ai nomi del processo e dell'attività.
 
-## <a name="help-for-persisted-output"></a>Guida per l'output salvato in modo permanente
-Per facilitare il salvataggio permanente dell'output di attività e processi, il team di Batch ha definito e implementato un set di convenzioni di denominazione, nonché una libreria di classi .NET, la libreria [Azure Batch File Conventions][nuget_package], che è possibile usare nelle applicazioni Batch. Inoltre, il portale di Azure riconosce queste convenzioni di denominazione, consentendo di trovare facilmente i file archiviati usando la libreria.
+Ogni utente può decidere se usare lo standard File Conventions per la denominazione dei file di dati di output. È anche possibile assegnare i nomi preferiti al contenitore e al BLOB di destinazione. Se si usa lo standard File Conventions per la denominazione dei file di output, i file di output sono disponibili per la visualizzazione nel [portale di Azure][portal].
 
-## <a name="using-the-file-conventions-library"></a>Uso della libreria di convenzioni dei file
-[Azure Batch File Conventions][nuget_package] è una libreria di classi .NET che le applicazioni Batch .NET possono usare per archiviare e recuperare facilmente gli output delle attività in e da Archiviazione di Azure. È destinata all'uso nel codice di attività e nel codice client: nel codice di attività per salvare in modo permanente i file e nel codice client per elencarli e recuperarli. Le attività possono anche usare la libreria per recuperare gli output delle attività upstream, ad esempio in uno scenario di [relazioni tra attività](batch-task-dependencies.md) .
+Lo standard File Conventions può essere usato in alcuni modi diversi:
 
-La libreria di convenzioni assicura che i contenitori di archiviazione e i file di output delle attività siano denominati in base alla convenzione e caricati nella posizione corretta quando vengono salvati in modo permanente in Archiviazione di Azure. Quando si recuperano gli output, è possibile individuare facilmente quelli per un determinato processo o un'attività elencandoli o recuperandoli in base all'ID e allo scopo, senza dover conoscere i nomi file o la posizione in cui si trovano nella risorsa di archiviazione.
+- Se si usa l'API del servizio Batch per rendere persistenti i file di output, è possibile scegliere di assegnare i nomi ai contenitori e ai BLOB di destinazione in base allo standard File Conventions. L'API del servizio Batch consente di rendere persistenti i file di output dal codice client, senza modificare l'applicazione dell'attività.
+- Se si sviluppa con .NET, è possibile usare la [libreria Azure Batch File Conventions per .NET][nuget_package]. Un vantaggio dell'uso di questa libreria è che supporta l'esecuzione di query sui file di output in base al loro ID o scopo. La funzionalità di query incorporata consente di accedere facilmente ai file di output da un'applicazione client o da altre attività. L'applicazione dell'attività deve essere tuttavia modificata per chiamare la libreria File Conventions. Per altre informazioni, vedere le informazioni di riferimento sulla [libreria File Conventions per .NET](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.aspx).
+- Se si sviluppa con un linguaggio diverso da .NET, è possibile implementare lo standard File Conventions nell'applicazione.
 
-Ad esempio, è possibile usare la libreria per "elencare tutti i file intermedi per l'attività 7" o per "ottenere l'anteprima per il processo *filmpersonale*", senza dover conoscere i nomi dei file o il percorso all'interno dell'account di archiviazione.
+## <a name="design-considerations-for-persisting-output"></a>Considerazioni sulla progettazione per la persistenza dell'output 
 
-### <a name="get-the-library"></a>Ottenere la libreria
-È possibile ottenere la libreria, che contiene nuove classi ed estende le classi [CloudJob][net_cloudjob] and [CloudTask][net_cloudtask] con nuovi metodi, in [NuGet][nuget_package]. La libreria può essere aggiunta al progetto di Visual Studio tramite [NuGet Library Package Manager][nuget_manager].
+Quando si progetta una soluzione Batch, è necessario considerare i fattori seguenti correlati agli output di processi e attività.
 
-> [!TIP]
-> È possibile trovare il [codice sorgente][github_file_conventions] per la libreria Azure Batch File Conventions in GitHub nel repository Microsoft Azure SDK per .NET.
-> 
-> 
+* **Durata dei nodi di calcolo**: questi nodi sono spesso temporanei, in particolare nei pool abilitati per il ridimensionamento automatico. L'output da un'attività eseguita su un nodo è disponibile solo finché il nodo esiste e solo durante il periodo di conservazione dei file impostato per l'attività. Se un'attività genera output che potrebbe essere necessario dopo il completamento dell'attività, l'attività deve caricare i file di output in un archivio permanente, come Archiviazione di Azure.
 
-## <a name="requirement-linked-storage-account"></a>Requisito: account di archiviazione collegato
-Per archiviare gli output in una risorsa di archiviazione permanente usando la libreria File Conventions e visualizzarli nel portale di Azure, è necessario [collegare un account di archiviazione di Azure](batch-application-packages.md#link-a-storage-account) all'account Batch. Se non è già stato fatto, collegare un account di archiviazione all'account Batch tramite il portale di Azure:
+* **Archiviazione dell'output**: Archiviazione di Azure è la soluzione consigliata come archivio dati per l'output delle attività, ma è possibile usare qualsiasi sistema di archiviazione permanente. La funzionalità di scrittura dell'output in Archiviazione di Azure è integrata nell'API del servizio Batch. Se si usa un'altra forma di archiviazione permanente, sarà necessario scrivere autonomamente la logica dell'applicazione per rendere persistente l'output delle attività.   
 
-Pannello **Account Batch** > **Impostazioni** > **Account di archiviazione** > **Account di archiviazione** (nessuno) > Selezionare un account di archiviazione nella sottoscrizione
+* **Recupero dell'output**: è possibile recuperare l'output delle attività direttamente dai nodi di calcolo nel pool oppure da Archiviazione di Azure o un altro archivio dati, se l'output delle attività viene reso persistente. Per recuperare l'output di un'attività direttamente da un nodo di calcolo, è necessario il nome del file e il relativo percorso di output nel nodo. Se si rende persistente l'output delle attività in Archiviazione di Azure, sarà necessario il percorso completo del file in Archiviazione di Azure per scaricare i file di output tramite Azure Storage SDK.
 
-Per una procedura più dettagliata sul collegamento di un account di archiviazione, vedere [Distribuzione di applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
+* **Visualizzazione dell'output**: quando si passa a un'attività di Batch nel portale di Azure e si seleziona **File nel nodo**, vengono visualizzati tutti i file associati all'attività, non solo i file di output a cui si è interessati. Anche in questo caso, i file nei nodi di calcolo sono disponibili solo finché il nodo esiste e solo durante periodo di conservazione dei file impostato per l'attività. Per visualizzare l'output delle attività reso persistente in Archiviazione di Azure, è possibile usare il portale di Azure o un'applicazione client di Archiviazione di Azure, come [Azure Storage Explorer][storage_explorer]. Per visualizzare i dati di output in Archiviazione di Azure con il portale o un altro strumento, è necessario conoscere il percorso del file e passare direttamente a tale percorso.
 
-## <a name="persist-output"></a>Salvare in modo permanente l'output
-Esistono due azioni principali da eseguire durante il salvataggio dell'output di processi e attività con la libreria File Conventions: creare il contenitore di archiviazione e salvare l'output nel contenitore.
+## <a name="options-for-persisting-output"></a>Opzioni per la persistenza dell'output
 
-> [!WARNING]
-> Poiché tutti gli output di attività e processi vengono archiviati nello stesso contenitore, possono essere applicate [limitazioni dell'archiviazione](../storage/storage-performance-checklist.md#blobs) se un numero elevato di attività prova a salvare in modo permanente i file nello stesso momento.
-> 
-> 
+A seconda dello scenario, sono disponibili alcuni approcci diversi che è possibile scegliere per rendere persistente l'output delle attività:
 
-### <a name="create-storage-container"></a>Creare un contenitore di archiviazione
-Prima che le attività inizino a salvare in modo permanente l'output nella risorsa di archiviazione, è necessario creare un contenitore di archiviazione BLOB in cui verrà caricato il relativo output. A questo scopo, chiamare [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Questo metodo di estensione accetta un oggetto [CloudStorageAccount][net_cloudstorageaccount] come parametro e crea un contenitore denominato in modo che il relativo contenuto sia individuabile dal portale di Azure e dai metodi di recupero descritti più avanti in questo articolo.
+- Usare l'API del servizio Batch.  
+- Usare la libreria Batch File Conventions per .NET.  
+- Implementare lo standard Batch File Conventions nelle applicazioni.
+- Implementare una soluzione personalizzata per lo spostamento dei file.
 
-In genere si inserisce questo codice nell'applicazione client, ovvero l'applicazione che crea i pool, i processi e le attività.
+Le sezioni seguenti descrivono ogni approccio in modo più dettagliato.
 
-```csharp
-CloudJob job = batchClient.JobOperations.CreateJob(
-    "myJob",
-    new PoolInformation { PoolId = "myPool" });
+### <a name="use-the-batch-service-api"></a>Usare l'API del servizio Batch
 
-// Create reference to the linked Azure Storage account
-CloudStorageAccount linkedStorageAccount =
-    new CloudStorageAccount(myCredentials, true);
+A partire dalla versione 2017-05-01 il servizio Batch consente di specificare i di file di output in Archiviazione di Azure per i dati delle attività quando si [aggiunge un'attività a un processo](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) o [si aggiunge una raccolta di attività a un processo](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
-// Create the blob storage container for the outputs
-await job.PrepareOutputStorageAsync(linkedStorageAccount);
-```
+L'API del servizio Batch supporta la persistenza dei dati delle attività in un account di Archiviazione di Azure dai pool creati con la configurazione della macchina virtuale. Con l'API del servizio Batch, è possibile rendere persistenti i dati delle attività senza modificare l'applicazione che esegue l'attività. È facoltativamente possibile scegliere di seguire lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) per la denominazione dei file da rendere persistenti in Archiviazione di Azure. 
 
-### <a name="store-task-outputs"></a>Archiviare gli output delle attività
-Dopo avere preparato un contenitore nell'archiviazione BLOB, l'output può essere salvato nel contenitore usando la classe [TaskOutputStorage][net_taskoutputstorage] disponibile nella libreria File Conventions.
+Usare l'API del servizio Batch per rendere persistente l'output delle attività nei casi seguenti:
 
-Nel codice dell'attività creare un oggetto [TaskOutputStorage][net_taskoutputstorage] e quindi, dopo che l'attività ha completato tutte le relative operazioni, chiamare il metodo [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] per salvarne l'output in Archiviazione di Azure.
-
-```csharp
-CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials);
-string jobId = Environment.GetEnvironmentVariable("AZ_BATCH_JOB_ID");
-string taskId = Environment.GetEnvironmentVariable("AZ_BATCH_TASK_ID");
-
-TaskOutputStorage taskOutputStorage = new TaskOutputStorage(
-    linkedStorageAccount, jobId, taskId);
-
-/* Code to process data and produce output file(s) */
-
-await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg");
-await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
-```
-
-Il parametro "output kind" consente di classificare i file salvati in modo permanente. Esistono quattro tipi [TaskOutputKind][net_taskoutputkind] predefiniti, ovvero "TaskOutput", "TaskPreview", "TaskLog" e "TaskIntermediate". È anche possibile definire tipi personalizzati, se sono utili per il flusso di lavoro.
-
-Questi tipi di output consentono di specificare il tipo di output da elencare, quando in seguito si eseguono query su Batch per visualizzare gli output salvati in modo permanente per una determinata attività. In altre parole, quando si elencano gli output per un'attività, è possibile filtrare l'elenco in base a uno dei tipi di output. Ad esempio, "Scaricare l'output di *anteprima* per l'attività *109*." Altre informazioni su come elencare e recuperare gli output sono disponibili in [Recuperare l'output](#retrieve-output) più avanti nell'articolo.
-
-> [!TIP]
-> Il tipo di output indica anche dove viene visualizzato un file specifico nel portale di Azure. *TaskOutput*: i file classificati vengono visualizzati in "File di output delle attività" e i file di *TaskLog* vengono visualizzati in "Task logs" (Log delle attività).
-> 
-> 
-
-### <a name="store-job-outputs"></a>Archiviare gli output del processo
-Oltre ad archiviare gli output di un'attività, è possibile archiviare gli output associato a un intero processo. Ad esempio, nell'attività di unione di un processo di rendering di un filmato, è possibile salvare in modo permanente l'intero filmato sottoposto a rendering come output del processo. Una volta completato il processo, l'applicazione client può semplicemente elencare e recuperare gli output del processo senza dover eseguire query sulle singole attività.
-
-Per archiviare l'output del processo, chiamare il metodo [JobOutputStorage][net_joboutputstorage].[SaveAsync][net_joboutputstorage_saveasync] e specificare [JobOutputKind][net_joboutputkind] e il nome file:
-
-```
-CloudJob job = await batchClient.JobOperations.GetJobAsync(jobId);
-JobOutputStorage jobOutputStorage = job.OutputStorage(linkedStorageAccount);
-
-await jobOutputStorage.SaveAsync(JobOutputKind.JobOutput, "mymovie.mp4");
-await jobOutputStorage.SaveAsync(JobOutputKind.JobPreview, "mymovie_preview.mp4");
-```
-
-Come con TaskOutputKind per gli output di un'attività, usare il parametro [JobOutputKind][net_joboutputkind] per classificare i file salvati in modo permanente di un processo. Questo parametro consente di eseguire query in seguito, per ottenere l'elenco di un tipo specifico di output. JobOutputKind include tipi di output e di anteprima e supporta la creazione di tipi personalizzati.
-
-### <a name="store-task-logs"></a>Archiviare i log delle attività
-Oltre a salvare un file in una risorsa di archiviazione permanente quando un'attività o un processo viene completato, può essere necessario salvare in modo permanente i file aggiornati durante l'esecuzione di un'attività, ad esempio i file di log o `stdout.txt` e `stderr.txt`. A questo scopo, nella libreria Azure Batch File Conventions è disponibile il metodo [TaskOutputStorage][net_taskoutputstorage].[SaveTrackedAsync][net_savetrackedasync]. Con [SaveTrackedAsync][net_savetrackedasync] è possibile tenere traccia degli aggiornamenti a un file nel nodo (in base a un intervallo specificato) e salvare in modo permanente gli aggiornamenti in Archiviazione di Azure.
-
-Nel frammento di codice seguente viene usato [SaveTrackedAsync][net_savetrackedasync] per aggiornare `stdout.txt` in Archiviazione di Azure ogni 15 secondi durante l'esecuzione dell'attività:
-
-```csharp
-TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
-string logFilePath = Path.Combine(
-    Environment.GetEnvironmentVariable("AZ_BATCH_TASK_DIR"), "stdout.txt");
-
-// The primary task logic is wrapped in a using statement that sends updates to
-// the stdout.txt blob in Storage every 15 seconds while the task code runs.
-using (ITrackedSaveOperation stdout =
-        await taskStorage.SaveTrackedAsync(
-        TaskOutputKind.TaskLog,
-        logFilePath,
-        "stdout.txt",
-        TimeSpan.FromSeconds(15)))
-{
-    /* Code to process data and produce output file(s) */
-
-    // We are tracking the disk file to save our standard output, but the
-    // node agent may take up to 3 seconds to flush the stdout stream to
-    // disk. So give the file a moment to catch up.
-     await Task.Delay(stdoutFlushDelay);
-}
-```
-
-`Code to process data and produce output file(s)` è semplicemente un segnaposto per il codice eseguito normalmente da un'attività. Ad esempio, potrebbe essere disponibile codice che scarica i dati da Archiviazione di Azure ed esegue un calcolo o una trasformazione dei dati. Questo frammento di codice è importante perché dimostra come è possibile eseguire il wrapping di tale codice in un blocco `using` per aggiornare periodicamente un file con [SaveTrackedAsync][net_savetrackedasync].
-
-`Task.Delay` è necessario alla fine di questo blocco `using` per assicurarsi che l'agente del nodo abbia tempo di scaricare i contenuti dell'output standard nel file stdout.txt del nodo. L'agente del nodo è un programma che viene eseguito in ogni nodo del pool e fornisce l'interfaccia di comando e controllo tra il nodo e il servizio Batch. Senza questo ritardo, è possibile perdere gli ultimi secondi dell'output. Questo ritardo potrebbe non essere necessario per tutti i file.
+- Si vogliono rendere persistenti i dati delle attività del servizio Batch e delle attività del gestore di processi nei pool creati con la configurazione della macchina virtuale.
+- Si vogliono rendere persistenti i dati in un contenitore di Archiviazione di Azure con un nome arbitrario.
+- Si vogliono rendere persistenti i dati in un contenitore di Archiviazione di Azure denominato in base gli [standard di Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> Quando si abilita il rilevamento file con SaveTrackedAsync, solo le *aggiunte* al file rilevato vengono salvate in modo permanente in Archiviazione di Azure. Usare questo metodo solo per il rilevamento dei file di log non a rotazione o altri file aggiunti, ovvero i dati vengono aggiunti solo alla fine del file quando questo viene aggiornato.
+> L'API del servizio Batch non consente di rendere persistenti i dati dalle attività in esecuzione nei pool creati con la configurazione del servizio cloud. Per informazioni su come rendere persistente l'output delle attività dai pool che eseguono la configurazione dei servizi cloud, vedere [Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET](batch-task-output-file-conventions.md).
 > 
 > 
 
-## <a name="retrieve-output"></a>Recuperare l'output
-Quando si recupera l'output salvato in modo permanente con la libreria Azure Batch File Conventions, si esegue questa operazione con un approccio incentrato su attività e processo. È possibile richiedere l'output per un'attività o un processo specifico senza dover conoscere il percorso nell'archivio BLOB, né il nome file. È possibile semplicemente specificare "Scaricare i file di output per l'attività *109*".
+Per altre informazioni su come rendere persistente l'output delle attività con l'API del servizio Batch, vedere [Rendere persistenti i dati di attività in Archiviazione di Azure con l'API del servizio Batch](batch-task-output-files.md). Vedere anche il progetto di esempio [PersistOutputs][github_persistoutputs] su GitHub, che dimostra come usare la libreria client Batch per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente.
 
-Il frammento di codice seguente esegue l'iterazione in tutte le attività del processo, stampa alcune informazioni sui file di output per l'attività e quindi scarica i file dalla risorsa di archiviazione.
+### <a name="use-the-batch-file-conventions-library-for-net"></a>Usare la libreria Batch File Conventions per .NET
 
-```csharp
-foreach (CloudTask task in myJob.ListTasks())
-{
-    foreach (OutputFileReference output in
-        task.OutputStorage(storageAccount).ListOutputs(
-            TaskOutputKind.TaskOutput))
-    {
-        Console.WriteLine($"output file: {output.FilePath}");
+Gli sviluppatori che creano soluzioni per Batch con C# e .NET possono usare la [libreria File Conventions per .NET] [ nuget_package] per rendere persistenti i dati delle attività in un account di Archiviazione di Azure, in base allo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). La libreria File Conventions gestisce lo spostamento dei file di output in Archiviazione di Azure e la denominazione dei contenitori e dei BLOB di destinazione in modo noto.
 
-        output.DownloadToFileAsync(
-            $"{jobId}-{output.FilePath}",
-            System.IO.FileMode.Create).Wait();
-    }
-}
-```
+La libreria File Conventions supporta l'esecuzione di query sui file di output sia in base all'ID che allo scopo, semplificando così l'individuazione dei file senza che siano necessari gli URI completi. 
 
-## <a name="task-outputs-and-the-azure-portal"></a>Output delle attività e il portale di Azure
-Il portale di Azure visualizza gli output e i log di un'attività salvati in modo permanente in un account di archiviazione di Azure collegato usando le convenzioni di denominazione disponibili nel file [Azure Batch File Conventions README][github_file_conventions_readme]. È possibile implementare queste convenzioni nel linguaggio preferito o usare la libreria File Conventions nelle applicazioni .NET.
+Usare la libreria Batch File Conventions per .NET per rendere persistente l'output delle attività nei casi seguenti:
 
-### <a name="enable-portal-display"></a>Abilitare la visualizzazione del portale
-Per abilitare la visualizzazione degli output nel portale, è necessario soddisfare i requisiti seguenti:
+- Si vogliono inviare flussi di dati in Archiviazione di Azure mentre l'attività è ancora in esecuzione.
+- Si vogliono rendere persistenti i dati dai pool creati con la configurazione del servizio cloud o con la configurazione della macchina virtuale.
+- L'applicazione client o altre attività nel processo devono individuare e scaricare i file di output delle attività in base all'ID o allo scopo. 
+- Si vogliono usare checkpoint o caricamenti anticipati dei risultati iniziali.
+- Si vuole visualizzare l'output delle attività nel portale di Azure.
 
-1. [Collegare un account di archiviazione di Azure](#requirement-linked-storage-account) all'account Batch.
-2. Rispettare le convenzioni di denominazione predefinite per i contenitori di archiviazione e i file durante il salvataggio in modo permanente degli output. È possibile trovare la definizione di queste convenzioni nel file [README][github_file_conventions_readme] della libreria File Conventions. Se si usa la libreria [Azure Batch File Conventions][nuget_package] per salvare in modo permanente l'output, questo requisito è soddisfatto.
+Per altre informazioni su come rendere persistente l'output delle attività con la libreria File Conventions per .NET, vedere [Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET](batch-task-output-file-conventions.md). Vedere anche il progetto di esempio [PersistOutputs][github_persistoutputs] su GitHub, che dimostra come usare la libreria File Conventions per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente.
 
-### <a name="view-outputs-in-the-portal"></a>Visualizzare gli output nel portale
-Per visualizzare gli output delle attività e i log nel portale di Azure, passare all'attività di cui si vuole visualizzare l'output, quindi fare clic su **File di output salvati** o **Log salvati**. L'immagine illustra l'opzione **ile di output salvato** per l'attività con ID "007":
+Il progetto di esempio [PersistOutputs][github_persistoutputs] su GitHub dimostra come usare la libreria client Batch per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente.
 
-![Pannello dei file di output delle attività nel portale di Azure][2]
+### <a name="implement-the-batch-file-conventions-standard"></a>Implementare lo standard Batch File Conventions
 
-## <a name="code-sample"></a>Esempio di codice
-Il progetto di esempio [PersistOutputs][github_persistoutputs] è uno degli [esempi di codice di Azure Batch][github_samples] disponibili in GitHub. Questa soluzione di Visual Studio descrive come usare la libreria Azure Batch File Conventions per salvare in modo permanente l'output dell'attività in una risorsa di archiviazione permanente. Per eseguire l'esempio, seguire questa procedura:
+Se si usa un linguaggio diverso da .NET, è possibile implementare lo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) nell'applicazione. 
 
-1. Aprire il progetto in **Visual Studio 2015 o in una versione più recente**.
-2. Aggiungere **le credenziali dell'account** di archiviazione e Batch a **AccountSettings.settings** nel progetto Microsoft.Azure.Batch.Samples.Common.
-3. **Compilare** , ma non eseguire, la soluzione. Se richiesto, ripristinare tutti i pacchetti NuGet.
-4. Usare il portale di Azure per caricare un [pacchetto dell'applicazione](batch-application-packages.md) per **PersistOutputsTask**. Includere `PersistOutputsTask.exe` e relativi assembly dipendenti nel pacchetto ZIP, impostare l'ID applicazione su "PersistOutputsTask" e la versione del pacchetto dell'applicazione su "1.0".
-5. **Avviare**, ovvero eseguire, il progetto **PersistOutputs**.
+Può essere utile implementare lo standard File Conventions quando si vuole usare uno schema di denominazione collaudato o è necessario visualizzare l'output delle attività nel portale di Azure.
+
+### <a name="implement-a-custom-file-movement-solution"></a>Implementare una soluzione personalizzata per lo spostamento dei file
+
+È anche possibile implementare una soluzione completa propria per lo spostamento dei file. Usare questo approccio nei casi seguenti:
+
+- Si vogliono rendere persistenti i dati delle attività in un archivio dati diverso da Archiviazione di Azure. Per caricare i file in un archivio dati come SQL Azure o Azure Data Lake, è possibile creare uno script o un eseguibile personalizzato per eseguire il caricamento in tale posizione. È quindi possibile chiamarlo dalla riga di comando dopo l'esecuzione del file eseguibile principale. In un nodo di Windows, ad esempio, si potrebbero chiamare questi due comandi:`doMyWork.exe && uploadMyFilesToSql.exe`
+- Si vogliono usare checkpoint o caricamenti anticipati dei risultati iniziali.
+- Si vuole mantenere un controllo granulare sulla gestione degli errori. Ad esempio, può essere utile implementare una soluzione personalizzata se si vogliono usare le azioni per le dipendenze delle attività per eseguire opzioni di caricamento specifiche in base a codici di uscita specifici delle attività. Per altre informazioni sulle azioni per le dipendenze delle attività, vedere [Creare relazioni tra attività per eseguire attività che dipendono da altre attività](batch-task-dependencies.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-### <a name="application-deployment"></a>Distribuzione dell'applicazione
-La funzionalità [Pacchetti dell'applicazione](batch-application-packages.md) di Batch offre un modo semplice per distribuire e controllare le versioni delle applicazioni eseguite dalle attività nei nodi di calcolo.
 
-### <a name="installing-applications-and-staging-data"></a>Installazione delle applicazioni e staging dei dati
-Per una panoramica delle diverse modalità di preparazione dei nodi per l'esecuzione di attività, vedere il post di blog sull'[installazione di applicazioni e staging dei dati nei nodi di calcolo di Batch][forum_post] nel forum di Azure Batch. Scritto da uno dei membri del team di Azure Batch, questo post è una panoramica utile dei diversi modi disponibili per inserire file, inclusi i dati relativi ad applicazioni e input di attività, nei nodi di calcolo e contiene alcune considerazioni specifiche per ogni metodo.
+- Leggere le informazioni sull'uso delle nuove funzionalità dell'API del servizio Batch per rendere persistenti i dati in [Rendere persistenti i dati di attività in Archiviazione di Azure con l'API del servizio Batch](batch-task-output-files.md).
+- Scoprire di più sull'uso della libreria File Conventions per .NET in [Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET](batch-task-output-file-conventions.md).
+- Vedere il progetto di esempio [PersistOutputs][github_persistoutputs] su GitHub, che dimostra come usare sia la libreria client Batch per .NET che la libreria File Conventions per .NET per rendere persistente l'output dell'attività in una risorsa di archiviazione permanente.
 
-[forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
-[github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
-[github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
-[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
-[github_samples]: https://github.com/Azure/azure-batch-samples
-[net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
-[net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
-[net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-[net_fileconventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
-[net_joboutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputkind.aspx
-[net_joboutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.aspx
-[net_joboutputstorage_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.saveasync.aspx
-[net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
-[net_prepareoutputasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.cloudjobextensions.prepareoutputstorageasync.aspx
-[net_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx
-[net_savetrackedasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.savetrackedasync.aspx
-[net_taskoutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputkind.aspx
-[net_taskoutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx
-[nuget_manager]: https://docs.nuget.org/consume/installing-nuget
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
-
-[1]: ./media/batch-task-output/task-output-01.png "Selettori di file di output salvati e di log salvati nel portale"
-[2]: ./media/batch-task-output/task-output-02.png "Pannello dei file di output delle attività nel portale di Azure"
 

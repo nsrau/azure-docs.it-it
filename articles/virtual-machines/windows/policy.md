@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 08/02/2017
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 9874a825ea81ebb191710ebd46dceb70c1f20e60
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 3401c0af776691d22e51906eefaf895d684fdfd1
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Applicare criteri alle macchine virtuali Windows con Azure Resource Manager
@@ -28,8 +27,8 @@ Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'o
 
 Per un'introduzione ai criteri, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](../../azure-resource-manager/resource-manager-policy.md).
 
-## <a name="define-policy-for-permitted-virtual-machines"></a>Definire i criteri per le macchine virtuali consentite
-Per assicurarsi che le macchine virtuali per l'organizzazione siano compatibili con un'applicazione, è possibile limitare i sistemi operativi consentiti. Nell'esempio di criterio che segue si consente solo la creazione di macchine virtuali Windows Server 2012 R2 Datacenter:
+## <a name="permitted-virtual-machines"></a>Macchine virtuali permesse
+Per assicurarsi che le macchine virtuali dell'organizzazione siano compatibili con un'applicazione, è possibile limitare i sistemi operativi consentiti. Nell'esempio di criterio che segue si consente solo la creazione di macchine virtuali Windows Server 2012 R2 Datacenter:
 
 ```json
 {
@@ -92,7 +91,7 @@ Per modificare il criterio precedente e consentire qualsiasi immagine Windows Se
 
 Per informazioni sui campi dei criteri, vedere [Alias dei criteri](../../azure-resource-manager/resource-manager-policy.md#aliases).
 
-## <a name="define-policy-for-using-managed-disks"></a>Definire i criteri per l'uso dei dischi gestiti
+## <a name="managed-disks"></a>Dischi gestiti
 
 Per richiedere l'uso dei dischi gestiti, usare il criterio seguente:
 
@@ -137,6 +136,100 @@ Per richiedere l'uso dei dischi gestiti, usare il criterio seguente:
   "then": {
     "effect": "deny"
   }
+}
+```
+
+## <a name="images-for-virtual-machines"></a>Immagini per macchine virtuali
+
+Per motivi di sicurezza, è possibile richiedere che solo le immagini personalizzate approvate vengano distribuite nell'ambiente in uso. È possibile specificare il gruppo di risorse che contiene le immagini approvate o immagini approvate specifiche.
+
+L'esempio seguente richiede le immagini da un gruppo di risorse approvato:
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in": [
+                    "Microsoft.Compute/virtualMachines",
+                    "Microsoft.Compute/VirtualMachineScaleSets"
+                ]
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Compute/imageId",
+                    "contains": "resourceGroups/CustomImage"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+} 
+```
+
+L'esempio seguente specifica gli ID immagine approvati:
+
+```json
+{
+    "field": "Microsoft.Compute/imageId",
+    "in": ["{imageId1}","{imageId2}"]
+}
+```
+
+## <a name="virtual-machine-extensions"></a>Estensioni di macchina virtuale
+
+È possibile che si desideri proibire l'utilizzo di tipi specifici di estensioni. Un'estensione potrebbe non essere ad esempio compatibile con determinate immagini di macchina virtuale personalizzata. L'esempio seguente mostra come bloccare un'estensione specifica. Usa server di pubblicazione e tipo per determinare l'estensione da bloccare.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Compute/virtualMachines/extensions"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+                "equals": "Microsoft.Compute"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/type",
+                "equals": "{extension-type}"
+
+      }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+
+## <a name="azure-hybrid-use-benefit"></a>Vantaggio Azure Hybrid Use
+
+Quando si dispone di una licenza in locale, è possibile risparmiare il costo della licenza sulle macchine virtuali. Se non si dispone di licenza, è consigliabile impedire questa possibilità. I criteri seguenti impediscono l'uso del vantaggio Azure Hybrid Use (AHUB):
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in":[ "Microsoft.Compute/virtualMachines","Microsoft.Compute/VirtualMachineScaleSets"]
+            },
+            {
+                "field": "Microsoft.Compute/licenseType",
+                "exists": true
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: Connettere macchine virtuali di Azure a Log Analytics | Microsoft Docs
-description: "Nelle macchine virtuali Windows e Linux in esecuzione in Azure, per la raccolta di log e metriche è consigliabile installare l&quot;estensione macchina virtuale di Azure di Log Analytics. Per installare l&quot;estensione macchina virtuale di Log Analytics nelle VM di Azure è possibile usare il portale di Azure o PowerShell."
+description: "Nelle macchine virtuali Windows e Linux in esecuzione in Azure, per la raccolta di log e metriche è consigliabile installare l'estensione macchina virtuale di Azure di Log Analytics. Per installare l'estensione macchina virtuale di Log Analytics nelle VM di Azure è possibile usare il portale di Azure o PowerShell."
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 1cab9d2f814e0c36dadcdd7bbc3cdc736de0af49
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: cdae291b546fef4d7fdb8b067c8e4f4c9708d43f
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Connettere macchine virtuali di Azure a Log Analytics con un agente Log Analytics
@@ -414,8 +413,6 @@ Se l'estensione dell'agente di macchine virtuali per l'*agente OMS per Linux* no
    * [Installare l'agente di macchine virtuali di Azure nelle VM Linux](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 2. Per altri stati non integri, esaminare i file di log dell'estensione macchina virtuale dell'agente OMS per Linux in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Se lo stato dell'estensione è integro ma i dati non vengono caricati, esaminare i file di log dell'agente OMS per Linux in `/var/opt/microsoft/omsagent/log/omsagent.log`
-
-Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problemi delle estensioni Linux](../virtual-machines/linux/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare [origini dati in Log Analytics](log-analytics-data-sources.md) per specificare i log e le metriche da raccogliere.

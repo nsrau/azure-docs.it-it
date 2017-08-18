@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c528974951d3b4a83111cb92b931810a91f660f4
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: dda5ea77b35fa8491128135ea7709016781f2aea
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Distribuire un'applicazione con integrazione continua/distribuzione continua in un cluster di Service Fabric
-Questa esercitazione illustra come configurare l'integrazione e la distribuzione continue per un'applicazione di Azure Service Fabric tramite Visual Studio Team Services.  È necessaria un'applicazione di Service Fabric esistente. Viene usata come esempio l'applicazione creata in [Compilare un'applicazione .NET](service-fabric-tutorial-create-dotnet-app.md).
+Questa esercitazione è la terza di una serie e illustra come configurare l'integrazione continua e la distribuzione continua per un'applicazione di Azure Service Fabric tramite Visual Studio Team Services.  È necessaria un'applicazione di Service Fabric esistente. Viene usata come esempio l'applicazione creata in [Compilare un'applicazione .NET](service-fabric-tutorial-create-dotnet-app.md).
 
-In questa esercitazione si apprenderà come:
+Nella terza parte della serie si apprenderà come:
 
 > [!div class="checklist"]
 > * Aggiungere il controllo del codice sorgente al progetto
@@ -33,11 +33,15 @@ In questa esercitazione si apprenderà come:
 > * Creare una definizione di versione in Team Services
 > * Distribuire automaticamente e aggiornare un'applicazione
 
-L'esercitazione è suddivisa in tre articoli e questo è il terzo della serie.
+In questa serie di esercitazioni si apprenderà come:
+> [!div class="checklist"]
+> * [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md)
+> * [Distribuire l'applicazione in un cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * Configurare l'integrazione continua e la distribuzione continua usando Visual Studio Team Services
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione:
-- Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Installare Visual Studio 2017](https://www.visualstudio.com/) e installare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 - [Installare Service Fabric SDK](service-fabric-get-started.md).
 - Creare un'applicazione di Service Fabric, ad esempio [eseguendo questa esercitazione](service-fabric-tutorial-create-dotnet-app.md). 

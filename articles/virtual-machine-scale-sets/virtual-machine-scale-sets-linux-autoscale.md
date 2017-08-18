@@ -1,6 +1,6 @@
 ---
 title: "Ridimensionare set di scalabilità di macchine virtuali Linux | Microsoft Docs"
-description: "Impostare il ridimensionamento automatico per un set di scalabilità di macchine virtuali Linux tramite l&quot;interfaccia della riga di comando di Azure"
+description: "Impostare il ridimensionamento automatico per un set di scalabilità di macchine virtuali Linux tramite l'interfaccia della riga di comando di Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3a8a5d25123905e6c5cf91c4bc0c04258e442b5c
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Ridimensionare automaticamente macchine virtuali Linux in un set di scalabilità di macchine virtuali
@@ -55,7 +55,7 @@ Nell'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) pas
     ```
    
     > [!NOTE]
-    > Se si ha un ID aziendale o dell'istituto di istruzione e l'autenticazione a due fattori non è abilitata, usare `azure login -u` con l'ID per eseguire l'accesso senza una sessione interattiva. Se non si ha un'identità aziendale o dell'istituto di istruzione, è possibile [crearne una dall'account Microsoft personale](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Se si ha un ID aziendale o dell'istituto di istruzione e l'autenticazione a due fattori non è abilitata, usare `azure login -u` con l'ID per eseguire l'accesso senza una sessione interattiva. Se non si ha un'identità aziendale o dell'istituto di istruzione, è possibile [crearne una dall'account Microsoft personale](../active-directory/active-directory-users-create-azure-portal.md).
     
 2. **Creare un gruppo di risorse**  
 Tutte le risorse devono essere distribuite in un gruppo di risorse. Per questa esercitazione, assegnare al gruppo di risorse il nome **vmsstest1**.

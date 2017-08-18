@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b9cd83e6891c723f843825b99dce0e0158fc6ef6
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -49,7 +49,7 @@ Ecco la struttura di base di una definizione del flusso di lavoro:
 |$schema|No|Specifica il percorso del file dello schema JSON che descrive la versione del linguaggio della definizione. Questo percorso è obbligatorio quando si fa riferimento esternamente a una definizione. Per questo documento il percorso è: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|No|Specifica la versione della definizione. Quando si distribuisce un flusso di lavoro tramite la definizione, è possibile usare questo valore per assicurarsi che venga usata la definizione corretta.|  
 |parameters|No|Specifica i parametri usati per inserire dati nella definizione. È possibile definire un massimo di 50 parametri.|  
-|trigger|No|Specifica le informazioni per i trigger che avviano il flusso di lavoro. È possibile definire un massimo di 250 trigger.|  
+|trigger|No|Specifica le informazioni per i trigger che avviano il flusso di lavoro. È possibile definire un massimo di 10 trigger.|  
 |Azioni|No|Specifica le azioni effettuate durante l'esecuzione del flusso. È possibile definire un massimo di 250 azioni.|  
 |outputs|No|Specifica le informazioni sulla risorsa distribuita. È possibile definire un massimo di 10 output.|  
   

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 865c72b7525c185d047d6c9f57b642a195e56fd4
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7165633cd354eeea2e3619f839338e6af1524e56
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Panoramica di Azure Cloud Shell (anteprima)
@@ -49,7 +49,7 @@ Viene creato per conto dell'utente un account di archiviazione con ridondanza lo
 
 Verranno create tre risorse per conto dell'utente:
 1. Gruppo di risorse denominato: `cloud-shell-storage-<region>`
-2. Account di archiviazione denominato: `cs-uniqueGuid`
+2. Account di archiviazione denominato: `cs<uniqueGuid>`
 3. Condivisione file denominata: `cs-<user>-<domain>-com-uniqueGuid`
 
 > [!Note]
@@ -88,3 +88,4 @@ Cloud Shell è consigliato per Chrome, Microsoft Edge e Safari. Cloud Shell è s
 1. Quando si usa una sottoscrizione di Azure Active Directory, non è possibile creare la risorsa di archiviazione a causa dell'errore 400 DisallowedOperation. Per risolvere questo problema, usare una sottoscrizione di Azure in grado di creare le risorse di archiviazione. Le sottoscrizioni di AD non sono in grado di creare le risorse di Azure.
 
 Per le limitazioni note specifiche, vedere le [limitazioni di Cloud Shell](limitations.md).
+

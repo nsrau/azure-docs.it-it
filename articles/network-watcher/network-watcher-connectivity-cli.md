@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 81b0f76538b74edf1ebdfb40ff9190e5072e71c8
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -29,13 +29,6 @@ ms.lasthandoff: 07/21/2017
 > - [API REST di Azure](network-watcher-connectivity-rest.md)
 
 Informazioni su come usare la connettività per verificare se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.
-
-Questo articolo illustra alcuni scenari di controllo della connettività.
-
-* [Controllare la connettività a una macchina virtuale](#check-connectivity-to-a-virtual-machine)
-* [Problemi relativi alla convalida del routing](#validate-routing-issues)
-* [Controllare la latenza del sito Web](#check-website-latency)
-* [Controllare la connettività a un endpoint di archiviazione](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
