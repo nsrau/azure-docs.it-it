@@ -150,7 +150,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     b. Nella casella di testo **Account Name** (Nome account) digitare il nome dell'**account**.
 
-    c. Nella casella di testo **Default Reply-To Email** (Indirizzo di posta elettronica predefinito per le risposte) digitare un indirizzo**** valido.
+    c. Nella casella di testo **Default Reply-To Email** (Indirizzo di posta elettronica predefinito per le risposte) digitare un **indirizzo**valido.
 
     d. Per **SSO Identity Provider** (Provider di identità SSO) selezionare **SAML 2.0**.
 

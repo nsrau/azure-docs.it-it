@@ -151,13 +151,13 @@ Fare clic su **Route** per gestire la modalità di invio dei messaggi da disposi
 
 ![][14]
 
-È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route***, inserendo le informazioni necessarie e facendo clic su **OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Enabled** su **Off**. Per salvare le modifiche, fare clic su **OK** nella parte inferiore del pannello.
+È possibile aggiungere i route all'hub IoT facendo clic su **Aggiungi** nella parte superiore del pannello **Route*** inserendo le informazioni necessarie e facendo clic su **OK**. Il route viene quindi elencato nel pannello principale **Route**. È possibile modificare un route selezionandolo nell'elenco di route. Per abilitare un route, selezionarlo nell'elenco di route e impostare l'interruttore **Enabled** su **Off**. Per salvare le modifiche, fare clic su **OK** nella parte inferiore del pannello.
 
 ![][15]
 
 ## <a name="pricing-and-scale"></a>Prezzi e scalabilità
 
-I prezzi di un hub IoT esistente possono essere modificati tramite le impostazioni disponibili in **Prezzi** , con le eccezioni seguenti:
+I prezzi di un hub IoT esistente possono essere modificati tramite le impostazioni disponibili in **Prezzi** con le eccezioni seguenti:
 
 * Nell'implementazione corrente un hub IoT con uno SKU gratuito non può cambiare i piani con quelli di uno degli SKU a pagamento o viceversa.
 * Nella sottoscrizione Azure può essere presente un solo livello gratuito per l'hub IoT.
@@ -168,7 +168,7 @@ I prezzi di un hub IoT esistente possono essere modificati tramite le impostazio
 
 ## <a name="delete-the-iot-hub"></a>Eliminare l'hub IoT
 
-È possibile passare all'hub IoT che si vuole eliminare facendo clic su **Sfoglia**e quindi scegliendo l'hub appropriato da eliminare. Fare clic sul pulsante **Elimina** sotto il nome dell'hub IoT per eliminarlo.
+È possibile passare all'hub IoT che si vuole eliminare facendo clic su **Sfoglia** e quindi scegliendo l'hub appropriato da eliminare. Fare clic sul pulsante **Elimina** sotto il nome dell'hub IoT per eliminarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
