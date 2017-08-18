@@ -15,23 +15,24 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 8a2281cea551092be4b5c628c1e541b04021523d
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: ceca07e1244af2937ed66f41e5cddc41014fdde2
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configurare un web application firewall su un gateway applicazione nuovo o esistente
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell per Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [Interfaccia della riga di comando di Azure](application-gateway-web-application-firewall-cli.md)
 
 Informazioni su come creare un gateway applicazione abilitato per un firewall applicazione Web o su come aggiungere un firewall applicazione Web a un gateway applicazione esistente.
 
 Il firewall applicazione Web (WAF) nel gateway applicazione di Azure protegge le applicazioni Web dai comuni attacchi basati sul Web, come ad esempio gli attacchi SQL injection, gli attacchi di scripting intersito e il controllo delle sessioni.
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. L'applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre. Per un elenco completo delle funzionalità supportate, vedere la panoramica del gateway applicazione
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e altro ancora. Per un elenco completo delle funzionalità supportate, vedere la [panoramica del gateway applicazione](application-gateway-introduction.md).
 
 L'articolo seguente illustra come [aggiungere il firewall applicazione Web a un gateway applicazione esistente](#add-web-application-firewall-to-an-existing-application-gateway) e [creare un gateway applicazione che usa il firewall applicazione Web](#create-an-application-gateway-with-web-application-firewall).
 
@@ -89,7 +90,7 @@ Assicurarsi di usare la versione più recente di Azure PowerShell. Altre informa
     Set-AzureRmApplicationGateway -ApplicationGateway $gw
     ```
 
-Questo comando aggiorna il gateway applicazione con il web application firewall. È consigliabile visualizzare [Diagnostica del gateway applicazione](application-gateway-diagnostics.md) per comprendere come visualizzare i log per il gateway applicazione. Per le implicazioni di sicurezza del WAF, i log devono essere esaminati a intervalli regolari per essere aggiornati sulle condizioni di sicurezza delle applicazioni web.
+Questo comando aggiorna il gateway applicazione con il web application firewall. Per informazioni su come visualizzare i log per il gateway applicazione, vedere l'argomento relativo alla [diagnostica del gateway applicazione](application-gateway-diagnostics.md). Per le implicazioni di sicurezza del WAF, i log devono essere esaminati a intervalli regolari per essere aggiornati sulle condizioni di sicurezza delle applicazioni web.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>Creare un gateway applicazione con il web application firewall
 
@@ -191,7 +192,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-application-gateway-dns-name"></a>Ottenere il nome DNS del gateway applicazione
 
-Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, non descrittivo. Per assicurarsi che gli utenti finali possano raggiungere il gateway applicazione, è possibile usare un record CNAME per fare riferimento all'endpoint pubblico del gateway applicazione. A questo scopo, recuperare i dettagli del gateway applicazione e il nome DNS e l'IP associati, usando l'elemento PublicIPAddress collegato al gateway applicazione. Questa operazione può essere eseguita con il servizio DNS di Azure o altri provider DNS, creando un record CNAME che punti all'[indirizzo IP pubblico](../dns/dns-custom-domain.md#public-ip-address). Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
+Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, non descrittivo. Per assicurarsi che gli utenti finali possano raggiungere il gateway applicazione, è possibile usare un record CNAME per fare riferimento all'endpoint pubblico del gateway applicazione. [Configurazione di un nome di dominio personalizzato in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Per configurare un alias, recuperare i dettagli del gateway applicazione e il nome DNS e l'IP associati usando l'elemento PublicIPAddress collegato al gateway applicazione. Il nome DNS del gateway applicazione dovrà essere usato per creare un record CNAME che associa le due applicazioni Web a questo nome DNS. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01

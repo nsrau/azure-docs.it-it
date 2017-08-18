@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/08/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 5101d0356460160aed8559a314e8287ff5845121
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8cde51313f683fbf96a89c8335eb75348b05dee6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -41,6 +41,7 @@ Siamo consapevoli del fatto che qualsiasi transizione comporti disagi, ma non st
 - **Funzioni di analisi avanzate.**  Il nuovo linguaggio presenta algoritmi avanzati per valutare i criteri dei set di dati e confrontare set di dati diversi.
 - **Portale Advanced Analytics.**  Il portale Advanced Analytics offre funzionalità di analisi non disponibili nel portale Log Analytics, inclusa la modifica multirighe delle query, altre visualizzazioni e diagnostica avanzata.
 - **Coerenza con altre applicazioni.**  Il nuovo linguaggio e il portale Advanced Analytics sono già utilizzati per l'analisi in Application Insights.  La sua implementazione per Log Analytics aggiunge coerenza tra i servizi di Azure.
+- **Migliore integrazione con Power BI.** Le query nel nuovo linguaggio possono essere esportate in Power BI Desktop, che mette a disposizione complesse funzionalità di trasformazione di dati.
 - **E altro ancora.** Per informazioni dettagliate ed esercitazioni sul nuovo linguaggio, vedere il sito sul [linguaggio di query di Azure Log Analytics](https://docs.loganalytics.io/index.html).
 
 
@@ -60,7 +61,7 @@ Per ripristinare l'area di lavoro precedente, passare a **Impostazioni** nell'ar
 ![Ripristino dell'area di lavoro precedente](media/log-analytics-log-search-upgrade/restore-legacy-b.png)
 
 ## <a name="how-do-i-perform-the-upgrade"></a>Come si esegue l'aggiornamento?
-È possibile aggiornare l'area di lavoro quando si vede il banner viola nella parte superiore del portale.  Si noti che è possibile eseguire l'aggiornamento solo dal portale di OMS, anche se l'area di lavoro convertita sarà disponibile anche nel portale di Azure dopo il completamento dell'aggiornamento.
+È possibile aggiornare l'area di lavoro quando si vede il banner viola nella parte superiore del portale.  
 
 1.  Avviare il processo di aggiornamento facendo clic nel banner viola indicante **Altre informazioni e aggiorna**.<br>![Aggiornamento 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
 2.  Leggere le informazioni aggiuntive sull'aggiornamento nella pagina delle informazioni sull'aggiornamento.<br>![Aggiornamento 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>

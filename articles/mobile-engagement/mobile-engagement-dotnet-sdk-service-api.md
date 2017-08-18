@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57b2abc37551a782cb7106b9fc4540ce2ba37732
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 6a497189268c5a1b7e269cc57904ebc77c1906fd
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="using-net-sdk-to-access-azure-mobile-engagement-service-apis"></a>Usare .NET SDK per accedere alle API del servizio Azure Mobile Engagement
-Azure Mobile Engagement espone un set di API che consentono di gestire i dispositivi, le campagne Push e Reach e così via. Per interagire con queste API, viene fornito anche un [file Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) che è possibile usare con gli strumenti per la generazione degli SDK per la lingua preferita. Per generare l'SDK dal file Swagger si consiglia di usare lo strumento [AutoRest](https://github.com/Azure/AutoRest). 
+Azure Mobile Engagement espone un set di API che consentono di gestire i dispositivi, le campagne Push e Reach e così via. Per interagire con queste API, viene fornito anche un [file Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) che è possibile usare con gli strumenti per la generazione degli SDK per la lingua preferita. Per generare l'SDK dal file Swagger è consigliabile usare lo strumento [AutoRest](https://github.com/Azure/AutoRest).
+
+> [!NOTE]
+> Il servizio Azure Mobile Engagement verrà ritirato a marzo 2018 ed è attualmente disponibile solo per i clienti esistenti. Per altre informazioni, vedere [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 In modo simile è stato creato un .NET SDK che consente di interagire con queste API tramite un wrapper C#. Non è necessario eseguire manualmente la negoziazione di token di autenticazione e l'aggiornamento.  
 
@@ -119,9 +123,4 @@ In questo esempio viene eseguita la serie di passaggi necessari per usare .NET S
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

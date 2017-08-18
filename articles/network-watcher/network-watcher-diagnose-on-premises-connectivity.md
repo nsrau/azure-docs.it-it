@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: dfccb182ffdc43d5437efd7e4f736998c5fa9433
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 8f5534c83adf2ee4a696131afb45a658c89dd298
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -30,12 +30,12 @@ Con la funzionalità di risoluzione dei problemi di Azure Network Watcher è pos
 
 ## <a name="scenario"></a>Scenario
 
-Si vuole configurare una connessione da sito a sito tra Azure e la rete locale tramite Cisco ASA come gateway VPN locale. Per ottenere questo scenario è necessaria la configurazione seguente:
+Si vuole configurare una connessione da sito a sito tra Azure e la rete locale tramite FortiGate come Gateway VPN locale. Per ottenere questo scenario è necessaria la configurazione seguente:
 
 1. Gateway di rete virtuale, ovvero il gateway VPN di Azure
-1. Gateway di rete locale, ovvero la rappresentazione del [gateway VPN (ASA CISCO) locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) nel cloud di Azure
-1. Connessione da sito a sito basata su criteri, ovvero [connessione tra il gateway VPN e il dispositivo CISCO ASA locale](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
-1. [Configurazione di CISCO ASA](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)
+1. Gateway di rete locale, ovvero la rappresentazione del [Gateway VPN (FortiGate) locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) nel cloud di Azure
+1. Connessione da sito a sito basata su criteri, ovvero [connessione tra il Gateway VPN e il router locale](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
+1. [Configurazione di FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Per istruzioni dettagliate per la configurazione di una connessione da sito a sito, vedere: [Creare una rete virtuale con una connessione da sito a sito usando il portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
@@ -52,7 +52,7 @@ Uno dei passaggi critici consiste nella configurazione dei parametri di comunica
 | Algoritmo di hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
 | Durata (tempo) associazione di sicurezza (SA) fase 1 |28.800 secondi |10.800 secondi |
 
-L'utente deve configurare il dispositivo Cisco ASA. Un esempio di configurazione è disponibile in [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt). Tra le altre configurazioni sarà anche necessario specificare l'algoritmo di hash. Cisco ASA supporta più [algoritmi di hash e crittografia](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html) rispetto al gateway VPN di Azure. Si supponga che il dispositivo Cisco ASA sia stato inconsapevolmente configurato per l'uso dell'algoritmo di hash SHA-512. Questo algoritmo non è supportato per le connessioni basate su criteri, quindi la connessione VPN non funziona.
+L'utente deve configurare il dispositivo FortiGate. Un esempio di configurazione è disponibile in [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Si supponga che il dispositivo FortiGate sia stato inconsapevolmente configurato per l'uso dell'algoritmo di hash SHA-512. Questo algoritmo non è supportato per le connessioni basate su criteri, quindi la connessione VPN non funziona.
 
 Questi problemi sono difficili da risolvere e le cause principali sono spesso non intuitive. In questo caso è possibile aprire un ticket di supporto per ottenere assistenza nella risoluzione del problema. Con l'API di risoluzione dei problemi di Azure Network Watcher è tuttavia possibile identificare questi problemi autonomamente.
 

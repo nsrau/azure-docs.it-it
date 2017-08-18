@@ -13,11 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5d395da0779d84e414341d6d73151fd7e77e3e8e
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
+ms.contentlocale: it-it
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -168,6 +168,6 @@ Se fosse possibile arrestare SAP HANA prima degli snapshot BLOB, la procedura sa
 
 ## <a name="next-steps"></a>Passaggi successivi
 * La [Guida del backup di SAP HANA in Macchine virtuali di Azure](sap-hana-backup-guide.md) offre una panoramica e informazioni introduttive.
-* [SAP HANA backup based on file level](sap-hana-backup-file-level.md) (Backup di SAP HANA a livello di file) descrive l'opzione di backup basato su snapshot di archiviazione.
-* Per informazioni su come stabilire la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
+* [Backup di SAP HANA di Azure a livello di file](sap-hana-backup-file-level.md) descrive l'opzione di backup basato su file.
+* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
 

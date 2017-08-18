@@ -1,5 +1,5 @@
 ---
-title: "Monitorare i log di accesso e delle prestazioni, l&quot;integrità back-end e le metriche per il gateway applicazione | Microsoft Docs"
+title: "Monitorare i log di accesso e delle prestazioni, l'integrità back-end e le metriche per il gateway applicazione | Microsoft Docs"
 description: Informazioni su come abilitare e gestire i log di accesso e delle prestazioni per il gateway applicazione
 services: application-gateway
 documentationcenter: na
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 122a08fbe95e4e3c2eaba8a8d8558f2d638120d0
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2a2d731a8c904f290fcd4bbbd18872d8319b2ff5
 ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integrità back-end, log di diagnostica e metriche per il gateway applicazione
@@ -97,7 +96,7 @@ Il frammento seguente illustra un esempio della risposta:
 }
 ```
 
-## <a name="diagnostic-logs"></a>Log di diagnostica
+## <a name="diagnostic-logging"></a>Registri di diagnostica
 
 In Azure è possibile usare diversi tipi di log per gestire e risolvere i problemi dei gateway applicazione. Alcuni di questi log sono accessibili tramite il portale. Tutti i log possono essere estratti dall'archiviazione BLOB di Azure e visualizzati in strumenti differenti, ad esempio [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel e Power BI. L'elenco seguente contiene altre informazioni sui diversi tipi di log:
 

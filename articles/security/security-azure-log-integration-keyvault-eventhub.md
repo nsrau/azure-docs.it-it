@@ -8,25 +8,29 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a648852fadfeb5c9a4ff61c85bbe0af856e445d4
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 4503234080e0bf737dad2e18907b47c3bf39d9da
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Esercitazione sull'integrazione dei log di Azure: elaborazione degli eventi di Azure Key Vault tramite Hub eventi
 
-È possibili usare l'integrazione dei log di Azure (AzLog) per recuperare gli eventi registrati e renderli disponibili per il sistema di gestione delle informazioni e degli eventi di sicurezza (SIEM). Questa esercitazione illustra il processo per estrarre l'attività di Azure Key Vault registrata in un hub eventi e renderla disponibile come file JSON nel sistema SIEM. È quindi possibile configurare il sistema SIEM per elaborare i file JSON.
+L'integrazione dei log di Azure (AzLog) consente di recuperare gli eventi registrati e renderli disponibili al sistema di gestione delle informazioni e degli eventi di sicurezza (SIEM). Lo scopo di questa esercitazione è illustrare un esempio di come usare l'integrazione dei log di Azure per elaborare i log acquisiti tramite Hub eventi. L'articolo permette di acquisire familiarità con l'interazione tra l'integrazione dei log di Azure e Hub eventi seguendo la procedura di esempio e comprendendo in che modo ogni passaggio supporta la soluzione. È quindi possibile applicare quanto appreso qui per creare i passaggi personalizzati per supportare i requisiti specifici della propria azienda.
+
+>[!WARNING]
+I passaggi e i comandi usati in questa esercitazione non possono essere copiati e incollati. Il loro scopo è puramente esemplificativo. Non usare i comandi di PowerShell "così come sono" nell'ambiente live, in quanto devono essere personalizzati in base all'ambiente univoco.
+
+
+Questa esercitazione illustra il processo per estrarre l'attività di Azure Key Vault registrata in un hub eventi e renderla disponibile come file JSON nel sistema SIEM. È quindi possibile configurare il sistema SIEM per elaborare i file JSON.
 
 >[!NOTE]
->La maggior parte dei passaggi in questa esercitazione implica la configurazione dell'insieme di credenziali delle chiavi, degli account di archiviazione e degli hub eventi. La procedura di integrazione dei log di Azure specifica si trova alla fine di questa esercitazione.
+>La maggior parte dei passaggi in questa esercitazione implica la configurazione dell'insieme di credenziali delle chiavi, degli account di archiviazione e degli hub eventi. La procedura di integrazione dei log di Azure specifica si trova alla fine di questa esercitazione. Non eseguire questa procedura in un ambiente di produzione in quanto è destinata solo a un ambiente lab. La procedura deve essere personalizzata prima di essere usata nell'ambiente di produzione
 
 Le informazioni offerte consentono di comprendere i motivi di ogni passaggio. I collegamenti ad altri articoli offrono maggiori dettagli su determinati argomenti.
 

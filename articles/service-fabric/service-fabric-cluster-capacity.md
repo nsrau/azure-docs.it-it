@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 9d5a4bef0c22f637a35390c6a8a245967fb02118
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 270d79944465176d3df467f7145ff82594302c3d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
@@ -96,7 +96,7 @@ Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Raccomandazioni operative per il tipo di nodo impostato sul livello di durabilità Silver o Gold
 
 1. Mantenere sempre integri il cluster e le applicazioni e verificare che le applicazioni rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle), ad esempio al blocco della replica in compilazione.
-2. Adottare modi più sicuri per eseguire una modifica di uno SKU di VM (aumento/riduzione delle prestazioni): la modifica dello SKU di VM di un set di scalabilità di macchine virtuali è un'operazione intrinsecamente non sicura e, se possibile, dovrebbe essere evitata. Di seguito è illustrato il processo che è possibile seguire per evitare i problemi comuni.
+2. Adottare modi più sicuri per eseguire una modifica di uno SKU di VM (aumento/riduzione delle prestazioni): la modifica dello SKU di VM di un set di scalabilità di macchine virtuali è un'operazione intrinsecamente non sicura, pertanto dovrebbe essere evitata, se possibile. Di seguito è illustrato il processo che è possibile seguire per evitare i problemi comuni.
     - **Per i tipi di nodo non primari:** è consigliabile creare un nuovo set di scalabilità di macchine virtuali, modificare il vincolo di posizionamento del servizio per poter includere il nuovo tipo di nodo/set di scalabilità di macchine virtuali e quindi ridurre il numero di istanze del set di scalabilità di macchine virtuali precedente a 0, un nodo alla volta (perché la rimozione dei nodi non influisca sull'affidabilità del cluster).
     - **Per il tipo di nodo primario:** è consigliabile non modificare il relativo SKU di VM. Se lo scopo del nuovo SKU è la capacità, è consigliabile aggiungere altre istanze o, se possibile, creare un nuovo cluster. Se non sono disponibili alternative, apportare modifiche alla definizione del modello del set di scalabilità di macchine virtuali in modo che rifletta il nuovo SKU. Se il cluster include un solo tipo di nodo, verificare che tutte le applicazioni con stato rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle), ad esempio al blocco della replica in compilazione, e che la durata della ricompilazione della replica del servizio sia inferiore a cinque minuti (per il livello di durabilità Silver). 
 3. Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con ruolo di gestione abilitato.

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/08/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: b4031e5ec5ab38863e1e74f5b6ebb117f23a327e
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 2de9a87390da11a034c6cebaa37d4cc89edf3cad
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -52,7 +52,6 @@ Non c'è problema.  Prima dell'aggiornamento dell'area di lavoro viene creato un
 È possibile usare lo strumento di conversione del linguaggio nella pagina della ricerca log per convertire ogni ricerca.  Non è disponibile alcun metodo per convertire automaticamente più ricerche senza aggiornare l'area di lavoro.
 
 
-
 ## <a name="alerts"></a>Avvisi
 
 ### <a name="i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Nel tempo sono state create molte regole di avviso. È necessario crearle nuovamente nel nuovo linguaggio dopo l'aggiornamento?  
@@ -63,7 +62,10 @@ No, le regole di avviso vengono convertite automaticamente nel nuovo linguaggio 
 ### <a name="does-anything-change-with-powerbi-integration"></a>L'aggiornamento implica modifiche per l'integrazione con Power BI?
 Sì.  Dopo aver aggiornato l'area di lavoro, il processo per esportare i dati di Log Analytics in Power BI non funzionerà più.  Le pianificazioni esistenti create prima dell'aggiornamento verranno disabilitate.  Dopo l'aggiornamento, Azure Log Analytics usa la stessa piattaforma di Application Insights e il processo per esportare le query di Log Analytics in Power BI è uguale al [processo usato per esportare le query di Application Insights in Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
 
+## <a name="dashboards"></a>Dashboard
 
+### <a name="can-i-still-use-dashboards"></a>È ancora possibile usare i dashboard?
+È possibile continuare a usare i dashboard creati prima dell'aggiornamento dell'area di lavoro, ma non è possibile modificarli o crearne di nuovi.  È possibile continuare a creare e modificare le viste con [Progettazione viste](log-analytics-view-designer.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
