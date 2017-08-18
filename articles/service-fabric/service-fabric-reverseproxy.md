@@ -1,6 +1,6 @@
 ---
 title: Proxy inverso di Azure Service Fabric | Microsoft Docs
-description: Usare un proxy inverso di Service Fabric per comunicare con i microservizi dall&quot;interno e dall&quot;esterno del cluster.
+description: Usare un proxy inverso di Service Fabric per comunicare con i microservizi dall'interno e dall'esterno del cluster.
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/07/2017
+ms.date: 08/08/2017
 ms.author: bharatn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 80669943f5b9f9d55cc6395c4dab76b32fc72c8f
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: cb37c7209a3449047bad97ce50344e1530f0e222
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso in Azure Service Fabric
@@ -303,6 +302,7 @@ Ottenere prima di tutto il modello per il cluster da distribuire. È possibile u
 * [Chiamate di procedura remota con i Reliable Services remoti](service-fabric-reliable-services-communication-remoting.md)
 * [Web API che usa OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Comunicazione di WCF tramite Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+* Per altre opzioni di configurazione del proxy inverso, vedere la sezione ApplicationGateway/Http in [Personalizzare le impostazioni del cluster Service Fabric](service-fabric-cluster-fabric-settings.md).
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

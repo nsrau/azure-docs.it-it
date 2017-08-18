@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: banders
+ms.date: 08/08/2017
+ms.author: magoedte;banders
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 524c63d358ce22c10b7a23e5bcf0b33e9f2e5f26
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 5fe0c4c5642fcaa83bcfc830e64600986b8fbf7f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="containers-preview-solution-in-log-analytics"></a>Soluzione Contenitori (anteprima) in Log Analytics
@@ -50,21 +50,25 @@ La tabella seguente descrive il supporto del monitoraggio dell'orchestrazione di
 | Server Linux<br>(autonomo) | | Sì | | Sì | Sì | Sì | Sì | Sì | | Sì |
 
 
-### <a name="supported-linux-operating-system"></a>Sistema operativo Linux supportato
+### <a name="docker-versions-supported-on-linux"></a>Versioni di Docker supportate in Linux
 
-- Docker (da 1.11 a 1.13)
-- Docker CE e EE v17.03
+- Docker da 1.11 a 1.13
+- Docker CE e EE v17.06
 
-Le distribuzioni Linux x64 seguenti sono supportate come host del contenitore:
+### <a name="x64-linux-distributions-supported-as-container-hosts"></a>Distribuzioni Linux x64 supportate come host del contenitore
 
-- Ubuntu 14.04 LTS, 16.04 LTS
+- Ubuntu 14.04 LTS e 16.04 LTS
 - CoreOS (stable)
 - Amazon Linux 2016.09.0
 - openSUSE 13.2
 - openSUSE LEAP 42.2
-- CentOS 7.2, 7.3
+- CentOS 7.2 e 7.3
 - SLES 12
-- RHEL 7.2, 7.3
+- RHEL 7.2 e 7.3
+- Red Hat OpenShift Container Platform (OCP) 3.4 e 3.5
+- ACS Mesosphere DC/OS da 1.7.3 a 1.8.8
+- ACS Kubernetes da 1.4.5 a 1.6
+- ACS Docker Swarm
 
 ### <a name="supported-windows-operating-system"></a>Sistema operativo Windows supportato
 
@@ -73,33 +77,31 @@ Le distribuzioni Linux x64 seguenti sono supportate come host del contenitore:
 
 ### <a name="docker-versions-supported-on-windows"></a>Versioni di Docker supportate in Windows
 
-- Docker 1.12 – 1.13
+- Docker 1.12 e 1.13
 - Docker 17.03.0 
 
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
-Aggiungere la soluzione Contenitori all'atra di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
+1. Aggiungere la soluzione Contenitori all'atra di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
 
-Esistono alcuni metodi per installare e usare Docker con OMS:
+2. Installare e usare Docker con OMS.  In base al sistema operativo, è possibile scegliere uno dei metodi seguenti:
 
-* Nei sistemi operativi Linux supportati installare ed eseguire Docker, quindi installare e configurare l'agente OMS per Linux.
-* Non è possibile eseguire l'agente OMS per Linux in CoreOS. È invece necessario eseguire una versione di tale agente inserita in contenitori.
-* In Windows Server 2016 e Windows 10, installare il motore e il client Docker, quindi connettere un agente per raccogliere informazioni da inviare a Log Analytics.
-
-
-È possibile esaminare le versioni di sistemi operativi Docker e Linux supportate per l'host del contenitore in [GitHub](https://github.com/Microsoft/OMS-docker).
+  * Nei sistemi operativi Linux supportati installare ed eseguire Docker, quindi installare e configurare l'agente OMS per Linux.  
+  * Non è possibile eseguire l'agente OMS per Linux in CoreOS. È invece necessario eseguire una versione di tale agente inserita in contenitori. Vedere la sezione [Per tutti gli host del contenitore Linux inclusi CoreOS](#for-all-linux-container-hosts-including-coreos) o [Per tutti gli host del contenitore Linux Azure per enti pubblici incluso CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) se si usano contenitori nel cloud di Azure per enti pubblici.
+  * In Windows Server 2016 e Windows 10, installare il motore e il client Docker, quindi connettere un agente per raccogliere informazioni da inviare a Log Analytics.  
 
 ### <a name="container-services"></a>Servizi contenitore
 
+- Se si opera in un ambiente Red Hat OpenShift, vedere [Configurare un agente OMS per Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
 - Se si ha un cluster Kubernetes che usa il servizio contenitore di Azure, vedere [Monitorare un cluster del servizio contenitore di Azure con Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md).
 - Se si ha un cluster DC/OS del servizio contenitore di Azure, vedere [Monitorare un cluster DC/OS del servizio contenitore di Azure con Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
 - Se è presente un ambiente in modalità Docker Swarm, per altre informazioni vedere [Configurare un agente OMS per Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-- Se si usano contenitori con Service Fabric, informazioni dettagliate sono disponibili in [Panoramica di Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- Se si usano contenitori con Service Fabric, vedere [Panoramica di Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Consultare l'articolo sul [motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
 
 > [!IMPORTANT]
-> Docker deve essere in esecuzione **prima** di installare l'[agente OMS per Linux](log-analytics-agent-linux.md) negli host di contenitori. Se l'agente è stato installato prima di installare Docker, è necessario reinstallare l'agente di OMS per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
+> Docker deve essere in esecuzione **prima** di installare l'[agente OMS per Linux](log-analytics-agent-linux.md) negli host di contenitori. Se l'agente era già stato installato prima di installare Docker, è necessario reinstallare l'agente di OMS per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
 >
 >
 
@@ -107,8 +109,7 @@ Sono necessarie le seguenti impostazioni negli host di contenitori prima di pote
 
 ## <a name="linux-container-hosts"></a>Host del contenitore Linux
 
-Dopo aver installato Docker, usare le impostazioni seguenti per l'host di contenitori per configurare l'agente per l'uso con Docker. Saranno necessari l'[ID area di lavoro e la chiave di OMS](log-analytics-agent-linux.md).
-
+Dopo aver installato Docker, usare le impostazioni seguenti per l'host di contenitori per configurare l'agente per l'uso con Docker. Saranno necessari l'ID e la chiave dell'area di lavoro OMS, che è possibile identificare passando al [portale classico di OMS](https://mms.microsoft.com).  Nella pagina **Panoramica**, nel menu principale selezionare **Impostazioni** e quindi passare a **Origini connesse\Server Windows**.  Verrà visualizzato il valore a destra di **ID area di lavoro** e **Chiave primaria**.  Copiare e incollare entrambi i valori nell'editor predefinito.    
 
 ### <a name="for-all-linux-container-hosts-except-coreos"></a>Per tutti gli host del contenitore Linux, ad eccezione di CoreOS
 
@@ -116,7 +117,7 @@ Dopo aver installato Docker, usare le impostazioni seguenti per l'host di conten
 
 ### <a name="for-all-linux-container-hosts-including-coreos"></a>Per tutti gli host del contenitore Linux inclusi CoreOS
 
-Avviare il contenitore OMS da monitorare. Modificare usando l'esempio seguente.
+Avviare il contenitore OMS da monitorare. Modificare e usare l'esempio seguente:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
@@ -124,19 +125,18 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 
 ### <a name="for-all-azure-government-linux-container-hosts-including-coreos"></a>Per tutti gli host del contenitore Linux Azure per enti pubblici incluso CoreOS
 
-Avviare il contenitore OMS da monitorare. Modificare usando l'esempio seguente.
+Avviare il contenitore OMS da monitorare. Modificare e usare l'esempio seguente:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
 ```
 
-
 ### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>Passaggio dall'uso di un agente Linux installato a un agente in un contenitore
-Se in precedenza veniva usato l'agente installato direttamente e si vuole usare invece un agente in esecuzione in un contenitore, prima è necessario rimuovere l'agente OMS per Linux. Vedere [Disinstallazione dell'agente OMS per Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux).
+Se in precedenza veniva usato l'agente installato direttamente e si vuole usare invece un agente in esecuzione in un contenitore, prima è necessario rimuovere l'agente OMS per Linux. Vedere [Disinstallazione dell'agente OMS per Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) per comprendere come disinstallare correttamente l'agente.  
 
 ### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configurare un agente OMS per Docker Swarm
 
-È possibile eseguire l'agente OMS come servizio globale in Docker Swarm. Usare le informazioni seguenti per creare un servizio agente OMS. È necessario inserire l'ID area di lavoro e la chiave primaria.
+È possibile eseguire l'agente OMS come servizio globale in Docker Swarm. Usare le informazioni seguenti per creare un servizio agente OMS. È necessario inserire l'ID e la chiave primaria dell'area di lavoro OMS.
 
 - Eseguire quanto segue sul nodo principale.
 
@@ -144,9 +144,119 @@ Se in precedenza veniva usato l'agente installato direttamente e si vuole usare 
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
     ```
 
-### <a name="secure-your-secret-information-for-container-services"></a>Proteggere i segreti per i servizi contenitore
+### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Configurare un agente OMS per Red Hat OpenShift
+Esistono tre modi per aggiungere l'agente OMS a Red Hat OpenShift e avviare la raccolta dei dati di monitoraggio del contenitore. 
+ 
+* [Installare l'agente OMS per Linux](log-analytics-agent-linux.md) direttamente in ogni nodo OpenShift  
+* [Abilitare l'estensione della macchina virtuale di Log Analytics](log-analytics-azure-vm-extension.md) in ogni nodo OpenShift che risiede in Azure  
+* Installare l'agente OMS come DaemonSet OpenShift  
 
-È possibile proteggere l'ID segreto dell'area di lavoro OMS e le chiavi primarie segrete per Docker Swarm e Kubernetes.
+In questa sezione viene illustrata la procedura necessaria per installare l'agente OMS come DaemonSet OpenShift.  
+
+1. Accedere al nodo principale OpenShift e copiare il file yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) da GitHub nel nodo principale e modificare il valore con l'ID dell'area di lavoro OMS e la chiave primaria.
+2. Eseguire i comandi seguenti per creare un progetto per OMS e configurare l'account utente.
+
+    ```
+    oadm new-project omslogging --node-selector='zone=default'
+    oc project omslogging  
+    oc create serviceaccount omsagent  
+    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    ```
+
+4. Per distribuire DaemonSet, eseguire il comando seguente: 
+    
+    `oc create -f ocp-omsagent.yaml`
+
+5. Per verificare che sia configurato e funzioni correttamente, digitare quanto segue: 
+
+    `oc describe daemonset omsagent`  
+    
+    L'output deve essere simile a:
+
+    ```
+    [ocpadmin@khm-0 ~]$ oc describe ds oms  
+    Name:           oms  
+    Image(s):       microsoft/oms  
+    Selector:       name=omsagent  
+    Node-Selector:  zone=default  
+    Labels:         agentVersion=1.4.0-12  
+                    dockerProviderVersion=10.0.0-25  
+                    name=omsagent  
+    Desired Number of Nodes Scheduled: 3  
+    Current Number of Nodes Scheduled: 3  
+    Number of Nodes Misscheduled: 0  
+    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
+    No events.  
+    ```
+
+Se si vuole usare i segreti per proteggere l'ID e la chiave primaria dell'area di lavoro OMS quando si usa il file yaml DaemonSet dell'agente OMS, seguire questa procedura.
+
+1. Accedere al nodo principale OpenShift e copiare il file yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) e il segreto che genera lo script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) da GitHub.  Questo script genererà il file yaml dei segreti per l'ID e la chiave primaria dell'area di lavoro OMS per proteggere le informazioni segrete.  
+2. Eseguire i comandi seguenti per creare un progetto per OMS e configurare l'account utente. Il segreto che genera lo script chiede di specificare l'ID <WSID> e la chiave primaria <KEY> dell'area di lavoro OMS e, al completamento, crea il file ocp-secret.yaml.  
+    
+    ```
+    oadm new-project omslogging --node-selector='zone=default'  
+    oc project omslogging  
+    oc create serviceaccount omsagent  
+    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    ```
+
+4. Distribuire il file del segreto eseguendo il comando seguente:
+
+    `oc create -f ocp-secret.yaml`
+
+5. Verificare la distribuzione eseguendo il comando seguente: 
+
+    `oc describe secret omsagent-secret`  
+
+    L'output deve essere simile a:  
+    
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
+    Name:           oms  
+    Image(s):       microsoft/oms  
+    Selector:       name=omsagent  
+    Node-Selector:  zone=default  
+    Labels:         agentVersion=1.4.0-12  
+                    dockerProviderVersion=10.0.0-25  
+                    name=omsagent  
+    Desired Number of Nodes Scheduled: 3  
+    Current Number of Nodes Scheduled: 3  
+    Number of Nodes Misscheduled: 0  
+    Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
+    No events.  
+    ```
+
+6. Distribuire il file yaml DaemonSet dell'agente OMS eseguendo il comando seguente: 
+
+    `oc create -f ocp-ds-omsagent.yaml`  
+  
+7. Verificare la distribuzione eseguendo il comando seguente: 
+
+    `oc describe ds oms`
+  
+    L'output deve essere simile a:
+
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
+    Name:           omsagent-secret  
+    Namespace:      omslogging  
+    Labels:         <none>  
+    Annotations:    <none>  
+    
+    Type:   Opaque  
+    
+     Data  
+     ====  
+     KEY:    89 bytes  
+     WSID:   37 bytes  
+    ```
+
+### <a name="secure-your-secret-information-for-docker-swarm-and-kubernetes"></a>Proteggere le informazioni segrete per Docker Swarm e Kubernetes 
+
+È possibile proteggere l'ID segreto dell'area di lavoro OMS e le chiavi primarie segrete per i servizi contenitore Docker Swarm e Kubernetes.
 
 #### <a name="secure-secrets-for-docker-swarm"></a>Proteggere i segreti per Docker Swarm
 
@@ -179,10 +289,10 @@ In Docker Swarm, una volta creato il segreto per l'ID area di lavoro e la chiave
 
 #### <a name="secure-secrets-for-kubernetes-with-yaml-files"></a>Proteggere i segreti per Kubernetes con file yaml
 
-Per Kubernetes è possibile usare uno script per generare il file dei segreti con estensione yaml per l'ID area di lavoro e la chiave primaria. Nella pagina [OMS Docker/Kubernetes di GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) sono disponibili file usabili con o senza informazioni segrete.
+Per Kubernetes è possibile usare uno script per generare il file yaml dei segreti per l'ID area di lavoro e la chiave primaria. Nella pagina [OMS Docker/Kubernetes di GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) sono disponibili file usabili con o senza informazioni segrete.
 
-- Il file DaemonSet predefinito dell'agente OMS che non include informazioni segrete (omsagent.yaml)
-- Il file DaemonSet dell'agente OMS con estensione yaml che usa le informazioni segrete (omsagent-ds-secrets.yaml) con script per la generazione di segreti e genera il file di segreti con estensione yaml (omsagentsecret.yaml).
+- Il file DaemonSet predefinito dell'agente OMS non include informazioni segrete (omsagent.yaml)
+- Il file yaml DaemonSet dell'agente OMS usa le informazioni segrete (omsagent-ds-secrets.yaml) con script per la generazione di segreti per generare il file yaml dei segreti (omsagentsecret.yaml).
 
 È possibile scegliere di creare DaemonSet dell'agente OMS con o senza segreti.
 
@@ -200,7 +310,7 @@ Per Kubernetes è possibile usare uno script per generare il file dei segreti co
     1. Copiare lo script e il file modello dei segreti e assicurarsi che siano nella stessa directory.
         - Script per la generazione di segreti: secret-gen.sh
         - Modello di segreto: secret-template.yaml
-    2. Eseguire lo script come nell'esempio seguente. Lo script richiede l'ID e la chiave primaria dell'area di lavoro OMS. Dopo la specificazione di queste credenziali lo script crea un file di segreti con estensione yaml che può essere eseguito.   
+    2. Eseguire lo script come nell'esempio seguente. Lo script richiede l'ID e la chiave primaria dell'area di lavoro OMS. Dopo aver specificato queste credenziali, lo script crea un file yaml dei segreti che può essere eseguito.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -276,7 +386,6 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-
 ## <a name="windows-container-hosts"></a>Host del contenitore Windows
 
 ### <a name="preparation-before-installing-windows-agents"></a>Preparazione prima dell'installazione degli agenti di Windows
@@ -311,7 +420,7 @@ Per altre informazioni sulla configurazione del daemon Docker usata con contenit
 
 ### <a name="install-windows-agents"></a>Installare gli agenti Windows
 
-Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare gli agenti nei computer Windows che sono host del contenitore. Per i computer che eseguono Windows nell'ambiente locale, vedere [Collegare i computer di Windows a Log Analytics](log-analytics-windows-agents.md). Per le macchine virtuali eseguite in Azure, collegarle a Log Analytics usando l'[estensione macchina virtuale](log-analytics-azure-vm-extension.md).
+Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare Microsoft Monitoring Agent (MMA) nei computer Windows che sono host del contenitore. Per i computer che eseguono Windows nell'ambiente locale, vedere [Collegare i computer di Windows a Log Analytics](log-analytics-windows-agents.md). Per le macchine virtuali eseguite in Azure, collegarle a Log Analytics usando l'[estensione macchina virtuale](log-analytics-azure-vm-extension.md).
 
 È possibile monitorare i contenitori Windows in esecuzione in Service Fabric. Solo le [macchine virtuali in esecuzione in Azure](log-analytics-azure-vm-extension.md) e i [computer che eseguono Windows nell'ambiente locale](log-analytics-windows-agents.md), tuttavia, sono attualmente supportati da Service Fabric.
 
@@ -340,7 +449,7 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 | --- | --- | --- | --- | --- | --- | --- |
 | Azure |![Sì](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |ogni 3 minuti |
 
-La tabella seguente mostra esempi di tipi di dati raccolti dalla soluzione Contenitori nonché i tipi di dati usati nella ricerca e nei risultati dei log.
+La tabella seguente mostra esempi di tipi di dati raccolti dalla soluzione Contenitori, nonché i tipi di dati usati nella ricerca e nei risultati dei log.
 
 | Tipo di dati | Tipo di dati in Ricerca log | Fields |
 | --- | --- | --- |

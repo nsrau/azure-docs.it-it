@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/08/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 8d6b953ae95713dc8b5a4037fa59bec49ea52b85
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: download e note sulla versione
@@ -52,6 +52,13 @@ ms.lasthandoff: 07/25/2017
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* È stato risolto un problema nella classe JsonSerializable che può generare un'eccezione di overflow dello stack.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+*   È stato risolto un problema che richiedeva di ricompilare l'applicazione a causa dell'introduzione di JsonSerializerSettings come parametro opzionale nel costruttore DocumentClient.
+* È stato contrassegnato come obsoleto il costruttore DocumentClient che richiedeva JsonSerializerSettings come parametro più recente per consentire i valori predefiniti dei parametri ConnectionPolicy e ConsistencyLevel quando si passava il parametro JsonSerializerSettings.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 *   Aggiunta del supporto per la definizione di JsonSerializerSettings personalizzate durante la creazione di un'istanza di [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
@@ -247,6 +254,8 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |07 agosto 2017 |--- |
+| [1.16.0](#1.16.0) |02 agosto 2017 |--- |
 | [1.15.0](#1.15.0) |30 giugno 2017 |--- |
 | [1.14.1](#1.14.1) |23 maggio 2017 |--- |
 | [1.14.0](#1.14.0) |10 maggio 2017 |--- |

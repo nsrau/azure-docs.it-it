@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: df167435757b2d9d2d25b58b1b548a811b490eb5
-ms.lasthandoff: 04/04/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c184e94a04cfbdedcae70ed154aeb7dd134d1baf
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>Creare una regola basata sul percorso per un gateway applicazione usando il portale
@@ -27,6 +27,7 @@ ms.lasthandoff: 04/04/2017
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure 2.0](application-gateway-create-url-route-cli.md)
 
 Il routing basato sul percorso dell'URL consente di associare le route in base al percorso dell'URL della richiesta HTTP. Verifica se è disponibile una route per il pool back-end configurato per l'URL elencato nel gateway applicazione e invia il traffico di rete al pool back-end definito. In genere il routing basato su URL viene usato per le richieste di bilanciamento del carico per diversi tipi di contenuto tra vari pool di server back-end.
 
@@ -59,15 +60,15 @@ Il pannello **Add path-based rule** (Aggiungi regola basata sul percorso) contie
 
 **Basic Settings**
 
-* **Nome** : è il nome descrittivo della regola accessibile nel portale.
-* **Listener** : è il listener usato per la regola.
+* **Nome**: nome descrittivo della regola accessibile nel portale.
+* **Listener** : questo valore è il listener usato per la regola.
 * **Default backend pool** (Pool back-end predefinito): questa impostazione definisce il back-end da usare per la regola predefinita.
 * **Default HTTP settings** (Impostazioni HTTP predefinite ): questa impostazione definisce le impostazioni HTTP da usare per la regola predefinita.
 
 **Regole basate sul percorso**
 
-* **Nome** : nome descrittivo della regola basata sul percorso.
-* **Percorsi** : questa impostazione definisce il percorso che la regola cercherà per l'inoltro di traffico.
+* **Nome**: questo valore è un nome descrittivo della regola basata sul percorso.
+* **Percorsi** : questa impostazione definisce il percorso cercato dalla regola per l'inoltro del traffico.
 * **Pool back-end** : questa impostazione definisce il back-end da usare per la regola.
 * **Impostazione HTTP** : questa impostazione definisce le impostazioni HTTP da usare per la regola.
 
@@ -76,11 +77,11 @@ Il pannello **Add path-based rule** (Aggiungi regola basata sul percorso) contie
 
 ![Pannello Add path-based rule (Aggiungi regola basata sul percorso)][2]
 
-L'aggiunta di una regola basata sul percorso a un gateway applicazione esistente è un processo semplice con il portale. Dopo aver creato una regola basata sul percorso, è possibile modificarla per aggiungere facilmente altre regole. 
+L'aggiunta di una regola basata sul percorso a un gateway applicazione esistente è un processo semplice con il portale. Dopo aver creato una regola basata sul percorso, è possibile modificarla per aggiungere altre regole. 
 
 ![aggiunta di altre regole basate sul percorso][3]
 
-In questo modo viene creata una route basata sul percorso. È importante comprendere che le richieste non vengono scritte di nuovo: quando arriva una richiesta, il gateway applicazione la controlla e quindi la regola di base sul modello di URL la invia al back-end appropriato.
+Questo passaggio configura una route basata sul percorso. È importante comprendere che le richieste non vengono scritte di nuovo: quando arriva una richiesta, il gateway applicazione la controlla e quindi la regola di base sul modello di URL la invia al back-end appropriato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

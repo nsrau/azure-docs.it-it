@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5d1dc8caab804914ac7e94be7f080b713674bc0a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 87b9da134bce20b037e2dce7e1c9f54454fafe9e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Introduzione ad App Web di Azure in Linux
@@ -64,14 +63,14 @@ Per il ridimensionamento delle applicazioni:
 Per Kudu, alcune delle funzionalità di base:
 
 * Ambienti
-* Distribuzioni
+* Deployments
 * Console di base
 * SSH
 
 Per DevOps:
 
 * Ambienti di staging
-* DockerHub CI/CD
+* ACR e implementazione continua/distribuzione continua di DockerHub
 
 ## <a name="limitations"></a>Limitazioni
 Il portale di Azure mostra solo le funzionalità che possono essere usate attualmente per App Web in Linux e nasconde le altre. Man mano che verranno abilitate nuove funzionalità, queste diventeranno visibili nel portale.
@@ -81,9 +80,13 @@ Alcune funzionalità, quali l'integrazione delle reti virtuali, l'autenticazione
 Questa anteprima pubblica è attualmente disponibile solo nelle aree seguenti:
 
 * Stati Uniti occidentali
-* Europa occidentale 
+* Stati Uniti Orientali
+* Europa occidentale
+* Europa settentrionale
 * Asia sudorientale
 * Australia orientale
+* Giappone orientale
+* Brasile meridionale
 
 App Web in Linux è supportato solo nei piani di servizio app dedicati e non ha un livello Gratuito o Condiviso. I piani di servizio app per le app Web normali e di Linux si escludono a vicenda, quindi non è possibile creare un'app Web di Linux in un piano di servizio app non Linux.
 

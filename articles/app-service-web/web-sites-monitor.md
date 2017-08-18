@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Procedura: Eseguire il monitoraggio delle app nel servizio app di Azure
@@ -38,7 +38,7 @@ Se l'applicazione è ospitata in un piano **Basic**, **Standard** o **Premium**,
 Le **quote** per le app ospitate nel piano **gratuito** o **condiviso** sono:
 
 * **CPU (breve)**
-  * Quantità di CPU consentita per l'applicazione in un intervallo di 3 minuti. Questa quota viene reimpostata automaticamente ogni 3 minuti.
+  * Quantità di CPU consentita per l'applicazione in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni 5 minuti.
 * **CPU (giorno)**
   * Quantità totale di CPU consentita per l'applicazione in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC).
 * **Memoria**

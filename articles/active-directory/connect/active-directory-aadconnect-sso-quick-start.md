@@ -12,28 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 05fb966e3e18b8d5242a2795248b9b72352d894d
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
+## <a name="how-to-deploy-seamless-sso"></a>Come distribuire l'accesso Single Sign-On facile
+
 La funzionalità Accesso Single Sign-On facile (Accesso SSO facile) di Azure Active Directory consente agli utenti di eseguire l'accesso automaticamente dai desktop di proprietà dell'azienda connessi alla rete aziendale. Consente agli utenti di accedere facilmente alle applicazioni basate su cloud senza la necessità di componenti aggiuntivi in locale.
 
-## <a name="how-to-deploy-azure-ad-seamless-sso"></a>Come distribuire la funzionalità Accesso SSO facile di Azure AD
+>[!IMPORTANT]
+>La funzionalità Accesso Single Sign-On facile è attualmente in fase di anteprima.
 
 Per distribuire l'accesso SSO facile, è necessario seguire questa procedura:
-1. *Verificare i prerequisiti*: configurare l'ambiente locale e il tenant correttamente prima di abilitare la funzionalità.
-2. *Abilitare la funzionalità*: attivare l'accesso SSO facile nel tenant tramite Azure AD Connect.
-3. *Distribuire la funzionalità*: usare Criteri di gruppo per distribuire la funzionalità ad alcuni utenti o a tutti.
-4. *Testare la funzionalità*: testare l'accesso utente tramite SSO facile.
-5. *Rinnovo delle chiavi*: rinnovare di frequente le chiavi di decrittografia di Kerberos degli account computer.
 
 ## <a name="step-1-check-prerequisites"></a>Passaggio 1: Verificare i prerequisiti
 
@@ -63,6 +61,15 @@ Al termine della procedura guidata, l'accesso SSO facile è abilitato nel tenant
 
 >[!NOTE]
 > Le credenziali di amministratore di dominio non vengono archiviate in Azure AD Connect o in Azure AD, ma vengono usate solo per abilitare la funzionalità.
+
+Seguire queste istruzioni per verificare di aver abilitato correttamente l'accesso Single Sign-On facile:
+
+1. Accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale del tenant.
+2. Selezionare **Azure Active Directory** nell'opzione di spostamento a sinistra.
+3. Selezionare **Azure AD Connect**.
+4. Verificare che la funzionalità **Accesso Single Sign-On facile** sia impostata su **Abilitato**.
+
+![Portale di Azure - Pannello Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="step-3-roll-out-the-feature"></a>Passaggio 3: Distribuire la funzionalità
 
@@ -118,6 +125,9 @@ L'uso delle estensioni dei Criteri di gruppo di Active Directory di terze parti 
 #### <a name="known-limitations"></a>Limitazioni note
 
 L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox e nel browser Edge. Non funziona inoltre in Internet Explorer se il browser è in esecuzione in modalità di protezione avanzata.
+
+>[!IMPORTANT]
+>Di recente è stato eseguito il rollback del supporto per Microsoft Edge per analizzare i problemi segnalati dai clienti.
 
 ## <a name="step-4-test-the-feature"></a>Passaggio 4: Testare la funzionalità
 

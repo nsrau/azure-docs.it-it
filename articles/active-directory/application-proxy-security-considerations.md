@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f1ef6c3cc3ad2eda9fbcf79bf729918a847d27d7
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -61,13 +61,15 @@ Il proxy applicazione di Azure AD è un proxy inverso, quindi tutto il traffico 
 
 Non è necessario aprire alcuna connessione in ingresso nella rete aziendale.
 
-I connettori di Azure AD usano solo connessioni in uscita per il servizio proxy di applicazione di Azure AD e, pertanto, non è necessario aprire le porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedono una ***rete perimetrale***e consentono l'accesso a connessioni non autenticate al perimetro della rete. Questo scenario richiedeva molti altri investimenti in prodotti Web Application Firewall per analizzare il traffico e offrire protezione aggiuntiva all'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
+I connettori proxy di applicazione usano solo connessioni in uscita per il servizio proxy di applicazione di Azure AD e, pertanto, non è necessario aprire le porte del firewall per le connessioni in ingresso. I proxy tradizionali richiedono una ***rete perimetrale***e consentono l'accesso a connessioni non autenticate al perimetro della rete. Questo scenario richiedeva molti altri investimenti in prodotti Web Application Firewall per analizzare il traffico e offrire protezione aggiuntiva all'ambiente. Con il proxy applicazione non è necessario disporre di una rete perimetrale perché tutte le connessioni sono in uscita e su un canale sicuro.
+
+Per altre informazioni sui connettori, vedere [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md) (Informazioni sui connettori proxy di applicazione di Azure AD).
 
 ### <a name="cloud-scale-analytics-and-machine-learning"></a>Machine Learning e analisi di livello cloud 
 
 Ottenere una protezione all'avanguardia.
 
-[Azure AD Identity Protection](active-directory-identityprotection.md) con intelligence basata su Machine Learning e feed di dati provenienti dalla Digital Crimes Unit e da Microsoft Security Response Center. Insieme identifichiamo in modo proattivo gli account compromessi e offriamo una protezione in tempo reale contro gli accessi ad alto rischio. Vengono presi in considerazione diversi fattori, ad esempio l'accesso da dispositivi infetti e tramite reti anonime, da posizioni atipiche e improbabili.
+Facendo parte di Azure Active Directory, il proxy applicazione può sfruttare [Azure AD Identity Protection](active-directory-identityprotection.md) con intelligence basata su Machine Learning e feed di dati provenienti da Microsoft Security Response Center e dalla Digital Crimes Unit. Insieme identifichiamo in modo proattivo gli account compromessi e offriamo una protezione in tempo reale contro gli accessi ad alto rischio. Vengono presi in considerazione diversi fattori, ad esempio l'accesso da dispositivi infetti e tramite reti anonime, da posizioni atipiche e improbabili.
 
 Molti di questi eventi e segnalazioni sono già disponibili tramite un'API per l'integrazione con i sistemi SIEM (Security Information and Event Management, Sistema di gestione delle informazioni e degli eventi di sicurezza).
 
@@ -119,7 +121,7 @@ Ogni volta che il servizio proxy applicazione aggiorna le impostazioni di config
 
 Quando gli utenti accedono a un'applicazione pubblicata, tra il servizio proxy di applicazione e il connettore del proxy di applicazione si verificano gli eventi seguenti:
 
-1. [Il servizio verifica le impostazioni di configurazione per l'app](#the-service-checks-the-configuration-settings-for-the-app)
+1. [Il servizio autentica l'utente per l'app](#the-service-checks-the-configuration-settings-for-the-app)
 2. [Il servizio inserisce la richiesta nella coda del connettore](#The-service-places-a-request-in-the-connector-queue)
 3. [Un connettore elabora la richiesta ricevuta dalla coda](#the-connector-receives-the-request-from-the-queue)
 4. [Il connettore attende una risposta](#the-connector-waits-for-a-response)
@@ -128,7 +130,7 @@ Quando gli utenti accedono a un'applicazione pubblicata, tra il servizio proxy d
 Per altre informazioni sugli eventi che si verificano in ognuno di questi passaggi, continuare la lettura.
 
 
-#### <a name="1-the-service-checks-the-configuration-settings-for-the-app"></a>1. Il servizio verifica le impostazioni di configurazione per l'app
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. Il servizio autentica l'utente per l'app
 
 Se l'app è configurata per l'utilizzo di PassThrough come metodo di autenticazione, gli eventi descritti in questa sezione non si verificano.
 

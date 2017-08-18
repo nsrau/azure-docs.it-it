@@ -1,6 +1,6 @@
 ---
-title: "Progettare set di scalabilità di macchine virtuali di Azure per la scalabilità | Microsoft Docs"
-description: "Informazioni su come progettare set di scalabilità di macchine virtuali di Azure per la scalabilità"
+title: "Considerazioni sulla progettazione per i set di scalabilità di macchine virtuali di Azure | Microsoft Docs"
+description: "Considerazioni sulla progettazione per i set di scalabilità di macchine virtuali di Azure"
 keywords: "macchina virtuale linux,set di scalabilità macchine virtuali"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 88ab6322fed853c73af981a1de4cd2c2f480c959
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 615361975e2ee15ce80f6efb39f57cae381209e5
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="designing-scale-sets-for-scale"></a>Progettazione di set di scalabilità per la scalabilità
+# <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità
 Questo argomento descrive una serie di considerazioni di progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quando usare i set di scalabilità invece delle macchine virtuali?

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 08/07/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 0264de12caaf62e976673a423df731ad27ab01e0
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Creazione o importazione di un runbook in Automazione di Azure
@@ -36,7 +37,7 @@ Nel portale di Azure è possibile usare solo i [runbook del flusso di lavoro Pow
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>Per creare un nuovo runbook di Automazione di Azure nel portale di Azure
 1. Nel portale di Azure aprire l'account di automazione.
-2. Fare clic sul riquadro **Runbook** per aprire l'elenco dei runbook.
+2. Dall'hub selezionare **Runbook** per aprire l'elenco dei runbook.
 3. Fare clic sul pulsante **Aggiungi runbook** e quindi su **Crea un nuovo runbook**.
 4. Digitare un **nome** per il runbook e selezionare il relativo [tipo](automation-runbook-types.md). Il nome del runbook deve iniziare con una lettera e può includere lettere, numeri, caratteri di sottolineatura e trattini.
 5. Fare clic su **Crea** per creare il runbook e aprire l'editor.
@@ -75,7 +76,7 @@ I comandi di esempio seguenti mostrano come creare un nuovo runbook vuoto.
 > 
 
 1. Nel portale di Azure aprire l'account di automazione.
-2. Fare clic sul riquadro **Runbook** per aprire l'elenco dei runbook.
+2. Dall'hub selezionare **Runbook** per aprire l'elenco dei runbook.
 3. Fare clic sul pulsante **Aggiungi runbook** e quindi su **Importa**.
 4. Fare clic su **File di runbook** per selezionare il file da importare.
 5. Se il campo **Nome** è abilitato, sarà possibile modificare il nome.  Il nome del runbook deve iniziare con una lettera e può includere lettere, numeri, caratteri di sottolineatura e trattini.
@@ -131,10 +132,5 @@ Quando si crea o si importa un nuovo runbook, è necessario pubblicarlo prima di
 * Per informazioni su come sfruttare al meglio le raccolte di runbook e moduli di PowerShell, vedere [Raccolte di runbook e moduli per l'automazione di Azure](automation-runbook-gallery.md)
 * Per altre informazioni sulla modifica di runbook di PowerShell e del flusso di lavoro PowerShell con un editor di testo, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md)
 * Per altre informazioni sulla creazione grafica di runbook, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

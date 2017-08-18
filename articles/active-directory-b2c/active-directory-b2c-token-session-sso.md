@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Configurazione di token, sessione e accesso Single Sign-On
@@ -30,8 +31,8 @@ Questa funzionalità offre un controllo dettagliato, in base ai [singoli criteri
 
 È possibile usare questa funzionalità nel tenant di B2C come indicato di seguito:
 
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
-2. Fare clic su **Criteri di accesso**. *Nota: è possibile usare questa funzionalità su qualsiasi tipo di criterio, non solo per i **Criteri di accesso***.
+1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
+2. Fare clic su **Criteri di accesso**. *Nota: è possibile usare questa funzionalità per qualsiasi tipo di criterio, non solo per i **criteri di accesso***.
 3. Fare clic su un criterio per aprirlo. Ad esempio, fare clic su **B2C_1_SiIn**.
 4. Fare clic su **Modifica** nella parte superiore del pannello.
 5. Fare clic su **Token, session & single sign-on config** (Configurazione di token, sessione e accesso Single Sign-On).
@@ -109,10 +110,5 @@ Se il tenant di B2C include più applicazioni e criteri, è possibile gestire le
     > Queste impostazioni non sono disponibili per i criteri di reimpostazione della password.
     > 
     > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

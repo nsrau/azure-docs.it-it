@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/21/2017
+ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: d1acbc609d1928101eb3e4b9eaa6ea05856e17d3
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 530749275b720caefd7e7e57291b4bc0d313faf0
 ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -94,12 +94,18 @@ Per osservare che cosa avviene nel codice, completare la procedura seguente:
 2. Aprire il file **VoteDataController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web (riga 50).
 
 3. Tornare al browser e fare clic su un'opzione di voto oppure aggiungere una nuova opzione di voto. È stato raggiunto il primo punto di interruzione nel controller API del front-end Web.
-    - In questa posizione, il codice JavaScript nel browser invia una richiesta al controller API Web nel servizio front-end. Il controller nel servizio front-end usa quindi ReverseProxy per inviare una richiesta PUT al servizio back-end.
+    - In questa posizione, il codice JavaScript nel browser invia una richiesta al controller API Web nel servizio front-end.
+    
+    ![Aggiungere il servizio front-end di voto](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+
+    - Prima di tutto, costruire l'URL del proxy inverso per il servizio back-end **(1)**.
+    - Inviare quindi la richiesta PUT HTTP al proxy inverso **(2)**.
+    - Infine, restituire la risposta dal servizio back-end al client **(3)**.
 
 4. Premere **F5** per continuare.
     - Ora ci troviamo al punto di interruzione nel servizio back-end.
     
-    ![Aggiungere un metodo asincrono per il voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+    ![Aggiungere il servizio back-end di voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
     - Nella prima riga del metodo **(1)** usiamo `StateManager` per ottenere o aggiungere un oggetto Reliable Dictionary denominato `counts`.
     - Tutte le interazioni con i valori in un oggetto Reliable Dictionary richiedono una transazione, che viene creata dall'istruzione using **(2)**.
@@ -109,7 +115,9 @@ Per osservare che cosa avviene nel codice, completare la procedura seguente:
 Per interrompere la sessione di debug, premere **MAIUSC+F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
-Per distribuire l'applicazione in un cluster in Azure, è possibile scegliere di creare un proprio cluster oppure usare un cluster di entità. I cluster di entità sono cluster Service Fabric gratuiti e disponibili per un periodo di tempo limitato ospitati in Azure e gestiti dal team di Service Fabric, in cui chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](http://aka.ms/tryservicefabric) per ottenere l'accesso a un cluster. 
+Per distribuire l'applicazione in un cluster in Azure, è possibile scegliere di creare un proprio cluster oppure usare un cluster di entità.
+
+I cluster di entità sono cluster Service Fabric gratuiti e disponibili per un periodo di tempo limitato ospitati in Azure e gestiti dal team di Service Fabric, in cui chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](http://aka.ms/tryservicefabric). 
 
 Per informazioni sulla creazione di un cluster, vedere [Creare il primo cluster di Service Fabric di Azure](service-fabric-get-started-azure-cluster.md).
 

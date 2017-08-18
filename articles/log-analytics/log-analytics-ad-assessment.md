@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/03/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 5dbb669d9f78ef7ba3f2668855b08750b7447040
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Active Directory Assessment in Log Analytics
@@ -53,7 +53,21 @@ Usare le informazioni seguenti per installare e configurare le soluzioni.
   >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati per Active Directory Assessment
-Active Directory Assessment raccoglie dati WMI, dati del Registro di sistema e dati sulle prestazioni tramite gli agenti abilitati.
+
+Valutazione Active Directory raccoglie i dati dalle origini seguenti tramite gli agenti abilitati:
+
+- Agenti di raccolta del Registro di sistema
+- Agenti di raccolta LDAP
+- .NET Framework
+- Agenti di raccolta del registro eventi
+- Active Directory Service Interfaces (ADSI)
+- Windows PowerShell
+- Agenti di raccolta dei dati di file
+- Strumentazione gestione Windows (WMI)
+- API dello strumento DCDIAG
+- API di File Replication Service (NTFRS)
+- Codice personalizzato in C#
+
 
 La tabella seguente illustra i metodi di raccolta dati per gli agenti, se Operations Manager (SCOM) è obbligatorio e la frequenza con cui i dati vengono raccolti da un agente.
 

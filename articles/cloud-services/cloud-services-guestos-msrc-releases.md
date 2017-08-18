@@ -12,25 +12,62 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2017
+ms.date: 8/3/2017
 ms.author: raiye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: e8c1f132dc2fb2cf0e7d4d47f278bd52d2d21190
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c1bcfa2d93a77a655092dca250d2a3e2c86b944d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-<a id="azure-guest-os" class="xliff"></a>
-
-# Sistema operativo guest di Azure
+# <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
-<a id="may-guest-os" class="xliff"></a>
+## <a name="july-guest-os"></a>Sistema operativo guest di luglio
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4025339] |Aggiornamenti di Windows 10 |5.9 |11 luglio 2017 |
+| Rel 17-07 | [4025337] |Solo sicurezza di Windows |2.64 |11 luglio 2017 |
+| Rel 17-07 | [4025333] |Solo sicurezza di Windows |4.44 |11 luglio 2017 |
+| Rel 17-07 | [4025343] |Solo sicurezza di Windows |3.51 |11 luglio 2017 |
+| Rel 17-07 | [4025376] |Lampeggiante |3.51, 4.44, 5.9 |11 luglio 2017 |
+| Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 luglio 2017 |
+| N/D | [4020322] |Aggiornamento del fuso orario |2.64, 3.51, 4.44 |11 luglio 2017 |
+| N/D | [4022719] |Rollup del mese di giugno non correlato alla sicurezza |2.64 |11 luglio 2017 |
+| N/D | [4022724] |Rollup del mese di giugno non correlato alla sicurezza |3.51 |11 luglio 2017 |
+| N/D | [4022726] |Rollup del mese di giugno non correlato alla sicurezza |4.44 |11 luglio 2017 |
 
-## Sistema operativo guest di maggio
-| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+## <a name="june-guest-os"></a>Sistema operativo guest di giugno
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-06 | [4019472] |Miglioramenti alla qualità del sistema operativo WS 2016 |5.8 |9 maggio 2017 |
+| Rel 17-06 | [4022722] |Solo sicurezza di Windows |2.63 |13 giugno 2017 |
+| Rel 17-06 | [4022717] |Solo sicurezza di Windows |4.43 |13 giugno 2017 |
+| Rel 17-06 | [4022718] |Solo sicurezza di Windows |3.50 |13 giugno 2017 |
+| Rel 17-06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |13 giugno 2017 |
+| Rel 17-06 | [4022719], [4022724], [4022726] |Rollup mensili di Windows |2.63, 3.50, 4.43 |13 giugno 2017 |
+| Rel 17-06 | [4022730] |Aggiornamento della sicurezza per Adobe Flash Player |3.50, 4.43, 5.8 |13 giugno 2017 |
+| Rel 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Nuovo rilascio di CVE-2017-0167 |4.43, 5.8 |11 aprile 2017 |
+| N/D | [4023136] |Aggiornamento del fuso orario  |2.63, 3.50, 4.43 |13 giugno 2017 |
+| N/D | [4019264] |Rollup del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
+| N/D | [4014545] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
+| N/D | [4014508] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
+| N/D | [4014511] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
+| N/D | [4014514] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63|13 giugno 2017 |
+| N/D | [4019216] |Rollup del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4014503] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4014506] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4014509] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4014513] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4019215] |Rollup del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+| N/D | [4014505] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+| N/D | [4014507] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+| N/D | [4014510] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+| N/D | [4014512] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+
+## <a name="may-guest-os"></a>Sistema operativo guest di maggio
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |Miglioramenti alla qualità del sistema operativo WS 2016 |5.7 | 9 maggio 2017 |
 | Rel 17-05 | [4019263] |Solo sicurezza di Windows |2.62 | 9 maggio 2017 |
@@ -57,10 +94,8 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D | [4015550] |Rollup del mese di aprile non correlato alla sicurezza |4.42 | 9 maggio 2017 |
 | N/D | [4013418] |Aggiornamento dello stack di manutenzione |5.7 | 9 maggio 2017 |
 
-<a id="april-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di aprile
-| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+## <a name="april-guest-os"></a>Sistema operativo guest di aprile
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |Miglioramenti alla qualità del sistema operativo WS 2016 | 5.6 | 11 aprile 2017 |
 | Rel 17-04 |  [4015546]  |Solo sicurezza di Windows |2.61 | 11 aprile 2017 |
@@ -79,10 +114,8 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-04 |  [4012217]  |Rollup di qualità mensile per la sicurezza di marzo 2017 per Windows Server 2012 |3.48 | 11 aprile 2017 |
 | Rel 17-04 |  [4012216]  |Rollup di qualità mensile per la sicurezza di marzo 2017 per Windows 8.1 e Windows Server 2012 R2 |4.41 | 11 aprile 2017 |
 
-<a id="march-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di marzo
-| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+## <a name="march-guest-os"></a>Sistema operativo guest di marzo
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Miglioramenti e correzioni | 5.5 | 14 marzo 2017 |
 | Rel 17-03 |  [4012212] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 marzo 2017 |
@@ -95,16 +128,12 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |  [3205401] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
 | N/D |  [3211320] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 e Windows Server 2016 - 24 ottobre 2017 |5.5 |14 marzo 2017 |
 
-<a id="january-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di gennaio
+## <a name="january-guest-os"></a>Sistema operativo guest di gennaio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Aggiornamento della sicurezza per Local Security Authority Subsystem Service |2.59 |10 gennaio 2017 |
 
-<a id="december-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di dicembre
+## <a name="december-guest-os"></a>Sistema operativo guest di dicembre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Aggiornamento cumulativo della sicurezza per Internet Explorer |2.58, 3.46, 4.39 |13 dicembre 2016 |
@@ -121,9 +150,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3197877] |Rollup di qualità mensile per la sicurezza di novembre 2016 per Windows Server 2012 |3,46 |13 dicembre 2016 |
 | N/D |[3197874] |Rollup di qualità mensile per la sicurezza di novembre 2016 mensile per Windows 8.1 e Windows Server 2012 R2 |4.39 |13 dicembre 2016 |
 
-<a id="november-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di novembre
+## <a name="november-guest-os"></a>Sistema operativo guest di novembre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Aggiornamento cumulativo della sicurezza per Microsoft Edge |5.3 |8 novembre 2016 |
@@ -148,9 +175,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3199986] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 - 27 ottobre 2016 |5.3 |8 novembre 2016 |
 | N/D |[3197954] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016 - 27 ottobre 2016 |5.3 |8 novembre 2016 |
 
-<a id="october-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di ottobre
+## <a name="october-guest-os"></a>Sistema operativo guest di ottobre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.37, 3.44, 2.56 |11 ottobre 2016 |
@@ -165,9 +190,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3185279] |Settembre 2016 Aggiornamento cumulativo per Windows 8.1 e Windows Server 2012 R2 |4.37 |11 ottobre 2016 |
 | N/D |[3194798] |Aggiornamento cumulativo per Windows 10 versione 1607 e Windows Server 2016 |5,2 |11 ottobre 2016 |
 
-<a id="september-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di settembre
+## <a name="september-guest-os"></a>Sistema operativo guest di settembre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.36, 3.43, 2.55 |13 settembre 2016 |
@@ -184,9 +207,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3179575] |Agosto 2016 Aggiornamento cumulativo per Windows Server 2012 |3.43 |13 settembre 2016 |
 | N/D |[3179574] |Agosto 2016 Aggiornamento cumulativo per Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.36 |13 settembre 2016 |
 
-<a id="august-guest-os" class="xliff"></a>
-
-## Sistema operativo Guest di agosto
+## <a name="august-guest-os"></a>Sistema operativo Guest di agosto
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.35, 3.42, 2.54 |9 agosto 2016 |
@@ -200,9 +221,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3172615] |Aggiornamento cumulativo di maggio 2016 per Windows Server 2012 |3.42 |9 agosto 2016 |
 | N/D |[3172614] |Aggiornamento cumulativo di luglio 2016 per Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.35 |9 agosto 2016 |
 
-<a id="july-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di luglio
+## <a name="july-guest-os"></a>Sistema operativo guest di luglio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.34, 3.41, 2.53 |12 luglio 2016 |
@@ -218,9 +237,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3161606] |Giugno 2016 Aggiornamento cumulativo per Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.34 |12 luglio 2016 |
 | N/D |[3139923] |Ripristino di Windows installer (MSI), non funziona quando il pacchetto MSI viene installato in una condivisione HTTP in Windows |4.34 |12 luglio 2016 |
 
-<a id="june-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di giugno
+## <a name="june-guest-os"></a>Sistema operativo guest di giugno
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Aggiornamento della sicurezza di .NET Framework per il bypass della funzionalità di sicurezza |4.33, 3.40, 2.52 |14 giugno 2016 |
@@ -247,9 +264,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3156418] |Maggio 2016 Aggiornamento cumulativo per Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.33 |14 giugno 2016 |
 | N/D |[3153731] |Maggio 2016 Aggiornamento DST per Azerbaigian, Cile, Haiti e Marocco in Windows |4.33, 3.40, 2.52 |14 giugno 2016 |
 
-<a id="may-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di maggio
+## <a name="may-guest-os"></a>Sistema operativo guest di maggio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.32, 3.39, 2.51 |10 maggio 2016 |
@@ -267,9 +282,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3123245] |L'aggiornamento migliora l'identificazione di esaurimento delle porte in Windows Server 2012 R2  |4.32 |10 maggio 2016 |
 | N/D |[Disabilitazione di RC4] | Avviso di sicurezza Microsoft: Aggiornamento per la disabilitazione di RC4  |4.32, 3.39, 2.51 |10 maggio 2016 |
 
-<a id="april-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di aprile
+## <a name="april-guest-os"></a>Sistema operativo guest di aprile
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.31, 3.38, 2.50 |12 aprile 2016 |
@@ -280,9 +293,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS16-047 |[3148527] |Aggiornamento della sicurezza per il protocollo remoto di gestione degli account di sicurezza |4.31, 3.38, 2.50 |12 aprile 2016 |
 | MS16-048 |[3148528] |Aggiornamento della sicurezza per CSRSS |4.31, 3.38 |12 aprile 2016 |
 
-<a id="march-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di marzo
+## <a name="march-guest-os"></a>Sistema operativo guest di marzo
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.30, 3.37, 2.49 |8 marzo 2016 |
@@ -295,9 +306,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS16-033 |[3143142] |Aggiornamento della sicurezza per il driver di classe dell'archiviazione di massa USB per l'elevazione dei privilegi di accesso dell'indirizzo |4.30, 3.37, 2.49 |8 marzo 2016 |
 | MS16-034 |[3143145] |Aggiornamenti della sicurezza per il driver in modalità Kernel per l'elevazione dei privilegi di accesso dell'indirizzo |4.30, 3.37, 2.49 |8 marzo 2016 |
 
-<a id="february-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di febbraio
+## <a name="february-guest-os"></a>Sistema operativo guest di febbraio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.29, 3.36, 2.48 |9 febbraio 2016 |
@@ -312,9 +321,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Nuovo rilascio - MS15-118 |[3104507] |Aggiornamenti della protezione per .NET Framework per risolvere l'elevazione dei privilegi |4.29, 3.36, 2.48 |9 febbraio 2016 |
 | Nuovo rilascio - MS15-128 |[3104503] |Aggiornamento della sicurezza per il componente grafico Microsoft per l'esecuzione di codice in modalità remota dell’indirizzo |4.29, 3.36, 2.48 |9 febbraio 2016 |
 
-<a id="january-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di gennaio
+## <a name="january-guest-os"></a>Sistema operativo guest di gennaio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.28, 3.35, 2.47 |12 gennaio 2016 |
@@ -327,9 +334,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Advisory Microsoft sulla sicurezza |[3123479] |Deprecato l'algoritmo hash SHA-1 per il programma Microsoft Root Certificate |4.28, 3.35, 2.47 |12 gennaio 2016 |
 | Advisory Microsoft sulla sicurezza |[2736233] |Aggiornamenti per ActiveX Killbit |4.28, 3.35, 2.47 |12 gennaio 2016 |
 
-<a id="december-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di dicembre
+## <a name="december-guest-os"></a>Sistema operativo guest di dicembre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.27, 3.34, 2.46 |8 dicembre 2015 |
@@ -341,9 +346,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-134 |[3108669] |Aggiornamento della sicurezza per  Windows Media Center per l'esecuzione di codice in modalità remota dell’indirizzo |4.27, 3.34, 2.46 |8 dicembre 2015 |
 | MS15-135 |[3119075] |Aggiornamento della sicurezza per i driver in modalità Kernel di Windows per l'elevazione dei privilegi dell’indirizzo |4.27, 3.34, 2.46 |8 dicembre 2015 |
 
-<a id="november-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di novembre
+## <a name="november-guest-os"></a>Sistema operativo guest di novembre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.26, 3.33, 2.45 |10 novembre 2015 |
@@ -357,9 +360,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-122 |[3105256] |Aggiornamento della protezione per Kerberos per il bypass della funzionalità di sicurezza |4.26, 3.33, 2.45 |10 novembre 2015 |
 | Advisory Microsoft sulla sicurezza |[3097966] |Certificati digitali divulgati inavvertitamente potrebbero consentire lo spoofing degli indirizzi |4.26, 3.33, 2.45 |10 novembre 2015 |
 
-<a id="october-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di ottobre
+## <a name="october-guest-os"></a>Sistema operativo guest di ottobre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.25, 3.32, 2.44 |13 ottobre 2015 |
@@ -368,9 +369,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-111 |[3096447] |Aggiornamento della sicurezza per il Kernel di Windows per l'elevazione dei privilegi dell’indirizzo |4.25, 3.32, 2.44 |13 ottobre 2015 |
 | Advisory Microsoft sulla sicurezza |[3092627] |Settembre 2015 aggiornare per correggere Windows o l'applicazione si bloccherà dopo l'installazione dell'aggiornamento 3076895 |4.25, 3.32, 2.44 |13 ottobre 2015 |
 
-<a id="september-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di settembre
+## <a name="september-guest-os"></a>Sistema operativo guest di settembre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Aggiornamento della sicurezza per Internet Explorer |4.24, 3.31, 2.43 |8 settembre 2015 |
@@ -382,9 +381,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-102 |[3089657] |Le vulnerabilità in Gestione attività Windows potrebbero consentire l'elevazione dei privilegi |4.24, 3.31, 2.43 |8 settembre 2015 |
 | MS15-105 |[3091287] |La vulnerabilità in Hyper-V di Windows potrebbe consentire il bypass della funzionalità di sicurezza |4.24 |8 settembre 2015 |
 
-<a id="august-guest-os" class="xliff"></a>
-
-## Sistema operativo Guest di agosto
+## <a name="august-guest-os"></a>Sistema operativo Guest di agosto
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.23, 3.30, 2.42 |11 agosto 2015 |
@@ -396,9 +393,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-089 |[3060716] |Le vulnerabilità in Microsoft Windows potrebbero consentire l'elevazione dei privilegi |4.23, 3.30, 2.42 |11 agosto 2015 |
 | MS15-090 |[3076949] |La vulnerabilità in WebDAV potrebbe consentire la diffusione di informazioni |4.23, 3.30, 2.42 |11 agosto 2015 |
 
-<a id="july-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di luglio
+## <a name="july-guest-os"></a>Sistema operativo guest di luglio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.22, 3.29, 2.41 |14 luglio 2015 |
@@ -415,9 +410,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-077 |[3077657] |La vulnerabilità in ATM Font Driver potrebbe consentire l'elevazione dei privilegi |4.22, 3.29, 2.41 |14 luglio 2015 |
 | ND |[3057154] |Aggiornamento per limitare l'uso della crittografia DES |4.22, 3.29, 2.41 |14 luglio 2015 |
 
-<a id="june-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di giugno
+## <a name="june-guest-os"></a>Sistema operativo guest di giugno
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.21, 3.28, 2.40 |9 giugno 2015 |
@@ -427,9 +420,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-062 |[3062577] |Una vulnerabilità in Active Directory Federation Services può consentire l'elevazione dei privilegi |4.21, 3.28, 2.40 |9 giugno 2015 |
 | MS15-063 |[3063858] |La vulnerabilità nel kernel di Windows potrebbe consentire l'elevazione dei privilegi |4.21, 3.28, 2.40 |9 giugno 2015 |
 
-<a id="may-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di maggio
+## <a name="may-guest-os"></a>Sistema operativo guest di maggio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.20, 3.27, 2.39 |12 maggio 2015 |
@@ -452,16 +443,12 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-042 |[3047234] |La vulnerabilità in Windows Hyper V potrebbe consentire un attacco Denial of Service |4.20, 3.27, 2.39 |17 aprile 2015 |
 | ND |[3045755] |Aggiornamento per migliorare l'autenticazione PKU2U |4.20, 3.27, 2.39 |17 aprile 2015 |
 
-<a id="april-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di aprile
+## <a name="april-guest-os"></a>Sistema operativo guest di aprile
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |La vulnerabilità in HTTP.sys potrebbe consentire l'esecuzione di codice in modalità remota |4.19, 3.26, 2.38 |17 aprile 2015 |
 
-<a id="march-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di marzo
+## <a name="march-guest-os"></a>Sistema operativo guest di marzo
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Aggiornamento cumulativo della sicurezza per Internet Explorer |4.18, 3.25, 2.37 |N/D |
@@ -481,9 +468,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 >
 >
 
-<a id="february-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di febbraio
+## <a name="february-guest-os"></a>Sistema operativo guest di febbraio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Aggiornamento della sicurezza per Internet Explorer |4.17, 3.24, 2.36 |N/D |
@@ -494,9 +479,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-016 |[3029944] |La vulnerabilità nel componente grafico Microsoft potrebbe consentire la divulgazione di informazioni |4.17, 3.24, 2.36 |N/D |
 | N/D |[3004375] |Aggiornamento per migliorare il controllo della riga di comando di Windows<p/>**Nota**: questo componente è installato, ma la chiave del Registro di sistema per abilitarlo è disattivata |4.17, 3.24, 2.36 |N/D |
 
-<a id="january-guest-os" class="xliff"></a>
-
-## Sistema operativo guest di gennaio
+## <a name="january-guest-os"></a>Sistema operativo guest di gennaio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |La vulnerabilità in Windows AppCompatCache potrebbe consentire l’elevazione dei privilegi |4.16, 3.23, 2.35 |19 gennaio 2015 |
@@ -511,9 +494,8 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-002 |[3020393] |La vulnerabilità nel servizio Telnet di Windows potrebbe causare l'esecuzione di codice in modalità remota |4.16, 3.23, 2.35 |19 gennaio 2015 |
 | MS15-002 |[3020393] |La vulnerabilità nel servizio Telnet di Windows potrebbe causare l'esecuzione di codice in modalità remota |4.16, 3.23, 2.35 |19 gennaio 2015 |
 
-<a id="december-guest-os" class="xliff"></a>
 
-## Sistema operativo guest di dicembre
+## <a name="december-guest-os"></a>Sistema operativo guest di dicembre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | N/D |[3013776] |Il sistema si blocca quando si usa un account di dominio per avviare un'applicazione |4.15, 3.22, 2.34 |13 gennaio 2015 |
@@ -527,6 +509,45 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3007054] |L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
+
+[4025339]: http://support.microsoft.com/kb/4025337
+[4025337]: http://support.microsoft.com/kb/4025333
+[4025333]: http://support.microsoft.com/kb/4025343
+[4025343]: http://support.microsoft.com/kb/4025376
+[4025252]: http://support.microsoft.com/kb/4025252
+[4025376]: http://support.microsoft.com/kb/4025376
+[4020322]: http://support.microsoft.com/kb/4020322
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
+
+[4022722]: http://support.microsoft.com/kb/4022722
+[4022717]: http://support.microsoft.com/kb/4022717
+[4022718]: http://support.microsoft.com/kb/4022718
+[4021558]: http://support.microsoft.com/kb/4021558
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
+[4022730]: http://support.microsoft.com/kb/4022730
+[4015221]: http://support.microsoft.com/kb/4015221
+[4015583]: http://support.microsoft.com/kb/4015583
+[4015219]: http://support.microsoft.com/kb/4015219
+[4023136]: http://support.microsoft.com/kb/4023136
+[4019264]: http://support.microsoft.com/kb/4019264
+[4014545]: http://support.microsoft.com/kb/4014545
+[4014508]: http://support.microsoft.com/kb/4014508
+[4014511]: http://support.microsoft.com/kb/4014511
+[4014514]: http://support.microsoft.com/kb/4014514
+[4019216]: http://support.microsoft.com/kb/4019216
+[4014503]: http://support.microsoft.com/kb/4014503
+[4014506]: http://support.microsoft.com/kb/4014506
+[4014509]: http://support.microsoft.com/kb/4014509
+[4014513]: http://support.microsoft.com/kb/4014513
+[4019215]: http://support.microsoft.com/kb/4019215
+[4014505]: http://support.microsoft.com/kb/4014505
+[4014507]: http://support.microsoft.com/kb/4014507
+[4014510]: http://support.microsoft.com/kb/4014510
+[4014512]: http://support.microsoft.com/kb/4014512
 
 [4019472]: http://support.microsoft.com/kb/4019472
 [4019263]: http://support.microsoft.com/kb/4019263
