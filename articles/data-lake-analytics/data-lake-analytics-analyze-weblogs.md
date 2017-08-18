@@ -3,8 +3,8 @@ title: Analizzare i log dei siti Web con Azure Data Lake Analytics | Documentazi
 description: 'Informazioni su come analizzare i log dei siti Web con Analisi Azure Data Lake. '
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
@@ -13,38 +13,29 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
+ms.author: saveenr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ad0610c1aed8e21f322516a4b7ea41bf55cc200e
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 25fbbe97d26491fc421f4821315761c18e523ec8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
-# <a name="tutorial-analyze-website-logs-using-azure-data-lake-analytics"></a>Esercitazione: Analizzare i log dei siti Web con Analisi Azure Data Lake
+# <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizzare i log dei siti Web con Azure Data Lake Analytics
 Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in particolare come scoprire quali referrer hanno riscontrato errori durante la visita al il sito Web.
 
-> [!NOTE]
-> Se si vuole solo vedere l'applicazione in funzione, per risparmiare tempo è possibile vedere [Usare le esercitazioni interattive su Analisi Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md). Questa esercitazione si basa sullo stesso scenario e sullo stesso codice. Lo scopo di questa esercitazione è fornire agli sviluppatori l'esperienza di creazione ed esecuzione di un'applicazione di Analisi Azure Data Lake dall'inizio alla fine.
->
->
-
-## <a name="prerequisites"></a>Prerequisiti:
-* **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con installato Visual C++**.
-* **Microsoft Azure SDK per .NET versione 2.5 o successiva**.  Installarlo usando il [programma di installazione della piattaforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
+## <a name="prerequisites"></a>Prerequisiti
+* **Visual Studio 2015 o Visual Studio 2013**.
 * **[Data Lake Tools per Visual Studio](http://aka.ms/adltoolsvs)**.
 
-    Dopo avere installato Data Lake Tools per Visual Studio, in Visual Studio verrà visualizzato il menu **Data Lake** :
+    Dopo avere installato Strumenti Data Lake per Visual Studio, in Visual Studio verrà visualizzata una voce **Data Lake** nel menu **Strumenti**:
 
     ![Menu U-SQL di Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 * **Conoscenza di base di Analisi Data Lake e Data Lake Tools per Visual Studio**. Per iniziare, vedere:
 
-  * [Introduzione ad Analisi Data Lake di Azure con il portale di Azure](data-lake-analytics-get-started-portal.md).
   * [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* **Account Analisi Data Lake.**  Vedere la sezione relativa alla [creazione di un account di Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-
-    Data Lake Tools non supporta la creazione degli account Analisi Data Lake.  Sarà quindi necessario creare questi account tramite il portale di Azure, Azure PowerShell, .NET SDK o l'interfaccia della riga di comando di Azure.
+* **Account Analisi Data Lake.**  Vedere la sezione relativa alla [creazione di un account di Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 * **Caricare i dati di esempio nell'account Analisi Data Lake.** Vedere [Per copiare file di dati di esempio](data-lake-analytics-get-started-portal.md).
 
     Per eseguire un processo di Analisi Data Lake, sanno necessari alcuni dati. Anche se Data Lake Tools supporta il caricamento di dati, si userà il portale per caricare i dati di esempio e seguire più facilmente questa esercitazione.
@@ -55,7 +46,7 @@ Prima di poter compilare e testare qualsiasi script U-SQL, è necessario connett
 **Per connettersi ad Analisi Data Lake**
 
 1. Aprire Visual Studio.
-2. Nel menu **Data Lake** fare clic su **Opzioni e impostazioni**.
+2. Fare clic su **Data Lake > Opzioni e impostazioni**.
 3. Fare clic su **Accedi** o **Cambia utente** se un altro utente ha già eseguito l'accesso e seguire le istruzioni.
 4. Fare clic su **OK** per chiudere la finestra di dialogo Opzioni e impostazioni.
 
@@ -71,7 +62,7 @@ Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni
 
 **Per creare e inviare un processo di Analisi Data Lake**
 
-1. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
+1. Fare clic su **File > Nuovo > Progetto**.
 2. Selezionare il tipo Progetto U-SQL.
 
     ![nuovo progetto U-SQL di Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
@@ -141,7 +132,7 @@ Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni
         (
             INDEX idx1
             CLUSTERED(Year ASC)
-            PARTITIONED BY HASH(Year)
+            DISTRIBUTED BY HASH(Year)
         ) AS
 
         SELECT s_date.Year AS Year,
@@ -178,11 +169,6 @@ Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni
     ![Analisi Data Lake analizzare i log dei siti Web log dei siti Web](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
 11. Ripetere i passaggi da 7 a 10 per **Script1.usql**.
 
-> [!NOTE]
-> Non è possibile leggere o scrivere in una tabella U-SQL che è stata creata o modificata nello stesso script.  Ecco perché vengono usati due script per questo esempio.
->
->
-
 **Per visualizzare l'output del processo**
 
 1. Da **Esplora server** espandere **Azure**, quindi **Data Lake Analytics**, l'account Data Lake Analytics e infine **Account di archiviazione**. Fare clic con il pulsante destro del mouse sull'account Data Lake Analytics predefinito e quindi scegliere **Esplora**.
@@ -196,10 +182,4 @@ Per iniziare a usare Analisi Data Lake usando vari tipi di strumenti, vedere:
 * [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)
 * [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introduzione ad Analisi Data Lake mediante .NET SDK](data-lake-analytics-get-started-net-sdk.md)
-
-Per vedere altri argomenti relativi allo sviluppo:
-
-* [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Introduzione al linguaggio U-SQL di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-* [Sviluppare operatori U-SQL definiti dall'utente per i processi di Analisi Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 

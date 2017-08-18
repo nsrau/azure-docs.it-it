@@ -1,7 +1,6 @@
 ---
-
 title: Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS | Microsoft Docs
-description: "Abilitare l&quot;autenticazione Single Sign-On e la gestione dell’accesso centralizzata per il provisioning degli utenti delle app SaaS in Azure Active Directory. Cenni preliminari sull&quot;integrazione di Azure Active Directory alle App SaaS."
+description: "Abilitare l'autenticazione Single Sign-On e la gestione dell’accesso centralizzata per il provisioning degli utenti delle app SaaS in Azure Active Directory. Cenni preliminari sull'integrazione di Azure Active Directory alle App SaaS."
 services: active-directory
 keywords: Integrare Azure AD con app SaaS
 documentationcenter: 
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
+ms.reviewer: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
 ms.contentlocale: it-it
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS

@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 06/01/2017
 ms.author: owend
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: ba842028ecda47b8011cba948d7c92417214c2d0
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: db04507d50b6dfe767ede4479fe0b02af2461576
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -55,7 +55,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
     ![Selezionare un contenitore](./media/analysis-services-backup/aas-backup-container.png)
 
-5. Salvare le impostazioni di backup. Ogni volta che si modificano le impostazioni di archiviazione o che si abilita o disabilita il backup, è necessario salvare le modifiche.
+5. Salvare le impostazioni di backup.
 
     ![Salvare le impostazioni di backup](./media/analysis-services-backup/aas-backup-save.png)
 
@@ -67,7 +67,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 2. In **Backup database** > **File di backup** fare clic su **Sfoglia**.
 
-3. Nella finestra di dialogo **Salva file con nome** verificare il percorso della cartella e quindi digitare un nome per il file di backup. Per impostazione predefinita, il nome del file ha l'estensione abf. 
+3. Nella finestra di dialogo **Salva file con nome** verificare il percorso della cartella e quindi digitare un nome per il file di backup. 
 
 4. Nella finestra di dialogo **Backup database** selezionare le opzioni.
 
@@ -89,7 +89,7 @@ Durante il ripristino, il file di backup deve essere nell'account di archiviazio
 
 
 > [!NOTE]
-> Se si sta ripristinando un database di modello tabulare da un server SQL Server Analysis Services locale, è innanzitutto necessario rimuovere tutti gli utenti di dominio dai ruoli del modello e aggiungerli nuovamente ai ruoli come utenti di Azure Active Directory. I ruoli saranno gli stessi.
+> Se si sta eseguendo il ripristino da un server locale, è necessario rimuovere tutti gli utenti di dominio dai ruoli del modello e aggiungerli nuovamente ai ruoli come utenti di Azure Active Directory.
 > 
 > 
 

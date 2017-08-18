@@ -3,8 +3,8 @@ title: Risolvere i problemi dei processi di Azure Data Lake Analytics con il por
 description: 'Informazioni su come usare il portale di Azure per risolvere i problemi relativi ai processi di Analisi Data Lake. '
 services: data-lake-analytics
 documentationcenter: 
-author: edmacauley
-manager: jhubbard
+author: saveenr
+manager: saveenr
 editor: cgronlun
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.service: data-lake-analytics
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: b2b19a6f2ea20c414119e9dfbf84fda92dd93402
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 
 ---
@@ -27,50 +27,31 @@ Informazioni su come usare il portale di Azure per risolvere i problemi relativi
 
 In questa esercitazione verrà impostato un problema relativo a un file di origine mancante e verrà usato il portale di Azure per risolvere il problema.
 
-**Prerequisiti**
-
-Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
-
-* **Conoscenza di base dell'elaborazione dei processi di Data Lake Analytics**. Vedere [Introduzione ad Analisi di Azure Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md).
-* **Un account di Data Lake Analytics**. Vedere [Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-* **Copiare i dati di esempio nell'account di Data Lake Store predefinito**.  Vedere [Preparare i dati di origine](data-lake-analytics-get-started-portal.md)
-
 ## <a name="submit-a-data-lake-analytics-job"></a>Inviare un processo di Data Lake Analytics
-A questo punto verrà creato un processo di U-SQL con un nome di file di origine non valido.  
 
-**Per inviare il processo**
+Inviare il processo U-SQL seguente:
 
-1. Nel portale di Azure fare clic su **Microsoft Azure** nell'angolo superiore sinistro.
-2. Fare clic nel riquadro contenente il nome dell'account di Analisi Data Lake personale.  È stato aggiunto qui durante la creazione dell'account.
-   Se l'account non è stato aggiunto, vedere [Aprire un account di Analytics dal portale](data-lake-analytics-manage-use-portal.md#manage-data-sources).
-3. Fare clic su **Nuovo processo** nel menu in alto.
-4. Immettere un nome per il processo e lo script U-SQL seguente:
+```
+@searchlog =
+   EXTRACT UserId          int,
+           Start           DateTime,
+           Region          string,
+           Query           string,
+           Duration        int?,
+           Urls            string,
+           ClickedUrls     string
+   FROM "/Samples/Data/SearchLog.tsv1"
+   USING Extractors.Tsv();
 
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv1"
-            USING Extractors.Tsv();
+OUTPUT @searchlog   
+   TO "/output/SearchLog-from-adls.csv"
+   USING Outputters.Csv();
+```
+    
+Il file di origine definito nello script è **/Samples/Data/SearchLog.tsv1**, ma dovrebbe essere modificato in **/Samples/Data/SearchLog.tsv**.
 
-        OUTPUT @searchlog   
-            TO "/output/SearchLog-from-adls.csv"
-        USING Outputters.Csv();
-
-    Il file di origine definito nello script è **/Samples/Data/SearchLog.tsv1**, ma dovrebbe essere modificato in **/Samples/Data/SearchLog.tsv**.
-5. Fare clic su **Invia processo** nel menu in alto. Viene visualizzato un nuovo pannello Dettagli processo. Sulla barra del titolo viene visualizzato lo stato del processo. Il completamento dell'operazione richiede alcuni minuti. È possibile fare clic **Aggiorna** per visualizzare lo stato più recente.
-6. Attendere finché lo stato del processo non viene modificato in **Non riuscito**.  Se lo stato del processo è **Riuscito**, significa che la cartella /Samples non è stata rimossa. Vedere la sezione **Prerequisiti** all'inizio dell'esercitazione.
-
-È lecito chiedersi come mai il completamento di un processo così piccolo abbia richiesto molto tempo.  Tenere presente che Data Lake Analytics è progettato per l'elaborazione di Big Data.  Pertanto è caratterizzato da prestazioni ottimali durante l'elaborazione di una grande quantità di dati usando il relativo sistema distribuito.
-
-Si supponga di aver inviato il processo e chiuso il portale.  Nella sezione successiva si apprenderà come risolvere i problemi relativi al processo.
 
 ## <a name="troubleshoot-the-job"></a>Risolvere i problemi relativi al processo
-Nella sezione precedente il processo è stato inviato e la sua esecuzione ha avuto esito negativo.  
 
 **Per visualizzare tutti i processi**
 

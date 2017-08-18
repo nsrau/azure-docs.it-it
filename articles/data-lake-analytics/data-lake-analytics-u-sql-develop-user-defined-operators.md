@@ -1,6 +1,6 @@
 ---
-title: Sviluppare operatori U-SQL definiti dall&quot;utente (UDO) | Microsoft Docs
-description: 'Informazioni su come sviluppare operatori definiti dall&quot;utente da usare e riutilizzare nei processi di Data Lake Analytics. '
+title: Sviluppare operatori U-SQL definiti dall'utente (UDO) | Microsoft Docs
+description: 'Informazioni su come sviluppare operatori definiti dall''utente da usare e riutilizzare nei processi di Data Lake Analytics. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,28 +15,25 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ef310a094667f390addd5d0df3dc68d67100d2f4
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/20/2017
 
 
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Sviluppare operatori U-SQL definiti dall'utente (UDO)
 Informazioni su come sviluppare operatori definiti dall'utente per elaborare i dati in un processo U-SQL.
 
-Per le istruzioni per lo sviluppo di assembly per utilizzo generico per U-SQL, vedere [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md) (Sviluppare assembly U-SQL per i processi di Azure Data Lake Analytics).
+Per istruzioni sullo sviluppo di assembly per utilizzo generico per U-SQL, vedere [Sviluppare assembly U-SQL per processi di Azure Data Lake Analytics](data-lake-analytics-u-sql-develop-assemblies.md)
 
-## <a name="define-and-use-user-defined-operator-in-u-sql"></a>Definire e usare l'operatore definito dall'utente in U-SQL
+## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definire e usare un operatore definito dall'utente in U-SQL
 **Per creare e inviare un processo di U-SQL**
 
-1. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
-2. Selezionare il tipo **Progetto U-SQL** .
-
-    ![Nuovo progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Fare clic su **OK**. Visual Studio crea una soluzione con un file Script.usql.
-4. In **Esplora soluzioni** espandere Script.usql e fare doppio clic su **Script.usql.cs**.
-5. Incollare il seguente codice nel file:
+1. In Visual Studio selezionare **File > Nuovo > Progetto > U-SQL Project** (Progetto U-SQL).
+2. Fare clic su **OK**. Visual Studio crea una soluzione con un file Script.usql.
+3. In **Esplora soluzioni** espandere Script.usql e fare doppio clic su **Script.usql.cs**.
+4. Incollare il seguente codice nel file:
 
         using Microsoft.Analytics.Interfaces;
         using System.Collections.Generic;
@@ -51,7 +48,7 @@ Per le istruzioni per lo sviluppo di assembly per utilizzo generico per U-SQL, v
                         "Deutschland", "Germany"
                     },
                     {
-                        "Schwiiz", "Switzerland"
+                        "Suisse", "Switzerland"
                     },
                     {
                         "UK", "United Kingdom"
