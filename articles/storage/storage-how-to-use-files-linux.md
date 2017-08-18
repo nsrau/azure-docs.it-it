@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 03efe81383a6c2fdfe50551355c33dc7af3837e8
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: d93c82b9c2e66c7241ddd579c1be74396174fd65
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="use-azure-file-storage-with-linux"></a>Usare l'archiviazione file di Azure con Linux
 [Archiviazione file di Azure](storage-dotnet-how-to-use-files.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate nelle distribuzioni di Linux usando il [pacchetto cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) dal [progetto Samba](https://www.samba.org/). Questo articolo illustra due modi per montare una condivisione file di Azure: su richiesta con il comando `mount` e all'avvio creando una voce in `/etc/fstab`.
 
 > [!NOTE]  
-> Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui è ospitata, ad esempio in locale o in un'area di Azure diversa, il sistema operativo deve supportare la funzionalità di crittografia di SMB 3.0. La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente di montare la condivisione file di Azure in locale o in un'altra area di Azure. Al momento della pubblicazione, di questa funzionalità è stato eseguito il backport in Ubuntu 17.04 e in Ubuntu 16.10.
+> Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui è ospitata, ad esempio in locale o in un'area di Azure diversa, il sistema operativo deve supportare la funzionalità di crittografia di SMB 3.0. La funzionalità di crittografia per SMB 3.0 per Linux è stata introdotta nel kernel 4.11. Questa funzionalità consente di montare la condivisione file di Azure in locale o in un'altra area di Azure. Al momento della pubblicazione, di questa funzionalità è stato eseguito il backport in Ubuntu 16.04 e versioni successive.
 
 
 ## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Prerequisiti per il montaggio di una condivisione file di Azure con Linux e il pacchetto cifs-utils

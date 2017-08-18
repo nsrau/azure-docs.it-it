@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: e562e6a1a6c2b8203f3d5a9a2ee5680372499693
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 93808e617f33a5c78e5c89f4dac4680d44724d1c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Esplorare i log di traccia .NET in Application Insights
@@ -197,7 +196,7 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationI
 Talvolta la visualizzazione di tutti gli eventi e le richieste nella pipeline può richiedere un po' di tempo.
 
 ### <a name="limits"></a>Quanti dati vengono conservati?
-Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conservati per sette giorni.
+Diversi fattori influiscono sulla quantità di dati mantenuti. Per altre informazioni, vedere la sezione dei [limiti](app-insights-api-custom-events-metrics.md#limits) della pagina delle metriche degli eventi dei clienti. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Non è possibile vedere alcune delle voci di log previste
 Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)

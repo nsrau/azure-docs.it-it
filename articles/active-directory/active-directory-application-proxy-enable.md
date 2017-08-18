@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 08/02/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 861921e6bcb7eafdf3e7279eaf09945fc8f38b85
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 77acb23f33fd656a12c27107cb159613a8b2aec4
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -57,9 +57,15 @@ Per preparare l'ambiente per il proxy di applicazione di Azure AD, è necessario
 
 2. Se il firewall o il proxy consente di inserire DNS nell'elenco elementi consentiti, è possibile aggiungere connessioni a msappproxy.net e servicebus.windows.net. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) che vengono aggiornati ogni settimana.
 
-3. Il connettore necessita di accesso a login.windows.net e login.microsoftonline.net per il processo di registrazione, quindi aprire il firewall anche per tali URL.
+3. Microsoft usa quattro indirizzi per verificare i certificati. Se non è già stato fatto per altri prodotti, consentire l'accesso agli URL seguenti:
+   * mscrl.microsoft.com:80
+   * crl.microsoft.com:80
+   * ocsp.msocsp.com:80
+   * www.microsoft.com:80
 
-4. Usare lo [strumento per il test delle porte del connettore Proxy di applicazione Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) per verificare che il connettore possa raggiungere il servizio Proxy di applicazione. Assicurarsi almeno che l'area Stati Uniti centrali e l'area più vicina all'utente abbiano segni di spunta verdi. La presenza di più segni di spunta verdi indica una maggiore resilienza.
+4. Il connettore deve poter accedere a login.windows.net e login.microsoftonline.net per il processo di registrazione.
+
+5. Usare lo [strumento per il test delle porte del connettore Proxy di applicazione Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) per verificare che il connettore possa raggiungere il servizio Proxy di applicazione. Assicurarsi almeno che l'area Stati Uniti centrali e l'area più vicina all'utente abbiano segni di spunta verdi. La presenza di più segni di spunta verdi indica una maggiore resilienza.
 
 ## <a name="install-and-register-a-connector"></a>Installare e registrare un connettore
 1. Accedere come amministratore al [portale di Azure](https://portal.azure.com/).

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fc0fd0188261263aac550b0f0784076efc807215
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 9dc50a101384bb40ad3a878245b80dcb31a7c08e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB
@@ -232,7 +231,7 @@ La tabella seguente descrive gli stati di errore delle unità e le azioni intrap
 | N/D | Un'unità che non fa parte di alcun processo arriva al data center come parte di un altro processo. | L'unità verrà contrassegnata come unità aggiuntiva e verrà restituita al cliente una volta completato il processo associato al pacchetto originale. |
 
 ### <a name="time-to-process-job"></a>Tempo di elaborazione del processo
-Il tempo impiegato per elaborare un processo di importazione/esportazione varia in base a diversi fattori, ad esempio i tempi di spedizione, il tipo di processo, il tipo e la dimensione dei dati da copiare e la dimensione dei dischi forniti. Il servizio Importazione/Esportazione non prevede un Contratto di servizio. È possibile usare l'API REST per tenere traccia più da vicino dell'avanzamento del processo. È disponibile un parametro indicante la percentuale di completamento nell'operazione Elencare i processi che fornisce un'indicazione dell'avanzamento della copia. In caso di processi di importazione/esportazione che richiedono una precisa tempistica, invitiamo gli utenti a contattarci per avere una stima dei tempi di completamento.
+Il tempo impiegato per elaborare un processo di importazione/esportazione varia in base a diversi fattori, ad esempio i tempi di spedizione, il tipo di processo, il tipo e la dimensione dei dati da copiare e la dimensione dei dischi forniti. Il servizio di importazione/esportazione non dispone di un contratto di servizio, ma dopo la ricezione dei dischi il servizio tenta di completare la copia in un intervallo compreso tra i 7 e i 10 giorni. È possibile usare l'API REST per tenere traccia più da vicino dell'avanzamento del processo. È disponibile un parametro indicante la percentuale di completamento nell'operazione Elencare i processi che fornisce un'indicazione dell'avanzamento della copia. In caso di processi di importazione/esportazione che richiedono una precisa tempistica, invitiamo gli utenti a contattarci per avere una stima dei tempi di completamento.
 
 ### <a name="pricing"></a>Prezzi
 **Tariffa di gestione delle unità**
@@ -250,13 +249,12 @@ Non ci sono costi di transazione quando si importano dati nell'archiviazione BLO
 ## <a name="quick-start"></a>Avvio rapido
 Questa sezione fornisce istruzioni dettagliate per la creazione di un processo di importazione ed esportazione. Verificare che siano soddisfatti tutti i [prerequisiti](#pre-requisites) prima di procedere.
 
+> [!IMPORTANT]
+> Il servizio supporta un account di archiviazione standard per il processo di importazione o esportazione e non supporta gli account di archiviazione premium. 
+> 
+> 
 ## <a name="create-an-import-job"></a>Creare un processo di importazione
 È possibile creare un processo di importazione per copiare dati nel proprio account di archiviazione di Azure da dischi rigidi spedendo una o più unità contenenti dati al data center specificato. Il processo di importazione fornisce al servizio Importazione/Esportazione di Azure informazioni sulla spedizione e informazioni dettagliate sulle unità disco rigido, sui dati da copiare e sull'account di archiviazione di destinazione. La creazione di un processo di importazione è un processo in tre fasi. Innanzitutto si preparano le unità usando lo strumento WAImportExport. In secondo luogo si invia un processo di importazione usando il portale di Azure. In terzo luogo si spediscono le unità all'indirizzo di spedizione fornito durante la creazione del processo e si aggiornano le informazioni di spedizione nei dettagli del processo.   
-
-> [!IMPORTANT]
-> È possibile inviare un solo processo per ogni account di archiviazione. Ogni unità che si spedisce può essere importata in un account di archiviazione. Si immagini ad esempio di voler importare dati in due account di archiviazione. È necessario usare dischi rigidi separati per ogni account di archiviazione e creare processi separati per ogni account di archiviazione.
-> 
-> 
 
 ### <a name="prepare-your-drives"></a>Preparare le unità
 Il primo passaggio nell'importazione di dati tramite il servizio Importazione/Esportazione di Azure consiste nel preparare le unità usando lo strumento WAImportExport. Per preparare le unità, seguire questa procedura.
@@ -431,9 +429,9 @@ Vedere la sezione delle domande frequenti che riporta le domande più comuni rel
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-**È possibile copiare file di Azure usando il servizio Importazione/Esportazione di Azure?**
+**È possibile copiare Archiviazione file di Azure usando il servizio Importazione/Esportazione di Azure?**
 
-No, il servizio Importazione/Esportazione di Azure supporta solo i BLOB in blocchi e i BLOB di pagine. Tutti gli altri tipi di archiviazione non sono supportati, inclusi i file, le tabelle e le code di Azure.
+No, il servizio Importazione/Esportazione di Azure supporta solo i BLOB in blocchi e i BLOB di pagine. Tutti gli altri tipi di archiviazione non sono supportati, inclusa l'archiviazione di file, di tabelle e di code di Azure.
 
 **Il servizio Importazione/Esportazione di Azure è disponibile per le sottoscrizioni CSP?**
 
@@ -462,6 +460,7 @@ Lo stato dei processi completati può essere visualizzato per un massimo di 90 g
 **Che cosa si deve fare, se si desidera importare o esportare più di 10 unità?**
 
 Un unico processo di importazione o esportazione può fare riferimento solo a 10 unità in un singolo processo del servizio di importazione/esportazione. Se si desidera spedire più di 10 unità, è possibile creare più processi. Le unità associate con lo stesso processo devono essere spedite insieme nello stesso pacco.
+Microsoft offre informazioni e assistenza nel caso in cui la capacità venga distribuita su più processi di importazione di dischi. Per altre informazioni, contattare bulkimport@microsoft.com
 
 **Il servizio formatta le unità prima di restituirle?**
 
@@ -471,7 +470,9 @@ No. Tutte le unità vengono crittografate con BitLocker.
 
 No. Sarà necessario spedire le unità per i processi sia di importazione che di esportazione.
 
-** Come è possibile accedere ai dati importati da questo servizio?** Si può accedere ai dati nell'account di archiviazione di Azure tramite il portale di Azure o usando uno strumento indipendente denominato Storage Explorer. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+* * Come è possibile accedere ai dati importati da questo servizio? * *
+
+Si può accedere ai dati nell'account di archiviazione di Azure tramite il portale di Azure o usando uno strumento indipendente denominato Storage Explorer. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **Al termine del processo di importazione, come si presenteranno i dati nell'account di archiviazione? Verrà mantenuta la gerarchia delle directory?**
 
@@ -520,6 +521,20 @@ In una spedizione può essere presente un numero qualsiasi di unità disco rigid
 
 La dimensione massima dei BLOB in blocchi è circa 4768 TB o 5.000.000 MB.
 La dimensione massima di un BLOB di pagine è 1 TB.
+
+**Importazione/Esportazione di Microsoft Azure supporta la crittografia AES 256?**
+
+Per impostazione predefinita, il servizio Importazione/Esportazione di Azure usa la crittografia bitlocker AES 128, ma può usare AES 256 eseguendo la crittografia manuale con bitlocker prima che i dati vengono copiati. 
+
+Se si usa [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), di seguito viene indicato un comando di esempio
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
+```
+Se si usa lo strumento [WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) specificare "AlreadyEncrypted" e immettere la chiave nel file CSV del driveset.
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+```
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md) (Configurazione dello strumento WAImportExport)

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/09/2017
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 470b2d87ffdc4769bb2963df7dea646901469e00
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,7 +32,7 @@ In questa guida sono riepilogate le soluzioni per gli errori comuni riscontrati 
 
 ## <a name="sign-in-issues"></a>Problemi relativi all'accesso
 
-Prima di continuare, provare a riavviare l'applicazione per vedere se i problemi si risolvono.
+Sono supportati solo account AAD (Azure Active Directory). Se si usa un account ADFS, è probabile che l'accesso a Storage Explorer non funzioni. Prima di continuare, provare a riavviare l'applicazione per vedere se i problemi si risolvono.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Errore: certificato autofirmato nella catena di certificati
 
@@ -152,7 +152,7 @@ Se si dispone di strumenti di rete, ad esempio Fiddler per Windows, è possibile
 
 - Controllare il numero della porta usato dallo strumento di rete.
 
-- Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Se questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete fatte da Storage Explorer agli endpoint del servizio e alla gestione. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint BLOB in un browser. Si riceverà una risposta simile alla seguente, che suggerisce che la risorsa è disponibile, anche se non è possibile accedervi.
+- Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Se questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete effettuate da Storage Explorer agli endpoint di gestione e del servizio. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint BLOB in un browser. Si riceverà una risposta simile alla seguente, che suggerisce che la risorsa è disponibile, anche se non è possibile accedervi.
 
 ![esempio di codice](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 

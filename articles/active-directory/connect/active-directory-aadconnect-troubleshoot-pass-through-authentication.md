@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4a687e1edbb2c9b3db3079a70162886092ede521
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 72bd39bcf720cf5704274fcdfa0f2b8fc44a77bc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -33,11 +33,11 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 
 ### <a name="check-status-of-the-feature-and-authentication-agents"></a>Controllare lo stato della funzionalità e degli agenti di autenticazione
 
-Verificare che la funzionalità di autenticazione pass-through sia ancora **abilitata** nel tenant e che lo stato degli agenti di autenticazione mostri **Attivo**e non **Inattivo**. È possibile verificarlo aprendo il pannello **Azure AD Connect** nel [portale di Azure](https://portal.azure.com/).
+Verificare che la funzionalità di autenticazione pass-through sia ancora **abilitata** nel tenant e che lo stato degli agenti di autenticazione mostri **Attivo**e non **Inattivo**. Per verificare lo stato, è possibile passare al pannello **Azure AD Connect** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
 
-![Portale di Azure - Pannello Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
+![Interfaccia di amministrazione di Azure Active Directory - Pannello Azure AD Connect](./media/active-directory-aadconnect-pass-through-authentication/pta7.png)
 
-![Portale di Azure - Pannello Autenticazione pass-through](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
+![Interfaccia di amministrazione di Azure Active Directory - Pannello Autenticazione pass-through](./media/active-directory-aadconnect-pass-through-authentication/pta11.png)
 
 ### <a name="user-facing-sign-in-error-messages"></a>Messaggi di errore visualizzati in fase di accesso
 
@@ -51,13 +51,13 @@ Se l'utente non è in grado di accedere usando l'autenticazione pass-through, è
 |AADSTS80005|La convalida ha rilevato un errore WebException imprevedibile|Errore temporaneo. ripetere la richiesta. Se il problema persiste, contattare il supporto Microsoft.
 |AADSTS80007|Errore durante la comunicazione con Active Directory|Controllare i registri dell'agente per altre informazioni e verificare che Active Directory funzioni come previsto.
 
-### <a name="sign-in-failure-reasons-on-the-azure-portal"></a>Cause dell'errore di accesso nel portale di Azure
+### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivi degli errori di accesso dell'interfaccia di amministrazione di Azure Active Directory
 
-Iniziare la risoluzione di problemi di accesso dell'utente esaminando il [report delle attività di accesso](../active-directory-reporting-activity-sign-ins.md) nel [portale di Azure](https://portal.azure.com/).
+Iniziare la risoluzione dei problemi di accesso dell'utente esaminando il [report delle attività di accesso](../active-directory-reporting-activity-sign-ins.md) nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
 
-![Report sugli accessi](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
+![Interfaccia di amministrazione di Azure Active Directory - Report sugli accessi](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
-Passare ad **Azure Active Directory** -> **Accessi** nel [portale di Azure](https://portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
+Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
 |Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
 | --- | --- | ---
@@ -97,7 +97,7 @@ Assicurarsi di usare un account amministratore globale solo cloud per tutte le o
 
 Se l'autenticazione pass-through è abilitata nel tenant e si tenta di disinstallare Azure AD Connect, un messaggio di avviso indica che gli utenti non potranno accedere ad Azure AD se non sono installati altri agenti di autenticazione pass-through in altri server.
 
-Verificare che l'installazione in uso sia a [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) prima di disinstallare Azure AD Connect per evitare interruzioni degli accessi utente.
+Verificare che l'installazione in uso sia a [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) prima di disinstallare Azure AD Connect per evitare interruzioni degli accessi utente.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problemi con l'abilitazione della funzionalità
 
@@ -112,6 +112,18 @@ Assicurasi che il server in cui è installato Azure AD Connect possa comunicare 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>L'abilitazione della funzionalità non è riuscita a causa di errori di autorizzazione dell'account o del token
 
 Assicurarsi di usare un account amministratore globale solo cloud quando si abilita la funzionalità. Esiste un problema noto con gli account amministratore globale con autenticazione MFA abilitata: disattivare l'autenticazione MFA temporaneamente (solo per completare le operazioni) come soluzione alternativa.
+
+## <a name="exchange-activesync-configuration-issues"></a>Problemi di configurazione di Exchange ActiveSync
+
+Questi sono i problemi comuni quando si configura il supporto di Exchange ActiveSync per l'autenticazione pass-through.
+
+### <a name="exchange-powershell-issue"></a>Problema relativo a PowerShell per Exchange
+
+Se viene restituito l'errore "**Impossibile trovare un parametro corrispondente al nome 'PerTenantSwitchToESTSEnabled'\.**" quando si esegue il comando `Set-OrganizationConfig` di PowerShell per Exchange, contattare il supporto Microsoft.
+
+### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync non funziona
+
+L'applicazione della configurazione richiede tempo. Il periodo di tempo dipende dall'ambiente. Se il problema persiste a lungo, contattare il supporto Microsoft.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>Raccolta dei registri dell'agente di autenticazione pass-through
 
@@ -150,4 +162,13 @@ Se la registrazione di controllo è abilitata, sono disponibili informazioni agg
     </Query>
     </QueryList>
 ```
+
+### <a name="performance-monitor-counters"></a>Contatori di Performance Monitor
+
+Un altro metodo per monitorare gli agenti di autenticazione consiste nel monitorare contatori di Performance Monitor specifici in ogni server in cui è installato l'agente di autenticazione. Usare i contatori globali (relativi a **numero di autenticazioni pass-through**, **numero di autenticazioni pass-through non riuscite** e **numero di autenticazioni pass-through riuscite**) e i contatori di errori (relativi a **numero di errori di autenticazione pass-through**) seguenti:
+
+![Contatori di Performance Monitor per l'autenticazione pass-through](./media/active-directory-aadconnect-pass-through-authentication/pta12.png)
+
+>[!IMPORTANT]
+>L'autenticazione pass-through fornisce disponibilità elevata tramite più agenti di autenticazione, _senza_ il bilanciamento del carico. A seconda della configurazione, _non_ tutti gli agenti di autenticazione ricevono all'incirca un numero _uguale_ di richieste. È possibile che un agente di autenticazione specifico non riceva traffico del tutto.
 

@@ -1,5 +1,5 @@
 ---
-title: "Risoluzione dei problemi con i report sull&quot;integrità del sistema | Documentazione Microsoft"
+title: "Risoluzione dei problemi con i report sull'integrità del sistema | Documentazione Microsoft"
 description: "Descrive i report di integrità inviati dai componenti dell’Infrastruttura dei servizi di Azure e il relativo utilizzo per la risoluzione dei problemi del cluster o dei problemi delle applicazioni."
 services: service-fabric
 documentationcenter: .net
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 07/19/2017
 ms.author: oanapl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 93a4e5fc2ec3c4e847f3fe8e76df9f83253eea9b
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 458e14f48a329cd36d3986986724e587839b355e
 ms.contentlocale: it-it
-ms.lasthandoff: 04/17/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
@@ -33,7 +32,7 @@ I componenti di Azure Service Fabric forniscono report predefiniti su tutte le e
 I report sull'integrità del sistema forniscono la visibilità delle funzionalità del cluster e dell'applicazione e contrassegnano i problemi riscontrati tramite a livello di integrità. Per le applicazioni e i servizi i report sull'integrità del sistema verificano che le entità siano implementate e si comportino correttamente dal punto di vista di Service Fabric. I report non forniscono il monitoraggio dell'integrità della logica di business del servizio o il rilevamento dei processi bloccati. I servizi utente possono arricchire i dati di integrità con informazioni specifiche per la logica.
 
 > [!NOTE]
-> I report sull'integrità dei watchdog sono visibili solo *dopo* che i componenti di sistemala hanno creato un'entità. Quando si elimina un'entità, l'archivio integrità elimina automaticamente tutti i report sull'integrità ad essa associati. Lo stesso vale quando si crea una nuova istanza dell'entità, ad esempio, viene creata una nuova istanza di replica del servizio. Tutti i report associati all'istanza precedente vengono eliminati e rimossi dall'archivio.
+> I report sull'integrità dei watchdog sono visibili solo *dopo* che i componenti di sistemala hanno creato un'entità. Quando si elimina un'entità, l'archivio integrità elimina automaticamente tutti i report sull'integrità ad essa associati. Lo stesso vale quando si crea una nuova istanza dell'entità, ad esempio viene creata una nuova istanza di replica del servizio persistente con stato. Tutti i report associati all'istanza precedente vengono eliminati e rimossi dall'archivio.
 > 
 > 
 
@@ -41,7 +40,7 @@ I report sui componenti di sistema vengono identificati dall'origine, che inizia
 Si osserveranno alcuni report di sistema per capire da quali eventi vengono attivati e come risolvere gli eventuali problemi che rappresentano.
 
 > [!NOTE]
-> Service Fabric continua ad aggiungere report sulle condizioni di interesse che possono migliorare la visibilità degli eventi che si verificano nel cluster o nell'applicazione.
+> Service Fabric continua ad aggiungere report sulle condizioni di interesse che possono migliorare la visibilità degli eventi che si verificano nel cluster o nell'applicazione. È anche possibile migliorare i report esistenti con maggiori dettagli, per consentire di risolvere i problemi più velocemente.
 > 
 > 
 
@@ -65,28 +64,27 @@ System.FM restituisce OK quando il nodo viene aggiunto all'anello, ovvero è ope
 
 * **SourceId**: System.FM
 * **Proprietà**: State
-* **Passaggi successivi**: se il nodo è inattivo per un aggiornamento, deve tornare attivo dopo l'aggiornamento. In questo caso, lo stato di integrità deve essere riportato su OK. Se il nodo non ritorna attivo o in caso di errore, è necessario proseguire nell'analisi del problema.
+* **Passaggi successivi**: se il nodo è inattivo per un aggiornamento, deve tornare attivo dopo l'aggiornamento. In questo caso, lo stato di integrità deve tornare a essere OK. Se il nodo non ritorna attivo o in caso di errore, è necessario proseguire nell'analisi del problema.
 
 L'esempio seguente illustra l'evento System.FM con stato di integrità OK per il nodo attivo:
 
 ```powershell
+PS C:\> Get-ServiceFabricNodeHealth  _Node_0
 
-PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
-NodeName              : Node.1
+NodeName              : _Node_0
 AggregatedHealthState : Ok
-HealthEvents          :
+HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 2
-                        SentAt                : 4/24/2015 5:27:33 PM
-                        ReceivedAt            : 4/24/2015 5:28:50 PM
+                        SequenceNumber        : 8
+                        SentAt                : 7/14/2017 4:54:51 PM
+                        ReceivedAt            : 7/14/2017 4:55:14 PM
                         TTL                   : Infinite
                         Description           : Fabric node is up.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/24/2015 5:28:50 PM
-
+                        Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 
@@ -98,7 +96,7 @@ HealthEvents          :
 * **Passaggi successivi**: aggiornare i certificati se sono prossimi alla scadenza.
 
 ### <a name="load-capacity-violation"></a>Violazione della capacità di carico
-Il servizio di bilanciamento del carico di Service Fabric segnala una condizione di avviso se rileva una violazione della capacità del nodo.
+Il servizio di bilanciamento del carico di Service Fabric segnala un avviso se rileva una violazione della capacità del nodo.
 
 * **SourceId**: System.PLB
 * **Proprietà**: inizia con **Capacity**
@@ -112,29 +110,29 @@ System.CM restituisce OK quando l'applicazione viene creata o aggiornata. Inform
 
 * **SourceId**: System.CM
 * **Proprietà**: State
-* **Passaggi successivi**: se l'applicazione è stata creata, deve includere il report sull'integrità di Cluster Manager. In caso contrario, controllare lo stato dell'applicazione eseguendo una query, ad esempio con il cmdlet di PowerShell **Get-ServiceFabricApplication -ApplicationName *applicationName***.
+* **Passaggi successivi**: se l'applicazione è stata creata o aggiornata, deve includere il report sull'integrità dello strumento di gestione cluster. In caso contrario, controllare lo stato dell'applicazione eseguendo una query, ad esempio con il cmdlet di PowerShell **Get-ServiceFabricApplication -ApplicationName *applicationName***.
 
 L'esempio seguente illustra l'evento State nell'applicazione **fabric:/WordCount** :
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Ok
 ServiceHealthStates             : None
 DeployedApplicationHealthStates : None
-HealthEvents                    :
+HealthEvents                    : 
                                   SourceId              : System.CM
                                   Property              : State
                                   HealthState           : Ok
-                                  SequenceNumber        : 82
-                                  SentAt                : 4/24/2015 6:12:51 PM
-                                  ReceivedAt            : 4/24/2015 6:12:51 PM
+                                  SequenceNumber        : 282
+                                  SentAt                : 7/13/2017 5:57:05 PM
+                                  ReceivedAt            : 7/14/2017 4:55:10 PM
                                   TTL                   : Infinite
                                   Description           : Application has been created.
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
-                                  Transitions           : ->Ok = 4/24/2015 6:12:51 PM
+                                  Transitions           : Error->Ok = 7/13/2017 5:57:05 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ## <a name="service-system-health-reports"></a>Report sull'integrità del sistema di servizi
@@ -146,106 +144,38 @@ System.FM restituisce OK quando il servizio viene creato. Elimina l'entità dall
 * **SourceId**: System.FM
 * **Proprietà**: State
 
-L'esempio seguente illustra l'evento State nel servizio **fabric:/WordCount/WordCountService**:
+L'esempio seguente illustra l'evento State nel servizio **fabric:/WordCount/WordCountWebService**:
 
 ```powershell
-PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
+PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
-ServiceName           : fabric:/WordCount/WordCountService
+
+ServiceName           : fabric:/WordCount/WordCountWebService
 AggregatedHealthState : Ok
-PartitionHealthStates :
-                        PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
+PartitionHealthStates : 
+                        PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
                         AggregatedHealthState : Ok
-
-HealthEvents          :
+                        
+HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 3
-                        SentAt                : 4/24/2015 6:12:51 PM
-                        ReceivedAt            : 4/24/2015 6:13:01 PM
+                        SequenceNumber        : 14
+                        SentAt                : 7/13/2017 5:57:05 PM
+                        ReceivedAt            : 7/14/2017 4:55:10 PM
                         TTL                   : Infinite
                         Description           : Service has been created.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/24/2015 6:13:01 PM
+                        Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="unplaced-replicas-violation"></a>Violazione di repliche non collocate
-**System.PLB** segnala una condizione di avviso se non riesce a trovare una posizione per una o più repliche del servizio. Il report viene rimosso alla scadenza.
+### <a name="service-correlation-error"></a>Errore di correlazione del servizio
+**System.PLB** segnala un errore quando rileva che l'aggiornamento di un servizio da correlare con un altro servizio crea una catena di affinità. Il report viene cancellato quando l'aggiornamento viene completato correttamente.
 
-* **SourceId**: System.FM
-* **Proprietà**: State
-* **Passaggi successivi**: controllare i vincoli del servizio e lo stato corrente della posizione.
-
-L'esempio seguente illustra una violazione per un servizio configurato con 7 repliche di destinazione in un cluster con 5 nodi:
-
-```xml
-PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
-
-
-ServiceName           : fabric:/WordCount/WordCountService
-AggregatedHealthState : Warning
-UnhealthyEvaluations  :
-                        Unhealthy event: SourceId='System.PLB',
-                        Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning',
-                        ConsiderWarningAsError=false.
-
-PartitionHealthStates :
-                        PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
-                        AggregatedHealthState : Warning
-
-HealthEvents          :
-                        SourceId              : System.FM
-                        Property              : State
-                        HealthState           : Ok
-                        SequenceNumber        : 10
-                        SentAt                : 3/22/2016 7:56:53 PM
-                        ReceivedAt            : 3/22/2016 7:57:18 PM
-                        TTL                   : Infinite
-                        Description           : Service has been created.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : Error->Ok = 3/22/2016 7:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
-
-                        SourceId              : System.PLB
-                        Property              : ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b
-                        HealthState           : Warning
-                        SequenceNumber        : 131032232425505477
-                        SentAt                : 3/23/2016 4:14:02 PM
-                        ReceivedAt            : 3/23/2016 4:14:03 PM
-                        TTL                   : 00:01:05
-                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
-                        fabric:/WordCount/WordCountService Secondary Partition a1f83a35-d6bf-4d39-b90d-28d15f39599b could not be placed, possibly,
-                        due to the following constraints and properties:  
-                        Placement Constraint: N/A
-                        Depended Service: N/A
-
-                        Constraint Elimination Sequence:
-                        ReplicaExclusionStatic eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
-                        ReplicaExclusionDynamic eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
-
-                        Nodes Eliminated By Constraints:
-
-                        ReplicaExclusionStatic:
-                        FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status:
-                        None/None
-                        FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status:
-                        None/None
-                        FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status:
-                        None/None
-                        FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status:
-                        None/None
-
-                        ReplicaExclusionDynamic:
-                        FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status:
-                        None/None
-
-
-                        RemoveWhenExpired     : True
-                        IsExpired             : False
-                        Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
-```
+* **SourceId**: System.PLB
+* **Proprietà**: ServiceDescription
+* **Passaggi successivi**: controllare le descrizioni dei servizi correlati.
 
 ## <a name="partition-system-health-reports"></a>Report sull'integrità del sistema di partizioni
 **System.FM**, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sulle partizioni del servizio.
@@ -264,69 +194,105 @@ Altri eventi importanti includono un avviso quando le operazioni di riconfiguraz
 L'esempio seguente illustra una partizione integra:
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
-PartitionId           : 29da484c-2c08-40c5-b5d9-03774af9a9bf
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
+
+PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
 AggregatedHealthState : Ok
 ReplicaHealthStates   : None
-HealthEvents          :
+HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 38
-                        SentAt                : 4/24/2015 6:33:10 PM
-                        ReceivedAt            : 4/24/2015 6:33:31 PM
+                        SequenceNumber        : 70
+                        SentAt                : 7/13/2017 5:57:05 PM
+                        ReceivedAt            : 7/14/2017 4:55:10 PM
                         TTL                   : Infinite
                         Description           : Partition is healthy.
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/24/2015 6:33:31 PM
+                        Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 L'esempio seguente illustra l'integrità di una partizione che è al di sotto del numero di repliche di destinazione. Il passaggio successivo consiste nell'ottenere la descrizione della partizione, che mostra come è configurata: **MinReplicaSetSize** corrisponde a due e **TargetReplicaSetSize** a sette. Ottenere quindi il numero di nodi nel cluster: cinque. In questo caso, due repliche non possono essere posizionate.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
-PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
+
+PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
 AggregatedHealthState : Warning
-UnhealthyEvaluations  :
+UnhealthyEvaluations  : 
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-
+                        
 ReplicaHealthStates   : None
-HealthEvents          :
+HealthEvents          : 
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Warning
-                        SequenceNumber        : 37
-                        SentAt                : 4/24/2015 6:13:12 PM
-                        ReceivedAt            : 4/24/2015 6:13:31 PM
+                        SequenceNumber        : 123
+                        SentAt                : 7/14/2017 4:55:39 PM
+                        ReceivedAt            : 7/14/2017 4:55:44 PM
                         TTL                   : Infinite
                         Description           : Partition is below target replica or instance count.
+                        fabric:/WordCount/WordCountService 7 2 af2e3e44-a8f8-45ac-9f31-4093eb897600
+                          N/S RD _Node_2 Up 131444422260002646
+                          N/S RD _Node_4 Up 131444422293113678
+                          N/S RD _Node_3 Up 131444422293113679
+                          N/S RD _Node_1 Up 131444422293118720
+                          N/P RD _Node_0 Up 131444422293118721
+                          (Showing 5 out of 5 replicas. Total available replicas: 5.)
+                        
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : Ok->Warning = 4/24/2015 6:13:31 PM
+                        Transitions           : Error->Warning = 7/14/2017 4:55:44 PM, LastOk = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.PLB
+                        Property              : ServiceReplicaUnplacedHealth_Secondary_af2e3e44-a8f8-45ac-9f31-4093eb897600
+                        HealthState           : Warning
+                        SequenceNumber        : 131445250939703027
+                        SentAt                : 7/14/2017 4:58:13 PM
+                        ReceivedAt            : 7/14/2017 4:58:14 PM
+                        TTL                   : 00:01:05
+                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
+                        Secondary replica could not be placed due to the following constraints and properties:  
+                        TargetReplicaSetSize: 7
+                        Placement Constraint: N/A
+                        Parent Service: N/A
+                        
+                        Constraint Elimination Sequence:
+                        Existing Secondary Replicas eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
+                        Existing Primary Replica eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
+                        
+                        Nodes Eliminated By Constraints:
+                        
+                        Existing Secondary Replicas -- Nodes with Partition's Existing Secondary Replicas/Instances:
+                        --
+                        FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status: None/None
+                        FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status: None/None
+                        FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status: None/None
+                        FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status: None/None
+                        
+                        Existing Primary Replica -- Nodes with Partition's Existing Primary Replica or Secondary Replicas:
+                        --
+                        FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status: None/None
+                        
+                        
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 7/14/2017 4:56:14 PM, LastOk = 1/1/0001 12:00:00 AM
 
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | select MinReplicaSetSize,TargetReplicaSetSize
 
-PartitionId            : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
-PartitionKind          : Int64Range
-PartitionLowKey        : 1
-PartitionHighKey       : 26
-PartitionStatus        : Ready
-LastQuorumLossDuration : 00:00:00
-MinReplicaSetSize      : 2
-TargetReplicaSetSize   : 7
-HealthState            : Warning
-DataLossNumber         : 130743727710830900
-ConfigurationNumber    : 8589934592
-
+MinReplicaSetSize TargetReplicaSetSize
+----------------- --------------------
+                2                    7                        
 
 PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
 ### <a name="replica-constraint-violation"></a>Violazione del vincolo di replica
-**System.PLB** segnala una condizione di avviso se rileva una violazione del vincolo di replica e non può posizionare repliche della partizione.
+**System.PLB** segnala un avviso se rileva una violazione del vincolo di replica e non può posizionare tutte le repliche della partizione. Il report indica in modo dettagliato i vincoli e le proprietà che impediscono il posizionamento della replica.
 
 * **SourceId**: System.PLB
 * **Proprietà**: inizia con **ReplicaConstraintViolation**
@@ -344,21 +310,22 @@ L'esempio seguente illustra una replica integra:
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
-PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
-ReplicaId             : 130743727717237310
+
+PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
+ReplicaId             : 131444422293118721
 AggregatedHealthState : Ok
-HealthEvents          :
+HealthEvents          : 
                         SourceId              : System.RA
                         Property              : State
                         HealthState           : Ok
-                        SequenceNumber        : 130743727718018580
-                        SentAt                : 4/24/2015 6:12:51 PM
-                        ReceivedAt            : 4/24/2015 6:13:02 PM
+                        SequenceNumber        : 131445248920273536
+                        SentAt                : 7/14/2017 4:54:52 PM
+                        ReceivedAt            : 7/14/2017 4:55:13 PM
                         TTL                   : Infinite
-                        Description           : Replica has been created.
+                        Description           : Replica has been created._Node_0
                         RemoveWhenExpired     : False
                         IsExpired             : False
-                        Transitions           : ->Ok = 4/24/2015 6:13:02 PM
+                        Transitions           : Error->Ok = 7/14/2017 4:55:13 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="replica-open-status"></a>Stato aperto della replica
@@ -380,7 +347,7 @@ La descrizione di questo report sull'integrità include l'ora (UTC) in cui è in
 L'esempio seguente illustra una partizione in uno stato di perdita del quorum e i passaggi di analisi eseguiti per capire il motivo. Una delle repliche presenta uno stato di integrità di avviso, che ne indica l'integrità. Mostra che l'operazione di servizio richiede più tempo del previsto, un evento segnalato da System.RAP. Dopo aver ottenuto queste informazioni, il passaggio successivo consiste nell'esaminare il codice del servizio e procedere con l'analisi. In questo caso, l'implementazione di **RunAsync** del servizio con stato genera un'eccezione non gestita. Viene eseguito il riciclo delle repliche, quindi è possibile che non vengano visualizzate repliche con stato di avviso. È possibile provare di nuovo a ottenere lo stato di integrità e cercare eventuali differenze nell'ID replica. In alcuni casi, i nuovi tentativi possono offrire indicazioni utili.
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 AggregatedHealthState : Error
@@ -481,7 +448,7 @@ Eventi di diagnostica di Visual Studio 2015: errore RunAsync in **fabric:/HelloW
 
 
 ### <a name="replication-queue-full"></a>Coda di replica piena
-**System.Replicator** segnala una condizione di avviso se la coda di replica è piena. Nel server primario ciò accade di solito perché una o più repliche secondarie sono lente nel riconoscere le operazioni. Nel server secondario ciò si verifica di solito quando il servizio è lento nell'applicare le operazioni. La condizione di avviso viene cancellata quando la coda non è più piena.
+**System.Replicator** segnala un avviso se la coda di replica è piena. Nel server primario la coda di replica in genere si riempie perché una o più repliche secondarie sono lente nel riconoscere le operazioni. Nel server secondario ciò si verifica di solito quando il servizio è lento nell'applicare le operazioni. La condizione di avviso viene cancellata quando la coda non è più piena.
 
 * **SourceId**: System.Replicator
 * **Proprietà**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo della replica
@@ -560,28 +527,29 @@ System.Hosting restituisce OK quando un'applicazione viene attivata correttament
 L'esempio seguente illustra l'attivazione riuscita:
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
 
 ApplicationName                    : fabric:/WordCount
-NodeName                           : Node.1
+NodeName                           : _Node_1
 AggregatedHealthState              : Ok
-DeployedServicePackageHealthStates :
+DeployedServicePackageHealthStates : 
                                      ServiceManifestName   : WordCountServicePkg
-                                     NodeName              : Node.1
+                                     ServicePackageActivationId : 
+                                     NodeName              : _Node_1
                                      AggregatedHealthState : Ok
-
-HealthEvents                       :
+                                     
+HealthEvents                       : 
                                      SourceId              : System.Hosting
                                      Property              : Activation
                                      HealthState           : Ok
-                                     SequenceNumber        : 130743727751144415
-                                     SentAt                : 4/24/2015 6:12:55 PM
-                                     ReceivedAt            : 4/24/2015 6:13:03 PM
+                                     SequenceNumber        : 131445249083836329
+                                     SentAt                : 7/14/2017 4:55:08 PM
+                                     ReceivedAt            : 7/14/2017 4:55:14 PM
                                      TTL                   : Infinite
                                      Description           : The application was activated successfully.
                                      RemoveWhenExpired     : False
                                      IsExpired             : False
-                                     Transitions           : ->Ok = 4/24/2015 6:13:03 PM
+                                     Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="download"></a>Scaricare
@@ -608,7 +576,7 @@ System.Hosting restituisce OK se l'attivazione del pacchetto di servizi nel nodo
 * **Proprietà**: usa il prefisso **CodePackageActivation** e contiene il nome del pacchetto di codice e il punto di ingresso come **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** ad esempio **CodePackageActivation:Code:SetupEntryPoint**
 
 ### <a name="service-type-registration"></a>Registrazione del tipo di servizio
-**System.Hosting** restituisce OK se il tipo di servizio è stato registrato correttamente. Viene restituito un errore se la registrazione non è stata eseguita in tempo, secondo quanto configurato con **ServiceTypeRegistrationTimeout**. L'annullamento della registrazione del tipo di servizio nel nodo è causato dalla chiusura del runtime. Hosting genera un avviso.
+**System.Hosting** restituisce OK se il tipo di servizio è stato registrato correttamente. Viene restituito un errore se la registrazione non è stata eseguita in tempo, secondo quanto configurato con **ServiceTypeRegistrationTimeout**. In caso di chiusura del runtime, viene annullata la registrazione del tipo di servizio nel nodo e viene segnalato un avviso.
 
 * **SourceId**: System.Hosting
 * **Proprietà**: usa il prefisso **ServiceTypeRegistration** e contiene il nome del tipo di servizio, ad esempio **ServiceTypeRegistration:FileStoreServiceType**
@@ -616,49 +584,50 @@ System.Hosting restituisce OK se l'attivazione del pacchetto di servizi nel nodo
 L'esempio seguente illustra un pacchetto servizio distribuito integro:
 
 ```powershell
-PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
+PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 
-ApplicationName       : fabric:/WordCount
-ServiceManifestName   : WordCountServicePkg
-NodeName              : Node.1
-AggregatedHealthState : Ok
-HealthEvents          :
-                        SourceId              : System.Hosting
-                        Property              : Activation
-                        HealthState           : Ok
-                        SequenceNumber        : 130743727751456915
-                        SentAt                : 4/24/2015 6:12:55 PM
-                        ReceivedAt            : 4/24/2015 6:13:03 PM
-                        TTL                   : Infinite
-                        Description           : The ServicePackage was activated successfully.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : ->Ok = 4/24/2015 6:13:03 PM
-
-                        SourceId              : System.Hosting
-                        Property              : CodePackageActivation:Code:EntryPoint
-                        HealthState           : Ok
-                        SequenceNumber        : 130743727751613185
-                        SentAt                : 4/24/2015 6:12:55 PM
-                        ReceivedAt            : 4/24/2015 6:13:03 PM
-                        TTL                   : Infinite
-                        Description           : The CodePackage was activated successfully.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : ->Ok = 4/24/2015 6:13:03 PM
-
-                        SourceId              : System.Hosting
-                        Property              : ServiceTypeRegistration:WordCountServiceType
-                        HealthState           : Ok
-                        SequenceNumber        : 130743727753644473
-                        SentAt                : 4/24/2015 6:12:55 PM
-                        ReceivedAt            : 4/24/2015 6:13:03 PM
-                        TTL                   : Infinite
-                        Description           : The ServiceType was registered successfully.
-                        RemoveWhenExpired     : False
-                        IsExpired             : False
-                        Transitions           : ->Ok = 4/24/2015 6:13:03 PM
+ApplicationName            : fabric:/WordCount
+ServiceManifestName        : WordCountServicePkg
+ServicePackageActivationId : 
+NodeName                   : _Node_1
+AggregatedHealthState      : Ok
+HealthEvents               : 
+                             SourceId              : System.Hosting
+                             Property              : Activation
+                             HealthState           : Ok
+                             SequenceNumber        : 131445249084026346
+                             SentAt                : 7/14/2017 4:55:08 PM
+                             ReceivedAt            : 7/14/2017 4:55:14 PM
+                             TTL                   : Infinite
+                             Description           : The ServicePackage was activated successfully.
+                             RemoveWhenExpired     : False
+                             IsExpired             : False
+                             Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
+                             
+                             SourceId              : System.Hosting
+                             Property              : CodePackageActivation:Code:EntryPoint
+                             HealthState           : Ok
+                             SequenceNumber        : 131445249084306362
+                             SentAt                : 7/14/2017 4:55:08 PM
+                             ReceivedAt            : 7/14/2017 4:55:14 PM
+                             TTL                   : Infinite
+                             Description           : The CodePackage was activated successfully.
+                             RemoveWhenExpired     : False
+                             IsExpired             : False
+                             Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
+                             
+                             SourceId              : System.Hosting
+                             Property              : ServiceTypeRegistration:WordCountServiceType
+                             HealthState           : Ok
+                             SequenceNumber        : 131445249088096842
+                             SentAt                : 7/14/2017 4:55:08 PM
+                             ReceivedAt            : 7/14/2017 4:55:14 PM
+                             TTL                   : Infinite
+                             Description           : The ServiceType was registered successfully.
+                             RemoveWhenExpired     : False
+                             IsExpired             : False
+                             Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ### <a name="download"></a>Scaricare

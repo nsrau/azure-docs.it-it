@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 76dfd1c2b2f17e6bc798f4313c4dc4817d2136a4
-ms.lasthandoff: 04/04/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: ba756d3262b9780c5701e69faad860ba32bba08b
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-an-application-gateway-using-path-based-routing"></a>Creare un gateway applicazione con il routing basato sul percorso
@@ -26,8 +26,9 @@ ms.lasthandoff: 04/04/2017
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
+> * [Interfaccia della riga di comando di Azure 2.0](application-gateway-create-url-route-cli.md)
 
-Il routing basato sul percorso dell'URL consente di associare le route in base al percorso dell'URL di una richiesta HTTP. Verifica se è disponibile una route per il pool back-end configurato per l'URL presentato nel gateway applicazione e invia il traffico di rete al pool back-end definito. In genere il routing basato su URL viene usato per le richieste di bilanciamento del carico per diversi tipi di contenuto tra vari pool di server back-end.
+Il routing basato sul percorso dell'URL consente di associare le route in base al percorso dell'URL di una richiesta HTTP. Verifica se è disponibile una route per il pool back-end configurato per l'URL presentato nel gateway applicazione, quindi invia il traffico di rete al pool back-end definito. In genere il routing basato su URL viene usato per le richieste di bilanciamento del carico per diversi tipi di contenuto tra vari pool di server back-end.
 
 Il routing basato su URL introduce un nuovo tipo di regola per i gateway applicazione. Per il gateway applicazione sono disponibili due tipi di regole: basic e PathBasedRouting. Il tipo di regola basic fornisce un servizio di tipo round robin per i pool back-end, mentre la regola PathBasedRouting oltre alla distribuzione round robin tiene conto del modello di percorso dell'URL della richiesta per la scelta del pool back-end.
 
@@ -110,7 +111,7 @@ In alternativa, è anche possibile creare tag del gruppo di risorse per il gatew
 $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway URL routing"} 
 ```
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
+Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso Questo gruppo di risorse viene usato come percorso predefinito per le risorse presenti nel gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
 
 Nell'esempio precedente è stato creato un gruppo di risorse denominato "appgw-RG" e la località "West US".
 
@@ -121,7 +122,7 @@ Nell'esempio precedente è stato creato un gruppo di risorse denominato "appgw-R
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Creare una rete virtuale e una subnet per il gateway applicazione
 
-L'esempio seguente illustra come creare una rete virtuale usando Gestione risorse. Questo esempio crea una rete virtuale per il gateway applicazione. Il gateway applicazione richiede la propria subnet e per questo motivo la subnet creata per il gateway applicazione è più piccola dello spazio degli indirizzi della rete virtuale. Ciò consente alle altre risorse, inclusi ma non limitati i server Web, di essere configurate nella stessa rete virtuale.
+L'esempio seguente illustra come creare una rete virtuale usando Gestione risorse. Questo esempio crea una rete virtuale per il gateway applicazione. Il gateway applicazione richiede la propria subnet, per questo motivo la subnet creata per il gateway applicazione è più piccola dello spazio degli indirizzi della rete virtuale. Ciò consente alle altre risorse, inclusi ma non limitati i server Web, di essere configurate nella stessa rete virtuale.
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -149,7 +150,7 @@ $subnet=$vnet.Subnets[0]
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creare un indirizzo IP pubblico per la configurazione front-end
 
-Creare una risorsa IP pubblica denominata **publicIP01** nel gruppo di risorse **appgw-rg** per l'area Stati Uniti occidentali. Il gateway applicazione può usare un indirizzo IP pubblico, un indirizzo IP interno o entrambi per ricevere le richieste per il bilanciamento del carico.  Questo esempio usa solo un indirizzo IP pubblico. Nell'esempio seguente, non è configurato nessun nome DNS per la creazione dell'indirizzo IP pubblico.  Il gateway applicazione non supporta i nomi DNS personalizzati in indirizzi IP pubblici.  Se per l'endpoint pubblico è necessario un nome personalizzato, è necessario creare un record CNAME per fare riferimento al nome DNS generato automaticamente per l'indirizzo IP pubblico.
+Creare una risorsa IP pubblica denominata **publicIP01** nel gruppo di risorse **appgw-rg** per l'area Stati Uniti occidentali. Il gateway applicazione può usare un indirizzo IP pubblico, un interno indirizzo IP o entrambi per ricevere le richieste di bilanciamento del carico.  Per questo esempio è stato usato solo un indirizzo IP pubblico. Nell'esempio seguente, nessun nome DNS è configurato per la creazione dell'indirizzo IP pubblico.  Il gateway applicazione non supporta i nomi DNS personalizzati negli indirizzi IP pubblici.  Se per l'endpoint pubblico è necessario un nome personalizzato, è necessario creare un record CNAME per fare riferimento al nome DNS generato automaticamente per l'indirizzo IP pubblico.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
@@ -171,7 +172,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 
 ### <a name="step-2"></a>Passaggio 2
 
-Configurare il pool di indirizzi IP back-end denominato **pool01** e **pool2** con indirizzi IP per **pool1** e **pool2**. Questi indirizzi sono gli indirizzi IP delle risorse che ospitano l'applicazione Web da proteggere con il gateway applicazione. Tutti questi membri del pool back-end vengono convalidati come integri mediante i probe, che siano probe di base o personalizzati.  Il traffico viene instradato verso di loro quando le richieste arrivano al gateway applicazione. I pool back-end possono essere usati da più regole all'interno del gateway applicazione, ovvero un pool back-end può essere usato per più applicazioni Web che si trovano nello stesso host.
+Configurare il pool di indirizzi IP back-end denominato **pool01** e **pool2** con indirizzi IP per **pool1** e **pool2**. Questi indirizzi sono gli indirizzi IP delle risorse che ospitano l'applicazione Web da proteggere con il gateway applicazione. Tutti questi membri del pool back-end vengono convalidati come integri mediante i probe, che siano probe di base o personalizzati.  Il traffico viene instradato verso di loro quando le richieste arrivano al gateway applicazione. I pool di back-end possono essere usati dalle regole multiple all'interno del gateway applicazione, ovvero un pool di back-end può essere usato per più applicazioni Web che si trovano nello stesso host.
 
 ```powershell
 $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
@@ -183,7 +184,7 @@ Questo esempio mostra due pool back-end che indirizzano il traffico di rete in b
 
 ### <a name="step-3"></a>Passaggio 3
 
-Configurare le impostazioni **poolsetting01** e **poolsetting02** del gateway applicazione per il traffico di rete con carico bilanciato nel pool back-end. In questo esempio vengono configurate diverse impostazioni per i pool back-end. Ogni pool back-end può avere un'impostazione del pool back-end dedicata.  Le impostazioni HTTP back-end vengono usate dalle regole per instradare il traffico verso i membri del pool di back-end corretti. Ciò determina il protocollo e la porta usati durante l'invio di traffico ai membri del pool back-end. Anche le sessioni basate sui cookie sono determinate dalle impostazioni HTTP back-end .  Se abilitata, l'affinità di sessione basata su cookie invia traffico allo stesso back-end come richieste precedenti per ogni pacchetto.
+Configurare le impostazioni **poolsetting01** e **poolsetting02** del gateway applicazione per il traffico di rete con carico bilanciato nel pool back-end. In questo esempio vengono configurate diverse impostazioni per i pool back-end. Ogni pool back-end può avere un'impostazione del pool back-end dedicata.  Le impostazioni HTTP back-end vengono usate dalle regole per instradare il traffico verso i membri del pool di back-end corretti. Ciò determina il protocollo e la porta usati durante l'invio di traffico ai membri del pool back-end. Anche le sessioni basate sui cookie sono determinate dalle impostazioni HTTP di back-end.  Se abilitata, l'affinità di sessione basata su cookie invia traffico allo stesso back-end sotto forma di richieste precedenti per ogni pacchetto.
 
 ```powershell
 $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
@@ -209,7 +210,7 @@ $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 80
 
 ### <a name="step-6"></a>Passaggio 6
 
-Configurare il listener. Questo passaggio configura il listener per l'indirizzo IP pubblico e la porta usata per ricevere il traffico di rete in ingresso. L'esempio seguente accetta la configurazione IP front-end configurata in precedenza, la configurazione della porta front-end e un protocollo (http o https) e configura il listener. In questo esempio, il listener è in ascolto del traffico HTTP sulla porta 80 all'indirizzo IP pubblico creato in precedenza.
+Configurare il listener. Questo passaggio configura il listener per l'indirizzo IP pubblico e la porta usata per ricevere il traffico di rete in ingresso. L'esempio seguente prende in considerazione la configurazione IP front-end configurata in precedenza, la configurazione della porta front-end e un protocollo (HTTP o HTTPS) e configura il listener. In questo esempio, il listener è in ascolto per il traffico HTTP sulla porta 80 all'indirizzo IP pubblico che è stato creato in precedenza.
 
 ```powershell
 $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01
@@ -217,7 +218,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 
 ### <a name="step-7"></a>Passaggio 7
 
-Configurare i percorsi della regola per gli URL per i pool back-end. Questo passaggio configura il percorso relativo usato dal gateway applicazione per definire il mapping tra il percorso dell'URL e il pool back-end selezionato per gestire il traffico di rete in ingresso.
+Configurare i percorsi della regola per gli URL per i pool back-end. Questo passaggio configura il percorso relativo usato dal gateway applicazione e definisce il mapping tra il percorso dell'URL e il pool back-end assegnato per gestire il traffico di rete in ingresso.
 
 > [!IMPORTANT]
 > Ogni percorso deve iniziare con una barra / e l'unica posizione in cui è consentito il carattere "\*" è alla fine. Esempi validi sono /xyz, /xyz* or /xyz/*. La stringa inviata al selettore di percorsi non include alcun testo dopo il primo carattere "?" o "#" e questi caratteri non sono consentiti. 
@@ -262,7 +263,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 ## <a name="get-application-gateway-dns-name"></a>Ottenere il nome DNS del gateway applicazione
 
-Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, non descrittivo. Per assicurarsi che gli utenti finali possano raggiungere il gateway applicazione, è possibile usare un record CNAME per fare riferimento all'endpoint pubblico del gateway applicazione. [Configurazione di un nome di dominio personalizzato in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Per configurare il record CNAME per l'IP front-end, recuperare i dettagli del gateway applicazione e il nome DNS e l'IP associati usando l'elemento PublicIPAddress collegato al gateway applicazione. Il nome DNS del gateway applicazione dovrà essere usato per creare un record CNAME che associa le due applicazioni Web a questo nome DNS. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
+Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, non descrittivo. Per assicurarsi che gli utenti finali possano raggiungere il gateway applicazione, è possibile usare un record CNAME per fare riferimento all'endpoint pubblico del gateway applicazione. [Configurazione di un nome di dominio personalizzato in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Per configurare il record CNAME per l'IP front-end, recuperare i dettagli del gateway applicazione e il nome DNS e l'IP associati usando l'elemento PublicIPAddress collegato al gateway applicazione. Il nome DNS del gateway applicazione dovrà essere usato per creare un record CNAME. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01

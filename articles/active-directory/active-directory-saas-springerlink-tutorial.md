@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/03/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3c59f777b8b42d67f85fb078c883f0b36a972ddb
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: b9aec6f8f293cdd31456a7f50e3efe792804c7c8
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Esercitazione: Integrazione di Azure Active Directory con Springer Link
@@ -87,9 +87,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Springer Link
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Springer Link](#create-a-springer-link-test-user)**: per avere una controparte di Britta Simon in Springer Link collegata alla relativa rappresentazione in Azure AD dell'utente.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+3. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -105,22 +104,25 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_samlbase.png)
 
-3. Nella sezione **URL e dominio Springer Link** seguire questa procedura:
+3. Nella sezione **URL e dominio Springer Link** se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+
+    ![Informazioni su URL e dominio Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url1.png)
+
+    a. Nella casella di testo **Identificatore** digitare l'URL: `https://fsso.springer.com`
+
+    b. Nella casella di testo **URL di risposta** digitare l'URL: `https://fsso-qa1.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
+
+4. Selezionare **Mostra impostazioni URL avanzate** se si desidera configurare l'applicazione in modalità avviata da **SP**:
 
     ![Informazioni su URL e dominio Springer Link](./media/active-directory-saas-springerlink-tutorial/tutorial_springerlink_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.live.cf.public.springer.com/athens-shibboleth-login?previousUrl=https%3A%2F%2Fcore-qa.live.cf.public.springer.com%2F`.
+    Nella casella di testo **URL di accesso** digitare l'URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`    
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<companyname>.springer.com`
+5. Fare clic sul pulsante **Salva** .
 
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Springer Link](https://www.springer.com/gp/help/contact). 
+    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
 
-4. Fare clic sul pulsante **Salva** .
-
-    ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-springerlink-tutorial/tutorial_general_400.png)
-
-5. Per generare l'URL dei **metadati**, seguire questa procedura:
+6. Per generare l'URL dei **metadati**, seguire questa procedura:
 
     a. Fare clic su **Registrazioni per l'app**.
     
@@ -140,11 +142,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
-6. Per configurare l'accesso Single Sign-On sul lato **Springer Link**, è necessario inviare l'**URL dei metadati** al [team di supporto di Springer Link](http://www.springer.com/gp/help/contact).
+7. Per configurare l'accesso Single Sign-On sul lato **Springer Link**, è necessario inviare l'**URL dei metadati** al [team di supporto di Springer Link](mailto:identity@springernature.com).
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
+
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
@@ -158,7 +160,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Pulsante Azure Active Directory](./media/active-directory-saas-springerlink-tutorial/create_aaduser_01.png)
 
-2. Per visualizzare l'elenco di utenti passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/active-directory-saas-springerlink-tutorial/create_aaduser_02.png)
 
@@ -178,10 +180,6 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
  
-### <a name="create-a-springer-link-test-user"></a>Creare un utente test di Springer Link
-
-In questa sezione viene creato un utente di nome Britta Simon in Springer Link. Collaborare con il [team di supporto Springer Link](http://www.springer.com/gp/help/contact) per aggiungere gli utenti nella piattaforma Springer Link. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
-
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Springer Link.

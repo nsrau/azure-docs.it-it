@@ -12,25 +12,29 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2017
+ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1fde062d9673a48698b269d79e009c7b179e5934
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c0546fd5b1398759ef98afa267146ced8a4084da
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Distribuire un'applicazione in un cluster di entità in Azure
-In questa esercitazione viene illustrato come distribuire un'applicazione di Azure Service Fabric in un cluster di entità in Azure.
+Questa esercitazione è la seconda parte di una serie e illustra come distribuire un'applicazione di Azure Service Fabric in un cluster di entità in Azure.
 
-In questa parte dell'esercitazione si apprende come:
+Nella seconda parte della serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
 > * Distribuire un'applicazione in un cluster remoto usando Visual Studio
 > * Rimuovere un'applicazione da un cluster usando Service Fabric Explorer
 
-L'esercitazione è suddivisa in tre articoli e questo è il secondo della serie.
+In questa serie di esercitazioni si apprenderà come:
+> [!div class="checklist"]
+> * [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md)
+> * Distribuire l'applicazione in un cluster remoto
+> * [Configurare l'integrazione continua e la distribuzione continua usando Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione:

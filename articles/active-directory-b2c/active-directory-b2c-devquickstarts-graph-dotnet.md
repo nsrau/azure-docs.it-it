@@ -1,29 +1,28 @@
 ---
-title: 'Azure Active Directory B2C: usare l&quot;API Graph | Microsoft Docs'
-description: "Come chiamare l&quot;API Graph per un tenant di B2C usando l&quot;identità di un&quot;applicazione per automatizzare il processo."
+title: 'Azure Active Directory B2C: usare l''API Graph | Microsoft Docs'
+description: "Come chiamare l'API Graph per un tenant di B2C usando l'identità di un'applicazione per automatizzare il processo."
 services: active-directory-b2c
 documentationcenter: .net
-author: gsacavdm
+author: parakhj
 manager: krassk
-editor: bryanla
+editor: parakhj
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/22/2017
-ms.author: gsacavdm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 27a331562d659212dcd1b775ac06e1e1e4686517
+ms.date: 08/07/2017
+ms.author: parakhj
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c838fcad21875c4f813159ad78d4c87129a40a86
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: usare l'API Graph
-I tenant di Azure Active Directory (Azure AD) B2C tendono ad avere dimensioni molto grandi, il che significa che molte attività comuni di gestione dei tenant devono essere eseguite a livello di programmazione, ad esempio la gestione degli utenti. Potrebbe essere necessario eseguire la migrazione di un archivio utenti esistente in un tenant di B2C. È consigliabile ospitare la registrazione degli utenti nella propria pagina e creare account utente in Azure AD in background. Questi tipi di attività richiedono la possibilità di creare, leggere, aggiornare ed eliminare gli account utente. È possibile eseguire queste attività usando l'API Graph di Azure AD.
+I tenant di Azure Active Directory (Azure AD) B2C tendono ad avere dimensioni molto grandi, il che significa che molte attività comuni di gestione dei tenant devono essere eseguite a livello di programmazione, ad esempio la gestione degli utenti. Potrebbe essere necessario eseguire la migrazione di un archivio utenti esistente in un tenant di B2C. Potrebbe essere necessario ospitare la registrazione degli utenti nella propria pagina e creare gli account utente nella directory Azure AD B2C in background. Questi tipi di attività richiedono la possibilità di creare, leggere, aggiornare ed eliminare gli account utente. È possibile eseguire queste attività usando l'API Graph di Azure AD.
 
 Per i tenant di B2C esistono essenzialmente due modalità di comunicazione con l'API Graph.
 

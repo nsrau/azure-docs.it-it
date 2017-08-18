@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 94c8160464cd7355ac0e0733801d0b06fcdfab7c
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 95404f9dbffa08edf12ee6c07f671d5f207ce99a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
@@ -142,13 +142,19 @@ La sincronizzazione dati non gestisce i riferimenti circolari. Si consiglia di e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
+Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 -   [Introduzione alla sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md)
+
+-   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL:
+    -   [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [Scaricare la documentazione tecnica completa di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 
 -   [Scaricare la documentazione dell'API REST di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+Per altre informazioni sul database SQL, vedere:
 
 -   [Panoramica del database SQL](sql-database-technical-overview.md)
 

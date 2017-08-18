@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3337e3ad36792c1dcd0eaf183a2b695503b8f02c
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: cea811918147a25947ec654bb06f2c994bae5ce6
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -45,7 +44,7 @@ Per eseguire alcune delle operazioni descritte in questo documento vengono usati
 
 ## <a name="log-and-event-sources"></a>Origini di log ed eventi
 
-### <a name="service-fabric-infrastructure-events"></a>Eventi dell'infrastruttura di Service Fabric
+### <a name="service-fabric-platform-events"></a>Eventi della piattaforma Service Fabric
 Come illustrato in [questo articolo](service-fabric-diagnostics-event-generation-infra.md), Service Fabric offre alcuni canali di registrazione predefiniti. Tra questi, i canali seguenti sono facilmente configurabili con Diagnostica di Microsoft Azure per inviare i dati di monitoraggio e diagnostica a una tabella di archiviazione o un'altra posizione.
   * Eventi operativi: operazioni generali eseguite dalla piattaforma Service Fabric. Gli esempi includono la creazione di applicazioni e servizi, le modifiche allo stato dei nodi e informazioni sull'aggiornamento. Questi eventi vengono generati come log di Event Tracing for Windows (ETW)
   * [Eventi del modello di programmazione Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
@@ -177,7 +176,7 @@ Dopo aver modificato il file template.json come descritto, pubblicare nuovamente
 
 A partire dalla versione 5.4 di Service Fabric è possibile raccogliere gli eventi di metrica di integrità e caricamento. Questi riflettono gli eventi generati dal sistema o dal codice usando le API di creazione di report di integrità o caricamento, ad esempio [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Ciò consente l'aggregazione e la visualizzazione dell'integrità del sistema nel tempo, nonché la generazione di avvisi in base a eventi di integrità o di caricamento. Per visualizzare tali eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000008" all'elenco di provider ETW.
 
-Per raccogliere gli eventi, modificare il modello di Resource Manager includendo quanto segue:
+Per raccogliere gli eventi, modificare il modello di Resource Manager in modo da includere
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,6 +190,47 @@ Per raccogliere gli eventi, modificare il modello di Resource Manager includendo
       }
     }
 ```
+
+## <a name="collect-reverse-proxy-events"></a>Raccogliere eventi del proxy inverso
+
+A partire dalla versione 5.7 di Service Fabric, è possibile raccogliere gli eventi del [proxy inverso](service-fabric-reverseproxy.md).
+Il proxy inverso emette eventi in due canali, uno dei quali contiene gli eventi di errore corrispondenti agli errori di elaborazione delle richieste e l'altro contiene gli eventi dettagliati relativi a tutte le richieste elaborate nel proxy inverso. 
+
+1. Raccogliere gli eventi di errore: per visualizzare questi eventi nel visualizzatore eventi di diagnostica di Visual Studio, aggiungere "Microsoft-ServiceFabric:4:0x4000000000000010" all'elenco di provider ETW.
+Per raccogliere gli eventi dai cluster di Azure, modificare il modello di Resource Manager in modo da includere
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387920",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+
+2. Raccogliere tutti gli eventi di elaborazione delle richieste: nel visualizzatore eventi di diagnostica di Visual Studio aggiornare la voce Microsoft-ServiceFabric nell'elenco di provider ETW modificandola in "Microsoft-ServiceFabric:4:0x4000000000000020".
+Per i cluster di Azure Service Fabric, modificare il modello di Resource Manager in modo da includere
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387936",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+> È consigliabile abilitare la raccolta degli eventi in modo sensato da questo canale, in quanto raccoglie tutto il traffico attraverso il proxy inverso e può consumare rapidamente la capacità di archiviazione.
+
+Per i cluster di Azure Service Fabric, vengono raccolti gli eventi da tutti i nodi, che vengono aggregati in SystemEventTable.
+Per informazioni dettagliate sulla risoluzione dei problemi relativi agli eventi del proxy inverso, vedere la [guida alla diagnostica dei problemi relativi al proxy inverso](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Eseguire la raccolta dai nuovi canali EventSource
 
@@ -218,21 +258,22 @@ Per raccogliere metriche delle prestazioni dal cluster, aggiungere i contatori d
 
 Di seguito, ad esempio, si imposta un contatore delle prestazioni con campionamento ogni 15 secondi e trasferimento nella tabella di archiviazione appropriata ogni minuto. La frequenza di campionamento può essere modificata seguendo il formato "PT\<tempo>\<unità>"; PT3M, ad esempio, determinerà il campionamento a intervalli di tre minuti.
 
-    ```json
-    "PerformanceCounters": {
-        "scheduledTransferPeriod": "PT1M",
-        "PerformanceCounterConfiguration": [
-            {
-                "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                "sampleRate": "PT15S",
-                "unit": "Percent",
-                "annotation": [
-                ],
-                "sinks": ""
-            }
-        ]
-    }
-    ```
+  ```json
+  "PerformanceCounters": {
+      "scheduledTransferPeriod": "PT1M",
+      "PerformanceCounterConfiguration": [
+          {
+              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+              "sampleRate": "PT15S",
+              "unit": "Percent",
+              "annotation": [
+              ],
+              "sinks": ""
+          }
+      ]
+  }
+  ```
+  
 Se si usa un sink di Application Insights, come descritto nella sezione di seguito, e si vuole che queste metriche vengano visualizzate in Application Insights, aggiungere il nome del sink nella sezione "sinks" illustrata sopra. Valutare inoltre la possibilità di creare una tabella separata in cui inviare i contatori delle prestazioni, per non esaurire lo spazio a disposizione dei dati provenienti dagli altri canali di registrazione che sono stati abilitati.
 
 

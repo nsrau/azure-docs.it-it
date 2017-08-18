@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 40d07ce6e480924c7c1af601cc25e4a74280141f
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 37c0ea094d02208f2516a4a040f75894e046c670
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -34,13 +34,14 @@ Gli scenari seguenti sono completamente supportati in fase di anteprima:
 - L'utente accede a tutte le applicazioni basate su Web browser.
 - L'utente accede ad applicazioni client di Office 365 che supportano l'[autenticazione moderna](https://aka.ms/modernauthga).
 - Aggiunta ad Azure AD per dispositivi Windows 10.
+- Supporto di Exchange ActiveSync.
 
 ## <a name="unsupported-scenarios"></a>Scenari non supportati
 
 Gli scenari seguenti _non_ sono supportati in fase di anteprima:
 
-- L'utente accede ad applicazioni client legacy di Office ed Exchange ActiveSync (ad esempio, le applicazioni di posta elettronica native sui dispositivi mobili). Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna, infatti, consente di supportare l'autenticazione pass-through e contribuisce a proteggere le identità usando le funzionalità di [accesso condizionale](../active-directory-conditional-access.md) come l'autenticazione a più fattori.
-- L'utente accede alle applicazioni client di Skype for Business.
+- Accesso degli utenti ad applicazioni client legacy di Office (Office 2013 o versioni precedenti). Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna permette di supportare l'autenticazione pass-through e contribuisce anche a proteggere gli account utente tramite le funzionalità di [accesso condizionale](../active-directory-conditional-access.md), come l'autenticazione a più fattori.
+- Accesso degli utenti ad applicazioni client Skype for Business, incluso Skype for Business 2016.
 - L'utente accede a PowerShell v 1.0. È consigliabile tuttavia usare PowerShell 2.0.
 
 >[!IMPORTANT]

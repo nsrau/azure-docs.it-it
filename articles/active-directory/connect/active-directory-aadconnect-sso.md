@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: c4cd80c50dca5b97c36f1c9785d8ea347b35285c
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 5a390208f4b7c22e96d7888bcbbd14d8b27667eb
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -32,8 +32,8 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 ![Accesso Single Sign-On facile](./media/active-directory-aadconnect-sso/sso1.png)
 
->[!NOTE]
->L'accesso SSO facile _non_ è applicabile ad Active Directory Federation Services (AD FS) che include già questa funzionalità.
+>[!IMPORTANT]
+>L'accesso Single Sign-On facile è attualmente in fase di anteprima. Questa funzionalità _non_ è applicabile ad Active Directory Federation Services (AD FS).
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -44,26 +44,29 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
   - Non sono necessari componenti aggiuntivi locali per usare la funzionalità.
   - Funziona con qualsiasi metodo di autenticazione cloud: [sincronizzazione dell'hash delle password](active-directory-aadconnectsync-implement-password-synchronization.md) o [autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md).
   - Può essere implementata per alcuni o tutti gli utenti con Criteri di gruppo.
-  - Registrare i dispositivi non Windows 10 con Azure AD. È necessaria la versione 2.1 o successiva del [client Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554).
+  - Registrare dispositivi non Windows 10 con Azure AD, senza che sia necessaria un'infrastruttura AD FS. Per questa funzionalità è necessaria la versione 2.1 o successiva del [client Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554).
 
 ## <a name="feature-highlights"></a>Funzionalità in primo piano
 
-- Il nome utente usato per l'accesso può essere il nome utente predefinito locale (`userPrincipalName`) o un altro attributo configurato in Azure AD Connect (`Alternate ID`).
+- Il nome utente usato per l'accesso può essere il nome utente predefinito locale (`userPrincipalName`) o un altro attributo configurato in Azure AD Connect (`Alternate ID`). Sono supportati entrambi i casi d'uso, perché l'accesso Single Sign-On facile usa l'attestazione `securityIdentifier` nel ticket Kerberos per cercare l'oggetto utente corrispondente in Azure AD.
 - L'accesso SSO facile è una funzionalità opportunistica. Se per qualche motivo ha esito negativo, l'esperienza di accesso dell'utente ritorna al comportamento normale, ovvero l'utente deve immettere la propria password nella pagina di accesso.
-- Se un'applicazione inoltra un parametro `domain_hint`, per identificare il tenant, o `login_hint`, per identificare l'utente, nella richiesta di accesso ad Azure AD, gli utenti accedono automaticamente senza immettere nomi utente o password.
+- Se un'applicazione inoltra un parametro `domain_hint` (OpenID Connect) o `whr` (SAML) per identificare il tenant o un parametro `login_hint` per identificare l'utente, nella richiesta di accesso ad Azure AD l'accesso degli utenti viene effettuato automaticamente, senza che debbano immettere i nomi utente o le password.
 - Può essere abilitata da Azure AD Connect.
 - È una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per utilizzarla.
 - Può essere usata per i client basati su Web browser e i client di Office che supportano l'[autenticazione moderna](https://aka.ms/modernauthga) nelle piattaforme e nei browser idonei per l'autenticazione Kerberos:
 
 | SO\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sì|Sì|Sì|Sì\*|N/D 
+|Windows 10|Sì|No|Sì|Sì\*|N/D 
 |Windows 8.1|Sì|N/D|Sì|Sì\*|N/D 
 |Windows 8|Sì|N/D|Sì|Sì\*|N/D 
 |Windows 7|Sì|N/D|Sì|Sì\*|N/D
 |Mac OS X|N/D |N/D |Sì\*|Sì\*|Sì\*
 
 \*Richiede una [configurazione aggiuntiva](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
+
+>[!IMPORTANT]
+>Di recente è stato eseguito il rollback del supporto per Microsoft Edge per analizzare i problemi segnalati dai clienti.
 
 >[!NOTE]
 >Per Windows 10, si consiglia di usare il [join per Azure AD](../active-directory-azureadjoin-overview.md) per ottenere risultati ottimali dall'accesso Single Sign-On con Azure AD.

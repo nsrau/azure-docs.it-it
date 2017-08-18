@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 292a93bd1d355b8a39c59d220352ad465df46629
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: b9bc70ec9e271a8e0b34ed415e27cd350390b21d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -43,17 +42,20 @@ Managed Disks permette di creare fino a 10.000 **dischi** di macchine virtuali i
 
 Managed Disks offre una maggiore affidabilità per i set di disponibilità, perché fa in modo che [i dischi delle macchine virtuali in un set di disponibilità](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) siano sufficientemente isolati gli uni dagli altri per evitare singoli punti di errore. Ciò avviene mediante l'inserimento automatico dei dischi in unità di scala di archiviazione diverse, dette stamp. Se uno stamp non riesce a causa di un errore hardware o software, hanno esito negativo solo le istanze delle macchine virtuali con dischi in tali stamp. Si prenda ad esempio un'applicazione in esecuzione in cinque macchine virtuali, a loro volta inserite in un set di disponibilità. I dischi di tali macchine virtuali non vengono tutti archiviati nello stesso stamp. In caso di inattività di uno stamp, quindi, le altre istanze dell'applicazione continuano l'esecuzione.
 
+### <a name="highly-durable-and-available"></a>Elevati livelli di durabilità e disponibilità
+
+I dischi di Azure sono stati progettati per il 99,999% di disponibilità. È possibile quindi riposare serenamente sapendo di avere tre repliche dei dati, che consentono una durabilità elevata. In caso di problemi con una o addirittura due repliche, le repliche rimanenti contribuiscono ad assicurare la persistenza dei dati e una tolleranza di errore elevata. Questa architettura ha consentito ad Azure di offrire costantemente durabilità di livello aziendale per i dischi IaaS, con una percentuale di frequenza errori annualizzata pari a ZERO, la migliore del settore. 
+
 ### <a name="granular-access-control"></a>Controllo di accesso granulare
 
 Per assegnare autorizzazioni specifiche per un disco gestito a uno o più utenti, è possibile usare il [controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-what-is.md). Managed Disks espone una serie di operazioni, inclusa la lettura, la scrittura (creazione/aggiornamento), l'eliminazione e il recupero di un [URI di firma di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md) per il disco. È possibile consentire l'accesso solo alle operazioni che servono agli utenti per svolgere il proprio lavoro. Ad esempio, per fare in modo che un utente non possa copiare un disco gestito in un account di archiviazione, è possibile scegliere di non consentire l'accesso all'operazione di esportazione di tale disco gestito. Analogamente, per fare in modo che un utente non possa usare un URI di firma di accesso condiviso per copiare un disco gestito, è possibile scegliere di non concedere l'autorizzazione per il disco gestito.
 
 ### <a name="azure-backup-service-support"></a>Supporto del servizio Backup di Azure
-Usare il servizio Backup di Azure con Managed Disks per creare un processo di backup con backup basati sul tempo, criteri semplici per il ripristino delle VM e la conservazione dei backup. Managed Disks supporta solo l'archiviazione con ridondanza locale come opzione di replica. Questo significa che mantiene tre copie dei dati all'interno della stessa area. Per eseguire il ripristino di emergenza dell'area, è necessario eseguire il backup dei dischi delle macchine virtuali in un'altra area usando il [servizio Backup di Azure](../backup/backup-introduction-to-azure-backup.md) e un account di archiviazione con ridondanza geografica come insieme di credenziali di backup. Per altre informazioni in merito, vedere la sezione relativa all'[uso del servizio Backup di Azure per macchine virtuali con dischi gestiti](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Usare il servizio Backup di Azure con Managed Disks per creare un processo di backup con backup basati sul tempo, criteri semplici per il ripristino delle VM e la conservazione dei backup. Managed Disks supporta solo l'archiviazione con ridondanza locale come opzione di replica. Questo significa che mantiene tre copie dei dati all'interno della stessa area. Per eseguire il ripristino di emergenza dell'area, è necessario eseguire il backup dei dischi delle macchine virtuali in un'altra area usando il [servizio Backup di Azure](../backup/backup-introduction-to-azure-backup.md) e un account di archiviazione con ridondanza geografica come insieme di credenziali di backup. Attualmente Backup di Azure supporta dischi di dimensioni fino a 1 TB per il backup. Per altre informazioni in merito, vedere la sezione relativa all'[uso del servizio Backup di Azure per macchine virtuali con dischi gestiti](../backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
 Quando si usa Managed Disks, tenere conto delle considerazioni seguenti relative alla fatturazione:
-
 * Tipo di archiviazione
 
 * Dimensione disco
@@ -89,7 +91,12 @@ Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gesti
 
 **Trasferimenti di dati in uscita**: i [trasferimenti di dati in uscita](https://azure.microsoft.com/pricing/details/data-transfers/) (dati in uscita dai data center di Azure) vengono fatturati in base all'uso della larghezza di banda.
 
-**Snapshot del disco gestito (copia dell'intero disco)**: uno snapshot gestito è una copia di sola lettura di un disco gestito che viene archiviata come disco gestito Standard. Gli snapshot permettono di eseguire il backup dei dischi gestiti in qualsiasi momento. Questi snapshot esistono indipendentemente dal disco di origine e possono essere usati per creare nuove istanze di Managed Disks. Il costo di uno snapshot gestito corrisponde a quello di un disco gestito Standard. Ad esempio, se si acquisisce uno snapshot di un disco gestito Premium da 128 GB, il costo dello snapshot gestito sarà equivalente a quello di un disco gestito Standard da 128 GB.
+Per informazioni dettagliate sui prezzi di Managed Disks, vedere [Prezzi di Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
+
+
+## <a name="managed-disk-snapshots"></a>Snapshot dei dischi gestiti
+
+Uno snapshot gestito è una copia di sola lettura di un disco gestito che viene archiviata come disco gestito Standard per impostazione predefinita. Gli snapshot permettono di eseguire il backup dei dischi gestiti in qualsiasi momento. Questi snapshot esistono indipendentemente dal disco di origine e possono essere usati per creare nuove istanze di Managed Disks. Vengano addebitati in funzione della dimensione usata. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GB e una dimensione di dati effettivamente usata di 10 GB, verranno addebitati solo gli snapshot relativi alla dimensione di dati usata di 10 GB.  
 
 Gli [snapshot incrementali](storage-incremental-snapshots.md) non sono attualmente supportati per Managed Disks, ma lo saranno in futuro.
 
@@ -98,8 +105,6 @@ Per altre informazioni su come creare snapshot con Managed Disks, vedere le riso
 * [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-
-Per informazioni dettagliate sui prezzi di Managed Disks, vedere [Prezzi di Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ## <a name="images"></a>Immagini
 

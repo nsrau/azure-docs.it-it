@@ -12,29 +12,33 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8f824e451abd2ca87875c416184e4d7265e8c72b
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 71d910bc0e459528805521ba991e5291396a3b8d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
-Questa esercitazione illustra come creare un'applicazione di Azure Service Fabric con un front-end API Web ASP.NET Core e un servizio back-end con stato per archiviare i dati.
+Questa esercitazione è la prima parte di una serie e illustra come creare un'applicazione di Azure Service Fabric con un front-end API Web ASP.NET Core e un servizio back-end con stato per archiviare i dati. 
 
 ![Diagramma dell'applicazione](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-In questa esercitazione si apprenderà come:
+Nella prima parte della serie si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un servizio API Web ASP.NET Core come servizio Reliable
 > * Creare un servizio Reliable con stato
 > * Implementare la comunicazione remota del servizio e l'uso di un proxy del servizio
 
-L'esercitazione è suddivisa in tre articoli e questo è il primo della serie.
+In questa serie di esercitazioni si apprenderà come:
+> [!div class="checklist"]
+> * Creare un'applicazione di Service Fabric .NET
+> * [Distribuire l'applicazione in un cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Configurare l'integrazione continua e la distribuzione continua usando Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione:
