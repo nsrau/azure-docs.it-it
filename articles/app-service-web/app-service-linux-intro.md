@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 87b9da134bce20b037e2dce7e1c9f54454fafe9e
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 69156ec555b34d066a65bdc202267cfc53de47a0
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Introduzione ad App Web di Azure in Linux
@@ -83,10 +83,14 @@ Questa anteprima pubblica è attualmente disponibile solo nelle aree seguenti:
 * Stati Uniti Orientali
 * Europa occidentale
 * Europa settentrionale
+* Stati Uniti centro-meridionali
+* Stati Uniti centro-settentrionali
 * Asia sudorientale
+* Asia orientale
 * Australia orientale
 * Giappone orientale
 * Brasile meridionale
+* India meridionale
 
 App Web in Linux è supportato solo nei piani di servizio app dedicati e non ha un livello Gratuito o Condiviso. I piani di servizio app per le app Web normali e di Linux si escludono a vicenda, quindi non è possibile creare un'app Web di Linux in un piano di servizio app non Linux.
 
