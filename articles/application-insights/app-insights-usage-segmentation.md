@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 1775ddaf548bdc62f37f8bac0b6f3f33870e5dd5
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -71,6 +71,7 @@ La barra laterale Informazioni dettagliate mostra cluster di grandi dimensioni d
 - Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
     - [Grafici a imbuto](usage-funnels.md)
     - [Conservazione](app-insights-usage-retention.md)
+    - [Flussi degli utenti](app-insights-usage-flows.md)
     - [Cartelle di lavoro](app-insights-usage-workbooks.md)
     - [Aggiungere il contesto utente](app-insights-usage-send-user-context.md)
 
