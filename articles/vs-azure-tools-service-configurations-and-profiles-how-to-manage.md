@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 8/11/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: b939f2af75723739ffab16d9a75ea8f6484e5e05
+ms.contentlocale: it-it
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>Come gestire le configurazioni e i profili dei servizi
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Quando si pubblica un servizio cloud, Visual Studio archivia le informazioni di configurazione in due tipi di file di configurazione, ovvero le configurazioni e i profili del servizio. Le configurazioni del servizio (file con estensione cscfg) archiviano le impostazioni per gli ambienti di distribuzione per un servizio cloud di Azure. Azure usa questi file di configurazione quando gestisce i servizi cloud. I profili (file con estensione azurePubxml) invece archiviano le impostazioni di pubblicazione per i servizi cloud. Queste impostazioni sono un record delle opzioni selezionate durante la pubblicazione guidata e vengono usate localmente da Visual Studio. Questo argomento illustra come usare entrambi i tipi di file di configurazione.
 
 ## <a name="service-configurations"></a>Configurazioni del servizio
@@ -60,7 +61,7 @@ Quando si pubblica un servizio cloud, Visual Studio archivia le informazioni di 
     Il nome del file di configurazione del servizio viene modificato nel progetto Azure in Esplora soluzioni.
 
 ### <a name="to-change-a-service-configuration"></a>Per modificare una configurazione del servizio
-* Se si vuole modificare una configurazione del servizio, aprire il menu di scelta rapida di un ruolo specifico da modificare in un progetto Azure, quindi selezionare **Proprietà**. Per altre informazioni, vedere [Procedura: configurare i ruoli di un servizio cloud di Azure con Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx) .
+* Se si vuole modificare una configurazione del servizio, aprire il menu di scelta rapida di un ruolo specifico da modificare in un progetto Azure, quindi selezionare **Proprietà**. Per altre informazioni, vedere [Procedura: configurare i ruoli di un servizio cloud di Azure con Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) .
 
 ## <a name="make-different-setting-combinations-by-using-profiles"></a>Effettuare diverse combinazioni di impostazioni usando i profili
 Mediante i profili è possibile popolare automaticamente la **Pubblicazione guidata** con diverse combinazioni di impostazioni usate per scopi differenti. Ad esempio, è possibile definire un profilo per eseguire il debug e uno per le build di rilascio. In questo caso, nel profilo **Debug** sarà abilitato **IntelliTrace** e sarà selezionata la configurazione **Debug**, mentre nel profilo **Rilascio** sarà disabilitato **IntelliTrace** e sarà selezionata la configurazione **Rilascio**. È anche possibile usare diversi profili per distribuire un servizio mediante un account di archiviazione diverso.
@@ -101,10 +102,5 @@ Quando si esegue la procedura guidata per la prima volta, viene creato un profil
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulla configurazione di altre parti del progetto Azure da Visual Studio, vedere [Configurazione di un progetto Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

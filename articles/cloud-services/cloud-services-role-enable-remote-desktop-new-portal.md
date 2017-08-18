@@ -1,6 +1,6 @@
 ---
 title: Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure | Microsoft Docs
-description: Come configurare l&quot;applicazione del servizio cloud di Azure per consentire le connessioni Desktop remoto
+description: Come configurare l'applicazione del servizio cloud di Azure per consentire le connessioni Desktop remoto
 services: cloud-services
 documentationcenter: 
 author: mmccrory
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: fc9b84d151144ae9cb49beacdf525fdc356818a6
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
 ms.contentlocale: it-it
-ms.lasthandoff: 04/11/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
@@ -73,5 +72,5 @@ Dopo aver abilitato Desktop remoto nei ruoli, è possibile avviare una connessio
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 [Come configurare i servizi cloud](cloud-services-how-to-configure.md)
-[Domande frequenti sui servizi cloud - Desktop remoto](cloud-services-faq.md#remote-desktop)
+[Domande frequenti sui servizi cloud - Desktop remoto](cloud-services-faq.md)
 

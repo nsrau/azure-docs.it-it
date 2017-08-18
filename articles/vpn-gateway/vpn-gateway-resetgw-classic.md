@@ -1,6 +1,6 @@
 ---
-title: Reimpostare un&quot;istanza di gateway VPN di Azure per ristabilire tunnel IPsec | Microsoft Docs
-description: Questo articolo descrive la reimpostazione di Gateway VPN di Azure per ristabilire i tunnel IPsec. L&quot;articolo riguarda i gateway VPN nei modelli di distribuzione classica e Resource Manager.
+title: Reimpostare un'istanza di gateway VPN di Azure per ristabilire tunnel IPsec | Microsoft Docs
+description: Questo articolo descrive la reimpostazione di Gateway VPN di Azure per ristabilire i tunnel IPsec. L'articolo riguarda i gateway VPN nei modelli di distribuzione classica e Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 4315e9168a1ad724a6c28bd9bab065d6ffdabb5d
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 7c5ba9310568571991708ab54a5275df6ea84a39
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="reset-a-vpn-gateway"></a>Reimpostare un gateway VPN
@@ -37,7 +36,7 @@ Se la connessione non viene ripristinata dopo il primo riavvio, emettere di nuov
 
 Dopo due riavvii, se si verificano ancora problemi di connettività cross-premise, aprire una richiesta di supporto dal portale di Azure.
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="before"></a>Prima di iniziare
 
 Prima di reimpostare il gateway, verificare gli elementi chiave elencati di seguito per ogni tunnel VPN da sito a sito (S2S) IPsec. Eventuali mancate corrispondenze negli elementi provocherà la disconnessione dei tunnel VPN S2S. La verifica e la correzione delle configurazioni per i gateway locali e VPN di Azure evitano riavvii non necessari e interruzioni per le altre connessioni funzionanti nei gateway.
 
@@ -47,7 +46,7 @@ Verificare gli elementi seguenti prima di reimpostare il gateway:
 * La chiave precondivisa deve essere uguale nei gateway VPN di Azure e locali.
 * Se si applica una configurazione IPsec/IKE specifica, ad esempio la crittografia, gli algoritmi hash e PFS (Perfect Forward Secrecy), assicurarsi che i gateway VPN di Azure e locali abbiano le stesse configurazioni.
 
-## <a name="azure-portal"></a>Portale di Azure
+## <a name="portal"></a>Portale di Azure
 
 È possibile reimpostare un gateway VPN di Resource Manager tramite il portale di Azure. Se si desidera reimpostare un gateway classico, vedere la procedura di [PowerShell](#resetclassic).
 
@@ -59,7 +58,7 @@ Verificare gli elementi seguenti prima di reimpostare il gateway:
   ![Pannello di reimpostazione gateway VPN](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. Nel pannello Reimposta, fare clic sul pulsante **Reimposta**.
 
-## <a name="powershell"></a>PowerShell
+## <a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>Modello di distribuzione di Gestione risorse
 
@@ -93,7 +92,7 @@ RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
 StatusCode     : OK
 ```
 
-## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+## <a name="cli"></a>
 
 Per reimpostare il gateway, usare il comando [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset). Nell'esempio seguente viene ripristinato un gateway di rete virtuale denominato VNet5GW nel gruppo di risorse TestRG5:
 

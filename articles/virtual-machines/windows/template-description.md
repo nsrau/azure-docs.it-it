@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 61e9cab7ba0b1b86a54b5282662bef3bdfba6e7d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -281,7 +281,7 @@ Per impostare questa proprietà, è necessario che esista l'interfaccia di rete.
 Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elementi di profilo. Alcuni sono necessari e alcuni sono facoltativi. Ad esempio, sono necessari gli elementi hardwareProfile, osProfile, storageProfile e networkProfile, ma diagnosticsProfile è facoltativo. Questi profili definiscono impostazioni, ad esempio:
    
 - [dimensione](sizes.md)
-- [nome](../linux/infrastructure-naming-guidelines.md) e credenziali
+- [nome](/architecture/best-practices/naming-conventions) e credenziali
 - disco e [impostazioni del sistema operativo](cli-ps-findimage.md)
 - [interfaccia di rete](../../virtual-network/virtual-networks-multiple-nics.md) 
 - diagnostica di avvio

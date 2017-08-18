@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: abc3f5ee70130b6be093e63afb495c86b921ba26
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -171,7 +171,7 @@ Al termine del processo di distribuzione, Microsoft fornisce i dati seguenti:
      - PeerID ExpressRoute
 - Dati per accedere a istanze Large di HANA dopo aver configurato il circuito ExpressRoute e la rete virtuale di Azure.
 
-La sequenza di connessione di istanze Large di HANA è disponibile anche nel documento [End to End Setup for SAP HANA Large Instances](https://msdnshared.blob.core.windows.net/media/2017/06/End-to-End-Setup-of-SAP-HANA-Large-Instances.pdf) (Configurazione end-to-end di istanze Large di SAP HANA). Molti dei passaggi seguenti sono illustrati nella distribuzione di esempio di questo documento. 
+La sequenza di connessione di istanze Large di HANA è disponibile anche nel documento [End to End Setup for SAP HANA Large Instances](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/) (Configurazione end-to-end di istanze Large di SAP HANA). Molti dei passaggi seguenti sono illustrati nella distribuzione di esempio di questo documento. 
 
 
 ## <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>Connessione di una rete virtuale a ExpressRoute per istanze Large di HANA

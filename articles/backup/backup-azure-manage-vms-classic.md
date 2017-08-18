@@ -16,10 +16,10 @@ ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: eb94f7222476af3d15089589a5e69556f7d6888b
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Gestire i processi di Backup di Azure comuni e attivare gli avvisi nel portale classico
@@ -244,7 +244,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 Gli avvisi basati su eventi sono soggetti alle limitazioni seguenti:
 
 1. Gli avvisi vengono attivati in tutte le macchine virtuali nell'insieme di credenziali per il backup. Non è possibile personalizzare l'impostazione per ricevere avvisi per un set specifico di macchine virtuali in un insieme di credenziali per il backup.
-2. Questa funzionalità è in anteprima. [Altre informazioni](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
+2. Questa funzionalità è in anteprima. [Altre informazioni](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Si riceveranno avvisi da "alerts-noreply@mail.windowsazure.com". Attualmente non è possibile modificare il mittente del messaggio di posta elettronica.
 
 ## <a name="next-steps"></a>Passaggi successivi

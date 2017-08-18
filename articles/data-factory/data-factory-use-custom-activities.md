@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 662db10a30d4581a77c75204f49e7f5c731342ac
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 78945ec210c56106833291167ecaf920794f717f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
@@ -54,7 +53,7 @@ La procedura dettagliata seguente riporta le istruzioni complete per creare un'a
 ## <a name="walkthrough-create-a-custom-activity"></a>Procedura dettagliata: creare un'attività personalizzata
 ### <a name="prerequisites"></a>Prerequisiti
 * Visual Studio 2012/2013/2015
-* Scaricare e installare [Azure .NET SDK][azure-developer-center]
+* Scaricare e installare [.NET SDK di Azure](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Prerequisiti di Azure Batch
 In questa procedura dettagliata vengono eseguite attività .NET personalizzate usando Azure Batch come risorsa di calcolo. **Azure Batch** è un servizio di piattaforma per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Azure Batch pianifica l'esecuzione del lavoro a elevato utilizzo di calcolo su una **raccolta di macchine virtuali** gestita e può ridimensionare automaticamente le risorse di calcolo in base alle esigenze dei processi. Vedere l'articolo [Nozioni di base di Azure Batch][batch-technical-overview] per una panoramica dettagliata del servizio Azure Batch.
@@ -1174,7 +1173,6 @@ L'esempio relativo all'[ambiente locale di Azure Data Factory](https://github.co
 [azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 

@@ -15,25 +15,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: a9ccbb3da29670da9a377be2212905c67b3ec7d0
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
 ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>App Web Hello World Django in una macchina virtuale Windows Server
-> [!div class="op_single_selector"]
-> * [Windows](python-django-web-app.md)
-> * [Mac/Linux](../../linux/python-django-web-app.md)
-> 
-> 
-
-<br>
 
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e il modello di distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra il modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager. Per un modello di Resource Manager da usare per distribuire Django, vedere [Deploy a Django app](https://azure.microsoft.com/documentation/templates/django-app/) (Distribuire un'app Django).
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e il modello di distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra il modello di distribuzione classica. Per le distribuzioni più recenti si consiglia di usare il modello di Resource Manager.
 
 In questa esercitazione viene illustrato come ospitare un sito Web basato su Django in Windows Server nelle macchine virtuali di Azure. Nell'esercitazione si presuppone che l'utente non abbia mai usato Azure. Al termine dell'esercitazione, si disporrà di un'applicazione basata su Django in esecuzione nel cloud.
 

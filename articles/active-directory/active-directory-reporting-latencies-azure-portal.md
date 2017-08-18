@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: a1e385c235c3530744a83527574880c5f37caadd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 93cb0baeab8f13f81257ed1bd32ed08561c54b72
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
@@ -72,7 +72,7 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per gli event
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
 | Accessi da posizioni non note |5 minuti |15 minuti |2 ore |
 | Utenti con credenziali perse |2 ore |4 ore |8 ore |
-| Trasferimento impossibile a posizioni atipiche |2 ore |4 ore |8 ore  |
+| Trasferimento impossibile a posizioni atipiche |5 minuti |1 ora |8 ore  |
 | Accessi da dispositivi infetti |2 ore |4 ore |8 ore  |
 | Accessi da indirizzi IP con attività sospette |2 ore |4 ore |8 ore  |
 

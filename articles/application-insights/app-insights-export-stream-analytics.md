@@ -1,6 +1,6 @@
 ---
-title: Esportare da Azure Application Insights usando l&quot;analisi di flusso | Documentazione Microsoft
-description: "L&quot;analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights."
+title: Esportare da Azure Application Insights usando l'analisi di flusso | Documentazione Microsoft
+description: "L'analisi di flusso può trasformare, filtrare e instradare continuativamente i dati esportati da Application Insights."
 services: application-insights
 documentationcenter: 
 author: noamben
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: c1a76f521cbee673eb473d40bb15badd40cead5f
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 1403b30ce46e93f244a10a8472e1dfd9e33e9de7
 ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights

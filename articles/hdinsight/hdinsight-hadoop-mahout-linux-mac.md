@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 15df34278db6fbda48b03123993a29909910ba67
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 28450d72f19a5467d88bc787d11f6c37c5afbf9a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Generare raccomandazioni di film tramite Apache Mahout con Hadoop basato su Linux in HDInsight (SSH)
@@ -38,6 +37,8 @@ Mahout è una libreria di [apprendimento automatico][ml] per Apache Hadoop. Maho
 
 > [!IMPORTANT]
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+
+* Un client SSH. Per altre informazioni, vedere il documento [Connettersi a HDInsight (Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="mahout-versioning"></a>Controllo delle versioni di Mahout
 
@@ -168,16 +169,10 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Premere **CTRL-X**, **Y** e infine **INVIO** per salvare i dati.
 
-4. Usare il comando seguente per rendere il file eseguibile:
+4. Eseguire lo script Python. Il comando seguente presuppone che l'utente si trovi nella directory in cui sono stati scaricati tutti i file:
 
     ```bash
-    chmod +x show_recommendations.py
-    ```
-
-5. Eseguire lo script Python. Il comando seguente presuppone che l'utente si trovi nella directory in cui sono stati scaricati tutti i file:
-
-    ```bash
-    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
     Questo comando esamina le raccomandazioni generate per l'ID utente 4.

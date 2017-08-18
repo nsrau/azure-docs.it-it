@@ -1,6 +1,6 @@
 ---
-title: Installare Python e l&quot;SDK - Azure
-description: Informazioni su come installare Python e l&quot;SDK da usare con Azure.
+title: Installare Python e l'SDK - Azure
+description: Informazioni su come installare Python e l'SDK da usare con Azure.
 services: 
 documentationcenter: python
 author: lmazuel
@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 90c8c6d91de667f2d234b1d4e89ce7336813fb62
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3e6bcf301a9257a60e6b921934bb6a04b4dd5d53
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>Installazione di Python e dell'SDK
@@ -112,7 +111,7 @@ Per Linux o MacOS, ecco gli scenari principali di Azure supportati:
 
 Il primo scenario consente di creare App Web avanzate che sfruttano le funzionalità PaaS di Azure, come l'[archiviazione BLOB](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), l'[archiviazione code](storage/storage-python-how-to-use-queue-storage.md), l'[archiviazione tabelle](storage/storage-python-how-to-use-table-storage.md) e così via, tramite wrapper di Python per le API REST di Azure. Il funzionamento è identico in Windows, Mac e Linux.  È inoltre possibile usare queste librerie client dal computer di sviluppo locale oppure da una macchina virtuale Linux in esecuzione su Azure.
 
-Per lo scenario della macchina virtuale, avviare una VM Linux a scelta (Ubuntu, CentOS, Suse) ed eseguire o gestire i componenti desiderati.  È possibile ad esempio eseguire [IPython][IPython] REPL/Notebook nel computer Windows/Mac/Linux e puntare il browser a una VM multi-processore Linux o Max che esegue il motore IPython in Azure. Per altre informazioni, vedere l'esercitazione [IPython Notebook in Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per lo scenario della macchina virtuale, avviare una VM Linux a scelta (Ubuntu, CentOS, Suse) ed eseguire o gestire i componenti desiderati.  È possibile ad esempio eseguire [IPython][IPython] REPL/Notebook nel computer Windows/Mac/Linux e puntare il browser a una VM multi-processore Linux o Max che esegue il motore IPython in Azure.
 
 Per informazioni sulla procedura di configurazione di una VM di Linux, vedere l'esercitazione [Creare una macchina virtuale che esegue Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -131,7 +130,6 @@ Per altre informazioni su sviluppo e pubblicazione di siti Web di Azure, vedere 
 * [Serie di librerie numeriche NumPy per Python][NumPy - A numerics library for Python]
 * [Progetto Django: framework/CMS Web avanzato][Django Project - A mature web framework/CMS]
 * [IPython: REPL/Notebook avanzato per Python][IPython - an advanced REPL/Notebook for Python]
-* [IPython Notebook in Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Python Tools per Visual Studio su GitHub][Python Tools for Visual Studio on GitHub]
 * [Centro per sviluppatori Python](/develop/python/)
 

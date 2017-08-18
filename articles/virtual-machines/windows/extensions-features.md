@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 09b4a34a45ad676a5279dad85fc84578f40a212a
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
@@ -40,7 +40,6 @@ Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna co
 
 Oltre alle estensioni specifiche del processo, è disponibile un'estensione Script personalizzato per le macchine virtuali Linux e Windows. L'estensione Script personalizzato per Windows consente l'esecuzione di qualsiasi script PowerShell su una macchina virtuale. È utile per la progettazione di distribuzioni di Azure che richiedono una configurazione oltre a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione Script personalizzato per macchine virtuali Windows](extensions-customscript.md).
 
-Per illustrare un esempio d'uso di un'estensione della macchina virtuale in una distribuzione di applicazioni end-to-end, vedere [Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure](dotnet-core-1-landing.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -159,7 +158,7 @@ Per altre informazioni, vedere il [modello di Resource Manager completo](https:/
 }
 ```
 
-Per altre informazioni, vedere [Authoring Azure Resource Manager templates with Windows VM extensions](extensions-authoring-templates.md) (Creazione di modelli di Azure Resource Manager con le estensioni della macchina virtuale Windows).
+Per altre informazioni, vedere [Authoring Azure Resource Manager templates with Windows VM extensions](template-description.md#extensions) (Creazione di modelli di Azure Resource Manager con le estensioni della macchina virtuale Windows).
 
 ## <a name="secure-vm-extension-data"></a>Proteggere i dati dell'estensione della macchina virtuale
 
