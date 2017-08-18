@@ -46,7 +46,7 @@ Questo articolo illustra come configurare i criteri di protezione del contenuto 
 Per usare il portale per avviare la configurazione della protezione del contenuto per l'intero account AMS, eseguire questa procedura:
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni** > ** Protezione del contenuto**.
+2. Selezionare **Impostazioni** > **Protezione del contenuto**.
 
 ![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
