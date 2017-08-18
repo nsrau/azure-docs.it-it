@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 9d14022f46c15db531bb3430f302eb49e1335083
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e9808af4aa875c5199279825325688afc69e6de6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Domande frequenti su Azure Cosmos DB
@@ -337,9 +337,6 @@ Nella versione di anteprima, l'API Table offre le stesse funzionalità di query 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-preview-table"></a>È possibile aumentare o ridurre la velocità effettiva di una tabella dell'API Table (anteprima)? 
 Sì. È possibile usare il riquadro relativo alla scalabilità del portale di Azure Cosmos DB per ridimensionare la velocità effettiva. Per altre informazioni, vedere l'articolo su come [impostare la velocità effettiva](set-throughput.md).
 
-### <a name="can-the-premium-table-api-preview-take-advantage-of-the-ru-per-minute-offering"></a>L'API Table (anteprima) Premium può sfruttare l'offerta delle UR al minuto? 
-Sì. L'API Table (anteprima) Premium usa le funzionalità di Azure Cosmos DB per offrire contratti di servizio per prestazioni, latenza, disponibilità e coerenza. Grazie a queste funzionalità, la tabella può usare l'offerta delle UR al minuto. Per altre informazioni, vedere [Unità richiesta in Azure Cosmos DB](request-units.md). Questo consente ai clienti di evitare il provisioning per i picchi e di ridurre gli spike nel carico di lavoro.
-
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>Per le tabelle appena sottoposte a provisioning viene impostato un valore predefinito di TableThroughput?
 Sì. Se non si sostituisce il valore di TableThroughput in app.config e non si usa un contenitore già creato in Azure Cosmos DB, il servizio crea una tabella con velocità effettiva di 400.
  
@@ -400,7 +397,7 @@ Il risultato di questo miglioramento più evidente per gli sviluppatori è attua
 
 È importante sottolineare che il [dialetto SQL](../documentdb/documentdb-sql-query.md) di DocumentDB è sempre stato solo una delle tante API che possono essere supportate da Azure Cosmos DB sottostante. Per gli sviluppatori che usano un servizio completamente gestito come Azure Cosmos DB, l'unica interfaccia per il servizio sono le API esposte dal servizio. Non cambia nulla per i clienti esistenti di DocumentDB. In Azure Cosmos DB è disponibile esattamente la stessa API SQL offerta da DocumentDB. Ora (e in futuro) è possibile accedere ad altre funzionalità prima non accessibili. 
 
-Un altro risultato evidente dei miglioramenti apportati è l'ampia base per la scalabilità globale ed elastica della velocità effettiva e dello spazio di archiviazione, Una delle prime dimostrazioni della scalabilità è costituita dalle [UR/m](../cosmos-db/request-units-per-minute.md), ma è previsto l'annuncio di funzionalità aggiuntive che consentiranno di ridurre i costi per i clienti per vari carichi di lavoro. Sono stati apportati diversi miglioramenti al sottosistema di distribuzione globale. Una delle molte funzionalità per gli sviluppatori è il modello di coerenza del prefisso, che porta a cinque il numero di modelli di coerenza ben definiti. Diverse funzionalità ancora più interessanti verranno rilasciate non appena saranno definitive. 
+Un altro risultato evidente dei miglioramenti apportati è l'ampia base per la scalabilità globale ed elastica della velocità effettiva e dello spazio di archiviazione, Sono stati apportati diversi miglioramenti al sottosistema di distribuzione globale. Una delle molte funzionalità per gli sviluppatori è il modello di coerenza del prefisso, che porta a cinque il numero di modelli di coerenza ben definiti. Diverse funzionalità ancora più interessanti verranno rilasciate non appena saranno definitive. 
 
 ### <a name="what-do-i-need-to-do-to-ensure-that-my-documentdb-resources-continue-to-run-on-azure-cosmos-db"></a>Che cosa è necessario fare per assicurarsi che le risorse di DocumentDB continuino a essere eseguite in Azure Cosmos DB?
 
@@ -418,7 +415,7 @@ DocumentDB non è più visualizzato nel portale come servizio di Azure. Al suo p
 
 ### <a name="are-there-changes-to-pricing"></a>I prezzi sono stati modificati?
 
-No, il costo per eseguire l'app in Azure Cosmos DB è lo stesso di prima. È tuttavia possibile trarre vantaggio dalla nuova funzionalità delle "unità richiesta al minuto". Per altre informazioni, vedere l'articolo [Unità richiesta al minuto in Azure Cosmos DB](../cosmos-db/request-units-per-minute.md).
+No, il costo per eseguire l'app in Azure Cosmos DB è lo stesso di prima.
 
 ### <a name="are-there-changes-to-the-slas"></a>I contratti di servizio sono stati modificati?
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
 ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedure consigliate per la sicurezza delle VM di Azure
@@ -65,7 +65,7 @@ Le organizzazioni che non applicano il controllo di accesso ai dati sfruttando f
 
 ## <a name="vm-availability-and-network-access"></a>Disponibilità e accesso alla rete della VM
 
-Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più VM. Per una maggiore disponibilità, creare almeno due macchine virtuali nel [set di disponibilità](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+Se la VM esegue applicazioni critiche che richiedono un'elevata disponibilità, è consigliabile usare più VM. Per una maggiore disponibilità, creare almeno due macchine virtuali nel [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) richiede inoltre che le VM con carico bilanciato appartengano allo stesso set di disponibilità. Se per queste VM è necessario eseguire l'accesso da Internet, si dovrà configurare un [servizio di bilanciamento del carico con connessione Internet](../load-balancer/load-balancer-internet-overview.md).
 

@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e76a31a8eaa249ab064d180bfd7ed158ef32c85a
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 27bb185d0243b1e8c0fd7697650eaf7bbd5eefa7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="application-map-in-application-insights"></a>Mappa delle applicazioni in Application Insights
@@ -130,3 +129,4 @@ Inviare commenti e suggerimenti tramite l'apposita opzione del portale.
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Portale di Azure](https://portal.azure.com)
+

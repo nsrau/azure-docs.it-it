@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 7e68a738feff2eb2330b74d942b0a7f42d07df78
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: f760bfd93b19c43d12889b5dd38015c5eba0a8ac
+ms.contentlocale: it-it
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
@@ -36,7 +36,7 @@ I certificati di servizio sono associati ai servizi cloud e consentono la comuni
 I certificati di servizio possono essere gestiti separatamente dai servizi e da persone diverse. Ad esempio, uno sviluppatore può caricare un pacchetto del servizio che fa riferimento a un certificato caricato in precedenza in Azure da un responsabile IT. Un responsabile IT può gestire e rinnovare tale certificato, modificando la configurazione del servizio, senza dover caricare un nuovo pacchetto del servizio. Questa operazione è possibile poiché il nome logico, il nome di archivio e il percorso vengono specificati nel file di definizione del servizio, mentre l'identificazione personale del certificato viene specificata nel file di configurazione del servizio. Per aggiornare il certificato, è sufficiente caricare un nuovo certificato e modificare il valore dell'identificazione personale nel file di configurazione del servizio.
 
 >[!Note]
->L'articolo [domande frequenti su Servizi cloud](cloud-services-faq.md#certificates) contiene alcune utili informazioni sui certificati.
+>L'articolo [domande frequenti su Servizi cloud](cloud-services-faq.md) contiene alcune utili informazioni sui certificati.
 
 ## <a name="what-are-management-certificates"></a>Cosa sono i certificati di gestione?
 I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud. 

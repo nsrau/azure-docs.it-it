@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 34947c6dfd86ddd421f6d8045ed9c5fbf0049e11
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 741cce6f2c81efed1e4bd0547fcb46a231815263
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Eseguire esempi di Hadoop MapReduce in HDInsight basato su Windows
@@ -219,7 +219,6 @@ In questo articolo e negli articoli relativi ai singoli esempi, si è appreso co
 * [Usare Hive con Hadoop in HDInsight][hdinsight-use-hive]
 * [Inviare processi Hadoop in HDInsight][hdinsight-submit-jobs]
 * [Documentazione di Azure HDInsight SDK][hdinsight-sdk-documentation]
-* [Eseguire il debug di Hadoop in HDInsight: messaggi di errore][hdinsight-errors]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Appendice A: Codice sorgente per il conteggio delle parole
 
@@ -985,8 +984,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-errors]: hdinsight-debug-jobs.md
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

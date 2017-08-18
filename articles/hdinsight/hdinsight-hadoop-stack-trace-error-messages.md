@@ -1,6 +1,6 @@
 ---
 title: Messaggi di errore di analisi dello stack di Hadoop in Azure HDInsight | Documentazione Microsoft
-description: Indice dei messaggi di errore di analisi dello stack di Hadoop in Azure HDInsight. Individuare l&quot;errore nell&quot;elenco per visualizzare informazioni sulla risoluzione.
+description: Indice dei messaggi di errore di analisi dello stack di Hadoop in Azure HDInsight. Individuare l'errore nell'elenco per visualizzare informazioni sulla risoluzione.
 keywords: analisi dello stack,  messaggi di errore
 services: hdinsight
 documentationcenter: NA
@@ -14,14 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: big-data
-ms.date: 04/26/2017
+ms.date: 08/15/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: ef647b4414cc3f338719eff8ccd403abaefd41b5
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 45b3df39dcabf8be640bf6b9e5b83a452d6dd824
 ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Indice di Hadoop negli articoli sulla risoluzione dei problemi di HDInsight
@@ -36,7 +35,6 @@ Gli articoli sono organizzati per tipi di errori.
 
 ## <a name="more-troubleshooting-articles"></a>Altri articoli sulla risoluzione dei problemi
 * [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md)
-* [Eseguire il debug di Hadoop in HDInsight: visualizzare i log e interpretare i messaggi di errore](hdinsight-debug-jobs.md)
 * [Accedere ai log delle applicazioni YARN in Hadoop basato su Linux in HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Abilitare i dump dell'heap per i servizi Hadoop in HDInsight basato su Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Note sulla versione di componenti Hadoop in Azure HDInsight](hdinsight-release-notes.md)

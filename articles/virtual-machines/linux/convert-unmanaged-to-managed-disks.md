@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3109da1dac6ebb6564c94b5c6635ded77ea9be8d
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f7ba456a0d23560ee70f14ecb61c0d016e24e7e1
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -96,17 +96,6 @@ Tutte le macchine virtuali nel set di disponibilità devono essere deallocate pr
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
-
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>Dischi gestiti e Crittografia del servizio di archiviazione di Azure
-Non è possibile usare la procedura precedente per convertire un disco non gestito in un disco gestito se il disco non gestito si trova in un account di archiviazione che è stato crittografato con [Crittografia del servizio di archiviazione di Azure](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La procedura seguente illustra come copiare e usare dischi non gestiti che sono stati in un account di archiviazione crittografato:
-
-1. Usare il comando [az storage blob copy start](/cli/azure/storage/blob/copy#start) per copiare il disco rigido virtuale in un account di archiviazione che non è mai stato abilitato per la crittografia del servizio di archiviazione di Azure.
-
-2. Usare la VM copiata in uno dei modi seguenti:
-
-   * Creare una macchina virtuale che usi dischi gestiti e specificare il file del disco rigido virtuale durante la creazione con il comando [az vm create](/cli/azure/vm#create).
-
-   * Usare il comando [az vm disk attach](/cli/azure/vm/disk#attach) per collegare il disco rigido virtuale copiato a una macchina virtuale in esecuzione che usa dischi gestiti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle opzioni di archiviazione, vedere [Panoramica di Azure Managed Disks](../../storage/storage-managed-disks-overview.md).

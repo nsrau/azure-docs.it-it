@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 43eaa0ae7ab5c3ea08d09c1fdda0033ab0fd2658
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure Cosmos DB Python SDK: risorse e note sulla versione
@@ -53,7 +53,6 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="release-notes"></a>Note sulla versione
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
-* Aggiunta del supporto per la funzionalità di unità richiesta al minuto (UR/min).
 * Aggiunta del supporto per un nuovo livello di coerenza denominato ConsistentPrefix.
 
 
