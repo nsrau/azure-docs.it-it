@@ -14,28 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 036902801189c71eb336900107f07319dfe817f2
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>Controllare la connettività con Azure Network Watcher usando PowerShell
 
 > [!div class="op_single_selector"]
+> - [Portale](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-connectivity-cli.md)
 > - [API REST di Azure](network-watcher-connectivity-rest.md)
 
 Informazioni su come usare la connettività per verificare se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.
-
-Questo articolo illustra alcuni scenari di controllo della connettività.
-
-* [Controllare la connettività a una macchina virtuale](#check-connectivity-to-a-virtual-machine)
-* [Problemi relativi alla convalida del routing](#validate-routing-issues)
-* [Controllare la latenza del sito Web](#check-website-latency)
-* [Controllare la connettività a un endpoint di archiviazione](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

@@ -1,6 +1,6 @@
 ---
-title: Reimpostare l&quot;accesso a VM Linux di Azure tramite l&quot;estensione VMAccess | Microsoft Docs
-description: Reimpostare l&quot;accesso a VM Linux di Azure tramite l&quot;estensione VMAccess
+title: Reimpostare l'accesso a VM Linux di Azure tramite l'estensione VMAccess | Microsoft Docs
+description: Reimpostare l'accesso a VM Linux di Azure tramite l'estensione VMAccess
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d58bf287284673c0767a25289660db06aa8e5863
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 278bf1785aac71068ab94cf9916af69a204c44be
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux di Azure tramite l'estensione VMAccess con l'interfaccia della riga di comando di Azure 1.0
@@ -268,7 +268,7 @@ L'aggiornamento di Linux mediante le estensioni VMAccess di Azure è un metodo p
 
 [Informazioni sulle estensioni e sulle funzionalità delle macchine virtuali](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Creazione di modelli di Azure Resource Manager con le estensioni di VM Linux](../windows/extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Creazione di modelli di Azure Resource Manager con le estensioni di VM Linux](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Uso di cloud-init per personalizzare una VM Linux durante la creazione](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
