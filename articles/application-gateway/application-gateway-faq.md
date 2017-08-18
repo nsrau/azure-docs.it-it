@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 3a57646922236a10cf51ae3dd86c67c87c6d7f7f
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: bb3cf81c9b179e520e58a6fe5e455a136b9bb349
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -136,7 +136,7 @@ I probe personalizzati non supportano caratteri jolly o regex nei dati di rispos
 
 **D. Come vengono elaborate le regole?**
 
-Le regole vengono elaborate nell'ordine in cui sono configurate. È consigliabile configurare le regole multisito prima delle regole di base. Configurando prima i listener multisito, la configurazione riduce le probabilità che il traffico venga instradato al back-end non appropriato. Questo problema di routing può verificarsi se la regola di base corrisponde al traffico in base alla porta prima che venga valutata la regola multisito.
+Le regole vengono elaborate nell'ordine in cui sono create. È consigliabile configurare le regole multisito prima delle regole di base. Configurando prima i listener multisito, la configurazione riduce le probabilità che il traffico venga instradato al back-end non appropriato. Questo problema di routing può verificarsi se la regola di base corrisponde al traffico in base alla porta prima che venga valutata la regola multisito.
 
 **D. Cosa indica il campo Host per i probe personalizzati?**
 

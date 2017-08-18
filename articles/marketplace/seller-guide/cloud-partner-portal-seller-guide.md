@@ -12,13 +12,11 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 59a0f0ec1b7b576339a45be26be8543ac0650a8a
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guida per i venditori di Azure Marketplace
@@ -215,7 +213,7 @@ Il Marketplace offre report sugli ordini, sull'utilizzo e sui clienti accessibil
   - Offerte di tendenza
   - Tipo di licenza del Marketplace
 
-I report dettagliati mostrano le informazioni sul cliente, ad esempio il nome della società e la posizione geografica, nonché il codice postale, pertanto è possibile contattare i propri venditori. L'elenco seguente comprende gli attributi specifici che forniamo in relazione ai clienti:
+I report dettagliati mostrano le informazioni sul cliente, ad esempio il nome della società e la località geografica, oltre al codice postale, quindi è possibile confrontare i propri clienti. L'elenco seguente comprende gli attributi specifici che forniamo in relazione ai clienti:
 
 - Rivenditore
 - FirstName

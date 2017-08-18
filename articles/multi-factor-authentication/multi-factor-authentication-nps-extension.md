@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/24/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: f9058ca12cb52c1a9d4a3d05f4ccb3e2c030873e
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 395b0209109a5c1eb3ee8ecdd9651ab82fb213eb
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
@@ -163,6 +163,9 @@ A meno che non si desideri utilizzare i propri certificati (invece dei certifica
 6. Al termine dello script, PowerShell mostra un messaggio di conferma.  
 
 Ripetere questi passaggi per tutti i server dei criteri di rete aggiuntivi che si intende configurare per il bilanciamento del carico.
+
+>[!NOTE]
+>Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome oggetto deve essere **CN=\<TenantID\>,OU=Estensione di Server dei criteri di rete Microsoft**. 
 
 ## <a name="configure-your-nps-extension"></a>Configurare l'estensione di Server dei criteri di rete
 

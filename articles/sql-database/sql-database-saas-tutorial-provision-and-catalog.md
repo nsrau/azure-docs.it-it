@@ -14,13 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/04/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 658c316d8d9d14ce11dbb92188afbf0e68c00493
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c019ea9207379ea1b88ec5d990e1c2b8565092a2
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
@@ -82,7 +82,7 @@ Dopo il completamento dello script, viene effettuato il provisioning del nuovo t
 
 Questo esercizio descrive come effettuare il provisioning di un batch di altri tenant. È consigliabile eseguire il provisioning di un batch di tenant prima del completamento delle altre esercitazioni su SaaS Wingtip in modo da avere più database da usare.
 
-1. Aprire ...\\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1* in *PowerShell ISE* e impostare il parametro *$DemoScenario* su 3:
+1. Aprire ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* in *PowerShell ISE* e impostare il parametro *$DemoScenario* su 3:
    * **$DemoScenario** = **3**, impostare su **3** per *effettuare il provisioning di un batch di tenant*.
 1. Premere **F5** ed eseguire lo script.
 
@@ -95,24 +95,31 @@ Lo script distribuisce un batch di altri tenant e usa [modello di Azure Resource
    ![elenco di database](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
 
-## <a name="provision-and-catalog-details"></a>Eseguire il provisioning e catalogare i dettagli
+## <a name="stepping-through-the-provision-and-catalog-implementation-details"></a>Analisi dei dettagli dell'implementazione del provisioning e del catalogo
 
 Per capire meglio come l'applicazione Wingtip implementa il provisioning di nuovi tenant, eseguire di nuovo lo script *Demo-ProvisionAndCatalog* ed effettuare il provisioning di un altro tenant. Questa volta, aggiungere un punto di interruzione ed eseguire il flusso di lavoro istruzione per istruzione:
 
-1. Aprire ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ e impostare i parametri seguenti:
+1. Aprire ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ e impostare i parametri seguenti:
    * **$TenantName** = i nomi dei tenant devono essere univoci, quindi impostare un nome diverso da quello dei tenant esistenti, ad esempio *Hackberry Hitters*.
    * **$VenueType** = usare uno dei tipi di sedi predefiniti, ad esempio *judo*.
    * **$DemoScenario** = **1**, impostare su **1** per *effettuare il provisioning di un singolo tenant*.
 
-1. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga seguente: *New-Tenant `* e premere **F9**.
+1. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga 48 contenente il testo: *New-Tenant `* e premere **F9**.
 
    ![punto di interruzione](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. Premere **F5** per eseguire lo script. Quando viene raggiunto il punto di interruzione, premere **F11** per eseguire l'istruzione. Tenere traccia dell'esecuzione dello script usando le opzioni del menu di debug **F10** e **F11** per eseguire le istruzioni delle funzioni chiamate. Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+1. Premere **F5** per eseguire lo script.
 
-### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>Esaminare nei dettagli l'implementazione di provisioning e catalogazione eseguendo lo script un'istruzione alla volta
+1. Quando l'esecuzione dello script si arresta in corrispondenza del punto di interruzione, premere **F11** per eseguire l'istruzione del codice.
 
-Lo script effettua il provisioning dei nuovi tenant e li cataloga eseguendo le operazioni seguenti:
+   ![punto di interruzione](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
+
+
+
+Tenere traccia dell'esecuzione dello script usando le opzioni del menu **Debug** **F10** e **F11** per eseguire le istruzioni delle funzioni chiamate. Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+
+
+I seguenti non sono passaggi da usare esplicitamente, ma solo una spiegazione del flusso di lavoro seguito durante il debug dello script:
 
 1. **Importazione del modulo SubscriptionManagement.psm1** che contiene funzioni per l'accesso ad Azure e la selezione della sottoscrizione di Azure da usare.
 1. **Importazione del modulo CatalogAndDatabaseManagement.psm1** che fornisce un catalogo e l'astrazione a livello di tenant per le funzioni di [gestione delle partizioni](sql-database-elastic-scale-shard-map-management.md). Questo è un modulo importante che incapsula gran parte del modello di catalogazione e vale la pena esplorare.
