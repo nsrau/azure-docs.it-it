@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 08/02/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2e5dbaf595e3d3cd7dee09431fbb1cb6f2403ef4
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics
@@ -31,7 +30,7 @@ Per impostazione predefinita, il servizio Data Lake Analytics archivia i process
 Vedere [Prerequisiti di Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Aprire Job Browser
-È possibile accedere a Job Browser tramite **Esplora server > Azure > Data Lake Analytics > Processi** in Visual Studio.  Tramite il browser è possibile accedere all'archivio query di un account Data Lake Analytics. Job Browser mostra l'archivio query a sinistra con informazioni di base sui processi e la visualizzazione processo a destra con informazioni dettagliate su un processo.
+Accedere a Browser processi tramite **Esplora server > Azure > Data Lake Analytics > Processi** in Visual Studio.  Usando Browser processi è possibile accedere all'archivio query di un account Data Lake Analytics. In Browser processi a sinistra viene visualizzato Query Store, che mostra le informazioni di base sul processo, e a destra Vista processi, che mostra le informazioni dettagliate sul processo.
 
 ## <a name="job-view"></a>Job View (Visualizzazione processo)
 Contiene informazioni dettagliate su un processo. Per aprire un processo, è possibile fare doppio clic su di esso in Job Browser o aprirlo dal menu Data Lake facendo clic su Job View (Visualizzazione processo). Verrà visualizzata una finestra di dialogo in cui è inserito l'URL del processo.

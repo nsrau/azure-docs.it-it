@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 870436655c84c0bc53ca41eaa67f6fd32ef93ceb
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 6fd58edd830df8ea3f77a68e8dfcaf6de055b17c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
@@ -202,7 +201,7 @@ Attenersi alle linee guida seguenti per decidere quando includere le informazion
     Poiché per le origini dati strutturate le informazioni sul tipo sono già disponibili, non includere le informazioni sul tipo quando si include la sezione structure.
 * **Per lo schema delle origini dati di lettura, in particolare l'archiviazione BLOB**, è possibile scegliere di archiviare i dati senza aggiungere alcuna informazione sullo schema o sul tipo. Per questi tipi di origini dati, includere la sezione structure per eseguire il mapping delle colonne di origine alle colonne del sink. Includere la sezione structure anche quando il set di dati è un input per un'attività di copia e i tipi di dati del set di dati di origine devono essere convertiti in tipi nativi per il sink. 
     
-    Data Factory supporta i seguenti valori per specificare informazioni sul tipo nella sezione structure: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset e Timespan. Sono valori dei tipi basati su .NET e conformi a CLS (Common Language Specification).
+    Data Factory supporta i seguenti valori per specificare informazioni sul tipo nella sezione structure: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset e Timespan**. Sono valori dei tipi basati su .NET e conformi a CLS (Common Language Specification).
 
 La data factory esegue automaticamente le conversioni quando si spostano dati da un archivio dati di origine a un archivio dati di sink. 
   
@@ -269,7 +268,7 @@ Il seguente set di dati è mensile e viene generato il giorno 3 di ogni mese all
 "availability": {
     "frequency": "Month",
     "interval": 1,
-    "offset": "3.08:00:00",    
+    "offset": "3.08:00:00", 
     "style": "StartOfInterval"
 }
 ```

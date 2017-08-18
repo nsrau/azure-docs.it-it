@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 07/14/2017
 ms.author: tonguyen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 264078587b81d7840fe5976498a91ae4f535b6aa
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 547b035646ccb80d1001591ae59e6a0871d1ed2c
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendere la fattura per Microsoft Azure
-Per comprendere la fattura di Azure, confrontare la fattura con il file dei dettagli di utilizzo giornaliero e con i report di gestione dei costi nel Portale di Azure.
+Per comprendere la fattura di Azure, confrontare la fattura con il file dei dettagli di utilizzo giornaliero e con i report di gestione dei costi nel portale di Azure.
 
-Per scaricare la fattura in formato PDF e il file dei dettagli di utilizzo giornaliero in formato CSV, vedere [Come ottenere la fattura e i dati di utilizzo giornaliero di Azure](billing-download-azure-invoice-daily-usage-date.md). 
+Per ottenere la fattura in formato PDF e una copia del download del file dei dettagli di utilizzo giornaliero in formato CSV, vedere [Ottenere la fattura e i dati di utilizzo giornaliero di Azure](billing-download-azure-invoice-daily-usage-date.md). 
 
-Per una spiegazione dettagliata dei termini e delle descrizioni nella fattura e nel file dei dettagli di utilizzo giornaliero, vedere [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) (Comprendere i termini nella fattura di Microsoft Azure) e [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md) (Comprendere i termini nel file dei dettagli di utilizzo giornaliero).
+Per una spiegazione dettagliata dei termini e delle descrizioni nella fattura e nel file dei dettagli di utilizzo giornaliero, vedere [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice.md) (Comprendere i termini nella fattura di Microsoft Azure) e [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md) (Comprendere i termini nel file dei dettagli di utilizzo giornaliero). 
 
 Per informazioni sui report di gestione dei costi, vedere [Gestione dei costi del Portale di Azure](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
-## <a name="reconcile"></a>Come posso assicurarmi che gli addebiti nella fattura siano corretti?
-Se nella fattura è presente un addebito su cui si vogliono ricevere altre informazioni, sono disponibili due opzioni:
 
-### <a name="review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Rivedere la fattura e confrontare l'utilizzo e i costi riportati all'interno di essa con il file dei dettagli di utilizzo in formato CSV
+## <a name="charges"></a>Come posso assicurarmi che gli addebiti nella fattura siano corretti?
+Se nella fattura è presente un addebito su cui si vogliono ricevere altre informazioni, sono disponibili due opzioni.
 
-Il file con i dettagli di utilizzo in formato CSV illustra gli addebiti per periodo di fatturazione e utilizzo giornaliero. Per ottenere questi file con i dettagli di utilizzo in formato CSV, vedere [Come ottenere la fattura e i dati di utilizzo giornaliero di Azure](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Opzione 1: Rivedere la fattura e confrontare l'utilizzo e i costi con il file dei dettagli di utilizzo in formato CSV
 
-Gli addebiti relativi all'utilizzo vengono visualizzati a livello di contatore. I termini elencati di seguito hanno lo stesso significato nella fattura e nel file con i dettagli di utilizzo. Ad esempio, il ciclo di fatturazione indicato nella fattura corrisponde al periodo di fatturazione indicato nel file con i dettagli di utilizzo.
+Il file con i dettagli di utilizzo in formato CSV illustra gli addebiti per periodo di fatturazione e utilizzo giornaliero. Per ottenere questi file con i dettagli di utilizzo in formato CSV, vedere [Ottenere la fattura e i dati di utilizzo giornaliero di Azure](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+
+Gli addebiti relativi all'utilizzo vengono visualizzati a livello di contatore. I termini seguenti hanno lo stesso significato sia nella fattura che nel file con i dettagli di utilizzo. Ad esempio, il ciclo di fatturazione indicato nella fattura corrisponde al periodo di fatturazione indicato nel file con i dettagli di utilizzo.
 
  | Fattura (PDF) | Dettagli di utilizzo (CSV)|
  | --- | --- |
- |Ciclo di fatturazione | Periodo di fatturazione |
+|Ciclo di fatturazione | Periodo di fatturazione |
  |Nome |Categoria misuratore |
  |Type |Sottocategoria contatore |
  |Risorsa |Nome misuratore |
@@ -52,56 +52,57 @@ Gli addebiti relativi all'utilizzo vengono visualizzati a livello di contatore. 
  |Incluso |Quantità inclusa |
  |Fatturabile |Quantità in eccesso |
 
-La sezione relativa agli addebiti per l'utilizzo nella fattura riporta il valore totale per ogni contatore utilizzato durante il periodo di fatturazione. Ad esempio, lo screenshot seguente illustra l'addebito per l'utilizzo del servizio Utilità di pianificazione di Azure.
+La sezione **Costi di utilizzo** nella fattura riporta il valore totale per ogni misuratore utilizzato durante il periodo di fatturazione. Ad esempio, lo screenshot seguente illustra l'addebito per l'utilizzo del servizio Utilità di pianificazione di Azure.
 
 ![Addebiti di utilizzo nella fattura](./media/billing-understand-your-bill/1.png)
 
-Lo stesso addebito è presente nella sezione del rendiconto del file CSV con i dettagli di utilizzo.
+La sezione **Statement** (Rendiconto) del file CSV con i dettagli di utilizzo indica lo stesso addebito. Sia la quantità indicata in *Consumato* che *Valore* hanno una corrispondenza nella fattura.
 
 ![Addebiti di utilizzo nel file CSV](./media/billing-understand-your-bill/2.png)
 
-Nel file dei dettagli di utilizzo in formato CSV è presente anche una sezione sull'utilizzo giornaliero. La sezione riporta una voce per ogni giorno di utilizzo del contatore. La somma di queste voci deve corrispondere alla quantità utilizzata per il contatore durante il periodo di fatturazione.
+Per visualizzare una suddivisione di questo addebito su base giornaliera, andare alla sezione **Utilizzo giornaliero** del CSV. Filtrare "Utilità di pianificazione" in *Categoria misuratore* per visualizzare i giorni in cui il misuratore è stato usato e la quantità di consumo. Vengono elencate anche le informazioni *Risorsa* e *Gruppo di risorse* per il confronto. La somma dei valori in *Consumato* corrisponderà a quanto indicato nella fattura.
 
-Per i dettagli sulle sezioni, sui termini e sulle descrizioni della fattura. Vedere [qui](billing-understand-your-invoice.md).
+![Sezione Utilizzo giornaliero nel CSV](./media/billing-understand-your-bill/3.png)
 
-Per i dettagli sulle sezioni, sui termini e sulle descrizioni nel file di utilizzo giornaliero dettagliate, vedere [qui](billing-understand-your-usage.md).
+Per ottenere il costo giornaliero, moltiplicare le quantità in *Consumato* con il valore *Tariffa* della sezione **Statement** (Rendiconto).
 
-### <a name="review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>Rivedere la fattura e confrontarla con l'utilizzo e i costi riportati nel Portale di Azure
+Per altre informazioni sulla fattura, vedere [Comprendere la fattura di Azure](billing-understand-your-invoice.md).
+
+Per informazioni su ogni colonna del CSV, vedere [Informazioni sui dettagli di utilizzo di Azure](billing-understand-your-invoice.md).
+
+### <a name="option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>Opzione 2: Rivedere la fattura e confrontarla con l'utilizzo e i costi riportati nel portale di Azure
 
 Il Portale di Azure consente anche di verificare gli addebiti. Il portale di Azure offre grafici di gestione dei costi per una rapida panoramica dell'utilizzo e degli addebiti nella fattura.
 
-Ecco alcuni esempi di strumenti di gestione dei costi disponibili nel Portale di Azure:
+Per continuare con l'esempio precedente, vedere la [pagina Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selezionare la sottoscrizione e quindi scegliere **Analisi dei costi**. È quindi possibile specificare l'intervallo di tempo e visualizzare i costi di utilizzo per il servizio Utilità di pianificazione di Azure.
 
-![Costo per risorsa nel Portale di Azure](./media/billing-understand-your-bill/3.png)
+![Visualizzazione dell'analisi dei costi nel Portale di Azure](./media/billing-understand-your-bill/4.png)
 
-Questo grafico presenta i costi correnti per risorsa.
+Per visualizzare la suddivisione dei costi giornalieri in **Cronologia dei costi**, fare clic sulla riga.
 
-![Tasso e previsione di spesa nel Portale di Azure](./media/billing-understand-your-bill/4.png)
-
-Questo grafico illustra i costi correnti per questa sottoscrizione e il costo previsto per il resto del periodo di fatturazione.
-
-![Visualizzazione dell'analisi dei costi nel Portale di Azure](./media/billing-understand-your-bill/5.png)
-
-L'analisi dei costi presenta l'utilizzo a livello di risorsa e di contatore per diversi periodi di fatturazione.
+![Visualizzazione Cronologia dei costi nel portale di Azure](./media/billing-understand-your-bill/5.png)
 
 Per altre informazioni, vedere [Evitare costi imprevisti con la gestione dei costi e alla fatturazione di Azure](billing-getting-started.md#costs).
 
 ## <a name="external"></a>A cosa si riferiscono gli addebiti per servizi esterni?
-I servizi esterni, noti anche come ordini Marketplace, sono erogati da fornitori di servizi indipendenti e vengono fatturati separatamente. Questi addebiti non compaiono nella fattura di Azure. Per altre informazioni, vedere [Informazioni sugli addebiti per i servizi esterni](billing-understand-your-azure-marketplace-charges.md).
+I servizi esterni, noti anche come ordini di Azure Marketplace, sono erogati da fornitori di servizi indipendenti e vengono fatturati separatamente. Questi addebiti non compaiono nella fattura di Azure. Per altre informazioni, vedere [Informazioni sugli addebiti per i servizi esterni](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="payment"></a>Come si effettua il pagamento?
-Se il metodo di pagamento è impostato su carta di credito o carta di debito, il pagamento viene eseguito automaticamente. Nell'estratto conto della carta di credito la voce sarà **MSFT Azure**.
 
-Se si usa un [metodo di pagamento con fattura](https://azure.microsoft.com/pricing/invoicing/), inviare il pagamento al destinatario elencato nella parte inferiore della fattura. Per altre informazioni, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se il metodo di pagamento è impostato su carta di credito o carta di debito, il pagamento viene addebitato automaticamente entro 10 giorni dal termine del periodo di fatturazione. Nell'estratto conto della carta di credito la voce sarà **MSFT Azure**.
+
+Se si [paga tramite fattura](billing-how-to-pay-by-invoice.md), inviare il pagamento al destinatario elencato nella parte inferiore della fattura. Per altre informazioni, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Come si controlla lo stato di un pagamento effettuato con carta di credito?
+
 [Creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per richiedere lo stato del pagamento. 
 
 ## <a name="tips-for-cost-management"></a>Suggerimenti per la gestione dei costi
-- Stimare i costi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/), il [calcolatore del costo totale di proprietà](https://aka.ms/azure-tco-calculator) e quando si aggiunge un servizio
-- [Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure](billing-set-up-alerts.md)
-- [Review your usage and costs regularly in Azure portal](billing-getting-started.md#costs) (Verificare regolarmente utilizzo e costi nel portale di Azure)
+- Stimare i costi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) e il [calcolatore del costo totale di proprietà](https://aka.ms/azure-tco-calculator) e ottenere [informazioni dettagliate sui prezzi per ogni servizio](https://azure.microsoft.com/en-us/pricing/).
+- [Impostare avvisi di fatturazione](billing-set-up-alerts.md).
+- [Controllare regolarmente utilizzo e costi nel portale di Azure](billing-getting-started.md#costs).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico. 
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 

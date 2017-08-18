@@ -1,6 +1,6 @@
 ---
-title: Creare e caricare un&quot;immagine di VM OpenBSD in Azure | Microsoft Docs
-description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo OpenBSD per creare una macchina virtuale di Azure tramite l&quot;interfaccia della riga di comando di Azure
+title: Creare e caricare un'immagine di VM OpenBSD in Azure | Microsoft Docs
+description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo OpenBSD per creare una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: 
 author: KylieLiang
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: kyliel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: b9a26c75a89f8fc433e5cada2ab1e065ea7c5dcb
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 716c07f6a738189d6cf2b3caafa16b753927d182
 ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Creare e caricare un'immagine disco OpenBSD in Azure
@@ -119,7 +118,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-Per controllare l'accesso all'account di archiviazione, ottenere la chiave di archiviazione con [az storage account key list](/cli/azure/storage/account/key#list) come segue:
+Per controllare l'accesso all'account di archiviazione, ottenere la chiave di archiviazione con [az storage account keys list](/cli/azure/storage/account/keys#list) come segue:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
