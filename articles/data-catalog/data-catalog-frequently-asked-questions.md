@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti su Azure Data Catalog | Microsoft Docs
-description: "Domande frequenti relative al Catalogo dati di Azure, incluse le funzionalità per la gestione, l&quot;annotazione e l&quot;individuazione dell&quot;origine dati."
+description: "Domande frequenti relative al Catalogo dati di Azure, incluse le funzionalità per la gestione, l'annotazione e l'individuazione dell'origine dati."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/15/2017
+ms.date: 08/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
 ms.openlocfilehash: ea6b6651a32b9f259186991d9609301fd4dfa131
 ms.contentlocale: it-it
 ms.lasthandoff: 06/05/2017
-
 
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Domande frequenti sul Catalogo dati di Azure

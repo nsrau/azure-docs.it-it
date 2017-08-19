@@ -1,6 +1,6 @@
 ---
 title: Gestire gli asset di dati in Azure Data Catalog | Microsoft Docs
-description: "L&quot;articolo illustra come controllare la visibilità e la proprietà degli asset di dati registrati in Azure Data Catalog."
+description: "L'articolo illustra come controllare la visibilità e la proprietà degli asset di dati registrati in Azure Data Catalog."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/15/2017
+ms.date: 08/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
 ms.openlocfilehash: 391ea72390c589bf86ed9be58e44ce8b20eab837
 ms.contentlocale: it-it
 ms.lasthandoff: 06/05/2017
-
 
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gestire gli asset di dati in Azure Data Catalog
