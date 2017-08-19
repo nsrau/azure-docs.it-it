@@ -1,10 +1,10 @@
 ---
 title: Distribuire un servizio cloud in un ambiente di gestione temporanea (Node.js) | Documentazione Microsoft
-description: Informazioni su come distribuire l&quot;applicazione di Azure prima in un ambiente di gestione temporanea e quindi in un ambiente di produzione tramite uno scambio di IP virtuali (VIP, Virtual IP).
+description: Informazioni su come distribuire l'applicazione di Azure prima in un ambiente di gestione temporanea e quindi in un ambiente di produzione tramite uno scambio di IP virtuali (VIP, Virtual IP).
 services: cloud-services
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: d65d26a6-b424-49cd-a88c-7ef46bb112a8
 ms.service: cloud-services
@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
+ms.date: 08/17/2017
+ms.author: tarcher
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
 ms.openlocfilehash: a015c4a2f5dccb8cae49b739e5d8c342daec54cf
+ms.contentlocale: it-it
 ms.lasthandoff: 01/05/2017
-
 
 ---
 # <a name="staging-an-application-in-azure"></a>Gestione temporanea di un'applicazione in Azure

@@ -70,7 +70,7 @@ Per segnalare l'integrità, usare codice analogo al seguente:
 Per segnalare una metrica, usare codice analogo al seguente:
 
   ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
   ```
 
 ### <a name="service-fabric-support-logs"></a>Log di supporto di Service Fabric

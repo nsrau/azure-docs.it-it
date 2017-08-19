@@ -1,5 +1,5 @@
 ---
-title: Configurare il glossario aziendale per l&quot;assegnazione di tag regolamentata in Azure Data Catalog | Microsoft Docs
+title: Configurare il glossario aziendale per l'assegnazione di tag regolamentata in Azure Data Catalog | Microsoft Docs
 description: Articolo sulle procedure che illustra il glossario aziendale in Azure Data Catalog per definire e usare un vocabolario aziendale comune in base al quale assegnare tag ad asset di dati registrati.
 services: data-catalog
 documentationcenter: 
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/15/2017
+ms.date: 08/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 1c0233aa398b975cef5bb346d7c6822e4a47812e
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Come configurare il glossario aziendale per l'assegnazione di tag regolamentata

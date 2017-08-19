@@ -1,11 +1,11 @@
 ---
-title: Come eseguire il debug di un&quot;app Web Node.js nel servizio app di Azure
-description: Informazioni su come eseguire il debug di un&quot;app Web Node.js nel servizio app di Azure.
+title: Come eseguire il debug di un'app Web Node.js nel servizio app di Azure
+description: Informazioni su come eseguire il debug di un'app Web Node.js nel servizio app di Azure.
 tags: azure-portal
 services: app-service\web
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: a48f906c-1a3e-43bc-ae84-7d2dde175b15
 ms.service: app-service-web
@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
+ms.date: 08/17/2016
+ms.author: tarcher
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 29cb2faa2e2d6cb9f45242794d88d3c8f881539d
+ms.contentlocale: it-it
 ms.lasthandoff: 03/15/2017
-
 
 ---
 # <a name="how-to-debug-a-nodejs-web-app-in-azure-app-service"></a>Come eseguire il debug di un'app Web Node.js nel servizio app di Azure
