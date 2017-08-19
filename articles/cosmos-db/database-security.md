@@ -51,7 +51,7 @@ Il diagramma precedente illustra i componenti della sicurezza cloud generali, ma
 - Proteggere e isolare i dati sensibili
 - Monitoraggio per identificare gli attacchi
 - Risposta agli attacchi
-- Possibilità per i dati del recinto virtuale di seguire le restrizioni di governance dei dati
+- Possibilità per i dati di seguire le restrizioni di governance dei dati in base al geo-fencing
 - Protezione fisica dei server in data center protetti
 
 E, anche se può sembrare ovvio, le recenti [violazioni di database su larga scala](http://thehackernews.com/2017/01/mongodb-database-security.html) rendono molto importanti i semplici requisiti seguenti:
@@ -79,7 +79,7 @@ La tabella seguente li illustra in dettaglio.
 |Proteggere e isolare i dati sensibili|Tutti i dati nelle aree elencate nelle [novità](#whats-new) ora vengono crittografati.<br><br>Le informazioni personali e altri dati riservati possono essere isolati in raccolte specifiche e l'accesso in lettura/scrittura o in sola lettura può essere limitato a utenti specifici.|
 |Monitorare gli attacchi|Usando la registrazione di controllo e i log attività, è possibile monitorare l'account per identificare attività normali e anomale. È possibile visualizzare quali operazioni sono state eseguite sulle risorse, chi ha avviato l'operazione, quando si è verificata l'operazione, lo stato dell'operazione e molto altro come mostrato nella schermata sotto a questa tabella.|
 |Rispondere agli attacchi|Dopo avere contattato il supporto di Azure per segnalare un potenziale attacco, viene avviato un processo di risposta all'evento imprevisto in 5 fasi. L'obiettivo del processo in 5 fasi è quello di ripristinare la normale sicurezza del servizio e le normali operazioni il più rapidamente possibile dopo il rilevamento di un problema e l'avvio di un indagine.<br><br>Per altre informazioni, vedere [Microsoft Azure Security Response in the Cloud](https://aka.ms/securityresponsepaper) (Risposta della sicurezza di Microsoft Azure nel cloud).|
-|Definizione del recinto virtuale|Azure Cosmos DB assicura la conformità e la governance dei dati per le aree sovrane, ad esempio Germania, Cina, US Gov.|
+|Definizione del geo-fencing|Azure Cosmos DB assicura la conformità e la governance dei dati per le aree sovrane, ad esempio Germania, Cina, US Gov.|
 |Strutture protette|I dati in Azure Cosmos DB vengono archiviati in unità SSD nei data center protetti di Azure.<br><br>Per altre informazioni, vedere [Data center globali Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |Crittografia HTTPS/SSL/TLS|A tutte le interazioni Azure Cosmos DB da client a servizio viene applicato SSL/TLS 1.2. Anche a tutte le repliche all'interno di data center e tra data center viene applicato SSL/TLS 1.2.|
 |Crittografia di dati inattivi|Tutti i dati archiviati in Azure Cosmos DB vengono crittografati quando sono inattivi. Per altre informazioni, vedere [Crittografia dei dati inattivi in Azure Cosmos DB](.\database-encryption-at-rest.md)|
