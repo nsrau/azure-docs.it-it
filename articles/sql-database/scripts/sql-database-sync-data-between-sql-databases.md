@@ -3,7 +3,7 @@ title: "Esempio di sincronizzazione di PowerShell tra più database SQL di Azure
 description: "Script di esempio di Azure PowerShell per sincronizzare più database SQL di Azure"
 services: sql-database
 documentationcenter: sql-database
-author: douglaslms
+author: jognanay
 manager: jhubbard
 editor: 
 tags: 
@@ -17,10 +17,10 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b61c7bb9f1991912ebfd1176a07c3dc889d3e089
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: ac4dde8c175b1632de8c309f01f8dac7fde6426b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Usare PowerShell per sincronizzare più database SQL di Azure
@@ -139,7 +139,7 @@ New-AzureRmSqlSyncMember   -ResourceGroupName $ResourceGroupName `
                             -Name $SyncMemberName `
                             -MemberDatabaseCredential $Credential `
                             -MemberDatabaseName $MemberDatabaseName `
-                            -MemberServerName $MemberServerName `
+                            -MemberServerName ($MemberServerName + ".database.windows.net" `
                             -MemberDatabaseType $MemberDatabaseType `
                             -SyncDirection $SyncDirection
 
@@ -160,8 +160,8 @@ $timer=0
 $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
-$IsSucceeded = "false"
-While ($IsSucceeded -eq "False")
+$IsSucceeded = $false
+While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
     $timer=$timer+1
@@ -220,8 +220,7 @@ foreach ($tableSchema in $databaseSchema.Tables)
             if ((-not $addAllColumns) -and $tableSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
-                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"
-            }
+                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"c            }
             elseif ((-not $addAllColumns) -and $columnSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
@@ -261,7 +260,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyngStartTime = Get-Date
+$SyncStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"

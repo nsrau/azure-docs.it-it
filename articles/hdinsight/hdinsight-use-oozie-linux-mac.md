@@ -14,20 +14,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 2327945b5f5fe6b6e63660fd5d607d3cc8092f8b
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: b43dd20be9f481270b782de3c889abac762bd9cc
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight basato su Linux
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Informazioni su come usare Apache Oozie con Hadoop in HDInsight. Apache Oozie è un sistema di flusso di lavoro/coordinamento che consente di gestire i processi Hadoop. È integrato nello stack di Hadoop e supporta i processi Hadoop per Apache MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Può anche essere usato per pianificare processi specifici di un sistema, come i programmi Java o gli script della shell.
+Informazioni su come usare Apache Oozie con Hadoop in HDInsight. Apache Oozie è un sistema di flusso di lavoro/coordinamento che consente di gestire i processi Hadoop. Oozie è integrato con lo stack Hadoop e supporta i processi seguenti:
+
+* Apache MapReduce
+* Apache Pig
+* Apache Hive
+* Apache Sqoop
+
+Oozie può anche essere usato per pianificare processi specifici di un sistema, come i programmi Java o gli script della shell
 
 > [!NOTE]
 > Un'altra opzione per definire i flussi di lavoro con HDInsight è Azure Data Factory. Per altre informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data Factory][azure-data-factory-pig-hive].
@@ -136,7 +143,7 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisce la query us
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    Questi comandi consentono di archiviare il file **useooziewf.hql** nell'account di archiviazione di Azure associato al cluster, che conserva il file anche se il cluster viene eliminato.
+    Questi comandi archiviano il file **useooziewf.hql** nella risorsa di archiviazione compatibile con HDFS per il cluster.
 
 ## <a name="define-the-workflow"></a>Definire il flusso di lavoro
 
@@ -467,7 +474,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
     ------------------------------------------------------------------------------------------------------------------------------------
     ```
 
-    Lo stato del processo è `PREP`. Indica che il processo è stato inviato, ma non ancora avviato.
+    Lo stato del processo è `PREP`. Questo stato indica che il processo è stato creato, ma non avviato.
 
 5. Usare il comando seguente per avviare il processo.
 
@@ -504,7 +511,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
         Windows Phone   1791
         (6 rows affected)
 
-Per altre informazioni sul comando Oozie, vedere [Strumento da riga di comando di Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+Per altre informazioni sul comando Oozie, vedere [Oozie command-line tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html) (Strumento da riga di comando di Oozie).
 
 ## <a name="oozie-rest-api"></a>API REST di Oozie
 
@@ -568,9 +575,7 @@ Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura segue
 
 ## <a name="scheduling-jobs"></a>Pianificazione di processi
 
-Il coordinatore consente di specificare inizio, fine e frequenza dei processi, in modo da poterli pianificare per determinati orari.
-
-Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura seguente:
+Il coordinatore consente di specificare inizio, fine e frequenza dei processi. Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura seguente:
 
 1. Usare quanto segue per creare un file denominato **coordinator.xml**:
 
@@ -615,9 +620,9 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
 
     Apportare le modifiche seguenti:
 
-   * Cambiare `<name>oozie.wf.application.path</name>` in `<name>oozie.coord.application.path</name>`. Questo valore indica a Oozie di eseguire il file del coordinatore invece del file del flusso di lavoro.
+   * Per indicare a Oozie di eseguire il file del coordinatore invece del file del flusso di lavoro sostituire `<name>oozie.wf.application.path</name>` con `<name>oozie.coord.application.path</name>`.
 
-   * Aggiungere il codice XML seguente. Questo codice imposta una variabile usata nel file coordinator.xml per fare riferimento al percorso del file workflow.xml:
+   * Per impostare la variabile `workflowPath` usata dal coordinatore, aggiornare il codice XML seguente:
 
         ```xml
         <property>
@@ -628,7 +633,7 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
 
        Sostituire il testo `wasb://mycontainer@mystorageaccount.blob.core.windows` con il valore usato nelle altre voci del file job.xlm.
 
-   * Aggiungere il codice XML seguente. Questo codice definisce l'inizio, la fine e la frequenza da usare per il file coordinator.xml:
+   * Per definire l'inizio, la fine e la frequenza per il coordinatore, aggiungere il codice XML seguente:
 
         ```xml
         <property>
@@ -675,7 +680,7 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
     ![Informazioni sui processi coordinatore](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > Sono visualizzate solo le esecuzioni riuscite del processo, non le singole azioni all'interno del flusso di lavoro pianificato. Per visualizzarle, selezionare una delle voci in **Action** .
+    > Questa immagine visualizza solo le esecuzioni riuscite del processo, non le singole azioni nel flusso di lavoro pianificato. Per visualizzarle, selezionare una delle voci in **Action** .
 
     ![Informazioni sull'azione](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 

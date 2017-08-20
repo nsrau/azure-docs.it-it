@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 0781a06635219443e8ff794e72d77b967df52c40
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -38,7 +38,7 @@ Il blocco smart consente di distinguere anche tra l'accesso effettuato da utenti
 Poiché l'autenticazione pass-through inoltra le richieste di convalida della password in Active Directory (AD) locale, è necessario impedire ai pirati informatici di bloccare gli account di AD degli utenti. Poiché l'utente dispone di propri criteri di blocco degli account di AD, in particolare [**Soglia di blocchi dell'account**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) e [ **	Reimposta blocco account dopo**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx), è necessario configurare in modo appropriato i valori di durata del blocco e la soglia di blocco di Azure AD per filtrare gli attacchi nel cloud, prima che raggiungano AD locale.
 
 >[!NOTE]
->La funzionalità Smart Lockout è gratuita e _attiva_ per impostazione predefinita per tutti i clienti. Tuttavia, la modifica dei valori relativi alla soglia di blocco e alla durata del blocco di Azure AD tramite l'API Graph di Azure AD sono funzionalità di Azure AD Premium P2.
+>La funzionalità Smart Lockout è gratuita e _attiva_ per impostazione predefinita per tutti i clienti. Tuttavia, per modificare i valori relativi alla soglia di blocco e alla durata del blocco di Azure AD usando l'API Graph, è necessario che il tenant abbia almeno una licenza di Azure AD Premium P2. Non è necessaria una licenza di Azure AD Premium P2 _per ogni utente_ per ottenere la funzionalità Smart Lockout con l'autenticazione pass-through.
 
 Per garantire che gli account di AD locali degli utenti siano protetti, è necessario assicurarsi che:
 

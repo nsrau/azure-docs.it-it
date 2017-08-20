@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 39dd859d60e7f1dcf697e3c59b8f084e400bbae0
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -29,14 +29,23 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 ## <a name="known-issues"></a>Problemi noti
 
 - Se si esegue la sincronizzazione di 30 o più foreste di Active Directory, non è possibile abilitare l'accesso SSO facile usando Azure AD Connect. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-azure-ad-seamless-sso) la funzionalità nel tenant in uso.
-- L'aggiunta degli URL del servizio Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) alla zona "Siti attendibili" anziché alla zona "Intranet locale" impedisce agli utenti di eseguire l'accesso.
-- L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.
+- L'aggiunta degli URL del servizio Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) alla zona "Siti attendibili" invece che alla zona "Intranet locale" **impedisce agli utenti di eseguire l'accesso**.
+- L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox e in Microsoft Edge, ma nemmeno in Internet Explorer quando la modalità di protezione avanzata è attivata.
+
+>[!IMPORTANT]
+>Di recente è stato eseguito il rollback del supporto per Microsoft Edge per analizzare i problemi segnalati dai clienti.
+
+## <a name="check-status-of-the-feature"></a>Controllare lo stato della funzionalità
+
+Assicurarsi che la funzionalità di accesso SSO facile sia ancora **abilitata** nel tenant. Per verificare lo stato, è possibile passare al pannello **Azure AD Connect** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
+
+![Interfaccia di amministrazione di Azure Active Directory - Pannello Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivi degli errori di accesso dell'interfaccia di amministrazione di Azure Active Directory
 
 Un buon punto di partenza per la risoluzione dei problemi relativi all'accesso eseguito con la funzionalità di accesso SSO facile è esaminare il [report sull'attività di accesso](../active-directory-reporting-activity-sign-ins.md) nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
 
-![Report sugli accessi](./media/active-directory-aadconnect-sso/sso9.png)
+![Interfaccia di amministrazione di Azure Active Directory - Report sugli accessi](./media/active-directory-aadconnect-sso/sso9.png)
 
 Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
@@ -81,7 +90,7 @@ Se il controllo delle operazioni non riuscite è abilitato nel controller di dom
     </QueryList>
 ```
 
-## <a name="manual-reset-of-azure-ad-seamless-sso"></a>Reimpostare manualmente la funzionalità Seamless SSO di Azure Active Directory
+## <a name="manual-reset-of-the-feature"></a>Reimpostazione manuale della funzionalità
 
 Se il problema persiste, è possibile reimpostare manualmente la funzionalità nel tenant. Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
 

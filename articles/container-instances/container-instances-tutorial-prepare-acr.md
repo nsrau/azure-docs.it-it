@@ -11,16 +11,17 @@ keywords: Docker, contenitori, Micro-Service, Kubernetes, DC/OS, Azure
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 5f3fc5f3624cf1ef881adf2af0cb69ad67d09ad3
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -61,7 +62,7 @@ Nella parte restante di questa esercitazione si usa `<acrname>` come segnaposto 
 
 ## <a name="get-azure-container-registry-information"></a>Ottenere informazioni su Registro contenitori di Azure
 
-Dopo aver creato il registro contenitori è possibile eseguire una query per trovare il server di accesso e la password. Il codice seguente restituisce questi valori. Prendere nota di ogni valore; in questa esercitazione viene fatto riferimento ad essi.
+Dopo aver creato il registro contenitori è possibile eseguire una query per trovare il server di accesso e la password. Il codice seguente restituisce questi valori. Prendere nota di ogni valore per il server di accesso e la password perché in questa esercitazione viene fatto riferimento a essi.
 
 Server di accesso del registro contenitori (sostituire con il nome del registro):
 
@@ -74,7 +75,7 @@ Nella parte restante di questa esercitazione, si usa `<acrLoginServer>` come seg
 Password del registro contenitori:
 
 ```azurecli
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 Nella parte restante di questa esercitazione, si usa `<acrPassword>` come segnaposto per il valore della password del registro contenitori.
@@ -179,3 +180,4 @@ Passare alla prossima esercitazione per informazioni sulla distribuzione del con
 
 > [!div class="nextstepaction"]
 > [Distribuire contenitori in Istanze di contenitore di Azure](./container-instances-tutorial-deploy-app.md)
+
