@@ -7,8 +7,8 @@ Un nuovo back-end WebAPI ASP.NET verrà creato nelle sezioni che seguono e avrà
 
 I passaggi seguenti mostrano come creare un nuovo back-end WebAPI ASP.NET: 
 
-> [!NOTE]
-> **Importante**: se si usa Visual Studio 2015 o versione precedente, prima di procedere con l'esercitazione verificare di aver installato la versione più recente di Gestione pacchetti NuGet. A questo scopo, avviare Visual Studio. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti**. Cercare **Gestione pacchetti NuGet** per la versione di Visual Studio e verificare che sia installata la versione più recente. In caso contrario, disinstallare e quindi reinstallare Gestione pacchetti NuGet.
+> [!IMPORTANT]
+> Se si usa Visual Studio 2015 o versione precedente, prima di procedere con l'esercitazione verificare di avere installato la versione più recente di Gestione pacchetti NuGet. A questo scopo, avviare Visual Studio. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti**. Cercare **Gestione pacchetti NuGet** per la versione di Visual Studio e verificare che sia installata la versione più recente. In caso contrario, disinstallare e quindi reinstallare Gestione pacchetti NuGet.
 > 
 > ![][B4]
 > 

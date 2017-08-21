@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>Panoramica del gateway applicazione
@@ -42,6 +42,7 @@ Il gateway applicazione offre attualmente le funzionalità seguenti:
 * **[Routing multisito](application-gateway-multi-site-overview.md)**: il gateway applicazione consente di consolidare fino a 20 siti Web in un singolo gateway applicazione.
 * **[Supporto di WebSocket](application-gateway-websocket.md)**: un'altra eccellente funzionalità del gateway applicazione è il supporto nativo per WebSocket.
 * **[Monitoraggio dell'integrità](application-gateway-probe-overview.md)**: il gateway applicazione offre il monitoraggio predefinito dell'integrità delle risorse back-end e probe personalizzati per il monitoraggio di scenari più specifici.
+* **[Criteri SSL e crittografie](application-gateway-ssl-policy-overview.md)**: questa funzionalità consente di limitare le versioni del protocollo SSL e i pacchetti di crittografia supportati e l'ordine in cui vengono elaborati.
 * **[Reindirizzamento delle richieste](application-gateway-redirect-overview.md)**: questa funzionalità offre la possibilità di reindirizzare le richieste HTTP a un listener HTTPS.
 * **[Supporto di back-end multi-tenant](application-gateway-web-app-overview.md)**: il gateway applicazione supporta la configurazione di servizi back-end multi-tenant, come App Web di Azure e il gateway API, come membri del pool back-end. 
 * **[Diagnostica avanzata](application-gateway-diagnostics.md)**: il gateway applicazione fornisce i log di diagnostica e accesso completi. I registri firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
@@ -105,5 +106,5 @@ Dopo aver acquisito familiarità con il gateway applicazione, è possibile [crea
 
 Per informazioni su come creare un gateway applicazione usando il routing del contenuto basato su URL, vedere [Creare un gateway applicazione con il routing basato su URL](application-gateway-create-url-route-arm-ps.md) .
 
-Per altre informazioni su alcune delle principali funzionalità di rete di Azure, vedere [Rete di Azure rete]((../networking/networking-overview.md).
+Per informazioni su alcune altre funzionalità di rete chiave di Azure, vedere [Rete di Azure](../networking/networking-overview.md).
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 08/010/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e3fa1705e1f4e0805409eee83d5797bee7f6603d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0be8dd6d90edb7b32b6777c76c9778cda0dcd5ea
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creare una connessione da sito a sito usando il portale di Azure (distribuzione classica)
@@ -64,7 +64,7 @@ Gli esempi di questo articolo usano i valori seguenti. È possibile usare questi
 * **GatewaySubnet:** 10.11.255.0/27
 * **Gruppo di risorse:** TestRG1
 * **Località:** Stati Uniti orientali
-* **Server DNS:** 8.8.8.8 (facoltativo per questo esercizio)
+* **DNS Server:** 10.11.0.3 (facoltativo per questo esercizio)
 * **Nome del sito locale:** Site2
 * **Spazio indirizzi client:** spazio di indirizzi nel sito locale.
 
@@ -79,43 +79,43 @@ Quando si crea una rete virtuale da usare per una connessione da sito a sito, è
 ### <a name="to-create-a-virtual-network"></a>Per creare una rete virtuale
 
 1. In un browser passare al [portale di Azure](http://portal.azure.com) e, se necessario, accedere con l'account Azure.
-2. Fare clic su **+** Nel campo **Cerca nel Marketplace** digitare "Rete virtuale". Trovare **Rete virtuale** nell'elenco restituito e fare clic per aprire il pannello **Rete virtuale**.
+2. Fare clic su **+** Nel campo **Cerca nel Marketplace** digitare "Rete virtuale". Individuare **Rete virtuale** nell'elenco restituito e fare clic per aprire la pagina **Rete virtuale**.
 
-  ![Cercare il pannello Rete virtuale](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. Nella parte inferiore del pannello Rete virtuale selezionare **Classico** nell'elenco a discesa **Selezionare un modello di distribuzione** e quindi fare clic su **Crea**.
+  ![pagina di ricerca della rete virtuale](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
+3. Nella parte inferiore della pagina Rete virtuale selezionare **Classica** nell'elenco a discesa **Selezionare un modello di distribuzione** e quindi fare clic su **Crea**.
 
   ![Selezionare il modello di distribuzione](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. Nel pannello **Crea rete virtuale (versione classica)** configurare le impostazioni della rete virtuale. Aggiungere in questo pannello il primo spazio di indirizzi e un intervallo di indirizzi di una singola subnet. Dopo aver creato la rete virtuale, è possibile tornare indietro e aggiungere altre subnet e altri spazi di indirizzi.
+4. Nella pagina **Crea rete virtuale (versione classica)** configurare le impostazioni della rete virtuale. Aggiungere a questa pagina il primo spazio di indirizzi e l'intervallo di indirizzi di una subnet singola. Dopo aver creato la rete virtuale, è possibile tornare indietro e aggiungere altre subnet e altri spazi di indirizzi.
 
-  ![Pannello Crea rete virtuale](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Pannello Crea rete virtuale")
+  ![Pagina Crea rete virtuale](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Pagina Crea rete virtuale")
 5. Verificare che la **sottoscrizione** sia quella corretta. È possibile cambiare sottoscrizione tramite l'elenco a discesa.
 6. Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse esistente o crearne uno nuovo digitandone il nome. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Selezionare quindi le impostazioni relative alla **località** per la rete virtuale. La località determina la posizione in cui risiedono le risorse distribuite in questa rete virtuale.
-8. Selezionare **Aggiungi al dashboard** se si vuole trovare facilmente la rete virtuale nel dashboard e quindi fare clic su **Crea**.
+8. Per trovare facilmente la rete virtuale nel dashboard, selezionare **Aggiungi al dashboard**. Fare clic su **Crea** per creare la rete virtuale.
 
   ![Aggiungi al dashboard](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Aggiungi al dashboard")
 9. Dopo aver fatto clic su "Crea", nel dashboard verrà visualizzato un riquadro che riflette lo stato di avanzamento della rete virtuale. Il riquadro cambia durante la creazione della rete virtuale.
 
   ![Riquadro Creazione della rete virtuale](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Creazione della rete virtuale")
 
-Al termine della creazione della rete virtuale, nella pagina Reti del portale di Azure classico verrà visualizzato **Creato** in **Stato**.
+Dopo aver creato la rete virtuale, nella pagina Reti del portale di Azure classico verrà visualizzato **Creato** in **Stato**.
 
 ## <a name="additionaladdress"></a>2. Aggiungere altri spazi di indirizzi
 
 Dopo aver creato la rete virtuale è possibile aggiungere altri spazi di indirizzi. Questa operazione non è obbligatoria in una configurazione da sito a sito, ma se sono necessari più spazi di indirizzi, è possibile seguire questa procedura:
 
 1. Trovare le reti virtuali nel portale.
-2. Nella sezione **Impostazioni** del pannello della rete virtuale fare clic su **Spazio di indirizzi**.
-3. Nel pannello Spazio di indirizzi fare clic su **+Aggiungi** e immettere lo spazio di indirizzi aggiuntivo.
+2. Nella sezione **Impostazioni** della pagina della rete virtuale fare clic su **Spazio di indirizzi**.
+3. Nella pagina Spazio di indirizzi fare clic su **+Aggiungi** e immettere lo spazio di indirizzi aggiuntivo.
 
 ## <a name="dns"></a>3. Specificare un server DNS
 
-Le impostazioni DNS non sono una parte obbligatoria di una configurazione da sito a sito, ma il servizio DNS è necessario per la risoluzione dei nomi.
+Le impostazioni DNS non sono una parte obbligatoria di una configurazione da sito a sito, ma il servizio DNS è necessario per la risoluzione dei nomi. Se si specifica un valore, non verrà creato un nuovo server DNS. L'indirizzo IP del server DNS specificato deve essere un server DNS in grado di risolvere i nomi per le risorse a cui ci si connette. Per le impostazioni di esempio è stato usato un indirizzo IP privato. L'indirizzo IP usato è probabilmente diverso dall'indirizzo IP del server DNS. Assicurarsi di usare valori personalizzati.
 
-Dopo aver creato la rete virtuale, è possibile aggiungere l'indirizzo IP di un server DNS per gestire la risoluzione dei nomi. Aprire le impostazioni della rete virtuale, fare clic su Server DNS e aggiungere l'indirizzo IP del server DNS da usare per la risoluzione dei nomi. Questa impostazione non comporta la creazione di un server DNS. Nelle impostazioni di esempio viene usato un server DNS pubblico. In genere è preferibile usare un server DNS privato. Assicurarsi di aggiungere un server DNS con cui le risorse possono comunicare.
+Dopo aver creato la rete virtuale, è possibile aggiungere l'indirizzo IP di un server DNS per gestire la risoluzione dei nomi. Aprire le impostazioni della rete virtuale, fare clic su Server DNS e aggiungere l'indirizzo IP del server DNS da usare per la risoluzione dei nomi.
 
 1. Trovare le reti virtuali nel portale.
-2. Nella sezione **Impostazioni** del pannello della rete virtuale fare clic su **Server DNS**.
+2. Nella sezione **Impostazioni** della pagina della rete virtuale fare clic su **Server DNS**.
 3. Aggiungere un server DNS.
 4. Per salvare le impostazioni, fare clic su **Salva** nella parte superiore della pagina.
 
@@ -124,11 +124,11 @@ Dopo aver creato la rete virtuale, è possibile aggiungere l'indirizzo IP di un 
 In genere il sito locale fa riferimento alla posizione locale. Contiene l'indirizzo IP del dispositivo VPN a cui si crea una connessione e gli intervalli di indirizzi IP che verranno distribuiti tramite il gateway VPN al dispositivo VPN.
 
 1. Nel portale passare alla rete virtuale per cui si vuole creare un gateway.
-2. Nel pannello **Panoramica** del pannello della rete virtuale fare clic su **Gateway** nella sezione Connessioni VPN per aprire il pannello **Nuova connessione VPN**.
+2. Nella pagina **Panoramica** della pagina della rete virtuale fare clic su **Gateway** nella sezione Connessioni VPN per aprire la pagina **Nuova connessione VPN**.
 
   ![Fare clic per configurare le impostazioni del gateway](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Fare clic per configurare le impostazioni del gateway")
-3. Nel pannello **Nuova connessione VPN** selezionare **Da sito a sito**.
-4. Fare clic su **Sito locale - Configurare le impostazioni necessarie** per aprire il pannello **Sito locale**. Configurare le impostazioni e quindi fare clic su **OK** per salvarle.
+3. Nella pagina **Nuova connessione VPN** selezionare **Da sito a sito**.
+4. Fare clic su **Sito locale - Configurare le impostazioni necessarie** per aprire la pagina **Sito locale**. Configurare le impostazioni e quindi fare clic su **OK** per salvarle.
   - **Nome:** creare un nome per il sito locale per semplificarne l'identificazione.
   - **Indirizzo IP del gateway VPN:** questo è l'indirizzo IP pubblico del dispositivo VPN per la rete locale. Per il dispositivo VPN è necessario usare un indirizzo IP IPv4 pubblico. Specificare un indirizzo IP pubblico valido per il dispositivo VPN a cui ci si vuole connettere. Non può essere protetto da NAT e deve essere raggiungibile da Azure. Se non si conosce l'indirizzo IP del dispositivo VPN, è possibile inserire un valore segnaposto, purché sia nel formato di un indirizzo IP pubblico valido, e quindi modificarlo in un secondo momento.
   - **Spazio indirizzi client:** elencare gli intervalli di indirizzi IP che devono essere indirizzati alla rete locale tramite il gateway. È possibile aggiungere più intervalli di spazi indirizzi. Assicurarsi che gli intervalli specificati qui non si sovrappongano a quelli di altre reti a cui si connette la rete virtuale oppure agli intervalli di indirizzi della rete virtuale stessa.
@@ -139,14 +139,14 @@ In genere il sito locale fa riferimento alla posizione locale. Contiene l'indiri
 
 È necessario creare una subnet del gateway per il gateway VPN. La subnet del gateway contiene gli indirizzi IP usati dai servizi del gateway VPN.
 
-1. Nel pannello **Nuova connessione VPN** selezionare la casella di controllo **Crea gateway immediatamente**. Viene visualizzato il pannello "Configurazione gateway facoltativa". Se non si seleziona la casella di controllo, il pannello per la configurazione della subnet del gateway non viene visualizzato.
+1. Nella pagina **Nuova connessione VPN** selezionare la casella di controllo **Crea gateway immediatamente**. Verrà visualizzata la pagina "Configurazione gateway facoltativa". Se non si seleziona la casella di controllo, la pagina per la configurazione della subnet del gateway non viene visualizzata.
 
   ![Configurazione gateway - Subnet, dimensioni e tipo di routing](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Configurazione gateway - Subnet, dimensioni e tipo di routing")
-2. Fare clic su **Configurazione gateway facoltativa - Subnet, dimensioni e tipo di routing** per aprire il pannello **Configurazione gateway**.
-3. Nel pannello **Configurazione gateway** fare clic su **Subnet - Configurare le impostazioni necessarie** per aprire il pannello **Aggiungi subnet**.
+2. Per aprire la pagina **Configurazione gateway**, fare clic su **Configurazione gateway facoltativa - Subnet, dimensioni e tipo di routing**.
+3. Nella pagina **Configurazione gateway** fare clic su **Subnet - Configurare le impostazioni necessarie** per aprire la pagina **Aggiungi subnet**.
 
   ![Configurazione gateway - Subnet gateway](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Configurazione gateway - Subnet gateway")
-4. Nel pannello **Aggiungi subnet** aggiungere la subnet del gateway. Le dimensioni della subnet del gateway specificata dipendono dalla configurazione del gateway VPN che si vuole creare. Nonostante sia possibile creare una subnet del gateway con dimensioni di /29 soltanto, è consigliabile crearne una più grande che includa più indirizzi selezionando /27 o /28. L'uso di una subnet del gateway di dimensioni maggiori consente un numero sufficiente di indirizzi IP per eventuali configurazioni future.
+4. Nella pagina **Aggiungi subnet** aggiungere la subnet del gateway. Le dimensioni della subnet del gateway specificata dipendono dalla configurazione del gateway VPN che si vuole creare. Anche se è possibile creare una subnet del gateway pari a /29, è consigliabile usare /27 o /28. In questo modo viene creata una subnet più grande che include più indirizzi. L'uso di una subnet del gateway di dimensioni maggiori consente un numero sufficiente di indirizzi IP per eventuali configurazioni future.
 
   ![Aggiungere la subnet del gateway](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Aggiungere la subnet del gateway")
 
@@ -157,7 +157,7 @@ In genere il sito locale fa riferimento alla posizione locale. Contiene l'indiri
   ![Selezionare il tipo SKU e di VPN](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Selezionare il tipo SKU e di VPN")
 2. Selezionare il **tipo di routing** per il gateway. Questo è noto anche come il tipo di VPN. È importante selezionare il tipo di gateway corretto, perché non è possibile convertire il gateway da un tipo a un altro. Il dispositivo VPN deve essere compatibile con il tipo di routing selezionato. Per altre informazioni sul tipo di VPN, vedere [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype). In alcuni articoli si potrebbe fare riferimento ai tipi di VPN "RouteBased" e "PolicyBased". "Dinamico" corrisponde a "RouteBased" e "Statico" corrisponde a "PolicyBased".
 3. Fare clic su **OK** per salvare le impostazioni.
-4. Nel pannello **Nuova connessione VPN** fare clic su **OK** nella parte inferiore per iniziare a creare il gateway della rete virtuale. Per completare questa operazione possono essere necessari fino a 45 minuti.
+4. Nella pagina **Nuova connessione VPN** fare clic su **OK** nella parte inferiore per iniziare a creare il gateway di rete virtuale. A seconda dello SKU selezionato, possono essere necessari fino a 45 minuti per creare un gateway di rete virtuale.
 
 ## <a name="vpndevice"></a>7. Configurare il dispositivo VPN
 
@@ -202,7 +202,7 @@ Quando si usa PowerShell e il modello di distribuzione classica, a volte i nomi 
   ```powershell
   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   ```
-2. Aprire il file di configurazione di rete con un editor xml e controllare i valori di "LocalNetworkSite name" e "VirtualNetworkSite name". Modificare l'esempio in base a tali valori. Quando si specifica un nome che contiene spazi, racchiudere il valore tra virgolette singole.
+2. Aprire il file di configurazione di rete con un editor xml e controllare i valori di "LocalNetworkSite name" e "VirtualNetworkSite name". Modificare l'esempio in base ai valori necessari. Quando si specifica un nome che contiene spazi, racchiudere il valore tra virgolette singole.
 
 3. Impostare la chiave condivisa e creare la connessione. "-SharedKey" è un valore che è possibile generare e specificare. Per questo esempio è stato usato "abc123", ma è possibile e consigliabile generare e usare un elemento più complesso. È importante che il valore specificato qui sia lo stesso valore specificato durante la configurazione del dispositivo VPN.
 
@@ -218,11 +218,11 @@ Quando viene creata la connessione, il risultato è **Stato: Operazione completa
 
 In caso di problemi di connessione, vedere la sezione relativa alla **risoluzione dei problemi** del sommario nel riquadro a sinistra.
 
-## <a name="how-to-reset-a-vpn-gateway"></a>Come reimpostare un gateway VPN
+## <a name="reset"></a>Come reimpostare un gateway VPN
 
 La reimpostazione del gateway VPN di Azure è utile se si perde la connettività VPN cross-premise in uno o più tunnel VPN da sito a sito. In questa situazione tutti i dispositivi VPN funzionano correttamente, ma non sono in grado di stabilire tunnel IPsec con i gateway VPN di Azure. Per la procedura da seguire, vedere [Reimpostare un gateway VPN](vpn-gateway-resetgw-classic.md).
 
-## <a name="how-to-change-a-gateway-sku"></a>Come modificare uno SKU del gateway
+## <a name="changesku"></a>Come modificare uno SKU del gateway
 
 Per la procedura da seguire per modificare uno SKU del gateway, vedere la sezione relativa al [ridimensionamento di uno SKU del gateway](vpn-gateway-about-SKUS-legacy.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Creare un account utente di Azure AD | Microsoft Docs
-description: Questo articolo descrive come creare le credenziali di un account utente di Azure AD per i runbook di Automazione di Azure ai fini dell&quot;autenticazione in Azure e nella distribuzione classica di Azure.
+description: Questo articolo descrive come creare le credenziali di un account utente di Azure AD per i runbook di Automazione di Azure ai fini dell'autenticazione in Azure e nella distribuzione classica di Azure.
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0092496ea13c862a1717f4fdcb882139cbd8a177
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
+ms.contentlocale: it-it
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autenticare i runbook con la distribuzione classica di Azure e Resource Manager
@@ -68,7 +68,7 @@ La procedura descritta in questa sezione consente di creare nel portale di Azure
 3. Nel pannello Account di automazione fare clic su **Aggiungi**.<br><br>![Aggiungi account di Automazione](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. Nella casella **Nome** del pannello **Aggiungi account di Automazione** digitare un nome per il nuovo account di Automazione.
 5. Se si hanno più sottoscrizioni, specificare quella per il nuovo account, un **Gruppo di risorse** nuovo o esistente e la **Località** per il data center di Azure.
-6. Selezionare il valore **No** per l'opzione **Crea un account RunAs di Azure** e fare clic sul pulsante **Crea**.  
+6. Selezionare il valore **Sì** per l'opzione **Crea un account RunAs di Azure** e fare clic sul pulsante **Crea**.  
    
     > [!NOTE]
     > Se si sceglie di non creare l'account RunAs selezionando l'opzione **No**, verrà visualizzato un messaggio di avviso nel pannello **Aggiungi account di Automazione**.  Durante la creazione e l'assegnazione al ruolo **Collaboratore** nella sottoscrizione, l'account non ha un'identità di autenticazione corrispondente nel servizio directory delle sottoscrizioni e, di conseguenza, non ha accesso alle risorse nella sottoscrizione.  Questo impedisce ai runbook che fanno riferimento a questo account di autenticarsi ed eseguire attività sulle risorse di Azure Resource Manager.
