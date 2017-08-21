@@ -11,16 +11,17 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/04/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: e48477a79e28db2c40c99fd46d9c5b84506a4279
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -46,41 +47,34 @@ az acr show --name <acrName> --query loginServer
 Password del registro contenitori:
 
 ```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 Per distribuire l'immagine del contenitore dal registro contenitori con una richiesta di risorse di 1 core CPU e 1 GB di memoria, eseguire questo comando:
 
 ```azurecli-interactive
-az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --ip-address public -g myResourceGroup
+az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
 Entro pochi secondi si riceverà una risposta iniziale da Azure Resource Manager. Per visualizzare lo stato della distribuzione, usare:
 
 ```azurecli-interactive
-az container show --name aci-tutorial-app --resource-group myResourceGroup
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
-L'output include l'indirizzo IP pubblico che può essere usato per accedere all'app nel browser.
-
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    }
-...
-```
-
+È possibile continuare a eseguire questo comando finché lo stato non passa da *pending* a *running*. Sarà quindi possibile procedere.
 
 ## <a name="view-the-application-and-container-logs"></a>Visualizzare l'applicazione e i log dei contenitori
 
-Dopo aver completato la distribuzione, è possibile aprire il browser all'indirizzo IP indicato nell'output di `az container show`.
+Dopo avere completato la distribuzione, aprire il browser all'indirizzo IP indicato nell'output del comando seguente:
+
+```bash
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
+```
+
+```json
+"13.88.176.27"
+```
 
 ![App Hello World nel browser][aci-app-browser]
 

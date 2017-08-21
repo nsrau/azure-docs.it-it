@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/04/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 5f500e1e0d3f9cafa67f255d1603e8db5716d469
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -66,15 +66,14 @@ Il connettore è un agente semplice che si trova in un server di Windows all'int
 
 L'endpoint esterno rappresenta il metodo attraverso il quale gli utenti raggiungono le applicazioni all'esterno della rete. Possono proseguire direttamente a un URL esterno determinato oppure accedere all'applicazione tramite il portale MyApps. Quando gli utenti proseguono verso uno di questi endpoint, si autenticano in Azure AD e quindi vengono instradati tramite il connettore all'applicazione locale.
 
- ![Diagramma del proxy dell'applicazione di AzureAD](./media/active-directory-appssoaccess-whatis/azureappproxxy.png)
+ ![Diagramma del proxy dell'applicazione di AzureAD](./media/active-directory-application-proxy-get-started/azureappproxxy.png)
 
-1. L'utente accede all'applicazione tramite il proxy dell'applicazione e viene reindirizzato alla pagina di accesso di Azure AD per l'autenticazione.
-2. Una volta riuscito l'accesso, un token viene generato e inviato all'utente.
-3. L'utente invia il token al proxy dell'applicazione che recupera dal token il nome dell'entità utente (UPN) e il nome dell'entità sicurezza (SPN) e indirizza la richiesta al connettore.
-4. Il connettore richiedere per conto dell'utente un ticket Kerberos che può essere usato per l'autenticazione interna (Windows). Questo passaggio è noto come delega vincolata Kerberos.
-5. Active Directory recupera il ticket Kerberos.
-6. Il ticket viene inviato al server applicazioni e verificato.
-7. La risposta viene inviata all'utente con il proxy dell'applicazione.
+1. L'utente accede all'applicazione tramite il servizio proxy di applicazione e viene reindirizzato alla pagina di accesso di Azure AD per l'autenticazione.
+2. Dopo avere completato l'accesso, un token viene generato e inviato al dispositivo client.
+3. Il client invia il token al servizio proxy di applicazione che recupera dal token il nome dell'entità utente (UPN) e il nome dell'entità di sicurezza (SPN) e indirizza la richiesta al connettore proxy di applicazione.
+4. Se è stato configurato Single Sign-On, il connettore esegue le autenticazioni aggiuntive necessarie per conto dell'utente.
+5. Il connettore invia la richiesta all'applicazione locale.  
+6. La risposta viene inviata all'utente con il servizio e il connettore proxy di applicazione.
 
 ### <a name="single-sign-on"></a>Single sign-on
 Il proxy dell'applicazione di Azure AD fornisce l'accesso Single Sign-On (SSO) alle applicazioni che usano l'autenticazione integrata di Windows o alle applicazioni che riescono a riconoscere le attestazioni. Se l'applicazione usa l'autenticazione integrata di Windows, il proxy dell'applicazione rappresenta l'utente tramite la delega vincolata Kerberos per fornire l'accesso Single Sign-On. Se invece si dispone di un'applicazione con riconoscimento delle attestazione che considera attendibile Azure Active Directory, l'accesso Single Sign-On funziona perché l'utente era già stato autenticato da Azure AD.

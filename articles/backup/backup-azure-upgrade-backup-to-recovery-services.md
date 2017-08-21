@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/02/2017
-ms.author: markgal;arunak
+ms.date: 08/03/2017
+ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: cf5a7c1ac323a33c5f6985fb25b5b005ae06657c
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
@@ -108,11 +108,11 @@ L'insieme di credenziali di Servizi di ripristino supporta l'indicazione delle i
 
 Quando un insieme di credenziali di Backup viene aggiornato a un insieme di credenziali di Servizi di ripristino, le impostazioni di sicurezza per tale insieme di credenziali vengono attivate automaticamente. Quando le impostazioni di sicurezza sono attivate, determinate operazioni, ad esempio l'eliminazione di backup o la modifica di una passphrase, richiedono un PIN di [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Per altre informazioni sulla sicurezza avanzata, vedere l'articolo [Funzionalità di sicurezza per la protezione dei backup ibridi](backup-azure-security-feature.md). 
 
-Quando la sicurezza avanzata è attivata, i dati vengono conservati fino a 14 giorni dopo l'eliminazione di dati fatturabili dall'insieme di credenziali. La conservazione dei dati è applicabile ai dati sottoposti a backup dall'agente di Backup di Azure, dal server di Backup di Azure e da System Center Data Protection Manager.
+Quando la sicurezza avanzata è attivata, i dati vengono conservati fino a 14 giorni dopo l'eliminazione delle informazioni sul punto di recupero dall'insieme di credenziali. Ai clienti viene fatturato lo spazio di archiviazione usato per questi dati sulla sicurezza. La conservazione dei dati sulla sicurezza è applicabile ai punti di recupero acquisiti dall'agente di Backup di Azure, dal server di Backup di Azure e da System Center Data Protection Manager. 
 
 ## <a name="gather-data-on-your-vault"></a>Raccogliere i dati nell'insieme di credenziali
 
-Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ripristino, configurare i report per Backup di Azure per VM IaaS e Servizi di ripristino di Microsoft Azure e quindi usare Power BI per accedere ai report.
+Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ripristino, configurare i report per Backup di Azure per VM IaaS e Servizi di ripristino di Microsoft Azure e quindi usare Power BI per accedere ai report. Per altre informazioni sulla raccolta dei dati, vedere l'articolo [Configurare report di Backup di Azure](backup-azure-configure-reports.md).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

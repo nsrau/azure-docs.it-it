@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 6095135e49a6da3ef37fb566c2fb56702cfd70c9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 74f38ae61d4a360cabe8a9fbd33d30a6b0751654
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure
@@ -133,7 +133,37 @@ Esempio foo_IDList.txt
      1
      2
      3
+
+## <a name="blur-types"></a>Tipi di sfocature
+
+Nella modalità **Combined** o **Redact**, sono disponibili 5 modalità di sfocatura diverse tra cui scegliere tramite la configurazione di input JSON: **Low**, **Med**, **High**, **Debug** e **Black**. Per impostazione predefinita, viene usata **Med**.
+
+Di seguito sono riportati alcuni esempi dei tipi di sfocature.
+
+### <a name="example-json"></a>JSON di esempio:
+
+    {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### <a name="low"></a>Basso
+
+![Basso](./media/media-services-face-redaction/blur1.png)
  
+#### <a name="med"></a>Med
+
+![Med](./media/media-services-face-redaction/blur2.png)
+
+#### <a name="high"></a>Alto
+
+![Alto](./media/media-services-face-redaction/blur3.png)
+
+#### <a name="debug"></a>Debug
+
+![Debug](./media/media-services-face-redaction/blur4.png)
+
+#### <a name="black"></a>Nero
+
+![Nero](./media/media-services-face-redaction/blur5.png)
+
 ## <a name="elements-of-the-output-json-file"></a>Elementi del file di output JSON
 
 Il processore di contenuti multimediali per l'offuscamento offre funzionalità di rilevamento della posizione e monitoraggio dei volti ad alta precisione che possono rilevare fino a 64 volti umani in un fotogramma video. Le riprese anteriori producono risultati ottimali, mentre profili e volti di piccole dimensioni (inferiori o uguali a 24x24 pixel) presentano alcune problematiche.

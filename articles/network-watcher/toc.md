@@ -46,6 +46,7 @@
 ### [Interfaccia della riga di comando 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Testare la connettività
+### [Portale](network-watcher-connectivity-portal.md)
 ### [PowerShell](network-watcher-connectivity-powershell.md)
 ### [Interfaccia della riga di comando 2.0](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
