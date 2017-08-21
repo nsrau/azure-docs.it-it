@@ -72,11 +72,6 @@
       href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Manutenzione pianificata
       href: planned-maintenance.md
-      items:
-        - name: Mantenimento della manutenzione
-          href: preserving-maintenance.md
-        - name: Riavvio della manutenzione
-          href: impactful-maintenance.md
     - name: Dimensioni delle macchine virtuali
       href: sizes.md
       items:
