@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 690aa3ddc6ec0889936565ea732cd714734abecb
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0dec0d3744f76a06313928197f3a5229290ba32b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creare una connessione da sito a sito nel portale di Azure
@@ -118,11 +118,11 @@ Creare la connessione VPN da sito a sito tra il gateway di rete virtuale e il di
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="how-to-reset-a-vpn-gateway"></a>Come reimpostare un gateway VPN
+## <a name="reset"></a>Come reimpostare un gateway VPN
 
 La reimpostazione del gateway VPN di Azure è utile se si perde la connettività VPN cross-premise in uno o più tunnel VPN da sito a sito. In questa situazione tutti i dispositivi VPN funzionano correttamente, ma non sono in grado di stabilire tunnel IPsec con i gateway VPN di Azure. Per la procedura da seguire, vedere [Reimpostare un gateway VPN](vpn-gateway-resetgw-classic.md).
 
-## <a name="how-to-change-a-gateway-sku-resize-a-gateway"></a>Come modificare uno SKU del gateway e ridimensionare un gateway
+## <a name="resize"></a>Come modificare uno SKU del gateway e ridimensionare un gateway
 
 Per la procedura da seguire per modificare uno SKU del gateway, vedere [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 

@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/02/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f22e886ab3e59e69607e572d05a9f01d3d57f181
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: df1a25d703a7b8082bdabb4f7d593cb005d416fe
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Creare un database di documenti con Java e il portale di Azure
@@ -42,7 +42,7 @@ Questa guida introduttiva illustra come creare un database di documenti con gli 
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
-Prima di poter creare un database di grafi, è necessario creare un account di database SQL (DocumentDB) con Azure Cosmos DB.
+Prima di poter creare un database di documenti, è necessario creare un account di database SQL (DocumentDB) con Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -75,7 +75,7 @@ Prima di poter creare un database di grafi, è necessario creare un account di d
 
     ![Copiare i dati JSON e fare clic su Salva in Esplora dati nel portale di Azure](./media/create-documentdb-dotnet/azure-cosmosdb-data-explorer-save-document.png)
 
-4.  Creare e salvare uno o più documenti in cui si inserisce un valore univoco per la proprietà `id` e modificare le altre proprietà come necessario. I nuovi documenti possono avere la struttura desiderata, perché Azure Cosmos DB non impone alcuno schema per i dati.
+4.  Creare e salvare un altro documento inserendo un valore univoco per la proprietà `id` e modificando le altre proprietà come si preferisce. I nuovi documenti possono avere la struttura desiderata, perché Azure Cosmos DB non impone alcuno schema per i dati.
 
      È ora possibile usare query in Esplora dati per recuperare i dati facendo clic sui pulsanti **Modifica filtro** e **Applica filtro**. Per impostazione predefinita, Esplora dati usa `SELECT * FROM c` per recuperare tutti i documenti della raccolta, ma è possibile usare una[query SQL](documentdb-sql-query.md) diversa, ad esempio `SELECT * FROM c ORDER BY c._ts DESC`, per restituire tutti i documenti in ordine decrescente in base al timestamp. 
  
@@ -83,7 +83,7 @@ Prima di poter creare un database di grafi, è necessario creare un account di d
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 
-A questo punto, è possibile passare all'uso del codice. Si clonerà un'app per le API DocumentDB da GitHub, si imposterà la stringa di connessione e la si eseguirà. Come si noterà, è facile usare i dati a livello di codice. 
+Si può ora passare a usare il codice. Si clonerà un'app per le API DocumentDB da GitHub, si imposterà la stringa di connessione e la si eseguirà. Come si noterà, è facile usare i dati a livello di codice. 
 
 1. Aprire una finestra del terminale Git, ad esempio Git Bash, ed eseguire il comando `CD` per passare a una directory di lavoro.  
 

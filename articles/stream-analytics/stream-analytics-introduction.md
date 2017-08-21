@@ -4,7 +4,7 @@ description: Informazioni su Analisi di flusso, un servizio gestito che consente
 keywords: "analisi come servizio, servizi gestiti, elaborazione dei flussi, analisi di flusso, che cos'è Analisi di flusso"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: jenniehubbard
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/16/2017
-ms.author: jeffstok
+ms.date: 08/08/2017
+ms.author: jhubbard
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2fda07b8444b196d831e5e9fe7ade3e5017d36f9
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 07/21/2017
 
 Analisi di flusso di Azure è un motore di elaborazione di eventi completamente gestito che consente di configurare calcoli di analisi in tempo reale sui dati di streaming. I dati possono provenire da dispositivi, sensori, siti Web, feed di social media, applicazioni, sistemi di infrastruttura e altro ancora. 
 
-## <a name="what-can-i-use-stream-analytics-for"></a>A cosa serve Analisi di flusso?
+## <a name="what-can-i-do-with-stream-analytics"></a>Cosa si può fare con Analisi di flusso?
 
-Con Analisi di flusso è possibile esaminare volumi elevati di dati provenienti da dispositivi o processi, estrarre informazioni dal flusso di dati e cercare modelli, tendenze e relazioni. A seconda del contenuto dei dati sarà quindi possibile eseguire attività delle applicazioni. È ad esempio possibile generare avvisi, avviare flussi di lavoro di automazione, inviare informazioni a strumenti di creazione report come Power BI o archiviare i dati per analisi successive. 
+Usare Analisi di flusso per esaminare volumi elevati di dati provenienti da dispositivi o processi, estrarre informazioni dal flusso di dati e cercare modelli, tendenze e relazioni. A seconda del contenuto dei dati sarà quindi possibile eseguire attività delle applicazioni. È ad esempio possibile generare avvisi, avviare flussi di lavoro di automazione, inviare informazioni a strumenti di creazione report come Power BI o archiviare i dati per analisi successive. 
 
-Esempi di scenari di Analisi di flusso comprendono:
+Esempi:
 
 * Analisi e avvisi del mercato azionario, in tempo reale e personalizzati, offerti da aziende di servizi finanziari.
 * Rilevamento delle frodi in tempo reale in base alle analisi dei dati delle transazioni. 
@@ -42,7 +42,7 @@ Esempi di scenari di Analisi di flusso comprendono:
 
 ## <a name="how-does-stream-analytics-work"></a>Funzionamento di Analisi di flusso
 
-Il diagramma seguente illustra la pipeline di Analisi di flusso e l'inserimento, l'analisi e l'invio dei dati a scopo di presentazione o intervento. 
+Questo diagramma illustra la pipeline di Analisi di flusso e l'inserimento, l'analisi e l'invio dei dati a scopo di presentazione o intervento. 
 
 ![Pipeline di Analisi di flusso](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
@@ -57,7 +57,7 @@ Il processo specifica infine un output al quale inviare i dati trasformati. Ciò
 * Inviare dati a un dashboard di Power BI per la creazione di report.
 * Inviare dati a un archivio come Data Lake Store, database di SQL Server, archivio BLOB o archivio tabelle di Azure.
 
-Mentre un processo è in esecuzione è possibile monitorarlo e modificare il numero di eventi elaborati al secondo. È anche possibile far sì che i processi generino log di diagnostica per la risoluzione dei problemi.
+È possibile monitorare un processo e modificare il numero di eventi elaborati al secondo mentre è in esecuzione. È anche possibile far sì che i processi generino log di diagnostica per la risoluzione dei problemi.
 
 ## <a name="key-capabilities-and-benefits"></a>Funzionalità e vantaggi principali
 
@@ -69,7 +69,7 @@ Analisi di flusso si connette direttamente a [Hub eventi di Azure](https://azure
 
 L'input del processo può anche includere dati di riferimento statici o a modifica lenta. È possibile aggiungere dati di streaming a questi dati di riferimento per eseguire operazioni di ricerca così come si farebbe con le query di database.
 
-L'output di un processo di Analisi di flusso può essere instradato in molte direzioni. Può essere scritto in archivi come BLOB o tabelle di Archiviazione di Azure, database SQL di Azure, Azure Data Lake Store o Azure Cosmos DB. Da lì, i dati possono essere usati per l'analisi batch con Azure HDInsight. È possibile inviare l'output a un altro servizio per l'utilizzo da parte di un altro processo, ad esempio hub eventi e code o argomenti del bus di servizio di Azure. È possibile inviare l'output a Power BI per la visualizzazione.
+Indirizzare l'output del processo di Analisi di flusso in più direzioni. È possibile scrivere in una risorsa di archiviazione come BLOB o tabelle di archiviazione di Azure, database SQL di Azure, Azure Data Lake Store o Azure Cosmos DB. Da lì, i dati possono essere usati per l'analisi batch con Azure HDInsight. È possibile inviare l'output a un altro servizio per l'utilizzo da parte di un altro processo, ad esempio hub eventi e code o argomenti del bus di servizio di Azure. È possibile inviare l'output a Power BI per la visualizzazione.
 
 ### <a name="ease-of-use"></a>Semplicità d'uso
 

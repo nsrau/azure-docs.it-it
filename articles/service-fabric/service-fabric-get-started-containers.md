@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/18/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 0c0b567d353fd77f72170a4bf807ec0d2585e357
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: e37a8ee4d7eda192caf7a4d3ab0db6e4a08576d8
 ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -426,6 +426,46 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
   </DefaultServices>
 </ApplicationManifest>
 ```
+
+## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurare l'intervallo di tempo prima della terminazione forzata del contenitore
+
+È possibile configurare un intervallo di tempo di attesa del runtime prima che il contenitore venga rimosso dopo l'avvio dell'eliminazione del servizio (o di un passaggio a un altro nodo). Configurando l'intervallo di tempo, viene inviato il comando `docker stop <time in seconds>` al contenitore.   Per altri dettagli, vedere [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). L'intervallo di tempo per l'attesa viene specificato nella sezione `Hosting`. Il frammento di manifesto del cluster seguente illustra come impostare l'intervallo di attesa:
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "ContainerDeactivationTimeout": "10",
+          ...
+          }
+        ]
+}
+```
+L'intervallo di tempo predefinito è impostato su 10 secondi. Poiché questa configurazione è dinamica, un aggiornamento della sola configurazione nel cluster aggiorna il timeout. 
+
+
+## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configurare il runtime per rimuovere le immagini del contenitore non usate
+
+È possibile configurate il cluster di Service Fabric per rimuovere le immagini del contenitore non usate dal nodo. Questa configurazione consente di riacquisire spazio su disco se nel nodo sono presenti troppe immagini del contenitore.  Per abilitare questa funzionalità, aggiornare la sezione `Hosting` nel manifesto del cluster, come illustrato nel frammento seguente: 
+
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "PruneContainerImages": “True”,
+            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+          ...
+          }
+        ]
+} 
+```
+
+Le immagini che non devono essere eliminate possono essere specificate nel parametro `ContainerImagesToSkip`. 
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sull'esecuzione di [contenitori in Service Fabric](service-fabric-containers-overview.md).

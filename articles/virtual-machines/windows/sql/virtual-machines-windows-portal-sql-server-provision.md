@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/08/2017
+ms.date: 08/14/2017
 ms.author: jroth
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 98e307bc3b2dd876b74d64fbdeec162827a2e86e
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: c923f9aae4c7a1b8bd4f5760d0ec4f33923b9321
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure
@@ -46,17 +46,17 @@ In questa esercitazione si apprenderà come:
    > [!NOTE]
    > Se non si dispone di un account Azure, provare la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-2. Nel portale di Azure fare clic su **Nuovo**. Nel portale verrà aperto il pannello **Nuovo** .
+2. Nel portale di Azure fare clic su **Nuovo**. Nel portale verrà aperta la finestra **Nuovo**.
 
-3. Nel pannello **Nuovo** fare clic su **Calcolo** e quindi su **Visualizza tutto**.
+3. Nella finestra **Nuovo** fare clic su **Calcolo** e quindi su **Visualizza tutto**.
 
-   ![Pannelli Nuovo e Calcolo in Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
+   ![Finestre Nuovo e Calcolo](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
 4. Nel campo di ricerca digitare **SQL Server** e premere INVIO.
 
-5. Fare quindi clic sull'icona **Filtro** e selezionare **Microsoft** come editore. Fare clic su **Fatto** nel pannello Filtro per filtrare i risultati e ottenere le immagini di SQL Server pubblicate da Microsoft.
+5. Fare quindi clic sull'icona **Filtro** e selezionare **Microsoft** come editore. Fare clic su **Fatto** nella finestra Filtro per filtrare i risultati e ottenere le immagini di SQL Server pubblicate da Microsoft.
 
-   ![Pannello Macchine virtuali di Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+   ![Finestra per macchine virtuali di Azure](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
 5. Esaminare le immagini di SQL Server disponibili. Ogni immagine identifica una versione di SQL Server e un sistema operativo.
 
@@ -77,7 +77,7 @@ In questa esercitazione si apprenderà come:
     ![Creare VM di SQL con Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
 ## <a name="configure-the-vm"></a>Configurare la VM
-Sono disponibili cinque pannelli per la configurazione di una macchina virtuale di SQL Server.
+Per la configurazione di una macchina virtuale di SQL Server sono disponibili cinque finestre.
 
 | Passaggio | Descrizione |
 | --- | --- |
@@ -89,7 +89,7 @@ Sono disponibili cinque pannelli per la configurazione di una macchina virtuale 
 
 ## <a name="1-configure-basic-settings"></a>1. Configurare le impostazioni di base
 
-Nel pannello **Nozioni di base** specificare le informazioni seguenti:
+Nella finestra **Informazioni di base** specificare le informazioni seguenti:
 
 * Immettere un **Nome**univoco per la macchina virtuale.
 
@@ -110,14 +110,14 @@ Nel pannello **Nozioni di base** specificare le informazioni seguenti:
 
 * Fare clic su **OK** per salvare le impostazioni.
 
-    ![Pannello Informazioni di base di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
+    ![Finestra Informazioni di base per SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-basic.png)
 
 ## <a name="2-choose-virtual-machine-size"></a>2. Scegliere le dimensioni della macchina virtuale
 
-Nel passaggio **Dimensioni** scegliere le dimensioni della macchina virtuale nel pannello **Scegli una dimensione**. Inizialmente il pannello visualizza le dimensioni della macchina virtuale consigliate in base all'immagine selezionata.
+Nel passaggio **Dimensioni** scegliere le dimensioni della macchina virtuale nella finestra **Scegli una dimensione**. Inizialmente la finestra visualizza le dimensioni della macchina virtuale consigliate in base all'immagine selezionata.
 
 > [!IMPORTANT]
-> Il costo mensile stimato visualizzato nel pannello **Scegli una dimensione** non include i costi di licenza di SQL Server, ma solo il costo della VM. Per le edizioni Express e Developer di SQL Server, si tratta del costo stimato totale. Per altre edizioni, vedere la [pagina dei prezzi delle macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e selezionare l'edizione di SQL Server di interesse. Vedere anche [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
+> Il costo mensile stimato visualizzato nella finestra **Scegli una dimensione** non include i costi di licenza di SQL Server, ma solo il costo della VM. Per le edizioni Express e Developer di SQL Server, si tratta del costo stimato totale. Per altre edizioni, vedere la [pagina dei prezzi delle macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e selezionare l'edizione di SQL Server di interesse. Vedere anche [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
 
 ![Opzioni per le dimensioni di VM di SQL](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
@@ -130,7 +130,7 @@ Scegliere le dimensioni della macchina virtuale e quindi fare clic su **Selezion
 
 ## <a name="3-configure-optional-features"></a>3. Configurare le funzionalità facoltative
 
-Nel pannello **Impostazioni** configurare l'archiviazione di Azure, la rete e il monitoraggio per la macchina virtuale.
+Nella finestra **Impostazioni** configurare l'archiviazione di Azure, la rete e il monitoraggio per la macchina virtuale.
 
 * In **Archiviazione** selezionare **Sì** sotto **Usa il servizio Managed Disks**.
 
@@ -146,7 +146,7 @@ Nel pannello **Impostazioni** configurare l'archiviazione di Azure, la rete e il
 Al termine della configurazione di queste impostazioni, fare clic su **OK**.
 
 ## <a name="4-configure-sql-server-settings"></a>4. Configurare le impostazioni di SQL Server
-Nel pannello **Impostazioni di SQL Server** configurare le impostazioni e le ottimizzazioni specifiche per SQL Server. Le impostazioni che è possibile configurare per SQL Server includono le seguenti:
+Nella finestra **Impostazioni di SQL Server** configurare le impostazioni e le ottimizzazioni specifiche per SQL Server. Le impostazioni che è possibile configurare per SQL Server includono le seguenti:
 
 | Impostazione |
 | --- |
@@ -259,7 +259,7 @@ Per altre informazioni, vedere [Configurare l'integrazione dell'insieme di crede
 
 ### <a name="r-services"></a>Servizi R
 
-È possibile abilitare i [servizi R di SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Questo consente di usare l'analisi avanzata con SQL Server 2016. Fare clic su **Abilita** on the **SQL Server Settings** .
+È possibile abilitare i [servizi R di SQL Server](https://msdn.microsoft.com/library/mt604845.aspx). Questo consente di usare l'analisi avanzata con SQL Server 2016. Fare clic su **Abilita** nella finestra **Impostazioni di SQL Server**.
 
 > [!NOTE]
 > Per SQL Server 2016 Developer Edition, questa opzione viene erroneamente disabilitata dal portale. Per tale edizione è necessario abilitare manualmente i servizi R dopo la creazione della VM.
@@ -270,7 +270,7 @@ Al termine della configurazione delle impostazioni di SQL Server, fare clic su *
 
 ## <a name="5-review-the-summary"></a>5. Esaminare il riepilogo
 
-Nel pannello **Riepilogo** esaminare le informazioni e fare clic su **Acquista** per creare l'istanza di SQL Server, il gruppo di risorse e le risorse specificati per questa VM.
+Nella finestra **Riepilogo** esaminare le informazioni e fare clic su **Acquista** per creare l'istanza di SQL Server, il gruppo di risorse e le risorse specificati per questa VM.
 
 È possibile monitorare la distribuzione dal portale di Azure. Il pulsante **Notifiche** nella parte superiore della schermata mostra lo stato di base della distribuzione.
 
@@ -279,26 +279,33 @@ Nel pannello **Riepilogo** esaminare le informazioni e fare clic su **Acquista**
 
 ## <a name="open-the-vm-with-remote-desktop"></a>Aprire la macchina virtuale tramite Desktop remoto
 
+Seguire questa procedura per connettersi alla macchina virtuale SQL Server con Desktop remoto:
+
 > [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+
+Dopo essersi connessi alla macchina virtuale di SQL Server, è possibile avviare SQL Server Management Studio e connettersi con l'autenticazione di Windows usando le credenziali di amministratore locale. Se è stata abilitata l'autenticazione di SQL Server, è anche possibile connettersi con l'Autenticazione SQL usando l'account di accesso e la password di SQL configurati durante il provisioning.
+
+L'accesso alla macchina virtuale consente di modificare direttamente le impostazioni di SQL Server in base ai requisiti specifici. Ad esempio, è possibile configurare le impostazioni del firewall o modificare le impostazioni di configurazione di SQL Server.
+
+## <a name="enable-tcpip-for-developer-and-express-editions"></a>Abilitare TCP/IP per le edizioni Developer ed Express
+
+Durante il provisioning di una nuova VM di SQL Server, Azure non abilita automaticamente il protocollo TCP/IP per le edizioni Developer ed Express di SQL Server. La procedura seguente illustra come abilitare manualmente TCP/IP per potersi connettere in remoto in base all'indirizzo IP.
+
+Per abilitare il protocollo TCP/IP per le edizioni Developer ed Express di SQL Server, la procedura seguente usa **Gestione configurazione SQL Server**.
+
+> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a name="connect-to-sql-server-remotely"></a>Connettersi a SQL Server in modalità remota
 
 In questa esercitazione è stato selezionato l'accesso **Pubblico** per la macchina virtuale ed è stata scelta l'**Autenticazione di SQL Server**. Queste impostazioni hanno configurato automaticamente la macchina virtuale in modo da consentire connessioni a SQL Server da qualsiasi client su Internet, purché abbiano l'account di accesso SQL corretto.
 
 > [!NOTE]
-> Se non è stato selezionato Pubblico durante il provisioning, sono necessari altri passaggi per accedere all'istanza di SQL Server tramite Internet. Per altre informazioni, vedere [Connettersi a una macchina virtuale di SQL Server](virtual-machines-windows-sql-connect.md).
-> 
-> 
+> Se durante il provisioning non è stata selezionata l'opzione Pubblica, è possibile modificare le impostazioni di connettività di SQL tramite il portale dopo il provisioning. Per altre informazioni, vedere la sezione su come [modificare le impostazioni di connettività di SQL](virtual-machines-windows-sql-connect.md#change).
 
 Le sezioni seguenti illustrano come connettersi all'istanza di SQL Server nella VM da un computer diverso tramite Internet.
 
 > [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
-> 
-> 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sull'uso di SQL Server in Azure, vedere [SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md) e le [domande frequenti](virtual-machines-windows-sql-server-iaas-faq.md).
-
-Per una panoramica su SQL Server in Macchine virtuali di Azure, guardare il video [Azure VM is the best platform for SQL Server 2016](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016)(VM di Azure come piattaforma ottimale per SQL Server 2016).
-
-[Esplorare il percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) per SQL Server in macchine virtuali di Azure.

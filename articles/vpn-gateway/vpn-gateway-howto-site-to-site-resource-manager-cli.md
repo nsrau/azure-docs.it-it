@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: d97dfa3bc14c54e4c7097b5418c5b61e204e7676
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 019c5421dc470b18c9087417b93c241cc5730f77
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creare una rete virtuale con una connessione VPN da sito a sito usando l'interfaccia della riga di comando
@@ -48,7 +48,7 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 * Se non si ha familiarità con gli intervalli degli indirizzi IP disponibili nella configurazione della rete locale, è necessario coordinarsi con qualcuno che possa fornire tali dettagli. Quando si crea questa configurazione, è necessario specificare i prefissi degli intervalli di indirizzi IP che Azure instraderà alla posizione locale. Nessuna delle subnet della rete locale può sovrapporsi alle subnet della rete virtuale a cui ci si vuole connettere.
 * Verificare di avere installato la versione più recente dei comandi dell'interfaccia della riga di comando (2.0 o successiva). Per informazioni sull'installazione dei comandi dell'interfaccia della riga di comando, vedere [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Installare l'interfaccia della riga di comando di Azure 2.0) e [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Introduzione all'interfaccia della riga di comando di Azure 2.0).
 
-### <a name="example-values"></a>Valori di esempio
+### <a name="example"></a>Valori di esempio
 
 È possibile usare i valori seguenti per creare un ambiente di test o fare riferimento a questi valori per comprendere meglio gli esempi di questo articolo:
 
@@ -77,7 +77,7 @@ ConnectionName          = VNet1toSite2
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="2-create-a-resource-group"></a>2. Creare un gruppo di risorse
+## <a name="rg"></a>2. Creare un gruppo di risorse
 
 L'esempio seguente crea un gruppo di risorse denominato "TestRG1" nella località "eastus". Se è già disponibile un gruppo di risorse nell'area in cui si vuole creare la rete virtuale, è possibile usarlo.
 
@@ -187,7 +187,7 @@ Per usare un altro metodo per verificare la connessione, vedere [Verificare una 
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="common-tasks"></a>Attività comuni
+## <a name="tasks"></a>Attività comuni
 
 Questa sezione contiene i comandi comuni che risultano utili quando si usano configurazioni da sito a sito. Per l'elenco completo dei comandi di rete dell'interfaccia della riga di comando, vedere [Azure CLI - Networking](/cli/azure/network) (Interfaccia della riga di comando di Azure - Rete).
 
