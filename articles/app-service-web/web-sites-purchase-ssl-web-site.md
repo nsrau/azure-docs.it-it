@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un certificato SSL all&quot;app del Servizio app di Azure | Documentazione Microsoft
-description: Informazioni su come aggiungere un certificato SSL all&quot;app del Servizio app.
+title: Aggiungere un certificato SSL all'app del Servizio app di Azure | Documentazione Microsoft
+description: Informazioni su come aggiungere un certificato SSL all'app del Servizio app.
 services: app-service
 documentationcenter: .net
 author: ahmedelnably
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
-ms.author: apurvajo;aelnably
+ms.author: apurvajo
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: fb38555f1f299352f06deae1ca231895163068e5

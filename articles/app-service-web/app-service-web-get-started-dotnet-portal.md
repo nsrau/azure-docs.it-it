@@ -1,6 +1,6 @@
 ---
-title: Distribuire un&quot;app Umbraco nel Portale di Azure in cinque minuti | Microsoft Docs
-description: Informazioni su come eseguire facilmente app Web nel servizio app distribuendo un&quot;app ASP.NET di esempio. Visualizzare i risultati immediatamente.
+title: Distribuire un'app Umbraco nel Portale di Azure in cinque minuti | Microsoft Docs
+description: Informazioni su come eseguire facilmente app Web nel servizio app distribuendo un'app ASP.NET di esempio. Visualizzare i risultati immediatamente.
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/10/2017
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
 ms.openlocfilehash: 6b1dede903083d1771733330a069b6ab533d9f00
+ms.contentlocale: it-it
 ms.lasthandoff: 04/06/2017
-
 
 ---
 # <a name="deploy-an-umbraco-web-app-in-the-azure-portal-in-five-minutes"></a>Distribuire un'app Umbraco nel Portale di Azure in cinque minuti

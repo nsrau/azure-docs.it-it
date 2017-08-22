@@ -1,6 +1,6 @@
 ---
 title: Creazione di app Web con Django
-description: "Un&quot;esercitazione introduttiva è in esecuzione un&quot;applicazione web di Python in Azure applicazione servizio Web App."
+description: "Un'esercitazione introduttiva è in esecuzione un'applicazione web di Python in Azure applicazione servizio Web App."
 services: app-service\web
 documentationcenter: python
 tags: python
@@ -12,14 +12,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/19/2016
 ms.author: huvalo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
+ms.contentlocale: it-it
 ms.lasthandoff: 01/20/2017
-
 
 ---
 # <a name="creating-web-apps-with-django-in-azure"></a>Creazione di app Web con Django

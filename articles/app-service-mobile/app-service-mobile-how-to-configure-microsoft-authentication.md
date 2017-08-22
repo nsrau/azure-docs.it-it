@@ -37,8 +37,7 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
    > [!NOTE]
    > L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso */.auth/login/microsoftaccount/callback*. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
    > Assicurarsi che sia in uso lo schema HTTPS.
-   > 
-   > 
+   
 7. In "Segreti applicazione" fare clic su **Genera nuova password**. Prendere nota del valore visualizzato. Una volta chiusa la pagina, il valore non verrà più mostrato.
 
     > [!IMPORTANT]
