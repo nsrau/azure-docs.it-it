@@ -1,5 +1,5 @@
 ---
-title: "Unità di richiesta e stima della velocità effettiva: Azure Cosmos DB | Microsoft Docs"
+title: "Unità richiesta e stima della velocità effettiva: Azure Cosmos DB | Microsoft Docs"
 description: "Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità di richiesta in Azure Cosmos DB."
 services: cosmos-db
 author: mimig1
@@ -42,7 +42,7 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 Azure Cosmos DB è un database multimodello. Si noti che in questo articolo l'API di documento è detta raccolta/documento, l'API Graph è detta grafo/nodo e l'API di tabella è detta tabella/entità. Per la velocità effettiva nell'articolo vengono usati i concetti generali di contenitore/elemento.
 
-## <a name="request-units-and-request-charges"></a>Unità di richiesta e addebiti
+## <a name="request-units-and-request-charges"></a>Unità richiesta e addebiti richiesta
 Azure Cosmos DB offre prestazioni veloci e prevedibili, *riservando* risorse per soddisfare le esigenze a livello di velocità effettiva dell'applicazione. Poiché i modelli di carico e accesso dell'applicazione cambiano nel tempo, Azure Cosmos DB consente di aumentare o diminuire facilmente la quantità di velocità effettiva riservata disponibile per l'applicazione.
 
 Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità di richiesta elaborate al secondo o al minuto (componente aggiuntivo). Si possono considerare le unità di richiesta come una specie di valuta della velocità effettiva, secondo cui si *riserva* una quantità garantita di unità di richiesta disponibili al secondo o al minuto per l'applicazione.  Ogni operazione in Azure Cosmos DB, ovvero scrittura di un documento, esecuzione di una query, aggiornamento di un documento, utilizza CPU, memoria e operazioni di I/O al secondo.  In altre parole, ogni operazione comporta un *addebito di richiesta* espresso in *unità di richiesta*. La conoscenza dei fattori che influiscono sugli addebiti delle unità di richiesta, insieme ai requisiti di velocità effettiva dell'applicazione, consente di eseguire l'applicazione nel modo più economicamente conveniente possibile. Anche lo strumento Esplora query è molto utile per testare gli elementi di base di una query.
@@ -97,12 +97,12 @@ La modifica della velocità effettiva non influisce sulla disponibilità del con
 ## <a name="request-unit-considerations"></a>Considerazioni sulle unità di richiesta
 Quando si stima il numero di unità di richiesta da riservare per il contenitore di Azure Cosmos DB, è importante considerare le variabili seguenti:
 
-* **Dimensioni dell'elemento**. Con l'aumento delle dimensioni aumentano anche le unità utilizzate per leggere o scrivere i dati.
+* **Coerenza dei dati**. Se si usano i livelli di coerenza dei dati Assoluta o Decadimento ristretto, verranno utilizzate ulteriori unità per leggere gli elementi.
 * **Numero di proprietà dell'elemento**. Presupponendo l'indicizzazione predefinita di tutte le proprietà, le unità utilizzate per scrivere un documento, un nodo o un'entità aumentano con l'aumento del numero delle proprietà.
 * **Coerenza dei dati**. Se si usano i livelli di coerenza dei dati Assoluta o Con obsolescenza limitata, verranno utilizzate ulteriori unità per leggere gli elementi.
 * **Proprietà indicizzate**. I criteri di indicizzazione in ogni contenitore determinano le proprietà che vengono indicizzate per impostazione predefinita. È possibile ridurre l'utilizzo di unità di richiesta limitando il numero di proprietà indicizzate o abilitando l'indicizzazione differita.
 * **Indicizzazione del documento**. Per impostazione predefinita ogni elemento viene indicizzato automaticamente, ma se si sceglie di non indicizzare alcuni elementi si utilizzeranno meno unità di richiesta.
-* **Modelli di query**. La complessità di una query influisce sulla quantità di unità di richiesta utilizzate per un'operazione. Il numero di predicati, la loro natura, le proiezioni, il numero di funzioni definite dall'utente e le dimensioni del set di dati di origine, sono tutti fattori che incidono sul costo delle operazioni di query.
+* **Modelli di query**. La complessità di una query influisce sulla quantità di unità richiesta utilizzate per un'operazione. Il numero di predicati, la loro natura, le proiezioni, il numero di funzioni definite dall'utente e le dimensioni del set di dati di origine, sono tutti fattori che incidono sul costo delle operazioni di query.
 * **Utilizzo di script**.  Come le query, le stored procedure e i trigger utilizzano le unità di richiesta in base alla complessità delle operazioni da eseguire. Quando si sviluppa l'applicazione, controllare l'intestazione per l'addebito delle richieste per comprendere meglio il modo in cui ciascuna operazione usa la capacità delle unità di richiesta.
 
 ## <a name="estimating-throughput-needs"></a>Stima delle esigenze di velocità effettiva
