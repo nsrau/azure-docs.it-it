@@ -1,4 +1,4 @@
----
+﻿---
 title: Livelli di coerenza in Azure Cosmos DB | Microsoft Docs
 description: "Cosmos DB ha cinque livelli di coerenza per consentire di compensare scompensi di coerenza, disponibilità e latenza finale."
 keywords: coerenza finale, azure cosmos db, azure, Microsoft azure
