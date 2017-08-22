@@ -2,6 +2,7 @@
 ## [Che cos'è Azure Analysis Services?](analysis-services-overview.md)
 ## [Origini dati supportate](analysis-services-datasource.md)
 ## [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md)
+## [Connessione a origini dati locali](analysis-services-gateway.md)
 ## [Livello di compatibilità](analysis-services-compat-level.md)
 ## [Disponibilità elevata](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [Gestire un server](analysis-services-manage.md)
 ## [Gestire gli utenti di database](analysis-services-database-users.md)
 ## [Gestire gli amministratori di server](analysis-services-server-admins.md)
-## [Installare un gateway dati locale](analysis-services-gateway.md)
+## [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md)
 ## [Ottenere le librerie client](analysis-services-data-providers.md)
 ## [Backup e ripristino](analysis-services-backup.md)
 ## [Stabilire la connessione con Excel](analysis-services-connect-excel.md)

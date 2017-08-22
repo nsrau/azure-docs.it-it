@@ -83,6 +83,7 @@
 ## [Abilitare la fatturazione](active-directory-b2c-how-to-enable-billing.md)
 ## [Gestione delle minacce](active-directory-b2c-reference-threat-management.md)
 ## [Problemi relativi alla creazione di una directory](active-directory-b2c-support-create-directory.md)
+## [App extensions](active-directory-b2c-reference-extensions-app.md)
 
 # Risorse correlate
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

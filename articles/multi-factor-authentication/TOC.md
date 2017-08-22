@@ -17,7 +17,7 @@
 ### [Usare server di criteri di rete esistenti](multi-factor-authentication-nps-extension.md)
 #### [Configurazione avanzata per l'estensione Server dei criteri di rete](nps-extension-advanced-configuration.md)
 ### [Creare un provider di autenticazione](multi-factor-authentication-get-started-auth-provider.md)
-### Azure MFA in locale
+### Distribuire MFA in locale
 #### [Installare il portale per gli utenti](multi-factor-authentication-get-started-portal.md)
 #### [Configurazioni VPN avanzate](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Servizio Web per app per dispositivi mobili](multi-factor-authentication-get-started-server-webservice.md)
@@ -31,24 +31,28 @@
 ### [Manuale dell'utente di MFA](./end-user/multi-factor-authentication-end-user.md)
 
 ## Integrare
-### [Federation Services](multi-factor-authentication-get-started-adfs.md)
-#### [Usare AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
-#### [Usare AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
-#### [Usare Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
-### Directory
-#### [Autenticazione LDAP](multi-factor-authentication-get-started-server-ldap.md)
-#### [Autenticazione RADIUS](multi-factor-authentication-get-started-server-radius.md)
-#### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
-### [App Web IIS](multi-factor-authentication-get-started-server-iis.md)
-### [Gateway Desktop remoto](multi-factor-authentication-get-started-server-rdg.md)
+### [Gateway Desktop remoto](nps-extension-remote-desktop-gateway.md)
+### [VPN](nps-extension-vpn.md)
+### Integrare MFA in locale
+#### [Federation Services](multi-factor-authentication-get-started-adfs.md)
+##### [Usare AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [Usare AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
+##### [Usare Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
+#### Directory
+##### [Autenticazione LDAP](multi-factor-authentication-get-started-server-ldap.md)
+##### [Autenticazione RADIUS](multi-factor-authentication-get-started-server-radius.md)
+##### [Active Directory](multi-factor-authentication-get-started-server-dirint.md)
+#### [App Web IIS](multi-factor-authentication-get-started-server-iis.md)
+#### [Gateway Desktop remoto](multi-factor-authentication-get-started-server-rdg.md)
 
 ## Sviluppare
-### [Integrazione in app personalizzate (SDK)](multi-factor-authentication-sdk.md)
+### [Compilazione in app personalizzate (SDK)](multi-factor-authentication-sdk.md)
 
-## Risolvere i problemi
+## Risoluzione dei problemi
 ### [Domande frequenti](multi-factor-authentication-faq.md)
 ### [Porre una domanda](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Errori dell'estensione del Server dei criteri di rete](multi-factor-authentication-nps-errors.md)
+
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
