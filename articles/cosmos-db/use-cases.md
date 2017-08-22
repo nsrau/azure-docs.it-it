@@ -1,4 +1,4 @@
----
+﻿---
 title: Casi d'uso e scenari comuni per Azure Cosmos DB | Microsoft Docs
 description: 'Informazioni sui primi cinque casi d''uso per Cosmos DB: contenuto generato dall''utente, registrazione di eventi, dati di catalogo, dati delle preferenze utente e "Internet delle cose" (IoT).'
 services: cosmos-db
