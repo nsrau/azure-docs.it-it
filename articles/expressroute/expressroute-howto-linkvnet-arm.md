@@ -15,22 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2017
 ms.author: ganesr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 43f49a1309ccf18ae515d0ff86fac9fb82505a4d
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8c2f3036f754a98090ab860f95900416690ebf83
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connettere una rete virtuale a un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Classica: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
 > * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> 
-> 
+> * [PowerShell (classico)](expressroute-howto-linkvnet-classic.md)
+>
 
 Questo articolo spiega come collegare le reti virtuali ai circuiti di Azure ExpressRoute usando il modello di distribuzione di Resource Manager e PowerShell. Le reti virtuali possono essere nella stessa sottoscrizione o appartenere a un'altra sottoscrizione. Questo articolo illustra inoltre come aggiornare un collegamento alla rete virtuale. 
 

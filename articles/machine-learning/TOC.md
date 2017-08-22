@@ -3,9 +3,10 @@
 ## [Informazioni su Machine Learning](machine-learning-what-is-machine-learning.md)
 
 ## Processo di analisi scientifica dei dati per i team
-### [Panoramica](http://aka.ms/datascienceprocess)
-### [Ciclo di vita](data-science-process-overview.md)
+### [Panoramica](data-science-process-overview.md)
+### [Ciclo di vita](data-science-process-lifecycle.md)
 ### [Procedure dettagliate](data-science-process-walkthroughs.md)
+### [Con Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Informazioni su Studio](machine-learning-what-is-ml-studio.md)

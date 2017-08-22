@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 4092f35b2959cee695a30744e0876bbfdfdfbd2c
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 481d234eaf88bdb210821084ee4154159470eda0
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilizzare una UDF Java con Hive in HDInsight
@@ -32,7 +31,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 * Un cluster HDInsight 
 
     > [!IMPORTANT]
-    > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
     La maggior parte dei passaggi di questo documento vale per entrambi i cluster basati su Windows e Linux. I passaggi necessari per caricare la funzione definita dall'utente compilata nel cluster ed eseguirla sono tuttavia specifici per i cluster basati su Linux. Vengono forniti i collegamenti alle informazioni utili per i cluster basati su Windows.
 
@@ -215,12 +214,12 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 2. Una volta arrivati al prompt `jdbc:hive2://localhost:10001/>` , immettere il comando seguente per aggiungere la UDF a Hive ed esporla come una funzione.
 
     ```hiveql
-    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
 
     > [!NOTE]
-    > Questo esempio assume che Archiviazione di Azure sia la risorsa di archiviazione predefinita per il cluster. Se il cluster usa invece Data Lake Store, modificare il valore `wasbs:///` in `adl:///`.
+    > Questo esempio assume che Archiviazione di Azure sia la risorsa di archiviazione predefinita per il cluster. Se il cluster usa invece Data Lake Store, modificare il valore `wasb:///` in `adl:///`.
 
 3. Utilizzare la UDF per convertire i valori recuperati da una tabella in stringhe con lettere minuscole.
 

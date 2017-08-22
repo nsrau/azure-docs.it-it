@@ -12,18 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2adf6d6758c260f539277dafe8b9fadc3d9acb8b
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 5a663bc8290d056b89a929c17722e3c233cdbad7
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure
 Questo argomento descrive come installare altri controller di dominio (anche noti come controller di dominio di replica) per un dominio Active Directory locale in Macchine virtuali di Azure in una rete virtuale di Azure.
+
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo.
 
 Altri argomenti di interesse:
 

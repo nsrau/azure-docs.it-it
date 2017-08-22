@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: fa22c0dd4da1117980adb43c937197274f08760b
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 711d364c36c3aba699326f4a76d42891ba3219fb
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -462,7 +461,7 @@ Tutte le attività preliminari sono state completate. Ora è possibile richiamar
 Usare lo script PowerShell seguente per eseguire lo script Hive. È necessario impostare la prima variabile.
 
 > [!NOTE]
-> Per usare i tweet e lo script HiveQL caricati nelle ultime due sezioni, impostare $hqlScriptFile su "/tutorials/twitter/twitter.hql". Per usare quelli caricati in un BLOB pubblico per l'utente, impostare $hqlScriptFile su "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+> Per usare i tweet e lo script HiveQL caricati nelle ultime due sezioni, impostare $hqlScriptFile su "/tutorials/twitter/twitter.hql". Per usare quelli caricati in un BLOB pubblico per l'utente, impostare $hqlScriptFile su "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 ```powershell
 #region variables and constants
@@ -471,7 +470,7 @@ $httpUserName = "admin"
 $httpUserPassword = "<HDInsight Cluster HTTP User Password>"
 
 #use one of the following
-$hqlScriptFile = "wasbs://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
+$hqlScriptFile = "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"
 $hqlScriptFile = "/tutorials/twitter/twitter.hql"
 
 $statusFolder = "/tutorials/twitter/jobstatus"

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
-ms.author: rambala
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: a13c74b9490811e61328414b6a375bc9c9f7cdb0
+ms.date: 08/01/2017
+ms.author: cherylmc
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
@@ -179,8 +178,9 @@ Dopo che il provider di servizi ha completato il provisioning del circuito Expre
 >
 
 <p/>
->[!NOTE] Se il provider offre servizi di livello 3 e i peering non sono mostrati nel portale, è possibile usare PowerShell per visualizzare le impostazioni configurate del provider di servizi.
->>
+>[!NOTE]
+>Se il provider offre servizi di livello 3 e i peering non sono mostrati nel portale, è possibile usare PowerShell per visualizzare le impostazioni configurate del provider di servizi.
+>
 >
 
 Nel portale di Azure lo stato di un circuito ExpressRoute può essere controllato selezionando ![2][2] nel menu sulla barra laterale sinistra e quindi selezionando il circuito ExpressRoute. La selezione di un circuito ExpressRoute elencato in "All resources" (Tutte le risorse) determina l'apertura del pannello del circuito ExpressRoute. Nella sezione ![3][3] del pannello saranno elencate le informazioni di base di ExpressRoute come illustrato nella schermata seguente:
@@ -238,14 +238,11 @@ Se non è configurato alcun peering, viene visualizzato un messaggio di errore. 
             + CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
             + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
->[!IMPORTANT]
->Se il provider di servizi ha impostato peering di livello 3, l'impostazione dei peering di ExpressRoute tramite il portale o PowerShell sovrascrive le impostazioni del provider di servizi. La riconfigurazione delle impostazioni di peering lato provider richiede il supporto del provider di servizi. Modificare i peering di ExpressRoute solo se si è certi che il provider di servizi offre esclusivamente servizi di livello 2.
->
->
 
 <p/>
->[!NOTE] Se non è abilitato alcun peering, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione sul PE-MSEE collegato. Controllare anche che siano usati i valori corretti *VlanId*, *AzureASN* e *PeerASN* sugli MSEE e che tali valori corrispondano a quelli usati sul PE-MSEE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e PE-MSEE. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].  
->>
+>[!NOTE]
+>Se non è abilitato alcun peering, verificare se le subnet primarie e secondarie assegnate corrispondono alla configurazione sul PE-MSEE collegato. Controllare anche che siano usati i valori corretti *VlanId*, *AzureASN* e *PeerASN* sugli MSEE e che tali valori corrispondano a quelli usati sul PE-MSEE collegato. Se si sceglie l'hash MD5, la chiave condivisa deve essere identica nella coppia MSEE e PE-MSEE. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].  
+>
 >
 
 ### <a name="verification-via-powershell-classic"></a>Verifica tramite PowerShell (versione classica)
@@ -284,8 +281,9 @@ Per ottenere i dettagli di configurazione del peering Microsoft, usare i comandi
 >
 
 <p/>
->[!NOTE] Se non è abilitato alcun peering, verificare se le subnet peer primarie e secondarie assegnate corrispondono alla configurazione sul PE-MSEE collegato. Controllare anche che siano usati i valori corretti *VlanId*, *AzureASN* e *PeerASN* sugli MSEE e che tali valori corrispondano a quelli usati sul PE-MSEE collegato. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
->>
+>[!NOTE]
+>Se non è abilitato alcun peering, verificare se le subnet peer primarie e secondarie assegnate corrispondono alla configurazione sul PE-MSEE collegato. Controllare anche che siano usati i valori corretti *VlanId*, *AzureASN* e *PeerASN* sugli MSEE e che tali valori corrispondano a quelli usati sul PE-MSEE collegato. Per modificare la configurazione sui router MSEE, fare riferimento a [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering].
+>
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Convalidare ARP tra Microsoft e il provider di servizi
@@ -348,8 +346,9 @@ Come illustrato nell'esempio precedente, il comando è utile per determinare da 
 >
 
 <p/>
->[!NOTE] Se alcune destinazioni non sono raggiungibili tramite un particolare peering, controllare la tabella di route dei MSEE appartenente al contesto di peering specifico. Se un prefisso corrispondente, ad esempio un IP su cui è stato eseguito il NAT, questo è presente nella tabella di routing, controllare che ci siano firewalls/NSG/ACLs nel percorso e che questi consentano il traffico.
->>
+>[!NOTE]
+>Se alcune destinazioni non sono raggiungibili tramite un particolare peering, controllare la tabella di route dei MSEE appartenente al contesto di peering specifico. Se un prefisso corrispondente, ad esempio un IP su cui è stato eseguito il NAT, questo è presente nella tabella di routing, controllare che ci siano firewalls/NSG/ACLs nel percorso e che questi consentano il traffico.
+>
 >
 
 Per ottenere la tabella di routing completa da MSEE sul percorso *Primary* per il contesto di routing *Private* specifico, usare il comando seguente:

@@ -12,17 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/25/2017
 ms.author: curtand
+ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 6b448b4fac56d4b5debcf4fb3a545dd538929aff
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 82fbeb379e90add09f7c569111053f6e9b1bc9c5
 ms.contentlocale: it-it
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="managing-owners-for-a-group"></a>Gestione dei proprietari di un gruppo
 Quando il proprietario delle risorse ha assegnato l'accesso a una risorsa a un gruppo di Azure AD, l'appartenenza al gruppo viene gestita dal proprietario del gruppo. Il proprietario della risorsa delega in modo efficace l'autorizzazione ad assegnare agli utenti la loro risorsa al proprietario del gruppo.
+
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. 
 
 ## <a name="assigning-group-ownership"></a>Assegnare la proprietà del gruppo
 **Per Aggiungere un proprietario a un gruppo**
