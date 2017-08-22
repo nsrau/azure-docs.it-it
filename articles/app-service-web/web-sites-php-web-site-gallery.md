@@ -1,5 +1,5 @@
 ---
-title: Creare un&quot;App Web WordPress nel Servizio app di Azure | Microsoft Docs
+title: Creare un'App Web WordPress nel Servizio app di Azure | Microsoft Docs
 description: Informazioni su come creare una nuova app Web di Azure per un blog WordPress mediante il portale di Azure.
 services: app-service\web
 documentationcenter: php
@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: hero-article
+ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 83ef925a8268873d09c4a1611a1f2341acd92ba7
+ms.contentlocale: it-it
 ms.lasthandoff: 02/16/2017
-
 
 ---
 # <a name="create-a-wordpress-web-app-in-azure-app-service"></a>Creare un'app WordPress nel servizio app di Azure

@@ -2,7 +2,9 @@
 title: Creare un'app per le funzioni e distribuire codice di funzione da GitHub | Documentazione Microsoft
 description: Creare un'app per le funzioni e distribuire codice di funzione da GitHub
 services: functions
+ms.service: functions
 keywords: 
+ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017

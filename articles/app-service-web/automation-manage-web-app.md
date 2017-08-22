@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
-ms.author: magoedte;csand
-translationtype: Human Translation
+ms.author: magoedte
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
 ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/07/2016
 
 ---
 # <a name="managing-azure-web-app-using-azure-automation"></a>Gestire App Web di Azure usando Automazione di Azure
@@ -41,10 +42,5 @@ Di seguito sono riportati alcuni esempi di gestione dei servizi app con Automazi
 A questo punto, dopo aver appreso le nozioni di base di Automazione di Azure e come può essere usato per gestire App Web di Azure, consultare i seguenti collegamenti per altre informazioni su Automazione di Azure.
 
 * Vedere l' [esercitazione introduttiva](../automation/automation-first-runbook-graphical.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

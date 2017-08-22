@@ -1,6 +1,6 @@
 ---
-title: Distribuzione di un&quot;app Web ASP.NET MVC 5 per dispositivi mobili nel servizio app di Azure
-description: "Un&quot;esercitazione che illustra come distribuire un&quot;app Web in App Service di Azure usando le funzionalità dei dispositivi mobili nell&quot;applicazione Web ASP.NET MVC 5."
+title: Distribuzione di un'app Web ASP.NET MVC 5 per dispositivi mobili nel servizio app di Azure
+description: "Un'esercitazione che illustra come distribuire un'app Web in App Service di Azure usando le funzionalità dei dispositivi mobili nell'applicazione Web ASP.NET MVC 5."
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2016
-ms.author: cephalin;riande
-translationtype: Human Translation
+ms.author: cephalin
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
 ms.openlocfilehash: b23dfdcf99cab46bb4cedc690e00d29d37b3a044
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>Distribuzione di un'app Web ASP.NET MVC 5 per dispositivi mobili nel servizio app di Azure

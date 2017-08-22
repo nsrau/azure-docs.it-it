@@ -1,6 +1,6 @@
 ---
-title: Automatizzare la distribuzione di risorse per un&quot;app per le funzioni in Funzioni di Azure | Microsoft Docs
-description: Informazioni su come creare un modello di Azure Resource Manager per distribuire l&quot;app per le funzioni.
+title: Automatizzare la distribuzione di risorse per un'app per le funzioni in Funzioni di Azure | Microsoft Docs
+description: Informazioni su come creare un modello di Azure Resource Manager per distribuire l'app per le funzioni.
 services: Functions
 documtationcenter: na
 author: lindydonna
@@ -11,17 +11,16 @@ keywords: funzioni di azure, funzioni, architettura senza server, infrastruttura
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: donnam;glenga
+ms.author: glenga
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
 ms.openlocfilehash: 9458b3b619649d094ddab1638e146571d9268fb0
 ms.contentlocale: it-it
 ms.lasthandoff: 06/05/2017
-
 
 ---
 
