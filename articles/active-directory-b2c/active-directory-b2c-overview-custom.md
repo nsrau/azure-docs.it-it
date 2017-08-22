@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 0a0d91d622ed72ed22cfaaa0350b31ca653de483
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 33f62a33ea7a3fadb6e7b045de10df25f5edbe83
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: criteri personalizzati
@@ -41,7 +41,7 @@ I criteri personalizzati sono file di configurazione che definiscono il comporta
 | Personalizzazione degli attributi | Attributi standard e personalizzati | Uguale |
 |Gestione delle sessioni e dei token | Token personalizzato e opzioni di sessione multiple | Uguale |
 |Provider di identità| **Oggi**: provider social, predefinito, locale<br><br>**Futuro**: OIDC, SAML, OAuth basati su standard | **Oggi**: OIDC, SAML, OAuth basati su standard<br><br>**Futuro**: WsFed |
-|Attività relative all'identità: esempi | Iscrizione o accesso ad account social e locali multipli<br><br>Reimpostazione delle password<br><br>Modifica del profilo<br><br>Scenari con autenticazione a più fattori<br><br>Personalizzare token e sessioni<br><br>Flussi di accesso ai token | Completare le stesse attività dei criteri predefiniti usando provider di identità personalizzati ambiti personalizzati<br><br>Effettuare il provisioning per l'utente in un altro sistema al momento della registrazione<br><br>Inviare un messaggio di posta elettronica di benvenuto con il proprio provider di servizi di posta elettronica<br><br>Usare un archivio utente esterno B2C<br><br>Convalidare le informazioni date dall'utente con un sistema attendibile tramite API |
+|Attività relative all'identità: esempi | Iscrizione o accesso ad account social e locali multipli<br><br>Reimpostazione della password self-service<br><br>Modifica del profilo<br><br>Scenari con autenticazione a più fattori<br><br>Personalizzare token e sessioni<br><br>Flussi di accesso ai token | Completare le stesse attività dei criteri predefiniti usando provider di identità personalizzati ambiti personalizzati<br><br>Effettuare il provisioning per l'utente in un altro sistema al momento della registrazione<br><br>Inviare un messaggio di posta elettronica di benvenuto con il proprio provider di servizi di posta elettronica<br><br>Usare un archivio utente esterno B2C<br><br>Convalidare le informazioni date dall'utente con un sistema attendibile tramite API |
 
 ## <a name="policy-files"></a>File dei criteri
 
@@ -97,7 +97,7 @@ Un criterio personalizzato è rappresentato come uno o più file in formato XML 
 |---------------------|--------------------|-----------------|---------------|
 | BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Include lo schema di attestazioni core, le trasformazioni delle attestazioni, i provider delle attestazioni e i percorsi utente è configurati da Microsoft<br><br>Apportare modifiche minime al file | Nessuno |
 | Estensione (RXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Consolidare le modifiche al file di BASE qui<br><br>Provider di attestazioni modificati<br><br>Percorsi utente modificati<br><br>Definizioni dello schema personalizzato | File di BASE |
-| Relying Party (RP) | | | File di estensioni |
+| Relying Party (RP) | B2C_1A_sign_up_sign_in.xml| Modificare la forma del token e le impostazioni della sessione qui| File Extensions(Ext) |
 
 ### <a name="inheritance-model"></a>Modello di ereditarietà
 

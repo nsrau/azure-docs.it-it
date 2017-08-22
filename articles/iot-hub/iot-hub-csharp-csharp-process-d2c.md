@@ -1,6 +1,6 @@
 ---
-title: Elaborare messaggi da dispositivo a cloud dell&quot;hub IoT di Azure usando i route (.NET) |Microsoft Docs
-description: Come elaborare i messaggi da dispositivo a cloud dell&quot;hub IoT usando le regole di routing e gli endpoint personalizzati per inviare i messaggi agli altri servizi di back-end.
+title: Elaborare messaggi da dispositivo a cloud dell'hub IoT di Azure usando i route (.NET) |Microsoft Docs
+description: Come elaborare i messaggi da dispositivo a cloud dell'hub IoT usando le regole di routing e gli endpoint personalizzati per inviare i messaggi agli altri servizi di back-end.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,35 +12,32 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: f8917ca67aa5f15ccc11030fd0292ac803d9e994
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Elaborare messaggi da dispositivo a cloud dell'hub IoT usando i route (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-## <a name="introduction"></a>Introduzione
-L'hub IoT di Azure è un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. Altre esercitazioni, ad esempio [Get started with IoT Hub] e [Inviare messaggi da cloud a dispositivo con l'hub IoT][lnk-c2d], illustrano come usare le funzionalità di messaggistica di base da dispositivo a cloud e da cloud a dispositivo dell'hub IoT.
+Questa esercitazione si basa sull'esercitazione [Introduzione a hub IoT]. L'esercitazione:
 
-Questa esercitazione sull'esercitazione [Get started with IoT Hub] e illustra come usare le regole di routing per inviare i messaggi da dispositivo a cloud con un semplice metodo basato sulla configurazione. L'esercitazione illustra come isolare i messaggi che richiedono un intervento immediato del back-end della soluzione per essere elaborati in seguito. Ad esempio, un dispositivo potrebbe inviare un messaggio di avviso che attiva l'inserimento di un ticket in un sistema CRM. Al contrario, i messaggi di punto dati vengono semplicemente inseriti in un motore di analisi. Ad esempio, i dati di telemetria sulla temperatura di un dispositivo che devono essere archiviati per una successiva analisi costituiscono un messaggio di punti dati.
+* Illustra come usare le regole di routing per inviare i messaggi da dispositivo a cloud con un semplice metodo basato sulla configurazione.
+* Illustra come isolare i messaggi interattivi che richiedono un intervento immediato del back-end della soluzione per essere elaborati in seguito. Ad esempio, un dispositivo potrebbe inviare un messaggio di avviso che attiva l'inserimento di un ticket in un sistema CRM. Al contrario, i messaggi di punto dati, come ad esempio la telemetria di temperatura, vengono semplicemente inseriti in un motore di analisi.
 
 Al termine di questa esercitazione vengono eseguite tre app di console .NET:
 
-* **SimulatedDevice**, una versione modificata dell'app creata nell'esercitazione [Get started with IoT Hub] , che invia messaggi di punti dati da dispositivo a cloud ogni secondo e messaggi interattivi da dispositivo a cloud ogni 10 secondi. Questa app usa il protocollo AMQP per comunicare con l'hub IoT.
-* **ReadDeviceToCloudMessages** mostra i dati di telemetria non fondamentali inviati dall'app per dispositivo simulato.
-* **ReadCriticalQueue** rimuove dalla coda i messaggi importanti inviati dall'app per dispositivo simulato della coda del bus di servizio collegato all'hub IoT.
+* **SimulatedDevice**, una versione modificata dell'app creata nell'esercitazione [Introduzione a hub IoT], che invia messaggi di punti dati da dispositivo a cloud ogni secondo e messaggi interattivi da dispositivo a cloud ogni 10 secondi.
+* **ReadDeviceToCloudMessages** mostra i dati di telemetria non fondamentali inviati dall'app per dispositivi.
+* **ReadCriticalQueue** rimuove i messaggi importanti inviati dall'app per dispositivi da una coda del bus di servizio. Questa coda è collegata all'hub IoT.
 
 > [!NOTE]
-> L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Per informazioni su come sostituire il dispositivo simulato in questa esercitazione con un dispositivo fisico e su come connettere dispositivi a un hub IoT, fare riferimento al [Centro per sviluppatori Azure IoT].
-> 
-> 
+> L'hub IoT offre il supporto SDK per molte piattaforme e linguaggi, inclusi C, Java e JavaScript. Per informazioni su come sostituire il dispositivo simulato in questa esercitazione con un dispositivo fisico, fare riferimento al [Centro per sviluppatori Azure IoT].
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -49,12 +46,13 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 È necessaria una conoscenza di base di [Archiviazione di Azure] e del [bus di servizio di Azure].
 
-## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Inviare messaggi interattivi da un'app per dispositivo simulato
-In questa sezione viene modificata l'app per il dispositivo simulato creata nell'esercitazione [Get started with IoT Hub] (Introduzione all'hub IoT) per inviare occasionalmente messaggi che richiedono un intervento immediato.
+## <a name="send-interactive-messages"></a>Inviare messaggi interattivi
+
+Modificare l'app per dispositivi creata nell'esercitazione [Introduzione a hub IoT] per inviare occasionalmente messaggi interattivi.
 
 In Visual Studio, nel progetto **SimulatedDevice** sostituire il metodo `SendDeviceToCloudMessagesAsync` con il codice seguente:
 
-```
+```csharp
 private static async void SendDeviceToCloudMessagesAsync()
 {
     double minTemperature = 20;
@@ -104,7 +102,8 @@ Con questo metodo La proprietà `"level": "critical"` verrà aggiunta in modo ca
 > [!NOTE]
 > Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [Transient Fault Handling](Gestione degli errori temporanei).
 
-## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>Aggiungere una coda all'hub IoT e indirizzarvi i messaggi
+## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Eseguire il routing dei messaggi a una coda nell'hub IoT
+
 In questa sezione verrà illustrato come:
 
 * Creare una coda del bus di servizio.
@@ -135,6 +134,7 @@ Per altre informazioni su come elaborare i messaggi dalle code del bus di serviz
     ![Route di fallback][33]
 
 ## <a name="read-from-the-queue-endpoint"></a>Lettura dell'endpoint della coda
+
 In questa sezione è possibile leggere i messaggi dell'endpoint della coda.
 
 1. In Visual Studio aggiungere un progetto desktop di Windows classico in Visual C# usando il modello di progetto **App console (.NET Framework)**. Denominare il progetto **ReadCriticalQueue**.
@@ -145,14 +145,14 @@ In questa sezione è possibile leggere i messaggi dell'endpoint della coda.
 
 4. All'inizio del file **Program.cs** aggiungere le istruzioni **using** seguenti:
    
-    ```
+    ```csharp
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
 5. Aggiungere infine le righe seguenti al metodo **Main** . Sostituire la stringa di connessione con le autorizzazioni **Ascolto** per la coda:
    
-    ```
+    ```csharp
     Console.WriteLine("Receive critical messages. Ctrl-C to exit.\n");
     var connectionString = "{service bus listen string}";
     var queueName = "{queue name}";
@@ -191,46 +191,20 @@ Per ulteriori informazioni sul routing dei messaggi nell'hub IoT, vedere [Inviar
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
-[10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/click-endpoints.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/endpoint-creation.png
 [32]: ./media/iot-hub-csharp-csharp-process-d2c/route-creation.png
 [33]: ./media/iot-hub-csharp-csharp-process-d2c/fallback-route.png
 
 <!-- Links -->
-
-[Azure blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
-[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
-
-[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
-
 [Archiviazione di Azure]: https://azure.microsoft.com/documentation/services/storage/
 [bus di servizio di Azure]: https://azure.microsoft.com/documentation/services/service-bus/
-
 [Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Introduzione a hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Centro per sviluppatori Azure IoT]: https://azure.microsoft.com/develop/iot
-[lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
-[lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
-
-<!-- Links -->
-[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
-[Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
-[Event Hubs]: ../event-hubs/event-hubs-overview.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Build multi-tier applications with Service Bus]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
