@@ -1,4 +1,4 @@
----
+﻿---
 title: Distribuire i dati a livello globale con Azure Cosmos DB | Microsoft Docs
 description: Informazioni sulla replica geografica a livello globale, sul failover e sul ripristino dei dati usando i database globali di Azure Cosmos DB, un servizio database multimodello distribuito a livello globale.
 services: cosmos-db
