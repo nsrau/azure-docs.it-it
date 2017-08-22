@@ -1,4 +1,4 @@
----
+﻿---
 title: Partizionamento e aumento del numero di istanze in Azure Cosmos DB | Microsoft Docs
 description: Informazioni sul funzionamento del partizionamento in Azure Cosmos DB, sulla configurazione del partizionamento e delle chiavi di partizione e su come scegliere la chiave di partizione corretta per l'applicazione.
 services: cosmos-db
