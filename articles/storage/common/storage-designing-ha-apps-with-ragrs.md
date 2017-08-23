@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 1/19/2017
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.sourcegitcommit: c52065ea02c0d755ccd96532ac2aba060ee0c94e
 ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
 ms.contentlocale: it-it
 ms.lasthandoff: 07/21/2017
