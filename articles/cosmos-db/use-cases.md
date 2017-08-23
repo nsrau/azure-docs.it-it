@@ -23,9 +23,9 @@ ms.lasthandoff: 07/25/2017
 ---
 
 # <a name="common-azure-cosmos-db-use-cases"></a>Casi d'uso comuni di Azure Cosmos DB
-Questo articolo fornisce una panoramica di diversi casi d'uso comuni per Azure Cosmos DB.  I consigli forniti in questo articolo sono un punto di partenza per sviluppare l'applicazione con Cosmos DB.   
+Questo articolo fornisce una panoramica di diversi casi d'uso comuni per Azure Cosmos DB. I consigli forniti sono un punto di partenza per sviluppare applicazioni con Cosmos DB.
 
-Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti: 
+Alla fine della lettura, si avranno le risposte alle domande seguenti:
 
 * Quali sono i casi d'uso comuni per Azure Cosmos DB?
 * Quali sono i vantaggi dell'uso di Azure Cosmos DB per le applicazioni di vendita al dettaglio?
@@ -41,10 +41,10 @@ Azure Cosmos DB è un database multimodello distribuito a livello globale che vi
 
 Di seguito sono indicati alcuni attributi di Azure Cosmos DB che lo rendono particolarmente adatto ad applicazioni a prestazioni elevate destinate a una distribuzione globale.
 
-* Azure Cosmos DB partiziona in modo nativo i dati per la disponibilità e la scalabilità elevate. Azure Cosmos DB offre garanzie del 99,99% per disponibilità, velocità effettiva, bassa latenza e coerenza.
+* Azure Cosmos DB partiziona in modo nativo i dati per la disponibilità e la scalabilità elevate. Offre garanzie del 99,99% per disponibilità, velocità effettiva, bassa latenza e coerenza.
 * Azure Cosmos DB ha una risorsa di archiviazione basata su SSD con tempi di risposta a bassa latenza nell'ordine di millisecondi.
 * Il supporto di Azure Cosmos DB per i livelli di coerenza di tipo eventuale, prefisso coerente, sessione e con obsolescenza associata consente una flessibilità completa e un basso rapporto costo-prestazioni. Nessun servizio di database offre una flessibilità maggiore di Azure Cosmos DB in termini di coerenza dei livelli. 
-* Azure Cosmos DB ha un modello di determinazione dei prezzi flessibile e semplice da usare che calcola in modo indipendente la memoria e la velocità effettiva.
+* Azure Cosmos DB ha un modello di determinazione dei prezzi flessibile e semplice da usare che calcola in modo indipendente lo spazio di archiviazione e la velocità effettiva.
 * Il modello di velocità effettiva riservata di Azure Cosmos DB consente un approccio in termini di numero di letture/scritture invece che di CPU/memoria/operazioni di I/O dell'hardware sottostante.
 * La progettazione di Azure Cosmos DB consente la scalabilità di elevati volumi di richieste, nell'ordine di trilioni di richieste al giorno.
 
@@ -68,7 +68,7 @@ Considerare l'esempio di un catalogo di prodotti per un fornitore di parti di ri
 
 ![Architettura di riferimento per un catalogo di vendita al dettaglio per Azure Cosmos DB](./media/use-cases/product-catalog.png)
 
- Inoltre, i dati archiviati in Azure Cosmos DB possono essere integrati con HDInsight per analisi di Big Data tramite processi Pig, Hive o Map/Reduce. Per altre informazioni sul connettore Hadoop per Azure Cosmos DB, vedere [Eseguire un processo Hadoop con Cosmos DB e HDInsight](run-hadoop-with-hdinsight.md).
+I dati archiviati in Azure Cosmos DB possono anche essere integrati con HDInsight per analisi di Big Data tramite processi Pig, Hive o Map/Reduce. Per altre informazioni sul connettore Hadoop per Azure Cosmos DB, vedere [Eseguire un processo Hadoop con Azure Cosmos DB e HDInsight](run-hadoop-with-hdinsight.md).
 
 ## <a name="gaming"></a>Giochi
 Il livello database è un componente fondamentale delle applicazioni di gioco. I giochi moderni eseguono l'elaborazione grafica in client mobili/console, ma si basano sul cloud per distribuire contenuti personalizzati come le statistiche di gioco, l'integrazione con i social media e le classifiche dei punteggi. I giochi richiedono spesso latenze di un solo millisecondo per operazioni di lettura e scrittura, per offrire un'esperienza di gioco accattivante. Un database per giochi deve essere veloce e in grado di gestire picchi significativi a livello di frequenza di richieste durante l'avvio di nuovi giochi e gli aggiornamenti delle funzionalità.
@@ -89,7 +89,7 @@ Azure Cosmos DB viene comunemente usato all'interno di applicazioni Web e per di
 ### <a name="social-applications"></a>Applicazioni social
 Un caso di uso comune per Azure Cosmos DB prevede l'archiviazione e la query del contenuto generato dall'utente (UGC, User Generated Content) per applicazioni Web e per dispositivi mobili, soprattutto applicazioni per social media. Alcuni esempi di UGC includono sessioni di chat, tweet, post di blog, classificazioni e commenti. Spesso il contenuto UGC nelle applicazioni per social media comprende testo in formato libero, proprietà, tag e relazioni non limitati da una struttura rigida. I contenuti come chat, commenti e post possono essere archiviati in Cosmos DB senza richiedere trasformazioni o livelli di mapping relazionale a oggetti complessi.  Le proprietà dei dati possono essere aggiunte o modificate facilmente in modo che rispondano ai requisiti quando gli sviluppatori scorrono il codice dell'applicazione, velocizzando così la fase di sviluppo.  
 
-Le applicazioni che si integrano con social network di terze parti devono adeguarsi alle modifiche degli schemi di queste reti. I dati, man mano che vengono automaticamente indicizzati in Cosmos DB per impostazione predefinita, sono pronti per l'esecuzione di query in qualsiasi momento. Queste applicazioni hanno quindi la flessibilità necessaria per recuperare le proiezioni in base alle rispettive esigenze.
+Le applicazioni che si integrano con social network di terze parti devono adeguarsi alle modifiche degli schemi di queste reti. I dati, man mano che vengono automaticamente indicizzati in Azure Cosmos DB per impostazione predefinita, sono pronti per l'esecuzione di query in qualsiasi momento. Queste applicazioni hanno quindi la flessibilità necessaria per recuperare le proiezioni in base alle rispettive esigenze.
 
 Molte applicazioni di social networking vengono eseguite su scala globale e possono presentare modelli di utilizzo non prevedibili. La flessibilità nella scalabilità dell'archivio dati è essenziale man mano che il livello dell'applicazione viene scalato in modo da soddisfare la domanda di utilizzo.  È possibile scalare orizzontalmente aggiungendo altre partizioni di dati con un account Cosmos DB.  Si possono anche creare altri account Cosmos DB in più aree. Per la disponibilità delle aree del servizio Cosmos DB, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
@@ -98,7 +98,7 @@ Molte applicazioni di social networking vengono eseguite su scala globale e poss
 ### <a name="personalization"></a>Personalizzazione
 Oggi le applicazioni moderne sono caratterizzate da esperienze e visualizzazioni complesse, in genere dinamiche e in grado di soddisfare le preferenze o gli stati d'animo degli utenti e le diverse esigenze di personalizzazione. È quindi necessario che le applicazioni possano recuperare le impostazioni personalizzate in modo efficace per eseguire rapidamente il rendering delle esperienze e degli elementi dell'interfaccia utente. 
 
-JSON, supportato da Cosmos DB, è un formato adatto a rappresentare i dati di layout dell'interfaccia utente, essendo non solo leggero, ma anche facilmente interpretabile da JavaScript. Cosmos DB offre livelli di coerenza regolabili che consentono letture veloci con scritture a bassa latenza. Di conseguenza, l'archiviazione dei dati di layout dell'interfaccia utente, incluse le impostazioni personalizzate, come documenti JSON in Cosmos DB è un metodo efficace per avere questi dati in rete.
+JSON, supportato da Azure Cosmos DB, è un formato adatto a rappresentare i dati di layout dell'interfaccia utente, essendo non solo leggero, ma anche facilmente interpretabile da JavaScript. Azure Cosmos DB offre livelli di coerenza regolabili che consentono letture veloci con scritture a bassa latenza. Di conseguenza, l'archiviazione dei dati di layout dell'interfaccia utente, incluse le impostazioni personalizzate, come documenti JSON in Cosmos DB è un metodo efficace per avere questi dati in rete.
 
 ![Architettura di riferimento per app Web per Azure Cosmos DB](./media/use-cases/personalization.png)
 
