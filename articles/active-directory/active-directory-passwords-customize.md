@@ -53,7 +53,7 @@ Gli amministratori di ADFS possono aggiungere un collegamento alla pagina di acc
 
 Il comando seguente nel server ADFS consente di aggiungere un collegamento alla pagina di accesso ADFS, permettendo agli utenti di immettere direttamente il flusso di lavoro di reimpostazione della password self-service.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?<A/></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-and-access-panel-look-and-feel"></a>Personalizzare l'aspetto del pannello di iscrizione e di accesso
 
