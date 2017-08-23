@@ -24,7 +24,7 @@ ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB
-Azure Cosmos DB è stato progettato da zero pensando alla distribuzione globale di tutti i modelli di dati. È pensato per offrire garanzie di bassa latenza stimabile, Contratto di servizio con disponibilità al 99,99% e più modelli di coerenza ben definiti meno severi. Azure Cosmos DB offre attualmente cinque livelli di coerenza: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. 
+Azure Cosmos DB è stato progettato da zero pensando alla distribuzione globale di tutti i modelli di dati. È pensato per offrire garanzie di bassa latenza stimabile, contratto di servizio con disponibilità al 99,99% e più modelli di coerenza ben definiti. Azure Cosmos DB offre attualmente cinque livelli di coerenza: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. 
 
 Oltre ai modelli di **coerenza assoluta** e **finale** offerti in genere dai database distribuiti, Azure Cosmos DB offre altri tre modelli di coerenza attentamente codificati e operativi e ha convalidato la loro utilità in casi reali. Si tratta di livelli coerenza di **decadimento ristretto**, **sessione** e **prefisso coerente**. Questi cinque livelli di coerenza, collettivamente, consentono di bilanciare in modo informato coerenza, disponibilità e latenza. 
 
@@ -42,7 +42,7 @@ La tabella seguente illustra le garanzie specifiche fornite da ciascun livello d
 | Livello di coerenza | Garanzie |
 | --- | --- |
 | Assoluta | Linearità |
-| Obsolescenza associata | Prefisso coerente. Ritardo delle letture rispetto alle scritture in base a prefissi k o intervallo t |
+| Decadimento ristretto | Prefisso coerente. Ritardo delle letture rispetto alle scritture in base a prefissi k o intervallo t |
 | sessione   | Prefisso coerente. Letture costanti, scritture costanti, lettura delle proprie scritture, scrittura basata sulle letture |
 | Prefisso coerente | Gli aggiornamenti restituiti sono un prefisso di tutti gli aggiornamenti, senza interruzioni |
 | Finale  | Letture non in ordine |
@@ -62,24 +62,24 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 * la coerenza assoluta offre una garanzia di [linearità](https://aphyr.com/posts/313-strong-consistency-models) ovvero la garanzia che le letture restituiscano la versione più recente di un elemento. 
 * la coerenza assoluta garantisce che una scrittura sia visibile solo dopo che ne è stato eseguito il commit in modo permanente dal quorum di maggioranza delle repliche. Una scrittura può ottenere o il commit sincrono e permanente da parte della replica primaria e della maggioranza delle repliche secondarie o l'interruzione. Una lettura viene sempre confermata dalla quorum di maggioranza per le letture: un client non potrà mai vedere una scrittura parziale o di cui non sia stato eseguito il commit e leggerà sempre la più recente scrittura confermata. 
 * Gli account Azure Cosmos DB configurati per usare la coerenza assoluta non possono associare più di un'area di Azure con il loro account Azure Cosmos DB. 
-* Il costo di un'operazione di lettura (in termini di [unità richiesta](request-units.md) consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello con obsolescenza associata.
+* Il costo di un'operazione di lettura (in termini di [unità richiesta](request-units.md) consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello con decadimento ristretto.
 
-**Obsolescenza associata**: 
+**Decadimento ristretto**:
 
 * La coerenza con decadimento ristretto garantisce che il ritardo delle letture sulle scritture sia al massimo pari a *K* versioni o prefissi di un elemento o all'intervallo di tempo *t*. 
 * Pertanto, quando si sceglie il decadimento ristretto, il "decadimento" può essere configurato in due modi: numero di versioni *K* dell'elemento del ritardo delle operazioni di lettura sulle operazioni di scrittura e l'intervallo di tempo *t* 
 * Il decadimento ristretto offre un ordine globale totale tranne all'interno della "finestra di decadimento". La garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della "finestra di decadimento". 
-* L'obsolescenza associata offre una maggiore garanzia di coerenza rispetto alla coerenza di sessione o finale. Per le applicazioni distribuite a livello globale, è consigliabile usare l'obsolescenza associata per gli scenari in cui si desidera una coerenza assoluta ma si desidera anche il 99,99% di disponibilità e bassa latenza. 
+* Il decadimento ristretto offre una maggiore garanzia di coerenza rispetto alla coerenza di sessione o finale. Per le applicazioni distribuite a livello globale, è consigliabile usare il decadimento ristretto per gli scenari in cui si desidera una coerenza assoluta ma si desidera anche il 99,99% di disponibilità e bassa latenza.
 * Gli account Azure Cosmos DB configurati con la coerenza con decadimento ristretto possono associare qualsiasi numero di aree di Azure con il proprio account Azure Cosmos DB. 
-* Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con l'obsolescenza associata è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
+* Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il decadimento ristretto è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
 
 **Sessione**: 
 
-* a differenza dei modelli di coerenza globale offerti dai livelli di coerenza assoluta e con obsolescenza associata, la coerenza di "sessione" ha come ambito una sessione del client. 
+* a differenza dei modelli di coerenza globale offerti dai livelli di coerenza assoluta e con decadimento ristretto, la coerenza di "sessione" ha come ambito una sessione del client.
 * La coerenza di sessione è ideale per tutti gli scenari in cui è coinvolto un dispositivo o una sessione utente poiché garantisce letture monotone, scritture monotone e garanzie di lettura di ciò che si scrive (RYW). 
 * La coerenza di sessione offre una coerenza prevedibile per una sessione e la massima velocità di scrittura, con latenza minima per scrittura e lettura. 
 * Gli account Azure Cosmos DB configurati con la coerenza sessione possono associare qualsiasi numero di aree di Azure con il proprio account Azure Cosmos DB. 
-* Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il livello di coerenza di sessione è minore rispetto ai livelli assoluto e con obsolescenza associata, ma maggiore rispetto al livello finale
+* Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il livello di coerenza di sessione è minore rispetto ai livelli assoluto e con decadimento ristretto, ma maggiore rispetto al livello finale
 
 <a id="consistent-prefix"></a>
 **Prefisso coerente**: 
@@ -109,7 +109,7 @@ Per impostazione predefinita, per le risorse definite dall'utente, il livello di
 
 | Modalità di indicizzazione | Letture | Query |
 | --- | --- | --- |
-| Coerente (impostazione predefinita) |Selezionare tra assoluta, con decadimento ristretto, sessione, prefisso coerente o finale |Selezionare tra assoluta, con obsolescenza associata, sessione o finale |
+| Coerente (impostazione predefinita) |Selezionare tra assoluta, con decadimento ristretto, sessione, prefisso coerente o finale |Selezionare tra assoluta, con decadimento ristretto, sessione o finale |
 | Differita |Selezionare tra assoluta, con decadimento ristretto, sessione, prefisso coerente o finale |Finale |
 | Nessuno |Selezionare tra assoluta, con decadimento ristretto, sessione, prefisso coerente o finale |Non applicabile |
 
