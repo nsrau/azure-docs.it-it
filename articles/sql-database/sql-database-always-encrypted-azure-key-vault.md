@@ -1,6 +1,6 @@
 ---
 title: 'Always Encrypted: database SQL - Azure Key Vault | Documentazione Microsoft'
-description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia dei dati usando la procedura guidata Always Encrypted di SQL Server Management Studio. Include anche le istruzioni che illustrano come archiviare ogni chiave di crittografia nell&quot;insieme di credenziali delle chiavi di Azure.
+description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia dei dati usando la procedura guidata Always Encrypted di SQL Server Management Studio. Include anche le istruzioni che illustrano come archiviare ogni chiave di crittografia nell'insieme di credenziali delle chiavi di Azure.
 keywords: crittografia dei dati, chiave di crittografia, crittografia del cloud
 services: sql-database
 documentationcenter: 
@@ -21,7 +21,6 @@ ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
 ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure
@@ -80,7 +79,7 @@ Quando l'app client è configurata e si dispone dell'ID client, è necessario cr
 
 
     Login-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
+    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
     New-AzureRmResourceGroup -Name $resourceGroupName -Location $location

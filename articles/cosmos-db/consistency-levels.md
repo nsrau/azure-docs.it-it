@@ -64,18 +64,18 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 * Gli account Azure Cosmos DB configurati per usare la coerenza assoluta non possono associare più di un'area di Azure con il loro account Azure Cosmos DB. 
 * Il costo di un'operazione di lettura (in termini di [unità richiesta](request-units.md) consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello con decadimento ristretto.
 
-**Decadimento ristretto**:
+**Decadimento ristretto**: 
 
 * La coerenza con decadimento ristretto garantisce che il ritardo delle letture sulle scritture sia al massimo pari a *K* versioni o prefissi di un elemento o all'intervallo di tempo *t*. 
 * Pertanto, quando si sceglie il decadimento ristretto, il "decadimento" può essere configurato in due modi: numero di versioni *K* dell'elemento del ritardo delle operazioni di lettura sulle operazioni di scrittura e l'intervallo di tempo *t* 
 * Il decadimento ristretto offre un ordine globale totale tranne all'interno della "finestra di decadimento". La garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della "finestra di decadimento". 
-* Il decadimento ristretto offre una maggiore garanzia di coerenza rispetto alla coerenza di sessione o finale. Per le applicazioni distribuite a livello globale, è consigliabile usare il decadimento ristretto per gli scenari in cui si desidera una coerenza assoluta ma si desidera anche il 99,99% di disponibilità e bassa latenza.
+* Il decadimento ristretto offre una maggiore garanzia di coerenza rispetto alla coerenza di sessione o finale. Per le applicazioni distribuite a livello globale, è consigliabile usare il decadimento ristretto per gli scenari in cui si desidera una coerenza assoluta ma si desidera anche il 99,99% di disponibilità e bassa latenza. 
 * Gli account Azure Cosmos DB configurati con la coerenza con decadimento ristretto possono associare qualsiasi numero di aree di Azure con il proprio account Azure Cosmos DB. 
 * Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il decadimento ristretto è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
 
 **Sessione**: 
 
-* a differenza dei modelli di coerenza globale offerti dai livelli di coerenza assoluta e con decadimento ristretto, la coerenza di "sessione" ha come ambito una sessione del client.
+* a differenza dei modelli di coerenza globale offerti dai livelli di coerenza assoluta e con decadimento ristretto, la coerenza di "sessione" ha come ambito una sessione del client. 
 * La coerenza di sessione è ideale per tutti gli scenari in cui è coinvolto un dispositivo o una sessione utente poiché garantisce letture monotone, scritture monotone e garanzie di lettura di ciò che si scrive (RYW). 
 * La coerenza di sessione offre una coerenza prevedibile per una sessione e la massima velocità di scrittura, con latenza minima per scrittura e lettura. 
 * Gli account Azure Cosmos DB configurati con la coerenza sessione possono associare qualsiasi numero di aree di Azure con il proprio account Azure Cosmos DB. 

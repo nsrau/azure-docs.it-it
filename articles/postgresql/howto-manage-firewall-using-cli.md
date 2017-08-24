@@ -1,12 +1,12 @@
 ---
-title: Creare e gestire regole del firewall di Database di Azure per PostgreSQL tramite l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
-description: Questo articolo descrive come creare e gestire regole del firewall di Database di Azure per PostgreSQL tramite l&quot;interfaccia della riga di comando di Azure.
+title: Creare e gestire regole del firewall di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Questo articolo descrive come creare e gestire regole del firewall di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017

@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 976c4752cc3c3cc1c74adf7d57c3539d39aef556
+ms.sourcegitcommit: 495a695466c47c6030716d97c52b3bbf5ce9bf99
+ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: accedere usando account di Azure AD
@@ -142,7 +142,7 @@ Per ottenere un token dall'endpoint di Azure AD, è necessario definire i protoc
 
 È necessario aggiornare la sezione `<Metadata>` nel file XML precedente in modo da riflettere le impostazioni di configurazione per il tenant di Azure AD specifico. Nel file XML aggiornare i valori dei metadati come mostrato di seguito:
 
-1. Impostare `<Item Key="METADATA">` su `https://login.microsoftonline.com/yourAzureADtenant/.well-known/openid-configuration`, dove `yourAzureADtenant` è il nome del tenant di Azure AD, ad esempio, contoso.com.
+1. Impostare `<Item Key="METADATA">` su `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, dove `yourAzureADtenant` è il nome del tenant di Azure AD, ad esempio, contoso.com.
 1. Aprire il browser e passare all'URL `METADATA` appena aggiornato.
 1. Nel browser cercare l'oggetto "emittente" e copiarne il valore. L'aspetto dovrebbe essere simile al seguente: `https://sts.windows.net/{tenantId}/`.
 1. Incollare il valore per `<Item Key="ProviderName">` nel file XML.

@@ -33,17 +33,15 @@
   items:
     - name: Proteggere i contenitori
       href: container-service-security.md
-    - name: 'Entità servizio: Kubernetes'
-      href: container-service-kubernetes-service-principal.md
 - name: Guide alle procedure
   items:
-    - name: Guida introduttiva di Kubernetes con Windows
+    - name: Kubernetes con Windows
       href: container-service-kubernetes-windows-walkthrough.md
-    - name: 'Gestione dei contenitori: interfaccia utente di Kubernetes'
+    - name: Interfaccia Web di Kubernetes
       href: container-service-kubernetes-ui.md
     - name: Distribuire grafici Helm
       href: container-service-kubernetes-helm.md
-    - name: Integrazione continua e distribuzione continua con Kubernetes e Jenkins
+    - name: Jenkins e Kubernetes ACS
       href: container-service-kubernetes-jenkins.md
     - name: Usare la bozza con il record di controllo di accesso e il servizio contenitore di Azure
       href: container-service-draft-up.md

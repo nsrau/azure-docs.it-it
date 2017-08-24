@@ -3,10 +3,17 @@
 ## [Informazioni su Machine Learning](machine-learning-what-is-machine-learning.md)
 
 ## Processo di analisi scientifica dei dati per i team
-### [Panoramica](data-science-process-overview.md)
-### [Ciclo di vita](data-science-process-lifecycle.md)
+### [Panoramica](http://aka.ms/datascienceprocess)
+### [Ciclo di vita](data-science-process-overview.md)
 ### [Procedure dettagliate](data-science-process-walkthroughs.md)
-### [Con Azure ML](http://aka.ms/datascienceprocess)
+####[Spark con PySpark e Scala](data-science-process-walkthroughs-spark.md)
+##### [Esplorazione dei dati](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [Modelli di assegnazione dei punteggi](machine-learning-data-science-spark-model-consumption.md)
+##### [Esplorazione avanzata dei dati](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[Hive con Hadoop di HDInsight](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[U-SQL con Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
+####[R, Python e T-SQL con SQL Server](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL e Python con SQL Data Warehouse](data-science-process-walkthroughs-sql-data-warehouse.md)
 
 ## Machine Learning Studio
 ### [Informazioni su Studio](machine-learning-what-is-ml-studio.md)
@@ -100,12 +107,6 @@
 ##### [Usare Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [Usare una VM SQL](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Usare la pipeline di dati](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Elaborare i dati con Spark
-##### [Panoramica](machine-learning-data-science-spark-overview.md)
-##### [Esplorazione dei dati](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [Modelli di assegnazione dei punteggi](machine-learning-data-science-spark-model-consumption.md)
-##### [Esplorazione avanzata dei dati](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [Usare Scala e Spark](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## Sviluppare modelli
 ### Progettare e selezionare le funzionalità
@@ -166,11 +167,7 @@
 ### [Esperimenti di esempio](machine-learning-sample-experiments.md)
 ### [Set di dati di esempio](machine-learning-use-sample-datasets.md)
 ### [Esempio di varianza dei clienti](machine-learning-azure-ml-customer-churn-scenario.md)
-### Scenari end-to-end
-#### [Usare cluster Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
-#### [Usare Hadoop con 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [Usare SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-#### [Usare SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # riferimento
 
