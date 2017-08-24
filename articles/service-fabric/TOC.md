@@ -176,11 +176,14 @@
 #### Attività iniziali
 ##### [C# su Windows](service-fabric-reliable-actors-get-started.md)
 ##### [Java su Linux](service-fabric-reliable-actors-get-started-java.md)
+##### [Attore Java in Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Inviare notifiche](service-fabric-reliable-actors-events.md)
 #### [Configurare timer e promemoria](service-fabric-reliable-actors-timers-reminders.md)
 #### [Configurare KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Configurare le impostazioni delle comunicazioni](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [Configurare ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [Eseguire la migrazione di applicazioni Java precedenti per il supporto di Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [Configurare il proxy inverso per le comunicazioni sicure](service-fabric-reverseproxy-configure-secure-communication.md)
 

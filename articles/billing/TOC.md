@@ -32,8 +32,9 @@
 ### [Problemi di iscrizione](billing-troubleshoot-azure-sign-up-issues.md)
 ### [Carta rifiutata](billing-credit-card-fails-during-azure-sign-up.md)
 ### [Problemi di accesso](billing-cannot-login-subscription.md)
+### [Non sono state trovate sottoscrizioni](billing-no-subscriptions-found.md)
 
-# Riferimento
+# riferimento
 ## [Panoramica API](billing-usage-rate-card-overview.md)
 ## [Panoramica dell'API Enterprise Reporting](billing-enterprise-api.md)
 ## [API REST di fatturazione](/rest/api/billing)
