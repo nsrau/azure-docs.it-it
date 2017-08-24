@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
-ms.openlocfilehash: 6fefb9cfa96b0a6b7acfe4d7fcb17cb13ec240a0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
+ms.openlocfilehash: 032e584dc5abf59e9e3e8d80673b402f1fbf721b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/15/2017
 
 
 ---
@@ -28,7 +30,12 @@ Questa pagina fornisce gli esempi di configurazione dell'interfaccia e del routi
 > 
 > 
 
+## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Impostazioni di MTU e TCP MSS sulle interfacce del router
+* Il valore MTU dell'interfaccia ExpressRoute è 1500, ovvero il valore predefinito di MTU tipico per un'interfaccia Ethernet su un router. A meno che il router non abbia un valore MTU diverso per impostazione predefinita, non è necessario specificare un valore sull'interfaccia del router.
+* A differenza di un Gateway VPN di Azure, non è necessario specificare il valore MSS TCP per un circuito ExpressRoute.
+
 Gli esempi di configurazione del router riportati di seguito si applicano a tutti i peering. Per altri dettagli sul routing, vedere [Peering di ExpressRoute](expressroute-circuit-peerings.md) e [Requisiti per il routing di ExpressRoute](expressroute-routing.md).
+
 
 ## <a name="cisco-ios-xe-based-routers"></a>Router basati su Cisco IOS-XE
 Gli esempi in questa sezione si applicano a qualsiasi router che esegue la famiglia di sistemi operativi IOS-XE.
@@ -206,10 +213,5 @@ Questo esempio fornisce la definizione della sotto-interfaccia per una sotto-int
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

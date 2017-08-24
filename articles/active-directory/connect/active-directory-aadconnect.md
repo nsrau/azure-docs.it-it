@@ -1,7 +1,7 @@
 ---
 title: Connettere Active Directory ad Azure Active Directory. | Documentazione Microsoft
-description: "Azure AD Connect integra le directory locali con Azure Active Directory. Consente di fornire un&quot;identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD."
-keywords: "introduzione ad Azure AD Connect, panoramica di Azure AD Connect, che cos&quot;è Azure AD Connect, installare active directory"
+description: "Azure AD Connect integra le directory locali con Azure Active Directory. Consente di fornire un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD."
+keywords: "introduzione ad Azure AD Connect, panoramica di Azure AD Connect, che cos'è Azure AD Connect, installare active directory"
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 209f8869e9ed681285865154bdd4d2d7a0f22456
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integrare le directory locali con Azure Active Directory
@@ -145,6 +145,7 @@ Se il server AD FS non è stato configurato per l'aggiornamento automatico dei c
 |Cronologia delle versioni | [Cronologia delle versioni](active-directory-aadconnect-version-history.md)|
 |Confronto tra DirSync, Azure ADSync e Azure AD Connect | [Confronto degli strumenti di integrazione directory](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Elenco di compatibilità non AD FS per Azure AD | [Elenco di compatibilità di federazione di Azure AD](active-directory-aadconnect-federation-compatibility.md)|
+|Configurazione di un IdP SAML 2.0|[Uso di un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On](active-directory-aadconnect-federation-saml-idp.md)|
 |Attributi sincronizzati | [Attributi sincronizzati](active-directory-aadconnectsync-attributes-synchronized.md)|
 |Monitoraggio con Azure AD Connect Health | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |Domande frequenti | [Domande frequenti su Azure AD Connect](active-directory-aadconnect-faq.md)|

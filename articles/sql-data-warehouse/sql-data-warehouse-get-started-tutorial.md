@@ -16,10 +16,10 @@ ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9d3029817cae6570ff8871fbcb068250544595d7
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
 ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 06/14/2017
 
 
 ---
@@ -578,6 +578,9 @@ Prima di tutto, ridurre le dimensioni a 100 DWU, in modo da ottenere informazion
 
 7. Eseguire di nuovo la query. La differenza dovrebbe essere significativa. 
 
+    > [!NOTE]
+    > Dato che la query restituisce una grande quantità di dati, la disponibilità di larghezza di banda del computer che esegue SQL Server Management Studio potrebbe rappresentare un collo di bottiglia per le prestazioni e ciò potrebbe impedire di notare miglioramenti delle prestazioni.
+
 > [!NOTE]
 > Questo perché SQL Data Warehouse fa uso dell'elaborazione parallela massiva (Massively Parallel Processing, MPP). Le query che eseguono analisi o funzioni analitiche su milioni di righe mostrano tutta l'efficacia di Azure SQL Data Warehouse.
 >
@@ -650,15 +653,15 @@ Al termine dell'esplorazione, ricordare di sospendere l'istanza. In produzione �
 
 [Monitoraggio delle query][]
 
-Post di blog [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][] (Prime 10 procedure consigliate per la creazione di un data warehouse relazionale di dimensioni elevate)
+[Post di blog Prime 10 procedure consigliate per la creazione di un data warehouse relazionale di dimensioni elevate][]
 
-Post di blog [Migrating Data to Azure SQL Data Warehouse][] (Migrazione di dati in Azure SQL Data Warehouse)
+[Post di blog Migrazione di dati in Azure SQL Data Warehouse][]
 
 [Gestione della concorrenza e del carico di lavoro]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
 [Procedure consigliate per Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Monitoraggio delle query]: sql-data-warehouse-manage-monitor.md
-Post di blog [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/ (Prime 10 procedure consigliate per la creazione di un data warehouse relazionale di dimensioni elevate)
-Post di blog [Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/ (Migrazione di dati in Azure SQL Data Warehouse)
+[Post di blog Prime 10 procedure consigliate per la creazione di un data warehouse relazionale di dimensioni elevate]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
+[Post di blog Migrazione di dati in Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 

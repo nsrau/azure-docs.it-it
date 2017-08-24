@@ -1,4 +1,5 @@
 ---
+
 title: Visualizzare le assegnazioni di accesso alle risorse di Azure | Microsoft Docs
 description: Visualizzare e gestire tutte le assegnazioni di controllo degli accessi in base al ruolo per qualsiasi utente o gruppo nel portale di Azure
 services: active-directory
@@ -12,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/21/2017
+ms.date: 05/04/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 82f084b220ba321945975c8d1a6d22e419acf5e4
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: e3b31a3db4b8f435c29cbc9dbdd09d100e821026
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal---public-preview"></a>Visualizzare le assegnazioni di accesso per utenti e gruppi nel portale di Azure - Anteprima pubblica
+# <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Visualizzare le assegnazioni dell'accesso per utenti e gruppi nel portale di Azure
 > [!div class="op_single_selector"]
 > * [Gestire l'accesso per utente o gruppo](role-based-access-control-manage-assignments.md)
 > * [Gestire l'accesso per risorsa](role-based-access-control-configure.md)
 
-Il controllo degli accessi in base al ruolo (RBAC) nell'anteprima di Azure Active Directory consente di gestire gli accessi alle risorse di Azure. [Cosa c'è nell'anteprima?](active-directory-preview-explainer.md)
+Il controllo degli accessi in base al ruolo in Azure Active Directory (Azure AD) permette di gestire l'accesso alle risorse di Azure. 
 
 L'accesso assegnato tramite RBAC è granulare in quanto offre due modalità per limitare le autorizzazioni:
 

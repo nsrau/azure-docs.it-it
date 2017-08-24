@@ -11,12 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 06/14/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 69143ccdbfbf50701d44e0342e8eb4ebe68b22da
-ms.lasthandoff: 04/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: ef26a16e79d9c9b0654634960b57dc59827b2c24
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -117,7 +118,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-6. Nella sezione **URL e dominio LinkedIn Sales Navigator**, se si vuole configurare l'applicazione in modalità avviata da **IDP**, seguire questa procedura:
+6. Nella sezione **URL e dominio LinkedIn Sales Navigator** del portale di Azure seguire questa procedura se si desidera configurare l'applicazione in modalità avviata da **IDP**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
@@ -135,17 +136,22 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. Nella sezione **Attributi utente** fare clic su **Visualizza e modifica tutti gli altri attributi utente** e impostare gli attributi. È necessario aggiungere un'altra attestazione denominata **department** e il valore deve essere mappato a **user.department**.
+9. Nella sezione **Attributi utente** fare clic su **Visualizza e modifica tutti gli altri attributi utente** e impostare gli attributi. L'utente deve aggiungere quattro attestazioni denominate **email**, **department**, **firstname** e **lastname** e il valore deve essere mappato rispettivamente a **user.mail**, **user.department**, **user.givenname** e **user.surname**
 
     | Nome attributo | Valore attributo |
     | --- | --- |    
+    | email| user.mail |
     | department| user.department |
-
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
-
-    a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo Aggiungi attributo.
-
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinsalesnavigator-tutorial/adduserattribute.png)
+    | firstname| user.givenname |
+    | lastname| user.surname |
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
+    
+    a. Fare clic su **Aggiungi attributo** per aprire la relativa finestra di dialogo.
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
    
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
     
@@ -153,19 +159,29 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     d. Fare clic su **Ok**
 
-10. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
+10. Seguire questa procedura sull'attributo **name**.
+
+    a. Fare clic sull'attributo per aprire la finestra **Modifica attributo**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/url_update.png)
+
+    b. Eliminare il valore dell'URL dallo **spazio dei nomi**.
+    
+    c. Fare clic su **Ok** per salvare l'impostazione.
+
+11. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
-11. Fare clic sul pulsante **Salva** .
+12. Fare clic sul pulsante **Salva** .
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-12. Accedere alla sezione **LinkedIn Admin Settings** (Impostazioni di amministrazione LinkedIn). Fare clic su **Upload XML file** (Carica file XML) per caricare il file di metadati XML scaricato dal portale di Azure.
+13. Accedere alla sezione **LinkedIn Admin Settings** (Impostazioni di amministrazione LinkedIn). Fare clic su **Upload XML file** (Carica file XML) per caricare il file di metadati XML scaricato dal portale di Azure.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Fare clic su **On** per abilitare SSO. Lo stato SSO passa da **Not Connected** (Non connesso) a **Connected** (Connesso)
+14. Fare clic su **On** per abilitare SSO. Lo stato SSO passa da **Not Connected** (Non connesso) a **Connected** (Connesso)
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 

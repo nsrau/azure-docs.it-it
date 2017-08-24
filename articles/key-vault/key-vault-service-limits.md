@@ -1,5 +1,5 @@
 ---
-title: Limiti dell&quot;insieme di credenziali delle chiavi di Azure | Documentazione Microsoft
+title: Limiti dell'insieme di credenziali delle chiavi di Azure | Documentazione Microsoft
 description: Scopri i limiti di servizio per Azure Key Vault
 documentationcenter: dev-center-name
 services: key-vault
@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2016
-ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 74ad61e9fea56a17d2563a0e1b2364777c44856e
-ms.openlocfilehash: 3552caf7e419459095321b3b248ba441097766f4
+ms.date: 07/05/2017
+ms.author: ambapat
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b34c67ecc1bd50157ded790948ac7b88a5807ddb
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="azure-key-vault-service-limits"></a>Limiti dei servizi Azure Key Vault 
+# <a name="azure-key-vault-service-limits"></a>Limiti dei servizi Azure Key Vault
 Questi sono i limiti di servizio per Azure Key Vault.
 
 [!INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: Come configurare l&quot;autenticazione di Azure Active Directory per un&quot;applicazione dei servizi app
-description: Informazioni su come configurare l&quot;autenticazione di Azure Active Directory per un&quot;applicazione dei servizi app.
+title: Come configurare l'autenticazione di Azure Active Directory per un'applicazione dei servizi app
+description: Informazioni su come configurare l'autenticazione di Azure Active Directory per un'applicazione dei servizi app.
 author: mattchenderson
 services: app-service
 documentationcenter: 
-manager: adrianha
+manager: syntaxc4
 editor: 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: 1f8813370995a7a55c9d87b8ec1b60ae0fe623f5
+ms.contentlocale: it-it
 ms.lasthandoff: 03/09/2017
-
 
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-azure-active-directory-login"></a>Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory

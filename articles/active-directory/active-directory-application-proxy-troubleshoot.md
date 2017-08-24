@@ -1,25 +1,25 @@
-
 ---
-title: Risolvere i problemi del proxy dell&quot;applicazione | Documentazione Microsoft
+title: Risolvere i problemi del proxy dell'applicazione | Documentazione Microsoft
 description: Illustra come risolvere gli errori nel Proxy applicazione di Azure AD.
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 07/21/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: f02fbbfb0e8704445d9bfdaba634dbf558ceef02
-ms.lasthandoff: 04/07/2017
+ms.reviewer: harshja
+ms.custom: H1Hack27Feb2017; it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 3ef74c8d5d5b75eb2bca4e6c994f4718b5226db8
+ms.contentlocale: it-it
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -45,106 +45,45 @@ Se si modifica il percorso per includere il contenuto a cui viene fatto riferime
 
 Usare lo [strumento per il test delle porte del connettore Proxy di applicazione Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) per verificare che il connettore possa raggiungere il servizio proxy di applicazione. Assicurarsi almeno che l'area Stati Uniti centrali e l'area più vicina all'utente abbiano segni di spunta verdi. La presenza di più segni di spunta verdi indica una maggiore resilienza. 
 
-Se la registrazione non riesce durante l'installazione guidata del connettore, esistono due modi per visualizzare il motivo dell'errore. È possibile eseguire una ricerca nel registro eventi in **Registri applicazioni e servizi\Microsoft\AadApplicationProxy\Connector\Admin** oppure eseguire il comando di Windows PowerShell seguente.
+Se la registrazione non riesce durante l'installazione guidata del connettore, esistono due modi per visualizzare il motivo dell'errore. Cercare nel log eventi in **Registri applicazioni e servizi\Microsoft\AadApplicationProxy\Connector\Admin** oppure eseguire il comando di Windows PowerShell seguente:
 
     Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
 
-Dopo aver individuato l'errore del connettore dal registro eventi, usare questo elenco di errori comuni per risolvere il problema:
+Dopo aver individuato l'errore del connettore nel log eventi, usare questa tabella di errori comuni per risolvere il problema:
 
-- **La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il proxy di applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori".**
-
-  Se si è chiusa la finestra di registrazione senza aver eseguito l'accesso ad Azure AD, eseguire di nuovo la creazione guidata del connettore e registrarlo.
-
-  Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell’applicazione](active-directory-application-proxy-enable.md).
-
-- **La registrazione del connettore non è riuscita: assicurarsi che il computer sia connesso a Internet. Errore: "There was no endpoint listening at https://connector.msappproxy.net:9090/register/RegisterConnector that could accept the message. Ciò è spesso causato da un'azione SOAP o un indirizzo non corretto.  Per altri dettagli, vedere InnerException, se presente.”**
-
-  Se si accede con il nome utente e la password di Azure AD e viene visualizzato questo errore, è possibile che tutte le porte oltre la 8081 siano bloccate. Assicurarsi che tutte le porte necessarie siano aperte. Per altre informazioni, vedere [Prerequisiti del proxy dell'applicazione](active-directory-application-proxy-enable.md).
-
-- **Viene visualizzato un errore di cancellazione nella finestra di registrazione. Impossibile continuare**
-
-  Se viene visualizzato questo errore e la finestra si chiude significa che il nome utente o la password immessi sono errati. Riprovare. 
-
-- **La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il proxy di applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials and search by service principal URI has failed".** (AADSTS50059: nessuna informazione di identificazione del tenant trovata nella richiesta o inclusa in modo implicito nelle credenziali fornite e la ricerca in base all'URI dell'entità servizio non è riuscita) 
-
-  Si sta provando ad accedere con un account Microsoft e non con un dominio che fa parte dell'ID organizzazione della directory a cui si vuole accedere. Assicurarsi che l'amministratore faccia parte dello stesso nome di dominio del dominio tenant. Ad esempio, se il dominio di Azure AD è contoso.com, l'amministratore dovrà essere admin@contoso.com. 
-
-- **Non è possibile recuperare i criteri di esecuzione correnti per l'esecuzione degli script PowerShell.** 
-
-  Se l'installazione del connettore non riesce, verificare che il criterio di esecuzione di PowerShell non sia disabilitato. 
-
-  1. Aprire l'Editor Criteri di gruppo. 
-  2. Passare a **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Windows PowerShell** e fare doppio clic su **Attiva l'esecuzione di script**. 
-  3. L'esecuzione di questo criterio può essere impostata su **Non configurato** o **Abilitato**. Se l'impostazione è **Abilitato**, verificare che in Opzioni la voce Criteri di esecuzione sia impostata su **Consenti script locali e script remoti firmati** o su **Consenti tutti gli script**. 
-
-- **Il connettore non è riuscito a scaricare la configurazione.** 
-
-  Il certificato client del connettore usato per l'autenticazione è scaduto. Questo errore può essere visualizzato anche se l'installazione del connettore è protetta da un proxy. In questo caso il connettore non può accedere a Internet e non riuscirà a fornire applicazioni agli utenti remoti. Rinnovare manualmente l'attendibilità con il cmdlet `Register-AppProxyConnector` in Windows PowerShell. Se il connettore è protetto da un proxy, è necessario concedere l'accesso a Internet agli account del connettore "servizi di rete" e "sistema locale". A questo scopo, è possibile concedere agli account l'accesso al proxy o impostarli perché ignorino il proxy. 
-
-- **La registrazione del connettore non è riuscita: per registrare il connettore, è necessario essere un amministratore globale di Active Directory. Errore: "The registration request was denied"** (La richiesta di registrazione è stata negata). 
-
-  L'alias con cui si sta provando ad accedere non è un amministratore nel dominio. Il connettore viene sempre installato per la directory a cui appartiene il dominio dell'utente. Assicurarsi che l'account amministratore con cui si sta provando ad accedere disponga delle autorizzazioni globali per il tenant di Azure AD. 
+| Errore | Procedure consigliate |
+| ----- | ----------------- |
+| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". | Se si è chiusa la finestra di registrazione senza aver eseguito l'accesso ad Azure AD, eseguire di nuovo la creazione guidata del connettore e registrarlo. <br><br> Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell’applicazione](active-directory-application-proxy-enable.md). |
+| Viene visualizzato un errore di cancellazione nella finestra di registrazione. Impossibile proseguire | Se viene visualizzato questo errore e la finestra si chiude, è stato commesso un errore durante l'immissione di nome utente o password. Riprovare. |
+| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "AADSTS50059: non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite e la ricerca in base all'URI dell'entità servizio non è riuscita". | Si sta provando ad accedere con un account Microsoft e non con un dominio che fa parte dell'ID organizzazione della directory a cui si vuole accedere. Assicurarsi che l'amministratore faccia parte dello stesso nome di dominio del dominio tenant. Ad esempio, se il dominio di Azure AD è contoso.com, l'amministratore dovrà essere admin@contoso.com. |
+| Non è possibile recuperare i criteri di esecuzione correnti per l'esecuzione degli script PowerShell. | Se l'installazione del connettore non riesce, verificare che il criterio di esecuzione di PowerShell non sia disabilitato. <br><br>1. Aprire l'Editor Criteri di gruppo.<br>2. Passare a **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Windows PowerShell** e fare doppio clic su **Attiva l'esecuzione di script**.<br>3. L'esecuzione di questo criterio può essere impostata su **Non configurato** o **Abilitato**. Se l'impostazione è **Abilitato**, verificare che in Opzioni la voce Criteri di esecuzione sia impostata su **Consenti script locali e script remoti firmati** o su **Consenti tutti gli script**. |
+| Non è stato possibile configurare il connettore. | Il certificato client del connettore usato per l'autenticazione è scaduto. Questo errore può essere visualizzato anche se l'installazione del connettore è protetta da un proxy. In questo caso il connettore non può accedere a Internet e non riuscirà a fornire applicazioni agli utenti remoti. Rinnovare manualmente l'attendibilità con il cmdlet `Register-AppProxyConnector` in Windows PowerShell. Se il connettore è protetto da un proxy, è necessario concedere l'accesso a Internet agli account del connettore "servizi di rete" e "sistema locale". A questo scopo, è possibile concedere agli account l'accesso al proxy o impostarli perché ignorino il proxy. |
+| La registrazione del connettore non è riuscita: per registrare il connettore, è necessario essere un amministratore globale di Active Directory. Errore: "La richiesta di registrazione è stata negata". | L'alias con cui si sta provando ad accedere non è un amministratore nel dominio. Il connettore viene sempre installato per la directory a cui appartiene il dominio dell'utente. Assicurarsi che l'account amministratore con cui si sta provando ad accedere disponga delle autorizzazioni globali per il tenant di Azure AD. |
 
 ## <a name="kerberos-errors"></a>Errori di Kerberos
 
-Questo elenco contiene gli errori più comuni generati dall'installazione e dalla configurazione di Kerberos e include suggerimenti per la risoluzione.
+Questa tabella contiene gli errori più comuni generati dall'installazione e dalla configurazione di Kerberos e include suggerimenti per la risoluzione.
 
-- **Non è possibile recuperare i criteri di esecuzione correnti per l'esecuzione degli script PowerShell.** 
+| Errore | Procedure consigliate |
+| ----- | ----------------- |
+| Non è possibile recuperare i criteri di esecuzione correnti per l'esecuzione degli script PowerShell. | Se l'installazione del connettore non riesce, verificare che il criterio di esecuzione di PowerShell non sia disabilitato.<br><br>1. Aprire l'Editor Criteri di gruppo.<br>2. Passare a **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Windows PowerShell** e fare doppio clic su **Attiva l'esecuzione di script**.<br>3. L'esecuzione di questo criterio può essere impostata su **Non configurato** o **Abilitato**. Se l'impostazione è **Abilitato**, verificare che in Opzioni la voce Criteri di esecuzione sia impostata su **Consenti script locali e script remoti firmati** o su **Consenti tutti gli script**. |
+| 12008: Azure AD ha superato il numero massimo di tentativi di autenticazione Kerberos consentiti al server back-end. | Questo errore può indicare una configurazione non corretta tra Azure AD e il server back-end dell'applicazione oppure un problema di configurazione di data e ora su entrambi i computer. Il server back-end ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che Azure AD e il server applicazioni back-end siano configurati correttamente. Assicurarsi che la configurazione di data e ora in Azure AD e nel server back-end dell'applicazione siano sincronizzate. |
+| 13016: Azure AD non riesce a recuperare un ticket Kerberos per conto dell'utente, perché non esiste alcun UPN nel token perimetrale o nel cookie di accesso. | Si è verificato un problema con la configurazione del servizio token di sicurezza. Correggere la configurazione dell'attestazione UPN nel servizio token di sicurezza. |
+| 13019: Azure AD non riesce a recuperare un ticket Kerberos per conto dell'utente a causa dell'errore generale dell'API seguente. | Questo evento può indicare una configurazione non corretta tra Azure AD e il server controller di dominio oppure un problema di configurazione di data e ora su entrambi i computer. Il controller di dominio ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che Azure AD e il server applicazioni back-end siano configurati correttamente, in particolare la configurazione del nome dell'entità servizio. Verificare che Azure AD sia aggiunto allo stesso dominio del controller di dominio, per assicurarsi che il controller di dominio stabilisca relazioni di trust con Azure AD. Assicurarsi che la configurazione di data e ora in Azure AD e nel controller di dominio dell'applicazione siano sincronizzate. |
+| 13020: Azure AD non riesce a recuperare un ticket Kerberos per conto dell'utente, perché il nome dell'entità servizio del server back-end non è definito. | Questo evento può indicare una configurazione non corretta tra Azure AD e il server controller di dominio oppure un problema di configurazione di data e ora su entrambi i computer. Il controller di dominio ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che Azure AD e il server applicazioni back-end siano configurati correttamente, in particolare la configurazione del nome dell'entità servizio. Verificare che Azure AD sia aggiunto allo stesso dominio del controller di dominio, per assicurarsi che il controller di dominio stabilisca relazioni di trust con Azure AD. Assicurarsi che la configurazione di data e ora in Azure AD e nel controller di dominio dell'applicazione siano sincronizzate. |
+| 13022: Azure AD non riesce ad autenticare l'utente perché il server back-end risponde ai tentativi di autenticazione Kerberos con un errore HTTP 401. | Questo evento può indicare una configurazione non corretta tra Azure AD e il server back-end dell'applicazione oppure un problema di configurazione di data e ora su entrambi i computer. Il server back-end ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che Azure AD e il server applicazioni back-end siano configurati correttamente. Assicurarsi che la configurazione di data e ora in Azure AD e nel server back-end dell'applicazione siano sincronizzate. |
 
-  Se l'installazione del connettore non riesce, verificare che il criterio di esecuzione di PowerShell non sia disabilitato. 
-
-  1. Aprire l'Editor Criteri di gruppo. 
-  2. Passare a **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Windows PowerShell** e fare doppio clic su **Attiva l'esecuzione di script**. 
-  3. L'esecuzione di questo criterio può essere impostata su **Non configurato** o **Abilitato**. Se l'impostazione è **Abilitato**, verificare che in Opzioni la voce Criteri di esecuzione sia impostata su **Consenti script locali e script remoti firmati** o su **Consenti tutti gli script**. 
-
-- **12008 - Azure AD exceeded the maximum number of permitted Kerberos authentication attempts to the backend server.** (12008: Azure AD ha superato il numero massimo di tentativi di autenticazione Kerberos consentiti al server back-end.) 
-
-  Questo errore può indicare una configurazione non corretta tra Azure AD e il server back-end dell'applicazione oppure un problema di configurazione di data e ora su entrambi i computer. Il server back-end ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che Azure AD e il server applicazioni back-end siano configurati correttamente. Assicurarsi che la configurazione di data e ora in Azure AD e nel server back-end dell'applicazione siano sincronizzate. 
-
-- **13016 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because there is no UPN in the edge token or in the access cookie.** (13016: Azure AD non riesce a recuperare un ticket Kerberos per conto dell'utente, perché non esiste alcun UPN nel token perimetrale o nel cookie di accesso.) 
-
-  Si è verificato un problema con la configurazione del servizio token di sicurezza. Correggere la configurazione dell'attestazione UPN nel servizio token di sicurezza. 
-
-- **13019 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because of the following general API error.** (13019: Azure AD non riesce a recuperare un ticket Kerberos per conto dell'utente a causa dell'errore generale dell'API seguente.) 
-
-  Questo evento può indicare una configurazione non corretta tra Azure AD e il server controller di dominio oppure un problema di configurazione di data e ora su entrambi i computer. Il controller di dominio ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che Azure AD e il server applicazioni back-end siano configurati correttamente, in particolare la configurazione del nome dell'entità servizio. Verificare che Azure AD sia aggiunto allo stesso dominio del controller di dominio, per assicurarsi che il controller di dominio stabilisca relazioni di trust con Azure AD. Assicurarsi che la configurazione di data e ora in Azure AD e nel controller di dominio dell'applicazione siano sincronizzate. 
-
-- **13020 - Azure AD cannot retrieve a Kerberos ticket on behalf of the user because the backend server SPN is not defined.** (13020: Azure AD non riesce a recuperare un ticket Kerberos per conto dell'utente, perché il nome dell'entità servizio del server back-end non è definito.) 
-
-  Questo evento può indicare una configurazione non corretta tra Azure AD e il server controller di dominio oppure un problema di configurazione di data e ora su entrambi i computer. Il controller di dominio ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che Azure AD e il server applicazioni back-end siano configurati correttamente, in particolare la configurazione del nome dell'entità servizio. Verificare che Azure AD sia aggiunto allo stesso dominio del controller di dominio, per assicurarsi che il controller di dominio stabilisca relazioni di trust con Azure AD. Assicurarsi che la configurazione di data e ora in Azure AD e nel controller di dominio dell'applicazione siano sincronizzate. 
-
-- **13022 - Azure AD cannot authenticate the user because the backend server responds to Kerberos authentication attempts with an HTTP 401 error.** (13022: Azure AD non riesce ad autenticare l'utente perché il server back-end risponde ai tentativi di autenticazione Kerberos con un errore HTTP 401.) 
-
-  Questo evento può indicare una configurazione non corretta tra Azure AD e il server back-end dell'applicazione oppure un problema di configurazione di data e ora su entrambi i computer. Il server back-end ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che Azure AD e il server applicazioni back-end siano configurati correttamente. Assicurarsi che la configurazione di data e ora in Azure AD e nel server back-end dell'applicazione siano sincronizzate. 
-
-## <a name="end-user-errors"></a>Errori dell'utente finale
+## <a name="end-user-errors"></a>Errori utente finale
 
 Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti finali tentano di accedere all'app senza riuscirci. 
 
-- **Impossibile visualizzare la pagina.** 
-
-  L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se l'applicazione è un'applicazione con autenticazione integrata di Windows. Il nome dell'entità servizio dell'applicazione definito potrebbe non essere corretto. Per le app con autenticazione integrata di Windows, assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto. 
-
-- **Impossibile visualizzare la pagina.** 
-
-  L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se si tratta di un'applicazione OWA. Il problema può dipendere da uno dei motivi seguenti:  
-  - Il nome dell'entità servizio dell'applicazione definito non è corretto. Assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto.
-  - L'utente che ha provato ad accedere all'applicazione sta usando un account Microsoft invece dell'account aziendale appropriato oppure si tratta di un utente guest. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows.
-  - L'utente che ha provato ad accedere all'applicazione non è definito correttamente per l'applicazione sul lato locale. Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale.
-
-- **This corporate app can’t be accessed. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Make sure to assign the user with access to this application.** (Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Assicurarsi di assegnare all'utente l'accesso a questa applicazione). 
-
-  Gli utenti possono visualizzare questo errore quando provano ad accedere all'app pubblicata usando un account Microsoft invece del proprio account aziendale. Anche gli utenti guest possono visualizzare questo errore. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. 
-
-  L'utente potrebbe non essere stato assegnato per l'applicazione. Passare alla scheda **Applicazione**, quindi in **Utenti e gruppi** assegnare l'utente o il gruppo di utenti all'applicazione.
-
-- **This corporate app can’t be accessed right now. Please try again later…The connector timed out.** (Non è possibile accedere a questa app aziendale in questo momento. Riprovare più tardi. Timeout del connettore.) 
-
-  Gli utenti possono visualizzare questo errore quando provano ad accedere all'app pubblicata, se non sono definiti correttamente per questa applicazione sul lato locale. Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale. 
-
-- **This corporate app can’t be accessed. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Make sure that the user has a license for Azure Active Directory Premium or Basic.** (Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Accertarsi che l'utente abbia una licenza per Azure Active Directory Premium o Basic.)
-
-  Questo errore potrebbe essere visualizzato dall'utente quando prova ad accedere all'app pubblicata, se non gli è stata esplicitamente assegnata una licenza Premium/Basic dall'amministratore del sottoscrittore. Accedere alla scheda **Licenze** di Active Directory del sottoscrittore e verificare che all'utente o al gruppo di utenti sia stata assegnata una licenza Premium o Basic.
+| Errore | Procedure consigliate |
+| ----- | ----------------- |
+| Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se l'applicazione è un'applicazione con autenticazione integrata di Windows. Il nome dell'entità servizio dell'applicazione definito potrebbe non essere corretto. Per le app con autenticazione integrata di Windows, assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto. |
+| Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se si tratta di un'applicazione OWA. Il problema può dipendere da uno dei motivi seguenti: <br><li>Il nome dell'entità servizio dell'applicazione definito non è corretto. Assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto.</li><li>L'utente che ha provato ad accedere all'applicazione sta usando un account Microsoft invece dell'account aziendale appropriato oppure si tratta di un utente guest. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows.</li><li>L'utente che ha provato ad accedere all'applicazione non è definito correttamente per l'applicazione sul lato locale. Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale. |
+| Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Assicurarsi di assegnare all'utente l'accesso a questa applicazione. | Gli utenti possono visualizzare questo errore quando provano ad accedere all'app pubblicata usando un account Microsoft invece del proprio account aziendale. Anche gli utenti guest possono visualizzare questo errore. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata.<br><br>L'utente potrebbe non essere stato assegnato per l'applicazione. Passare alla scheda **Applicazione**, quindi in **Utenti e gruppi** assegnare l'utente o il gruppo di utenti all'applicazione. |
+| Non è possibile accedere a questa app aziendale in questo momento. Riprovare più tardi. Timeout del connettore. | Gli utenti possono visualizzare questo errore quando provano ad accedere all'app pubblicata, se non sono definiti correttamente per questa applicazione sul lato locale. Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale. |
+| Non è possibile accedere a questa app aziendale. L'utente non è autorizzato ad accedere a questa applicazione. Autorizzazione non riuscita. Accertarsi che l'utente abbia una licenza per Azure Active Directory Premium o Basic. | Questo errore potrebbe essere visualizzato dall'utente quando prova ad accedere all'app pubblicata, se non gli è stata esplicitamente assegnata una licenza Premium/Basic dall'amministratore del sottoscrittore. Accedere alla scheda **Licenze** di Active Directory del sottoscrittore e verificare che all'utente o al gruppo di utenti sia stata assegnata una licenza Premium o Basic. |
 
 ## <a name="my-error-wasnt-listed-here"></a>L'errore non è riportato in questi elenchi
 

@@ -12,15 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 8cfe8689494a9f85d1533d259a2744e18407ecef
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 331d08da8a70eee893fb1b01b1fef4475cc8bca0
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
@@ -82,7 +81,12 @@ Quando si crea il primo account Batch in modalità di sottoscrizione utente, ese
 
     ![Controllo di accesso alla sottoscrizione][subscription_access]
 
-4. Nel pannello **Aggiungi autorizzazioni**, selezionare il ruolo **Collaboratore** e cercare **MicrosoftAzureBatch** (senza spazi). Selezionare **MicrosoftAzureBatch** e fare clic su **Salva**.
+4. Nel pannello **Aggiungi autorizzazioni** selezionare il ruolo **Collaboratore** e cercare l'API Batch. Cercare ognuna di queste stringhe fino a trovare l'API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. I tenant di Azure AD più recenti potrebbero usare questo nome.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** è l'ID dell'API Batch. 
+
+5. Una volta trovata l'API Batch, selezionarla e fare clic su **Salva**.
 
     ![Aggiungere le autorizzazioni di Batch][add_permission]
 
@@ -147,7 +151,7 @@ Dopo avere creato l'account, è possibile aprire il pannello **Account Batch** p
 
 È consigliabile creare un nuovo account di archiviazione da usare esclusivamente con l'account Batch.
 
-![Creazione di un account di archiviazione "Utilizzo generico"][storage_account]
+![Creazione di un account di archiviazione per utilizzo generico][storage_account]
 
 > [!NOTE]
 > Azure Batch supporta attualmente solo il tipo di account di archiviazione per utilizzo generico. Questo tipo di account è descritto nel passaggio 5, [Creare un account di archiviazione] (../storage/storage-create-storage-account.md#create-a-storage-account), in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).

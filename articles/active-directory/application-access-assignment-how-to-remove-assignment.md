@@ -1,6 +1,6 @@
 ---
-title: Come rimuovere l&quot;accesso di un utente a un&quot;applicazione | Microsoft Docs
-description: Comprendere come rimuovere l&quot;accesso di un utente a un&quot;applicazione
+title: Come rimuovere l'accesso di un utente a un'applicazione | Microsoft Docs
+description: Comprendere come rimuovere l'accesso di un utente a un'applicazione
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: 8d4f2cec35a8edfec9b8830a077b8aa65ca0c229
+ms.contentlocale: it-it
 ms.lasthandoff: 04/11/2017
-
 
 ---
 

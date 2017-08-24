@@ -1,5 +1,4 @@
 ---
-
 title: Utilizzare PowerShell per gestire i backup di Windows Server in Azure | Documentazione Microsoft
 description: Distribuire e gestire backup di Windows Server mediante PowerShell.
 services: backup
@@ -13,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 08/02/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
-ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
-ms.lasthandoff: 01/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
+ms.contentlocale: it-it
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
@@ -29,7 +28,13 @@ ms.lasthandoff: 01/28/2017
 >
 >
 
-Questo articolo illustra come usare PowerShell per configurare Backup di Azure in un server o un client Windows e per gestire le operazioni di backup e ripristino.
+Questo articolo spiega come usare PowerShell per eseguire il backup dei dati di una workstation Windows Server o Windows in un insieme di credenziali di backup. Microsoft consiglia l'uso di insiemi di credenziali dei Servizi di ripristino per tutte le nuove distribuzioni. Per i nuovi utenti di Backup di Microsoft Azure che non hanno creato un insieme di credenziali di backup nella propria sottoscrizione è consigliabile leggere l'articolo [Distribuire e gestire i dati di Data Protection Manager in Azure mediante PowerShell](backup-client-automation.md) per archiviare i dati in un insieme di credenziali dei Servizi di ripristino. 
+
+> [!IMPORTANT]
+> È ora possibile aggiornare gli insiemi di credenziali di Backup ad insiemi di credenziali dei servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft consiglia di aggiornare gli insiemi di credenziali di Backup a insiemi di credenziali dei servizi di ripristino.<br/> Dopo il 15 ottobre 2017 non sarà possibile usare PowerShell per creare insiemi di credenziali di backup. **Entro il 1° novembre 2017**:
+>- Tutti gli insiemi di credenziali di backup rimanenti verranno aggiornati automaticamente a insiemi di credenziali dei servizi di ripristino.
+>- e non sarà più possibile accedere ai dati di backup nel portale classico. Sarà possibile invece usare il portale di Azure per accedere ai dati di backup negli insiemi di credenziali di servizi di ripristino.
+>
 
 ## <a name="install-azure-powershell"></a>Installare Azure PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]

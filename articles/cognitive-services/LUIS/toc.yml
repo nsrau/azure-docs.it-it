@@ -1,79 +1,79 @@
-- name: Documentazione su LUIS
+- name: LUIS Documentation
   href: ../index.md
-- name: Panoramica
+- name: Overview
   items: 
-  - name: Informazioni su Language Understanding Intelligent Service
+  - name: Learn about Language Understanding Intelligent Service
     href: Home.md
-- name: Guide introduttive
+- name: Quickstarts
   expanded: true
   items: 
-  - name: Creare una nuova app
+  - name: Create a new app
     href: luis-get-started-create-app.md
-- name: Esercitazioni
+- name: Tutorials
   items: 
-  - name: Integrare LUIS con un bot usando Node.js
+  - name: Integrate LUIS with a bot using Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
-- name: Concetti
+- name: Concepts
   items: 
-  - name: Finalità
+  - name: Intents
     href: luis-concept-intent.md
-  - name: Entità
+  - name: Entities
     href: luis-concept-entity-types.md
-  - name: Espressioni
+  - name: Utterances
     href: luis-concept-utterance.md
-  - name: Funzionalità
+  - name: Features
     href: luis-concept-feature.md
-  - name: Supporto di più lingue
+  - name: Support for multiple languages
     href: luis-concept-language-support.md
-- name: Guide alle procedure
+- name: How-to guides
   items: 
-  - name: Pianificare l'app
+  - name: Plan your app
     href: Plan-your-app.md
-  - name: Creare un'app LUIS
+  - name: Build a LUIS app
     items: 
-    - name: Avviare una nuova app
+    - name: Start a new app
       href: Create-new-app.md
-    - name: Aggiungere finalità
+    - name: Add intents
       href: Add-intents.md
-    - name: Aggiungere espressioni
+    - name: Add utterances
       href: Add-example-utterances.md
-    - name: Aggiungi entità
+    - name: Add entities
       href: Add-entities.md
-    - name: Migliorare le prestazioni con le funzionalità
+    - name: Improve performance using features
       href: Add-Features.md
-    - name: Eseguire il training e il test dell'app
+    - name: Train and test the app
       href: Train-Test.md
-    - name: Usare l'apprendimento attivo
+    - name: Use active learning
       href: Label-Suggested-Utterances.md
-    - name: Pubblicare l'app
+    - name: Publish your app
       href: PublishApp.md
-  - name: Modelli predefiniti
+  - name: Prebuilt models
     items: 
-    - name: Usare le entità predefinite
+    - name: Use prebuilt entities
       href: Pre-builtEntities.md
-    - name: Usare i domini predefiniti
+    - name: Use prebuilt domains
       href: luis-how-to-use-prebuilt-domains.md
-    - name: Usare l'app predefinita Cortana
+    - name: Use the Cortana prebuilt app
       href: Cortana-Prebuilt-App.md
-  - name: Gestire l'app LUIS
+  - name: Manage your LUIS app
     items: 
-    - name: Monitorare l'app con il dashboard
+    - name: Monitor your app using the dashboard
       href: App-Dashboard.md
-    - name: Gestire le chiavi
+    - name: Manage keys
       href: Manage-Keys.md
-    - name: Creare le chiavi di sottoscrizione
+    - name: Create subscription keys
       href: AzureIbizaSubscription.md
-    - name: Gestire le versioni
+    - name: Manage versions
       href: luis-how-to-manage-versions.md
-    - name: Collaborare su un'app LUIS
+    - name: Collaborate on a LUIS app
       href: luis-how-to-collaborate.md    
-- name: Riferimento
+- name: Reference
   items: 
-  - name: API di creazione
+  - name: Authoring APIs
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-  - name: API per endpoint
+  - name: Endpoint API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
-  - name: SDK
+  - name: SDKs
     items:
     - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
@@ -83,7 +83,9 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
     - name: Windows
       href: https://github.com/Microsoft/Cognitive-LUIS-Windows
-- name: Risorse
+- name: Resources
   items: 
-  - name: Domande frequenti su LUIS
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: LUIS FAQ
     href: luis-resources-faq.md

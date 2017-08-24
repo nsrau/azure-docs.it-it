@@ -1,7 +1,7 @@
 ---
 title: Introduzione a Data Factory, un servizio di integrazione dei dati | Documentazione Microsoft
 description: "Informazioni su Azure Data Factory: è un servizio di integrazione dei dati cloud che consente di orchestrare e automatizzare lo spostamento e la trasformazione dei dati."
-keywords: "integrazione dei dati, integrazione dei dati cloud, che cos&quot;è azure data factory"
+keywords: "integrazione dei dati, integrazione dei dati cloud, che cos'è azure data factory"
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/21/2017
+ms.date: 08/14/2017
 ms.author: shlo
 ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: c27123ad54bbd6e1d2b416c6bffd4c8560514cdc
+ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
+ms.openlocfilehash: 537bdee67ed9648c3cba2099553d847399609705
 ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introduzione a Data factory di Azure 
@@ -56,7 +55,7 @@ Con Data Factory, è possibile usare l'attività di copia in una pipeline di dat
 Quando i dati sono presenti in un archivio dati centralizzato nel cloud, elaborare o trasformare i dati raccolti tramite servizi di calcolo come Hadoop HDInsight, Spark, Data Lake Analytics e Machine Learning. L'obiettivo è generare in modo affidabile dati trasformati in una pianificazione gestibile e controllata in modo da alimentare gli ambienti di produzione con dati attendibili. 
 
 ### <a name="publish"></a>Pubblica 
-Inviare i dati trasformati dal cloud alle origini locali, ad esempio SQL Server, oppure mantenere i dati nelle origini di archiviazione cloud per l'uso da parte di strumenti di business intelligence (BI) e di analisi e di altre applicazioni
+Inviare i dati trasformati dal cloud alle origini locali, ad esempio SQL Server, oppure mantenere i dati nelle origini di archiviazione cloud per l'uso da parte di strumenti di business intelligence (BI) e di analisi e di altre applicazioni.
 
 ## <a name="key-components"></a>Componenti chiave
 Una sottoscrizione di Azure può includere una o più istanze di Azure Data Factory (o data factory). Azure Data Factory è costituito da quattro componenti chiave che insieme forniscono la piattaforma nella quale è possibile comporre flussi di lavoro basati sui dati con passaggi per lo spostamento e la trasformazione dei dati stessi. 

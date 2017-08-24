@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: LADocs; jehollan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 859f9a1ca9dbe166fd514c8eba868b466dbc4d2c
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 41fcccae7b3d306c25f4429d47e81884d88cd83e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -101,6 +101,8 @@ Di seguito sono riportati i limiti per una singola definizione di app per la log
 |Livello di annidamento azioni consentito|5|È possibile aggiungere flussi di lavoro annidati per estendere questo valore, se necessario|
 |Flussi di lavoro per area per sottoscrizione|1000||
 |Trigger per flusso di lavoro|10||
+|Limite ambito switch-case|25||
+|Numero di variabili per flusso di lavoro|250||
 |Numero massimo di caratteri per espressione|8.192||
 |Dimensioni massime di `trackedProperties` in caratteri|16.000|
 |`action`/`trigger` |80||

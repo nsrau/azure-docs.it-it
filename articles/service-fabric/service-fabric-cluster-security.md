@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2017
+ms.date: 06/28/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 628df1df8f5de99a5c18d0df5b7ee41e2fb747df
-ms.openlocfilehash: c3ff370b105a1f9bdacd1bdb4b32d6209e150be2
-ms.lasthandoff: 12/08/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 5afbe575a8affc37b8f902c0988585a83921e3d2
+ms.contentlocale: it-it
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
@@ -57,7 +57,7 @@ Autentica i client e protegge la comunicazione tra un client e i singoli nodi de
 I cluster eseguiti in Azure o i cluster autonomi eseguiti in Windows possono usare la [sicurezza basata su certificati](https://msdn.microsoft.com/library/ff649801.aspx) o la [sicurezza di Windows](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### <a name="client-to-node-certificate-security"></a>Sicurezza basata su certificati da client a nodo
- La sicurezza basata su certificati da client a nodo viene configurata durante la creazione del cluster tramite il portale di Azure, modelli di Azure Resource Manager o un modello JSON autonomo specificando un certificato client di amministrazione e/o un certificato client di sola lettura.  I certificati client di amministrazione e i certificati client utente specificati devono essere diversi dai certificati primario e secondario specificati per la [sicurezza da nodo a nodo](#node-to-node-security).
+ La sicurezza basata su certificati da client a nodo viene configurata durante la creazione del cluster tramite il portale di Azure, modelli di Azure Resource Manager o un modello JSON autonomo specificando un certificato client di amministrazione e/o un certificato client di sola lettura.  Come procedura consigliata, i certificati client di amministrazione e i certificati client utente specificati devono essere diversi dai certificati primario e secondario specificati per la [sicurezza da nodo a nodo](#node-to-node-security). Per impostazione predefinita, i certificati cluster per la sicurezza da nodo a nodo vengono aggiunti all'elenco di certificati Amministratore client consentiti.
 
 I client che si connettono al cluster con il certificato di amministrazione hanno accesso completo alle funzionalità di gestione.  I client che si connettono al cluster con il certificato client utente di sola lettura hanno solo l'accesso in lettura alle funzionalità di gestione. In altri termini, questi certificati vengono usati per il controllo degli accessi in base al ruolo descritto di seguito in questo articolo.
 

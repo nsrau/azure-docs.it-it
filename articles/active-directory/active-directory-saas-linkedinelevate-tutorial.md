@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: cb5c975d92b01e6fd40601b3607c0e472d893a16
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5949ae254233aa32384aab50b188fdd6527787a0
 ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -146,6 +146,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
        b. Click on **Ok** to save the attribute.
 
+    c. Modificare il nome dell'attributo **emailaddress** in **email**.
+
+
 10. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedinElevate_certificate.png) 
@@ -237,6 +240,7 @@ Quando si fa clic sul riquadro LinkedIn Elevate nel Pannello di accesso, viene v
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
+* [Esercitazione: Configurazione di LinkedIn Elevate per il provisioning utenti automatico con Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 

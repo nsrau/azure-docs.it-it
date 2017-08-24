@@ -3,7 +3,7 @@ title: Dimensioni delle macchine virtuali Windows di Azure - GPU | Microsoft Doc
 description: Elenca le diverse dimensioni ottimizzate per GPU per le macchine virtuali Windows disponibili in Azure.
 services: virtual-machines-windows
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
-ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 6504ef16922ed376249851a74a4e6908c6123f6a
+ms.date: 07/28/2017
+ms.author: jonbeck
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2e11e15d20ecebd881a9b031bb0bc2cb6c5a88d6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -28,11 +27,11 @@ ms.lasthandoff: 05/02/2017
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
-## <a name="supported-operating-systems"></a>Sistemi operativi supportati
-
-Per informazioni sui sistemi operativi supportati e sui requisiti dei driver, vedere [N-series driver setup for Windows](n-series-driver-setup.md) (Configurare i driver GPU per le VM serie N che eseguono Windows).
-
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+[!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
+
+Per le procedure di installazione e verifica dei driver, vedere [Configurare i driver GPU NVIDIA per le VM serie N che eseguono Windows Server](n-series-driver-setup.md).
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 

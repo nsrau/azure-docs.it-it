@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: dfa9f6e4bc95a1cd99f84e58167192d951960a7a
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
+ms.contentlocale: it-it
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrare il traffico di rete con gruppi di sicurezza di rete
@@ -49,7 +49,7 @@ Le regole dei gruppi di sicurezza di rete contengono le proprietà seguenti:
 | --- | --- | --- | --- |
 | **Nome** |Nome della regola. |Deve essere univoco nell'area.<br/>Può contenere lettere, numeri, caratteri di sottolineatura, punti e trattini.<br/>Deve iniziare con una lettera o un numero.<br/>Deve terminare con una lettera, un numero o un carattere di sottolineatura.<br/>Non può superare gli 80 caratteri. |Dato che un gruppo di sicurezza di rete potrebbe contenere più regole, assicurarsi di seguire una convenzione di denominazione che consenta di identificare la funzione della regola. |
 | **Protocollo** |Protocollo per la regola. |TCP, UDP o * |L'uso di * come protocollo include ICMP (solo traffico orizzontale destra-sinistra), oltre a TCP e UDP, e può ridurre il numero delle regole necessarie.<br/>Al tempo stesso, l'uso di * potrebbe essere un approccio troppo ampio, quindi è consigliabile usare * solo quando necessario. |
-| **Intervallo porte di origine** |Intervallo di porte di origine per la regola. |Singolo numero di porta da 1 a 65535, intervallo di porte (ad esempio, 1-65635) o * (per tutte le porte). |Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare * nella maggior parte dei casi.<br/>Cercare di usare il più possibile intervalli di porte per evitare di dover applicare più regole.<br/>Non è possibile raggruppare più porte o intervalli di porte con una virgola. |
+| **Intervallo porte di origine** |Intervallo di porte di origine per la regola. |Singolo numero di porta da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o * (per tutte le porte). |Le porte di origine potrebbero essere temporanee. A meno che il programma client non usi una porta specifica, usare * nella maggior parte dei casi.<br/>Cercare di usare il più possibile intervalli di porte per evitare di dover applicare più regole.<br/>Non è possibile raggruppare più porte o intervalli di porte con una virgola. |
 | **Intervallo di porte di destinazione** |Intervallo di porte di destinazione per la regola. |Singolo numero di porta da 1 a 65535, intervallo di porte (ad esempio, 1-65535) o \* (per tutte le porte). |Cercare di usare il più possibile intervalli di porte per evitare di dover applicare più regole.<br/>Non è possibile raggruppare più porte o intervalli di porte con una virgola. |
 | **Prefisso dell'indirizzo di origine** |Prefisso o tag dell'indirizzo di origine per la regola. |Singolo indirizzo IP (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#default-tags) o * (per tutti gli indirizzi). |È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole. |
 | **Prefisso dell’indirizzo di destinazione** |Prefisso o tag dell'indirizzo di destinazione per la regola. | Singolo indirizzo IP (ad esempio, 10.10.10.10), subnet IP (ad esempio, 192.168.1.0/24), [tag predefinito](#default-tags) o * (per tutti gli indirizzi). |È possibile usare intervalli, tag predefiniti e * per ridurre il numero di regole. |
@@ -182,7 +182,7 @@ Come illustrato nel diagramma, le VM *Web1* e *Web2* sono connesse alla subnet *
 1. Separazione del traffico tra i server WEB e DB.
 2. Regole di bilanciamento del carico che inoltrano il traffico dal servizio di bilanciamento del carico a tutti i server Web sulla porta 80.
 3. Regole NAT del servizio di bilanciamento del carico che inoltrano il traffico in arrivo nel servizio di bilanciamento del carico sulla porta 50001 alla porta 3389 della VM WEB1.
-4. Nessun accesso alle VM front-end o back-end da Internet, tranne per i requisiti 1 e 3.
+4. Nessun accesso alle macchine virtuali front-end o back-end da Internet, tranne per i requisiti 2 e 3.
 5. Nessun accesso a Internet in uscita dai server WEB o DB.
 6. Accesso consentito dalla subnet FrontEnd alla porta 3389 di qualsiasi server Web.
 7. Accesso consentito dalla subnet FrontEnd alla porta 3389 di qualsiasi server DB.

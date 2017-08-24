@@ -1,6 +1,6 @@
 ---
-title: Accedere ad applicazioni Service Fabric con Log Analytics mediante il portale di Azure | Documentazione Microsoft
-description: "È possibile usare la soluzione Service Fabric in Log Analytics mediante il portale di Azure per valutare i rischi e l&quot;integrità delle applicazioni Service Fabric, dei microservizi, dei nodi e dei cluster."
+title: Accedere ad applicazioni Service Fabric con Log Analytics mediante il portale di Azure | Microsoft Docs
+description: "È possibile usare la soluzione Service Fabric in Log Analytics mediante il portale di Azure per valutare i rischi e l'integrità delle applicazioni Service Fabric, dei microservizi, dei nodi e dei cluster."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 07/05/2017
 ms.author: nini
-translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: ac94bca1657efbe0ce94db953933f026217d1c8a
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 6f864581fe1d1771371d6805407cb881fedb4187
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Valutare le applicazioni e i microservizi Service Fabric con il portale di Azure
@@ -29,6 +29,8 @@ ms.lasthandoff: 02/28/2017
 >
 >
 
+![Simbolo di Service Fabric](./media/log-analytics-service-fabric/service-fabric-assessment-symbol.png)
+
 In questo articolo viene descritto come usare la soluzione Service Fabric in Log Analytics per identificare e risolvere i problemi nel cluster di Service Fabric.
 
 La soluzione Service Fabric usa i dati della Diagnostica di Azure provenienti dalle macchine virtuali Service Fabric, raccogliendo questi dati dalle tabelle di Azure WAD. Successivamente, Log Analytics legge gli eventi del framework di Service Fabric, tra cui: **Eventi del servizio affidabile**, **Eventi relativi agli attori**, **Eventi operativi** ed **Eventi ETW personalizzati**. Grazie al dashboard della soluzione Service Fabric è possibile vedere i problemi degni di nota e gli eventi rilevanti nell'ambiente Service Fabric.
@@ -36,7 +38,7 @@ La soluzione Service Fabric usa i dati della Diagnostica di Azure provenienti da
 Per iniziare a usare la soluzione, è necessario connettere il cluster di Service Fabric a un'area di lavoro di Log Analytics. Ecco i tre scenari da prendere in considerazione:
 
 1. Se il cluster di Service Fabric non è stato distribuito, eseguire i passaggi descritti nella sezione ***Distribuire un cluster di Service Fabric connesso a un'area di lavoro di Log Analytics*** per distribuire un nuovo cluster e configurarlo per il reporting in Log Analytics.
-2. Se si desidera raccogliere i dati dei contatori delle prestazioni dagli host per usare altre soluzioni OMS, come ad esempio Security nel cluster di Service Fabric, seguire i passaggi descritti nella sezione ***Distribuire un cluster di Service Fabric connesso a un'area di lavoro di OMS con installata l'estensione VM.***
+2. Se si desidera raccogliere i dati dei contatori delle prestazioni dagli host per usare altre soluzioni OMS, ad esempio Security nel cluster di Service Fabric, seguire i passaggi descritti nella sezione ***Distribuire un cluster di Service Fabric connesso a un'area di lavoro di Log Analytics con installata l'estensione VM.***
 3. Se il cluster di Service Fabric è già stato distribuito e si desidera connetterlo a Log Analytics, seguire i passaggi descritti nella sezione ***Aggiunta di un account di archiviazione esistente a Log Analytics.***
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Distribuire un cluster di Service Fabric connesso a un'area di lavoro di Log Analytics.
@@ -46,9 +48,11 @@ Questo modello consente di:
 2. Aggiungere l'account di archiviazione per la diagnostica all'area di lavoro di Log Analytics.
 3. Abilitare la soluzione Service Fabric nell'area di lavoro di Log Analytics.
 
-[![Distribuisci in Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
-Dopo aver selezionato il pulsante di distribuzione indicato sopra, si accederà all'area del portale di Azure con i parametri da modificare. Assicurarsi di creare un nuovo gruppo di risorse se si immette un nuovo nome dell'area di lavoro di Log Analytics: ![Service Fabric](./media/log-analytics-service-fabric/2.png)
+Dopo aver selezionato il pulsante di distribuzione indicato sopra, il portale di Azure si apre con i parametri da modificare. Assicurarsi di creare un nuovo gruppo di risorse se si immette un nuovo nome dell'area di lavoro di Log Analytics:
+
+![Service Fabric](./media/log-analytics-service-fabric/2.png)
 
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)
 
@@ -56,7 +60,7 @@ Accettare le note legali e premere "Crea" per avviare la distribuzione. Una volt
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed"></a>Distribuire un cluster di Service Fabric connesso a un'area di lavoro di OMS con installata l'estensione VM.
+## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace-with-vm-extension-installed"></a>Distribuire un cluster di Service Fabric connesso a un'area di lavoro di Log Analytics con installata l'estensione VM.
 Questo modello consente di:
 
 1. Distribuire un cluster di Azure Service Fabric già connesso a un'area di lavoro di Log Analytics. È possibile creare una nuova area di lavoro o usarne una esistente.
@@ -73,6 +77,8 @@ Seguendo la stessa procedura descritta sopra, immettere i parametri necessari e 
 ### <a name="viewing-performance-data"></a>Visualizzazione dei dati sulle prestazioni
 Per visualizzare i dati sulle prestazioni dai nodi:
 </br>
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 * Avviare l'area di lavoro di Log Analytics dal portale di Azure.
 
@@ -112,10 +118,10 @@ Per visualizzare i dati sulle prestazioni dai nodi:
 Questo modello aggiunge semplicemente gli account di archiviazione esistenti a un'area di lavoro di Log Analytics nuova o esistente.
 </br>
 
-[![Distribuisci in Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
+[![Distribuzione in Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Foms-existing-storage-account%2Fazuredeploy.json)
 
 > [!NOTE]
-> Per la selezione di un gruppo di risorse, se si usa un'area di lavoro di Log Analytics già esistente, selezionare "Usa esistente" e cercare il gruppo di risorse che contiene l'area di lavoro di OMS. Altrimenti, crearne uno nuovo.
+> Per la selezione di un gruppo di risorse, se si usa un'area di lavoro di Log Analytics già esistente, selezionare "Usa esistente" e cercare il gruppo di risorse che contiene l'area di lavoro di Log Analytics. Altrimenti, crearne uno nuovo.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
 >
 >
@@ -140,12 +146,12 @@ Una volta completate le distribuzioni e dopo aver abilitato la soluzione Service
 
 La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sulla modalità di raccolta dei dati per Service Fabric.
 
-| Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
+| Piattaforma | Agente diretto | Agente di Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![Sì](./media/log-analytics-malware/oms-bullet-green.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |10 minuti |
 
 > [!NOTE]
-> È possibile modificare l'ambito di questi eventi nella soluzione Service Fabric facendo clic su **Dati basati sugli ultimi 7 giorni** nella parte superiore del dashboard. È anche possibile mostrare gli avvisi generati negli ultimi 7 giorni, nell'ultimo giorno o nelle ultime sei ore. In alternativa, è possibile selezionare **Personalizzato** e specificare un intervallo di date personalizzato.
+> È possibile modificare l'ambito di questi eventi nella soluzione Service Fabric facendo clic su **Dati basati sugli ultimi 7 giorni** nella parte superiore del dashboard. È anche possibile mostrare gli eventi generati negli ultimi sette giorni, nell'ultimo giorno o nelle ultime sei ore. In alternativa, è possibile selezionare **Personalizzato** e specificare un intervallo di date personalizzato.
 >
 >
 

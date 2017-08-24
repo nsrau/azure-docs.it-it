@@ -3,7 +3,7 @@ title: 'Analisi: il potente strumento di ricerca di Application Insights | Micro
 description: 'Panoramica di Analytics: lo strumento di ricerca diagnostica avanzato incluso in Application Insights. '
 services: application-insights
 documentationcenter: 
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
@@ -12,22 +12,21 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 717269a2c0e0b1a3d332e627154eacd2d2c5001e
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: a2dc351bd0346f5ca46f1eaafeff678c3339c8c9
 ms.contentlocale: it-it
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="analytics-in-application-insights"></a>Analytics in Application Insights
-L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Analytics. 
+L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics. 
 
 * **[Guardare il video introduttivo](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Eseguire la versione di test di Analisi sui dati simulati](https://analytics.applicationinsights.io/demo)** se l'app non invia ancora i dati ad Application Insights.
 * Il **[foglio informativo sugli utenti SQL](https://aka.ms/sql-analytics)** traduce i linguaggi più comuni.
-* **[Informazioni di riferimento sul linguaggio](app-insights-analytics-reference.md)** Informazioni su come usare tutte le funzionalità avanzate del linguaggio di query Analytics.
+* **[Informazioni di riferimento sul linguaggio](app-insights-analytics-reference.md)** Informazioni su come usare tutte le funzionalità avanzate del linguaggio di query di Log Analytics.
 
 
 ## <a name="queries-in-analytics"></a>Query in Analytics
@@ -36,15 +35,19 @@ Una query tipica è costituita da una tabella di *origine* seguita da una serie 
 Ad esempio, è possibile sapere a che ora del giorno gli abitanti di Hyderabad sperimentano l'app Web. Inoltre, è possibile sapere quali codici di risultato sono restituiti per le richieste HTTP. 
 
 ```AIQL
-
-    requests      // Table of events that log HTTP requests.
-    | where timestamp > ago(7d) and client_City == "Hyderabad"
-    | summarize clients = dcount(client_IP) 
-      by tod_UTC=bin(timestamp % 1d, 1h), resultCode
-    | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01") 
+requests
+| where timestamp > ago(30d)
+| summarize ClientCount = dcount(client_IP) by bin(timestamp, 1h), resultCode
+| extend LocalTime = timestamp - 4h
+| order by LocalTime desc
+| render barchart
 ```
 
 Si contano indirizzi IP client distinti, raggruppandoli in base all'ora del giorno negli ultimi 7 giorni. 
+
+> [!NOTE]
+> Per ottenere risultati oltre le 24 ore precedenti, includere "timestamp" in modo esplicito nella query o usare il menu a discesa per l'intervallo di tempo.
+>
 
 Verranno visualizzati i risultati in una presentazione con grafico a barre, con lo stack dei risultati ottenuti da codici di risposta diversi:
 
@@ -54,14 +57,14 @@ L'app sembra riscuotere molto successo a Hyderabad all'ora di pranzo e prima di 
 
 Sono inoltre disponibili operazioni statistiche avanzate:
 
-![](./media/app-insights-analytics/025.png)
+![Risultati della query statistica](./media/app-insights-analytics/025.png)
 
 Il linguaggio include diverse funzionalità utili, è possibile:
 
 
-* [Filtrare](app-insights-analytics-reference.md#where-operator) i dati di telemetria app non elaborati in base a qualsiasi campo, comprese proprietà personalizzate e metriche.
-* [Unire](app-insights-analytics-reference.md#join-operator) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate a dipendenze, eccezioni e tracce di log.
-* [Aggregazioni](app-insights-analytics-reference.md#aggregations)statistiche avanzate.
+* [Filtrare](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) i dati di telemetria app non elaborati in base a qualsiasi campo, comprese proprietà personalizzate e metriche.
+* [Unire](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate a dipendenze, eccezioni e tracce di log.
+* [Aggregazioni](https://docs.loganalytics.io/learn/tutorials/aggregations.html)statistiche avanzate.
 * Altrettanto efficace come SQL, ma molto più semplice per le query complesse: anziché nidificare le istruzioni, i dati vengono inviati tramite pipe da un'operazione semplice alla successiva.
 * Visualizzazioni immediate e avanzate.
 * [Aggiungere grafici ai dashboard di Azure](app-insights-analytics-using.md#pin-to-dashboard).
@@ -83,21 +86,25 @@ Aprire Analisi dal [pannello Panoramica](app-insights-dashboards.md) dell'app in
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 
+
+## <a name="query-examples"></a>Esempi di query
+
+Provare a eseguire queste procedure dettagliate per illustrare le potenzialità di utilizzo di Analytics:
+
+ *  [Diagnostica automatica di picchi e salti procedurali nella durata delle richieste](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
+ *  [Analisi delle riduzioni delle prestazioni con l'analisi delle serie temporali](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
+ *  [Analisi degli errori delle applicazioni con autocluster e diffpatterns](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
+ *  [Rilevamenti forma avanzati con l'analisi delle serie temporali](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
+ *  [Uso di operazioni della finestra temporale scorrevole per analizzare l'utilizzo dell'applicazione (come MAU/DAU in sequenza e così via)](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
+ *  [Rilevamento di interruzioni del servizio in base all'analisi dei registri di debug](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) e post di blog corrispondente [qui](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics).
+ *  [Profilatura delle prestazioni delle applicazioni tramite log di debug semplici](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) e post di blog corrispondente [qui](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/)
+ *  [Misurazione della durata per ogni passaggio nel flusso di codice tramite log di debug semplici](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) e post di blog corrispondente [qui](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/)
+ *  [Analisi della concorrenza tramite log di debug semplici](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) e post di blog corrispondente [qui](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/)
+
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 * È consigliabile iniziare con una [panoramica sul linguaggio](app-insights-analytics-tour.md). 
-
-### <a name="query-examples"></a>Esempi di query
-
-* Provare a eseguire queste procedure dettagliate per illustrare le potenzialità di utilizzo di Analytics:
- 1.    [Diagnostica automatica di picchi e salti procedurali nella durata delle richieste](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Automatic%20diagnostics%20of%20sudden%20spikes%20or%20step%20jumps%20in%20requests%20duration&shared=true)
- 2.    [Analisi delle riduzioni delle prestazioni con l'analisi delle serie temporali](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20performance%20degradations%20with%20time%20series%20analysis&shared=true)
- 3.    [Analisi degli errori delle applicazioni con autocluster e diffpatterns](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Analyzing%20application%20failures%20with%20autocluster%20and%20diffpatterns&shared=true)
- 4.    [Rilevamenti forma avanzati con l'analisi delle serie temporali](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Advanced%20shape%20detection%20with%20time%20series%20analysis&shared=true)
- 5.    [Uso di operazioni della finestra temporale scorrevole per analizzare l'utilizzo dell'applicazione (come MAU/DAU in sequenza e così via)](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Using%20sliding%20window%20calculations%20to%20analyze%20usage%20metrics:%20rolling%20MAU~2FDAU%20and%20cohorts&shared=true)
- 6.    [Rilevamento di interruzioni del servizio in base all'analisi dei registri di debug](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Detection%20of%20service%20disruptions%20based%20on%20regression%20analysis%20of%20trace%20logs&shared=true) e post di blog corrispondente [qui](https://maximshklar.wordpress.com/2017/02/16/finding-trends-in-traces-with-smart-data-analytics).
- 7.    [Profilatura delle prestazioni delle applicazioni tramite log di debug semplici](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Profiling%20applications'%20performance%20with%20simple%20debug%20logs&shared=true) e post di blog corrispondente [qui](https://yossiattasblog.wordpress.com/2017/03/13/first-blog-post/)
- 8.    [Misurazione della durata per ogni passaggio nel flusso di codice tramite log di debug semplici](https://analytics.applicationinsights.io/demo#/discover/query/main?title=Measuring%20the%20duration%20of%20each%20step%20in%20your%20code%20flow%20using%20simple%20debug%20logs&shared=true) e post di blog corrispondente [qui](https://yossiattasblog.wordpress.com/2017/03/14/measuring-the-duration-of-each-step-in-your-code-flow-using-simple-debug-logs/)
- 9.    [Analisi della concorrenza tramite log di debug semplici](https://analytics.applicationinsights.io/demo#/discover/query/results/chart?title=Analyzing%20concurrency%20with%20simple%20debug%20logs&shared=true) e post di blog corrispondente [qui](https://yossiattasblog.wordpress.com/2017/03/23/analyzing-concurrency-using-simple-debug-logs/)
-
-
+* Altre informazioni sull'[uso di Analytics](app-insights-analytics-using.md). 
+* [Informazioni di riferimento sul linguaggio](app-insights-analytics-reference.md). 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Usare la libreria client di Azure Batch per .NET | Documentazione Microsoft'
+title: 'Esercitazione: Usare la libreria client di Azure Batch per .NET | Microsoft Docs'
 description: Apprendere i concetti di base di Azure Batch e creare una soluzione semplice mediante .NET.
 services: batch
 documentationcenter: .net
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 91fab2cd7ad2babd567380308698f0608dda4cbf
-ms.lasthandoff: 05/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Iniziare a creare soluzioni con la libreria di client Batch per .NET
@@ -104,7 +104,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Come indicato sopra, attualmente è necessario specificare le credenziali per un account di archiviazione **per utilizzo generico** in Archiviazione di Azure. Le applicazioni Batch usano l'archivio BLOB nell'account di archiviazione **per utilizzo generico** . Non specificare credenziali per un account di archiviazione creato selezionando il tipo di account *Archiviazione BLOB* .
+> Come indicato sopra, attualmente è necessario specificare le credenziali per un account di archiviazione **per utilizzo generico**  in Archiviazione di Azure. Le applicazioni Batch usano l'archivio BLOB nell'account di archiviazione **per utilizzo generico** . Non specificare credenziali per un account di archiviazione creato selezionando il tipo di account *Archiviazione BLOB* .
 >
 >
 
@@ -296,7 +296,7 @@ Le firme di accesso condiviso sono stringhe che, se incluse come parte di un URL
 
 Un **pool** di Batch è una raccolta di nodi di calcolo (macchine virtuali) in cui Batch esegue le attività di un processo.
 
-Dopo il caricamento dei file dell'applicazione e di dati nell'account di archiviazione, *DotNetTutorial* avvia l'interazione con il servizio Batch usando la libreria Batch .NET. A tale scopo viene prima creato un oggetto [BatchClient][net_batchclient]:
+Dopo il caricamento dell'applicazione e dei file di dati nell'account di archiviazione con le API di archiviazione di Azure, *DotNetTutorial* inizia a effettuare chiamate al servizio Batch con le API fornite dalla libreria Batch .NET. Il codice crea prima un [BatchClient][net_batchclient]:
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -309,7 +309,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-Viene quindi creato un pool di nodi di calcolo nell'account Batch con una chiamata a `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` usa il metodo [BatchClient.PoolOperations.CreatePool][net_pool_create] per creare un pool nel servizio Batch.
+L'esempio crea quindi un pool di nodi di calcolo nell'account Batch con una chiamata a `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` usa il metodo [BatchClient.PoolOperations.CreatePool][net_pool_create] per creare un nuovo pool nel servizio Batch:
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -323,7 +323,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
-            targetDedicated: 3,                                                         // 3 compute nodes
+            targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
             virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
@@ -362,10 +362,15 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-Quando si crea un pool con [CreatePool][net_pool_create], si specificano diversi parametri come il numero di nodi di calcolo, le [dimensioni dei nodi](../cloud-services/cloud-services-sizes-specs.md) e il sistema operativo dei nodi. In *DotNetTutorial* si usa [CloudServiceConfiguration][net_cloudserviceconfiguration] per specificare Windows Server 2012 R2 da [Servizi cloud](../cloud-services/cloud-services-guestos-update-matrix.md). Specificando invece [VirtualMachineConfiguration][net_virtualmachineconfiguration], è possibile creare pool di nodi creati da immagini del Marketplace, che includono immagini sia Windows che Linux. Per altre informazioni, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md).
+Quando si crea un pool con [CreatePool][net_pool_create], si specificano diversi parametri come il numero di nodi di calcolo, le [dimensioni dei nodi](../cloud-services/cloud-services-sizes-specs.md) e il sistema operativo dei nodi. In *DotNetTutorial* si usa [CloudServiceConfiguration][net_cloudserviceconfiguration] per specificare Windows Server 2012 R2 da [Servizi cloud](../cloud-services/cloud-services-guestos-update-matrix.md). 
+
+È anche possibile creare pool di nodi di calcolo costituiti da macchine virtuali di Azure specificando il valore [VirtualMachineConfiguration][net_virtualmachineconfiguration] per il pool. È possibile creare un pool di nodi di calcolo di tipo VM da immagini Windows o [Linux](batch-linux-nodes.md). L'origine delle immagini di VM può essere una delle seguenti:
+
+- Il [Marketplace per Macchine virtuali di Azure][vm_marketplace], che fornisce immagini Windows e Linux pronte per l'uso. 
+- Un'immagine personalizzata preparata e fornita dall'utente. Per informazioni dettagliate sulle immagini personalizzate, vedere [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
-> Vengono effettuati addebiti per le risorse di calcolo in Batch. Per ridurre al minimo i costi è possibile ridurre `targetDedicated` a 1 prima di eseguire l'esempio.
+> Vengono effettuati addebiti per le risorse di calcolo in Batch. Per ridurre al minimo i costi è possibile ridurre `targetDedicatedComputeNodes` a 1 prima di eseguire l'esempio.
 >
 >
 
@@ -374,7 +379,7 @@ Oltre alle proprietà relative ai nodi fisici, è possibile specificare anche un
 In questa applicazione di esempio, StartTask copia i file scaricati da Archiviazione, specificati usando la proprietà [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] , dalla directory di lavoro di StartTask alla directory condivisa a cui possono accedere *tutte* le attività in esecuzione nel nodo. Sostanzialmente, `TaskApplication.exe` e le relative dipendente vengono copiati nella directory condivisa in ogni nodo quando questo viene aggiunto al pool, in modo che qualsiasi attività in esecuzione nel nodo possa accedervi.
 
 > [!TIP]
-> I **pacchetti dell'applicazione** sono una funzionalità di Azure Batch che offre un altro modo per includere l'applicazione nei nodi di calcolo di un pool. Per informazioni dettagliate, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md) .
+> I **pacchetti dell'applicazione** sono una funzionalità di Azure Batch che offre un altro modo per includere l'applicazione nei nodi di calcolo di un pool. Per informazioni dettagliate, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
 >
 >
 
@@ -558,7 +563,7 @@ private static async Task<bool> MonitorTasks(
 
     // All tasks have reached the "Completed" state, however, this does not
     // guarantee all tasks completed successfully. Here we further check each task's
-    // ExecutionInfo property to ensure that it did not encounter a scheduling error
+    // ExecutionInfo property to ensure that it did not encounter a failure
     // or return a non-zero exit code.
 
     // Update the detail level to populate only the task id and executionInfo
@@ -568,32 +573,25 @@ private static async Task<bool> MonitorTasks(
 
     foreach (CloudTask task in tasks)
     {
-        // Populate the task's properties with the latest info from the
-        // Batch service
+        // Populate the task's properties with the latest info from the Batch service
         await task.RefreshAsync(detail);
 
-        if (task.ExecutionInformation.SchedulingError != null)
+        if (task.ExecutionInformation.Result == TaskExecutionResult.Failure)
         {
-            // A scheduling error indicates a problem starting the task on the node.
-            // It is important to note that the task's state can be "Completed," yet
-            // still have encountered a scheduling error.
+            // A task with failure information set indicates there was a problem with the task. It is important to note that
+            // the task's state can be "Completed," yet still have encountered a failure.
 
             allTasksSuccessful = false;
 
-            Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}",
-                task.Id,
-                task.ExecutionInformation.SchedulingError.Message);
-        }
-        else if (task.ExecutionInformation.ExitCode != 0)
-        {
-            // A non-zero exit code may indicate that the application executed by
-            // the task encountered an error during execution. As not every
-            // application returns non-zero on failure by default (e.g. robocopy),
-            // your implementation of error checking may differ from this example.
+            Console.WriteLine("WARNING: Task [{0}] encountered a failure: {1}", task.Id, task.ExecutionInformation.FailureInformation.Message);
+            if (task.ExecutionInformation.ExitCode != 0)
+            {
+                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // your implementation of error checking may differ from this example.
 
-            allTasksSuccessful = false;
-
-            Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+            }
         }
     }
 
@@ -747,6 +745,7 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 * Se non si ha familiarità con il servizio, è consigliabile vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md) .
 * Per altri articoli sullo sviluppo in Batch, vedere **Approfondimenti sullo sviluppo** nel [percorso di apprendimento per Batch][batch_learning_path].
 * Una diversa implementazione dell'elaborazione del carico di lavoro di tipo "prime N parole" con Batch è disponibile nell'esempio [TopNWords][github_topnwords].
+* Per le modifiche più recenti alla libreria, vedere le [note sulla versione](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) di Batch .NET.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -794,6 +793,7 @@ Dopo avere acquisito familiarità con il flusso di lavoro di base di una soluzio
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/vs/
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Creare contenitori in Archiviazione di Azure"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Caricare l'applicazione dell'attività e i file di input (dati) nei contenitori"

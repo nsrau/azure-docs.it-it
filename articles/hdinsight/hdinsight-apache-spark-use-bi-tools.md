@@ -1,6 +1,6 @@
 ---
 title: Spark BI usando gli strumenti di visualizzazione di dati in Azure HDInsight | Microsoft Docs
-description: Usare gli strumenti di visualizzazione di dati per l&quot;analisi con Apache Spark BI nei cluster HDInsight
+description: Usare gli strumenti di visualizzazione di dati per l'analisi con Apache Spark BI nei cluster HDInsight
 keywords: apache spark bi, spark bi, visualizzazione dei dati spark, spark business intelligence
 services: hdinsight
 documentationcenter: 
@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 07/21/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: bc6749f583de752592b0b49548c5a42321cac7b3
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI usando gli strumenti di visualizzazione di dati con Azure HDInsight
@@ -42,9 +41,11 @@ Questa esercitazione è disponibile anche come notebook di Jupyter in un cluster
 
 ## <a name="hivetable"></a>Preparare i dati per la visualizzazione dei dati di Spark
 
-In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) da un cluster Spark in HDInsight per eseguire i processi che elaborano i dati di esempio non elaborati e li salvano come tabella. I dati di esempio sono un file con estensione csv (hvac.csv) disponibile in tutti i cluster per impostazione predefinita.
+In questa sezione viene usato il notebook di [Jupyter](https://jupyter.org) da un cluster Spark in HDInsight per eseguire i processi che elaborano i dati di esempio non elaborati e li salvano come tabella. I dati di esempio sono un file con estensione csv (hvac.csv) disponibile in tutti i cluster per impostazione predefinita. Dopo avere salvato i dati come tabella, nella sezione successiva vengono usati gli strumenti di business intelligence per connettersi alla tabella ed eseguire visualizzazioni di dati.
 
-Dopo avere salvato i dati come tabella, nella sezione successiva vengono usati gli strumenti di business intelligence per connettersi alla tabella ed eseguire visualizzazioni di dati.
+> [!NOTE]
+> Se si eseguono i passaggi descritti in questo articolo dopo aver completato le istruzioni in [Eseguire query interattive in un cluster HDInsight Spark](hdinsight-apache-spark-load-data-run-query.md), è possibile procedere al passaggio 8 riportato di seguito.
+>
 
 1. Dalla Schermata iniziale del [portale di Azure](https://portal.azure.com/) fare clic sul riquadro del cluster Spark, se è stato aggiunto sulla Schermata iniziale. È anche possibile passare al cluster da **Esplora tutto** > **Cluster HDInsight**.   
 
@@ -74,7 +75,7 @@ Dopo avere salvato i dati come tabella, nella sezione successiva vengono usati g
     In una cella vuota incollare il frammento di codice seguente e premere **MAIUSC+INVIO**. Questo frammento di codice consente di registrare i dati in una tabella denominata **hvac**.
 
         # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         # Create a schema for our data
         Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
@@ -99,7 +100,7 @@ Dopo avere salvato i dati come tabella, nella sezione successiva vengono usati g
         +---------------+-------------+
         |tableName      |isTemporary  |
         +---------------+-------------+
-        |hvactemptable  |true         |
+        |hvactemptable  |true        |
         |hivesampletable|false        |
         |hvac           |false        |
         +---------------+-------------+
@@ -114,6 +115,11 @@ Dopo avere salvato i dati come tabella, nella sezione successiva vengono usati g
 9. Arrestare il notebook per rilasciare le risorse. A tale scopo, dal menu **File** del notebook fare clic su **Close and Halt** (Chiudi e interrompi).
 
 ## <a name="powerbi"></a>Usare Power BI per la visualizzazione dei dati di Spark
+
+> [!NOTE]
+> Questa sezione è applicabile solo a Spark 1.6 in HDInsight 3.4 e Spark 2.0 in HDInsight 3.5.
+>
+>
 
 Dopo aver salvato i dati come una tabella, è possibile usare Power BI per connettersi ai dati e visualizzarli per creare rapporti, dashboard e così via.
 
@@ -198,39 +204,11 @@ Dopo aver salvato i dati come una tabella, è possibile usare Power BI per conne
     ![Output di Tableau per la visualizzazione dei dati Spark](./media/hdinsight-apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Output di Tableau per la visualizzazione dei dati Spark")
 9. Fare clic su **Save** per salvare il foglio di lavoro. È possibile creare dashboard e aggiungervi uno o più fogli.
 
-## <a name="seealso"></a>Vedere anche
-* [Panoramica: Apache Spark su Azure HDInsight](hdinsight-apache-spark-overview.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="scenarios"></a>Scenari
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di compilazione tramite dati HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark con Machine Learning: usare Spark in HDInsight per prevedere i risultati del controllo degli alimenti](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](hdinsight-apache-spark-eventhub-streaming.md)
-* [Analisi dei log del sito Web mediante Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+Finora è stato descritto come creare un cluster, frame di dati Spark per i dati query e quindi accedere ai dati dagli strumenti di BI. È ora possibile esaminare le istruzioni su come gestire le risorse del cluster ed eseguire il debug dei processi in esecuzione in un cluster HDInsight Spark.
 
-### <a name="create-and-run-applications"></a>Creare ed eseguire applicazioni
-* [Creare un'applicazione autonoma con Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Eseguire processi in modalità remota in un cluster Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Strumenti ed estensioni
-* [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
-* [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Usare pacchetti esterni con i notebook Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Installare Jupyter Notebook nel computer e connetterlo a un cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>Gestire risorse
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-[hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: storage-create-storage-account.md
 

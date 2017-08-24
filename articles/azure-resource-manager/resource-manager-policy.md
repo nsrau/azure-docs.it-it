@@ -1,6 +1,6 @@
 ---
 title: Criteri delle risorse di Azure | Microsoft Docs
-description: "Viene descritto come utilizzare i criteri di Azure Resource Manager per l&quot;impostazione di proprietà delle risorse coerenti durante la distribuzione. È possibile applicare i criteri alla sottoscrizione o a gruppi di risorse."
+description: "Viene descritto come utilizzare i criteri di Azure Resource Manager per l'impostazione di proprietà delle risorse coerenti durante la distribuzione. È possibile applicare i criteri alla sottoscrizione o a gruppi di risorse."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/02/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 951a7849beb9653083ed0112dbbb6cf57175469d
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 0ee2624f45a1de0c23cae4538a38ae3e302eedd3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="resource-policy-overview"></a>Cenni preliminari sui criteri delle risorse
-I criteri delle risorse consentono di definire le convenzioni per le risorse nell'organizzazione. Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. Ad esempio, è possibile specificare che sono consentiti solo determinati tipi di macchine virtuali oppure è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se quindi un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
+I criteri delle risorse consentono di definire le convenzioni per le risorse nell'organizzazione. Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se quindi un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
 
 È importante comprendere due concetti sui criteri:
 
@@ -31,8 +30,6 @@ I criteri delle risorse consentono di definire le convenzioni per le risorse nel
 * assegnazione di criteri: si applica la definizione di criteri a un ambito (sottoscrizione o gruppo di risorse)
 
 In questo argomento viene illustrata la definizione di criteri. Per informazioni sull'assegnazione dei criteri, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse) o [Assegnare e gestire i criteri tramite script](resource-manager-policy-create-assign.md).
-
-Azure offre alcune definizioni di criteri predefiniti che possono ridurre il numero di criteri da definire. Se una definizione di criteri predefiniti funziona per lo scenario specifico, usare tale definizione per l'assegnazione a un ambito.
 
 I criteri vengono valutati durante la creazione e l'aggiornamento delle risorse (operazioni PUT e PATCH).
 
@@ -42,7 +39,7 @@ I criteri vengono valutati durante la creazione e l'aggiornamento delle risorse 
 > 
 
 ## <a name="how-is-it-different-from-rbac"></a>Quali sono le differenze rispetto al controllo degli accessi in base al ruolo?
-Esistono differenze importanti tra i criteri e il controllo degli accessi in base al ruoli (RBAC). Il Controllo degli accessi in base al ruolo è incentrato sulle azioni dell'**utente** in ambiti diversi. Ad esempio, un utente viene aggiunto al ruolo di collaboratore per un gruppo di risorse nell'ambito desiderato, in modo che possa apportare modifiche a tale gruppo di risorse. I criteri si concentrano sulle proprietà delle **risorse** durante la distribuzione. Tramite i criteri, ad esempio, è possibile controllare i tipi di risorse di cui è possibile eseguire il provisioning o limitare le posizioni in cui è possibile eseguire il provisioning delle risorse. A differenza del controllo degli accessi in base al ruolo, i criteri rappresentano un sistema con autorizzazioni predefinite e negazione esplicita. 
+Esistono differenze importanti tra i criteri e il controllo degli accessi in base al ruoli (RBAC). Il Controllo degli accessi in base al ruolo è incentrato sulle azioni dell'**utente** in ambiti diversi. Ad esempio, un utente viene aggiunto al ruolo di collaboratore per un gruppo di risorse nell'ambito desiderato, in modo che possa apportare modifiche a tale gruppo di risorse. I criteri si concentrano sulle proprietà delle **risorse** durante la distribuzione. Tramite i criteri, ad esempio, si possono controllare i tipi di risorse di cui è possibile effettuare il provisioning. In alternativa, si possono limitare le posizioni in cui è possibile effettuare il provisioning delle risorse. A differenza del controllo degli accessi in base al ruolo, i criteri rappresentano un sistema con autorizzazioni predefinite e negazione esplicita. 
 
 Per usare i criteri, l'utente deve essere autenticato tramite il controllo degli accessi in base al ruolo. In particolare, per l'account sono necessari:
 
@@ -50,6 +47,22 @@ Per usare i criteri, l'utente deve essere autenticato tramite il controllo degli
 * `Microsoft.Authorization/policyassignments/write` l'autorizzazione per assegnare un criterio 
 
 Queste autorizzazioni non sono incluse nel ruolo di **collaboratore**.
+
+## <a name="built-in-policies"></a>Criteri predefiniti
+
+Azure offre alcune definizioni di criteri predefiniti che possono ridurre il numero di criteri da definire. Prima di procedere con le definizioni dei criteri, è necessario considerare se un criterio predefinito fornisce già la definizione. Le definizioni di criteri predefinite sono:
+
+* Percorsi consentiti
+* Tipi di risorse consentiti
+* SKU degli account di archiviazione consentiti
+* SKU delle macchine virtuali consentiti
+* Applicare il tag e il valore predefinito
+* Applicare il tag e il valore
+* Tipi di risorse non consentiti
+* Richiedere SQL Server versione 12.0
+* Richiedere la crittografia dell'account di archiviazione
+
+È possibile assegnare uno di questi criteri tramite il [portale](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell) o l'[interfaccia della riga di comando di Azure](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>Struttura delle definizioni di criteri
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
@@ -149,7 +162,7 @@ Gli operatori logici supportati sono:
 
 La sintassi **not** inverte il risultato della condizione. La sintassi **allOf** (simile all'operazione logica **And**) richiede che tutte le condizioni siano vere. La sintassi **anyOf** (simile all'operazione logica **Or**) richiede che una o più condizioni siano vere.
 
-È possibile annidare gli operatori logici. Nell'esempio seguente viene illustrata un'operazione **Not** nidificata nell'operazione **And**. 
+È possibile annidare gli operatori logici. L'esempio seguente illustra un'operazione **not** nidificata in un'operazione **allOf**. 
 
 ```json
 "if": {
@@ -181,7 +194,7 @@ La condizione valuta se un **campo** soddisfa determinati criteri. Le condizioni
 
 Quando si usa la condizione **like**, è possibile inserire un carattere jolly (*) nel valore.
 
-Quando si usa la condizione **match**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Per gli esempi, vedere [Impostare la convenzione di denominazione](#set-naming-convention).
+Quando si usa la condizione **match**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Per gli esempi, vedere [Applicare criteri delle risorse per nomi e testo](resource-manager-policy-naming-convention.md).
 
 ### <a name="fields"></a>Fields
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa.  
@@ -194,27 +207,7 @@ Sono supportati i seguenti campi:
 * `location`
 * `tags`
 * `tags.*` 
-* alias delle proprietà
-
-Usare gli alias delle proprietà per accedere alle proprietà specifiche per un tipo di risorsa. Gli alias supportati sono:
-
-* Microsoft.CDN/profiles/sku.name
-* Microsoft.Compute/virtualMachines/imageOffer
-* Microsoft.Compute/virtualMachines/imagePublisher
-* Microsoft.Compute/virtualMachines/sku.name
-* Microsoft.Compute/virtualMachines/imageSku 
-* Microsoft.Compute/virtualMachines/imageVersion
-* Microsoft.SQL/servers/databases/edition
-* Microsoft.SQL/servers/databases/elasticPoolName
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveId
-* Microsoft.SQL/servers/databases/requestedServiceObjectiveName
-* Microsoft.SQL/servers/elasticPools/dtu
-* Microsoft.SQL/servers/elasticPools/edition
-* Microsoft.SQL/servers/version
-* Microsoft.Storage/storageAccounts/accessTier
-* Microsoft.Storage/storageAccounts/enableBlobEncryption
-* Microsoft.Storage/storageAccounts/sku.name
-* Microsoft.Web/serverFarms/sku.name
+* alias delle proprietà; per un elenco, vedere [alias](#aliases).
 
 ### <a name="effect"></a>Effetto
 Il criterio supporta tre tipi di effetto: `deny`, `audit` e `append`. 
@@ -237,127 +230,133 @@ In caso di **aggiunta**, è necessario specificare questi dettagli:
 
 Il valore può essere una stringa o un oggetto formato JSON. 
 
+## <a name="aliases"></a>Alias
+
+Usare gli alias delle proprietà per accedere alle proprietà specifiche per un tipo di risorsa. Gli alias consentono di limitare le condizioni o i valori consentiti per una proprietà su una risorsa. Ogni alias esegue il mapping ai percorsi in versioni di API diverse per un tipo di risorsa specificato. Durante la valutazione dei criteri, il motore dei criteri ottiene il percorso della proprietà per la versione API specificata.
+
+**Microsoft.Cache/Redis**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Cache/Redis/enableNonSslPort | Impostare se la porta non-ssl del server Redis (6379) è abilitata. |
+| Microsoft.Cache/Redis/shardCount | Impostare il numero di partizioni da creare in una cache di cluster Premium.  |
+| Microsoft.Cache/Redis/sku.capacity | Impostare la dimensione della cache Redis da distribuire.  |
+| Microsoft.Cache/Redis/sku.family | Impostare la famiglia di SKU da usare. |
+| Microsoft.Cache/Redis/sku.name | Impostare il tipo di cache Redis da distribuire. |
+
+**Microsoft.Cdn/profiles**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.CDN/profiles/sku.name | Impostare il nome del livello di prezzo. |
+
+**Microsoft.Compute/disks**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Compute/imageOffer | Impostare l'offerta dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imagePublisher | Impostare il server di pubblicazione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imageSku | Impostare lo SKU dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imageVersion | Impostare la versione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+
+
+**Microsoft.Compute/virtualMachines**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Compute/imageId | Impostare l'identificatore dell'immagine utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imageOffer | Impostare l'offerta dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imagePublisher | Impostare il server di pubblicazione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imageSku | Impostare lo SKU dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imageVersion | Impostare la versione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/licenseType | Impostare che l'immagine o il disco è concesso in licenza in locale. Questo valore viene usato solo per le immagini che contengono il sistema operativo Windows Server.  |
+| Microsoft.Compute/virtualMachines/imageOffer | Impostare l'offerta dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/virtualMachines/imagePublisher | Impostare il server di pubblicazione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/virtualMachines/imageSku | Impostare lo SKU dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/virtualMachines/imageVersion | Impostare la versione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/virtualMachines/osDisk.Uri | Impostare l'URI del disco rigido virtuale. |
+| Microsoft.Compute/virtualMachines/sku.name | Impostare le dimensioni della macchina virtuale. |
+
+**Microsoft.Compute/virtualMachines/extensions**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Compute/virtualMachines/extensions/publisher | Impostare il nome del server di pubblicazione dell'estensione. |
+| Microsoft.Compute/virtualMachines/extensions/type | Impostare il tipo di estensione. |
+| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Impostare versione dell'estensione. |
+
+**Microsoft.Compute/virtualMachineScaleSets**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Compute/imageId | Impostare l'identificatore dell'immagine utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imageOffer | Impostare l'offerta dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imagePublisher | Impostare il server di pubblicazione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imageSku | Impostare lo SKU dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/imageVersion | Impostare la versione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
+| Microsoft.Compute/licenseType | Impostare che l'immagine o il disco è concesso in licenza in locale. Questo valore viene usato solo per le immagini che contengono il sistema operativo Windows Server. |
+| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Impostare il prefisso del nome del computer per tutte le macchine virtuali nel set di scalabilità. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Impostare l'URI del BLOB per l'immagine utente. |
+| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Impostare gli URL del contenitore che vengono usati per archiviare i dischi del sistema operativo per il set di scalabilità. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Impostare la dimensione delle macchine virtuali in un set di scalabilità. |
+| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Impostare il livello delle macchine virtuali in un set di scalabilità. |
+  
+**Microsoft.Network/applicationGateways**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Network/applicationGateways/sku.name | Impostare la dimensione del gateway. |
+
+**Microsoft.Network/virtualNetworkGateways**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Network/virtualNetworkGateways/gatewayType | Impostare il tipo di questo gateway di rete virtuale. |
+| Microsoft.Network/virtualNetworkGateways/sku.name | Impostare il nome dello SKU del gateway. |
+
+**Microsoft.Sql/servers**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Sql/servers/version | Impostare la versione del server. |
+
+**Microsoft.Sql/databases**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Sql/servers/databases/edition | Impostare l'edizione del database. |
+| Microsoft.Sql/servers/databases/elasticPoolName | Impostare il nome del pool elastico in cui si trova in database. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Impostare l'ID obiettivo del livello di servizio configurato del database. |
+| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Impostare il nome dell'obiettivo del livello di servizio configurato del database.  |
+
+**Microsoft.Sql/elasticpools**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Impostare il valore DTU totale condiviso per il pool elastico del database. |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Impostare l'edizione del pool elastico. |
+
+**Microsoft.Storage/storageAccounts**
+
+| Alias | Descrizione |
+| ----- | ----------- |
+| Microsoft.Storage/storageAccounts/accessTier | Impostare il livello di accesso utilizzato per la fatturazione. |
+| Microsoft.Storage/storageAccounts/accountType | Impostare il nome di SKU. |
+| Microsoft.Storage/storageAccounts/enableBlobEncryption | Specificare se il servizio crittografa i dati quando vengono archiviati nel servizio di archiviazione BLOB. |
+| Microsoft.Storage/storageAccounts/enableFileEncryption | Specificare se il servizio crittografa i dati quando vengono archiviati nel servizio di archiviazione file. |
+| Microsoft.Storage/storageAccounts/sku.name | Impostare il nome di SKU. |
+| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Impostato per consentire solo il traffico https al servizio di archiviazione. |
+
+
 ## <a name="policy-examples"></a>Esempi di criteri
 
 I seguenti argomenti contengono esempi di criteri:
 
 * Per gli esempi di criteri di tag, vedere [Applicare criteri delle risorse per i tag](resource-manager-policy-tags.md).
+* Per alcuni esempi di modelli di denominazione e di testo, vedere [Apply resource policies for names and text](resource-manager-policy-naming-convention.md) (Applicare criteri di risorse per nomi e testo).
 * Per gli esempi di criteri di archiviazione, vedere [Applicare i criteri delle risorse agli account di archiviazione](resource-manager-policy-storage.md).
 * Per gli esempi di criteri di macchine virtuali, vedere [Applicare criteri delle risorse alle macchine virtuali di Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) e [Applicare criteri delle risorse alle macchine virtuali di Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
-### <a name="allowed-resource-locations"></a>Percorsi di risorse consentiti
-Per specificare i percorsi consentiti, vedere l'esempio nella sezione [Struttura delle definizioni di criteri](#policy-definition-structure). Per assegnare la definizione dei criteri, usare i criteri predefiniti con l'ID risorsa `/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c`.
-
-### <a name="not-allowed-resource-locations"></a>Percorsi di risorse non consentiti
-Per specificare i percorsi non consentiti, usare la definizione dei criteri seguente:
-
-```json
-{
-  "properties": {
-    "parameters": {
-      "notAllowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that are not allowed when deploying resources",
-          "strongType": "location",
-          "displayName": "Not allowed locations"
-        }
-      }
-    },
-    "displayName": "Not allowed locations",
-    "description": "This policy enables you to block locations that your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "field": "location",
-        "in": "[parameters('notAllowedLocations')]"
-      },
-      "then": {
-        "effect": "deny"
-      }
-    }
-  }
-}
-```
-
-### <a name="allowed-resource-types"></a>Tipi di risorse consentiti
-L'esempio seguente mostra un criterio che consente la distribuzione solo nei tipi di risorsa Microsoft.Resources, Microsoft.Compute, Microsoft.Storage, Microsoft.Network. Tutti gli altri vengono rifiutati:
-
-```json
-{
-  "if": {
-    "not": {
-      "anyOf": [
-        {
-          "field": "type",
-          "like": "Microsoft.Resources/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Compute/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Storage/*"
-        },
-        {
-          "field": "type",
-          "like": "Microsoft.Network/*"
-        }
-      ]
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-### <a name="set-naming-convention"></a>Impostare la convenzione di denominazione
-L'esempio seguente illustra l'uso dei caratteri jolly supportato dalla condizione **like**. La condizione dichiara che la richiesta deve essere negata se il nome non corrisponde al modello indicato (namePrefix\*nameSuffix):
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "like": "namePrefix*nameSuffix"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Per specificare che i nomi di risorsa corrispondono a un modello, usare la condizione match. Nell'esempio seguente i nomi devono iniziare con `contoso` e contenere altre sei lettere:
-
-```json
-{
-  "if": {
-    "not": {
-      "field": "name",
-      "match": "contoso??????"
-    }
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
-
-Per imporre un modello di data di due cifre, trattino, tre lettere, trattino e quattro cifre, usare:
-
-```json
-{
-  "if": {
-    "field": "tags.date",
-    "match": "##-???-####"
-  },
-  "then": {
-    "effect": "deny"
-  }
-}
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver definito una regola dei criteri, assegnarla a un ambito. Per assegnare i criteri tramite il portale, vedere [Use Azure portal to assign and manage resource policies](resource-manager-policy-portal.md) (Usare il portale di Azure per assegnare e gestire i criteri delle risorse). Per assegnare i criteri tramite l'API REST, PowerShell o l'interfaccia della riga di comando di Azure, vedere [Assegnare e gestire i criteri tramite script](resource-manager-policy-create-assign.md).

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 815ada25a548ddf419ac073f57a5153f60a40a58
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 67dbb0c4066002256efbab6061157c641527e441
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -80,7 +82,7 @@ Per gestire i controller del dispositivo dal portale di Azure classico, effettua
 
 Il controller verrà riavviato o arrestato. Nella tabella seguente sono riepilogati i dettagli di ciò che accade in base alle selezioni effettuate nella finestra di dialogo **Modifica impostazioni controller** .  
 
-| Selezione # | Se si sceglie di... | Viene eseguita questa operazione. |
+| N. selezione | Se si sceglie di... | Viene eseguita questa operazione. |
 | --- | --- | --- |
 | 1. |Riavviare il controller passivo. |Viene creato un processo per riavviare il controller e si riceve una notifica una volta che il processo è stato creato. A questo punto viene inizializzato il riavvio del controller. È possibile monitorare il processo di riavvio accedendo a **Servizio > Dashboard > Visualizza registri operazioni** e quindi filtrare in base a specifici parametri del servizio. |
 | 2. |Riavviare il controller attivo. |Verrà visualizzato l'avviso seguente: "Se si riavvia il controller attivo, verrà eseguito il failover del dispositivo sul controller passivo. Continuare?" </br>Se si sceglie di procedere con questa operazione, i passaggi successivi saranno identici a quelli utilizzati per riavviare il controller passivo (vedere la selezione 1). |
@@ -167,47 +169,42 @@ Per ripristinare le impostazioni predefinite di fabbrica del dispositivo StorSim
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Domande e risposte sulla gestione dei controller del dispositivo
 In questa sezione vengono riportate alcune delle domande frequenti relative alla gestione dei controller del dispositivo StorSimple.
 
-**D.**  Cosa accade se entrambi i controller del dispositivo sono integri e accesi e si riavvia o si arresta il controller attivo?
+**D.** Cosa accade se entrambi i controller del dispositivo sono integri e accesi e si riavvia o si arresta il controller attivo?
 
-**R.**  Se entrambi i controller del dispositivo sono integri e accesi, verrà richiesto di confermare. È possibile scegliere di:
+**R.** Se entrambi i controller del dispositivo sono integri e accesi, verrà richiesto di confermare. È possibile scegliere di:
 
 * **Riavviare il controller attivo** : viene ricevuta una notifica indicante che il riavvio di un controller attivo comporta il failover del dispositivo sul controller passivo. Il controller verrà riavviato.
 * **Arrestare il controller attivo** - viene ricevuta una notifica indicante che l'arresto del controller attivo determina tempi di inattività. Inoltre, è necessario premere il pulsante di alimentazione sul dispositivo per accendere il controller.
 
-**D.**  Cosa accade se il controller passivo nel dispositivo non è disponibile o è spento e si riavvia o arresta il controller attivo?
+**D.** Cosa accade se il controller passivo nel dispositivo non è disponibile o è spento e si riavvia o arresta il controller attivo?
 
-**R.**  Se il controller passivo sul dispositivo non è disponibile o è spento e si sceglie di:
+**R.** Se il controller passivo sul dispositivo non è disponibile o è spento e si sceglie di:
 
 * **Riavviare il controller attivo** : viene ricevuta una notifica indicante che se si continua l'operazione si verificherà un'interruzione temporanea del servizio e verrà richiesto di confermare.
 * **Arrestare il controller attivo** : viene ricevuta una notifica indicante che se si continua l'operazione si verificheranno tempi di inattività e sarà necessario premere il pulsante di alimentazione su uno o entrambi i controller per accendere il dispositivo. Verrà richiesto di confermare.
 
-**D.**  Quand'è che il riavvio o l'arresto del controller non vengono eseguiti?
+**D.** Quand'è che il riavvio o l'arresto del controller non vengono eseguiti?
 
-**R.**  Il riavvio o l'arresto di un controller può non riuscire se:
+**R.** Il riavvio o l'arresto di un controller può non riuscire se:
 
 * Un aggiornamento del dispositivo è in corso.
 * Un riavvio del controller è già in corso.
 * Un arresto del controller è già in corso.
 
-**D.**  Come si capisce se un controller è stato riavviato o arrestato?
+**D.** Come si capisce se un controller è stato riavviato o arrestato?
 
-**R.**  È possibile controllare lo stato del controller nella pagina di manutenzione. Lo stato del controller indicherà se un controller è stato riavviato o arrestato. Inoltre, nella pagina degli avvisi è incluso un avviso informativo indicante se il controller è stato riavviato o arrestato. Le operazioni di riavvio e arresto del controller vengono inoltre registrate nei registri delle operazioni. Per altre informazioni sui registri delle operazioni, passare a [Visualizzare i registri delle operazioni](storsimple-service-dashboard.md#view-the-operations-logs).
+**R.** È possibile controllare lo stato del controller nella pagina di manutenzione. Lo stato del controller indicherà se un controller è stato riavviato o arrestato. Inoltre, nella pagina degli avvisi è incluso un avviso informativo indicante se il controller è stato riavviato o arrestato. Le operazioni di riavvio e arresto del controller vengono inoltre registrate nei registri delle operazioni. Per altre informazioni sui registri delle operazioni, passare a [Visualizzare i registri delle operazioni](storsimple-service-dashboard.md#view-the-operations-logs).
 
-**D.**  Il failover del controller ha impatto sulle operazioni di I/O?
+**D.** Il failover del controller ha impatto sulle operazioni di I/O?
 
-**R.**  Le connessioni TCP tra iniziatori e controller attivo verranno reimpostate a causa del failover del controller, ma verranno ristabilite quando il controller passivo assume il controllo. Nel corso di questa operazione potrebbe esserci una pausa temporanea (inferiore a 30 secondi) nell'attività di I/O tra gli iniziatori e il dispositivo.
+**R.** Le connessioni TCP tra iniziatori e controller attivo verranno reimpostate a causa del failover del controller, ma verranno ristabilite quando il controller passivo assume il controllo. Nel corso di questa operazione potrebbe esserci una pausa temporanea (inferiore a 30 secondi) nell'attività di I/O tra gli iniziatori e il dispositivo.
 
-**D.**  Come ripristinare il controller di servizio dopo che è stato arrestato e rimosso?
+**D.** Come ripristinare il controller di servizio dopo che è stato arrestato e rimosso?
 
 **R.** Per ripristinare un controller di servizio, è necessario inserirlo nello chassis come descritto in [Sostituire un modulo controller nel dispositivo StorSimple](storsimple-controller-replacement.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Se si verificano problemi con i controller del dispositivo StorSimple che non si risolvono usando le procedure elencate in questa esercitazione, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
 * Per altre informazioni sull’utilizzo del servizio StorSimple Manager, passare a [Usare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

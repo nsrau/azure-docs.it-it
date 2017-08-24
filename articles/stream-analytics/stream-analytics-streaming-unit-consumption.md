@@ -1,5 +1,5 @@
 ---
-title: "Analisi di flusso di Azure: ottimizzare il processo per l&quot;uso efficiente delle unità di streaming | Documentazione Microsoft"
+title: "Analisi di flusso di Azure: ottimizzare il processo per l'uso efficiente delle unità di streaming | Documentazione Microsoft"
 description: "Procedure consigliate di query per la scalabilità e le prestazioni in Analisi di flusso di Azure."
 keywords: "unità di streaming, prestazioni delle query"
 services: stream-analytics
@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 264331293b16ffb76d037a233eac564e1067f784
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 341d4f057e0a4611bbff498d494ca54d0b1fd9e7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -84,7 +84,7 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

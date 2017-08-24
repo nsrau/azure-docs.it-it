@@ -1,7 +1,7 @@
 ---
-title: Eseguire il debug di Analisi di flusso di Azure con i ricevitori dell&quot;hub eventi | Documentazione Microsoft
-description: Procedure consigliate di query per considerare i gruppi di consumer dell&quot;hub eventi nei processi di Analisi di flusso.
-keywords: limite dell&quot;hub eventi, gruppo di consumer
+title: Eseguire il debug di Analisi di flusso di Azure con i ricevitori dell'hub eventi | Documentazione Microsoft
+description: Procedure consigliate di query per considerare i gruppi di consumer dell'hub eventi nei processi di Analisi di flusso.
+keywords: limite dell'hub eventi, gruppo di consumer
 services: stream-analytics
 documentationcenter: 
 author: jeffstokes72
@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3724b9077b04c767d0b1679caffed2bc5d077113
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: d1c099dd39fd6a58bf4d0679f536499d6dd8d29a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -83,11 +83,11 @@ Per le query in cui tre o più input sono connessi allo stesso gruppo di consume
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ottenere assistenza, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
-* [Introduzione ad Analisi di flusso](stream-analytics-get-started.md)
+* [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
 * [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)

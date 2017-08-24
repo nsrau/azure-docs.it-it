@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: e776d095356e10ef47ca49e2a8b9f97d63fb80be
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
 ms.contentlocale: it-it
-ms.lasthandoff: 04/04/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -38,13 +38,13 @@ Per configurare il monitoraggio degli eventi in modo che un'app per la logica po
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Controllare le autorizzazioni dello spazio dei nomi di Hub eventi e trovare la stringa di connessione
 
 Per consentire all'app per la logica di accedere a qualsiasi servizio, è necessario creare una [*connessione*](./connectors-overview.md) tra l'app per la logica e il servizio, se non è già presente. Questa connessione autorizza l'app per la logica ad accedere ai dati.
-Affinché l'app per la logica possa accedere all'hub eventi, è necessario avere le autorizzazioni di**** gestione e la stringa di connessione per lo spazio dei nomi di Hub eventi.
+Affinché l'app per la logica possa accedere all'hub eventi, è necessario avere le autorizzazioni di **gestione** e la stringa di connessione per lo spazio dei nomi di Hub eventi.
 
 Per controllare le autorizzazioni e ottenere la stringa di connessione, seguire questa procedura.
 
 1.  Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure"). 
 
-2.  Passare allo *spazio dei nomi* di Hub eventi, non all'hub eventi specifico. Nel pannello dello spazio dei nomi scegliere **Criteri di accesso condivisi** in **Impostazioni**. In **Attestazioni** controllare di avere le autorizzazioni di**** gestione per lo spazio dei nomi.
+2.  Passare allo *spazio dei nomi* di Hub eventi, non all'hub eventi specifico. Nel pannello dello spazio dei nomi scegliere **Criteri di accesso condivisi** in **Impostazioni**. In **Attestazioni** controllare di avere le autorizzazioni di **gestione** per lo spazio dei nomi.
 
     ![Gestire le autorizzazioni per lo spazio dei nomi di Hub eventi](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
@@ -123,19 +123,9 @@ Selezionare questa azione: **Invia evento**
 
     A questo punto è stata configurata un'azione per inviare gli eventi dall'app per la logica. 
 
-## <a name="technical-details"></a>Dettagli tecnici
+## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-### <a name="triggers"></a>Trigger
-
-| Trigger | Descrizione |
-| --- | --- |
-| Quando sono disponibili eventi nell'hub eventi | Attiva un flusso di lavoro quando sono disponibili eventi nell'hub eventi specificato. |
-
-### <a name="actions"></a>Azioni
-
-| Azione | Descrizione |
-| --- | --- |
-| Invia evento | Invia un evento all'hub eventi specificato. |
+Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/eventhubs/). 
 
 ## <a name="get-help"></a>Ottenere aiuto
 

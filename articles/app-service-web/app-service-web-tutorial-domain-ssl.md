@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un dominio personalizzato e un certificato SSL a un&quot;app Web di Azure | Microsoft Docs
-description: "Informazioni su come preparare l&quot;app Web di Azure per l&quot;ambiente di produzione aggiungendo il marchio della società. Eseguire il mapping del nome di dominio personalizzato (dominio personale) all&quot;app Web e proteggerlo con un certificato SSL personalizzato."
+title: Aggiungere un dominio personalizzato e un certificato SSL a un'app Web di Azure | Microsoft Docs
+description: "Informazioni su come preparare l'app Web di Azure per l'ambiente di produzione aggiungendo il marchio della società. Eseguire il mapping del nome di dominio personalizzato (dominio personale) all'app Web e proteggerlo con un certificato SSL personalizzato."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -11,14 +11,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/29/2017
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
-ms.openlocfilehash: 78358e97f76454c19d5a377a2dac2bbf08c616ce
-ms.lasthandoff: 04/04/2017
-
+ms.custom: mvc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 535a7dbe24a1badc8539b61d34c09bdeda41ad40
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="add-custom-domain-and-ssl-to-an-azure-web-app"></a>Aggiungere un dominio personalizzato e un certificato SSL a un'app Web di Azure
@@ -54,17 +55,9 @@ Per visualizzare i possibili valori utilizzabili per `---location`, usare il com
 
 ## <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
-Creare un piano di servizio app basato su Linux con il comando [az appservice plan create](/cli/azure/appservice/plan#create). 
+Creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan#create). 
 
-> [!NOTE] 
-> Un piano di servizio app rappresenta la raccolta delle risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono le risorse definite dal piano, in modo da consentire un risparmio sui costi quando si ospitano più app. 
-> 
-> I piani di servizio app definiscono: 
-> * Area (Europa settentrionale, Stati Uniti orientali, Asia sud-orientale) 
-> * Dimensioni delle istanze (Small, Medium, Large) 
-> * Numero di scala (una, due o tre istanze e così via) 
-> * SKU (Gratuito, Condiviso, Basic, Standard, Premium) 
-> 
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` usando il piano tariffario **Basic**.
 

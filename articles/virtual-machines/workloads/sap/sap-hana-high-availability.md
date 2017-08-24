@@ -13,12 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 258ccee349e07448ebebaebe64cd6fb6888d7ed4
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
 ms.contentlocale: it-it
-ms.lasthandoff: 05/20/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Disponibilità elevata di SAP HANA in Macchine virtuali di Azure (VM)
@@ -27,10 +26,19 @@ ms.lasthandoff: 05/20/2017
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
-[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+
+[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
+[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
+
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
@@ -44,10 +52,25 @@ Nelle configurazioni di esempio, nei comandi di installazione e così via vengon
 
 Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 
-* Nota su SAP [2205917] Impostazioni consigliate del sistema operativo per SUSE Linux Enterprise Server for SAP Applications
-* Nota su SAP [1944799] Linee guida su SAP HANA per SUSE Linux Enterprise Server for SAP Applications
-* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide] (Scenario di ottimizzazione delle prestazioni di SAP HANA SR)  
-  La guida contiene tutte le informazioni necessarie per configurare la replica di sistema SAP HANA in locale. Usare la guida per le indicazioni di base.
+* Nota SAP [1928533], contenente:
+  * Elenco delle dimensioni delle VM di Azure supportate per la distribuzione di software SAP
+  * Importanti informazioni sulla capacità per le dimensioni delle VM di Azure
+  * Software SAP e combinazioni di sistemi operativi e database supportati
+  * Versione del kernel SAP richiesta per Windows e Linux in Microsoft Azure
+* La nota SAP [2015553] elenca i prerequisiti per le distribuzioni di software SAP supportate da SAP in Azure.
+* La nota SAP [2205917] contiene le impostazioni consigliate del sistema operativo per SUSE Linux Enterprise Server for SAP Applications
+* La nota SAP [1944799] contiene linee guida per SAP HANA per SUSE Linux Enterprise Server for SAP Applications
+* La nota SAP [2178632] contiene informazioni dettagliate su tutte le metriche di monitoraggio segnalate per SAP in Azure.
+* La nota SAP [2191498] contiene la versione dell'agente host SAP per Linux necessaria in Azure.
+* La nota SAP [2243692] contiene informazioni sulle licenze SAP in Linux in Azure.
+* La nota SAP [1984787] contiene informazioni generali su SUSE Linux Enterprise Server 12.
+* La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
+* [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
+* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
+* [Distribuzione di Macchine virtuali di Azure per SAP in Linux (questo articolo)][deployment-guide]
+* [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
+* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide] (Scenario ottimizzato per le prestazioni di SAP HANA SR) La guida contiene tutte le informazioni necessarie per configurare la replica di sistema SAP HANA in locale. Usare la guida per le indicazioni di base.
+
 ## <a name="deploying-linux"></a>Distribuzione di Linux
 
 L'agente delle risorse per SAP HANA è incluso in SUSE Linux Enterprise Server for SAP Applications.
@@ -305,10 +328,10 @@ Gli elementi seguenti sono preceduti dall'indicazione [A] - applicabile a tutti 
     } 
     <b>nodelist {
       node {
-        ring0_addr:     < ip address of note 1 >
+        ring0_addr:     < ip address of node 1 >
       }
       node {
-        ring0_addr:     < ip address of note 2 > 
+        ring0_addr:     < ip address of node 2 > 
       } 
     }</b>
     logging {
@@ -404,7 +427,7 @@ Modificare le impostazioni predefinite
 
 <pre>
 sudo vi crm-defaults.txt
-# enter the following to crm-saphana.txt
+# enter the following to crm-defaults.txt
 <code>
 property $id="cib-bootstrap-options" \
   no-quorum-policy="ignore" \

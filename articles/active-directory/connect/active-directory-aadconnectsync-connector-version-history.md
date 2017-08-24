@@ -1,6 +1,6 @@
 ---
 title: Cronologia del rilascio delle versioni dei connettori | Documentazione Microsoft
-description: Questo argomento include l&quot;elenco di tutte le versioni dei connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM)
+description: Questo argomento include l'elenco di tutte le versioni dei connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2017
+ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 3c91cb00d6535a4bc01a3b95547ef940cbff7fcb
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
@@ -39,7 +38,25 @@ Collegamenti correlati:
 * [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
 * [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
-## <a name="115220"></a>1.1.522.0
+## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
+
+### <a name="fixed-issues"></a>Problemi risolti:
+
+* Servizi Web generici:
+  * Lo strumento Wsconfig non ha convertito correttamente la matrice Json dalla "richiesta di esempio" per il metodo di servizio REST. Per questo motivo, si sono verificati problemi con la serializzazione di questa matrice Json per la richiesta REST.
+  * Lo strumento Web Service Connector Configuration non supporta l'utilizzo di simboli di spazio nei nomi attributo JSON. Il criterio di sostituzione può essere aggiunto manualmente al file WSConfigTool.exe.config, ad esempio ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+
+* Lotus Notes:
+  * Se l'opzione **Consenti rilascio di attestati personalizzati per aziende/unità organizzative** è disabilitata, il connettore ha esito negativo durante l'esportazione (aggiornamento); dopo il flusso di esportazione tutti gli attributi vengono esportati in Domino, ma al momento dell'esportazione viene restituita una KeyNotFoundException a Sync. Ciò accade perché l'operazione di ridenominazione non riesce quando tenta di modificare il parametro DN (attributo UserName) modificando uno dei seguenti attributi:  
+    - LastName
+    - FirstName
+    - MiddleInitial
+    - AltFullName
+    - AltFullNameLanguage
+    - o
+    - altcommonname
+
+  * Se l’opzione **Consenti rilascio di attestati personalizzati per aziende/unità organizzative** è abilitata, ma il file di certificazione richiesto è vuoto, si verifica una KeyNotFoundException.
 
 ### <a name="enhancements"></a>Miglioramenti:
 

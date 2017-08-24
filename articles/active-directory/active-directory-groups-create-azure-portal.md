@@ -1,5 +1,5 @@
 ---
-title: Creare un gruppo per gli utenti in anteprima di Azure Active Directory | Documentazione Microsoft
+title: Creare un gruppo per utenti in Azure Active Directory | Microsoft Docs
 description: 'Procedura: Creare un gruppo in Azure Active Directory e aggiungere membri al gruppo'
 services: active-directory
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
-ms.openlocfilehash: 4b85a754dfa9632f27308a3d9234213533dea4c4
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: 9636d26ec62bb83b30fdc4ae8b1701da8ab532e8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Creare un gruppo e aggiungere membri in Azure Active Directory
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/01/2017
 >
 >
 
-Questo articolo illustra come creare e popolare un nuovo gruppo in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Usare un gruppo per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti o dispositivi contemporaneamente.
+Questo articolo descrive come creare e popolare un nuovo gruppo in Azure Active Directory. Usare un gruppo per eseguire attività di gestione come l'assegnazione di licenze o autorizzazioni per diversi utenti o dispositivi contemporaneamente.
 
 ## <a name="how-do-i-create-a-group"></a>Come si crea un gruppo?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
@@ -51,6 +51,7 @@ Questo articolo illustra come creare e popolare un nuovo gruppo in anteprima di 
 8. Dopo avere aggiunto i membri al gruppo, selezionare **Crea** nel pannello **Gruppo**.    
 
    ![Creare una conferma del gruppo](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.

@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 05/30/2017
 ms.author: sethm;clemensv
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 31bf24034558582eb138251207580e8f7fd7ddaf
-ms.lasthandoff: 04/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -40,7 +41,8 @@ Sebbene non sia consigliato, è possibile dotare i dispositivi di token che conc
 Tutti i token sono firmati con una chiave SAS. In genere, tutti i token sono firmati con la stessa chiave. I client non conoscono la chiave, per cui altri client non possono produrre token.
 
 ### <a name="create-the-sas-key"></a>Creare la chiave SAS
-Quando si crea uno spazio dei nomi di Hub eventi di Azure, il servizio genera una chiave di firma di accesso condiviso a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È possibile creare ulteriori chiavi. Si consiglia di produrre una chiave che concede le autorizzazioni di invio allo specifico Hub eventi. Nella parte restante di questo argomento si presuppone che questa chiave sia denominata **EventHubSendKey**.
+
+Quando si crea uno spazio dei nomi di Hub eventi, il servizio genera una chiave di firma di accesso condiviso a 256 bit denominata **RootManageSharedAccessKey**. Tale chiave concede diritti di invio, attesa e gestione allo spazio dei nomi. È anche possibile creare chiavi aggiuntive. Si consiglia di produrre una chiave che concede le autorizzazioni di invio allo specifico Hub eventi. Nella parte restante di questo argomento si presuppone che questa chiave sia denominata **EventHubSendKey**.
 
 Nell'esempio seguente viene creata una chiave di solo invio durante la creazione dell'Hub eventi:
 
@@ -63,6 +65,7 @@ nm.CreateEventHub(ed);
 ```
 
 ### <a name="generate-tokens"></a>Generare token
+
 È possibile generare token utilizzando la chiave SAS. È necessario ottenere solo un token per client. È possibile produrre token utilizzando il metodo riportato di seguito. Tutti i token vengono generati utilizzando la chiave **EventHubSendKey** . A ogni token viene assegnato un URI univoco.
 
 ```csharp
@@ -88,15 +91,14 @@ In genere, i token hanno una durata simile o superiore a quella del client. Se i
 ### <a name="sending-data"></a>Invio di dati
 Dopo avere creato i token, viene eseguito il provisioning di ogni client con il proprio token univoco.
 
-Quando il client invia dati a un Hub eventi, esso contrassegna il proprio token con la richiesta di invio. Per evitare che un utente malintenzionato intercetti e rubi il token, la comunicazione tra il client e l'Hub eventi deve verificarsi su un canale crittografato.
+Quando il client invia dati a un hub eventi, contrassegna la richiesta di invio con il token. Per evitare che un utente malintenzionato intercetti e rubi il token, la comunicazione tra il client e l'Hub eventi deve verificarsi su un canale crittografato.
 
 ### <a name="blacklisting-clients"></a>Disattivazione dei client
 In caso di furto di un token da parte di un utente malintenzionato, l'autore dell'attacco può rappresentare il client il cui token è stato rubato. La disattivazione di un client rende il rendering di tale client inutilizzabile fino a che non riceve un nuovo token che usa un autore diverso.
 
 ## <a name="authentication-of-back-end-applications"></a>Autenticazione delle applicazioni back-end
 
-Per autenticare le applicazioni back-end che usano i dati generati dai client di Hub eventi, Hub eventi usa un modello di sicurezza simile al modello usato per gli argomenti del bus di servizio. Un gruppo di consumer di Hub eventi equivale a una sottoscrizione a un argomento del bus di servizio. Un client può creare un gruppo di consumer, se la richiesta per creare il gruppo di consumer è accompagnata da un token che concede privilegi di gestione per l'Hub eventi o per lo spazio dei nomi a cui appartiene l'Hub di eventi. Un client può usare dati di un gruppo di consumer se la richiesta di ricezione è accompagnata da un token che concede i diritti di ricezione in tale gruppo di consumer, l'Hub eventi o lo spazio dei nomi a cui appartiene l'Hub eventi.
-
+Per autenticare le applicazioni back-end che usano i dati generati dai client di Hub eventi, Hub eventi usa un modello di sicurezza simile al modello usato per gli argomenti del bus di servizio. Un gruppo di consumer di Hub eventi equivale a una sottoscrizione a un argomento del bus di servizio. Un client può creare un gruppo di consumer se la richiesta di creazione è accompagnata da un token che concede privilegi di gestione per l'hub eventi o per lo spazio dei nomi a cui appartiene l'hub eventi. Un client può usare dati di un gruppo di consumer se la richiesta di ricezione è accompagnata da un token che concede i diritti di ricezione in tale gruppo di consumer, l'Hub eventi o lo spazio dei nomi a cui appartiene l'Hub eventi.
 
 La versione corrente del bus di servizio non supporta regole di firma di accesso condiviso per sottoscrizioni singole. Lo stesso vale per i gruppi di consumer di Hub eventi. In futuro verrà aggiunto il supporto SAS per entrambe le funzionalità.
 

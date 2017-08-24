@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+ms.date: 08/07/2017
 ms.author: sethm;hillaryc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
 Il bus di servizio di Azure usa più broker messaggi per elaborare i messaggi e più archivi di messaggistica per archiviarli. Una coda o un argomento convenzionale è gestito da un singolo broker messaggi e archiviato in un archivio di messaggistica. Le *partizioni* del bus di servizio consentono il partizionamento di code e argomenti, o *entità di messaggistica*, tra più broker messaggi e archivi di messaggistica. Questo significa che la velocità effettiva complessiva di un'entità partizionata non è più limitata dalle prestazioni di un singolo broker messaggi o archivio di messaggistica. Inoltre, un'interruzione temporanea dell'alimentazione di un archivio di messaggistica non determina la mancanza di disponibilità di una coda o di un argomento partizionato. Le code e gli argomenti partizionati possono contenere tutte le funzionalità avanzate del bus di servizio, ad esempio il supporto delle transazioni e delle sessioni.
 
-Per altre informazioni sugli elementi interni del bus di servizio, vedere l'articolo [Architettura del bus di servizio][Service Bus architecture].
+Per informazioni sugli elementi interni del bus di servizio, vedere l'articolo [Architettura del bus di servizio][Service Bus architecture].
 
 Il partizionamento è abilitato per impostazione predefinita al momento della creazione dell'entità in tutte le code e tutti gli argomenti della messaggistica sia Standard che Premium. È possibile creare entità di livello messaggistica Standard senza il partizionamento, ma le code e gli argomenti in uno spazio dei nomi Premium vengono sempre partizionati. Questa opzione non può essere disabilitata. 
 
 Non è possibile modificare l'opzione di partizionamento su una coda o un argomento esistente nei livelli Standard o Premium. L'opzione può essere impostata solo in fase di creazione dell'entità.
 
 ## <a name="how-it-works"></a>Funzionamento
+
 Ogni coda o argomento partizionato è costituito da più frammenti. Ogni frammento viene memorizzato in un archivio di messaggistica differente e gestito da un broker messaggi diverso. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. La selezione viene eseguita in modo casuale dal bus di servizio o tramite una chiave di partizione che può essere specificata dal mittente.
 
 Quando un client vuole ricevere un messaggio da una coda partizionata o da una sottoscrizione a un argomento partizionato, il bus di servizio esegue query su tutti i frammenti dei messaggi, quindi restituisce al ricevitore il primo messaggio ottenuto dagli archivi di messaggistica. Il bus di servizio memorizza nella cache gli altri messaggi e li restituisce quando riceve altre richieste. Un client destinatario non è a conoscenza del partizionamento; il comportamento verso il client di una coda o un argomento partizionato (ad esempio lettura, completamento, rinvio, non recapitabilità, prelettura) è identico a quello di un'entità normale.
@@ -39,6 +39,7 @@ Quando un client vuole ricevere un messaggio da una coda partizionata o da una s
 I messaggi a una coda o a un argomento partizionato non presentano costi aggiuntivi, né in invio né in ricezione.
 
 ## <a name="enable-partitioning"></a>Abilitare il partizionamento
+
 Per usare le code e gli argomenti partizionati con il bus di servizio di Azure, è necessario usare Azure SDK 2.2 o versione successiva oppure specificare `api-version=2013-10` nelle richieste HTTP.
 
 ### <a name="standard"></a>Standard

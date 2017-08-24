@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/24/2017
+ms.date: 08/14/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6af34cf24a8fb7d2dd8f4c44392e0e6c3ed46b1a
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: e96ed72b81f37c3df78647ebfe9cdf271466a0c2
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Domande frequenti
@@ -47,18 +47,12 @@ Vedere la sezione **Limiti di Azure Data Factory** dell'articolo [Sottoscrizione
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Quale esperienza di creazione/sviluppo offre il servizio Azure Data Factory?
 È possibile creare data factory con uno degli strumenti/SDK seguenti:
 
-* **Portale di Azure**
-   I pannelli di Data Factory nel portale di Azure offrono una ricca interfaccia utente per la creazione di data factory e servizi collegati. L' **editor di Data Factory**, anch'esso parte del portale, consente di creare facilmente servizi collegati, tabelle, set di dati e pipeline specificando definizioni JSON per questi elementi. Per un esempio dell'uso del portale o dell'editor per creare e distribuire una data factory, vedere [Creare la prima data factory di Azure usando il portale di Azure/l'editor di Data Factory](data-factory-build-your-first-pipeline-using-editor.md) .
-* **Visual Studio**
-   È possibile usare Visual Studio per la creazione di una data factory di Azure. Per i dettagli, vedere [Creare la prima data factory di Azure con Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
-* **Azure PowerShell**
-   Per un'esercitazione o la procedura dettagliata per la creazione di una data factory tramite PowerShell, vedere [Creare la prima data factory di Azure con Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md). Per la documentazione completa dei cmdlet di Data Factory, vedere [Data Factory Cmdlet Reference][adf-powershell-reference] (Informazioni di riferimento sui cmdlet di Data Factory) in MSDN Library.
-* **.NET Class Library**
-   È possibile creare data factory a livello di programmazione usando .NET SDK per Data Factory. Per la procedura dettagliata per la creazione di un'istanza di Data Factory con .NET SDK, vedere [Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante .NET SDK](data-factory-create-data-factories-programmatically.md) . Per la documentazione completa di Data Factory .NET SDK, vedere [Data Factory Class Library Reference][msdn-class-library-reference] (Informazioni di riferimento sulla libreria di classi per Data Factory).
-* **API REST**
-   Per creare e distribuire data factory, è anche possibile usare l'API REST esposta dal servizio Azure Data Factory. Per la documentazione completa, vedere [Data Factory REST API Reference][msdn-rest-api-reference] (Informazioni di riferimento sull'API REST di Data Factory).
-* **Modello di Azure Resource Manager**
-    Per i dettagli, vedere [Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md).
+* **Portale di Azure** : i pannelli di Data Factory nel portale di Azure offrono una ricca interfaccia utente per la creazione di data factory e servizi collegati. L' **editor di Data Factory**, anch'esso parte del portale, consente di creare facilmente servizi collegati, tabelle, set di dati e pipeline specificando definizioni JSON per questi elementi. Per un esempio dell'uso del portale o dell'editor per creare e distribuire una data factory, vedere [Creare la prima data factory di Azure usando il portale di Azure/l'editor di Data Factory](data-factory-build-your-first-pipeline-using-editor.md) .
+* **Visual Studio** : è possibile usare Visual Studio per la creazione di una data factory di Azure. Per i dettagli, vedere [Creare la prima data factory di Azure con Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
+* **Azure PowerShell** : per un'esercitazione o la procedura dettagliata per la creazione di una data factory tramite PowerShell, vedere [Creare la prima data factory di Azure con Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) . Per la documentazione completa dei cmdlet di Data Factory, vedere [Data Factory Cmdlet Reference][adf-powershell-reference] (Informazioni di riferimento sui cmdlet di Data Factory) in MSDN Library.
+* **.NET Class Library** È possibile creare data factory a livello di programmazione usando .NET SDK per Data Factory. Per la procedura dettagliata per la creazione di un'istanza di Data Factory con .NET SDK, vedere [Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante .NET SDK](data-factory-create-data-factories-programmatically.md) . Per la documentazione completa di Data Factory .NET SDK, vedere [Data Factory Class Library Reference][msdn-class-library-reference] (Informazioni di riferimento sulla libreria di classi per Data Factory).
+* **API REST** Per creare e distribuire data factory, è anche possibile usare l'API REST esposta dal servizio Azure Data Factory. Per la documentazione completa, vedere [Data Factory REST API Reference][msdn-rest-api-reference] (Informazioni di riferimento sull'API REST di Data Factory).
+* **Modello di Azure Resource Manager** Per i dettagli, vedere [Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) .
 
 ### <a name="can-i-rename-a-data-factory"></a>È possibile rinominare una data factory?
 No. Come per le altre risorse di Azure, non è possibile modificare il nome di una data factory di Azure.
@@ -130,8 +124,10 @@ Se si usa un cluster su richiesta creato dal servizio Data Factory, specificare 
     {
         "type": "HDInsightOnDemandLinkedService",
         "typeProperties": {
+            "version": "3.5",
             "clusterSize": 1,
-            "timeToLive": "00:01:00",
+            "timeToLive": "00:05:00",
+            "osType": "Linux",
             "linkedServiceName": "LinkedService-SampleData",
             "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
         }

@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Usare l&quot;API REST per creare una pipeline di Azure Data Factory | Microsoft Docs'
-description: "In questa esercitazione si usa l&quot;API REST per creare una pipeline di Azure Data Factory con un&quot;attività di copia per copiare i dati da un archivio BLOB di Azure a un database SQL di Azure."
+title: 'Esercitazione: Usare l''API REST per creare una pipeline di Azure Data Factory | Microsoft Docs'
+description: "In questa esercitazione si usa l'API REST per creare una pipeline di Azure Data Factory con un'attività di copia per copiare i dati da un archivio BLOB di Azure a un database SQL di Azure."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 07/10/2017
 ms.author: spelluru
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 070d5754049205ca70ba2e1124f087ffc9d396f3
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 08e62dba35a72a4c814b07c93304247227b1635c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 06/14/2017
 
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare l'API REST per creare una pipeline di Azure Data Factory per copiare dati 
@@ -325,7 +324,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ```
 
 ## <a name="create-data-factory"></a>Creare un'istanza di Data Factory
-In questo passaggio si crea un'istanza di Azure Data Factory denominata **ADFCopyTutorialDF**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, un'attività di copia per copiare dati da un'origine a un archivio dati di destinazione. Un'attività Hive di HDInsight per eseguire script Hive per trasformare i dati di input e produrre dati di output. Eseguire i comandi seguenti per creare la data factory: 
+In questo passaggio si crea un'istanza di Azure Data Factory denominata **ADFCopyTutorialDF**. Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Ad esempio, un'attività di copia per copiare dati da un'origine a un archivio dati di destinazione. Un'attività Hive HDInsight per eseguire uno script Hive e trasformare i dati di input in dati di output di prodotto. Eseguire i comandi seguenti per creare la data factory: 
 
 1. Assegnare il comando alla variabile denominata **cmd**. 
    

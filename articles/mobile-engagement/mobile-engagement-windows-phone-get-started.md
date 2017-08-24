@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Azure Mobile Engagement per app per Windows Phone Silverlight
-description: "Informazioni sull&quot;uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app per Windows Phone Silverlight."
+description: "Informazioni sull'uso di Azure Mobile Engagement con funzionalità di analisi e notifiche push per le app per Windows Phone Silverlight."
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 3f1f8d74eb2f562991b351cae87c372897644cf8
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d2334a59d83c90bdd02c4fa29261d36aad292892
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Introduzione ad Azure Mobile Engagement per app per Windows Phone Silverlight
@@ -26,6 +26,12 @@ ms.lasthandoff: 03/01/2017
 
 Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'uso dell'app e sull'invio di notifiche push a utenti segmentati di un'applicazione Silverlight per Windows Phone.
 Questa esercitazione illustra uno scenario di trasmissione semplice tramite Mobile Engagement. Si creerà un'app per Windows Phone Silverlight vuota che raccoglie dati di base e riceve notifiche push tramite il Servizio notifica push Microsoft (MPNS).
+
+> [!NOTE]
+> Il servizio Azure Mobile Engagement verrà ritirato a marzo 2018 ed è attualmente disponibile solo per i clienti esistenti. Per altre informazioni, vedere [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+
+> [!NOTE]
+> I progetti Windows Phone 8.1 e versioni precedenti non sono supportati in Visual Studio 2017.  Per altre informazioni, vedere [Selezione della piattaforma e compatibilità di Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 > [!NOTE]
 > Se si usa Windows Phone 8.1 (non Silverlight) come piattaforma di destinazione, fare riferimento all' [esercitazione per le app di Windows universali](mobile-engagement-windows-store-dotnet-get-started.md).
@@ -42,10 +48,10 @@ Per completare questa esercitazione, è necessario disporre di:
 > 
 > 
 
-## <a name="a-idsetup-azmeasetup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Configurare Mobile Engagement per l'app per Windows Phone
+## <a id="setup-azme"></a>Configurare Mobile Engagement per l'app per Windows Phone
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
+## <a id="connecting-app"></a>Connettere l'app al back-end di Mobile Engagement
 Questa esercitazione presenta una "integrazione di base", che è la configurazione minima necessaria per raccogliere i dati e inviare una notifica push. La documentazione relativa all'integrazione completa è disponibile nella [Integrazione di Mobile Engagement SDK per Windows Phone](mobile-engagement-windows-phone-sdk-overview.md)
 
 Si creerà un'app di base con Visual Studio per illustrare l'integrazione.
@@ -92,7 +98,7 @@ A questo punto è stata creata una nuova app per Windows Phone Silverlight in cu
                EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a name="a-idmonitoraenable-real-time-monitoring"></a><a id="monitor"></a>Abilitare il monitoraggio in tempo reale
+## <a id="monitor"></a>Abilitare il monitoraggio in tempo reale
 Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necessario inviare almeno una schermata (Activity) al back-end di Mobile Engagement.
 
 1. Nel MainPage.xaml.cs, aggiungere l’istruzione `using`:
@@ -109,10 +115,10 @@ Per iniziare a inviare dati e assicurarsi che gli utenti siano attivi, è necess
    
     b. Sostituire `phone:PhoneApplicationPage` nel nome del tag XML con `engagement:EngagementPage`
 
-## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Connettere l'app con monitoraggio in tempo reale
+## <a id="monitor"></a>Connettere l'app con monitoraggio in tempo reale
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegrate-pushaenable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Abilitare le notifiche push e la messaggistica in-app
+## <a id="integrate-push"></a>Abilitare le notifiche push e la messaggistica in-app
 Mobile Engagement consente di interagire con gli utenti e coinvolgerli tramite notifiche push e messaggistica in-app nel contesto di campagne. Questo modulo è denominato REACH nel portale di Mobile Engagement.
 Le sezioni seguenti consentono di configurare l'app per la ricezione.
 
@@ -142,7 +148,7 @@ Aggiungere nuove funzionalità al file `WMAppManifest.xml` :
 
 Le impostazioni sono state completate. Ora è necessario verificare di avere eseguito correttamente l'integrazione di base.
 
-## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Inviare una notifica all'app
+## <a id="send"></a>Inviare una notifica all'app
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Si dovrebbe ora vedere una notifica sul dispositivo che verrà visualizzata come una notifica all'interno dell'app se l'app è aperta in caso contrario come una notifica popup come quella seguente: 

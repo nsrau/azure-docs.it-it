@@ -1,5 +1,5 @@
 ---
-title: " Gestire un server di elaborazione con scalabilità orizzontale in Azure Site Recovery | Documentazione Microsofts"
+title: " Gestire un server di elaborazione con scalabilità orizzontale in Azure Site Recovery | Microsoft Docs"
 description: "Questo articolo descrive come configurare e gestire un server di elaborazione con scalabilità orizzontale in Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: cabbce12a07720c37375092962ee1f89c32269ef
-ms.openlocfilehash: 03bb87bdbf3dce07a282323f484d0aefae8bad62
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: e5c01de19917235c34c035415df86291b9152bf0
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -95,7 +96,7 @@ Il parametro ProxySettingsFilePath usa un file come input. Creare il file usando
   ```
   cmd
   cdpcli.exe --registermt
-  
+
   net stop obengine
 
   net start obengine

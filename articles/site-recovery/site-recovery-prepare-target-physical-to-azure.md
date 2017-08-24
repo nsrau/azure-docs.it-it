@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/11/2017
+ms.date: 5/31/2017
 ms.author: bsiva
-translationtype: Human Translation
-ms.sourcegitcommit: b7f26df96ddedb579cf5d9d20fee6b2599e762e0
-ms.openlocfilehash: 9dd4e9007da6cf276f976e2f3f25305286830544
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: aa7a32ace8354f615a8b8cc137f6bdf48fbadf48
+ms.contentlocale: it-it
+ms.lasthandoff: 06/15/2017
 
 ---
 
 # <a name="prepare-target-vmware-to-azure"></a>Preparare la destinazione (da VMware ad Azure)
 > [!div class="op_single_selector"]
-> * [Macchine virtuali VMware](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [Server fisici](./site-recovery-prepare-target-physical-to-azure.md)
+> * [Da VMware ad Azure](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [Da fisico ad Azure](./site-recovery-prepare-target-physical-to-azure.md)
 
 Questo articolo descrive come preparare l'ambiente di Azure per avviare la replica di server fisici (x64) che eseguono Windows o Linux in Azure.
 
@@ -50,9 +52,4 @@ Se non si dispone di un account di archiviazione di Resource Manager o di una re
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurare le impostazioni di replica](./site-recovery-setup-replication-settings-vmware.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

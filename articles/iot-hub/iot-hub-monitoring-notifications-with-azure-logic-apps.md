@@ -1,10 +1,10 @@
 ---
 title: Monitoraggio remoto e notifiche di IoT con App per la logica di Azure | Microsoft Docs
-description: Usare le app per la logica di Azure per il monitoraggio della temperatura IoT sull&quot;hub IoT e inviare automaticamente notifiche tramite posta elettronica alla cassetta postale per le anomalie rilevate.
+description: Usare le app per la logica di Azure per il monitoraggio della temperatura IoT sull'hub IoT e inviare automaticamente notifiche tramite e-mail alla cassetta postale per eventuali anomalie rilevate.
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: Monitoraggio IoT, notifiche IoT, monitoraggio della temperatura IoT
 ms.assetid: 43043067-2e1f-42c9-953d-e2dce8fd86df
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2017
 ms.author: xshi
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 2cdfbadfc4cc28afe34b4d558f40bba6451f7388
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ca27c55f97d1b1d9694bf79282b7714283927ee7
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
@@ -144,6 +144,7 @@ Informazioni su come creare un'app per la logica che connette l'hub IoT e la cas
    1. Selezionare la coda creata e immettere `175` per **Numero massimo di messaggi**
 
       ![Specificare il numero massimo di messaggi per la connessione del bus di servizio nell'app per la logica](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+   1. Fare clic sul pulsante "Salva" per salvare le modifiche apportate.
 
 1. Creare una connessione del servizio SMTP.
    1. Fare clic su **Nuovo passaggio** > **Aggiungi un'azione**.
@@ -175,3 +176,4 @@ L'app per la logica è in funzionamento durante il salvataggio.
 È stata creata correttamente un'app per la logica che connette l'hub IoT e la cassetta postale per il monitoraggio della temperatura e le notifiche.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

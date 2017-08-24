@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94a4d2b85c845b135201fd919e8eac64a5e1cb37
+ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
+ms.openlocfilehash: 2bcdff44f6c3169779c3dd018706eea8275825ca
 ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contatori delle prestazioni di sistema in Application Insights
@@ -29,15 +28,6 @@ I contatori delle prestazioni sono visualizzati nel pannello Server, che include
 ![Contatori delle prestazioni segnalati in Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
 I contatori delle prestazioni non sono disponibili per App Web di Azure. Tuttavia, è possibile [inviare i dati del servizio Diagnostica di Azure ad Application Insights](app-insights-azure-diagnostics.md).
-
-## <a name="configure"></a>Configurare
-Se Application Insights Status Monitor non è ancora installato nei server, è necessario installarlo per visualizzare i contatori delle prestazioni.
-
-Scaricare ed eseguire il [programma di installazione di Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) in ogni istanza del server. Se è già installato, non è necessario installarlo di nuovo.
-
-* *Se [è stato installato Application Insights SDK nell'app](app-insights-asp-net.md) durante lo sviluppo, è necessario installare Status Monitor?*
-  
-    Sì, Status Monitor è necessario per raccogliere i contatori delle prestazioni per le app Web ASP.NET. Come forse è già noto, Status Monitor può anche essere usato per [monitorare app Web già live](app-insights-monitor-performance-live-website-now.md), senza installare l'SDK durante lo sviluppo.
 
 ## <a name="view-counters"></a>Visualizzare i contatori
 Il pannello Server mostra un set predefinito di contatori delle prestazioni. 

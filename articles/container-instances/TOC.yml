@@ -1,0 +1,49 @@
+- name: Istanze di contenitore
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Istanze di contenitore di Azure
+      href: container-instances-overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Creare l'istanza di contenitore
+      href: container-instances-quickstart.md
+- name: Esercitazioni
+  items:
+    - name: Creare e distribuire un contenitore
+      items:
+        - name: '1: Creare un''immagine del contenitore'
+          href: container-instances-tutorial-prepare-app.md
+        - name: '2: Creare un registro contenitori'
+          href: container-instances-tutorial-prepare-acr.md
+        - name: '3: Distribuire l''app'
+          href: container-instances-tutorial-deploy-app.md
+- name: Concetti
+  items:
+    - name: Relazione con agenti di orchestrazione
+      href: container-instances-orchestrator-relationship.md
+    - name: Gruppi di contenitori
+      href: container-instances-container-groups.md
+- name: Guide alle procedure
+  items:
+    - name: Distribuire gruppi di più contenitori
+      href: container-instances-multi-container-group.md
+    - name: Gestire lo stato con le condivisioni file di Azure
+      href: container-instances-mounting-azure-files-volume.md
+    - name: Eseguire la distribuzione dal Registro contenitori di Azure
+      href: container-instances-using-azure-container-registry.md
+    - name: Risolvere i problemi di distribuzione in Istanze di contenitore di Azure
+      href: container-instances-troubleshooting.md
+- name: riferimento
+  items:
+    - name: Interfaccia della riga di comando di Azure 2.0
+      href: /cli/azure/container
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aree di disponibilità
+      href: 'https://azure.microsoft.com/regions/services/'

@@ -1,6 +1,6 @@
 ---
-title: Informazioni sui protocolli di autorizzazione supportati da Azure AD&2;.0 | Documentazione Microsoft
-description: Guida ai protocolli supportati dall&quot;endpoint v&2;.0 di Azure AD.
+title: Informazioni sui protocolli di autorizzazione supportati da Azure AD 2.0 | Documentazione Microsoft
+description: Guida ai protocolli supportati dall'endpoint v 2.0 di Azure AD.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -14,22 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
-ms.openlocfilehash: 02bf4191e60bfe7a49a37eed10f7571e08502150
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="v20-protocols---oauth-20--openid-connect"></a>Protocolli v2.0 - OAuth 2.0 e OpenID Connect
+<a id="v20-protocols---oauth-20--openid-connect" class="xliff"></a>
+
+# Protocolli v2.0 - OAuth 2.0 e OpenID Connect
 L'endpoint v2.0 può usare Azure AD per il servizio IaaS (identity-as-a-service) con protocolli standard del settore, OpenID Connect e OAuth 2.0.  Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli.  Le informazioni in questo argomento sono utili se si sceglie di scrivere codice inviando e gestendo direttamente le richieste HTTP o di usare una libreria open source di terze parti anziché usare una delle librerie open source di Microsoft.
 <!-- TODO: Need link to libraries above -->
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
-> 
-> 
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+>
+>
 
-## <a name="the-basics"></a>Nozioni di base
+<a id="the-basics" class="xliff"></a>
+
+## Nozioni di base
 In quasi tutti i flussi di OAuth e OpenID Connect, sono coinvolte nello scambio quattro parti:
 
 ![Ruoli di OAuth 2.0](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -39,8 +46,10 @@ In quasi tutti i flussi di OAuth e OpenID Connect, sono coinvolte nello scambio 
 * Il **client OAuth** è l'app, identificata dall'ID applicazione.  In genere è l'entità con cui interagisce l'utente finale e che richiede i token dal server di autorizzazione.  Per accedere alla risorsa, il client deve ottenere l'autorizzazione da parte del proprietario della risorsa.
 * Il **server della risorsa** è la posizione in cui si trova la risorsa o i dati.  Consente al server di autorizzazione di autenticare e autorizzare il client OAuth in modo sicuro e usa i token di accesso Bearer per assicurarsi che sia garantito l'accesso a una risorsa.
 
-## <a name="app-registration"></a>Registrazione delle app
-Ogni app che usa l'endpoint&2;.0 dovrà essere registrata in [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) per poter interagire usando OAuth oppure OpenID Connect.  Il processo di registrazione raccoglie e assegna all'app alcuni valori:
+<a id="app-registration" class="xliff"></a>
+
+## Registrazione delle app
+Ogni app che usa l'endpoint 2.0 dovrà essere registrata in [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) per poter interagire usando OAuth oppure OpenID Connect.  Il processo di registrazione raccoglie e assegna all'app alcuni valori:
 
 * Un **ID applicazione** che identifica l'app in modo univoco
 * Un **URI di reindirizzamento** o un **identificatore di pacchetto** che può essere usato per indirizzare le risposte all'app
@@ -48,7 +57,9 @@ Ogni app che usa l'endpoint&2;.0 dovrà essere registrata in [apps.dev.microsoft
 
 Per altri dettagli, vedere [Azure Active Directory B2C: registrare l'applicazione](active-directory-v2-app-registration.md).
 
-## <a name="endpoints"></a>Endpoint
+<a id="endpoints" class="xliff"></a>
+
+## Endpoint
 Dopo la registrazione, l'app comunica con Azure AD inviando richieste all'endpoint v2.0:
 
 ```
@@ -67,24 +78,21 @@ Dove `{tenant}` può assumere uno dei quattro diversi valori:
 
 Per altre informazioni sull'interazione con gli endpoint, selezionare un tipo di app di seguito.
 
-## <a name="tokens"></a>Tokens
+<a id="tokens" class="xliff"></a>
+
+## Tokens
 L'implementazione v2.0 di OAuth 0 2.0 e OpenID Connect fa un uso intensivo dei token di connessione, inclusi quelli rappresentati come JWT (Token Web JSON). Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. In questo senso, per "portatore" si intende qualsiasi parte che sia in grado di presentare il token. Anche se il rilascio del token di connessione è condizionato dal completamento del processo di autenticazione in Azure AD, se non vengono adottate le misure necessarie per proteggere il token durante la trasmissione e l'archiviazione, è possibile che venga intercettato e usato da parti non autorizzate. Molti token di sicurezza hanno meccanismi integrati per prevenire l'uso non autorizzato, ma i token di connessione ne sono sprovvisti e devono essere trasportati su un canale protetto, ad esempio Transport Layer Security (HTTPS). Se un token di connessione viene trasmesso senza essere protetto, un utente malintenzionato potrebbe usare un attacco "man in the middle" per acquisire il token e usarlo per l'accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando un token di connessione viene archiviato o memorizzato nella cache per un uso futuro. Assicurarsi sempre che l'app trasmetta e archivi i token di connessione in modo sicuro. Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [sezione 5 della specifica RFC 6750](http://tools.ietf.org/html/rfc6750).
 
 Altri dettagli sui diversi tipi di token usati nell'endpoint v2.0 sono disponibili nel [riferimento al token dell'endpoint v2.0](active-directory-v2-tokens.md).
 
-## <a name="protocols"></a>Protocolli
+<a id="protocols" class="xliff"></a>
+
+## Protocolli
 Se si è pronti vedere alcuni esempi di richieste, iniziare con una delle esercitazioni di seguito.  Ognuna corrisponde a uno scenario di autenticazione specifico.  Se è necessario determinare quale sia il flusso giusto per l’utente, consultare [i tipi di app che è possibile compilare con v2.0](active-directory-v2-flows.md).
 
 * [Creazione di un’applicazione Mobile e Nativa con OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
 * [Creazione di Web App con collegamento ID Open](active-directory-v2-protocols-oidc.md)
 * [Creazione di app a pagina singola con OAuth 2.0 flusso implicito](active-directory-v2-protocols-implicit.md)
 * [Compilare daemon o processi sul lato server con il flusso di credenziali client OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-* Ottenere i token in un'API Web con OAuth 2.0 per conto del flusso (presto disponibile)
-
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* [Ottenere token in un'API Web con il flusso Per conto di OAuth 2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Partizionamento dei servizi di Service Fabric | Documentazione Microsoft
+title: Partizionamento dei servizi di Service Fabric | Microsoft Docs
 description: Illustra come partizionare i servizi con stato di Service Fabric. Le partizioni consentono di archiviare i dati nei computer locali, in modo da poter ridimensionare dati e calcolo allo stesso tempo.
 services: service-fabric
 documentationcenter: .net
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/17/2017
+ms.date: 06/30/2017
 ms.author: msfussell
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 0379cd02fe663fbe9f024bc2f786186b0ea1358b
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -130,8 +131,10 @@ Poiché è necessaria esattamente una partizione per ogni lettera, è possibile 
 2. Nella finestra di dialogo **Nuovo progetto** scegliere l'applicazione Service Fabric.
 3. Assegnare al progetto il nome "AlphabetPartitions".
 4. Nella finestra di dialogo **Create a Service** (Crea un servizio) scegliere il servizio **con stato** e assegnargli il nome "Alphabet.Processing", come nell'immagine seguente.
-   
-    ![Schermata di servizio con stato](./media/service-fabric-concepts-partitioning/createstateful.png)
+       ![Finestra di dialogo Nuovo servizio in Visual Studio][1]
+
+  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
+
 5. Impostare il numero di partizioni. Aprire il file Applicationmanifest.xml che si trova nella cartella ApplicationPackageRoot del progetto AlphabetPartitions e impostare il parametro Processing_PartitionCount su 26, come mostrato sotto.
    
     ```xml
@@ -371,3 +374,4 @@ Per informazioni sui concetti relativi a Service Fabric, vedere gli articoli seg
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
+[1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog-2.png

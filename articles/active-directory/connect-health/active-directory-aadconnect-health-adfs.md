@@ -1,10 +1,10 @@
 ---
 title: Uso di Azure AD Connect Health con AD FS | Microsoft Docs
-description: "Questa è la pagina di Azure AD Connect Health che illustra come monitorare l&quot;infrastruttura AD FS locale."
+description: "Questa è la pagina di Azure AD Connect Health che illustra come monitorare l'infrastruttura AD FS locale."
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
+manager: femila
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
@@ -12,12 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/27/2017
-ms.author: vakarand
+ms.date: 07/18/2017
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
 ms.openlocfilehash: 0ae3f2ddfa37d617c02df2628411a877381412d5
+ms.contentlocale: it-it
 ms.lasthandoff: 02/28/2017
 
 ---

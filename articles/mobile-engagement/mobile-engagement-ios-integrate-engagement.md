@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7c4e962527d0b4cd66f6ca4974851c5e5d523de7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>Come integrare Engagement in iOS
@@ -27,17 +27,17 @@ ms.lasthandoff: 11/17/2016
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-integrate-engagement.md)
-> 
-> 
+>
+>
 
 Questa procedura descrive il modo più semplice per attivare le funzioni di analisi e monitoraggio di Engagement in un'applicazione per iOS.
 
-L'SDK di Engagement richiede iOS6 o versione successiva e XCode 8: la destinazione della distribuzione dell'applicazione deve essere almeno iOS 6.
+L'Engagement SDK richiede iOS7 o versione successiva e XCode 8: la destinazione della distribuzione dell'applicazione deve essere almeno iOS 7.
 
 > [!NOTE]
 > Se si dipende davvero da XCode 7, è possibile usare [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). Esiste un bug noto nel modulo di copertura di questa precedente versione che si verifica durante l'esecuzione sui dispositivi iOS 10. Per altri dettagli, vedere [l'integrazione del modulo di copertura](mobile-engagement-ios-integrate-engagement-reach.md). Se si sceglie di utilizzare l'SDK v3.2.4, ignorare l'importazione di `UserNotifications.framework` nel passaggio successivo.
-> 
-> 
+>
+>
 
 I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necessari per calcolare tutte le statistiche relative a utenti, sessioni, attività, arresti anomali del sistema e dati tecnici. La segnalazione dei log necessari per calcolare altre statistiche quali eventi, errori e processi deve essere eseguita manualmente mediante l'API di Engagement. Vedere [Come usare l'API di Engagement in iOS](mobile-engagement-ios-use-engagement-api.md) poiché queste statistiche dipendono dall'applicazione.
 
@@ -45,7 +45,7 @@ I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necess
 * Scaricare l’SDK per iOS da [qui](http://aka.ms/qk2rnj).
 * Aggiungere Engagement SDK nel progetto iOS: in Xcode fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **"Add files to ..."** (Aggiungi file a) e infine selezionare la cartella `EngagementSDK`.
 * Per il funzionamento di Engagement sono necessari framework aggiuntivi: nell'area di esplorazione dei progetti aprire il riquadro del progetto, quindi selezionare la destinazione corretta. Aprire la scheda **Build Phases** (Crea fasi) e nel menu **Link Binary With Libraries** (Collega binario con librerie) aggiungere i framework come illustrato di seguito:
-  
+
   * `UserNotifications.framework`: impostare il collegamento come `Optional`
   * `AdSupport.framework`: impostare il collegamento come `Optional`
   * `SystemConfiguration.framework`
@@ -56,18 +56,18 @@ I passaggi seguenti sono sufficienti per attivare la segnalazione dei log necess
 
 > [!NOTE]
 > È possibile rimuovere il framework AdSupport. Engagement necessita di questo framework per raccogliere l'identificatore IDFA (Identifier for Advertising). È tuttavia possibile disabilitare la raccolta di identificatori IDFA \<ios-sdk-engagement-idfa\> per conformarsi ai nuovi criteri Apple relativi a questo ID.
-> 
-> 
+>
+>
 
 ## <a name="initialize-the-engagement-sdk"></a>Inizializzare Engagement SDK
 È necessario modificare il delegato dell'applicazione:
 
 * Nella parte superiore del file di implementazione importare l'agente di Engagement:
-  
+
       [...]
       #import "EngagementAgent.h"
 * Inizializzare Engagement all'interno del metodo '**applicationDidFinishLaunching:**' o '**application:didFinishLaunchingWithOptions:**':
-  
+
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
         [...]
@@ -109,13 +109,13 @@ Se non si può o non si vuole eseguire l'overload delle classi `UIViewController
 
 > [!IMPORTANT]
 > iOS SDK chiama automaticamente il metodo `endActivity()` quando viene chiusa l'applicazione. Di conseguenza, è *CONSIGLIABILE* chiamare il metodo `startActivity` ogni volta che l'attività dell'utente cambia e non chiamare *MAI* il metodo `endActivity` poiché questo metodo forza la chiusura della sessione corrente.
-> 
-> 
+>
+>
 
 ## <a name="location-reporting"></a>Segnalazione della posizione
 Le condizioni del servizio Apple non permettono alle applicazioni di usare la verifica della posizione per scopi puramente statistici. È quindi consigliabile abilitare la segnalazione della posizione solo se l'applicazione usa la verifica della posizione anche per altri scopi.
 
-A partire da iOS 8, è necessario fornire una descrizione dell'uso dei servizi di posizione da parte dell'app, impostando una stringa per la chiave [NSLocationWhenInUseUsageDescription] o [NSLocationAlwaysUsageDescription] nel file Info.plist dell'app. Se si vuole segnalare la posizione in background con Engagement, aggiungere la chiave NSLocationAlwaysUsageDescription. In tutti gli altri casi, aggiungere la chiave NSLocationWhenInUseUsageDescription.
+A partire da iOS 8, è necessario fornire una descrizione dell'uso dei servizi di posizione da parte dell'app, impostando una stringa per la chiave [NSLocationWhenInUseUsageDescription] o [NSLocationAlwaysUsageDescription] nel file Info.plist dell'app. Se si vuole segnalare la posizione in background con Engagement, aggiungere la chiave NSLocationAlwaysUsageDescription. In tutti gli altri casi, aggiungere la chiave NSLocationWhenInUseUsageDescription. Si noti che sono necessari sia NSLocationAlwaysAndWhenInUseUsageDescription sia NSLocationWhenInUseUsageDescription per indicare il percorso in background in iOS 11.
 
 ### <a name="lazy-area-location-reporting"></a>Segnalazione differita della posizione
 La segnalazione differita della posizione consente di segnalare il paese, l'area geografica e la località associati ai dispositivi. Questo tipo di segnalazione della posizione usa solo le posizioni di rete, sulla base dell'ID di cella o della connessione Wi-Fi. L'area del dispositivo viene segnalata al massimo una volta per sessione. Il GPS non viene mai usato, per cui l'impatto di questo tipo di segnalazione della posizione sulla batteria è minimo, se non addirittura nullo.
@@ -152,8 +152,8 @@ Per impostazione predefinita, la segnalazione della posizione in tempo reale è 
 
 > [!NOTE]
 > Quando l'applicazione viene eseguita in background, vengono segnalate solo le posizioni basate sulla rete, anche se è abilitato il GPS.
-> 
-> 
+>
+>
 
 Se si implementa questa funzione, viene chiamato [startMonitoringSignificantLocationChanges] quando l'applicazione passa in background. Si noti che l'applicazione verrà riavviata automaticamente in background in caso di arrivo di un nuovo evento relativo alla posizione.
 

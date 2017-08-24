@@ -1,14 +1,14 @@
 ---
 title: 'Azure Cosmos DB: Creare un&quot;app con Python e l&quot;API DocumentDB | Microsoft Docs'
 description: Presenta un esempio di codice Python che permette di connettersi all&quot;API DocumentDB di Azure Cosmos DB e di eseguire query su di essa
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 51c11be2-af6d-425f-a86a-39cbfe61da29
-ms.service: cosmosdb
-ms.custom: quick start connect
+ms.service: cosmos-db
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: python
@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 05/13/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6e64614c6ca746d91be535b64e520033c9e7d053
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 26694432663feb0f9cd21573e9114007b2357528
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/10/2017
 
 Azure Cosmos DB è il servizio di database multimodello distribuito a livello globale di Microsoft. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave/valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida di avvio rapido mostra come creare un account, un database di documenti e una raccolta di Azure Cosmos DB tramite il portale di Azure. Quindi, si creerà ed eseguirà un'app console basata sull'[API Python DocumentDB](../documentdb/documentdb-sdk-python.md).
+Questa guida di avvio rapido mostra come creare un account, un database di documenti e una raccolta di Azure Cosmos DB tramite il portale di Azure. Quindi, si creerà ed eseguirà un'app console basata sull'[API Python DocumentDB](documentdb-sdk-python.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,11 +40,11 @@ Questa guida di avvio rapido mostra come creare un account, un database di docum
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
-[!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-collection"></a>Aggiungere una raccolta
 
-[!INCLUDE [cosmosdb-create-collection](../../includes/cosmosdb-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 
@@ -59,7 +59,7 @@ Clonare ora un'app per le API DocumentDB da GitHub, impostare la stringa di conn
     ```  
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Ecco una breve analisi di ciò che accade nell'app. Aprire il file DocumentDBRepository.cs. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
+Ecco una breve analisi di ciò che accade nell'app. Aprire il file DocumentDBGetStarted.py. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
 
 
 * Viene inizializzato DocumentClient.
@@ -149,7 +149,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmosdb-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -163,7 +163,7 @@ Se non si intende continuare a usare l'app, eliminare tutte le risorse create tr
 In questa guida di avvio rapido si è appreso come creare un account Azure Cosmos DB, come creare una raccolta con Esplora dati e come eseguire un'app. È ora possibile importare dati aggiuntivi nell'account Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importare dati in Azure Cosmos DB per l'API DocumentDB](../documentdb/documentdb-import-data.md)
+> [Importare dati in Azure Cosmos DB per l'API DocumentDB](import-data.md)
 
 
 

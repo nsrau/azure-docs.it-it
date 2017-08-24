@@ -2,6 +2,8 @@
 ## [Informazioni su Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concetti](devtest-lab-concepts.md)
 ## Scenari
+### [Usare i lab per gli sviluppatori](devtest-lab-developer-lab.md)
+### [Usare i laboratori per gli ambienti di testing](devtest-lab-test-env.md)
 ### [Usare i lab per la formazione](devtest-lab-training-lab.md)
 
 # Attività iniziali
@@ -39,6 +41,7 @@
 
 ## Gestire i modelli riutilizzabili
 ### [Aggiungere un repository Git per elementi e modelli](devtest-lab-add-artifact-repo.md)
+### [Usare il modello di Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Creare elementi personalizzati](devtest-lab-artifact-author.md)
 ### [Gestire formule](devtest-lab-manage-formulas.md)
 
@@ -64,3 +67,8 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/devtest-lab/)
+
+
+# Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Azure Batch per sviluppatori | Documentazione Microsoft
+title: Panoramica di Azure Batch per sviluppatori | Microsoft Docs
 description: "Informazioni sulle funzionalità del servizio Batch e le relative API dal punto di vista dello sviluppatore."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 05/05/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f8279eb672e58c7718ffb8e00a89bc1fce31174f
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
@@ -47,7 +46,7 @@ Il flusso di lavoro generale seguente è proprio di quasi tutte le applicazioni 
 Le sezioni seguenti illustrano queste e altre risorse di Batch che abilitano lo scenario di calcolo distribuito.
 
 > [!NOTE]
-> Per usare il servizio Batch, è necessario un [account Batch](#account). Quasi tutte le soluzioni usano anche un account di [archiviazione di Azure][azure_storage] per il recupero e l'archiviazione dei file. Batch supporta attualmente solo il tipo di account di archiviazione **Utilizzo generico**, come descritto nel passaggio 5 di [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+> Per usare il servizio Batch, è necessario un [account Batch](#account). La maggior parte delle soluzioni Batch usa anche un account di [Archiviazione di Azure][azure_storage] per il recupero e l'archiviazione dei file. Il servizio Batch supporta attualmente solo il tipo di account di archiviazione **per utilizzo generico**, come descritto nel passaggio 5 di [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
 >
 >
 
@@ -74,15 +73,52 @@ Un account Batch è un'entità identificata in modo univoco all'interno del serv
 
 È possibile creare un account Batch di Azure usando il [portale di Azure](batch-account-create-portal.md) o a livello di codice, ad esempio con la [libreria di gestione .NET per Batch](batch-management-dotnet.md). Quando si crea l'account, è possibile associarvi un account di archiviazione di Azure.
 
-Batch supporta due configurazioni account, in base alla proprietà *Modalità di allocazione pool*. Le due configurazioni consentono di accedere a diverse funzionalità relative ai [pool](#pool) di Batch, illustrati più avanti in questo articolo.
+### <a name="pool-allocation-mode"></a>Modalità di allocazione pool
 
+Quando si crea un account Batch, è possibile specificare in che modo vengono allocati i [pool](#pool) di nodi di calcolo. È possibile scegliere di allocare pool di nodi di calcolo in una sottoscrizione gestita da Batch di Azure oppure è possibile allocarli nella propria sottoscrizione. La proprietà *Modalità di allocazione pool* per l'account determina la posizione in cui vengono allocati i pool. 
 
-* **Servizio Batch**: è l'opzione predefinita, che prevede l'allocazione delle VM dei pool di Batch in background in sottoscrizioni gestite da Azure. Questa configurazione di account deve essere usata se sono necessari pool di Servizi cloud, ma non può essere usata se sono necessari pool di macchine virtuali creati da immagini di VM personalizzate o che usano una rete virtuale. È possibile accedere alle API Batch usando l'autenticazione con chiave condivisa o l'[autenticazione di Azure Active Directory](batch-aad-auth.md). Nella configurazione dell'account del servizio Batch è possibile usare nodi di calcolo dedicati o con priorità bassa in pool.
+La decisione sulla modalità di allocazione pool da usare si basa sulla valutazione dell'approccio ottimale per lo scenario specifico:
 
-* **Sottoscrizione utente**: questa configurazione di account deve essere usata se sono necessari pool di macchine virtuali creati da immagini di VM personalizzate o che usano una rete virtuale. È possibile accedere alle API Batch solo con l'[autenticazione di Azure Active Directory](batch-aad-auth.md) e i pool di Servizi cloud non sono supportati. Le VM di calcolo di Batch vengono allocate direttamente nella sottoscrizione di Azure. Per questa modalità è necessario configurare un'istanza di Azure Key Vault per l'account Batch. Nella configurazione dell'account di sottoscrizione dell'utente è possibile usare solo nodi di calcolo dedicati in pool. 
+* **Servizio Batch**: questa è la modalità di allocazione pool predefinita. I pool vengono allocati in background nelle sottoscrizioni gestite da Azure. Tenere presenti questi punti importanti relativi alla modalità di allocazione pool di tipo Servizio Batch:
+
+    - La modalità di allocazione pool di tipo Servizio Batch supporta pool del servizio cloud e di macchine virtuali.
+    - La modalità di allocazione pool di tipo Servizio Batch supporta l'autenticazione con chiave condivisa o l'[autenticazione di Azure Active Directory](batch-aad-auth.md) (Azure AD). 
+    - È possibile usare nodi di calcolo dedicati o con priorità bassa nei pool allocati con la modalità di allocazione pool di tipo Servizio Batch.
+    - Non usare la modalità di allocazione pool di tipo Servizio Batch se si prevede di creare pool di macchine virtuali di Azure da immagini di VM personalizzate o se si prevede di usare una rete virtuale. Creare invece l'account con la modalità di allocazione pool Sottoscrizione utente.
+    - I pool di macchine virtuali di cui viene effettuato il provisioning in un account creato con la modalità di allocazione pool di tipo Servizio Batch devono essere creati da immagini del [Marketplace per Macchine virtuali di Azure][vm_marketplace].
+
+* **Sottoscrizione utente**: con la modalità di allocazione pool di tipo Sottoscrizione utente, i pool di Batch vengono allocati nella sottoscrizione di Azure in cui viene creato l'account. Tenere presenti questi punti importanti relativi alla modalità di allocazione pool di tipo Sottoscrizione utente:
+     
+    - La modalità di allocazione pool di tipo Sottoscrizione utente supporta solo pool di macchine virtuali. Non supporta pool di Servizi cloud.
+    - Per creare pool di macchine virtuali da immagini di VM personalizzate o per usare una rete virtuale con i pool di macchine virtuali, è necessario usare la modalità di allocazione pool di tipo Sottoscrizione utente.  
+    - È necessario usare l'[autenticazione di Azure Active Directory](batch-aad-auth.md) con i pool allocati nella sottoscrizione utente. 
+    - È necessario configurare un'istanza di Azure Key Vault per l'account Batch se la modalità di allocazione pool è impostata su Sottoscrizione utente. 
+    - È possibile usare solo nodi di calcolo dedicati in pool nella modalità di allocazione pool di tipo Sottoscrizione utente. I nodi con priorità bassa non sono supportati.
+    - I pool di macchine virtuali di cui viene effettuato il provisioning in un account con la modalità di allocazione pool di tipo Sottoscrizione utente devono essere creati da immagini del [Marketplace per Macchine virtuali di Azure][vm_marketplace] o da immagini personalizzate.
+
+La tabella seguente confronta le modalità di allocazione pool di tipo Servizio Batch e Sottoscrizione utente.
+
+| **Modalità di allocazione pool**                 | **Servizio Batch**                                                                                       | **Sottoscrizione utente**                                                              |
+|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| **Posizione di allocazione dei pool**               | Sottoscrizione gestita da Azure                                                                           | Sottoscrizione utente in cui viene creato l'account Batch                        |
+| **Configurazioni supportate**             | <ul><li>Configurazione di tipo servizio cloud</li><li>Configurazione di tipo macchina virtuale (Linux e Windows)</li></ul> | <ul><li>Configurazione di tipo macchina virtuale (Linux e Windows)</li></ul>                |
+| **Immagini delle VM supportate**                  | <ul><li>Immagini di Azure Marketplace</li></ul>                                                              | <ul><li>Immagini di Azure Marketplace</li><li>Immagini personalizzate</li></ul>                   |
+| **Tipi di nodi di calcolo supportati**         | <ul><li>Nodi dedicati</li><li>Nodi a priorità bassa</li></ul>                                            | <ul><li>Nodi dedicati</li></ul>                                                  |
+| **Autenticazione supportata**             | <ul><li>Chiave condivisa</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **Azure Key Vault necessario**             | No                                                                                                      | Sì                                                                                |
+| **Quota core**                           | Determinato dalla quota core del servizio Batch                                                                          | Determinato dalla quota core della sottoscrizione                                              |
+| **Supporto per le reti virtuali di Azure** | Pool creati con la configurazione di tipo servizio cloud                                                      | Pool creati con la configurazione di tipo macchina virtuale                               |
+| **Modello di distribuzione supportato per le reti virtuali**      | Reti virtuali create con il modello di distribuzione classica                                                             | Reti virtuali create con il modello di distribuzione classica o Azure Resource Manager |
+
+## <a name="azure-storage-account"></a>Account di archiviazione di Azure
+
+La maggior parte delle soluzioni Batch usa l'Archiviazione di Azure per archiviare i file delle risorse e i file di output.  
+
+Batch supporta attualmente solo il tipo di account di archiviazione per utilizzo generico, come descritto nel passaggio 5 di [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Le attività di Batch, incluse le attività standard, le attività di avvio, le attività di preparazione del processo e le attività di rilascio del processo, devono specificare file di risorse che si trovano negli account di archiviazione per utilizzo generico.
+
 
 ## <a name="compute-node"></a>Nodo di calcolo
-Un nodo di calcolo è una macchina virtuale (VM) di Azure o una VM del servizio cloud dedicata all'elaborazione di una parte del carico di lavoro dell'applicazione. Le dimensioni di un nodo determinano il numero di core CPU, la capacità di memoria e le dimensioni del file system locale allocati al nodo. È possibile creare pool di nodi Windows o Linux usando le immagini del Marketplace per servizi cloud o macchine virtuali di Azure. Per altre informazioni su queste opzioni, vedere la sezione [Pool](#pool) seguente.
+Un nodo di calcolo è una macchina virtuale (VM) di Azure o una VM del servizio cloud dedicata all'elaborazione di una parte del carico di lavoro dell'applicazione. Le dimensioni di un nodo determinano il numero di core CPU, la capacità di memoria e le dimensioni del file system locale allocati al nodo. È possibile creare pool di nodi Windows o Linux usando i servizi cloud di Azure, immagini di [Marketplace per Macchine virtuali di Azure][vm_marketplace] oppure immagini personalizzate preparate dall'utente. Per altre informazioni su queste opzioni, vedere la sezione [Pool](#pool) seguente.
 
 I nodi possono eseguire qualsiasi eseguibile o script supportato dall'ambiente del sistema operativo del nodo, inclusi \*.exe, \*.cmd, \*.bat e script di PowerShell per Windows e file binari, shell e script di Python per Linux.
 
@@ -99,84 +135,146 @@ I pool di Azure Batch sono basati sulla piattaforma di calcolo Azure. Offrono al
 
 A ogni nodo aggiunto a un pool viene assegnato un nome univoco e un indirizzo IP. Quando un nodo viene rimosso da un pool, vengono perse tutte le modifiche apportate al sistema operativo o ai file e il relativo nome e indirizzo IP vengono rilasciati per uso futuro. Quando un nodo esce da un pool, la sua durata è terminata.
 
-Quando si crea un pool, è possibile specificare gli attributi seguenti. Alcune impostazioni sono diverse, a seconda della modalità di allocazione pool dell'[account](#account) Batch.
+Quando si crea un pool, è possibile specificare gli attributi seguenti. Alcune impostazioni sono diverse, a seconda della modalità di allocazione pool dell'[account](#account) Batch:
 
-* **Sistema operativo** e **versione** dei nodi di calcolo
+- Versione e sistema operativo dei nodi di calcolo
+- Tipo di nodo di calcolo e numero di nodi di destinazione
+- Dimensioni dei nodi di calcolo
+- Criteri di ridimensionamento
+- Criteri di pianificazione attività
+- Stato delle comunicazioni dei nodi di calcolo
+- Attività di avvio per i nodi di calcolo
+- Pacchetti dell'applicazione
+- Network configuration
 
-    > [!NOTE]
-    > Quando si seleziona un sistema operativo per i nodi del pool, nella modalità di allocazione pool del servizio Batch sono disponibili due opzioni: **Configurazione macchina virtuale** e **Cloud Services Configuration** (Configurazione servizi cloud). Nella modalità di sottoscrizione utente è possibile usare solo Configurazione macchina virtuale.
-    >
-
-    **Configurazione macchina virtuale** fornisce immagini Linux e Windows per i nodi di calcolo dal [Marketplace per Macchine virtuali di Azure][vm_marketplace]. Nella modalità di allocazione sottoscrizione utente offre anche la possibilità di usare immagini di macchine virtuali personalizzate.
-
-    Quando si crea un pool contenente nodi Configurazione macchina virtuale, è necessario specificare non solo le dimensioni dei nodi, ma anche il **riferimento a un'immagine della macchina virtuale** e la **SKU dell'agente del nodo** Batch da installare nei nodi. Per altre informazioni sulla specifica di queste proprietà del pool, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md).
-
-    **Cloud Services Configuration** (Configurazione servizi cloud) fornisce *solo*nodi di calcolo Windows. I sistemi operativi disponibili per i pool Configurazione servizi cloud sono elencati in [Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando si crea un pool contenente nodi dei servizi cloud, è necessario specificare solo le dimensioni del nodo e la rispettiva *famiglia del sistema operativo*. Quando si creano pool di nodi di calcolo Windows, è in genere necessario usare l'opzione relativa ai servizi cloud.
-
-  * La *famiglia del sistema operativo* determina anche le versioni di .NET installate con il sistema operativo.
-  * Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una *Versione sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la sezione [Informazioni sui servizi cloud](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) in [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
-  * Analogamente ai ruoli di lavoro, è consigliabile specificare `*` per la *Versione sistema operativo*, in modo che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare la compatibilità delle applicazioni, che permette l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la *Versione sistema operativo* per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione vengono interrotte e accodate di nuovo.
-
-* **Tipo di nodo di calcolo** e **numero di nodi di destinazione**
-
-    Quando si crea un pool, è possibile specificare i tipi di nodi di calcolo desiderati e il numero di destinazione di ognuno. I due tipi di nodi di calcolo sono i seguenti:
-
-    - **Nodi di calcolo con priorità bassa.** I nodi con priorità bassa sfruttano la capacità in eccesso di Azure per l'esecuzione dei carichi di lavoro di Batch. I nodi con priorità bassa sono meno costosi dei nodi dedicati e supportano i carichi di lavoro che richiedono una potenza di calcolo elevata. Per altre informazioni, vedere [Usare le VM con priorità bassa in Batch](batch-low-pri-vms.md).
-
-        Può verificarsi il superamento dei nodi di calcolo con priorità bassa quando Azure ha capacità in eccesso insufficiente. In caso di superamento di un nodo durante l'esecuzione di attività, le attività vengono accodate ed eseguite di nuovo quando il nodo di calcolo torna disponibile. I nodi con priorità bassa sono utili per i carichi di lavoro con tempi di completamento del processo flessibili e in cui il lavoro è distribuito tra più nodi.
-
-        I nodi di calcolo con priorità bassa sono disponibili solo per gli account Batch creati con la modalità di allocazione pool impostata su **Servizio Batch**.
-
-    - **Nodi di calcolo dedicati.** I nodi di calcolo dedicati sono riservati per i carichi di lavoro. Sono più costosi dei nodi con priorità bassa, ma non vengono mai superati.    
-
-    Lo stesso pool può includere nodi di calcolo con priorità bassa e nodi di calcolo dedicati. Ogni tipo di nodo, con priorità bassa e dedicato, ha un'impostazione di destinazione propria, per cui è possibile specificare il numero desiderato di nodi. 
-        
-    Il numero di nodi di calcolo viene definito *numero di destinazione*, perché in alcuni casi il pool può non raggiungere il numero desiderato di nodi. Ad esempio, un pool potrebbe non realizzare la destinazione se prima raggiunge la [quota core](batch-quota-limit.md) per l'account Batch. Il pool potrebbe non realizzare la destinazione, inoltre, se al pool è stata applicata una formula di scalabilità automatica che limita il numero massimo di nodi.
-
-    Per informazioni sui prezzi per i nodi di calcolo dedicati e con priorità bassa, vedere [Prezzi di Batch](https://azure.microsoft.com/pricing/details/batch/).
-
-* **Dimensioni dei nodi**
-
-    **Cloud Services Configuration** (Configurazione servizi cloud) sono elencate in [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md). Batch supporta tutte le dimensioni dei servizi cloud tranne `ExtraSmall`, `STANDARD_A1_V2` e `STANDARD_A2_V2`.
-
-    Le dimensioni disponibili per i nodi di calcolo **Configurazione macchina virtuale** sono elencate in [Dimensioni delle macchine virtuali in Azure](../virtual-machines/linux/sizes.md) (Linux) e [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md) (Windows). Batch supporta tutte le dimensioni delle VM di Azure tranne `STANDARD_A0` e quelle con l'archiviazione Premium (serie `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).
-
-    Quando si seleziona una dimensione per il nodo di calcolo, tenere in considerazione le caratteristiche e i requisiti delle applicazioni che si eseguiranno nei nodi. Per determinare la dimensioni del nodo più appropriate e convenienti, considerare vari aspetti, ad esempio se si tratta di un'applicazione multithreading e la quantità di memoria che utilizza. Le dimensioni del nodo vengono in genere selezionate presupponendo che in un nodo venga eseguita un'attività alla volta. È possibile,tuttavia, che più attività (e quindi più istanze dell'applicazione) vengano [eseguite in parallelo](batch-parallel-node-tasks.md) nei nodi di calcolo durante l'esecuzione del processo. In questo caso, è normale scegliere una dimensione maggiore per il nodo per soddisfare la richiesta più elevata di esecuzione di attività parallele. Per altre informazioni, vedere [Criteri di pianificazione delle attività](#task-scheduling-policy).
-
-    Tutti i nodi in un pool devono hanno le stesse dimensioni. Se si prevede di eseguire applicazioni con requisiti di sistema e/o livelli di carico diversi, è consigliabile usare pool separati.
-
-* **Criteri di ridimensionamento**
-
-    Per carichi di lavoro dinamici, è possibile scrivere e applicare una [formula di ridimensionamento automatico](#scaling-compute-resources) a un pool. Il servizio Batch valuta periodicamente la formula e rettifica il numero di nodi nel pool in base a vari parametri relativi a pool, processi e attività specificati.
-
-* **Criteri di pianificazione di attività**
-
-    L'opzione di configurazione [Numero massimo attività per nodo](batch-parallel-node-tasks.md) determina il numero massimo di attività che è possibile eseguire in parallelo in ogni nodo di calcolo del pool.
-
-    La configurazione predefinita specifica che viene eseguita una sola attività alla volta in un nodo, ma in alcuni scenari risulta utile eseguire due o più attività contemporaneamente in un nodo. Vedere lo [scenario di esempio](batch-parallel-node-tasks.md#example-scenario) nell'articolo [Ottimizzare l'utilizzo delle risorse di calcolo di Azure Batch con attività dei nodi simultanee](batch-parallel-node-tasks.md) per informazioni su come sfruttare al meglio più attività per nodo.
-
-    È anche possibile specificare un *tipo di riempimento* che determina se Batch distribuisce le attività in modo uniforme a tutti i nodi di un pool o se satura ogni nodo con il numero massimo di attività prima di assegnarle ad altri nodi.
-* **Stato delle comunicazioni** dei nodi di calcolo
-
-    Nella maggior parte degli scenari le attività funzionano in modo indipendente e non devono comunicare tra loro. È tuttavia possibile che siano presenti applicazioni in cui le attività devono comunicare, ad esempio negli [scenari MPI](batch-mpi.md).
-
-    È possibile configurare un pool per consentire la **comunicazione tra nodi**, di modo che i nodi all'interno di un pool passano comunicare durante l'esecuzione. Quando la comunicazione tra nodi è abilitata, i nodi nei pool Cloud Services Configuration (Configurazione servizi cloud) possono comunicare tra loro tramite porte superiori alla 1100 e i pool Configurazione macchina virtuale non limitano il traffico su nessuna porta.
-
-    Si noti che l'abilitazione della comunicazione tra nodi ha effetto anche sul posizionamento dei nodi nel cluster e potrebbe limitare il numero massimo di nodi in un pool a causa di restrizioni relative alla distribuzione. Se l'applicazione non richiede la comunicazione tra nodi, il servizio Batch può allocare al pool un numero potenzialmente elevato di nodi da diversi cluster e data center per consentire una maggiore capacità di elaborazione parallela.
-* **Attività di avvio** per i nodi di calcolo
-
-    L' *attività di avvio* facoltativa viene eseguita in ogni nodo aggiunto al pool e ogni volta che si riavvia o si ricrea l'immagine del nodo. L'attività di avvio è utile soprattutto per preparare i nodi di calcolo per l'esecuzione di attività, ad esempio l'installazione delle applicazioni eseguite dalle attività nei nodi di calcolo.
-* **Pacchetti dell'applicazione**
-
-    È possibile specificare [pacchetti dell'applicazione](#application-packages) da distribuire nei nodi di calcolo del pool. I pacchetti dell'applicazione consentono una distribuzione e un controllo delle versioni più semplici delle applicazioni eseguite dalle attività. I pacchetti dell'applicazione specificati per un pool vengono installati in ogni nodo di calcolo aggiunto al pool e ogni volta che un nodo viene riavviato o ne viene ricreata l'immagine. I pacchetti dell'applicazione non sono attualmente supportati nei nodi di calcolo Linux.
-* **Network configuration**
-
-    È possibile specificare l'ID della [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure in cui devono essere creati i nodi di calcolo del pool. Per altre informazioni, vedere la sezione [Pool della configurazione di rete](#pool-network-configuration).
+Ognuna di queste sezioni è descritta in modo più dettagliato nelle sezioni seguenti.
 
 > [!IMPORTANT]
-> Tutti gli account Batch hanno una **quota** predefinita che limita il numero di **core**, e di conseguenza i nodi di calcolo, in un account Batch. Le quote predefinite e le istruzioni su come [aumentare una quota](batch-quota-limit.md#increase-a-quota), ad esempio il numero massimo di core nell'account Batch, sono riportate in [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md). Se il pool non raggiunge più di X nodi, ad esempio, questa quota di core potrebbe essere la causa.
+> Gli account Batch creati con la modalità di allocazione pool Servizio Batch hanno una quota predefinita che limita il numero di core in un account Batch. Il numero di core corrisponde al numero di nodi di calcolo. Le quote predefinite e le istruzioni su come [aumentare una quota](batch-quota-limit.md#increase-a-quota) sono disponibili in [Quote e limiti del servizio Batch](batch-quota-limit.md). Se il pool non raggiungere il numero di nodi di destinazione, la causa potrebbe essere la quota di core.
+>
+>Gli account Batch creati con la modalità di allocazione pool di tipo Sottoscrizione utente non sono limitati dalle quote del servizio Batch. Condividono invece la quota di core per la sottoscrizione specificata. Per altre informazioni, vedere [Limiti relativi a Macchine virtuali](../azure-subscription-service-limits.md#virtual-machines-limits) in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 >
 >
+
+### <a name="compute-node-operating-system-and-version"></a>Versione e sistema operativo dei nodi di calcolo
+
+Quando si crea un pool di Batch, è possibile specificare la configurazione delle macchine virtuali di Azure e il tipo di sistema operativo da eseguire in ogni nodo di calcolo nel pool. I due tipi di configurazioni disponibili in Batch sono:
+
+- **Configurazione macchina virtuale**, che specifica che il pool è composto da macchine virtuali di Azure. È possibile creare queste VM da immagini Linux o Windows. 
+
+    Quando si crea un pool basato su Configurazione macchina virtuale, è necessario specificare non solo le dimensioni dei nodi e l'origine delle immagini usate per crearli, ma anche il **riferimento a un'immagine della macchina virtuale** e lo **SKU dell'agente del nodo** Batch da installare nei nodi. Per altre informazioni sulla specifica di queste proprietà del pool, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md).
+
+- **Cloud Services Configuration** (Configurazione servizi cloud), che specifica che il pool è composto da nodi di Servizi cloud di Azure. Servizi cloud fornisce *solo* nodi di calcolo di Windows.
+
+    I sistemi operativi disponibili per i pool Configurazione servizi cloud sono elencati in [Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando si crea un pool contenente nodi di Servizi cloud, è necessario specificare dimensioni dei nodi e *Famiglia del sistema operativo*. La distribuzione di Servizi cloud in Azure è più veloce rispetto alle macchine virtuali che eseguono Windows. Se si vuole disporre di pool di nodi di calcolo di Windows, le prestazioni di Servizi cloud in termini di tempo di distribuzione potrebbero essere migliori.
+
+    * La *famiglia del sistema operativo* determina anche le versioni di .NET installate con il sistema operativo.
+    * Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una *Versione sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la sezione [Informazioni sui servizi cloud](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) in [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
+    * Analogamente ai ruoli di lavoro, è consigliabile specificare `*` per la *Versione sistema operativo*, in modo che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare la compatibilità delle applicazioni, che permette l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la *Versione sistema operativo* per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione vengono interrotte e accodate di nuovo.
+
+Quando si crea un pool, è necessario selezionare il valore appropriato di **nodeAgentSkuId**, a seconda del sistema operativo dell'immagine di base del disco rigido virtuale. È possibile ottenere un mapping tra gli ID SKU dell'agente del nodo e i relativi riferimenti all'immagine del sistema operativo chiamando l'operazione di [elenco degli SKU degli agenti dei nodi supportati](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
+
+Vedere la sezione [Account](#account) per informazioni sull'impostazione della modalità di allocazione dei pool quando si crea un account Batch.
+
+#### <a name="custom-images-for-virtual-machine-pools"></a>Immagini personalizzate per pool di macchine virtuali
+
+Per usare un'immagine personalizzata per il provisioning di pool di macchine virtuali, creare l'account Batch con la modalità di allocazione pool di tipo Sottoscrizione utente. Con questa modalità, i pool di Batch vengono allocati nella sottoscrizione in cui si trova l'account. Vedere la sezione [Account](#account) per informazioni sull'impostazione della modalità di allocazione dei pool quando si crea un account Batch.
+
+Per usare un'immagine personalizzata, sarà necessario preparare l'immagine generalizzandola. Per informazioni sulla preparazione di immagini di Linux personalizzate dalle macchine virtuali di Azure, vedere [Acquisire una VM Linux da usare come modello](../virtual-machines/linux/capture-image-nodejs.md). Per informazioni sulla preparazione di immagini di Windows personalizzate dalle macchine virtuali di Azure, vedere [Creare immagini personalizzate di VM con Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
+
+> [!IMPORTANT]
+> Durante la preparazione dell'immagine personalizzata, tenere presente quanto segue:
+> - Assicurarsi che l'immagine del sistema operativo di base usata per il provisioning dei pool di Batch non includa alcuna estensione di Azure preinstallata, ad esempio l'estensione Script personalizzato. Se l'immagine contiene un'estensione preinstallata, è possibile che Azure rilevi problemi durante la distribuzione della VM.
+> - Assicurarsi che l'immagine del sistema operativo di base fornita usi l'unità temporanea predefinita, perché l'agente del nodo Batch prevede attualmente l'unità temporanea predefinita.
+>
+>
+
+Per creare un pool con l'opzione Configurazione macchina virtuale usando un'immagine personalizzata, sono necessari uno o più account di Archiviazione di Azure standard per archiviare le immagini del disco rigido virtuale personalizzate. Le immagini personalizzate vengono archiviate come BLOB. Per fare riferimento alle immagini personalizzate quando si crea un pool, specificare gli URI dei BLOB dei dischi rigidi virtuali delle immagini personalizzate per la proprietà [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) della proprietà [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf).
+
+Assicurarsi che gli account di archiviazione soddisfino i criteri seguenti:   
+
+- Gli account di archiviazione contenenti i BLOB dei dischi rigidi virtuali delle immagini personalizzate devono trovarsi nella stessa sottoscrizione dell'account Batch (la sottoscrizione utente).
+- Gli account di archiviazione specificati devono trovarsi nella stessa regione dell'account Batch.
+- Attualmente sono supportati solo gli account di archiviazione Standard per utilizzo generico. Il supporto per Archiviazione Premium di Azure verrà aggiunto in futuro.
+- È possibile specificare un account di archiviazione con più BLOB dei dischi rigidi virtuali personalizzati o più account di archiviazione ognuno con un singolo BLOB. È consigliabile usare più account di archiviazione per ottenere prestazioni migliori.
+- Un BLOB del disco rigido virtuale di un'immagine personalizzata univoco può supportare fino a 40 istanze di VM Linux o 20 istanze di VM Windows. Per creare pool con più VM, è necessario creare copie del BLOB del disco rigido virtuale. Un pool con 200 VM Windows richiede ad esempio 10 BLOB dei dischi rigidi virtuali univoci specificati per la proprietà **osDisk**.
+
+Per creare un pool da un'immagine personalizzata tramite il portale di Azure:
+
+1. Passare all'account Batch nel portale di Azure.
+2. Nel pannello **Impostazioni** selezionare la voce di menu **Pool**.
+3. Nel pannello **Pool** selezionare il comando **Aggiungi**. Verrà visualizzato il pannello **Aggiungi pool**.
+4. Selezionare **Immagine personalizzata (Linux/Windows)** nell'elenco a discesa **Tipo di immagine**. Nel portale verrà visualizzato lo strumento di selezione **Immagine personalizzata**. Scegliere uno o più dischi rigidi virtuali dello stesso contenitore e fare clic sul pulsante **Seleziona**. 
+    Il supporto per più dischi rigidi virtuali di account di archiviazione e contenitori diversi verrà aggiunto in futuro.
+5. Selezionare il valore appropriato per **Autore/Offerta/SKU** per i dischi rigidi virtuali personalizzati, selezionare la modalità **Caching** desiderata e quindi specificare tutti gli altri parametri per il pool.
+6. Per verificare se un pool è basato su un'immagine personalizzata, vedere la proprietà **Sistema operativo** nella sezione di riepilogo delle risorse del pannello **Pool**. Il valore di questa proprietà deve essere **Immagine di macchina virtuale personalizzata**.
+7. Tutti i dischi rigidi virtuali personalizzati associati a un pool vengono visualizzati nel pannello **Proprietà** del pool.
+
+### <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo di nodo di calcolo e numero di nodi di destinazione
+
+Quando si crea un pool, è possibile specificare i tipi di nodi di calcolo desiderati e il numero di destinazione di ognuno. I due tipi di nodi di calcolo sono i seguenti:
+
+- **Nodi di calcolo dedicati.** I nodi di calcolo dedicati sono riservati per i carichi di lavoro. Sono più costosi dei nodi con priorità bassa, ma non vengono mai superati.
+
+- **Nodi di calcolo con priorità bassa.** I nodi con priorità bassa sfruttano la capacità in eccesso di Azure per l'esecuzione dei carichi di lavoro di Batch. I nodi con priorità bassa hanno un costo orario inferiore a quello dei nodi dedicati e supportano carichi di lavoro che richiedono una potenza di calcolo elevata. Per altre informazioni, vedere [Usare le VM con priorità bassa in Batch](batch-low-pri-vms.md).
+
+    Può verificarsi il superamento dei nodi di calcolo con priorità bassa quando Azure ha capacità in eccesso insufficiente. In caso di superamento di un nodo durante l'esecuzione di attività, le attività vengono accodate ed eseguite di nuovo quando il nodo di calcolo torna disponibile. I nodi con priorità bassa sono utili per i carichi di lavoro con tempi di completamento del processo flessibili e in cui il lavoro è distribuito tra più nodi. Prima di scegliere di usare nodi con priorità bassa per lo scenario, assicurarsi che l'eventuale quantità di lavoro persa a causa del processo di prelazione sia minima e facile da ricreare.
+
+    I nodi di calcolo con priorità bassa sono disponibili solo per gli account Batch creati con la modalità di allocazione pool impostata su **Servizio Batch**.
+
+Lo stesso pool può includere nodi di calcolo con priorità bassa e nodi di calcolo dedicati. Ogni tipo di nodo, con priorità bassa e dedicato, ha un'impostazione di destinazione propria, per cui è possibile specificare il numero desiderato di nodi. 
+    
+Il numero di nodi di calcolo viene definito *numero di destinazione*, perché in alcuni casi il pool può non raggiungere il numero desiderato di nodi. Ad esempio, un pool potrebbe non realizzare la destinazione se prima raggiunge la [quota core](batch-quota-limit.md) per l'account Batch. Il pool potrebbe non realizzare la destinazione, inoltre, se al pool è stata applicata una formula di scalabilità automatica che limita il numero massimo di nodi.
+
+Per informazioni sui prezzi per i nodi di calcolo dedicati e con priorità bassa, vedere [Prezzi di Batch](https://azure.microsoft.com/pricing/details/batch/).
+
+### <a name="size-of-the-compute-nodes"></a>Dimensioni dei nodi di calcolo
+
+**Cloud Services Configuration** (Configurazione servizi cloud) sono elencate in [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md). Batch supporta tutte le dimensioni dei servizi cloud tranne `ExtraSmall`, `STANDARD_A1_V2` e `STANDARD_A2_V2`.
+
+Le dimensioni disponibili per i nodi di calcolo **Configurazione macchina virtuale** sono elencate in [Dimensioni delle macchine virtuali in Azure](../virtual-machines/linux/sizes.md) (Linux) e [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md) (Windows). Batch supporta tutte le dimensioni delle VM di Azure tranne `STANDARD_A0` e quelle con l'archiviazione Premium (serie `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).
+
+Quando si seleziona una dimensione per il nodo di calcolo, tenere in considerazione le caratteristiche e i requisiti delle applicazioni che si eseguiranno nei nodi. Per determinare la dimensioni del nodo più appropriate e convenienti, considerare vari aspetti, ad esempio se si tratta di un'applicazione multithreading e la quantità di memoria che utilizza. Le dimensioni del nodo vengono in genere selezionate presupponendo che in un nodo venga eseguita un'attività alla volta. È possibile,tuttavia, che più attività (e quindi più istanze dell'applicazione) vengano [eseguite in parallelo](batch-parallel-node-tasks.md) nei nodi di calcolo durante l'esecuzione del processo. In questo caso, è normale scegliere una dimensione maggiore per il nodo per soddisfare la richiesta più elevata di esecuzione di attività parallele. Per altre informazioni, vedere [Criteri di pianificazione delle attività](#task-scheduling-policy).
+
+Tutti i nodi in un pool devono hanno le stesse dimensioni. Se si prevede di eseguire applicazioni con requisiti di sistema e/o livelli di carico diversi, è consigliabile usare pool separati.
+
+### <a name="scaling-policy"></a>Criteri di ridimensionamento
+
+Per carichi di lavoro dinamici, è possibile scrivere e applicare una [formula di ridimensionamento automatico](#scaling-compute-resources) a un pool. Il servizio Batch valuta periodicamente la formula e rettifica il numero di nodi nel pool in base a vari parametri relativi a pool, processi e attività specificati.
+
+### <a name="task-scheduling-policy"></a>Criteri di pianificazione attività
+
+L'opzione di configurazione [Numero massimo attività per nodo](batch-parallel-node-tasks.md) determina il numero massimo di attività che è possibile eseguire in parallelo in ogni nodo di calcolo del pool.
+
+La configurazione predefinita specifica che viene eseguita una sola attività alla volta in un nodo, ma in alcuni scenari risulta utile eseguire due o più attività contemporaneamente in un nodo. Vedere lo [scenario di esempio](batch-parallel-node-tasks.md#example-scenario) nell'articolo [Ottimizzare l'utilizzo delle risorse di calcolo di Azure Batch con attività dei nodi simultanee](batch-parallel-node-tasks.md) per informazioni su come sfruttare al meglio più attività per nodo.
+
+È anche possibile specificare un *tipo di riempimento* che determina se Batch distribuisce le attività in modo uniforme a tutti i nodi di un pool o se satura ogni nodo con il numero massimo di attività prima di assegnarle ad altri nodi.
+
+### <a name="communication-status-for-compute-nodes"></a>Stato delle comunicazioni dei nodi di calcolo
+
+Nella maggior parte degli scenari le attività funzionano in modo indipendente e non devono comunicare tra loro. È tuttavia possibile che siano presenti applicazioni in cui le attività devono comunicare, ad esempio negli [scenari MPI](batch-mpi.md).
+
+È possibile configurare un pool per consentire la **comunicazione tra nodi**, di modo che i nodi all'interno di un pool passano comunicare durante l'esecuzione. Quando la comunicazione tra nodi è abilitata, i nodi nei pool Cloud Services Configuration (Configurazione servizi cloud) possono comunicare tra loro tramite porte superiori alla 1100 e i pool Configurazione macchina virtuale non limitano il traffico su nessuna porta.
+
+Si noti che l'abilitazione della comunicazione tra nodi ha effetto anche sul posizionamento dei nodi nel cluster e potrebbe limitare il numero massimo di nodi in un pool a causa di restrizioni relative alla distribuzione. Se l'applicazione non richiede la comunicazione tra nodi, il servizio Batch può allocare al pool un numero potenzialmente elevato di nodi da diversi cluster e data center per consentire una maggiore capacità di elaborazione parallela.
+
+### <a name="start-tasks-for-compute-nodes"></a>Attività di avvio per i nodi di calcolo
+
+L' *attività di avvio* facoltativa viene eseguita in ogni nodo aggiunto al pool e ogni volta che si riavvia o si ricrea l'immagine del nodo. L'attività di avvio è utile soprattutto per preparare i nodi di calcolo per l'esecuzione di attività, ad esempio l'installazione delle applicazioni eseguite dalle attività nei nodi di calcolo.
+
+### <a name="application-packages"></a>Pacchetti dell'applicazione
+
+È possibile specificare [pacchetti dell'applicazione](#application-packages) da distribuire nei nodi di calcolo del pool. I pacchetti dell'applicazione consentono una distribuzione e un controllo delle versioni più semplici delle applicazioni eseguite dalle attività. I pacchetti dell'applicazione specificati per un pool vengono installati in ogni nodo di calcolo aggiunto al pool e ogni volta che un nodo viene riavviato o ne viene ricreata l'immagine.
+
+> [!NOTE]
+> I pacchetti dell'applicazione sono supportati in tutti i pool di Batch creati dopo il 5 luglio 2017. Sono supportati nei pool di Batch creati tra il 10 marzo 2016 e il 5 luglio 2017 solo se il pool è stato creato usando una configurazione del servizio cloud. I pool di Batch creati prima del 10 marzo 2016 non supportano i pacchetti dell'applicazione. Per altre informazioni sull'uso di pacchetti dell'applicazione per distribuire applicazioni ai nodi Batch, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
+>
+>
+
+### <a name="network-configuration"></a>Network configuration
+
+È possibile specificare la subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure in cui devono essere creati i nodi di calcolo del pool. Per altre informazioni, vedere la sezione [Pool della configurazione di rete](#pool-network-configuration).
+
 
 ## <a name="job"></a>Processo
 Un processo è una raccolta di attività. Gestisce la modalità di esecuzione dei calcoli da parte delle attività nei nodi di calcolo di un pool.
@@ -239,16 +337,21 @@ Come per qualsiasi attività di Azure Batch, è possibile specificare un elenco 
 
 L'attività di avvio può tuttavia includere anche dati di riferimento che devono essere usati da tutte le attività in esecuzione nel nodo di calcolo. La riga di comando di un'attività di avvio può ad esempio eseguire un'operazione `robocopy` per copiare i file dell'applicazione, che sono stati specificati come file di risorse e scaricati nel nodo, dalla [directory di lavoro](#files-and-directories) dell'attività di avvio alla [cartella condivisa](#files-and-directories) ed eseguire quindi un file MSI o `setup.exe`.
 
-> [!IMPORTANT]
-> Batch supporta attualmente *solo* il tipo di account di archiviazione **Utilizzo generico**, come descritto nel passaggio 5 di [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Le attività di Batch, incluse le attività standard, le attività di avvio, le attività di preparazione del processo e le attività di rilascio del processo, devono specificare file di risorse che si trovano *solo* negli account di archiviazione di tipo **Utilizzo generico** .
->
->
-
 È in genere consigliabile che il servizio Batch attenda il completamento dell'attività di avvio prima di considerare il nodo pronto per l'assegnazione di attività, ma questo comportamento è configurabile.
 
 Se un'attività di avvio non riesce in un nodo di calcolo, lo stato del nodo viene aggiornato per riflettere l'errore e al nodo non viene assegnata alcuna attività. Un'attività di avvio può non riuscire se si verifica un problema durante la copia dei file di risorse dall'archiviazione o se il processo eseguito dalla riga di comando restituisce un codice di uscita diverso da zero.
 
-Se si aggiunge o si aggiorna l'attività di avvio per un pool *esistente* , è necessario riavviare i relativi nodi di calcolo per applicare l'attività di avvio ai nodi.
+Se si aggiunge o si aggiorna l'attività di avvio per un pool esistente, è necessario riavviare i relativi nodi di calcolo per applicare l'attività di avvio ai nodi.
+
+>[!NOTE]
+> La dimensione totale di un'attività di avvio deve essere inferiore o uguale a 32768 caratteri, inclusi i file di risorse e le variabili di ambiente. Per assicurarsi che l'attività di avvio soddisfi questo requisito, è possibile usare uno dei due approcci seguenti:
+>
+> 1. È possibile usare i pacchetti dell'applicazione per distribuire le applicazioni o i dati in ogni nodo del pool di Batch. Per altre informazioni sui pacchetti dell'applicazione, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
+> 2. È possibile creare manualmente un archivio compresso contenente i file delle applicazioni. Caricare l'archivio compresso in Archiviazione di Azure come BLOB. Specificare l'archivio compresso come file di risorse per l'attività di avvio. Prima di eseguire la riga di comando per l'attività di avvio, decomprimere l'archivio dalla riga di comando. 
+>
+>    Per decomprimere l'archivio, è possibile usare lo strumento di archiviazione preferito. Sarà necessario includere lo strumento usato per decomprimere l'archivio come file di risorse per l'attività di avvio.
+>
+>
 
 ### <a name="job-manager-task"></a>Attività di gestione dei processi
 Si usa in genere un' **attività del gestore di processi** per controllare e/o monitorare l'esecuzione dei processi, ad esempio per creare e inviare le attività per un processo, determinare le attività aggiuntive da eseguire e stabilire quando il lavoro è stato completato. Un'attività del gestore di processi, tuttavia, non è limitata a queste attività. Si tratta di un'attività completa, che consente di eseguire qualsiasi azione necessaria per il processo. Un'attività del gestore di processi può ad esempio scaricare un file specificato come parametro, analizzare il contenuto del file e inviare attività aggiuntive in base a quel contenuto.
@@ -326,7 +429,7 @@ La funzionalità relativa ai [pacchetti dell'applicazione](batch-application-pac
 
 Batch gestisce i dettagli dell'utilizzo di Archiviazione di Azure per archiviare i pacchetti dell'applicazione e distribuirli nei nodi di calcolo, in modo da semplificare il codice e ridurre il sovraccarico in termini di gestione.
 
-Per altre informazioni sulla funzionalità relativa ai pacchetti dell'applicazione, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
+Per altre informazioni sulla funzionalità relativa ai pacchetti dell'applicazione, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
 
 > [!NOTE]
 > Se si aggiungono pacchetti dell'applicazione a un pool *esistente* , è necessario riavviare i relativi nodi di calcolo per distribuire i pacchetti dell'applicazione nei nodi.
@@ -342,42 +445,59 @@ Dall'altro lato, se l'avvio immediato dei processi ha la priorità più alta, è
 
 Un approccio combinato viene in genere usato per la gestione di un carico variabile ma continuo. È possibile inviare più processi a un pool, ma aumentare o ridurre il numero di nodi in base al carico del processo. Vedere [Ridimensionamento delle risorse di calcolo](#scaling-compute-resources) nella prossima sezione. Questa operazione può essere eseguita in modo reattivo in base al carico corrente o in modo proattivo se è possibile prevedere il carico.
 
-## <a name="pool-network-configuration"></a>Pool della configurazione di rete
+## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configurazione della rete virtuale e del firewall 
 
-Quando si crea un pool di nodi di calcolo in Azure Batch, è possibile usare le API per specificare l'ID di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure nella quale devono essere creati i nodi di calcolo del pool.
+Quando si effettua il provisioning di un pool di nodi di calcolo in Batch di Azure, è possibile associare il pool a una subnet di una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. Per altre informazioni sulla creazione di una rete virtuale con subnet, vedere [Creare una rete virtuale di Azure con subnet](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
 
-* La rete virtuale deve:
+ * La rete virtuale associata a un pool deve:
 
    * Essere nella stessa **area** di Azure dell'account di Azure Batch.
    * Essere nella stessa **sottoscrizione** dell'account di Azure Batch.
 
-* La rete virtuale deve avere sufficienti **indirizzi IP** liberi per includere la proprietà `targetDedicated` del pool. Se la subnet non ha sufficienti indirizzi IP liberi, il servizio Batch alloca parzialmente i nodi di calcolo nel pool e restituisce un errore di ridimensionamento.
+* Il tipo di rete virtuale supportato dipende dal modo in cui vengono allocati i pool per l'account Batch:
+
+    - Se la modalità di allocazione pool dell'account Batch è impostata su Servizio Batch, è possibile assegnare una rete virtuale solo ai pool creati con la **configurazione di tipo servizio cloud**. La rete virtuale specificata deve inoltre essere creata con il modello di distribuzione classica. Le reti virtuali create con il modello di distribuzione di Azure Resource Manager non sono supportate.
+ 
+    - Se la modalità di allocazione pool per l'account Batch è impostata su Sottoscrizione utente, è possibile assegnare una rete virtuale solo ai pool creati con la **configurazione macchina virtuale**. I pool creati con la **configurazione di tipo servizio cloud** non sono supportati. La rete virtuale associata può essere creata con il modello di distribuzione Azure Resource Manager o con il modello di distribuzione classica.
+
+    Per una tabella di riepilogo del supporto per le reti virtuali in base alla modalità di allocazione pool, vedere la sezione [Modalità di allocazione pool](#pool-allocation-mode).
+
+* Se la modalità di allocazione pool per l'account Batch è impostata su Servizio Batch, è necessario specificare le autorizzazioni per consentire all'entità servizio di Batch di accedere alla rete virtuale. La rete virtuale deve assegnare il ruolo [Controllo degli accessi in base al ruolo di tipo Collaboratore macchine virtuali classiche](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) all'entità servizio di Batch. Se il ruolo Controllo degli accessi in base al ruolo specificato non viene indicato, il servizio Batch restituisce 400 (Richiesta non valida). Per aggiungere il ruolo nel portale di Azure:
+
+    1. Selezionare la **Rete virtuale**, quindi **Controllo di accesso (IAM)** > **Ruoli** > **Collaboratore Macchina virtuale** > **Aggiungi**.
+    2. Nel pannello **Aggiungi autorizzazioni** selezionare il ruolo **Collaboratore Macchina virtuale**.
+    3. Nel pannello **Aggiungi autorizzazioni** cercare l'API Batch. Cercare ognuna di queste stringhe fino a trovare l'API:
+        1. **MicrosoftAzureBatch**.
+        2. **Microsoft Azure Batch**. I tenant di Azure AD più recenti potrebbero usare questo nome.
+        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** è l'ID dell'API Batch. 
+    3. Selezionare l'entità servizio dell'API Batch. 
+    4. Fare clic su **Salva**.
+
+        ![Assegnare il ruolo Collaboratore Macchina virtuale all'entità servizio di Batch](./media/batch-api-basics/iam-add-role.png)
+
+
+* La subnet specificata deve avere un numero sufficiente di **indirizzi IP** disponibili per contenere il numero totale di nodi di destinazione, ovvero la somma delle proprietà `targetDedicatedNodes` e `targetLowPriorityNodes` del pool. Se la subnet non ha sufficienti indirizzi IP liberi, il servizio Batch alloca parzialmente i nodi di calcolo nel pool e restituisce un errore di ridimensionamento.
 
 * La subnet specificata deve consentire la comunicazione dal servizio Batch per poter pianificare le operazioni sui nodi di calcolo. Se la comunicazione ai nodi di calcolo viene negata da un **gruppo di sicurezza di rete** associato alle rete virtuale, il servizio Batch imposta lo stato dei nodi di calcolo su **Non utilizzabile**.
 
-* Se la rete virtuale specificata è associata a un gruppo di sicurezza di rete, è necessario abilitare le comunicazioni in ingresso. Per i pool sia Linux che Windows devono essere abilitate le porte 29876 e 29877. Facoltativamente, è possibile abilitare o filtrare in modo selettivo le porte 22 o 3389, rispettivamente per SSH in pool Linux o RDP in pool Windows.
+* Se alla rete virtuale specificata sono associati **gruppi di sicurezza di rete** e/o un **firewall**, è necessario abilitare alcune porte di sistema riservate per le comunicazioni in ingresso:
 
-Le impostazioni aggiuntive della rete virtuale dipendono dalla modalità di allocazione pool dell'account Batch.
+- Per i pool creati con una configurazione di macchina virtuale, abilitare le porte 29876 e 29877, nonché la porta 22 per Linux e la porta 3389 per Windows. 
+- Per i pool creati con una configurazione di servizio cloud, abilitare le porte 10100, 20100 e 30100. 
+- Abilitare le connessioni in uscita verso Archiviazione di Azure sulla porta 443. Assicurarsi anche che l'endpoint di Archiviazione di Azure possa essere risolto da qualsiasi server DNS personalizzato che fornisce informazioni alla rete virtuale. In particolare, un URL con formato `<account>.table.core.windows.net` dovrebbe essere risolvibile.
 
-### <a name="vnets-for-pools-provisioned-in-the-batch-service"></a>Reti virtuali per i pool di cui è stato eseguito il provisioning nel servizio Batch
+    La tabella seguente descrive le porte in ingresso che è necessario abilitare per i pool creati con la configurazione macchina virtuale:
 
-Nella modalità di allocazione servizio Batch è possibile assegnare una rete virtuale solo ai pool di **configurazione dei servizi cloud**. La rete virtuale specificata deve essere una rete virtuale **classica**. Le reti virtuali create con il modello di distribuzione di Azure Resource Manager non sono supportate.
+    |    Porte di destinazione    |    Indirizzo IP di origine      |    Batch aggiunge gruppi di sicurezza di rete    |    Necessarie per l'utilizzabilità della VM    |    Azione dell'utente   |
+    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
+    |    <ul><li>Per i pool creati con la configurazione macchina virtuale: 29876, 29877</li><li>Per i pool creati con la configurazione del servizio cloud: 10100, 20100 e 30100</li></ul>         |    Solo indirizzi IP del ruolo del servizio Batch |    Sì. Batch aggiunge gruppi di sicurezza di rete al livello di interfacce di rete collegate alle VM. Questi gruppi di sicurezza di rete consentono il traffico solo dagli indirizzi IP del ruolo del servizio Batch. Anche se si aprono queste porte per l'intero Web, il traffico verrà bloccato nella scheda di interfaccia di rete. |    Sì  |  Non è necessario specificare un gruppo di sicurezza di rete, perché Batch consente solo indirizzi IP Batch. <br /><br /> Se si specifica ugualmente un gruppo di sicurezza di rete, assicurarsi che queste porte siano aperte per il traffico in ingresso. <br /><br /> Se si specifica * come IP di origine nel gruppo di sicurezza di rete, Batch aggiunge ancora gruppi di sicurezza di rete al livello di scheda di interfaccia di rete collegata alle VM. |
+    |    3389, 22               |    Computer utente, usati per il debug, per poter accedere in remoto alla VM.    |    No                                    |    No                     |    Aggiungere gruppi di sicurezza di rete per consentire l'accesso remoto (RDP/SSH) alla VM.   |                 
 
+    La tabella seguente indica la porta in uscita che è necessario abilitare per consentire l'accesso ad Archiviazione di Azure:
 
-
-* L'entità servizio *MicrosoftAzureBatch* deve avere il ruolo di controllo di accesso basato sui ruoli (RBAC) ovvero [Collaboratore Macchina virtuale classica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) per la rete virtuale specificata. Nel portale di Azure:
-
-  * Selezionare la **rete virtuale**, scegliere **Controllo di accesso (IAM)** > **Ruoli** > **Collaboratore Macchina virtuale classica** > **Aggiungi**
-  * Digitare "MicrosoftAzureBatch" nella casella **Ricerca**
-  * Selezionare la casella di controllo **MicrosoftAzureBatch**
-  * Fare clic sul pulsante **Seleziona**
-
-
-
-### <a name="vnets-for-pools-provisioned-in-a-user-subscription"></a>Reti virtuali per i pool di cui è stato eseguito il provisioning in una sottoscrizione utente
-
-Nella modalità di allocazione sottoscrizione utente è possibile assegnare una rete virtuale solo ai pool di **configurazione macchina virtuale**, che sono gli unici supportati. La rete virtuale specificata deve essere una rete virtuale basata su **Resource Manager**. Le reti virtuali create con il modello di distribuzione classica non sono supportate.
-
+    |    Porte in uscita    |    Destination    |    Batch aggiunge gruppi di sicurezza di rete    |    Necessarie per l'utilizzabilità della VM    |    Azione dell'utente    |
+    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
+    |    443    |    Archiviazione di Azure    |    No    |    Sì    |    Se si aggiungono gruppi di sicurezza di rete, assicurarsi che questa porta sia aperta per il traffico in uscita.    |
 
 
 ## <a name="scaling-compute-resources"></a>Ridimensionamento delle risorse di calcolo
@@ -415,16 +535,24 @@ Potrebbe essere necessario gestire sia gli errori delle attività che quelli del
 ### <a name="task-failure-handling"></a>Gestione degli errori delle attività
 Gli errori delle attività rientrano nelle categorie seguenti:
 
-* **Errori di pianificazione**
+* **Errori di pre-elaborazione**
 
-    Se il trasferimento di file specificato per un'attività non riesce per qualsiasi motivo, per l'attività viene impostato un *errore di pianificazione*.
+    Se un'attività non può essere avviata, viene impostato un errore di pre-elaborazione per l'attività stessa.  
 
-    Le cause degli errori di pianificazione possono essere dovute a file di risorse dell'attività spostati, un account di archiviazione non più disponibile o un altro problema che ha impedito la copia corretta dei file nel nodo.
+    Gli errori di pre-elaborazione possono essere dovuti a file di risorse dell'attività spostati, un account di archiviazione non più disponibile o un altro problema che ha impedito la copia corretta dei file nel nodo.
+
+* **Errori di caricamento file**
+
+    Se il caricamento dei file specificati per un'attività non riesce per qualsiasi motivo, per l'attività viene impostato un errore di caricamento file.
+
+    Gli errori di caricamento dei file possono verificarsi se la firma di accesso condiviso specificata per l'accesso ad Archiviazione di Azure non è valida oppure non concede le autorizzazioni di scrittura, se l'account di archiviazione non è più disponibile oppure se si è verificato un altro problema che ha impedito la copia corretta dei file dal nodo.    
+
 * **Errori delle applicazioni**
 
     Anche il processo specificato dalla riga di comando dell'attività può non riuscire. Il processo viene considerato non riuscito quando il processo eseguito dall'attività restituisce un codice di uscita diverso da zero. Vedere *Codici di uscita delle attività* nella prossima sezione.
 
     Per gli errori delle applicazioni è possibile configurare il servizio Batch in modo che riprovi automaticamente a eseguire l'attività per un numero di volte specificato.
+
 * **Errori relativi ai vincoli**
 
     È possibile impostare un vincolo che specifichi la durata massima di esecuzione per un processo o un'attività, *maxWallClockTime*. Questa impostazione può essere utile per terminare le attività bloccate.
@@ -435,6 +563,7 @@ Gli errori delle attività rientrano nelle categorie seguenti:
 * `stderr` e `stdout`
 
     Durante l'esecuzione un'applicazione può generare un output di diagnostica che può essere usato per la risoluzione dei problemi. Come indicato nella sezione precedente [File e directory](#files-and-directories), il servizio Batch scrive l'output standard e l'output degli errori standard nei file `stdout.txt` e `stderr.txt` nella directory dell'attività nel nodo di calcolo. Per scaricare questi file, è possibile usare il portale di Azure oppure uno degli SDK di Batch. È ad esempio possibile recuperare questi e altri file per la risoluzione dei problemi con [ComputeNode.GetNodeFile][net_getfile_node] e [CloudTask.GetNodeFile][net_getfile_task] nella libreria Batch .NET.
+
 * **Codici di uscita delle attività**
 
     Come indicato in precedenza, un'attività viene contrassegnata come non riuscita dal servizio Batch se il processo eseguito dall'attività restituisce un codice di uscita non zero. Quando un'attività esegue un processo, il servizio Batch popola la proprietà del codice di uscita dell'attività con il *codice restituito del processo*. È importante notare che il codice di uscita dell'attività **non** è determinato dal servizio Batch. Il codice di uscita di un'attività è determinato dal processo stesso o dal sistema operativo in cui il processo è stato eseguito.
@@ -445,7 +574,7 @@ In alcuni casi, le attività non riescono o vengono interrotte. È possibile che
 È anche possibile che un problema intermittente provochi il blocco di un'attività o ne renda troppo lunga l'esecuzione. È possibile impostare l'intervallo di esecuzione massimo per un'attività. Se si supera l'intervallo di esecuzione massimo, il servizio Batch consente di interrompere l'applicazione dell'attività.
 
 ### <a name="connecting-to-compute-nodes"></a>Connessione ai nodi di calcolo
-È possibile eseguire altre operazioni di debug e di risoluzione dei problemi accedendo a un nodo di calcolo in remoto. È possibile usare il portale di Azure per scaricare un file Remote Desktop Protocol (RDP) per i nodi Windows e ottenere informazioni sulla connessione SSH (Secure Shell) per i nodi Linux. È anche possibile eseguire questa operazione usando le API Batch, ad esempio con [Batch .NET][net_rdpfile] o [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes).
+È possibile eseguire altre operazioni di debug e di risoluzione dei problemi accedendo a un nodo di calcolo in remoto. È possibile usare il portale di Azure per scaricare un file Remote Desktop Protocol (RDP) per i nodi Windows e ottenere informazioni sulla connessione SSH (Secure Shell) per i nodi Linux. È anche possibile eseguire questa operazione usando le API Batch, ad esempio con [Batch .NET][net_rdpfile] o [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
 > Per connettersi a un nodo tramite RDP o SSH, è necessario creare prima di tutto un utente nel nodo. A questo scopo è possibile usare il Portale di Azure, [aggiungere un account utente a un nodo][rest_create_user] con l'API Batch REST, chiamare il metodo [ComputeNode.CreateComputeNodeUser][net_create_user] in Batch .NET o chiamare il metodo [add_user][py_add_user] nel modulo Batch Python.

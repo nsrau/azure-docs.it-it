@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: b35390c6eb912db966648bff4efb59cece2837b3
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 13a3da67da28a1cdebd784e9e33021bb2c2668ce
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
@@ -56,13 +55,21 @@ Contiene una sequenza degli elementi seguenti.
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Al momento è supportata solo la codifica in un passaggio. |
-| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina la spaziatura (valore predefinito) tra i frame IDR. |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina la spaziatura fissa tra i frame IDR in unità di secondi. Chiamata anche la durata GOP. Vedere **SceneChangeDetection** (sotto) per controllare se il codificatore può deviare da questo valore. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |Se impostato su true, il codificatore tenta di rilevare i cambi scena nel video e inserisce un frame IDR. |
 | **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Consente di controllare il compromesso tra qualità video e velocità di codifica. Può corrispondere a uno dei valori seguenti: **Speed**, **Balanced** o **Quality**.<br/><br/> Valore predefinito: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |La funzionalità sarà disponibile in una delle prossime versioni. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Raccolta di livelli video di output. |
 
+### <a name="attributes"></a>Attributi
+| Nome | Tipo | Descrizione |
+| --- | --- | --- |
+| **Condition** |**xs:string** | Quando l'input non ha video, è consigliabile forzare il codificatore per inserire una traccia video monocromatica. A tale scopo, usare Condition="InsertBlackIfNoVideoBottomLayerOnly" (per inserire un video solo alla più bassa velocità in bit) o Condition="InsertBlackIfNoVideo" (per inserire un video a tutte le velocità in bit di output). Per altre informazioni, vedere [questo](media-services-advanced-encoding-with-mes.md#no_video) argomento.|
+
 ## <a name="H264Layers"></a> H264Layers
+
+Per impostazione predefinita, se si invia al codificatore un input che contiene solo audio e nessun video, l'asset di output conterrà file di soli dati audio. Alcuni lettori non possono gestire flussi di output di questo tipo. È possibile usare l'impostazione dell'attributo **InsertBlackIfNoVideo** di H264Video per forzare l'aggiunta di una traccia video all'output da parte del codificatore. Per altre informazioni, vedere [questo](media-services-advanced-encoding-with-mes.md#no_video) argomento.
+              
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: Installare Python e l&quot;SDK - Azure
-description: Informazioni su come installare Python e l&quot;SDK da usare con Azure.
+title: Installare Python e l'SDK - Azure
+description: Informazioni su come installare Python e l'SDK da usare con Azure.
 services: 
 documentationcenter: python
 author: lmazuel
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: be8fed81757d3a7467707e4e0fdf1fd5734e0f07
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3e6bcf301a9257a60e6b921934bb6a04b4dd5d53
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>Installazione di Python e dell'SDK
@@ -100,7 +100,7 @@ Anche se è facoltativo, l'uso di PTVS è consigliabile in quanto offre il suppo
 
 PTVS semplifica, inoltre, la distribuzione in Microsoft Azure e supporta la distribuzione in [Servizi cloud](cloud-services/cloud-services-python-ptvs.md) e [Siti Web](app-service-web/web-sites-python-ptvs-django-mysql.md).
 
-PTVS funziona con la versione di Visual Studio 2013 o 2015 attualmente installata.  Per la documentazione, il download e le discussioni, vedere [Python Tools per Visual Studio].  
+PTVS funziona con la versione di Visual Studio 2013, 2015 o 2017 attualmente installata.  Per la documentazione, il download e le discussioni, vedere [Python Tools per Visual Studio].  
 
 ## <a name="python-azure-scenarios-for-linux-and-macos"></a>Scenari di Python per Azure in Linux e MacOS
 Per Linux o MacOS, ecco gli scenari principali di Azure supportati:
@@ -111,7 +111,7 @@ Per Linux o MacOS, ecco gli scenari principali di Azure supportati:
 
 Il primo scenario consente di creare App Web avanzate che sfruttano le funzionalità PaaS di Azure, come l'[archiviazione BLOB](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), l'[archiviazione code](storage/storage-python-how-to-use-queue-storage.md), l'[archiviazione tabelle](storage/storage-python-how-to-use-table-storage.md) e così via, tramite wrapper di Python per le API REST di Azure. Il funzionamento è identico in Windows, Mac e Linux.  È inoltre possibile usare queste librerie client dal computer di sviluppo locale oppure da una macchina virtuale Linux in esecuzione su Azure.
 
-Per lo scenario della macchina virtuale, avviare una VM Linux a scelta (Ubuntu, CentOS, Suse) ed eseguire o gestire i componenti desiderati.  È possibile ad esempio eseguire [IPython][IPython] REPL/Notebook nel computer Windows/Mac/Linux e puntare il browser a una VM multi-processore Linux o Max che esegue il motore IPython in Azure. Per altre informazioni, vedere l'esercitazione [IPython Notebook in Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per lo scenario della macchina virtuale, avviare una VM Linux a scelta (Ubuntu, CentOS, Suse) ed eseguire o gestire i componenti desiderati.  È possibile ad esempio eseguire [IPython][IPython] REPL/Notebook nel computer Windows/Mac/Linux e puntare il browser a una VM multi-processore Linux o Max che esegue il motore IPython in Azure.
 
 Per informazioni sulla procedura di configurazione di una VM di Linux, vedere l'esercitazione [Creare una macchina virtuale che esegue Linux](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -130,7 +130,6 @@ Per altre informazioni su sviluppo e pubblicazione di siti Web di Azure, vedere 
 * [Serie di librerie numeriche NumPy per Python][NumPy - A numerics library for Python]
 * [Progetto Django: framework/CMS Web avanzato][Django Project - A mature web framework/CMS]
 * [IPython: REPL/Notebook avanzato per Python][IPython - an advanced REPL/Notebook for Python]
-* [IPython Notebook in Azure](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Python Tools per Visual Studio su GitHub][Python Tools for Visual Studio on GitHub]
 * [Centro per sviluppatori Python](/develop/python/)
 

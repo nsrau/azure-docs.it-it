@@ -1,16 +1,17 @@
 # Panoramica
 ## [Informazioni su Resource Manager](resource-group-overview.md)
-## [Servizi supportati](resource-manager-supported-services.md)
+## [Provider e tipi di risorse](resource-manager-supported-services.md)
 ## [Distribuzione Resource Manager e classica](resource-manager-deployment-model.md)
 ## [Governance per le sottoscrizioni](resource-manager-subscription-governance.md)
 ## [Applicazioni gestite](managed-application-overview.md)
 
 # Introduzione
 ## [Esportare il modello](resource-manager-export-template.md)
-## [Creare il primo modello](resource-manager-create-first-template.md)
+## [Creare e distribuire il modello](resource-manager-create-first-template.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Esempi
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [Distribuire un modello](resource-manager-samples-powershell-deploy.md)
 
@@ -64,20 +65,24 @@
 #### [Portale](resource-group-create-service-principal-portal.md)
 ### [API di autenticazione per accedere alle sottoscrizioni](resource-manager-api-authentication.md)
 ### [Bloccare le risorse](resource-group-lock-resources.md)
-### [Considerazioni relative alla sicurezza](best-practices-resource-manager-security.md)
 
 ## Impostare i criteri delle risorse
 ### [Informazioni sui criteri delle risorse](resource-manager-policy.md)
-### [Assegnazione di un criterio tramite il portale](resource-manager-policy-portal.md)
-### [Assegnazione di un criterio tramite script](resource-manager-policy-create-assign.md)
-### [Criteri dei tag delle risorse](resource-manager-policy-tags.md)
-### [Criteri di archiviazione](resource-manager-policy-storage.md)
-### [Criteri delle VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-### [Criteri delle VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Usare il portale per assegnare i criteri](resource-manager-policy-portal.md)
+### [Usare gli script per assegnare i criteri](resource-manager-policy-create-assign.md)
+### esempi
+#### [Tag](resource-manager-policy-tags.md)
+#### [Convenzioni di denominazione](resource-manager-policy-naming-convention.md)
+#### [Rete](resource-manager-policy-network.md)
+#### [Archiviazione](resource-manager-policy-storage.md)
+#### [VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+#### [VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Usare le applicazioni gestite
-### [Pubblicare l'applicazione gestita](managed-application-publishing.md)
-### [Utilizzare l'applicazione gestita](managed-application-consumption.md)
+### [Pubblicare un'applicazione del catalogo di servizi](managed-application-publishing.md)
+### [Utilizzare un'applicazione del catalogo di servizi](managed-application-consumption.md)
+### [Pubblicare un'applicazione del Marketplace](managed-application-author-marketplace.md)
+### [Utilizzare un'applicazione del Marketplace](managed-application-consume-marketplace.md)
 ### [Creare definizioni dell'interfaccia utente](managed-application-createuidefinition-overview.md)
 
 ## Audit
@@ -86,6 +91,11 @@
 
 ## Risoluzione dei problemi
 ### [Errori di distribuzione comuni](resource-manager-common-deployment-errors.md)
+### [Informazioni sugli errori di distribuzione](resource-manager-troubleshoot-tips.md)
+### [Errore RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+### Errori di distribuzione delle macchine virtuali
+#### [Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+#### [Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # Riferimento
 ## [Formato del modello](/azure/templates/)
@@ -93,6 +103,7 @@
 ### [Matrici e funzioni oggetto](resource-group-template-functions-array.md)
 ### [Funzioni di confronto](resource-group-template-functions-comparison.md)
 ### [Funzioni di distribuzione](resource-group-template-functions-deployment.md)
+### [Funzioni logiche](resource-group-template-functions-logical.md)
 ### [Funzioni numeriche](resource-group-template-functions-numeric.md)
 ### [Funzioni delle risorse](resource-group-template-functions-resource.md)
 ### [Funzioni stringa](resource-group-template-functions-string.md)
@@ -119,8 +130,10 @@
 ## [REST](/rest/api/resources/)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Limitazione delle richieste](resource-manager-request-limits.md)
 ## [Tenere traccia delle operazioni asincrone](resource-manager-async-operations.md)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=azure-resource-manager)

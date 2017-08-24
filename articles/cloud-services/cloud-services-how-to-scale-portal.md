@@ -1,5 +1,5 @@
 ---
-title: "Configurazione della scalabilità automatica di un servizio cloud nel portale classico | Documentazione Microsoft"
+title: "Configurazione della scalabilità automatica di un servizio cloud nel portale | Documentazione Microsoft"
 description: "Informazioni su come usare il portale per configurare le regole di scalabilità automatica per un ruolo Web o un ruolo di lavoro del servizio cloud in Azure."
 services: cloud-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 05/18/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 7891fbd326340ed102f885e84993ef987e044023
-ms.lasthandoff: 03/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
+ms.openlocfilehash: e746decaea19477e52aba3ce714d8dd10140602e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/23/2017
 
 ---
 
@@ -44,19 +45,16 @@ Prima di configurare la scalabilità per l'applicazione, tenere presente quanto 
 
 * Per abilitare la disponibilità elevata dell'applicazione, è necessario accertarsi che sia distribuita con due o più istanze del ruolo. Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 
-> [!WARNING]
-> La scalabilità automatica funziona solo con gli account di archiviazione di Azure classico. Non funziona con gli account di archiviazione di Azure Resource Manager.
-
 
 ## <a name="where-scale-is-located"></a>Posizione della scalabilità
 Dopo aver selezionato il servizio cloud, viene visualizzato il pannello del servizio cloud.
 
 1. Nel pannello del servizio cloud, nel riquadro **Ruoli e istanze** , selezionare il nome del servizio cloud.   
    **IMPORTANTE**: assicurarsi di selezionare il ruolo del servizio cloud, non l'istanza del ruolo che si trova sotto il ruolo.
-   
+
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selezionare il riquadro **Ridimensiona** .
-   
+
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Scalabilità automatica
@@ -78,25 +76,25 @@ Dopo aver configurato il profilo e le regole, selezionare l'icona **Salva** nell
 Il profilo imposta istanze minime e massime per la scalabilità, anche quando è attivo questo intervallo di scalabilità.
 
 * **Sempre**
-  
+
     Consente di mantenere sempre disponibile questo intervallo di istanze.  
-  
+
     ![Servizio cloud che esegue sempre la scalabilità](./media/cloud-services-how-to-scale-portal/select-always.png)
 * **Ricorrenza**
-  
+
     Consente di scegliere un set di giorni della settimana per la scalabilità.
-  
+
     ![Scalabilità del servizio cloud con pianificazione ricorrente](./media/cloud-services-how-to-scale-portal/select-recurrence.png)
 * **Data fissa**
-  
+
     Un intervallo di date fisso per eseguire la scalabilità del ruolo.
-  
+
     ![Scalabilità del servizio cloud con data fissa](./media/cloud-services-how-to-scale-portal/select-fixed.png)
 
 Dopo aver configurato il profilo, selezionare il pulsante **OK** nella parte inferiore del pannello del profilo.
 
 #### <a name="rule"></a>Regola
-Le regole vengono aggiunte al profilo e rappresentano la condizione che attiva la scalabilità. 
+Le regole vengono aggiunte al profilo e rappresentano la condizione che attiva la scalabilità.
 
 Il trigger della regola è basato su una metrica del servizio cloud (uso della CPU, attività del disco o attività di rete) a cui è possibile aggiungere un valore condizionale. È anche possibile impostare il trigger in base a una coda di messaggi o alla metrica di un'altra risorsa di Azure associata alla sottoscrizione.
 
@@ -109,12 +107,11 @@ Accedere a [Impostazioni scalabilità](#where-scale-is-located) e impostare l'op
 
 ![Impostazioni di scalabilità dei servizi cloud con profilo e regola](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-Questa impostazione rimuove la scalabilità automatica dal ruolo e quindi è possibile impostare direttamente il numero di istanze. 
+Questa impostazione rimuove la scalabilità automatica dal ruolo e quindi è possibile impostare direttamente il numero di istanze.
 
 1. L'opzione di scalabilità (manuale o automatica).
 2. Un dispositivo di scorrimento delle istanze del ruolo per impostare le istanze da ridimensionare.
 3. Istanze del ruolo da ridimensionare.
 
 Dopo aver configurato il profilo e le regole, selezionare l'icona **Salva** nella parte superiore.
-
 

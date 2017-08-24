@@ -1,6 +1,6 @@
 ---
 title: Gestione e personalizzazione di Active Directory Federation Services con Azure AD Connect | Microsoft Docs
-description: Gestione di AD FS con Azure AD Connect e personalizzazione dell&quot;esperienza utente di accesso ad AD FS con Azure AD Connect e PowerShell.
+description: Gestione di AD FS con Azure AD Connect e personalizzazione dell'esperienza utente di accesso ad AD FS con Azure AD Connect e PowerShell.
 keywords: AD FS, ADFS, gestione di AD FS, AAD Connect, Connect, accesso, personalizzazione di AD FS, ripristino trust, O365, federazione, relying party
 services: active-directory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/4/2016
-ms.author: anandy
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 2a64405c0862d09dd487d260a651123eafbcaf99
-ms.lasthandoff: 04/10/2017
-
+ms.date: 07/18/2017
+ms.author: billmath
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 14f03542a6553c5bb697192828368ffe6b96441c
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
@@ -176,6 +176,9 @@ Con Azure AD Connect è facile aggiungere un dominio per la federazione con Azur
 5. Fare clic su **Avanti**. Nella pagina **Pronto per la configurazione** viene visualizzato l'elenco delle azioni che verranno eseguite da Azure AD Connect. Fare clic su **Installa** per completare la configurazione.
 
    ![Pronto per la configurazione](media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
+
+> [!NOTE]
+> Prima che possano accedere ad Azure AD, gli utenti del dominio federato aggiunto devono essere sincronizzati.
 
 ## <a name="ad-fs-customization"></a>Personalizzazione di AD FS
 Le sezioni seguenti offrono informazioni dettagliate su alcune attività comuni che potrebbe essere necessario eseguire durante la configurazione della pagina di accesso ad AD FS.

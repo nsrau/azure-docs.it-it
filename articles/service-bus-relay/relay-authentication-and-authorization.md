@@ -1,6 +1,6 @@
 ---
 title: Autenticazione e autorizzazione di Inoltro di Azure | Documentazione Microsoft
-description: Panoramica dell&quot;autenticazione con firma di accesso condiviso (SAS) in Inoltro di Azure
+description: Panoramica dell'autenticazione con firma di accesso condiviso (SAS) in Inoltro di Azure
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2017
+ms.date: 07/03/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 64874564c54dd37108f1075fb54181f2324cb229
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticazione e autorizzazione di Inoltro di Azure
-Le applicazioni possono eseguire l'autenticazione a Inoltro di Azure usando l'autenticazione con firma di accesso condiviso (SAS). Simile alla [messaggistica del bus di servizio](../service-bus-messaging/service-bus-authentication-and-authorization.md), l'autenticazione con firma di accesso condivisa consente alle applicazioni di eseguire l'autenticazione al servizio Inoltro di Azure tramite una chiave di accesso configurata nello spazio dei nomi di Inoltro. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso che i client possono usare per eseguire l'autenticazione al servizio di inoltro.
+Le applicazioni possono eseguire l'autenticazione a Inoltro di Azure usando l'autenticazione con firma di accesso condiviso (SAS). Simile alla [messaggistica del bus di servizio](../service-bus-messaging/service-bus-authentication-and-authorization.md), l'autenticazione con firma di accesso condivisa consente alle applicazioni di eseguire l'autenticazione al servizio Inoltro di Azure tramite una chiave di accesso configurata nello spazio dei nomi di inoltro. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso che i client possono usare per eseguire l'autenticazione al servizio di inoltro.
 
 ## <a name="shared-access-signature-authentication"></a>Autenticazione della firma di accesso condiviso
-L'[autenticazione SAS](../service-bus-messaging/service-bus-sas.md) garantisce l'accesso dell'utente alle risorse di inoltro del bus di servizio con diritti specifici. Nel bus di servizio l'autenticazione SAS implica la configurazione di una chiave di crittografia con i relativi diritti in una risorsa. I client possono quindi ottenere l'accesso a questa risorsa presentando un token di firma di accesso condiviso composto dall'URI della risorsa a cui si vuole accedere e da una scadenza firmata con la chiave configurata.
+L'[autenticazione SAS](../service-bus-messaging/service-bus-sas.md) garantisce l'accesso dell'utente alle risorse del servizio Inoltro di Azure con diritti specifici. Nel bus di servizio l'autenticazione SAS implica la configurazione di una chiave di crittografia con i relativi diritti in una risorsa. I client possono quindi ottenere l'accesso a questa risorsa presentando un token di firma di accesso condiviso composto dall'URI della risorsa a cui si vuole accedere e da una scadenza firmata con la chiave configurata.
 
 È possibile configurare le chiavi per la firma di accesso condiviso in uno spazio dei nomi di Inoltro. A differenza della messaggistica del bus di servizio, le [connessioni ibride di inoltro](relay-hybrid-connections-protocol.md) supportano mittenti non autorizzati o anonimi. È possibile abilitare l'accesso anonimo per l'entità quando la si crea, come illustrato nella schermata riportata di seguito dal portale:
 

@@ -1,9 +1,9 @@
 ---
 title: App universale Windows v2.0 di Azure AD | Microsoft Docs
-description: Come creare un&quot;app universale di Windows che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell&quot;istituto di istruzione.
+description: Come creare un'app universale di Windows che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione.
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: d2c92b65-3c1d-46d1-81c8-88f32f6b2c4b
@@ -13,10 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.date: 02/20/2016
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 349633ed039f3af2ee04d10e944eba404bb30950
+ms.author: jmprieur
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: 8013fc618fe78ea16c21a4605deb91797bf00f7d
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -31,10 +34,5 @@ ms.openlocfilehash: 349633ed039f3af2ee04d10e944eba404bb30950
     ## Get security updates for our products
 
 È consigliabile ricevere notifiche in caso di problemi di sicurezza. A tale scopo, visitare [questa pagina](https://technet.microsoft.com/security/dd252948) e sottoscrivere gli avvisi di sicurezza.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

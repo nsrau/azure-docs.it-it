@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/31/2017
+ms.date: 06/06/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 70b04cde5fe877355c1dea29c78df3dcb8277973
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
+ms.contentlocale: it-it
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -36,6 +37,7 @@ Iniziare da qui se non si ha familiarità con Ricerca di Azure. La revisione di 
 | [Eseguire una query su un indice](search-get-started-portal.md) | Creare ed eseguire query su un indice usando i dati di esempio incorporati. Gli strumenti del portale sono un modo rapido per avere informazioni sui tipi di query e i parametri di ricerca. | Febbraio 2017 |
 | [Passaggio successivo:<br/> codifica in .NET](search-howto-dotnet-sdk.md) | La procedura dettagliata C# illustra come connettersi, indicizzare ed eseguire una query tramite la libreria .NET di Ricerca di Azure. | Novembre 2016 |
 | [Passaggio successivo:<br/> codifica in REST](search-create-index-rest-api.md) | Esaminare le chiamate REST e i payload JSON per creare un indice di Ricerca di Azure su qualsiasi piattaforma e linguaggio di programmazione. | Dicembre 2016 |
+| [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md) | Architettura e panoramica di carichi di lavoro per la ricerca full-text in Ricerca di Azure. | Marzo 2017 |
 
 ## <a name="code-samples"></a>Esempi di codice
 
@@ -55,6 +57,7 @@ Applicazioni Web completamente funzionali che usano Ricerca di Azure per l'esper
 
 | Collegamento | Descrizione |
 |-------|-------------|
+|[Search Analyzer Demo](http://alice.unearth.ai) | Un sito Web demo in tempo reale che mostra il risultato della query dell'analizzatore Lucene Standard, dell'analizzatore per l'inglese Lucene e del processore del linguaggio naturale di Microsoft. Ogni volta che si inserisce un termine di ricerca, è possibile visualizzare un confronto laterale del risultato di ogni analizzatore. |
 |[Demo del portale delle offerte di lavoro per New York City (NYC) per Ricerca di Azure](http://aka.ms/azjobsdemo) | Un sito Web ASP.NET che illustra le funzionalità di Ricerca di Azure usando i dati di NYC Open Data Initiative. L'app usa la [sintassi di query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx). È possibile modificare il codice per provare la [sintassi Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx). |
 |[Tate Art Gallery Demo](https://rawgit.com/liamca/azure-search-tate-art-gallery/master/Demo/index.html) (Demo sulla galleria d'arte Tate) | Un sito Web ASP.NET ospitato che usa dati di esempio della galleria d'arte Tate. Come primo passaggio, provare a cercare termini come "modern", "photo" e "portrait".
 |[Azure Search Demo Site](https://searchsamples.azurewebsites.net/#/) (Sito demo di Ricerca di Azure) | Una raccolta di app demo per Ricerca di Azure. Prova la ricerca dei file multimediali, la ricerca geografica e le app dell’inventario del prodotto mediante la Ricerca di Azure. |

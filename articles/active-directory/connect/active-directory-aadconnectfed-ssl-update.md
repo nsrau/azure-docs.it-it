@@ -12,20 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2016
+ms.date: 08/02/2017
 ms.author: anandy
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 9bb29624324305f5295e0a50ef79d8f4c6d063c0
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
+ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
+ms.contentlocale: it-it
+ms.lasthandoff: 08/03/2017
 
 ---    
 
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Aggiornare il certificato SSL per una farm Active Directory Federation Services (AD FS)
 
 ## <a name="overview"></a>Panoramica
-Questo articolo descrive come usare Azure AD Connect per aggiornare il certificato SSL relativo a una farm Active Directory Federation Services (AD FS). Se come metodo di accesso in Azure AD Connect è impostato AD FS, è possibile usare lo strumento Azure AD Connect per aggiornare facilmente il certificato SSL per la farm AD FS. È possibile farlo per tutti i server federativi e i server proxy applicazione Web in tre semplici passaggi:
+Questo articolo descrive come usare Azure AD Connect per aggiornare il certificato SSL relativo a una farm Active Directory Federation Services (AD FS). È possibile usare lo strumento Azure AD Connect per aggiornare facilmente il certificato SSL per la farm AD FS anche il metodo di accesso utente selezionato non è AD FS.
+
+È possibile eseguire l'intera operazione di aggiornamento del certificato SSL per la farm AD FS in tutti i server federativi e proxy applicazione Web in tre semplici passaggi:
 
 ![Tre passaggi](./media/active-directory-aadconnectfed-ssl-update/threesteps.png)
 
@@ -65,10 +67,10 @@ Dopo aver confermato le informazioni sui server della farm AD FS, Azure AD Conne
 
 Dopo aver specificato il certificato, Azure AD Connect esegue una serie di verifiche dei prerequisiti per assicurarsi che il certificato sia corretto per la farm AD FS:
 
--    Il nome soggetto o il nome soggetto alternativo del certificato deve corrispondere al nome del servizio federativo oppure il certificato deve contenere caratteri jolly.
--    Il certificato deve essere valido per più di 30 giorni.
--    La catena di certificati deve essere valida.
--    Il certificato deve essere protetto da password.
+-   Il nome soggetto o il nome soggetto alternativo del certificato deve corrispondere al nome del servizio federativo oppure il certificato deve contenere caratteri jolly.
+-   Il certificato deve essere valido per più di 30 giorni.
+-   La catena di certificati deve essere valida.
+-   Il certificato deve essere protetto da password.
 
 ## <a name="step-3-select-servers-for-the-update"></a>Passaggio 3: Selezionare i server per l'aggiornamento
 

@@ -1,6 +1,6 @@
 ---
-title: Pubblicare un&quot;app in un cluster remoto con Visual Studio | Documentazione Microsoft
-description: Scoprire come pubblicare un&quot;applicazione in un cluster remoto Service Fabric usando Visual Studio.
+title: Pubblicare un'app in un cluster remoto con Visual Studio | Documentazione Microsoft
+description: Scoprire come pubblicare un'applicazione in un cluster remoto Service Fabric usando Visual Studio.
 services: service-fabric
 documentationcenter: na
 author: cawams
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 4ee53679ca6f42f2181e6552fce89c18f289a116
-ms.lasthandoff: 04/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
+ms.contentlocale: it-it
+ms.lasthandoff: 07/12/2017
 
 ---
-# <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>Pubblicare un'applicazione in un cluster remoto tramite Visual Studio
+# <a name="deploy-and-remove-applications-using-visual-studio"></a>Distribuire e rimuovere applicazioni con Visual Studio
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -44,17 +44,15 @@ Una cartella nel progetto di applicazione di Service Fabric denominata **Publish
 * Percorso di un file di parametri dell'applicazione
 * Impostazioni di aggiornamento
 
-Per impostazione predefinita, l'applicazione include due profili di pubblicazione: Local.xml e Cloud.xml. È possibile aggiungere altri profili copiando e incollando uno dei file predefiniti.
+Per impostazione predefinita, l'applicazione include tre profili di pubblicazione: Local.1Node.xml, Local.5Node.xml e Cloud.xml. È possibile aggiungere altri profili copiando e incollando uno dei file predefiniti.
 
 ### <a name="application-parameter-files"></a>File di parametri dell'applicazione
 Una cartella nel progetto dell'applicazione di Service Fabric denominata **ApplicationParameters** contiene i file XML per i valori dei parametri del manifesto dell'applicazione specificati dall'utente. I file manifesto dell'applicazione possono essere parametrizzati in modo che si possano usare diversi valori per le impostazioni di distribuzione. Per altre informazioni sulla parametrizzazione dell'applicazione, vedere l'articolo relativo alla [gestione di più ambienti in Service Fabric](service-fabric-manage-multiple-environment-app-configuration.md).
 
 > [!NOTE]
 > Per i servizi attore, è necessario compilare il progetto prima di tentare la modifica del file in un editor o tramite la finestra di dialogo di pubblicazione. Questo accade perché una parte dei file manifesto viene generata durante la compilazione.
-> 
-> 
 
-## <a name="to-publish-an-application-by-using-the-publish-service-fabric-application-dialog-box"></a>Pubblicare un'applicazione usando la finestra di dialogo per la pubblicazione dell'applicazione di Service Fabric
+## <a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box"></a>Per pubblicare un'applicazione usando la finestra di dialogo Pubblica applicazione di Service Fabric
 I passaggi seguenti illustrano come pubblicare un'applicazione usando la finestra di dialogo **Pubblica applicazione di Service Fabric** fornita dagli strumenti di Visual Studio per Service Fabric.
 
 1. Nel menu di scelta rapida del progetto di applicazione di Service Fabric scegliere **Pubblica...** per visualizzare la finestra di dialogo **Pubblica applicazione di Service Fabric**.
@@ -91,7 +89,7 @@ I passaggi seguenti illustrano come pubblicare un'applicazione usando la finestr
 6. Dopo aver specificato tutte le impostazioni necessarie, scegliere il pulsante **Pubblica** per pubblicare l'applicazione nel cluster dell'infrastruttura di servizi selezionato. Le impostazioni specificate vengono applicate al processo di pubblicazione.
 
 ## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Pubblicare in un endpoint di cluster arbitrario (inclusi i party cluster)
-L'esperienza di pubblicazione di Visual Studio è ottimizzata per la pubblicazione in cluster remoti associati a una delle sottoscrizioni di Azure. Tuttavia, è possibile eseguire la pubblicazione in endpoint arbitrari (ad esempio, party cluster di Service Fabric) modificando direttamente il profilo di pubblicazione XML. Come indicato in precedenza, per impostazione predefinita sono disponibili due profili di pubblicazione, **Local.xml** e **Cloud.xml**, ma è possibile creare profili aggiuntivi per ambienti diversi. Ad esempio, è possibile creare un profilo per la pubblicazione nei party cluster denominato **Party.xml**.
+L'esperienza di pubblicazione di Visual Studio è ottimizzata per la pubblicazione in cluster remoti associati a una delle sottoscrizioni di Azure. Tuttavia, è possibile eseguire la pubblicazione in endpoint arbitrari (ad esempio, party cluster di Service Fabric) modificando direttamente il profilo di pubblicazione XML. Come indicato in precedenza, per impostazione predefinita sono disponibili tre profili di pubblicazione, **Local.1Node.xml**, **Local.5Node.xml** e **Cloud.xml**, ma è possibile crearne altri per ambienti diversi. Ad esempio, è possibile creare un profilo per la pubblicazione nei party cluster denominato **Party.xml**.
 
 Se ci si connette a un cluster non protetto, è necessario unicamente l'endpoint di connessione del cluster, ad esempio `partycluster1.eastus.cloudapp.azure.com:19000`. In tal caso, l'endpoint di connessione nel profilo di pubblicazione sarà simile al seguente:
 

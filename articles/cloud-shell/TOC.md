@@ -14,3 +14,7 @@
 
 # Riferimento
 ## [Interfaccia della riga di comando di Azure 2.0](/cli/azure) 
+
+# Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

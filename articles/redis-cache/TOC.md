@@ -34,6 +34,7 @@
 ###[Provider di cache di output](cache-aspnet-output-cache-provider.md)
 ## Manage
 ###[Configurare nel portale](cache-configure.md)
+###[Configurare la replica geografica](cache-how-to-geo-replication.md)
 ###[Importare/esportare dati](cache-how-to-import-export-data.md)
 ###[Reboot](cache-administration.md#reboot)
 ###[Pianificare gli aggiornamenti](cache-administration.md#schedule-updates)
@@ -44,8 +45,11 @@
 ## Scalabilità
 ###[Effettuare l'aggiornamento a dimensioni e livello diversi](cache-how-to-scale.md)
 ###[Usare il cluster Redis per aumentare/ridurre](cache-how-to-premium-clustering.md)
+## Integrare con Spring Boot
+###[Usare un'app di inizializzazione Spring Boot con Cache Redis](cache-java-spring-boot-initializer-with-redis-cache.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=redis-cache)
 ## [PowerShell](/powershell/module/azurerm.rediscache)
 ## [Anteprima dell'interfaccia della riga di comando di Azure 2.0](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
@@ -55,6 +59,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # Risorse
-## [Esempi di Cache Redis](cache-redis-samples.md)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/cache/)
+## [Esempi di Cache Redis](cache-redis-samples.md)
 

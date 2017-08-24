@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
-ms.lasthandoff: 01/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 527d011476b046add0842b1c7275fc6507be31d4
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC con DRM multiplo e controllo di accesso: progettazione di riferimento e implementazione in Azure e in Servizi multimediali di Azure
@@ -57,7 +57,7 @@ La tabella seguente riepiloga l'app nativa/piattaforma e i browser supportati da
 | --- | --- | --- | --- |
 | **Smart TV, STB operatore, STB OTT** |Principalmente PlayReady e/o Widevine e/o altro |Linux, Opera, WebKit, altri |Vari formati |
 | **Dispositivi Windows 10 (PC Windows, tablet Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (per HLS, PlayReady non è supportato)<br/><br/>DASH, Smooth Streaming (per HLS, PlayReady non è supportato) |
-| **Dispositivi Android (telefoni, tablet, TV)** |Widevine |Chrome/EME |DASH |
+| **Dispositivi Android (telefoni, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), client OS X e Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
 
@@ -274,7 +274,7 @@ Azure AD usa lo standard di settore per stabilire una relazione di trust tra se 
 
 Informazioni dettagliate sul rollover della chiave di Azure AD sono disponibili nel documento: [Important Information about Signing Key Rollover in Azure AD](../active-directory/active-directory-signing-key-rollover.md)(Informazioni importanti sul rollover della chiave di firma in Azure AD).
 
-Tra la [coppia di chiavi pubblica-privata](https://login.windows.net/common/discovery/keys/):
+Tra la [coppia di chiavi pubblica-privata](https://login.microsoftonline.com/common/discovery/keys/):
 
 * La chiave privata viene usata da Azure Active Directory per generare un token JWT.
 * La chiave pubblica viene usata da un'applicazione, ad esempio i servizi di distribuzione delle licenze DRM in AMS, per verificare il token JWT.
@@ -457,3 +457,4 @@ In questo documento è stata illustrata la crittografia CENC con DRM nativo mult
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
+

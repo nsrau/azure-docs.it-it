@@ -1,6 +1,6 @@
 ---
 title: Desktop remoto per una macchina virtuale Linux | Microsoft Docs
-description: Informazioni sull&quot;installazione e la configurazione di Desktop remoto per collegarsi a una macchina virtuale Linux di Microsoft Azure.
+description: Informazioni sull'installazione e la configurazione di Desktop remoto per la connessione a una macchina virtuale Linux di Microsoft Azure per il modello di distribuzione classica
 services: virtual-machines-linux
 documentationcenter: 
 author: SuperScottz
@@ -13,40 +13,41 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2016
+ms.date: 05/30/2017
 ms.author: mingzhan
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: b909d0d18452127cd33bbaa362a12ec414a22329
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 68031d548bdbeda9a83d1bceaaea7c5bbcab3188
+ms.contentlocale: it-it
+ms.lasthandoff: 06/26/2017
 
 
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Uso di Desktop remoto per connettersi a una macchina virtuale Linux di Microsoft Azure.
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per la versione aggiornata di questo articolo relativa a Resource Manager, vedere [qui](../use-remote-desktop.md).
 
 ## <a name="overview"></a>Panoramica
 Il protocollo RDP (Remote Desktop Protocol) è un protocollo proprietario utilizzato per Windows. Come si può utilizzare RDP per connettersi a una VM (macchina virtuale) Linux in modalità remota?
 
-L'articolo seguente risponderà a questa domanda. Consentirà di installare e configurare xrdp su macchine virtuali Linux di Microsoft Azure e di connettersi con Desktop remoto da un computer Windows. Utilizzeremo una macchina virtuale Linux che esegue Ubuntu o OpenSUSE come nell'esempio riportato in questa guida.
+L'articolo seguente risponderà a questa domanda. Illustrerà come installare e configurare xrdp su una macchina virtuale Linux di Microsoft Azure in modo da connettersi a essa con Desktop remoto da un computer Windows. Utilizzeremo una macchina virtuale Linux che esegue Ubuntu o OpenSUSE come nell'esempio riportato in questa guida.
 
-Xrdp è un server RDP open source, che consente di connettere il server Linux con Desktop remoto da un computer Windows. Funziona molto meglio di VNC (Virtual Network Computing). VNC ha fama di qualità "JPEG" e di lentezza di funzionamento, mentre RDP è veloce e nitido.
+Lo strumento xrdp è un server RDP open source che consente di connettere il server Linux con Desktop remoto da un computer Windows. RDP offre prestazioni migliori di VNC (Virtual Network Computing). VNC esegue il rendering usando una grafica di qualità JPEG e può risultare lento, mentre RDP è veloce e nitido.
 
 > [!NOTE]
 > È necessario disporre di una macchina virtuale di Microsoft Azure che esegue Linux. Vedere l'[esercitazione relativa alle macchine virtuali Linux di Azure](createportal.md)per creare e impostare una macchina virtuale Linux.
 > 
 > 
 
-## <a name="create-endpoint-for-remote-desktop"></a>Creare endpoint per Desktop remoto
-In questo documento verrà usato l'endpoint predefinito 3389 per Desktop remoto. Quindi, configurare l'endpoint 3389 come Desktop remoto per la macchina virtuale Linux come segue:
+## <a name="create-an-endpoint-for-remote-desktop"></a>Creare un endpoint per Desktop remoto
+In questo documento verrà usato l'endpoint predefinito 3389 per Desktop remoto. Configurare l'endpoint 3389 come `Remote Desktop` per la macchina virtuale Linux nel modo seguente:
 
-![immagine](./media/remote-desktop/no1.png)
+![immagine](./media/remote-desktop/endpoint-for-linux-server.png)
 
-Se non si è al corrente di come configurare endpoint per la macchina virtuale, vedere [queste indicazioni](setup-endpoints.md).
+Per informazioni su come configurare un endpoint per la macchina virtuale, vedere [queste indicazioni](setup-endpoints.md).
 
 ## <a name="install-gnome-desktop"></a>Installare Gnome Desktop
-Connettersi alla macchina virtuale Linux tramite putty e installare `Gnome Desktop`.
+Connettersi alla macchina virtuale Linux tramite `putty` e installare `Gnome Desktop`.
 
 Per Ubuntu, utilizzare:
 
@@ -82,36 +83,35 @@ Per OpenSUSE, usare:
 
 Per Ubuntu, xrdp verrà avviato e abilitato automaticamente al momento dell'avvio dopo l'installazione.
 
-## <a name="using-xfce-if-you-are-using-ubuntu-version-later-than-ubuntu-1204lts"></a>Uso di xfce se si usa una versione di Ubuntu successiva a Ubuntu 12.04LTS
-Poiché attualmente xrdp non supporta Gnome Desktop dalla versione di Ubuntu successiva a Ubuntu 12.04LTS, verrà usato Desktop `xfce` .
+## <a name="using-xfce-if-you-are-using-an-ubuntu-version-later-than-ubuntu-1204lts"></a>Uso di xfce se si usa una versione di Ubuntu successiva a Ubuntu 12.04LTS
+Poiché attualmente xrdp non supporta Gnome Desktop per le versioni di Ubuntu successive a Ubuntu 12.04LTS, verrà usato Desktop `xfce`.
 
-Installare `xfce`, usare:
+Per installare `xfce`, usare questo comando:
 
     #sudo apt-get install xubuntu-desktop
 
-Quindi abilitare `xfce`, usare:
+Quindi abilitare `xfce` usando questo comando:
 
     #echo xfce4-session >~/.xsession
 
-Modificare il file di configurazione `/etc/xrdp/startwm.sh`, usare:
+Modificare il file di configurazione `/etc/xrdp/startwm.sh`:
 
     #sudo vi /etc/xrdp/startwm.sh   
 
 Aggiungere la riga `xfce4-session` prima della riga `/etc/X11/Xsession`.
 
-Riavviare il servizio xrdp, usare:
+Per riavviare il servizio xrdp, usare:
 
     #sudo service xrdp restart
 
 
 ## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Connettersi alla macchina virtuale Linux da un computer Windows
-In un computer Windows avviare il client desktop remoto, immettere il nome DNS della VM Linux oppure passare al `Dashboard` della VM nel portale di Azure classico e fare clic su `Connect` per connettere la VM Linux, verrà visualizzata la finestra di accesso seguente:
+In un computer Windows avviare il client Desktop remoto e immettere il nome DNS della macchina virtuale Linux oppure passare al dashboard della macchina virtuale nel portale di Azure e fare clic su `Connect` per connettere la macchina virtuale Linux. In questo caso verrà visualizzata la finestra di accesso:
 
 ![immagine](./media/remote-desktop/no2.png)
 
-Accedere con `user` & `password` per la macchina Linux e sarà possibile usare subito Desktop remoto dalla macchina virtuale Linux di Microsoft Azure.
+Accedere con il nome utente e la password della macchina virtuale Linux.
 
-## <a name="next"></a>Avanti
-Per altre informazioni sull'uso di xrdp, vedere [questa pagina](http://www.xrdp.org/).
-
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sull'uso di xrdp, vedere [http://www.xrdp.org/](http://www.xrdp.org/).
 

@@ -17,12 +17,10 @@
 ### [Sviluppare e distribuire un'applicazione Node.js](cloud-services-nodejs-develop-deploy-app.md)
 ### [Sviluppare un'applicazione Web Node.js con Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Archiviazione e Visual Studio
-#### [Archivio BLOB e servizi connessi](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Archivio code e servizi connessi](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Archivio tabelle e servizi connessi](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Archivio BLOB e servizi connessi](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Archivio code e servizi connessi](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Archivio tabelle e servizi connessi](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Configurare i pacchetti per la compilazione continua e la distribuzione
-#### [Visual Studio Team Services e Git](cloud-services-continuous-delivery-use-vso-git.md)
-#### [Visual Studio Team Services](cloud-services-continuous-delivery-use-vso.md)
 #### [TFS e Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurare le regole del traffico per un ruolo](cloud-services-enable-communication-role-instances.md)
 ### [Gestire eventi del ciclo di vita dei servizi cloud](cloud-services-role-lifecycle-dotnet.md)
@@ -102,16 +100,23 @@
 ### [Problemi di distribuzione comuni](cloud-services-troubleshoot-deployment-problems.md)
 ### [Errore di avvio di un ruolo](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Informazioni aggiuntive sul ripristino](cloud-services-disaster-recovery-guidance.md)
-### [Domande frequenti sui servizi cloud](cloud-services-faq.md)
+### Domande frequenti sui servizi cloud
+#### [Domande frequenti sulla disponibilità dell'applicazione e del servizio](cloud-services-application-and-service-availability-faq.md)
+#### [Domande frequenti su configurazione e gestione](cloud-services-configuration-and-management-faq.md)
+#### [Domande frequenti su connettività e rete](cloud-services-connectivity-and-networking-faq.md)
+#### [Domande frequenti sulla distribuzione](cloud-services-deployment-faq.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [XML Schema .csdef](https://msdn.microsoft.com/library/azure/ee758711)
 ## [XMLSchema .cscfg](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Risorse
-## [Prezzi](https://azure.microsoft.com/pricing/details/cloud-services/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
-## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment)
+## [Prezzi](https://azure.microsoft.com/pricing/details/cloud-services/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cloud-services)

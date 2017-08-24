@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti sull&quot;integrazione dei log di Azure | Microsoft Docs
-description: Queste domande frequenti riguardano l&quot;integrazione dei log di Azure.
+title: Domande frequenti sull'integrazione dei log di Azure | Microsoft Docs
+description: Queste domande frequenti riguardano l'integrazione dei log di Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -11,18 +11,19 @@ ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/07/2017
+ms.workload8: na
+ms.date: 08/07/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f539fc2945b9c6646660d50713d11dd7d822d06f
-ms.lasthandoff: 03/31/2017
-
+ms.custom: azlog
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 9b9285ec659e7d3d3f6aa42a88bb6e822e2dfc91
+ms.contentlocale: it-it
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-log-integration-frequently-asked-questions-faq"></a>Domande frequenti sull'integrazione dei log di Azure
-Queste domande frequenti riguardano l'integrazione dei log di Azure, un servizio che consente di integrare log non elaborati delle risorse di Azure nei sistemi di gestione di informazioni ed eventi di sicurezza locali. Questa integrazione fornisce un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza associati alle applicazioni.
+Queste domande frequenti riguardano l'integrazione dei log di Azure, un servizio del sistema operativo Windows che consente di integrare log non elaborati delle risorse di Azure nei sistemi di gestione di informazioni ed eventi di sicurezza locali (SIEM). Questa integrazione fornisce un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza associati alle applicazioni.
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Il software di integrazione dei log di Azure è gratuito?
 Sì. Non è previsto alcun addebito per il software di integrazione dei log di Azure.
@@ -31,8 +32,18 @@ Sì. Non è previsto alcun addebito per il software di integrazione dei log di A
 
 Attualmente è disponibile nell'area commerciale di Azure e in Azure per enti pubblici e non è disponibile in Cina né in Germania.
 
-## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>Come è possibile vedere gli account di archiviazione da cui l'integrazione dei log di Azure estrae i log delle VM di Azure?
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>Come si fa a vedere gli account di archiviazione da cui l'integrazione dei log di Azure estrae i log delle VM di Azure?
 Eseguire il comando **azlog source list**.
+
+## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Come stabilire da quale sottoscrizione provengono i log dell'integrazione del Log di Azure?
+
+Nel caso dei log di controllo che si trovano nella directory **AzureResourcemanagerJson**, l'ID della sottoscrizione è il nome del file di log. Questo vale anche per i log nella cartella **AzureSecurityCenterJson**. ad esempio:
+
+20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
+
+I log di controllo di Azure Active Directory includono l'ID tenant come parte del nome.
+
+I log di diagnostica che vengono letti da un Hub eventi non includono l'ID di sottoscrizione come parte del nome. Includono invece il nome descrittivo specificato nell'ambito della creazione dell'origine dell'Hub eventi. 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>Come è possibile aggiornare la configurazione del proxy?
 Se la configurazione del proxy non consente l'accesso di archiviazione di Azure direttamente, aprire il file **AZLOG.EXE.CONFIG** in **c:\Programmi\Integrazione dei log di Microsoft Azure**. Aggiornare il file in modo che includa la sezione **defaultProxy** con l'indirizzo del proxy dell'organizzazione. Al termine dell'aggiornamento, arrestare e avviare il servizio usando i comandi **net stop azlog** e **net start azlog**.
@@ -54,7 +65,7 @@ Se la configurazione del proxy non consente l'accesso di archiviazione di Azure 
       </system.diagnostics>   
 
 ## <a name="how-can-i-see-the-subscription-information-in-windows-events"></a>Come è possibile vedere le informazioni sulla sottoscrizione negli eventi di Windows?
-Aggiungere il **subscriptionid** al nome descrittivo durante l'aggiunta dell'origine.
+Aggiungere l'**ID sottoscrizione** al nome descrittivo quando si aggiunge l'origine.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
 L'XML dell'evento include i metadati illustrati di seguito, compreso l'ID sottoscrizione.
@@ -62,7 +73,7 @@ L'XML dell'evento include i metadati illustrati di seguito, compreso l'ID sottos
 ![XML dell'evento][1]
 
 ## <a name="error-messages"></a>messaggi di errore
-### <a name="when-running-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Durante l'esecuzione del comando **azlog createazureid**, perché viene visualizzato il seguente errore?
+### <a name="when-running-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Perché viene visualizzato il seguente errore durante l'esecuzione del comando ```azlog createazureid```?
 Error:
 
   *Impossibile creare l'applicazione AAD - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Motivo = "Accesso negato" - Messaggio = "Privilegi insufficienti per completare l'operazione".*
@@ -113,6 +124,9 @@ Dopo aver apportato modifiche, verificare l'account di archiviazione per assicur
 
 Se si verificano problemi durante l'installazione e la configurazione, aprire una [richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) e selezionare **Integrazione log** come servizio per cui si richiede il supporto.
 
+### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-in-to-my-siem"></a>È possibile usare l'integrazione dei log di Azure per integrare i log di Network Watcher nel SIEM personale?
+
+Il controllo di rete genera grandi quantità di informazioni di registrazione e tali log non sono pensati per essere inviati a un SIEM. L'unica destinazione supportata per i log di controllo di rete è un account di archiviazione. Azlog non supporta la lettura di questi log e li rende disponibili per un SIEM
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

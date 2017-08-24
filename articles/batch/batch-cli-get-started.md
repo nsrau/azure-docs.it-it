@@ -1,6 +1,6 @@
 ---
-title: Introduzione all&quot;interfaccia della riga di comando di Azure per Batch | Documentazione Microsoft
-description: Introduzione rapida ai comandi per Batch nell&quot;interfaccia della riga di comando di Azure per la gestione delle risorse del servizio Azure Batch
+title: Introduzione all'interfaccia della riga di comando di Azure per Batch | Microsoft Docs
+description: Introduzione rapida ai comandi per Batch nell'interfaccia della riga di comando di Azure per la gestione delle risorse del servizio Azure Batch
 services: batch
 documentationcenter: 
 author: tamram
@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 079632f304112e1034abbd7385506292f10e128d
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure 2.0 è la nuova esperienza della riga di comando di Azure per gestire le risorse di Azure. Può essere usata in macOS, Linux e Windows. L'interfaccia della riga di comando di Azure 2.0 è ottimizzata per la gestione e l'amministrazione delle risorse di Azure dalla riga di comando. Si può usare l'interfaccia della riga di comando di Azure per gestire gli account Azure Batch e le risorse, come pool, processi e attività. Con l'interfaccia della riga di comando di Azure è possibile creare script per molte delle attività eseguite con le API Batch, il portale di Azure e i cmdlet di PowerShell per Batch.
 
-Questo articolo offre una panoramica dell'uso dell'[interfaccia della riga di comando di Azure versione 2.0](https://docs.microsoft.com/cli/azure/overview) con Batch. Per una panoramica dell'uso dell'interfaccia della riga di comando con Azure, vedere [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md).
+Questo articolo offre una panoramica dell'uso dell'[interfaccia della riga di comando di Azure versione 2.0](https://docs.microsoft.com/cli/azure/overview) con Batch. Per una panoramica dell'uso dell'interfaccia della riga di comando con Azure, vedere [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 È consigliabile usare la versione più recente dell'interfaccia della riga di comando di Azure 2.0. Per altre informazioni sulla versione 2.0, vedere l'articolo relativo alla [disponibilità generale dell'interfaccia della riga di comando di Azure 2.0](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
 
@@ -78,7 +77,7 @@ Ai fini di questo articolo, viene illustrato come accedere ad Azure in modo inte
 az login
 ```
 
-Il comando `az login` restituisce un token che verrà usato per eseguire l'autenticazione, come illustrato di seguito. Seguire le istruzioni fornite per aprire una pagina Web e inviare il token ad Azure:
+Il comando `az login` restituisce un token che può essere usato per eseguire l'autenticazione, come illustrato di seguito. Seguire le istruzioni fornite per aprire una pagina Web e inviare il token ad Azure:
 
 ![Accedere ad Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +118,10 @@ Per l'autenticazione con l'account Batch è possibile procedere in due modi:
     ```
 
 Gli esempi riportati nella sezione [Script della shell di esempio](#sample-shell-scripts) mostrano come accedere all'account Batch con l'interfaccia della riga di comando di Azure usando sia Azure AD che la chiave condivisa.
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)
+
+È possibile usare l'interfaccia della riga di comando di Azure per eseguire processi di Batch end-to-end senza scrivere codice. I file di modello del servizio Batch supportano la creazione di pool, processi e attività con l'interfaccia della riga di comando di Azure. È anche possibile usare l'interfaccia della riga di comando di Azure per caricare file di input dei processi nell'account di archiviazione di Azure associato all'account Batch e quindi scaricare file di output dei processi da tale interfaccia. Per altre informazioni, vedere [Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)](batch-cli-templates.md).
 
 ## <a name="sample-shell-scripts"></a>Script della shell di esempio
 
@@ -180,13 +183,14 @@ I suggerimenti riportati di seguito possono contribuire alla risoluzione di prob
 * Usare `-h` per visualizzare il **testo della Guida** per qualsiasi comando dell'interfaccia della riga di comando.
 * Usare `-v` e `-vv` per visualizzare l'output del comando **verbose**. Quando il flag `-vv` è incluso, l'interfaccia della riga di comando di Azure visualizza le richieste REST e le risposte effettive. Queste opzioni sono utili per visualizzare l'output completo degli errori.
 * È possibile visualizzare l'**output del comando in formato JSON** con l'opzione `--json`. Ad esempio, `az batch pool show pool001 --json` visualizza le proprietà di pool001 in formato JSON. È quindi possibile copiare e modificare tale output per l'uso in un `--json-file` (vedere [File JSON](#json-files) più indietro in questo articolo).
+<!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 * Il [forum di Batch][batch_forum] è monitorato dai membri del team di Batch. Se si riscontrano problemi o si vuole assistenza per un'operazione specifica, è possibile pubblicare le proprie domande nel forum.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 * Per altre informazioni sulle risorse Batch, vedere la [panoramica di Azure Batch per gli sviluppatori](batch-api-basics.md).
-* Per informazioni su come usare questa funzionalità per gestire e distribuire le applicazioni eseguite nei nodi di calcolo di Batch, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md) .
+* Per altre informazioni sull'uso dei modelli del servizio Batch per creare pool processi e attività senza scrivere codice, vedere [Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)](batch-cli-templates.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

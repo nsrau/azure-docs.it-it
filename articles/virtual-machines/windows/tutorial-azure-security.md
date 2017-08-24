@@ -15,6 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: ec4b06a341f74e021a8745bfb324358c0a12b6ec
@@ -36,7 +37,7 @@ Il Centro sicurezza di Azure consente di ottenere visibilità nelle procedure pe
 
 Il Centro sicurezza aiuta a identificare i potenziali problemi di configurazione e le minacce specifiche alla sicurezza delle macchina virtuale. Questi possono includere macchine virtuali mancanti dei gruppi di sicurezza di rete, dischi non crittografati e attacchi di forza bruta Remote Desktop Protocol (RDP). Queste informazioni vengono mostrate nel dashboard del Centro sicurezza sotto forma di grafici di facile lettura.
 
-Per accedere al dashboard del Centro sicurezza, nel portale di Azure selezionare nel menu  **	Centro sicurezza**. Nel dashboard è possibile visualizzare l'integrità della sicurezza dell'ambiente Azure, accedere a una serie di raccomandazioni valide e visualizzare lo stato corrente degli avvisi di minaccia. È possibile espandere ogni grafico di alto livello per visualizzare altri dettagli.
+Per accedere al dashboard del Centro sicurezza, nel portale di Azure selezionare nel menu **Centro sicurezza**. Nel dashboard è possibile visualizzare l'integrità della sicurezza dell'ambiente Azure, accedere a una serie di raccomandazioni valide e visualizzare lo stato corrente degli avvisi di minaccia. È possibile espandere ogni grafico di alto livello per visualizzare altri dettagli.
 
 ![Dashboard del Centro sicurezza](./media/tutorial-azure-security/asc-dash.png)
 

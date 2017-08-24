@@ -1,5 +1,4 @@
 ---
-
 title: "Report delle attività di accesso nel portale di Azure Active Directory | Microsoft Docs"
 description: "Introduzione ai report delle attività di accesso nel portale di Azure Active Directory"
 services: active-directory
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/19/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 19cd81c1e6020523d1bea3ec76c957ce22f931ca
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b9e61950654ba427b09dd608d354589a0804aaa5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
@@ -37,6 +36,17 @@ L'architettura di reporting in Azure Active Directory include i componenti segue
     - **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per informazioni dettagliate, vedere Utenti contrassegnati per il rischio.
 
 In questo argomento viene offerta una panoramica delle attività di accesso.
+
+## <a name="pre-requisite"></a>Prerequisito.
+
+### <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
+* Gli utenti con ruolo di amministratore della sicurezza o con autorizzazioni di lettura per la sicurezza
+* Gli amministratori globali
+* Qualsiasi utente (non amministratore) può visualizzare i propri accessi 
+
+### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Quale licenza di Azure AD è necessaria per visualizzare le attività di accesso?
+* Per visualizzare il report completo delle attività di accesso, è necessario che al tenant sia associata una licenza di Azure AD Premium
+
 
 ## <a name="signs-in-activities"></a>Attività di accesso
 
@@ -188,6 +198,7 @@ L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di acces
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).
+
+Per altre informazioni sui codici di errore dell'attività di accesso, vedere [Codici di errore del report delle attività di accesso nel portale di Azure Active Directory](active-directory-reporting-activity-sign-ins-errors.md).
 
 

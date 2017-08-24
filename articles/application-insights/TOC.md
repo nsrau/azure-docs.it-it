@@ -1,6 +1,6 @@
 # Panoramica
 ## [Informazioni su Azure Application Insights](app-insights-overview.md)
-## [Monitoraggio delle prestazioni in un ciclo DevOps](app-insights-detect-triage-diagnose.md)
+## [Panoramica del monitoraggio delle prestazioni per DevOps](app-insights-detect-triage-diagnose.md)
 
 # Introduzione
 ## Monitorare Azure
@@ -42,7 +42,9 @@
 ## Configurare
 ### Azure
 #### [Profiler](app-insights-profiler.md)
+#### [Abilitare il profiler](enable-profiler-cloud-services.md)
 #### [Diagnostica](app-insights-azure-diagnostics.md)
+#### [Anteprime](app-insights-previews.md)
 
 ### ASP.NET
 #### [Raccogliere altri dati di telemetria](app-insights-asp-net-more.md)
@@ -79,7 +81,6 @@
 #### [Ricerca](app-insights-diagnostic-search.md)
 #### [Metriche](app-insights-metrics-explorer.md)
 #### [Live stream](app-insights-live-stream.md)
-
 #### [Mappa delle applicazioni](app-insights-app-map.md)
 #### [Dati HockeyApp](app-insights-hockeyapp-bridge-app.md)
 
@@ -91,8 +92,12 @@
 
 ### Utilizzo
 #### [Panoramica](app-insights-usage-overview.md)
-#### [Conservazione](app-insights-usage-retention.md)
+#### [Inviare il contesto utente](app-insights-usage-send-user-context.md)
 #### [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
+#### [Grafici a imbuto](usage-funnels.md)
+#### [Conservazione](app-insights-usage-retention.md)
+#### [Flussi degli utenti](app-insights-usage-flows.md)
+#### [Cartelle di lavoro](app-insights-usage-workbooks.md)
 
 ### Analytics
 
@@ -108,15 +113,18 @@
 ### [Creare le risorse](app-insights-powershell-script-create-resource.md)
 ### [Impostare gli avvisi](app-insights-powershell-alerts.md)
 ### [Ottenere dati di diagnostica di Azure](app-insights-powershell-azure-diagnostics.md)
+### [Automatizzare con Microsoft Flow](app-insights-automate-with-flow.md)
+### [Automatizzare con un'app per la logica di Azure](automate-with-logic-apps.md)
 
 ## Sviluppare
 
-### [API per eventi e metriche personalizzati](app-insights-api-custom-events-metrics.md)
+### [API per metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md)
+### [Tenere traccia delle operazioni personalizzate in .NET SDK](application-insights-custom-operations-tracking.md)
 ### [Filtri e pre-elaborazione della telemetria](app-insights-api-filtering-sampling.md)
 ### [Campionamento](app-insights-sampling.md)
 
 ## Gestisci
-### [Gestire prezzi e quote](app-insights-pricing.md)
+### [Gestire i prezzi e il volume dati](app-insights-pricing.md)
 ### [Application Performance Monitoring con Application Insights per SCOM](app-insights-scom.md)
 
 ## Esporta
@@ -135,7 +143,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Riferimento
-## [Analisi](app-insights-analytics-reference.md)
+## [Analisi](https://docs.loganalytics.io/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -149,12 +157,15 @@
 ### [Metrica](application-insights-data-model-metric-telemetry.md)
 ### [Contesto](application-insights-data-model-context.md)
 ## [Correlazione di dati di telemetria](application-insights-correlation.md)
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 
 ## [Linguaggi e piattaforme](app-insights-platforms.md)
 
 ## [Prezzi](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
 ## Novità
 

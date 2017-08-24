@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+ms.date: 07/19/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 4b7192b22d1583be2b2ab027b040c9a2fce8a293
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
@@ -81,39 +81,9 @@ Quando si crea un gruppo di risorse è necessario specificarne il percorso. Perc
 ## <a name="resource-providers"></a>Provider di risorse
 Ogni provider di risorse offre una serie di risorse e operazioni per l'uso di un servizio di Azure. Per archiviare chiavi e segreti sarà ad esempio necessario usare il provider di risorse **Microsoft.KeyVault** . Questo provider di risorse offre un tipo di risorsa denominato **vaults** per creare l'insieme di credenziali delle chiavi. 
 
-Prima di iniziare con la distribuzione delle risorse è necessario comprendere i provider di risorse disponibili. Conoscere i nomi dei provider di risorse e delle risorse consente di definire le risorse da distribuire in Azure.
+Il nome di un tipo di risorsa è nel formato: **{resource-provider}/{resource-type}**. Ad esempio, il tipo di insieme di credenziali delle chiavi è **Microsoft.KeyVault/vaults**.
 
-È possibile visualizzare tutti i provider di risorse tramite il portale. Nel pannello relativo alla sottoscrizione selezionare **Provider di risorse**:
-
-![visualizzare i provider di risorse](./media/resource-group-overview/view-resource-providers.png)
-
-È possibile recuperare tutti i provider di risorse con il cmdlet di PowerShell seguente:
-
-```powershell
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Con la versione 2.0 dell'interfaccia della riga di comando di Azure è invece possibile recuperare tutti i provider di risorse con il comando seguente:
-
-```azurecli
-az provider list
-```
-
-È possibile esaminare l'elenco restituito per trovare i provider di risorse da usare.
-
-Per ottenere informazioni dettagliate su un provider di risorse, aggiungere lo spazio dei nomi del provider al comando. Il comando restituisce i tipi di risorse supportati per il provider di risorse, oltre alle posizioni e alle versioni API supportate per ogni tipo di risorsa. Il cmdlet di PowerShell seguente consente di ottenere informazioni dettagliate su Microsoft.Compute:
-
-```powershell
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
-```
-
-In alternativa, usare la versione 2.0 dell'interfaccia della riga di comando di Azure per recuperare i tipi di risorse, le posizioni e le versioni API supportati per Microsoft.Compute con il comando seguente:
-
-```azurecli
-az provider show --namespace Microsoft.Compute
-```
-
-Per altre informazioni, vedere [Provider, aree, versioni API e schemi di Resource Manager](resource-manager-supported-services.md).
+Prima di iniziare con la distribuzione delle risorse è necessario comprendere i provider di risorse disponibili. Conoscere i nomi dei provider di risorse e delle risorse consente di definire le risorse da distribuire in Azure. Inoltre, è necessario conoscere le posizioni e le versioni dell'API valide per ogni tipo di risorsa. Per altre informazioni, vedere [Provider e tipi di risorse](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 Resource Manager consente di creare un modello in formato JSON che definisce l'infrastruttura e la configurazione della soluzione di Azure. Usando il modello è possibile distribuire ripetutamente la soluzione nel corso del ciclo di vita garantendo al contempo che le risorse vengano distribuite in uno stato coerente. Quando si crea una soluzione dal portale, la soluzione include automaticamente un modello di distribuzione. Non è necessario creare un modello da zero perché è possibile iniziare con il modello per la soluzione e personalizzarlo per soddisfare esigenze specifiche. È possibile recuperare un modello per un gruppo di risorse esistente esportando lo stato corrente del gruppo di risorse oppure visualizzando il modello usato per una distribuzione specifica. Per conoscere la sintassi del modello è molto utile visualizzare il [modello esportato](resource-manager-export-template.md).
@@ -169,8 +139,6 @@ Se si immaginano livelli con cicli di vita separati, è possibile distribuire i 
 ![modello a livelli](./media/resource-group-overview/tier-templates.png)
 
 Per altre informazioni sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Azure Resource Manager](best-practices-resource-manager-design-templates.md). Per informazioni sui modelli annidati, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
-
-Per una serie di quattro parti sull'automazione della distribuzione, vedere [Automazione della distribuzione di applicazioni nelle macchine virtuali di Azure](../virtual-machines/windows/dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Questa serie illustra argomenti come architettura, accesso e sicurezza, disponibilità, scalabilità e distribuzione delle applicazioni.
 
 Azure Resource Manager analizza le dipendenze per far sì che le risorse vengano create nell'ordine corretto. Se una risorsa si basa sul valore di un'altra risorsa, ad esempio una macchina virtuale che richiede un account di archiviazione per i dischi, impostare una dipendenza. Per altre informazioni, vedere [Definizione delle dipendenze nei modelli di Gestione risorse di Azure](resource-group-define-dependencies.md).
 
@@ -287,49 +255,28 @@ L'esempio seguente illustra un criterio che garantisce la coerenza dei tag speci
 È possibile creare molti altri tipi di criteri. Per altre informazioni, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](resource-manager-policy.md).
 
 ## <a name="sdks"></a>SDK
-Azure SDK sono disponibili per più linguaggi e piattaforme.
-Ogni implementazione del linguaggio è disponibile tramite Gestione pacchetti del relativo ecosistema e in GitHub.
-
-Il codice in ogni SDK viene generato dalle specifiche dell'API RESTful di Azure.
-Queste specifiche sono open source e si basano sulla specifica Swagger 2.0.
-Il codice degli SDK viene generato con un progetto open source denominato AutoRest.
-AutoRest trasforma le specifiche delle API basate su REST in librerie client in più linguaggi.
-Se si vogliono migliorare alcuni aspetti del codice generato negli SDK, l'intero set di strumenti per creare gli SDK è aperto, disponibile gratuitamente e basato su un formato di specifica API ampiamente diffuso.
+Azure SDK sono disponibili per più linguaggi e piattaforme. Ogni implementazione del linguaggio è disponibile tramite Gestione pacchetti del relativo ecosistema e in GitHub.
 
 Di seguito sono riportati i repository SDK open source. Sono graditi commenti e suggerimenti, segnalazioni di problemi e richieste pull.
 
-[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
+* [Azure SDK per .NET](https://github.com/Azure/azure-sdk-for-net)
+* [Librerie di gestione di Azure per Java](https://github.com/Azure/azure-sdk-for-java)
+* [Azure SDK per Node.js](https://github.com/Azure/azure-sdk-for-node)
+* [Azure SDK per PHP](https://github.com/Azure/azure-sdk-for-php)
+* [Azure SDK per Python](https://github.com/Azure/azure-sdk-for-python)
+* [Azure SDK per Ruby](https://github.com/Azure/azure-sdk-for-ruby)
+
+Per informazioni sull'uso di questi linguaggi con le proprie risorse, vedere:
+
+* [Azure for .NET developers](/dotnet/azure/?view=azure-dotnet) (Azure per sviluppatori .NET)
+* [Azure for Java developers](/java/azure/) (Azure per sviluppatori Java)
+* [Azure for Node.js developers](/nodejs/azure/) (Azure per sviluppatori Node.js)
+* [Azure for Python developers](/python/azure/) (Azure per sviluppatori Python)
 
 > [!NOTE]
 > Se l'SDK non offre le funzionalità necessarie, è anche possibile chiamare direttamente l' [API REST di Azure](https://docs.microsoft.com/rest/api/resources/) .
 > 
 > 
-
-## <a name="samples"></a>Esempi
-### <a name="net"></a>.NET
-* [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-
-### <a name="java"></a>Java
-* [Manage Azure resources (Gestire risorse di Azure)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
-* [Manage Azure resource groups (Gestire gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-
-### <a name="nodejs"></a>Node.js
-* [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-
-### <a name="python"></a>Python
-* [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-
-### <a name="ruby"></a>Ruby
-* [Manage Azure resources and resource groups (Gestire risorse e gruppi di risorse di Azure)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-* [Deploy an SSH Enabled VM with a Template (Distribuire una macchina virtuale abilitata per SSH con un modello)](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
-Oltre che in questi esempi, è possibile cercare negli esempi della raccolta.
-
-[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una semplice introduzione all'uso dei modelli, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).

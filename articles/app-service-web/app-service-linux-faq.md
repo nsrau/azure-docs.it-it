@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dcce8d855f8c37d40fe8f09ef0a97e46b342e3cf
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: ff4f4ecd12bc26fcc44a20a193d73f952ed56f1a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -56,11 +55,15 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **D:** L'app Web usa ancora un'immagine obsoleta del contenitore Docker dopo l'aggiornamento dell'immagine su DockerHub. È supportata l'integrazione/distribuzione continua di contenitori personalizzati?
 
-**R:** Per configurare l'integrazione o la distribuzione continua per le immagini di DockerHub consultare l'articolo seguente [Distribuzione continua dell'hub Docker con App Web in Linux](./app-service-linux-ci-cd.md). Per registri privati, è possibile aggiornare il contenitore arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore.
+**R:** Per configurare l'integrazione o la distribuzione continua per Registro contenitori di Azure o le immagini di DockerHub, consultare l'articolo [Distribuzione continua con App Web di Azure in Linux](./app-service-linux-ci-cd.md). Per registri privati, è possibile aggiornare il contenitore arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore.
 
 **D:** Gli ambienti di gestione temporanea sono supportati?
 
 **R:** Sì.
+
+**D:** È possibile usare **Distribuzione Web** per distribuire l'app Web?
+
+**R:** Sì, è necessario impostare `WEBSITE_WEBDEPLOY_USE_SCM` nell'app su `false`.
 
 ## <a name="language-support"></a>Supporto per le lingue
 
@@ -70,7 +73,7 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **R:** È previsto il supporto per lo strumento Composer come gestore delle dipendenze per le app PHP?
 
-**R:** No. Le app PHP dovranno essere distribuite con tutte le dipendenze. Per il futuro, è prevista l'implementazione di un'esperienza di distribuzione completa.
+**R:** Sì. Durante una distribuzione Git, Kudu rileverà che si sta distribuendo un'applicazione PHP (grazie alla presenza di un file composer.json) e attiverà automaticamente l'installazione di Composer.
 
 ## <a name="custom-containers"></a>Contenitori personalizzati
 
@@ -100,7 +103,7 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **D:** Il contenitore personalizzato è in attesa su una porta diversa dalla porta 80. Come si può configurare l'app in modo da indirizzare le richieste a questa porta?
 
-**R:** È presente la rilevazione automatica della porta, ma è anche possibile specificare un'impostazione dell'applicazione denominata **PORTA** e assegnare a tale impostazione il valore del numero di porta previsto.
+**R:** È presente la rilevazione automatica della porta, ma è anche possibile specificare un'impostazione dell'applicazione denominata **WEBSITES_PORT** e assegnare a tale impostazione il valore del numero di porta previsto. In precedenza, la piattaforma usava l'impostazione dell'app `PORT`. È previsto che l'uso di questa impostazione dell'app venga deprecato per passare all'uso esclusivo di `WEBSITES_PORT`.
 
 **D:** È necessario implementare HTTPS nel contenitore personalizzato?
 
@@ -127,5 +130,5 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 * [Creazione di app Web in App Web di Azure in Linux](app-service-linux-how-to-create-web-app.md)
 * [SSH support for Azure Web App on Linux](./app-service-linux-ssh-support.md) (Supporto SSH per App Web di Azure in Linux)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](./web-sites-staged-publishing.md)
-* [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md) (Distribuzione continua dell'hub Docker con App Web di Azure in Linux)
+* [Distribuzione continua con App Web di Azure in Linux](./app-service-linux-ci-cd.md)
 

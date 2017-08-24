@@ -1,6 +1,6 @@
 ---
-title: "Che cos&quot;è SQL Data Warehouse di Azure? | Documentazione Microsoft"
-description: "Database distribuito di livello aziendale, in grado di elaborare volumi di dati relazionali e non relazionali anche nell&quot;ordine di petabyte. Si tratta del primo data warehouse basato sul cloud del settore con possibilità di aumento, riduzione e sospensione in pochi secondi."
+title: "Che cos'è SQL Data Warehouse di Azure? | Documentazione Microsoft"
+description: "Database distribuito di livello aziendale, in grado di elaborare volumi di dati relazionali e non relazionali anche nell'ordine di petabyte. Si tratta del primo data warehouse basato sul cloud del settore con possibilità di aumento, riduzione e sospensione in pochi secondi."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -16,10 +16,10 @@ ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;barbkess
 ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: fd35b0e5c57e47c5e79fe926f24fb21089cbf89a
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
 ms.contentlocale: it-it
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -144,7 +144,7 @@ Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Casi di successo dei clienti]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
+[Casi di successo dei clienti]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Blog]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blog Customer Advisory Team]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Richieste di funzionalità]: https://feedback.azure.com/forums/307516-sql-data-warehouse

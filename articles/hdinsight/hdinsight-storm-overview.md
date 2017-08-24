@@ -7,7 +7,7 @@ author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-keywords: casi d&quot;uso di Apache Storm,cluster Storm,informazioni su Apache Storm
+keywords: casi d'uso di Apache Storm,cluster Storm,informazioni su Apache Storm
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 9c17268d775d0c54468a38a85c746d624f449a9d
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 073672f1223313938baedee027072cb96062294b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="what-is-apache-storm-on-azure-hdinsight"></a>Informazioni su Apache Storm in Azure HDInsight
+# <a name="what-is-apache-storm-on-azure-hdinsight"></a>Che cos'è Apache Storm in Azure HDInsight?
 
-[Apache Storm](http://storm.apache.org/) è un sistema di calcolo distribuito, a tolleranza di errore e open source. È possibile usare un cluster Storm per elaborare flussi di dati in tempo reale con Hadoop. Le soluzioni Storm possono fornire anche l'elaborazione garantita dei dati che consente di ripetere l'operazione per i dati non elaborati correttamente la prima volta.
+[Apache Storm](http://storm.apache.org/) è un sistema di calcolo distribuito, a tolleranza di errore e open source. È possibile usare Storm per elaborare i flussi di dati in tempo reale con Hadoop. Le soluzioni Storm possono fornire anche l'elaborazione garantita dei dati che consente di ripetere l'operazione per i dati non elaborati correttamente la prima volta.
 
 Storm in HDInsight offre i vantaggi chiave seguenti:
 

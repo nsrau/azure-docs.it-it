@@ -1,9 +1,9 @@
 ---
-title: Esempi dell&quot;API di controllo di creazione report di Azure Active Directory | Documentazione Microsoft
-description: Come iniziare a usare l&quot;API di creazione report di Azure Active Directory
+title: Esempi dell'API di controllo di creazione report di Azure Active Directory | Documentazione Microsoft
+description: Come iniziare a usare l'API di creazione report di Azure Active Directory
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
-ms.openlocfilehash: 8216fa7ab092b2d0225d075d933fa56fbab56f40
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aab705688079601bbce93455f7dda80cdd733110
 ms.contentlocale: it-it
-ms.lasthandoff: 12/28/2016
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-reporting-audit-api-samples"></a>Esempi dell'API di creazione report di Azure Active Directory
@@ -29,7 +29,7 @@ L'obiettivo di questo argomento è fornire codice di esempio per l' **API di con
 
 Vedere:
 
-* [Log di controllo](active-directory-reporting-azure-portal.md#audit-logs) .
+* [Log di controllo](active-directory-reporting-azure-portal.md#activity-reports) .
 * [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md) .
 
 Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
@@ -100,7 +100,7 @@ Lo script restituisce l'output del report di controllo in formato JSON. Crea anc
 
     CLIENT_ID="your-application-client-id-here"         # Should be a ~35 character string insert your info here
     CLIENT_SECRET="your-application-client-secret-here" # Should be a ~44 character string insert your info here
-    LOGIN_URL="https://login.windows.net"
+    LOGIN_URL="https://login.microsoftonline.com"
     TENANT_DOMAIN="your-directory-name-here.onmicrosoft.com"    # For example, contoso.onmicrosoft.com
 
     TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
@@ -130,7 +130,7 @@ Lo script restituisce l'output del report di controllo in formato JSON. Crea anc
 
     client_id = 'your-application-client-id-here'
     client_secret = 'your-application-client-secret-here'
-    login_url = 'https://login.windows.net/'
+    login_url = 'https://login.microsoftonline.com/'
     tenant_domain = 'your-directory-name-here.onmicrosoft.com'
 
     # Get an OAuth access token

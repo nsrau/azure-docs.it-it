@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Connettere un&quot;App Web a una cache Redis | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Connettere un&quot;App Web a una cache Redis
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Connettere un'App Web a una cache Redis | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Connettere un'App Web a una cache Redis
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -13,13 +13,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
+ms.date: 06/19/2017
 ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: f94cfaf5a2c8585dadf9fec74feb6d8875a1b3e4
+ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
+ms.openlocfilehash: b697c8508a6c3422b6b0d0ca36843a9c884b505f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -28,6 +29,10 @@ ms.lasthandoff: 05/15/2017
 Questo scenario illustra come creare una cache Redis di Azure e un'App Web di Azure. La cache Redis viene quindi collegata all'App Web usando le impostazioni dell'app.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -43,10 +48,10 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'App Web,
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Consente di creare un'App Web di Azure all'interno del piano di servizio app. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Crea un'App Web di Azure. |
 | [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) | Creare una nuova istanza della cache Redis. Qui vengono archiviati i dati. |
 | [az redis list-keys](https://docs.microsoft.com/en-us/cli/azure/redis#list-keys) | Elenca le chiavi di accesso per l'istanza della cache Redis. |
-| [az appservice web config appsetings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) | Crea o aggiorna un'impostazione per un'app Web di Azure. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
+| [az webapp config appsettings set](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | Crea o aggiorna un'impostazione per un'app Web di Azure. Le impostazioni delle app vengono esposte come variabili di ambiente dell'applicazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

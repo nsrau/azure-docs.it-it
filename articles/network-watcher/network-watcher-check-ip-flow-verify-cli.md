@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 73d398613fc726ebd51ab6b107dc46c44caffdcc
-ms.lasthandoff: 03/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 0b52257a6c38a4392573672b7190d2269c2f145a
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
@@ -26,12 +27,16 @@ ms.lasthandoff: 03/28/2017
 > [!div class="op_single_selector"]
 > - [Portale di Azure](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
-> - [CLI](network-watcher-check-ip-flow-verify-cli.md)
+> - [Interfaccia della riga di comando 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
+> - [Interfaccia della riga di comando 2.0](network-watcher-check-ip-flow-verify-cli.md)
 > - [API REST di Azure](network-watcher-check-ip-flow-verify-rest.md)
+
 
 La verifica del flusso IP è una funzionalità di Network Watcher che consente di verificare se il traffico da o verso una macchina virtuale è consentito o negato. Questo scenario è utile per stabilire se una macchina virtuale può comunicare con una risorsa esterna o back-end. La funzionalità può essere usata per verificare se le regole del gruppo di sicurezza di rete sono configurate correttamente e per risolvere i problemi dei flussi bloccati da tali regole. La verifica del flusso IP consente inoltre di verificare che il traffico che si vuole bloccare sia correttamente bloccato dal gruppo di sicurezza di rete.
 
-Questo articolo usa l'interfaccia della riga di comando di Azure 1.0 multipiattaforma, disponibile per Windows, Mac e Linux. Network Watcher usa attualmente l'interfaccia della riga di comando di Azure 1.0 per il supporto dell'interfaccia della riga di comando.
+Questo articolo usa l'interfaccia della riga di comando di nuova generazione per il modello di distribuzione di gestione delle risorse, ovvero l'interfaccia della riga di comando di Azure 2.0, disponibile per Windows, Mac e Linux.
+
+Per eseguire i passaggi indicati in questo articolo è necessario [installare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (interfaccia della riga di comando di Azure)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -41,29 +46,28 @@ Questo scenario presuppone il completamento dei passaggi descritti in [Creare un
 
 Questo scenario usa la verifica del flusso IP per verificare se una macchina virtuale può comunicare con un indirizzo IP Bing noto. Se il traffico viene negato, restituisce la regola di sicurezza che nega il traffico. Per altre informazioni sulla verifica del flusso IP, leggere la [panoramica sulla verifica del flusso IP](network-watcher-ip-flow-verify-overview.md)
 
-
 ## <a name="get-a-vm"></a>Ottenere una macchina virtuale
 
 La verifica del flusso IP esegue il test del traffico da o verso un indirizzo IP su una macchina virtuale da o verso una destinazione remota. Il cmdlet richiede un ID di macchina virtuale. Se l'ID della macchina virtuale da usare è già noto, è possibile ignorare questo passaggio.
 
-```
-azure vm show -g resourceGroupName -n virtualMachineName
+```azurecli
+az vm show --resource-group MyResourceGroup5431 --name MyVM-Web
 ```
 
 ## <a name="get-the-nics"></a>Ottenere le schede NIC
 
 È necessario l'indirizzo IP di una scheda di rete nella macchina virtuale. In questo esempio vengono recuperate le schede NIC in una macchina virtuale. Se l'indirizzo IP da testare nella macchina virtuale è già noto, è possibile ignorare questo passaggio.
 
-```
-azure network nic show -g resourceGroupName -n nicName
+```azurecli
+az network nic show --resource-group MyResourceGroup5431 --name MyNic-Web
 ```
 
 ## <a name="run-ip-flow-verify"></a>Eseguire la verifica del flusso IP
 
-Dopo aver ottenuto le informazioni necessarie per eseguire il cmdlet, eseguire il cmdlet `network watcher ip-flow-verify` per testare il traffico. In questo esempio, viene usato il primo indirizzo IP nella prima scheda NIC.
+Dopo aver ottenuto le informazioni necessarie per eseguire il cmdlet, eseguire il cmdlet `az network watcher test-ip-flow` per testare il traffico. In questo esempio, viene usato il primo indirizzo IP nella prima scheda NIC.
 
-```
-azure network watcher ip-flow-verify -g resourceGroupName -n networkWatcherName -t targetResourceId -d directionInboundorOutbound -p protocolTCPorUDP -o localPort -m remotePort -l localIpAddr -r remoteIpAddr
+```azurecli
+az network watcher test-ip-flow --resource-group resourceGroupName --direction directionInboundorOutbound --protocol protocolTCPorUDP --local ipAddressandPort --remote ipAddressandPort --vm vmNameorID --nic nicNameorID
 ```
 
 > [!NOTE]
@@ -71,12 +75,13 @@ azure network watcher ip-flow-verify -g resourceGroupName -n networkWatcherName 
 
 ## <a name="review-results"></a>Esaminare i risultati
 
-Dopo aver eseguito `network watcher ip-flow-verify` vengono restituiti i risultati. L'esempio seguente mostra i risultati restituiti nel passaggio precedente.
+Dopo aver eseguito `az network watcher test-ip-flow` vengono restituiti i risultati. L'esempio seguente mostra i risultati restituiti nel passaggio precedente.
 
-```
-data:    Access                          : Deny
-data:    Rule Name                       : defaultSecurityRules/DefaultInboundDenyAll
-info:    network watcher ip-flow-verify command OK
+```azurecli
+{
+    "access": "Allow",
+    "ruleName": "defaultSecurityRules/AllowInternetOutBound"
+}
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -12,27 +12,33 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/28/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
-ms.openlocfilehash: b56d75d49e0b95025dd1a0bae532f677958eac8d
-ms.lasthandoff: 01/10/2017
+ms.date: 07/02/2017
+ms.author: vturecek
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ca36f42897cd44d6da1a3cb6db53f656cf6256ee
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="service-fabric-programming-model-overview"></a>Panoramica dei modelli di programmazione di Service Fabric
-Service Fabric offre diversi modi per scrivere e gestire i servizi. È possibile far sì che i servizi usino le API di Service Fabric per sfruttare appieno le funzionalità della piattaforma e il framework delle applicazioni oppure i servizi possono consistere semplicemente in qualsiasi programma eseguibile compilato scritto in un qualsiasi linguaggio e ospitato in un cluster di Service Fabric.
+Service Fabric offre diversi modi per scrivere e gestire i servizi. I servizi possono scegliere di usare le API di Service Fabric per sfruttare appieno le funzionalità della piattaforma e i framework applicazione. I servizi possono essere anche qualsiasi programma eseguibile compilato scritto in qualsiasi linguaggio o qualsiasi codice eseguito in un contenitore e ospitato in un cluster di Service Fabric.
 
-## <a name="guest-executable"></a>Eseguibile guest
-Un eseguibile guest è un eseguibile arbitrario, scritto in un qualsiasi linguaggio, che consente di ospitare le applicazioni esistenti in un cluster di Service Fabric. Un eseguibile guest può essere compresso in un'applicazione e ospitato insieme con altri servizi. Service Fabric gestisce l'orchestrazione e la gestione dell'esecuzione dell'eseguibile, assicurando che rimanga operativo in base alla descrizione del servizio. Tuttavia, poiché gli eseguibili guest non si integrano direttamente con le API di Service Fabric, non usano il set completo di funzionalità offerte dalla piattaforma, ad esempio la personalizzazione dei report su integrità e carico, la registrazione degli endpoint di servizio e il calcolo con stato.
+## <a name="guest-executables"></a>Eseguibili guest
+Un [eseguibile guest](service-fabric-deploy-existing-app.md) è un eseguibile arbitrario esistente, scritto in un qualsiasi linguaggio, che può essere eseguito come servizio nell'applicazione. I file eseguibili guest non chiamano direttamente le API di Service Fabric SDK. Tuttavia sfruttano le funzionalità offerte dalla piattaforma, quali individuabilità dei servizi , report di integrità e caricamento personalizzati mediante chiamate ad API REST esposte da Service Fabric. Gli eseguibili guest dispongono anche di supporto completo del ciclo di vita dell'applicazione.
 
 Introduzione agli eseguibili guest con distribuzione della prima [applicazione eseguibile guest](service-fabric-deploy-existing-app.md).
 
-## <a name="reliable-services"></a>Reliable Services
-Reliable Services è un framework leggero per la scrittura di servizi che si integrano con la piattaforma di Service Fabric sfruttandone il set completo di funzionalità. Reliable Services offre un set minimo di API che consentono al runtime di Service Fabric di gestire il ciclo di vita dei servizi e ai servizi di interagire con il runtime. Il framework dell'applicazione è minimo, consentendo così all'utente di mantenere il controllo completo di progettazione e implementazione, e può essere usato per ospitare altri framework di applicazioni, ad esempio MVC ASP.NET o API Web ASP.NET.
+## <a name="containers"></a>Contenitori
+Per impostazione predefinita, Service Fabric distribuisce e attiva i servizi come processi. Service Fabric può anche distribuire servizi in [contenitori](service-fabric-containers-overview.md). Service Fabric supporta la distribuzione di contenitori di Linux e contenitori di Windows in Windows Server 2016. Le immagini del contenitore possono essere estratte da qualsiasi archivio del contenitore e distribuite al computer. È possibile distribuire applicazioni esistenti, come eseguibili guest, servizi senza stato di Service Fabric o servizi Reliable con stato in contenitori ed è possibile combinare nella stessa applicazione servizi nei processi e servizi nei contenitori.
 
-Reliable Services può essere senza stato, come la maggior parte delle piattaforme di servizio, ad esempio server Web o i ruoli di lavoro in Servizi Cloud di Azure, in cui tutte le istanze del servizio sono uguali e lo stato viene mantenuto in una soluzione esterna, ad esempio il database di Azure o l'archiviazione tabelle di Azure.
+[Altre informazioni sull'inserimento in contenitori dei servizi in Windows o Linux](service-fabric-deploy-container.md)
+
+## <a name="reliable-services"></a>Reliable Services
+Reliable Services è un framework leggero per la scrittura di servizi che si integrano con la piattaforma di Service Fabric sfruttandone il set completo di funzionalità. Reliable Services offre un set minimo di API che consentono al runtime di Service Fabric di gestire il ciclo di vita dei servizi e ai servizi di interagire con il runtime. Il framework dell'applicazione è minimo, perciò l'utente mantiene il controllo completo di progettazione e implementazione, e può essere usato per ospitare altri framework di applicazioni, ad esempio ASP.NET Core.
+
+Reliable Services può essere senza stato come la maggior parte delle piattaforme di servizio, ad esempio i server Web, in cui tutte le istanze del servizio sono uguali e lo stato viene mantenuto in una soluzione esterna, ad esempio il database di Azure o l'archiviazione tabelle di Azure.
 
 Reliable Services può essere anche con stato, esclusivamente Service Fabric, in cui lo stato viene mantenuto direttamente nel servizio stesso tramite Reliable Collections. Lo stato viene reso altamente disponibile tramite la replica e distribuito tramite partizionamento, il tutto gestito automaticamente da Service Fabric.
 
@@ -43,8 +49,23 @@ Realizzato a partire da Reliable Services, il framework Reliable Actor è un fra
 
 Dal momento che Reliable Actors è anch'esso un framework di applicazioni basato su Reliable Services, si integra completamente con la piattaforma di Service Fabric e ne sfrutta appieno il set completo di funzionalità.
 
+Vedere anche [altre informazioni su Reliable Actors](service-fabric-reliable-actors-introduction.md) oppure iniziare a [scrivere per la prima volta un servizio di tipo Reliable Actor](service-fabric-reliable-actors-get-started.md)
+
+## <a name="aspnet-core"></a>ASP.NET Core
+Service Fabric si integra con [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) per la creazione di servizi Web e API che possono essere inclusi come parte dell'applicazione. 
+
+[Creare un servizio front-end usando ASP.NET Core](service-fabric-add-a-web-frontend.md)
+
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere anche [altre informazioni su Reliable Actors](service-fabric-reliable-actors-introduction.md) oppure a iniziare a [scrivere un servizio di tipo Reliable Actor](service-fabric-reliable-actors-get-started.md)
-[Altre informazioni sull'inserimento in contenitori dei servizi in Windows o Linux](service-fabric-deploy-container.md)
+[Panoramica di Service Fabric e contenitori](service-fabric-containers-overview.md)
+
+[Panoramica di Reliable Services](service-fabric-reliable-services-introduction.md)
+
+[Panoramica di Reliable Services](service-fabric-reliable-actors-introduction.md)
+
+[Service Fabric e ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
+
+
+
 
 

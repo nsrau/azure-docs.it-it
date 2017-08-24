@@ -1,6 +1,6 @@
 ---
-title: Distribuire un&quot;app Web Sails.js nel servizio app di Azure | Documentazione Microsoft
-description: Informazioni su come distribuire un&quot;applicazione Node.js nel servizio app di Azure. Questa esercitazione illustra come distribuire un&quot;app Web Sails.js.
+title: Distribuire un'app Web Sails.js nel servizio app di Azure | Documentazione Microsoft
+description: Informazioni su come distribuire un'applicazione Node.js nel servizio app di Azure. Questa esercitazione illustra come distribuire un'app Web Sails.js.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 62f674945745eb019c92173798b6eef43337c9f3
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: deb9ce304069e6bd92518610a9953fb1f29cb555
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>Distribuire un'app Web Sails.js nel servizio app di Azure
@@ -73,7 +72,7 @@ Innanzitutto, creare rapidamente un'app Sails.js predefinita nell'ambiente di sv
         logDirectory: iisnode
 
     La registrazione è ora abilitata per il server [iisnode](https://github.com/tjanczuk/iisnode) usato dal Servizio app di Azure per eseguire le app Node.js. 
-    Per altre informazioni sul funzionamento, vedere  [Come eseguire il debug di un'app Web Node.js nel servizio app di Azure](web-sites-nodejs-debug.md).
+    Per altre informazioni sul funzionamento, vedere [Come eseguire il debug di un'app Web Node.js nel servizio app di Azure](web-sites-nodejs-debug.md).
 
 2. Configurare quindi l'app Sails.js per usare le variabili di ambiente di Azure. Aprire config/env/production.js per configurare l'ambiente di produzione e impostare `port` e `hookTimeout`:
 
@@ -88,7 +87,7 @@ Innanzitutto, creare rapidamente un'app Sails.js predefinita nell'ambiente di sv
             ...
         };
 
-    La documentazione di queste impostazioni di configurazione è disponibile nella  [Documentazione di Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
+    La documentazione di queste impostazioni di configurazione è disponibile nella [Documentazione di Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
 
 4. Impostare quindi come hardcoded la versione di Node.js che si vuole usare. In package.json aggiungere la proprietà `engines` seguente per impostare la versione di Node.js desiderata.
 
@@ -188,7 +187,7 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
 
 1. [Creare un account Cosmos DB con supporto del protocollo per MongoDB](../documentdb/documentdb-create-mongodb-account.md).
 2. [Creare una raccolta e un database Cosmos DB](../documentdb/documentdb-create-collection.md). Il nome della raccolta non è importante, ma il nome del database è necessario quando ci si connette da Sails.js.
-3. [Trovare le informazioni di connessione per il database Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize).
+3. [Trovare le informazioni di connessione per il database Cosmos DB](../cosmos-db/connect-mongodb-account.md#GetCustomConnection).
 2. Dal terminale della riga di comando installare l'adattatore di MongoDB:
 
         npm install sails-mongo --save
@@ -206,7 +205,7 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
         },
 
     > [!NOTE] 
-    > L'opzione `ssl: true` è importante perché [è necessaria per Cosmos DB](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > L'opzione `ssl: true` è importante perché [è necessaria per Cosmos DB](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
     >
     >
 
@@ -245,7 +244,7 @@ Per connettersi a un database in Azure, creare il database desiderato in Azure, 
             migrate: 'alter'
         },
 
-    `migrate: 'alter'` consente di usare le funzionalità di migrazione di database per creare e aggiornare facilmente le raccolte o le tabelle di database. Per l'ambiente di produzione di Azure si usa tuttavia `migrate: 'safe'`, perché Sails.js non consente di usare `migrate: 'alter'` in un ambiente di produzione. Vedere la  [documentazione di Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings).
+    `migrate: 'alter'` consente di usare le funzionalità di migrazione di database per creare e aggiornare facilmente le raccolte o le tabelle di database. Per l'ambiente di produzione di Azure si usa tuttavia `migrate: 'safe'`, perché Sails.js non consente di usare `migrate: 'alter'` in un ambiente di produzione. Vedere la [documentazione di Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings).
 8. Dal terminale eseguire [generate](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) per generare un'[API di progetto](http://sailsjs.org/documentation/concepts/blueprints) (blueprint) Sails.js come di consueto, quindi eseguire `sails lift` per creare il database con la migrazione del database Sails.js. Ad esempio:
 
          sails generate api mywidget

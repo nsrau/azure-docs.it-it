@@ -1,6 +1,6 @@
 ---
-title: Creazione di un&quot;immagine di macchina virtuale per Azure Marketplace | Documentazione Microsoft
-description: Istruzioni dettagliate su come creare un&quot;immagine di macchina virtuale per Azure Marketplace acquistabile dagli utenti.
+title: Creazione di un'immagine di macchina virtuale per Azure Marketplace | Documentazione Microsoft
+description: Istruzioni dettagliate su come creare un'immagine di macchina virtuale per Azure Marketplace acquistabile dagli utenti.
 services: Azure Marketplace
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f18b8ef62c82e2b307173971a7251a3aa8f84d69
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
+ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
+ms.contentlocale: it-it
+ms.lasthandoff: 05/09/2017
 
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
@@ -298,9 +298,9 @@ L'URI di firma di accesso condiviso deve soddisfare i requisiti seguenti:
 L'URL SAS può essere generato in diversi modi per condividere il disco rigido virtuale per Azure Marketplace.
 Di seguito vengono riportati tre strumenti consigliati:
 
-1.    Azure Storage Explorer
-2.    Microsoft Storage Explorer
-3.    Interfaccia della riga di comando di Azure
+1.  Azure Storage Explorer
+2.  Microsoft Storage Explorer
+3.  Interfaccia della riga di comando di Azure
 
 **Azure Storage Explorer (scelta consigliata per gli utenti di Windows)**
 
@@ -331,15 +331,15 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite Azure Sto
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
-8.    Dopo aver selezionato il file con estensione vhd nel contenitore, fare clic sulla scheda **Security** .
+8.  Dopo aver selezionato il file con estensione vhd nel contenitore, fare clic sulla scheda **Security** .
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.    Nella finestra di dialogo **Blob Container Security** (Sicurezza del contenitore BLOB), mantenere le impostazioni predefinite nella scheda **Livello di accesso** e quindi fare clic sulla scheda **Shared Access Signatures** (Firme di accesso condiviso).
+9.  Nella finestra di dialogo **Blob Container Security** (Sicurezza del contenitore BLOB), mantenere le impostazioni predefinite nella scheda **Livello di accesso** e quindi fare clic sulla scheda **Shared Access Signatures** (Firme di accesso condiviso).
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
-10.    Seguire questa procedura per generare un URI di firma di accesso condiviso per l'immagine con estensione vhd:
+10. Seguire questa procedura per generare un URI di firma di accesso condiviso per l'immagine con estensione vhd:
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
@@ -355,49 +355,49 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite Azure Sto
 
     f. In **Generated Shared Access Signature URI of this container**verificare quanto segue, come evidenziato sopra.
 
-        - Assicurarsi che il nome del file di immagine e del file con estensione **"vhd"** siano nell'URI.
-        - Assicurarsi che **"=rl"** sia presente alla fine della firma. Questo indica che le autorizzazioni Read e List sono state fornite correttamente.
-        - Assicurarsi che **"sr=c"** sia presente al centro della firma. Questo dimostra che l'utente dispone dell'accesso al livello contenitore
+       - Assicurarsi che il nome del file di immagine e del file con estensione **"vhd"** siano nell'URI.
+       - Assicurarsi che **"=rl"** sia presente alla fine della firma. Questo indica che le autorizzazioni Read e List sono state fornite correttamente.
+       - Assicurarsi che **"sr=c"** sia presente al centro della firma. Questo dimostra che l'utente dispone dell'accesso al livello contenitore
 
-11.    Per verificare il corretto funzionamento dell'URI di firma di accesso condiviso generato, fare clic su **Test in Browser**. Verrà avviato il processo di download.
+11. Per verificare il corretto funzionamento dell'URI di firma di accesso condiviso generato, fare clic su **Test in Browser**. Verrà avviato il processo di download.
 
-12.    Copiare l'URI di firma di accesso condiviso. Questo URI deve essere incollato nel portale di pubblicazione.
+12. Copiare l'URI di firma di accesso condiviso. Questo URI deve essere incollato nel portale di pubblicazione.
 
-13.    Ripetere i passaggi 6-10 per ogni disco rigido virtuale nello SKU.
+13. Ripetere i passaggi 6-10 per ogni disco rigido virtuale nello SKU.
 
 **Microsoft Azure Storage Explorer (Windows/MAC/Linux)**
 
 Di seguito viene descritta la procedura per generare l'URL SAS tramite Microsoft Azure Storage Explorer
 
-1.    Scaricare Microsoft Azure Storage Explorer dal sito Web [http://storageexplorer.com/](http://storageexplorer.com/). Andare in [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) e fare clic su **"Download per Windows"**.
+1.  Scaricare Microsoft Azure Storage Explorer dal sito Web [http://storageexplorer.com/](http://storageexplorer.com/). Andare in [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) e fare clic su **"Download per Windows"**.
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
-2.    Al termine dell'installazione, aprire l'applicazione.
+2.  Al termine dell'installazione, aprire l'applicazione.
 
-3.    Fare clic su **Add Account**.
+3.  Fare clic su **Add Account**.
 
-4.    Configurare Microsoft Azure Storage Explorer nella sottoscrizione effettuando l'accesso al proprio account
+4.  Configurare Microsoft Azure Storage Explorer nella sottoscrizione effettuando l'accesso al proprio account
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
-5.    Passare all'account di archiviazione e selezionare il contenitore
+5.  Passare all'account di archiviazione e selezionare il contenitore
 
-6.    Selezionare **"Get Share Access Signature.."** ("Richiedi firma di accesso condiviso...") facendo clic con il tasto destro del mouse sul **contenitore**
+6.  Selezionare **"Get Share Access Signature.."** ("Richiedi firma di accesso condiviso...") facendo clic con il tasto destro del mouse sul **contenitore**
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
-7.    Aggiornare la data di inizio, la scadenza e le autorizzazioni come indicato di seguito
+7.  Aggiornare la data di inizio, la scadenza e le autorizzazioni come indicato di seguito
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.    **Ora di inizio**: per tenere conto dell'ora UTC, selezionare il giorno prima della data corrente. Ad esempio, se la data corrente è il 6 ottobre 2014 selezionare 5/10/2014.
+    a.  **Ora di inizio**: per tenere conto dell'ora UTC, selezionare il giorno prima della data corrente. Ad esempio, se la data corrente è il 6 ottobre 2014 selezionare 5/10/2014.
 
-    b.    **Scadenza:** selezionare una data che sia di almeno 3 settimane successiva alla **data di inizio**.
+    b.  **Scadenza:** selezionare una data che sia di almeno 3 settimane successiva alla **data di inizio**.
 
-    c.    **Autorizzazioni**: selezionare le autorizzazioni **Elenco** e **Lettura**
+    c.  **Autorizzazioni**: selezionare le autorizzazioni **Elenco** e **Lettura**
 
-8.    Copiare l'URI della firma di accesso condiviso per il contenitore
+8.  Copiare l'URI della firma di accesso condiviso per il contenitore
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
@@ -417,21 +417,21 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite Microsoft
     - Assicurarsi che **"sp=rl"** sia presente al centro della firma. Questo indica che le autorizzazioni Read e List sono state fornite correttamente.
     - Assicurarsi che **"sr=c"** sia presente al centro della firma. Questo dimostra che l'utente dispone dell'accesso al livello contenitore
 
-9.    Per verificare il corretto funzionamento dell'URI della firma di accesso condiviso generato, testarlo nel browser. Verrà avviato il processo di download
+9.  Per verificare il corretto funzionamento dell'URI della firma di accesso condiviso generato, testarlo nel browser. Verrà avviato il processo di download
 
-10.    Copiare l'URI di firma di accesso condiviso. Questo URI deve essere incollato nel portale di pubblicazione.
+10. Copiare l'URI di firma di accesso condiviso. Questo URI deve essere incollato nel portale di pubblicazione.
 
-11.    Ripetere questi passaggi per ogni VHD nello SKU.
+11. Ripetere questi passaggi per ogni VHD nello SKU.
 
 **Interfaccia della riga di comando di Azure (scelta consigliata per integrazione continua e utenti non Windows)**
 
 Di seguito viene descritta la procedura per generare l'URL SAS tramite l'interfaccia della riga di comando di Azure
 
-1.    Scaricare l'interfaccia della riga di comando di Azure da [qui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Esistono diversi link per **[Windows](http://aka.ms/webpi-azure-cli)** e **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Scaricare l'interfaccia della riga di comando di Azure da [qui](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Esistono diversi link per **[Windows](http://aka.ms/webpi-azure-cli)** e **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
-2.    Dopo averlo scaricato, installarlo
+2.  Dopo averlo scaricato, installarlo
 
-3.    Creare un file di PowerShell con il codice seguente e salvarlo in locale
+3.  Creare un file di PowerShell con il codice seguente e salvarlo in locale
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -453,21 +453,21 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite l'interfa
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.    Aprire l'editor di Powershell con la modalità "Esegui come amministratore" e aprire i file nel passaggio #3.
+4.  Aprire l'editor di Powershell con la modalità "Esegui come amministratore" e aprire i file nel passaggio #3.
 
-5.    Eseguire lo script che fornirà l'URL SAS per l'accesso a livello di contenitore
+5.  Eseguire lo script che fornirà l'URL SAS per l'accesso a livello di contenitore
 
     Di seguito viene riportato l'output della firma SAS, copiare la parte evidenziata nel blocco note
 
     ![disegno](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
-6.    A questo punto viene visualizzato l'URL SAS del livello contenitore. È necessario aggiungere il nome del file con estensione vhd.
+6.  A questo punto viene visualizzato l'URL SAS del livello contenitore. È necessario aggiungere il nome del file con estensione vhd.
 
-    URL SAS livello contenitore #
+    URL SAS a livello di contenitore
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.    Inserire il nome del file con estensione vhd dopo il nome del contenitore nell'URL SAS come mostrato di seguito `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  Inserire il nome del file con estensione vhd dopo il nome del contenitore nell'URL SAS come mostrato di seguito `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     Esempio:
 
@@ -476,14 +476,14 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite l'interfa
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     - Assicurarsi che il nome file di immagine e ".vhd" siano nell'URI.
-    -    Assicurarsi che "sp=rl" sia presente al centro della firma. Questo indica che le autorizzazioni Read e List sono state fornite correttamente.
-    -    Assicurarsi che "sr=c" sia presente al centro della firma. Questo dimostra che l'utente dispone dell'accesso al livello contenitore
+    -   Assicurarsi che "sp=rl" sia presente al centro della firma. Questo indica che le autorizzazioni Read e List sono state fornite correttamente.
+    -   Assicurarsi che "sr=c" sia presente al centro della firma. Questo dimostra che l'utente dispone dell'accesso al livello contenitore
 
-8.    Per verificare il corretto funzionamento dell'URI della firma di accesso condiviso generato, testarlo nel browser. Verrà avviato il processo di download
+8.  Per verificare il corretto funzionamento dell'URI della firma di accesso condiviso generato, testarlo nel browser. Verrà avviato il processo di download
 
-9.    Copiare l'URI di firma di accesso condiviso. Questo URI deve essere incollato nel portale di pubblicazione.
+9.  Copiare l'URI di firma di accesso condiviso. Questo URI deve essere incollato nel portale di pubblicazione.
 
-10.    Ripetere questi passaggi per ogni VHD nello SKU.
+10. Ripetere questi passaggi per ogni VHD nello SKU.
 
 
 ### <a name="53-provide-information-about-the-vm-image-and-request-certification-in-the-publishing-portal"></a>5.3 Fornire le informazioni sull'immagine di macchina virtuale e richiedere la certificazione nel portale di pubblicazione
@@ -546,8 +546,8 @@ Dopo aver specificato i dettagli dello SKU, passare alla [Guida ai contenuti di 
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
 [link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
-[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
-[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[link-azure-2]:../storage/blobs/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]:../storage/common/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx

@@ -1,6 +1,6 @@
 ---
 title: Accesso condizionale di Azure Active Directory | Microsoft Docs
-description: Usare il controllo di accesso condizionale di Azure Active Directory per controllare condizioni specifiche durante il processo di autenticazione per l&quot;accesso alle applicazioni.
+description: Usare il controllo di accesso condizionale di Azure Active Directory per controllare condizioni specifiche durante il processo di autenticazione per l'accesso alle applicazioni.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2017
+ms.date: 08/02/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
+ms.reviewer: calebb
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
@@ -121,26 +121,54 @@ Selezionando le app per cloud, si definisce l'ambito delle app per cloud a cui s
 
 Nell'implementazione corrente di Azure Active Directory è possibile definire condizioni per le aree seguenti:
 
-- **Rischio di accesso**: il rischio di accesso è un oggetto usato da Azure Active Directory per tenere traccia della probabilità che un tentativo di accesso non sia eseguito dal proprietario legittimo di un account utente. In questo oggetto la probabilità (alta, media o bassa) viene archiviata sotto forma di attributo denominato [livello di rischio di accesso](active-directory-reporting-risk-events.md#risk-level). L'oggetto viene generato durante l'accesso di un utente se vengono rilevati rischi di accesso da Azure Active Directory. Per informazioni dettagliate, vedere [Accessi a rischio](active-directory-identityprotection.md#risky-sign-ins).  
+- Rischio di accesso
+- Piattaforme del dispositivo
+- Località
+- App client
+
+![Condizioni](./media/active-directory-conditional-access-azure-portal/21.png)
+
+### <a name="sign-in-risk"></a>Rischio di accesso
+
+Un rischio di accesso è un oggetto usato da Azure Active Directory per tenere traccia della probabilità che un tentativo di accesso non sia eseguito dal proprietario legittimo di un account utente. In questo oggetto la probabilità (alta, media o bassa) viene archiviata sotto forma di attributo denominato [livello di rischio di accesso](active-directory-reporting-risk-events.md#risk-level). L'oggetto viene generato durante l'accesso di un utente se vengono rilevati rischi di accesso da Azure Active Directory. Per informazioni dettagliate, vedere [Accessi a rischio](active-directory-identityprotection.md#risky-sign-ins).  
 È possibile usare il livello di rischio di accesso calcolato come condizione nei criteri di accesso condizionale. 
 
-    ![Condizioni](./media/active-directory-conditional-access-azure-portal/22.png)
+![Condizioni](./media/active-directory-conditional-access-azure-portal/22.png)
 
-- **Piattaforme del dispositivo**: la piattaforma del dispositivo è caratterizzata dal sistema operativo in esecuzione nel dispositivo (Android, iOS, Windows Phone, Windows). È possibile definire le piattaforme del dispositivo incluse, ma anche quelle escluse da un criterio.  
+### <a name="device-platforms"></a>Piattaforme del dispositivo
+
+La piattaforma del dispositivo è caratterizzata dal sistema operativo in esecuzione nel dispositivo (Android, iOS, Windows Phone, Windows). È possibile definire le piattaforme del dispositivo incluse, ma anche quelle escluse da un criterio.  
 Per usare le piattaforme del dispositivo, impostare prima i controlli di configurazione su **Sì** e quindi selezionare tutte oppure una o più piattaforme del dispositivo a cui il criterio si applica. Se si selezionano singole piattaforme del dispositivo, il criterio ha effetto solo su queste piattaforme. In questo caso, gli accessi alle altre piattaforme supportate non sono interessati dal criterio.
 
-    ![Condizioni](./media/active-directory-conditional-access-azure-portal/02.png)
+![Condizioni](./media/active-directory-conditional-access-azure-portal/02.png)
 
-- **Località**: la località è identificata dall'indirizzo IP del client usato per connettersi ad Azure Active Directory. Questa condizione richiede familiarità con gli IP attendibili. Indirizzi IP attendibili è una funzionalità di Multi-Factor Authentication che consente di definire intervalli di indirizzi IP attendibili che rappresentano la Intranet locale dell'organizzazione. Quando si configurano le condizioni di una località, Indirizzi IP attendibili consente di distinguere le connessioni stabilite dalla rete dell'organizzazione da quelle stabilite da tutte le altre località. Per altre informazioni, vedere [Indirizzi IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+### <a name="locations"></a>Località
+
+La località è identificata dall'indirizzo IP del client usato per la connessione ad Azure Active Directory. Questa condizione richiede familiarità con le **località denominate** e gli **indirizzi IP attendibili MFA**.  
+
+**Località denominate** è una funzionalità di Azure Active Directory che consente di etichettare gli intervalli di indirizzi IP attendibili nelle organizzazioni. Nell'ambiente in uso si possono usare le località denominate nel contesto del rilevamento degli [eventi di rischio](active-directory-reporting-risk-events.md), oltre che per l'accesso condizionale. Per altre informazioni sulla configurazione delle località denominate in Azure Active Directory, vedere [Località denominate in Azure Active Directory](active-directory-named-locations.md).
+
+Il numero di località che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare:
+ 
+ - Una località denominata con un massimo di 500 intervalli IP
+ - Un massimo di 60 località denominate (anteprima), ognuna con un intervallo IP assegnato 
+
+
+Gli **IP attendibili MFA** sono una funzionalità di Multi-Factor Authentication che consente di definire intervalli di indirizzi IP attendibili che rappresentano la Intranet locale dell'organizzazione. Quando si configurano le condizioni di una località, Indirizzi IP attendibili consente di distinguere le connessioni stabilite dalla rete dell'organizzazione da quelle stabilite da tutte le altre località. Per altre informazioni, vedere [Indirizzi IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+
+
+
 È possibile includere tutte le località o tutti gli IP attendibili ed escludere tutti gli IP attendibili.
 
-    ![Condizioni](./media/active-directory-conditional-access-azure-portal/03.png)
+![Condizioni](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-- **App client**: l'app client può essere, a livello generale, l'app (Web browser, app per dispositivi mobili, client per desktop) usata per connettersi ad Azure Active Directory oppure è possibile selezionare in modo specifico Exchange Active Sync.  
+### <a name="client-app"></a>App client
+
+L'app client può essere, a livello generale, l'app (Web browser, app per dispositivi mobili, client desktop) usata per la connessione ad Azure Active Directory oppure è possibile selezionare in modo specifico Exchange Active Sync.  
 L'autenticazione legacy fa riferimento ai client che usano l'autenticazione di base, ad esempio i client Office meno recenti che non usano la moderna autenticazione. L'accesso condizionale non è attualmente supportato con l'autenticazione legacy.
 
-    ![Condizioni](./media/active-directory-conditional-access-azure-portal/04.png)
+![Condizioni](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
 ## <a name="common-scenarios"></a>Scenari comuni

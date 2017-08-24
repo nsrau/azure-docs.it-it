@@ -12,22 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: cfdc507d5e45fc716940bd4607631ba500bf4c59
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
 ms.contentlocale: it-it
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 06/09/2017
 
 
 ---
 
 # <a name="view-azure-activity-logs"></a>Visualizzare i log attività di Azure
 
- ![Simbolo di Log attività di Azure](./media/log-analytics-activity/activity-log-analytics.png) La soluzione Log Analytics di Azure consente di analizzare e cercare i [log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in tutte le sottoscrizioni di Azure. Il log attività di Azure offre informazioni approfondite sulle operazioni eseguite sulle risorse nelle sottoscrizioni. Il log attività era noto in precedenza come *log di controllo* o *log operativo* perché segnala eventi per le sottoscrizioni.
+![Simbolo di Log attività di Azure](./media/log-analytics-activity/activity-log-analytics.png)
 
-L'uso del log attività permette di acquisire *informazioni* *dettagliate* **su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. È anche possibile comprendere lo stato delle operazioni e altre proprietà pertinenti. Il log attività non include le operazioni di lettura (GET) o quelle per le risorse che usano il modello di distribuzione classica.
+La soluzione Analisi log attività consente di analizzare e cercare i [log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in tutte le sottoscrizioni di Azure. Il log attività di Azure offre informazioni approfondite sulle operazioni eseguite sulle risorse nelle sottoscrizioni. Il log attività era noto in precedenza come *log di controllo* o *log operativo* perché segnala eventi per le sottoscrizioni.
+
+L'uso del log attività permette di acquisire *informazioni* *dettagliate* *su qualsiasi* operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. È anche possibile comprendere lo stato delle operazioni e altre proprietà pertinenti. Il log attività non include le operazioni di lettura (GET) o quelle per le risorse che usano il modello di distribuzione classica.
 
 Quando si connettono i log attività di Azure a Log Analytics, è possibile:
 

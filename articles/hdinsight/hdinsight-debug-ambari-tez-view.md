@@ -1,6 +1,6 @@
 ---
-title: Usare la visualizzazione Tez di Ambari con HDInsight | Documentazione Microsoft
-description: Informazioni sull&quot;uso della visualizzazione Tez di Ambari per il debug di processi Tez in HDInsight.
+title: Usare la visualizzazione Tez di Ambari con HDInsight - Azure | Microsoft Docs
+description: Informazioni sull'uso della visualizzazione Tez di Ambari per il debug di processi Tez in HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/14/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 08dac5205e50dd5c33d71ba15277da66fd7b22fe
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 65d89309b9eea8544b85d16687baa90d49688d77
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Usare le visualizzazioni di Ambari per il debug di processi Tez in HDInsight
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/17/2017
 L'interfaccia utente Web di Ambari per HDInsight contiene una visualizzazione Tez che può essere usata per la comprensione e il debug di processi che usano Tez. La visualizzazione Tez consente di visualizzare il processo come grafico di elementi connessi, esaminare ogni elemento e recuperare statistiche e informazioni sulla registrazione.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -84,55 +84,26 @@ Usare la procedura seguente per eseguire una query Hive che usa Tez:
 
     ![Selezione della visualizzazione Tez](./media/hdinsight-debug-ambari-tez-view/selecttez.png)
 
-2. Quando la visualizzazione Tez viene caricata, viene visualizzato un elenco di DAG che sono attualmente in esecuzione o che sono stati eseguiti nel cluster.
+2. Quando la visualizzazione Tez viene caricata, viene visualizzato un elenco di query Hive che sono attualmente in esecuzione o che sono stati eseguiti nel cluster.
 
-    ![Tutti i DAG](./media/hdinsight-debug-ambari-tez-view/alldags.png)
+    ![Tutti i DAG](./media/hdinsight-debug-ambari-tez-view/tez-view-home.png)
 
-3. Se è presente una sola voce, è quella relativa alla query eseguita nella sezione precedente. Se sono presenti più voci, è possibile eseguire la ricerca immettendo l'ID applicazione nel campo **Application ID** (ID applicazione) e quindi premendo INVIO.
+3. Se è presente una sola voce, è quella relativa alla query eseguita nella sezione precedente. Se si dispone di più voci, è possibile eseguire una ricerca con i campi nella parte superiore della pagina.
 
-4. Selezionare il nome del DAG nella colonna **Dag Name** (Nome DAG). Verranno visualizzate informazioni sul DAG. È anche possibile scaricare un file zip dei file JSON che contiene queste informazioni.
+4. Selezionare il **ID Query** per una query Hive. Verranno visualizzate informazioni sulla query.
 
-    ![DAG Details](./media/hdinsight-debug-ambari-tez-view/dagdetails.png)
+    ![DAG Details](./media/hdinsight-debug-ambari-tez-view/query-details.png)
 
-5. Sopra **DAG Details** (Dettagli DAG) sono presenti diversi collegamenti che possono essere usati per visualizzare informazioni sul DAG.
+5. Le schede in questa pagina consentono di visualizzare le informazioni seguenti:
 
-   * **DAG Counters**: (Contatori DAG) visualizza informazioni sui contatori per il DAG.
-   * **Graphical View**: (Visualizzazione grafica) visualizza una rappresentazione grafica del DAG.
-   * **All Vertices** :(Tutti i vertici) visualizza un elenco dei vertici nel DAG.
-   * **All Tasks**: (Tutte le attività) visualizza un elenco delle attività per tutti i vertici nel DAG.
-   * **All TaskAttempts**: (Tutti i tentativi di attività) visualizza informazioni sui tentativi di eseguire attività per il DAG.
+    * **Informazioni sulla query**: informazioni dettagliate sulla query Hive.
+    * **Tempistiche**: informazioni sulla durata di ogni fase dell'elaborazione.
+    * **Configurazioni**: la configurazione usata per questa query.
 
-     > [!NOTE]
-     > Scorrendo la visualizzazione colonne per vertici, attività e tentativi di attività, si noti che sono presenti collegamenti per visualizzare i **contatori** e per **visualizzare o scaricare i log** per ogni riga.
-
-     Se si è verificato un errore nel processo, in DAG Details viene visualizzato lo stato FAILED, con i collegamenti alle informazioni sull'attività non riuscita. Le informazioni di diagnostica vengono visualizzate sotto i dettagli DAG.
-
-     ![Schermata dei dettagli DAG che riporta i dettagli di un errore](./media/hdinsight-debug-ambari-tez-view/faileddag.png)
-
-6. Selezionare **Graphical View** (Visualizzazione grafica). Questa visualizzazione mostra una rappresentazione grafica del DAG. È possibile posizionare il mouse su ogni vertice nella visualizzazione per accedere alle relative informazioni.
-
-    ![Graphical View](./media/hdinsight-debug-ambari-tez-view/dagdiagram.png)
-
-7. Selezionare un vertice per caricare i dati di **Vertex Details** (Dettagli vertice) per tale elemento. Selezionare il vertice **Map 1** (Mappa 1) per visualizzare i dettagli per questo elemento.
-
-    ![Vertex Details](./media/hdinsight-debug-ambari-tez-view/vertexdetails.png)
-
-8. Ora nella parte superiore della pagina sono presenti i collegamenti relativi ai vertici e alle attività.
-
-   > [!NOTE]
-   > È possibile accedere a questa pagina anche tornando a **DAG Details** (Dettagli DAG) e selezionando **Vertex Details** (Dettagli vertice) e quindi il vertice **Map 1** (Mappa 1).
-
-   * **Vertex Counters**: (Contatori vertice) visualizza informazioni sui contatori per il vertice.
-   * **Tasks**: (Attività) visualizza le attività per il vertice.
-   * **Task Attempts**: (Tentativi attività) visualizza informazioni sui tentativi di eseguire attività per il vertice.
-   * **Sources & Sinks**: (Origini e sink) visualizza le origini dati e i sink per il vertice.
-
-     > [!NOTE]
-     > Come per il menu precedente, è possibile scorrere la visualizzazione colonne per Tasks, Task Attempts e Sources & Sinks per visualizzare i collegamenti ad altre informazioni per ogni elemento.
-
-9. Selezionare **Tasks** (Attività) e quindi l'elemento denominato **00_000000**. Appaiono i **Task Details** (Dettagli attività) per questa attività. Da questa schermata è possibile visualizzare **Task Counters** (Contatori attività) e **Task Attempts** (Tentativi attività).
-
-   ![Dettagli dell'attività](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
+    Da __Dettagli query__ è possibile usare i collegamenti per trovare le informazioni sull'__applicazione__ o il __DAG__ per questa query.
+    
+    * Il collegamento __Applicazione__ consente di visualizzare informazioni sull'applicazione YARN per questa query. Da qui è possibile accedere ai registri dell'applicazione YARN.
+    * Il collegamento __DAG__ consente di visualizzare le informazioni su un grafo aciclico diretto per questa query. Da qui è possibile visualizzare una rappresentazione grafica del DAG. È anche possibile trovare informazioni sui vertici all'interno del DAG.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

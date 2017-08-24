@@ -3,7 +3,7 @@ title: Esplorare i log di traccia .NET in Application Insights
 description: Cercare i log generati con Trace, NLog o Log4Net.
 services: application-insights
 documentationcenter: .net
-author: alancameronwills
+author: CFreemanwa
 manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1b0c902adff1d60a04fb3cddef5862256d54f813
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 93808e617f33a5c78e5c89f4dac4680d44724d1c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Esplorare i log di traccia .NET in Application Insights
@@ -96,6 +95,19 @@ Per ogni origine è possibile impostare i parametri seguenti:
  * `Name` specifica il nome di EventSource da raccogliere.
  * `Level` specifica il livello di registrazione da raccogliere. Può essere uno tra `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
  * `Keywords` è facoltativo e specifica il valore intero di combinazioni di parole chiave da usare.
+
+## <a name="using-diagnosticsource-events"></a>Uso degli eventi DiagnosticSource
+È possibile configurare eventi [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) da inviare ad Application Insights come tracce. Installare innanzitutto il pacchetto NuGet [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener). Quindi modificare la sezione `TelemetryModules` del file [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
+```xml
+    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+      <Sources>
+        <Add Name="MyDiagnosticSourceName" />
+      </Sources>
+    </Add>
+```
+
+Per ogni DiagnosticSource che si desidera tracciare, aggiungere una voce con l'attributo `Name` impostato sul nome di DiagnosticSource.
 
 ## <a name="using-etw-events"></a>Uso degli eventi ETW
 È possibile configurare eventi ETW da inviare ad Application Insights come tracce. Installare innanzitutto il pacchetto NuGet `Microsoft.ApplicationInsights.EtwCollector`. Quindi modificare la sezione `TelemetryModules` del file [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
@@ -184,7 +196,7 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse su `ApplicationI
 Talvolta la visualizzazione di tutti gli eventi e le richieste nella pipeline può richiedere un po' di tempo.
 
 ### <a name="limits"></a>Quanti dati vengono conservati?
-Fino a 500 eventi al secondo da ciascuna applicazione. Gli eventi vengono conservati per sette giorni.
+Diversi fattori influiscono sulla quantità di dati mantenuti. Per altre informazioni, vedere la sezione dei [limiti](app-insights-api-custom-events-metrics.md#limits) della pagina delle metriche degli eventi dei clienti. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Non è possibile vedere alcune delle voci di log previste
 Se l'applicazione invia una grande quantità di dati e si sta utilizzando la versione 2.0.0-beta3 o versioni successive dell’SDK di Application Insights per ASP.NET, la funzionalità del campionamento adattivo può operare e inviare solo una percentuale dei dati di telemetria. [Altre informazioni sul campionamento.](app-insights-sampling.md)

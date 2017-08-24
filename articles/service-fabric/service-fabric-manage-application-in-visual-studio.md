@@ -3,7 +3,7 @@ title: Gestire le applicazioni in Visual Studio | Microsoft Docs
 description: "Usare Visual Studio per creare, sviluppare, creare pacchetti, distribuire ed effettuare il debug di applicazioni dell’infrastruttura di servizi e di servizi."
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2017
-ms.author: seanmck;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: 60d440c75d6352d5e65e0158e439df9db2315ecd
-ms.openlocfilehash: 70c393f1185844bb26ff1f89cb69cb06b51fc155
+ms.date: 06/07/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 
 ---
@@ -30,54 +32,48 @@ Per impostazione predefinita, la distribuzione di un'applicazione combina in un'
 2. Caricamento del pacchetto applicazione in Image Store
 3. Registrazione del tipo di applicazione
 4. Rimozione delle eventuali istanze dell'applicazione in esecuzione
-5. Creazione di una nuova istanza dell'applicazione
+5. Creazione di un'istanza dell'applicazione
 
-In Visual Studio, anche premendo **F5** l'applicazione viene distribuita e il debugger viene collegato a tutte le relative istanze. È possibile utilizzare **Ctrl + F5** per distribuire un'applicazione senza il debug, o pubblicare in un cluster locale o remoto mediante il profilo di pubblicazione. Per altre informazioni, consultare [Pubblicare un'applicazione in un cluster remoto mediante Visual Studio](service-fabric-publish-app-remote-cluster.md).
+In Visual Studio se si preme **F5** l'applicazione viene distribuita e il debugger viene allegato a tutte le istanze dell'applicazione. È possibile utilizzare **Ctrl + F5** per distribuire un'applicazione senza il debug, o pubblicare in un cluster locale o remoto mediante il profilo di pubblicazione. Per altre informazioni, consultare [Pubblicare un'applicazione in un cluster remoto mediante Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
 ### <a name="application-debug-mode"></a>Modalità di debug applicazione
-Per impostazione predefinita, Visual Studio rimuove le istanze esistenti del tipo di applicazione quando si interrompe il debug oppure (se l'app è stata distribuita senza collegare il debugger) quando si ridistribuisce l'applicazione. In tal caso vengono rimossi tutti i dati dell'applicazione. Durante il debug in locale, è possibile conservare i dati già creati durante il test di una nuova versione dell'applicazione, mantenere l'applicazione in esecuzione o fare in modo che l'applicazione venga aggiornata durante sessioni di debug successive. Strumenti di Service Fabric per Visual Studio offre una proprietà denominata **Modalità di debug applicazione** che controlla se **F5** disinstalla o mantiene l'applicazione al termine di una sessione di debug oppure fa sì che l'applicazione venga aggiornata in sessioni di debug successive, invece che rimossa e ridistribuita.
+Visual Studio include la proprietà **Modalità di debug applicazione** che controlla la modalità di distribuzione dell'applicazione nel contesto del debug.
 
 #### <a name="to-set-the-application-debug-mode-property"></a>Per impostare la proprietà Modalità di debug applicazione
-1. Dal menu di scelta rapida del progetto dell'applicazione, scegliere **Proprietà** (o premere il pulsante **F4**).
+1. Nel menu di scelta rapida del progetto applicazione Service Fabric (*.sfproj) scegliere **Proprietà** (o premere **F4**).
 2. Nella finestra **Proprietà** impostare la proprietà **Modalità di debug applicazione**.
 
-    ![Impostare la proprietà Modalità di debug applicazione][debugmodeproperty]
+![Impostare la proprietà Modalità di debug applicazione][debugmodeproperty]
 
-Di seguito sono indicate le opzioni di **modalità di debug applicazione** disponibili.
+#### <a name="application-debug-modes"></a>Modalità di debug dell'applicazione
 
-1. **Aggiornamento automatico**: l'applicazione resta in esecuzione al termine della sessione di debug. Premendo nuovamente **F5** la distribuzione viene considerata come un aggiornamento e viene usata la modalità automatica non monitorata per aggiornare rapidamente l'applicazione a una versione più recente con l'aggiunta di una stringa della data. Il processo di aggiornamento mantiene tutti i dati immessi in una sessione di debug precedente.
-2. **Mantieni applicazione**: l'applicazione viene lasciata in esecuzione nel cluster al termine della sessione di debug. Premendo nuovamente **F5** l'applicazione verrà rimossa e la nuova applicazione creata verrà distribuita nel cluster.
-3. **Rimuovi applicazione** fa sì che l'applicazione venga rimossa al termine della sessione di debug.
+1. **Aggiorna l'applicazione**: questa modalità consente di modificare rapidamente il codice e di eseguirne il debug e supporta la modifica dei file Web statici durante il debug. Questa modalità funziona solo se il cluster di sviluppo locale è in [modalità a 1 nodo](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+2. **Rimuovi applicazione** fa sì che l'applicazione venga rimossa al termine della sessione di debug.
+3. **Aggiornamento automatico**: l'applicazione resta in esecuzione al termine della sessione di debug. La sessione di debug successiva considera la distribuzione come un aggiornamento. Il processo di aggiornamento mantiene tutti i dati immessi in una sessione di debug precedente.
+4. **Mantieni l'applicazione**: l'applicazione resta in esecuzione nel cluster al termine della sessione di debug. All'inizio della sessione di debug successiva, l'applicazione viene rimossa.
 
-Nell'opzione **Aggiornamento automatico** i dati vengono conservati applicando le funzionalità di aggiornamento dell'applicazione di Service Fabric, ma sono ottimizzati ai fini delle prestazioni anziché della sicurezza. Per altre informazioni sull'aggiornamento delle applicazioni e su come è possibile eseguire un aggiornamento in un ambiente reale, vedere [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md).
-
-![Esempio di una nuova versione dell'applicazione con data aggiunta][preservedata]
-
-> [!NOTE]
-> Questa proprietà non è presente nelle versioni precedenti alla versione 1.1 di Strumenti di Service Fabric per Visual Studio. Per ottenere lo stesso comportamento nelle versioni precedenti alla versione 1.1, usare la proprietà **Conserva dati all'avvio** . L'opzione "Mantieni applicazione" è stata introdotta nella versione 1.2 di Strumenti di Service Fabric per Visual Studio.
->
->
+Con l'opzione **Aggiornamento automatico** i dati vengono mantenuti applicando le funzionalità di aggiornamento dell'applicazione di Service Fabric. Per altre informazioni sull'aggiornamento delle applicazioni e su come è possibile eseguire un aggiornamento in un ambiente reale, vedere [Aggiornamento di un'applicazione di Service Fabric](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Aggiungere un servizio all'applicazione di Service Fabric
 È possibile aggiungere nuovi servizi all'applicazione per estenderne le funzionalità.  Per essere certi che il servizio venga incluso nel pacchetto applicazione, aggiungere il servizio usando la voce di menu **New Fabric Service** .
 
-![Aggiungere un nuovo servizio di Service Fabric all'applicazione][newservice]
+![Aggiungere un nuovo servizio di Service Fabric][newservice]
 
 Selezionare un tipo di progetto di Service Fabric da aggiungere all'applicazione e specificare un nome per il servizio.  Per decidere più facilmente quale tipo di servizio usare, vedere [Scelta di un framework per il servizio](service-fabric-choose-framework.md) .
 
-![Selezionare un tipo di progetto di Service Fabric da aggiungere all'applicazione][addserviceproject]
+![Selezionare un tipo di progetto di servizio Service Fabric da aggiungere all'applicazione][addserviceproject]
 
-Il nuovo servizio verrà aggiunto alla soluzione e al pacchetto applicazione esistente. Al manifesto dell'applicazione verranno inoltre aggiunti i riferimenti al servizio e un'istanza di servizio predefinita. Il servizio verrà creato e avviato alla successiva distribuzione dell'applicazione.
+Il nuovo servizio viene aggiunto alla soluzione e al pacchetto dell'applicazione esistente. I riferimenti e un'istanza del servizio predefinita vengono aggiunti al manifesto dell'applicazione, in modo che il servizio venga creato e avviato alla successiva distribuzione dell'applicazione.
 
-![Il nuovo servizio verrà aggiunto al manifesto dell'applicazione][newserviceapplicationmanifest]
+![Il nuovo servizio viene aggiunto al manifesto dell'applicazione][newserviceapplicationmanifest]
 
 ## <a name="package-your-service-fabric-application"></a>Creazione del pacchetto per l'applicazione di Service Fabric
-Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario creare un pacchetto dell’applicazione.  Tale pacchetto organizza il manifesto dell'applicazione, i manifesti dei servizi e gli altri file necessari in un layout specifico.  Visual Studio imposta e gestisce il pacchetto nella cartella del progetto dell'applicazione, nella cartella "pkg".  Facendo clic su **Pacchetto** dal menu di scelta rapida **Applicazione** il pacchetto dell'applicazione viene creato o aggiornato.  È possibile procedere in questo modo se si intende distribuire l'applicazione usando script di PowerShell personalizzati.
+Per distribuire l'applicazione e i relativi servizi in un cluster, è necessario creare un pacchetto dell’applicazione.  Il pacchetto organizza il manifesto dell'applicazione, i manifesti dei servizi e gli altri file necessari in un layout specifico.  Visual Studio imposta e gestisce il pacchetto nella cartella del progetto dell'applicazione, nella cartella "pkg".  Facendo clic su **Pacchetto** dal menu di scelta rapida **Applicazione** il pacchetto dell'applicazione viene creato o aggiornato.
 
 ## <a name="remove-applications-and-application-types-using-cloud-explorer"></a>Rimuovere applicazioni e tipi di applicazione con Cloud Explorer
 In Visual Studio è possibile eseguire operazioni di gestione dei cluster di base con Cloud Explorer, che può essere avviato dal menu **Visualizza** . È ad esempio possibile eliminare applicazioni e annullare il provisioning di tipi di applicazione in cluster locali o remoti.
 
-![Rimuovere un'applicazione](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+![Rimuovere un'applicazione][removeapplication]
 
 > [!TIP]
 > Per funzionalità di gestione dei cluster più avanzate, vedere [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
@@ -97,11 +93,5 @@ In Visual Studio è possibile eseguire operazioni di gestione dei cluster di bas
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]:./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
-[preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [debugmodeproperty]:./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+[removeapplication]:./media/service-fabric-manage-application-in-visual-studio/removeapplication.png

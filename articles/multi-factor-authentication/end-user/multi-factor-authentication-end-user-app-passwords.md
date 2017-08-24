@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 05/15/2017
 ms.author: kgremban
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 3fd5b85f718313d8267157157e45965b2b21f2db
-ms.openlocfilehash: 60c84a5f5c675b012f2504f6fe222f35ce4d0646
-ms.lasthandoff: 02/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: fac7f969f943312fca1eacc41dca3b8e65cf2024
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Che cosa sono le password per le app in Azure Multi-Factor Authentication?
@@ -62,8 +63,9 @@ Se si usa la verifica in due passaggi con Azure, è consigliabile creare passwor
 4. Fare clic su **Crea**.
 5. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**
 6. Copiare la password per l'app negli Appunti, quindi incollarla nell'app.
-
+   
    ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
+
 
 ### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Per eliminare password per le app nel portale di Azure
 1. Accedere al portale di Microsoft Azure classico.
@@ -81,18 +83,15 @@ Se non si è certi di come utilizzare Multi-Factor Authentication, è sempre pos
 1. Effettuare l'accesso ad [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Fare clic sul nome in alto a destra e scegliere **Profilo**.
 3. Selezionare **Verifica aggiuntiva di sicurezza**.
-
    ![Selezionare Verifica aggiuntiva di sicurezza: schermata](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 
 4. Selezionare **Password delle app**.
-
    ![Selezionare le password per le app: schermata](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
 5. Fare clic su **Crea**.
 6. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.
 7. Copiare la password dell'app negli Appunti, quindi incollarla nell'app.
-
-   ![Creare una password di app](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+   ![Creare la password di un'app](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
 ### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Per eliminare una password di app tramite il portale Myapps
 1. Effettuare l'accesso ad [https://myapps.microsoft.com](https://myapps.microsoft.com)

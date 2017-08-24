@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 84ad965ed6ef1711fda983220cf004fdd48d290d
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Note sulla versione per Servizi BizTalk di Azure
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Le note sulla versione per Servizi BizTalk di Microsoft Azure contengono i problemi noti in questa versione.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>Novità nell'aggiornamento di novembre di Servizi BizTalk
@@ -29,8 +33,8 @@ Le note sulla versione per Servizi BizTalk di Microsoft Azure contengono i probl
 ## <a name="update-history"></a>Cronologia aggiornamenti
 ### <a name="october-update"></a>Aggiornamento di ottobre
 * Supporto per gli account aziendali:  
-  * **Scenario**: si è registrata la distribuzione di un servizio BizTalk usando un account Microsoft (ad esempio, user@live.com). In questo scenario solo gli utenti con account Microsoft possono gestire il servizio BizTalk usando il portale di Servizi BizTalk. Non è possibile usare un account aziendale.  
-  * **Scenario**: si è registrata la distribuzione di un servizio BizTalk usando un account aziendale in un'istanza di Azure Active Directory (ad esempio, user@fabrikam.com or user@contoso.com). In questo scenario solo gli utenti di Azure Active Directory nella stessa organizzazione possono gestire il servizio BizTalk usando il portale di Servizi BizTalk. Non è possibile usare un account Microsoft.  
+  * **Scenario**: si è registrata una distribuzione del servizio BizTalk usando un account Microsoft (ad esempio, user@live.com). In questo scenario solo gli utenti con account Microsoft possono gestire il servizio BizTalk usando il portale di Servizi BizTalk. Non è possibile usare un account aziendale.  
+  * **Scenario**: si è registrata una distribuzione del servizio BizTalk usando un account aziendale in un'istanza di Azure Active Directory (ad esempio, user@fabrikam.com o user@contoso.com). In questo scenario solo gli utenti di Azure Active Directory nella stessa organizzazione possono gestire il servizio BizTalk usando il portale di Servizi BizTalk. Non è possibile usare un account Microsoft.  
 * Quando si crea un servizio BizTalk nel portale di Azure classico, l'utente viene registrato automaticamente nel portale di Servizi BizTalk.
   * **Scenario**: si accede al portale di Azure classico, si crea un servizio BizTalk e quindi si seleziona **Gestisci** per la prima volta. Quando si apre il portale di Servizi BizTalk, il servizio BizTalk viene registrato automaticamente ed è pronto per le distribuzioni.  
     Vedere [Registrazione e aggiornamento di una distribuzione di servizio BizTalk nel portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
@@ -218,10 +222,5 @@ In tutto il documento i termini "pipeline" e "bridge" sono stati usati in modo i
 
 ### <a name="concepts"></a>Concetti
 [Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

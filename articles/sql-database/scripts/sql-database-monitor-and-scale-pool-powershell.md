@@ -1,6 +1,6 @@
 ---
-title: 'Script di Azure PowerShell: monitorare e ridimensionare un pool elastico SQL | Microsoft Docs'
-description: 'Esempio di script di Azure PowerShell: monitorare e ridimensionare un pool elastico di database SQL usando PowerShell'
+title: Script di esempio di PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure | Microsoft Docs
+description: Script di esempio di Azure PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -9,30 +9,30 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: monitor & tune
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: da96cf25d155c1aec42bd6d4bd1813d9bf8241f7
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 6536158d4fc2e2c8fbb4e78305d28d063eb12696
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="monitor-and-scale-a-sql-database-elastic-pool-using-powershell"></a>Monitorare e ridimensionare un pool elastico di database SQL usando PowerShell
+# <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Usare PowerShell per il monitoraggio e il ridimensionamento di un pool elastico SQL nel database SQL di Azure
 
-Questo esempio di script di PowerShell consente di monitorare le metriche delle prestazioni di un pool elastico, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per una delle metriche delle prestazioni. 
+Questo script di esempio PowerShell consente di monitorare la metrica delle prestazioni di un pool elastico, ne aumenta le prestazioni a un livello superiore e crea una regola di avviso per la metrica di una delle prestazioni. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1 "Monitorare e ridimensionare database SQL singoli")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitorare e ridimensionare database SQL singoli")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

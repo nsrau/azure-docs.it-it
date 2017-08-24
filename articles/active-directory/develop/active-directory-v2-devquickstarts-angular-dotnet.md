@@ -1,9 +1,9 @@
 ---
 title: Introduzione alle app a pagina singola Azure AD v2.0 .NET AngularJS | Documentazione Microsoft
-description: Come creare un&quot;app a pagina singola AngularJS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell&quot;istituto di istruzione.
+description: Come creare un'app a pagina singola AngularJS che consente agli utenti di accedere con un account Microsoft personale, aziendale e dell'istituto di istruzione.
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
@@ -29,7 +29,7 @@ In questo articolo verrà aggiunto l'accesso con account Microsoft a un'app Angu
 Questo esempio è una semplice app a pagina singola To-Do List che archivia le attività in un'API REST back-end, scritta con il framework MVC .NET 4.5 e protetta con i token di connessione OAuth di Azure AD.  L'app AngularJS userà la libreria di autenticazione JavaScript open source [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) per gestire l'intero processo di accesso e acquisire i token per chiamare l'API REST.  Lo stesso modello può essere applicato per l'autenticazione in altre API REST, ad esempio [Microsoft Graph](https://graph.microsoft.com).
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -228,7 +228,7 @@ return $http.get('/api/tasks');
 
 Congratulazioni.  A questo punto l'app a singola pagina integrata in Azure AD è completata.  Come è evidente,  può autenticare gli utenti, chiamare in modo sicuro l'API REST back-end con OpenID Connect e ottenere informazioni di base sull'utente.  Per impostazione predefinita, supporta tutti gli utenti con un account Microsoft personale o un account aziendale o dell'istituto di istruzione di Azure AD.  Eseguire l'app e in un browser andare a `https://localhost:44326/`.  Accedere con un account Microsoft personale o un account aziendale o dell'istituto di istruzione.  Aggiungere attività all'elenco attività dell'utente e disconnettersi.  Provare ad accedere con l'altro tipo di account. Se è necessario un tenant di Azure AD per creare utenti aziendali o dell'istituto di istruzione, [qui sono disponibili informazioni per ottenerne uno](active-directory-howto-tenant.md) (è gratuito).
 
-Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori versione&2;.0](active-directory-appmodel-v2-overview.md).  Per altre risorse, vedere:
+Per altre informazioni sull'endpoint v2.0, tornare alla [guida per sviluppatori versione 2.0](active-directory-appmodel-v2-overview.md).  Per altre risorse, vedere:
 
 * [Esempi di Azure in GitHub >>](https://github.com/Azure-Samples)
 * [Azure AD in Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

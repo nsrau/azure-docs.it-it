@@ -1,9 +1,9 @@
 ---
-title: Come abilitare l&quot;accesso Single Sign-On tra app su Android tramite ADAL | Documentazione Microsoft
-description: "Come utilizzare le funzionalità dell&quot;SDK ADAL per abilitare il Single Sign-On tra le applicazioni. "
+title: Come abilitare l'accesso Single Sign-On tra app su Android tramite ADAL | Documentazione Microsoft
+description: "Come utilizzare le funzionalità dell'SDK ADAL per abilitare il Single Sign-On tra le applicazioni. "
 services: active-directory
 documentationcenter: 
-author: brandwe
+author: danieldobalian
 manager: mbaldwin
 editor: 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: brandwe
+ms.author: dadobali
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49

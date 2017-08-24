@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6bc564cc5121a6b7b7896f1d90177140bee15fbb
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 99df1c65ee59a3c12e8818d9069a8b487839b08d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
@@ -105,7 +104,7 @@ L'UPN dell'utente è in formato username@domain. Ad esempio, per un dominio di A
 ### <a name="user-principal-name-in-azure-ad"></a>Nome dell'entità utente in Azure AD
 La procedura guidata di Azure AD Connect usa l'attributo userPrincipalName o, nelle installazioni personalizzate, consente di specificare l'attributo da usare in locale come nome dell'entità utente in Azure AD. Questo è il valore che verrà usato per l'accesso ad Azure AD. Se il valore dell'attributo del nome dell'entità utente non corrisponde a un dominio verificato in Azure AD, Azure AD lo sostituisce con un valore .onmicrosoft.com predefinito.
 
-Ogni directory in Azure Active Directory include un nome di dominio predefinito nel formato contoso.onmicrosoft.com che consente di iniziare a usare Azure o altri servizi Microsoft. È possibile migliorare e semplificare l'esperienza di accesso usando i domini personalizzati. Per informazioni sui nomi di dominio personalizzato in Azure AD e sulla verifica dei domini, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory).
+Ogni directory in Azure Active Directory include un nome di dominio predefinito nel formato contoso.onmicrosoft.com che consente di iniziare a usare Azure o altri servizi Microsoft. È possibile migliorare e semplificare l'esperienza di accesso usando i domini personalizzati. Per informazioni sui nomi di dominio personalizzato in Azure AD e sulla verifica dei domini, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../add-custom-domain.md#add-your-custom-domain).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Configurazione dell'accesso ad Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Configurazione dell'accesso ad Azure AD con Azure AD Connect
@@ -117,8 +116,8 @@ Nella pagina di accesso di Azure AD sono riportati i suffissi UPN definiti per l
 | Stato | Descrizione | Azione necessaria |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect ha rilevato un dominio verificato in Azure AD. Tutti gli utenti di questo dominio possono accedere usando le credenziali locali. |Non è richiesto alcun intervento. |
-| Non verificato |Azure AD Connect ha rilevato un dominio corrispondente in Azure AD ma tale dominio non è verificato. Se il dominio non è verificato, dopo la sincronizzazione il suffisso UPN degli utenti di questo dominio verrà modificato nel prefisso predefinito .onmicrosoft.com. | [Verificare il dominio personalizzato in Azure AD.](../active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
-| Non aggiunto |Azure AD Connect non ha rilevato un dominio personalizzato corrispondente al suffisso UPN. Se il dominio non è aggiunto e verificato in Azure, il suffisso UPN degli utenti di questo dominio verrà modificato nel prefisso predefinito .onmicrosoft.com. | [Aggiungere e verificare un dominio personalizzato corrispondente al suffisso UPN.](../active-directory-add-domain.md) |
+| Non verificato |Azure AD Connect ha rilevato un dominio corrispondente in Azure AD ma tale dominio non è verificato. Se il dominio non è verificato, dopo la sincronizzazione il suffisso UPN degli utenti di questo dominio verrà modificato nel prefisso predefinito .onmicrosoft.com. | [Verificare il dominio personalizzato in Azure AD.](../add-custom-domain.md#verify-the-domain-name-with-azure-ad) |
+| Non aggiunto |Azure AD Connect non ha rilevato un dominio personalizzato corrispondente al suffisso UPN. Se il dominio non è aggiunto e verificato in Azure, il suffisso UPN degli utenti di questo dominio verrà modificato nel prefisso predefinito .onmicrosoft.com. | [Aggiungere e verificare un dominio personalizzato corrispondente al suffisso UPN.](../add-custom-domain.md) |
 
 Nella pagina di accesso di Azure AD sono elencati i suffissi UPN definiti per il servizio Active Directory locale e il dominio personalizzato corrispondente in Azure AD con lo stato attuale della verifica. Nell'installazione personalizzata, è ora possibile selezionare l'attributo per il nome dell'entità utente nella pagina di **accesso ad Azure AD**.
 

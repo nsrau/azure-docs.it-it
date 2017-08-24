@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: 3326b1ff8d1704b225cfb62886fbc992c6171211
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8cca857314ecf37ef51700fd25aef228515ecd0a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -71,7 +73,9 @@ Limitazioni
 * Le macchine virtuali di Azure non possono connettersi tramite IPv6 ad altre macchine virtuali, altri servizi di Azure o dispositivi locali. Possono comunicare solo con Azure Load Balancer tramite IPv6. Possono tuttavia comunicare con queste altre risorse tramite IPv4.
 * La protezione del gruppo di sicurezza di rete (NSG) per IPv4 è supportata nelle distribuzioni dual stack (IPv4 + IPv6). I gruppi di sicurezza di rete non si applicano agli endpoint IPv6.
 * L'endpoint IPv6 nella macchina virtuale non viene esposto direttamente a Internet. Si trova dietro un servizio di bilanciamento del carico. Solo le porte specificate nelle regole del servizio di bilanciamento del carico sono accessibili tramite IPv6.
-* La modifica del parametro IdleTimeout per IPv6 **non è attualmente supportata**. Il valore predefinito è quattro minuti.
+* La modifica del parametro IdleTimeout per IPv6 **è attualmente non supportata**. Il valore predefinito è quattro minuti.
+* La modifica del parametro loadDistributionMethod per IPv6 **è attualmente non supportata**.
+* Gli indirizzi IP IPv6 riservati (dove IPAllocationMethod = statico) sono **attualmente non supportati**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -81,9 +85,4 @@ Informazioni su come distribuire un servizio di bilanciamento del carico con IPv
 * [Distribuire un servizio di bilanciamento del carico con IPv6 usando un modello](load-balancer-ipv6-internet-template.md)
 * [Distribuire un servizio di bilanciamento del carico con IPv6 usando Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Distribuire un servizio di bilanciamento del carico con IPv6 usando l'interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

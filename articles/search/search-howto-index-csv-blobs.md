@@ -1,5 +1,5 @@
 ---
-title: Indicizzazione di BLOB CSV con l&quot;indicizzatore di BLOB di Ricerca di Azure | Documentazione Microsoft
+title: Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure | Documentazione Microsoft
 description: Informazioni su come indicizzare BLOB CSV con Ricerca di Azure
 services: search
 documentationcenter: 
@@ -14,9 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 12/15/2016
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 82c9d68bc3f1650648fac0597f4a329ef053b109
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9b56317fe8326a20fccfff4687f518d1e847122f
+ms.openlocfilehash: af9da85c37211d2436c23cc05400031c661ef51e
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -90,10 +92,5 @@ Indicizzatore:
 
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

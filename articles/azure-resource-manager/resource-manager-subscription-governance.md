@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: c46ea77c591b9c5914f83b9d5c1498b4f397a617
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Scaffold Azure enterprise: governance prescrittiva per le sottoscrizioni
@@ -79,7 +79,7 @@ I tre modelli comuni per le iscrizioni ad Azure sono:
 Lo scaffold viene applicato a livello di sottoscrizione per estendere i requisiti di governance dell'organizzazione nella sottoscrizione.
 
 ## <a name="naming-standards"></a>Standard di denominazione
-Il primo pilastro dello scaffolding è lo standard di denominazione. Standard di denominazione ben progettati consentono di identificare le risorse nel portale, in una fattura e all'interno degli script. È molto probabile che si disponga già di standard di denominazione per un'infrastruttura locale. Quando si aggiunge Azure all'ambiente, è opportuno estendere tali standard di denominazione alle risorse di Azure. Uno standard di denominazione consente una più efficace gestione dell'ambiente a tutti i livelli.
+Il primo pilastro dello scaffolding è lo standard di denominazione. Standard di denominazione ben progettati consentono di identificare le risorse nel portale, in una fattura e all'interno degli script. È molto probabile che si disponga già di standard di denominazione per l'infrastruttura locale. Quando si aggiunge Azure all'ambiente, è opportuno estendere tali standard di denominazione alle risorse di Azure. Uno standard di denominazione consente una più efficace gestione dell'ambiente a tutti i livelli.
 
 > [!TIP]
 > Per le convenzioni di denominazione:
@@ -215,7 +215,7 @@ Fra i ruoli predefiniti, solo a Proprietario e Amministratore Accesso utenti son
 > Anche i criteri sono fondamentali per la manutenzione dei controlli appropriati. Si consiglia di applicare un blocco **CanNotDelete** ai criteri in uso.
 
 ## <a name="core-networking-resources"></a>Risorse di rete di base
-È possibile accedere alle risorse dall'interno (nella rete di un'azienda) o dall'esterno (tramite Internet). Può capitare che gli utenti interni all'organizzazione inseriscano involontariamente le risorse nel punto sbagliato e le rendano vulnerabili all'accesso di utenti malintenzionati. Come con i dispositivi locali, le aziende devono aggiungere i controlli appropriati per assicurarsi che gli utenti di Azure prendano le giuste decisioni. Per la governance delle sottoscrizioni, vengono identificate le risorse principali che garantiscono il controllo di base degli accessi. Le risorse principali sono:
+È possibile accedere alle risorse dall'interno (nella rete di un'azienda) o dall'esterno (tramite Internet). Può capitare che gli utenti interni all'organizzazione inseriscano involontariamente le risorse nel punto sbagliato e le rendano vulnerabili all'accesso di utenti malintenzionati. Come per i dispositivi locali, le aziende devono aggiungere controlli appropriati per accertarsi che gli utenti di Azure prendano le decisioni giuste. Per la governance delle sottoscrizioni, vengono identificate le risorse principali che garantiscono il controllo di base degli accessi. Le risorse principali sono:
 
 * **Reti virtuali**, cioè oggetti contenitore per le subnet. Sebbene non sia strettamente necessario, vengono spesso usate per la connessione delle applicazioni alle risorse aziendali interne.
 * **Gruppi di sicurezza di rete**, che sono simili a un firewall e specificano le regole con cui una risorsa può comunicare sulla rete. Forniscono un controllo granulare su come (o se) una subnet (o una macchina virtuale) può connettersi a Internet o ad altre subnet della stessa rete virtuale.

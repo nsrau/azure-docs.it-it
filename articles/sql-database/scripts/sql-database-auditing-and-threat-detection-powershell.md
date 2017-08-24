@@ -1,6 +1,6 @@
 ---
-title: 'Script di Azure PowerShell: configurare il controllo del database e il rilevamento delle minacce | Microsoft Docs'
-description: 'Esempio di script di Azure PowerShell: configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell'
+title: Esempio di PowerShell - Controllo e rilevamento delle minacce per un database SQL di Azure | Microsoft Docs
+description: Esempio di script di Azure PowerShell per configurare il controllo e il rilevamento delle minacce in un database SQL di Azure
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -9,30 +9,30 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: mvc,security
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/19/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 528cb66bee6717a10864a78498c5004337bece02
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 228772ff6710596c916165a132db31f449d0a327
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="configure-sql-database-auditing-and-threat-detection-using-powershell"></a>Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell
+# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Usare PowerShell per configurare il controllo e il rilevamento delle minacce per il database SQL
 
-Questo script di PowerShell di esempio configura il controllo del database SQL e il rilevamento delle minacce. Per eseguire questo esempio, verificare di aver installato l'ultima versione di [Azure PowerShell](/powershell/azure/overview).
+Questo esempio di script di PowerShell configura il controllo e il rilevamento delle minacce del database SQL. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[principale](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1 "Configurare il controllo e il rilevamento delle minacce")]
+[!code-powershell[principale](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configurare il controllo e il rilevamento delle minacce")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

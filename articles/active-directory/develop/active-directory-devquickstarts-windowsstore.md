@@ -3,7 +3,7 @@ title: Introduzione a Windows Store per Azure AD | Microsoft Docs
 description: Compilare app di Windows Store che si integrano con Azure AD per la registrazione e per chiamare le API protette di Azure AD tramite il protocollo OAuth.
 services: active-directory
 documentationcenter: windows
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 3b96a6d1-270b-4ac1-b9b5-58070c896a68
@@ -13,20 +13,22 @@ ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3a78fe76119d1c748b5b75c00148a3e2a6f4a2b8
-ms.openlocfilehash: adfc28c7e41f49ce65309a316703fba57463040f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6b5189dc06d7f8b0ed4426944948b904feba847e
 ms.contentlocale: it-it
-ms.lasthandoff: 02/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-azure-ad-with-windows-store-apps"></a>Integrare Azure AD con le app di Windows Store
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+> [!NOTE]
+> I progetti di Windows Store 8.1 e della versione precedente non sono supportati in Visual Studio 2017.  Per altre informazioni, vedere [Selezione della piattaforma e compatibilità di Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 Quando si sviluppano app per Windows Store, Azure Active Directory (Azure AD) semplifica e facilita l'autenticazione degli utenti con gli account Active Directory. Grazie all'integrazione con Azure AD, un'app può usare in modo sicuro qualsiasi API Web protetta da Azure AD, quali ad esempio le API di Office 365 o l'API di Azure.
 
@@ -47,7 +49,7 @@ Per consentire all'app di ottenere i token, sarà prima necessario registrarla n
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra superiore fare clic sull'account. Nell'elenco **Directory** selezionare quindi il tenant di Active Directory in cui si vuole registrare l'app.
-3. Fare clic su **More Services** (Altri servizi) nel riquadro a sinistra e scegliere **Azure Active Directory**.
+3. Fare clic su **Altri servizi** nel riquadro a sinistra e scegliere **Azure Active Directory**.
 4. Fare clic su **Registrazioni per l'app** e scegliere **Aggiungi**.
 5. Seguire le istruzioni per creare un'**Applicazione client nativa**.
   * Il **nome** descrive l'app agli utenti.

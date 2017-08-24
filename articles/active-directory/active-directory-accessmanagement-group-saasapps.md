@@ -1,6 +1,6 @@
 ---
-title: Uso di un gruppo per gestire l&quot;accesso ad applicazioni SaaS| Documentazione Microsoft
-description: Come usare i gruppi in Azure Active Directory Premium o Basic per assegnare l&quot;accesso ad applicazioni SaaS integrate in Azure Active Directory.
+title: Uso di un gruppo per gestire l'accesso ad applicazioni SaaS| Documentazione Microsoft
+description: Come usare i gruppi in Azure Active Directory Premium o Basic per assegnare l'accesso ad applicazioni SaaS integrate in Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,18 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 08/04/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 24a6ae1b259a1524ec3a8542dcbf55ff0450421e
-ms.openlocfilehash: 01b9108048b5d7f3aa960ec01f75a693e074beaf
+ms.reviewer: piotrci
+ms.custom: it-pro;oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d350011ee9fc5ced9ddb16993f68d3c840a645a5
 ms.contentlocale: it-it
-ms.lasthandoff: 02/14/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Uso di un gruppo per gestire l'accesso ad applicazioni SaaS
 Con Azure Active Directory (Azure AD) con licenza Azure AD Premium o Azure AD Basic, è possibile usare i gruppi per assegnare l'accesso a un'applicazione SaaS integrata in Azure AD. Ad esempio, se si desidera assegnare al reparto marketing l'accesso per l'uso di cinque applicazioni SaaS diverse, è possibile creare un gruppo contenente gli utenti del reparto marketing e quindi assegnare a tale gruppo le cinque applicazioni SaaS necessarie. In questo modo è possibile velocizzare le operazioni grazie alla gestione dei membri del reparto marketing in un'unica posizione. Gli utenti vengono quindi assegnati all'applicazione quando vengono aggiunti come membri del gruppo marketing. In modo analogo, le relative assegnazioni vengono rimosse dall'applicazione quando gli utenti vengono rimossi dal gruppo marketing.
+
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. 
 
 Questa funzionalità può essere usata con centinaia di applicazioni che è possibile aggiungere dalla raccolta di applicazioni Azure AD.
 

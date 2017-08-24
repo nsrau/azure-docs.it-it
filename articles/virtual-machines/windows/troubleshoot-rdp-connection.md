@@ -14,14 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 05/26/2017
+ms.date: 07/25/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 25e19b14e1cad41a365ee88ed317078bf551c36a
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 2c42ff5b7ab87e8ef8af2c244a1313fb55503c37
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Risolvere i problemi di connessione con Desktop remoto di una macchina virtuale di Azure
@@ -37,10 +36,11 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 1. Ripristinare la configurazione del desktop remoto.
 2. Controllare le regole degli endpoint del gruppo di sicurezza di rete/Servizi cloud.
 3. Esaminare i log della console della VM.
-4. Controllare l'integrità delle risorse della VM.
-5. Reimpostare la password della VM.
-6. Riavviare la VM.
-7. Ripetere la distribuzione della VM.
+4. Reimpostare la scheda di interfaccia di rete per la macchina virtuale.
+5. Controllare l'integrità delle risorse della VM.
+6. Reimpostare la password della VM.
+7. Riavviare la VM.
+8. Ripetere la distribuzione della VM.
 
 Continuare la lettura per procedure dettagliate e altre informazioni. Verificare che le apparecchiature di rete locali quali router e firewall non blocchino la porta TCP in uscita 3389, come indicato negli [scenari dettagliati di risoluzione dei problemi RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -66,44 +66,29 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Reimposta password**. Impostare la **Modalità** su **Reset configuration only** (Reimposta solo configurazione) quindi fare clic sul pulsante **Aggiorna**:
    
     ![Ripristinare la configurazione della connessione RDP nel portale di Azure](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Verificare le regole del gruppo di sicurezza di rete**. Questo passaggio verifica che le regole del gruppo di sicurezza di rete consentono il traffico RDP. La porta RDP predefinita è la porta TCP 3389. Quando si crea la macchina virtuale, non è possibile creare automaticamente una regola che consenta il traffico RDP.
-   
-    Selezionare la macchina virtuale nel portale di Azure. Nel riquadro delle impostazioni fare clic su **Interfacce di rete**.
-   
-    ![Visualizzare le interfacce di rete di una macchina virtuale nel portale di Azure](./media/troubleshoot-rdp-connection/select-network-interfaces.png)
-   
-    Selezionare l'interfaccia di rete dall'elenco. In genere ne è presente una soltanto:
-   
-    ![Selezionare l'interfaccia di rete nel portale di Azure](./media/troubleshoot-rdp-connection/select-interface.png)
-   
-    Selezionare **Gruppo di sicurezza di rete** per visualizzare il gruppo di sicurezza di rete associato all'interfaccia di rete:
-   
-    ![Selezionare il gruppo di sicurezza di rete nel portale di Azure](./media/troubleshoot-rdp-connection/select-nsg.png)
-   
-    Assicurarsi che sia disponibile una regola in ingresso che consente il traffico RDP sulla porta TCP 3389. L'esempio seguente illustra una regola di sicurezza valida che consente il traffico RDP. È visualizzata la corretta configurazione di `Service` e `Action`:
-   
-    ![Verificare la regola NSG della connessione RDP nel portale di Azure](./media/troubleshoot-rdp-connection/verify-nsg-rules.png)
-   
-    Se non è presente una regola che consente il traffico RDP, [creare una regola del gruppo di sicurezza di rete](nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Consentire il traffico sulla porta TCP 3389.
+2. **Verificare le regole del gruppo di sicurezza di rete**. Usare la [verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare che una regola in un gruppo di sicurezza di rete blocchi il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere [Uso di regole di sicurezza effettive per risolvere i problemi di flusso del traffico delle VM](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
 3. **Rivedere la diagnostica di avvio della macchina virtuale**. Questa procedura di risoluzione dei problemi esamina i log della console della macchina virtuale per stabilire se la macchina virtuale segnala un problema. Poiché la diagnostica di avvio non è abilitata su tutte le macchine virtuali, la procedura può essere facoltativa.
    
-    Le procedure di risoluzione dei problemi specifici non rientrano nell'ambito di questo articolo, ma potrebbero segnalare un problema di più ampia portata che ha effetto sulla connessione RDP. Per altre informazioni sull'esame dei log della console e delle schermate della macchina virtuale, vedere l'articolo sulla [diagnostica di avvio per le macchine virtuali](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
-4. **Controllare l'integrità delle risorse della VM**. Questa procedura di risoluzione dei problemi verifica l'assenza di problemi noti della piattaforma Azure che potrebbero avere effetto sulla connessione alla macchina virtuale.
+    Le procedure di risoluzione dei problemi specifici non rientrano nell'ambito di questo articolo, ma potrebbero segnalare un problema di più ampia portata che ha effetto sulla connessione RDP. Per altre informazioni sull'esame dei log della console e delle schermate della macchina virtuale, vedere l'articolo sulla [diagnostica di avvio per le macchine virtuali](boot-diagnostics.md).
+
+4. **Reimpostare la scheda di interfaccia di rete per la macchina virtuale**. Per altre informazioni, vedere [How to reset NIC for Azure Windows VM](reset-network-interface.md) (Come reimpostare la scheda di interfaccia di rete per la VM Windows di Azure).
+5. **Controllare l'integrità delle risorse della VM**. Questa procedura di risoluzione dei problemi verifica l'assenza di problemi noti della piattaforma Azure che potrebbero avere effetto sulla connessione alla macchina virtuale.
    
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Integrità delle risorse**. Una macchina virtuale integra viene indicata come **Disponibile**:
    
     ![Controllare l'integrità della risorsa VM nel portale di Azure](./media/troubleshoot-rdp-connection/check-resource-health.png)
-5. **Reimpostare le credenziali utente**. Questa procedura di risoluzione dei problemi consente di reimpostare la password di un account amministratore locale se non si è sicuri o si sono dimenticate le credenziali.
+6. **Reimpostare le credenziali utente**. Questa procedura di risoluzione dei problemi consente di reimpostare la password di un account amministratore locale se non si è sicuri o si sono dimenticate le credenziali.
    
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Reimposta password**. Verificare che la **Modalità** sia impostata su **Reimpostazione password**, quindi immettere il nome utente e una nuova password. Infine fare clic sul pulsante **Aggiorna**:
    
     ![Reimpostare le credenziali utente nel portale di Azure](./media/troubleshoot-rdp-connection/reset-password.png)
-6. **Riavviare la VM**. Questa procedura di risoluzione dei problemi consente di correggere eventuali problemi sottostanti riscontrati dalla macchina virtuale.
+7. **Riavviare la VM**. Questa procedura di risoluzione dei problemi consente di correggere eventuali problemi sottostanti riscontrati dalla macchina virtuale.
    
     Selezionare la macchina virtuale nel portale di Azure e fare clic sulla scheda **Panoramica**. Fare clic sul pulsante **Riavvia**:
    
     ![Riavviare la macchina virtuale nel portale di Azure](./media/troubleshoot-rdp-connection/restart-vm.png)
-7. **Ripetere la distribuzione della VM**. Questa procedura di risoluzione dei problemi ripete la distribuzione della macchina virtuale in un altro host all'interno di Azure per correggere eventuali problemi relativi alla rete o alla piattaforma sottostante.
+8. **Ripetere la distribuzione della VM**. Questa procedura di risoluzione dei problemi ripete la distribuzione della macchina virtuale in un altro host all'interno di Azure per correggere eventuali problemi relativi alla rete o alla piattaforma sottostante.
    
     Selezionare la macchina virtuale nel portale di Azure. Scorrere verso il basso nel riquadro delle impostazioni fino alla sezione **Supporto e risoluzione dei problemi**, nella parte inferiore dell'elenco. Fare clic sul pulsante **Ridistribuisci** e quindi su **Ridistribuisci**:
    

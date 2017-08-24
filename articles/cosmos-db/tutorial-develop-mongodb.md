@@ -1,33 +1,33 @@
 ---
-title: Usare l&quot;API di Azure Cosmos DB per MongoDB per creare un&quot;app Web | Documentazione Microsoft
-description: Esercitazione di Azure Cosmos DB per creare un&quot;app Web di database online usando l&quot;API per MongoDB.
+title: Usare l'API di Azure Cosmos DB per MongoDB per creare un'app Web | Microsoft Docs
+description: Esercitazione di Azure Cosmos DB per creare un'app Web di database online usando l'API per MongoDB.
 keywords: esempi di mongodb
-services: cosmosdb
+services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
 editor: 
 documentationcenter: 
 ms.assetid: 61a2ab3a-2fc3-4d49-a263-ed87c66628f6
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: anhoh
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7d78ac544c7e001444c5112b20824f75f9723652
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 47ec9998c68455a90b505c917156d9b6b0fe0f24
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB: Connettersi a un'app MongoDB usando .NET
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa esercitazione illustra come creare un account Azure Cosmos DB usando il portale di Azure e come creare un database e una raccolta per l'archiviazione di dati usando l'[API per MongoDB](../documentdb/documentdb-protocol-mongodb.md). 
+Questa esercitazione illustra come creare un account Azure Cosmos DB usando il portale di Azure e come creare un database e una raccolta per l'archiviazione di dati usando l'[API per MongoDB](mongodb-introduction.md). 
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -44,11 +44,11 @@ Si inizia creando un account Azure Cosmos DB nel portale di Azure.
 > [!TIP]
 > * È stato già creato un account Azure Cosmos DB? In questo caso passare a [Configurare la soluzione di Visual Studio](#SetupVS)
 > * Si dispone di un account Azure DocumentDB? In questo caso l'account è ora un account Azure Cosmos DB ed è possibile passare a [Configurare la soluzione di Visual Studio](#SetupVS).  
-> * Se si usa l'emulatore Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Azure Cosmos DB Emulator](../documentdb/documentdb-nosql-local-emulator.md) (Emulatore Azure Cosmos DB) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS). 
+> * Se si usa l'emulatore Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Azure Cosmos DB Emulator](local-emulator.md) (Emulatore Azure Cosmos DB) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS). 
 >
 >
 
-[!INCLUDE [cosmosdb-create-dbaccount-mongodb](../../includes/cosmosdb-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 
@@ -131,7 +131,7 @@ Si inizia creando un account Azure Cosmos DB nel portale di Azure.
             private IMongoCollection<MyTask> GetTasksCollection()
             {
                 MongoClientSettings settings = new MongoClientSettings();
-                settings.Server = new MongoServerAddress(host, 10250);
+                settings.Server = new MongoServerAddress(host, 10255);
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
@@ -153,7 +153,7 @@ Si inizia creando un account Azure Cosmos DB nel portale di Azure.
             private IMongoCollection<MyTask> GetTasksCollectionForEdit()
             {
                 MongoClientSettings settings = new MongoClientSettings();
-                settings.Server = new MongoServerAddress(host, 10250);
+                settings.Server = new MongoServerAddress(host, 10255);
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
@@ -225,6 +225,6 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 È possibile passare all'esercitazione successiva e importare i dati di MongoDB in Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Importare i dati di MongoDB in Azure Cosmos DB](../documentdb/documentdb-mongodb-migrate.md)
+> [Importare i dati di MongoDB in Azure Cosmos DB](mongodb-migrate.md)
 
 

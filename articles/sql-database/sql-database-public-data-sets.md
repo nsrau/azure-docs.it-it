@@ -1,13 +1,13 @@
 ---
-title: Set di dati pubblici per l&quot;analisi in Azure | Microsoft Docs
+title: Set di dati pubblici per l'analisi in Azure | Microsoft Docs
 description: "Informazioni sui set di dati pubblici che è possibile usare per prototipi e test di servizi e soluzioni di analisi di Azure."
 services: sql-database
 documentationcenter: 
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
-ms.custom: 
+ms.custom: reference
 ms.assetid: 
 ms.service: sql-database
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/20/2017
 ms.author: douglasl
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 53ae23dba61cf835c6a4826b528772b1cd2e1622
+ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Set di dati pubblici per test e prototipi

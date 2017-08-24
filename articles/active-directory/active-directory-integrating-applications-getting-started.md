@@ -1,7 +1,6 @@
 ---
-
-title: Introduzione all&quot;integrazione di Azure AD con le app | Documentazione Microsoft
-description: "Questo articolo è una guida introduttiva per l&quot;integrazione di Azure Active Directory (AD) con applicazioni locali e applicazioni cloud."
+title: Introduzione all'integrazione di Azure AD con le app | Documentazione Microsoft
+description: "Questo articolo è una guida introduttiva per l'integrazione di Azure Active Directory (AD) con applicazioni locali e applicazioni cloud."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/31/2017
 ms.author: markvi
+ms.reviewer: asteen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 54e6bf0953135855d4dda2bc83c8dc06212c6eb5
 ms.openlocfilehash: 6b3f6889c747e72ee1c592b1b0dfb1d03d700ad3
 ms.contentlocale: it-it
 ms.lasthandoff: 02/03/2017
-
 
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni

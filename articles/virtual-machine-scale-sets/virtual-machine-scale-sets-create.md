@@ -1,6 +1,6 @@
 ---
 title: "Creare un set di scalabilità di macchine virtuali di Azure | Microsoft Docs"
-description: "Creare e distribuire un set di scalabilità di macchine virtuali Linux o Windows Azure con l&quot;interfaccia della riga di comando di Azure, PowerShell, un modello o Visual Studio."
+description: "Creare e distribuire un set di scalabilità di macchine virtuali Linux o Windows Azure con l'interfaccia della riga di comando di Azure, PowerShell, un modello o Visual Studio."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/21/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 736918ea310f276d961fa396f719b2b7809f0c0f
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -49,11 +50,11 @@ Login-AzureRmAccount
 Per prima cosa è necessario creare un gruppo di risorse a cui sia associato il set di scalabilità di macchine virtuali.
 
 ```azurecli
-az group create --location westus2 --name vmss-test-1
+az group create --location westus2 --name MyResourceGroup1
 ```
 
 ```powershell
-New-AzureRmResourceGroup -Location westus2 -Name vmss-test-1
+New-AzureRmResourceGroup -Location westus2 -Name MyResourceGroup1
 ```
 
 ## <a name="create-from-azure-cli"></a>Creare un set di scalabilità dall'interfaccia della riga di comando di Azure
@@ -94,13 +95,13 @@ Per creare un set di scalabilità di macchine virtuali, è necessario specificar
 L'esempio seguente crea un set di scalabilità di macchine virtuali di base (questo passaggio può richiedere alcuni minuti).
 
 ```azurecli
-az vmss create --resource-group vmss-test-1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
+az vmss create --resource-group MyResourceGroup1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
 ```
 
 Dopo il completamento del comando il set di scalabilità di macchine virtuali è stato creato. Potrebbe essere necessario ottenere l'indirizzo IP della macchina virtuale per stabilire la connessione. È possibile ottenere varie informazioni relative alla macchina virtuale (incluso l'indirizzo IP) con il comando seguente. 
 
 ```azurecli
-az vmss list-instance-connection-info --resource-group vmss-test-1 --name MyScaleSet
+az vmss list-instance-connection-info --resource-group MyResourceGroup1 --name MyScaleSet
 ```
 
 ## <a name="create-from-powershell"></a>Creare un set di scalabilità da PowerShell
@@ -141,8 +142,12 @@ Il flusso di lavoro per la creazione di un set di scalabilità di macchine virtu
 Questo esempio consente di creare un set di scalabilità di base a due istanze per un computer con installato Windows Server 2016.
 
 ```powershell
+# Resource group name from above
+$rg = "MyResourceGroup1"
+$location = "WestUS2"
+
 # Create a config object
-$vmssConfig = New-AzureRmVmssConfig -Location WestUS2 -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
+$vmssConfig = New-AzureRmVmssConfig -Location $location -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
 
 # Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWindowsServer -ImageReferenceOffer WindowsServer -ImageReferenceSku 2016-Datacenter -ImageReferenceVersion latest
@@ -151,15 +156,35 @@ Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWind
 Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@ssw0rd! -ComputerNamePrefix myvmssvm
 
 # Create the virtual network resources
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "my-subnet" -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork -Name "my-network" -ResourceGroupName "vmss-test-1" -Location "westus2" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig -Name "my-ip-address" -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-# Attach the virtual network to the config object
+## Basics
+$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "my-subnet" -AddressPrefix 10.0.0.0/24
+$vnet = New-AzureRmVirtualNetwork -Name "my-network" -ResourceGroupName $rg -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+
+## Load balancer
+$publicIP = New-AzureRmPublicIpAddress -Name "PublicIP" -ResourceGroupName $rg -Location $location -AllocationMethod Static -DomainNameLabel "myuniquedomain"
+$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name "LB-Frontend" -PublicIpAddress $publicIP
+$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+$probe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+$inboundNATRule1= New-AzureRmLoadBalancerRuleConfig -Name "webserver" -FrontendIpConfiguration $frontendIP -Protocol Tcp -FrontendPort 80 -BackendPort 80 -IdleTimeoutInMinutes 15 -Probe $probe -BackendAddressPool $backendPool
+$inboundNATPool1 = New-AzureRmLoadBalancerInboundNatPoolConfig -Name "RDP" -FrontendIpConfigurationId $frontendIP.Id -Protocol TCP -FrontendPortRangeStart 53380 -FrontendPortRangeEnd 53390 -BackendPort 3389
+
+New-AzureRmLoadBalancer -ResourceGroupName $rg -Name "LB1" -Location $location -FrontendIpConfiguration $frontendIP -LoadBalancingRule $inboundNATRule1 -InboundNatPool $inboundNATPool1 -BackendAddressPool $backendPool -Probe $probe
+
+## IP address config
+$ipConfig = New-AzureRmVmssIpConfig -Name "my-ipaddress" -LoadBalancerBackendAddressPoolsId $backendPool.Id -SubnetId $vnet.Subnets[0].Id -LoadBalancerInboundNatPoolsId $inboundNATPool1.Id
+
+# Attach the virtual network to the IP object
 Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig -Name "network-config" -Primary $true -IPConfiguration $ipConfig
 
 # Create the scale set with the config object (this step might take a few minutes)
-New-AzureRmVmss -ResourceGroupName vmss-test-1 -Name my-scale-set -VirtualMachineScaleSet $vmssConfig
+New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
+```
+
+### <a name="using-a-custom-virtual-machine-image"></a>Usare un'immagine di macchina virtuale personalizzata
+Se si sta creando un set di scalabilità da un'immagine personalizzata anziché fare riferimento a un'immagine di macchina virtuale dalla raccolta, il comando _Set AzureRmVmssStorageProfile_ avrà l'aspetto seguente:
+```PowerShell
+Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
 ```
 
 ## <a name="create-from-a-template"></a>Creare un set di scalabilità da un modello

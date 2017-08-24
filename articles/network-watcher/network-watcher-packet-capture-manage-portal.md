@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 915901ee24d2427ea020db48370790e8ddca6d54
-ms.lasthandoff: 04/03/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 33390532cc4fc1129a4f960d589f41bc95e5a1ff
+ms.contentlocale: it-it
+ms.lasthandoff: 06/15/2017
 
 ---
 
@@ -26,8 +27,9 @@ ms.lasthandoff: 04/03/2017
 > [!div class="op_single_selector"]
 > - [Portale di Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI](network-watcher-packet-capture-manage-cli.md)
-> - [API REST](network-watcher-packet-capture-manage-rest.md)
+> - [Interfaccia della riga di comando 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
+> - [Interfaccia della riga di comando 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [API REST di Azure](network-watcher-packet-capture-manage-rest.md)
 
 Il servizio di acquisizione di pacchetti di Network Watcher consente di creare sessioni di acquisizione per registrare il traffico da e verso una macchina virtuale. Sono disponibili filtri per la sessione di acquisizione per garantire che venga acquisito solo il traffico desiderato. Il servizio di acquisizione di pacchetti consente di individuare eventuali anomalie di rete in modo proattivo e reattivo. Altri utilizzi comprendono la raccolta di statistiche di rete, informazioni sulle intrusioni nella rete, debug delle comunicazioni client-server e molto altro ancora. La possibilità di attivare da remoto l'acquisizione di pacchetti evita di dover eseguire manualmente questa operazione sul computer desiderato, consentendo un notevole risparmio di tempo.
 
@@ -86,7 +88,7 @@ Le proprietà che possono essere definite in un'acquisizione di pacchetti sono:
 - **Percorso file locale**: percorso locale in una macchina virtuale in cui salvare l'acquisizione di pacchetti. È abilitato solo se viene selezionato **File**. È necessario specificare un percorso valido
 - **Numero massimo di byte per pacchetto**: numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte.
 - **Numero massimo di byte per sessione**: numero totale di byte acquisiti. Con il raggiungimento di questo valore l'acquisizione dei pacchetti si arresta.
-- **Limite di tempo (secondi)**: imposta un limite di tempo per l'arresto dell'acquisizione di pacchetti. Il valore predefinito è 1800 secondi.
+- **Limite di tempo (secondi)**: imposta un limite di tempo per l'arresto dell'acquisizione di pacchetti. Il valore predefinito è 18000 secondi.
 
 > [!NOTE]
 > Gli account di archiviazione Premium non sono attualmente supportati per l'archiviazione delle acquisizioni di pacchetti.

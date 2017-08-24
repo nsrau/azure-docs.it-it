@@ -1,6 +1,6 @@
 ---
 title: "Usare le funzionalità di sicurezza di Azure con le macchine virtuali di Azure | Documentazione Microsoft"
-description: " Panoramica delle funzionalità di sicurezza principali di Azure che possono essere usate con le macchine virtuali di Azure. Le macchine virtuali di Azure offrono la flessibilità della virtualizzazione senza la necessità di acquistare e gestire l&quot;hardware fisico in cui è in esecuzione la VM. "
+description: " Panoramica delle funzionalità di sicurezza principali di Azure che possono essere usate con le macchine virtuali di Azure. Le macchine virtuali di Azure offrono la flessibilità della virtualizzazione senza la necessità di acquistare e gestire l'hardware fisico in cui è in esecuzione la VM. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 05/04/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 70d22ae8d7f67f1e12a233e004f1eb749927e7d8
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f1fb7f876c7dc010c03f01a4f6698ddc18da1100
+ms.contentlocale: it-it
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
@@ -48,7 +48,7 @@ L'articolo descrive queste funzionalità di sicurezza principali di Macchine vir
 * Conformità
 
 ## <a name="antimalware"></a>Antimalware
-Con Azure è possibile usare software antimalware di fornitori di soluzioni di sicurezza, come Microsoft, Symantec, Trend Micro, McAfee e Kaspersky, per proteggere le macchine virtuali da file dannosi, adware e altre minacce. Vedere la sezione Altre informazioni di seguito per gli articoli sulle soluzioni dei partner.
+Con Azure è possibile usare software antimalware di fornitori di soluzioni di sicurezza, come Microsoft, Symantec, Trend Micro e Kaspersky, per proteggere le macchine virtuali da file dannosi, adware e altre minacce. Vedere la sezione Altre informazioni di seguito per gli articoli sulle soluzioni dei partner.
 
 Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure è una funzionalità di protezione in tempo reale che aiuta a identificare e rimuovere virus, spyware e altro software dannoso.  Microsoft Antimalware offre avvisi configurabili quando software dannoso o indesiderato tenta l'installazione o l'esecuzione nei sistemi di Azure.
 
@@ -73,11 +73,10 @@ Altre informazioni: per altre informazioni sul software antimalware per la prote
 * [Distribuzione di soluzioni antimalware in macchine virtuali di Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows](../virtual-machines/windows/classic/install-trend.md)
 * [Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows](../virtual-machines/windows/classic/install-symantec.md)
-* [Nuove opzioni antimalware per la protezione di macchine virtuali di Azure: McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 * [Soluzioni di sicurezza in Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
 ## <a name="hardware-security-module"></a>Modulo di protezione hardware
-La crittografia e l'autenticazione non migliorano la sicurezza a meno che le chiavi stesse non siano protette. È possibile semplificare la gestione e la sicurezza di chiavi e segreti critici archiviandoli nell'insieme di credenziali delle chiavi di Azure. L'insieme di credenziali delle chiavi consente di archiviare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 livello 2. Le chiavi di crittografia di SQL Server per backup o [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) possono essere tutte archiviate nell'insieme di credenziali delle chiavi con qualsiasi chiave o segreto delle applicazioni. Le autorizzazioni e l'accesso per questi elementi protetti vengono gestiti tramite [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Le protezioni con crittografia e autenticazione possono essere migliorate aumentando la sicurezza delle chiavi. È possibile semplificare la gestione e la sicurezza di chiavi e segreti critici archiviandoli nell'insieme di credenziali delle chiavi di Azure. L'insieme di credenziali delle chiavi consente di archiviare le chiavi in moduli di protezione hardware certificati per gli standard FIPS 140-2 livello 2. Le chiavi di crittografia di SQL Server per backup o [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) possono essere tutte archiviate nell'insieme di credenziali delle chiavi con qualsiasi chiave o segreto delle applicazioni. Le autorizzazioni e l'accesso per questi elementi protetti vengono gestiti tramite [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Altre informazioni:
 

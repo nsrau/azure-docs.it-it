@@ -9,17 +9,18 @@ manager: cshepard
 editor: 
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
-ms.custom: troubleshoot
+ms.custom: develop apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2017
+ms.date: 06/13/2017
 ms.author: daleche
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 608cbc0fd1cc1d73d28056909ed06618457bd9c0
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: ae081fc0432e36bf9f4d4f06f289386ddce37990
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---

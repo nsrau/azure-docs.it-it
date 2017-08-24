@@ -1,6 +1,6 @@
 ---
-title: "Informazioni sul registro delle identità dell&quot;hub IoT di Azure | Documentazione Microsoft"
-description: "Guida per gli sviluppatori: descrizione del registro delle identità dell&quot;hub IoT e come usarlo per gestire i dispositivi. Include informazioni sull&quot;importazione e sull&quot;esportazione in blocco delle identità dei dispositivi."
+title: "Informazioni sul registro delle identità dell'hub IoT di Azure | Documentazione Microsoft"
+description: "Guida per gli sviluppatori: descrizione del registro delle identità dell'hub IoT e come usarlo per gestire i dispositivi. Include informazioni sull'importazione e sull'esportazione in blocco delle identità dei dispositivi."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,27 +12,30 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 75a2fa16a7e33cf85746538e120ca90a389b05c5
-ms.lasthandoff: 03/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: b6e9c7b71fa6fc78f97c0144c735fc44778181d8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="understand-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
-
-## <a name="overview"></a>Panoramica
+# <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
 
 Ogni hub IoT ha un registro delle identità in cui sono archiviate le informazioni sui dispositivi a cui è consentito connettersi all'hub IoT. Prima che un dispositivo possa connettersi a un hub IoT, è necessario che sia presente una voce relativa al dispositivo nel registro delle identità dell'hub IoT. Un dispositivo deve autenticarsi anche con l'hub IoT in base alle credenziali archiviate nel registro delle identità.
 
-A livello generale, il registro delle identità è una raccolta delle risorse relative alle identità dei dispositivi che supporta REST. Quando si aggiunge una voce al registro delle identità, l'hub IoT crea un set di risorse per dispositivo nel servizio, ad esempio una coda contenente messaggi da cloud a dispositivo in elaborazione.
+L'ID dispositivo archiviato nel registro delle identità fa distinzione tra maiuscole e minuscole.
+
+A livello generale, il registro delle identità è una raccolta delle risorse relative alle identità dei dispositivi che supporta REST. Quando si aggiunge una voce nel registro delle identità, l'hub IoT crea un set di risorse per dispositivo, ad esempio una coda contenente messaggi da cloud a dispositivo in elaborazione.
 
 ### <a name="when-to-use"></a>Quando usare le autorizzazioni
 
-Usare il registro delle identità quando è necessario eseguire il provisioning di dispositivi che si connettono all'hub IoT e quando è necessario controllare l'accesso per dispositivo agli endpoint per i dispositivi dell'hub.
+Usare il registro delle identità quando è necessario:
+
+* Il provisioning dei dispositivi che si connettono per l'hub IoT.
+* Controllare l'accesso per dispositivo agli endpoint che usano dispositivi dell'hub.
 
 > [!NOTE]
 > Il registro delle identità non contiene metadati specifici delle applicazioni.
@@ -83,22 +86,63 @@ Una soluzione IoT include in genere un archivio separato specifico della soluzio
 
 ## <a name="device-provisioning"></a>Provisioning di dispositivi
 
-I dati del dispositivo archiviati da una soluzione IoT dipendono dai requisiti specifici di tale soluzione. Tuttavia, come minimo, una soluzione deve archiviare identità di dispositivo e chiavi di autenticazione. L'hub IoT di Azure include un registro delle identità in grado di archiviare i valori per ogni dispositivo, ad esempio ID, chiavi di autenticazione e codici di stato. Una soluzione può usare altri servizi di Azure, ad esempio archiviazione tabelle o Archiviazione BLOB di Azure oppure Azure DocumentDB per archiviare eventuali dati aggiuntivi sui dispositivi.
+I dati del dispositivo archiviati da una soluzione IoT dipendono dai requisiti specifici di tale soluzione. Tuttavia, come minimo, una soluzione deve archiviare identità di dispositivo e chiavi di autenticazione. L'hub IoT di Azure include un registro delle identità in grado di archiviare i valori per ogni dispositivo, ad esempio ID, chiavi di autenticazione e codici di stato. Una soluzione può usare altri servizi di Azure, ad esempio archiviazione tabelle, Archiviazione BLOB o Cosmos DB per archiviare dati aggiuntivi sui dispositivi.
 
 *Provisioning di dispositivi* è il processo di aggiunta dei dati iniziali dei dispositivi agli archivi nella soluzione. Per abilitare un nuovo dispositivo per la connessione all'hub è necessario aggiungere un ID dispositivo e le relative chiavi al registro delle identità dell'hub IoT. Come parte del processo di provisioning, può essere necessario inizializzare i dati specifici del dispositivo in altri archivi di soluzioni.
 
 ## <a name="device-heartbeat"></a>Heartbeat dispositivo
 
-Il registro delle identità dell'hub IoT contiene un campo denominato **connectionState**. Durante le fasi di sviluppo e debug, usare solo il campo **connectionState**. Le soluzioni IoT non devono eseguire query sul campo in fase di esecuzione (per verificare ad esempio se un dispositivo è connesso al fine di decidere se inviare un messaggio da cloud a dispositivo o un SMS).
+Il registro delle identità dell'hub IoT contiene un campo denominato **connectionState**. Durante le fasi di sviluppo e debug, usare solo il campo **connectionState**. Le soluzioni IoT non devono eseguire query sul campo in fase di esecuzione. Ad esempio, non devono eseguire query sul campo **connectionState** per verificare se un dispositivo è connesso prima di inviare un messaggio da cloud a dispositivo o un SMS.
 
-Se la soluzione IoT deve essere in grado di stabilire se un dispositivo è connesso, in fase di esecuzione o con un'accuratezza maggiore di quella offerta dalla proprietà **connectionState**, è necessario implementare il *modello di heartbeat*.
+Se la soluzione IoT deve sapere se un dispositivo è connesso, è necessario implementare il *modello di heartbeat*.
 
-Nel modello di heartbeat il dispositivo invia messaggi da dispositivo a cloud almeno una volta ogni intervallo di tempo stabilito, ad esempio almeno una volta ogni ora. Di conseguenza, anche se in un dispositivo non sono presenti dati da inviare, viene comunque inviato un messaggio vuoto da dispositivo a cloud, in genere con una proprietà che lo identifica come heartbeat. Sul lato servizio, la soluzione gestisce una mappa con l'ultimo heartbeat ricevuto per ogni dispositivo e presuppone che sia presente un problema per un dispositivo se non riceve un messaggio di heartbeat entro il tempo previsto.
+Nel modello di heartbeat il dispositivo invia messaggi da dispositivo a cloud almeno una volta ogni intervallo di tempo stabilito, ad esempio almeno una volta ogni ora. Di conseguenza, anche se in un dispositivo non sono presenti dati da inviare, viene comunque inviato un messaggio vuoto da dispositivo a cloud, in genere con una proprietà che lo identifica come heartbeat. Sul lato servizio, la soluzione gestisce una mappa con l'ultimo heartbeat ricevuto per ogni dispositivo e presuppone che sia presente un problema con il dispositivo se non riceve un messaggio di heartbeat entro il tempo previsto.
 
 Un'implementazione più complessa può includere le informazioni acquisite dal [monitoraggio delle operazioni][lnk-devguide-opmon] per identificare i dispositivi che provano a connettersi o a comunicare ma con esito negativo. Quando si implementa il modello di heartbeat, assicurarsi di controllare [Quote e limitazioni dell'hub IoT][lnk-quotas].
 
 > [!NOTE]
-> Se una soluzione IoT richiede lo stato di connessione del dispositivo esclusivamente per determinare se inviare i messaggi dal cloud al dispositivo e i messaggi non vengono trasmessi a grandi gruppi di dispositivi, un modello più semplice da considerare è usare un intervallo di scadenza breve. Un modello di questo tipo consente di gestire il registro dello stato di connessione del dispositivo in modo analogo a un modello di heartbeat, ma con maggiore efficienza. È inoltre possibile, richiedendo gli acknowledgement messaggi, ricevere una notifica tramite l'hub IoT indicante i dispositivi in grado di ricevere i messaggi e che non sono online o sono malfunzionanti.
+> Se una soluzione IoT usa lo stato di connessione esclusivamente per determinare se inviare i messaggi da cloud a dispositivo e i messaggi non vengono trasmessi a grandi set di dispositivi, è da considerare l'uso del criterio *a breve scadenza* più semplice. Un modello di questo tipo consente di gestire il registro dello stato di connessione del dispositivo in modo analogo a un modello di heartbeat, ma con maggiore efficienza. Se si richiede l'acknowledgement dei messaggi, l'hub IoT può inviare una notifica per indicare quali dispositivi possono ricevere messaggi e quali no.
+
+## <a name="device-lifecycle-notifications"></a>Notifiche del ciclo di vita dei dispositivi
+
+L'hub IoT può inviare una notifica alla soluzione IoT quando un'identità dispositivo viene creata o eliminata inviando notifiche del ciclo di vita dei dispositivi. A questo scopo, la soluzione IoT deve creare una route e impostare l'origine dati su *DeviceLifecycleEvents*. Per impostazione predefinita, non vengono inviate notifiche del ciclo di vita, il che significa che queste route non sono preesistenti. Il messaggio di notifica include le proprietà e il corpo.
+
+Proprietà: le proprietà di sistema del messaggio hanno come prefisso il simbolo `'$'`.
+
+| Nome | Valore |
+| --- | --- |
+$content-type | application/json |
+$iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
+$iothub-message-source | deviceLifecycleEvents |
+$content-encoding | utf-8 |
+opType | **createDeviceIdentity** o **deleteDeviceIdentity** |
+hubName | Nome dell'hub IoT |
+deviceId | ID del dispositivo |
+operationTimestamp | Timestamp ISO8601 dell'operazione |
+iothub-message-schema | deviceLifecycleNotification |
+
+Corpo: questa sezione è in formato JSON e rappresenta la copia dell'identità dispositivo creata. Ad esempio,
+
+```json
+{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}
+```
 
 ## <a name="reference-topics"></a>Argomenti di riferimento:
 
@@ -130,9 +174,9 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
-* [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
+* [Quote e limitazioni][lnk-quotas] descrive le quote e i comportamenti di limitazione applicabili al servizio hub IoT.
 * [Azure IoT SDK per dispositivi e servizi][lnk-sdks] elenca gli SDK nei diversi linguaggi che è possibile usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
-* [Linguaggio di query per dispositivi gemelli e processi][lnk-query] illustra il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
+* [Linguaggio di query dell'hub IoT][lnk-query] descrive il linguaggio di query che è possibile usare per recuperare informazioni dall'hub IoT sui dispositivi gemelli e sui processi.
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,7 +1,7 @@
 
 ---
-title: Creare un ambiente Linux completo tramite l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Usare l&quot;interfaccia della riga di comando 1.0 di Azure per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete.
+title: Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Usare l'interfaccia della riga di comando 1.0 di Azure per creare da zero una risorsa di archiviazione, una VM di Linux, una rete virtuale con subnet, il bilanciamento del carico, una scheda di interfaccia di rete, un IP pubblico e un gruppo di sicurezza di rete.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 6fcdd64759cb12ae8804bd0cc8dc4edfeec949bd
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Creare un ambiente Linux completo tramite l'interfaccia della riga di comando di Azure 1.0
@@ -33,8 +33,6 @@ Nell'ambiente sono presenti:
 * Due VM all'interno di un set di disponibilità.
 * Un servizio di bilanciamento del carico con una regola di bilanciamento del carico sulla porta 80.
 * Regole del gruppo di sicurezza di rete (NSG) per proteggere la VM dal traffico indesiderato.
-
-![Panoramica sull'ambiente di base](./media/create-cli-complete/environment_overview.png)
 
 Per creare questo ambiente personalizzato, è necessario aver installato l'[interfaccia della riga di comando di Azure 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) in modalità Resource Manager (`azure config mode arm`). È inoltre necessario uno strumento di analisi JSON. In questo esempio viene utilizzato [jq](https://stedolan.github.io/jq/).
 

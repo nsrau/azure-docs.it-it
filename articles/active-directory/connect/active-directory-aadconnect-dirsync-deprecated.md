@@ -1,6 +1,6 @@
 ---
 title: Aggiornamento da DirSync e Azure AD Sync | Documentazione Microsoft
-description: Informazioni su come eseguire l&quot;aggiornamento da DirSync e Azure AD Sync ad Azure AD Connect.
+description: Informazioni su come eseguire l'aggiornamento da DirSync e Azure AD Sync ad Azure AD Connect.
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 4e4a4f4e299dc2747eb48bbd2e064cd80783211c
-ms.openlocfilehash: cd11ef761a39b47e2426766cba64b3975595f4d4
-ms.lasthandoff: 04/04/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3674670e10500d2992539ab60fbdb31b666fcf9a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -55,7 +56,7 @@ Per istruzioni su come eseguire un aggiornamento sul posto da DirSync ad Azure A
 >
 >
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 **D: È stata ricevuta una notifica di posta elettronica dal team di Azure e/o un messaggio dal Centro messaggi di Office 365 anche se si usa Connect.**  
 La notifica è stata inviata anche agli utenti di Azure AD Connect con numero di build 1.0.\*.0 e rilascio precedente all'1.1. Si consiglia ai clienti di rimanere aggiornati con le versioni di Azure AD Connect. La funzionalità di [aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md) disponibile nella versione 1.1 consente di assicurare che sia sempre installata una versione recente di Azure AD Connect.
 

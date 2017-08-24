@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
-ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
-ms.openlocfilehash: 138598ce20459b7d4975c6640b28e9a999de30cd
-ms.lasthandoff: 03/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 2f052ea5ff50cf584f9116f2802eca1fd077dcbb
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -36,11 +36,11 @@ In Servizi multimediali di Azure (AMS) un **canale** rappresenta una pipeline pe
 
 A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale è possibile specificare in che modo il canale riceverà il flusso di input e se eseguirà o meno la codifica live del flusso. Sono disponibili due opzioni:
 
-* **Nessuno** : specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a più velocità in bit (un flusso pass-through). In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10.  Per informazioni più dettagliate sull'uso dei canali di questo tipo, vedere [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md)(Streaming live con codificatori locali che creano flussi a più velocità in bit).
+* **Nessuno** : specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a più velocità in bit (un flusso pass-through). In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10.  Per informazioni più dettagliate sull'uso dei canali di questo tipo, vedere [Streaming live con codificatori locali che creano flussi a bitrate multipli](media-services-live-streaming-with-onprem-encoders.md).
 * **Standard** - scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a velocità in bit singola in un flusso a più velocità in bit. Tenere presente che la codifica live è soggetta a un costo e che se si lascia un canale di codifica live impostato sullo stato "In esecuzione", vengono aggiunti nuovi costi alla fatturazione.  Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live.
 
 > [!NOTE]
-> Questo argomento illustra gli attributi dei canali abilitati per l'esecuzione della codifica live (tipo di codifica**Standard** ). Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md)(Streaming live con codificatori locali che creano flussi a più velocità in bit).
+> Questo argomento illustra gli attributi dei canali abilitati per l'esecuzione della codifica live (tipo di codifica**Standard** ). Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Live streaming with on-premise encoders that create multi-bitrate streams](media-services-live-streaming-with-onprem-encoders.md)(Streaming live con codificatori locali che creano flussi a velocità in bit multipla).
 > 
 > Assicurarsi di esaminare la sezione [Considerazioni](media-services-manage-live-encoder-enabled-channels.md#Considerations) .
 > 
@@ -53,7 +53,7 @@ La tabella seguente illustra il mapping degli stati del canale agli stati di fat
 Per sospendere l'attività di fatturazione del canale, è necessario interrompere il canale tramite l'API o nel portale di Azure.
 È l'utente ad essere responsabile dell'interruzione dei canali al termine dell'utilizzo del canale di codifica live.  La mancata interruzione del canale di codifica comporta infatti il proseguimento della fatturazione.
 
-### <a name="a-idstatesachannel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Stati del canale e relativi metodi di mapping alla modalità di fatturazione
+### <a id="states"></a>Stati del canale e relativi metodi di mapping alla modalità di fatturazione
 Si tratta dello stato attuale del canale. I valori possibili sono:
 
 * **Arrestato**. Lo stato iniziale del canale dopo la creazione (se nel portale non è stata selezionata l'opzione di avvio automatico.) In questo stato non viene eseguita alcuna attività di fatturazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
@@ -81,7 +81,7 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui u
 
 ![Flusso di lavoro live][live-overview]
 
-## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Scenario comune di streaming live
+## <a id="scenario"></a>Scenario comune di streaming live
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
 > [!NOTE]
@@ -119,8 +119,8 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 > 
 > 
 
-## <a name="a-idchannelachannels-input-ingest-configurations"></a><a id="channel"></a>Configurazioni di input (inserimento) del canale
-### <a name="a-idingestprotocolsaingest-streaming-protocol"></a><a id="Ingest_Protocols"></a>Protocollo di streaming di inserimento
+## <a id="channel"></a>Configurazioni di input (inserimento) del canale
+### <a id="Ingest_Protocols"></a>Protocollo di streaming di inserimento
 Se **Tipo di codificatore** è impostato su **Standard**, le opzioni valide sono le seguenti:
 
 * **RTP** (MPEG-TS): MPEG-2 Transport Stream su RTP.  
@@ -166,7 +166,7 @@ Considerazioni:
   * Imagine Communications Selenio ENC 2
   * Elemental Live
 
-#### <a name="a-idsinglebitratertmpasingle-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>RTMP a velocità in bit singola
+#### <a id="single_bitrate_RTMP"></a>RTMP a velocità in bit singola
 Considerazioni:
 
 * Il flusso in ingresso non può contenere video a più velocità in bit.
@@ -179,7 +179,7 @@ Considerazioni:
 * High 422 Profile (4:2:2 a 10 bit)
 * MPEG-2 AAC-LC Audio
 * Mono, Stereo, Surround (5.1, 7.1)
-* Frequenza di campionamento a&44;.1 kHz
+* Frequenza di campionamento a 44.1 kHz
 * Stile MPEG-2, pacchetto ADTS
 * I codec consigliati includono:
 * Telestream Wirecast
@@ -261,7 +261,7 @@ Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad es
 
 È possibile specificare un massimo di 8 set di flussi audio se l'input per il canale è MPEG-2 TS su RTP. Tuttavia, non possono essere presenti due voci con lo stesso valore di indice.
 
-### <a name="a-idpresetasystem-preset"></a><a id="preset"></a>Set di impostazioni del sistema
+### <a id="preset"></a>Set di impostazioni del sistema
 Specifica il set di impostazioni che dovrà essere usato dal codificatore live all'interno del canale. Attualmente, l'unico valore consentito è **Default720p** (impostazione predefinita).
 
 Si noti che se sono necessari set di impostazioni personalizzati, si deve contattare amslived in Microsoft.com.
@@ -314,7 +314,7 @@ Durata dello slate in secondi. Per avviare lo slate, deve essere un valore posit
 ### <a name="insert-slate-on-ad-marker"></a>Inserisci slate su marcatore di annuncio
 Quando è impostata su true, questa opzione configura il codificatore live in modo che venga inserita un'immagine dello slate durante un'interruzione pubblicitaria. Il valore predefinito è true. 
 
-### <a name="a-iddefaultslateadefault-slate-asset-id"></a><a id="default_slate"></a>ID asset dello slate predefinito
+### <a id="default_slate"></a>ID asset dello slate predefinito
 
 Facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
 
@@ -352,7 +352,7 @@ Se si desidera mantenere il contenuto archiviato ma non averlo disponibile per l
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Ottenere un'anteprima di un feed live
 Quando è abilitata la codifica live, ora è possibile ottenere un'anteprima del feed live quando raggiunge il canale. Questo strumento può essere utile per verificare se il feed live sta effettivamente per raggiungere il canale. 
 
-## <a name="a-idstatesachannel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>Stati del canale e come vengono mappati alla modalità di fatturazione
+## <a id="states"></a>Stati del canale e come vengono mappati alla modalità di fatturazione
 Si tratta dello stato attuale del canale. I valori possibili sono:
 
 * **Arrestato**. Lo stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
@@ -375,7 +375,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 > 
 > 
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="Considerations"></a>Considerazioni
+## <a id="Considerations"></a>Considerazioni
 * Quando un canale del tipo di codifica **Standard** riscontra una perdita di origine di input/contributo feed, compensa sostituendo l'audio/video di origine con uno slate di errore e inattività. Il canale continua a generare uno slate fino a quando l'input/contributo feed riprende il suo funzionamento. Si consiglia di non lasciare un canale live in tale stato per più di 2 ore. Dopo tale periodo, il comportamento del canale per la riconnessione dell’input non è garantito. Inoltre, il comportamento del canale non è in risposta a un comando di ripristino. È necessario interrompere il canale, eliminarlo e crearne uno nuovo.
 * Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 * Assicurarsi di chiamare il metodo **Reset** sul canale ogni volta che si riconfigura il codificatore live. Prima di reimpostare il canale, è necessario arrestare il programma. Dopo aver reimpostato il canale, riavviare il programma.

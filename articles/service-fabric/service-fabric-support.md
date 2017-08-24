@@ -1,9 +1,9 @@
 ---
 title: Informazioni sulle opzioni di supporto di Azure Service Fabric | Documentazione Microsoft
-description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto.
+description: Versioni dei cluster di Azure Service Fabric supportate e link ai ticket di supporto
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: pkc
 manager: timlt
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/10/2017
-ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 44e95f78b5fe592713570e53f2469c88202a02aa
-ms.lasthandoff: 03/11/2017
-
+ms.date: 06/15/2017
+ms.author: pkc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 70b2fefa654a73693a8064654cde1d767bfdd496
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
@@ -41,7 +41,7 @@ Altre informazioni su:
 
 ## <a name="report-production-or-live-site-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Segnalare problemi di produzione o relativi al sito live o richiedere supporto a pagamento per i cluster di Service Fabric autonomi
 
-Per la segnalazione di problemi relativi al sito live nel cluster di Service Fabric distribuito in locale o in altri cloud, aprire un ticket per il supporto professionale nel [portale di supporto Microsoft](http://support.microsoft.com/oas/default.aspx?prid=16146).
+Per la segnalazione di problemi relativi al sito live nel cluster di Service Fabric distribuito in locale o in altri cloud, aprire un ticket per il supporto professionale nel [portale del supporto tecnico di Microsoft](http://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Altre informazioni su:
 
@@ -77,13 +77,19 @@ Fare riferimento ai documenti seguenti per informazioni dettagliate su come assi
  
 Di seguito è riportato un elenco delle versioni di Service Fabric supportate con le relative date di fine supporto.
 
-| **Cluster runtime di Service Fabric** | **Data di fine supporto** |
-| --- | --- |
-| Tutte le versioni di cluster precedenti alla 5.3.121 |20 gennaio 2017 |
-| 5.3.* |24 febbraio 2017 |
-| 5.4.* |10 maggio 2017     |
-| 5.5.* |Versione corrente, nessuna data di fine supporto
+| **Cluster runtime di Service Fabric** | **Versioni di SDK / pacchetto NuGet compatibili** | **Data di fine supporto** |
+| --- | --- | --- |
+| Tutte le versioni di cluster precedenti alla 5.3.121 |Versione 2.3 o precedente |20 gennaio 2017 |
+| 5.3.* |Versione 2.3 o precedente |24 febbraio 2017 |
+| 5.4.* |Versione 2.4 o precedente |10 maggio 2017     |
+| 5.5.* |Versione 2.5 o precedente |10 agosto 2017    |
+| 5.6.* |Versione 2.6 o precedente |Versione corrente, nessuna data di fine supporto
 
+<a id="previewversion"></a>
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versioni di anteprima di Service Fabric non supportate per l'uso in produzione
+Periodicamente vengono rilasciate in anteprima versioni che includono funzionalità significative per cui è richiesto il feedback degli utenti. Queste versioni di anteprima devono essere usate solo a scopo di test. In un cluster di produzione deve essere sempre in esecuzione una versione di Service Fabric supportata e stabile. Una versione di anteprima inizia sempre con un numero di versione principale e secondario uguale a 255. Ad esempio, la versione di Service Fabric 255.255.5703.949 è una versione di anteprima e dovrà essere usata solo in cluster di test. Queste versioni di anteprima vengono annunciate anche nel [blog del team di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) e includono informazioni dettagliate sulle funzionalità incluse.
+
+Non esiste alcuna opzione di supporto a pagamento per queste versioni di anteprima. Usare una delle opzioni elencate in [Segnalare problemi di Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) per eventuali domande o commenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Configurare l&quot;ambiente di origine (server fisici in Azure) | Documentazione Microsoft
-description: Questo articolo descrive come configurare l&quot;ambiente locale per avviare la replica in Azure di server fisici che eseguono Windows o Linux.
+title: Configurare l'ambiente di origine (server fisici in Azure) | Documentazione Microsoft
+description: Questo articolo descrive come configurare l'ambiente locale per avviare la replica in Azure di server fisici che eseguono Windows o Linux.
 services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
@@ -11,19 +11,21 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 1/10/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: f849ea027022cc753bf818d7980170b5875221f0
-ms.openlocfilehash: 47431f934f092ea7c614599b6c8e3fe3a946a955
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 49b9d2e21dbcb612828a25f21ed4382327d6f64c
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 ---
 
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configurare l'ambiente di origine (server fisico in Azure)
 > [!div class="op_single_selector"]
-> * [Macchine virtuali VMware](./site-recovery-set-up-vmware-to-azure.md)
-> * [Server fisici](./site-recovery-set-up-physical-to-azure.md)
+> * [Da VMware ad Azure](./site-recovery-set-up-vmware-to-azure.md)
+> * [Da fisico ad Azure](./site-recovery-set-up-physical-to-azure.md)
 
 Questo articolo descrive come configurare l'ambiente locale per avviare la replica in Azure di server fisici che eseguono Windows o Linux.
 
@@ -81,10 +83,4 @@ La tabella seguente elenca i requisiti minimi hardware, software e di rete per u
 ## <a name="next-steps"></a>Passaggi successivi
 
 Nel prossimo passaggio viene eseguita la [configurazione dell'ambiente di destinazione](./site-recovery-prepare-target-physical-to-azure.md) in Azure.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

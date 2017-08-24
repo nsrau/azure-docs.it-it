@@ -1,6 +1,6 @@
 ---
-title: Ottenere i valori richiesti per l&quot;autenticazione di un&quot;applicazione per l&quot;accesso al database SQL dal codice | Documentazione Microsoft
-description: "Creare un&quot;entità servizio per l&quot;accesso al database SQL dal codice."
+title: Ottenere valori per l'autenticazione delle app - Database SQL di Azure | Microsoft Docs
+description: "Creare un'entità servizio per l'accesso al database SQL dal codice."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -9,16 +9,18 @@ editor:
 tags: 
 ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
-translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 321b1630680f8bd4271f863b2cbe39be1a00cb89
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: ec6256e9c5bb0d9c8d15d0f673cea70b3915eb34
+ms.contentlocale: it-it
+ms.lasthandoff: 06/22/2017
 
 
 ---
@@ -74,10 +76,5 @@ Lo script di PowerShell seguente permette di creare l'applicazione Active Direct
 ## <a name="see-also"></a>Vedere anche
 * [Usare C# per creare un database SQL](sql-database-get-started-csharp.md)
 * [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

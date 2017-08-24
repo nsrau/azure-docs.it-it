@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento sui riquadri per Progettazione viste in Log Analytics di OMS | Documentazione Microsoft
-description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l&quot;uso nelle viste personalizzate.
+description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 806aba12d07c10816a106b9b2af0e824ceb25ade
+ms.contentlocale: it-it
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Informazioni di riferimento sui riquadri per Progettazione viste di Log Analytics
@@ -26,7 +27,10 @@ Progettazione viste di Log Analytics consente di creare viste personalizzate nel
 Altri articoli disponibili su Progettazione viste sono:
 
 * [Progettazione viste](log-analytics-view-designer.md): una panoramica su Progettazione viste e sulle procedure per creare e modificare viste personalizzate.
-* [Informazioni di riferimento sulle parti della visualizzazione](log-analytics-view-designer-parts.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate. 
+* [Informazioni di riferimento sulle parti della visualizzazione](log-analytics-view-designer-parts.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate.
+
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query in tutte le viste devono essere scritte nel [nuovo linguaggio](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Le viste create prima dell'aggiornamento dell'area di lavoro verranno automaticamente convertite.
 
 Nella tabella seguente sono elencati i diversi tipi di riquadri disponibili in Progettazione viste.  Nelle sezioni seguenti vengono descritti i dettagli di ogni tipo di riquadro e le relative proprietà.
 
@@ -176,10 +180,4 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per supportare le query nei riquadri.
 * Aggiungere [parti della visualizzazione](log-analytics-view-designer-parts.md) per la vista personalizzata.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: Ottimizzare l&quot;ambiente SQL Server con Log Analytics di Azure|Documentazione Microsoft
-description: "Con Log Analytics di Azure è possibile usare la soluzione SQL Assessment per valutare i rischi e l&quot;integrità degli ambienti SQL Server a intervalli regolari."
+title: Ottimizzare l'ambiente SQL Server con Log Analytics di Azure|Documentazione Microsoft
+description: "Con Log Analytics di Azure è possibile usare la soluzione SQL Assessment per valutare i rischi e l'integrità degli ambienti SQL Server a intervalli regolari."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: c07e7fd218f2ec696e280f0cc6f199a090f424e6
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
+ms.contentlocale: it-it
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente SQL Server con la soluzione SQL Assessment in Log Analytics
+
+![Simbolo di Valutazione SQL](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
 
 È possibile usare la soluzione SQL Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari. Questo articolo consente di installare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
 
@@ -167,6 +169,8 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 
 ## <a name="ignore-recommendations"></a>Ignorare le raccomandazioni
 Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS userà per impedirne la visualizzazione nei risultati della valutazione.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Per identificare le raccomandazioni che verranno ignorate
 1. Accedere all'area di lavoro e aprire Ricerca log. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.

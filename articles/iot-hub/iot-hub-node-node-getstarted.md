@@ -1,6 +1,6 @@
 ---
-title: Introduzione all&quot;hub IoT di Azure per Node.js | Microsoft Docs
-description: "Come inviare messaggi da un dispositivo a un hub IoT cloud di Azure tramite gli SDK IoT di Azure per Node.js. È necessario creare un&quot;app di simulazione del dispositivo per inviare messaggi, un&quot;app di servizio per registrare il dispositivo nel registro di identità e un&quot;app di servizio per leggere i messaggi dal dispositivo al cloud nell&quot;hub IoT."
+title: Introduzione all'hub IoT di Azure per Node.js | Microsoft Docs
+description: Informazioni su come inviare messaggi da dispositivo a cloud all'hub IoT di Azure usando IoT SDK per Node.js. Creare un dispositivo simulato e app di servizio per registrare il dispositivo, inviare messaggi e leggere messaggi dall'hub IoT.
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: b04fe441cf83ed616b0464eec83a6caf3a449532
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5ce485575416b863d34117807c6dccd96e88eb42
 ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Connettere il dispositivo simulato all'hub IoT usando Node
@@ -77,8 +76,9 @@ In questa sezione si scriverà un'app console Node.js che crea un'identità del 
 6. Aggiungere il codice seguente per creare una definizione di dispositivo nel registro di identità dell'hub IoT. .Se l'ID del dispositivo non esiste nel registro delle identità dei dispositivi il codice crea un dispositivo, in caso contrario restituisce la chiave di quello esistente:
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);
@@ -95,6 +95,8 @@ In questa sezione si scriverà un'app console Node.js che crea un'identità del 
       }
     }
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 7. Salvare e chiudere il file **CreateDeviceIdentity.js** .
 8. Per eseguire l'applicazione **createdeviceidentity** , eseguire questo comando al prompt dei comandi nella cartella createdeviceidentity:
    

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
-ms.openlocfilehash: 8ecc5208237d846d0e81914eee8874ea97744bc3
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.contentlocale: it-it
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -177,20 +179,29 @@ Questa è una semplice applicazione client di test che è possibile eseguire sep
 Infine, l'applicazione che include il servizio dell'attore e qualsiasi altro servizio aggiunto in futuro per la distribuzione. Contiene il file *ApplicationManifest.xml* e segnaposto per il pacchetto del servizio dell'attore.
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
-Lo scaffolding Yeoman include uno script Gradle per compilare l'applicazione e script Bash per distribuire e annullare la distribuzione dell'applicazione. Per eseguire l'applicazione, prima di tutto compilarla con Gradle:
+
+Lo scaffolding Yeoman include uno script Gradle per compilare l'applicazione e script Bash per distribuire ed eliminare l'applicazione. Per distribuire l'applicazione, prima di tutto compilarla con Gradle:
 
 ```bash
 $ gradle
 ```
 
-Si otterrà un pacchetto dell'applicazione di Service Fabric che può essere distribuito tramite l'interfaccia della riga di comando di Azure Service Fabric. Lo script install.sh contiene i comandi dell'interfaccia della riga di comando di Azure necessari per distribuire il pacchetto dell'applicazione. Per la distribuzione è sufficiente eseguire lo script install.sh:
+Si otterrà un pacchetto dell'applicazione di Service Fabric che può essere distribuito tramite gli strumenti dell'interfaccia della riga di comando di Service Fabric.
 
-```bask
+### <a name="deploy-with-xplat-cli"></a>Eseguire la distribuzione con l'interfaccia della riga di comando di XPlat
+
+Se si usa l'interfaccia della riga di comando di XPlat, lo script install.sh contiene i comandi dell'interfaccia della riga di comando di Azure necessari per distribuire il pacchetto dell'applicazione. Eseguire lo script install.sh per distribuire l'applicazione.
+
+```bash
 $ ./install.sh
 ```
 
+### <a name="deploy-with-azure-cli-20"></a>Eseguire la distribuzione con l'interfaccia della riga di comando di Azure 2.0
 
+Se si usa l'interfaccia della riga di comando di Azure 2.0, vedere la documentazione di riferimento sulla gestione di un [ciclo di vita dell'applicazione tramite l'interfaccia della riga di comando di Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
-<!--HONumber=Jan17_HO4-->
+## <a name="related-articles"></a>Articoli correlati
 
+* [Introduzione a Service Fabric e all'interfaccia della riga di comando di Azure 2.0](service-fabric-azure-cli-2-0.md)
+* [Introduzione all'interfaccia della riga di comando di XPlat per Service Fabric](service-fabric-azure-cli.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Gestione delle minacce per Azure B2C | Microsoft Docs
-description: Tecniche di prevenzione e rilevamento degli attacchi DOS e alle password in Azure B2C.
+title: 'Azure Active Directory B2C: Gestione delle minacce | Documentazione Microsoft'
+description: Vengono illustrate le tecniche di rilevamento e mitigazione di attacchi Denial of Service e attacchi alle password in Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: 
 author: vigunase
@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2016
 ms.author: 
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5cca5fcd445e70b4eab9197258bb783e20016f76
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 9472cb01eb713e297053727b1a314293574bb657
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
-# <a name="azure-ad-b2c-threat-management"></a>Azure AD B2C: Gestione delle minacce
-Gestione delle minacce include la protezione da attacchi contro il sistema e le reti. Denial of service (DOS) può incidere sulla disponibilità e impedire alle risorse di essere disponibili per gli utenti previsti. Gli attacchi alle password comportano un rischio di accesso non autorizzato alle risorse. Microsoft Azure Active Directory B2C offre funzionalità incorporate per proteggere i dati da queste minacce in diversi modi. 
+# <a name="azure-active-directory-b2c-threat-management"></a>Azure Active Directory B2C: Gestione delle minacce
 
-## <a name="denial-of-service-attack"></a>Attacco Denial of Service
+Gestione delle minacce include la pianificazione per la protezione da attacchi contro il sistema e le reti. Gli attacchi Denial of Service potrebbero rendere le risorse non disponibili agli utenti previsti. Gli attacchi alle password comportano un rischio di accesso non autorizzato alle risorse. Azure Active Directory B2C (Azure AD B2C) offre funzionalità incorporate che aiutano a proteggere i dati da queste minacce in diversi modi.
 
-Azure AD B2C usa tecniche di prevenzione e rilevamento, ad esempio cookie SYN, limiti di velocità e connessione, per proteggere le risorse sottostanti da tali attacchi.  
+## <a name="denial-of-service-attacks"></a>Attacchi Denial of Service
+
+Azure AD B2C usa tecniche di rilevamento e mitigazione, ad esempio cookie SYN e limiti di velocità e connessione, per proteggere le risorse sottostanti dagli attacchi Denial of Service.
 
 ## <a name="password-attacks"></a>Attacchi alle password
 
-Azure AD B2C inoltre dispone inoltre di misure preventive per gli attacchi alle password.  Questa tecnica include sia gli attacchi di forza bruta che attacchi con dizionario alle password.  Le password impostate dagli utenti devono essere ragionevolmente complesse.  Azure AD B2C analizza l'integrità delle richieste per distinguere in modo intelligente gli utenti previsti dai pirati informatici e botnet, usando diversi segnali. B2C fornisce una sofisticata strategia di blocco account in base alle password immesse rispetto alla probabilità di un attacco.
+Azure AD B2C dispone inoltre di tecniche di mitigazione per gli attacchi alle password. Questa mitigazione include sia attacchi di forza bruta che attacchi con dizionario alle password. Le password impostate dagli utenti devono essere ragionevolmente complesse. Tramite segnali diversi, Azure AD B2C analizza l'integrità delle richieste. Azure Active Directory B2C è progettato per distinguere in modo intelligente gli utenti previsti da hacker e botnet. Azure AD B2C fornisce una sofisticata strategia di blocco account in base alle password immesse rispetto alla probabilità di un attacco.
 
-[Ulteriori informazioni su Gestione delle minacce di Microsoft](https://www.microsoft.com/trustcenter/security/threatmanagement)
+Per maggiori informazioni, visitare il [Centro protezione Microsoft](https://www.microsoft.com/trustcenter/security/threatmanagement).
+

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
-ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
-ms.lasthandoff: 12/23/2016
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -30,7 +31,7 @@ Questo articolo illustra come usare la funzione di trasformazione dei dati all'i
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di disporre di:
-*   Un sistema con Visual Studio 2012, 2013 o 2015 installato.
+*   Un sistema con Visual Studio 2012, 2013, 2015 o 2017 installato.
 *   Azure Powershell installato. [Scaricare Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   Impostazioni di configurazione per l'inizializzazione del processo di trasformazione dei dati (le istruzioni per ottenere queste impostazioni sono incluse qui).
 *   Una definizione di processo configurata correttamente in una risorsa dati ibridi all'interno di un gruppo di risorse.
@@ -51,7 +52,11 @@ Eseguire la procedura seguente per usare .NET allo scopo di avviare un processo 
         È possibile trasmettere qualsiasi valore per ActiveDirectoryKey e AppName.
 
 
-2. Questo script restituisce i valori seguenti:      - ID client      - ID tenant      - Chiave di Active Directory (simile a quella immessa in precedenza)      - ID sottoscrizione
+2. Questo script restituisce i valori seguenti:
+    * ID Client
+    * ID tenant
+    * Chiave di Active Directory (uguale a quella immessa in precedenza)
+    * ID sottoscrizione
 
 3. Usando Visual Studio 2012, 2013 o 2015, creare un'applicazione console .NET in C#.
 

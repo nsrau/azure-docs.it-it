@@ -3,7 +3,7 @@ title: Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data F
 description: Informazioni su come proteggere lo spostamento dei dati in Azure Data Factory.
 services: data-factory
 documentationcenter: 
-author: abnarain
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
-ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: ee4c87be43354696c63533d8cbf618b26a2708d3
+ms.date: 07/27/2017
+ms.author: abnarain
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 33ccb820b786b9aa28f9e10c35ef1d2c00eaf7f1
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -33,10 +32,10 @@ Anche se Data Factory è disponibile solo nelle aree **Stati Uniti occidentali**
 Azure Data Factory non archivia i dati ad eccezione delle credenziali del servizio collegato per gli archivi di dati cloud, che vengono crittografate tramite l'uso di certificati. Consente di creare flussi di lavoro basati sui dati per orchestrare lo spostamento di dati tra [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats) e l'elaborazione di dati usando i [servizi di calcolo](data-factory-compute-linked-services.md) in altre aree o in un ambiente locale. Consente anche di [monitorare e gestire i flussi di lavoro](data-factory-monitor-manage-pipelines.md) usando meccanismi a livello di codice e di interfaccia utente.
 
 Lo spostamento dei dati con Azure Data Factory è stato **certificato** per:
--    [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
--    [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--    [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--    [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
+-   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Se si è interessati alla conformità di Azure e alle modalità di protezione dell'infrastruttura da parte di Azure, visitare il [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
 
@@ -50,13 +49,34 @@ In questo articolo vengono prese in esame le considerazioni sulla sicurezza nei 
 Azure Data Factory protegge le credenziali dell'archivio dati **crittografandoli** con i **certificati gestiti da Microsoft**. Questi certificati ruotano ogni **due anni** (in questo arco temporale è compreso il rinnovo del certificato e la migrazione delle credenziali). Queste credenziali crittografate vengono archiviate in modo sicuro all'interno di un'**Archiviazione di Azure gestita dai servizi di gestione di Azure Data Factory**. Per altre informazioni sulla sicurezza di Archiviazione di Azure, vedere [Panoramica sulla sicurezza di Archiviazione di Azure](../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Crittografia di dati in transito
-Tutti i trasferimenti di dati tra i servizi di spostamento dei dati in Data Factory e un archivio dati cloud avvengono tramite un canale TLS o HTTPS sicuro se l'archivio dati cloud supporta HTTPS o TLS.
+Se l'archivio dati cloud supporta HTTPS o TLS, tutti i trasferimenti di dati tra i servizi di spostamento dei dati in Data Factory e un archivio dati cloud avvengono tramite un canale TLS o HTTPS sicuro.
 
 > [!NOTE]
 > Tutte le connessioni al **database SQL di Azure** e ad **Azure SQL Data Warehouse** richiedono sempre la crittografia (SSL/TLS) quando i dati sono in transito da e verso il database. Durante la creazione di una pipeline con un editor JSON, aggiungere la proprietà **crittografia** e impostarla su **true** nella **stringa di connessione**. Quando si usa [Copia guidata](data-factory-azure-copy-wizard.md), la procedura guidata imposta questa proprietà per impostazione predefinita. Per **Archiviazione di Azure** è possibile usare **HTTPS** nella stringa di connessione.
 
 ### <a name="data-encryption-at-rest"></a>Crittografia di dati inattivi
-Molti archivi di dati supportano la crittografia dei dati inattivi. È consigliabile abilitare il meccanismo di crittografia dei dati per gli archivi dati. Ad esempio, abilitare Transparent Data Encryption (TDE) per il database SQL di Azure e Azure SQL Data Warehouse. 
+Alcuni archivi di dati supportano la crittografia dei dati inattivi. È consigliabile abilitare il meccanismo di crittografia dei dati per gli archivi dati. 
+
+#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+La funzionalità Transparent Data Encryption (TDE) di Azure SQL Data Warehouse consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati inattivi. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Proteggere un database in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+
+#### <a name="azure-sql-database"></a>Database SQL di Azure
+Il database SQL di Azure supporta anche la funzionalità Transparent Data Encryption (TDE), che consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati, senza dover apportare modifiche all'applicazione. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Transparent Data Encryption con il database SQL di Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
+
+#### <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
+Azure Data Lake Store offre anche la possibilità di crittografare i dati archiviati nell'account. Se abilitato, Data Lake Store crittografa automaticamente i dati prima di renderli persistenti e li decrittografa prima di recuperarli, rendendo quindi trasparente per il client l'accesso ai dati. Per altre informazioni, vedere [Sicurezza in Archivio Azure Data Lake](../data-lake-store/data-lake-store-security-overview.md). 
+
+#### <a name="azure-blob-storage-and-azure-table-storage"></a>Archiviazione BLOB di Azure e Archiviazione tabelle di Azure
+Archiviazione BLOB di Azure e Archiviazione tabelle di Azure supportano la crittografia del servizio di archiviazione, che crittografa automaticamente i dati prima di renderli persistenti nella risorsa di archiviazione e li decrittografa prima di recuperarli. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/storage-service-encryption.md).
+
+#### <a name="amazon-s3"></a>Amazon S3
+Amazon S3 supporta la crittografia client e server dei dati inattivi. Per altre informazioni, vedere [Protezione dei dati mediante la crittografia](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Attualmente, Data Factory non supporta Amazon S3 all'interno di un cloud privato virtuale (VPC).
+
+#### <a name="amazon-redshift"></a>Amazon Redshift
+Amazon Redshift supporta la crittografia cluster per i dati inattivi. Per altre informazioni, vedere [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html) (Crittografia database Amazon Redshift). Attualmente, Data Factory non supporta Amazon Redshift all'interno di un cloud privato virtuale (VPC). 
+
+#### <a name="salesforce"></a>Salesforce
+Salesforce supporta il servizio Shield Platform Encryption, che consente la crittografia di tutti i file, gli allegati e i campi personalizzati. Per altre informazioni, vedere [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Comprendere il flusso di autenticazione OAuth per il server Web).  
 
 ## <a name="hybrid-scenarios-using-data-management-gateway"></a>Scenari ibridi (usando il gateway di gestione dati)
 Gli scenari ibridi richiedono l'installazione del gateway di gestione dati in una rete locale, in una rete virtuale (Azure) o in una cloud privato virtuale (Amazon). Il gateway deve essere in grado di accedere gli archivi dati locali. Per altre informazioni sul gateway, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md). 
@@ -99,7 +119,7 @@ Tutti i trasferimenti di dati avvengono attraverso un canale **HTTPS** e **TLS s
  
 Inoltre, è possibile usare [VPN IPSec](../vpn-gateway/vpn-gateway-about-vpn-devices.md) o [Express Route](../expressroute/expressroute-introduction.md) per proteggere ulteriormente il canale di comunicazione tra la rete locale e Azure.
 
-La rete virtuale è una rappresentazione logica della propria rete nel cloud. È possibile connettere una rete locale alla propria rete virtuale di Azure (VNet) configurando VPN IPSec (da sito a sito) o Express Route (peering privato)        
+La rete virtuale è una rappresentazione logica della propria rete nel cloud. È possibile connettere una rete locale alla propria rete virtuale di Azure (VNet) configurando VPN IPSec (da sito a sito) o Express Route (peering privato)     
 
 La tabella seguente riassume i consigli di configurazione di rete e del gateway in base alle diverse combinazioni di percorsi di origine e destinazione per lo spostamento dei dati ibridi.
 
@@ -121,7 +141,7 @@ Le immagini seguenti mostrano come usare il gateway di gestione dati per spostar
 
 ### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Configurazioni del firewall e inserimento nell'elenco elementi consentiti dell'indirizzo IP del gateway
 
-#### <a name="firewall-requirements-for-on-premiseprivate-network"></a>Requisiti del firewall per la rete locale/privata    
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisiti del firewall per la rete locale/privata  
 In un'azienda il **firewall aziendale** viene eseguito nel router centrale dell'organizzazione. Inoltre, il **firewall di Windows** viene eseguito come daemon nel computer locale in cui è stato installato il gateway. 
 
 La tabella seguente indica la **porta in uscita** e i requisiti di dominio per il **firewall aziendale**.
@@ -131,11 +151,11 @@ La tabella seguente indica la **porta in uscita** e i requisiti di dominio per i
 | `*.servicebus.windows.net` | 443, 80 | Richieste dal gateway per connettersi ai servizi di spostamento dei dati in Data Factory |
 | `*.core.windows.net` | 443 | Usata dal gateway per connettersi all'account di Archiviazione di Azure quando si usa la funzionalità di [ copia temporanea](data-factory-copy-activity-performance.md#staged-copy). | 
 | `*.frontend.clouddatahub.net` | 443 | Richiesta dal gateway per connettersi al servizio di Azure Data Factory. | 
-| `*.database.windows.net` | 1433    | (OPZIONALE) necessaria quando la destinazione è il database SQL di Azure o Azure SQL Data Warehouse. Usare la funzionalità di copia temporanea per copiare i dati nel database SQL di Azure o in Azure SQL Data Warehouse senza aprire la porta 1433. | 
+| `*.database.windows.net` | 1433   | (OPZIONALE) necessaria quando la destinazione è il database SQL di Azure o Azure SQL Data Warehouse. Usare la funzionalità di copia temporanea per copiare i dati nel database SQL di Azure o in Azure SQL Data Warehouse senza aprire la porta 1433. | 
 | `*.azuredatalakestore.net` | 443 | (OPTIONALE) necessaria quando la destinazione è Azure Data Lake Store | 
 
 > [!NOTE] 
-> Potrebbe essere necessario gestire porte/domini di inserimento nell'elenco elementi consentiti a livello del firewall aziendale come richiesto dalle rispettive origini dati. Nella tabella sopra vengono riportati solo gli esempi di database SQL di Azure, Azure SQL Data Warehouse e Azure Data Lake Store.   
+> Potrebbe essere necessario gestire porte/domini di inserimento nell'elenco elementi consentiti a livello del firewall aziendale come richiesto dalle rispettive origini dati. Nella tabella sono riportati solo esempi di database SQL di Azure, Azure SQL Data Warehouse e Azure Data Lake Store.   
 
 Nella tabella seguente vengono indicati i requisiti relativi alla **porta in ingresso** per il **firewall di Windows**.
 
@@ -153,7 +173,7 @@ Gli archivi dati cloud seguenti richiedono l'inserimento nell'elenco elementi co
 - [Database SQL di Azure](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal)
 - [Archivio Data Lake di Azure](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Document DB](../documentdb/documentdb-firewall-support.md)
+- [Azure Cosmos DB](../documentdb/documentdb-firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti

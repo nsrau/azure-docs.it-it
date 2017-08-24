@@ -11,23 +11,18 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 02/13/2017
+ms.workload: storage-backup-recovery
+ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1c56a7f16361ac4fae97be6c9f21c959723b396c
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 622604dc3ce69085feff6705168d58ad9938c429
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Eseguire il failback da Azure a un sito locale
-
-> [!div class="op_single_selector"]
-> * [Computer VMware/fisici da Azure](site-recovery-failback-azure-to-vmware.md)
-> * [Macchine virtuali Hyper-V da Azure](site-recovery-failback-from-azure-to-hyper-v.md)
-
 
 Questo articolo descrive come eseguire il failback da Macchine virtuali di Azure al sito locale. Seguire le istruzioni riportate in questo articolo per eseguire il failback delle macchine virtuali VMware o dei server fisici Windows/Linux dopo aver eseguito il failover dal sito locale in Azure usando l'esercitazione [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 
@@ -76,7 +71,7 @@ Se la macchina virtuale locale non esiste prima della riprotezione della macchin
 
 In seguito al failover in Azure, è possibile eseguire il failback di una macchina fisica solo come macchina virtuale VMware, un'operazione chiamata anche P2A2V. Questo flusso di lavoro è considerato come ripristino in un percorso alternativo.
 
-* Non è possibile eseguire il failback di un server Windows Server 2008 R2 SP1 protetto e sottoposto a failover in Azure.
+* Non è possibile eseguire il failback di un server fisico Windows Server 2008 R2 SP1 protetto e sottoposto a failover in Azure.
 * È necessario individuare almeno un server di destinazione master e gli host ESX/ESXi necessari per il failback.
 
 ## <a name="have-you-completed-reprotection"></a>Verificare se la riprotezione è stata completata.
@@ -112,7 +107,7 @@ Si noti che i punti di recupero coerenti con l'applicazione possono essere indie
 
 ### <a name="what-happens-to-vmware-tools-post-failback"></a>Che cosa succede agli strumenti VMware dopo il failback?
 
-Durante il failover in Azure, gli strumenti VMware non possono essere eseguiti nella macchina virtuale di Azure. Nel caso di una macchina virtuale Windows, Azure Site Recovery disabilita gli strumenti VMware durante il failover. Nel caso di una macchina virtuale Linux, Azure Site Recovery disinstalla gli strumenti VMware durante il failover. 
+Durante il failover in Azure, gli strumenti VMware non possono essere eseguiti nella macchina virtuale di Azure. Nel caso di una macchina virtuale Windows, Azure Site Recovery disabilita gli strumenti VMware durante il failover. Nel caso di una macchina virtuale Linux, Azure Site Recovery disinstalla gli strumenti VMware durante il failover.
 
 Durante il failback della macchina virtuale Windows, gli strumenti VMware vengono riabilitati al failback. Analogamente, per una macchina virtuale Linux, gli strumenti VMware vengono reinstallati nella macchina durante il failback.
 

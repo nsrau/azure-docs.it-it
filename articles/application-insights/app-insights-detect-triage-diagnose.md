@@ -1,6 +1,6 @@
 ---
-title: 'Rilevare e diagnosticare i problemi delle app Web: Azure Application Insights | Documentazione Microsoft'
-description: Analizzare gli arresti anomali per rilevare e diagnosticare problemi di prestazioni nelle applicazioni
+title: Panoramica di Azure Application Insights per DevOps| Microsoft Docs
+description: Imparare a usare Application Insights in un ambiente di sviluppo Ops.
 author: CFreemanwa
 services: application-insights
 documentationcenter: 
@@ -11,30 +11,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: cfreeman
+ms.date: 06/26/2017
+ms.author: bwren
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
-ms.openlocfilehash: 05fe4996a8a9c886f2f1b61471dc80550633ecf6
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: c6bfa094f5f06483a9c59a1e0167e5fa7f8f053e
 ms.contentlocale: it-it
-ms.lasthandoff: 03/16/2017
-
+ms.lasthandoff: 06/28/2017
 
 ---
-# <a name="detect-triage-and-diagnose-with-application-insights"></a>Rilevare, valutare e diagnosticare con Application Insights
+# <a name="overview-of-application-insights-for-devops"></a>Panoramica di Application Insights per DevOps
 
-
-[Application Insights](app-insights-overview.md) è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web, che aiuta a capire le prestazioni dell'app e le modalità del suo utilizzo quando è attiva. E se è presente un problema, consente di scoprirlo, aiuta a valutarne l'impatto e a determinarne la causa.
+Con [Application Insights](app-insights-overview.md) è possibile capire velocemente le prestazioni dell'app e come viene usata quando è attiva. Se è presente un problema, consente di scoprirlo, aiuta a valutarne l'impatto e a determinarne la causa.
 
 Ecco un account da un team che sviluppa applicazioni web:
 
 * *"Un paio di giorni fa, è stato distribuito un 'piccolo' aggiornamento rapido. Non è stato eseguito un superamento test esteso, ma purtroppo alcune modifiche impreviste sono state unite nel payload, a causa di incompatibilità tra il front-end e il back-end. Immediatamente si è verificato un incremento delle eccezioni del server, sono stati generati avvisi e si è venuti a conoscenza della situazione. Con pochi clic nel portale di Application Insights si ottengono informazioni sufficienti dagli stack di chiamate delle eccezioni per circoscrivere il problema. È stato eseguito immediatamente il rollback e i danni sono stati limitati. Application Insights ha reso questa parte del ciclo DevOps molto semplice e utilizzabile."*
 
-Ecco come un team di sviluppo Web tipico usa Application Insights per gestire le prestazioni. Sarà possibile seguire il team di Fabrikam Bank che sviluppa il sistema bancario online (OBS).
+In questo articolo si seguirà un team di Fabrikam Bank che sviluppa il sistema di servizi bancari online (OBS) per vedere come viene usato Application Insights per rispondere ai clienti e apportare aggiornamenti velocemente.  
 
-![Sito Web di una banca di esempio](./media/app-insights-detect-triage-diagnose/03-bank.png)
-
-Il team lavora a un ciclo DevOps simile al seguente:
+Il team lavora con un ciclo DevOps illustrato nella figura seguente:
 
 ![Ciclo DevOps](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
@@ -64,7 +60,7 @@ Gli errori vengono visualizzati come punti rossi nel grafico del test Web:
 
 Ma soprattutto viene inviato al team di sviluppo un avviso su eventuali errori mediante posta elettronica. In questo modo ne verranno a conoscenza prima quasi tutti i clienti.
 
-## <a name="monitor-performance-metrics"></a>Monitorare le metriche delle prestazioni
+## <a name="monitor-performance"></a>Monitorare le prestazioni
 Nella pagina Panoramica in Application Insights è presente un grafico che mostra una serie di [metriche chiave](app-insights-web-monitor-performance.md).
 
 ![Alcuni criteri di misurazione](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
@@ -79,7 +75,7 @@ Apre i grafici dei server:
 
 Apparentemente non si rilevano limitazioni delle risorse, quindi magari i salti nei grafici di risposta del server sono solo una coincidenza.
 
-## <a name="alerts"></a>Avvisi
+## <a name="set-alerts-to-meet-goals"></a>Impostare avvisi per soddisfare gli obiettivi
 Marcela, ad ogni modo, vuole monitorare i tempi di risposta. Se aumentano in modo eccessivo, vuole esserne informata.
 
 Quindi imposta un [avviso](app-insights-metrics-explorer.md) se i tempi di risposta sono superiori alla soglia tipica. Questo le consentirà di conoscere la velocità dei tempi di risposta.
@@ -88,14 +84,14 @@ Quindi imposta un [avviso](app-insights-metrics-explorer.md) se i tempi di rispo
 
 È possibile impostare avvisi su svariate altre metriche. Ad esempio, è possibile ricevere messaggi di posta elettronica se il numero di eccezioni risulta elevato o la memoria disponibile è insufficiente o se è presente un picco nelle richieste del client.
 
-## <a name="smart-detection-alerts"></a>Avvisi del rilevamento intelligente
-Il giorno successivo arriva un avviso in posta elettronica da Application Insights. Quando lo apre, si accorge però che non è l'avviso sui tempi di risposta che aveva impostato. Al contrario, indica che c'è stato un aumento improvviso delle richieste non riuscite, ovvero, delle richieste che hanno restituito 500 o più codici di errore.
+## <a name="stay-informed-with-smart-detection-alerts"></a>Rimanere aggiornati con gli avvisi di rilevamento intelligente
+Il giorno successivo arriva un avviso in posta elettronica da Application Insights. Tuttavia, quando lo apre, vede che non si tratta dell'avviso sul tempo di risposta che aveva impostato. Al contrario, indica che c'è stato un aumento improvviso delle richieste non riuscite, ovvero, delle richieste che hanno restituito 500 o più codici di errore.
 
 Le richieste non riuscite sono quelle richieste in cui gli utenti hanno individuato un errore, in genere dopo un'eccezione generata nel codice. Forse viene visualizzato il messaggio "Sorry we couldn't update your details right now" (Non è possibile aggiornare i dettagli adesso). Oppure, nella peggiore delle ipotesi, viene visualizzato un dump dello stack sullo schermo dell'utente concesso dal server web.
 
 L'avviso la lascia stupita perché l'ultima volta il numero delle richieste non riuscite era particolarmente basso. In un server occupato, un numero esiguo di errori è un evento prevedibile.
 
-Lo stupore nasceva anche dal fatto che non era necessario configurare l'avviso. In effetti, Rilevamento intelligente è incluso automaticamente in Application Insights. Si adatta automaticamente al consueto modello di errore dell'app "abituandosi" agli errori di una particolare pagina o un carico elevato, o collegato ad altre metriche. Genera l'avviso solo in caso di un aumento prevedibile.
+Lo stupore nasceva anche dal fatto che non era necessario configurare l'avviso. Application Insights include il rilevamento intelligente. Si adatta automaticamente al consueto modello di errore dell'app "abituandosi" agli errori di una particolare pagina o un carico elevato, o collegato ad altre metriche. Genera l'avviso solo in caso di un aumento prevedibile.
 
 ![messaggio di posta elettronica sulla diagnostica proattiva](./media/app-insights-detect-triage-diagnose/21.png)
 
@@ -105,13 +101,13 @@ Mostra il numero di clienti coinvolti e le pagine Web o le operazioni. Marcela p
 
 Il messaggio di posta elettronica mostra inoltre il verificarsi di una particolare eccezione e, cosa ancora più interessante, che l'errore è associato a chiamate non riuscite a un particolare database. Questo spiega come mai si è generato improvvisamente l'errore anche se il team di Marcela non ha distribuito aggiornamenti di recente.
 
-Contatta il responsabile del team di database. In effetti, hanno rilasciato un aggiornamento rapido nell'ultima mezz'ora, ma forse c'è stata una piccola modifica dello schema.
+Marcella contatta il responsabile del team di database in merito a questo messaggio di posta elettronica. Apprende che è stato rilasciato un aggiornamento rapido nell'ultima mezz'ora; forse può essere stato eseguito un piccolo cambiamento di schema...
 
 In definitiva, il problema sta per essere risolto anche prima di esaminare i log, e dopo soli 15 minuti dal momento in cui si è generato l'errore. Tuttavia, Marcela seleziona il collegamento per aprire Application Insights. Si apre direttamente su una richiesta non riuscita in cui è possibile visualizzare la chiamata al database non riuscita nell'elenco delle chiamate di dipendenza associato.
 
 ![richiesta non riuscita](./media/app-insights-detect-triage-diagnose/23.png)
 
-## <a name="detecting-exceptions"></a>Rilevamento di eccezioni
+## <a name="detect-exceptions"></a>Rilevare le eccezioni
 Con una configurazione minima, le [eccezioni](app-insights-asp-net-exceptions.md) vengono segnalate automaticamente ad Application Insights. Possono anche essere acquisite in modo esplicito con l'inserimento di chiamate a [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) nel codice:  
 
     var telemetry = new TelemetryClient();
@@ -153,30 +149,18 @@ Eccezioni ed eventi vengono visualizzati nel pannello [Ricerca diagnostica](app-
 
 ![In Ricerca diagnostica usare i filtri per visualizzare determinati tipi di dati](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## <a name="monitoring-user-activity"></a>Monitoraggio dell'attività dell'utente
-Quando il tempo di risposta è coerentemente adeguato e sono presenti poche eccezioni, il team di sviluppo può passare all'usabilità. Si può pensare a come migliorare l'esperienza degli utenti e a incoraggiare più utenti affinché raggiungano gli obiettivi desiderati.
 
-Ad esempio, un tipico percorso utente nel sito Web presenta chiaramente un "imbuto." Molti clienti esaminano le frequenze dei diversi tipi di prestito. Un numero inferiore compila il modulo delle offerte. Tra quelli che ricevono un'offerta, alcuni proseguono per avere il prestito.
-
-![Numero di visualizzazioni della pagina](./media/app-insights-detect-triage-diagnose/12-funnel.png)
-
-Considerando il punto in cui la maggior parte degli utenti abbandona, l'azienda può valutare come fare in modo che più utenti completino il percorso fino alla fine. In alcuni casi potrebbe trattarsi di un errore dell'esperienza utente, ad esempio, è difficile trovare il pulsante "Avanti" o le istruzioni non sono intuitive. Più probabilmente, esistono motivi aziendali più significativi per gli abbandoni: forse i tassi di prestito sono troppo alti.
-
-Qualunque sia il motivo, i dati consentono al team di valutare l'attività degli utenti. È possibile inserire più chiamate di rilevamento per scoprire altri dettagli. Si può usare TrackEvent() per contare tutte le azioni utente, dai piccoli dettagli come i singoli clic sui pulsanti, ai risultati più significativi come il pagamento di un prestito.
-
-Il team si sta abituando ad avere informazioni sull'attività degli utenti. Attualmente, quando progetta una nuova funzionalità, valuta in che modo potrà ricevere commenti e suggerimenti sull'utilizzo. Progetta quindi chiamate di rilevamento che vengono incorporate nella funzionalità fin dall'inizio. I commenti e suggerimenti saranno usati per migliorare la funzionalità in ogni ciclo di sviluppo.
-
-## <a name="proactive-monitoring"></a>Monitoraggio proattivo
+## <a name="monitor-proactively"></a>Monitorare in modo proattivo
 Marcela non resta ferma in attesa di avvisi. Subito dopo ogni ridistribuzione, esamina i [tempi di risposta](app-insights-web-monitor-performance.md), sia la figura nel suo complesso che la tabella delle richieste più lente, nonché il numero di eccezioni.  
 
 ![Grafico dei tempi di risposta e griglia dei tempi di risposta del server.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
 Marcela riesce a valutare l'impatto sulle prestazioni di ogni distribuzione, in genere confrontando ogni settimana con l'ultima. Se si verifica un improvviso peggioramento, lo segnala agli sviluppatori rilevanti.
 
-## <a name="triage"></a>Valutazione
+## <a name="triage-issues"></a>Problemi di valutazione
 Valutazione: consente di valutare la gravità e l'estensione di un problema. È il primo passaggio dopo il rilevamento. Si dovrebbe chiamare il team a mezzanotte oppure è possibile soprassedere fino al successivo divario utile nel backlog? Esistono alcune domande fondamentali nella valutazione.
 
-Qual è la portata di ciò che sta accadendo? I grafici nel pannello Panoramica offrono nuove prospettive per risolvere un problema. Ad esempio, l'applicazione di Fabrikam ha generato quattro avvisi di test Web una notte. Osservando il grafico il mattino successivo, il team ha potuto vedere che vi erano infatti alcuni punti rossi, anche se la maggior parte dei test erano in verde. Esaminando il grafico di disponibilità, era chiaro che tutti questi problemi intermittenti provenivano da un'unica posizione di test. La situazione era ovviamente dovuta a un problema di rete che interessava solo una route e molto probabilmente si sarebbe risolta automaticamente da sola.  
+Con quale frequenza succede? I grafici nel pannello Panoramica offrono nuove prospettive per risolvere un problema. Ad esempio, l'applicazione di Fabrikam ha generato quattro avvisi di test Web una notte. Osservando il grafico il mattino successivo, il team ha potuto vedere che vi erano infatti alcuni punti rossi, anche se la maggior parte dei test erano in verde. Esaminando il grafico di disponibilità, era chiaro che tutti questi problemi intermittenti provenivano da un'unica posizione di test. La situazione era ovviamente dovuta a un problema di rete che interessava solo una route e molto probabilmente si sarebbe risolta automaticamente da sola.  
 
 Al contrario, un aumento significativo e stabile nel grafico del numero di eccezioni e dei tempi di risposta è ovviamente qualcosa di cui preoccuparsi seriamente.
 
@@ -186,11 +170,11 @@ Quale parte di utenti è interessata? Per ottenere una risposta approssimativa, 
 
 ![Grafici delle sessioni e richieste non riuscite](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-Nel caso di una risposta lenta, confrontare la tabella delle richieste che rispondono più lentamente con la frequenza d'uso di ogni pagina.
+Quando le risposte sono lente, confrontare la tabella delle richieste che rispondono più lentamente con la frequenza d'uso di ogni pagina.
 
 Quanto è importante lo scenario bloccato? Se si tratta di un problema funzionale che blocca una storia utente specifica, chiedersi quanto è importante. Se i clienti non possono pagare le fatture, si tratta di un problema grave. Se non è possibile modificare le preferenze di colore dello schermo, è un problema non urgente. I dettagli dell'evento o dell'eccezione o l'identità della pagina lenta consentono di individuare dove i clienti riscontrano problemi.
 
-## <a name="diagnosis"></a>Diagnosi
+## <a name="diagnose-issues"></a>Diagnosticare i problemi
 La diagnosi non è proprio uguale al debug. Prima di iniziare l'analisi del codice, si deve avere un'idea approssimativa del motivo, del luogo e del momento in cui si verifica il problema.
 
 **Quando si verifica?** La visualizzazione cronologica fornita dai grafici di eventi e di metriche consente di correlare gli effetti alle possibili cause. Se sono presenti picchi intermittenti nel tempo di risposta e nella frequenza delle eccezioni, esaminare il numero di richieste: se i picchi si presentano contemporaneamente, sembrerebbe un problema di risorse. È necessario assegnare più CPU o memoria oppure è una dipendenza che non riesce a gestire il carico?
@@ -207,7 +191,7 @@ Alcuni problemi di dipendenza lenta sono problemi di georilevazione. La banca Fa
 
 Fabrikam ha un problema intermittente con i trasferimenti tra conti, ma solo con determinati tipi di conti. Per comprendere meglio la situazione, sono state inserite chiamate TrackTrace() in punti chiave nel codice, associando il tipo di conto come una proprietà a ogni chiamata. In tal modo è facile filtrare solo quelle tracce in Ricerca diagnostica. Sono stati associati anche i valori dei parametri come proprietà e misure alle chiamate di traccia.
 
-## <a name="dealing-with-it"></a>Gestire il problema
+## <a name="respond-to-discovered-issues"></a>Rispondere ai problemi individuati
 Una volta che è stato diagnosticato il problema, è possibile creare un piano per risolverlo. Potrebbe essere necessario eseguire il rollback di una modifica recente o forse è sufficiente andare avanti per risolvere il problema. Dopo aver eseguito la correzione, Application Insights indicherà se ha avuto esito positivo.  
 
 Il team di sviluppo della banca Fabrikam adotta un approccio più strutturato per la misurazione delle prestazioni rispetto a quello usato prima di Application Insights.
@@ -215,10 +199,25 @@ Il team di sviluppo della banca Fabrikam adotta un approccio più strutturato pe
 * Gli obiettivi delle prestazioni erano impostati in termini di misure specifiche nella pagina di panoramica di Application Insights.
 * Progettano le misurazioni di prestazioni nell'applicazione fin dall'inizio, ad esempio le metriche che misurano l'avanzamento utente tramite 'grafici'.  
 
-## <a name="usage"></a>Utilizzo
-Application Insights consente anche di essere usato per informazioni sulle operazioni che gli utenti possono eseguire con un'app. Dopo che è stato eseguito senza problemi, il team desidera sapere quali funzionalità sono più diffuse, quali sono quelle preferite dagli utenti o quali presentano problemi e quali sono visitate più frequentemente. Tali informazioni consentiranno di stabilire le priorità relative al lavoro imminente. E sarà possibile valutare l'esito di ogni funzionalità come parte del ciclo di sviluppo. [Altre informazioni](app-insights-web-track-usage.md).
 
-## <a name="your-applications"></a>Applicazioni
+## <a name="monitor-user-activity"></a>Monitorare l'attività dell'utente
+Quando il tempo di risposta è coerentemente adeguato e sono presenti poche eccezioni, il team di sviluppo può passare all'usabilità. Si può pensare a come migliorare l'esperienza degli utenti e a incoraggiare più utenti affinché raggiungano gli obiettivi desiderati.
+
+Application Insights consente anche di essere usato per informazioni sulle operazioni che gli utenti possono eseguire con un'app. Dopo che è stato eseguito senza problemi, il team desidera sapere quali funzionalità sono più diffuse, quali sono quelle preferite dagli utenti o quali presentano problemi e quali sono visitate più frequentemente. Tali informazioni consentiranno di stabilire le priorità relative al lavoro imminente. E sarà possibile valutare l'esito di ogni funzionalità come parte del ciclo di sviluppo. 
+
+Ad esempio, un tipico percorso utente nel sito Web presenta chiaramente un "imbuto." Molti clienti esaminano le frequenze dei diversi tipi di prestito. Un numero inferiore compila il modulo delle offerte. Tra quelli che ricevono un'offerta, alcuni proseguono per avere il prestito.
+
+![Numero di visualizzazioni della pagina](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+
+Considerando il punto in cui la maggior parte degli utenti abbandona, l'azienda può valutare come fare in modo che più utenti completino il percorso fino alla fine. In alcuni casi potrebbe trattarsi di un errore dell'esperienza utente, ad esempio, è difficile trovare il pulsante "Avanti" o le istruzioni non sono intuitive. Più probabilmente, esistono motivi aziendali più significativi per gli abbandoni: forse i tassi di prestito sono troppo alti.
+
+Qualunque sia il motivo, i dati consentono al team di valutare l'attività degli utenti. È possibile inserire più chiamate di rilevamento per scoprire altri dettagli. Si può usare TrackEvent() per contare tutte le azioni utente, dai piccoli dettagli come i singoli clic sui pulsanti, ai risultati più significativi come il pagamento di un prestito.
+
+Il team si sta abituando ad avere informazioni sull'attività degli utenti. Attualmente, quando progetta una nuova funzionalità, valuta in che modo potrà ricevere commenti e suggerimenti sull'utilizzo. Progetta quindi chiamate di rilevamento che vengono incorporate nella funzionalità fin dall'inizio. I commenti e suggerimenti saranno usati per migliorare la funzionalità in ogni ciclo di sviluppo.
+
+[Altre informazioni sul monitoraggio dell'utilizzo](app-insights-usage-overview.md).
+
+## <a name="apply-the-devops-cycle"></a>Applicare il ciclo DevOps
 Ecco come un solo team usa Application Insights non solo per risolvere singoli problemi, ma per migliorare il ciclo di vita dello sviluppo. Si tratta di suggerimenti e idee su come Application Insights può aiutare a gestire le prestazioni delle proprie applicazioni.
 
 ## <a name="video"></a>Video

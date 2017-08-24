@@ -1,6 +1,6 @@
 ---
-title: "Script dell&quot;interfaccia della riga di comando di Azure - Creare un criterio di failover per la disponibilità elevata | Documentazione Microsoft"
-description: "Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare un criterio di failover per la disponibilità elevata"
+title: "Script dell'interfaccia della riga di comando di Azure - Creare un criterio di failover per la disponibilità elevata | Documentazione Microsoft"
+description: "Esempio di script dell'interfaccia della riga di comando di Azure - Creare un criterio di failover per la disponibilità elevata"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -9,18 +9,18 @@ editor:
 tags: azure-service-management
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 05/10/2017
+ms.date: 06/02/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 24ce695bdc48e1fc196415dcee8c3dab269e1e91
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 96083d66cc1a2ef179f9313c1b3ed04162c1c048
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -28,7 +28,9 @@ ms.lasthandoff: 05/15/2017
 
 Questo esempio di script dell'interfaccia della riga di comando crea un account Azure Cosmos DB e lo configura per la disponibilità elevata.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -38,7 +40,7 @@ Questo esempio di script dell'interfaccia della riga di comando crea un account 
 
 Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

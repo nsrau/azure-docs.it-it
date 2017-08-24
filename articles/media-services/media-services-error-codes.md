@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 668ba10474fc1b01d5ebccbff1f50fe09ade5f30
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="azure-media-services-error-codes"></a>Codici di errore di Servizi multimediali di Azure
@@ -28,7 +28,7 @@ Quando si usa Servizi multimediali di Microsoft Azure, è possibile ricevere cod
 La richiesta contiene informazioni non valide e viene rifiutata a causa di uno dei motivi seguenti:
 
 * Viene specificata una versione API non supportata. Per la versione più aggiornata, vedere [Setup for Media Services REST API Development](media-services-rest-how-to-use.md) (Configurazione della distribuzione dell'API REST di Servizi multimediali).
-* Non viene specificata la versione dell'API di Servizi multimediali. Per informazioni su come specificare la versione dell'API, vedere [Connessione a Servizi multimediali mediante l'API REST di Servizi multimediali](media-services-rest-connect-programmatically.md).
+* Non viene specificata la versione dell'API di Servizi multimediali. Per informazioni su come specificare la versione dell'API, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > Se si usano gli SDK .NET o Java per connettersi a Servizi multimediali, la versione dell'API viene specificata automaticamente ogni volta che si tenta di eseguire un'azione su Servizi multimediali.
@@ -48,8 +48,8 @@ La richiesta non può essere autenticata (prima di poterla autorizzare) a causa 
 
 * L'intestazione di autenticazione risulta mancante.
 * Il valore dell'intestazione di autenticazione non è valido.
-  * Il token è scaduto. Se si usano le API REST direttamente, vedere [Connessione a Servizi multimediali mediante l'API REST di Servizi multimediali](media-services-rest-connect-programmatically.md) per imparare a generare un nuovo token di autenticazione. Se si usano gli SDK .NET o Java, creare un oggetto CloudMediaContext o MediaContract per generare il token. Per altre informazioni su come eseguire questa operazione, vedere [Connecting to Media Services with the Media Services SDK for .NET](media-services-dotnet-connect-programmatically.md) (Connessione a Servizi multimediali mediante Media Services SDK for .NET).
-  * Il token contiene una firma non valida.</li></ul></li></ul>
+  * Il token è scaduto. 
+  * Il token contiene una firma non valida.
 
 ## <a name="403-forbidden"></a>403 - Accesso negato
 La richiesta non è consentita per uno dei motivi seguenti:

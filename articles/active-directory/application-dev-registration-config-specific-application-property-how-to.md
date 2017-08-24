@@ -1,6 +1,6 @@
 ---
-title: Come compilare campi specifici per un&quot;applicazione personalizzata | Microsoft Docs
-description: Materiale sussidiario su come compilare campi specifici quando si registra un&quot;applicazione personalizzata con Azure AD
+title: Come compilare campi specifici per un'applicazione personalizzata | Microsoft Docs
+description: Materiale sussidiario su come compilare campi specifici quando si registra un'applicazione personalizzata con Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 9a57185938ebe9af0ca1395e75545473f45b9889
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: 'Script di Azure PowerShell: copiare un database SQL in un nuovo server | Microsoft Docs'
-description: 'Esempio di script di Azure PowerShell: copiare un database SQL in un nuovo server usando PowerShell'
+title: Esempio di PowerShell - Copiare un database SQL di Azure in un nuovo server | Microsoft Docs
+description: Script di esempio di Azure PowerShell per copiare un database SQL in un nuovo server
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -9,30 +9,30 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: load & move data
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 826a5213b5b64529df60d9b9ce8433d5c6b3a522
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 7b57e37a1bc9391c88c8170f59a39654bf895d47
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="copy-a-sql-database-to-a-new-server-using-powershell"></a>Copiare un database SQL in un nuovo server usando PowerShell
+# <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>Usare PowerShell per copiare un database SQL in un nuovo server
 
-Questo script di PowerShell di esempio crea una copia di un database esistente in un nuovo server. 
+Questo esempio di script di PowerShell crea una copia di un database esistente in un nuovo server. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="copy-a-database-to-a-new-server"></a>Copiare un database in un nuovo server
 
-[!code-powershell[principale](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1 "Copiare un database in un nuovo server")]
+[!code-powershell[principale](../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1?highlight=18-21 "Copiare un database in un nuovo server")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

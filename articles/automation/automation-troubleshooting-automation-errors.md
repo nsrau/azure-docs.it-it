@@ -14,11 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2017
+ms.date: 06/26/2017
 ms.author: sngun; v-reagie
-translationtype: Human Translation
-ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
-ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
+ms.translationtype: Human Translation
+ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
+ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
+ms.contentlocale: it-it
+ms.lasthandoff: 06/26/2017
 
 
 ---
@@ -64,6 +66,22 @@ Questo articolo fornisce informazioni utili per la risoluzione degli errori comu
 **Suggerimenti per la risoluzione dei problemi:** per usare un certificato con i cmdlet di gestione del servizio di Azure, vedere il blog relativo alla [creazione e all'aggiunta di un certificato per la gestione dei servizi Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Per usare un'entità servizio con i cmdlet di Azure Resource Manager, vedere l'argomento relativo alla [creazione di un'entità servizio tramite il portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e quello relativo all'[autenticazione di un'entità servizio con Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errori comuni durante l'utilizzo di runbook
+### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>Scenario: l'avvio del processo runbook è stato tentato per tre volte, ma non è mai riuscito
+**Errore:** il runbook ha esito negativo con l'errore "L’esecuzione del processo è stata tentata per tre volte, ma non è riuscita".
+
+**Motivo dell'errore:** questo errore può dipendere dalle cause seguenti:  
+
+1. Limite di memoria.  Esistono dei limiti di quantità di memoria allocata a una sandbox con [limiti del servizio di automazione](../azure-subscription-service-limits.md#automation-limits), pertanto un processo potrebbe non riuscire se utilizza più di 400 MB di memoria. 
+
+2. Modulo incompatibile.  Ciò può verificarsi se le dipendenze del modulo non sono corrette, e se non lo sono il runbook restituisce in genere il messaggio "Comando non trovato" o "Non è possibile associare il parametro". 
+
+**Suggerimenti per la risoluzione dei problemi:** una qualsiasi delle soluzioni seguenti consente di correggere il problema.  
+
+* Metodi consigliati per operare entro il limite di memoria sono, ad esempio, dividere il carico di lavoro tra diversi runbook, non elaborare tutti i dati in memoria, non scrivere output non necessari dai runbook oppure tenere in considerazione il numero di checkpoint scritti nei runbook del flusso di lavoro PowerShell.  
+
+* È necessario aggiornare i moduli di Azure eseguendo i passaggi [Come aggiornare i moduli PowerShell di Azure in automazione di Azure](automation-update-azure-modules.md).  
+
+
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Scenario: Runbook con esito negativo a causa di un oggetto deserializzato
 **Errore:** il runbook non riesce con l'errore "Non è possibile associare il parametro ``<ParameterName>``. Non è possibile convertire il valore ``<ParameterType>`` del tipo ``<ParameterType>`` deserializzato nel tipo ``<ParameterType>``".
 
@@ -172,9 +190,4 @@ Se è stata seguita la procedura precedente per la risoluzione dei problemi e no
 * Archiviare un incidente del supporto tecnico di Azure. Aprire il [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottieni supporto** in **Supporto tecnico e di fatturazione**.
 * Se si sta cercando una soluzione per i runbook oppure un modulo di integrazione di Automazione di Azure, inviare una richiesta di script a [Script Center](https://azure.microsoft.com/documentation/scripts/) .
 * Inviare commenti o suggerimenti oppure richieste di funzionalità per Automazione di Azure al forum dedicato ai [suggerimenti degli utenti](https://feedback.azure.com/forums/34192--general-feedback).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

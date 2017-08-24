@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c20ace9112c62e733b7b679e3f0be717144f3c2
-ms.openlocfilehash: 933a485e36b3cf0f514f28fc069d49161605af3a
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 367b8f38cb9fcf3dc36db83641cb1696710608ef
 ms.contentlocale: it-it
-ms.lasthandoff: 02/23/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -33,11 +33,6 @@ Il Centro sicurezza è disponibile in due livelli:
 
 Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
 
-> [!NOTE]
-> Il Centro sicurezza usa Archiviazione di Azure per salvare i dati sulla sicurezza generati dai nodi protetti. I costi associati a questa risorsa di archiviazione non sono incluse nel prezzo del servizio e vengono addebitati separatamente secondo le normali [tariffe di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). I costi di archiviazione si applicano anche alla versione di valutazione di 60 giorni.
->
->
-
 ## <a name="try-standard-free-for-60-days"></a>Prova gratuita del livello Standard per 60 giorni
 Il livello Standard è gratuito per i primi 60 giorni. Al termine dei 60 giorni, se si sceglie di continuare a usare il servizio, l'uso verrà addebitato automaticamente.
 
@@ -49,7 +44,6 @@ Per ottenere il livello Standard:
 4. Nel pannello **Scegliere un piano tariffario** selezionare **Standard**.
 5. Fare clic su **Seleziona**.
 
-![Livello Standard][1]
 
 ## <a name="why-upgrade-to-standard"></a>Perché eseguire l'aggiornamento al livello standard?
 Il livello standard del Centro sicurezza fornisce tutte le funzionalità del livello gratuito, con in più il rilevamento avanzato. Il rilevamento avanzato delle minacce consente di identificare le minacce attive dirette alle risorse di Azure, fornendo le informazioni necessarie per rispondervi rapidamente.
@@ -79,11 +73,17 @@ Per controllare che sia abilitata la raccolta dei dati:
 2. Selezionare una sottoscrizione.
 3. Se la **Raccolta dei dati** è disattivata, attivarla e salvare la modifica.
 
+> [!NOTE]
+> Se si usa la versione gratuita del Centro sicurezza di Azure, è possibile disabilitare la raccolta dati dalle macchine virtuali nei criteri di sicurezza. La raccolta dati è richiesta per le sottoscrizioni a livello Standard.
+>
+>
+
 Per altre informazioni, vedere [Abilitare la raccolta dati nel Centro sicurezza di Azure](security-center-enable-data-collection.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * In questo documento sono stati presentati i prezzi del Centro sicurezza. Per altre informazioni sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
 * Per saperne di più sulle funzionalità di rilevamento avanzate del Centro sicurezza, vedere [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md).
+* Per informazioni su come i dati vengono gestiti e protetti nel Centro sicurezza, vedere [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md).
 * In caso di domande sull'uso del Centro sicurezza, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
 * Se si hanno ancora domande sull'uso del Centro sicurezza o di Azure, visitare i [forum di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 

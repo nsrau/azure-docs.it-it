@@ -17,7 +17,10 @@ Prima di poter eliminare un file con estensione .vhd di origine, sarà necessari
 
 ## <a name="types-of-disks"></a>Tipi di dischi 
 
-Durante la creazione di dischi è possibile scegliere tra due livelli di prestazioni per l'archiviazione: Archiviazione Standard e Archiviazione Premium. I dischi possono essere di due tipi, gestiti e non gestiti, e possono risiedere in entrambi i livelli di prestazioni.  
+I dischi di Azure sono stati progettati per il 99,999% di disponibilità. I dischi di Azure hanno offerto in modo costante una durabilità di livello aziendale, con una percentuale di frequenza di errori annualizzata pari a ZERO, ovvero la migliore del settore.
+
+Durante la creazione di dischi è possibile scegliere tra due livelli di prestazioni per l'archiviazione: Archiviazione Standard e Archiviazione Premium. I dischi possono essere di due tipi, gestiti e non gestiti, e possono risiedere in entrambi i livelli di prestazioni.
+
 
 ### <a name="standard-storage"></a>Archiviazione standard 
 
@@ -27,7 +30,7 @@ Per altre informazioni sull'uso di Archiviazione Standard con dischi di macchina
 
 ### <a name="premium-storage"></a>Archiviazione Premium 
 
-Archiviazione Premium è supportata da unità SSD e offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. È possibile usare Archiviazione Premium con macchine virtuali di Azure serie DS, DSv2, GS o FS. Per altre informazioni, vedere [Archiviazione Premium](../articles/storage/storage-premium-storage.md).
+Archiviazione Premium è supportata da unità SSD e offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. È possibile usare Archiviazione Premium con macchine virtuali di Azure serie DS, DSv2, GS, Ls o FS. Per altre informazioni, vedere [Archiviazione Premium](../articles/storage/storage-premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Dischi non gestiti
 
@@ -50,6 +53,7 @@ La tabella seguente permette di scegliere mettendo a confronto i livelli Premium
 | Tipo di disco | Unità a stato solido (SSD) | Unità disco rigido (HDD)  |
 | Panoramica  | Supporto per dischi SSD a prestazioni elevate e bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O o ambienti di produzione host cruciali | Supporto per dischi HDD convenienti per scenari di macchine virtuali di sviluppo e test |
 | Scenario  | Carichi di lavoro di produzione su cui influiscono le prestazioni | Sviluppo e test, non critico, <br>ad accesso non frequente |
-| Dimensione disco | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Dischi non gestiti: tra 1 GB e 1 TB <br><br>Dischi gestiti:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
-| Velocità effettiva massima per disco | 200 MB/s | 60 MB/s |
-| Numero massimo di operazioni di I/O al secondo per disco | 5000 IOPS | 500 IOPS |
+| Dimensione disco | P4: 32 GB (solo Managed Disks)<br>P6: 64 GB (solo Managed Disks)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Dischi non gestiti: tra 1 GB e 4 TB (4095 GB) <br><br>Dischi gestiti:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
+| Velocità effettiva massima per disco | 250 MB/s | 60 MB/s | 
+| Numero massimo di operazioni di I/O al secondo per disco | 7500 IOPS | 500 IOPS | 
+

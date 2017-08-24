@@ -1,6 +1,6 @@
 ---
-title: 'Script di Azure PowerShell: ripristinare un database SQL | Microsoft Docs'
-description: 'Esempio di script di Azure PowerShell: ripristinare un database SQL usando PowerShell'
+title: Esempio di PowerShell - Ripristinare un backup del database SQL di Azure | Microsoft Docs
+description: Script di esempio di Azure PowerShell per ripristinare un database SQL di Azure da backup con ridondanza geografica
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -9,30 +9,30 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: business continuity
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 05/23/2017
+ms.date: 06/23/2017
 ms.author: janeng
 ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4aaeac9ca00606d0e9f5d96aaa8508d1e34484b1
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 2be93bd623ae3960c61d54d4219cc4b60257f88d
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="restore-a-sql-database-using-powershell"></a>Ripristinare un database SQL usando PowerShell
+# <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>Usare PowerShell per ripristinare un database SQL di Azure dai backup
 
-Questo script di esempio di PowerShell ripristina un database SQL di Azure da un backup con ridondanza geografica e ripristina un database eliminato in base al backup più recente.  
+Questo esempio di script di PowerShell ripristina un database SQL di Azure da un backup con ridondanza geografica, ripristina un database SQL di Azure eliminato in base al backup più recente ed esegue un ripristino temporizzato di un database SQL di Azure.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1 "Creare database SQL")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Creare database SQL")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

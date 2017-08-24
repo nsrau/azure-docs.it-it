@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f4bf4138ce3a9a2495a0a0fd46e149f6ac96d82d
+ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
+ms.openlocfilehash: 49091d4a85bed23927850f9c0bbc5ea8b6e8c9e1
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -47,7 +47,7 @@ Dopo avere creato l'app, è possibile cambiare lo stack di applicazioni dalle im
 ![Impostazioni dell'applicazione][3]
 
 ## <a name="deploy-your-web-app"></a>Distribuire l'app Web
-Scegliendo le **opzioni di distribuzione** dal portale di gestione, è possibile usare un repository Git o GitHub locale per distribuire l'applicazione. Le istruzioni rimanenti sono analoghe a quelle per un'app Web non Linux. Per distribuire l'app, è possibile seguire le istruzioni indicate nella [distribuzione Git locale](app-service-deploy-local-git.md) o nella [distribuzione continua](app-service-continuous-deployment.md).
+Scegliendo le **opzioni di distribuzione** dal portale di gestione è possibile usare un repository Git o GitHub locale per distribuire l'applicazione. Le istruzioni rimanenti sono analoghe a quelle per un'app Web non Linux. Per distribuire l'app, è possibile seguire le istruzioni indicate nella [distribuzione Git locale](app-service-deploy-local-git.md) o nella [distribuzione continua](app-service-continuous-deployment.md).
 
 È anche possibile usare l'FTP per caricare l'applicazione nel sito. È possibile ottenere l'endpoint FTP per l'app Web dalla sezione Log di diagnostica, come illustrato nell'immagine seguente:
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 0ca7382ed64fd548f8a086893ea2e3187dd26929
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 392c814b7d3ff6b4f0f7850a51960576775e0307
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/09/2017
 Questo documento consente di iniziare a usare rapidamente il Centro sicurezza di Azure illustrando i componenti di monitoraggio della sicurezza e gestione dei criteri del Centro sicurezza.
 
 > [!NOTE]
-> Questo articolo introduce il servizio usando una distribuzione di esempio. Non si tratta di una guida dettagliata.
+> A partire dall'inizio di giugno 2017, il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
 >
 >
 
@@ -41,9 +41,16 @@ Il livello gratuito del Centro sicurezza viene abilitato automaticamente con la 
 In Centro sicurezza gli utenti visualizzeranno solo informazioni relative alle risorse di Azure quando sono assegnati al ruolo di proprietario, collaboratore o lettore per la sottoscrizione o il gruppo di risorse a cui tali risorse appartengono. Per altre informazioni sui ruoli e sulle azioni consentite in Centro sicurezza, vedere [Permissions in Azure Security Center](security-center-permissions.md) (Autorizzazioni in Centro sicurezza di Azure).
 
 ## <a name="data-collection"></a>Raccolta dei dati
-Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, indicare raccomandazioni sulla sicurezza e segnalare le minacce. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente disattivandola nei criteri del Centro sicurezza.
+Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, indicare raccomandazioni sulla sicurezza e segnalare le minacce. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. Il Centro sicurezza effettua il provisioning di Microsoft Monitoring Agent in tutte le macchine virtuali di Azure supportate esistenti e in quelle nuove che vengono create. Vedere [Abilitare la raccolta dati](security-center-enable-data-collection.md) per altre informazioni sul funzionamento della raccolta dati.
+
+È consigliabile eseguire la raccolta dei dati. Se si usa la versione gratuita del Centro sicurezza, è anche possibile disabilitare la raccolta dati dalle macchine virtuali disabilitando la raccolta dati nei criteri di sicurezza. La raccolta dati è richiesta per le sottoscrizioni a livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari gratuito e standard vedere [Prezzi del Centro sicurezza](security-center-pricing.md).
 
 I passaggi seguenti descrivono come accedere al Centro sicurezza e usarne i componenti. Questi passaggi illustrano come disattivare la raccolta dei dati se si sceglie di rifiutare esplicitamente questa opzione.
+
+> [!NOTE]
+> Questo articolo introduce il servizio usando una distribuzione di esempio. Non si tratta di una guida dettagliata.
+>
+>
 
 ## <a name="access-security-center"></a>Accedere al Centro sicurezza
 Nel portale seguire questa procedura per accedere al Centro sicurezza:
@@ -60,21 +67,13 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 È possibile configurare criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure. Configurare i criteri di sicurezza per la sottoscrizione:
 
 1. Selezionare il riquadro **Criteri** nel pannello **Centro sicurezza**.
-   ![Criteri di sicurezza][3]
-2. Selezionare una sottoscrizione nel pannello **Criteri di sicurezza - Definire il criterio per ogni sottoscrizione o gruppo di risorse**.
-3. Nel pannello **Criteri di sicurezza** **Raccolta dati** è abilitato per raccogliere automaticamente i log. Il provisioning dell'estensione di monitoraggio viene effettuato in tutte le VM correnti e nuove nella sottoscrizione. È possibile rifiutare esplicitamente la raccolta dati impostando **Raccolta dati** su **No**, ma in questo modo il Centro sicurezza non potrà fornire avvisi e raccomandazioni sulla sicurezza.
-4. Nel pannello **Criteri di sicurezza** selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui sono in esecuzione VM, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti dalle VM. Se non si sceglie un account di archiviazione per ogni area, viene creato un account di archiviazione per il gruppo di risorse securitydata e inserito in esso. I dati raccolti vengono isolati in modo logico da quelli di altri clienti per motivi di sicurezza.
+2. Selezionare una sottoscrizione nel pannello **Security policy - Define policy per subscription** (Criteri di sicurezza - Definire il criterio per ogni sottoscrizione).
+3. Nel pannello **Criteri di sicurezza** **Raccolta dati** è abilitato per raccogliere automaticamente i log. Il provisioning dell'estensione di monitoraggio viene effettuato in tutte le VM correnti e nuove nella sottoscrizione. Nel livello gratuito del Centro sicurezza, è possibile rifiutare esplicitamente la raccolta dei dati impostando **Raccolta dati** su **Non attivo**, **in questo modo** il Centro sicurezza **non** potrà inviare avvisi e raccomandazioni sulla sicurezza.
+4. Selezionare **Criteri di prevenzione** nel pannello **Criteri di sicurezza**. Verrà visualizzato il pannello **Criteri di prevenzione**.
+5. Nel pannello **Criteri di prevenzione** attivare le raccomandazioni da visualizzare nell'ambito dei criteri di sicurezza. Esempi:
 
-   > [!NOTE]
-   > È consigliabile abilitare la raccolta dati e scegliere prima un account di archiviazione a livello di sottoscrizione. I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dati e dell'account di archiviazione viene eseguita solo a livello di sottoscrizione.
-   >
-   >
-5. Selezionare **Criteri di prevenzione** nel pannello **Criteri di sicurezza**. Verrà visualizzato il pannello **Criteri di prevenzione**.
-   ![Criteri di prevenzione][4]
-6. Nel pannello **Criteri di prevenzione** attivare le raccomandazioni da visualizzare nell'ambito dei criteri di sicurezza. Esempi:
-
-   * Impostando **Aggiornamenti del sistema** su **Sì**, tutte le macchine virtuali supportate verranno analizzate per rilevare gli aggiornamenti del sistema operativo mancanti.
-   * Impostando **Vulnerabilità del sistema operativo** su **Sì**, tutte le macchine virtuali supportate verranno analizzate per identificare le configurazioni del sistema operativo che possono esporre la macchina virtuale ad attacchi.
+   * Impostando **Aggiornamenti del sistema** su **On** (Attivo), tutte le macchine virtuali supportate verranno analizzate per rilevare gli aggiornamenti del sistema operativo mancanti.
+   * Impostando **Vulnerabilità del sistema operativo** su **On** (Attivo), tutte le macchine virtuali supportate verranno analizzate per identificare le configurazioni del sistema operativo che possono esporre la macchina virtuale ad attacchi.
 
 ### <a name="view-recommendations"></a>Visualizzare raccomandazioni
 1. Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Raccomandazioni**. Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità della sicurezza, il Centro sicurezza indica raccomandazioni nel pannello **Raccomandazioni**.
@@ -85,7 +84,7 @@ Nel portale seguire questa procedura per accedere al Centro sicurezza:
 1. Tornare al pannello **Centro sicurezza PC** . La sezione **Prevenzione** del dashboard contiene indicatori dello stato di sicurezza per macchine virtuali, rete, dati e applicazioni.
 2. Selezionare **Calcolo** per visualizzare altre informazioni. Viene visualizzato il pannello **Calcolo** con tre schede:
 
-  - **Panoramica**: fornisce consigli sul monitoraggio e sulle macchine virtuali.
+  - **Panoramica**: contiene consigli sul monitoraggio e sulle macchine virtuali.
   - **Macchine virtuali**: elenca tutte le macchine virtuali e il rispettivo stato di sicurezza corrente.
   - **Servizi cloud**: elenca di tutti i ruoli Web e di lavoro monitorati dal Centro sicurezza.
 
@@ -117,6 +116,7 @@ In questo articolo sono stati presentati i componenti di monitoraggio della sicu
 * Configurare i criteri di sicurezza per la sottoscrizione di Azure. Per altre informazioni, vedere [Impostare i criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md).
 * Usare le raccomandazioni presenti nel Centro sicurezza per la protezione delle risorse di Azure. Per altre informazioni, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 * Esaminare e gestire gli avvisi di sicurezza correnti. Per altre informazioni, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
+- [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md): informazioni sulla gestione e la protezione dei dati nel Centro sicurezza.
 * Altre informazioni sulle [funzionalità avanzate di rilevamento delle minacce](security-center-detection-capabilities.md) incluse con il [livello Standard](security-center-pricing.md) del Centro sicurezza. Il livello Standard è gratuito per i primi 60 giorni.
 * In caso di domande sull'uso del Centro sicurezza, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
 

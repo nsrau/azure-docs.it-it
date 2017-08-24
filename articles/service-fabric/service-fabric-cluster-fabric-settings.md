@@ -1,7 +1,7 @@
 
 ---
 title: Modificare le impostazioni di un cluster di Azure Service Fabric | Documentazione Microsoft
-description: "Questo articolo descrive le impostazioni dell&quot;infrastruttura e i criteri di aggiornamento dell&quot;infrastruttura che è possibile personalizzare."
+description: "Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare."
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/15/2017
+ms.date: 06/15/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: bee47924092a0b327ef3aa5b936116bf311ce8d7
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: d71fdcf2a054a9b9ac1d74ddd3a6b43d151fa87d
+ms.contentlocale: it-it
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizzare le impostazioni del cluster Service Fabric e dei criteri di aggiornamento dell'infrastruttura
@@ -261,7 +261,8 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | --- | --- | --- |
 |IsEnabled|Bool, valore predefinito: false | Abilita/disabilita httpgateway. Httpgateway è disabilitato per impostazione predefinita. È necessario impostare questa configurazione per abilitarlo. |
 |ActiveListeners |Uint, valore predefinito: 50 | Numero di letture da pubblicare nella coda del server http. Consente di controllare il numero di richieste simultanee che possono essere espletate da HttpGateway. |
-|MaxEntityBodySize |Uint, valore predefinito: 4194304 |  Indica la dimensione massima del corpo prevista in una richiesta http. Il valore predefinito è 4 MB. Httpgateway non porterà a termine una richiesta se questa ha un corpo di dimensioni superiori al valore indicato. La dimensione minima dei blocchi di lettura è di 4096 byte. Il valore deve pertanto esser >= 4096. |
+|MaxEntityBodySize |Uint, valore predefinito: 4194304 |  Indica la dimensione massima del corpo prevista in una richiesta http. Il valore predefinito è 4 MB. Httpgateway non porterà a termine una richiesta se questa ha un corpo di dimensioni superiori al valore indicato. La dimensione minima dei blocchi di lettura è di 4096 byte. Il valore deve pertanto essere >= 4096. |
+|HttpGatewayHealthReportSendInterval |Tempo in secondi, il valore predefinito è 30 | Specificare l'intervallo di tempo in secondi. Intervallo dopo il quale l'Http gateway invia i report sull'integrità accumulati a Health Manager. |
 
 ### <a name="section-name-ktllogger"></a>Nome della sezione: KtlLogger
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
@@ -278,10 +279,10 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 |IsEnabled |Bool, valore predefinito: false | Abilita/disabilita HttpApplicationGateway. HttpApplicationGateway è disabilitato per impostazione predefinita. È necessario impostare questa configurazione per abilitarlo. |
-|NumberOfParallelOperations | Uint, valore predefinito: 1000 | Numero di letture da pubblicare nella coda del server http. Consente di controllare il numero di richieste simultanee che possono essere espletate da HttpGateway. |
-|DefaultHttpRequestTimeout |Tempo in secondi, valore predefinito: 60 |Specificare l'intervallo di tempo in secondi.  Indica il timeout di richiesta predefinito per le richieste http in elaborazione nel gateway applicazione http. |
+|NumberOfParallelOperations | Uint, valore predefinito: 5000 | Numero di letture da pubblicare nella coda del server http. Consente di controllare il numero di richieste simultanee che possono essere espletate da HttpGateway. |
+|DefaultHttpRequestTimeout |Tempo in secondi, Il valore predefinito è 120 |Specificare l'intervallo di tempo in secondi.  Indica il timeout di richiesta predefinito per le richieste http in elaborazione nel gateway applicazione http. |
 |ResolveServiceBackoffInterval |Tempo in secondi, valore predefinito: 5 |Specificare l'intervallo di tempo in secondi.  Indica l'intervallo di backoff predefinito prima di ritentare l'operazione di risoluzione del servizio. |
-|BodyChunkSize |Uint, valore predefinito: 4096 |  Indica la dimensione in byte per il blocco usato per leggere il corpo. |
+|BodyChunkSize |Uint, valore predefinito: 16384 |  Indica la dimensione in byte per il blocco usato per leggere il corpo. |
 |GatewayAuthCredentialType |stringa, il valore predefinito è "None" | Indica il tipo di credenziali di sicurezza da usare nell'endpoint del gateway applicazione http. I valori validi sono "None/X509. |
 |GatewayX509CertificateStoreName |stringa, il valore predefinito è "My" | Nome dell'archivio certificati X.509 che contiene il certificato per il gateway applicazione http. |
 |GatewayX509CertificateFindType |stringa, valore predefinito è "FindByThumbprint" | Indica la modalità di ricerca del certificato nell'archivio specificato da GatewayX509CertificateStoreName. Valori supportati: FindByThumbprint; FindBySubjectName. |

@@ -1,5 +1,5 @@
 ---
-title: Script automatizzato per la creazione di app Web di Service Manager per il eseguire la connessione con IT Service Management connector in OMS | Microsoft Docs
+title: Script automatico per la creazione di app Web di Service Manager per eseguire la connessione con IT Service Management Connector in OMS | Microsoft Docs
 description: Creare un&quot;app Web di Service Manager usando uno script automatizzato per eseguire la connessione con IT Service Management Connector in OMS e monitorare e gestire in modo centralizzato gli elementi di lavoro ITSM.
 services: log-analytics
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 06/15/2017
 ms.author: v-jysur
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 66d643088da9e071ce8d440c8300e1f8124d00aa
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -33,9 +33,8 @@ Eseguire lo script, fornendo i dettagli richiesti seguenti:
 - Nome del gruppo di risorse
 - Località
 - Dettagli del server di Service Manager (nome del server, dominio, nome utente e password)
-- URL per la distribuzione
-- Nome del sito per l'app Web
-- Nome del servizio BizTalk.
+- Prefisso del nome del sito per l'app Web
+- Spazio dei nomi ServiceBus.
 
 Lo script creerà l'app Web usando il nome specificato insieme ad alcune stringhe aggiuntive per renderlo univoco. Genera **URL dell'app Web**, **ID del client** e **segreto client**.
 
@@ -49,8 +48,7 @@ Per impostazione predefinita, Windows 10 ha la versione 5.1. È possibile scaric
 Usare lo script seguente:
 
 ```
-###################################
-
+####################################
 # User Configuration Section Begins
 ####################################
 
@@ -60,7 +58,7 @@ $azureSubscriptionName = ""
 # Resource group name for resource deployment. Could be an existing resource group or a new one to be created.
 $resourceGroupName = ""
 
-# Location for Resource group deployment
+# Location for existing resource group or new resource group deployment
 ################################### List of available regions #################################################
 # centralus,eastasia,southeastasia,eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,
 # northeurope,westeurope,japaneast,japanwest,brazilsouth,australiasoutheast,australiaeast,westindia,southindia,
@@ -75,10 +73,11 @@ $username = ""
 $password = ""
 
 
-# Site Name Prefix. Default is "smoc". It can be configured to any desired value.
+# Azure site Name Prefix. Default is "smoc". It can be configured to any desired value.
 $siteNamePrefix = ""
 
-# BizTalk Service Name. Please provide an already existing biz talk service name. If it doesn't exist, a new one with that name will be created.
+# Service Bus namespace. Please provide an already existing service bus namespace.
+# If it doesn't exist, a new one will be created with name $siteName + "sbn" which can also be later reused for any other hybrid connections.
 $serviceName = ""
 
 ##################################
@@ -99,17 +98,18 @@ if(!(Get-PackageProvider -Name NuGet))
    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force -WarningAction SilentlyContinue
 }
 $module = Get-Module -ListAvailable -Name AzureRM
-if(!$module -or ($module.Version.Major -lt 3))
+
+if(!$module -or ($module[0].Version.Major -lt 4))
 {
     Write-Host "Installing AzureRm Module..."  
     try
     {
         # In case of Win 10 Anniversary update
-        Install-Module AzureRM -MinimumVersion 3.3.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue -AllowClobber
+        Install-Module AzureRM -MinimumVersion 4.1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue -AllowClobber
     }
     catch
     {
-        Install-Module AzureRM -MinimumVersion 3.3.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue
+        Install-Module AzureRM -MinimumVersion 4.1.0 -Scope CurrentUser -Force -WarningAction SilentlyContinue
     }
 
 }
@@ -132,6 +132,22 @@ if(!$siteNamePrefix)
 Add-AzureRmAccount
 
 $context = Set-AzureRmContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
+
+$resourceProvider = Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+
+if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered")
+{
+    try
+    {
+        Write-Host "Registering Microsoft.Web Resource Provider"
+        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+    }
+    catch
+    {
+        Write-Host "Failed to Register Microsoft.Web Resource Provider. Please register it in Azure Portal."
+        exit
+    }   
+}
 do
 {
     $rand = Get-Random -Maximum 32000
@@ -151,8 +167,12 @@ $azureSite = "https://"+$siteName+".azurewebsites.net"
 # Web App Deployment
 ####################
 
-$tenant = $context.Tenant.TenantId
-
+$tenant = $context.Tenant.Id
+if(!$tenant)
+{
+    #For backward compatibility with older versions
+    $tenant = $context.Tenant.TenantId
+}
 try
 {
     Get-AzureRmResourceGroup -Name $resourceGroupName
@@ -201,63 +221,104 @@ $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $clientId
 
 # Web App Configuration
 #######################
+try
+{
 
-Write-Host "Configuring deployed Web-App..."
-$webApp = Get-AzureRMWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -Slot production -WarningAction SilentlyContinue
+    Write-Host "Configuring deployed Web-App..."
+    $webApp = Get-AzureRMWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -Slot production -WarningAction SilentlyContinue
 
-$appSettingList = $webApp.SiteConfig.AppSettings
+    $appSettingList = $webApp.SiteConfig.AppSettings
 
-$appSettings = @{}
-ForEach ($item in $appSettingList) {
-    $appSettings[$item.Name] = $item.Value
+    $appSettings = @{}
+    ForEach ($item in $appSettingList) {
+        $appSettings[$item.Name] = $item.Value
+    }
+    $appSettings['ida:Tenant'] = $tenant
+    $appSettings['ida:Audience'] = $azureSite
+    $appSettings['ida:ServerName'] = $serverName
+    $appSettings['ida:Domain'] = $domain
+    $appSettings['ida:Username'] = $userName
+
+    $connStrings = @{}
+    $kvp = @{"Type"="Custom"; "Value"=$password}
+    $connStrings['ida:Password'] = $kvp
+
+    Set-AzureRMWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -AppSettings $appSettings -ConnectionStrings $connStrings -Slot production -WarningAction SilentlyContinue
+
 }
-$appSettings['ida:Tenant'] = $tenant
-$appSettings['ida:Audience'] = $azureSite
-$appSettings['ida:ServerName'] = $serverName
-$appSettings['ida:Domain'] = $domain
-$appSettings['ida:Username'] = $userName
+catch
+{
+    Write-Host "Web App configuration failed. Please ensure all values are provided in Service Manager Authentication Settings in User Configuration Section"
 
-$connStrings = @{}
-$kvp = @{"Type"="Custom"; "Value"=$password}
-$connStrings['ida:Password'] = $kvp
+    # Delete the AzureRm AD Application if confiuration fails
+    Remove-AzureRmADApplication -ObjectId $adApp.ObjectId -Force
 
-Set-AzureRMWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -AppSettings $appSettings -ConnectionStrings $connStrings -Slot production -WarningAction SilentlyContinue
+    # Delete the deployed web app if configuration fails
+    Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
-# Biz Talk Service
+    exit
+}
+
+
+# Relay Namespace
 ###################
 
 if(!$serviceName)
 {
-    $serviceName = "ITSMbiz"
+    $serviceName = $siteName + "sbn"
 }
-$resource = Find-AzureRmResource -ResourceNameContains $serviceName -ResourceType Microsoft.BizTalkServices/BizTalk
 
-if(!$resource)
+$resourceProvider = Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Relay
+
+if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered")
 {
-    $properties = @{
-                    "sku"= @{
-                                                "name" = "Free"
-                                                "unitCount" = 1
-        }
-    }
     try
     {
-        New-AzureRmResource -ResourceName $serviceName -Location "West US" -PropertyObject $properties -ResourceGroupName $resourceGroupName -ResourceType Microsoft.BizTalkServices/BizTalk -ApiVersion 2014-04-01-preview -Force
+        Write-Host "Registering Microsoft.Relay Resource Provider"
+        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Relay
     }
     catch
     {
-        "Creation of BizTalk Service failed...Please create it manually from Azure Portal.`n"
+        Write-Host "Failed to Register Microsoft.Relay Resource Provider. Please register it in Azure Portal."
+    }   
+}
+
+$resource = Find-AzureRmResource -ResourceNameContains $serviceName -ResourceType Microsoft.Relay/namespaces
+
+if(!$resource)
+{
+    $serviceName = $siteName + "sbn"
+    $properties = @{
+        "sku" = @{
+            "name"= "Standard"
+            "tier"= "Standard"
+            "capacity"= 1
+         }
+    }
+    try
+    {
+        Write-Host "Creating Service Bus namespace..."
+        New-AzureRmResource -ResourceName $serviceName -Location $location -PropertyObject $properties -ResourceGroupName $resourceGroupName -ResourceType Microsoft.Relay/namespaces -ApiVersion 2016-07-01 -Force
+    }
+    catch
+    {
+        $err = $TRUE
+        Write-Host "Creation of Service Bus Namespace failed...Please create it manually from Azure Portal.`n"
     }
 
 }
 
-Write-Host "Note: Please Configure Hybrid connection in the Networking section of the application in Azure Portal to link to the on-premises system.`n"
+Write-Host "Note: Please Configure Hybrid connection in the Networking section of the web application in Azure Portal to link to the on-premises system.`n"
 Write-Host "App Details"
 Write-Host "============"
 Write-Host "App Name:"  $siteName
 Write-Host "Client Id:"  $clientId
 Write-Host "Client Secret:"  $clientSecret
 Write-Host "URI:"  $azureSite
+if(!$err)
+{
+    Write-Host "ServiceBus Namespace:"  $serviceName  
+}
 
 ```
 ## <a name="next-steps"></a>Passaggi successivi

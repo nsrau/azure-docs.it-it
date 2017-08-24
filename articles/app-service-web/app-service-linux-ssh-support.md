@@ -1,6 +1,6 @@
 ---
 title: Supporto SSH per App Web del Servizio app di Azure in Linux | Microsoft Docs
-description: Informazioni sull&quot;uso di SSH con App Web di Azure in Linux.
+description: Informazioni sull'uso di SSH con App Web di Azure in Linux.
 keywords: Servizio app di Azure, app Web, Linux, OSS
 services: app-service
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c1fdd9835992559c985426855a45c09849d54af2
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Supporto SSH per App Web di Azure in Linux
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/10/2017
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) è un protocollo di rete di crittografia per l'uso di servizi di rete in modo sicuro. Più comunemente viene usato per accedere in modo sicuro a un sistema da una riga di comando ed eseguire comandi amministrativi in remoto.
 
-App Web in Linux offre il supporto SSH con ognuna delle immagini Docker predefinite usate per lo stack di runtime di nuove app web. 
+App Web in Linux offre il supporto SSH nel contenitore di app con ognuna delle immagini Docker predefinite usate per lo stack di runtime di nuove app web. 
 
 ![Stack di runtime](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -56,7 +55,7 @@ Se non lo si è già fatto, è necessario eseguire l'autenticazione con la sotto
 
 Affinché un'immagine Docker personalizzata supporti la comunicazione SSH tra il contenitore e il client nel portale di Azure, eseguire la procedura seguente per l'immagine Docker. 
 
-Questa procedura viene mostrata nell'archivio del Servizio app di Azure come esempio [qui](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1).
+Questa procedura viene mostrata nell'archivio del Servizio app di Azure come esempio [qui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Includere l'installazione `openssh-server` nell'[istruzione `RUN`](https://docs.docker.com/engine/reference/builder/#run) in Dockerfile per l'immagine e impostare la password per l'account radice su `"Docker!"`. 
 
@@ -72,7 +71,7 @@ Questa procedura viene mostrata nell'archivio del Servizio app di Azure come ese
       && echo "root:Docker!" | chpasswd
     ``` 
 
-2. Aggiungere un'[istruzione `COPY`](https://docs.docker.com/engine/reference/builder/#copy) a Dockerfile per copiare un file [sshd_config](http://man.openbsd.org/sshd_config) nella directory */etc/ssh/*. Il file di configurazione deve essere basato sul file sshd_config nell'archivio GitHub di Azure-App-Service [qui](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/sshd_config).
+2. Aggiungere un'[istruzione `COPY`](https://docs.docker.com/engine/reference/builder/#copy) a Dockerfile per copiare un file [sshd_config](http://man.openbsd.org/sshd_config) nella directory */etc/ssh/*. Il file di configurazione deve essere basato sul file sshd_config nell'archivio GitHub di Azure-App-Service [qui](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
 
     > [!NOTE] 
     > Per fare in modo che la connessione abbia esito positivo, il file *sshd_config* deve includere quanto segue: 
@@ -90,7 +89,7 @@ Questa procedura viene mostrata nell'archivio del Servizio app di Azure come ese
     EXPOSE 2222 80
     ```
 
-4. Assicurarsi di avviare il servizio SSH. Nell'esempio [qui](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/init_container.sh) viene usato uno script della shell nella directory */bin*.
+4. Assicurarsi di avviare il servizio SSH. Nell'esempio [qui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) viene usato uno script della shell nella directory */bin*.
 
     ```bash
     #!/bin/bash
@@ -103,7 +102,7 @@ Questa procedura viene mostrata nell'archivio del Servizio app di Azure come ese
     COPY init_container.sh /bin/
       ...
     RUN chmod 755 /bin/init_container.sh 
-      ...        
+      ...       
     CMD ["/bin/init_container.sh"]
     ```
 

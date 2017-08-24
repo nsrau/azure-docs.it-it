@@ -1,6 +1,6 @@
 ---
-title: Esempi dell&quot;interfaccia della riga di comando di Azure - servizioSapp | Documentazione Microsoft
-description: Esempi dell&quot;Interfaccia della riga di comando di Azure - Servizio app
+title: Esempi dell'interfaccia della riga di comando di Azure - servizioSapp | Documentazione Microsoft
+description: Esempi dell'Interfaccia della riga di comando di Azure - Servizio app
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.service: app-service
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 5c995ca118676935f4f9b0c72c266b9d52c181cb
 ms.contentlocale: it-it
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="azure-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Azure

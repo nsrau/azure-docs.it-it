@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
-ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d8f69793e9ed71137adcf4ee1e6ac3e4ccb49456
+ms.date: 05/30/2017
+ms.author: cherylmc,yushwang
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
@@ -58,7 +57,7 @@ Le configurazioni **da punto a sito** (VPN tramite SSTP) consentono di connetter
 
 È possibile configurare la rete virtuale in modo da usare sia la connettività da punto a sito che da sito a sito contemporaneamente, purché la connessione da sito a sito venga creata usando un tipo di VPN basato su route per il gateway. I tipi di VPN basati su route sono detti gateway dinamici nel modello di distribuzione classica.
 
-## <a name="virtual-network-gateways"></a>Gateway di rete virtuale
+## <a name="gateways"></a>Gateway di rete virtuale
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Un gateway VPN corrisponde a un gateway di rete virtuale?
 
@@ -132,7 +131,7 @@ Un gateway VPN è basicamente un dispositivo multihomed con una scheda di rete c
 
 Per altre informazioni, [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>Connessioni Site-to-Site e dispositivi VPN
+## <a name="s2s"></a>Connessioni da sito a sito e dispositivi VPN
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Quali sono gli aspetti di cui tenere conto nella scelta di un dispositivo VPN?
 
@@ -196,11 +195,16 @@ Sì, è possibile usare VPN da punto a sito (P2S) con i gateway VPN che si conne
 
 Sì, questa operazione è supportata. Per altre informazioni, vedere [Configurare connessioni ExpressRoute e VPN da sito a sito coesistenti](../expressroute/expressroute-howto-coexist-classic.md).
 
+## <a name="ipsecike"></a>Criteri IPsec/IKE
+
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+
+
 ## <a name="bgp"></a>BGP
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>Connettività cross-premise e macchine virtuali
+## <a name="vms"></a>Connettività cross-premise e macchine virtuali
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Se la macchina virtuale si trova in una rete virtuale e si dispone di una connessione cross-premise, in che modo è possibile connettersi alla macchina virtuale?
 
@@ -217,7 +221,7 @@ No. Attraverso il gateway della rete virtuale passerà solo il traffico con un I
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>Domande frequenti su Rete virtuale
+## <a name="faq"></a>Domande frequenti su Rete virtuale
 
 Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md).
 

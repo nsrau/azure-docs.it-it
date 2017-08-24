@@ -1,6 +1,6 @@
 ---
 title: Aggiornamento delle applicazioni di Service Fabric | Documentazione Microsoft
-description: "Questo articolo fornisce un&quot;introduzione all&quot;aggiornamento di un&quot;applicazione di Service Fabric, inclusa la scelta delle modalità di aggiornamento e dei controlli di integrità eseguiti."
+description: "Questo articolo fornisce un'introduzione all'aggiornamento di un'applicazione di Service Fabric, inclusa la scelta delle modalità di aggiornamento e dei controlli di integrità eseguiti."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 8/9/2017
 ms.author: subramar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
 ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
+ms.contentlocale: it-it
 ms.lasthandoff: 02/13/2017
-
 
 ---
 # <a name="service-fabric-application-upgrade"></a>Aggiornamento di un'applicazione di infrastruttura di servizi
@@ -50,7 +50,7 @@ I servizi predefiniti all'interno dell'applicazione Service Fabric possono esser
 
 1. I servizi predefiniti nel nuovo [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) che non esistono nel cluster vengono creati.
 > [!TIP]
-> È necessario impostare [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) su true per abilitare le regole seguenti. Questa funzionalità è supportata dalla versione&5;.5.
+> È necessario impostare [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) su true per abilitare le regole seguenti. Questa funzionalità è supportata dalla versione 5.5.
 
 2. I servizi predefiniti che esistono sia nel [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) precedente sia nella nuova versione vengono aggiornati. Le descrizioni dei servizi della nuova versione sovrascrivono quelle già presenti nel cluster. L'aggiornamento di un'applicazione subisce automaticamente il rollback in caso di errore dell'aggiornamento del servizio predefinito.
 3. I servizi predefiniti del [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) precedente che non sono presenti nella nuova versione vengono eliminati. **Si noti che questa eliminazione dei servizi predefiniti non è reversibile.**

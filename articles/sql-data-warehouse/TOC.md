@@ -11,7 +11,7 @@
 ## [procedure consigliate](sql-data-warehouse-best-practices.md)
 ## [Gestire](sql-data-warehouse-overview-manage.md)
 ## [Ottenere supporto](sql-data-warehouse-get-started-create-support-ticket.md)
-## [Risolvere i problemi](sql-data-warehouse-troubleshoot.md)
+
 
 # Procedure
 
@@ -48,7 +48,9 @@
 #### [Tipi di dati](sql-data-warehouse-tables-data-types.md)
 #### [Tabelle con distribuzione](sql-data-warehouse-tables-distribute.md)
 #### [Indici](sql-data-warehouse-tables-index.md)
+#### [Identità](sql-data-warehouse-tables-identity.md)
 #### [Partizioni](sql-data-warehouse-tables-partition.md)
+#### [Tabelle replicate](design-guidance-for-replicated-tables.md)
 #### [Statistiche](sql-data-warehouse-tables-statistics.md)
 #### [Temporanee](sql-data-warehouse-tables-temporary.md)
 
@@ -80,18 +82,22 @@
 
 ## Caricamento
 
-### [Panoramica](sql-data-warehouse-overview-load.md)
-### [Dati di esempio](sql-data-warehouse-load-sample-databases.md)
-### [Archivio Data Lake di Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
-### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [Linee guida di PolyBase](sql-data-warehouse-load-polybase-guide.md)
-### [PolyBase da archiviazione BLOB](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase da SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [RedGate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### Concetti
+#### [Panoramica](sql-data-warehouse-overview-load.md)
+#### [Linee guida di PolyBase](sql-data-warehouse-load-polybase-guide.md)
+
+### Esercitazioni
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### Guide alle procedure
+#### [Dati di esempio](sql-data-warehouse-load-sample-databases.md)
+#### [Archivio Data Lake di Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+#### [PolyBase da archiviazione BLOB](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [PolyBase da SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [RedGate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## Eseguire la migrazione
 
@@ -114,7 +120,7 @@
 
 ### [Panoramica](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Compressione columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [Query](sql-data-warehouse-manage-monitor.md)
+### [Monitorare](sql-data-warehouse-manage-monitor.md)
 ### [Carico di lavoro](sql-data-warehouse-develop-concurrency.md)
 
 ## Sicurezza
@@ -127,6 +133,9 @@
 ### [Crittografia con T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Introduzione al rilevamento delle minacce](sql-data-warehouse-security-threat-detection.md)
 
+## Risoluzione dei problemi
+### [Risoluzione dei problemi](sql-data-warehouse-troubleshoot.md)
+
 # Riferimento
 
 ## [Limiti di capacità](sql-data-warehouse-service-capacity-limits.md)
@@ -136,10 +145,12 @@
 ## [Cmdlet di PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Risorse
-## [Prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partner

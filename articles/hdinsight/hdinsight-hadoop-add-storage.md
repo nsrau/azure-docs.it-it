@@ -12,23 +12,23 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 1199840da725afdae3ee69a26db9ceedb2ab37e3
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
-Informazioni su come usare le azioni script per aggiungere altri account di archiviazione di Azure a un cluster HDInsight esistente che usa il sistema operativo Linux.
+Informazioni su come usare le azioni script per aggiungere altri account di archiviazione di Azure in HDInsight. Nella procedura descritta in questo documento viene aggiunto un account di archiviazione a un cluster HDInsight basato su Linux esistente.
 
 > [!IMPORTANT]
-> Le informazioni in questo documento illustrano come aggiungere altre risorse di archiviazione a un cluster dopo la creazione. Per informazioni sull'aggiunta di altri account di archiviazione durante la creazione di cluster, vedere la sezione __Usare risorse di archiviazione aggiuntive__ del documento [Creare cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage).
+> Le informazioni in questo documento illustrano come aggiungere altre risorse di archiviazione a un cluster dopo la creazione. Per informazioni sull'aggiunta di account di archiviazione durante la creazione del cluster, vedere [Configurare cluster in HDInsight con Hadoop, Spark, Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -50,7 +50,7 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 
 * Aggiunge l'account di archiviazione al file core-site.xml.
 
-* Arresta e riavvia i servizi Oozie, YARN, MapReduce2 e HDFS, in modo che possano rilevare le informazioni sul nuovo account di archiviazione.
+* Arresta e riavvia i servizi Oozie, YARN, MapReduce2 e Hadoop Distributed File System. L'arresto e l'avvio di questi servizi consente di usare il nuovo account di archiviazione.
 
 > [!WARNING]
 > L'uso di un account di archiviazione in una località diversa rispetto al cluster HDInsight non è supportato.
@@ -65,12 +65,14 @@ __Requisiti__:
 
 ## <a name="to-use-the-script"></a>Per usare lo script
 
-Per informazioni sull'uso delle azioni script tramite il portale di Azure, Azure PowerShell e l'interfaccia della riga di comando di Azure, vedere la sezione Applicare un'azione script a un cluster in esecuzione del documento [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
+È possibile usare lo script tramite il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure 1.0. Per altre informazioni, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
-Quando si usano le informazioni disponibili nel documento di personalizzazione, sostituire gli URI di esempio dell'azione script con l'URI per questo script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh). Sostituire eventuali parametri di esempio con il nome dell'account di archiviazione di Azure e la chiave dell'account di archiviazione da aggiungere al cluster.
-
-> [!NOTE]
-> Non è necessario contrassegnare lo script come __Persistente__, perché aggiorna direttamente la configurazione Ambari per il cluster.
+> [!IMPORTANT]
+> Nella procedura descritta nel documento di personalizzazione usare le informazioni seguenti per applicare questo script:
+>
+> * Sostituire l'URI di esempio dell'azione script con l'URI per questo script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
+> * Sostituire eventuali parametri di esempio con il nome dell'account di archiviazione di Azure e la chiave dell'account di archiviazione da aggiungere al cluster. Se si usa il portale di Azure, questi parametri devono essere separati da uno spazio.
+> * Non è necessario contrassegnare lo script come __Persistente__, perché aggiorna direttamente la configurazione Ambari per il cluster.
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -122,7 +124,7 @@ Per risolvere il problema, è necessario rimuovere la voce esistente per l'accou
 
 2. Dall'elenco di servizi nella parte sinistra della pagina selezionare __HDFS__. Selezionare quindi la scheda __Configs__ (Configurazioni) al centro della pagina.
 
-3. Nel campo __Filter__ (Filtro) immettere il valore __fs.azure.account__. Vengono restituite le voci per eventuali account di archiviazione aggiunti al cluster. Sono disponibili due tipi di voci, ovvero __keyprovider__ e __key__. Entrambi i tipi contengono il nome dell'account di archiviazione come parte del nome della chiave. 
+3. Nel campo __Filter__ (Filtro) immettere il valore __fs.azure.account__. Vengono restituite le voci per eventuali account di archiviazione aggiunti al cluster. Sono disponibili due tipi di voci, ovvero __keyprovider__ e __key__. Entrambi i tipi contengono il nome dell'account di archiviazione come parte del nome della chiave.
 
     Le voci di esempio seguenti sono relative a un account di archiviazione denominato __mystorage__:
 
@@ -142,7 +144,7 @@ Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HD
 
 ### <a name="additional-charges"></a>Costi aggiuntivi
 
-Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che la fatturazione di Azure includa addebiti di uscita aggiuntivi. Un addebito di uscita viene applicato quando i dati escono da un data center di un'area specifica, anche se il traffico è destinato per un altro data center di Azure in un'area diversa.
+Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HDInsight, è possibile che la fatturazione di Azure includa addebiti di uscita aggiuntivi. Viene applicato un addebito di uscita quando i dati escono dal data center di un'area, anche se il traffico è destinato a un altro data center di Azure in un'area diversa.
 
 > [!WARNING]
 > L'uso di un account di archiviazione in un'area diversa rispetto al cluster HDInsight non è supportato.
@@ -150,3 +152,4 @@ Se l'account di archiviazione si trova in un'area diversa rispetto al cluster HD
 ## <a name="next-steps"></a>Passaggi successivi
 
 Fino a ora sono state date le informazioni su come aggiungere altri account di archiviazione a un cluster HDInsight esistente. Per altre informazioni sulle azioni script, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md)
+

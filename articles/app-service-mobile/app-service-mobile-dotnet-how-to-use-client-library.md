@@ -3,8 +3,8 @@ title: Uso della libreria client gestita di app per dispositivi mobili del servi
 description: Informazioni su come usare un client .NET per App per dispositivi mobili del servizio app di Azure con le app Windows e Xamarin.
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: a02b817ecc45594f55de9a94b67dd35e34386735
-ms.openlocfilehash: 1f0dfe06bbcd22727d12b651cd708b208350831a
-ms.lasthandoff: 01/05/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5f4cc3e97ba7adde2aaac471951a3130d79910f6
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Come usare il client gestito per App per dispositivi mobili di Azure
@@ -68,7 +68,7 @@ Per informazioni su come creare le tabelle nel back-end di App per dispositivi m
 Per installare il pacchetto SDK gestito da client per App per dispositivi mobili da [NuGet][9] attenersi a uno dei metodi seguenti:
 
 * **Visual Studio** Fare clic sul progetto con il pulsante destro del mouse, scegliere **Gestisci pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client` e fare clic su **Installa**.
-* **Xamarin Studio** Fare clic sul progetto con il pulsante destro del mouse, scegliere **Aggiungi** > **Aggiungi pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client ` e fare clic su **Aggiungi pacchetto**.
+* **Xamarin Studio** Fare clic sul progetto con il pulsante destro del mouse, scegliere **Aggiungi**>**Aggiungi pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client ` e fare clic su **Aggiungi pacchetto**.
 
 Nel file dell'attività principale aggiungere l'istruzione **using** seguente:
 
@@ -652,7 +652,7 @@ Vengono forniti esempi per i modelli di autenticazione del flusso client seguent
 2. In Visual Studio o Xamarin Studio aprire il progetto e aggiungere un riferimento al pacchetto NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory` . Includere nella ricerca le versioni non definitive.
 3. Aggiungere il codice seguente all'applicazione, in base alla piattaforma usata. Apportare le sostituzioni seguenti:
 
-   * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.windows.net/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
+   * Sostituire **INSERT-AUTHORITY-HERE** con il nome del tenant in cui è stato eseguito il provisioning dell'applicazione. Il formato deve essere https://login.microsoftonline.com/contoso.onmicrosoft.com. È possibile copiare questo valore dalla scheda Dominio di Azure Active Directory nel [portale di Azure classico].
    * Sostituire **INSERT-RESOURCE-ID-HERE** con l'ID client per il back-end dell'app per dispositivi mobili. L'ID client è disponibile nella scheda **Avanzate** in **Impostazioni di Azure Active Directory** nel portale.
    * Sostituire **INSERT-CLIENT-ID-HERE** con l'ID client copiato dall'applicazione client nativa.
    * Sostituire **INSERT-REDIRECT-URI-HERE** con l'endpoint */.auth/login/done* del sito, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done*.

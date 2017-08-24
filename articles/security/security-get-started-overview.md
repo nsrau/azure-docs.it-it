@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a4e73e9c8a66fca132b1f26913ee8ef5e397269
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -51,9 +53,4 @@ Il sito di informazioni sulla sicurezza di Azure attualmente include le categori
 >
 
 I commenti e i suggerimenti degli utenti sono molto apprezzati. Segnalare se sono presenti categorie che si vuole aggiungere al sito o se sono presenti articoli che si vuole aggiungere a una categoria esistente. A tale scopo, usare la sezione dei commenti qui di seguito o scrivere all'indirizzo [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com). I suggerimenti ricevuti verranno incorporati nelle progettazioni future.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

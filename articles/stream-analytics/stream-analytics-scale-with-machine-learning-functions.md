@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 90be27584e22740d92d149810f5d0a6991cfa20b
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 2a363dfeb4492b79872d95a2ab080ee034cf64d8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -27,14 +27,14 @@ ms.lasthandoff: 05/01/2017
 Spesso è piuttosto semplice impostare un processo di Analisi di flusso e usarlo per analizzare alcuni dati di esempio. Cosa fare quando è necessario eseguire lo stesso processo con volume di dati più elevato? Bisogna capire come configurare il processo di Analisi di flusso per il ridimensionamento. Questo documento illustra in particolare gli aspetti specifici del ridimensionamento di processi di Analisi di flusso con funzioni di Machine Learning. Per informazioni su come ridimensionare processi di Analisi di flusso in generale, vedere l'articolo relativo al [ridimensionamento dei processi](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Che cos'è una funzione di Azure Machine Learning in Analisi di flusso?
-Una funzione di Machine Learning in Analisi di flusso può essere usata come una normale chiamata di funzione nel linguaggio di query di Analisi di flusso. Tuttavia, le chiamate di funzione sono in realtà richieste del servizio Web Azure Machine Learning. I servizi Web Machine Learning supportano l'invio in batch di più righe, dette mini-batch, nella stessa chiamata all'API del servizio Web per migliorare la velocità effettiva globale. Per altri dettagli, vedere gli articoli relativi alle [funzioni di Azure Machine Learning in Analisi di flusso](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e ai [servizi Web Azure Machine Learning](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs).
+Una funzione di Machine Learning in Analisi di flusso può essere usata come una normale chiamata di funzione nel linguaggio di query di Analisi di flusso. Tuttavia, le chiamate di funzione sono in realtà richieste del servizio Web Azure Machine Learning. I servizi Web Machine Learning supportano l'invio in batch di più righe, dette mini-batch, nella stessa chiamata all'API del servizio Web per migliorare la velocità effettiva globale. Per altri dettagli, vedere gli articoli relativi alle [funzioni di Azure Machine Learning in Analisi di flusso](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e ai [servizi Web Azure Machine Learning](../machine-learning/machine-learning-consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurare un processo di Analisi di flusso con funzioni di Machine Learning
 Quando si configura una funzione di Machine Learning per un processo di Analisi di flusso è necessario prendere in considerazione due parametri, le dimensioni batch delle chiamate di funzione di Machine Learning e le unità di streaming (SU) di cui viene effettuato il provisioning per il processo di Analisi di flusso. Per determinare i relativi valori appropriati, occorre prima scegliere tra latenza e velocità effettiva, vale a dire la latenza del processo di Analisi di flusso e la velocità effettiva di ogni unità di streaming. È sempre possibile aggiungere unità di streaming a un processo per aumentare la velocità effettiva di una query di Analisi di flusso con partizionamento efficiente, anche se le unità di streaming aumentano il costo di esecuzione del processo.
 
 È quindi importante determinare la *tolleranza* della latenza nell'esecuzione di un processo di Analisi di flusso. La latenza aggiuntiva dovuta all'esecuzione di richieste del servizio Azure Machine Learning aumenta naturalmente con le dimensioni batch, che si sommano alla latenza del processo di Analisi di flusso. L'aumento delle dimensioni batch consente d'altra parte al processo di analisi di flusso di elaborare *più eventi con lo *stesso numero* di richieste del servizio Web di Machine Learning. L'aumento della latenza del servizio Web Machine Learning è spesso sublineare all'aumento delle dimensioni. È quindi importante stabilire le dimensioni batch più convenienti per un servizio Web Machine Learning in una determinata situazione. Le dimensioni batch predefinite per le richieste al servizio Web sono pari a 1000 e possono essere modificate usando l'[API REST di Analisi di flusso](https://msdn.microsoft.com/library/mt653706.aspx "API REST di Analisi di flusso") o il [client di PowerShell per Analisi di flusso](stream-analytics-monitor-and-manage-jobs-use-powershell.md "client di PowerShell per Analisi di flusso").
 
-Dopo aver determinato le dimensioni batch, è possibile determinare la quantità di unità di streaming (SU) in base al numero di eventi che la funzione deve elaborare al secondo. Per altre informazioni sulle unità di streaming, vedere l'articolo relativo al [ridimensionamento dei processi di Analisi di flusso](stream-analytics-scale-jobs.md#configuring-streaming-units).
+Dopo aver determinato le dimensioni batch, è possibile determinare la quantità di unità di streaming (SU) in base al numero di eventi che la funzione deve elaborare al secondo. Per altre informazioni sulle unità di streaming, vedere [Processi di scalabilità di Analisi di flusso](stream-analytics-scale-jobs.md).
 
 In generale, sono presenti 20 connessioni simultanee al servizio Web Machine Learning ogni 6 unità di streaming, ma anche i processi per 1 unità di streaming e per 3 unità di streaming ricevono 20 connessioni simultanee.  Ad esempio, se la velocità dei dati di input è di 200.000 eventi al secondo e le dimensioni batch hanno il valore predefinito di 1000, la latenza del servizio Web risultante con un mini-batch di 1000 eventi è di 200 ms. Ciò significa che ogni connessione può inviare 5 richieste al servizio Web Machine Learning in un secondo. Con 20 connessioni, il processo di Analisi di flusso può elaborare 20.000 eventi in 200 ms, ovvero 100.000 eventi al secondo. Quindi, per elaborare 200.000 eventi al secondo, il processo di Analisi di flusso necessita di 40 connessioni simultanee, pari a 12 unità di streaming. Il diagramma seguente illustra le richieste dal processo di Analisi di flusso all'endpoint di servizio Web Machine Learning. Ogni 6 unità di streaming sono presenti al massimo 20 connessioni simultanee al servizio Web Machine Learning.
 
@@ -119,9 +119,8 @@ Per riepilogare i punti principali, per ridimensionare un processo di Analisi di
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Analisi di flusso, vedere:
 
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-get-started.md)
+* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

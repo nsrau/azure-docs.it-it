@@ -1,6 +1,6 @@
 ---
-title: Documentazione tecnica sull&quot;accesso condizionale in Azure Active Directory | Documentazione Microsoft
-description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l&quot;autenticazione dell&quot;utente e prima di consentire l&quot;accesso all&quot;applicazione. Se tali condizioni vengono soddisfatte, l&quot;utente viene autenticato e gli viene consentito l&quot;accesso all&quot;applicazione.
+title: Documentazione tecnica sull'accesso condizionale in Azure Active Directory | Documentazione Microsoft
+description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2017
+ms.date: 08/22/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 4296bbc7123f6571ad564351612864a6315d8abf
-ms.openlocfilehash: 450f3e001a0bc4a45fea4c4f0a81e676e9a80cc4
-ms.lasthandoff: 03/02/2017
-
+ms.reviewer: calebb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: db7d8b6b2cbe1604fc1b02cc36780ddd83a4d350
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Documentazione tecnica sull'accesso condizionale di Azure Active Directory
@@ -37,7 +38,8 @@ Le regole di accesso condizionale sono supportate in diversi tipi di applicazion
 * Microsoft Office 365 SharePoint Online (include OneDrive for Business)
 * Microsoft Power BI 
 * Applicazioni con accesso Single Sign-On basato su password dalla raccolta di applicazioni di Azure AD
-* Visual Studio Online
+* Visual Studio Team Services
+* Microsoft Teams
 
 
 

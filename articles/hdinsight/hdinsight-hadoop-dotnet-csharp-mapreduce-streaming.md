@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 07/12/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
 ms.openlocfilehash: f98d769542f5a52d659f561e970f0a7e9dce9fd9
 ms.contentlocale: it-it
 ms.lasthandoff: 05/02/2017
-
 
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Hadoop in HDInsight
@@ -192,7 +191,7 @@ Dopo aver creato l'applicazione, compilarla per produrre il file `/bin/Debug/red
     * Se si usa __Archiviazione di Azure__ come risorsa di archiviazione predefinita:
 
         ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasbs:///mapper.exe,wasbs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
         ```
 
     L'elenco seguente descrive le operazioni eseguite da ogni parametro:

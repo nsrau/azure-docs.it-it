@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 07/10/2017
 ms.author: helaw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
 ms.openlocfilehash: 80837ff9adb9b02b7a12ce1039e4c50be172bee8
+ms.contentlocale: it-it
 ms.lasthandoff: 03/24/2017
-
 
 ---
 # <a name="manage-role-based-access-control"></a>Manage Role-Based Access Control

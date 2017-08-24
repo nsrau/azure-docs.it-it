@@ -1,6 +1,6 @@
 ---
-title: Accedere ad applicazioni Service Fabric con Log Analytics di Azure mediante PowerShell | Documentazione Microsoft
-description: "È possibile usare la soluzione Service Fabric in Log Analytics mediante PowerShell per valutare i rischi e l&quot;integrità delle applicazioni Service Fabric, dei microservizi, dei nodi e dei cluster."
+title: Accedere ad applicazioni Service Fabric con Log Analytics di Azure mediante PowerShell | Microsoft Docs
+description: "È possibile usare la soluzione Service Fabric in Log Analytics mediante PowerShell per valutare i rischi e l'integrità delle applicazioni Service Fabric, dei microservizi, dei nodi e dei cluster."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 07/06/2017
 ms.author: nini
-translationtype: Human Translation
-ms.sourcegitcommit: 6d20dc322a2493b9dd9a3fd843512befc1e90100
-ms.openlocfilehash: a822e7eb85eca42cba85d191e1effd7240deb1af
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: a9d1b05e8f6740cb7c5ccf15dbe33b15bdbe27b0
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Valutare le applicazioni e i microservizi di Azure Service Fabric con PowerShell
@@ -28,6 +28,9 @@ ms.lasthandoff: 02/28/2017
 >
 >
 
+
+![Simbolo di Service Fabric](./media/log-analytics-service-fabric/service-fabric-assessment-symbol.png)
+
 In questo articolo viene descritto come usare la soluzione Service Fabric in Log Analytics per identificare e risolvere i problemi nel cluster di Service Fabric, monitorando le prestazioni dei nodi di Service Fabric e l'effettiva esecuzione delle applicazioni e dei servizi micro.
 
 La soluzione Service Fabric usa i dati della Diagnostica di Azure provenienti dalle macchine virtuali Service Fabric, raccogliendo questi dati dalle tabelle di Azure WAD. Successivamente, Log Analytics legge gli eventi del framework di Service Fabric, tra cui: **Eventi del servizio affidabile**, **Eventi relativi agli attori**, **Eventi operativi** ed **Eventi ETW personalizzati**. Il dashboard della soluzione Service Fabric mostra i problemi degni di nota e gli eventi rilevanti nell'ambiente Service Fabric.
@@ -35,27 +38,27 @@ La soluzione Service Fabric usa i dati della Diagnostica di Azure provenienti da
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 Seguire questi tre semplici passaggi per installare e configurare la soluzione:
 
-1. Assicurarsi che l'area di lavoro OMS in uso sia associata alla stessa sottoscrizione di Azure usato per creare tutte le risorse cluster, inclusi gli account di archiviazione. Vedere [Introduzione a Log Analytics](log-analytics-get-started.md) per informazioni sulla creazione di un'area di lavoro OMS.
-2. Configurare OMS per raccogliere e visualizzare i log di Service Fabric.
+1. Assicurarsi che l'area di lavoro di Log Analytics in uso sia associata alla stessa sottoscrizione di Azure usata per creare tutte le risorse cluster, inclusi gli account di archiviazione. Vedere [Introduzione a Log Analytics](log-analytics-get-started.md) per informazioni sulla creazione di un'area di lavoro di Log Analytics.
+2. Configurare Log Analytics per raccogliere e visualizzare i log di Service Fabric.
 3. Abilitare la soluzione Service Fabric nell'area di lavoro.
 
-## <a name="configure-oms-to-collect-and-view-service-fabric-logs"></a>Configurare OMS per raccogliere e visualizzare i log di Service Fabric
-In questa sezione viene illustrato come configurare OMS per recuperare i log di Service Fabric. I log consentono di visualizzare, analizzare e risolvere i problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster per mezzo del portale OMS.
+## <a name="configure-log-analytics-to-collect-and-view-service-fabric-logs"></a>Configurare Log Analytics per raccogliere e visualizzare i log di Service Fabric
+Questa sezione illustra come configurare Log Analytics per recuperare i log di Service Fabric. I log consentono di visualizzare, analizzare e risolvere i problemi nel cluster o nelle applicazioni e nei servizi in esecuzione nel cluster usando il portale di OMS.
 
 > [!NOTE]
-> L'estensione della diagnostica di Azure deve essere configurata per caricare i log nelle tabelle di archiviazione corrispondenti ai valori cercati da OMS. Vedere [Come raccogliere log con Diagnostica di Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) per altre informazioni su come raccogliere i log. Gli esempi di impostazioni di configurazione disponibili in questo articolo indicano i nomi ottimali per le tabelle di archiviazione. Dopo aver configurato la Diagnostica nel cluster e una volta che ha iniziato a caricare i log in un account di archiviazione, il passaggio successivo consiste nel configurare OMS per raccogliere questi log.
+> L'estensione Diagnostica di Azure deve essere configurata per caricare i log nelle tabelle di archiviazione corrispondenti a quanto cercato da Log Analytics. Per altre informazioni, vedere [Raccogliere log con Diagnostica di Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md). Gli esempi di impostazioni di configurazione disponibili in questo articolo indicano i nomi ottimali per le tabelle di archiviazione. Dopo avere configurato la Diagnostica nel cluster e avere avviato il caricamento dei log in un account di archiviazione, il passaggio successivo consiste nel configurare Log Analytics per raccogliere questi log.
 >
 >
 
-Assicurarsi di aggiornare la sezione**EtwEventSourceProviderConfiguration** nel file **template.json** per aggiungere le voci relative al nuovo canale EventSources prima di applicare l'aggiornamento della configurazione eseguendo **deploy.ps1**. La tabella per il caricamento è identica a (ETWEventTable). Al momento, OMS può soltanto leggere gli eventi ETW per l'applicazione da quella tabella. Tuttavia, il supporto per le tabelle ETW personalizzate è in via di sviluppo.
+Assicurarsi di aggiornare la sezione**EtwEventSourceProviderConfiguration** nel file **template.json** per aggiungere le voci relative al nuovo canale EventSources prima di applicare l'aggiornamento della configurazione eseguendo **deploy.ps1**. La tabella per il caricamento è identica a (ETWEventTable). Log Analytics al momento può leggere solo gli eventi ETW dell'applicazione dalla tabella *WADETWEventTable*.
 
 I seguenti strumenti vengono usati per eseguire alcune delle operazioni descritte in questa sezione:
 
 * Azure PowerShell
 * [Operations Management Suite](http://www.microsoft.com/oms)
 
-### <a name="configure-an-oms-workspace-to-show-the-cluster-logs"></a>Configurare un'area di lavoro OMS in modo da visualizzare i log dei cluster
-Dopo avere creato un'area di lavoro OMS, come illustrato in precedenza, sarà necessario configurarla in modo che esegua il pull dei log dalle tabelle di archiviazione di Azure in cui vengono caricate dal cluster mediante l’estensione Diagnostica. Per farlo, eseguire lo script di PowerShell seguente:
+### <a name="configure-a-log-analytics-workspace-to-show-the-cluster-logs"></a>Configurare un'area di lavoro di Log Analytics per visualizzare i log dei cluster
+Dopo avere creato un'area di lavoro di Log Analytics, come illustrato in precedenza, sarà necessario configurarla in modo che esegua il pull dei log dalle tabelle di archiviazione di Azure in cui vengono caricate dal cluster mediante l'estensione Diagnostica. Per farlo, eseguire lo script di PowerShell seguente:
 
 ```
 <#
@@ -63,8 +66,8 @@ Dopo avere creato un'area di lavoro OMS, come illustrato in precedenza, sarà ne
     It will enable all supported data types (currently Service Fabric Events, ETW Events and IIS Logs).
     It supports Resource Manager storage accounts.
     If you have more than one Azure Subscription, you will be prompted for the subscription to configure.
-    If you have more than one OMS workspace you will be prompted for the workspace to configure.
-    It will then look through your Service Fabric clusters, and configure your OMS workspace to read Diagnostics from storage accounts that are connected to that cluster and have diagnostics enabled.
+    If you have more than one Log Analytics workspace you will be prompted for the workspace to configure.
+    It will then look through your Service Fabric clusters, and configure your Log Analytics workspace to read Diagnostics from storage accounts that are connected to that cluster and have diagnostics enabled.
 #>
 
 try
@@ -88,12 +91,12 @@ function Select-Subscription {
 
             $count = 1
             foreach ($subscription in $allSubscriptions) {
-                $uiPrompt += "$count. " + $subscription.SubscriptionName + " (" + $subscription.SubscriptionId + ")`n"
+                $uiPrompt += "$count. " + $subscription.Name + " (" + $subscription.Id + ")`n"
                 $count++
             }
             $answer = (Read-Host -Prompt $uiPrompt) - 1
             $subscription = $allSubscriptions[$answer]
-             Write-Host $subscription.SubscriptionId
+             Write-Host $subscription.Id
         }  
     }
     return $subscription
@@ -135,7 +138,7 @@ function Check-ETWProviderLogging {
          }  
          elseif ( $table -ne $expectedTable )
          {
-             Write-Warning ("$id $provider events are being written to $table instead of WAD$expectedTable. Events will not be collected by OMS")
+             Write-Warning ("$id $provider events are being written to $table instead of WAD$expectedTable. Events will not be collected by Log Analytics")
          }  
          else
          {
@@ -244,7 +247,7 @@ function Select-StorageAccount {
                             {
                                 $existingConfig = Get-AzureRmOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -ErrorAction Stop
                             }
-                        catch [Hyak.Common.CloudException]
+                        catch
                             {
                                 # HTTP Not Found is returned if the storage insight doesn't exist
                             }
@@ -287,12 +290,12 @@ $workspace = Select-Workspace
 $storageAccount = Select-StorageAccount
 ```
 
-Dopo aver configurato l'area di lavoro OMS per la lettura dalle tabelle di Azure nell'account di archiviazione, accedere al portale di Azure e selezionare l'area di lavoro OMS da **Tutte le risorse**. Una volta selezionata, dovrebbe apparire il numero dei log dell'account di archiviazione connesso all'area di lavoro OMS. Selezionare il riquadro **Log dell'account di archiviazione** e verificare dall'elenco dei log dell'account di archiviazione che il proprio account di archiviazione sia connesso all'area di lavoro OMS:
+Dopo avere configurato l'area di lavoro di Log Analytics per la lettura dalle tabelle di Azure nell'account di archiviazione, accedere al portale di Azure e selezionare l'area di lavoro di Log Analytics da **Tutte le risorse**. Dopo avere selezionato l'area di lavoro, dovrebbe apparire il numero dei log dell'account di archiviazione connesso all'area di lavoro di Log Analytics. Selezionare il riquadro **Log dell'account di archiviazione** e verificare dall'elenco dei log dell'account di archiviazione che il proprio account di archiviazione sia connesso all'area di lavoro di Log Analytics:
 
 ![Log dell'account di archiviazione](./media/log-analytics-service-fabric/sf1.png)
 
 ## <a name="enable-the-service-fabric-solution"></a>Abilitare la soluzione Service Fabric
-Usare lo script seguente per aggiungere la soluzione all'area di lavoro OMS. Eseguire lo script in PowerShell, usando la sottoscrizione di Azure associata all'area di lavoro OMS in cui si desidera abilitare la soluzione di Service Fabric.
+Usare lo script seguente per aggiungere la soluzione all'area di lavoro di Log Analytics. Eseguire lo script in PowerShell, usando la sottoscrizione di Azure associata all'area di lavoro di Log Analytics in cui si vuole abilitare la soluzione di Service Fabric.
 
 ```
 function Select-Subscription {
@@ -337,13 +340,13 @@ function Select-Workspace {
     return $workspace
 }
 $subscription = Select-Subscription
-$subscriptionId = $subscription.SubscriptionId
+$subscriptionId = $subscription.Id
 $subscription = Select-AzureRmSubscription -SubscriptionId $subscriptionId
 $workspace = Select-Workspace
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -IntelligencePackName "ServiceFabric" -Enabled $true
 ```
 
-Dopo aver abilitato la soluzione, il riquadro Service Fabric viene aggiunto alla pagina Panoramica di OMS con una visualizzazione dei problemi rilevanti, ad esempio gli errori runAsync e gli annullamenti verificatisi nelle ultime 24 ore.
+Dopo avere abilitato la soluzione, il riquadro Service Fabric viene aggiunto alla pagina *Panoramica* di Log Analytics con una visualizzazione dei problemi rilevanti, ad esempio gli errori runAsync e gli annullamenti verificatisi nelle ultime 24 ore.
 
 ![Riquadro Service Fabric](./media/log-analytics-service-fabric/sf2.png)
 
@@ -364,24 +367,24 @@ Fare clic sul riquadro **Service Fabric** per aprire il dashboard di Service Fab
 
 La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sulla modalità di raccolta dei dati per Service Fabric.
 
-| Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
+| Piattaforma | Agente diretto | Agente di Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![Sì](./media/log-analytics-malware/oms-bullet-green.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |![No](./media/log-analytics-malware/oms-bullet-red.png) |10 minuti |
 
 > [!NOTE]
-> È possibile modificare l'ambito di questi eventi nella soluzione Service Fabric facendo clic su **Dati basati sugli ultimi 7 giorni** nella parte superiore del dashboard. È anche possibile mostrare gli avvisi generati negli ultimi 7 giorni, nell'ultimo giorno o nelle ultime 6 ore. In alternativa, è possibile selezionare **Personalizzato** e specificare un intervallo di date personalizzato.
+> È possibile modificare l'ambito di questi eventi nella soluzione Service Fabric facendo clic su **Dati basati sugli ultimi 7 giorni** nella parte superiore del dashboard. È anche possibile mostrare gli eventi generati negli ultimi sette giorni, nell'ultimo giorno o nelle ultime sei ore. In alternativa, è possibile selezionare **Personalizzato** e specificare un intervallo di date personalizzato.
 >
 >
 
-## <a name="troubleshoot-your-service-fabric-and-oms-configuration"></a>Risolvere i problemi di configurazione Service Fabric e OMS
-Se è necessario verificare la configurazione OMS poiché non è possibile visualizzare i dati degli eventi in OMS, usare lo script seguente. Legge la configurazione della diagnostica Service Fabric, controlla i dati scritti nelle tabelle e verifica che OMS sia configurato per la lettura delle tabelle.
+## <a name="troubleshoot-your-service-fabric-and-log-analytics-configuration"></a>Risolvere i problemi di configurazione di Service Fabric e di Log Analytics
+Se si deve verificare la configurazione di Log Analytics perché non si riesce a visualizzare i dati degli eventi in Log Analytics, usare lo script seguente. Lo script legge la configurazione della diagnostica Service Fabric, controlla i dati scritti nelle tabelle e verifica che Log Analytics sia configurato per la lettura delle tabelle.
 
 ```
 <#
-    Verify Service Fabric and OMS configuration
+    Verify Service Fabric and Log Analytics configuration
     1. Read Service Fabric diagnostics configuration
     2. Check for data being written into the tables
-    3. Verify OMS is configured to read from the tables
+    3. Verify Log Analytics is configured to read from the tables
 
     Supported tables:
     WADServiceFabricReliableActorEventTable
@@ -505,7 +508,7 @@ function Check-ETWProviderLogging {
         }
         elseif ( $table -ne $expectedTable )
         {
-            Write-Warning ("$id $provider events are being written to $table instead of WAD$expectedTable. Events will not be collected by OMS")
+            Write-Warning ("$id $provider events are being written to $table instead of WAD$expectedTable. Events will not be collected by Log Analytics")
         }
         else
         {
@@ -604,7 +607,7 @@ $OMSworkspace = $allResources.Where({($_.ResourceType -eq "Microsoft.Operational
 
 if ($OMSworkspace.Name -ne $workspaceName)
 {
-    Write-Error ("Unable to find OMS Workspace " + $workspaceName)
+    Write-Error ("Unable to find Log Analytics Workspace " + $workspaceName)
 }
 
 $serviceFabricClusters = $allResources.Where({$_.ResourceType -eq "Microsoft.ServiceFabric/clusters"})

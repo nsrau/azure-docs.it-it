@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
-ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
+ms.openlocfilehash: c9eb4bad1c0069b3f8ed2df30ef72b2c530ffab3
+ms.contentlocale: it-it
+ms.lasthandoff: 06/23/2017
 
 
 ---
@@ -167,21 +169,16 @@ Di seguito è riportato un confronto tra la funzione di assegnazione degli indir
 
 |  | Risorsa | Classico | Gestione risorse |
 | --- | --- | --- | --- |
-| **Indirizzo IP pubblico** |VM |Indicato come un ILPIP (solo dinamico) |Indicato come un IP pubblico (dinamico o statico) |
-|  |Assegnato a una VM IaaS o a un'istanza del ruolo PaaS |Associato alla scheda NIC della VM | |
-| Servizio di bilanciamento del carico con connessione Internet |Indicato come indirizzo VIP (dinamico) o IP riservato (statico) |Indicato come un IP pubblico (dinamico o statico) | |
-|  |Assegnato a un servizio cloud |Associato alla configurazione front-end del servizio di bilanciamento del carico | |
+| **Indirizzo IP pubblico** |***VM*** |Indicato come un ILPIP (solo dinamico) |Indicato come un IP pubblico (dinamico o statico) |
+|  ||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS |Associato alla scheda NIC della VM | |
+|  |***Servizio di bilanciamento del carico con connessione Internet*** |Indicato come indirizzo VIP (dinamico) o IP riservato (statico) |Indicato come un IP pubblico (dinamico o statico) | |
+|  ||Assegnato a un servizio cloud |Associato alla configurazione front-end del servizio di bilanciamento del carico | |
 |  | | | |
-| **Indirizzo IP privato** |VM |Indicato come un DIP |Indicato come un indirizzo IP privato |
-|  |Assegnato a una VM IaaS o a un'istanza del ruolo PaaS |Assegnato alla scheda NIC della VM | |
-| Servizio di bilanciamento del carico interno (ILB) |Assegnato all'ILB (dinamico o statico) |Assegnato alla configurazione front-end dell'ILB (dinamico o statico) | |
+| **Indirizzo IP privato** |***VM*** |Indicato come un DIP |Indicato come un indirizzo IP privato |
+|  ||Assegnato a una VM IaaS o a un'istanza del ruolo PaaS |Assegnato alla scheda NIC della VM | |
+|  |***Servizio di bilanciamento del carico interno*** |Assegnato all'ILB (dinamico o statico) |Assegnato alla configurazione front-end dell'ILB (dinamico o statico) | |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire una VM con un indirizzo IP privato statico](virtual-networks-static-private-ip-classic-pportal.md) con il portale classico.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
+* [Distribuire una VM con un indirizzo IP statico privato](virtual-networks-static-private-ip-classic-pportal.md) usando il portale di Azure.
 
 

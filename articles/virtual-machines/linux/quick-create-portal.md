@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 07/15/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: ff4bf9c9e3bfbd0e51cdb91be85dec15db6cd758
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -47,7 +48,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 
-2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS** e verificare che sia selezionato il modello di distribuzione **Resource Manager**. Selezionare il pulsante **Create** . 
+2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**. 
 
 3. Immettere le informazioni relative alla macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH**. Quando si incolla la chiave pubblica SSH, prestare attenzione a rimuovere gli eventuali spazi iniziali o finali. Al termine fare clic su **OK**.
 
@@ -57,7 +58,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
     ![Screenshot che mostra le dimensioni delle VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Nel pannello delle impostazioni selezionare **Sì** in **Usa dischi gestiti**, mantenere i valori predefiniti per le altre impostazioni e fare clic su **OK**.
+5. Nel pannello delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
 6. Nella pagina del riepilogo fare clic su **OK** per avviare la distribuzione della macchina virtuale.
 
@@ -107,13 +108,13 @@ Un gruppo di sicurezza di rete (NSG) consente il traffico in ingresso e in uscit
 6. Fare clic su **OK**.
 
 
-## <a name="view-the-ngix-welcome-page"></a>Visualizzare la pagina iniziale di NGINX
+## <a name="view-the-nginx-welcome-page"></a>Visualizzare la pagina iniziale di NGINX
 
 Con NGINX installato e la porta 80 aperta per la macchina virtuale, è ora possibile accedere al server Web da Internet. Aprire un Web browser e immettere l'indirizzo IP pubblico della VM. L'indirizzo IP pubblico è indicato nel pannello della macchina virtuale nel portale di Azure.
 
 ![Sito NGINX predefinito](./media/quick-create-cli/nginx.png) 
 
-## <a name="delete-virtual-machine"></a>Eliminare una macchina virtuale
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non serve più, eliminare il gruppo di risorse e tutte le risorse correlate. A tale scopo selezionare il gruppo di risorse nel pannello della macchina virtuale e fare clic su **Elimina**.
 

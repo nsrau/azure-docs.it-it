@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/09/2017
+ms.date: 05/29/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
-ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
+ms.contentlocale: it-it
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -29,7 +31,7 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
 
 1. Aprire il componente di gestione di ADFS.
 2. A sinistra selezionare **Attendibilità componente**.
-3. Fare clic con il pulsante destro del mouse su **Piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione...**
+3. Fare clic con il pulsante destro del mouse su **Piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione**.
 
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
@@ -88,15 +90,12 @@ Ora che le attestazioni sono configurate, è possibile procedere alla configuraz
 3. In Directory selezionare la directory in cui impostare gli indirizzi IP attendibili.
 4. Nella directory selezionata fare clic su **Configura**.
 5. Nella sezione Multi-Factor Authentication fare clic su **Gestisci impostazioni del servizio**.
-6. Nella pagina Impostazioni servizio selezionare **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet** in Indirizzi IP attendibili.
+6. Nella pagina Impostazioni servizio selezionare **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet** in Indirizzi IP attendibili.  
+
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+   
 7. Fare clic su **save**.
 8. Dopo che gli aggiornamenti sono stati applicati, fare clic su **Chiudi**.
 
 La procedura è terminata. A questo punto, gli utenti federati di Office 365 dovrebbero usare solo MFA quando una richiesta proviene dall'esterno della Intranet aziendale.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

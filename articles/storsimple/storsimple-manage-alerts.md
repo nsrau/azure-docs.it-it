@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: anbacker
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 2a1e44920581771af77fb46984b1cea31a957d67
-ms.lasthandoff: 03/09/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilizzare il servizio StorSimple Manager per visualizzare e gestire gli avvisi di StorSimple.
@@ -114,7 +114,6 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 * [Avvisi di prestazioni](#performance-alerts)
 * [Avvisi di sicurezza](#security-alerts)
 * [Avvisi del pacchetto per il supporto](#support-package-alerts)
-* [Avvisi di aggiornamento](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Avvisi di connettività cloud
 | Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
@@ -201,17 +200,6 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 | Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Creazione del pacchetto per il supporto non riuscita. |StorSimple: impossibile generare il pacchetto. |Ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. Dopo avere risolto il problema, cancellare questo avviso dalla pagina degli avvisi. |
-
-### <a name="update-alerts"></a>Avvisi di aggiornamento
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
-|:--- |:--- |:--- |
-| Hotfix installato. |L'aggiornamento del software/firmware è stato completato. |L'installazione dell'hotfix nel dispositivo è stata completata. |
-| Aggiornamenti manuali disponibili. |Notifica di aggiornamenti disponibili. |Usare l'interfaccia di Windows PowerShell per StorSimple nel dispositivo per installare gli aggiornamenti. <br>Per altre informazioni, vedere [Aggiornare il dispositivo StorSimple serie 8000](storsimple-update-device.md). |
-| Nuovi aggiornamenti disponibili. |Notifica di aggiornamenti disponibili. |È possibile installare questi aggiornamenti dalla pagina **Manutenzione** o tramite l'interfaccia di Windows PowerShell per StorSimple nel dispositivo. <br>Per altre informazioni, vedere [Aggiornare il dispositivo StorSimple serie 8000](storsimple-update-device.md). |
-| Impossibile installare gli aggiornamenti. |Gli aggiornamenti non sono stati installati correttamente. |Non è stato possibile installare gli aggiornamenti. È possibile installare questi aggiornamenti dalla pagina **Manutenzione** o tramite l'interfaccia di Windows PowerShell per StorSimple nel dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft. <br>Per altre informazioni, vedere [Aggiornare il dispositivo StorSimple serie 8000](storsimple-update-device.md). |
-| Non è possibile verificare automaticamente la disponibilità di aggiornamenti. |Verifica automatica non riuscita. |È possibile verificare manualmente la disponibilità di aggiornamenti dalla pagina **Manutenzione** . |
-| È disponibile un nuovo aggiornamento dell'agente di Windows. |Notifica di aggiornamento disponibile. |Scaricare la versione più recente dell'agente di Windows Update e installala dall'interfaccia di Windows PowerShell. |
-| La versione del componente <*ID componente*> del firmware non corrisponde a quella dell'hardware. |Gli aggiornamenti del firmware non sono stati installati correttamente. |Contattare il supporto Microsoft. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Errori di StorSimple e risoluzione dei problemi relativi a un dispositivo operativo](storsimple-troubleshoot-operational-device.md).

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edaacfb8e7c179ac6e4831a113656b3cf128f985
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8f1936fac543f559a44ad0f9c35b30d1a92dce68
+ms.contentlocale: it-it
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume"></a>Utilizzare il servizio StorSimple Manager per clonare un volume
@@ -48,7 +49,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
       > 
       > 
    2. Specificare un nome volume univoco per il clone. Il nome deve contenere tra 3 e 127 caratteri.
-   3. Fare clic sull'icona di freccia  ![icona a forma di freccia](./media/storsimple-clone-volume/HCS_ArrowIcon.png)  per passare alla pagina successiva.
+   3. Fare clic sull'icona di freccia  ![icona a forma di freccia](./media/storsimple-clone-volume/HCS_ArrowIcon.png) per passare alla pagina successiva.
 5. In **Specificare gli host che possono utilizzare questo volume**:
    
    1. Specificare un record di controllo di accesso (ACR) per il clone. È possibile aggiungere un nuovo ACR o scegliere dall'elenco esistente.
@@ -64,7 +65,7 @@ In questa esercitazione viene descritto come utilizzare un set di backup per clo
 > 
 > 
 
-Un clone creato in questo modo è un clone temporaneo. Per ulteriori informazioni sui tipi di cloni, vedere [Cloni temporanei e cloni permanenti](#transient-vs.-permanent-clones).
+Un clone creato in questo modo è un clone temporaneo. Per ulteriori informazioni sui tipi di cloni, vedere [Cloni temporanei e cloni permanenti](#transient-vs-permanent-clones).
 
 Questo clone ora è un volume normale e qualsiasi operazione possibile su un volume sarà disponibile anche per il clone. È necessario configurare questo volume per tutti i backup.
 
@@ -89,10 +90,5 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [ripristinare un volume StorSimple da un set di backup](storsimple-restore-from-backup-set.md).
 * Informazioni su come [utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

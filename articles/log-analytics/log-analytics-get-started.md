@@ -1,6 +1,6 @@
 ---
-title: Introduzione a un&quot;area di lavoro di Azure Log Analytics | Documentazione Microsoft
-description: "È possibile iniziare a usare un&quot;area di lavoro di Log Analytics in pochi minuti."
+title: Introduzione a un'area di lavoro di Azure Log Analytics | Documentazione Microsoft
+description: "È possibile iniziare a usare un'area di lavoro di Log Analytics in pochi minuti."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
-ms.openlocfilehash: 634b4c99b746ad0b8b3238e11b3c305d2cf7082f
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: it-it
-ms.lasthandoff: 03/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>Introduzione a un'area di lavoro di Log Analytics
@@ -56,10 +55,15 @@ Il passaggio successivo consiste nella creazione di un'area di lavoro.
    * **Piano tariffario**  
        ![Creazione rapida](./media/log-analytics-get-started/oms-onboard-quick-create.png)
 3. Fare clic su **OK** per visualizzare l'elenco delle aree di lavoro.
-4. Selezionare un'area di lavoro per visualizzare i dettagli corrispondenti nel portale di Azure.       
+4. Selezionare un'area di lavoro per visualizzare i relativi dettagli nel portale di Azure.       
     ![Dettagli dell'area di lavoro](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3 Aggiungere soluzioni e offerte di soluzioni
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3 Aggiornare l'area di lavoro alla nuova ricerca log
+È stato rilasciato un nuovo linguaggio di query di Log Analytics e per sfruttarlo è necessario convertire l'area di lavoro.  Se l'area in cui è ospitata la propria area di lavoro è stata aggiornata, dovrebbe venire visualizzato un banner viola nella parte superiore dell'area di lavoro che invita a eseguire la conversione. L'aggiornamento è assolutamente volontario e non influisce sull'esperienza d'uso di Log Analytics e delle soluzioni aggiunte.  
+
+Per altre informazioni utili per comprendere i vantaggi, le considerazioni e il processo di aggiornamento, vedere [Aggiornare l'area di lavoro di Azure Log Analytics alla nuova ricerca log](log-analytics-log-search-upgrade.md).  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4 Aggiungere soluzioni e offerte di soluzioni
 
 Aggiungere quindi le soluzioni e le offerte di soluzioni. Le soluzioni di gestione sono una raccolta di regole logiche, di visualizzazione e di acquisizione dei dati che forniscono metriche relative a un'area problematica specifica. Un'offerta di soluzioni è un raggruppamento di soluzioni di gestione.
 
@@ -95,11 +99,11 @@ Creare quindi una semplice macchina virtuale in Azure. Dopo la creazione di una 
 
 - Seguire le indicazioni disponibili in [Connettere macchine virtuali di Azure a Log Analytics](log-analytics-azure-vm-extension.md) per connettere la VM a Log Analytics usando il portale di Azure.
 
-## <a name="5-view-and-act-on-data"></a>5 Visualizzare i dati e definire le azioni necessarie
+## <a name="6-view-and-act-on-data"></a>6 Visualizzare i dati e definire le azioni necessarie
 
 È stata eseguita in precedenza l'abilitazione della soluzione Activity Log Analytics e delle offerte di servizi Sicurezza e conformità e Automation & Control. Verranno quindi esaminati i dati raccolti dalle soluzioni e i risultati delle ricerche nei log.
 
-Per iniziare, esaminare i dati visualizzati nelle soluzioni. Analizzare quindi le ricerche nei log a cui si accede dalla pagina corrispondente. Le ricerche nei log permettono di combinare e correlare i dati del computer provenienti da più origini nell'ambiente corrente. Per altre informazioni, vedere [Ricerche nei log in Log Analytics](log-analytics-log-searches.md). Definire quindi le azioni necessarie in base ai dati trovati tramite il portale OMS, esterno al portale di Azure.
+Per iniziare, esaminare i dati visualizzati nelle soluzioni. Analizzare quindi le ricerche nei log a cui si accede dalla pagina corrispondente. Le ricerche nei log permettono di combinare e correlare i dati del computer provenienti da più origini nell'ambiente corrente. Per altre informazioni, vedere [Ricerche log in Log Analytics](log-analytics-log-searches.md) oppure, se è stata eseguita la conversione dell'area di lavoro al nuovo linguaggio di query, vedere [Informazioni sulle ricerche log in Log Analytics](log-analytics-log-search-new.md). 
 
 ### <a name="to-view-antimalware-data"></a>Per visualizzare i dati di Antimalware
 

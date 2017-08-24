@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/09/2017
+ms.date: 08/08/2017
 ms.author: barclayn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5e135be1e21173add3236f851609f1df0a5b0dee
+ms.custom: azlog
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 9a4fa6ea1784ab0247659d5498c6fe3ae30355c4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/10/2017
 Gli eventi di controllo di Azure Active Directory aiutano i clienti a identificare le azioni con privilegi che si sono verificate in Azure Active Directory. I tipi di eventi di cui è possibile tenere traccia sono visibili esaminando gli [eventi dei report di controllo di Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md)
 
 >[!NOTE]
-Prima di eseguire i passaggi descritti in questo articolo, è consigliabile rivedere l'articolo [Introduzione](security-azure-log-integration-get-started.md) e completare tutti i passaggi fino al passaggio 3 della sezione **Passaggi successivi all'installazione e di convalida**.
+È necessario esaminare l'articolo [introduttivo](security-azure-log-integration-get-started.md) e completare la procedura in esso descritta prima di eseguire la procedura descritta in questo articolo.
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Passaggi necessari per integrare i log di controllo di Azure Active Directory
 
@@ -37,7 +37,7 @@ Prima di eseguire i passaggi descritti in questo articolo, è consigliabile rive
 
  ``azlog createazureid``
 
- Questo comando richiede le credenziali di accesso di Azure. Il comando crea quindi un'entità servizio di Azure Active Directory nei tenant di Azure AD che ospitano le sottoscrizioni di Azure in cui l'utente connesso è amministratore, coamministratore o proprietario. Se l'utente connesso è solo un utente Guest nel tenant di Azure AD, il comando avrà esito negativo. L'autenticazione in Azure avviene tramite Azure Active Directory (AD). La creazione di un'entità servizio per l'integrazione dei log di Azure crea l'identità di Azure AD a cui verrà consentito l'accesso in lettura dalle sottoscrizioni di Azure.
+ Questo comando richiede le credenziali di accesso di Azure. Il comando crea quindi un'entità servizio di Azure Active Directory nei tenant di Azure AD che ospitano le sottoscrizioni di Azure in cui l'utente connesso è amministratore, coamministratore o proprietario. Se l'utente connesso è solo un utente Guest nel tenant di Azure AD, il comando avrà esito negativo. L'autenticazione in Azure avviene tramite Azure Active Directory (AD). La creazione di un'entità servizio per l'integrazione di Azlog crea l'identità di Azure AD a cui verrà consentito l'accesso in lettura dalle sottoscrizioni di Azure.
 
 3. Eseguire il comando specificando l'ID del tenant. Per eseguire il comando è necessario essere membri del ruolo di amministratore tenant.
 
@@ -52,9 +52,15 @@ Verificare che siano stati creati i file JSON del log di controllo di Azure Acti
 * **C:\Users\azlog\AzureActiveDirectoryJson**
 * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
-Puntare il connettore del server di inoltro del file SIEM standard alla cartella appropriata per reindirizzare i dati all'istanza di SIEM. A seconda del prodotto SIEM in uso, potrebbe essere necessario il mapping dei campi.
+Di seguito è disponibile un video con i passaggi illustrati in questo articolo.
 
-L'assistenza della community è disponibile tramite il [forum MSDN di Integrazione log di Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Il forum offre ai membri della community di AzLog la possibilità di supporto reciproco con domande, risposte, suggerimenti e trucchi su come ottenere il massimo da Integrazione log di Azure. Inoltre, il team di Integrazione log di Azure monitora questo forum e offrirà il suo contributo quando possibile.
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Azure-AD-Integration/player]
+
+
+>[!NOTE]
+È necessario contattare il fornitore SIEM per istruzioni specifiche su come includere le informazioni dei file JSON nella soluzione SIEM.
+
+L'assistenza della community è disponibile tramite il [forum MSDN di Integrazione log di Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Questo forum offre ai membri della community di AzLog la possibilità di supporto reciproco con domande, risposte, suggerimenti e trucchi su come ottenere i massimi risultati dall'integrazione dei log di Azure. Inoltre, il team di Integrazione log di Azure monitora questo forum e offrirà il suo contributo quando possibile.
 
 Si può anche aprire un [richiesta di supporto](../azure-supportability/how-to-create-azure-support-request.md). A tale scopo selezionare **Integrazione log** come servizio per cui richiedere supporto.
 

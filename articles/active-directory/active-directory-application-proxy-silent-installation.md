@@ -1,6 +1,6 @@
 ---
-title: Installazione automatica del connettore proxy dell&quot;app Azure AD | Microsoft Docs
-description: Viene illustrato come eseguire un&quot;installazione automatica del connettore proxy di applicazione di Azure AD per consentire l&quot;accesso remoto alle applicazioni locali.
+title: Installazione automatica del connettore proxy dell'app Azure AD | Microsoft Docs
+description: Viene illustrato come eseguire un'installazione automatica del connettore proxy di applicazione di Azure AD per consentire l'accesso remoto alle applicazioni locali.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
+ms.reviewer: harshja
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
 ms.contentlocale: it-it
 ms.lasthandoff: 05/15/2017
-
 
 ---
 # <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Installazione automatica del connettore proxy di applicazione di Azure AD
@@ -72,7 +72,7 @@ Esistono due metodi da usare per registrare il connettore:
         /// <summary>
         /// The AAD authentication endpoint uri
         /// </summary>
-        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.windows.net/common/oauth2/token?api-version=1.0");
+        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.microsoftonline.com/common/oauth2/token?api-version=1.0");
 
         /// <summary>
         /// The application ID of the connector in AAD

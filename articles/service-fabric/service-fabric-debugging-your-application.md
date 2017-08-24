@@ -1,6 +1,6 @@
 ---
-title: Debug dell&quot;applicazione in Visual Studio | Documentazione Microsoft
-description: "Migliorare l&quot;affidabilità e le prestazioni dei servizi sviluppandoli ed eseguendone il debug in Visual Studio all&quot;interno di un cluster di sviluppo locale."
+title: Debug dell'applicazione in Visual Studio | Documentazione Microsoft
+description: "Migliorare l'affidabilità e le prestazioni dei servizi sviluppandoli ed eseguendone il debug in Visual Studio all'interno di un cluster di sviluppo locale."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2017
+ms.date: 06/29/2017
 ms.author: vturecek;mikhegn
-translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 6167f3edd3e99522a8997382d6569c82ea387d5c
-ms.lasthandoff: 03/09/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 2459025899a7f5ffebf44fa104ed112c0eb99dfa
+ms.contentlocale: it-it
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -41,10 +42,10 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
    > Visual Studio si connette a tutte le istanze dell'applicazione. Mentre il codice viene eseguito un'istruzione alla volta, i punti di interruzione possono essere raggiunti da più processi, dando luogo a sessioni simultanee. Provare a disabilitare i punti di interruzione dopo che sono stati raggiunti rendendoli condizionali in base all'ID del thread, oppure usando gli eventi di diagnostica.
    > 
    > 
-4. La finestra degli **** eventi di diagnostica si aprirà automaticamente per visualizzare gli eventi diagnostici in tempo reale.
+4. La finestra degli **eventi di diagnostica** si aprirà automaticamente per visualizzare gli eventi diagnostici in tempo reale.
    
     ![Visualizzare gli eventi diagnostici in tempo reale][diagnosticevents]
-5. È possibile aprire la finestra degli **** eventi di diagnostica anche in Cloud Explorer.  In **Service Fabric** fare clic con il pulsante destro del mouse e scegliere **Visualizza tracce streaming**.
+5. È possibile aprire la finestra **degli** eventi di diagnostica anche in Cloud Explorer.  In **Service Fabric** fare clic con il pulsante destro del mouse e scegliere **Visualizza tracce streaming**.
    
     ![Aprire la finestra degli eventi di diagnostica][viewdiagnosticevents]
    
@@ -54,9 +55,9 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
     ```csharp
     ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());
     ```
-7. Nella finestra degli **** eventi di diagnostica è possibile filtrare, sospendere ed esaminare gli eventi in tempo reale.  Il filtro è una semplice ricerca di stringhe del messaggio dell'evento, incluso il relativo contenuto.
+7. Nella finestra **degli**eventi di diagnostica è possibile filtrare, sospendere ed esaminare eventi in tempo reale.  Il filtro è una semplice ricerca di stringhe del messaggio dell'evento, incluso il relativo contenuto.
    
-    ![Filtrare, sospendere e riprendere o esaminare gli eventi in tempo reale][diagnosticeventsactions]
+    ![Filtrare, sospendere e riprendere o esaminare eventi in tempo reale][diagnosticeventsactions]
 8. Il debug dei servizi è come il debug di qualsiasi altra applicazione. In genere i punti di interruzione vengono impostati tramite Visual Studio per semplificare il debug. Anche se le raccolte Reliable Collections vengono replicate in più nodi, implementano comunque IEnumerable. Ciò significa che è possibile utilizzare la visualizzazione dei risultati in Visual Studio durante il debug per vedere cosa è stato memorizzato all'interno. È sufficiente impostare un punto di interruzione in qualsiasi posizione all'interno del codice.
    
     ![Avviare il debug di un'applicazione][breakpoint]

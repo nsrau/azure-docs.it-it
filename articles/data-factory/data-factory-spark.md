@@ -1,6 +1,6 @@
 ---
 title: Chiamare i programmi Spark da Azure Data Factory | Microsoft Docs
-description: "È possibile chiamare i programmi Spark da una data factory di Azure usando l&quot;attività MapReduce."
+description: "È possibile chiamare i programmi Spark da una data factory di Azure usando l'attività MapReduce."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 124f04eb39296899af501d506476ad966442fc3d
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: c5eda443dcd41a481ad952d8472f7f67f4517abd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Chiamare i programmi Spark dalle pipeline Azure Data Factory
@@ -231,7 +230,7 @@ In questo passaggio viene creata una pipeline con un'**attività HDInsightSpark*
 
     ![Risultati della query Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-Per informazioni dettagliate, vedere la sezione [Eseguire una query SQL Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-an-interactive-spark-sql-query). 
+Per informazioni dettagliate, vedere la sezione [Eseguire una query SQL Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md#run-a-hive-query-using-spark-sql). 
 
 ### <a name="troubleshooting"></a>Risoluzione dei problemi
 Poiché **getDebugInfo** è impostato su **Sempre**, è possibile vedere una sottocartella **log** nella cartella **pyFiles** nel contenitore BLOB di Azure. Il file di log nella cartella di registro offre dettagli aggiuntivi. Tale file è particolarmente utile quando si verifica un errore. In un ambiente di produzione può risultare utile impostarlo su **Errore**.
@@ -299,7 +298,7 @@ La tabella seguente fornisce le descrizioni delle proprietà JSON usate nella de
 | className | Classe principale Java/Spark dell'applicazione | No |
 | arguments | Elenco di argomenti della riga di comando del programma Spark. | No |
 | proxyUser | Account utente da rappresentare per eseguire il programma Spark | No |
-| sparkConfig | Proprietà di configurazione di Spark. | No |
+| sparkConfig | Specificare i valori delle proprietà di configurazione di Spark elencati nell'argomento: [Configurazione di SparK: proprietà dell'applicazione](https://spark.apache.org/docs/latest/configuration.html#available-properties). | No |
 | getDebugInfo | Specifica quando i file di log di Spark vengono copiati nell'archiviazione di Azure usata dal cluster HDInsight (o) specificata da sparkJobLinkedService. Valori consentiti: None, Always o Failure. Valore predefinito: None. | No |
 | sparkJobLinkedService | Il servizio collegato di archiviazione di Azure che contiene il file di processo, le dipendenze e i log di Spark.  Se non si specifica un valore per questa proprietà, viene usato lo spazio di archiviazione associato al cluster HDInsight. | No |
 
@@ -310,7 +309,7 @@ Creare la struttura seguente di cartelle nell'archivio BLOB di Azure a cui fa ri
 
 | Path | Descrizione | Obbligatorio | Tipo |
 | ---- | ----------- | -------- | ---- |
-| .    | Percorso radice del processo Spark nel servizio collegato di archiviazione    | Sì | Cartella |
+| . | Percorso radice del processo Spark nel servizio collegato di archiviazione  | Sì | Cartella |
 | &lt;definito dall'utente &gt; | Percorso che punta al file di ingresso del processo Spark | Sì | File |
 | ./jars | Tutti i file in questa cartella vengono caricati e inseriti nel classpath java del cluster | No | Cartella |
 | ./pyFiles | Tutti i file in questa cartella vengono caricati e inseriti nel PYTHONPATH del cluster | No | Cartella |

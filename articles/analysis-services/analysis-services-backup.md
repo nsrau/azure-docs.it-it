@@ -12,13 +12,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 08/15/2017
 ms.author: owend
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: fb660384f2f9f569bcfbe7fa7d5c1f7ce772cacd
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: db04507d50b6dfe767ede4479fe0b02af2461576
+ms.contentlocale: it-it
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -54,7 +54,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
     ![Selezionare un contenitore](./media/analysis-services-backup/aas-backup-container.png)
 
-5. Salvare le impostazioni di backup. Ogni volta che si modificano le impostazioni di archiviazione o che si abilita o disabilita il backup, è necessario salvare le modifiche.
+5. Salvare le impostazioni di backup.
 
     ![Salvare le impostazioni di backup](./media/analysis-services-backup/aas-backup-save.png)
 
@@ -66,7 +66,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 2. In **Backup database** > **File di backup** fare clic su **Sfoglia**.
 
-3. Nella finestra di dialogo **Salva file con nome** verificare il percorso della cartella e quindi digitare un nome per il file di backup. Per impostazione predefinita, il nome del file ha l'estensione abf. 
+3. Nella finestra di dialogo **Salva file con nome** verificare il percorso della cartella e quindi digitare un nome per il file di backup. 
 
 4. Nella finestra di dialogo **Backup database** selezionare le opzioni.
 
@@ -85,7 +85,12 @@ Usare il cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-serv
 ## <a name="restore"></a>Ripristino
 Durante il ripristino, il file di backup deve essere nell'account di archiviazione configurato per il server. Se è necessario spostare un file di backup da un percorso locale all'account di archiviazione, usare [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o l'utilità della riga di comando [AzCopy](../storage/storage-use-azcopy.md). 
 
-Se si sta ripristinando un database di modello tabulare con livello di compatibilità 1200 da un server SQL Server Analysis Services locale, è innanzitutto necessario rimuovere tutti gli utenti di dominio dai ruoli del modello e aggiungerli nuovamente ai ruoli come utenti di Azure Active Directory. I ruoli saranno gli stessi.
+
+
+> [!NOTE]
+> Se si sta eseguendo il ripristino da un server locale, è necessario rimuovere tutti gli utenti di dominio dai ruoli del modello e aggiungerli nuovamente ai ruoli come utenti di Azure Active Directory.
+> 
+> 
 
 ### <a name="to-restore-by-using-ssms"></a>Per eseguire il ripristino usando SSMS
 

@@ -1,5 +1,4 @@
 ---
-
 title: Report degli accessi a rischio nel portale di Azure Active Directory | Microsoft Docs
 description: Informazioni sul report degli accessi a rischio nel portale di Azure Active Directory
 services: active-directory
@@ -11,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 08/15/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
@@ -36,6 +35,19 @@ Gli eventi di rischio rilevati vengono usati per calcolare:
 I report di sicurezza sono disponibili nel [portale di Azure](https://portal.azure.com) nel pannello **Azure Active Directory**, sezione **Sicurezza**. 
 
 ![Accessi a rischio](./media/active-directory-reporting-security-risky-sign-ins/10.png)
+
+
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Licenza di Azure AD necessaria per accedere a un report sulla sicurezza  
+
+Tutte le edizioni di Azure Active Directory offrono report relativi agli accessi a rischio.  
+Tuttavia, il livello di granularità dei report varia a seconda delle edizioni: 
+
+- Nelle edizioni **Azure Active Directory Free e Basic**  è già incluso un elenco di accessi a rischio. 
+
+- Nell'edizione **Azure Active Directory Premium 1** questo modello consente anche di esaminare alcuni degli eventi di rischio sottostanti che sono stati rilevati per ogni report. 
+
+- L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate su tutti gli eventi di rischio sottostanti e permette anche di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
+
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Versione gratuita e di base di Azure Active Directory

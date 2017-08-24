@@ -11,17 +11,32 @@ Le reti virtuali sono il metodo consigliato per connettere le macchine virtuali 
 ## <a name="connect-vms-in-a-virtual-network"></a>Connettere le macchine virtuali in una rete virtuale
 Per connettere le macchine virtuali in una rete virtuale:
 
-1. Creare la rete virtuale nel [portale di Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
-2. Creare il set di servizi cloud per la tua distribuzione al fine di mostrare il tuo design per i set di disponibilità e il bilanciamento del carico. Nel portale di Azure classico fare clic su **Nuovo > Calcolo > Servizio cloud > Creazione personalizzata** per ogni servizio cloud.
-3. Per creare ogni nuova macchina virtuale, fare clic su **Nuovo > Calcolo > Macchina virtuale > Da raccolta**. Scegliere il servizio cloud corretto e la rete virtuale per la VM. Se il servizio cloud è stato già associato a una rete virtuale, il relativo nome sarà già selezionato.
+1. Creare la rete virtuale nel [portale di Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) e specificare "distribuzione classica".
+2. Creare il set di servizi cloud per la tua distribuzione al fine di mostrare il tuo design per i set di disponibilità e il bilanciamento del carico. Nel portale di Azure fare clic su **Nuovo > Calcolo > Servizio cloud** per ogni servizio cloud.
 
-![Selezione di un servizio cloud per una macchina virtuale](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
+  Durante la compilazione dei dettagli del servizio cloud, scegliere lo stesso _gruppo di risorse_ usato con la rete virtuale.
+
+3. Per creare ogni nuova macchina virtuale, fare clic su **Nuovo > Calcolo** e selezionare l'immagine di macchina virtuale appropriata da **App in primo piano**.
+
+  Nel pannello **Nozioni di base** della macchina virtuale scegliere lo stesso _gruppo di risorse_ usato con la rete virtuale.
+
+  ![Pannello Nozioni di base della macchina virtuale quando si usa una rete virtuale](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+
+4. Durante la compilazione delle **impostazioni** della macchina virtuale, scegliere il _servizio cloud_ o la _rete virtuale_ corretta per la macchina virtuale.
+
+  Azure selezionerà l'altro elemento in base a quello selezionato.
+
+  ![Pannello Impostazioni della macchina virtuale quando si usa una rete virtuale](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+
 
 ## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connettere le macchine virtuali in un servizio cloud autonomo
 Per connettere le macchine virtuali in un servizio cloud autonomo:
 
-1. Creare il servizio cloud nel [portale di Azure classico](http://manage.windowsazure.com). Fare clic su **Nuovo > Calcolo > Servizio cloud > Creazione personalizzata**. In alternativa, è possibile creare il servizio cloud per la distribuzione quando si crea la prima macchina virtuale.
-2. Quando si creano le macchine virtuali, specificare il nome del servizio cloud creato nel passaggio precedente.
-   
-   ![Aggiungere una macchina virtuale a un servizio cloud esistente](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
+1. Creare il servizio cloud nel [portale di Azure](http://portal.azure.com). Fare clic su **Nuovo > Calcolo > Servizio cloud**. In alternativa, è possibile creare il servizio cloud per la distribuzione quando si crea la prima macchina virtuale.
+2. Durante la creazione delle macchine virtuali, scegliere lo stesso gruppo di risorse usato con il servizio cloud.
 
+  ![Aggiungere una macchina virtuale a un servizio cloud esistente](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+
+3.  Durante la compilazione dei dettagli della macchina virtuale, scegliere il nome del servizio cloud creato nel primo passaggio.
+
+  ![Selezione di un servizio cloud per una macchina virtuale](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

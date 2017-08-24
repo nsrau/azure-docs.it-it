@@ -12,26 +12,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: d55de6c3f49abf3ac117dcb265dd7f1bcaa05f24
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: f83fac6cffc9e58582417324a4348ca3b6220f0c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Creare un hub IoT usando un modello di Azure Resource Manager (PowerShell)
+
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Introduzione
 È possibile utilizzare Gestione risorse di Azure per creare e gestire hub IoT di Azure a livello di codice. In questa esercitazione viene illustrato come usare un modello di Azure Resource Manager per creare un hub IoT con PowerShell.
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [modello di distribuzione classica e Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).  In questo articolo viene illustrato l'uso del modello di distribuzione Azure Resource Manager.
-> 
-> 
+> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e classico](../azure-resource-manager/resource-manager-deployment-model.md). In questo articolo viene illustrato l'uso del modello di distribuzione Azure Resource Manager.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -39,11 +36,10 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * [Azure PowerShell 1.0][lnk-powershell-install] o versione successiva.
 
 > [!TIP]
-> Per altre informazioni su come usare gli script di PowerShell e i modelli di Azure Resource Manager per creare risorse di Azure, vedere [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] (Uso di Azure PowerShell con Azure Resource Manager). 
-> 
-> 
+> Per altre informazioni su come usare PowerShell e i modelli di Azure Resource Manager per creare risorse di Azure, vedere [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] (Uso di Azure PowerShell con Azure Resource Manager).
 
 ## <a name="connect-to-your-azure-subscription"></a>Connettersi alla sottoscrizione di Azure
+
 In un prompt dei comandi di PowerShell, immettere il comando seguente per accedere alla sottoscrizione di Azure:
 
 ```powershell
@@ -76,11 +72,12 @@ Creare un gruppo di risorse per contenere l'hub IoT usando il comando seguente i
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
-## <a name="submit-an-azure-resource-manager-template-to-create-an-iot-hub"></a>Inviare un modello Azure Resource Manager per creare un hub IoT
+## <a name="submit-a-template-to-create-an-iot-hub"></a>Inviare un modello per creare un hub IoT
+
 Utilizzare un modello JSON per creare un hub IoT nel gruppo di risorse. È anche possibile usare un modello di Azure Resource Manager per apportare modifiche a un hub IoT esistente.
 
 1. Usare un editor di testo per creare un modello di Azure Resource Manager denominato **template.json** con la definizione di risorsa seguente per creare un nuovo hub IoT standard. In questo esempio l'hub IoT viene aggiunto all'area **Stati Uniti orientali**, vengono creati due gruppi di consumer (**cg1** e **cg2**) sull'endpoint compatibile con Hub eventi e viene usata la versione **2016-02-03** dell'API. Questo modello prevede anche che il nome dell'hub IoT venga passato come un parametro denominato **hubName**. Per un elenco aggiornato delle località in cui è supportato l'hub IoT, vedere lo [Stato di Azure][lnk-status].
-   
+
     ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -130,21 +127,25 @@ Utilizzare un modello JSON per creare un hub IoT nel gruppo di risorse. È anche
       }
     }
     ```
+
 2. Salvare il file del modello di Azure Resource Manager sul computer locale. Questo esempio presuppone che il file venga salvato in una cartella denominata **c:\templates**.
-3. Eseguire il comando seguente per distribuire il nuovo hub IoT, passando il nome dell'hub IoT come parametro. In questo esempio, il nome dell'hub IoT è **abcmyiothub** (notare che questo nome deve essere globalmente univoco, quindi deve includere il nome o le iniziali):
-   
+
+3. Eseguire il comando seguente per distribuire il nuovo hub IoT, passando il nome dell'hub IoT come parametro. In questo esempio, il nome dell'hub IoT è `abcmyiothub`. Il nome dell'hub IoT deve essere globalmente univoco:
+
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
+  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+
 4. L'output visualizza le chiavi per l'hub IoT che è stato creato.
-5. Per verificare che l'applicazione abbia aggiunto il nuovo hub IoT, è possibile visitare il [portale di Azure][lnk-azure-portal] e visualizzare l'elenco delle risorse oppure usare il cmdlet di PowerShell **Get-AzureRmResource**.
+
+5. Per verificare che l'applicazione abbia aggiunto il nuovo hub IoT, visitare il [portale di Azure][lnk-azure-portal] e visualizzare l'elenco delle risorse. In alternativa, usare il cmdlet di PowerShell **Get-AzureRmResource**.
 
 > [!NOTE]
 > Questa applicazione di esempio aggiunge un hub IoT Standard S1 che viene addebitato. Al termine è possibile eliminare l'hub IoT usando il [portale di Azure][lnk-azure-portal] o il cmdlet di PowerShell **Remove-AzureRmResource**.
-> 
-> 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Dopo aver distribuito un hub IoT usando un modello di Azure Resource Manager con PowerShell, può essere opportuno ottenere informazioni più dettagliate:
 
 * Informazioni sulle funzionalità dell'[API REST del provider di risorse dell'hub IoT][lnk-rest-api].

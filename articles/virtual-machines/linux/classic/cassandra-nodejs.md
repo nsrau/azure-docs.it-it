@@ -4,7 +4,7 @@ description: "Spiega come eseguire un cluster Cassandra in Linux in Macchine vir
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: hanuk
-manager: erikre
+manager: routlaw
 editor: 
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: hanuk;robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 1cc14b99a4c0dfeb9eec0afaf72200e93cd22e12
-ms.lasthandoff: 03/27/2017
-
+ms.date: 08/17/2017
+ms.author: hanuk;tarcher
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: acfa9f6f0166167341fc54c4d55fb37e0a338024
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Esecuzione di Cassandra con Linux in Azure e accesso da Node.js
@@ -79,14 +79,14 @@ Configurazione del cluster Cassandra in un'area singola:
 
 **Considerazioni di Azure per Cluster Cassandra:** la funzionalità Macchine virtuali di Microsoft Azure utilizza l'archiviazione BLOB di Azure per la persistenza del disco; Archiviazione di Azure consente di salvare 3 repliche di ciascun disco per garantire una durabilità elevata. Ciò significa che ogni riga di dati inserita in una tabella di Cassandra è già archiviata in 3 repliche e, pertanto, la coerenza dei dati è già assicurata anche se il fattore di replica (RF) è 1. Il problema principale con un fattore di replica pari a 1 è che l'applicazione subirà tempi di inattività anche in caso di errore di un singolo nodo di Cassandra. Tuttavia, se un nodo è inattivo per problemi riconosciuti dal Controller di infrastruttura di Azure, ad esempio errori hardware o del software di sistema, verrà effettuato il provisioning di un nuovo nodo utilizzando le stesse unità di archiviazione. Il provisioning di un nuovo nodo per sostituire quello vecchio potrebbe richiedere alcuni minuti.  Allo stesso modo, per le attività di manutenzione pianificata come le modifiche del sistema operativo guest, gli aggiornamenti e le modifiche dell’applicazione di Cassandra, il controller di infrastruttura di Azure esegue in sequenza gli aggiornamenti dei nodi del cluster.  Gli aggiornamenti in sequenza potrebbero comportare l’inattività di alcuni nodi, per cui nel cluster potrebbe verificarsi breve periodo di inattività per alcune partizioni. Tuttavia, i dati non saranno persi grazie alla ridondanza di archiviazione di Azure incorporata.  
 
-Per i sistemi distribuiti in Azure che non richiedono una disponibilità elevata (ad esempio circa 99,9, equivalente a 8,76 ore/anno; per i dettagli, vedere [Disponibilità elevata](http://en.wikipedia.org/wiki/High_availability) ), è possibile l'esecuzione con RF=1 e livello di coerenza = UNO.  Per le applicazioni con requisiti di disponibilità elevata, RF=3 e Consistency Level=QUORUM consentiranno di tollerare il tempo di inattività di uno dei nodi delle repliche. RF=1 nelle distribuzioni tradizionali (ad esempio, locali) non può essere usato a causa della possibile perdita di dati causata da problemi come gli errori dei dischi.   
+Per i sistemi distribuiti in Azure che non richiedono una disponibilità elevata (ad esempio circa 99,9, equivalente a 8,76 ore/anno; per i dettagli, vedere [Disponibilità elevata](http://en.wikipedia.org/wiki/High_availability) ), è possibile l'esecuzione con RF=1 e livello di coerenza = UNO.  Per le applicazioni con requisiti di disponibilità elevata, RF=3 e Consistency Level=QUORUM consentiranno di tollerare il tempo di inattività di uno dei nodi delle repliche. RF=1 nelle distribuzioni tradizionali (ad esempio quelle locali) non può essere usato a causa della possibile perdita di dati causata da problemi come gli errori dei dischi.   
 
 ## <a name="multi-region-deployment"></a>Distribuzione in più aree
 Il modello descritto di replica e coerenza con riconoscimento del data center di Cassandra è di aiuto nella distribuzione in più aree predefinita, senza necessità di alcuno strumento esterno. La differenza con i tradizionali database relazionali, in cui la configurazione per il mirroring del database per le scritture multimaster può essere molto complessa, è considerevole. Cassandra in una configurazione a più aree può essere utile negli scenari d'utilizzo seguenti:
 
 **Distribuzione basata su prossimità:** applicazioni multi-tenant, con mapping chiaro di utenti tenant all’area, possono trarre vantaggio dalle basse latenze del cluster con più aree. Ad esempio, sistemi di gestione della formazione per istituzioni didattiche possono distribuire un cluster distribuito nelle aree degli Stati Uniti orientali e degli Stati Uniti occidentali per servire i rispettivi campus sia per scopi di transazione che di analisi. I dati possono essere coerenti localmente in fase di lettura e scrittura e possono essere alla fine coerenti tra le due aree. Sono disponibili altri esempi quali la distribuzione su supporti, e-commerce, e qualsiasi elemento serva alla base utenti concentrata geograficamente è un buon caso di utilizzo per questo modello di distribuzione.
 
-**Disponibilità elevata:** la ridondanza è un fattore chiave per ottenere un'elevata disponibilità di software e hardware; per ulteriori informazioni, vedere la sezione sulla compilazione di sistemi cloud affidabili in Microsoft Azure. In Microsoft Azure, l'unico modo affidabile per ottenere una vera ridondanza è la distribuzione di un cluster con più aree. Le applicazioni possono essere distribuite in modalità attivo-attivo o attivo-passivo e se una delle aree è inattiva, Gestione traffico di Azure può reindirizzare il traffico all'area attiva.  Con la distribuzione della singola area, se la disponibilità è 99,9, una distribuzione di due aree può raggiungere una disponibilità di 99,9999, calcolata con la formula: (1-(1-0.999) *(1-0.999))*100); vedere il documento precedente per informazioni dettagliate.
+**Disponibilità elevata:** la ridondanza è un fattore chiave per ottenere un'elevata disponibilità di software e hardware; per ulteriori informazioni, vedere la sezione sulla compilazione di sistemi cloud affidabili in Microsoft Azure. In Microsoft Azure, l'unico modo affidabile per ottenere una vera ridondanza è la distribuzione di un cluster con più aree. Le applicazioni possono essere distribuite in modalità attivo-attivo o attivo-passivo e se una delle aree è inattiva, Gestione traffico di Azure può reindirizzare il traffico all'area attiva.  Con la distribuzione della singola area, se la disponibilità è 99,9, una distribuzione di due aree può raggiungere una disponibilità di 99,9999, calcolata con la formula: (1-(1-0,999) * (1-0,999))*100). Vedere il documento precedente per informazioni dettagliate.
 
 **Ripristino di emergenza:** il cluster Cassandra con più aree, se correttamente progettato, può far fronte a potenziali interruzioni irreversibili del centro. Se un'area è inattiva, l'applicazione distribuita in altre aree può iniziare a servire gli utenti finali. Come le altre implementazioni di continuità aziendale, l'applicazione deve tollerare una certa perdita di dati risultante dai dati della pipeline asincrona. Tuttavia, Cassandra rende il ripristino molto più veloce rispetto ai tradizionali processi di ripristino dei database. La figura 2 mostra il tipico modello di distribuzione con più aree con otto nodi in ogni area. Entrambe le aree sono immagini speculari tra loro per simmetria; i progetti reali dipendono dai requisiti relativi a tipo di carico di lavoro (ad esempio transazionale o analitico), RPO, RTO, coerenza dei dati e disponibilità.
 
@@ -303,15 +303,13 @@ Assicurarsi che la macchina virtuale sia evidenziata e fare clic sul collegament
 Dopo alcuni secondi l'immagine dovrebbe essere disponibile nella sezione IMMAGINI PERSONALI della raccolta immagini. La macchina virtuale di origine verrà automaticamente eliminata una volta acquisita l'immagine. 
 
 ## <a name="single-region-deployment-process"></a>Processo di distribuzione in un'area singola
-**Passaggio 1: creare la rete virtuale** Accedere al portale di Azure classico e creare una rete virtuale con gli attributi elencati nella tabella. Per i singoli passaggi del processo, vedere [Configurare una rete virtuale usando il portale di Azure classico](../../../virtual-network/virtual-networks-create-vnet-classic-portal.md) .      
+**Passaggio 1: Creare la rete virtuale** Accedere al portale di Azure e creare una rete virtuale (versione classica) con gli attributi elencati nella tabella seguente. Per i singoli passaggi del processo, vedere [Creare una rete virtuale (versione classica) usando il portale di Azure](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).      
 
 <table>
 <tr><th>Nome attributo macchina virtuale</th><th>Valore</th><th>Osservazioni</th></tr>
 <tr><td>Nome</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Region</td><td>Stati Uniti occidentali</td><td></td></tr>
-<tr><td>Server DNS    </td><td>None</td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
-<tr><td>Configura una VPN Point-to-Site</td><td>None</td><td> Ignorare questo attributo</td></tr>
-<tr><td>Configura una VPN Site-to-Site</td><td>Nessuno</td><td> Ignorare questo attributo</td></tr>
+<tr><td>Server DNS</td><td>None</td><td>Ignorare questo attributo perché non si userà un server DNS</td></tr>
 <tr><td>Spazio di indirizzi</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>IP iniziale</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>

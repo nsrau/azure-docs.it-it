@@ -1,15 +1,22 @@
 # [Panoramica](azure-security.md)
 ## [Sicurezza di rete](security-network-overview.md)
+## [Sicurezza del database](azure-database-security-overview.md)
 ## [Sicurezza delle risorse di archiviazione](security-storage-overview.md)
 ## [Sicurezza delle risorse di calcolo](security-virtual-machines-overview.md)
+## [Sicurezza operativa](azure-operational-security-overview.md)
 ## [Gestione e monitoraggio della sicurezza](security-management-and-monitoring-overview.md)
+## [Sicurezza di Service Fabric](azure-service-fabric-security-overview.md)
 ## [Gestione delle identità](security-identity-management-overview.md)
 ## [Sicurezza per IoT](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Panoramica della crittografia di Azure](security-azure-encryption-overview.md)
 ## [Architettura di sicurezza](azure-security-architecture-overview.md)
-### [Sicurezza operativa](azure-operational-security.md)
+### [Abilitazione della sicurezza operativa](azure-operational-security.md)
 ### [Rilevamento delle minacce avanzato](azure-threat-detection.md)
 ### [Registrazione e controllo](azure-log-audit.md)
 ### [Isolamento nel cloud pubblico](azure-isolation.md)
+### [Funzionalità tecniche per la sicurezza](azure-security-technical-capabilities.md)
+### [Governance in Azure](governance-in-azure.md)
+### [Crittografia dei dati inattivi](azure-security-encryption-atrest.md)
 
 # Attività iniziali
 ## [Introduzione alla sicurezza di Azure](azure-security-getting-started.md)
@@ -18,19 +25,25 @@
 
 ## Sicurezza di rete
 ### [Procedure consigliate per la sicurezza di rete](azure-security-network-security-best-practices.md)
+###[Sicurezza della rete di Azure](azure-network-security.md)
 ### [Sicurezza dei limiti](../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Architettura di rete ibrida sicura](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Sicurezza di archiviazione
 ### [Procedure consigliate per la sicurezza e la crittografia dei dati](azure-security-data-encryption-best-practices.md)
-### [Guida alla sicurezza di Archiviazione](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [Guida alla sicurezza di Archiviazione](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## Sicurezza di calcolo
 ### [Procedure consigliate per le macchine virtuali di Azure](azure-security-best-practices-vms.md)
 ### [Procedure consigliate per i carichi di lavoro IaaS](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Crittografia dischi per macchine virtuali IaaS](azure-security-disk-encryption.md)
+#### [Domande frequenti sulla crittografia del disco](azure-security-disk-encryption-faq.md)
+#### [Risoluzione dei problemi relativi alla crittografia del disco](azure-security-disk-encryption-tsg.md)
 ### [Crittografare una macchina virtuale di Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+
+## Sicurezza operativa
+### [Procedure consigliate per la sicurezza operativa](azure-operational-security-best-practices.md)
 
 ## Gestione e monitoraggio della sicurezza
 ### [Gestione della sicurezza](azure-security-management.md)
@@ -39,15 +52,24 @@
 #### [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-get-started.md)
 #### [Integrare i log di controllo di Azure Active Directory](security-azure-log-integration-ad.md)
 #### [Integrare gli avvisi del Centro sicurezza](security-azure-log-integration-security-center.md)
+#### [Integrare i log di Key Vault usando un hub eventi](security-azure-log-integration-keyvault-eventhub.md)
 #### [Domande frequenti](security-azure-log-integration-faq.md)
+
+## Service Fabric
+### [Procedure consigliate per Service Fabric](azure-service-fabric-security-best-practices.md)
+### [Elenco di controllo di Service Fabric](azure-service-fabric-security-checklist.md)
 
 ## Gestione delle identità
 ### [Procedure consigliate per la sicurezza della gestione delle identità](azure-security-identity-management-best-practices.md)
 
 ## Servizi PaaS
 ### [Proteggere distribuzioni PaaS](security-paas-deployments.md)
-#### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante SQL](security-paas-applications-using-sql.md)
 #### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante i Servizi app](security-paas-applications-using-app-services.md)
+#### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante SQL](security-paas-applications-using-sql.md)
+##### [Procedure consigliate per la sicurezza del database SQL](azure-database-security-best-practices.md)
+##### [Elenco di controllo per la sicurezza del database SQL](azure-database-security-checklist.md)
+####[Elenco di controllo per la sicurezza operativa](azure-operational-security-checklist.md)
+#### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure](security-paas-applications-using-storage.md)
 
 ## Internet delle cose
 ### [Proteggere la distribuzione di IoT](../iot-suite/iot-suite-security-deployment.md)
@@ -69,9 +91,11 @@
 ## [Operations Management Suite](../operations-management-suite/oms-security-getting-started.md)
 
 # Risorse
-## [Blog su sicurezza e conformità](http://blogs.msdn.com/b/azuresecurity/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Programma MVP per la sicurezza di Azure](azure-security-mvp.md)
 ## [Consulenza sulla sicurezza informatica](azure-security-cyber-services.md)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Blog su sicurezza e conformità](http://blogs.msdn.com/b/azuresecurity/)
 ## [Corsi sulla sicurezza di Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Video sulla sicurezza su Channel 9](security-channel-nine.md)
 ## [Threat Modeling Tool](azure-security-threat-modeling-tool.md)

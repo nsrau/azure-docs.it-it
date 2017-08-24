@@ -1,10 +1,10 @@
 ---
-title: Previsioni meteo usando Azure Machine Learning con i dati dell&quot;hub IoT | Microsoft Docs
-description: "Usare Azure Machine Learning per stimare la probabilità di pioggia in base ai dati di umidità che l&quot;hub IoT riceve da un sensore."
+title: Previsioni meteo usando Azure Machine Learning con i dati dell'hub IoT | Microsoft Docs
+description: "Usare Azure Machine Learning per stimare la probabilità di pioggia in base ai dati di umidità che l'hub IoT riceve da un sensore."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: previsioni meteo machine learning
 ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
@@ -20,7 +20,6 @@ ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 872930fd127729e0f444942ad1ee6fa11465ceb9
 ms.contentlocale: it-it
 ms.lasthandoff: 04/25/2017
-
 
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsioni meteo usando i dati sensore dell'hub IoT in Azure Machine Learning

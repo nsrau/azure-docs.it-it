@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 0ce6114073b80c1d9bb719654ab8cebc30dfefac
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: it-it
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
@@ -55,7 +54,7 @@ Site Recovery può replicare qualsiasi app in esecuzione in una macchina support
 | System Center Operations Manager |S |S |S |S |
 | SharePoint |S |S |S |S |
 | SAP<br/><br/>Replicare il sito SAP in Azure per non cluster |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |
-| Exchange (non DAG) |S |Presto disponibile |S |S |
+| Exchange (non DAG) |S |S |S |S |
 | Desktop remoto/VDI |S |S |S |N/D |
 | Linux (sistema operativo e app) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |
 | Dynamics AX |S |S |S |S |
@@ -127,22 +126,23 @@ Site Recovery consente di proteggere Exchange come segue:
 ## <a name="protect-sap"></a>Proteggere SAP
 Usare Site Recovery per proteggere la distribuzione SAP. In particolare, è possibile:
 
-* Abilitare la protezione dell'intera distribuzione SAP replicando vari livelli di distribuzione in Azure o in un sito secondario.
+* Abilitare la protezione di applicazioni di produzione SAP NetWeaver e non NetWeaver in esecuzione in locale, eseguendo la replica dei componenti in Azure.
+* Abilitare la protezione di applicazioni di produzione SAP NetWeaver e non NetWeaver in esecuzione in Azure, eseguendo la replica dei componenti in un altro data center di Azure.
 * Semplificare la migrazione nel cloud usando Site Recovery per eseguire la migrazione della distribuzione SAP in Azure.
-* Semplificare lo sviluppo e il test dell'applicazione SAP creando una copia su richiesta simile a quella in produzione per il test e il debug.
+* Semplificare gli aggiornamenti, i test e la creazione di prototipi dei progetti SAP, creando un clone di produzione on demand per i test delle applicazioni SAP.
 
-[Altre informazioni](http://aka.ms/asr-sap) sulla protezione di SAP.
+[Altre informazioni](site-recovery-sap.md) sulla protezione di SAP.
 
 ## <a name="protect-iis"></a>Proteggere IIS
 Usare Site Recovery per proteggere la distribuzione IIS. In particolare, è possibile:
 
 Azure Site Recovery assicura il ripristino di emergenza replicando i componenti critici dell'ambiente in un sito remoto non attivo o in un cloud pubblico, ad esempio Microsoft Azure. Poiché la macchina virtuale con il server Web e il database vengono replicati nel sito di ripristino, non è necessario eseguire il backup separato dei file di configurazione o dei certificati. I mapping e le associazioni dell'applicazione dipendenti dalle variabili di ambiente modificate dopo il failover possono essere aggiornati tramite gli script integrati nei piani di ripristino di emergenza. Le macchine virtuali vengono spostate nel sito di ripristino solo in caso di failover. Azure Site Recovery consente anche di orchestrare il failover end-to-end con le funzionalità seguenti:
 
--    Sequenza di arresto e avvio delle macchine virtuali nei diversi livelli.
--    Aggiunta di script per consentire l'aggiornamento delle associazioni e delle dipendenze tra applicazioni nelle macchine virtuali dopo che sono state avviate. Gli script possono essere usati anche per aggiornare il server DNS in modo che punti al sito di ripristino.
--    Allocare gli indirizzi IP alle macchine virtuali prima del failover eseguendo il mapping delle reti primarie e di ripristino e quindi usare script che non è necessario aggiornare dopo il failover.
--    Possibilità di failover con un clic per più applicazioni Web nei server Web, eliminando così la confusione derivante da un'emergenza.
--    Possibilità di testare i piani di ripristino in un ambiente isolato per le esercitazioni sul ripristino di emergenza.
+-   Sequenza di arresto e avvio delle macchine virtuali nei diversi livelli.
+-   Aggiunta di script per consentire l'aggiornamento delle associazioni e delle dipendenze tra applicazioni nelle macchine virtuali dopo che sono state avviate. Gli script possono essere usati anche per aggiornare il server DNS in modo che punti al sito di ripristino.
+-   Allocare gli indirizzi IP alle macchine virtuali prima del failover eseguendo il mapping delle reti primarie e di ripristino e quindi usare script che non è necessario aggiornare dopo il failover.
+-   Possibilità di failover con un clic per più applicazioni Web nei server Web, eliminando così la confusione derivante da un'emergenza.
+-   Possibilità di testare i piani di ripristino in un ambiente isolato per le esercitazioni sul ripristino di emergenza.
 
 [Altre informazioni](https://aka.ms/asr-iis) sulla protezione di una Web farm IIS.
 
@@ -152,11 +152,11 @@ Usare Site Recovery per proteggere le distribuzioni Citrix XenApp e XenDesktop c
 * Abilitare la protezione della distribuzione Citrix XenApp e XenDesktop replicando diversi livelli di distribuzione, tra cui server DNS di AD, server di database SQL, Citrix Delivery Controller, server StoreFront, XenApp Master (VDA), server licenze di Citrix XenApp, in Azure.
 * Semplificare la migrazione cloud usando Site Recovery per eseguire la migrazione della distribuzione Citrix XenApp e XenDesktop in Azure.
 * Semplificare i test di Citrix XenApp/XenDesktop creando una copia su richiesta simile a quella di produzione per i test e il debug.
-* Questa soluzione è applicabile solo per computer desktop virtuali con sistema operativo Windows Server e non per computer desktop virtuali client, poiché questi ultimi non sono ancora supportati per le licenze in Azure. 
+* Questa soluzione è applicabile solo per computer desktop virtuali con sistema operativo Windows Server e non per computer desktop virtuali client, poiché questi ultimi non sono ancora supportati per le licenze in Azure.
 [Altre informazioni](https://azure.microsoft.com/pricing/licensing-faq/) sulle licenze per computer desktop client/server in Azure.
 
-[Altre informazioni](site-recovery-citrix-xenapp-and-xendesktop.md) sulla protezione di distribuzioni Citrix XenApp e XenDesktop. In alternativa, è possibile vedere il [white paper di Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) contenente informazioni dettagliate. 
+[Altre informazioni](site-recovery-citrix-xenapp-and-xendesktop.md) sulla protezione di distribuzioni Citrix XenApp e XenDesktop. In alternativa, è possibile vedere il [white paper di Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) contenente informazioni dettagliate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Verifica dei prerequisiti](site-recovery-prereq.md) 
+[Verifica dei prerequisiti](site-recovery-prereq.md)
 

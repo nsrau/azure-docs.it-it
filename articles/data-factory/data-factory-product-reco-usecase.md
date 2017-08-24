@@ -1,6 +1,6 @@
 ---
-title: Caso d&quot;uso su Data factory - Consigli sui prodotti
-description: Descrizione di un caso d&quot;uso implementato usando Data factory di Azure e altri servizi.
+title: Caso d'uso su Data factory - Consigli sui prodotti
+description: Descrizione di un caso d'uso implementato usando Data factory di Azure e altri servizi.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 08/14/2017
 ms.author: shlo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: deda1cc7be197fc3d59b71038224dc6e8089267b
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="use-case---product-recommendations"></a>Caso d'uso - Consigli sui prodotti
@@ -58,10 +59,5 @@ Il set di risultati ottenuto dai consigli personalizzati sui prodotti viene infi
 Ottimizzando la strategia di raccomandazione dei prodotti e allineandola agli obiettivi aziendali, la soluzione ha soddisfatto gli obiettivi commerciali e di marketing del rivenditore online. Inoltre, il rivenditore è stato in grado di rendere operativo e gestire il flusso di lavoro per la raccomandazione dei prodotti in modo efficiente, affidabile ed economico. L'approccio ha semplificato l'aggiornamento del modello e l'ottimizzazione dell'efficacia in base alle misure di successi della conversione dei clic in vendite. Usando Azure Data Factory, inoltre, il rivenditore ha potuto abbandonare la gestione manuale delle risorse cloud, eccessivamente lunga e costosa, per passare a una gestione delle risorse cloud di tipo on-demand. Pertanto, ha potuto risparmiare tempo e denaro e ridurre i tempi di distribuzione della soluzione. Grazie all'intuitiva interfaccia di gestione e monitoraggio di Data factory, accessibile dal portale di Azure, è possibile anche visualizzare e risolvere facilmente eventuali problemi relativi alla condizione dei servizi operativi e alle viste di derivazione dei dati. Questa soluzione, infine, può essere pianificata e gestita in modo che vengano prodotti e distribuiti agli utenti dati finiti e le dipendenze di elaborazione vengano gestite automaticamente senza l'intervento umano.
 
 Offrendo un'esperienza di acquisto personalizzata, il rivenditore ha messo a punto un'esperienza utente più coinvolgente e competitiva e, quindi, ha aumentato le vendite e la soddisfazione complessiva dei clienti.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

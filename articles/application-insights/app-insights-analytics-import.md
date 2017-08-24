@@ -1,7 +1,8 @@
 ---
 title: Importare i dati in Analytics in Azure Application Insights | Microsoft Docs
-description: Importare i dati statici per creare un join con la telemetria dell&quot;app o importare un flusso di dati separato per eseguire query con Analytics.
+description: Importare i dati statici per creare un join con la telemetria dell'app o importare un flusso di dati separato per eseguire query con Analytics.
 services: application-insights
+keywords: schema aperto, importazione dei dati
 documentationcenter: 
 author: CFreemanwa
 manager: carmonm
@@ -11,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: d649644959d907ff7fd6c1de360b091682f13d5b
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Importazione di dati in Analytics
@@ -59,19 +59,13 @@ Sono necessari:
 
  * È consigliabile creare un account di archiviazione dedicato per i BLOB. Se i BLOB sono condivisi con altri processi, la lettura dei BLOB da parte dei processi richiede più tempo.
 
-2. Quando questa funzionalità è disponibile in anteprima, è necessario chiedere l'accesso.
-
- * Aprire Analytics dalla risorsa di Application Insights nel [portale di Azure](https://portal.azure.com). 
- * Nella parte inferiore del riquadro dello schema fare clic sul collegamento "Contattaci" in **Altre origini dati** 
- * Se viene visualizzato "Aggiungi origine dati", l'accesso è stato eseguito.
-
 
 ## <a name="define-your-schema"></a>Definire lo schema
 
 Prima di poter importare dati, è necessario definire un'*origine dati* che specifica lo schema dei dati.
 È possibile avere fino a 50 origini dati in una singola risorsa di Application Insights
 
-1. Avviare la Creazione guidata origine dati.
+1. Avviare la Creazione guidata origine dati. Usare il pulsante "Aggiungi nuova origine dati". In alternativa, fare clic sul pulsante Impostazioni nell'angolo in alto a destra e scegliere "Origini dati" nel menu a discesa.
 
     ![Aggiungere la nuova origine dati](./media/app-insights-analytics-import/add-new-data-source.png)
 
@@ -372,6 +366,6 @@ Usare questo codice per ogni BLOB.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Presentazione del linguaggio di query di Analytics](app-insights-analytics-tour.md)
+* [Presentazione del linguaggio di query di Log Analytics](app-insights-analytics-tour.md)
 * [Usare *Logstash* per inviare i dati ad Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
 

@@ -1,5 +1,5 @@
 ---
-title: Distribuire una macchina virtuale di Azure tramite C# | Microsoft Docs
+title: Creare e gestire una macchina virtuale di Azure tramite C# | Microsoft Docs
 description: Usare C# e Azure Resource Manager per distribuire una macchina virtuale e tutte le relative risorse di supporto.
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,565 +13,389 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f4c63af2d873fb11c8503a30b104b9b7db7f74f0
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5d9021c2f65b70e36d5ea82992c9fb9d2d6d394a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="deploy-an-azure-virtual-machine-using-c"></a>Distribuire una macchina virtuale di Azure tramite C## #
+# <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creare e gestire macchine virtuali Windows in Azure tramite C# #
 
-In questo articolo viene illustrato come usare c# per creare una macchina virtuale di Azure e le relative risorse di supporto.
+Una [macchina virtuale di Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) richiede diverse risorse di supporto di Azure. Questo articolo descrive come creare, gestire ed eliminare le risorse della macchina virtuale tramite C#. Si apprenderà come:
+
+> [!div class="checklist"]
+> * Creare un progetto di Visual Studio
+> * Installare il pacchetto
+> * Creare le credenziali
+> * Creare le risorse
+> * Eseguire le attività di gestione
+> * Eliminare le risorse
+> * Eseguire l'applicazione
 
 L'esecuzione di questi passaggi richiede circa 20 minuti.
 
-## <a name="step-1-create-a-visual-studio-project"></a>Passaggio 1: creare un progetto di Visual Studio
+## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
-In questo passaggio, ci si assicura che Visual Studio sia installato e si crea un'applicazione console da usare per creare le risorse.
-
-1. Se non è già installato, installare [Visual Studio](https://www.visualstudio.com/).
+1. Se non è già installato, installare [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selezionare **Sviluppo per desktop .NET** nella pagina Carichi di lavoro e quindi fare clic su **Installa**. Nel riepilogo si noti che **Strumenti di sviluppo per .NET Framework 4-4.6** viene selezionato automaticamente. Se Visual Studio è già stato installato, è possibile aggiungere il carico di lavoro .NET usando l'utilità di avvio di Visual Studio.
 2. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
-3. In **Modelli** > **Visual C#** selezionare **Applicazione console**, immettere il nome e il percorso del progetto e fare clic su **OK**.
+3. In **Modelli** > **Visual C#** selezionare **App console (.NET Framework)**, immettere *myDotnetProject* come nome del progetto, selezionare il percorso del progetto e quindi fare clic su **OK**.
 
-## <a name="step-2-install-libraries"></a>Passaggio 2: installare le librerie
+## <a name="install-the-package"></a>Installare il pacchetto
 
 I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare questi passaggi. Per ottenere le librerie necessarie in Visual Studio, eseguire questa procedura:
 
+1. Fare clic su **Strumenti** > **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti**.
+2. Nella console digitare il comando seguente:
 
-1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni, scegliere **Gestisci pacchetti NuGet** e fare clic su **Sfoglia**.
-2. Digitare *Microsoft.IdentityModel.Clients.ActiveDirectory* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
-3. Nella parte superiore della pagina selezionare **Includi versione preliminare**. Digitare *Microsoft.Azure.Management.Compute* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
-4. Digitare *Microsoft.Azure.Management.Network* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
-5. Digitare *Microsoft.Azure.Management.Storage* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
-6. Digitare *Microsoft.Azure.Management.ResourceManager* nella casella di ricerca, quindi fare clic su **Installa** e seguire le istruzioni per installare il pacchetto.
-
-È ora possibile iniziare a usare le librerie per creare l'applicazione.
-
-## <a name="step-3-create-the-credentials-used-to-authenticate-requests"></a>Passaggio 3: creare le credenziali usate per autenticare le richieste
-
-Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità servizio Active Directory](../../resource-group-authenticate-service-principal.md). Dall'entità servizio si acquisisce un token per autenticare le richieste ad Azure Resource Manager.
-
-1. Aprire il file Program.cs per il progetto creato e quindi aggiungere le istruzioni using seguenti all'inizio del file:
-   
     ```
-    using Microsoft.Azure;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.Azure.Management.ResourceManager.Models;
-    using Microsoft.Azure.Management.Storage;
-    using Microsoft.Azure.Management.Storage.Models;
-    using Microsoft.Azure.Management.Network;
-    using Microsoft.Azure.Management.Network.Models;
-    using Microsoft.Azure.Management.Compute;
-    using Microsoft.Azure.Management.Compute.Models;
-    using Microsoft.Rest;
+    Install-Package Microsoft.Azure.Management.Fluent
     ```
 
-2. Aggiungere questo metodo alla classe Program per ottenere il token necessario per creare le credenziali:
-   
-    ```    
-    private static async Task<AuthenticationResult> GetAccessTokenAsync()
-    {
-      var cc = new ClientCredential("{client-id}", "{client-secret}");
-      var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-      var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
-      if (token == null)
-      {
-        throw new InvalidOperationException("Could not get the token");
-      }
-      return token;
-    }
+## <a name="create-credentials"></a>Creare le credenziali
+
+Prima di iniziare questo passaggio, assicurarsi di avere accesso a un'[entità servizio Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md). È inoltre necessario registrare l'ID dell'applicazione, la chiave di autenticazione e l'ID del tenant che saranno necessari in un passaggio successivo.
+
+### <a name="create-the-authorization-file"></a>Creare il file di autorizzazione
+
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Aggiungi** > **Nuovo elemento** e quindi selezionare **File di testo** in *Elementi di Visual C#*. Assegnare al file il nome *azureauth.properties* e quindi fare clic su **Aggiungi**.
+2. Aggiungere le proprietà di autorizzazione seguenti:
+
+    ```
+    subscription=<subscription-id>
+    client=<application-id>
+    key=<authentication-key>
+    tenant=<tenant-id>
+    managementURI=https://management.core.windows.net/
+    baseURL=https://management.azure.com/
+    authURL=https://login.windows.net/
+    graphURL=https://graph.windows.net/
     ```
 
-    Sostituire questi valori:
+    Sostituire **&lt;subscription-id&gt;** con l'identificatore della sottoscrizione, **&lt;application-id&gt;** con l'identificatore dell'applicazione Active Directory, **&lt;authentication-key&gt;** con la chiave dell'applicazione e **&lt;tenant-id&gt;** con l'identificatore del tenant.
+
+3. Salvare il file azureauth.properties. 
+4. Impostare una variabile di ambiente Windows denominata AZURE_AUTH_LOCATION con il percorso completo verso il file di autorizzazione creato. Ad esempio, è possibile usare il comando PowerShell seguente:
+
+    ```
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    ```
+
+### <a name="create-the-management-client"></a>Creare il client di gestione
+
+1. Aprire il file Program.cs per il progetto creato e quindi aggiungere le istruzioni using seguenti alle istruzioni esistenti all'inizio del file:
+
+    ```
+    using Microsoft.Azure.Management.Compute.Fluent;
+    using Microsoft.Azure.Management.Compute.Fluent.Models;
+    using Microsoft.Azure.Management.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent;
+    using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+    ```
+
+2. Per creare i client di gestione, aggiungere questo codice al metodo Main:
+
+    ```
+    var credentials = SdkContext.AzureCredentialsFactory
+        .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
+
+    var azure = Azure
+        .Configure()
+        .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
+        .Authenticate(credentials)
+        .WithDefaultSubscription();
+    ```
+
+## <a name="create-resources"></a>Creare le risorse
+
+### <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
+
+Tutte le risorse devono essere contenute in un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md).
+
+Per specificare i valori per l'applicazione e creare il gruppo di risorse, aggiungere questo codice al metodo Main:
+
+```
+var groupName = "myResourceGroup";
+var vmName = "myVM";
+var location = Region.USWest;
     
-    - *{client-id}* con l'identificatore dell'applicazione Azure Active Directory. È possibile trovare questo identificatore nel pannello Proprietà dell'applicazione AD. Per individuare l'applicazione AD nel Portale di Azure, fare clic su **Azure Active Directory** nel menu di risorse e quindi fare clic su **Registrazioni per l'app**.
-    - *{client-secret}* con la chiave di accesso dell'applicazione AD. È possibile trovare questo identificatore nel pannello Proprietà dell'applicazione AD.
-    - *{tenant-id}* con l'identificatore del tenant della sottoscrizione. È possibile trovare l'identificatore del tenant nel pannello Proprietà di Azure Active Directory nel Portale di Azure. È indicato come *ID directory*.
+Console.WriteLine("Creating resource group...");
+var resourceGroup = azure.ResourceGroups.Define(groupName)
+    .WithRegion(location)
+    .Create();
+```
 
-3. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main nel file Program.cs:
+### <a name="create-the-availability-set"></a>Creare il set di disponibilità
+
+I [set di disponibilità](tutorial-availability-sets.md) semplificano la manutenzione delle macchine virtuali usate dall'applicazione.
+
+Per creare il set di disponibilità, aggiungere questo codice al metodo Main:
+
+```
+Console.WriteLine("Creating availability set...");
+var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
+    .WithRegion(location)
+    .WithExistingResourceGroup(groupName)
+    .WithSku(AvailabilitySetSkuTypes.Managed)
+    .Create();
+```
+
+### <a name="create-the-public-ip-address"></a>Creare l'indirizzo IP pubblico
+
+Un [indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) è necessario per comunicare con la macchina virtuale.
+
+Per creare l'indirizzo IP pubblico della macchina virtuale, aggiungere questo codice al metodo Main:
    
-    ```
-    var token = GetAccessTokenAsync();
-    var credential = new TokenCredentials(token.Result.AccessToken);
-    ```
+```
+Console.WriteLine("Creating public IP address...");
+var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
+    .WithRegion(location)
+    .WithExistingResourceGroup(groupName)
+    .WithDynamicIP()
+    .Create();
+```
 
-4. Salvare il file Program.cs.
+### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
-## <a name="step-3-create-the-resources"></a>Passaggio 3: creare le risorse
+Una macchina virtuale deve essere inclusa in una subnet di una [rete virtuale](../../virtual-network/virtual-networks-overview.md).
 
-### <a name="register-the-providers-and-create-a-resource-group"></a>Registrare i provider e creare un gruppo di risorse
+Per creare una subnet e una rete virtuale, aggiungere questo codice al metodo Main:
 
-Tutte le risorse devono essere contenute in un gruppo di risorse. Per poter aggiungere risorse a un gruppo, la sottoscrizione deve essere registrata con i provider di risorse.
+```
+Console.WriteLine("Creating virtual network...");
+var network = azure.Networks.Define("myVNet")
+    .WithRegion(location)
+    .WithExistingResourceGroup(groupName)
+    .WithAddressSpace("10.0.0.0/16")
+    .WithSubnet("mySubnet", "10.0.0.0/24")
+    .Create();
+```
 
-1. Aggiungere le variabili al metodo Main della classe Program per specificare i nomi da usare per le risorse:
-
-    ```   
-    var groupName = "myResourceGroup";
-    var subscriptionId = "subsciptionId";
-    var storageName = "myStorageAccount";
-    var ipName = "myPublicIP";
-    var subnetName = "mySubnet";
-    var vnetName = "myVnet";
-    var nicName = "myNIC";
-    var avSetName = "myAVSet";
-    var vmName = "myVM";  
-    var location = "location";
-    var adminName = "adminName";
-    var adminPassword = "adminPassword";
-    ```
-
-    Sostituire questi valori:
-
-    - Tutti i nomi di risorsa che iniziano con *my* con nomi appropriati per l'ambiente.
-    - *subscriptionId* con l'ID sottoscrizione. È possibile reperire l'ID sottoscrizione nel pannello Sottoscrizioni nel Portale di Azure.
-    - *location* con l'[area di Azure](https://azure.microsoft.com/regions/) in cui si vogliono creare le risorse.
-    - *adminName* con il nome dell'account amministratore nella macchina virtuale.
-    - *adminPassword* con la password dell'account amministratore.
-
-2. Per creare il gruppo di risorse e registrare i provider, aggiungere questo metodo alla classe Program:
-   
-    ```
-    public static async Task<ResourceGroup> CreateResourceGroupAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId,
-      string location)
-    {
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-   
-      Console.WriteLine("Registering the providers...");
-      var rpResult = resourceManagementClient.Providers.Register("Microsoft.Storage");
-      Console.WriteLine(rpResult.RegistrationState);
-      rpResult = resourceManagementClient.Providers.Register("Microsoft.Network");
-      Console.WriteLine(rpResult.RegistrationState);
-      rpResult = resourceManagementClient.Providers.Register("Microsoft.Compute");
-      Console.WriteLine(rpResult.RegistrationState);
-   
-      Console.WriteLine("Creating the resource group...");
-      var resourceGroup = new ResourceGroup { Location = location };
-      return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(
-        groupName, 
-        resourceGroup);
-    }
-    ```
-
-3. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
-   
-    ```   
-    var rgResult = CreateResourceGroupAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location);
-    Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
-    Console.ReadLine();
-    ```
-
-### <a name="create-a-storage-account"></a>Creare un account di archiviazione
-
-Quando si usa un disco non gestito, è necessario un [account di archiviazione](../../storage/storage-create-storage-account.md) per archiviare il file del disco rigido virtuale creato per la macchina virtuale.
-
-1. Per creare l'account di archiviazione, aggiungere questo metodo alla classe Program:
-
-    ```   
-    public static async Task<StorageAccount> CreateStorageAccountAsync(
-      TokenCredentials credential,       
-      string groupName,
-      string subscriptionId,
-      string location,
-      string storageName)
-    {
-      var storageManagementClient = new StorageManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-      
-      Console.WriteLine("Creating the storage account...");
-
-      return await storageManagementClient.StorageAccounts.CreateAsync(
-        groupName,
-        storageName,
-        new StorageAccountCreateParameters()
-          {
-            Sku = new Microsoft.Azure.Management.Storage.Models.Sku() 
-              { Name = SkuName.StandardLRS},
-            Kind = Kind.Storage,
-            Location = location
-          }
-      );
-    }
-    ```
-
-2. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
-   
-    ```
-    var stResult = CreateStorageAccountAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location,
-      storageName);
-    Console.WriteLine(stResult.Result.ProvisioningState);  
-    Console.ReadLine();
-    ```
-
-### <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
-
-È necessario un indirizzo IP pubblico per comunicare con la macchina virtuale.
-
-1. Per creare l'indirizzo IP pubblico della macchina virtuale, aggiungere questo metodo alla classe Program:
-   
-    ```
-    public static async Task<PublicIPAddress> CreatePublicIPAddressAsync(
-      TokenCredentials credential,  
-      string groupName,
-      string subscriptionId,
-      string location,
-      string ipName)
-    {
-      var networkManagementClient = new NetworkManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-      
-      Console.WriteLine("Creating the public ip...");
-
-      return await networkManagementClient.PublicIPAddresses.CreateOrUpdateAsync(
-        groupName,
-        ipName,
-        new PublicIPAddress
-          {
-            Location = location,
-            PublicIPAllocationMethod = "Dynamic"
-          }
-      );
-    }
-    ```
-
-2. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
-   
-    ```   
-    var ipResult = CreatePublicIPAddressAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location,
-      ipName);
-    Console.WriteLine(ipResult.Result.ProvisioningState);  
-    Console.ReadLine();
-    ```
-
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
-
-Una macchina virtuale creata con il modello di distribuzione di Gestione risorse deve essere inclusa in una rete virtuale.
-
-1. Per creare una subnet e una rete virtuale, aggiungere questo metodo alla classe Program:
-
-    ```   
-    public static async Task<VirtualNetwork> CreateVirtualNetworkAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId,
-      string location,
-      string vnetName,
-      string subnetName)
-    {
-      var networkManagementClient = new NetworkManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-   
-      var subnet = new Subnet
-        {
-          Name = subnetName,
-          AddressPrefix = "10.0.0.0/24"
-        };
-   
-      var address = new AddressSpace 
-        {
-          AddressPrefixes = new List<string> { "10.0.0.0/16" }
-        };
-         
-      Console.WriteLine("Creating the virtual network...");
-      return await networkManagementClient.VirtualNetworks.CreateOrUpdateAsync(
-        groupName,
-        vnetName,
-        new VirtualNetwork
-          {
-            Location = location,
-            AddressSpace = address,
-            Subnets = new List<Subnet> { subnet }
-          }
-      );
-    }
-    ```
-
-2. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
-
-    ```   
-    var vnResult = CreateVirtualNetworkAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location,
-      vnetName,
-      subnetName);
-    Console.WriteLine(vnResult.Result.ProvisioningState);  
-    Console.ReadLine();
-    ```
-
-### <a name="create-a-network-interface"></a>Creare un'interfaccia di rete
+### <a name="create-the-network-interface"></a>Creare l'interfaccia di rete
 
 Una macchina virtuale richiede un'interfaccia di rete per comunicare nella rete virtuale.
 
-1. Per creare un'interfaccia di rete, aggiungere questo metodo alla classe Program:
+Per creare un'interfaccia di rete, aggiungere questo codice al metodo Main:
 
-    ```   
-    public static async Task<NetworkInterface> CreateNetworkInterfaceAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId,
-      string location,
-      string subnetName,
-      string vnetName,
-      string ipName,
-      string nicName)
-    {
-      var networkManagementClient = new NetworkManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-      var subnet = await networkManagementClient.Subnets.GetAsync(
-        groupName,
-        vnetName,
-        subnetName
-      );
-      var publicIP = await networkManagementClient.PublicIPAddresses.GetAsync(
-        groupName, 
-        ipName
-      );
-   
-      Console.WriteLine("Creating the network interface...");
-      return await networkManagementClient.NetworkInterfaces.CreateOrUpdateAsync(
-        groupName,
-        nicName,
-        new NetworkInterface
-          {
-            Location = location,
-            IpConfigurations = new List<NetworkInterfaceIPConfiguration>
-              {
-                new NetworkInterfaceIPConfiguration
-                  {
-                    Name = nicName,
-                    PublicIPAddress = pubipResponse,
-                    Subnet = subnetResponse
-                  }
-              }
-          }
-      );
-    }
-    ```
+```
+Console.WriteLine("Creating network interface...");
+var networkInterface = azure.NetworkInterfaces.Define("myNIC")
+    .WithRegion(location)
+    .WithExistingResourceGroup(groupName)
+    .WithExistingPrimaryNetwork(network)
+    .WithSubnet("mySubnet")
+    .WithPrimaryPrivateIPAddressDynamic()
+    .WithExistingPrimaryPublicIPAddress(publicIPAddress)
+    .Create();
+ ```
 
-2. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
-   
-    ```
-    var ncResult = CreateNetworkInterfaceAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location,
-      subnetName,
-      vnetName,
-      ipName,
-      nicName);
-    Console.WriteLine(ncResult.Result.ProvisioningState);  
-    Console.ReadLine();
-    ```
-
-### <a name="create-an-availability-set"></a>Creare un set di disponibilità
-
-I set di disponibilità semplificano la gestione della manutenzione delle macchine virtuali usate dall'applicazione.
-
-1. Per creare il set di disponibilità, aggiungere questo metodo alla classe Program:
-
-    ```   
-    public static async Task<AvailabilitySet> CreateAvailabilitySetAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId,
-      string location,
-      string avsetName)
-    {
-      var computeManagementClient = new ComputeManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-        
-      Console.WriteLine("Creating the availability set...");
-      return await computeManagementClient.AvailabilitySets.CreateOrUpdateAsync(
-        groupName,
-        avsetName,
-        new AvailabilitySet()
-          { Location = location }
-      );
-    }
-    ```
-
-2. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
-   
-    ```
-    var avResult = CreateAvailabilitySetAsync(
-      credential,  
-      groupName,
-      subscriptionId,
-      location,
-      avSetName);
-    Console.ReadLine();
-    ```
-
-### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
+### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
 
 Dopo avere creato tutte le risorse di supporto, è possibile creare una macchina virtuale.
 
-1. Per creare la macchina virtuale, aggiungere questo metodo alla classe Program:
+Per creare la macchina virtuale, aggiungere questo codice al metodo Main:
 
-    ```   
-    public static async Task<VirtualMachine> CreateVirtualMachineAsync(
-      TokenCredentials credential, 
-      string groupName,
-      string subscriptionId,
-      string location,
-      string nicName,
-      string avsetName,
-      string storageName,
-      string adminName,
-      string adminPassword,
-      string vmName)
+```
+Console.WriteLine("Creating virtual machine...");
+azure.VirtualMachines.Define(vmName)
+    .WithRegion(location)
+    .WithExistingResourceGroup(groupName)
+    .WithExistingPrimaryNetworkInterface(networkInterface)
+    .WithLatestWindowsImage("MicrosoftWindowsServer", "WindowsServer", "2012-R2-Datacenter")
+    .WithAdminUsername("azureuser")
+    .WithAdminPassword("Azure12345678")
+    .WithComputerName(vmName)
+    .WithExistingAvailabilitySet(availabilitySet)
+    .WithSize(VirtualMachineSizeTypes.StandardDS1)
+    .Create();
+```
+
+> [!NOTE]
+> Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorare e selezionare immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> 
+>
+
+Se si desidera usare un disco esistente invece di un'immagine del marketplace, usare questo codice:
+
+```
+var managedDisk = azure.Disks.Define("myosdisk")
+    .WithRegion(location)
+    .WithExistingResourceGroup(groupName)
+    .WithWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd")
+    .WithSizeInGB(128)
+    .WithSku(DiskSkuTypes.PremiumLRS)
+    .Create();
+
+azure.VirtualMachines.Define("myVM")
+    .WithRegion(location)
+    .WithExistingResourceGroup(groupName)
+    .WithExistingPrimaryNetworkInterface(networkInterface)
+    .WithSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows)
+    .WithExistingAvailabilitySet(availabilitySet)
+    .WithSize(VirtualMachineSizeTypes.StandardDS1)
+    .Create();
+```
+
+## <a name="perform-management-tasks"></a>Eseguire le attività di gestione
+
+Durante il ciclo di vita di una macchina virtuale si eseguono attività di gestione come l'avvio, l'arresto o l'eliminazione della macchina virtuale. È inoltre possibile creare codice per automatizzare le attività ripetitive o complesse.
+
+Quando si deve eseguire un'operazione con la macchina virtuale, è necessario ottenere un'istanza della stessa:
+
+```
+var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
+```
+
+### <a name="get-information-about-the-vm"></a>Ottenere informazioni sulla VM
+
+Per ottenere informazioni sulla macchina virtuale, aggiungere questo codice al metodo Main:
+
+```
+Console.WriteLine("Getting information about the virtual machine...");
+Console.WriteLine("hardwareProfile");
+Console.WriteLine("   vmSize: " + vm.Size);
+Console.WriteLine("storageProfile");
+Console.WriteLine("  imageReference");
+Console.WriteLine("    publisher: " + vm.StorageProfile.ImageReference.Publisher);
+Console.WriteLine("    offer: " + vm.StorageProfile.ImageReference.Offer);
+Console.WriteLine("    sku: " + vm.StorageProfile.ImageReference.Sku);
+Console.WriteLine("    version: " + vm.StorageProfile.ImageReference.Version);
+Console.WriteLine("  osDisk");
+Console.WriteLine("    osType: " + vm.StorageProfile.OsDisk.OsType);
+Console.WriteLine("    name: " + vm.StorageProfile.OsDisk.Name);
+Console.WriteLine("    createOption: " + vm.StorageProfile.OsDisk.CreateOption);
+Console.WriteLine("    caching: " + vm.StorageProfile.OsDisk.Caching);
+Console.WriteLine("osProfile");
+Console.WriteLine("  computerName: " + vm.OSProfile.ComputerName);
+Console.WriteLine("  adminUsername: " + vm.OSProfile.AdminUsername);
+Console.WriteLine("  provisionVMAgent: " + vm.OSProfile.WindowsConfiguration.ProvisionVMAgent.Value);
+Console.WriteLine("  enableAutomaticUpdates: " + vm.OSProfile.WindowsConfiguration.EnableAutomaticUpdates.Value);
+Console.WriteLine("networkProfile");
+foreach (string nicId in vm.NetworkInterfaceIds)
+{
+    Console.WriteLine("  networkInterface id: " + nicId);
+}
+Console.WriteLine("vmAgent");
+Console.WriteLine("  vmAgentVersion" + vm.InstanceView.VmAgent.VmAgentVersion);
+Console.WriteLine("    statuses");
+foreach (InstanceViewStatus stat in vm.InstanceView.VmAgent.Statuses)
+{
+    Console.WriteLine("    code: " + stat.Code);
+    Console.WriteLine("    level: " + stat.Level);
+    Console.WriteLine("    displayStatus: " + stat.DisplayStatus);
+    Console.WriteLine("    message: " + stat.Message);
+    Console.WriteLine("    time: " + stat.Time);
+}
+Console.WriteLine("disks");
+foreach (DiskInstanceView disk in vm.InstanceView.Disks)
+{
+    Console.WriteLine("  name: " + disk.Name);
+    Console.WriteLine("  statuses");
+    foreach (InstanceViewStatus stat in disk.Statuses)
     {
-      var networkManagementClient = new NetworkManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-      var computeManagementClient = new ComputeManagementClient(credential)
-        { SubscriptionId = subscriptionId };  
-      var nic = await networkManagementClient.NetworkInterfaces.GetAsync(
-        groupName, 
-        nicName);
-      var avSet = await computeManagementClient.AvailabilitySets.GetAsync(
-        groupName, 
-        avsetName);
-   
-      Console.WriteLine("Creating the virtual machine...");
-      return await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(
-        groupName,
-        vmName,
-        new VirtualMachine
-          {
-            Location = location,
-            AvailabilitySet = new Microsoft.Azure.Management.Compute.Models.SubResource
-              {
-                Id = avSet.Id
-              },
-            HardwareProfile = new HardwareProfile
-              {
-                VmSize = "Standard_A0"
-              },
-            OsProfile = new OSProfile
-              {
-                AdminUsername = adminName,
-                AdminPassword = adminPassword,
-                ComputerName = vmName,
-                WindowsConfiguration = new WindowsConfiguration
-                  {
-                    ProvisionVMAgent = true
-                  }
-              },
-            NetworkProfile = new NetworkProfile
-              {
-                NetworkInterfaces = new List<NetworkInterfaceReference>
-                  {
-                    new NetworkInterfaceReference { Id = nic.Id }
-                  }
-              },
-            StorageProfile = new StorageProfile
-              {
-                ImageReference = new ImageReference
-                  {
-                    Publisher = "MicrosoftWindowsServer",
-                    Offer = "WindowsServer",
-                    Sku = "2012-R2-Datacenter",
-                    Version = "latest"
-                  },
-                OsDisk = new OSDisk
-                  {
-                    Name = "mytestod1",
-                    CreateOption = DiskCreateOptionTypes.FromImage,
-                    Vhd = new VirtualHardDisk
-                      {
-                        Uri = "http://" + storageName + ".blob.core.windows.net/vhds/mytestod1.vhd"
-                      }
-                  }
-              }
-          }
-      );
+        Console.WriteLine("    code: " + stat.Code);
+        Console.WriteLine("    level: " + stat.Level);
+        Console.WriteLine("    displayStatus: " + stat.DisplayStatus);
+        Console.WriteLine("    time: " + stat.Time);
     }
-    ```
+}
+Console.WriteLine("VM general status");
+Console.WriteLine("  provisioningStatus: " + vm.ProvisioningState);
+Console.WriteLine("  id: " + vm.Id);
+Console.WriteLine("  name: " + vm.Name);
+Console.WriteLine("  type: " + vm.Type);
+Console.WriteLine("  location: " + vm.Region);
+Console.WriteLine("VM instance status");
+foreach (InstanceViewStatus stat in vm.InstanceView.Statuses)
+{
+    Console.WriteLine("  code: " + stat.Code);
+    Console.WriteLine("  level: " + stat.Level);
+    Console.WriteLine("  displayStatus: " + stat.DisplayStatus);
+}
+Console.WriteLine("Press enter to continue...");
+Console.ReadLine();
+```
 
-    > [!NOTE]
-    > Questa esercitazione illustra come creare una macchina virtuale in cui è in esecuzione una versione del sistema operativo Windows Server. Per altre informazioni sulla selezione di altre immagini, vedere [Esplorare e selezionare immagini delle macchine virtuali di Azure con Windows PowerShell e l'interfaccia della riga di comando di Azure](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-    > 
-    >
+### <a name="stop-the-vm"></a>Arrestare la VM
 
-2. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
-   
-    ```
-    var vmResult = CreateVirtualMachineAsync(
-      credential,
-      groupName,
-      subscriptionId,
-      location,
-      nicName,
-      avSetName,
-      storageName,
-      adminName,
-      adminPassword,
-      vmName);
-    Console.WriteLine(vmResult.Result.ProvisioningState);
-    Console.ReadLine();
-    ```
+È possibile arrestare una macchina virtuale e mantenere tutte le sue impostazioni, pur continuando a vedersela addebitata oppure è possibile arrestare una macchina virtuale e deallocarla. Quando una macchina virtuale viene deallocata, lo stesso viene fatto per tutte le risorse associate e la fatturazione termina.
 
-## <a name="step-4-delete-the-resources"></a>Passaggio 4: Eliminare le risorse
+Per arrestare la macchina virtuale senza deallocarla, aggiungere questo codice al metodo Main:
+
+```
+Console.WriteLine("Stopping vm...");
+vm.PowerOff();
+Console.WriteLine("Press enter to continue...");
+Console.ReadLine();
+```
+
+Per deallocare la macchina virtuale, sostituire la chiamata PowerOff con il codice seguente:
+
+```
+vm.Deallocate();
+```
+
+### <a name="start-the-vm"></a>Avviare la VM
+
+Per avviare la macchina virtuale, aggiungere questo codice al metodo Main:
+
+```
+Console.WriteLine("Starting vm...");
+vm.Start();
+Console.WriteLine("Press enter to continue...");
+Console.ReadLine();
+```
+
+### <a name="resize-the-vm"></a>Ridimensionare la VM
+
+Al momento di decidere le dimensioni della macchina virtuale, è necessario considerare molti aspetti della distribuzione. Per altre informazioni, vedere [Dimensioni delle macchine virtuali](sizes.md).  
+
+Per modificare le dimensioni della macchina virtuale, aggiungere questo codice al metodo Main:
+
+```
+Console.WriteLine("Resizing vm...");
+vm.Update()
+    .WithSize(VirtualMachineSizeTypes.StandardDS2) 
+    .Apply();
+Console.WriteLine("Press enter to continue...");
+Console.ReadLine();
+```
+
+### <a name="add-a-data-disk-to-the-vm"></a>Aggiungere un disco dati alla VM
+
+Per aggiungere un disco dati alla macchina virtuale, aggiungere questo codice al metodo Main per aggiungere un disco dati di 2 GB, un LUN pari a 0 e un tipo di caching di ReadWrite:
+
+```
+Console.WriteLine("Adding data disk to vm...");
+vm.Update()
+    .WithNewDataDisk(2, 0, CachingTypes.ReadWrite) 
+    .Apply();
+Console.WriteLine("Press enter to delete resources...");
+Console.ReadLine();
+```
+
+## <a name="delete-resources"></a>Eliminare le risorse
 
 Poiché vengono applicati addebiti per le risorse usate in Azure, è sempre consigliabile eliminare le risorse che non sono più necessarie. Per eliminare le macchine virtuali e tutte le risorse di supporto, è sufficiente eliminare il gruppo di risorse.
 
-1. Per eliminare il gruppo di risorse, aggiungere questo metodo alla classe Program:
-   
-    ```
-    public static async void DeleteResourceGroupAsync(
-      TokenCredentials credential,
-      string groupName,
-      string subscriptionId)
-    {
-      Console.WriteLine("Deleting resource group...");
-      var resourceManagementClient = new ResourceManagementClient(credential)
-        { SubscriptionId = subscriptionId };
-      await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-    }
-    ```
+Per eliminare il gruppo di risorse, aggiungere questo codice al metodo Main:
 
-2. Per chiamare il metodo aggiunto prima, aggiungere questo codice al metodo Main:
-   
-    ```   
-    DeleteResourceGroupAsync(
-      credential,
-      groupName,
-      subscriptionId);
-    Console.ReadLine();
-    ```
+```
+azure.ResourceGroups.DeleteByName(groupName);
+```
 
-## <a name="step-5-run-the-console-application"></a>Passaggio 5: Eseguire l'applicazione console
+## <a name="run-the-application"></a>Eseguire l'applicazione
 
-1. Per eseguire l'applicazione console, fare clic su **Avvia** in Visual Studio e accedere ad Azure AD usando lo stesso nome utente e la stessa password specificati per la sottoscrizione.
+L'esecuzione completa dell'applicazione console dall'inizio alla fine richiederà circa cinque minuti. 
 
-2. Premere **INVIO** dopo la visualizzazione dello stato *Riuscito*. 
-   
-3. Dopo aver creato la macchina virtuale e prima di premere **Invio** per avviare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica delle risorse stesse nel Portale di Azure.
+1. Per eseguire l'applicazione console, fare clic su **Avvia**.
+
+2. Prima di premere **INVIO** per avviare l'eliminazione delle risorse, è consigliabile dedicare alcuni minuti alla verifica della creazione delle risorse nel Portale di Azure. Fare clic sullo stato della distribuzione per visualizzare le informazioni corrispondenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per usare un modello per creare una macchina virtuale, vedere le informazioni contenute in [Distribuire una macchina virtuale di Azure con C# e un modello di Resource Manager](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Per informazioni su come gestire la macchina virtuale creata, vedere [Gestire macchine virtuali di Azure con Azure Resource Manager e C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Altre informazioni sull'uso delle [librerie di Azure per .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
 
 

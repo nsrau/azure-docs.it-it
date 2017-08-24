@@ -1,9 +1,9 @@
 ---
-title: Informazioni sul manifesto dell&quot;applicazione Azure Active Directory | Documentazione Microsoft
-description: "Descrizione dettagliata del manifesto dell&quot;applicazione Azure Active Directory, che rappresenta una configurazione dell&quot;identità dell&quot;applicazione in un tenant di Azure AD e che viene usato per facilitare l&quot;autorizzazione OAuth, per l&quot;esperienza di consenso e altro ancora."
+title: Informazioni sul manifesto dell'applicazione Azure Active Directory | Documentazione Microsoft
+description: "Descrizione dettagliata del manifesto dell'applicazione Azure Active Directory, che rappresenta una configurazione dell'identità dell'applicazione in un tenant di Azure AD e che viene usato per facilitare l'autorizzazione OAuth, per l'esperienza di consenso e altro ancora."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: sureshja
 manager: mbaldwin
 editor: 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
-ms.author: dkershaw;bryanla
+ms.date: 07/20/2017
+ms.author: sureshja
 ms.custom: aaddev
+ms.reviewer: elisol
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
 ms.openlocfilehash: 2dc166a346c58d43e9ed60332f47619c1de89816
 ms.contentlocale: it-it
 ms.lasthandoff: 02/11/2017
-
 
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Informazioni sul manifesto dell'applicazione in Azure Active Directory

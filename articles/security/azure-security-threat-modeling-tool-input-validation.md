@@ -1,5 +1,5 @@
 ---
-title: 'Convalida dell&quot;input: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
+title: 'Convalida dell''input: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
 description: Procedure di mitigazione delle minacce esposte in Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: rodsan
-translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 19b03b14dc3b04472cd2ae59d38422edce47ef35
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 76584799ad98edc9af1580af4f5bd1bbd20a7e85
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.lasthandoff: 03/15/2017
 | Applicazione Web. | <ul><li>[Disabilitare gli script XSLT per tutte le trasformazioni con fogli di stile non attendibili](#disable-xslt)</li><li>[Verificare che ogni pagina che potrebbe includere contenuti controllabili dall'utente rifiuti esplicitamente l'analisi MIME automatica](#out-sniffing)</li><li>[Applicare la protezione avanzata o la disabilitazione della risoluzione di entità XML](#xml-resolution)</li><li>[Verifica della canonizzazione degli URL nelle applicazioni che utilizzano http.sys](#app-verification)</li><li>[Verificare la presenza dei controlli appropriati quando si accettano file dagli utenti](#controls-users)</li><li>[Verificare che nell'applicazione Web vengano usati parametri indipendenti dai tipi per l'accesso ai dati](#typesafe)</li><li>[Usare classi di associazione di modelli separate o elenchi di filtri di associazione per prevenire la vulnerabilità dell'assegnazione di massa in MVC](#binding-mvc)</li><li>[Codificare l'output Web non attendibile prima del rendering](#rendering)</li><li>[Eseguire la convalida dell'input e applicare filtri a tutte le proprietà del modello di tipo stringa](#typemodel)</li><li>[Applicazione della purificazione nei campi modulo che accettano tutti i caratteri, ad esempio un editor di testo RTF](#richtext)</li><li>[Non assegnare elementi DOM a sink senza codifica incorporata](#inbuilt-encode)</li><li>[Convalidare come chiusi o sicuri tutti i reindirizzamenti nell'applicazione](#redirect-safe)</li><li>[Implementare la convalida dell'input in un tutti i parametri di tipo stringa accettati dai metodi del controller](#string-method)</li><li>[Impostare il limite massimo di timeout per l'elaborazione di espressioni regolari per impedire attacchi DoS causati da espressioni regolari errate](#dos-expression)</li><li>[Evitare di usare Html.Raw nelle visualizzazioni Razor](#html-razor)</li></ul> | 
 | Database | <ul><li>[Non usare query dinamiche nelle stored procedure](#stored-proc)</li></ul> | 
 | API Web | <ul><li>[Verificare l'esecuzione della convalida dei modelli nei metodi di API Web](#validation-api)</li><li>[Implementare la convalida dell'input in tutti i parametri di tipo stringa accettati dai metodi di API Web](#string-api)</li><li>[Verificare che nell'API Web vengano usati parametri indipendenti dai tipi per l'accesso ai dati](#typesafe-api)</li></ul> | 
-| Azure DocumentDB | <ul><li>[Usare query SQL con parametri per DocumentDB](#sql-docdb)</li></ul> | 
+| Azure DocumentDB | <ul><li>[Usare query SQL con parametri per Azure Cosmos DB](#sql-docdb)</li></ul> | 
 | WCF | <ul><li>[WCF: convalida dell'input tramite l'associazione allo schema](#schema-binding)</li><li>[WCF: convalida dell'input tramite controlli parametro](#parameters)</li></ul> | 
 
 ## <a id="disable-xslt"></a>Disabilitare gli script XSLT per tutte le trasformazioni con fogli di stile non attendibili
@@ -654,7 +655,7 @@ myCommand.Fill(userDataset);
 ```
 Nell'esempio di codice precedente, la lunghezza del valore di input non può essere maggiore di 11 caratteri. Se i dati non sono conformi alla lunghezza o al tipo definito dal parametro, la classe SqlParameter genera un'eccezione. 
 
-## <a id="sql-docdb"></a>Usare query SQL con parametri per DocumentDB
+## <a id="sql-docdb"></a>Usare query SQL con parametri per Cosmos DB
 
 | Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
@@ -662,8 +663,8 @@ Nell'esempio di codice precedente, la lunghezza del valore di input non può ess
 | Fase SDL               | Compilare |  
 | Tecnologie applicabili | Generico |
 | Attributi              | N/D  |
-| Riferimenti              | [Announcing SQL Parameterization in DocumentDB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) (Annuncio della parametrizzazione SQL in DocumentDB) |
-| Passi | Nonostante DocumentDB supporti solo query di sola lettura, se le query vengono costruite con la concatenazione con input utente sono comunque possibili attacchi SQL injection. Un utente potrebbe ottenere l'accesso a dati a cui non dovrebbe accedere nella stessa raccolta creando query SQL dannose. Se le query vengono costruite in base all'input utente, usare query SQL con parametri. |
+| Riferimenti              | [Announcing SQL Parameterization in Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) (Annuncio della parametrizzazione SQL in Cosmos DB) |
+| Passi | Nonostante Cosmos DB supporti solo query di sola lettura, se le query vengono costruite con la concatenazione con input utente sono comunque possibili attacchi SQL injection. Un utente potrebbe ottenere l'accesso a dati a cui non dovrebbe accedere nella stessa raccolta creando query SQL dannose. Se le query vengono costruite in base all'input utente, usare query SQL con parametri. |
 
 ## <a id="schema-binding"></a>WCF: convalida dell'input tramite l'associazione allo schema
 

@@ -1,5 +1,5 @@
 ---
-title: Associazioni di Hub eventi di Funzioni di Azure | Documentazione Microsoft
+title: Associazioni di Hub eventi in Funzioni di Azure | Microsoft Docs
 description: Informazioni su come usare le associazioni di Hub eventi di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
@@ -14,39 +14,39 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 06/20/2017
 ms.author: wesmc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 04a8563a0035992cfa4b7d25a4edc14e1db80e44
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 19021bef8b7156b3049f43b0275c0ed0c6b22514
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/08/2017
 
 
 ---
-# <a name="azure-functions-event-hub-bindings"></a>Associazioni di Hub eventi di Funzioni di Azure
+# <a name="azure-functions-event-hubs-bindings"></a>Associazioni di Hub eventi in Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e scrivere il codice di associazioni di [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md) per Funzioni di Azure.
+Questo articolo illustra come configurare e usare le associazioni di [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md) in Funzioni di Azure.
 Funzioni di Azure supporta il trigger e le associazioni di output per Hub eventi.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Se non si ha familiarità con Hub eventi di Azure, vedere [Panoramica di Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
+Se non si ha familiarità con Hub eventi di Azure, vedere la [panoramica di Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
 ## <a name="event-hub-trigger"></a>Trigger di Hub eventi
 È possibile usare il trigger di Hub eventi per rispondere a un evento inviato a un flusso di eventi di Hub eventi. Per configurare il trigger è necessario avere accesso in lettura ad Hub eventi.
 
-Il trigger di Hub eventi per una funzione usa l'oggetto JSON seguente nella matrice `bindings` di function.json:
+Il trigger di funzione di Hub eventi usa l'oggetto JSON seguente nella matrice `bindings` di function.json:
 
 ```json
 {
     "type": "eventHubTrigger",
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
-    "path": "<Name of the Event Hub>",
+    "path": "<Name of the event hub>",
     "consumerGroup": "Consumer group to use - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
@@ -97,6 +97,31 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
+È anche possibile ricevere l'evento come un oggetto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata), che consente di accedere ai metadati dell'evento.
+
+```cs
+#r "Microsoft.ServiceBus"
+using System.Text;
+using Microsoft.ServiceBus.Messaging;
+
+public static void Run(EventData myEventHubMessage, TraceWriter log)
+{
+    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+}
+```
+
+Per ricevere gli eventi in un batch, impostare la firma del metodo su `string[]` o `EventData[]`.
+
+```cs
+public static void Run(string[] eventHubMessages, TraceWriter log)
+{
+    foreach (var message in eventHubMessages)
+    {
+        log.Info($"C# Event Hub trigger function processed a message: {message}");
+    }
+}
+```
+
 <a name="triggerfsharp"></a>
 
 ### <a name="trigger-sample-in-f"></a>Esempio di trigger in F# #
@@ -119,7 +144,7 @@ module.exports = function (context, myEventHubMessage) {
 
 <a name="output"></a>
 
-## <a name="event-hub-output-binding"></a>Associazione di output di Hub eventi
+## <a name="event-hubs-output-binding"></a>Associazione di output di Hub eventi
 È possibile usare l'associazione di output di Hub eventi per scrivere eventi in un flusso di eventi di Hub eventi. Per scrivervi eventi, è necessario disporre dell'autorizzazione Send verso un Hub eventi.
 
 L'associazione di output usa l'oggetto JSON seguente nella matrice `bindings` di function.json:
@@ -138,7 +163,7 @@ L'associazione di output usa l'oggetto JSON seguente nella matrice `bindings` di
 Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di eventi, questa stringa di connessione deve disporre di autorizzazioni Send.
 
 ## <a name="output-usage"></a>Uso dell'output
-Questa sezione illustra come usare l'associazione di output di Hub eventi nel codice di funzione.
+Questa sezione illustra come usare l'associazione di output di Hub eventi nel codice della funzione.
 
 È possibile inviare i messaggi all'hub eventi configurato con i tipi di parametro seguenti:
 
@@ -149,7 +174,7 @@ Questa sezione illustra come usare l'associazione di output di Hub eventi nel co
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Esempio di output
-Si supponga che la seguente associazione di output di Hub eventi sia presente nella matrice `bindings` di function.json:
+Si supponga che l'associazione di output di Hub eventi seguente sia presente nella matrice `bindings` di function.json:
 
 ```json
 {

@@ -1,90 +1,154 @@
 ---
 title: Installare il gateway dati locale - App per la logica di Azure | Microsoft Docs
-description: Accesso ai dati locali dalle app per la logica tramite l&quot;installazione di un gateway dati locale
+description: Prima di accedere alle origini dei dati in locale, installare il gateway di dati locale per il trasferimento rapido dei dati e la crittografia tra le origini dati locale e le app per la logica
+keywords: accesso ai dati, locale, trasferimento dei dati, crittografia, origini dei dati
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: multiple
+ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/05/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b9971117d5f61669a5161a28c96b11b2fd600b61
-ms.lasthandoff: 04/14/2017
-
+ms.date: 07/13/2017
+ms.author: LADocs; dimazaid; estfan
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 34e68ae7d35019848b35c785a2715ec458dc6e73
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="install-an-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
+# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per le app per la logica di Azure
 
-Il gateway dati locale supporta le connessioni seguenti:
+Prima che le app per la logica possano accedere alle origini di dati in locale, è necessario installare e configurare il gateway dati locale. Il gateway funge da ponte che fornisce il trasferimento rapido dei dati e la crittografia tra sistemi locali e le app per la logica. Il gateway inoltra i dati da origini locali sui canali crittografati tramite il bus di servizio di Azure. Tutto il traffico ha origine come traffico sicuro in uscita dall'agente di gateway. Altre informazioni sul [funzionamento del gateway dati](#gateway-cloud-service).
 
-*   BizTalk Server
+Il gateway supporta le connessioni alle origine dati locali seguenti:
+
+*   BizTalk Server 2016
 *   DB2  
 *   File system
 *   Informix
 *   MQ
 *   MySQL
-*   Oracle Database 
+*   Oracle Database
+*   PostgreSQL
 *   Server applicazioni SAP 
 *   Server messaggi SAP
-*   SharePoint solo per HTTP, non per HTTPS
+*   SharePoint
 *   SQL Server
 *   Teradata
 
-Per altre informazioni su queste connessioni, vedere [Connettori per App per la logica di Azure](https://docs.microsoft.com/azure/connectors/apis-list).
+Questa procedura mostra come installare il gateway dati locale prima di [impostare una connessione tra il gateway e le app per la logica](./logic-apps-gateway-connection.md). Per altre informazioni sui connettori supportati, vedere [Connettori per le app per la logica di Azure](https://docs.microsoft.com/azure/connectors/apis-list). 
 
-## <a name="installation-and-configuration"></a>Installazione e configurazione
+Per informazioni su come usare il gateway con altri servizi, vedere i seguenti articoli:
 
-### <a name="requirements"></a>Requisiti
+*   [Gateway dati locale di Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
+*   [Gateway dati locale di Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
+*   [Gateway dati locale di Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+*   [Gateway dati locale di Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
-Minimo:
+<a name="requirements"></a>
+## <a name="requirements"></a>Requisiti
+
+**Minimo**:
 
 * .NET Framework 4.5
 * Windows 7 versione a 64 bit o Windows Server 2008 R2 (o versione successiva)
 
-Consigliato:
+**Consigliato**:
 
 * 8 CPU core
 * 8 GB di memoria
 * Windows 2012 R2 versione a 64 bit (o versione successiva)
 
-Considerazioni correlate:
+**Considerazioni importanti**:
 
 * Installare il gateway dati locale solo su un computer locale.
 Non è possibile installare il gateway in un controller di dominio.
 
-* Non installare il gateway su un computer che potrebbe essere disattivato o che non può connettersi a Internet perché il gateway non può essere eseguito in tali circostanze. Le prestazioni del gateway possono anche diminuire su una rete wireless.
+   > [!TIP]
+   > Non è necessario installare il gateway nello stesso computer dell'origine dati. Per ridurre al minimo la latenza, è possibile installare il gateway il più vicino possibile all'origine dati o nello stesso computer, presupponendo che si disponga delle autorizzazioni.
 
-* È possibile usare solo un indirizzo di posta elettronica aziendale o dell'istituto di istruzione in Azure per associare il gateway dati locale con l'account basato su Azure Active Directory.
+* Non installare il gateway su un computer che si disattiva o che non può connettersi a Internet perché il gateway non può essere eseguito in tali circostanze. Le prestazioni del gateway possono anche diminuire su una rete wireless.
 
-    Se si usa un account Microsoft, ad esempio @outlook.com, è possibile usare l'account di Azure per   [creare un indirizzo di posta elettronica aziendale o dell'istituito d'istruzione](../virtual-machines/windows/create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
+* Durante l'installazione, è necessario accedere con un [account aziendale o dell'istituto di istruzione](https://docs.microsoft.com/azure/active-directory/sign-up-organization) gestito da Azure Active Directory (Azure AD), non con un account Microsoft. 
 
-### <a name="install-the-gateway"></a>Installare il gateway
+  È necessario usare successivamente lo stesso account aziendale o dell'istituto di istruzione nel portale di Azure quando si crea e si associa una risorsa di gateway all'installazione del gateway. Si seleziona quindi la risorsa del gateway quando si crea la connessione tra l'app per la logica e l'origine dati locale. [Perché è necessario usare un account di Azure AD aziendale o dell'istituto di istruzione?](#why-azure-work-school-account)
 
-1.    [Scaricare il programma di installazione del gateway dati locale qui](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+  > [!TIP]
+  > Se si è effettuata l'iscrizione a un'offerta di Office 365 senza fornire l'indirizzo di posta elettronica aziendale effettivo, l'indirizzo di accesso sarà simile a jeff@contoso.onmicrosoft.com. 
 
-2.    Specificare la modalità **Gateway dati locale**.
-
-3. Accedere con l'account aziendale o dell'istituto di istruzione. 
-
-4. Configurare un nuovo gateway, oppure eseguire la migrazione, ripristinare o sostituire un gateway esistente.
-
-    Per configurare un gateway, specificarne il nome e una chiave di ripristino, quindi scegliere **Configura**.
+* Se si dispone di un gateway esistente impostato con un programma di installazione che è precedente alla versione 14.16.6317.4, non è possibile modificare il percorso del gateway eseguendo il programma di installazione più recente. Tuttavia, è possibile usare il programma di installazione più recente per configurare un nuovo gateway con il percorso che si desidera.
   
-    Specificare una chiave di ripristino che contenga almeno otto caratteri e conservarla in un luogo sicuro. La chiave è necessaria per eseguire la migrazione, ripristinare o sostituire il gateway.
+  Se si dispone di un programma di installazione di gateway che è precedente alla versione 14.16.6317.4, ma non è ancora stato installato il gateway, è possibile scaricare e usare il programma di installazione più recente.
 
-    Per eseguire la migrazione, ripristinare o sostituire un gateway esistente è necessario disporre della chiave di ripristino specificata durante la creazione del gateway.
+<a name="install-gateway"></a>
 
-### <a name="restart-the-gateway"></a>Riavviare il gateway
+## <a name="install-the-data-gateway"></a>Installare il gateway dati
 
-Il gateway viene eseguito come servizio Windows e, come qualsiasi altro servizio di questo tipo, può essere avviato e arrestato in diversi modi. Ad esempio, è possibile aprire un prompt dei comandi con autorizzazioni elevate nel computer dove è in esecuzione il gateway e quindi eseguire uno dei comandi seguenti:
+1.  [Scaricare ed eseguire il programma di installazione di gateway in un computer locale](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+
+2. Leggere e accettare le condizioni per l'utilizzo e l'informativa sulla privacy.
+
+3. Specificare il percorso nel computer locale in cui si desidera installare il gateway.
+
+4. Quando richiesto, accedere con il proprio account aziendale o dell'istituzione di istruzione di Azure, non con un account Microsoft.
+
+   ![Accedere con l'account aziendale o dell'istituto di istruzione di Azure](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
+
+5. Ora registrare il gateway installato con il [servizio cloud gateway](#gateway-cloud-service). Scegliere l'opzione che **consente di registrare un nuovo gateway in questo computer**.
+
+   Il servizio cloud gateway crittografa e archivia le credenziali dell'origine dati e i dettagli del gateway. 
+   Il servizio instrada anche le query e i relativi risultati tra l'app per la logica, il gateway dati locale e l'origine dati in locale.
+
+6. Specificare un nome per l'installazione del gateway. Creare una chiave di ripristino, quindi confermarla. 
+
+   > [!IMPORTANT] 
+   > La chiave di ripristino deve contenere almeno otto caratteri. Assicurarsi di salvare e conservare la chiave in un luogo sicuro. Questa chiave è necessaria anche per eseguire la migrazione, ripristinare o acquisire la proprietà di un gateway esistente.
+
+   1. Per modificare l'area predefinita per il servizio cloud gateway e per il bus di servizio di Azure usato per l'installazione del gateway, scegliere **Cambia area**.
+
+      ![Cambiare area](./media/logic-apps-gateway-install/change-region-gateway-install.png)
+
+      L'area predefinita è l'area associata al tenant di Azure AD.
+
+   2. Nel riquadro successivo aprire **Selezionare l'area** per scegliere un'area diversa.
+
+      ![Selezionare un'altra area](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+
+      Si potrebbe ad esempio selezionare la stessa area come app per la logica o selezionare l'area più vicina all'origine dati in locale in modo da ridurre la latenza. Le risorse gateway e l'app per la logica possono avere posizioni diverse.
+
+      > [!IMPORTANT]
+      > Dopo l'installazione non è possibile modificare questa area. L'area determina e limita anche la posizione in cui è possibile creare la risorsa di Azure per il gateway. Pertanto, quando si crea la risorsa del gateway in Azure, assicurarsi che il percorso della risorsa corrisponda all'area selezionata durante l'installazione del gateway.
+      > 
+      > Se si desidera usare un'area diversa per il gateway in un secondo momento, è necessario configurare un nuovo gateway.
+
+   3. Al termine, scegliere **Fine**.
+
+7. Seguire ora la procedura seguente nel portale di Azure per [creare una risorsa di Azure per il gateway](../logic-apps/logic-apps-gateway-connection.md). 
+
+Altre informazioni sul [funzionamento del gateway dati](#gateway-cloud-service).
+
+## <a name="migrate-restore-or-take-over-an-existing-gateway"></a>Eseguire la migrazione, ripristinare o sostituire un gateway esistente
+
+Per eseguire queste attività, è necessario disporre della chiave di ripristino che è stata specificata all'installazione del gateway.
+
+1. Dal menu di avvio del computer, scegliere **Gateway dati locale**.
+
+2. Quando viene aperto il programma di installazione accedere con lo stesso account di Azure aziendale o dell'istituto di istruzione usato in precedenza per installare il gateway.
+
+3. Scegliere **Eseguire la migrazione, ripristinare o acquisire la proprietà di un gateway esistente**.
+
+4. Specificare la chiave di ripristino per il gateway di cui si vuole eseguire la migrazione o il ripristino o acquisire la proprietà.
+
+<a name="restart-gateway"></a>
+## <a name="restart-the-gateway"></a>Riavviare il gateway
+
+Il gateway viene eseguito come un servizio Windows. Come qualsiasi altro servizio Windows, può essere avviato e arrestato in diversi modi. Ad esempio, è possibile aprire un prompt dei comandi con autorizzazioni elevate nel computer in cui è in esecuzione il gateway e quindi eseguire uno dei comandi seguenti:
 
 * Per arrestare il servizio, eseguire questo comando:
   
@@ -94,17 +158,29 @@ Il gateway viene eseguito come servizio Windows e, come qualsiasi altro servizio
   
     `net start PBIEgwService`
 
-### <a name="configure-a-firewall-or-proxy"></a>Configurare un firewall o proxy
+### <a name="windows-service-account"></a>Account del servizio Windows
 
-Per fornire al gateway informazioni sul proxy, vedere [Configurazione delle impostazioni proxy](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy/).
+Il gateway dati locale è configurato per usare `NT SERVICE\PBIEgwService` come credenziale di accesso al servizio Windows. Per impostazione predefinita, il gateway ha il diritto di "Accesso come servizio", per il computer in cui si installa il gateway.
 
-Per verificare se il firewall, o il proxy, blocca le connessioni, eseguire il comando seguente da un prompt dei comandi di PowerShell. Questo comando verifica la connettività per il Bus di servizio di Azure e solo la connettività di rete, pertanto il comando non ha alcun legame con il servizio del server cloud o il gateway. Questo test consente di determinare se il computer può accedere realmente a Internet.
+> [!NOTE]
+> Questo account del servizio Windows è diverso dall'account usato per la connessione a origini dati locali e dall'account di Azure aziendale o dell'istituto di istruzione usato per accedere ai servizi cloud.
+
+## <a name="configure-a-firewall-or-proxy"></a>Configurare un firewall o proxy
+
+Il gateway crea una connessione in uscita al [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/). Per fornire al gateway informazioni sul proxy, vedere [Configurazione delle impostazioni proxy](https://powerbi.microsoft.com/documentation/powerbi-gateway-proxy/).
+
+Per verificare se il firewall, o proxy, potrebbe bloccare le connessioni, verificare che il computer riesca effettivamente a connettersi a Internet e al [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/). Da un prompt di PowerShell eseguire questo comando:
 
 `Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
 
-I risultati dovrebbero essere simili all'esempio seguente: Se **TcpTestSucceeded** non è vero, il firewall potrebbe essere la causa del blocco.
+> [!NOTE]
+> Questo comando verifica solo la connettività di rete e la connettività per il bus di servizio di Azure. Pertanto, il comando non ha nulla a che fare con il gateway o con il servizio cloud del gateway che crittografa e archivia le credenziali e i dettagli di gateway. 
+>
+> Questo comando è disponibile solo in Windows Server 2012 R2 o in una versione successiva e in Windows 8.1 o in una versione successiva. Nelle versioni precedenti del sistema operativo, è possibile usare Telnet per testare la connettività. Altre informazioni su [bus di servizio di Azure e soluzioni ibride](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-```
+I risultati dovrebbero essere simili all'esempio seguente:
+
+```text
 ComputerName           : watchdog.servicebus.windows.net
 RemoteAddress          : 70.37.104.240
 RemotePort             : 5672
@@ -115,15 +191,13 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Per la massima completezza sostituire i valori **ComputerName** e **Porta** con quelli elencati in [Configurare le porte](#configure-ports) in questo argomento.
+Se **TcpTestSucceeded** non è impostato su **True**, il firewall potrebbe essere la causa del blocco. Per la massima completezza sostituire i valori **ComputerName** e **Porta** con quelli elencati in [Configurare le porte](#configure-ports) in questo argomento.
 
-Il firewall può anche bloccare le connessioni tra il bus di servizio e i data center di Azure. In questo caso, approvare (sbloccare) tutti gli indirizzi IP per i data center nell'area geografica.
-È possibile ottenere un elenco di [indirizzi IP di Azure qui](https://www.microsoft.com/download/details.aspx?id=41653).
+Il firewall può anche bloccare le connessioni tra il bus di servizio e i data center di Azure. Se si verifica questo scenario, approvare (sbloccare) tutti gli indirizzi IP per i data center nell'area geografica. Per gli indirizzi IP, [ottenere l'elenco di indirizzi IP Azure qui](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### <a name="configure-ports"></a>Configurare le porte
-Il gateway crea una connessione in uscita al Bus di servizio di Azure e comunica sulle porte in uscita: TCP 443 (predefinita), 5671, 5672, 9350 attraverso 9354. Non sono richieste porte in ingresso.
+## <a name="configure-ports"></a>Configurare le porte
 
-Altre informazioni sulle [soluzioni ibride](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+Il gateway crea una connessione in uscita al [Bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) e comunica sulle porte in uscita: TCP 443 (predefinita), 5671, 5672, 9350 attraverso 9354. Non sono richieste porte in ingresso. Altre informazioni su [bus di servizio di Azure e soluzioni ibride](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
 | NOMI DI DOMINIO | PORTE IN USCITA | Descrizione |
 | --- | --- | --- |
@@ -138,81 +212,90 @@ Altre informazioni sulle [soluzioni ibride](../service-bus-messaging/service-bus
 
 Se è necessario approvare gli indirizzi IP anziché i domini, è possibile scaricare e usare l'[elenco di intervalli IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). In alcuni casi, le connessioni al Bus di servizio di Azure verranno stabilite con l'indirizzo IP anziché con i nomi di dominio completo.
 
-### <a name="sign-in-accounts"></a>Account di accesso
+<a name="gateway-cloud-service"></a>
+## <a name="how-does-the-data-gateway-work"></a>Come funziona il gateway dati?
 
-È possibile accedere con l'account aziendale o dell'istituto di istruzione, ovvero l'account dell'organizzazione. Se si è effettuata l'iscrizione a un'offerta di Office 365 senza fornire l'indirizzo di posta elettronica aziendale effettivo, l'indirizzo di accesso sarà simile a jeff@contoso.onmicrosoft.com. Nell'ambito di un servizio cloud, l'account è archiviato in un tenant in Azure Active Directory (Azure AD). L'UPN dell'account di Azure AD in genere corrisponde all'indirizzo di posta elettronica.
+Il gateway dati facilita la comunicazione rapida e sicura tra l'app per la logica, il servizio cloud del gateway e l'origine dati locale. 
 
-### <a name="windows-service-account"></a>Account del servizio Windows
+![diagram-for-on-premises-data-gateway-flow](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
-Per le credenziali di accesso al servizio Windows, il gateway dati locale è configurato per usare NT SERVICE\PBIEgwService. Per impostazione predefinita, il gateway ha il diritto di "Accesso come servizio", all'interno del contesto del computer in cui si installa il gateway.
+Pertanto quando l'utente nel cloud interagisce con un elemento connesso a un'origine dati in locale:
 
-Questo account del servizio non è lo stesso account usato per la connessione a origini dati locali e non è nemmeno l'account aziendale o dell'istituto di istruzione usato per accedere ai servizi cloud.
+1. Il servizio cloud del gateway crea una query, insieme alle credenziali crittografate per l'origine dati, e invia la query alla coda affinché venga elaborata dal gateway.
 
-## <a name="how-the-gateway-works"></a>Funzionamento del gateway
-Quando altri utenti interagiscono con un elemento connesso a un'origine dati locale:
+2. Il servizio cloud del gateway analizza la query e inserisce la richiesta nel bus di servizio di Azure.
 
-1. Il servizio cloud crea una query, insieme alle credenziali crittografate per l'origine dati, e invia la query alla coda affinché venga elaborata dal gateway.
-2. Il servizio analizza la query e invia la richiesta al bus di servizio di Azure.
 3. Il gateway dati locale esegue il polling del bus di servizio per le richieste in sospeso.
-4. Il gateway riceve la query, decrittografa le credenziali e le usa per la connessione alle origini dati.
-5. Invia quindi la query all'origine dati per l'esecuzione.
-6. I risultati vengono quindi inviati dall'origine dati al gateway e quindi al servizio cloud. Infine, il servizio usa i risultati.
 
+4. Il gateway riceve la query, decrittografa le credenziali e le usa per la connessione alle origini dati.
+
+5. Invia quindi la query all'origine dati per l'esecuzione.
+
+6. I risultati vengono quindi inviati dall'origine dati al gateway e quindi al servizio cloud del gateway. Infine, il servizio cloud del gateway usa i risultati.
+
+<a name="faq"></a>
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 ### <a name="general"></a>Generale
 
-**Domanda**: È necessario un gateway per le origini dati nel cloud, ad esempio SQL Azure? <br/>
-**Risposta**: No. Il gateway si connette solo alle origini dati locali.
+**D**: È necessario un gateway per le origini dati nel cloud, ad esempio SQL Azure? <br/>
+**R**: No. Il gateway si connette solo alle origini dati locali.
 
-**Domanda**: Come viene chiamato il servizio Windows effettivo?<br/>
-**Risposta**: Nei servizi il gateway è denominato servizio Power BI Gateway - Enterprise.
+**D**: Il gateway deve essere installato nello stesso computer dell'origine dati? <br/>
+**R**: No. Il gateway si connette all'origine dati tramite le informazioni di connessione fornite. In questo senso il gateway può essere paragonato a un'applicazione client. Il gateway deve solo potersi connettere al nome del server specificato.
 
-**Domanda**: Esistono connessioni in ingresso al gateway dal cloud? <br/>
-**Risposta**: No. Il gateway usa le connessioni in uscita al bus di servizio di Azure.
+<a name="why-azure-work-school-account"></a>
 
-**Domanda**: Cosa accade se si bloccano le connessioni in uscita? Cosa fare per sbloccarle? <br/>
-**Risposta**: Visualizzare le porte e gli host utilizzati dal gateway.
+**D**: Perché è necessario usare un account di Azure aziendale o dell'istituto di istruzione per accedere? <br/>
+**R**: È possibile usare solo un account di Azure aziendale o dell'istituto di istruzione quando si installa il gateway dati locale. L'account di accesso viene archiviato in un tenant gestito da Azure Active Directory (Azure AD). Il nome dell'entità utente (UPN) dell'account di Azure AD in genere corrisponde all'indirizzo di posta elettronica.
 
-**Domanda**: Il gateway deve essere installato nello stesso computer dell'origine dati? <br/>
-**Risposta**: No. Il gateway si connette all'origine dati tramite le informazioni di connessione fornite. In questo senso il gateway può essere paragonato a un'applicazione client. Il gateway deve solo potersi connettere al nome del server specificato.
+**D**: Dove sono archiviate le credenziali? <br/>
+**R**: Le credenziali immesse per un'origine dati vengono crittografate e archiviate nel servizio cloud del gateway. Le credenziali vengono quindi decrittografate nel gateway dati locale.
 
-**Domanda**: Qual è la latenza per l'esecuzione di query a un'origine dati dal gateway? Qual è l'architettura ottimale? <br/>
-**Risposta**: Per ridurre la latenza di rete è consigliabile installare il gateway il più vicino possibile all'origine dati. Installando il gateway nell'origine dati effettiva, la latenza introdotta risulterà ridotta al minimo grazie a questa prossimità. Si considerino anche i data center. Se, ad esempio, il servizio usa il data center degli Stati Uniti occidentali e SQL Server è ospitato in una macchina virtuale di Azure, è opportuno che anche la macchina virtuale di Azure sia ubicata negli Stati Uniti occidentali. Grazie a questa prossimità la latenza è ridotta al minimo e si evitano addebiti relativi ai dati in uscita sulla macchina virtuale di Azure.
-
-**Domanda**: Sono previsti requisiti di larghezza di banda di rete? <br/>
-**Risposta**: È consigliabile che la connessione di rete abbia una buona velocità effettiva. Ogni ambiente è diverso e la quantità di dati inviati influisce sui risultati. L'uso di ExpressRoute può contribuire a garantire un livello di velocità effettiva tra i data center di Azure e quelli locali.
-
+**D**: Sono previsti requisiti per la larghezza di banda della rete? <br/>
+**R**: È consigliabile che la connessione di rete abbia una buona velocità effettiva. Ogni ambiente è diverso e la quantità di dati inviati influisce sui risultati. L'uso di ExpressRoute può contribuire a garantire un livello di velocità effettiva tra i data center di Azure e quelli locali.
 Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocità effettiva.
 
-**Domanda**: Il servizio gateway di Windows può essere eseguito con un account Azure Active Directory? <br/>
-**Risposta**: No. Il servizio Windows deve disporre di un account Windows valido. Per impostazione predefinita, il sevizio viene eseguito con il SID servizio NT SERVICE\PBIEgwService.
+**D**: Qual è la latenza per l'esecuzione di query a un'origine dati dal gateway? Qual è l'architettura ottimale? <br/>
+**R**: Per ridurre la latenza di rete è consigliabile installare il gateway il più vicino possibile all'origine dati. Installando il gateway nell'origine dati effettiva, la latenza introdotta risulterà ridotta al minimo grazie a questa prossimità. Si considerino anche i data center. Se, ad esempio, il servizio usa il data center degli Stati Uniti occidentali e SQL Server è ospitato in una macchina virtuale di Azure, è opportuno che anche la macchina virtuale di Azure sia ubicata negli Stati Uniti occidentali. Grazie a questa prossimità la latenza è ridotta al minimo e si evitano addebiti relativi ai dati in uscita sulla macchina virtuale di Azure.
 
-**Domanda**: In che modo i risultati vengono inviati al cloud? <br/>
-**Risposta**: I risultati vengono inviati tramite il Bus di servizio di Azure.
+**D**: In che modo i risultati vengono inviati al cloud? <br/>
+**R**: I risultati vengono inviati tramite il Bus di servizio di Azure.
 
-**Domanda**: Dove sono archiviate le credenziali? <br/>
-**Risposta**: Le credenziali immesse per un'origine dati vengono crittografate e archiviate nel servizio cloud del gateway. Vengono quindi decrittografate nel gateway locale.
+**D**: Esistono connessioni in ingresso al gateway dal cloud? <br/>
+**R**: No. Il gateway usa le connessioni in uscita al bus di servizio di Azure.
 
-### <a name="high-availabilitydisaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
-**Domanda**: Esistono piani per l'abilitazione di scenari a disponibilità elevata con il gateway? <br/>
-**Risposta**: Questi scenari verranno implementati in futuro, ma non è ancora stato definito quando.
+**D**: Cosa accade se si bloccano le connessioni in uscita? Cosa fare per sbloccarle? <br/>
+**R**: Visualizzare le porte e gli host usati dal gateway.
 
-**Domanda**: Quali opzioni sono disponibili per il ripristino di emergenza? <br/>
-**Risposta**: È possibile usare la chiave di ripristino per ripristinare o spostare un gateway. La chiave di ripristino viene specificata al momento dell'installazione del gateway.
+**D**: Come viene chiamato il servizio Windows effettivo?<br/>
+**R**: Nei servizi il gateway è denominato servizio Power BI Gateway Enterprise.
 
-**Domanda**: Qual è il vantaggio della chiave di ripristino? <br/>
-**Risposta**:La chiave di ripristino consente di eseguire la migrazione o di ripristinare le impostazioni del gateway in caso di emergenza.
+**D**: Il servizio gateway di Windows può essere eseguito con un account Azure Active Directory? <br/>
+**R**: No. Il servizio Windows deve disporre di un account Windows valido. Per impostazione predefinita, il sevizio viene eseguito con il SID servizio NT SERVICE\PBIEgwService.
+
+### <a name="high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza
+
+**D**: Quali opzioni sono disponibili per il ripristino di emergenza? <br/>
+**R**: È possibile usare la chiave di ripristino per ripristinare o spostare un gateway. La chiave di ripristino viene specificata al momento dell'installazione del gateway.
+
+**D**: Qual è il vantaggio della chiave di ripristino? <br/>
+**R**: La chiave di ripristino consente di eseguire la migrazione o di ripristinare le impostazioni del gateway in caso di emergenza.
+
+**D**: Esistono piani per l'abilitazione di scenari a disponibilità elevata con il gateway? <br/>
+**R**: Questi scenari verranno implementati in futuro, ma non è ancora stato definito quando.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-**Domanda**: Dove si trovano i log del gateway? <br/>
-**Risposta**: Vedere la sezione Strumenti più avanti in questo argomento.
+[!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-**Domanda**: Come è possibile visualizzare le query inviate all'origine dati locale? <br/>
-**Risposta**: È possibile abilitare la funzione di tracciamento delle query, che include le query inviate. Dopo aver risolto il problema, ripristinare il valore originale per il tracciamento delle query. Se il tracciamento delle query non viene disabilitato, si creeranno dei log più grandi.
+**D**: Come è possibile visualizzare le query inviate all'origine dati locale? <br/>
+**R**: È possibile abilitare la funzione di tracciamento delle query, che include le query inviate. Dopo aver risolto il problema, ripristinare il valore originale per il tracciamento delle query. Se il tracciamento delle query non viene disabilitato, si creeranno dei log più grandi.
 
 È anche possibile usare gli strumenti per il tracciamento delle query di cui è dotata l'origine dati. Ad esempio, è possibile usare Eventi estesi o SQL Profiler per SQL Server e Analysis Services.
+
+**D**: Dove si trovano i log del gateway? <br/>
+**R**: Vedere la sezione Strumenti più avanti in questo argomento.
 
 ### <a name="update-to-the-latest-version"></a>Aggiornare alla versione più recente
 
@@ -223,6 +306,7 @@ Quando la versione del gateway non è aggiornata, possono emergere numerosi prob
 Questo errore viene visualizzato se si sta tentando di installare il gateway in un controller di dominio, un'operazione non consentita. Assicurarsi di distribuire il gateway in un computer che non sia un controller di dominio.
 
 ## <a name="tools"></a>Strumenti
+
 ### <a name="collect-logs-from-the-gateway-configurer"></a>Raccolta di log dallo strumento di configurazione del gateway
 
 È possibile raccogliere numerosi log per il gateway. La raccolta dei log è sempre la prima operazione da eseguire.

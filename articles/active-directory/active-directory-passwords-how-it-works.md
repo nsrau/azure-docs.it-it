@@ -6,20 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 07/17/2017
 ms.author: joflore
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 02826ffad9838c3e22721cc3c189e8cc13020059
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Approfondimenti sulla reimpostazione della password self-service in Azure AD
@@ -75,9 +76,9 @@ Se è abilitata la reimpostazione della password self-service, SSPR, è necessar
 
 Per impostazione predefinita, solo gli attributi cloud Telefono ufficio e Cellulare vengono sincronizzati con la directory cloud dalla directory locale per i dati di autenticazione.
 
-Gli utenti potranno solo reimpostare la password se e solo se sono presenti dati nei metodi di autenticazione abilitati e richiesti dall'amministratore.
+Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati e richiesti dall'amministratore.
 
-Se gli utenti desiderano che il proprio numero di cellulare non sia visibile nella directory, desiderano usarlo per la reimpostazione della password, gli amministratori non devono inserirlo nella directory e l'utente deve compilare l'attributo **Telefono per autenticazione** tramite il [portale di registrazione della reimpostazione della password](http://aka.ms/ssprsetup). Gli amministratori saranno comunque in grado di visualizzare queste informazioni nel profilo dell'utente, ma non verranno pubblicate altrove. Se un account amministratore di Azure registra il numero di telefono di autenticazione, questo viene inserito nel campo Cellulare ed è visibile.
+Se gli utenti desiderano che il proprio numero di cellulare non sia visibile nella directory, desiderano usarlo per la reimpostazione della password, gli amministratori non devono inserirlo nella directory e l'utente deve compilare l'attributo **Telefono per autenticazione** tramite il [portale di registrazione della reimpostazione della password](http://aka.ms/ssprsetup). Gli amministratori possono visualizzare queste informazioni nel profilo dell'utente, ma non vengono pubblicate altrove. Se un account amministratore di Azure registra il numero di telefono di autenticazione, questo viene inserito nel campo Cellulare ed è visibile.
 
 ### <a name="number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
 
@@ -224,9 +225,9 @@ Lo strumento Azure AD Connect invia ping/keep-alive periodici agli endpoint di S
 
 L'account specificato nell'utilità di Azure AD Connect deve avere i diritti estesi per le opzioni Reimposta password, Modifica password, Autorizzazioni di scrittura per lockoutTime e Autorizzazioni di scrittura per pwdLastSet, per uno oggetto radice di **ogni dominio** nella foresta **O** nelle Unità organizzative dell'utente che si desidera avere nell'ambito per la reimpostazione della password self-service.
 
-Se non si è certi dell'identità dell'account al quale si fa riferimento, aprire l'interfaccia utente della configurazione di Azure Active Directory Connect e fare clic sull'opzione Verifica della soluzione. L'account a cui è necessario aggiungere le autorizzazioni è elencato in "Directory sincronizzate"
+Se non si è certi dell'identità dell'account al quale si fa riferimento, aprire l'interfaccia utente della configurazione di Azure Active Directory Connect e fare clic sull'opzione Visualizza configurazione corrente. L'account a cui è necessario aggiungere le autorizzazioni è elencato in "Directory sincronizzate"
 
-L'impostazione di queste autorizzazioni consentirà all'account del servizio MA per ogni foresta di gestire le password per conto di account utente all'interno di tale foresta. **Se non si assegnano tali autorizzazioni, anche se il writeback è configurato correttamente, gli utenti visualizzeranno errori durante il tentativo di gestione delle password locali dal cloud.**
+L'impostazione di queste autorizzazioni consente all'account del servizio MA per ogni foresta di gestire le password per conto di account utente all'interno di tale foresta. **Se non si assegnano tali autorizzazioni, anche se il writeback è configurato correttamente, gli utenti visualizzeranno errori durante il tentativo di gestione delle password locali dal cloud.**
 
 > [!NOTE]
 > La replica delle autorizzazioni in tutti gli oggetti nella directory può richiedere fino a un'ora o anche più tempo.
@@ -242,7 +243,12 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
 4. Fare clic su Aggiungi nella scheda Autorizzazioni
 5. Selezionare l'account a cui applicare le autorizzazioni, dalla configurazione di Azure AD Connect
 6. Nell'elenco a discesa Applica a selezionare gli oggetti Descendent User objects (Utente discendente)
-7. In Autorizzazioni selezionare le caselle per Reimposta password, Modifica password, Scrittura in lockoutTime e Scrittura in pwdLastSet
+7. Tra le autorizzazioni selezionare le caselle relative a quanto segue
+    * Password senza scadenza
+    * Reimpostare la password
+    * Modifica della password
+    * Scrittura di lockoutTime
+    * Scrittura di pwdLastSet
 8. Fare clic su Applica/OK per applicare e chiudere le finestre di dialogo aperte.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>Come funziona la reimpostazione della password per gli utenti B2B?
@@ -258,7 +264,7 @@ Per testare queste opzioni, passare a http://passwordreset.microsoftonline.com c
 
 I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
 
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md): iniziare a usare la gestione self-service delle password di Azure AD 
+* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
 * [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
 * [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
 * [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo

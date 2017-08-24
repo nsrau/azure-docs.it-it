@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 036e5691ecc435da54f381563b5d798f065bfb7f
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 69156ec555b34d066a65bdc202267cfc53de47a0
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Introduzione ad App Web di Azure in Linux
@@ -39,6 +38,7 @@ App Web in Linux supporta attualmente gli stack di applicazioni seguenti:
     * 6.2
     * 6.6
     * 6.9
+    * 6.10
 * PHP
     * 5.6
     * 7.0
@@ -63,14 +63,14 @@ Per il ridimensionamento delle applicazioni:
 Per Kudu, alcune delle funzionalità di base:
 
 * Ambienti
-* Distribuzioni
+* Deployments
 * Console di base
 * SSH
 
 Per DevOps:
 
 * Ambienti di staging
-* DockerHub CI/CD
+* ACR e implementazione continua/distribuzione continua di DockerHub
 
 ## <a name="limitations"></a>Limitazioni
 Il portale di Azure mostra solo le funzionalità che possono essere usate attualmente per App Web in Linux e nasconde le altre. Man mano che verranno abilitate nuove funzionalità, queste diventeranno visibili nel portale.
@@ -80,9 +80,17 @@ Alcune funzionalità, quali l'integrazione delle reti virtuali, l'autenticazione
 Questa anteprima pubblica è attualmente disponibile solo nelle aree seguenti:
 
 * Stati Uniti occidentali
-* Europa occidentale 
+* Stati Uniti Orientali
+* Europa occidentale
+* Europa settentrionale
+* Stati Uniti centro-meridionali
+* Stati Uniti centro-settentrionali
 * Asia sudorientale
+* Asia orientale
 * Australia orientale
+* Giappone orientale
+* Brasile meridionale
+* India meridionale
 
 App Web in Linux è supportato solo nei piani di servizio app dedicati e non ha un livello Gratuito o Condiviso. I piani di servizio app per le app Web normali e di Linux si escludono a vicenda, quindi non è possibile creare un'app Web di Linux in un piano di servizio app non Linux.
 

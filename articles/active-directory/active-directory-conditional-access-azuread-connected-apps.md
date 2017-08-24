@@ -1,6 +1,6 @@
 ---
 title: Accesso condizionale di Azure per app SaaS| Documentazione Microsoft
-description: "L&quot;accesso condizionale in Azure AD consente la configurazione di una regola di accesso con autenticazione a più fattori per ogni applicazione e la possibilità di bloccare l&quot;accesso agli utenti su una rete non affidabile. "
+description: "L'accesso condizionale in Azure AD consente la configurazione di una regola di accesso con autenticazione a più fattori per ogni applicazione e la possibilità di bloccare l'accesso agli utenti su una rete non affidabile. "
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
+ms.date: 06/07/2017
 ms.author: markvi
-translationtype: Human Translation
+ms.reviewer: calebb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
+ms.contentlocale: it-it
 ms.lasthandoff: 12/28/2016
-
 
 ---
 # <a name="getting-started-with-azure-active-directory-conditional-access"></a>Introduzione all'accesso condizionale di Azure Active Directory

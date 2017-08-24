@@ -1,6 +1,6 @@
 ---
-title: Come configurare un&quot;applicazione proxy dell&quot;applicazione per l&quot;uso della delega vincolata Kerberos | Microsoft Docs
-description: Come configurare la delega vincolata Kerberos per un&quot;applicazione proxy dell&quot;applicazione Azure AD.
+title: Come configurare un'applicazione proxy dell'applicazione per l'uso della delega vincolata Kerberos | Microsoft Docs
+description: Come configurare la delega vincolata Kerberos per un'applicazione proxy dell'applicazione Azure AD.
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 209d4f3874123b3f630d3648264e9afc438da184
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
+ms.contentlocale: it-it
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -47,7 +47,7 @@ Per questo motivo, è consigliabile sempre verificare di aver soddisfatto tutti 
 
 Si noti in particolare la sezione sulla configurazione della delega vincolata Kerberos in 2012 R2, in quanto adotta un approccio radicalmente diverso alla configurazione della delega vincolata Kerberos nelle versioni precedenti di Windows, ma è opportuno tenere presente anche altre considerazioni:
 
--   Spesso può accadere che un server membro di dominio apra una finestra di dialogo con canale sicuro con un controller di dominio specifico. Passare successivamente a un'altra finestra in qualsiasi momento, in modo da non limitare gli host del connettore alla sola comunicazione con specifici controller di dominino di siti locali.
+-   Spesso può accadere che un server membro del dominio apra una finestra di dialogo con canale sicuro con un controller di dominio specifico. Passare a un'altra finestra di dialogo in qualsiasi momento, in modo da non limitare gli host del connettore alla sola comunicazione con specifici controller di dominino di siti locali.
 
 -   In modo analogo al punto precedente, gli scenari tra domini si affidano ai riferimenti che indirizzano un host del connettore ai controller di dominio che possono trovarsi all'esterno del perimetro della rete locale. In questo scenario è ugualmente importante verificare anche di consentire il traffico verso i controller di dominio che rappresentano altri rispettivi domini; in caso contrario, la delega avrà esito negativo.
 

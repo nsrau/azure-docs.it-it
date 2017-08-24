@@ -2,7 +2,7 @@
 title: "Trasmettere il log attività di Azure a Hub eventi | Microsoft Docs"
 description: "Informazioni su come trasmettere il log attività di Azure a Hub eventi."
 author: johnkemnetz
-manager: rboucher
+manager: orenr
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 6/06/2017
 ms.author: johnkem
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
 ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Trasmettere il log attività di Azure a Hub eventi
@@ -54,7 +55,7 @@ Se esiste già un profilo di log, prima di tutto è necessario rimuoverlo.
 3. Usare `Set-AzureRmLogProfile` per creare un profilo:
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
 L'ID regola del bus di servizio è una stringa nel formato seguente: {service bus resource ID}/authorizationrules/{key name}. Ad esempio: 
@@ -79,10 +80,5 @@ L'ID regola del bus di servizio è una stringa nel formato seguente: `{service b
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md) (Archiviare il log attività in un account di archiviazione)
 * Leggere la [panoramica sul log attività di Azure](monitoring-overview-activity-logs.md)
 * [Set up an alert based on an Activity Log event](insights-auditlog-to-webhook-email.md) (Configurare un avviso in base a un evento del log attività)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

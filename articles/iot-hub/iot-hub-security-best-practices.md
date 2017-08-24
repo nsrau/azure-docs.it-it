@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per la sicurezza di Azure IoT | Documentazione Microsoft
-description: Procedure consigliate per la sicurezza dell&quot;infrastruttura IoT. Include indicazioni per sviluppatori, distributori e operatori di soluzioni.
+description: Procedure consigliate per la sicurezza dell'infrastruttura IoT. Include indicazioni per sviluppatori, distributori e operatori di soluzioni.
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
+ms.date: 07/03/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481

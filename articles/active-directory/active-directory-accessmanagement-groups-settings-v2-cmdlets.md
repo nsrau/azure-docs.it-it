@@ -13,16 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
-ms.author: curtand;rodejo
-translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 9342ecff33ca60d39c55042238ea563dd1a82da6
-ms.lasthandoff: 04/28/2017
-
+ms.date: 08/04/2017
+ms.author: curtand
+ms.reviewer: rodejo
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c2a313c5ad011d03309a962bf2905750a478b890
+ms.contentlocale: it-it
+ms.lasthandoff: 08/05/2017
 
 ---
-# <a name="azure-active-directory-preview-cmdlets-for-group-management"></a>Cmdlet dell'anteprima di Azure Active Directory per la gestione di gruppo
+# <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlet di Azure Active Directory versione 2 per la gestione dei gruppi
 > [!div class="op_single_selector"]
 > * [Portale di Azure](active-directory-groups-create-azure-portal.md)
 > * [Portale di Azure classico](active-directory-accessmanagement-manage-groups.md)
@@ -30,20 +31,20 @@ ms.lasthandoff: 04/28/2017
 >
 >
 
-Il seguente documento riporta esempi di come usare PowerShell per gestire i gruppi in Azure Active Directory (Azure AD).  Fornisce anche informazioni su come configurare il modulo di anteprima di Azure AD PowerShell. In primo luogo è necessario [scaricare il modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+Il seguente documento riporta esempi di come usare PowerShell per gestire i gruppi in Azure Active Directory (Azure AD).  Offre inoltre informazioni su come configurare il modulo di Azure AD PowerShell. In primo luogo è necessario [scaricare il modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Installazione del modulo Azure AD PowerShell
-Per installare il modulo PowerShell di Azure AD , usare i comandi seguenti:
+Per installare il modulo PowerShell di Azure AD, usare i comandi seguenti:
 
     PS C:\Windows\system32> install-module azuread
 
-Per verificare che il modulo di anteprima sia stato installato, usare il comando seguente:
+Per verificare che il modulo sia stato installato, usare il comando seguente:
 
-    PS C:\Windows\system32> get-module azureadpreview
+    PS C:\Windows\system32> get-module azuread
 
-    ModuleType Version    Name                                ExportedCommands
-    ---------- -------    ----                                ----------------
-    Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
+    ModuleType Version      Name                                ExportedCommands
+    ---------- ---------    ----                                ----------------
+    Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
 A questo punto è possibile iniziare a usare i cmdlet nel modulo. Per una descrizione completa dei cmdlet nel modulo Azure AD, consultare la [documentazione di riferimento online](/powershell/azure/install-adv2?view=azureadps-2.0).
 
@@ -224,6 +225,22 @@ Il cmdlet restituirà l'elenco dei proprietari per il gruppo specificato:
 Per rimuovere un proprietario da un gruppo, usare Remove-AzureADGroupOwner:
 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
+
+## <a name="reserved-aliases"></a>Alias riservati 
+Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di specificare un attributo mailNickname o un alias da usare come parte dell'indirizzo e-mail del gruppo.   
+I gruppi con gli alias di posta elettronica con privilegi elevati seguenti possono essere creati solo da un amministratore globale di Azure AD. 
+  
+* abuse 
+* admin 
+* entità 
+* hostmaster 
+* majordomo 
+* postmaster 
+* root 
+* secure 
+* security 
+* ssl-admin 
+* webmaster 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Azure Active Directory PowerShell, consultare la documentazione sui [cmdlet di Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).

@@ -1,5 +1,5 @@
 ---
-title: MapReduce e Remote Desktop con Hadoop in HDInsight | Documentazione Microsoft
+title: MapReduce e Remote Desktop con Hadoop in HDInsight - Azure | Microsoft Docs
 description: Informazioni su come usare Desktop remoto per connettersi a Hadoop in HDInsight ed eseguire processi MapReduce.
 services: hdinsight
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 76e8fc27c87a427d7cb2527c2c53a5b463798610
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: b56674857b013f9bb3d4dd4b6e97b34e0a97b1b2
+ms.contentlocale: it-it
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Uso di MapReduce con Hadoop in HDInsight con Desktop remoto
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 In questo articolo si apprenderà come connettersi a un cluster Hadoop in HDInsight usando Desktop remoto e quindi eseguire processi MapReduce usando il comando Hadoop.
 
 > [!IMPORTANT]
-> Desktop re,moto è disponibile solo nei cluster HDInsight basati su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Desktop re,moto è disponibile solo nei cluster HDInsight basati su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Per HDInsight 3.4 o versione successiva, vedere [Usare MapReduce con SSH](hdinsight-hadoop-use-mapreduce-ssh.md) per informazioni sulla connessione al cluster HDInsight e l'esecuzione di processi MapReduce.
 
@@ -53,9 +53,9 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
    >
 2. Per usare il comando **Hadoop** per l'esecuzione di un processo MapReduce di esempio, usare il comando seguente:
 
-        hadoop jar hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
+        hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-    Viene avviata la classe **wordcount**, contenuta nel file **hadoop-mapreduce-examples.jar** nella directory corrente. Come input, la classe usa il documento **wasbs://example/data/gutenberg/davinci.txt** e l'output viene archiviato in: **wasbs:///example/data/WordCountOutput**.
+    Viene avviata la classe **wordcount**, contenuta nel file **hadoop-mapreduce-examples.jar** nella directory corrente. Come input viene usato il documento **wasb://example/data/gutenberg/davinci.txt** e l'output viene archiviato in: **wasb:///example/data/WordCountOutput**.
 
    > [!NOTE]
    > Per altre informazioni su questo processo MapReduce e per dati di esempio, vedere <a href="hdinsight-use-mapreduce.md">Usare MapReduce in Hadoop in HDInsight</a>.
@@ -67,9 +67,9 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
-4. Al termine del processo, usare il comando seguente per elencare i file di output archiviati in **wasbs://example/data/WordCountOutput**:
+4. Al termine del processo, usare il comando seguente per elencare i file di output archiviati in **wasb://example/data/WordCountOutput**:
 
-        hadoop fs -ls wasbs:///example/data/WordCountOutput
+        hadoop fs -ls wasb:///example/data/WordCountOutput
 
     In questo modo, vengono visualizzati due file: **_SUCCESS** e **part-r-00000**. Il file **part-r-00000** contiene l'output del processo.
 
@@ -79,9 +79,9 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
    >
 5. Per visualizzare l'output, usare il seguente comando:
 
-        hadoop fs -cat wasbs:///example/data/WordCountOutput/part-r-00000
+        hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-    Viene visualizzato un elenco di parole contenute nel file **wasbs://example/data/gutenberg/davinci.txt** con il numero di occorrenze di ogni parola. Di seguito è riportato un esempio di dati contenuti nel file:
+    Viene visualizzato un elenco di parole contenute nel file **wasb://example/data/gutenberg/davinci.txt** con il numero di occorrenze di ogni parola. Di seguito è riportato un esempio di dati contenuti nel file:
 
         wreathed        3
         wreathing       1

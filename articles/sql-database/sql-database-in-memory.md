@@ -8,29 +8,30 @@ manager: jhubbard
 editor: 
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
-ms.custom: development
+ms.custom: develop databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/24/2017
 ms.author: jodebrui
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: a7273c50f2619c776268406aa14f6c00dcfbfbbe
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 4cb45551c486263f26947e5684d54b4f2ecc7410
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 07/25/2017
 
 ---
-
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 
 Tramite le tecnologie in memoria del database SQL di Azure, è possibile migliorare le prestazioni di diversi carichi di lavoro: transazionale (elaborazione transazionale online o OLTP), analitica (elaborazione analitica online o OLAP) e mista (elaborazione ibrida transazione/analitica o HTAP). Grazie a una più efficiente elaborazione delle query e delle transazioni, le tecnologie in memoria aiutano a ridurre i costi. In genere non è necessario aggiornare il piano tariffario del database per migliorare le prestazioni. In alcuni casi infatti le tecnologie in memoria consentono di ridurre il piano tariffario e di osservare al contempo miglioramenti delle prestazioni.
 
 Di seguito sono riportati due esempi che mostrano come la tecnologia OLTP in memoria abbia contribuito a migliorare significativamente le prestazioni.
 
-- Sfruttando la tecnologia OLTP in memoria [Quorum Business Solutions è riuscita a raddoppiare il carico di lavoro migliorando i valori DTU, ad esempio l'uso di risorse, del 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-- Il video seguente illustra un miglioramento significativo nell'uso delle risorse con un carico di lavoro di esempio: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Video su OLTP in memoria nel database SQL di Azure). Per altre informazioni, vedere il post di blog: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Post di blog su OLTP nel database SQL di Azure)
+- Sfruttando la tecnologia OLTP in memoria [Quorum Business Solutions è riuscita a raddoppiare il carico di lavoro migliorando i valori DTU del 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+    - DTU significa *unità di velocità effettiva database* e include una misurazione del consumo di risorse.
+- Il video seguente illustra un miglioramento significativo nell'uso delle risorse con un carico di lavoro di esempio: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Video su OLTP in memoria nel database SQL di Azure).
+    - Per altre informazioni, vedere il post di blog: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Post di blog su OLTP nel database SQL di Azure)
 
 Le tecnologie in memoria sono disponibili in tutti i database nel livello Premium, inclusi i database nei pool elastici Premium.
 
@@ -45,11 +46,14 @@ Il database SQL di Azure dispone delle seguenti tecnologie in memoria:
 - *OLTP in memoria*: aumenta la velocità effettiva e riduce la latenza per l'elaborazione delle transazioni. Gli scenari che beneficiano dell'OLTP in memoria sono: elaborazione transazionale ad alta velocità di elaborazione, come l'inserimento di dati commerciali e da videogiochi, da eventi o dispositivi IoT, il caching, il caricamento di dati, le tabelle temporanee e gli scenari con variabili di tabella.
 - Gli *indici columnstore cluster* riducono fino a 10 volte il footprint della memoria e migliorano le prestazioni delle query di reporting e analisi. È possibile usare gli indici con tabelle dei fatti nei data mart per inserire più dati nel database e migliorare le prestazioni. Gli indici possono anche essere usati con i dati cronologici nel database operativo per archiviare ed essere in grado di eseguire una query su una quantità di dati 10 volte superiore.
 - Gli *indici columnstore non cluster* per HTAP consentono di ottenere in tempo reale informazioni approfondite sull'azienda eseguendo una query direttamente sul database operativo, senza la necessità di eseguire un processo ETL dispendioso e attendere che il data warehouse venga popolato. Gli indici columnstore non cluster consentono l'esecuzione molto rapida delle query di analisi nei database OLTP, riducendo l'impatto sul carico di lavoro operativo.
-- È anche possibile combinare OLTP in memoria e indici columnstore. È possibile disporre di una tabella con ottimizzazione per la memoria con un indice columnstore. Ciò consente di elaborare le transazioni e al contempo di eseguire l'esecuzione delle query di analisi sugli stessi dati in tempi estremamente rapidi.
+- È possibile anche disporre di una tabella ottimizzata per la memoria con un indice columnstore. Tale combinazione consente di elaborare le transazioni e *al contempo* di eseguire le query di analisi sugli stessi dati in tempi estremamente rapidi.
 
 Gli indici columnstore e OLTP in memoria fanno parte di SQL Server rispettivamente dal 2012 e dal 2014. Il database SQL di Azure e SQL Server condividono la stessa implementazione delle tecnologie in memoria. In futuro, le nuove funzionalità per queste tecnologie verranno integrate prima nel database SQL di Azure e poi in SQL Server.
 
-Questo argomento descrive gli aspetti di OLTP in memoria e degli indici columnstore specifici del database SQL di Azure e include alcuni esempi. Viene innanzitutto analizzato l'impatto di queste tecnologie sulla memoria e i limiti sulle dimensioni dei dati. In un secondo momento verrà illustrato come gestire lo spostamento dei database che sfruttano queste tecnologie tra i diversi piani tariffari. Infine, verranno esaminati due esempi che illustrano l'uso di OLTP in memoria e degli indici columnstore nel database SQL di Azure.
+Questo argomento descrive gli aspetti di OLTP in memoria e degli indici columnstore specifici del database SQL di Azure e include alcuni esempi:
+- Viene analizzato l'impatto di queste tecnologie sulla memoria e i limiti sulle dimensioni dei dati.
+- Verrà illustrato come gestire lo spostamento dei database che sfruttano queste tecnologie tra i diversi piani tariffari.
+- Verranno esaminati due esempi che illustrano l'uso di OLTP in memoria e degli indici columnstore nel database SQL di Azure.
 
 Per altre informazioni, vedere le risorse seguenti.
 
@@ -66,7 +70,7 @@ Video di approfondimento sulle tecnologie:
 
 - [OLTP in memoria nel database SQL di Azure](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB), che contiene una demo dei vantaggi in termini di prestazioni e i passaggi per riprodurre tali risultati manualmente
 - [Video OLTP in memoria: Che cos'è e come/quando usarlo](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
-- [Indice ColumnStore: Video sull'analisi in memoria, ad esempio gli indici columnstore, da Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Indice ColumnStore: Video sull'analisi in memoria da Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ## <a name="storage-and-data-size"></a>Dimensioni di archiviazione e dati
 
@@ -107,7 +111,9 @@ Quando si usano indici columnstore non cluster, la tabella di base è ancora arc
 
 ## <a name="moving-databases-that-use-in-memory-technologies-between-pricing-tiers"></a>Spostamento dei database tra i piani tariffari tramite tecnologie in memoria
 
-L'upgrade del piano tariffario per un database che usa tecnologie in memoria non implica considerazioni speciali, poiché i piani superiori offrono sempre più funzionalità e risorse. Passare a un piano tariffario di livello inferiore può invece avere implicazioni per il database. Ciò vale soprattutto quando si passa dal livello Premium a quello Standard o Basic, e quando si sposta un database che usa OLTP in memoria a un livello Premium più basso. Le stesse considerazioni si applicano quando si esegue il downgrade del piano tariffario di un pool elastico o quando si esegue lo spostamento dei database con tecnologie in memoria in un pool elastico Standard o Basic.
+Passando a un piano tariffario superiore, ad esempio da Standard a Premium, non si corre mai il rischio di incompatibilità o altri problemi. Il passaggio implica semplicemente un aumento di funzionalità e risorse.
+
+Tuttavia, eseguire il downgrade del piano tariffario può avere un impatto negativo sul database. Questo impatto è particolarmente evidente quando si effettua il downgrade da Premium a Standard o Basic nei casi in cui il database contenga oggetti di OLTP In memoria. Le tabelle ottimizzate per la memoria e gli indici columnstore non sono disponibili dopo il downgrade, anche se dovessero rimanere visibili. Le stesse considerazioni si applicano quando si effettua il downgrade del piano tariffario di un pool elastico o quando si esegue lo spostamento dei database con tecnologie in memoria in un pool elastico Standard o Basic.
 
 ### <a name="in-memory-oltp"></a>OLTP in memoria
 
@@ -128,9 +134,9 @@ Se la query restituisce **1**, OLTP in memoria è supportato nel database.
 
 ### <a name="columnstore-indexes"></a>Indici Columnstore
 
-*Downgrade al livello Basic/Standard*: gli indici columnstore non sono supportati nei database del piano Standard o Basic. Se si esegue il downgrade di un database verso il piano Standard o Basic, gli indici columnstore non saranno più disponibili. Se si usa un indice columnstore cluster, l'intera tabella non sarà più disponibile.
+*Downgrade a Basic o Standard*: gli indici columnstore sono supportati solo nel piano tariffario Premium e non nei livelli Standard o Basic. Quando si effettua il downgrade del database al piano Standard o Basic, l'indice columnstore non è più disponibile. Il sistema conserva l'indice columnstore, ma non lo usa mai. Se in seguito si torna al piano Premium, l'indice columnstore torna subito disponibile all'uso.
 
-Prima di eseguire il downgrade del database al piano Standard o Basic, eliminare tutti gli indici columnstore cluster.
+Se dispone di un indice columnstore **cluster**, l'intera tabella non sarà più disponibile dopo il downgrade del livello. Pertanto è consigliabile eliminare tutti gli indici columnstore *cluster* prima di effettuare il downgrade del database al di sotto del livello Premium.
 
 *Downgrade a un livello Premium inferiore*: il downgrade avrà esito positivo se l'intero database rientra nelle dimensioni massime dei database relative al piano tariffario di destinazione o all'archiviazione disponibile nel pool elastico. Non è previsto alcun impatto specifico dagli indici columnstore.
 
@@ -273,7 +279,7 @@ end
 ```
 
 
-Per creare la versione *_ondisk* dello script T-SQL precedente per ostress.exe, occorre semplicemente sostituire le due occorrenze della sottostringa *_inmem* con *_ondisk*. Queste sostituzioni interessano i nomi delle tabelle e delle stored procedure.
+Per creare la versione *_ondisk* dello script T-SQL precedente per ostress.exe, occorre sostituire le due occorrenze della sottostringa *_inmem* con *_ondisk*. Queste sostituzioni interessano i nomi delle tabelle e delle stored procedure.
 
 
 ### <a name="install-rml-utilities-and-ostress"></a>Installare le utilità RML e ostress
@@ -320,10 +326,11 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Per eseguire la riga di comando ostress.exe precedente:
 
 
-1. Reimpostare il contenuto dei dati del database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti da esecuzioni precedenti:
-```
-EXECUTE Demo.usp_DemoReset;
-```
+1. Reimpostare il contenuto dei dati del database eseguendo questo comando in SSMS per eliminare tutti i dati inseriti da esecuzioni precedenti: 
+
+    ``` tsql
+    EXECUTE Demo.usp_DemoReset;
+    ```
 
 2. Copiare il testo della riga di comando ostress.exe precedente negli Appunti.
 

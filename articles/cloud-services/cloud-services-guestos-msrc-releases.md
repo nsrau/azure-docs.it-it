@@ -12,20 +12,110 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/11/2017
+ms.date: 8/3/2017
 ms.author: raiye
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 51b5c32eb73dc70b4019e60342db659959cc93bb
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c1bcfa2d93a77a655092dca250d2a3e2c86b944d
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
+## <a name="july-guest-os"></a>Sistema operativo guest di luglio
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4025339] |Aggiornamenti di Windows 10 |5.9 |11 luglio 2017 |
+| Rel 17-07 | [4025337] |Solo sicurezza di Windows |2.64 |11 luglio 2017 |
+| Rel 17-07 | [4025333] |Solo sicurezza di Windows |4.44 |11 luglio 2017 |
+| Rel 17-07 | [4025343] |Solo sicurezza di Windows |3.51 |11 luglio 2017 |
+| Rel 17-07 | [4025376] |Lampeggiante |3.51, 4.44, 5.9 |11 luglio 2017 |
+| Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 luglio 2017 |
+| N/D | [4020322] |Aggiornamento del fuso orario |2.64, 3.51, 4.44 |11 luglio 2017 |
+| N/D | [4022719] |Rollup del mese di giugno non correlato alla sicurezza |2.64 |11 luglio 2017 |
+| N/D | [4022724] |Rollup del mese di giugno non correlato alla sicurezza |3.51 |11 luglio 2017 |
+| N/D | [4022726] |Rollup del mese di giugno non correlato alla sicurezza |4.44 |11 luglio 2017 |
+
+## <a name="june-guest-os"></a>Sistema operativo guest di giugno
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-06 | [4019472] |Miglioramenti alla qualità del sistema operativo WS 2016 |5.8 |9 maggio 2017 |
+| Rel 17-06 | [4022722] |Solo sicurezza di Windows |2.63 |13 giugno 2017 |
+| Rel 17-06 | [4022717] |Solo sicurezza di Windows |4.43 |13 giugno 2017 |
+| Rel 17-06 | [4022718] |Solo sicurezza di Windows |3.50 |13 giugno 2017 |
+| Rel 17-06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |13 giugno 2017 |
+| Rel 17-06 | [4022719], [4022724], [4022726] |Rollup mensili di Windows |2.63, 3.50, 4.43 |13 giugno 2017 |
+| Rel 17-06 | [4022730] |Aggiornamento della sicurezza per Adobe Flash Player |3.50, 4.43, 5.8 |13 giugno 2017 |
+| Rel 17-06 | [4015217], [4015221], [4015583], [4015550], [4015219] |Nuovo rilascio di CVE-2017-0167 |4.43, 5.8 |11 aprile 2017 |
+| N/D | [4023136] |Aggiornamento del fuso orario  |2.63, 3.50, 4.43 |13 giugno 2017 |
+| N/D | [4019264] |Rollup del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
+| N/D | [4014545] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
+| N/D | [4014508] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
+| N/D | [4014511] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63 |13 giugno 2017 |
+| N/D | [4014514] |Rollup .NET del mese di maggio non correlato alla sicurezza |2.63|13 giugno 2017 |
+| N/D | [4019216] |Rollup del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4014503] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4014506] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4014509] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4014513] |Rollup .NET del mese di maggio non correlato alla sicurezza |3.50 |13 giugno 2017 |
+| N/D | [4019215] |Rollup del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+| N/D | [4014505] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+| N/D | [4014507] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+| N/D | [4014510] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+| N/D | [4014512] |Rollup .NET del mese di maggio non correlato alla sicurezza |4.43 |13 giugno 2017 |
+
+## <a name="may-guest-os"></a>Sistema operativo guest di maggio
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-05 | [4019472] |Miglioramenti alla qualità del sistema operativo WS 2016 |5.7 | 9 maggio 2017 |
+| Rel 17-05 | [4019263] |Solo sicurezza di Windows |2.62 | 9 maggio 2017 |
+| Rel 17-05 | [4019213] |Solo sicurezza di Windows |4.42 | 9 maggio 2017 |
+| Rel 17-05 | [4019214] |Solo sicurezza di Windows |3.49 | 9 maggio 2017 |
+| Rel 17-05 | [4018271] |Aggiornamento cumulativo della sicurezza per Internet Explorer |3.49 | 9 maggio 2017 |
+| Rel 17-05 | [4010323] |Avviso su SHA1 |2.62, 4.42, 5.7 | 9 maggio 2017 |
+| Rel 17-05 | [4022344] |Advisory Microsoft sulla sicurezza |5.7 | 9 maggio 2017 |
+| Rel 17-05 | [4022345] |Advisory Microsoft sulla sicurezza |5.7 | 9 maggio 2017 |
+| Rel 17-05 | [4021279] |Avviso su .NET /ASP.Net Core |2.62, 3.49, 4.42, 5.7 | 9 maggio 2017 |
+| N/D | [4012864] |Aggiornamento del fuso orario |2.62, 3.49, 4.42 | 9 maggio 2017 |
+| N/D | [4014565] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 9 maggio 2017 |
+| N/D | [4014559] |Rollup .NET del mese di aprile non correlato alla sicurezza |2.62 | 9 maggio 2017 |
+| N/D | [4015549] |Rollup del mese di aprile non correlato alla sicurezza |2.62 | 9 maggio 2017 |
+| N/D | [4019990] |Aggiornamento di D3DCompiler - Requisito per .NET 4.7 |3.49 | 9 maggio 2017 |
+| N/D | [4014563] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
+| N/D | [4014557] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
+| N/D | [4014545] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
+| N/D | [4014548] |Rollup .NET del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
+| N/D | [4015551] |Rollup del mese di aprile non correlato alla sicurezza |3.49 | 9 maggio 2017 |
+| N/D | [3173424] |Aggiornamento dello stack di manutenzione  |4.42 | 9 maggio 2017 |
+| N/D | [4014555] |Rollup .NET del mese di aprile non correlato alla sicurezza  |4.42 | 9 maggio 2017 |
+| N/D | [4014567] |Rollup .NET del mese di aprile non correlato alla sicurezza |4.42 | 9 maggio 2017 |
+| N/D | [4015550] |Rollup del mese di aprile non correlato alla sicurezza |4.42 | 9 maggio 2017 |
+| N/D | [4013418] |Aggiornamento dello stack di manutenzione |5.7 | 9 maggio 2017 |
+
+## <a name="april-guest-os"></a>Sistema operativo guest di aprile
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-04 |  [4015217]  |Miglioramenti alla qualità del sistema operativo WS 2016 | 5.6 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]  |Solo sicurezza di Windows |2.61 | 11 aprile 2017 |
+| Rel 17-04 |  [4015547]  |Solo sicurezza di Windows |4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4015548]  |Solo sicurezza di Windows |3.48 | 11 aprile 2017 |
+| Rel 17-04 |  [4014661]  |Internet Explorer |2.61, 3.48, 4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4014550]; [4014560]; [4014562]; [4014556]; [4014574] |Sicurezza .NET |4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4014564]; [4014572]; [4014549] |Sicurezza .NET |3.48 | 11 aprile 2017 |
+| Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |Sicurezza .NET |2.61 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 11 aprile 2017 |
+| Rel 17-04 |  [4015193]  |Modifiche dell'ora legale in Windows per Magallanes (Cile) |2.61, 3.48, 4.41 | 11 aprile 2017 |
+| Rel 17-04 |  [4012215]  |Rollup di qualità mensile per la sicurezza di marzo 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.61 | 11 aprile 2017 |
+| Rel 17-04 |  [4012217]  |Rollup di qualità mensile per la sicurezza di marzo 2017 per Windows Server 2012 |3.48 | 11 aprile 2017 |
+| Rel 17-04 |  [4012216]  |Rollup di qualità mensile per la sicurezza di marzo 2017 per Windows 8.1 e Windows Server 2012 R2 |4.41 | 11 aprile 2017 |
+
 ## <a name="march-guest-os"></a>Sistema operativo guest di marzo
-| ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Miglioramenti e correzioni | 5.5 | 14 marzo 2017 |
 | Rel 17-03 |  [4012212] |Unico aggiornamento di qualità della sicurezza del mese di marzo 2017 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.60 |14 marzo 2017 |
@@ -38,8 +128,6 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |  [3205401] |Rollup di qualità mensile per la sicurezza di dicembre 2016 per Windows 8.1 e Windows Server 2012 R2 |4.40 |14 marzo 2017 |
 | N/D |  [3211320] |Aggiornamento stack di manutenzione per Windows 10 versione 1607 e Windows Server 2016 - 24 ottobre 2017 |5.5 |14 marzo 2017 |
 
-
-
 ## <a name="january-guest-os"></a>Sistema operativo guest di gennaio
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
@@ -50,14 +138,14 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Aggiornamento cumulativo della sicurezza per Internet Explorer |2.58, 3.46, 4.39 |13 dicembre 2016 |
 | MS16-145 |[3204062] |Aggiornamento cumulativo della sicurezza per Microsoft Edge |5.4 |13 dicembre 2016 |
-| MS16-146 |[3204066]    |Aggiornamento della sicurezza per il componente grafico Microsoft|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
-| MS16-147 |[3204063]    |Aggiornamento della sicurezza per Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
-| MS16-149 |[3205655]    |Aggiornamento della sicurezza per Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
-| MS16-150 |[3205642]    |Aggiornamento della sicurezza per la modalità kernel sicura |5.4 |13 dicembre 2016 |
-| MS16-151 |[3205651]    |Aggiornamento della sicurezza per i driver in modalità kernel|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
-| MS16-152 |[3199709]    |Aggiornamento della sicurezza per kernel Windows |5.4 |13 dicembre 2016 |
+| MS16-146 |[3204066]   |Aggiornamento della sicurezza per il componente grafico Microsoft|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
+| MS16-147 |[3204063]   |Aggiornamento della sicurezza per Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
+| MS16-149 |[3205655]   |Aggiornamento della sicurezza per Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
+| MS16-150 |[3205642]   |Aggiornamento della sicurezza per la modalità kernel sicura |5.4 |13 dicembre 2016 |
+| MS16-151 |[3205651]   |Aggiornamento della sicurezza per i driver in modalità kernel|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
+| MS16-152 |[3199709]   |Aggiornamento della sicurezza per kernel Windows |5.4 |13 dicembre 2016 |
 | MS16-153 |[3207328] |Aggiornamento della sicurezza per i driver di Common Log File System|2.58, 3.46, 4.39, 5.4 |13 dicembre 2016 |
-| MS16-155 |[3205640]    |Aggiornamento della sicurezza per .NET Framework |5.4 |13 dicembre 2016 |
+| MS16-155 |[3205640]   |Aggiornamento della sicurezza per .NET Framework |5.4 |13 dicembre 2016 |
 | N/D |[3197868] |Rollup di qualità mensile per la sicurezza di novembre 2016 per Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.58 |13 dicembre 2016 |
 | N/D |[3197877] |Rollup di qualità mensile per la sicurezza di novembre 2016 per Windows Server 2012 |3,46 |13 dicembre 2016 |
 | N/D |[3197874] |Rollup di qualità mensile per la sicurezza di novembre 2016 mensile per Windows 8.1 e Windows Server 2012 R2 |4.39 |13 dicembre 2016 |
@@ -67,11 +155,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Aggiornamento cumulativo della sicurezza per Microsoft Edge |5.3 |8 novembre 2016 |
 | MS16-130 |[3199172] |Aggiornamento della sicurezza per Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
-| MS16-131 |[3199151]    |Aggiornamento della sicurezza per il controllo video Microsoft |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-131 |[3199151]   |Aggiornamento della sicurezza per il controllo video Microsoft |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | MS16-132 |[3199120] |Aggiornamento della sicurezza per componenti Microsoft |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | MS16-134 |[3193706] |Aggiornamento della sicurezza per i driver di Common Log File System |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | MS16-135 |[3199135] |Aggiornamento della sicurezza per i driver in modalità kernel |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
-| MS16-137 |[3199173]    |Aggiornamento della sicurezza per i metodi di autenticazione di Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
+| MS16-137 |[3199173]   |Aggiornamento della sicurezza per i metodi di autenticazione di Windows |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | MS16-138 |[3199647] |Aggiornamento della sicurezza per l'unità disco rigido virtuale Microsoft |5.3, 4.38, 3.45 |8 novembre 2016 |
 | MS16-139 |[3199720] |Aggiornamento della sicurezza per kernel Windows |2.57 |8 novembre 2016 |
 | MS16-140 |[3193479] |Aggiornamento della sicurezza per Boot Manager |5.3, 4.38, 3.45 |8 novembre 2016 |
@@ -406,6 +494,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-002 |[3020393] |La vulnerabilità nel servizio Telnet di Windows potrebbe causare l'esecuzione di codice in modalità remota |4.16, 3.23, 2.35 |19 gennaio 2015 |
 | MS15-002 |[3020393] |La vulnerabilità nel servizio Telnet di Windows potrebbe causare l'esecuzione di codice in modalità remota |4.16, 3.23, 2.35 |19 gennaio 2015 |
 
+
 ## <a name="december-guest-os"></a>Sistema operativo guest di dicembre
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
@@ -420,6 +509,95 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3007054] |L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
+
+[4025339]: http://support.microsoft.com/kb/4025337
+[4025337]: http://support.microsoft.com/kb/4025333
+[4025333]: http://support.microsoft.com/kb/4025343
+[4025343]: http://support.microsoft.com/kb/4025376
+[4025252]: http://support.microsoft.com/kb/4025252
+[4025376]: http://support.microsoft.com/kb/4025376
+[4020322]: http://support.microsoft.com/kb/4020322
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
+
+[4022722]: http://support.microsoft.com/kb/4022722
+[4022717]: http://support.microsoft.com/kb/4022717
+[4022718]: http://support.microsoft.com/kb/4022718
+[4021558]: http://support.microsoft.com/kb/4021558
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
+[4022730]: http://support.microsoft.com/kb/4022730
+[4015221]: http://support.microsoft.com/kb/4015221
+[4015583]: http://support.microsoft.com/kb/4015583
+[4015219]: http://support.microsoft.com/kb/4015219
+[4023136]: http://support.microsoft.com/kb/4023136
+[4019264]: http://support.microsoft.com/kb/4019264
+[4014545]: http://support.microsoft.com/kb/4014545
+[4014508]: http://support.microsoft.com/kb/4014508
+[4014511]: http://support.microsoft.com/kb/4014511
+[4014514]: http://support.microsoft.com/kb/4014514
+[4019216]: http://support.microsoft.com/kb/4019216
+[4014503]: http://support.microsoft.com/kb/4014503
+[4014506]: http://support.microsoft.com/kb/4014506
+[4014509]: http://support.microsoft.com/kb/4014509
+[4014513]: http://support.microsoft.com/kb/4014513
+[4019215]: http://support.microsoft.com/kb/4019215
+[4014505]: http://support.microsoft.com/kb/4014505
+[4014507]: http://support.microsoft.com/kb/4014507
+[4014510]: http://support.microsoft.com/kb/4014510
+[4014512]: http://support.microsoft.com/kb/4014512
+
+[4019472]: http://support.microsoft.com/kb/4019472
+[4019263]: http://support.microsoft.com/kb/4019263
+[4019213]: http://support.microsoft.com/kb/4019213
+[4019214]: http://support.microsoft.com/kb/4019214
+[4018271]: http://support.microsoft.com/kb/4018271
+[4010323]: http://support.microsoft.com/kb/4010323
+[4012864]: http://support.microsoft.com/kb/4012864
+[4014565]: http://support.microsoft.com/kb/4014565
+[4014559]: http://support.microsoft.com/kb/4014559
+[4015549]: http://support.microsoft.com/kb/4015549
+[4019990]: http://support.microsoft.com/kb/4019990
+[4014563]: http://support.microsoft.com/kb/4014563
+[4014557]: http://support.microsoft.com/kb/4014557
+[4014545]: http://support.microsoft.com/kb/4014545
+[4014548]: http://support.microsoft.com/kb/4014548
+[4015551]: http://support.microsoft.com/kb/4015551
+[3173424]: http://support.microsoft.com/kb/3173424
+[4014555]: http://support.microsoft.com/kb/4014555
+[4014567]: http://support.microsoft.com/kb/4014567
+[4015550]: http://support.microsoft.com/kb/4015550
+[4013418]: http://support.microsoft.com/kb/4013418
+[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+
+
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015546]: http://support.microsoft.com/kb/4015546
+[4015547]: http://support.microsoft.com/kb/4015547
+[4015548]: http://support.microsoft.com/kb/4015548
+[4014661]: http://support.microsoft.com/kb/4014661
+[4014550]: http://support.microsoft.com/kb/4014550
+[4014560]: http://support.microsoft.com/kb/4014560
+[4014562]: http://support.microsoft.com/kb/4014562
+[4014556]: http://support.microsoft.com/kb/4014556
+[4014574]: http://support.microsoft.com/kb/4014574
+[4014564]: http://support.microsoft.com/kb/4014564
+[4014572]: http://support.microsoft.com/kb/4014572
+[4014549]: http://support.microsoft.com/kb/4014549
+[4014566]: http://support.microsoft.com/kb/4014566
+[4014552]: http://support.microsoft.com/kb/4014552
+[4014573]: http://support.microsoft.com/kb/4014573
+[4014558]: http://support.microsoft.com/kb/4014558
+[4015217]: http://support.microsoft.com/kb/4015217
+[4015193]: http://support.microsoft.com/kb/4015193
+[4012215]: http://support.microsoft.com/kb/4012215
+[4012217]: http://support.microsoft.com/kb/4012217
+[4012216]: http://support.microsoft.com/kb/4012216
+
 
 [4013429]: http://support.microsoft.com/kb/4013429 
 [4012212]: http://support.microsoft.com/kb/4012212 

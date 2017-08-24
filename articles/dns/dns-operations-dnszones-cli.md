@@ -13,19 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 1481fcb070f383d158c5a6ae32504e498de4a66b
-ms.openlocfilehash: ca6347e079c0e85d1e9583f77b2e43632bedb206
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 ---
 
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Come gestire le zone DNS in DNS di Azure DNS usando l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
+> * [Portale](dns-operations-dnszones-portal.md)
+> * [PowerShell](dns-operations-dnszones.md)
 > * [Interfaccia della riga di comando di Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md)
-> * [PowerShell](dns-operations-dnszones.md)
+
 
 Questa guida illustra come gestire le zone DNS usando l'interfaccia della riga di comando di Azure multipiattaforma, disponibile per Windows, Mac e Linux. È anche possibile gestire le zone DNS usando [Azure PowerShell](dns-operations-dnszones.md) o il portale di Azure.
 
@@ -66,7 +69,7 @@ Controllare le sottoscrizioni per l'account.
 az account list
 ```
 
-### <a name="choose-which-of-your-azure-subscriptions-to-use"></a>Scegliere le sottoscrizioni ad Azure da usare.
+Scegliere le sottoscrizioni ad Azure da usare.
 
 ```azurecli
 az account set --subscription "subscription name"
@@ -102,7 +105,7 @@ L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di riso
 az network dns zone create --resource-group MyResourceGroup --name contoso.com
 ```
 
-### <a name="to-create-a-dns-zone-with-tags"></a>Per creare una zona DNS con tag.
+### <a name="to-create-a-dns-zone-with-tags"></a>Per creare una zona DNS con tag
 
 L'esempio seguente illustra come creare una zona DNS con due [tag di Azure Resource Manager](dns-zones-records.md#tags), *project = demo* ed *env = test*, usando il parametro `--tags` (forma breve `-t`):
 

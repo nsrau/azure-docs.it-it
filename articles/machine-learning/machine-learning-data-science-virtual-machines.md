@@ -1,6 +1,6 @@
 ---
-title: Macchine virtuali per l&quot;analisi scientifica dei dati in Azure | Documentazione Microsoft
-description: Configurare una macchina virtuale per l&quot;analisi scientifica dei dati
+title: Eseguire il provisioning delle macchine virtuali di Data Science di Azure come server Notebook di IPython | Microsoft Docs
+description: Impostare una macchina virtuale di Data Science come server Notebook di IPython con gli strumenti di supporto.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: xibingao;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
-ms.lasthandoff: 02/11/2017
-
+ms.date: 07/21/2017
+ms.author: bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: db1ffb2a226a087ecea2ea6f560c6b803e33d8c7
+ms.contentlocale: it-it
+ms.lasthandoff: 07/22/2017
 
 ---
-# <a name="data-science-virtual-machines-in-azure"></a>Macchine virtuali per l'analisi scientifica dei dati in Azure
+# <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>Eseguire il provisioning delle macchine virtuali di Data Science di Azure come server Notebook di IPython
 Vengono fornite istruzioni che descrivono come configurare una VM di Azure e una VM di Azure con il servizio SQL come server di IPython Notebook. La macchina virtuale Windows è configurata con strumenti di supporto come IPython Notebook, Azure Storage Explorer e AzCopy, nonché altre utilità per progetti di analisi scientifica dei dati. Ad esempio, Esplora archivi Azure e AzCopy forniscono modi efficaci per caricare dati nella memoria di Azure dal computer locale o per scaricarli dalla memoria nel computer locale. 
 
 Questo menu include collegamenti ad argomenti che descrivono come configurare i diversi ambienti di analisi scientifica dei dati usati dal [processo di analisi scientifica dei dati per i team (TDSP)](data-science-process-overview.md).

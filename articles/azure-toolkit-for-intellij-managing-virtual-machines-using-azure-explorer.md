@@ -46,7 +46,7 @@ Per creare una macchina virtuale con Azure Explorer, eseguire queste operazioni:
 
    ![Finestra di dialogo Scegliere una sottoscrizione][CR02]
 
-4. Nella finestra  **	Selezionare un'immagine di macchina virtuale** immettere le informazioni seguenti:
+4. Nella finestra **Selezionare un'immagine di macchina virtuale** immettere le informazioni seguenti:
 
    * **Località**: specifica dove verrà creata la macchina virtuale, ad esempio *Stati Uniti occidentali*. 
 
@@ -66,7 +66,7 @@ Per creare una macchina virtuale con Azure Explorer, eseguire queste operazioni:
 
 5. Fare clic su **Avanti**. 
 
-6. Nella finestra **	Impostazioni di base della macchina virtuale** immettere le informazioni seguenti:
+6. Nella finestra **Impostazioni di base della macchina virtuale** immettere le informazioni seguenti:
 
    * **Nome macchina virtuale**: specifica il nome della nuova macchina virtuale, che deve iniziare con una lettera e contenere solo lettere, numeri e trattini.
 

@@ -11,7 +11,8 @@
 ## [Operazioni di Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 ## [Errori durante la sincronizzazione](../active-directory-aadconnect-troubleshoot-sync-errors.md)
 
-# Riferimenti
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
 # Risorse correlate
@@ -20,5 +21,6 @@
 ## [Guide alla progettazione della soluzione ibrida di gestione delle identità](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
-
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

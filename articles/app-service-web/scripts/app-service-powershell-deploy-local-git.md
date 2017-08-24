@@ -1,6 +1,6 @@
 ---
-title: Esempio di script di Azure PowerShell - Creare un&quot;app Web e distribuire il codice da un repository Git locale | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Creare un&quot;app Web e distribuire il codice da un repository Git locale
+title: Esempio di script di Azure PowerShell - Creare un'app Web e distribuire il codice da un repository Git locale | Microsoft Docs
+description: Esempio di script di Azure PowerShell - Creare un'app Web e distribuire il codice da un repository Git locale
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -11,12 +11,14 @@ ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
-translationtype: Human Translation
+ms.custom: mvc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: f6aaad96c5705fcc50c25c5fd3be1542fabdbc56
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 ---

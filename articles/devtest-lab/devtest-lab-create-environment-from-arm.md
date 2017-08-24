@@ -14,33 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 0fbe1af87594aacd2eee4f706429e3674548d3fd
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
+ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
+ms.contentlocale: it-it
+ms.lasthandoff: 06/14/2017
 
 
 ---
 
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
-Il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) consente di [creare e aggiungere una macchina virtuale a un lab](./devtest-lab-add-vm-with-artifacts.md). Ciò vale per la creazione di una macchina virtuale alla volta. Tuttavia, se l'ambiente contiene più macchine virtuali, ogni macchina deve essere creata individualmente. Per scenari quali app Web multilivello o farm di SharePoint, è necessario un meccanismo che consenta la creazione di più macchine virtuali in un unico passaggio. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di distribuire ripetutamente più macchine virtuali in modo coerente. Ciò offre i vantaggi seguenti:
+Il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) consente di [creare e aggiungere una macchina virtuale a un lab](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Ciò vale per la creazione di una macchina virtuale alla volta. Tuttavia, se l'ambiente contiene più macchine virtuali, ogni macchina deve essere creata individualmente. Per scenari quali app Web multilivello o farm di SharePoint, è necessario un meccanismo che consenta la creazione di più macchine virtuali in un unico passaggio. I modelli di Azure Resource Manager consentono di definire l'infrastruttura e la configurazione della soluzione di Azure e di distribuire ripetutamente più macchine virtuali in modo coerente. Ciò offre i vantaggi seguenti:
 
 - I modelli di Azure Resource Manager vengono caricati direttamente dal repository di controllo del codice sorgente (GitHub o Team Services Git).
 - Una volta configurato, gli utenti possono creare un ambiente scegliendo un modello di Azure Resource Manager dal portale di Azure, così come avviene con altri tipi di [basi per VM](./devtest-lab-comparing-vm-base-image-types.md).
-- Il provisioning delle risorse Azure PaaS può essere eseguito in un ambiente da un modello di Azure Resource Manager, oltre che da VM IaaS.
+- È possibile eseguire il provisioning delle risorse di Azure PaaS in un ambiente usando un modello di Azure Resource Manager oltre che le macchine virtuali IaaS.
 - È possibile tenere traccia del costo dell'ambiente insieme alle singole VM create da altri tipi di base.
-- Gli utenti dispongono degli stessi criteri di controllo della VM per gli ambienti di quelle che hanno per le VM dei singoli laboratori.
+- Le risorse di PaaS vengono create e visualizzate nella verifica dei costi. Tuttavia, l'arresto automatico della macchina virtuale non si applica alle risorse di PaaS.
+- Gli utenti hanno lo stesso controllo dei criteri delle macchine virtuali per gli ambienti di quello che hanno per le macchine virtuali di un singolo lab.
+
+Altre informazioni sui numerosi [vantaggi offerti dai modelli di Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) per distribuire, aggiornare o eliminare tutte le risorse del lab con una sola operazione.
+
+> [!NOTE]
+> Quando si usa un modello di Resource Manager come base per creare più macchine virtuali lab, occorre tenere presente che ci sono alcune differenze tra la creazione di più macchine virtuali e una singola macchina virtuale. Use a virtual machine's Azure Resource Manager template (Usare un modello di Azure Resource Manager di una macchina virtuale) spiega più dettagliatamente queste differenze.
+>
+>
 
 ## <a name="configure-azure-resource-manager-template-repositories"></a>Configurare i repository del modello di Azure Resource Manager
 
-Come procedura consigliata nei casi di infrastruttura come codice e configurazione come codice, i modelli di ambiente devono essere gestiti nel controllo del codice sorgente. Azure Labs DevTest applica questa procedura e carica tutti i modelli Azure Resource Manager direttamente dai repository VSTS Git o GitHub. Alcune regole consentono di organizzare al meglio i modelli di Azure Resource Manager in un repository:
+Come procedura consigliata nei casi di infrastruttura come codice e configurazione come codice, i modelli di ambiente devono essere gestiti nel controllo del codice sorgente. Azure Labs DevTest applica questa procedura e carica tutti i modelli Azure Resource Manager direttamente dai repository VSTS Git o GitHub. Di conseguenza, i modelli di Resource Manager possono essere usati in tutto il ciclo di rilascio, dall'ambiente di test a quello di produzione.
+
+Ci sono un paio di regole da seguire per organizzare i modelli di Azure Resource Manager in un repository:
 
 - Il nome del file del modello master deve essere `azuredeploy.json`. 
 
     ![File principali del modello di Azure Resource Manager](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Se si intende usare valori di parametro definiti in un file di parametri, il nome di tale file deve essere `azuredeploy.parameters.json`.
+- È possibile usare i parametri `_artifactsLocation` e `_artifactsLocationSasToken` per costruire il valori URI parametersLink e consentire a DevTest Labs di gestire automaticamente i modelli nidificati. Per altre informazioni, vedere [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments (Come Azure DevTest Labs semplifica le distribuzioni di modelli di Resource Manager nidificati negli ambienti di test)](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
 - È possibile definire metadati per specificare il nome e la descrizione visualizzati del modello. I metadati deve essere contenuti in un file denominato `metadata.json`. Il file di metadati di esempio seguente mostra come specificare il nome e la descrizione visualizzati: 
 
 ```json
@@ -105,7 +117,11 @@ Dopo aver configurato un repository di modelli di Azure Resource Manager nel lab
     > - GEN-PASSWORD 
  
 1. Selezionare **Aggiungi** per creare l'ambiente. L'ambiente avvia immediatamente il provisioning con lo stato visualizzato nell'elenco **Macchine virtuali**. Un nuovo gruppo di risorse viene creato automaticamente dal lab per eseguire il provisioning di tutte le risorse definite nel modello di Azure Resource Manager.
-1. Dopo aver creato l'ambiente, selezionare l'ambiente nell'elenco **Macchine virtuali** per aprire il pannello del gruppo di risorse e individuare le risorse di cui eseguire il provisioning nell'ambiente.
+1. Dopo aver creato l'ambiente, selezionarlo nell'elenco  **My virtual machines (Macchine virtuali personali)** per aprire il pannello del gruppo delle risorse e cercare tutte le risorse di cui si è eseguito il provisioning nell'ambiente.
+    
+    ![Elenco delle macchine virtuali](./media/devtest-lab-create-environment-from-arm/all-environment-resources.png)
+   
+   È possibile anche espandere l'ambiente per visualizzare solo l'elenco di macchine virtuali oggetto del provisioning nell'ambiente.
     
     ![Elenco delle macchine virtuali](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
 
@@ -115,5 +131,6 @@ Dopo aver configurato un repository di modelli di Azure Resource Manager nel lab
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver creato la macchina virtuale, è possibile connettersi ad essa selezionando **Connetti** nel pannello della macchina virtuale.
+* Visualizzare e gestire le risorse in ambiente selezionando l'ambiente nell'elenco **My virtual machines (Macchine virtuali personali)** nel lab. 
 * Esplorare i [modelli di Azure Resource Manager dalla raccolta di modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates)
 

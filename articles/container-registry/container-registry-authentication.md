@@ -1,6 +1,6 @@
 ---
-title: Eseguire l&quot;autenticazione con un registro contenitori di Azure | Microsoft Docs
-description: "Come accedere a un registro contenitori di Azure usando un&quot;entità servizio di Azure Active Directory o un account amministratore"
+title: Eseguire l'autenticazione con un registro contenitori di Azure | Microsoft Docs
+description: "Come accedere a un registro contenitori di Azure usando un'entità servizio di Azure Active Directory o un account amministratore"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,10 +17,11 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: ae6af47c82a5c0425f6cd53b8ba1134797505e6c
-ms.lasthandoff: 04/17/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: aa2a6bf3d7d9ec22020036851fc0f2bca37e31bf
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Eseguire l'autenticazione con un registro contenitori Docker privato
@@ -52,7 +53,7 @@ L'accesso anonimo non è disponibile nei registri contenitori di Azure. Per le i
 
 È possibile assegnare più entità di servizio a un registro, così da poter definire l'accesso per utenti o applicazioni differenti. Le entità servizio abilitano anche la connettività "headless" a un registro negli scenari DevOps o per sviluppatori, come gli esempi seguenti:
 
-  * Distribuzioni di contenitori da un registro ai sistemi di orchestrazione, tra cui DC/OS, Docker Swarm e Kubernetes. È anche possibile eseguire il pull dei registri contenitori a servizi di Azure correlati, come [Servizio contenitore](../container-service/index.md), [Servizio App](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](../service-fabric/index.md) e altri.
+  * Distribuzioni di contenitori da un registro ai sistemi di orchestrazione, tra cui DC/OS, Docker Swarm e Kubernetes. È anche possibile eseguire il pull dei registri contenitori a servizi di Azure correlati, come [Servizio contenitore](../container-service/index.yml), [Servizio App](../app-service/index.md), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/) e altri.
 
   * Soluzioni di distribuzione e integrazione continua (ad esempio Visual Studio Team Services o Jenkins) che creano immagini contenitore e le inviano a un registro.
 

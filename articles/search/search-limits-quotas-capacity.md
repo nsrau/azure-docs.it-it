@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/23/2017
+ms.date: 06/07/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
-ms.openlocfilehash: c7094a92355a199e9b94bc695c8499271b9adc39
-ms.lasthandoff: 02/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
+ms.contentlocale: it-it
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
@@ -45,16 +45,18 @@ Esiste una corrispondenza uno a uno tra i limiti sugli indici e sugli indicizzat
 | Risorsa | Free | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Indice: numero massimo di campi per indice |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Numero massimo di profili di punteggio per indice |16 |16 |16 |16 |16 |16 |
+| Numero massimo di profili di punteggio per indice |100 |100 |100 |100 |100 |100 |
 | Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |
 | Indicizzatori: carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D <sup>2</sup> |
-| Indicizzatori: tempo massimo di esecuzione |3 minuti |24 ore |24 ore |24 ore |24 ore |N/D <sup>2</sup> |
+| Indicizzatori: tempo massimo di esecuzione | 1-3 minuti <sup>3</sup> |24 ore |24 ore |24 ore |24 ore |N/D <sup>2</sup> |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D <sup>2</sup> |
 | Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4 milioni |4 milioni |4 milioni |N/D <sup>2</sup> |
 
 <sup>1</sup> Il livello Basic è l'unico SKU con un limite inferiore di 100 campi per indice.
 
 <sup>2</sup> S3 HD attualmente non supporta gli indicizzatori. In caso di esigenze urgenti per questa funzionalità, contattare il supporto tecnico di Azure.
+
+<sup>3</sup> Il tempo di esecuzione massimo degli indicizzatori per il livello gratuito è di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati.
 
 ## <a name="document-size-limits"></a>Limiti per la dimensione dei documenti
 | Risorsa | Free | Basic | S1 | S2 | S3 | S3 HD |

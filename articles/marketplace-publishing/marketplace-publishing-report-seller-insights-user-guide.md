@@ -1,6 +1,6 @@
 ---
-title: Come usare Microsoft Azure Marketplace Seller Insights Portal | Microsoft Docs
-description: Informazioni per i rivenditori di Azure Marketplace su come usare Microsoft Azure Marketplace Seller Insights Portal.
+title: Come usare il portale delle informazioni dettagliate del venditore di Azure Marketplace | Microsoft Docs
+description: Informazioni per i venditori di Azure Marketplace su come usare il portale delle informazioni dettagliate del venditore di Azure Marketplace.
 services: marketplace publishing
 documentationcenter: na
 author: DavidBosland
@@ -12,339 +12,371 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/03/2017
+ms.date: 06/16/2017
 ms.author: v-dabosl
 ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: e168e9610cbe493618121c688e349064c877fc8a
+ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
+ms.openlocfilehash: 292598b79b9b9749de8c4994de32349625611195
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 05/23/2017
 
 
 ---
-# <a name="how-to-use-the-microsoft-azure-marketplace-seller-insights-portal"></a>Come usare Microsoft Azure Marketplace Seller Insights Portal
-##<a name="onboarding"></a>Onboarding
+# <a name="how-to-use-the-azure-marketplace-seller-insights-portal"></a>Come usare il portale delle informazioni dettagliate del venditore di Azure Marketplace
+
+Questo articolo illustra il modo in cui gli amministratori accedono al portale delle informazioni dettagliate del venditore, aggiungono o eliminano utenti e impostano le autorizzazioni per gli utenti.
+
+## <a name="onboard-users"></a>Caricare gli utenti
+
+Questa sezione descrive il modo in cui gli amministratori accedono al portale delle informazioni dettagliate del venditore per la prima volta. Le attività indicate in questa sezione sono riservate agli amministratori. 
+
+
+### <a name="overview-of-roles"></a>Panoramica dei ruoli
+
+L'amministratore del portale delle informazioni dettagliate del venditore aggiunge, modifica ed elimina gli utenti.
+
+Un utente del portale delle informazioni dettagliate del venditore può visualizzare tutti i dati disponibili per l'organizzazione.
+
+Gli amministratori e gli utenti devono eseguire l'autenticazione con un [account Microsoft](http://signup.live.com) valido oppure con un account aziendale o dell'istituto di istruzione. Assicurarsi che il nuovo ID account sia associato a una cassetta postale monitorata.
+
+![Tipo di account][5]
+
+
+
+### <a name="invitation-to-activate-your-account"></a>Invito ad attivare l'account
+
+Prima di accedere al portale delle informazioni dettagliate del venditore, l'amministratore deve identificare gli account delle persone da configurare come utenti. Configurare gli utenti con un account Microsoft o un account aziendale o dell'istituto di istruzione.
+
+Per attivare il servizio, l'amministratore deve accedere all'[indirizzo URL](https://reports.azure.com) indicato nel messaggio di posta elettronica di invito.
 
 >[!NOTE]
->Solo amministratori
+>Se l'indirizzo di posta elettronica dell'amministratore è indicato come account Microsoft e non è stato creato un account Microsoft associato all'indirizzo da cui è stato ricevuto l'invito, sarà necessario [crearne uno](https://signup.live.com) prima di poter effettuare l'accesso.
 
-Questa sezione illustra come accedere a Seller Insights Portal per la prima volta.
 
-###<a name="overview-of-roles"></a>Panoramica dei ruoli
+### <a name="administrator-sign-in-to-the-seller-insights-portal"></a>Accesso dell'amministratore al portale delle informazioni dettagliate del venditore
 
-![tipo di account][5]
+1. Accedere al portale delle informazioni dettagliate del venditore facendo clic sull'URL contenuto nel messaggio di posta elettronica ricevuto.
+2. Immettere l'indirizzo di posta elettronica e la password dell'amministratore.
+3. Fare clic sul pulsante **Sign In** (Accedi).
+4. Iniziare ad amministrare l'account. Aggiungere gli utenti, impostare le autorizzazioni e modificare gli utenti.
+5. Assicurarsi che gli utenti abbiano l'URL per il portale delle informazioni dettagliate del venditore.
 
-L'amministratore di Seller Insights Portal può aggiungere, modificare ed eliminare gli utenti.
+    ![Pagina di accesso][6]
 
-Un utente di Seller Insights Portal può visualizzare tutti i dati disponibili per l'organizzazione.
+## <a name="user-sign-in-to-the-portal"></a>Accesso dell'utente al portale
 
-Sia gli amministratori che gli utenti devono eseguire l'autenticazione usando un account Microsoft valido (LiveID http://signup.live.com) o un account della società. Assicurarsi che l'ID immesso sia associato a una cassetta postale monitorata.
-
-###<a name="invitation-to-activate-your-account"></a>Invito ad attivare l'account
-
-Idealmente, prima di accedere a Seller Insights Portal l'amministratore deve identificare gli account delle persone da impostare come utenti. Gli account possono essere sia account Microsoft che account della società.
-
-Per attivare il servizio, l'amministratore deve accedere all'URL indicato nel messaggio di posta elettronica di invito (https://reports.azure.com)
+L'amministratore deve inviare all'utente un messaggio di posta elettronica per comunicare l'avvenuta creazione dell'account e indicare l'[indirizzo URL](https://reports.azure.com) del portale delle informazioni dettagliate del venditore.
 
 >[!NOTE]
->Se l'indirizzo di posta elettronica dell'amministratore è elencato come account Microsoft e non si dispone ancora di un account Microsoft associato all'indirizzo da cui è stato ricevuto l'invito, sarà necessario crearne uno prima di effettuare l'accesso dal sito https://signup.live.command, usando questo indirizzo durante la creazione dell'account Microsoft.
-
-###<a name="sign-in-to-the-portal"></a>Accesso al portale
-
-1. Accedere a Seller Insights Portal facendo clic sull'URL indicato nel messaggio di posta elettronica ricevuto.
-2. Immettere indirizzo di posta elettronica e password dell'amministratore.
-3. Fare clic sul pulsante Accedi.
-4. Iniziare ad amministrare l'account, aggiungendo e modificando gli utenti e impostando le autorizzazioni.
-5. Assicurarsi di fornire agli utenti l'URL del portale.
-
-![pagina di accesso][6]
-
-##<a name="signing-in"></a>Accesso
-
-L'amministratore deve informare l'utente tramite posta elettronica che è stato creato il suo account e condividere l'URL di Seller Insights Portal (https://reports.azure.com).
-
->[!NOTE]
->L'amministratore è il proprietario dell'account che pubblica di fatto soluzioni in Azure Marketplace.  Il proprietario di questo account può concedere l'accesso ad altri utenti.  Se si ha accesso al portale di pubblicazione come co-amministratore è possibile trovare l'indirizzo amministratore attenendosi alla procedura seguente:
->1. Accedere al portale di pubblicazione
->2. Fare clic sulla scheda Editori
->3. Aprire il server di pubblicazione in questione (in genere è disponibile solo uno)
->4. Fare clic su "Administrators" in basso a sinistra
->5. L'indirizzo di posta elettronica dell'amministratore che si sta cercando si chiama "Proprietario."
+>L'amministratore è il proprietario dell'account che pubblica soluzioni in Azure Marketplace. Il proprietario di questo account può concedere l'accesso ad altri utenti.  Se si ha accesso al portale di pubblicazione come co-amministratore, è possibile trovare l'indirizzo dell'amministratore seguendo questi passaggi:
+>1. Accedere al portale di pubblicazione.
+>2. Fare clic sulla scheda **Editori**.
+>3. Aprire il server di pubblicazione in questione (in genere ne è disponibile solo uno).
+>4. Fare clic su **Amministratori** in basso a sinistra.
+>5. L'indirizzo di posta elettronica dell'amministratore da trovare è indicato come *Proprietario*.
 
 
-È possibile accedere a Seller Insights Portal con un account Microsoft personale o con un account aziendale, a seconda del tipo di account usato dall'amministratore quando ha configurato il profilo dell'utente.  L'amministratore deve comunicare all'utente il tipo di account da usare.
+È possibile accedere al portale delle informazioni dettagliate del venditore usando un account Microsoft personale o un account aziendale o dell'istituto di istruzione. Il tipo di account dipende dalla configurazione eseguita dall'amministratore nel profilo. L'amministratore deve comunicare all'utente il tipo di account da usare.
 
-![tipo di account][1]
+![Tipo di account][1]
 
 
 
-***Benvenuti in Seller Insights Portal***
+**Portale delle informazioni dettagliate del venditore**
 
-1. Dopo l'accesso viene visualizzata una pagina di riepilogo.
-2. Prevedere alcuni minuti per la lettura dell'informativa sulla privacy.
-3. Per qualsiasi domanda relativa al portale è possibile usare in qualunque momento il pulsante "Contattaci".
-4. È possibile esplorare Seller Insights Portal usando le schede disponibili nella parte superiore della pagina.  Osservando le schede nella parte superiore delle pagine illustrate in questa guida è possibile orientarsi meglio all'interno di Seller Insights Portal.
-5. Fare clic sugli emoticon in qualsiasi momento per inviare commenti e suggerimenti relativi al portale.
-6. Fare clic sul proprio nome nell'angolo in alto a destra per disconnettersi da Seller Insights Portal in qualsiasi momento.
+1. Dopo aver effettuato l'accesso, viene visualizzata la pagina **Summary** (Riepilogo).
+2. Dedicare alcuni minuti alla lettura dell'informativa sulla privacy.
+3. Per qualsiasi problema è sempre possibile fare clic su **Contact Us** (Contatti) per inviare un messaggio di posta elettronica con eventuali domande relative al portale delle informazioni dettagliate del venditore.
+4. È possibile esplorare il portale delle informazioni dettagliate del venditore usando le schede disponibili nella parte superiore della pagina.  Osservando le schede nella parte superiore delle pagine illustrate in questa guida è possibile orientarsi meglio all'interno del portale delle informazioni dettagliate del venditore.
+5. Fare clic sull'emoticon in qualsiasi momento per inviare commenti e suggerimenti relativi al portale delle informazioni dettagliate del venditore.
+6. Fare clic sul proprio nome nell'angolo in alto a destra per disconnettersi dal portale delle informazioni dettagliate del venditore.
 
-![pagina di destinazione predefinita][2]
+    ![Pagina di destinazione predefinita][2]
 
 
-##<a name="summary-view"></a>Visualizzazione riepilogo
+## <a name="summary-view"></a>Visualizzazione riepilogo
 
-1. Selezionare la scheda "Riepilogo".
-2. Immettere qui la data di inizio del periodo desiderato e fare clic su "Applica". Verranno visualizzati i dati relativi a un intervallo di 3 mesi.
-3. Qui sono illustrati i dati relativi alle tendenze dei nuovi ordini per l'intervallo di 3 mesi selezionato.
-4. I nuovi ordini per l'intervallo selezionato verranno visualizzati in base al canale o al tipo di offerta.
-5. Selezionare una visualizzazione tra Top 5 Markets (Primi 5 mercati), Top 5 Performing Offers (Prime 5 offerte per prestazioni) o Top 5 Customers (Primi 5 clienti).
-6. Verrà visualizzato il layout relativo alle tendenze per le offerte a pagamento nell'intervallo selezionato. Se si dispone solo di offerte BYOL o di proprietà, il pannello non verrà visualizzato.
 
-![visualizzazione riepilogo][7]
+1. Selezionare la scheda **Summary** (Riepilogo).
+2. In **Start Date** (Data inizio) immettere la data di inizio del periodo di tempo desiderato e quindi fare clic su **Apply** (Applica). Vengono visualizzati tre mesi di dati.
+3. Qui vengono visualizzati i dati di tendenza dei nuovi ordini per il periodo di tre mesi selezionato.
+4. Qui vengono visualizzati i nuovi ordini per il periodo di tempo selezionato in base al canale o al tipo di offerta.
+5. Selezionare una visualizzazione in questo pannello. È possibile scegliere tra **Top 5 Market** (Primi 5 mercati), **Top 5 Performing Offers** (Prime 5 offerte per prestazioni) o **Top 5 Customers** (Primi 5 clienti).
+6. Qui vengono visualizzate le tendenze relative ai proventi per il periodo di tempo selezionato per le offerte a pagamento. In caso di offerte solo BYOL o di proprietà, questo pannello non viene visualizzato.
 
-##<a name="orders-and-usage"></a>Ordini e uso
-###<a name="overview"></a>Panoramica
+    ![Visualizzazione riepilogo][7]
 
-R. Nel *pannello A* è possibile selezionare la scheda "Orders and usage" (Ordini e uso).  Da qui è possibile selezionare "Ordini" o "Uso" dalla scheda "Tipo di report" e usare i dispositivi di scorrimento per selezionare i dati desiderati.
+## <a name="orders-and-usage"></a>Ordini e uso
+### <a name="overview"></a>Panoramica
 
-B. Nel *pannello B* è possibile selezionare i dati mensili per "Ordini" o "Uso", a seconda dell'opzione selezionata in "Tipo di report" nel pannello A. I dati presentati riflettono le date immesse e i filtri applicati usando i dispositivi di scorrimento nel pannello A.
+Nel *pannello A* è possibile selezionare la scheda **Orders and Usage** (Ordini e uso).  Nella scheda è possibile selezionare **Orders** (Ordini) o **Usage** (Uso) in **Report Type** (Tipo di report) e quindi usare i dispositivi di scorrimento per selezionare i dati di interesse.
 
-C. Nel *pannello C* è possibile selezionare i dati relativi alle tendenze trimestrali per "Ordini" o "Uso", a seconda dell'opzione selezionata in "Tipo di report" nel pannello A. I dati presentati riflettono le date immesse e i filtri applicati usando i dispositivi di scorrimento nel pannello A.
+Nel *pannello B* è possibile selezionare i dati mensili. Selezionare **Orders** (Ordini) o **Usage** (Uso) a seconda dell'opzione selezionata in **Report Type** (Tipo di report) nel pannello A. I dati visualizzati corrispondono alle date immesse e ai filtri applicati usando i dispositivi di scorrimento nel pannello A.
 
-D. *Pannello D*: fornisce i dati relativi a ogni sottoscrizione singola.  I dati possono essere scaricati da questo pannello in formato Excel o con estensione csv.
+Nel *pannello C* è possibile selezionare i dati sulle tendenze di tre mesi. Selezionare **Orders** (Ordini) o **Usage** (Uso) a seconda dell'opzione selezionata in **Report Type** (Tipo di report) nel pannello A. I dati visualizzati corrispondono alle date immesse e ai filtri applicati usando i dispositivi di scorrimento nel pannello A.
+
+Nel *pannello D* sono elencati i dati di sottoscrizione per ogni utente.  I dati possono essere scaricati da questo pannello in formato Excel o CSV.
 
 ![Panoramica degli ordini][8]
 ![Mappa panoramica degli ordini][9]
 
-###<a name="orders"></a>Ordini
-####<a name="monthly-view---panel-a"></a>Visualizzazione mensile: pannello A
+
+### <a name="orders"></a>Ordini
+#### <a name="monthly-view-panel-a"></a>Visualizzazione mensile: pannello A
 
 ![Mappa del pannello A][10]
 
-  1. Selezionare la scheda "Orders and usage" (Ordini e uso) dalla riga superiore per accedere ai dati relativi a ordini e uso.
-  2. Selezionare"Ordini" dalla scheda "Tipo di report".
-  3. Usare il simbolo del filtro per visualizzare o nascondere i filtri dei dati illustrati ("Filtro avanzato").  Usare i filtri dei dati per filtrare i dati che si desidera visualizzare per tipo di licenza di Azure, tipo di licenza di Marketplace, mercato, tipo di offerta e stato dell'anteprima.  Vedere la scheda "Guida" per le definizioni di questi termini.
-  4. Selezionare la data di inizio desiderata e fare clic su "Vai".
+  1. Selezionare la scheda **Orders and usage** (Ordini e uso) sulla riga superiore per accedere ai dati su ordini e utilizzo.
+  2. Selezionare **Orders** (Ordini) in **Report Type** (Tipo di report).
+  3. Usare l'icona di filtro per visualizzare o nascondere le opzioni del filtro dei dati.  Usare questi filtri dei dati per filtrare i dati da visualizzare per stato **Azure License Type** (Tipo di licenza di Azure), **Marketplace License Type** (Tipo di licenza Marketplace), **Market** (Mercato), **Offer Type** (Tipo di offerta) e stato **Preview** (Anteprima).  Per le definizioni di questi termini, vedere la scheda **Help** (Guida).
+  4. Selezionare la data di inizio desiderata e quindi fare clic su **Go** (Vai).
 
-![Visualizzazione mensile degli ordini: pannello A][14]
+  ![Visualizzazione mensile degli ordini - Pannello A][14]
 
-####<a name="monthly-view---panel-b"></a>Visualizzazione mensile: pannello B
+#### <a name="monthly-view-panel-b"></a>Visualizzazione mensile: Pannello B
 
   ![Mappa del pannello B][11]
 
-  1. Selezionare "Visualizzazione mensile".
-  2. I dettagli del riepilogo degli ordini vengono visualizzati per canale: CSP, enterprise diretto, enterprise indiretto e accesso Web diretto.
-  3. Per "Visualizzazione mensile", il pannello "Riepilogo ordini" mostra visualizzazioni a grafico di:
-    - Primi 10 ordini per mercato
-    - Primi 10 ordini per tipo di offerta
-    - Ordini in base al tipo di licenza di Azure
-    - Ordini in base al tipo di licenza di Marketplace
+  1. Selezionare **Monthly View** (Visualizzazione mensile).
+  2. I dettagli di riepilogo degli ordini vengono visualizzati per canale: CSP, Enterprise diretto, Enterprise indiretto e accesso Web diretto.
+  3. Per **Monthly View** (Visualizzazione mensile), il pannello **Orders Summary Details** (Dettagli di riepilogo ordini) offre le visualizzazioni grafico seguenti:
 
-![Visualizzazione mensile degli ordini: pannello B][15]
+* Orders By Market (Top 10) (Ordini per mercato (primi 10))
+* Orders By Offer Title (Top 10) (Ordini per titolo di offerta (primi 10))
+* Orders By Azure License Type (Ordini per tipo di licenza di Azure)
+* Orders By Marketplace License Type (Ordini per tipo di licenza Marketplace)
 
-####<a name="trend-view---panel-c"></a>Visualizzazione delle tendenze: pannello C
+
+![Visualizzazione mensile degli ordini - Pannello B][15]
+
+#### <a name="trend-view-panel-c"></a>Visualizzazione delle tendenze: pannello C
 
   ![Mappa del pannello C][12]
 
-  1. Selezionare "Trend View" ("Panoramica delle tendenze").
-  2. Selezionare gli elementi che si desidera visualizzare dall'elenco a discesa "Area di interesse" e fare clic su "Applica".  L'impostazione predefinita è "Seleziona tutto".
+  1. Selezionare **Trend View** (Visualizzazione tendenze).
+  2. Selezionare gli elementi da visualizzare nell'elenco **Subject Area** (Area di interesse) e quindi fare clic su **Apply** (Applica). L'impostazione predefinita è **Select All** (Seleziona tutto).
 
-  ![Visualizzazione mensile degli ordini nel pannello C, elenco a discesa delle aree di interesse][17]
-  3. Usare il simbolo del filtro per selezionare "Tutti" i dati o "Primi 10" per tutte le selezioni.  L'impostazione predefinita è "Primi 10".
+  ![Visualizzazione mensile degli ordini nel pannello C, elenco a discesa Subject Area (Area di interesse)][17]
 
-  ![Visualizzazione mensile degli ordini: pannello C, simbolo del filtro][18]
-  4. Scorrere su ogni barra del grafico selezionato per visualizzare i dati sottostanti.
-  5. Attivare o disattivare il simbolo "+" per visualizzare i dati sotto i grafici selezionati.
+  3. Usare l'icona di filtro per selezionare **All** (Tutti) o **Top 10** (Primi 10) per tutte le selezioni. L'impostazione predefinita è **Top 10** (Primi 10).
 
-![Visualizzazione delle tendenze degli ordini: pannello C][16]
+  ![Visualizzazione mensile degli ordini - Pannello C, icona di filtro][18]
+
+  4. Posizionare il puntatore del mouse su ogni barra nei grafici selezionati per visualizzare i dati sottostanti.
+  5. Usare il simbolo **+** per passare a una modalità in cui vengono visualizzati i dati sotto i grafici selezionati.
+
+  ![Visualizzazione delle tendenze degli ordini - Pannello C][16]
 
 
-####<a name="detailed-orders-data---panel-d"></a>Dati dettagliati degli ordini: pannello D
+
+#### <a name="detailed-orders-data-panel-d"></a>Dati dettagliati sugli ordini: pannello D
 
   ![Mappa del pannello D][13]
 
-  1. Il pannello Dettaglio ordine mostra i dati dettagliati degli ordini.
-  2. Usare i filtri nella parte superiore di ogni colonna per filtrare i dati tramite un'ampia gamma di comandi e di valori.
+  1. Il pannello **Order Detail** (Dettagli ordine) mostra i dati dettagliati dell'ordine.
+  2. Usare i filtri nella parte superiore di ogni colonna per filtrare i dati tramite un'ampia gamma di comandi e valori.
 
-  ![Visualizzazione mensile degli ordini: pannello B, filtri][20]
-  3. Selezionare il numero di elementi per pagina che si desidera visualizzare, fra 10, 20 o 50.
-  4. Scaricare i dati in formato Excel o con estensione csv per l'analisi offline.
+  ![Visualizzazione mensile degli ordini - Filtri del pannello D][20]
 
-![Visualizzazione in dettaglio degli ordini, pannello D][19]
+  3. Selezionare il numero di elementi per pagina da visualizzare. È possibile visualizzare 10, 20 o 50 elementi per pagina.
+  4. Scaricare i dati in formato Excel o CSV per l'analisi offline.
 
-###<a name="usage"></a>Utilizzo
-####<a name="monthly-view---panel-a"></a>Visualizzazione mensile: pannello A
+  ![Visualizzazione dettagliata degli ordini del pannello D][19]
+
+
+### <a name="usage"></a>Utilizzo
+#### <a name="monthly-view-panel-a"></a>Visualizzazione mensile: pannello A
 
   ![Mappa del pannello A][10]
 
-  1. Selezionare la scheda "Orders and usage" (Ordini e uso) dalla riga superiore per accedere ai dati relativi a ordini e uso.
-  2. Selezionare "Uso" dalla scheda "Tipo di report".
-  3. Usare il simbolo del filtro per visualizzare o nascondere i filtri dei dati illustrati ("Filtro avanzato").  Usare i filtri dei dati per filtrare i dati che si desidera visualizzare per tipo di licenza di Azure, tipo di licenza di Marketplace, mercato, tipo di offerta e stato dell'anteprima.  Vedere la scheda "Guida" per le definizioni di questi termini.
-  4. Selezionare la data di inizio desiderata e fare clic su "Vai".
 
-![Visualizzazione dell'uso mensile: pannello A][21]
+  1. Selezionare la scheda **Orders and usage** (Ordini e uso) per accedere ai dati su ordini e utilizzo.
+  2. Selezionare **Usage** (Uso) in **Report Type** (Tipo di report).
+  3. Usare l'icona di filtro per visualizzare o nascondere le opzioni del filtro dei dati.  Usare questi filtri dei dati per filtrare i dati da visualizzare per **Azure License Type** (Tipo di licenza di Azure), **Marketplace License Type** (Tipo di licenza Marketplace), **Market** (Mercato), **Offer Type** (Tipo di offerta), stato **Preview** (Anteprima) e **Usage Type** (Tipo di uso).  Per le definizioni di questi termini, vedere la scheda **Help** (Guida).
+  4. Selezionare la data di inizio desiderata e quindi fare clic su **Go** (Vai).
 
-####<a name="monthly-view---panel-b"></a>Visualizzazione mensile: pannello B
+  ![Visualizzazione dell'utilizzo mensile - Pannello A][21]
+
+#### <a name="monthly-view-panel-b"></a>Visualizzazione mensile: Pannello B
 
 ![Mappa del pannello B][11]
 
-  1. Selezionare "Visualizzazione mensile".
-  2. I dettagli di riepilogo dell'uso sono espressi in ore.
-  3. Per "Visualizzazione mensile", il pannello "Riepilogo utilizzo" fornisce una visualizzazione a grafico di:
-    - Primi 10 usi per mercato
-    - Primi 10 usi per tipo di offerta
-    - Uso in base al tipo di licenza di Azure
-    - Uso in base al tipo di licenza di Marketplace
+  1. Selezionare **Monthly View** (Visualizzazione mensile).
+  2. Vengono visualizzati i dettagli di riepilogo sull'utilizzo, espressi in ore.
+  3. Per **Monthly View** (Visualizzazione mensile), il pannello **Orders Summary Details** (Dettagli di riepilogo ordini) offre le visualizzazioni grafico seguenti:
+
+* Orders By Market (Top 10) (Ordini per mercato (primi 10))
+* Orders By Offer Title (Top 10) (Ordini per titolo di offerta (primi 10))
+* Orders By Azure License Type (Ordini per tipo di licenza di Azure)
+* Orders By Marketplace License Type (Ordini per tipo di licenza Marketplace)
+
 
 >[!NOTE]
->I dati visualizzati rifletteranno i filtri applicati tramite i filtri dei dati nel pannello A: ad esempio, vengono visualizzati grafici per l'uso normalizzato.
+>I filtri dei dati nel pannello A vengono usati per filtrare i dati visualizzati nel pannello B. Ad esempio, i grafici sono configurati per **Normalized Usage** (Uso normalizzato).
 
-![Visualizzazione dell'uso mensile: pannello B][22]
+![Visualizzazione mensile dell'utilizzo - Pannello B][22]
 
-####<a name="trend-view---panel-c"></a>Visualizzazione delle tendenze: pannello C
+#### <a name="trend-view-panel-c"></a>Visualizzazione delle tendenze: pannello C
 
   ![Mappa del pannello C][12]
 
-  1. Selezionare Trend View (Panoramica delle tendenze).
-  2. Selezionare gli elementi che si desidera visualizzare dall'elenco a discesa "Area di interesse" e fare clic su "Applica".  L'impostazione predefinita è "Seleziona tutto".
-
-  ![Visualizzazione dell'uso mensile: pannello C, elenco a discesa delle aree di interesse][17]
-  3. Usare il simbolo del filtro per selezionare "Tutti" i dati o "Primi 10" per tutte le selezioni.  L'impostazione predefinita è "Primi 10".
-
-  ![Visualizzazione dell'uso mensile: pannello C, simbolo del filtro][18]
-  4. Scorrere su ogni barra del grafico selezionato per visualizzare i dati sottostanti.
-  5. Attivare o disattivare il simbolo "+" per visualizzare i dati sotto i grafici selezionati.
-
-![Visualizzazione delle tendenze d'uso: pannello C][23]
+  1. Selezionare **Trend View** (Visualizzazione tendenze).
+  2. Selezionare gli elementi che si vuole visualizzare nell'elenco **Subject Area** (Area di interesse) e quindi fare clic su **Apply** (Applica). L'impostazione predefinita è **Select All** (Seleziona tutto).
 
 
-####<a name="detailed-usage-data---panel-d"></a>Dettagli dati sull'uso: pannello D
+  ![Visualizzazione mensile dell'utilizzo - Pannello C, elenco Subject Area (Area di interesse)][17]
+
+  3. Usare l'icona di filtro per selezionare **All** (Tutti) o **Top 10** (Primi 10) per tutte le selezioni. L'impostazione predefinita è **Top 10** (Primi 10).
+
+  ![Visualizzazione mensile dell'utilizzo - Pannello C, icona di filtro][18]
+
+  4. Posizionare il puntatore del mouse su ogni barra nei grafici selezionati per visualizzare i dati sottostanti.
+  5. Usare il simbolo **+** per mostrare i dati sotto ognuno dei grafici selezionati per la visualizzazione.
+
+  ![Visualizzazione delle tendenze di utilizzo - Pannello C][23]
+
+
+#### <a name="detailed-usage-data-panel-d"></a>Dati dettagliati sull'utilizzo: pannello D
+
 
   ![Mappa del pannello D][13]
 
-  1. Il pannello Usage Detail (Dettagli utilizzo) mostra i dati dettagliati degli ordini.
-  2. Usare i filtri nella parte superiore di ogni colonna per filtrare i dati tramite un'ampia gamma di comandi e di valori.
+  1. Il pannello **Usage Detail** (Dettagli uso) mostra i dati dettagliati dell'ordine.
+  2. Usare i filtri nella parte superiore di ogni colonna per filtrare i dati usando diversi comandi e valori.
 
-  ![Visualizzazione dell'uso mensile: pannello D, filtri][20]
-  3. Selezionare il numero di elementi per pagina che si desidera visualizzare, fra 10, 20 o 50.
-  4. Scaricare i dati in formato Excel o con estensione csv per l'analisi offline.
+  ![Visualizzazione mensile dell'utilizzo - Filtri del pannello D][20]
 
-![Visualizzazione dell'uso mensile pannello D][24]
-![Visualizzazione dell'uso mensile pannello D][25]: scaricare i risultati
-
-###<a name="accessing-detailed-customer-data"></a>Accesso ai dati dettagliati dei clienti
-
-  1. Dalle sezioni 'Ordini' o 'Uso' del pannello 'Dettaglio ordine' fare clic sull'ID sottoscrizione di Azure desiderato.  Si noti che soltanto i tipi di licenza di Marketplace non BYOL sono selezionabili e che l'ID sottoscrizione BYOL viene sottoposto a hashing per motivi di sicurezza.
-
-  ![Dettagli su ordini e uso da parte dei clienti: pannello dettagli][26]
-  2. Si verrà reindirizzati alla scheda "Cliente" e verranno recuperati i dati dettagliati del cliente a cui è associato l'ID sottoscrizione.
-  3. È possibile scaricare i dati in formato Excel o con estensione csv.
+  3. Selezionare il numero di elementi per pagina da visualizzare. È possibile visualizzare 10, 20 o 50 elementi per pagina.
+  4. Scaricare i dati in formato Excel o CSV per l'analisi offline.
 
 
-![Ordini e uso da parte dei clienti: pannello dettagli][27]
+  ![Visualizzazione mensile dell'utilizzo - Pannello D][24]
+  ![Visualizzazione mensile dell'utilizzo - Download dei risultati del pannello D][25]
 
-###<a name="customer-data"></a>Dati del cliente
+### <a name="accessing-detailed-customer-data"></a>Accesso ai dati dettagliati dei clienti
 
-  1. Selezionare la scheda Cliente.
-  2. Usare i filtri dei dati per filtrare i dati che si desidera visualizzare per tipo di licenza di Azure o tipo di licenza di Marketplace.
-  3. Selezionare "Data di inizio" e "Data di fine" per l'intervallo desiderato.
-  4. Verranno visualizzati i dettagli di riepilogo cliente per tipo di licenza di Marketplace.
-  5. Usare i filtri nella parte superiore di ogni colonna per filtrare i dati tramite un'ampia gamma di comandi e di valori.
-  6. Scaricare i dati in formato Excel o con estensione csv.
+  1. Nel pannello **Order Detail** (Dettagli ordine) fare clic sull'ID sottoscrizione di Azure desiderato.  È possibile fare clic solo sugli ID del tipo di licenza del Marketplace non BYOL. Gli ID sottoscrizione BYOL sono esclusi per motivi di sicurezza.
 
-![Pannello dati del cliente][28]
+  ![Pannello dei dati del cliente su ordini e utilizzo][26]
 
+  2. Viene visualizzato il pannello **Customers Detailed Data** (Dati dettagliati clienti). Vengono recuperati i dati per il cliente.
+  3. È possibile scaricare i dati in formato Excel o CSV.
 
-##<a name="user-management"></a>Gestione utente
+  ![Pannello dei dati del cliente su ordini e utilizzo][27]
 
->[!NOTE]
->Solo amministratori
+### <a name="customer-data"></a>Dati del cliente
 
-Questa sezione mostra come aggiungere nuovi utenti o modificare le autorizzazioni in Seller Insights Portal.
+  1. Selezionare la scheda **Customer** (Cliente).
+  2. Usare i filtri dei dati per filtrare i dati da visualizzare per **Azure License Type** (Tipo di licenza di Azure) e **Marketplace License Type** (Tipo di licenza Marketplace).
+  3. Selezionare le date di inizio e di fine per il periodo di tempo desiderato in **Start Date** (Data inizio) e **End Date** (Data fine).
+  4. Verranno visualizzati i dettagli di riepilogo del cliente per **Marketplace License Type** (Tipo di licenza Marketplace).
+  5. Usare i filtri nella parte superiore di ogni colonna per filtrare i dati usando diversi comandi e valori.
+  6. Scaricare i dati in formato Excel o CSV.
 
-###<a name="add-user"></a>Add user
-
-1. Selezionare la scheda "Gestione utenti".
-2. Per aggiungere un utente, andare su "Gestione utenti", quindi fare clic su "Aggiungi utente".
-3. Aggiungere un utente immettendo l'indirizzo di posta elettronica associato con il relativo account Microsoft o account aziendale e fare clic su "Continua".
-4. In qualità di amministratore, è possibile assegnare agli utenti un accesso di sola lettura ai report.
-5. Immettere i dettagli dell'utente (nome, cognome e indirizzo di posta elettronica), poi fare clic su "Continua".
-6. Fare clic sulle autorizzazioni che si desidera allocare all'utente e fare clic su "Continua".
-7. Verificare le informazioni immesse e fare clic su "Salva" per continuare.  L'utente è stato aggiunto correttamente.
-
-![Pannello per l'aggiunta di un utente][29]
+  ![Pannello dati del cliente][28]
 
 
-###<a name="edit-user"></a>Edit User
+## <a name="user-management"></a>Gestione utente
 
-1. Selezionare "Modifica utenti" dalla scheda "Gestione utenti".
-2. Individuare l'utente di cui si desidera modificare le autorizzazioni.  Si noti che da qui è anche possibile scegliere l'opzione "Aggiungi utenti".
-3. Fare clic sulle autorizzazioni da rimuovere per l'utente.  Si noti che da qui è anche possibile scegliere l'opzione "Elimina utente".
-4. Fare clic su "Salva" per continuare.  Le autorizzazioni dell'utente sono state modificate correttamente.
-
-![Pannello per la modifica di un utente][30]
-
-##<a name="help"></a>Guida
-
-##<a name="support-requests"></a>Richieste di supporto
+Le attività indicate in questa sezione sono riservate agli amministratori. Seguire queste procedure per aggiungere utenti, modificare le autorizzazioni o eliminare utenti dal portale delle informazioni dettagliate del venditore.
 
 
-###<a name="access-the-support-request-format"></a>Accedere al modulo di richiesta di supporto
+### <a name="add-user"></a>Add user
 
-1. Selezionare la scheda "Guida".
-2. Selezionare "Support & Documentation" (Supporto e documentazione) e "Avvio richiesta".
-3. È inoltre possibile inviare una richiesta di supporto dal collegamento "Contattaci" in fondo a ogni schermata dell'applicazione.
-4. Verrà aperta una nuova scheda da cui sarà possibile inviare una richiesta di supporto.
-
-![Accedere al modulo di supporto][31]
-
-###<a name="review-helpful-information"></a>Esaminare le informazioni utili
-
-1. Per inviare una richiesta di supporto correlata ai report, selezionare "Reports and Insights" (Report e approfondimenti) da "Tipo di problema".
-2. Selezionare una categoria.  Le opzioni sono "Questions related to reports" (Domande relative ai report) e "Other" (Altro).
-3. Vengono visualizzati alcuni collegamenti utili che possono offrire una risposta alla query.  È necessario consultarli prima di inviare la richiesta di supporto.
-4. Se è comunque necessario inviare una richiesta di supporto, selezionare "Avvio richiesta".
-
-![Pannello per la modifica di un utente][32]
+Questa sezione illustra come aggiungere nuovi utenti o modificare le autorizzazioni nel portale delle informazioni dettagliate del venditore.
 
 
-###<a name="fill-out-and-submit-the-request"></a>Compilare e inviare la richiesta
+1. Selezionare la scheda **User Management** (Gestione utenti).
+2. Per aggiungere un utente, selezionare **Add User** (Aggiungi utente).
+3. Immettere l'indirizzo e-mail associato all'account Microsoft oppure all'account aziendale o dell'istituto di istruzione. Fare quindi clic su **Continue** (Continua).
+4. In qualità di amministratore, è possibile assegnare agli utenti l'accesso in sola lettura ai report.
+5. Immettere i dettagli dell'utente in **First Name** (Nome), **Last Name** (Cognome) e **Email** (Posta elettronica) e quindi fare clic su **Continue** (Continua).
+6. Selezionare le autorizzazioni da assegnare all'utente e quindi fare clic su **Continue** (Continua).
+7. Controllare che le informazioni immesse siano corrette e quindi fare clic su **Salva** per continuare.  L'utente è stato aggiunto correttamente.
 
-1. Immettere le informazioni di contatto, il fuso orario, l'area geografica e le preferenze linguistiche, poi selezionare "Continua".
-2. Assegnare un titolo all'evento imprevisto e specificare quante più informazioni possibili.  È inoltre possibile caricare dei file di supporto con screenshot e così via e selezionare "Invia".
-3. Si riceverà un messaggio di conferma per indicare che la richiesta di supporto è stata inviata correttamente.
+  ![Pannello per l'aggiunta di un utente][29]
+
+
+### <a name="edit-user"></a>Modificare l'utente
+
+1. Selezionare la scheda **User Management** (Gestione utenti) e quindi fare clic su **Edit Users** (Modifica utenti).
+2. Trovare l'utente di cui si vogliono modificare le autorizzazioni.  È anche possibile aggiungere nuovi utenti. Fare clic su **Aggiungi utenti**.
+3. Fare clic sulle autorizzazioni da rimuovere per l'utente.  È anche possibile eliminare un utente. Fare clic su **Delete User** (Elimina utente).
+4. Fare clic su **Save** (Salva) per continuare.  Le autorizzazioni dell'utente sono state modificate correttamente.
+
+  ![Pannello per la modifica di un utente][30]
+
+## <a name="help-support-requests"></a>Richieste di supporto
+
+
+### <a name="access-the-support-request-format"></a>Accedere al modulo di richiesta di supporto
+
+1. Selezionare la scheda **Help** (Guida).
+2. Selezionare **Support & Documentation** (Supporto e documentazione) e quindi **Start Request** (Avvia richiesta).
+3. È anche possibile inviare una richiesta di supporto facendo clic sul collegamento **Contact Us** (Contatti). Il collegamento viene visualizzato nella parte inferiore di ogni pagina dell'applicazione.
+4. Viene visualizzata una nuova scheda in cui è possibile inviare una richiesta di supporto.
+
+  ![Accedere al modulo di supporto][31]
+
+### <a name="review-helpful-information"></a>Esaminare le informazioni utili
+
+1. Per inviare una richiesta di supporto relativa ai report, selezionare **Reports and Insights** (Report e approfondimenti) in **Problem type** (Tipo di problema).
+2. Selezionare una categoria.  Le opzioni disponibili sono **Questions related to reports** (Domande relative ai report) e **Other** (Altro).
+3. Vengono visualizzati alcuni collegamenti utili che possono offrire una risposta alla domanda.  È necessario consultarli prima di inviare la richiesta di supporto.
+4. Se è comunque necessario inviare una richiesta di supporto, selezionare **Start Request** (Avvia richiesta).
+
+  ![Pannello per la modifica di un utente][32]
+
+
+### <a name="enter-information-and-submit-the-request"></a>Immettere le informazioni e inviare la richiesta
+
+1. Immettere le informazioni di contatto, il fuso orario, l'area geografica e le preferenze relative alla lingua e quindi selezionare **Continue** (Continua).
+2. Assegnare un titolo all'evento imprevisto e specificare quante più informazioni possibili.  È anche possibile caricare file di supporto come uno screenshot e quindi selezionare **Submit** (Invia).
+3. Si riceverà un messaggio di conferma che indica che la richiesta di supporto è stata inviata correttamente.
 4. È possibile verificare lo stato della richiesta di supporto in qualsiasi momento.
 
-![Accedere al modulo di supporto][33]
+  ![Accedere al modulo di supporto][33]
 
 
-##<a name="resetting-a-password"></a>Reimpostazione di una password
+## <a name="reset-a-password"></a>Reimpostare una password
 
-***Convalida dell'account e della password***
+**Convalida dell'account e della password**
 
-1. ***Verificare che l'account in uso sia registrato e che la password funzioni.*** Se si specifica un account registrato in Azure Active Directory, viene automaticamente chiesto di scegliere l'account con cui eseguire l'accesso, ovvero l'account aziendale o dell'istituto di istruzione o un account LiveID personale.
-2. Accedere a https://reports.azure.com e disconnettere eventuali account già connessi oppure aprirlo all'interno di una finestra privata per assicurarsi che non siano connessi altri account.
-3. Immettere l'indirizzo di posta elettronica del server di pubblicazione senza specificare una password. Si verrà reindirizzati al ***passaggio 4*** se l'account è stato registrato in Azure Active Directory. Vengono registrati gli account amministratore e gli account aziendali configurati tramite l'account amministratore.
-4. Scegliere "Account aziendale o dell'istituto di istruzione". Gli account aziendali o dell'istituto di istruzione vengono configurati dalle aziende registrate con Azure, mentre gli account personali (LiveID) sono account personali registrati con Microsoft.
- * È possibile che un utente abbia precedentemente configurato un account LiveID usando il proprio indirizzo di posta elettronica aziendale, che successivamente l'azienda abbia adottato Azure e che lo stesso indirizzo sia stato registrato come account aziendale. In questo caso, l'utente può avere sia un account LiveID con la password usata per creare il proprio LiveID sia un account aziendale con una password diversa usata dall'azienda.
-5. In Seller Insights Portal, quando si seleziona "Account aziendale o dell'istituto di istruzione" accertarsi di usare la combinazione account aziendale/password e non la combinazione LiveID/password.
-6. Se si usa un account aziendale, si verrà reindirizzati alla pagina di accesso del server di pubblicazione,
-7. da cui è possibile verificare se la password per l'account aziendale funziona. Se non funziona, passare alla sezione ***Reimpostazione della password***.
+1. *Verificare che l'account in uso sia registrato e che la password funzioni.* Se si immette un account registrato in Azure Active Directory, viene automaticamente chiesto di scegliere l'account con cui accedere. Si usa un account aziendale o dell'istituto di istruzione oppure un account Microsoft personale.
+2. Passare a [https://reports.azure.com](https://reports.azure.com) e disconnettersi da qualsiasi account usato per effettuare l'accesso. È anche possibile aprire la pagina in una finestra privata per assicurarsi che non siano connessi altri account.
+3. Immettere l'indirizzo e-mail del server di pubblicazione senza specificare una password. Se è registrato in Azure Active Directory, si verrà reindirizzati al passaggio 4.
 
-***Reimpostare le password***
+    >[!NOTE]
+    >Gli account amministratore sono registrati. Anche gli account aziendali o dell'istituto di istruzione configurati dall'account amministratore sono registrati.
 
-Provare a reimpostare la password usando la procedura guidata Reimpostazione password self-service accessibile dai collegamenti riportati di seguito.
+4. Scegliere **Account aziendale o dell'istituto di istruzione**. Gli account aziendali o dell'istituto di istruzione vengono configurati da società registrate in Azure. 
+
+    >[!NOTE]
+    >Un utente può configurare un account Microsoft usando il proprio indirizzo e-mail aziendale. In questo scenario, l'azienda esegue successivamente l'onboarding ad Azure e lo stesso indirizzo e-mail viene registrato come account aziendale o dell'istituto di istruzione. L'utente può avere un account Microsoft con la stessa password usata per creare l'account aziendale o dell'istituto di istruzione, nonché un account aziendale o dell'istituto di istruzione con una password separata usata dall'organizzazione.
+
+5. Per il portale delle informazioni dettagliate del venditore, quando si seleziona **Account aziendale o dell'istituto di istruzione** accertarsi di usare la password dell'account aziendale o dell'istituto di istruzione e non la password di un account Microsoft.
+6. Un account aziendale o dell'istituto di istruzione reindirizza l'utente alla pagina del server di pubblicazione per l'accesso.
+7. Da questa pagina verificare il funzionamento della password per l'account aziendale o dell'istituto di istruzione. In caso contrario, passare alla sezione "Reimpostazione della password" di questo articolo.
+
+
+
+**Reimpostazione della password**
+
+Usare questi account Microsoft aziendali o dell'istituto di istruzione per reimpostare la password.
 
 >[!NOTE]
->Nota: per gli account aziendali impostati tramite l'account amministratore, se l'amministratore ha attivato la funzionalità che consente agli utenti di reimpostare la password, è possibile reimpostare la password autonomamente. In caso contrario, è possibile contattare il proprio amministratore tramite il modulo di reimpostazione della password.
+>Per gli account aziendali o dell'istituto di istruzione configurati tramite l'account amministratore, se l'amministratore ha attivato la funzionalità che consente di reimpostare la password è possibile reimpostare personalmente la password. In caso contrario, è possibile contattare il proprio amministratore tramite il modulo di reimpostazione della password.
 
-****Account Microsoft (LiveID): https://account.live.com/ResetPassword.aspx**** ![reimpostazione password account Microsoft][3]
+* [Account Microsoft](https://account.live.com/ResetPassword.aspx)
+![Reimpostazione password account Microsoft][3]
 
-****Account aziendale o dell'istituto di istruzione (ID aziendale): https://passwordreset.microsoftonline.com/**** ![reimpostazione password account aziendale o dell'istituto di istruzione][4]
+* [Account aziendale o dell'istituto di istruzione](https://passwordreset.microsoftonline.com/)
+![Reimpostazione password account aziendale o dell'istituto di istruzione][4]
 
 
-##<a name="have-other-feedback"></a>Altri commenti e suggerimenti?
+## <a name="send-feedback-to-improve-the-seller-insights-portal"></a>Inviare commenti e suggerimenti per migliorare il portale delle informazioni dettagliate del venditore
 
-  1. Per inviare commenti e suggerimenti è possibile fare clic sulle emoticon in qualsiasi momento.
+  Per inviare commenti e suggerimenti, è possibile fare clic sull'emoticon in qualsiasi momento.
 
 
   ![Modulo di commenti e suggerimenti][34]
@@ -385,4 +417,5 @@ Provare a reimpostare la password usando la procedura guidata Reimpostazione pas
 [32]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-information.png
 [33]: ./media/marketplace-publishing-report-seller-insights-user-guide/support-fill-out-and-submit.png
 [34]: ./media/marketplace-publishing-report-seller-insights-user-guide/feedback-form.png
+[35]: ./media/marketplace-publishing-report-seller-insights-user-guide/help.png
 

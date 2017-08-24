@@ -1,38 +1,38 @@
 ---
-title: 'Script di Azure PowerShell: configurare la replica geografica per database SQL in pool | Microsoft Docs'
-description: 'Esempio di script di Azure PowerShell: configurare la replica geografica attiva per database SQL di Azure in pool usando PowerShell'
+title: Esempio di PowerShell - Replica geografica attiva per un database SQL di Azure in pool | Microsoft Docs
+description: Esempio di script di Azure PowerShell per configurare la replica geografica attiva per un database SQL di Azure in pool
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: jhubbard
 editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.custom: business continuity
 ms.devlang: PowerShell
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 03/07/2017
-ms.author: janeng
+ms.date: 07/25/2017
+ms.author: carlrab
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 294ba61b23e8cc1ef1ecf1bf538934393a4f9768
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: 34a4970e9b0e99cbbbbc52788b00edab4a197755
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/28/2017
 
 ---
 
-# <a name="configure-active-geo-replication-for-a-pooled-azure-sql-database-using-powershell"></a>Configurare la replica geografica attiva per un database SQL di Azure in pool con PowerShell
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>Usare PowerShell per configurare la replica geografica attiva per un database SQL di Azure in pool
 
-Questo esempio di script di PowerShell configura la replica geografica attiva per un database in un pool elastico e ne esegue il failover nella replica secondaria.
+Questo esempio di script di PowerShell configura la replica geografica attiva per un database SQL di Azure in un pool elastico e ne esegue il failover nella replica secondaria del database SQL di Azure.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1 "Configurare la replica geografica attiva per pool elastici")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-pool/setup-geodr-and-failover-pool.ps1?highlight=16-19 "Configurare la replica geografica attiva per pool elastici")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

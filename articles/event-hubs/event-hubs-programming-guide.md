@@ -1,6 +1,6 @@
 ---
 title: Guida alla programmazione per Hub eventi di Azure | Documentazione Microsoft
-description: Descrive la programmazione con Hub eventi di Azure mediante Azure .NET SDK.
+description: Scrivere il codice per Hub eventi di Azure mediante Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,24 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 08/17/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: d8a767e9149c6c5eca5b22f094ae924135fa7a2d
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f65b992297c429eda2090f744b9b88b1ede39533
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 ---
 # <a name="event-hubs-programming-guide"></a>Guida alla programmazione di Hub eventi
+
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure e Azure .NET SDK. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Publisher di eventi
-L'invio di eventi a un hub eventi viene eseguito tramite una connessione AMQP 1.0 o HTTP POST. La scelta del protocollo da usare dipende dallo scenario specifico. Le connessioni AMQP 1.0 sono misurate come connessioni negoziate nel bus di servizio e sono più appropriate in scenari in cui sono frequenti volumi di messaggi più elevati e con requisiti di latenza inferiori, perché offrono un canale di messaggistica persistente.
+
+L'invio di eventi a un hub eventi viene eseguito tramite una connessione AMQP 1.0 o HTTP POST. La scelta del protocollo da usare e di quando usarlo dipende dallo scenario specifico. Le connessioni AMQP 1.0 sono misurate come connessioni negoziate nel bus di servizio e sono più appropriate in scenari in cui sono frequenti volumi di messaggi più elevati e con requisiti di latenza inferiori, perché offrono un canale di messaggistica persistente.
 
 Si crea e si gestisce Hub eventi con la classe [NamespaceManager][] . Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) e [EventData][]. [EventHubClient][] offre il canale di comunicazione AMQP tramite il quale gli eventi vengono inviati all'hub eventi. La classe [EventData][] rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati e informazioni di intestazione sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData][] quando passa attraverso un hub eventi.
 
 ## <a name="get-started"></a>Introduzione
+
 Le classi .NET che supportano Hub eventi fanno parte dell'assembly Microsoft.ServiceBus.dll. Il modo più semplice per fare riferimento all'API del bus di servizio e configurare l'applicazione con tutte le dipendenze del bus di servizio consiste nello scaricare il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus). In alternativa, è possibile usare [Console di gestione pacchetti](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. A tale scopo, eseguire il comando seguente nella finestra della [Console di gestione pacchetti](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
 
 ```
@@ -55,7 +58,7 @@ Tutte le operazioni di creazione di Hub eventi, tra cui [CreateEventHubIfNotExis
 La classe [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) contiene informazioni dettagliate su un hub eventi, tra cui le regole di autorizzazione, l'intervallo di conservazione dei messaggi, gli ID di partizione, lo stato e il percorso. È possibile usare questa classe per aggiornare i metadati in un hub eventi.
 
 ## <a name="create-an-event-hubs-client"></a>Creare un client di Hub eventi
-La classe primaria per l'interazione con Hub eventi è [Microsoft.ServiceBus.Messaging.EventHubClient][]. Questa classe fornisce funzionalità di mittente e destinatario. È possibile creare un'istanza di questa classe usando il metodo [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) , come illustrato nell'esempio seguente.
+La classe primaria per interagire con Hub eventi è [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Questa classe fornisce funzionalità di mittente e destinatario. È possibile creare un'istanza di questa classe usando il metodo [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) , come illustrato nell'esempio seguente.
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -105,6 +108,8 @@ Considerati gli aspetti relativi alla disponibilità, in questi scenari è possi
 - Eliminazione (i messaggi non sono importanti, eliminarli)
 - Ripetizione (nuovo tentativo di invio dei messaggi quando possibile)
 - [Mancato recapito dei messaggi](../service-bus-messaging/service-bus-dead-letter-queues.md) (usare una coda o un altro hub eventi per evitare il recapito dei soli messaggi che non è possibile elaborare)
+
+Per altre informazioni e una discussione sui compromessi tra disponibilità e coerenza, vedere [Availability and consistency in Event Hubs (Disponibilità e coerenza in Hub eventi)](event-hubs-availability-and-consistency.md). 
 
 ## <a name="batch-event-send-operations"></a>Operazioni di invio di eventi in batch
 L'invio di eventi in batch può aumentare la velocità effettiva. Il metodo [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) accetta un parametro **IEnumerable** di tipo [EventData][] e invia l'intero batch come operazione atomica all'hub eventi.
@@ -183,6 +188,7 @@ Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti segu
 
 * [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
 * [Che cos'è Hub eventi?](event-hubs-what-is-event-hubs.md)
+* [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Riferimento all'API dell'host processore di eventi](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager

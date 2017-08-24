@@ -1,6 +1,6 @@
 ---
 title: Usare Docker Compose in una VM Linux in Azure | Documentazione Microsoft
-description: Come usare Docker e Compose in macchine virtuali Linux con l&quot;interfaccia della riga di comando di Azure
+description: Come usare Docker e Compose in macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: ad9759f20135a87356819d5b819eab357b688cdc
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 541722cb02dd991228726e62a2304b49cdd806f2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introduzione a Docker e Compose per la definizione e l'esecuzione di un'applicazione multi-contenitore in Azure
@@ -88,7 +87,7 @@ Si ottiene un output simile a *docker-compose 1.6.2, build 4d72027*.
 
 
 ## <a name="create-a-docker-composeyml-configuration-file"></a>Creare un file di configurazione docker-compose.yml
-In seguito viene creato un file `docker-compose.yml` , che è semplicemente un file di configurazione di testo, per definire i contenitori Docker ed eseguirli nella macchina virtuale. Il file specifica l'immagine da eseguire su ciascun contenitore (o può essere una compilazione da un file Docker), le variabili d'ambiente, le dipendenze necessarie, le porte e i collegamenti tra i contenitori. Per informazioni dettagliate sulla sintassi dei file YML, vedere [Compose file reference](http://docs.docker.com/compose/yml/)(Informazioni di riferimento sui file di Compose).
+In seguito viene creato un file `docker-compose.yml` , che è semplicemente un file di configurazione di testo, per definire i contenitori Docker ed eseguirli nella macchina virtuale. Il file specifica l'immagine da eseguire su ciascun contenitore (o può essere una compilazione da un file Docker), le variabili d'ambiente, le dipendenze necessarie, le porte e i collegamenti tra i contenitori. Per informazioni dettagliate sulla sintassi dei file YML, vedere [Compose file reference](https://docs.docker.com/compose/compose-file/)(Informazioni di riferimento sui file di Compose).
 
 Creare il file *docker-compose.yml* come segue:
 

@@ -5,20 +5,20 @@ services: azure-portal
 documentationcenter: na
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/12/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
-ms.lasthandoff: 03/04/2017
-
+ms.reviewer: rqureshi
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9ad194308d30ca652b32ec3b76750b0e838472f4
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Risoluzione dei problemi del controllo degli accessi in base al ruolo
@@ -53,7 +53,7 @@ La complessità delle app Web è accentuata dalle interazioni tra alcune risorse
 
 ![Gruppo di risorse per app Web](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
-Quindi, se si concede l'accesso solo all'app Web, gran parte delle funzionalità del pannello del sito Web nel portale di Azure saranno disabilitate.
+Quindi, se si concede l'accesso solo all'app Web, la maggior parte delle funzionalità del pannello del sito Web nel portale di Azure viene disabilitata.
 
 Questi elementi richiedono accesso **in scrittura** al **piano di servizio App** che corrisponde al sito Web:  
 
@@ -63,7 +63,7 @@ Questi elementi richiedono accesso **in scrittura** al **piano di servizio App**
 
 Gli elementi seguenti richiedono accesso **in scrittura** all'intero **gruppo di risorse** che contiene il sito Web:  
 
-* Certificati e associazioni SSL. I certificati SSL possono infatti essere condivisi tra siti appartenenti allo stesso gruppo di risorse e area geografica  
+* Certificati e associazioni SSL. I certificati SSL possono essere condivisi tra siti appartenenti allo stesso gruppo di risorse e area geografica.  
 * Regole di avviso  
 * Impostazioni di scalabilità automatica  
 * Componenti di Application Insights  
@@ -87,7 +87,7 @@ Gli elementi seguenti richiedono accesso **in scrittura** sia alla **macchina vi
 * Set con carico bilanciato  
 * Regole di avviso  
 
-Se non è possibile accedere a nessuno di questi riquadri, è necessario richiedere all'amministratore l'accesso come Collaboratore al gruppo di risorse.
+Se non è possibile accedere a nessuno di questi riquadri, richiedere all'amministratore l'accesso come Collaboratore al gruppo di risorse.
 
 ## <a name="see-more"></a>Altro
 * [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.

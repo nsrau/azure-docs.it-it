@@ -1,6 +1,6 @@
 ---
-title: Connettersi a un cluster sicuro di Azure Service Fabric | Documentazione Microsoft
-description: Descrive come autenticare l&quot;accesso client a un cluster di Service Fabric e come proteggere la comunicazione tra i client e un cluster.
+title: Connettersi a un cluster sicuro di Azure Service Fabric | Microsoft Docs
+description: Descrive come autenticare l'accesso client a un cluster di Service Fabric e come proteggere la comunicazione tra i client e un cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2017
+ms.date: 06/01/2017
 ms.author: ryanwi
-translationtype: Human Translation
-ms.sourcegitcommit: 52f9a3146852ef83c31bd93e1c538e12f0d953eb
-ms.openlocfilehash: e44ecf5860becffb39d199e36d36d96f50bf7cf3
-ms.lasthandoff: 02/16/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: a24b82243cb9758b0b256c40138222357bf6e72c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/01/2017
 
 
 ---
@@ -26,38 +27,81 @@ Quando un client si connette a un nodo di un cluster di Service Fabric, è possi
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-cli"></a>Connettersi a un cluster sicuro usando l'interfaccia della riga di comando di Azure
-I comandi dell'interfaccia della riga di comando di Azure seguenti illustrano come connettersi a un cluster sicuro. 
+## <a name="connect-to-a-secure-cluster-using-cli"></a>Connettersi a un cluster protetto usando l'interfaccia della riga di comando
+
+Esistono modi diversi per connettersi a un cluster protetto usando i comandi dell'interfaccia della riga di comando di Azure 2.0 di Service Fabric o l'interfaccia della riga di comando di XPlat.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Connettersi a un cluster sicuro con un certificato client
-I dettagli del certificato devono corrispondere a un certificato sui nodi del cluster. 
 
-Se il certificato ha autorità di certificazione (CA), è necessario aggiungere il parametro `--ca-cert-path` come illustrato nell'esempio seguente: 
+Quando si usa un certificato client per l'autenticazione, i dettagli del certificato devono corrispondere al certificato distribuito ai nodi del cluster. Se il certificato dispone di autorità di certificazione (CA), è necessario specificare anche le autorità di certificazione attendibili. Usare gli esempi seguenti sia per l'interfaccia della riga di comando di Azure 2.0 che per l'interfaccia della riga di comando di XPlat per la connessione.
 
-```
- azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
-```
-Se sono presenti più CA, usare la virgola come delimitatore. 
+#### <a name="xplat-cli"></a>Interfaccia della riga di comando di XPlat
 
-Se il nome comune nel certificato non corrisponde all'endpoint di connessione, è possibile usare il parametro `--strict-ssl-false` per ignorare la verifica. 
+Quando si usa l'interfaccia della riga di comando di XPlat, eseguire il comando seguente per la connessione:
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2
 ```
 
-Per ignorare la verifica della CA, è possibile aggiungere il parametro ``--reject-unauthorized-false`` come illustrato nel comando seguente:
+È possibile specificare più certificati CA usando `,` per separare i percorsi.
 
+Se il nome comune nel certificato non corrisponde all'endpoint di connessione, è possibile usare il parametro `--strict-ssl-false` per ignorare la verifica. Ad esempio:
+
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
 ```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
+
+Per ignorare la verifica della CA, è possibile aggiungere il parametro ``--reject-unauthorized-false``. Ad esempio:
+
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
 Per connettersi a un cluster protetto con un certificato autofirmato, usare il comando seguente rimuovendo sia la verifica della CA che la verifica del nome comune:
 
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```bash
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
+--client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
 
-Dopo la connessione, sarà possibile [eseguire altri comandi dell'interfaccia della riga di comando](service-fabric-azure-cli.md) per interagire con il cluster. 
+#### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+
+Quando si usa l'interfaccia della riga di comando di Azure 2.0, è possibile connettersi a un cluster con il comando `az sf cluster select`.
+
+È possibile specificare i certificati client in due modi diversi, come una coppia chiave-certificato o come un file con estensione pem singolo. Per i file `pem` protetti da password verrà chiesto automaticamente di immettere la password.
+
+Per specificare il certificato client come file con estensione pem, specificare il percorso del file nell'argomento `--pem`. Ad esempio:
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+```
+
+I file con estensione pem protetti da password chiederanno la password prima di eseguire qualsiasi altro comando.
+
+Per specificare una coppia certificato-chiave, usare gli argomenti `--cert` e `--key` per specificare i percorsi di file a ogni rispettivo file.
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
+```
+In alcuni casi i certificati usati per proteggere i cluster di test o di sviluppo non superano la convalida. Per ignorare la verifica del certificato, specificare l'opzione `--no-verify`. Ad esempio:
+
+> [!WARNING]
+> Non usare l'opzione `no-verify` quando ci si connette a cluster di Service Fabric di produzione.
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
+```
+
+È anche possibile specificare i percorsi a directory di certificati CA attendibili o a certificati individuali. Per specificare questi percorsi, usare l'argomento `--ca`. Ad esempio:
+
+```azurecli
+az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
+```
+
+Dopo la connessione, sarà possibile [eseguire altri comandi dell'interfaccia della riga di comando](service-fabric-azure-cli.md) per interagire con il cluster.
 
 <a id="connectsecurecluster"></a>
 
@@ -348,4 +392,8 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Introduzione al modello di integrità di Infrastruttura di servizi](service-fabric-health-introduction.md)
 * [Sicurezza delle applicazioni e RunAs](service-fabric-application-runas-security.md)
 
+## <a name="related-articles"></a>Articoli correlati
+
+* [Introduzione a Service Fabric e all'interfaccia della riga di comando di Azure 2.0](service-fabric-azure-cli-2-0.md)
+* [Introduzione all'interfaccia della riga di comando di XPlat per Service Fabric](service-fabric-azure-cli.md)
 

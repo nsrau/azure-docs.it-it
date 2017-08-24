@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 27cc51d3f9220756fc1188f978dc158f17037bc3
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: fd5988b2d4170166902bb5cc39603d4a0f83be59
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Domande frequenti su Azure Active Directory Connect
@@ -33,7 +33,7 @@ Questa opzione è supportata nelle build rilasciate a partire da febbraio 2016.
 Questa opzione è supportata nelle build rilasciate a partire da febbraio 2016.
 
 **D: L'agente di integrità di AD DS funziona su Server Core?**  
-Sì. Dopo aver installato l'agente, è possibile completare il processo di registrazione con il commandlet di PowerShell seguente: 
+Sì. Dopo aver installato l'agente, è possibile completare il processo di registrazione con il cmdlet di PowerShell seguente: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 

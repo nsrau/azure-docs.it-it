@@ -12,10 +12,11 @@
 
 ## Creare un modello
 ### [Informazioni sui modelli dei set di scalabilità](virtual-machine-scale-sets-mvss-start.md)
-### [Aggiungere una rete virtuale](virtual-machine-scale-sets-mvss-existing-vnet.md)
+### [Usare una rete virtuale esistente](virtual-machine-scale-sets-mvss-existing-vnet.md)
 ### [Usare un'immagine personalizzata](virtual-machine-scale-sets-mvss-custom-image.md)
+### [Usare la scalabilità automatica basata su guest con un modello di set di scalabilità Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
-## Distribuire
+## Distribuisci
 ### [Creare con il portale](virtual-machine-scale-sets-portal-create.md)
 ### [Creare con Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Creare con PowerShell o l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
@@ -32,10 +33,11 @@
 ## Gestisci
 ### [Set di scalabilità Windows con PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Scalabilità automatica e set di scalabilità](virtual-machine-scale-sets-autoscale-overview.md)
+### [Scalabilità automatica avanzata](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Ridimensionamento verticale in un set di scalabilità](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Aggiornamenti per i set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Scalabilità automatica avanzata](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Uso di DSC e di set di scalabilità](virtual-machine-scale-sets-dsc.md)
+### [Risorse di rete per i set di scalabilità](virtual-machine-scale-sets-networking.md)
 ### [Convertire un modello in dischi gestiti](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Risoluzione dei problemi
@@ -50,7 +52,9 @@
 ## [REST](/rest/api/virtualmachinescalesets/)
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## Prezzi 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

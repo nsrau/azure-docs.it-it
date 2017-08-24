@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c6de21da824a6e81c38f36c41c05ddd704fadcb6
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
+ms.contentlocale: it-it
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Modelli di progettazione per modelli di Azure Resource Manager durante la distribuzione di soluzioni complesse
@@ -33,7 +33,7 @@ I modelli uniscono i vantaggi della Gestione risorse di Azure sottostante con l'
 * Applicare il controllo dell'accesso basato sui ruoli (RBAC) per concedere l'accesso appropriato a utenti, gruppi e servizi.
 * Utilizzare le associazioni di assegnazione di tag per semplificare attività come i rollup di fatturazione.
 
-In questo articolo vengono fornite informazioni dettagliate su scenari di utilizzo, architettura e modelli di implementazione identificati durante le sessioni di progettazione e implementazioni reali dei modelli con i clienti di Azure Customer Advisory Team (AzureCAT). Lungi dall'essere accademici, questi approcci sono procedure consolidate derivanti dallo sviluppo di modelli per 12 delle principali tecnologie OSS basate su Linux, tra cui: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise basato su Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis e Nagios. 
+In questo articolo vengono fornite informazioni dettagliate su scenari di utilizzo, architettura e modelli di implementazione identificati durante le sessioni di progettazione e implementazioni reali dei modelli con i clienti di Azure Customer Advisory Team (AzureCAT). Lungi dall'essere accademici, questi approcci sono procedure consolidate derivanti dallo sviluppo di modelli per 12 delle principali tecnologie OSS basate su Linux, tra cui: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise basato su tecnologia Apache Cassandra, Elasticsearch, Jenkins, MongoDB, PostgreSQL, Redis e Nagios. 
 
 Nel presente articolo vengono proposte queste procedure consolidate allo scopo di agevolare la progettazione di modelli di Gestione risorse di Azure di elevata qualità.  
 
@@ -345,7 +345,6 @@ Se si desidera pubblicare il modello nel marketplace, occorre stabilire copie di
 **Adattamento di un modello con ambito di soluzione per marketplace**
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per consigli su come gestire la protezione in Gestione risorse di Azure, vedere [Considerazioni sulla protezione per Gestione risorse di Azure](best-practices-resource-manager-security.md)
 * Per ulteriori informazioni sulla condivisione dello stato all'interno e all'esterno dei modelli, vedere [Condivisione dello stato nei modelli di Gestione risorse di Azure](best-practices-resource-manager-state.md)
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
 

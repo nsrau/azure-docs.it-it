@@ -1,6 +1,6 @@
 ---
-title: Come usare un&quot;immagine Docker personalizzata per App Web di Azure in Linux | Microsoft Docs
-description: Come usare un&quot;immagine Docker personalizzata per App Web di Azure in Linux.
+title: Come usare un'immagine Docker personalizzata per App Web di Azure in Linux | Microsoft Docs
+description: Come usare un'immagine Docker personalizzata per App Web di Azure in Linux.
 keywords: Servizio app di Azure, app Web, Linux, Docker, contenitore
 services: app-service
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 9962766b0a1fdfe313b70ea65e08785ec8a97996
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: f51cacb33251d479f48a39014cc2db60a23358d5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -33,7 +32,7 @@ Il servizio app fornisce stack di applicazioni predefiniti in Linux con il suppo
 
 
 ## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>Procedura: Impostare un'immagine Docker personalizzata per un'app Web
-È possibile impostare l'immagine Docker personalizzata per app Web sia nuove che esistenti. Quando si crea un'app Web in Linux nel [portale di Azure](https://portal.azure.com), fare clic su **Configura contenitore** per impostare un'immagine Docker personalizzata:
+È possibile impostare l'immagine Docker personalizzata per app Web sia nuove che esistenti. Quando si crea un'app Web in Linux nel [portale di Azure](https://portal.azure.com/#create/Microsoft.AppSvcLinux), fare clic su **Configura contenitore** per impostare un'immagine Docker personalizzata:
 
 ![Immagine Docker personalizzata per una nuova app Web in Linux][1]
 
@@ -65,18 +64,20 @@ Per usare un'immagine Docker personalizzata proveniente da un registro di sistem
 
 ## <a name="how-to-set-the-port-used-by-your-docker-image"></a>Procedura: Impostare la porta usata dall'immagine Docker ##
 
-Quando si usa un'immagine Docker personalizzata per l'app Web, è possibile usare la variabile di ambiente `PORT` nel file Docker, che viene aggiunta al contenitore generato. Considerare l'esempio seguente di file Docker per un'applicazione Ruby:
+Quando si usa un'immagine Docker personalizzata per l'app Web, è possibile usare la variabile di ambiente `WEBSITES_PORT` nel file Docker, che viene aggiunta al contenitore generato. Considerare l'esempio seguente di file Docker per un'applicazione Ruby:
 
     FROM ruby:2.2.0
     RUN mkdir /app
     WORKDIR /app
     ADD . /app
     RUN bundle install
-    CMD bundle exec puma config.ru -p $PORT -e production
+    CMD bundle exec puma config.ru -p WEBSITES_PORT -e production
 
-Nell'ultima riga del comando è possibile osservare che la variabile di ambiente PORT viene passata in fase di esecuzione. Tenere presente che la distinzione tra maiuscole e minuscole è importante nei comandi.
+Nell'ultima riga del comando è possibile osservare che la variabile di ambiente WEBSITES_PORT viene passata in fase di esecuzione. Tenere presente che la distinzione tra maiuscole e minuscole è importante nei comandi.
 
-Quando si usa un'immagine Docker esistente compilata da un altro utente, potrebbe essere necessario specificare una porta diversa dalla porta 80 per l'immagine. Per configurare la porta, aggiungere un'impostazione di applicazione denominata `PORT` con il valore come illustrato di seguito:
+In precedenza, la piattaforma usava l'impostazione dell'app `PORT`. È previsto che l'uso di questa impostazione dell'app venga deprecato per passare all'uso esclusivo di `WEBSITES_PORT`.
+
+Quando si usa un'immagine Docker esistente compilata da un altro utente, potrebbe essere necessario specificare una porta diversa dalla porta 80 per l'immagine. Per configurare la porta, aggiungere un'impostazione di applicazione denominata `WEBSITES_PORT` con il valore come illustrato di seguito:
 
 ![Configurare l'impostazione app PORT per l'immagine Docker personalizzata][6]
 
@@ -94,7 +95,10 @@ Per passare da un'immagine personalizzata a un'immagine predefinita:
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi ##
 
-Quando non è possibile avviare l'applicazione con l'immagine Docker personalizzata, controllare i log di Docker nella directory LogFiles/docker. È possibile accedere a questa directory tramite il sito SCM o tramite FTP. 
+Quando non è possibile avviare l'applicazione con l'immagine Docker personalizzata, controllare i log di Docker nella directory LogFiles. È possibile accedere a questa directory tramite il sito SCM o tramite FTP.
+Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Registrazione del contenitore Docker** in **Log di diagnostica**.
+
+![Abilitazione della registrazione][8]
 
 ![Uso di Kudu per visualizzare i log di Docker][7]
 
@@ -120,4 +124,5 @@ Pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/
 [5]: ./media/app-service-linux-using-custom-docker-image/existingapp-configure-builtin.png
 [6]: ./media/app-service-linux-using-custom-docker-image/setting-port.png
 [7]: ./media/app-service-linux-using-custom-docker-image/kudu-docker-logs.png
+[8]: ./media/app-service-linux-using-custom-docker-image/logging.png
 

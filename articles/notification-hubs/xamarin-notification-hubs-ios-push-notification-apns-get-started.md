@@ -1,6 +1,6 @@
 ---
 title: Notifiche push di iOS con Hub di notifica per app Xamarin | Documentazione Microsoft
-description: In questa esercitazione, sono presenti informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un&quot;applicazione per Xamarin iOS.
+description: In questa esercitazione, sono presenti informazioni su come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per Xamarin iOS.
 services: notification-hubs
 keywords: notifiche push di ios,messaggi push,notifiche push,messaggio push
 documentationcenter: xamarin
@@ -15,9 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f9d5b37e6f754540e70b534555750dd54895d0
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 72a81fa0deb34ace77b8fb9b1a4e6b24ee164b35
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -31,14 +33,14 @@ ms.openlocfilehash: 53f9d5b37e6f754540e70b534555750dd54895d0
 > 
 
 Questa esercitazione illustra come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione per iOS.
-Si creerà un'app Xamarin.iOS vuota che riceve notifiche push attraverso [Apple Push Notification Service (APNS)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). Al termine, sarà possibile usare l’hub di notifica per trasmettere le notifiche push a tutti i dispositivi che eseguono l'app. Il codice compilato è disponibile nell'esempio di [app NotificationHubs][GitHub].
+Si creerà un'app Xamarin.iOS vuota che riceve notifiche push attraverso [Apple Push Notification Service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html). Al termine, sarà possibile usare l’hub di notifica per trasmettere le notifiche push a tutti i dispositivi che eseguono l'app. Il codice compilato è disponibile nell'esempio di [app NotificationHubs][GitHub].
 
 Questa esercitazione illustra un semplice scenario di trasmissione di un messaggio push con Hub di notifica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, è necessario disporre di:
 
-* [Xcode 6.0][Installazione di Xcode]
+* [Xcode 6.0][Install Xcode]
 * Dispositivo compatibile con iOS 7.0 o versione successiva
 * Iscrizione a iOS Developer Program
 * [Xamarin Studio]
@@ -76,7 +78,7 @@ L'hub di notifica è ora configurato per l'uso con il servizio APN e sono dispon
 #### <a name="create-a-new-project"></a>Creare un nuovo progetto
 1. In Xamarin Studio creare un nuovo progetto iOS e selezionare il modello **Unified API** > **Single View Application**.
    
-       ![Xamarin Studio - Select Application Type][31]
+     ![Xamarin Studio: selezionare il tipo di applicazione][31]
 2. È necessario aggiungere un riferimento al componente di messaggistica di Azure. Nella visualizzazione Solution fare clic con il pulsante destro del mouse sulla cartella **Components** del progetto e scegliere **Get More Components**. Cercare il componente **Messaggistica di Azure** e aggiungerlo al progetto.
 3. In **AppDelegate.cs**aggiungere l'istruzione using seguente:
    
@@ -278,31 +280,26 @@ In questo semplice esempio le notifiche push vengono trasmesse a tutti i disposi
 
 <!-- URLs. -->
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Portale di Azure classico]: https://manage.windowsazure.com/
-[linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
+[portale di Azure classico]: https://manage.windowsazure.com/
+[Panoramica dell'Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Installazione di Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portale di provisioning di iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Uso di Hub di notifica di Azure per inviare notifiche agli utenti]: /manage/services/notification-hubs/notify-users-aspnet
+[Usare Hub di notifica per inviare notifiche push agli utenti]: /manage/services/notification-hubs/notify-users-aspnet
 [Uso di Hub di notifica per inviare le ultime notizie]: /manage/services/notification-hubs/breaking-news-dotnet
 
-[guida alla programmazione di notifiche push e locali]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[guida alla programmazione di notifiche push e locali]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
-[Componente Servizi mobili di Azure]: http://components.xamarin.com/view/azure-mobile-services/
+[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
-[Portale di Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO2-->
-
+[portale di Azure]: https://portal.azure.com
 

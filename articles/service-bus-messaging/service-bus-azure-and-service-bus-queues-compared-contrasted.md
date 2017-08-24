@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/26/2017
+ms.date: 08/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b7bcf6de0c8306492d7f7745cc5c091f9ddb76db
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 45fe7584c8b769113da9d287fea56d68d3d6c55a
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
@@ -28,7 +27,7 @@ Questo articolo analizza le differenze e le analogie presenti tra i due tipi di 
 ## <a name="introduction"></a>Introduzione
 Azure supporta due tipi di meccanismi di code: **code di archiviazione** e **code del bus di servizio**.
 
-Le **code di archiviazione**, che fanno parte dell'infrastruttura di [archiviazione di Azure](https://azure.microsoft.com/services/storage/), offrono una semplice interfaccia per operazioni di ricezione/inserimento/visualizzazione basata su REST, che determina una messaggistica affidabile e persistente all'interno di un servizio e tra i servizi.
+Le **code di archiviazione**, che fanno parte dell'infrastruttura di [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), offrono una semplice interfaccia per operazioni di ricezione/inserimento/visualizzazione basata su REST, che determina una messaggistica affidabile e persistente all'interno di un servizio e tra i servizi.
 
 Le **code del bus di servizio** fanno parte di un'infrastruttura di [messaggistica di Azure](https://azure.microsoft.com/services/service-bus/) più ampia che supporta accodamento, pubblicazione/sottoscrizione e modelli di integrazione più avanzati. Per altre informazioni su code, argomenti e sottoscrizioni del bus di servizio, vedere la [panoramica del bus di servizio](service-bus-messaging-overview.md).
 
@@ -133,7 +132,7 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
-| Dimensioni massime della coda |**200 TB**<br/><br/>(limitate alla capacità di un singolo account di archiviazione) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
+| Dimensioni massime della coda |**500 TB**<br/><br/>(limitate alla [capacità di un singolo account di archiviazione](../storage/storage-introduction.md#queue-storage)) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
 | Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Poiché Azure supporta messaggi di grandi dimensioni combinando code e BLOB, è possibile accodare fino a 200 GB per un singolo elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
 | Durata TTL massima del messaggio |**7 giorni** |**`TimeSpan.Max`** |
 | Numero massimo di code |**Illimitato** |**10.000**<br/><br/>(per spazio dei nomi del servizio, può essere aumentato) |
@@ -192,13 +191,12 @@ Poiché offrono numerose funzionalità avanzate quali sessioni, transazioni rile
 ## <a name="next-steps"></a>Passaggi successivi
 Gli articoli seguenti offrono ulteriori indicazioni e informazioni sull'uso delle code di archiviazione e delle code del bus di servizio.
 
-* [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
+* [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare il servizio di archiviazione code](../storage/storage-dotnet-how-to-use-queues.md)
 * [Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica negoziata del bus di servizio](service-bus-performance-improvements.md)
-* [Introduzione alle code e agli argomenti del bus di servizio di Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Introduzione alle code e agli argomenti del bus di servizio di Azure (post di blog)](http://www.code-magazine.com/article.aspx?quickid=1112041)
 * [Guida per gli sviluppatori del bus di servizio](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 * [Uso del servizio di accodamento in Azure](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
-* [Informazioni sulla fatturazione di archiviazione di Azure (larghezza di banda, transazioni e capacità](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.com
 

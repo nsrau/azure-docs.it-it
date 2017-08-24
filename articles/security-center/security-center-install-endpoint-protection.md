@@ -1,6 +1,6 @@
 ---
 title: Installare Endpoint Protection nel Centro sicurezza di Azure | Documentazione Microsoft
-description: "In questo documento è illustrato come implementare la raccomandazione &quot;**Installa Endpoint Protection**&quot; del Centro sicurezza di Azure."
+description: "In questo documento è illustrato come implementare la raccomandazione \"**Installa Endpoint Protection**\" del Centro sicurezza di Azure."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,41 +12,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 06/16/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: b8a69d89f335c00c5ddc3c201e33a66e1dea1da5
-ms.openlocfilehash: 6ccb5367b1c7c6cae7b9d35b6a5471c8edfe6f85
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: efb86a0ae362c30a6772c391a499154b7ae2a697
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="install-endpoint-protection-in-azure-security-center"></a>Installare Endpoint Protection nel Centro sicurezza di Azure
-Il Centro sicurezza di Azure consiglia il provisioning di un programma antimalware nelle macchine virtuali di Azure se la protezione antimalware non è ancora abilitata. Questo suggerimento si applica solo alle macchine virtuali Windows. Attualmente, questa raccomandazione comporta solo la verifica della presenza di Windows Defender o Trend Micro Deep Security. È prevista l'aggiunta in futuro di altre soluzioni di protezione endpoint.
+Il Centro sicurezza di Azure consiglia di installare Endpoint Protection nelle macchine virtuali di Azure se non è già abilitato. Questo suggerimento si applica solo alle macchine virtuali Windows.
 
 > [!NOTE]
-> Il documento introduce il servizio usando una distribuzione di esempio.  Questa non è una guida dettagliata.
+> Questo esempio di distribuzione usa Microsoft Antimalware. Vedere [Integrazione di partner nel Centro sicurezza di Azure](security-center-partner-integration.md#partners-that-integrate-with-security-center) per un elenco di partner integrati con il Centro sicurezza.  
 >
 >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
+
+> [!NOTE]
+> Il documento introduce il servizio usando una distribuzione di esempio.  Questo argomento non costituisce una guida dettagliata.
+>
+>
+
 1. Nel pannello **Raccomandazioni** selezionare **Installa Endpoint Protection**.
    ![Selezionare Installa Endpoint Protection][1]
-2. Viene visualizzato il pannello **Installa Endpoint Protection** che mostra un elenco di macchine virtuali per cui non è abilitato l'antimalware. Selezionare dall'elenco le VM in cui si vuole installare l'antimalware e fare clic su **Installa nelle VM**.
-   ![Selezionare le VM su cui installare l'antimalware][2]
-3. Viene visualizzato il pannello **Seleziona Endpoint Protection** , che consente di selezionare la soluzione antimalware da usare. In questo esempio viene selezionato **Microsoft Antimalware**.
+2. Viene visualizzato il pannello **Installa Endpoint Protection** che mostra un elenco di macchine virtuali senza Installa Endpoint Protection. Selezionare dall'elenco le macchine virtuali in cui si vuole installare Endpoint Protection e fare clic su **Install on VMs** (Installa nelle macchine virtuali).
+   ![Selezionare le macchine virtuali su cui installare Endpoint Protection][2]
+3. Viene visualizzato il pannello **Seleziona Endpoint Protection**, che consente di selezionare la soluzione di Endpoint Protection da usare. In questo esempio viene selezionato **Microsoft Antimalware**.
    ![Seleziona Endpoint Protection][3]
-4. Vengono visualizzate altre informazioni sulla soluzione antimalware selezionata. Selezionare **Crea**.
+4. Vengono visualizzate altre informazioni sulla soluzione di Endpoint Protection selezionata. Selezionare **Crea**.
    ![Creare una soluzione antimalware][4]
 5. Specificare le impostazioni di configurazione necessarie nel pannello **Aggiungi estensione** e quindi selezionare **OK**. Per altre informazioni sulle impostazioni di configurazione, vedere [Configurazione di Antimalware predefinita e personalizzata](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
 [Microsoft Antimalware](../security/azure-security-antimalware.md) è ora attivo nelle VM selezionate.
 
 ## <a name="see-also"></a>Vedere anche
-Questo documento illustra come implementare la raccomandazione "Installa Endpoint Protection" del Centro sicurezza. Per altre informazioni sull'abilitazione di un programma antimalware in Azure, vedere gli argomenti seguenti:
+Questo documento illustra come implementare la raccomandazione "Installa Endpoint Protection" del Centro sicurezza. Per altre informazioni sull'abilitazione di un programma antimalware di Microsoft in Azure, vedere i documenti seguenti:
 
 * [Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](../security/azure-security-antimalware.md): informazioni su come distribuire la protezione antimalware Microsoft.
 
-Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
+Per altre informazioni sul Centro sicurezza, vedere i documenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza.
 * [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md) : informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
@@ -61,9 +68,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [2]:./media/security-center-install-endpoint-protection/install-endpoint-protection-blade.png
 [3]:./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]:./media/security-center-install-endpoint-protection/create-antimalware-solution.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

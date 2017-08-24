@@ -1,5 +1,5 @@
 ---
-title: Uso della finestra Azure Cloud Shell (anteprima) | Documentazione Microsoft
+title: Uso della finestra Azure Cloud Shell (anteprima) | Microsoft Docs
 description: Informazioni sulla finestra Azure Cloud Shell.
 services: 
 documentationcenter: 
@@ -7,24 +7,24 @@ author: jluk
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 07/13/2017
 ms.author: juluk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: 69316d271fc4847565d183293013580b61695731
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 345217452a25448f31fabdcc25dca182bbcf72eb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
 # <a name="using-the-azure-cloud-shell-window"></a>Uso della finestra Azure Cloud Shell
 
-Questo documento illustra come usare la finestra di Azure Cloud Shell.
+Questo documento illustra come usare la finestra Cloud Shell.
 
 ## <a name="concurrent-sessions"></a>Sessioni simultanee
 Cloud Shell abilita l'apertura di più sessioni simultanee nelle schede del browser, consentendo a ogni sessione di essere disponibile come processo Bash separato.
@@ -32,9 +32,10 @@ Alla chiusura di una sessione, assicurarsi di chiudere ogni finestra della sessi
 
 ## <a name="restart-cloud-shell"></a>Riavviare Cloud Shell
 ![](media/recycle.png)
-* Fare clic sull'icona di riavvio sulla barra degli strumenti per reimpostare Cloud Shell.
+> [!WARNING]
+> Il riavvio della Cloud Shell reimposta lo stato della macchina e qualsiasi file non persistente nella condivisione file andrà perso.
 
-> ![AVVISO] Il riavvio della Cloud Shell reimposta lo stato della macchina e qualsiasi file non persistente in clouddrive andrà perso.
+* Fare clic sull'icona di riavvio sulla barra degli strumenti per ricevere un nuovo ambiente Cloud Shell.
 
 ## <a name="minimize--maximize-cloud-shell-window"></a>Ridurre e ingrandire la finestra Cloud Shell
 ![](media/minmax.png)
@@ -42,18 +43,18 @@ Alla chiusura di una sessione, assicurarsi di chiudere ogni finestra della sessi
 * Fare clic sull'icona di ingrandimento per aprire la finestra alla grandezza massima. Per ripristinare la dimensioni precedenti, fare clic su Ripristina.
 
 ## <a name="copy-and-paste"></a>Copiare e incollare
-* Windows: `Ctrl-insert` e `Shift-insert` oppure fare clic nell'elenco a discesa per copiare e incollare
-  * FireFox o Internet Explorer potrebbero non supportare correttamente le autorizzazioni per gli appunti
-* Mac OS: `Cmd-c` e `Cmd-v` oppure fare clic nell'elenco a discesa per copiare e incollare
+* Windows: `Ctrl-insert` per copiare e `Shift-insert` per incollare. Facendo clic con pulsante destro del mouse sull'elenco a discesa è possibile abilitare Copia e Incolla.
+  * FireFox o Internet Explorer potrebbero non supportare correttamente le autorizzazioni per gli appunti.
+* Mac OS: `Cmd-c` per copiare e `Cmd-v` per incollare. Facendo clic con pulsante destro del mouse sull'elenco a discesa è possibile abilitare Copia e Incolla.
 
 ## <a name="resize-cloud-shell-window"></a>Ridimensionare la finestra Cloud Shell
 * Fare clic e trascinare il bordo superiore della barra degli strumenti verso l'alto o verso il basso per ridimensionare la finestra Cloud Shell.
 
 ## <a name="scrolling-text-display"></a>Scorrimento del testo visualizzato
-* Scorrere con il mouse o il touchpad
+* Scorrere con il mouse o il touchpad per spostare il testo del terminale.
 
 ## <a name="exit-command"></a>Comando Exit
 L'esecuzione di `exit` termina la sessione attiva. Questo comportamento si verifica per impostazione predefinita dopo 10 minuti senza interazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Avvio rapido di Cloud Shell](quickstart.md)  
+[Avvio rapido di Cloud Shell](quickstart.md)

@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d82f352d714c0272296eb36782cbbcbac99a1bab
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 I componenti hardware del dispositivo Microsoft Azure StorSimple sono conformi alle specifiche tecniche e agli standard normativi descritti in questo articolo. Le specifiche tecniche descrivono i moduli di alimentazione e raffreddamento (PCM, Power and Cooling Module), le unità disco, la capacità dell'archiviazione e gli chassis. Le informazioni sulla conformità riguardano argomenti come gli standard internazionali, la sicurezza, le emissioni e i cavi.
 
 ## <a name="power-and-cooling-module-specifications"></a>Specifiche del modulo di alimentazione e raffreddamento
@@ -74,7 +76,7 @@ I dispositivi StorSimple usano una combinazione di unità disco rigido e unità 
 | Capacità utilizzabile totale* |~ 15 TB |~ 38 TB |
 | Capacità massima della soluzione (incluso il cloud) |200 TB |500 TB |
 
-<sup>* </sup>- *La capacità totale usabile include la capacità disponibile per i dati, i metadati e i buffer.*
+<sup>*  </sup>- *La capacità totale utilizzabile include la capacità disponibile per i dati, i metadati e i buffer.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Specifiche su peso e dimensioni dello chassis
 Nelle tabelle seguenti vengono elencate varie specifiche dello chassis per dimensioni e peso.  
@@ -173,10 +175,5 @@ Per le interfacce di rete 10 GbE, DATA 2 e DATA 3, fare riferimento all' [elenco
 
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile iniziare la distribuzione di un dispositivo StorSimple nel data center. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

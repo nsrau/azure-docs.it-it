@@ -4,7 +4,7 @@ description: "Questo documento consente di iniziare a usare rapidamente le funzi
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
@@ -13,14 +13,13 @@ ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 07/18/2017
 ms.author: yurid
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: c6944fd4f93d2daa9071bb27f76ea0f772bdb743
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 5753511d26c06f385fd4ff717d8592c321338172
 ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
-
+ms.lasthandoff: 06/17/2017
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introduzione alla soluzione Sicurezza e controllo di Operations Management Suite
@@ -73,6 +72,8 @@ Gli scenari di risposta agli eventi imprevisti e indagini per scopi legali potra
 ![Record di sicurezza nel tempo](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
 Quando si fa clic su questo riquadro, viene aperto il pannello **Ricerca** che mostra il risultato di una query per gli **Eventi di sicurezza** (Type=SecurityEvents) con dati basati sugli ultimi sette giorni, come illustrato di seguito:
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Record di sicurezza nel tempo](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
@@ -139,6 +140,12 @@ Questo riquadro può essere usato per accedere a tutti i computer che presentano
 ### <a name="threat-intelligence"></a>Intelligence per le minacce
 
 Tramite l'opzione Intelligence per le minacce disponibile nel dashboard Sicurezza e controllo di OMS, gli amministratori IT possono identificare le minacce per la sicurezza dell'ambiente, ad esempio determinare se un computer fa parte di una botnet. I computer possono diventare nodi di una botnet quando utenti malintenzionati installano illecitamente malware che connette il computer al comando e al controllo all'insaputa dell'utente. Questa funzionalità può anche identificare potenziali minacce provenienti da canali di comunicazione sotterranei, ad esempio una darknet. Altre informazioni sull'opzione Intelligence per le minacce sono disponibili nell'articolo [Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Sicurezza e controllo di Operations Management Suite](oms-security-responding-alerts.md).
+
+In alcuni scenari è possibile notare un potenziale IP dannoso a cui è stato eseguito l'accesso da un computer monitorato:
+
+![mappa di intelligence per le minacce](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Questo avviso e altri all'interno della stessa categoria sono generati tramite Sicurezza di OMS usando l'[intelligence per le minacce di Microsoft](https://youtu.be/O4WtxgUrDc8). I dati di intelligence sulle minacce vengono raccolti da Microsoft, nonché acquistati da provider di intelligence per le minacce leader del settore. Questi dati vengono aggiornati frequentemente e adattati alle minacce in continua evoluzione. A causa della loro natura, devono essere combinati con altre fonti di informazioni di sicurezza quando si [analizza](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) un avviso di sicurezza. 
 
 ### <a name="baseline-assessment"></a>Valutazione di base
 

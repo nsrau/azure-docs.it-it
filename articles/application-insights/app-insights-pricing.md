@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 0a66567d7381f38787f9aa7652c944e4bb3aef82
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: 311cee724fc77256748153b5167d2a38ccba9775
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 06/09/2017
 
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gestire volumi di dati e prezzi in Application Insights
@@ -41,19 +40,21 @@ Vedere la [pagina sui prezzi di Application Insights][pricing] per i prezzi corr
 Il piano Basic è la scelta predefinita quando viene creata una nuova risorsa di Application Insight ed è sufficiente per la maggior parte dei clienti.
 
 * Nel piano Basic vengono applicati addebiti in base al volume dei dati: il numero di byte dei dati di telemetria ricevuti da Application Insights. Il volume di dati viene misurato come le dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione e ricevuto da Application Insights.
+Per i [dati tabulari importati in Log Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), il volume dei dati viene misurato come dimensione non compressa dei file inviati ad Application Insights.  
 * Il primo GB per ciascuna applicazione è gratuito. Pertanto se si usa lo strumento per prova o per sviluppo, probabilmente non si incorrerà in addebiti.
 * I dati [Live Metrics Stream](app-insights-live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo.
-* Nel piano Basic, con un addebito extra per GB è disponibile l'[Esportazione continua](app-insights-export-telemetry.md), gratuita fino ai primi giorni di marzo 2017.
+* Nel piano Basic, con un addebito extra per GB è disponibile la funzione [Esportazione continua](app-insights-export-telemetry.md).
 
 ### <a name="enterprise-plan"></a>Piano Enterprise
 
-* Nel piano Enterprise, l'app può usare tutte le funzionalità di Application Insights. Il piano Enterprise include connettori [Esportazione continua](app-insights-export-telemetry.md) e [Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) senza costi aggiuntivi.
+* Nel piano Enterprise, l'app può usare tutte le funzionalità di Application Insights. [Esportazione continua](app-insights-export-telemetry.md) e 
+
+il [connettore di Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) sono disponibili senza costi aggiuntivi nel piano Enterprise.
 * Si paga per ogni nodo che invii dati di telemetria per le app nel piano Enterprise. 
  * Un *nodo* è una macchina server fisica o virtuale oppure un'istanza del ruolo PaaS (piattaforma distribuita come servizio) che ospita l'app.
  * Computer di sviluppo, browser client e dispositivi mobili non sono conteggiati come nodi.
  * Se l'app dispone di diversi componenti che inviano dati di telemetria, ad esempio un servizio Web e un lavoro back-end, questi vengono conteggiati separatamente.
- * I dati [Live Metrics Stream](app-insights-live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo.
-* In una sottoscrizione, gli addebiti si applicano per nodo, non per app. Se si dispone di cinque nodi che inviano dati di telemetria per 12 app, l'addebito sarà per cinque nodi.
+ * I dati di [Live Metrics Stream](app-insights-live-stream.md) non vengono conteggiati per la determinazione dei prezzi.* In una sottoscrizione, i costi vengono calcolati per ogni nodo, non per ogni app. Se si dispone di cinque nodi che inviano dati di telemetria per 12 app, l'addebito sarà per cinque nodi.
 * Sebbene gli addebiti siano fatturati mensilmente, quelli effettivi hanno luogo solo nelle ore durante le quali un nodo invia dati di telemetria da un'app. La tariffa oraria è la tariffa mensile fatturata divisa per 744 (il numero di ore in un mese di 31 giorni).
 * Viene fornita un'allocazione di volume di dati di 200 MB al giorno per ciascun nodo rilevato (con granularità oraria). L'allocazione di dati non usata non viene trasferita al giorno successivo.
  * Scegliendo l'opzione di prezzo Enterprise, ciascuna sottoscrizione ottiene una quantità di dati giornaliera inclusa in base al numero di nodi che inviano dati di telemetria alle risorse di Application Insights in quella sottoscrizione. Se si dispone quindi di 5 nodi che inviano dati tutto il giorno, sarà applicata una quantità inclusa di 1 GB a tutte le risorse di Application Insights in quella sottoscrizione. Non è importante se determinati nodi inviano più dati di altri, perché i dati inclusi vengono condivisi tra tutti i nodi. Se un determinato giorno le risorse di Application Insights ricevono più dati di quelli inclusi nell'allocazione giornaliera per la sottoscrizione, si applicheranno gli addebiti di dati in eccedenza per GB. 
@@ -79,9 +80,18 @@ Il piano Basic è la scelta predefinita quando viene creata una nuova risorsa di
 È prevista una tariffa aggiuntiva per i [test Web in più passaggi](app-insights-monitor-web-app-availability.md#multi-step-web-tests). Quanto scritto si riferisce ai test Web che eseguono una sequenza di azioni. 
 
 Non è prevista una tariffa separata per le "verifiche ping" di una singola pagina. I dati di telemetria delle verifiche ping e delle verifiche in più fasi incorrono in costi insieme agli altri dati di telemetria provenienti dall'app.
+ 
+## <a name="operations-management-suite-subscription-entitlement"></a>Diritti della sottoscrizione di Operations Management Suite
 
-## <a name="review-pricing-plan-and-estimate-costs-for-your-application-insights-resource"></a>Esaminare il piano tariffario e i costi stimati per la propria risorsa di Application Insights
-Aprire il pannello Funzionalità e prezzi nella risorsa di Application Insights per l'applicazione.
+Come [annunciato di recente](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/), i clienti che acquistano Microsoft Operations Management Suite E1 ed E2 possono ottenere Application Insights Enterprise come componente aggiuntivo senza alcun costo aggiuntivo. Nello specifico, ogni unità di Operations Management Suite E1 ed E2 include il diritto a 1 nodo del piano Enterprise di Application Insights. Come indicato in precedenza, ogni nodo di Application Insights include fino a 200 MB al giorno per l'inserimento dati, distinto dall'inserimento dati di Log Analytics, con un periodo di conservazione di 90 giorni senza costi aggiuntivi. 
+
+> [!NOTE]
+> Per ottenere questo diritto, le risorse di Application Insights devono essere disponibili nel piano tariffario Enterprise. Questo diritto si applica solo ai nodi, quindi le risorse di Application Insights nel piano Basic non otterranno alcun vantaggio. Si noti che questo diritto non sarà visibile nei costi stimati indicati nel pannello Funzionalità + prezzi. 
+>
+ 
+## <a name="review-pricing-plans-and-estimate-costs"></a>Esaminare i piani tariffari e stimare i costi
+
+Application Insights semplifica la comprensione dei piani tariffari disponibili e dei possibili costi associati in base a modelli di utilizzo recente. Iniziare aprendo il pannello **Funzionalità + prezzi** nella risorsa di Application Insights del portale di Azure:
 
 ![Scegliere Prezzi.](./media/app-insights-pricing/01-pricing.png)
 

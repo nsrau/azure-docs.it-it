@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 06/16/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 3155990d977d8b0849c9e0be92db11ad6567cd6e
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 8951167213da6ab5341c1ca420353ec625ef5424
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/06/2017
 Informazioni sul Centro sicurezza di Azure, le funzionalità principali e il funzionamento.
 
 > [!NOTE]
-> Il documento introduce il servizio usando una distribuzione di esempio.
+> A partire dall'inizio di giugno 2017, il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
 >
 >
 
@@ -38,17 +39,23 @@ Informazioni sul Centro sicurezza di Azure, le funzionalità principali e il fun
 | Fase | Funzionalità |
 | --- | --- |
 | Prevenzione |Monitora lo stato della sicurezza delle risorse di Azure |
-| Prevenzione | Definisce i criteri per le sottoscrizioni e i gruppi di risorse di Azure in base ai requisiti di sicurezza dell'azienda, ai tipi di applicazioni in uso o al livello di riservatezza dei dati |
+| Prevenzione | Definisce i criteri per le sottoscrizioni di Azure in base ai requisiti di sicurezza dell'azienda, ai tipi di applicazioni in uso o al livello di riservatezza dei dati |
 | Prevenzione | Usa i suggerimenti relativi alla sicurezza in base ai criteri per guidare i proprietari del servizio nel processo di implementazione dei controlli necessari |
 | Prevenzione | Distribuisce rapidamente i servizi di sicurezza e i dispositivi di Microsoft e dei partner |
 | Rilevamento |Raccoglie e analizza automaticamente i dati di sicurezza dalle risorse di Azure, dalla rete e dalle soluzioni dei partner, ad esempio programmi antimalware e firewall |
-| Rilevamento | Sfrutta le informazioni sulle minacce globali da prodotti e servizi Microsoft, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC), nonché da feed esterni |
+| Rilevamento | Usa le informazioni sulle minacce globali di prodotti e servizi Microsoft, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC), nonché da feed esterni |
 | Rilevamento | Applica analisi avanzate, tra cui analisi del comportamento e di Machine Learning |
 | Risposta |Fornisce eventi imprevisti o avvisi di sicurezza con priorità |
 | Risposta | Offre informazioni dettagliate sull'origine dell'attacco e sulle risorse interessate |
 | Risposta | Suggerisce alcune modalità per arrestare l'attacco attuale e prevenire quelli futuri |
 
 ## <a name="introductory-walkthrough"></a>Procedura dettagliata introduttiva
+
+> [!NOTE]
+> Il documento introduce il servizio usando una distribuzione di esempio. Questo argomento non costituisce una guida dettagliata.
+>
+>
+
  È possibile accedere al Centro sicurezza tramite il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). [Accedere al portale](https://portal.azure.com). Nel menu principale del portale scorrere fino all'opzione **Centro sicurezza** oppure selezionare il riquadro **Centro sicurezza** aggiunto in precedenza al dashboard del portale.
 
 ![Riquadro Sicurezza nel portale di Azure][1]
@@ -56,10 +63,10 @@ Informazioni sul Centro sicurezza di Azure, le funzionalità principali e il fun
 Nel Centro sicurezza è possibile impostare i criteri di sicurezza, monitorare le configurazioni di sicurezza e visualizzare gli avvisi di sicurezza.
 
 ### <a name="security-policies"></a>Criteri di sicurezza
-È possibile definire i criteri per le sottoscrizioni e i gruppi di risorse di Azure in base ai requisiti di sicurezza della società. È anche possibile personalizzarli in base ai tipi di applicazioni in uso o al livello di riservatezza dei dati in ogni sottoscrizione. Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti di sicurezza diversi da quelli delle applicazioni di produzione. Allo stesso modo, le applicazioni con dati regolamentati, come le informazioni personali, possono richiedere un livello di sicurezza più elevato.
+È possibile definire i criteri per le sottoscrizioni di Azure in base ai requisiti di sicurezza della società. È anche possibile personalizzarli in base ai tipi di applicazioni in uso o al livello di riservatezza dei dati in ogni sottoscrizione. Ad esempio, le risorse usate per lo sviluppo o il test possono avere requisiti di sicurezza diversi da quelli delle applicazioni di produzione. Allo stesso modo, le applicazioni con dati regolamentati, come le informazioni personali, possono richiedere un livello di sicurezza più elevato.
 
 > [!NOTE]
-> Per modificare i criteri di sicurezza a livello di sottoscrizione o di gruppo di risorse, è necessario essere il proprietario della sottoscrizione o un collaboratore.
+> Per modificare i criteri di sicurezza, è necessario essere Amministratore della protezione, proprietario o collaboratore della sottoscrizione. Per altre informazioni sui ruoli e sulle azioni consentite nel Centro sicurezza, vedere [Autorizzazioni nel Centro sicurezza di Azure](security-center-permissions.md).
 >
 >
 
@@ -69,35 +76,17 @@ Nel pannello **Centro sicurezza** selezionare il riquadro **Criteri** per visual
 
 Nel pannello **Criteri di sicurezza** selezionare una sottoscrizione per visualizzare i dettagli dei criteri.
 
-![Sottoscrizione pannello Criteri di sicurezza][3]
-
-**Raccolta dati** (vedere sopra) abilita la raccolta dei dati per i criteri di sicurezza. L'abilitazione fornisce:
+**Raccolta dati** abilita la raccolta dei dati per i criteri di sicurezza. L'abilitazione fornisce:
 
 * Analisi giornaliera di tutte le macchine virtuali (VM) supportate per il monitoraggio della sicurezza e le raccomandazioni.
 * Raccolta di eventi di sicurezza per l'analisi e il rilevamento delle minacce.
 
-**Scegli un account di archiviazione per area** (vedere sopra) consente di scegliere, per ogni area in cui sono in esecuzione VM, l'account di archiviazione in cui vengono archiviati i dati raccolti da queste VM. Se non si sceglie un account di archiviazione per ogni area, verrà creato automaticamente. I dati raccolti vengono isolati logicamente da quelli di altri clienti per motivi di sicurezza.
-
 > [!NOTE]
-> La raccolta dei dati e la scelta di un account di archiviazione per ogni area è configurata a livello di sottoscrizione.
+> La raccolta dei dati è configurata a livello di sottoscrizione.
 >
 >
 
-Selezionare **Criteri di prevenzione** (vedere sopra) per aprire il pannello **Criteri di prevenzione**. **Mostra raccomandazioni per** consente di scegliere i controlli di sicurezza da monitorare e le raccomandazioni da visualizzare in base alle esigenze di sicurezza delle risorse della sottoscrizione.
-
-Successivamente, selezionare un gruppo di risorse per visualizzare i dettagli dei criteri.
-
-![Gruppo di risorse pannello Criteri di sicurezza][4]
-
-**Ereditarietà** (vedere sopra) consente di definire il gruppo di risorse come:
-
-* Ereditato (impostazione predefinita), ossia tutti i criteri di sicurezza per questo gruppo di risorse vengono ereditati dal livello della sottoscrizione.
-* Univoco, ossia il gruppo di risorse avrà criteri di sicurezza personalizzati. Può essere necessario apportare modifiche in **Mostra raccomandazioni per**.
-
-> [!NOTE]
-> In caso di conflitto tra criteri definiti a livello di sottoscrizione e quelli a livello di gruppo di risorse, i criteri a livello di gruppo di risorse avranno la precedenza.
->
->
+Selezionare **Criteri di prevenzione** per aprire il pannello **Criteri di prevenzione**. **Mostra raccomandazioni per** consente di scegliere i controlli di sicurezza da monitorare e le raccomandazioni da visualizzare in base alle esigenze di sicurezza delle risorse della sottoscrizione.
 
 ### <a name="security-recommendations"></a>Suggerimenti per la sicurezza
  Il Centro sicurezza analizza lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Un elenco di suggerimenti illustra in dettaglio il processo di configurazione dei controlli necessari. Tra gli esempi sono inclusi:
@@ -112,10 +101,10 @@ Fare clic sul riquadro **Suggerimenti** per visualizzarne un elenco. Fare clic s
 
 ![Raccomandazioni di sicurezza nel Centro sicurezza di Azure][5]
 
-### <a name="resource-health"></a>Integrità delle risorse
-Il riquadro **Integrità sicurezza delle risorse** visualizza il comportamento di sicurezza complessivo dell'ambiente per tipo di risorsa, ad esempio VM, applicazioni Web e altre risorse.   
+### <a name="security-state-of-azure-resources"></a>Stato di sicurezza delle risorse di Azure
+La sezione **Prevenzione** del dashboard mostra il comportamento di sicurezza complessivo dell'ambiente per ogni tipo di risorsa, tra cui VM, applicazioni Web e altre risorse.   
 
-Selezionare un tipo di risorsa nel riquadro **Integrità sicurezza delle risorse** per visualizzare altre informazioni, incluso un elenco delle potenziali vulnerabilità di sicurezza identificate. Nell'esempio seguente è selezionata la risorsa**Calcolo**.
+Selezionare un tipo di risorsa in **Prevenzione** per visualizzare altre informazioni, incluso un elenco delle potenziali vulnerabilità della sicurezza identificate. Nell'esempio seguente è selezionata la risorsa**Calcolo**.
 
 ![Riquadro Integrità delle risorse][6]
 
@@ -136,7 +125,7 @@ Se si seleziona un avviso, verranno visualizzate altre informazioni sull'attacco
 ![Dettagli dell'avviso di sicurezza][8]
 
 ### <a name="partner-solutions"></a>Soluzioni partner
-Il riquadro **Soluzioni partner** consente di monitorare a colpo d'occhio lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure. Il Centro sicurezza visualizza gli avvisi provenienti dalle soluzioni.
+Il riquadro **Soluzioni partner** consente di monitorare a colpo d'occhio lo stato di sicurezza delle soluzioni partner integrate nella sottoscrizione di Azure. Il Centro sicurezza visualizza gli avvisi provenienti dalle soluzioni.
 
 Selezionare il riquadro **Soluzioni partner** . Viene visualizzato un pannello contenente un elenco di tutte le soluzioni dei partner connessi.
 
@@ -149,14 +138,15 @@ Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di
 
 [Introduzione al Centro sicurezza di Azure](security-center-get-started.md) fornisce una rapida descrizione dei componenti di monitoraggio della sicurezza e gestione dei criteri del Centro sicurezza.
 
-## <a name="see-also"></a>Vedere anche
-Questo documento ha illustrato il Centro sicurezza, le funzionalità principali e come iniziare a usarlo. Per altre informazioni, vedere gli argomenti seguenti:
+## <a name="next-steps"></a>Passaggi successivi
+Questo documento ha illustrato il Centro sicurezza, le funzionalità principali e come iniziare a usarlo. Per altre informazioni, vedere le risorse seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
 * [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md) : informazioni sul modo in cui le raccomandazioni facilitano la protezione delle risorse di Azure.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
+- [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md): informazioni sulla gestione e la protezione dei dati nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : informazioni e notizie aggiornate sulla sicurezza di Azure.
 

@@ -1,5 +1,5 @@
 ---
-title: " Gestire un server VMware vCenter in Azure Site Recovery | Documentazione Microsofts"
+title: " Gestire un server VMware vCenter in Azure Site Recovery | Microsoft Docs"
 description: Questo articolo descrive come aggiungere e gestire un server VMware vCenter in Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 2/14/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
-translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 5578dea457f3eeda72e3a1e4e61382cdf0de285d
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 ---
 
@@ -26,9 +27,9 @@ Questo articolo prende in esame le varie operazioni di Site Recovery che possono
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-**Supporto per host VMware vCenter e VMware vSphere ESX** | **Dettagli**
---- | ---
-**Server VMware locali** | Uno o più server VMware vSphere, che eseguono la versione 6.0, 5.5 o 5.1 con gli ultimi aggiornamenti. I server devono trovarsi nella stessa rete del server di configurazione (o del server di elaborazione separato).<br/><br/> È consigliabile usare un server vCenter, che esegue la versione 6.0 o 5.5 con gli ultimi aggiornamenti, per gestire gli host. Quando si distribuisce la versione 6.0, sono supportate solo le funzionalità disponibili nella versione 5.5.
+**Supporto per host VMware vCenter e VMware vSphere ESX** | **Dettagli** |
+|--- | --- |
+|**Server VMware locali** | Uno o più server VMware vSphere, che eseguono la versione 6.0, 5.5 o 5.1 con gli ultimi aggiornamenti. I server devono trovarsi nella stessa rete del server di configurazione (o del server di elaborazione separato).<br/><br/> È consigliabile usare un server vCenter, che esegue la versione 6.0 o 5.5 con gli ultimi aggiornamenti, per gestire gli host. Quando si distribuisce la versione 6.0, sono supportate solo le funzionalità disponibili nella versione 5.5.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparare un account per l'individuazione automatica
 Site Recovery deve avere accesso a VMware per l'individuazione automatica delle macchine virtuali da parte del server di elaborazione e per il failover e il failback delle macchine virtuali.

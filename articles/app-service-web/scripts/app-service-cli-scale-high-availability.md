@@ -1,6 +1,6 @@
 ---
-title: "Esempio di script dell&quot;interfaccia della riga di comando di Azure - Ridimensionare un&quot;App Web a livello globale con un&quot;architettura a disponibilità elevata | Microsoft Docs"
-description: "Esempio di script dell&quot;interfaccia della riga di comando di Azure - Ridimensionare un&quot;App Web a livello globale con un&quot;architettura a disponibilità elevata"
+title: "Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare un'App Web a livello globale con un'architettura a disponibilità elevata | Microsoft Docs"
+description: "Esempio di script dell'interfaccia della riga di comando di Azure - Ridimensionare un'App Web a livello globale con un'architettura a disponibilità elevata"
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -13,13 +13,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 03/20/2017
+ms.date: 06/19/2017
 ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 5c467f35351a9e0c6261967b6ed6e6b58cfab682
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: c368bdc48f197ff5b491d1796d85abfd339051a6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -27,7 +28,12 @@ ms.lasthandoff: 05/15/2017
 
 In questo scenario verranno creati un gruppo di risorse, due piani di servizio app, due App Web, una profilo di Gestione traffico e due endpoint di endpoint di Gestione traffico. Dopo aver completato l'esercizio si avrà un'architettura a disponibilità elevata che fornisce la disponibilità globale dell'App Web in base alla minima latenza di rete.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -43,7 +49,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, un'App Web
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#create) | Consente di creare un'App Web di Azure all'interno del piano di servizio app. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Crea un'App Web di Azure. |
 | [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#create) | Crea un profilo di Gestione traffico di Azure. |
 | [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) | Aggiunge un endpoint a un profilo di Gestione traffico di Azure. |
 

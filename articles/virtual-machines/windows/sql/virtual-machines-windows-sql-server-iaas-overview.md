@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: 08/07/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 10840ee4ff070436e2c21d51846ea6363825abac
-ms.lasthandoff: 04/22/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Panoramica di SQL Server in macchine virtuali di Azure
@@ -52,7 +52,7 @@ Il video copre le aree seguenti:
 | 08:32 |Demo: creare una VM di SQL Server 2016 |
 
 > [!NOTE]
-> Il video è incentrato su SQL Server 2016, ma Azure offre immagini di VM per diverse versioni di SQL Server, tra cui le versioni 2008, 2012, 2014 e 2016. 
+> Il video è incentrato su SQL Server 2016, ma Azure offre immagini di VM per diverse versioni di SQL Server, tra cui le versioni 2012, 2014 e 2016. 
 > 
 > 
 
@@ -80,7 +80,6 @@ La tabella seguente descrive una matrice di immagini di SQL Server più recenti 
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
 | **SQL Server 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2), [Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
-| **SQL Server 2008 R2 SP3** |Windows Server 2008 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2) |
 
 Oltre alle versioni elencate, sono disponibili altre combinazioni di versioni di SQL Server e dei sistemi operativi. Trovare altre immagini tramite una ricerca nel Marketplace nel portale di Azure. 
 
@@ -130,10 +129,8 @@ Il programma Analisi utilizzo software è abilitato per impostazione predefinita
 Per altre informazioni, vedere la sezione relativa ad Analisi utilizzo software nell'argomento [Accettazione delle condizioni di licenza](https://msdn.microsoft.com/library/ms143343.aspx). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Esplorare il percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) per SQL Server in macchine virtuali di Azure.
 
 Per domande sui prezzi, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure) e la [pagina Prezzi di Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Selezionare l'edizione di destinazione di SQL Server nell'elenco **Sistema operativo/Software**. Visualizzare quindi i prezzi per macchine virtuali di dimensioni diverse.
 
 Per altre domande, vedere prima di tutto [Domande frequenti su SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-faq.md). In alternativa, è possibile aggiungere commenti alla fine di uno degli argomenti relativi alle macchine virtuali di SQL per interagire con Microsoft e la community.
-
 

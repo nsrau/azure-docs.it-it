@@ -1,6 +1,6 @@
 ---
 title: App in grado di riconoscere attestazioni - Proxy di applicazione di Azure AD | Documentazione Microsoft
-description: Come pubblicare applicazioni ASP.NET locali che accettano le attestazioni di AD FS per l&quot;accesso remoto sicuro da parte degli utenti.
+description: Come pubblicare applicazioni ASP.NET locali che accettano le attestazioni di AD FS per l'accesso remoto sicuro da parte degli utenti.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -12,42 +12,49 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
-ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
 ms.contentlocale: it-it
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
-# <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uso di app in grado di riconoscere attestazioni nel proxy dell'applicazione
-Le app in grado di riconoscere attestazioni eseguono un reindirizzamento al servizio token di sicurezza, che a sua volta richiede le credenziali dell'utente in cambio di un token prima di reindirizzare l'utente all'applicazione. Per abilitare il proxy dell'applicazione e poter gestire le operazioni di reindirizzamento, è necessario prima seguire questa procedura.
+# <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uso di app in grado di riconoscere attestazioni nel proxy di applicazione
+Le [app in grado di riconoscere attestazioni](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) eseguono un reindirizzamento al servizio token di sicurezza. Il servizio token di sicurezza richiede le credenziali all'utente in cambio di un token e quindi reindirizza l'utente all'applicazione. È possibile consentire al proxy di applicazione di usare questi reindirizzamenti in diversi modi. Usare questo articolo per configurare la distribuzione per app in grado di riconoscere attestazioni. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di eseguire la procedura, assicurarsi che il servizio token di sicurezza a cui reindirizza l'app basata sul riconoscimento delle attestazioni sia disponibile all'esterno della rete locale.
+Assicurarsi che il servizio token di sicurezza cui viene reindirizzata l'app in grado di riconoscere attestazioni sia disponibile esternamente alla rete locale. Per rendere disponibile il servizio token di sicurezza, è possibile esporlo tramite un proxy o consentire le connessioni esterne. 
 
-## <a name="azure-classic-portal-configuration"></a>Configurazione del portale di Azure classico
-1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md).
-2. Nell'elenco delle applicazioni selezionare l'app in grado di riconoscere attestazioni e fare clic su **Configura**.
-3. Se si sceglie **Passthrough** come **Metodo di autenticazione preliminare**, assicurarsi di selezionare **HTTPS** come schema di **URL esterno**.
-4. Se si sceglie **Azure Active Directory** come **Metodo di autenticazione preliminare**, assicurarsi di selezionare **Nessuno** come **Metodo di autenticazione interna**.
+## <a name="publish-your-application"></a>Pubblicare l'applicazione
 
-## <a name="adfs-configuration"></a>Configurazione di AD FS
+1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-publish-azure-portal.md).
+2. Passare alla pagina dell'applicazione nel portale e selezionare **Single Sign-On**.
+3. Se si sceglie **Azure Active Directory** come **Metodo di autenticazione preliminare**, selezionare **Single Sign-On di Azure AD disabilitato** come **Metodo di autenticazione interna**. Se si sceglie **Pass-through** come **Metodo di autenticazione preliminare**, non è necessario apportare alcuna modifica.
+
+## <a name="configure-adfs"></a>Configurare AD FS
+
+È possibile configurare AD FS per le app in grado di riconoscere attestazioni in due modi diversi. Il primo consiste nell'usare domini personalizzati. Il secondo è con WS-Federation. 
+
+### <a name="option-1-custom-domains"></a>Opzione 1: domini personalizzati
+
+Se tutti gli URL interni per le applicazioni sono nomi di dominio completi (FQDN), è possibile configurare [domini personalizzati](active-directory-application-proxy-custom-domains.md) per le applicazioni. Usare i domini personalizzati per creare URL esterni identici agli URL interni. Con questa configurazione, i reindirizzamenti creati dal servizio token di sicurezza funzionano allo stesso modo, indipendente dal fatto che gli utenti siano locali o remoti. 
+
+### <a name="option-2-ws-federation"></a>Opzione 2: WS-Federation
+
 1. Aprire la console di gestione di AD FS.
 2. Passare a **Attendibilità componente**, fare clic con il pulsante destro del mouse sull'app da pubblicare con il proxy dell'applicazione e quindi scegliere **Proprietà**.  
 
    ![Schermata: clic con il pulsante destro del mouse sul nome dell'app in Attendibilità componente](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
 
 3. Nella scheda **Endpoint** selezionare **WS-Federation** in **Tipo di endpoint**.
-4. In **URL attendibile** specificare l'URL immesso in **URL esterno** nel proxy dell'applicazione e fare clic su **OK**.  
+4. In **URL attendibile** specificare l'URL immesso in **URL esterno** nel proxy di applicazione e fare clic su **OK**.  
 
    ![Schermata: aggiunta di un endpoint e impostazione del valore per URL attendibile](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Abilitare l'accesso Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
-* [Risolvere i problemi che si verificano con il proxy di applicazione](active-directory-application-proxy-troubleshoot.md)
+* [Abilitare Single Sign-On](application-proxy-sso-overview.md) per le applicazioni che non sono in grado di riconoscere attestazioni
 * [Abilitare le app client native per l'interazione con applicazioni proxy](active-directory-application-proxy-native-client.md)
 
 

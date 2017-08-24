@@ -1,6 +1,6 @@
 ---
 title: Autenticazione di Azure Active Directory - Azure SQL (Panoramica) | Documentazione Microsoft
-description: Informazioni su come usare Azure Active Directory per l&quot;autenticazione di un database SQL e di SQL Data Warehouse
+description: Informazioni su come usare Azure Active Directory per l'autenticazione di un database SQL e di SQL Data Warehouse
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -9,19 +9,18 @@ editor:
 tags: 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
-ms.custom: security-access
+ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 05/10/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a8c7e1859fa630fbfcebd39d0304a6e7657ac43b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7a97bc7043d90fb799929ae5ed696d3731bfa3eb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione di un database SQL o di SQL Data Warehouse
@@ -103,6 +102,7 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 * [Microsoft JDBC Driver 6.0 per server SQL](https://www.microsoft.com/download/details.aspx?id=11774) supporta l'autenticazione di Azure AD. Vedere anche l'argomento su come [impostare le proprietà della connessione](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase non può eseguire l'autenticazione di Azure AD.   
 * L'autenticazione di Azure AD è supportata per il database SQL nei pannelli **Importa database** ed **Esporta database** del portale di Azure. L'importazione e l'esportazione tramite l'autenticazione di Azure AD è supportata anche dal comando PowerShell.   
+* L'autenticazione di Azure AD è supportata per il database SQL e SQL Data Warehouse usando l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md) (Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL o con SQL Data Warehouse) e [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per informazioni su come creare e popolare Azure AD e quindi configurare Azure AD con il database SQL di Azure e SQL Data Warehouse, vedere [Configurare Azure AD con il database SQL di Azure](sql-database-aad-authentication-configure.md).
@@ -111,8 +111,6 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 - Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx).
 - Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](https://msdn.microsoft.com/library/ms189121.aspx).
 - Per informazioni generali sulle regole del firewall, vedere l'articolo relativo alle [regole del firewall per il database SQL](sql-database-firewall-configure.md).
-- Per un'esercitazione sull'uso dell'autenticazione di SQL Server, vedere [Autenticazione e autorizzazione di SQL](sql-database-control-access-sql-authentication-get-started.md).
-- Per un'esercitazione sull'uso dell'autenticazione di Azure Active Directory, vedere [Autenticazione e autorizzazione di Azure Active Directory](sql-database-control-access-aad-authentication-get-started.md).
 
 <!--Image references-->
 

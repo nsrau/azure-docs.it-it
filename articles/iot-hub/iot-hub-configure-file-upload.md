@@ -1,6 +1,6 @@
 ---
-title: Usare il portale di Azure per configurare il caricamento dei file | Documentazione Microsoft
-description: Come usare il portale di Azure per configurare l&quot;hub IoT per abilitare i caricamenti di file da dispositivi connessi. Include informazioni sulla configurazione dell&quot;account di archiviazione di Azure di destinazione.
+title: Usare il portale di Azure per configurare il caricamento dei file | Microsoft Docs
+description: Come usare il portale di Azure per configurare l'hub IoT per abilitare i caricamenti di file da dispositivi connessi. Include informazioni sulla configurazione dell'account di archiviazione di Azure di destinazione.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 07/03/2017
 ms.author: dobett
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: b958487c80207002e0642b8af8486f53266dd563
+ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
+ms.openlocfilehash: 149dd84d7d8f4ff9cd30f9fc649ced3cb364cfb7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 07/04/2017
 
 
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/16/2017
 
 ## <a name="file-upload"></a>Caricamento di file
 
-Per usare la [funzionalità di caricamento di file nell'hub IoT][lnk-upload], è prima di tutto necessario associare un account di archiviazione di Azure all'hub. Selezionare le impostazioni di **Caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l'hub IoT da modificare.
+Per usare la [funzionalità di caricamento di file nell'hub IoT][lnk-upload], è prima di tutto necessario associare un account di archiviazione di Azure all'hub. Selezionare **Caricamento del file** per visualizzare un elenco di proprietà di caricamento del file per l'hub IoT da modificare.
 
 ![Visualizzare le impostazioni di caricamento di file dell'hub IoT nel portale][13]
 

@@ -1,5 +1,5 @@
 ---
-title: Usare i flussi di lavoro Oozie di Hadoop in HDInsight basati su Linux | Documentazione Microsoft
+title: Usare i flussi di lavoro Oozie di Hadoop in HDInsight basati su Linux | Microsoft Docs
 description: Usare Oozie di Hadoop in HDInsight basati su Linux. Informazioni su come definire un flusso di lavoro di Oozie e inviare un processo Oozie.
 services: hdinsight
 documentationcenter: 
@@ -14,31 +14,40 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/04/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 1bd2b85b445c17274609db487e9824c40ecfb915
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: b43dd20be9f481270b782de3c889abac762bd9cc
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight basato su Linux
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Informazioni su come usare Apache Oozie con Hadoop in HDInsight. Apache Oozie è un sistema di flusso di lavoro/coordinamento che consente di gestire i processi Hadoop. È integrato nello stack di Hadoop e supporta i processi Hadoop per Apache MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Può anche essere usato per pianificare processi specifici di un sistema, come i programmi Java o gli script della shell.
+Informazioni su come usare Apache Oozie con Hadoop in HDInsight. Apache Oozie è un sistema di flusso di lavoro/coordinamento che consente di gestire i processi Hadoop. Oozie è integrato con lo stack Hadoop e supporta i processi seguenti:
+
+* Apache MapReduce
+* Apache Pig
+* Apache Hive
+* Apache Sqoop
+
+Oozie può anche essere usato per pianificare processi specifici di un sistema, come i programmi Java o gli script della shell
 
 > [!NOTE]
 > Un'altra opzione per definire i flussi di lavoro con HDInsight è Azure Data Factory. Per altre informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data Factory][azure-data-factory-pig-hive].
+
+> [!IMPORTANT]
+> Oozie non è abilitato su HDInsight appartenente al dominio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Un cluster di HDInsight**: vedere [Introduzione a HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
   > [!IMPORTANT]
-  > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+  > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Esempio di flusso di lavoro
 
@@ -63,7 +72,7 @@ Il flusso di lavoro usato in questo documento prevede due azioni. Le azioni sono
 
 ## <a name="create-the-working-directory"></a>Creare la directory di lavoro
 
-Oozie prevede che le risorse necessarie per un processo siano archiviate nella stessa directory. Questo esempio usa **wasbs:///tutorials/useoozie**. Usare il comando seguente per creare questa directory e la directory dati che contiene la nuova tabella Hive creata da questo flusso di lavoro:
+Oozie prevede che le risorse necessarie per un processo siano archiviate nella stessa directory. Questo esempio usa **wasb:///tutorials/useoozie**. Usare il comando seguente per creare questa directory e la directory dati che contiene la nuova tabella Hive creata da questo flusso di lavoro:
 
 ```
 hdfs dfs -mkdir -p /tutorials/useoozie/data
@@ -128,13 +137,13 @@ Usare i passaggi seguenti per creare uno script HiveQL che definisce la query us
 
 4. Per uscire dall'editor, premere CTRL-X. Quando richiesto, selezionare **S** per salvare il file, quindi premere **INVIO** per usare il nome di file **useooziewf.hql**.
 
-5. Usare i comandi seguenti per copiare **useooziewf.hql** in **wasbs:///tutorials/useoozie/useooziewf.hql**:
+5. Usare i comandi seguenti per copiare **useooziewf.hql** in **wasb:///tutorials/useoozie/useooziewf.hql**:
 
     ```
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    Questi comandi consentono di archiviare il file **useooziewf.hql** nell'account di archiviazione di Azure associato al cluster, che conserva il file anche se il cluster viene eliminato.
+    Questi comandi archiviano il file **useooziewf.hql** nella risorsa di archiviazione compatibile con HDFS per il cluster.
 
 ## <a name="define-the-workflow"></a>Definire il flusso di lavoro
 
@@ -292,11 +301,11 @@ La definizione del processo descrive dove trovare il file workflow.xml. Descrive
 
     ```xml
     <name>fs.defaultFS</name>
-    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
     > [!NOTE]
-    > Se il cluster HDInsight usa l'archiviazione di Azure come percorso di archiviazione predefinito, il contenuto dell'elemento `<value>` inizia con `wasbs://`. Se, invece, viene usato Azure Data Lake Store, il contenuto inizia con `adl://`.
+    > Se il cluster HDInsight usa l'archiviazione di Azure come percorso di archiviazione predefinito, il contenuto dell'elemento `<value>` inizia con `wasb://`. Se, invece, viene usato Azure Data Lake Store, il contenuto inizia con `adl://`.
 
     Salvare il contenuto dell'elemento `<value>`, necessario nei passaggi successivi.
 
@@ -326,7 +335,7 @@ La definizione del processo descrive dove trovare il file workflow.xml. Descrive
 
         <property>
         <name>nameNode</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
         </property>
 
         <property>
@@ -346,7 +355,7 @@ La definizione del processo descrive dove trovare il file workflow.xml. Descrive
 
         <property>
         <name>hiveScript</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
         </property>
 
         <property>
@@ -356,7 +365,7 @@ La definizione del processo descrive dove trovare il file workflow.xml. Descrive
 
         <property>
         <name>hiveDataFolder</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
         </property>
 
         <property>
@@ -376,12 +385,12 @@ La definizione del processo descrive dove trovare il file workflow.xml. Descrive
 
         <property>
         <name>oozie.wf.application.path</name>
-        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
     </configuration>
     ```
 
-   * Sostituire tutte le istanze di **wasbs://mycontainer@mystorageaccount.blob.core.windows.net** con il valore ricevuto in precedenza relativo alla risorsa di archiviazione predefinita.
+   * Sostituire tutte le istanze di **wasb://mycontainer@mystorageaccount.blob.core.windows.net** con il valore ricevuto in precedenza relativo alla risorsa di archiviazione predefinita.
 
      > [!WARNING]
      > Se il percorso è un percorso `wasb`, è necessario usare il percorso completo, che non deve essere abbreviato in `wasb:///`.
@@ -452,7 +461,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
     Job ID : 0000005-150622124850154-oozie-oozi-W
     ------------------------------------------------------------------------------------------------------------------------------------
     Workflow Name : useooziewf
-    App Path      : wasbs:///tutorials/useoozie
+    App Path      : wasb:///tutorials/useoozie
     Status        : PREP
     Run           : 0
     User          : USERNAME
@@ -465,7 +474,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
     ------------------------------------------------------------------------------------------------------------------------------------
     ```
 
-    Lo stato del processo è `PREP`. Indica che il processo è stato inviato, ma non ancora avviato.
+    Lo stato del processo è `PREP`. Questo stato indica che il processo è stato creato, ma non avviato.
 
 5. Usare il comando seguente per avviare il processo.
 
@@ -502,7 +511,7 @@ La procedura seguente usa il comando Oozie per inviare e gestire i flussi di lav
         Windows Phone   1791
         (6 rows affected)
 
-Per altre informazioni sul comando Oozie, vedere [Strumento da riga di comando di Oozie](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+Per altre informazioni sul comando Oozie, vedere [Oozie command-line tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html) (Strumento da riga di comando di Oozie).
 
 ## <a name="oozie-rest-api"></a>API REST di Oozie
 
@@ -566,9 +575,7 @@ Per accedere all'interfaccia utente Web di Oozie, attenersi alla procedura segue
 
 ## <a name="scheduling-jobs"></a>Pianificazione di processi
 
-Il coordinatore consente di specificare inizio, fine e frequenza dei processi, in modo da poterli pianificare per determinati orari.
-
-Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura seguente:
+Il coordinatore consente di specificare inizio, fine e frequenza dei processi. Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura seguente:
 
 1. Usare quanto segue per creare un file denominato **coordinator.xml**:
 
@@ -613,20 +620,20 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
 
     Apportare le modifiche seguenti:
 
-   * Cambiare `<name>oozie.wf.application.path</name>` in `<name>oozie.coord.application.path</name>`. Questo valore indica a Oozie di eseguire il file del coordinatore invece del file del flusso di lavoro.
+   * Per indicare a Oozie di eseguire il file del coordinatore invece del file del flusso di lavoro sostituire `<name>oozie.wf.application.path</name>` con `<name>oozie.coord.application.path</name>`.
 
-   * Aggiungere il codice XML seguente. Questo codice imposta una variabile usata nel file coordinator.xml per fare riferimento al percorso del file workflow.xml:
+   * Per impostare la variabile `workflowPath` usata dal coordinatore, aggiornare il codice XML seguente:
 
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+            <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
         ```
 
-       Sostituire il testo `wasbs://mycontainer@mystorageaccount.blob.core.windows` con il valore usato nelle altre voci del file job.xlm.
+       Sostituire il testo `wasb://mycontainer@mystorageaccount.blob.core.windows` con il valore usato nelle altre voci del file job.xlm.
 
-   * Aggiungere il codice XML seguente. Questo codice definisce l'inizio, la fine e la frequenza da usare per il file coordinator.xml:
+   * Per definire l'inizio, la fine e la frequenza per il coordinatore, aggiungere il codice XML seguente:
 
         ```xml
         <property>
@@ -673,7 +680,7 @@ Per definire una pianificazione per il flusso di lavoro,attenersi alla procedura
     ![Informazioni sui processi coordinatore](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > Sono visualizzate solo le esecuzioni riuscite del processo, non le singole azioni all'interno del flusso di lavoro pianificato. Per visualizzarle, selezionare una delle voci in **Action** .
+    > Questa immagine visualizza solo le esecuzioni riuscite del processo, non le singole azioni nel flusso di lavoro pianificato. Per visualizzarle, selezionare una delle voci in **Action** .
 
     ![Informazioni sull'azione](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
@@ -695,7 +702,7 @@ Di seguito sono riportati errori specifici che possono verificarsi e come risolv
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Causa**: gli indirizzi WASB usati nel file **job.xml** non includono il contenitore di archiviazione o il nome dell'account di archiviazione. Il formato dell'indirizzo WASB deve essere `wasbs://containername@storageaccountname.blob.core.windows.net`.
+**Causa**: gli indirizzi WASB usati nel file **job.xml** non includono il contenitore di archiviazione o il nome dell'account di archiviazione. Il formato dell'indirizzo WASB deve essere `wasb://containername@storageaccountname.blob.core.windows.net`.
 
 **Risoluzione**: modificare gli indirizzi WASB usati dal processo.
 
@@ -768,7 +775,7 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/

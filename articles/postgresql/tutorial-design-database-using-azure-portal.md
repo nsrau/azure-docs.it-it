@@ -5,12 +5,9 @@ services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
-editor: jasonh
-ms.assetid: 
-ms.service: postgresql-database
-ms.custom: tutorial
-ms.tgt_pltfrm: portal
-ms.devlang: na
+editor: jasonwhowell
+ms.service: postgresql
+ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.translationtype: Human Translation
@@ -45,11 +42,11 @@ Accedere al [Portale di Azure](https://portal.azure.com).
 Verrà creato un database di Azure per il server PostgreSQL con un set definito di [risorse di calcolo e di archiviazione](./concepts-compute-unit-and-storage.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 
 Seguire questi passaggi per creare un database di Azure per il server PostgreSQL:
-1.    Fare clic sul pulsante **+ Nuovo** nell'angolo superiore sinistro del portale di Azure.
-2.    Selezionare **Database** nella pagina **Nuovo** e selezionare il **Database di Azure per PostgreSQL** nella pagina **Database**.
+1.  Fare clic sul pulsante **+ Nuovo** nell'angolo superiore sinistro del portale di Azure.
+2.  Selezionare **Database** nella pagina **Nuovo** e selezionare il **Database di Azure per PostgreSQL** nella pagina **Database**.
  ![Database di Azure per PostgreSQL - Creare il database](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3.    Compilare il modulo per i dettagli del nuovo server con le informazioni seguenti, come illustrato nell'immagine precedente:
+3.  Compilare il modulo per i dettagli del nuovo server con le informazioni seguenti, come illustrato nell'immagine precedente:
     - Nome del server: **mypgserver 20170401** (il nome di un server esegue il mapping al nome DNS e pertanto deve essere univoco a livello globale) 
     - Sottoscrizione: se si dispone di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui la risorsa esiste o per cui è configurata.
     - Gruppo di risorse: **myresourcegroup**
@@ -60,15 +57,15 @@ Seguire questi passaggi per creare un database di Azure per il server PostgreSQL
   > [!IMPORTANT]
   > L'account di accesso amministratore server e la password qui specificati sono necessari per accedere al server e ai relativi database più avanti in questa guida introduttiva. Prendere nota di queste informazioni per usarle in seguito.
 
-4.    Fare clic su **Piano tariffario** per specificare il livello di servizio e il livello delle prestazioni per il nuovo database. Per questa guida introduttiva, selezionare il livello **Basic**, **50 unità di calcolo** e **50 GB** di archiviazione inclusi.
+4.  Fare clic su **Piano tariffario** per specificare il livello di servizio e il livello delle prestazioni per il nuovo database. Per questa guida introduttiva, selezionare il livello **Basic**, **50 unità di calcolo** e **50 GB** di archiviazione inclusi.
  ![Database di Azure per PostgreSQL - Selezionare il livello del servizio](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
-5.    Fare clic su **OK**.
-6.    Fare clic su **Crea** per eseguire il provisioning del server. Il provisioning richiede alcuni minuti.
+5.  Fare clic su **OK**.
+6.  Fare clic su **Crea** per eseguire il provisioning del server. Il provisioning richiede alcuni minuti.
 
   > [!TIP]
   > Selezionare l'opzione **Aggiungi al dashboard** per tener traccia facilmente delle distribuzioni.
 
-7.    Sulla barra degli strumenti fare clic su **Notifiche** per monitorare il processo di distribuzione.
+7.  Sulla barra degli strumenti fare clic su **Notifiche** per monitorare il processo di distribuzione.
  ![Database di Azure per PostgreSQL - Vedere le notifiche](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
    
   Per impostazione predefinita, il database **postgres** viene creato nel server. Il database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) è un database predefinito che può essere usato da utenti, utilità e applicazioni di terze parti. 
@@ -77,16 +74,16 @@ Seguire questi passaggi per creare un database di Azure per il server PostgreSQL
 
 Il Database di Azure per il servizio PostgreSQL crea un firewall a livello di server. Questo firewall impedisce alle applicazioni e agli strumenti esterni di connettersi al server e ai database sul server, a meno che non venga creata una regola del firewall per aprire il firewall per indirizzi IP specifici. 
 
-1.    Al termine della distribuzione, fare clic su **Tutte le risorse** dal menu a sinistra e digitare il nome **mypgserver 20170401** per la ricerca del server appena creato. Fare clic sul nome del server elencato nei risultati della ricerca. Si apre la pagina **Panoramica** del server in cui vengono fornite le opzioni per una configurazione aggiuntiva.
+1.  Al termine della distribuzione, fare clic su **Tutte le risorse** dal menu a sinistra e digitare il nome **mypgserver 20170401** per la ricerca del server appena creato. Fare clic sul nome del server elencato nei risultati della ricerca. Si apre la pagina **Panoramica** del server in cui vengono fornite le opzioni per una configurazione aggiuntiva.
  
  ![Database di Azure per PostgreSQL - Cercare il server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.    Nel pannello del server, selezionare **Sicurezza connessione**. 
-3.    Fare clic nella casella di testo in **Nome regola** e aggiungere una nuova regola firewall alla whitelist dell'intervallo IP per la connettività. Per questa esercitazione, consentire tutti gli indirizzi IP digitando **Rule Name = AllowAllIps**, **IP iniziale = 0.0.0.0** e **IP finale = 255.255.255.255** e quindi fare clic su **Salva**. È possibile impostare una regola firewall che copra un intervallo IP che sia in grado di connettersi dalla rete.
+2.  Nel pannello del server, selezionare **Sicurezza connessione**. 
+3.  Fare clic nella casella di testo in **Nome regola** e aggiungere una nuova regola firewall alla whitelist dell'intervallo IP per la connettività. Per questa esercitazione, consentire tutti gli indirizzi IP digitando **Rule Name = AllowAllIps**, **IP iniziale = 0.0.0.0** e **IP finale = 255.255.255.255** e quindi fare clic su **Salva**. È possibile impostare una regola firewall che copra un intervallo IP che sia in grado di connettersi dalla rete.
  
  ![Database di Azure per PostgreSQL - Creare una regola del firewall](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.    Fare clic su **Salva** e quindi fare clic su **X** per chiudere la pagina **Sicurezza connessione**.
+4.  Fare clic su **Salva** e quindi fare clic su **X** per chiudere la pagina **Sicurezza connessione**.
 
   > [!NOTE]
   > Il server PostgreSQL di Azure comunica sulla porta 5432. Se si sta tentando di connettersi da una rete aziendale, il traffico in uscita attraverso la porta 5432 potrebbe non essere autorizzato dal firewall della rete. In questo caso, non sarà possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 5432.
@@ -184,16 +181,16 @@ SELECT * FROM inventory;
 ## <a name="restore-data-to-a-previous-point-in-time"></a>Ripristinare i dati a un punto precedente nel tempo
 Si supponga di aver eliminato accidentalmente questa tabella. Questa situazione non è facile da ripristinare. Il Database di Azure per PostgreSQL consente di tornare in qualsiasi punto nel tempo (negli ultimi 7 giorni (Basic) e 35 giorni (Standard)) e ripristinare questo punto nel tempo in un nuovo server. È possibile usare questo nuovo server per ripristinare i dati eliminati. La procedura seguente consente di ripristinare il server di esempio in un punto precedente all'aggiunta della tabella.
 
-1.    Nel Database di Azure per la pagina PostgreSQL del server, fare clic su **Ripristina** sulla barra degli strumenti. Si apre la pagina **Ripristina** .
+1.  Nel Database di Azure per la pagina PostgreSQL del server, fare clic su **Ripristina** sulla barra degli strumenti. Si apre la pagina **Ripristina** .
   ![Portale di Azure - Opzioni del modulo di ripristino](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
-2.    Compilare il modulo **Ripristina** con le informazioni obbligatorie:
+2.  Compilare il modulo **Ripristina** con le informazioni obbligatorie:
 
   ![Portale di Azure - Opzioni del modulo di ripristino](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
   - **Punto di ripristino**: selezionare un punto nel tempo precedente alla modifica del server
   - **Server di destinazione**: fornire un nuovo nome del server che si desidera ripristinare
   - **Posizione**: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
   - **Piano tariffario**: non è possibile modificare questo valore quando si ripristina un server. È uguale al server di origine. 
-3.    Fare clic su **OK** per ripristinare il server per [ripristinare in un punto nel tempo](./howto-restore-server-portal.md) precedente all'eliminazione delle tabelle. Il ripristino di un server in un altro punto nel tempo crea un duplicato del nuovo server come il server originale nel punto nel tempo specificato, purché sia entro il periodo di conservazione per il [livello di servizio](./concepts-service-tiers.md) applicato.
+3.  Fare clic su **OK** per ripristinare il server per [ripristinare in un punto nel tempo](./howto-restore-server-portal.md) precedente all'eliminazione delle tabelle. Il ripristino di un server in un altro punto nel tempo crea un duplicato del nuovo server come il server originale nel punto nel tempo specificato, purché sia entro il periodo di conservazione per il [livello di servizio](./concepts-service-tiers.md) applicato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si apprenderà come usare il portale di Azure e altre utilità per:

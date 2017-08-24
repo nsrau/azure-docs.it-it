@@ -1,6 +1,6 @@
 ---
 title: Aggiornare un cluster di Azure Service Fabric | Documentazione Microsoft
-description: "Aggiornamento del codice di Service Fabric e/o della configurazione eseguita in un cluster di Service Fabric, con impostazione della modalità di aggiornamento del cluster, aggiornamento dei certificati, aggiunta di porte dell&quot;applicazione, applicazione di patch del sistema operativo e così via. Possibili risultati degli aggiornamenti."
+description: "Aggiornamento del codice di Service Fabric e/o della configurazione eseguita in un cluster di Service Fabric, con impostazione della modalità di aggiornamento del cluster, aggiornamento dei certificati, aggiunta di porte dell'applicazione, applicazione di patch del sistema operativo e così via. Possibili risultati degli aggiornamenti."
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 06/22/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 0231c3148d03ffef0a518a68bb79398462da2605
-ms.openlocfilehash: 89721efbb9f05871716ca1b16ad0d54eaf1ffd62
-ms.lasthandoff: 12/07/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6efb5c20140d3ea76a2a9cd1eb495db69f14048d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Aggiornare un cluster di Azure Service Fabric
@@ -206,7 +206,7 @@ Se nel cluster è stato impostato l'aggiornamento manuale di Fabric, questi crit
 Per informazioni sulle impostazioni personalizzabili e su come possono essere personalizzate, vedere l'articolo relativo alle [impostazioni dei cluster di Service Fabric](service-fabric-cluster-fabric-settings.md) .
 
 ### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>Patch del sistema operativo nelle VM che costituiscono il cluster
-Questa funzionalità è stata pianificata per il futuro come funzionalità automatizzata. Attualmente, l'applicazione di patch alle VM è un'operazione manuale che deve essere eseguita su una VM per volta, in modo da non rendere inattive più macchine virtuali contemporaneamente.
+Fare riferimento a [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) che può essere distribuito nel cluster per installare le patch di Windows Update in modo orchestrato, mantenendo i servizi sempre disponibili. 
 
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Aggiornamenti del sistema operativo nelle VM che costituiscono il cluster
 Se è necessario aggiornare l'immagine del sistema operativo nelle macchine virtuali del cluster, eseguire questa operazione su una VM per volta. L'esecuzione dell'aggiornamento è un'operazione manuale, non è attualmente disponibile alcun tipo di automazione.

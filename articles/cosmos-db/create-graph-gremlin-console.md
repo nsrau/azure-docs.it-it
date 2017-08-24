@@ -1,8 +1,8 @@
 ---
 title: 'Esercitazione su Azure Cosmos DB: Creare, eseguire query e attraversare nella console Gremlin di Apache TinkerPop | Microsoft Docs'
-description: Guida di avvio rapido ad Azure Cosmos DB per creare vertici, archi e query usando l&quot;API Graph di Azure Cosmos DB.
+description: Guida di avvio rapido ad Azure Cosmos DB per creare vertici, archi e query usando l'API Graph di Azure Cosmos DB.
 services: cosmos-db
-author: AndrewHoh
+author: dennyglee
 manager: jhubbard
 editor: monicar
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: terminal
 ms.topic: hero-article
-ms.date: 05/19/2017
-ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: caf3b69b25ccd15322054a0bbf95fc2a5816e00a
+ms.date: 07/27/2017
+ms.author: denlee
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/20/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Creare, eseguire query e attraversare un grafo nella console Gremlin
@@ -48,73 +47,111 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connettersi al servizio app
-1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione *remote-secure.yaml* nella directory *apache-tinkerpop-gremlin-console-3.2.4/conf*.
+1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory apache-tinkerpop-gremlin-console-3.2.4/conf.
 2. Immettere le configurazioni per *Hosts*, *Port*, *Username*, *Password*, *ConnectionPool* e *Serializer*:
 
     Impostazione|Valore consigliato|Descrizione
     ---|---|---
-    Hosts|***.graphs.azure.com|URI del servizio Graph, che può essere recuperato dal portale di Azure
-    Port|443|Impostare su 443
-    Username|*Nome utente*|Risorsa in formato `/dbs/<db>/colls/<coll>`.
-    Password|*Chiave master primaria*|Chiave master primaria per Azure Cosmos DB
-    ConnectionPool|{enableSsl: true}|Impostazione del pool di connessione per SSL
-    Serializer|{ className:org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Impostare su questo valore
+    hosts|[***.graphs.azure.com]|Vedere lo screenshot di seguito. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.<br><br>Questo valore può anche essere recuperato dalla scheda Chiavi, usando il valore dell'URI senza https://, sostituendo documents con graphs e rimuovendo la parte :443/ finale.
+    port|443|Impostare su 443.
+    username|*Nome utente*|Risorsa nel formato `/dbs/<db>/colls/<coll>`, dove `<db>` è il nome del database e `<coll>` è il nome della raccolta.
+    password|*Chiave primaria*| Vedere il secondo screenshot di seguito. Si tratta della chiave primaria, che può essere recuperata dalla pagina Chiavi del portale di Azure nella casella Chiave primaria. Per copiare il valore, usare il pulsante di copia a sinistra della casella.
+    connectionPool|{enableSsl: true}|Impostazione del pool di connessioni per SSL.
+    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV1d0,<br> config: { serializeResultToString: true }}|Impostare questo valore ed eliminare qualsiasi interruzione di riga `\n` quando si incolla il valore.
 
-3. Nel terminale eseguire *bin/gremlin.bat* o *bin/gremlin.sh* per avviare la [console Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
-4. Nel terminale eseguire *:remote connect tinkerpop.server conf/remote-secure.yaml* per connettersi al servizio app.
+    Per il valore Hosts, copiare il valore **URI Gremlin** dalla pagina **Panoramica**: ![Visualizzare e copiare il valore URI Gremlin nella pagina Panoramica del portale di Azure](./media/create-graph-gremlin-console/gremlin-uri.png)
+
+    Per il valore Password, copiare la **chiave primaria** dalla pagina **Chiavi**: ![Visualizzare e copiare la chiave primaria nella pagina Chiavi del portale di Azure](./media/create-graph-gremlin-console/keys.png)
+
+
+3. Nel terminale eseguire `bin/gremlin.bat` o `bin/gremlin.sh` per avviare la [console Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
+4. Nel terminale eseguire `:remote connect tinkerpop.server conf/remote-secure.yaml` per connettersi al servizio app.
+
+    > [!TIP]
+    > Se viene visualizzato l'errore `No appenders could be found for logger` assicurarsi di aver aggiornato il valore del serializzatore nel file remote-secure.yaml come descritto nel passaggio 2. 
 
 L'installazione è riuscita. Al termine della configurazione, è possibile iniziare a eseguire alcuni comandi della console.
 
+Provare un comando count () semplice. Digitare quanto segue al prompt nella console:
+```
+:> g.V().count()
+```
+
+> [!TIP]
+> Si noti `:>` prima del testo `g.V().count()`. 
+>
+> Si tratta di una parte del comando che è necessario digitare. È importante quando si usa la console Gremlin con Azure Cosmos DB.  
+>
+> Se il prefisso `:>` viene omesso, la console esegue il comando in locale, spesso su un grafo in memoria.
+> L'uso di `:>` indica alla console di eseguire un comando remoto, in questo caso su Cosmos DB (l'emulatore localhost o un'istanza di Azure).
+
+
 ## <a name="create-vertices-and-edges"></a>Creare vertici e archi
 
-Per iniziare, aggiungere quattro vertici per le persone *Thomas*, *Mary Kay*, *Robin* e *Ben*.
+Per iniziare, aggiungere cinque vertici per le persone per *Thomas*, *Mary Kay*, *Robin*, *Ben* e *Jack*.
 
 Input (Thomas):
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
+:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Output:
 
 ```
-==>[id:1eb91f79-94d7-4fd4-b026-18f707952f21,label:person,type:vertex,properties:[firstName:[[id:ec5fcfbe-040e-48c3-b961-31233c8b1801,value:Thomas]],lastName:[[id:86e5b580-0bca-4bc2-bc53-a46f92c1a182,value:Andersen]],age:[[id:2caeab3c-c66d-4098-b673-40a8101bb72a,value:44]]]]
+==>[id:796cdccc-2acd-4e58-a324-91d6f6f5ed6d,label:person,type:vertex,properties:[firstName:[[id:f02a749f-b67c-4016-850e-910242d68953,value:Thomas]],lastName:[[id:f5fa3126-8818-4fda-88b0-9bb55145ce5c,value:Andersen]],age:[[id:f6390f9c-e563-433e-acbf-25627628016e,value:44]],userid:[[id:796cdccc-2acd-4e58-a324-91d6f6f5ed6d|userid,value:1]]]]
 ```
 Input (Mary Kay):
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39)
+:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+
 ```
 
 Output:
 
 ```
-==>[id:899a9d37-6701-48fc-b0a1-90950be7e0f4,label:person,type:vertex,properties:[firstName:[[id:c79c5599-8646-47d1-9a49-3456200518ce,value:Mary Kay]],lastName:[[id:c1362095-9dcc-479d-ab21-86c1b6d4ffc1,value:Andersen]],age:[[id:0b530408-bfae-4e8f-98ad-c160cd6e6a8f,value:39]]]]
+==>[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e,label:person,type:vertex,properties:[firstName:[[id:ea0604f8-14ee-4513-a48a-1734a1f28dc0,value:Mary Kay]],lastName:[[id:86d3bba5-fd60-4856-9396-c195ef7d7f4b,value:Andersen]],age:[[id:bc81b78d-30c4-4e03-8f40-50f72eb5f6da,value:39]],userid:[[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e|userid,value:2]]]]
+
 ```
 
 Input (Robin):
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield')
+:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Output:
 
 ```
-==>[id:953aefd9-5a54-4033-9b3a-d4dc3049f720,label:person,type:vertex,properties:[firstName:[[id:bbda02e0-8a96-4ca1-943e-621acbb26824,value:Robin]],lastName:[[id:f0291ad3-05a3-40ec-aabb-6538a7c331e3,value:Wakefield]]]]
+==>[id:8dc14d6a-8683-4a54-8d74-7eef1fb43a3e,label:person,type:vertex,properties:[firstName:[[id:ec65f078-7a43-4cbe-bc06-e50f2640dc4e,value:Robin]],lastName:[[id:a3937d07-0e88-45d3-a442-26fcdfb042ce,value:Wakefield]],userid:[[id:8dc14d6a-8683-4a54-8d74-7eef1fb43a3e|userid,value:3]]]]
 ```
 
 Input (Ben):
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller')
+:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+
 ```
 
 Output:
 
 ```
-==>[id:81c891d9-beca-4c87-9009-13a826c9ed9a,label:person,type:vertex,properties:[firstName:[[id:3a3b53d3-888c-46da-bb54-1c42194b1e18,value:Ben]],lastName:[[id:48c6dd50-79c4-4585-ab71-3bf998061958,value:Miller]]]]
+==>[id:ee86b670-4d24-4966-9a39-30529284b66f,label:person,type:vertex,properties:[firstName:[[id:a632469b-30fc-4157-840c-b80260871e9a,value:Ben]],lastName:[[id:4a08d307-0719-47c6-84ae-1b0b06630928,value:Miller]],userid:[[id:ee86b670-4d24-4966-9a39-30529284b66f|userid,value:4]]]]
 ```
+
+Input (Jack):
+
+```
+:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+```
+
+Output:
+
+```
+==>[id:4c835f2a-ea5b-43bb-9b6b-215488ad8469,label:person,type:vertex,properties:[firstName:[[id:4250824e-4b72-417f-af98-8034aa15559f,value:Jack]],lastName:[[id:44c1d5e1-a831-480a-bf94-5167d133549e,value:Connor]],userid:[[id:4c835f2a-ea5b-43bb-9b6b-215488ad8469|userid,value:5]]]]
+```
+
 
 Aggiungere quindi gli archi per le relazioni tra le persone.
 
@@ -234,10 +271,10 @@ Output:
 
 Verrà ora eliminato un vertice dal database del grafo.
 
-Input (eliminazione del vertice Robin):
+Input (eliminazione del vertice Jack):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').drop()
+:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## <a name="clear-your-graph"></a>Cancellare il grafo
@@ -247,6 +284,7 @@ Infine, è possibile cancellare il database di tutti i vertici e gli archi.
 Input:
 
 ```
+:> g.E().drop()
 :> g.V().drop()
 ```
 
@@ -269,3 +307,4 @@ In questa guida di avvio rapido si è appreso come creare un account Azure Cosmo
 
 > [!div class="nextstepaction"]
 > [Eseguire query con Gremlin](tutorial-query-graph.md)
+

@@ -1,5 +1,5 @@
 ---
-title: "Visualizzare tutte le app aziendali che è possibile gestire in anteprima di Azure Active Directory | Documentazione Microsoft"
+title: "Visualizzare tutte le app aziendali che è possibile gestire in Azure Active Directory | Microsoft Docs"
 description: Come visualizzare un elenco di app aziendali di cui si dispone delle autorizzazioni per la gestione in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 05/04/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33b036537211e3bdeacba7f388aca334404385cb
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 14b335d14d893640d469508d6f34b4e7ec6bee8b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 
 ---
-# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory-preview"></a>Visualizzare tutte le app aziendali che è possibile gestire in anteprima di Azure Active Directory
-È possibile gestire le applicazioni aziendali in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md)  Sono incluse la visualizzazione di app che è possibile gestire, l'assegnazione di utenti o gruppi a un'app, la gestione delle proprietà per l'app, ad esempio il nome o il logo dell'applicazione, e persino la disabilitazione di un'applicazione in modo che gli utenti non possano accedervi.
+# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Visualizzare tutte le app aziendali che è possibile gestire in Azure Active Directory
+È possibile gestire le applicazioni aziendali in Azure Active Directory (Azure AD). Sono incluse la visualizzazione di app che è possibile gestire, l'assegnazione di utenti o gruppi a un'app, la gestione delle proprietà per l'app, ad esempio il nome o il logo dell'applicazione, e persino la disabilitazione di un'applicazione in modo che gli utenti non possano accedervi.
 
 ## <a name="how-do-i-view-all-my-apps"></a>Come è possibile visualizzare tutte le app personali?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.

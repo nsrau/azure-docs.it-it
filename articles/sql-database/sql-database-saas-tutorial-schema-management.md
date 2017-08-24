@@ -1,6 +1,6 @@
 ---
-title: Gestire lo schema del database SQL di Azure in un&quot;app multi-tenant | Microsoft Docs
-description: "Gestire lo schema per più tenant in un&quot;applicazione multi-tenant che usa il database SQL di Azure"
+title: Gestire lo schema del database SQL di Azure in un'app multi-tenant | Microsoft Docs
+description: "Gestire lo schema per più tenant in un'applicazione multi-tenant che usa il database SQL di Azure"
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -9,24 +9,23 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: cbe2b6bbc8e193bdbbf08572a8488239c633548d
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 78d76efb88bf11fa18a416b59e6f881539141232
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="manage-schema-for-multiple-tenants-in-the-wingtip-saas-application"></a>Gestire lo schema per più tenant nell'applicazione SaaS Wingtip
 
-La [prima esercitazione sull'app SaaS Wingtip](sql-database-saas-tutorial.md) illustra come l'app può effettuare il provisioning di un database tenant e registrarlo nel catalogo. Come qualsiasi altra applicazione, l'app SaaS Wingtip evolverà nel tempo e a volte saranno necessarie modifiche al database. Tali modifiche possono includere uno schema nuovo o modificato, dati di riferimento nuovi o modificati e attività di manutenzione periodiche del database per garantire prestazioni ottimali dell'app. Con un'applicazione SaaS queste modifiche devono essere distribuite in modo coordinato a un gruppo potenzialmente enorme di database tenant. Le modifiche devono inoltre essere incorporate nel processo di provisioning per i database tenant futuri.
+La [prima esercitazione sull'app SaaS Wingtip](sql-database-saas-tutorial.md) illustra come l'app può effettuare il provisioning di un database tenant e registrarlo nel catalogo. Come qualsiasi altra applicazione, l'app SaaS Wingtip evolverà nel tempo e a volte saranno necessarie modifiche al database. Tali modifiche possono includere uno schema nuovo o modificato, dati di riferimento nuovi o modificati e attività di manutenzione periodiche del database per garantire prestazioni ottimali dell'app. Con un'applicazione SaaS queste modifiche devono essere distribuite in modo coordinato a un gruppo potenzialmente enorme di database tenant. Per essere incluse in database tenant futuri, le modifiche devono essere incorporate nel processo di provisioning.
 
 Questa esercitazione illustra due scenari: distribuzione degli aggiornamenti dei dati di riferimento per tutti i tenant e restituzione di un indice per la tabella contenente i dati di riferimento. La funzionalità [processi elastici](sql-database-elastic-jobs-overview.md) viene usata per eseguire queste operazioni su tutti i tenant e il database tenant *di riferimento* viene usato come modello per i nuovi database.
 
@@ -34,7 +33,8 @@ In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 
-> * Creare un account per processi per eseguire query su più tenant
+> * Creare un account di processo
+> * Eseguire query in più tenant
 > * Aggiornare i dati in tutti i database tenant
 > * Creare un indice su una tabella in tutti i database tenant
 
@@ -45,7 +45,7 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * La versione più recente di SQL Server Management Studio (SSMS) è installata. [Scaricare e installare SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di Database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio "Elastic Jobs Preview". Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Trattandosi di un'anteprima limitata, è necessario contattare SaaSFeedback@microsoft.com per domande correlate o per richieste di supporto.*
+*Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di Database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio "Elastic Jobs Preview". Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare SaaSFeedback@microsoft.com.*
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduzione ai modelli di gestione dello schema di SaaS
@@ -60,11 +60,11 @@ Il modello SaaS con tenant singolo per ogni database trae numerosi vantaggi dall
 È disponibile una nuova versione del servizio Processi elastici che è ora una funzionalità integrata di database SQL di Azure, che non richiede servizi o componenti aggiuntivi. Questa nuova versione del servizio Processi elastici è attualmente in anteprima limitata. Questa anteprima limitata supporta attualmente PowerShell per creare gli account per processi e T-SQL per creare e gestire i processi.
 
 > [!NOTE]
-> *Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di Database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio "Elastic Jobs Preview". Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Trattandosi di un'anteprima limitata, è necessario contattare SaaSFeedback@microsoft.com per domande correlate o per richieste di supporto.*
+> *Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di Database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio "Elastic Jobs Preview". Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, [scaricare e installare i cmdlet più recenti della versione preliminare](https://github.com/jaredmoo/azure-powershell/releases). Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare SaaSFeedback@microsoft.com.*
 
 ## <a name="get-the-wingtip-application-scripts"></a>Ottenere gli script dell'applicazione Wingtip
 
-Gli script dell'app SaaS Wingtip e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procedura per scaricare gli script dell'app SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+Gli script dell'app SaaS Wingtip e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procedura per scaricare gli script dell'app SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Creare un database di account per processi e un nuovo account per processi
 
@@ -89,14 +89,14 @@ Per creare un nuovo processo, viene usato un set di stored procedure di sistema 
 1. Connettersi anche al server tenant: tenants1-\<user\>.database.windows.net
 1. Passare al database *contosoconcerthall* nel server *tenants1* ed eseguire una query sulla tabella *VenueTypes* per verificare che *Motorcycle Racing* e *Swimming Club* **non siano inclusi** nel set di risultati.
 1. Aprire il file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modificare \<user\> specificando il nome utente usato durante la distribuzione dell'app Wingtip in tutte e 3 le posizioni nello script
+1. Modificare l'istruzione: SET @wtpUser = &lt;user&gt; e sostituire il valore dell'utente usato per la distribuzione dell'app Wingtip
 1. Assicurarsi di essere connessi al database jobaccount e premere **F5** per eseguire lo script
 
 * **sp\_add\_target\_group** crea il nome del gruppo di destinazione DemoServerGroup a cui è ora necessario aggiungere i membri di destinazione.
-* **sp\_add\_target\_group\_member** aggiunge un tipo di membro di destinazione *server* che desume che tutti i database nel server al momento dell'esecuzione del processo devono essere inclusi nel processo (si noti che si tratta del database customer1-&lt;Utente&gt; contenente i database tenant). Viene poi aggiunto un tipo di membro di destinazione *database*, nello specifico il database di riferimento baseTenantDB che risiede nel server catalog-&lt;Utente&gt; e infine viene aggiunto un altro tipo di membro di destinazione *database* per includere il database adhocanalytics usato in un'esercitazione successiva.
+* **sp\_add\_target\_group\_member** aggiunge un tipo di membro di destinazione *server* che desume che tutti i database nel server al momento dell'esecuzione del processo devono essere inclusi nel processo (si noti che si tratta del database tenants1-&lt;Utente&gt; contenente i database tenant). Viene poi aggiunto un tipo di membro di destinazione *database*, nello specifico il database di riferimento basetenantdb che risiede nel server catalog-&lt;Utente&gt; e infine viene aggiunto un altro tipo di membro di destinazione *database* per includere il database adhocanalytics usato in un'esercitazione successiva.
 * **sp\_add\_job** crea un processo denominato "Reference Data Deployment" (Distribuzione dati di riferimento)
 * **sp\_add\_jobstep** crea il passaggio del processo contenente il testo del comando T-SQL per aggiornare la tabella di riferimento VenueTypes
-* Le restanti viste nello script consentono di confermare l'esistenza degli oggetti e gestire il monitoraggio dell'esecuzione del processo. Controllare il valore di stato nella colonna **lifecycle**. Il processo è stato completato correttamente in tutti i database tenant e sono stati creati i due database aggiuntivi contenenti la tabella di riferimento.
+* Le restanti viste nello script consentono di confermare l'esistenza degli oggetti e gestire il monitoraggio dell'esecuzione del processo. Usare queste query per esaminare il valore di stato nella colonna **lifecycle** e determinare quando il processo viene completato in tutti i database tenant e nei due database aggiuntivi che contengono la tabella di riferimento.
 
 1. In SSMS passare al database *contosoconcerthall* nel server *tenants1* ed eseguire una query sulla tabella *VenueTypes* per verificare che *Motorcycle Racing* e *Swimming Club* **siano ora inclusi** nel set di risultati.
 
@@ -136,3 +136,4 @@ In questa esercitazione si è appreso come:
 * [Altre esercitazioni basate sulla distribuzione dell'applicazione SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Gestione dei database cloud con scalabilità orizzontale](sql-database-elastic-jobs-overview.md)
 * [Creare e gestire database SQL di Azure con scalabilità orizzontale](sql-database-elastic-jobs-create-and-manage.md)
+

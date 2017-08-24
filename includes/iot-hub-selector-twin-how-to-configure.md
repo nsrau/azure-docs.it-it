@@ -1,10 +1,12 @@
 > [!div class="op_single_selector"]
-> * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [Node.JS](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
+> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md)
 > 
 > 
 
 ## <a name="introduction"></a>Introduzione
+
 In [Introduzione ai dispositivi gemelli dell'hub IoT][lnk-twin-tutorial] è stato illustrato come impostare i metadati dei dispositivi dal back-end della soluzione usando *tag*, come segnalare le condizioni dei dispositivi da un'app per dispositivo con le *proprietà segnalate* e come eseguire query su tali informazioni con un linguaggio simile a SQL.
 
 In questa esercitazione verrà illustrato come usare le *proprietà desiderate* del dispositivo gemello con le *proprietà segnalate* per configurare in remoto le app per dispositivi. In particolare, questa esercitazione descrive come le proprietà segnalate e desiderate di un dispositivo gemello supportano la configurazione in più passaggi di un'applicazione per dispositivi e come ottenere nel back-end della soluzione la visibilità dello stato di tale operazione in tutti i dispositivi. Per altre informazioni sul ruolo delle configurazioni del dispositivo, vedere [Panoramica della gestione dei dispositivi con l'hub IoT][lnk-dm-overview].

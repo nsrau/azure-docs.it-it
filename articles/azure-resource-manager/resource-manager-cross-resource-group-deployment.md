@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 06/15/2017
 ms.author: tomfitz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 942e3b4fbc9a954eae0cc609e800d0fe0b882475
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: d8b041213b269775175a810e585103d3c538557f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -30,7 +30,7 @@ Il gruppo di risorse è il contenitore del ciclo di vita per l'applicazione e la
 
 ## <a name="example-template"></a>Modello di esempio
 
-Per specificare come destinazione una risorsa diversa, è necessario usare un modello annidato o collegato durante la distribuzione. Il tipo di risorsa `Microsoft.Resources/deployments` fornisce un parametro `resourceGroup` che consente di specificare un gruppo di risorse diverso da quello usato dal modello padre. Tutti i gruppi di risorse devono esistere prima di eseguire la distribuzione. L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di risorse specificato durante la distribuzione e uno in un gruppo di risorse denominato `crossResourceGroupDeployment`:
+Per specificare come destinazione una risorsa diversa, è necessario usare un modello annidato o collegato durante la distribuzione. Il tipo di risorsa `Microsoft.Resources/deployments` fornisce un parametro `resourceGroup` che consente di specificare un gruppo di risorse diverso per la distribuzione annidata. Tutti i gruppi di risorse devono esistere prima di eseguire la distribuzione. L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di risorse specificato durante la distribuzione e uno in un gruppo di risorse denominato `crossResourceGroupDeployment`:
 
 ```json
 {
@@ -90,7 +90,7 @@ Se si imposta `resourceGroup` sul nome di un gruppo di risorse che non esiste, l
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per distribuire il modello di esempio, è possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure. È necessario usare una versione di Azure PowerShell o dell'interfaccia della riga di comando di Azure a partire da maggio 2017. Gli esempi presuppongono che l'utente abbia salvato il modello in locale come file denominato **crossrgdeployment.json**.
+Per distribuire il modello di esempio, è possibile usare il portale, Azure PowerShell o l'interfaccia della riga di comando di Azure. Per Azure PowerShell o l'interfaccia della riga di comando di Azure è necessario usare una versione di maggio 2017 o successiva. Gli esempi presuppongono che l'utente abbia salvato il modello in locale come file denominato **crossrgdeployment.json**.
 
 Per PowerShell:
 
@@ -118,8 +118,45 @@ az group deployment create \
 
 Al termine della distribuzione, vengono visualizzati due gruppi di risorse. Ogni gruppo di risorse contiene un account di archiviazione.
 
+## <a name="use-resourcegroup-function"></a>Usare la funzione resourceGroup()
+
+Per le distribuzioni tra gruppi di risorse, la [funzione resouceGroup()](resource-group-template-functions-resource.md#resourcegroup) viene risolta in modo diverso in base al modo in cui si specifica il modello annidato. 
+
+Se si incorpora un modello in un altro modello, la funzione resouceGroup() nel modello annidato si risolve nel gruppo di risorse padre. Un modello incorporato usa il formato seguente:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "embeddedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "template": {
+        ...
+        resourceGroup() refers to parent resource group
+    }
+}
+```
+
+Se si crea un collegamento a un modello separato, la funzione resouceGroup() nel modello collegato si risolve nel gruppo di risorse annidato. Un modello collegato usa il formato seguente:
+
+```json
+"apiVersion": "2017-05-10",
+"name": "linkedTemplate",
+"type": "Microsoft.Resources/deployments",
+"resourceGroup": "crossResourceGroupDeployment",
+"properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        ...
+        resourceGroup() in linked template refers to linked resource group
+    }
+}
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 * Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-powershell-sas-token.md).
+

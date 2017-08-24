@@ -1,6 +1,6 @@
 ---
-title: Creare la prima app Web ASP.NET in Azure in cinque minuti | Microsoft Docs
-description: Informazioni su come eseguire facilmente app Web nel servizio app distribuendo un&quot;applicazione ASP.NET semplice.
+title: Creare un'app Web ASP.NET in Azure | Microsoft Docs
+description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo l'app Web ASP.NET predefinita.
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -11,46 +11,56 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/05/2017
+ms.topic: quickstart
+ms.date: 06/14/2017
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 018a46452c13886b9519ed5d2311bc65649c3c69
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 567d7d29fde875690ee4dc6dd5752e86fa77ff40
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
-# <a name="create-your-first-aspnet-web-app-in-azure-in-five-minutes"></a>Creare la prima app Web ASP.NET in Azure in cinque minuti
+# <a name="create-an-aspnet-web-app-in-azure"></a>Creare un'app Web ASP.NET in Azure
 
-[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
+Le [app Web di Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione.  Questa guida introduttiva illustra come distribuire la prima app Web ASP.NET in un'app Web di Azure. Al termine della procedura si avrà un gruppo di risorse costituito da un piano di servizio App e da un'app Web di Azure con un'applicazione Web distribuita.
 
-Questa guida introduttiva illustra come distribuire la prima app Web ASP.NET nel [servizio app di Azure](../app-service/app-service-value-prop-what-is.md) in pochi minuti. Al termine, sarà disponibile una semplice app Web in esecuzione nel cloud.
+Guardare il video per osservare il funzionamento di questa guida introduttiva e quindi seguire personalmente la procedura per pubblicare la prima app .NET in Azure.
 
-![App Web ASP.NET nel servizio app di Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione illustra come usare Visual Studio 2017 per compilare e distribuire un'app Web ASP.NET in Azure. Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
+Per completare questa esercitazione:
+
+* Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
+    - **Sviluppo Web e ASP.NET**
+    - **Sviluppo di Azure**
+
+    ![Sviluppo Web e ASP.NET e sviluppo di Azure (in Web e Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
 
-In Visual Studio creare un progetto con `Ctrl`+`Shift`+`N`.
+In Visual Studio creare un progetto selezionando **File > Nuovo > Progetto**. 
 
-Nella finestra di dialogo **Nuovo progetto** fare clic su **Visual C# > Web > Applicazione Web ASP.NET (.NET Framework)**.
+Nella finestra di dialogo **Nuovo progetto** selezionare **Visual C# > Web > Applicazione Web ASP.NET (.NET Framework)**.
 
-Assegnare all'applicazione il nome **myFirstAzureWebApp** e fare clic su **OK**.
+Assegnare all'applicazione il nome _myFirstAzureWebApp_ e fare clic su **OK**.
    
 ![Finestra di dialogo Nuovo progetto](./media/app-service-web-get-started-dotnet/new-project.png)
 
-È possibile distribuire qualsiasi tipo di app Web ASP.NET in Azure. Per questa esercitazione, selezionare il modello **MVC** e verificare che l'autenticazione sia impostata su **Nessuna autenticazione**.
+È possibile distribuire qualsiasi tipo di app Web ASP.NET in Azure. Per questa guida introduttiva, selezionare il modello **MVC** e verificare che l'autenticazione sia impostata su **Nessuna autenticazione**.
       
-Fare clic su **OK**.
+Selezionare **OK**.
 
 ![Finestra di dialogo Nuovo progetto ASP.NET](./media/app-service-web-get-started-dotnet/select-mvc-template.png)
+
+Nel menu selezionare **Debug > Avvia senza eseguire debug** per eseguire l'app Web in locale.
+
+![Eseguire l'app in locale](./media/app-service-web-get-started-dotnet/local-web-app.png)
 
 ## <a name="publish-to-azure"></a>Pubblicazione in Azure
 
@@ -58,74 +68,70 @@ In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto
 
 ![Pubblicare da Esplora soluzioni](./media/app-service-web-get-started-dotnet/solution-explorer-publish.png)
 
-Verificare che **Servizio app di Microsoft Azure** sia selezionato e fare clic su **Pubblica**.
+Verificare che **Servizio app di Microsoft Azure** sia selezionato e scegliere **Pubblica**.
 
 ![Pubblicare dalla pagina di panoramica progetto](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-Si apre la finestra di dialogo **Crea servizio app**, che consente di creare tutte le risorse di Azure necessarie per eseguire l'app Web ASP.NET in Azure.
+Viene visualizzata la finestra di dialogo **Crea servizio app**, che consente di creare tutte le risorse di Azure necessarie per eseguire l'app Web ASP.NET in Azure.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Nella finestra di dialogo **Crea servizio App** fare clic su **Aggiungi un account** e quindi accedere alla sottoscrizione di Azure. Se si è già connessi a un account Microsoft, verificare che l'account contenga la sottoscrizione di Azure. Se l'account Microsoft a cui si è connessi non include la sottoscrizione di Azure, fare clic su di esso per aggiungere l'account corretto.
+Nella finestra di dialogo **Crea servizio app** fare clic su **Aggiungi un account** e accedere alla sottoscrizione di Azure. Se è già stato eseguito l'accesso, selezionare l'account contenente la sottoscrizione desiderata dall'elenco a discesa.
+
+> [!NOTE]
+> Se si è già connessi, non selezionare ancora l'opzione **Crea**.
+>
+>
    
 ![Accedere ad Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
 
-Dopo avere eseguito l'accesso, è possibile creare tutte le risorse necessarie per l'app Web di Azure in questa finestra di dialogo.
-
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Per prima cosa, è necessario un _gruppo di risorse_. 
+[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-> [!NOTE] 
-> Un gruppo di risorse è un contenitore logico in cui vengono distribuite e gestite risorse di Azure come app Web, database e account di archiviazione.
->
->
+Accanto a **Gruppo di risorse** selezionare **Nuovo**.
 
-Accanto a **Gruppo di risorse** fare clic su **Nuovo**.
-
-Assegnare al gruppo di risorse il nome **myResourceGroup** e fare clic su **OK**.
+Assegnare al gruppo di risorse il nome **myResourceGroup** e selezionare **OK**.
 
 ## <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Accanto a **Piano di servizio app** fare clic su **Nuovo**. 
+Accanto a **Piano di servizio app** selezionare **Nuovo**. 
 
-Nella finestra di dialogo **Configura piano di servizio app** configurare il nuovo piano di servizio app con le impostazioni seguenti:
-
-- **Piano di servizio app**: digitare **myAppServicePlan**. 
-- **Località**: scegliere **Europa occidentale** o un'area vicino alla propria località.
-- **Dimensioni**: scegliere **Gratuito** o un altro [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/).
-
-Fare clic su **OK**.
+Nella finestra di dialogo **Configura piano di servizio app** usare le impostazioni della tabella riportata sotto l'immagine.
 
 ![Creare un piano di servizio app](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
+| Impostazione | Valore consigliato | Descrizione |
+|-|-|-|
+|Piano di servizio app| myAppServicePlan | Nome del piano di servizio app. |
+| Località | Europa occidentale | Data center in cui è ospitata l'app Web. |
+| Dimensione | Gratuito | [Piano tariffario](https://azure.microsoft.com/pricing/details/app-service/) che determina le funzionalità di hosting. |
+
+Selezionare **OK**.
+
 ## <a name="create-and-publish-the-web-app"></a>Creare e pubblicare l'app Web
 
-Ora resta solo da assegnare un nome all'app Web. In **Nome app Web** digitare un nome univoco per l'app. Questo nome verrà usato come parte del nome DNS predefinito per l'app (`<app_name>.azurewebsites.net`), quindi deve essere univoco tra tutte le app in Azure. In un secondo momento è possibile eseguire il mapping di un nome di dominio personalizzato all'app prima di esporla agli utenti.
+In **Nome app Web** immettere un nome univoco dell'app, usando i caratteri validi `a-z`, `0-9` e `-`, o accettare il nome univoco generato automaticamente. L'URL dell'app Web è `http://<app_name>.azurewebsites.net`, dove `<app_name>` è il nome dell'app Web.
 
-È anche possibile accettare il nome generato automaticamente, che è già univoco.
-
-Fare clic su **Crea** per avviare la creazione delle risorse di Azure.
+Selezionare **Crea** per avviare la creazione delle risorse di Azure.
 
 ![Configurare il nome dell'app Web](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
-Dopo che la procedura guidata ha terminato la creazione delle risorse di Azure, pubblica automaticamente l'app Web ASP.NET in Azure per la prima volta e quindi avvia l'app Web pubblicata nel browser predefinito.
+Al termine della procedura guidata, l'app Web ASP.NET viene pubblicata in Azure e avviata nel browser predefinito.
 
 ![App Web ASP.NET pubblicata in Azure](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
-L'URL usa il nome dell'app Web specificato prima, con il formato `http://<app_name>.azurewebsites.net`. 
+Il nome dell'app Web specificato nel passaggio relativo alla [creazione e pubblicazione](#create-and-publish-the-web-app) viene usato come prefisso dell'URL nel formato `http://<app_name>.azurewebsites.net`.
 
-La prima app Web ASP.NET è ora in esecuzione nel servizio app di Azure.
+L'app Web ASP.NET è ora in esecuzione nel servizio app di Azure.
 
 ## <a name="update-the-app-and-redeploy"></a>Aggiornare e ridistribuire l'app
 
-È molto semplice eseguire l'aggiornamento e la ridistribuzione in Azure. Verrà ora eseguito un aggiornamento della home page.
+Da **Esplora soluzioni** aprire _Views\Home\Index.cshtml_.
 
-Da **Esplora soluzioni** aprire **Views\Home\Index.cshtml**.
-
-Trovare il tag HTML `<div class="jumbotron">` in alto e sostituire l'intero tag con il codice seguente:
+Trovare il tag HTML `<div class="jumbotron">` in alto e sostituire l'intero elemento con il codice seguente:
 
 ```HTML
 <div class="jumbotron">
@@ -134,57 +140,32 @@ Trovare il tag HTML `<div class="jumbotron">` in alto e sostituire l'intero tag 
 </div>
 ```
 
-Per la ridistribuzione in Azure, fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** in **Esplora soluzioni** e scegliere **Pubblica**.
+Per la ridistribuzione in Azure, fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** in **Esplora soluzioni** e selezionare **Pubblica**.
 
-Nella pagina di pubblicazione fare clic su **Pubblica**.
+Nella pagina di pubblicazione selezionare **Pubblica**.
 
-Quando Visual Studio ha terminato, avvia l'app Web di Azure aggiornata nel browser.
+Al termine del processo di pubblicazione, Visual Studio avvia un browser sull'URL dell'app Web.
 
 ![App Web ASP.NET aggiornata in Azure](./media/app-service-web-get-started-dotnet/updated-azure-web-app.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gestire la nuova app Web di Azure
+## <a name="manage-the-azure-web-app"></a>Gestire l'app Web di Azure
 
-Passare al portale di Azure per esaminare l'app Web appena creata. 
+Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per visualizzare l'app Web.
 
-A tale scopo, accedere a [https://portal.azure.com](https://portal.azure.com).
-
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
+Scegliere **Servizi app** dal menu a sinistra e quindi selezionare il nome dell'app Web di Azure.
 
 ![Passare all'app Web di Azure nel portale](./media/app-service-web-get-started-dotnet/access-portal.png)
 
-Si accede così al _pannello_, ovvero una pagina del portale visualizzata in orizzontale, dell'app Web. 
-
-Per impostazione predefinita, nel pannello dell'app Web viene aperta la pagina **Panoramica**, che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione di base come esplorare, arrestare, avviare, riavviare ed eliminare.  
+Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione dell'app. 
 
 ![Pannello del servizio app nel portale di Azure](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-Le schede sul lato sinistro del pannello mostrano le diverse pagine di configurazione che è possibile aprire. Nell'elenco seguente sono riportate solo alcune delle possibilità:
+Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
 
-- Eseguire il mapping di un nome DNS personalizzato
-- Associare un certificato SSL personalizzato
-- Configurare la distribuzione continua
-- Aumentare le prestazioni e il numero di istanze
-- Aggiungere l'autenticazione utente
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Per eliminare la prima App Web di Azure, è possibile fare clic su **Elimina** nella pagina **Panoramica**. Esiste tuttavia un modo migliore per eliminare tutti gli elementi creati in questa guida introduttiva. Dalla pagina **Panoramica** dell'app Web fare clic sul gruppo di risorse per aprirne il pannello. 
-
-![Accedere al gruppo di risorse dal pannello Servizio app](./media/app-service-web-get-started-dotnet/access-resource-group.png)
-
-Nel pannello del gruppo di risorse è possibile visualizzare sia il piano di servizio app che l'app del servizio app che Visual Studio ha creato. 
-
-Nella parte superiore del pannello fare clic su **Elimina**. 
-
-<!--![Delete resource group in Azure portal](./media/app-service-web-get-started-dotnet/delete-resource-group.png)-->
-
-Nel pannello di conferma eseguire una verifica digitando il nome del gruppo di risorse **myResourceGroup** nella casella di testo e fare clic su **Elimina**.
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su come creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
-
-> [!div class="nextstepaction"]
-> [Esplorare gli script di PowerShell per App Web di esempio](app-service-powershell-samples.md)
+> [ASP.NET con database SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
 

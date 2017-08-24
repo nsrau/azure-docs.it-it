@@ -1,5 +1,5 @@
 ---
-title: Come creare un processore multimediale | Microsoft Docs
+title: Come creare un processore di contenuti multimediali usando REST | Microsoft Docs
 description: Informazioni su come creare un componente del processore di contenuti multimediali per codificare, decodificare, convertire il formato, crittografare o decrittografare contenuti multimediali per Servizi multimediali di Azure.
 services: media-services
 documentationcenter: 
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
-ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 4983069924f0edaeee7ffc91131bb83d9f9f4508
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Procedura: Ottenere un'istanza del processore di contenuti multimediali
@@ -30,18 +31,12 @@ ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
 ## <a name="overview"></a>Overview
 In Servizi multimediali un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Un processore multimediale viene generalmente creato durante la creazione di un'attività per la codifica, la crittografia o la conversione di formato di contenuto multimediale.
 
-Nella tabella seguente sono riportati il nome e la descrizione di tutti i processori multimediali disponibili.
+## <a name="azure-media-processors"></a>Processori di contenuti multimediali di Azure 
 
-| Nome del processore multimediale | Descrizione | Altre informazioni |
-| --- | --- | --- |
-| Codificatore multimediale standard |Fornisce funzionalità standard per la codifica su richiesta. |[Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md) |
-| Flusso di lavoro Premium del codificatore multimediale |Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale. |[Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md) |
-| Azure Media Indexer |Consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. |[Azure Media Indexer](media-services-index-content.md) |
-| Azure Media Hyperlapse (anteprima) |Consente di ridurre le imperfezioni del video con la stabilizzazione video. Consente inoltre di velocizzare il contenuto in una clip utilizzabile. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Azure Media Encoder |Funzionalità deprecate | |
-| Storage Decryption |Funzionalità deprecate | |
-| Azure Media Packager |Funzionalità deprecate | |
-| Azure Media Encryptor |Funzionalità deprecate | |
+L'argomento seguente fornisce elenchi di processori di contenuti multimediali:
+
+* [Processori di contenuti multimediali di codifica](scenarios-and-availability.md#encoding-media-processors)
+* [Processori di contenuti multimediali di analisi](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-mediaprocessor"></a>Ottenere un'istanza di MediaProcessor
 > [!NOTE]
@@ -49,8 +44,7 @@ Nella tabella seguente sono riportati il nome e la descrizione di tutti i proces
 > 
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 > 
-> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md). 
-> 
+> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 
 La chiamata REST seguente mostra come ottenere un'istanza del processore di contenuti multimediali per nome, in questo caso **Media Encoder Standard**. 
@@ -94,10 +88,5 @@ Risposta:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare all'argomento [Come codificare un asset](media-services-rest-get-started.md) che illustra come usare Media Encoder Standard per codificare un asset.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

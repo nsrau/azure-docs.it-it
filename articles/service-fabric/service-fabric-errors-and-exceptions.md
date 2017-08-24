@@ -12,11 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/16/2017
+ms.date: 06/01/2017
 ms.author: ryanwi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 491f61afe899c746c193f0d3703d3212f9258e63
 ms.openlocfilehash: 578046d6939b90cb58d457087bb465006630b4c1
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -47,10 +49,5 @@ Alcuni errori [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fab
 | InvalidX509Store |Non è possibile aprire l'archivio certificati X509. |
 | InvalidSubjectName |Il nome soggetto non è valido. |
 | InvalidAllowedCommonNameList |Il formato della stringa dell'elenco nomi comuni non è valido. Deve essere un elenco delimitato da virgole. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

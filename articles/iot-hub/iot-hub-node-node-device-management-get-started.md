@@ -14,32 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: ecc6f4a1a8cbb07d9f610e8f6fb5ca66b7532513
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7de541ac45fd277f3cfc91d598c654c24af187fc
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="get-started-with-device-management-node"></a>Introduzione alla gestione dei dispositivi (Node)
-## <a name="introduction"></a>Introduzione
-Le applicazioni cloud IoT possono usare primitive nell'hub IoT di Azure, ovvero i metodi diretti e il dispositivo gemello, per avviare e monitorare le operazioni di gestione del dispositivo in modalità remota. Questo articolo illustra come un'applicazione cloud IoT e un dispositivo collaborano per avviare e monitorare un riavvio del dispositivo in modalità remota tramite l'hub IoT.
 
-Per avviare e monitorare le operazioni di gestione dei dispositivi da un'applicazione back-end basata su cloud in modalità remota, usare le primitive dell'hub IoT di Azure, ad esempio [dispositivo gemello][lnk-devtwin] e [metodi diretti][lnk-c2dmethod]. Questa esercitazione mostra come un'app back-end e un dispositivo possono collaborare per consentire l'attivazione e il monitoraggio del riavvio di un dispositivo remoto dall'hub IoT.
-
-Usare un metodo diretto per avviare le operazioni di gestione dei dispositivi, ad esempio il riavvio, il ripristino delle impostazioni predefinite e l'aggiornamento del firmware, da un'applicazione back-end nel cloud. Il dispositivo è responsabile per:
-
-* La gestione della richiesta di metodo inviata dall'hub IoT.
-* L'avvio di un'operazione specifica del dispositivo corrispondente sul dispositivo.
-* Gli aggiornamenti di stato tramite le proprietà segnalate nell'hub IoT.
-
-È possibile usare un'applicazione back-end nel cloud per eseguire query di un dispositivo gemello in modo da creare report sullo stato di avanzamento delle operazioni di gestione del dispositivo.
+[!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 Questa esercitazione illustra come:
 
 * Creare un hub IoT nel portale di Azure e un'identità del dispositivo nell'hub IoT.
-* Creare un'app per dispositivo simulato contenente un metodo diretto per il riavvio del dispositivo in questione. I metodi diretti vengono richiamati dal cloud.
-* Creare un'app console .NET che chiama il metodo diretto di riavvio nell'app per dispositivo simulato tramite l'hub IoT.
+* Creare un'app di dispositivo simulato contenente un metodo diretto per il riavvio del dispositivo. I metodi diretti vengono richiamati dal cloud.
+* Creare un'app console Node.js che chiama il metodo diretto di riavvio nell'app per dispositivo simulato tramite l'hub IoT.
 
 Al termine di questa esercitazione si avranno due app console Node.js:
 
@@ -147,7 +138,7 @@ Questa sezione consente di:
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri per i tentativi, ad esempio un backoff esponenziale, come illustrato nell'articolo di MSDN [Transient Fault Handling][lnk-transient-faults] (Gestione degli errori temporanei).
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Attivare un riavvio remoto nel dispositivo con un metodo diretto
-In questa sezione viene creata un'app console .NET (tramite C#) che attiva un riavvio remoto su un dispositivo usando un metodo diretto. L'app esegue query nel dispositivo gemello per ottenere l'ora dell'ultimo riavvio del dispositivo in questione.
+In questa sezione viene creata un'app console Node.js che attiva un riavvio remoto in un dispositivo usando un metodo diretto. L'app esegue query nel dispositivo gemello per ottenere l'ora dell'ultimo riavvio del dispositivo in questione.
 
 1. Creare una cartella vuota denominata **triggerrebootondevice**.  Nella cartella **triggerrebootondevice** creare un file package.json eseguendo questo comando al prompt dei comandi.  Accettare tutte le impostazioni predefinite:
    
@@ -241,22 +232,7 @@ A questo punto è possibile eseguire le app.
     ```
 3. Nella console viene visualizzata la risposta del dispositivo al metodo diretto.
 
-## <a name="customize-and-extend-the-device-management-actions"></a>Personalizzare ed estendere le operazioni di gestione dei dispositivi
-Le soluzioni IoT possono espandere il set definito di modelli di gestione dei dispositivi o abilitare modelli personalizzati mediante l'uso del dispositivo gemello e delle primitive del metodo da cloud a dispositivo. Altri esempi di operazioni di gestione dei dispositivi includono il ripristino delle informazioni predefinite, l'aggiornamento del firmware, l'aggiornamento del software, il risparmio energia, la gestione di rete e connettività e la crittografia dei dati.
-
-## <a name="device-maintenance-windows"></a>Finestre di manutenzione del dispositivo
-Configurare i dispositivi in modo che eseguano le azioni in un momento che riduce al minimo le interruzioni e i tempi di inattività.  Le finestre di manutenzione del dispositivo costituiscono un modello comunemente usato per definire il momento in cui un dispositivo deve eseguire l'aggiornamento della configurazione. Le soluzioni di back-end possono usare le proprietà desiderate del dispositivo gemello per definire e attivare un criterio sul dispositivo che attiva una finestra di manutenzione. Quando un dispositivo riceve il criterio della finestra di manutenzione, può usare la proprietà segnalata del dispositivo gemello per segnalare lo stato del criterio. L'applicazione back-end può quindi usare le query del dispositivo gemello per attestare la conformità dei dispositivi e di tutti i criteri.
-
-## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato usato un metodo diretto per attivare un riavvio remoto su un dispositivo. Sono state usate le proprietà indicate per segnalare l'ora dell'ultimo riavvio del dispositivo ed è stata eseguita una query nel dispositivo gemello per ottenere l'ora dell'ultimo riavvio del dispositivo in questione dal cloud.
-
-Per altre informazioni sull'hub IoT e sui modelli di gestione dei dispositivi, ad esempio in modalità remota tramite l'aggiornamento del firmware air, vedere:
-
-[Esercitazione: Come eseguire un aggiornamento del firmware][lnk-fwupdate]
-
-Per informazioni su come estendere la soluzione IoT e pianificare le chiamate al metodo su più dispositivi, vedere l'esercitazione [Pianificare e trasmettere processi][lnk-tutorial-jobs].
-
-Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Getting started with the IoT Gateway SDK][lnk-gateway-SDK] (Introduzione a IoT Gateway SDK).
+[!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
 <!-- images and links -->
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
@@ -265,12 +241,9 @@ Per altre informazioni sulle attività iniziali con l'hub IoT, vedere [Getting s
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

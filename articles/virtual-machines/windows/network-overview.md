@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 07/17/2017
 ms.author: davidmu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: cda53c43d4524ddcc8139f60f6b605a1f26c2658
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
-
 
 ---
 
@@ -97,7 +97,7 @@ Se si lavora in un'organizzazione in cui un altro utente è responsabile delle r
 
 Per impostazione predefinita non esiste alcun limite di sicurezza tra subnet, quindi le VM in ognuna di queste subnet possono comunicare tra loro. È tuttavia possibile configurare gruppi di sicurezza di rete (NSG) che consentono di controllare il flusso di traffico da e verso le subnet e da e verso le VM. 
 
-Questa tabella elenca i metodi che è possibile usare per creare una rete virtuale e le subnet.    
+Questa tabella elenca i metodi che è possibile usare per creare una rete virtuale e le subnet. 
 
 | Metodo | Descrizione |
 | ------ | ----------- |

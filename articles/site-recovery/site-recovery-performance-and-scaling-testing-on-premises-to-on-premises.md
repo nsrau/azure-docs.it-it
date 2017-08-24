@@ -1,6 +1,6 @@
 ---
 title: Risultati del test per un processo di replica tra siti usando Azure Site Recovery | Documentazione Microsoft
-description: Questo articolo fornisce informazioni sul test di prestazioni eseguito durante un processo di replica da locale a locale usando Azure Site Recovery.
+description: Questo articolo contiene informazioni sul test di prestazioni eseguito durante un processo di replica da locale a locale di macchine virtuali Hyper-V usando Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,24 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 01/23/2017
+ms.date: 05/24/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 1b95723ec9886835c5967c9efe95b4922390a847
-ms.openlocfilehash: 92b5200016b943c06ef7732344d4136bd3c491b7
-ms.lasthandoff: 02/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: a9bec774b5482de87eefcd0c87844a2adbd98bbe
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Risultati del test per la replica Hyper-V da locale a locale con Site Recovery
+
 Microsoft Azure Site Recovery consente di coordinare e gestire la replica di macchine virtuali e server fisici in Azure o in un data center secondario. Questo articolo illustra i risultati del test di prestazioni eseguito durante la replica di macchine virtuali Hyper-V tra due data center locali.
 
-## <a name="overview"></a>Panoramica
+## <a name="test-goals"></a>Obiettivi di test
+
 L'obiettivo del test è analizzare le prestazioni di Azure Site Recovery durante la replica in uno stato stazionario. La replica dello stato stazionario si verifica quando le macchine virtuali hanno completato la replica iniziale e sincronizzano le modifiche differenziali. È importante misurare le prestazioni usando lo stato stazionario perché è lo stato in cui resta la maggior parte delle macchine virtuali a meno che non si verifichino interruzioni impreviste.
 
 La distribuzione di test è costituita da due siti locali con un server VMM in ciascuno di essi. Questa distribuzione di test è tipica di una distribuzione sede centrale/filiale, con la sede centrale che funge da sito primario e la filiale che funge da sito secondario o di ripristino.
 
-### <a name="what-we-did"></a>Passaggi eseguiti
+## <a name="what-we-did"></a>Passaggi eseguiti
+
 Passaggi necessari per il superamento del test:
 
 1. Creare macchine virtuali utilizzando modelli VMM.
@@ -41,8 +45,9 @@ Passaggi necessari per il superamento del test:
 7. Acquisire le metriche delle prestazioni per 12 ore, assicurandosi che tutte le macchine virtuali rimangano in uno stato di replica previsto per queste 12 ore.
 8. Misurare il differenziale tra le metriche delle prestazioni di base e le metriche delle prestazioni di replica.
 
-## <a name="test-deployment-results"></a>Risultati della distribuzione di test
-### <a name="primary-server-performance"></a>Prestazioni del server primario
+
+## <a name="primary-server-performance"></a>Prestazioni del server primario
+
 * Replica Hyper-V tiene traccia in modo asincrono delle modifiche apportate a un file di log con sovraccarico di archiviazione minimo nel server primario.
 * Replica Hyper-V usa la cache in memoria autonoma per ridurre il sovraccarico di IOPS per la traccia. Archivia scritture nel disco VHDX in memoria e le scarica nel file di log prima dell'invio del log al sito di ripristino del log. Lo scaricamento del disco avviene anche se le scritture raggiungono un limite predeterminato.
 * Il grafico seguente mostra il sovraccarico di IOPS nello stato stazionario per la replica. Si può notare che il sovraccarico di IOPS dovuto alla replica è pari al 5% circa, quindi abbastanza basso.
@@ -57,7 +62,8 @@ Replica Hyper-V ha un sovraccarico di CPU minimo. Come illustrato nel grafico, i
 
 ![Risultati sito primario](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744915.png)
 
-### <a name="secondary-recovery-server-performance"></a>Prestazioni del server secondario (ripristino)
+## <a name="secondary-recovery-server-performance"></a>Prestazioni del server secondario (ripristino)
+
 Replica Hyper-V utilizza una piccola quantità di memoria nel server di ripristino per ottimizzare il numero di operazioni di archiviazione. Il grafico riepiloga l'utilizzo della memoria nel server di ripristino. Il sovraccarico della memoria mostrato è la percentuale di memoria utilizzata dalla replica rispetto alla memoria totale installata sul server Hyper-V.
 
 ![Risultati sito secondario](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744916.png)
@@ -71,12 +77,14 @@ La quantità di operazioni di I/O nel sito di ripristino è una funzione del num
 
 ![Risultati sito secondario](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744918.png)
 
-### <a name="effect-of-replication-on-network-utilization"></a>Effetto della replica sull'uso della rete
+## <a name="effect-on-network-utilization"></a>Risultati dell'uso di rete
+
 Una media di 275 MB al secondo di larghezza di banda è stata usata tra i nodi primario e di ripristino (con compressione abilitata) su una larghezza di banda esistente di 5 GB al secondo.
 
 ![Risultati utilizzo rete](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744919.png)
 
-### <a name="effect-of-replication-on-virtual-machine-performance"></a>Effetto della replica sulle prestazioni della macchina virtuale
+## <a name="effect-on-vm-performance"></a>Effetto sulle prestazioni della macchina virtuale
+
 Una considerazione importante è l'impatto della replica sui carichi di lavoro di produzione in esecuzione nelle macchine virtuali. Se viene eseguito il provisioning adeguato del sito primario per la replica, l’impatto sui carichi di lavoro dovrebbe essere nullo. Il meccanismo di traccia a basso utilizzo di risorse di Replica Hyper-V assicura che i carichi di lavoro in esecuzione nelle macchine virtuali non subiscano ripercussioni durante la replica nello stato stazionario. Tale condizione è illustrata nei grafici seguenti.
 
 Questo grafico mostra IOPS eseguiti dalle macchine virtuali con carichi di lavoro diversi prima e dopo l'abilitazione della replica. È possibile osservare che non esiste alcuna differenza tra i due.
@@ -87,15 +95,18 @@ Il grafico seguente mostra la velocità effettiva della macchine virtuali con ca
 
 ![Risultati effetti replica ](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744921.png)
 
-### <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusioni
+
 I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Replica, si adatta bene con un sovraccarico minimo per un cluster di grandi dimensioni.  Azure Site Recovery consente di eseguire in modo semplice distribuzione, replica, gestione e monitoraggio. Replica Hyper-V fornisce l'infrastruttura necessaria per la corretta scalabilità della replica. Per la pianificazione di una distribuzione ottimale, è consigliabile scaricare [Hyper-V Replica Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057).
 
 ## <a name="test-environment-details"></a>Ambiente di test nel dettaglio
+
 ### <a name="primary-site"></a>Sito primario
+
 * Il sito primario dispone di un cluster contenente cinque server Hyper-V con 470 macchine virtuali.
 * Le macchine virtuali eseguono diversi carichi di lavoro e per tutte la protezione di Azure Site Recovery è abilitata.
 * L’archiviazione per il nodo del cluster è fornita da una rete SAN iSCSI. Modello – Hitachi HUS130.
-* Ogni server del cluster ha quattro schede di rete (NIC) di&1; Gbps ciascuna.
+* Ogni server del cluster ha quattro schede di rete (NIC) di 1 Gbps ciascuna.
 * Due delle schede di rete sono connesse a una rete privata iSCSI e due sono connesse a una rete aziendale esterna. Una delle reti esterne è riservata alle comunicazioni del cluster.
 
 ![Requisiti hardware principali](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744922.png)
@@ -106,6 +117,7 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 | Server VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-recovery-site"></a>Sito secondario (ripristino)
+
 * Il sito secondario ha un cluster di failover a sei nodi
 * L’archiviazione per il nodo del cluster è fornita da una rete SAN iSCSI. Modello – Hitachi HUS130.
 
@@ -119,6 +131,7 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 | Server VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Carichi di lavoro server
+
 * A scopo di test sono stati scelti i carichi di lavoro comunemente utilizzati negli scenari aziendali dei clienti.
 * Si utilizza [IOMeter](http://www.iometer.org) con le caratteristiche del carico di lavoro riepilogate in tabella per la simulazione.
 * Tutti i profili IOMeter sono impostati per scrivere byte casuali per simulare modelli  di scrittura dei casi peggiori per i carichi di lavoro.
@@ -126,17 +139,18 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 | Carico di lavoro | Dimensioni I/O (KB) | % accesso | % lettura | I/O in sospeso | Modello I/O |
 | --- | --- | --- | --- | --- | --- |
 | File Server |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Tutti 100% casuale |
-| SQL Server (volume 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% casuale&100;% sequenziale |
+| SQL Server (volume 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% casuale 100% sequenziale |
 | Exchange |32 |100% |67% |8 |100% casuale |
 | Workstation/VDI |464 |66%34% |70%95% |11 |Entrambi 100% casuale |
 | File Server Web |4864 |33%34%33% |95%95%95% |888 |Tutti 75% casuale |
 
-### <a name="virtual-machine-configuration"></a>Configurazione macchina virtuale
+### <a name="vm-configuration"></a>Configurazione della macchina virtuale
+
 * 470 macchine virtuali nel cluster primario.
 * Tutte le macchine virtuali con disco VHDX.
 * Macchine virtuali con carichi di lavoro in esecuzione riepilogati nella tabella. Tutti sono stati creati con i modelli VMM.
 
-| Carico di lavoro | # VM | RAM minima (GB) | RAM massima (GB) | Dimensioni disco logico (GB) per macchina virtuale | Numero massimo di IOPS |
+| Carico di lavoro | N. di macchine virtuali | RAM minima (GB) | RAM massima (GB) | Dimensioni disco logico (GB) per macchina virtuale | Numero massimo di IOPS |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
@@ -145,7 +159,8 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 | Server Web |149 |0,5 |1 |80 |6 |
 | TOTALE |470 | | |96,83 TB |4108 |
 
-### <a name="azure-site-recovery-settings"></a>Impostazioni di Azure Site Recovery 
+### <a name="site-recovery-settings"></a>Impostazioni di Site Recovery
+
 * Azure Site Recovery è stata configurata per la protezione da locale a locale
 * Il server VMM ha quattro cloud configurati contenenti i server del cluster Hyper-V e le macchine virtuali.
 
@@ -157,6 +172,7 @@ I risultati mostrano chiaramente che Azure Site Recovery, grazie a Hyper-V Repli
 | PrimaryCloudRpo5m |235 |5 min |Nessuno |
 
 ### <a name="performance-metrics"></a>Metriche delle prestazioni
+
 Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori misurati nella distribuzione.
 
 | Metrica | Contatore |
@@ -170,5 +186,6 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 | Velocità effettiva di scrittura VM |\Dispositivo di archiviazione virtuale Hyper-V(<VHD>)\Byte scritti al secondo |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Configurare la protezione tra due siti VMM locali](site-recovery-vmm-to-vmm.md)
+
+[Configurare la replica tra due siti VMM locali](site-recovery-vmm-to-vmm.md)
 

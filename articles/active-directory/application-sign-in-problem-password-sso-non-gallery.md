@@ -1,6 +1,6 @@
 ---
-title: Problemi di accesso a un&quot;applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password | Microsoft Docs
-description: Vengono descritte le aree problematiche e offerte linee guida per la risoluzione dei problemi relativi all&quot;accesso alle applicazioni della raccolta di Azure AD configurate per il Single Sign-On basato su password
+title: Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password | Microsoft Docs
+description: Vengono descritte le aree problematiche e offerte linee guida per la risoluzione dei problemi relativi all'accesso alle applicazioni della raccolta di Azure AD configurate per il Single Sign-On basato su password
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 4f8ebf5e734cc2e79819593c942f0e55227e522c
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

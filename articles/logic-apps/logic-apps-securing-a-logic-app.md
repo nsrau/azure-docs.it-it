@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
-ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 86c293e735f766dbacc7d0b83574f254573d0de8
-ms.openlocfilehash: 3f119409e031ca2b88694a011916f52aa9ef5d36
-ms.lasthandoff: 02/15/2017
+ms.author: LADocs; jehollan
+ms.translationtype: Human Translation
+ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
+ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.contentlocale: it-it
+ms.lasthandoff: 05/04/2017
 
 
 ---
@@ -264,7 +265,7 @@ Le app per la logica offrono integrazione con numerosi servizi per garantire una
 
 #### <a name="on-premises-data-gateway"></a>Gateway dati locale
 
-Molti dei connettori gestiti delle app per la logica offrono una connettività sicura a sistemi locali, tra cui File System, SQL, SharePoint, DB2 e altro ancora.  Il gateway sfrutta canali crittografati tramite il bus di servizio di Azure per inoltrare i dati locali e tutto il traffico ha origine dal traffico sicuro in uscita dall'agente di gateway.  Altri dettagli sul funzionamento del gateway sono disponibili [in questo articolo](logic-apps-gateway-install.md#how-the-gateway-works).
+Molti dei connettori gestiti delle app per la logica offrono una connettività sicura a sistemi locali, tra cui File System, SQL, SharePoint, DB2 e altro ancora. Il gateway inoltra i dati da origini locali sui canali crittografati tramite il bus di servizio di Azure. Tutto il traffico ha origine come traffico sicuro in uscita dall'agente di gateway. Altre informazioni sul [funzionamento del gateway dati](logic-apps-gateway-install.md#gateway-cloud-service).
 
 #### <a name="azure-api-management"></a>Gestione API di Azure
 

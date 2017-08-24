@@ -29,7 +29,7 @@ Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle ap
 Questa esercitazione è incentrata principalmente sull'uso di MSAL per l'acquisizione e l'uso di token di accesso in un'app Web, la cui descrizione dettagliata è disponibile [qui](active-directory-v2-flows.md#web-apps).  Come prerequisiti, è consigliabile apprendere come [aggiungere l'accesso base a un'app Web](active-directory-v2-devquickstarts-dotnet-web.md) o come [proteggere correttamente un'API Web](active-directory-v2-devquickstarts-dotnet-api.md).
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint&2;.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory sono supportati dall'endpoint 2.0.  Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](active-directory-v2-limitations.md).
 > 
 > 
 

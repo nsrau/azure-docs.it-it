@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
-ms.author: cfreeman
+ms.date: 05/25/2017
+ms.author: bwren
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0916c10afd526abaaf6c8e1e3aa311af5c7d84cd
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: 74cd4dbf74afbf5e7e0e7d0b7aca49b5aa214b83
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
@@ -246,6 +245,13 @@ Dal pannello Panoramica aprire **Impostazioni**, **Test delle prestazioni**. Qua
 
 Al termine del test verranno visualizzati i tempi di risposta e le percentuali di successo.
 
+
+![Test delle prestazioni](./media/app-insights-monitor-web-app-availability/perf-test.png)
+
+> [!TIP]
+> Per osservare gli effetti di un test delle prestazioni, usare [Live Stream](app-insights-live-stream.md) e [Profiler](app-insights-profiler.md).
+>
+
 ## <a name="automation"></a>Automazione
 * [Usare script di PowerShell per configurare un test di disponibilità](app-insights-powershell.md#add-an-availability-test) automaticamente.
 * Configurare un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso.
@@ -298,3 +304,4 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
+

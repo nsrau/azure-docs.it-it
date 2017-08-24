@@ -8,16 +8,18 @@ author: ddove
 editor: 
 ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
 ms.service: sql-database
-ms.custom: multiple databases
+ms.custom: scale out apps
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eb5483e497ef1c1a239f207a034eb8c67f485a39
 ms.openlocfilehash: c7a46ebf0df6db92d2e66c7523e00c0a574ebf56
+ms.contentlocale: it-it
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -80,10 +82,10 @@ Ad esempio, **[0, 100)** include tutti i numeri interi superiori o uguali a 0 e 
 
 | Chiave | Percorso della partizione |
 | --- | --- |
-| [1,&50;) |Database_A |
-| [50,&100;) |Database_B |
-| [100,&200;) |Database_C |
-| [400,&600;) |Database_C |
+| [1, 50) |Database_A |
+| [50, 100) |Database_B |
+| [100, 200) |Database_C |
+| [400, 600) |Database_C |
 | ... |... |
 
 Ognuna delle tabelle precedenti è un esempio concettuale di un oggetto **ShardMap** . Ogni riga costituisce un esempio semplificato di un singolo oggetto **PointMapping** (per la mappa partizioni di tipo elenco) o **RangeMapping** (per la mappa partizioni di tipo intervallo).
@@ -322,9 +324,4 @@ Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di 
 [1]: ./media/sql-database-elastic-scale-shard-map-management/listmapping.png
 [2]: ./media/sql-database-elastic-scale-shard-map-management/rangemapping.png
 [3]: ./media/sql-database-elastic-scale-shard-map-management/multipleonsingledb.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

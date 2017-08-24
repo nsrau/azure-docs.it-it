@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 06/20/2017
 ms.author: jingwang
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 06f7b38f5d08f2182f08d38a11dec526042c1828
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: f4746e0dd249e417b8077a9bc733d2886daafdf2
+ms.contentlocale: it-it
+ms.lasthandoff: 07/31/2017
 
 ---
 
@@ -82,7 +82,7 @@ Per usare `escapeChar` invece di `quoteChar`, sostituire la riga con `quoteChar`
 * Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non contengono né dati né un'intestazione. Specificare `skipLineCount` per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è anche possibile specificare `firstRowAsHeader`. Se sono specificati sia `skipLineCount` che `firstRowAsHeader`, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input.
 
 ## <a name="json-format"></a>Formato JSON
-Per **importare/esportare un file JSON senza modifiche in/da DocumentDB**, vedere la sezione [Importare/Esportare documenti JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo [Spostare dati da e verso DocumentDB mediante Azure Data Factory](data-factory-azure-documentdb-connector.md).
+Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, vedere la sezione [Importare/Esportare documenti JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) nell'articolo [Spostare dati da e verso Azure Cosmos DB](data-factory-azure-documentdb-connector.md).
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
@@ -226,7 +226,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraend
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione [Definizione della struttura per i set di dati rettangolari](#specifying-structure-definition-for-rectangular-datasets) per altri dettagli.
+- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altri dettagli, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](data-factory-map-columns.md).
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare i dati dalla matrice, è possibile usare **array[x].property** per estrarre il valore della proprietà specificata dall'oggetto xth oppure è possibile usare **array[*].property** per trovare il valore in qualsiasi oggetto contenente tale proprietà.
 
 ```json
@@ -299,7 +299,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione [Definizione della struttura per i set di dati rettangolari](#specifying-structure-definition-for-rectangular-datasets) per altri dettagli.
+- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altri dettagli, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](data-factory-map-columns.md).
 - `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto le righe ordine della **matrice**.
 - `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. In questo esempio "ordernumber", "orderdate" e "city" sono sotto l'oggetto radice con il percorso JSON che inizia con "$.", mentre "order_pd" e "order_price" sono definiti con il percorso derivato dall'elemento matrice senza "$.".
 

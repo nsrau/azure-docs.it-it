@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 24ccafb4df95e0010416485199e19f81e1ae31aa
-ms.openlocfilehash: 11017c7c0a761569892aebcd085d5d3fb2d67a69
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
 ms.contentlocale: it-it
-ms.lasthandoff: 02/14/2017
-
+ms.lasthandoff: 06/15/2017
 
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
@@ -84,8 +83,38 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Selezionare la visualizzazione](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Aggiornare manualmente il report a intervalli oppure impostare un aggiornamento pianificato nella pagina Opzioni.
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+### <a name="401-or-403-unauthorized"></a>401 o 403 - Non autorizzato 
+Questo errore può verificarsi se il token di aggiornamento non è stato aggiornato. Provare a eseguire la procedura seguente per verificare di avere ancora accesso. Se si ha accesso e non è possibile aggiornare le credenziali, aprire un ticket di supporto.
+
+1. Accedere al portale di Azure e verificare di poter accedere alla risorsa
+2. Provare ad aggiornare le credenziali per il dashboard
+
+### <a name="502-bad-gateway"></a>502 - Gateway non valido
+Questo errore è in genere causato da una query di Analisi che restituisce troppi dati. Provare a usare un intervallo di tempo minore oppure usare le funzioni [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) o [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) per [includere tramite l'operatore project](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) solo i campi necessari.
+
+Se la riduzione del set di dati proveniente dalla query di Analisi non soddisfa i propri requisiti, può essere utile usare l'[API](https://dev.applicationinsights.io/documentation/overview) per estrarre un set di dati di dimensioni maggiori. Di seguito sono riportate le istruzioni per convertire l'esportazione della query M per l'uso dell'API.
+
+1. Creare una [chiave API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)
+2. Aggiornare lo script M di Power BI esportato da Analisi sostituendo l'URL ARM con l'API AI (vedere l'esempio seguente)
+   * Sostituire **https://management.azure.com/subscriptions/...**
+   * con **https://api.applicationinsights.io/beta/apps/...**
+3. Infine, aggiornare le credenziali in credenziali base e usare la chiave API
+  
+
+**Script esistente**
+ ```
+ Source = Json.Document(Web.Contents("https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups//providers/microsoft.insights/components//api/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+**Script aggiornato**
+ ```
+ Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
+ ```
+
 ## <a name="about-sampling"></a>Informazioni sul campionamento
 Se l'applicazione invia una grande quantità di dati, la funzionalità di campionamento adattivo può essere usata e inviare solo una percentuale dei dati di telemetria. La stessa considerazione vale se il campionamento è stato impostato manualmente nell'SDK o durante l'inserimento. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Power BI - Informazioni](http://www.powerbi.com/learning/)

@@ -8,17 +8,17 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 1/24/2017
+ms.date: 06/05/2017
 ms.author: nisoneji
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 6e52a647e817b64e331937c0b0f1d44f9f6c11a0
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
@@ -50,7 +50,7 @@ Analogamente, per ottimizzare un disco in cui sono presenti sia il file tempdb d
 ## <a name="how-to-exclude-disks-from-replication"></a>Come escludere dischi dalla replica
 
 ### <a name="vmware-to-azure"></a>Da VMware ad Azure
-Per proteggere una macchina virtuale dal portale di Azure Site Recovery, seguire il flusso di lavoro [Abilitare la replica](site-recovery-vmware-to-azure.md#enable-replication). Nel passaggio 4 del flusso di lavoro usare la colonna **DISCHI DA REPLICARE** per escludere dischi dalla replica. Per impostazione predefinita, tutti i dischi sono selezionati per la replica. Deselezionare la casella di controllo relativa ai dischi da escludere dalla replica e quindi seguire la procedura per abilitare la replica.
+Per proteggere una macchina virtuale dal portale di Azure Site Recovery, seguire il flusso di lavoro [Abilitare la replica](site-recovery-vmware-to-azure.md). Nel passaggio 4 del flusso di lavoro usare la colonna **DISCHI DA REPLICARE** per escludere dischi dalla replica. Per impostazione predefinita, tutti i dischi sono selezionati per la replica. Deselezionare la casella di controllo relativa ai dischi da escludere dalla replica e quindi seguire la procedura per abilitare la replica.
 
 ![Escludere i dischi dalla replica e abilitare la replica per il failback da VMware ad Azure](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 
@@ -66,7 +66,7 @@ Per proteggere una macchina virtuale dal portale di Azure Site Recovery, seguire
 >
 
 ### <a name="hyper-v-to-azure"></a>Da Hyper-V ad Azure
-Per proteggere una macchina virtuale dal portale di Azure Site Recovery, seguire il flusso di lavoro [Abilitare la replica](site-recovery-hyper-v-site-to-azure.md#enable-replication). Nel passaggio 4 del flusso di lavoro usare la colonna **DISCHI DA REPLICARE** per escludere dischi dalla replica. Per impostazione predefinita, tutti i dischi sono selezionati per la replica. Deselezionare la casella di controllo relativa ai dischi da escludere dalla replica e quindi seguire la procedura per abilitare la replica.
+Per proteggere una macchina virtuale dal portale di Azure Site Recovery, seguire il flusso di lavoro [Abilitare la replica](site-recovery-hyper-v-site-to-azure.md). Nel passaggio 4 del flusso di lavoro usare la colonna **DISCHI DA REPLICARE** per escludere dischi dalla replica. Per impostazione predefinita, tutti i dischi sono selezionati per la replica. Deselezionare la casella di controllo relativa ai dischi da escludere dalla replica e quindi seguire la procedura per abilitare la replica.
 
 ![Escludere i dischi dalla replica e abilitare la replica per il failback da Hyper-V ad Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
@@ -107,8 +107,8 @@ Di seguito sono elencati i dischi presenti nella macchina virtuale di Azure dopo
 
 **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | ---
-DISK0 |    C:\ | Disco del sistema operativo
-Disk1 |    E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
+DISK0 | C:\ | Disco del sistema operativo
+Disk1 | E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
 Disk2 | D:\ | Database di sistema SQL e Database1 dell'utente
 Disk3 | G:\ | Database2 dell'utente
 
@@ -140,13 +140,13 @@ Per creare questo percorso, è possibile procedere in due modi:
 3. Eseguire il comando sqlcmd seguente per sostituire il percorso del tempdb con il nuovo percorso.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;        
-        GO        
-        ALTER DATABASE tempdb        
+        USE master;     
+        GO      
+        ALTER DATABASE tempdb       
         MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO        
-        ALTER DATABASE tempdb        
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');        
+        GO      
+        ALTER DATABASE tempdb       
+        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
         GO
 
 
@@ -172,9 +172,9 @@ Di seguito è illustrata la configurazione dei dischi della macchina virtuale di
 **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 |    E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
-Disk2 |    D:\ | Database di sistema SQL e Database1 dell'utente
-Disk3 |    G:\ | Database2 dell'utente
+Disk1 | E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
+Disk2 | D:\ | Database di sistema SQL e Database1 dell'utente
+Disk3 | G:\ | Database2 dell'utente
 
 
 #### <a name="vmware-to-azure"></a>Da VMware ad Azure
@@ -185,8 +185,8 @@ Dopo il failover pianificato da Azure a VMware in locale, i dischi della macchin
 **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 |    D:\ | Database di sistema SQL e Database1 dell'utente
-Disk2 |    G:\ | Database2 dell'utente
+Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente
+Disk2 | G:\ | Database2 dell'utente
 
 #### <a name="hyper-v-to-azure"></a>Da Hyper-V ad Azure
 Quando il failback viene eseguito nella posizione originale, la configurazione dei dischi della macchina virtuale di failback rimane identica a quella della macchina virtuale originale per Hyper-V. Nella macchina virtuale di failback non saranno quindi disponibili i dischi esclusi dalla replica dal sito Hyper-V ad Azure.
@@ -195,7 +195,7 @@ Dopo il failover pianificato da Azure a Hyper-V in locale, i dischi della macchi
 
 **Nome del disco** | **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |    C:\ | Disco del sistema operativo
+DB-Disk0-OS | DISK0 |   C:\ | Disco del sistema operativo
 DB-Disk1 | Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente
 DB-Disk2 (disco escluso) | Disk2 | E:\ | File temporanei
 DB-Disk3 (disco escluso) | Disk3 | F:\ | Database tempdb SQL (percorso della cartella, F:\MSSQL\Data\)

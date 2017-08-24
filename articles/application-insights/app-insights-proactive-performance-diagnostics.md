@@ -1,6 +1,6 @@
 ---
 title: Rilevamento intelligente - prestazioni anomale | Microsoft Docs
-description: "Application Insights esegue un&quot;analisi intelligente dei dati di telemetria dell&quot;app e segnala potenziali problemi. Questa funzionalità non richiede alcuna configurazione."
+description: "Application Insights esegue un'analisi intelligente dei dati di telemetria dell'app e segnala potenziali problemi. Questa funzionalità non richiede alcuna configurazione."
 services: application-insights
 documentationcenter: windows
 author: antonfrMSFT
@@ -12,20 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 080b732d78731e6281e82ddc28a3e84ae8755ffa
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: dab2e54dedf55f0d9a0b0b4e66d101ed7df94bfa
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
 [Application Insights](app-insights-overview.md) analizza automaticamente le prestazioni dell'applicazione Web e può segnalare potenziali problemi. È possibile che questo messaggio venga letto perché si è ricevuta una delle nostre notifiche di rilevamento intelligente.
 
-Questa funzionalità non richiede alcuna configurazione speciale, ma solo la configurazione dell'app per Application Insights, ovvero in [ASP.NET](app-insights-asp-net.md), Java(app-insights-java-get-started.md) o [Node.js](app-insights-nodejs.md) e nel [codice della pagina web](app-insights-javascript.md). È attiva quando l'applicazione genera un numero sufficiente di dati di telemetria.
+Questa funzionalità non richiede alcuna configurazione speciale, ma solo la configurazione dell'app per Application Insights, ovvero in [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md) o [Node.js](app-insights-nodejs.md) e nel [codice della pagina Web](app-insights-javascript.md). È attiva quando l'applicazione genera un numero sufficiente di dati di telemetria.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>Ricezione di una notifica di rilevamento intelligente
 
@@ -63,7 +62,7 @@ Le notifiche di rilevamento intelligente sono abilitate per impostazione predefi
   
   ![Impostazioni di rilevamento intelligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
   
-  * Anche il collegamento **Annulla sottoscrizione** nel messaggio di posta elettronica del rilevamento intelligente 
+  * È possibile usare il collegamento **Annulla sottoscrizione** nel messaggio di posta elettronica di Rilevamento intelligente per interrompere la ricezione delle notifiche di posta elettronica.
 
 I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti intelligenti sono limitati a un messaggio di posta elettronica al giorno per ogni risorsa di Application Insights. Il messaggio di posta elettronica verrà inviato solo se è presente almeno un nuovo problema rilevato per quella giornata. senza alcuna ripetizione dello stesso messaggio. 
 
@@ -192,3 +191,4 @@ Gli avvisi di rilevamento intelligente sono completamente automatici, tuttavia �
 
 * [Configurare manualmente gli avvisi relativi alle metriche](app-insights-alerts.md)
 * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
+

@@ -1,9 +1,9 @@
 ---
 title: Introduzione a .NET per Azure AD | Documentazione Microsoft
-description: Come compilare un&quot;applicazione desktop di Windows .NET che si integra con Azure AD per l&quot;accesso e chiama le API protette di Azure AD usando OAuth.
+description: Come compilare un'applicazione desktop di Windows .NET che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b

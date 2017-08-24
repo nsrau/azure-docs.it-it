@@ -1,10 +1,10 @@
 ---
 title: Gestione dei dispositivi Azure IoT con iothub-explorer | Microsoft Docs
-description: "Usare lo strumento dell&quot;interfaccia della riga di comando iothub-explorer per la gestione di dispositivi dell&quot;hub IoT di Azure, con i metodi diretti e le opzioni di gestione delle proprietà desiderate nei dispositivi gemelli."
+description: "Usare lo strumento dell'interfaccia della riga di comando iothub-explorer per la gestione di dispositivi dell'hub IoT di Azure, con i metodi diretti e le opzioni di gestione delle proprietà desiderate nei dispositivi gemelli."
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: gestione dispositivi iot azure, gestione dispositivi hub iot azure, gestione dispositivi iot, gestione dispositivi hub iot
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
@@ -13,14 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2017
+ms.date: 07/12/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 480f0544f155365d94b325bbf799bb999268dc31
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
 ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Usare iothub-explorer per la gestione di dispositivi hub IoT di Azure
@@ -47,7 +46,7 @@ Per altre informazioni sulle differenze e sull'uso di queste opzioni, vedere [De
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
-Si apprende l'uso di iothub-explorer con diverse opzioni di gestione.
+Si apprende l'uso di iothub-explorer con varie opzioni di gestione presenti nel proprio computer di sviluppo.
 
 ## <a name="what-you-do"></a>Operazioni da fare
 
@@ -58,8 +57,9 @@ Eseguire iothub-explorer con diverse opzioni di gestione.
 - Completare l'esercitazione [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che prevede i requisiti seguenti:
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
-  - Un'applicazione client che invia messaggi ad Azure IoT hub.
-- iothub-explorer. ([Installare iothub-explorer](https://github.com/azure/iothub-explorer))
+  - Un'applicazione client che invia messaggi all'hub IoT di Azure.
+- Verificare che il dispositivo sia in esecuzione con l'applicazione client durante questa esercitazione.
+- iothub-explorer, [Installare iothub-explorer](https://github.com/azure/iothub-explorer) sul computer di sviluppo.
 
 ## <a name="connect-to-your-iot-hub"></a>Accedere all'hub IoT
 
@@ -88,7 +88,7 @@ iothub-explorer device-method <your device Id> stop
 Impostare l'intervallo di proprietà desiderato su 3000 eseguendo il comando seguente:
 
 ```bash
-iothub-explorer update-twin mydevice {\"properties\":{\"desired\":{\"interval\":3000}}}
+iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"interval\":3000}}}
 ```
 
 Questa proprietà può essere letta dal dispositivo.
@@ -114,7 +114,8 @@ iothub-explorer get-twin <your device id>
 Aggiungere il campo role = temperature&humidity al dispositivo eseguendo il comando seguente:
 
 ```bash
-iothub-explorer update-twin <your device id> {\"tags\":{\"role\":\"temperature&humidity\"}}
+iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
+
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Usare iothub-explorer con i messaggi da cloud a dispositivo
@@ -146,3 +147,4 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 Si è appreso l'uso di iothub-explorer con diverse opzioni di gestione.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+

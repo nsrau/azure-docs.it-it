@@ -1,15 +1,13 @@
 --- 
 layout: HubPage
 hide_bc: true
-experimental: true
-experiment_id: 81ba5f65-59fb-4d
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1379795f656d741cb43d2f34793f05ff88852646
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8d0d10a53be9299931821c75c8c17bb967a05449
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 <div id="main" class="v2">
@@ -17,7 +15,7 @@ ms.lasthandoff: 05/10/2017
         <h1 class="screenReader">Documentazione di Microsoft Azure</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
-                <a href="http://aka.ms/azuredevgetstarted/">
+                <a href="/azure/guides/developer/azure-developer-guide">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -35,17 +33,17 @@ ms.lasthandoff: 05/10/2017
                 </a>
             </li>
             <li>
-                <a href="http://aka.ms/azureitgetstarted/">
+                <a href="/azure/architecture/guide/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
                                 <div class="cardImageOuter">
                                     <div class="cardImage">
-                                        <img data-hoverimage="media/index/getstarted-itoperator.svg" src="media/index/getstarted-itoperator.png" alt="" />
+                                        <img data-hoverimage="media/index/getstarted-architecture.png" src="media/index/getstarted-architecture.png" alt="" />
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <span class="likeAnH3">Guida introduttiva per gli operatori IT di Azure</span>
+                                    <span class="likeAnH3">Guida all'architettura delle applicazioni in Azure</span>
                                 </div>
                             </div>
                         </div>
@@ -107,41 +105,36 @@ ms.lasthandoff: 05/10/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Sviluppo di applicazioni</h3>
-                                                <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
-                                                        <img src="media/index/logo_NET.svg" alt="">
-                                                        <span>.NET</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
-                                                        <img src="media/index/logo_nodejs.svg" alt="">
-                                                        <span>Node.js</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-php">
-                                                        <img src="media/index/logo_PHP.svg" alt="">
-                                                        <span>PHP</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-java">
-                                                        <img src="media/index/logo_java.svg" alt="">
-                                                        <span>Java</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/azure/app-service-web/app-service-web-get-started-python">
-                                                        <img src="media/index/logo_python.svg" alt="">
-                                                        <span>Python</span>
-                                                    </a>
+                                                <div class="cols cols2">
+                                                    <div>
+                                                        <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
+                                                            <img src="media/index/logo_NET.svg" alt=""> .NET</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/python/azure/">
+                                                            <img src="media/index/logo_python.svg" alt=""> Python</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/java/azure/">
+                                                            <img src="media/index/logo_java.svg" alt=""> Java</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
+                                                            <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
+                                                            <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
+                                                    </div>
                                                 </div>
                                                 <div>
                                                     <h4>Modelli di app</h4>
                                                     <ul class="noBullet">
                                                         <li><a class="barLink" href="/azure/app-service-web/">App Web</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Funzioni senza server</a></li>
+                                                        <li><a class="barLink" href="/azure/container-instances/">Istanze di contenitore</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">Contenitori con Kubernetes</a></li>
+                                                        <li><a class="barLink" href="/azure/service-fabric/">Microservizi con Service Fabric</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -181,24 +174,42 @@ ms.lasthandoff: 05/10/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>Strumenti da riga di comando</h3>
-                                                <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
-                                                        <img src="media/index/azure_dev-7.svg" alt="">
-                                                        <span>Interfaccia della riga<br />di comando di Azure</span>
-                                                    </a>
-                                                </div>
-                                                <div class="ico48Link">
-                                                    <a href="/powershell/azure/overview">
-                                                        <img src="media/index/azure_dev-8.svg" alt="">
-                                                        <span>Azure<br />PowerShell</span>
-                                                    </a>
+                                                <div class="cols">
+                                                    <div>
+                                                        <a class="barLink" href="/cli/azure/overview">
+                                                            <img src="media/index/azure_dev-7.svg" alt=""> Interfaccia della riga di comando di Azure</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/powershell/azure/overview">
+                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li></li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>DevOps</h3>
+                                                <div class="cols">
+                                                    <div>
+                                                        <a class="barLink" href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_visual-studio.svg" alt=""> Visual Studio Team Services</a>
+                                                    </div>
+                                                    <div>
+                                                        <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt=""> Jenkins nelle VM di Azure</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                             <li></li>
                             <li></li>
                             <li></li>
@@ -263,8 +274,7 @@ ms.lasthandoff: 05/10/2017
                                                 <img src="media/index/Batch.svg" alt="" />
                                                 <p>Batch</p>
                                             </a>
-                                        </li>
-                                        
+                                        </li>                                        
                                         <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
@@ -331,6 +341,12 @@ ms.lasthandoff: 05/10/2017
                                     </ul>
                                     <h3>Contenitori</h3>
                                     <ul>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Istanze di contenitore di Azure</p>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
@@ -683,8 +699,26 @@ ms.lasthandoff: 05/10/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                                <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                <p>Archiviazione BLOB</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/files/storage-files-introduction/">
+                                                <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                <p>Archiviazione file</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/queues/storage-queues-introduction/">
+                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                <p>Archiviazione di accodamento</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-lake-store/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
@@ -735,13 +769,13 @@ ms.lasthandoff: 05/10/2017
                                         </li>
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-lake-store/">
-                                                <img src="media/index/DataLakeStore.svg" alt="" />
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Store</p>
                                             </a>
                                         </li>
@@ -1015,15 +1049,21 @@ ms.lasthandoff: 05/10/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/resource-health">
+                                            <a href="/azure/service-health">
                                                 <img src="media/index/resource-health.svg" alt="" />
-                                                <p>Integrità risorse di Azure</p>
+                                                <p>Integrità del servizio di Azure</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
                                                 <p>Gestione risorse di Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Griglia di eventi di Azure</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1424,13 +1464,70 @@ ms.lasthandoff: 05/10/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Archiviazione BLOB</h3>
+                                                    <p>Archiviazione di oggetti a scalabilità molto elevata per dati non strutturati</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/files/storage-files-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Archiviazione file</h3>
+                                                    <p>Semplice file system multipiattaforma distribuito</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/queues/storage-queues-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Archiviazione di accodamento</h3>
+                                                    <p>Code durevoli per servizi cloud di volume elevato</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DataLakeStore.svg" alt="" />
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1719,18 +1816,18 @@ ms.lasthandoff: 05/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-fabric/">
+                                <a href="/azure/container-instances/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Service Fabric</h3>
-                                                    <p>Sviluppare microservizi e orchestrare contenitori in Windows o Linux</p>
+                                                    <h3>Istanze di contenitore di Azure</h3>
+                                                    <p>Eseguire facilmente i contenitori con un unico comando</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1769,6 +1866,25 @@ ms.lasthandoff: 05/10/2017
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
                                                     <p>Eseguire processi di calcolo usando i contenitori</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-fabric/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Fabric.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Fabric</h3>
+                                                    <p>Sviluppare microservizi e orchestrare contenitori in Windows o Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1844,7 +1960,7 @@ ms.lasthandoff: 05/10/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/cosmosdb.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2177,7 +2293,7 @@ ms.lasthandoff: 05/10/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DataLakeStore.svg" alt="" />
+                                                        <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2196,7 +2312,7 @@ ms.lasthandoff: 05/10/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DataLakeStore.svg" alt="" />
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2994,7 +3110,7 @@ ms.lasthandoff: 05/10/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/resource-health/">
+                                <a href="/azure/service-health/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3004,8 +3120,8 @@ ms.lasthandoff: 05/10/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Integrità risorse di Azure</h3>
-                                                    <p>Consente di eseguire una diagnosi e di ottenere supporto quando un problema di Azure ha effetto sulle risorse</p>
+                                                    <h3>Integrità del servizio di Azure</h3>
+                                                    <p>Fornisce indicazioni personalizzate e supporto tecnico in caso di impatto dei problemi dei servizi di Azure sulle attività dell'utente.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3025,6 +3141,25 @@ ms.lasthandoff: 05/10/2017
                                                 <div class="cardText">
                                                     <h3>Gestione risorse di Azure</h3>
                                                     <p>Distribuire e gestire le risorse di Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/event-grid/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Griglia di eventi di Azure</h3>
+                                                    <p>Ottenere il recapito di eventi affidabile su larga scala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3122,10 +3257,10 @@ ms.lasthandoff: 05/10/2017
                                                     <a href="/dotnet/azure/dotnet-sdk-azure-install">Ottenere le librerie di Azure per .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Introduzione</a>
+                                                    <a href="/dotnet/azure">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/azure/?view=azure-dotnet">Informazioni di riferimento sulle API</a>
+                                                    <a href="/dotnet/api/overview/azure/?view=azure-dotnet">Informazioni di riferimento sulle API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3143,19 +3278,13 @@ ms.lasthandoff: 05/10/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://pypi.python.org/pypi/azure">Ottenere Python SDK</a>
+                                                    <a href="/python/azure/python-sdk-azure-install">Ottenere le librerie di Azure per Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Introduzione</a>
+                                                    <a href="/python/azure">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Informazioni di riferimento sulle API</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Ottenere gli esempi</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">Altre informazioni</a>
+                                                    <a href="/python/api/overview/azure/">Informazioni di riferimento sulle API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3173,19 +3302,13 @@ ms.lasthandoff: 05/10/2017
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.npmjs.com/package/azure">Ottenere Node.js SDK</a>
+                                                    <a href="/nodejs/azure/node-sdk-azure-install">Ottenere le librerie di Azure per Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Introduzione</a>
+                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Informazioni di riferimento sulle API</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Ottenere gli esempi</a>
-                                                </p>
-                                                <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">Altre informazioni</a>
+                                                    <a href="/nodejs/api/overview/azure">Informazioni di riferimento sulle API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3206,10 +3329,10 @@ ms.lasthandoff: 05/10/2017
                                                     <a href="/java/azure/java-sdk-azure-install">Ottenere le librerie di Azure per Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Introduzione</a>
+                                                    <a href="/java/azure">Introduzione</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/">Informazioni di riferimento sulle API</a>
+                                                    <a href="/java/api/overview/azure">Informazioni di riferimento sulle API</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3503,7 +3626,7 @@ ms.lasthandoff: 05/10/2017
                                 </div>
                             </li>
                             <li>
-                                <a href="/azure/architecture/">
+                                <a href="/azure/architecture/guide/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3513,7 +3636,7 @@ ms.lasthandoff: 05/10/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Concetti fondamentali sul cloud</h3>
+                                                    <h3>Guida all'architettura delle applicazioni in Azure</h3>
                                                     <p>Informazioni fondamentali per un uso corretto del cloud. Se non si ha familiarità con il cloud o con Azure, iniziare da qui.</p>
                                                 </div>
                                             </div>
@@ -3605,4 +3728,3 @@ ms.lasthandoff: 05/10/2017
         </ul>
     </div>
 </div>
-

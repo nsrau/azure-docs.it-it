@@ -1,5 +1,5 @@
 ---
-title: Suggerimenti per l&quot;uso di Hadoop in HDInsight basato su Linux - Azure | Documentazione Microsoft
+title: Suggerimenti per l'uso di Hadoop in HDInsight basato su Linux - Azure | Documentazione Microsoft
 description: "Ottenere suggerimenti di implementazione per l’uso di cluster HDInsight (Hadoop) basati su Linux in un ambiente Linux familiare, in esecuzione nel cloud di Azure."
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/12/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 89c3eb1c501f455cfa154014665fef25af346873
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
+ms.contentlocale: it-it
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/25/2017
 I cluster Azure HDInsight mettono a disposizione Hadoop in un ambiente Linux familiare, in esecuzione nel cloud di Azure. Per la maggior parte delle operazioni, dovrebbe funzionare esattamente come qualsiasi altra installazione di Hadoop in Linux. Questo documento indica le differenze specifiche che è opportuno conoscere.
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -127,9 +127,9 @@ Quando si usa __Archiviazione di Azure__, usare uno degli schemi URI seguenti:
 
 * `wasb:///`: per accedere allo spazio di archiviazione predefinito usando la comunicazione non crittografata.
 
-* `wasbs:///`: per accedere allo spazio di archiviazione predefinito usando la comunicazione crittografata.
+* `wasbs:///`: per accedere allo spazio di archiviazione predefinito usando la comunicazione crittografata.  Lo schema wasbs è supportato solo da HDInsight versione 3.6 in poi.
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net/`: usato durante la comunicazione con un account di archiviazione non predefinito, ad esempio quando si dispone di un account di archiviazione aggiuntivo o quando si accede a dati archiviati in un account di archiviazione pubblicamente accessibile.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: usato durante la comunicazione con un account di archiviazione non predefinito, ad esempio quando si dispone di un account di archiviazione aggiuntivo o quando si accede a dati archiviati in un account di archiviazione pubblicamente accessibile.
 
 Quando si usa __Data Lake Store__, usare uno degli schemi URI seguenti:
 
@@ -153,7 +153,7 @@ Ambari consente di recuperare le informazioni relative alla configurazione di ar
 
 Il comando restituisce un valore simile all'URI seguente:
 
-* `wasbs://<container-name>@<account-name>.blob.core.windows.net` se si usa un account di archiviazione di Azure.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` se si usa un account di archiviazione di Azure.
 
     Il nome dell'account è il nome dell'account di archiviazione di Azure, mentre il nome del contenitore è il contenitore BLOB che è la radice del cluster di archiviazione.
 
@@ -197,7 +197,7 @@ Se si usa __Azure Data Lake Store__, vedere i collegamenti seguenti per informaz
 
 * [Web browser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Interfaccia della riga di comando di Azure](../data-lake-store/data-lake-store-get-started-cli.md)
+* [Interfaccia della riga di comando di Azure 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [API REST WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Strumenti di Data Lake per Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)

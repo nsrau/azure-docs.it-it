@@ -1,6 +1,6 @@
 ---
 title: Usare server proxy locali esistenti e Azure AD | Documentazione Microsoft
-description: Tratta l&quot;uso di server proxy locali esistenti.
+description: Tratta l'uso di server proxy locali esistenti.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: f31625783aa03dd01a73b5e5b39dd899e109b3b9
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: bdca442755507c4ffe8d43692c5b7f2aa3a746f3
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 
@@ -76,7 +75,7 @@ Assicurarsi di creare copie dei file originali nel caso sia necessario ripristin
 
 Alcuni ambienti dei clienti richiedono che tutto il traffico in uscita passi attraverso un proxy in uscita, senza eccezioni. Di conseguenza ignorare il proxy non è possibile.
 
-Si può configurare il traffico del connettore per il passaggio attraverso il proxy in uscita, come illustrato nel diagramma seguente.
+Si può configurare il traffico del connettore per il passaggio attraverso il proxy in uscita, come illustrato nel diagramma seguente:
 
  ![Configurazione del traffico del connettore per l'uso di un proxy in uscita per accedere al proxy applicazione di Azure AD](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
@@ -119,21 +118,17 @@ Esistono quattro aspetti da considerare per il proxy in uscita:
 Consentire l'accesso agli endpoint seguenti per l'accesso al servizio connettore:
 
 * *.msappproxy.net
-* *.servicebus.microsoft.net
+* *.servicebus.windows.net
 
 Per la registrazione iniziale consentire l'accesso agli endpoint seguenti:
 
 * login.windows.net
 * login.microsoftonline.com
 
-I canali di controllo del bus di servizio sottostanti usati dal servizio connettore richiedono anche la connettività a specifici indirizzi IP. Fino a quando il bus di servizio non viene spostato in un FQDN, sono disponibili due opzioni:
+Se non è possibile consentire la connettività in base al nome di dominio completo ed è necessario specificare invece intervalli IP, usare queste opzioni:
 
 * Consentire al connettore l'accesso in uscita a tutte le destinazioni.
-* Consentire al connettore l'accesso in uscita agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653).
-
->[!NOTE]
->Il problema con l'elenco di intervalli di indirizzi IP del data center di Azure è che viene aggiornato ogni settimana. È necessario implementare un processo per assicurare che le regole di accesso vengano aggiornate di conseguenza.
->
+* Consentire al connettore l'accesso in uscita agli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). Il problema con l'elenco di intervalli di indirizzi IP del data center di Azure è che viene aggiornato ogni settimana. È necessario implementare un processo per assicurare che le regole di accesso vengano aggiornate di conseguenza.
 
 #### <a name="proxy-authentication"></a>Autenticazione proxy
 
@@ -141,18 +136,15 @@ L'autenticazione proxy non è attualmente supportata. Il nostro consiglio è di 
 
 #### <a name="proxy-ports"></a>Porte proxy
 
-Il connettore esegue le connessioni SSL in uscita usando il metodo CONNECT. Questo metodo crea essenzialmente un tunnel attraverso il proxy in uscita. Alcuni server proxy consentono per impostazione predefinita il tunneling in uscita solo alle porte SSL standard, ad esempio la 443. In questo caso, il server proxy deve essere configurato per consentire il tunneling a porte aggiuntive.
-
-Configurare il server proxy per consentire il tunneling alle porte SSL non standard 8080, 9090, 9091 e 10100-10120.
+Il connettore esegue le connessioni SSL in uscita usando il metodo CONNECT. Questo metodo crea essenzialmente un tunnel attraverso il proxy in uscita. Configurare il server proxy per consentire il tunneling alle porte 443 e 80.
 
 >[!NOTE]
 >Quando il bus di servizio viene eseguito su HTTPS, usa la porta 443. Per impostazione predefinita, il bus di servizio prova tuttavia a stabilire connessioni TCP dirette ed esegue il fallback su HTTPS solo se si verifica un errore di connettività diretta.
->
 
 Per garantire che anche il traffico del bus di servizio venga inviato tramite il server proxy in uscita, verificare che il connettore non possa connettersi direttamente ai servizi di Azure per le porte 9350, 9352 e 5671.
 
 #### <a name="ssl-inspection"></a>Ispezione SSL
-Non usare l'ispezione SSL per il traffico del connettore perché causerà problemi per tale traffico.
+Non usare l'ispezione SSL per il traffico del connettore perché causa problemi per tale traffico.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Risolvere i problemi relativi al connettore proxy e alla connettività del servizio
 A questo punto si dovrebbe vedere tutto il traffico che passa attraverso il proxy. Se si verificano problemi, potrebbero essere utili le seguenti informazioni per la risoluzione dei problemi.
@@ -193,13 +185,13 @@ Un filtro è il seguente, dove 8080 è la porta del servizio proxy:
 
 **(http.Request or http.Response) and tcp.port==8080**
 
-Se si immette questo filtro nella finestra di **visualizzazione del filtro** e si seleziona **Applica**, il traffico acquisito sarà filtrato in base al filtro.
+Se si immette questo filtro nella finestra **Filtro visualizzazione** e si seleziona **Applica**, il traffico acquisito viene filtrato in base al filtro.
 
 Il filtro precedente consente di visualizzare solo le richieste e risposte HTTP da e verso la porta del proxy. Per l'avvio di un connettore in cui il connettore è configurato per l'uso di un server proxy, il filtro sarà simile al seguente:
 
  ![Elenco di esempio di richieste e risposte HTTP filtrate](./media/application-proxy-working-with-proxy-servers/http-requests.png)
 
-Si cercano ora in modo specifico le richieste CONNECT che indicano la comunicazione con il server proxy. Al completamento dell'operazione si otterrà una risposta HTTP affermativa (200).
+Si cercano ora in modo specifico le richieste CONNECT che indicano la comunicazione con il server proxy. Al completamento dell'operazione si ottiene una risposta HTTP affermativa (200).
 
 Se vengono visualizzati altri codici di risposta, ad esempio 407 o 502, il proxy richiede l'autenticazione o non consente il traffico per altri motivi. A questo punto ci si rivolge al team di supporto del server proxy.
 

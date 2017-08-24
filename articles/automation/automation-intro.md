@@ -1,12 +1,12 @@
 ---
-title: Informazioni su Automazione di Azure | Documentazione Microsoft
+title: Informazioni su Automazione di Azure | Microsoft Docs
 description: "Informazioni sui vantaggi offerti da Automazione di Azure e risposte alle domande più comuni per iniziare a creare e usare runbook e Automation DSC per Azure."
 services: automation
 documentationcenter: 
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "che cos&quot;è l&quot;automazione, Automazione di Azure, esempi di Automazione di Azure"
+keywords: "che cos'è l'automazione, Automazione di Azure, esempi di Automazione di Azure"
 ms.assetid: 0cf1f3e8-dd30-4f33-b52a-e148e97802a9
 ms.service: automation
 ms.workload: tbd
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
-ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-automation-overview"></a>Panoramica di Automazione di Azure
@@ -50,7 +51,7 @@ Si preferisce guardare che leggere? Il video seguente tratto dalla sessione di M
 [Automation DSC per Azure](automation-dsc-overview.md) è una soluzione basata su cloud per DSC PowerShell che fornisce i servizi necessari per gli ambienti aziendali.  È possibile gestire le risorse DSC in Automazione di Azure e applicare le configurazioni alle macchine virtuali o fisiche che le recuperano da un Server Pull DSC nel cloud di Azure.  Fornisce inoltre servizi di creazione report che informano di eventi importanti, ad esempio quando i nodi hanno deviato dalla configurazione assegnata e quando una nuova configurazione è stata applicata. 
 
 ## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Creazione di configurazioni personalizzate DSC con Automazione di Azure
-[Configurazioni DSC](automation-dsc-overview.md#azure-automation-dsc-terms) specificano lo stato richiesto di un nodo.  Più nodi possono applicare la stessa configurazione per garantire che essi mantengano uno stato identico.  È possibile creare una configurazione usando qualsiasi editor di testo sul computer locale e quindi importarla in Automazione di Azure dove è possibile compilarla e applicarvi nodi.
+[Configurazioni DSC](automation-dsc-overview.md) specificano lo stato richiesto di un nodo.  Più nodi possono applicare la stessa configurazione per garantire che essi mantengano uno stato identico.  È possibile creare una configurazione usando qualsiasi editor di testo sul computer locale e quindi importarla in Automazione di Azure dove è possibile compilarla e applicarvi nodi.
 
 ## <a name="getting-modules-and-configurations"></a>Recupero di moduli e configurazioni
 È possibile ottenere [moduli PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) contenenti i cmdlet da usare nei runbook e nelle configurazioni DSC dalla [PowerShell Gallery](http://www.powershellgallery.com/). È possibile avviare questa raccolta dal portale di Azure e importare direttamente i moduli in Automazione di Azure oppure è possibile scaricarli e importarli manualmente. Non è possibile installare i moduli direttamente dal portale di Azure, ma è possibile scaricarli e installarli come qualsiasi altro modulo. 
@@ -83,10 +84,5 @@ Sono disponibili numerose risorse per approfondire la conoscenza di Automazione 
 
 ## <a name="can-i-provide-feedback"></a>È possibile fornire commenti e suggerimenti?
 **Gli utenti sono invitati a fornire commenti e suggerimenti.** Se si è in cerca di una soluzione Runbook o di un modulo di integrazione di Automazione di Azure, inviare una richiesta di script in Script Center. In caso di commenti o suggerimenti oppure di richieste di funzionalità per Automazione di Azure, è possibile pubblicarle nell'apposito [forum](http://feedback.windowsazure.com/forums/34192--general-feedback). Grazie. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -1,31 +1,32 @@
 ---
 title: Servizio Web app per dispositivi mobili del server Azure MFA | Microsoft Docs
-description: L&quot;app Microsoft Authenticator offre un&quot;opzione di autenticazione fuori banda aggiuntiva.  Consente al server MFA di inviare notifiche push agli utenti.
+description: L'app Microsoft Authenticator offre un'opzione di autenticazione fuori banda aggiuntiva.  Consente al server MFA di inviare notifiche push agli utenti.
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/25/2017
+ms.date: 06/15/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017,it-pro
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 20afeb3ba290ddf728d2b52c076c7a57fadc77c6
 ms.openlocfilehash: 4014bf0217e25ea9bc8473ef2383279e5eb79b87
+ms.contentlocale: it-it
 ms.lasthandoff: 02/28/2017
 
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Abilitare l'autenticazione con il server Azure Multi-Factor Authentication
 
-L'app Microsoft Authenticator offre un'opzione di verifica fuori banda aggiuntiva. Invece di effettuare una chiamata automatizzata o di inviare un SMS all'utente durante l'accesso, Azure Multi-Factor Authentication inoltra una notifica push all'app Microsoft Authenticator sul tablet o sullo smartphone dell'utente. L'utente tocca semplicemente **Verifica** (o immette un PIN e tocca "Esegui autenticazione") nell'app per eseguire l'accesso. 
+L'app Microsoft Authenticator offre un'opzione di verifica fuori banda aggiuntiva. Invece di effettuare una chiamata automatizzata o di inviare un SMS all'utente durante l'accesso, Azure Multi-Factor Authentication inoltra una notifica push all'app Microsoft Authenticator sul tablet o sullo smartphone dell'utente. L'utente tocca semplicemente **Verifica** (o immette un PIN e tocca "Esegui autenticazione") nell'app per eseguire l'accesso.
 
-Quando la ricezione del telefono non è affidabile, è preferibile usare un'app per dispositivi mobili per la verifica in due passaggi. Se si usa l'app come un generatore di token OATH, non è necessaria una connessione di rete o Internet. 
+Quando la ricezione del telefono non è affidabile, è preferibile usare un'app per dispositivi mobili per la verifica in due passaggi. Se si usa l'app come un generatore di token OATH, non è necessaria una connessione di rete o Internet.
 
 Per installare il portale utenti su un server diverso dal server Azure Multi-Factor Authentication, è necessario eseguire questi passaggi:
 
@@ -51,10 +52,10 @@ Per usare l'app Microsoft Authenticator, è necessario quanto segue in modo che 
 
 
 ## <a name="install-the-web-service-sdk"></a>Installare l'SDK del servizio Web
-Se l'SDK del servizio Web Azure Multi-Factor Authentication non è già installato nel server Azure Multi-Factor Authentication (MFA), accedere al server e aprire il server Azure MFA. 
+Se l'SDK del servizio Web Azure Multi-Factor Authentication non è già installato nel server Azure Multi-Factor Authentication (MFA), accedere al server e aprire il server Azure MFA.
 
 1. Fare clic sull'icona dell'SDK del servizio Web.
-2. Fare clic su **Installa SDK servizio Web** e seguire le istruzioni visualizzate. 
+2. Fare clic su **Installa SDK servizio Web** e seguire le istruzioni visualizzate.
 
 L'SDK servizio Web deve essere protetto con un certificato SSL. Un certificato autofirmato è accettabile per questo scopo. Importare il certificato nell'archivio "Autorità di certificazione radice attendibili" dell'account del computer locale sul server Web del portale utenti per poter essere considerato attendibile all'avvio della connessione SSL.
 
@@ -65,7 +66,7 @@ Prima di installare il servizio Web app per dispositivi mobili, tenere presente 
 
 * Se il portale utenti di Azure MFA è già installato nel server con connessione Internet, il nome utente, la password e l'URL per SDK servizio Web possono essere copiati dal file web.config del portale utenti.
 * È utile aprire un browser Web nel server Web connesso a Internet e andare all'URL dell'SDK servizio Web riportato nel file web.config. Se il browser è in grado di accedere al servizio Web, chiederà le credenziali. Immettere il nome utente e la password immessi nel file web.config esattamente come visualizzati nel file. Assicurarsi che non vengano visualizzati errori o avvisi relativi al certificato.
-* Se un proxy inverso o un firewall si trova prima del server Web del servizio Web app per dispositivi mobili ed esegue l'offload SSL, è possibile modificare il file web.config del servizio Web app per dispositivi mobili in modo che il servizio Web app per dispositivi mobili possa usare il protocollo http anziché https. SSL è comunque richiesto dall'app per dispositivi mobili per il proxy inverso o per il firewall. Aggiungere la chiave seguente alla sezione \<appSettings\>: 
+* Se un proxy inverso o un firewall si trova prima del server Web del servizio Web app per dispositivi mobili ed esegue l'offload SSL, è possibile modificare il file web.config del servizio Web app per dispositivi mobili in modo che il servizio Web app per dispositivi mobili possa usare il protocollo http anziché https. SSL è comunque richiesto dall'app per dispositivi mobili per il proxy inverso o per il firewall. Aggiungere la chiave seguente alla sezione \<appSettings\>:
 
         <add key="SSL_REQUIRED" value="false"/>
 
@@ -79,11 +80,11 @@ Prima di installare il servizio Web app per dispositivi mobili, tenere presente 
 
   Un nome della directory virtuale breve è consigliato poiché gli utenti devono immettere l'URL del servizio Web app per dispositivi mobili nel dispositivo mobile durante l'attivazione.
 
-4. Dopo aver completato l'installazione di Azure Multi-Factor AuthenticationMobileAppWebServiceSetup, andare a C:\inetpub\wwwroot\PA (o alla directory appropriata in base al nome della directory virtuale) e modificare il file web.config. 
+4. Dopo aver completato l'installazione di Azure Multi-Factor AuthenticationMobileAppWebServiceSetup, andare a C:\inetpub\wwwroot\PA (o alla directory appropriata in base al nome della directory virtuale) e modificare il file web.config.
 
 5. Individuare le chiavi WEB_SERVICE_SDK_AUTHENTICATION_USERNAME e WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD. Impostare i valori per il nome utente e la password di un account di servizio membro del gruppo di sicurezza PhoneFactor Admins. Può trattarsi dello stesso account utilizzato come identità del portale utenti di Azure Multi-Factor Authentication se è stato precedentemente installato. Assicurarsi di immettere il nome utente e la password tra virgolette alla fine della riga (value=””/>). Usare un nome utente completo, ad esempio dominio\nome utente o computer\nome utente.  
 
-6. Individuare l'impostazione pfMobile App Web Service_pfwssdk_PfWsSdk setting. Sostituire il valore di *http://localhost:4898/PfWsSdk.asmx* con l'URL dell'SDK servizio Web in esecuzione nel server Azure Multi-Factor Authentication (ad esempio https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). 
+6. Individuare l'impostazione pfMobile App Web Service_pfwssdk_PfWsSdk setting. Sostituire il valore di *http://localhost:4898/PfWsSdk.asmx* con l'URL dell'SDK servizio Web in esecuzione nel server Azure Multi-Factor Authentication (ad esempio https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).
 
   Poiché viene utilizzato SSL per la connessione, è necessario fare riferimento all'SDK servizio Web per il nome del server e non per l'indirizzo IP. Il certificato SSL viene rilasciato per il nome del server e l'URL usato deve corrispondere al nome sul certificato. Il nome del server potrebbe non essere risolto in un indirizzo IP dal server con connessione Internet. In questo caso aggiungere una voce al file host sul server per il mapping del nome del server Azure Multi-Factor Authentication con il relativo indirizzo IP. Salvare il file web.config dopo che sono state apportate le modifiche.
 

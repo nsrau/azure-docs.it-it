@@ -1,9 +1,9 @@
 ---
-title: "Trovare i report attività nel portale di Azure | Documentazione Microsoft"
+title: "Trovare i report attività nel portale di Azure | Microsoft Docs"
 description: "Informazioni su come trovare i report attività di Azure Active Directory nel portale di Azure."
 services: active-directory
 documentationcenter: 
-author: dhanyahk
+author: MarkusVi
 manager: femila
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2017
+ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: f2f5ed98df88df69ee300c9da94ad013a631b3b9
-ms.lasthandoff: 03/14/2017
-
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f1875582476c3817b9eb0082b6548cc15043cb98
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
@@ -29,9 +30,9 @@ Se è in corso la migrazione dal portale di Azure classico al portale di Azure, 
 
 I report nel portale di Azure classico sono suddivisi in categorie:
 
-1.    Report sulla sicurezza
-2.    Report sull’attività
-3.    Report app integrate
+1.  Report sulla sicurezza
+2.  Report sull’attività
+3.  Report app integrate
 
 ### <a name="activity-and-integrated-app-reports"></a>Report attività e app integrate
 
@@ -43,14 +44,14 @@ Per accedere a questa visualizzazione, nel pannello **Azure Active Directory**, 
 
 In questa visualizzazione sono consolidati i report seguenti:
 
--    Report di controllo
--     Attività di reimpostazione password
--     Attività di registrazione reimpostazione password
--     Attività dei gruppi self-service
--     Modifiche del nome del gruppo di Office 365
--     Attività di provisioning dell'account
--     Stato rollover della password
--     Errori di provisioning dell'account
+-   Report di controllo
+-   Attività di reimpostazione password
+-   Attività di registrazione reimpostazione password
+-   Attività dei gruppi self-service
+-   Modifiche del nome del gruppo di Office 365
+-   Attività di provisioning dell'account
+-   Stato rollover della password
+-   Errori di provisioning dell'account
 
 
 Il report Utilizzo delle applicazioni è stato migliorato e incluso nella visualizzazione **Accessi**. Per accedere a questa visualizzazione, nel pannello **Azure Active Directory**, in **ATTIVITÀ** selezionare **Accessi**.
@@ -124,8 +125,8 @@ Nel portale di Azure è possibile accedere ai report sugli eventi di rischio ril
 
 Per altre informazioni sui report di sicurezza, vedere:
 
-- [Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory - Anteprima](active-directory-reporting-security-user-at-risk.md)
-- [Report degli accessi a rischio nel portale di Azure Active Directory - Anteprima](active-directory-reporting-security-risky-sign-ins.md)
+- [Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory](active-directory-reporting-security-user-at-risk.md)
+- [Report degli accessi a rischio nel portale di Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
 ## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Report sulle attività nel portale di Azure classico rispetto al portale di Azure
@@ -151,4 +152,8 @@ Per visualizzare il report **Utilizzo applicazioni**, nel pannello **Azure Activ
 
 
 ![Report degli accessi alle applicazioni aziendali](./media/active-directory-reporting-migration/199.png "Report degli accessi alle applicazioni aziendali")
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per una panoramica della creazione di report, vedere [Creazione di report in Azure Active Directory](active-directory-reporting-azure-portal.md).
 

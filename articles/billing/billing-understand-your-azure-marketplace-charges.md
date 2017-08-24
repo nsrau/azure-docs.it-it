@@ -4,7 +4,7 @@ description: Informazioni sulla fatturazione di servizi esterni, noti in precede
 services: 
 documentationcenter: 
 author: adpick
-manager: ruchic
+manager: tonguyen
 editor: 
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 06/13/2017
 ms.author: adpick
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
 ms.openlocfilehash: 3e74bdd1faf268f33fdbbcc428b4b32212508c39
+ms.contentlocale: it-it
 ms.lasthandoff: 03/03/2017
 
 ---

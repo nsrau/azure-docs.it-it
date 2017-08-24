@@ -1,6 +1,6 @@
 ---
 title: Differenze di Azure Service Fabric in Linux e Windows | Microsoft Docs
-description: Differenze tra l&quot;anteprima di Azure Service Fabric in Linux e Azure Service Fabric in Windows.
+description: Differenze tra l'anteprima di Azure Service Fabric in Linux e Azure Service Fabric in Windows.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,28 +12,30 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 00c1f10f7df865344233143ce9cdf546e64acca0
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: e2d21b28c482427c60f708171336e6901b50e544
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Differenze tra Service Fabric in Linux (anteprima) e in Windows (disponibile a livello generale)
 
-Poiché Service Fabric in Linux è un'anteprima, alcune funzionalità sono supportate in Windows, ma non ancora in Linux. Quando Service Fabric in Linux sarà disponibile a livello generale, i set di funzionalità saranno gli stessi.
+Poiché Service Fabric in Linux è un'anteprima, alcune funzionalità sono supportate in Windows, ma non ancora in Linux. Quando Service Fabric in Linux sarà disponibile a livello generale, i set di funzionalità saranno gli stessi. Con le versioni future, questo gap di funzionalità verrà ridotto. Tra le versioni disponibili più recenti, ovvero tra la versione 5.6 in Windows e la versione 5.5 in Linux, esistono le differenze seguenti: 
 
-* Reliable Collections (e Reliable Stateful Services) non sono supportati in Linux.
-* ReverseProxy non è disponibile in Linux.
-* Il programma di installazione autonomo non è disponibile in Linux.
-* La convalida di XML Schema per i file manifesto non viene eseguita in Linux. 
-* Il reindirizzamento della console non è supportato in Linux. 
-* Il servizio di analisi degli errori non è disponibile in Linux.
-* Il supporto di Azure Active Directory non è disponibile in Linux.
-* Alcuni comandi dell'interfaccia della riga di comando equivalenti a comandi di Powershell non sono disponibili.
+* Reliable Collections e Reliable Stateful Services 
+* ReverseProxy 
+* Programma di installazione autonomo 
+* Convalida XML Schema per i file manifesto 
+* Reindirizzamento della console 
+* Servizio di analisi degli errori
+* Docker Compose e driver di volume e registrazione per i contenitori 
+* Governance delle risorse per contenitori e servizi 
+* Servizio DNS
+* Supporto di Azure Active Directory
+* Comandi dell'interfaccia della riga di comando equivalenti ad alcuni comandi di Powershell 
 * Solo un subset di comandi di Powershell può essere eseguito in un cluster Linux, come illustrato nella sezione successiva.
 
 >[!NOTE]

@@ -1,0 +1,10 @@
+- name: kubernetes
+  href: kubernetes/container-service-kubernetes-walkthrough.md
+- name: DC/OS e Docker Swarm
+  href: dcos-swarm/container-service-dcos-quickstart.md
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=containers'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'

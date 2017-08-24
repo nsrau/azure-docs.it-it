@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 07/06/2017
 ms.author: kgremban
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 31e8e39580ed83f13fd3ffb9981221765063a0b7
-ms.lasthandoff: 04/21/2017
-
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 194367028c3c2c571dd8645a794f67a0c3a21d4c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 ---
 
@@ -34,8 +36,6 @@ Tramite il modulo Azure AD PowerShell è possibile definire URL della home page 
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-### <a name="determine-the-home-page-url"></a>Determinare l'URL della home page
-
 Prima di impostare l'URL della home page, tenere presente quanto segue:
 
 * Assicurarsi che il percorso specificato sia un percorso di sottodominio dell'URL del dominio radice.
@@ -43,6 +43,16 @@ Prima di impostare l'URL della home page, tenere presente quanto segue:
   Se l'URL del dominio radice è https://apps.contoso.com/app1/, l'URL della home page configurato deve iniziare con https://apps.contoso.com/app1/.
 
 * Se si apporta una modifica all'app pubblicata, la modifica potrebbe reimpostare il valore dell'URL della home page. Quando si decide di aggiornare l'app è quindi necessario verificare ed eventualmente aggiornare l'URL della home page.
+
+## <a name="change-the-home-page-in-the-azure-portal"></a>Cambiare la home page nel portale di Azure
+
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
+2. Passare ad **Azure Active Directory** > **Registrazioni per l'app** e scegliere l'applicazione dall'elenco. 
+3. Selezionare **Proprietà** dalle impostazioni.
+4. Aggiornare il campo **URL della home page** con il nuovo percorso. 
+5. Selezionare **Salva**
+
+## <a name="change-the-home-page-with-powershell"></a>Modificare la home page con PowerShell
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Installare il modulo Azure AD PowerShell
 
@@ -58,7 +68,7 @@ Per installare il pacchetto, seguire questa procedura:
     Se il comando non viene eseguito come amministratore, usare l'opzione `-scope currentuser`.
 2. Durante l'installazione selezionare **Y** per installare due pacchetti da Nuget.org. Sono necessari entrambi i pacchetti. 
 
-## <a name="step-1-find-the-objectid-of-the-app"></a>Passaggio 1: trovare il valore ObjectID dell'app
+### <a name="find-the-objectid-of-the-app"></a>Trovare il valore ObjectID dell'app
 
 Ottenere il valore ObjectID dell'app e quindi cercare l'app tramite la relativa home page.
 
@@ -76,7 +86,7 @@ Ottenere il valore ObjectID dell'app e quindi cercare l'app tramite la relativa 
 3. Individuare l'app in base all'URL della home page. È possibile trovare l'URL nel portale passando ad **Azure Active Directory** > **Applicazioni aziendali** > **Tutte le applicazioni**. Questo esempio usa *sharepoint-iddemo*.
 
     ```
-    Get-AzureADApplications | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
     ```
 4. Viene visualizzato un risultato simile a quello illustrato di seguito. Copiare il GUID di ObjectID da usare nella sezione successiva.
 
@@ -86,14 +96,14 @@ Ottenere il valore ObjectID dell'app e quindi cercare l'app tramite la relativa 
     ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
-## <a name="step-2-update-the-home-page-url"></a>Passaggio 2: Aggiornare l'URL della home page
+### <a name="update-the-home-page-url"></a>Aggiornare l'URL della home page
 
 Nello stesso modulo PowerShell usato per il passaggio 1, procedere come segue:
 
 1. Verificare che l'app sia corretta e sostituire *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* con il valore GUID (ObjectID) copiato nel passaggio precedente.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
  Ora che è stata verificata l'app, è possibile aggiornare la home page come indicato di seguito.
@@ -110,17 +120,17 @@ Nello stesso modulo PowerShell usato per il passaggio 1, procedere come segue:
 3. Impostare l'URL della home page sul valore desiderato. Il valore deve essere un percorso di sottodominio dell'app pubblicata. Se ad esempio si modifica l'URL della home page da *https://sharepoint-iddemo.msappproxy.net/* a *https://sharepoint-iddemo.msappproxy.net/hybrid/*, gli utenti verranno indirizzati direttamente alla home page personalizzata.
 
     ```
-    $appnew.Homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
     ```
 4. Eseguire l'aggiornamento usando il GUID (ObjectID) copiato in "Passaggio 1: trovare il valore ObjectID dell'app".
 
     ```
-    Set-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 - Application $appnew
+    Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
 5. Verificare che la modifica sia stata completata riavviando l'app.
 
     ```
-    Get-AzureADApplication -AppObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 >[!NOTE]

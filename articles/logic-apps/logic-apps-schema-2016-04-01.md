@@ -1,5 +1,5 @@
 ---
-title: "Aggiornamenti dello schema del&1;° giugno&2016; - App per la logica di Azure | Microsoft Docs"
+title: "Aggiornamenti dello schema del 1° giugno 2016 - App per la logica di Azure | Microsoft Docs"
 description: Creare definizioni JSON per App per la logica di Azure con la versione dello schema 2016-06-01
 author: jeffhollan
 manager: anneta
@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/25/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dab219386a32f519e50f76e18013f8f94a2266ff
-ms.openlocfilehash: 9d8f0be3d5c8e2c2e5f169dc1d0851c95a641d0c
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 43df04d6478e44c82c88b17d916cfc9fe4afc03e
 ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aggiornamenti dello schema per App per la logica di Azure: 1° giugno 2016
@@ -31,7 +30,7 @@ La nuova versione dello schema e dell'API per App per la logica di Azure include
 * [Condizioni e cicli](#conditions-loops) sono ora azioni di prima classe.
 * La proprietà `runAfter`, che sostituisce `dependsOn`, consente di ordinare con maggiore precisione l'esecuzione delle azioni.
 
-Per aggiornare le app per la logica dallo schema di anteprima del 1° agosto 2015 allo schema del 1° giugno 2016, [vedere la sezione relativa all'aggiornamento](#upgrading-to-2016-06-01-schema).
+Per aggiornare le app per la logica dallo schema di anteprima del 1° agosto 2015 allo schema del 1° giugno 2016, [vedere la sezione relativa all'aggiornamento](##upgrade-your-schema).
 
 <a name="scopes"></a>
 ## <a name="scopes"></a>Ambiti
@@ -115,8 +114,7 @@ L'aggiornamento al nuovo schema richiede pochi passaggi. Il processo di aggiorna
     ![Scegliere Aggiorna schema][1]
    
     Verrà restituita la definizione aggiornata, che è possibile copiare e incollare in una definizione di risorsa, se necessario. 
-    **È consigliabile**, tuttavia, scegliere **Salva con nome** 
-    per assicurarsi che tutti i riferimenti alla connessione siano validi nell'app per la logica aggiornata.
+    È tuttavia **altamente consigliabile** scegliere **Salva con nome** per assicurarsi che tutti i riferimenti alla connessione siano validi nell'app per la logica aggiornata.
 
 3. Sulla barra degli strumenti del pannello per l'aggiornamento scegliere **Salva con nome**.
 

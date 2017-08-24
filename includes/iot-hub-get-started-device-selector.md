@@ -1,10 +1,13 @@
 > [!div class="op_single_selector"]
+> * [Simulatore Web Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)   
 > * [Dispositivo simulato con .NET](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
 > * [Dispositivo simulato con Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 > * [Dispositivo simulato con Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
 > * [Gateway IoT Edge simulato in Linux](../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md)
 > * [Gateway IoT Edge simulato in Windows](../articles/iot-hub/iot-hub-windows-iot-edge-get-started.md)
+> * [IoT DevKit AZ3166 con Visual Studio Code](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Raspberry Pi con Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
+> * [Raspberry Pi con Python](../articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md)
 > * [Raspberry Pi con C](../articles/iot-hub/iot-hub-raspberry-pi-kit-c-get-started.md)
 > * [Intel Edison con Node.js](../articles/iot-hub/iot-hub-intel-edison-kit-node-get-started.md)
 > * [Intel Edison con C](../articles/iot-hub/iot-hub-intel-edison-kit-c-get-started.md)

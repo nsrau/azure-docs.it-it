@@ -1,6 +1,6 @@
 ---
-title: Argomenti avanzati sull&quot;aggiornamento di un&quot;applicazione | Documentazione Microsoft
-description: Questo articolo illustra alcuni degli argomenti avanzati relativi all&quot;aggiornamento di un&quot;applicazione di Service Fabric.
+title: Argomenti avanzati sull'aggiornamento di un'applicazione | Documentazione Microsoft
+description: Questo articolo illustra alcuni degli argomenti avanzati relativi all'aggiornamento di un'applicazione di Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
+ms.date: 8/9/2017
 ms.author: subramar;chackdan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c83c4db0ada77998354b3fca4e2297335899a9bd
 ms.openlocfilehash: 20a3277370583ccf93b36191a70149ed7d814238
+ms.contentlocale: it-it
 ms.lasthandoff: 02/16/2017
-
 
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento di un'applicazione di Service Fabric: argomenti avanzati

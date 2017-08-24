@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/09/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ef5db062ac320995ff8bfa64f38c89d860957868
 ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/28/2017
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codec e formati del flusso di lavoro Premium del codificatore multimediale
@@ -36,7 +37,7 @@ Questo documento include un elenco dei codec e dei formati di file di input e ou
 
 **flusso di lavoro Premium del codificatore multimediale** supporta i sottotitoli codificati descritti in [questa](#closed_captioning) sezione. 
 
-## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codec e formati di input del flusso di lavoro Premium del codificatore multimediale
+## <a id="input_formats"></a>Codec e formati di input del flusso di lavoro Premium del codificatore multimediale
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come input da questo processore di contenuti multimediali.
 
 ### <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
@@ -68,7 +69,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 * Windows Media Audio
 * WAV/PCM
 
-## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codec e formati di output del flusso di lavoro Premium del codificatore multimediale
+## <a id="output_format"></a>Codec e formati di output del flusso di lavoro Premium del codificatore multimediale
 La seguente sezione include l'elenco dei codec e dei formati di file supportati come output da questo processore di contenuti multimediali.
 
 ### <a name="output-containerfile-formats"></a>Contenitore di output/formati di file
@@ -103,7 +104,7 @@ La seguente sezione include l'elenco dei codec e dei formati di file supportati 
 >[!NOTE]
 >Se si codifica per Dolby® Digital (AC3), l'output può essere scritto solo in un file ISO MP4.
 
-## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>Supporto per sottotitoli codificati
+## <a id="closed_captioning"></a>Supporto per sottotitoli codificati
 In ingresso, il **flusso di lavoro Premium del codificatore multimediale** supporta:
 
 1. File SCC
@@ -130,10 +131,5 @@ Se il video di input non contiene i sottotitoli codificati, l'asset di output co
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

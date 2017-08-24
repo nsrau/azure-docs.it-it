@@ -4,13 +4,10 @@ description: Indicazioni e informazioni per configurare il Database di Azure per
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
-editor: jasonh
+editor: jasonwhowell
 manager: jhubbard
-ms.assetid: 
-ms.service: postgresql-database
-ms.custom: connection security
-ms.tgt_pltfrm: portal
-ms.devlang: na
+ms.service: postgresql
+ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
 ms.translationtype: Human Translation

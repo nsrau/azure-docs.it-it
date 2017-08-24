@@ -1,10 +1,10 @@
 ---
-title: Configurare l&quot;aggiornamento di un&quot;applicazione di Service Fabric | Documentazione Microsoft
-description: Informazioni su come configurare le impostazioni per l&quot;aggiornamento di un&quot;applicazione di Infrastruttura di servizi con Microsoft Visual Studio.
+title: Configurare l'aggiornamento di un'applicazione di Service Fabric | Documentazione Microsoft
+description: Informazioni su come configurare le impostazioni per l'aggiornamento di un'applicazione di Infrastruttura di servizi con Microsoft Visual Studio.
 services: service-fabric
 documentationcenter: na
-author: cawaMS
-manager: paulyuk
+author: mikkelhegn
+manager: mfussell
 editor: tglee
 ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
 ms.service: service-fabric
@@ -12,21 +12,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
-ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 121f1d485e34ba30d3e6c2e5d91da633771e80ab
+ms.date: 06/29/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
+ms.openlocfilehash: 314b29a56e4651222822f40a116af97a7372ff2c
+ms.contentlocale: it-it
+ms.lasthandoff: 07/01/2017
 
 
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurare l'aggiornamento di un'applicazione di Infrastruttura di servizi in Visual Studio
-Gli strumenti di Visual Studio per Service Fabric di Azure forniscono supporto per l'aggiornamento per la pubblicazione nei cluster locali o remoti. Esistono due vantaggi per l'aggiornamento dell'applicazione a una versione più recente invece di sostituire l'applicazione durante il test e il debug:
+Gli strumenti di Visual Studio per Service Fabric di Azure forniscono supporto per l'aggiornamento per la pubblicazione nei cluster locali o remoti. Esistono tre scenari in cui è consigliabile eseguire l'aggiornamento dell'applicazione a una versione più recente anziché sostituirla durante il test e il debug:
 
 * I dati dell'applicazione non vengono persi durante l'aggiornamento.
 * Si garantisce una disponibilità elevata continua per evitare ogni tipo di interruzione del servizio durante l'aggiornamento in presenza di sufficienti istanze del servizio distribuite nei domini di aggiornamento.
-
-Durante l'aggiornamento, possono essere eseguiti test in un'applicazione.
+* Durante l'aggiornamento, possono essere eseguiti test in un'applicazione.
 
 ## <a name="parameters-needed-to-upgrade"></a>Parametri necessari per l'aggiornamento
 È possibile scegliere tra due tipi di distribuzione: normale o aggiornata. Una distribuzione regolare cancella qualsiasi informazione di distribuzioni precedenti e i dati nel cluster, mentre una distribuzione di un aggiornamento li conserva. Quando si aggiorna un'applicazione di Infrastruttura di servizi in Visual Studio, è necessario fornire parametri di aggiornamento dell’applicazione e criteri per il controllo dell’integrità. I parametri di aggiornamento dell'applicazione consentono di controllare l'aggiornamento, mentre i criteri di controllo dell'integrità determinano se l'aggiornamento è avvenuto correttamente. Vedere l'articolo relativo all' [aggiornamento di un'applicazione di Service Fabric e i parametri di aggiornamento](service-fabric-application-upgrade-parameters.md) per ulteriori dettagli.
@@ -88,9 +89,3 @@ Nell'esempio seguente viene illustrato come applicare un criterio di controllo d
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sulla distribuzione di un'applicazione, vedere [Distribuire un'applicazione esistente in Infrastruttura di servizi di Azure](service-fabric-deploy-existing-app.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

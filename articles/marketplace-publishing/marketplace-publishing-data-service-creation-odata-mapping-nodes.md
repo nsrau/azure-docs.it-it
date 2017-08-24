@@ -1,6 +1,6 @@
 ---
-title: Guida alla creazione di un servizio dati per il Marketplace | Microsoft Docs
-description: Istruzioni dettagliate su come creare, certificare e distribuire un servizio dati per l&quot;acquisto in Azure Marketplace.
+title: Guida alla creazione di un servizio dati per il Marketplace | Documentazione Microsoft
+description: Istruzioni dettagliate su come creare, certificare e distribuire un servizio dati per l'acquisto in Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
-ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -52,8 +54,7 @@ Per informazioni dettagliate su questo nodo, vedere [qui][Elemento FunctionImpor
 
 Di seguito sono descritti gli attributi aggiuntivi o le aggiunte agli attributi esposte dal nodo FunctionImport:
 
-**d:BaseUri** -
-: modello URI per la risorsa REST esposto a Marketplace. Marketplace utilizza il modello per costruire query a fronte del servizio Web REST. Il modello URI contiene segnaposti per i parametri nel formato {nomeParametro}, dove nomeParametro corrisponde al nome del parametro. Esempio: apiVersion={apiVersion}.
+**d:BaseUri**: modello URI per la risorsa REST esposto al marketplace. Marketplace utilizza il modello per costruire query a fronte del servizio Web REST. Il modello URI contiene segnaposti per i parametri nel formato {nomeParametro}, dove nomeParametro corrisponde al nome del parametro. Esempio: apiVersion={apiVersion}.
 I parametri possono comparire come parametri URI o come parte del percorso URI. Se compaiono all'interno del percorso sono sempre obbligatori (non possono essere contrassegnati come nullable). *Esempio:* `d:BaseUri="http://api.MyWeb.com/Site/{url}/v1/visits?start={start}&amp;end={end}&amp;ApiKey=3fadcaa&amp;Format=XML"`
 
 **Name**: il nome della funzione importata.  Non può corrispondere ad altri nomi definiti nel codice CSDL.  Esempio: Name="GetModelUsageFile"
@@ -102,7 +103,7 @@ Ulteriori nodi figlio, non trattati dalla documentazione CSDL, all'interno del n
         ]]>
         </d:RequestBody>`
 
-**d:Namespaces** e **d:Namespace**: questo nodo descrive gli spazi dei nomi definiti nel codice XML restituito dall'importazione della funzione (endpoint URI). Il codice XML restituito dal servizio back-end può contenere un numero qualsiasi di spazi dei nomi per distinguere il contenuto che viene restituito. **Tutti gli spazi dei nomi, se utilizzati in query XPath d:Map o d:Match devono essere elencati.**  Il nodo d:Namespaces contiene un set o un elenco di nodi d:Namespace. Ognuno di questi elenca un solo spazio dei nomi utilizzato nella risposta del servizio back-end. Di seguito sono elencati gli attributi del nodo d:Namespace:
+**d:Namespaces** e **d:Namespace**: questo nodo descrive gli spazi dei nomi definiti nel codice XML restituito dall'importazione della funzione (endpoint URI). Il codice XML restituito dal servizio back-end può contenere un numero qualsiasi di spazi dei nomi per distinguere il contenuto che viene restituito. **Tutti gli spazi dei nomi, se utilizzati in query XPath d:Map o d:Match devono essere elencati.** Il nodo d:Namespaces contiene un set o un elenco di nodi d:Namespace. Ognuno di questi elenca un solo spazio dei nomi utilizzato nella risposta del servizio back-end. Di seguito sono elencati gli attributi del nodo d:Namespace:
 
 * **d:Prefix** : prefisso dello spazio dei nomi, come appare nei risultati XML restituiti dal servizio, ad esempio f:FirstName, f:LastName, dove f è il prefisso.
 * **d:Uri** : URI completo dello spazio dei nomi utilizzato nel documento di risultati. Rappresenta il valore in cui il prefisso viene risolto in runtime.
@@ -198,8 +199,7 @@ In questo caso l'espressione XPath sarebbe /foo/bar, poiché ciascun nodo della 
 ## <a name="property-node"></a>Nodo Property
 Questo nodo contiene una proprietà del record.
 
-Informazioni dettagliate su questo nodo sono disponibili all'indirizzo [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx). Usare l'elenco a discesa **Other Version** (Altra versione) per selezionare una versione diversa se necessario per visualizzare la documentazione. *Esempio:*
-        `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
+Informazioni dettagliate su questo nodo sono disponibili all'indirizzo [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx). Usare l'elenco a discesa **Other Version** (Altra versione) per selezionare una versione diversa se necessario per visualizzare la documentazione. *Esempio:* `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
         <Property Name="Name"     Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
         ...
         </EntityType>`
@@ -274,9 +274,4 @@ Di seguito sono indicati i tipi supportati per i parametri e le proprietà. C'è
 * Per comprendere meglio nel suo complesso il processo del mapping OData e il suo scopo, nonché per esaminare le definizioni, le strutture e le istruzioni, leggere l'articolo [relativo al mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping.md) .
 * Per esaminare gli esempi, consultare il codice di esempio e apprendere la sintassi del codice e il contesto, leggere l'articolo [relativo agli esempi di mapping OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md) .
 * Per ripristinare il percorso prescritto per la pubblicazione di un servizio dati in Azure Marketplace, leggere questo articolo [Guida alla pubblicazione del servizio dati](marketplace-publishing-data-service-creation.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

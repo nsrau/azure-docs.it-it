@@ -9,7 +9,7 @@ editor: monicar
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop
+ms.custom: mvc,scale out apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 05/08/2017
 ms.author: AyoOlubek
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 80df7b504d13fe1b3be9806eb95e3980d7790970
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 0aea69d86a51c38c99a72f46737de1eea27bef83
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -42,18 +42,21 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
+## <a name="prerequisites"></a>Prerequisiti
+
 Per completare questa esercitazione, accertarsi di avere:
-* PowerShell e la [versione più recente di Azure PowerShell SDK](http://azure.microsoft.com/downloads/) installati nel computer in uso
 
-* La versione più recente di [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installando SQL Server Management Studio viene installata anche la versione più recente di SQLPackage, un'utilità della riga di comando utilizzabile per automatizzare varie attività di sviluppo di database.
+* Installato la versione più recente di PowerShell e di [Azure PowerShell SDK](http://azure.microsoft.com/downloads/)
 
-* [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) e [la versione più recente di JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installati nel computer in uso. 
+* Installato la versione più recente di [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Installando SQL Server Management Studio viene installata anche la versione più recente di SQLPackage, un'utilità della riga di comando utilizzabile per automatizzare varie attività di sviluppo di database.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) installato nel computer in uso. Maven è utilizzabile per gestire le dipendenze, compilare, testare ed eseguire il progetto Java di esempio
+* Installato [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) e la [versione più recente di JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) nel computer in uso. 
+
+* Installato [Apache Maven](https://maven.apache.org/download.cgi). Maven è utilizzabile per gestire le dipendenze, compilare, testare ed eseguire il progetto Java di esempio
 
 ## <a name="set-up-data-environment"></a>Configurare l'ambiente dati
 
-Verrà eseguito il provisioning di un database per ogni tenant. Il modello database per ogni tenant offre il massimo livello di isolamento tra tenant, con costi DevOps ridotti. Per ottimizzare i costi delle risorse cloud, verrà anche eseguito il provisioning dei database tenant in un pool elastico che consente di ottimizzare prezzi e prestazioni per un gruppo di database. Per informazioni su altri modelli di provisioning di database [vedere qui](sql-database-design-patterns-multi-tenancy-saas-applications.md#multitenant-data-models). 
+Verrà eseguito il provisioning di un database per ogni tenant. Il modello database per ogni tenant offre il massimo livello di isolamento tra tenant, con costi DevOps ridotti. Per ottimizzare i costi delle risorse cloud, verrà anche eseguito il provisioning dei database tenant in un pool elastico che consente di ottimizzare prezzi e prestazioni per un gruppo di database. Per informazioni su altri modelli di provisioning di database [vedere qui](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
 Seguire questi passaggi per creare un server SQL e un pool elastico che ospiterà tutti i database tenant. 
 
@@ -71,7 +74,7 @@ Seguire questi passaggi per creare un server SQL e un pool elastico che ospiter�
    
    # Store current client IP address (modify to include your IP address)
    $startIpAddress = 0.0.0.0 
-   $endIpAddress = 0.0.0.1
+   $endIpAddress = 0.0.0.0
    ```
    
 2. Accedere ad Azure e creare un server SQL e un pool elastico 
@@ -505,6 +508,7 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
 Provare a connettersi a 'tenant1' usando l'applicazione Java. Si otterrà un errore che informa che il tenant non esiste.
 
 ## <a name="next-steps"></a>Passaggi successivi 
+
 Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Configurare un ambiente database per supportare un'applicazione SaaS multi-tenant, usando il modello database per ogni tenant

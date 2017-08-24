@@ -1,6 +1,6 @@
 ---
-title: 'Sincronizzazione di Azure AD Connect: gestione degli errori LargeObject causati dall&quot;attributo userCertificate | Microsoft Docs'
-description: In questo argomento vengono illustrati i passaggi per la correzione degli errori LargeObject causati dall&quot;attributo userCertificate.
+title: 'Sincronizzazione di Azure AD Connect: gestione degli errori LargeObject causati dall''attributo userCertificate | Microsoft Docs'
+description: In questo argomento vengono illustrati i passaggi per la correzione degli errori LargeObject causati dall'attributo userCertificate.
 services: active-directory
 documentationcenter: 
 author: cychua
@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 07/13/2017
 ms.author: billmath
 ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 9c3adf589fe0c18ff4072dfcd57653ab2fef8df2
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: d15855bb05666961da56ff2dd5e0e473e7f7b123
 ms.contentlocale: it-it
-ms.lasthandoff: 04/29/2017
-
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -40,6 +39,8 @@ Per ottenere l'elenco di oggetti nel tenant con gli errori LargeObject, usare un
  
 ## <a name="mitigation-options"></a>Opzioni di mitigazione
 Finché l'errore LargeObject non viene risolto, non è possibile esportare altre modifiche dell'attributo allo stesso oggetto in Azure AD. Per risolvere l'errore, è possibile considerare le seguenti opzioni:
+
+ * Aggiornare Azure AD Connect alla build 1.1.524.0 o successiva. Nella build 1.1.524.0 di Azure AD Connect, le regole di sincronizzazione predefinite sono state aggiornate in modo da non esportare gli attributi userCertificate e userSMIMECertificate se gli attributi hanno più di 15 valori. Per informazioni dettagliate sull'aggiornamento di Azure AD Connect, vedere l'articolo [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  * Implementare una **regola di sincronizzazione in uscita** in Azure AD Connect che esporta un **valore null anziché i valori effettivi per gli oggetti con più di 15 valori per certificato**. Questa opzione è appropriata se non è necessario esportare uno dei valori del certificato in Azure AD per gli oggetti con più di 15 valori. Per informazioni dettagliate su come implementare questa regola di sincronizzazione, fare riferimento alla sezione successiva [Implementing sync rule to limit export of userCertificate attribute](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute) (Implementare la regola di sincronizzazione per limitare l'esportazione dell'attributo userCertificate).
 
@@ -67,7 +68,7 @@ La procedura può essere riepilogata nel modo seguente:
 8. Esportare le modifiche in Azure AD.
 9. Riattivare l'utilità di pianificazione della sincronizzazione.
 
-### <a name="step-1----disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Passaggio 1.    Disabilitare l'utilità di pianificazione della sincronizzazione e verificare che non ci sia alcuna sincronizzazione in corso
+### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>Passaggio 1. Disabilitare l'utilità di pianificazione della sincronizzazione e verificare che non ci sia alcuna sincronizzazione in corso
 Verificare che non venga eseguita alcuna sincronizzazione durante l'implementazione di una nuova regola di sincronizzazione per evitare l'esportazione di modifiche accidentali in Azure AD. Per disabilitare l'utilità di pianificazione della sincronizzazione predefinita:
 1. Avviare una sessione di PowerShell nel server di Azure AD Connect.
 
@@ -80,7 +81,7 @@ Verificare che non venga eseguita alcuna sincronizzazione durante l'implementazi
 
 4. Andare nella scheda **Operazioni** e verificare che nessuna operazione presenti lo stato *"in corso"*.
 
-### <a name="step-2----find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Passaggio 2.    Trovare la regola di sincronizzazione in uscita esistente per l'attributo userCertificate
+### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Passaggio 2. Trovare la regola di sincronizzazione in uscita esistente per l'attributo userCertificate
 Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata per l'esportazione dell'attributo userCertificate per gli oggetti Utente in Azure AD. Individuare questa regola di sincronizzazione per scoprirne la configurazione **precedente** e il **filtro ambito**:
 
 1. Avviare l'**editor per le regole di sincronizzazione** passando ad AVVIA → Synchronization Rules Editor (Editor per le regole di sincronizzazione).
@@ -134,11 +135,11 @@ La nuova regola di sincronizzazione deve avere lo stesso **filtro ambito** e la 
     
 6. Per creare la regola di sincronizzazione, fare clic sul pulsante **Aggiungi**.
 
-### <a name="step-4----verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Passaggio 4.    Verificare la nuova regola di sincronizzazione in un oggetto esistente con errore LargeObject
+### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Passaggio 4. Verificare la nuova regola di sincronizzazione in un oggetto esistente con errore LargeObject
 Si tratta di verificare che la regola di sincronizzazione creata funzioni correttamente in un oggetto di AD esistente con errore LargeObject prima di applicarla ad altri oggetti:
 1. Passare alla scheda **Operazioni** in Synchronization Service Manager.
 2. Selezionare l'operazione di esportazione più recente in Azure AD e fare clic su uno degli oggetti con errori LargeObject.
-3.    Nella schermata di popup Connector Space Object Properties (Proprietà dell'oggetto spazio connettore) fare clic sul pulsante **Anteprima**.
+3.  Nella schermata di popup Connector Space Object Properties (Proprietà dell'oggetto spazio connettore) fare clic sul pulsante **Anteprima**.
 4. Nella schermata di popup Anteprima selezionare **Sincronizzazione completa** e fare clic su **Anteprima commit**.
 5. Chiudere la schermata Anteprima e la schermata Connector Space Object Properties (Proprietà dell'oggetto spazio connettore).
 6. Passare alla scheda **Connettori** in Synchronization Service Manager.
@@ -146,7 +147,7 @@ Si tratta di verificare che la regola di sincronizzazione creata funzioni corret
 8. Nella finestra popup Run Connector (Esegui connettore) selezionare il passaggio **Esporta** e fare clic su **OK**.
 9. Attendere il completamento dell'esportazione in Azure AD e confermare che non siano presenti altri errori LargeObject in questo oggetto specifico.
 
-### <a name="step-5----apply-the-new-sync-rule-to-remaining-objects-with-largeobject-error"></a>Passaggio 5.    Applicare la nuova regola di sincronizzazione agli oggetti restanti con errore LargeObject
+### <a name="step-5-apply-the-new-sync-rule-to-remaining-objects-with-largeobject-error"></a>Passaggio 5. Applicare la nuova regola di sincronizzazione agli oggetti restanti con errore LargeObject
 Dopo aver aggiunto la regola di sincronizzazione, è necessario eseguire un passaggio di sincronizzazione completa per il connettore AD:
 1. Passare alla scheda **Connettori** in Synchronization Service Manager.
 2. Fare clic con il tasto destro del mouse sul connettore **AD** e selezionare **Esegui...**
@@ -154,7 +155,7 @@ Dopo aver aggiunto la regola di sincronizzazione, è necessario eseguire un pass
 4. Attendere il completamento del passaggio Sincronizzazione completa.
 5. Ripetere i passaggi precedenti per i connettori AD restanti se si dispone di più connettori AD. In genere, sono necessari più connettori se si dispone di più directory locali.
 
-### <a name="step-6----verify-there-are-no-unexpected-changes-waiting-to-be-exported-to-azure-ad"></a>Passaggio 6.    Verificare che non siano presenti modifiche impreviste in attesa di esportazione in Azure AD
+### <a name="step-6-verify-there-are-no-unexpected-changes-waiting-to-be-exported-to-azure-ad"></a>Passaggio 6. Verificare che non siano presenti modifiche impreviste in attesa di esportazione in Azure AD
 1. Passare alla scheda **Connettori** in Synchronization Service Manager.
 2. Fare clic con il tasto destro del mouse sul connettore di **Azure AD** e selezionare **Search Connector Space** (Spazio connettore di ricerca).
 3. Nella finestra popup Search Connector Space (Spazio connettore di ricerca):
@@ -163,14 +164,14 @@ Dopo aver aggiunto la regola di sincronizzazione, è necessario eseguire un pass
     3. Fare clic sul pulsante **Cerca** per restituire tutti gli oggetti con modifiche in attesa di essere esportati in Azure AD.
     4. Verificare che non siano presenti modifiche impreviste. Per esaminare le modifiche per un determinato oggetto, fare doppio clic sull'oggetto.
 
-### <a name="step-7----export-the-changes-to-azure-ad"></a>Passaggio 7.    Esportare le modifiche in Azure AD
+### <a name="step-7-export-the-changes-to-azure-ad"></a>Passaggio 7. Esportare le modifiche in Azure AD
 Per esportare le modifiche in Azure AD:
 1. Passare alla scheda **Connettori** in Synchronization Service Manager.
 2. Fare clic con il tasto destro del mouse sul connettore di **Azure AD** e selezionare **Esegui...**
 4. Nella finestra popup Run Connector (Esegui connettore) selezionare il passaggio **Esporta** e fare clic su **OK**.
 5. Attendere il completamento dell'esportazione in Azure AD e confermare che non siano presenti altri errori LargeObject.
 
-### <a name="step-8----re-enable-sync-scheduler"></a>Passaggio 8.    Riattivare l'utilità di pianificazione della sincronizzazione
+### <a name="step-8-re-enable-sync-scheduler"></a>Passaggio 8. Riattivare l'utilità di pianificazione della sincronizzazione
 Dopo aver risolto il problema, abilitare nuovamente l'utilità di pianificazione della sincronizzazione predefinita:
 1. Avviare una sessione di PowerShell.
 2. Riabilitare la sincronizzazione pianificata eseguendo di cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`

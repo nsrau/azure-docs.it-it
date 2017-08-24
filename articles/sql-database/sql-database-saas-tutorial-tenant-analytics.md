@@ -1,6 +1,6 @@
 ---
 title: "Eseguire query di analisi su più database SQL di Azure | Microsoft Docs"
-description: "Eseguire query distribuite su più database SQL di Azure"
+description: Estrarre i dati dai database tenant in un database di analisi per l&quot;analisi offline
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -9,24 +9,24 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
+ms.topic: article
+ms.date: 06/16/2017
 ms.author: billgib; sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5331f9a7b46f1dd31d4aa246ad9d188b5a5afc19
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
-# <a name="run-distributed-queries-across-multiple-azure-sql-databases"></a>Eseguire query distribuite su più database SQL di Azure
+# <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Estrarre i dati dai database tenant in un database di analisi per l'analisi offline
 
-Questa esercitazione descrive come eseguire query di analisi su ogni tenant nel catalogo. Viene creato un processo elastico che esegue le query. Il processo recupera i dati e li carica in un database di analisi separato creato nel server di catalogo. È possibile eseguire query su questo database per estrarre informazioni dettagliate nascoste nei dati operativi quotidiani di tutti i tenant. Come output del processo, viene creata una tabella dalle query che restituiscono risultati all'interno del database di analisi tenant.
+In questa esercitazione, si usa un processo elastico per eseguire query su ogni database tenant. Il processo estrae i dati di vendita di ticket e li carica in un database di analisi (o del data warehouse) per l'analisi. Vengono quindi eseguite query su questo database di analisi per estrarre informazioni dettagliate dai dati operativi quotidiani di tutti i tenant.
 
 
 In questa esercitazione si apprenderà come:
@@ -47,7 +47,7 @@ Una delle grandi opportunità offerte dalle applicazioni SaaS è la possibilità
 
 ## <a name="get-the-wingtip-application-scripts"></a>Ottenere gli script dell'applicazione Wingtip
 
-Gli script dell'app SaaS Wingtip e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procedura per scaricare gli script dell'app SaaS Wingtip](sql-database-wtp-overview.md#download-the-wingtip-saas-scripts).
+Gli script dell'app SaaS Wingtip e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Procedura per scaricare gli script dell'app SaaS Wingtip](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Distribuire un database per i risultati di analisi dei tenant
 
@@ -121,3 +121,4 @@ Congratulazioni.
 
 * Altre [esercitazioni basate sull'applicazione SaaS Wingtip](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Processi elastici](sql-database-elastic-jobs-overview.md)
+

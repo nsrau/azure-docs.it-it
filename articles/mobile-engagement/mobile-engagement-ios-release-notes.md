@@ -12,15 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 07/17/2017
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: da3ef06433d2336159d0ae96f12019fd80dc5d07
-ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Note sulla versione di Azure Mobile Engagement iOS SDK
+
+## <a name="410-07172017"></a>4.1.0 (07/17/2017)
+* Risolto il problema delle notifiche cancellate in background.
+* Risolto il problema degli avvisi in XCode 9 sulle API non chiamate nella coda principale.
+* Risolto un problema di memoria nei poll di copertura.
+* Eliminazione del supporto per iOS 6.X. A partire da questa versione, la destinazione della distribuzione dell'applicazione deve essere almeno iOS 7.
+
 ## <a name="401-12132016"></a>4.0.1 (12/13/2016)
 * Recapito del log migliorato in background.
 
@@ -70,10 +78,4 @@ ms.openlocfilehash: 6b32e81bb6a714bd0c479c48d6982af4bcc0683d
 * L'API non riceve e non invia più messaggi tra i dispositivi.
 * Sono stati introdotti miglioramenti per la sicurezza.
 * È stato eliminato il rilevamento di SmartAd.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

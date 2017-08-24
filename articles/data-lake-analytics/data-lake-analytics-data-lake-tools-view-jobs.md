@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 08/02/2017
 ms.author: jgao
-translationtype: Human Translation
-ms.sourcegitcommit: ac5a64b759376c06e058ae015b73f1b73b7d1e7b
-ms.openlocfilehash: 8f3c0f7a1b16afdbada39017d28bed49620cc34c
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics
@@ -29,7 +30,7 @@ Per impostazione predefinita, il servizio Data Lake Analytics archivia i process
 Vedere [Prerequisiti di Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Aprire Job Browser
-È possibile accedere a Job Browser tramite **Esplora server > Azure > Data Lake Analytics > Processi** in Visual Studio.  Tramite il browser è possibile accedere all'archivio query di un account Data Lake Analytics. Job Browser mostra l'archivio query a sinistra con informazioni di base sui processi e la visualizzazione processo a destra con informazioni dettagliate su un processo.
+Accedere a Browser processi tramite **Esplora server > Azure > Data Lake Analytics > Processi** in Visual Studio.  Usando Browser processi è possibile accedere all'archivio query di un account Data Lake Analytics. In Browser processi a sinistra viene visualizzato Query Store, che mostra le informazioni di base sul processo, e a destra Vista processi, che mostra le informazioni dettagliate sul processo.
 
 ## <a name="job-view"></a>Job View (Visualizzazione processo)
 Contiene informazioni dettagliate su un processo. Per aprire un processo, è possibile fare doppio clic su di esso in Job Browser o aprirlo dal menu Data Lake facendo clic su Job View (Visualizzazione processo). Verrà visualizzata una finestra di dialogo in cui è inserito l'URL del processo.
@@ -172,18 +173,8 @@ Mostra informazioni dettagliate sul processo, inclusi gli script, le risorse e l
     Mostra i dettagli di esecuzione dei vertici. Il profilo del processo archivia il log di esecuzione di ogni vertice, ad esempio i dati totali letti/scritti, il runtime, lo stato e così via. Tramite questa visualizzazione è possibile ottenere altre informazioni su come è stato eseguito un processo. Per altre informazioni vedere [Usare la visualizzazione esecuzioni di vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per una panoramica su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
-* Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
-* Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-* Per informazioni sulle attività di gestione, vedere [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md).
 * Per registrare informazioni di diagnostica, vedere [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Analisi Data Lake di Azure](data-lake-analytics-analyze-weblogs.md).
 * Per usare la visualizzazione esecuzioni vertici, vedere [Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-* Per conoscere il codice di Data Lake Tools per Visual Studio code, vedere [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md) (Usare il codice di Azure Data Lake Tools per Visual Studio).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

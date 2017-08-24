@@ -1,6 +1,6 @@
 ---
 title: Istanza del cluster di failover di SQL Server - Macchine virtuali di Azure| Documentazione Microsoft
-description: Questo articolo illustra come creare l&quot;istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure.
+description: Questo articolo illustra come creare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 30d02322f302ca58e6c1b2b674d9f242b7c40518
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e690e87df92bd3614e575010d90b7a40521dadc9
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -87,7 +87,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
 
 1. Accedere al [portale di Azure](http://portal.azure.com) con la propria sottoscrizione.
 
-1. [Creare un set di disponibilità di Azure](../create-availability-set.md).
+1. [Creare un set di disponibilità di Azure](../tutorial-availability-sets.md).
 
    Un set di disponibilità raggruppa le macchine virtuali in più domini di errore e domini di aggiornamento. Il set di disponibilità garantisce che l'applicazione non sia influenzata da singoli punti di errore, come il commutatore di rete o l'unità di alimentazione di un rack di server.
 

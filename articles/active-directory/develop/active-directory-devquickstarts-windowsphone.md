@@ -1,9 +1,9 @@
 ---
 title: Introduzione a Windows Phone per Azure AD | Microsoft Docs
-description: Come compilare un&quot;applicazione di Windows Phone che si integra con Azure AD per l&quot;accesso e chiama le API protette di Azure AD usando OAuth.
+description: Come compilare un'applicazione di Windows Phone che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
 documentationcenter: windows
-author: dstrockis
+author: jmprieur
 manager: mbaldwin
 editor: 
 ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: e3f8db4560efc4c1425e1e88f2afee97ba7a8fea
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 03c4b6d225dce99d79ef6c1ba2af43af8dea3eae
 ms.contentlocale: it-it
-ms.lasthandoff: 01/18/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Integrare Azure AD con un'app di Windows Phone
@@ -28,10 +27,13 @@ ms.lasthandoff: 01/18/2017
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
+> [!NOTE]
+> I progetti Windows Phone 8.1 e versioni precedenti non sono supportati in Visual Studio 2017.  Per altre informazioni, vedere [Selezione della piattaforma e compatibilità di Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+
 Se si sta sviluppando un'app di Windows Phone 8.1, Azure AD semplifica e facilita l'autenticazione degli utenti con gli account Active Directory.  Consente inoltre all'applicazione di usare in modo sicuro qualsiasi API Web protetta da Azure AD, ad esempio le API di Office 365 o l'API di Azure.
 
 > [!NOTE]
-> Questo esempio di codice usa ADAL versione&2;.0.  Per la tecnologia più recente, si consiglia di provare invece l' [esercitazione di Windows universale con ADAL versione&3;.0](active-directory-devquickstarts-windowsstore.md).  Se si sta creando un'app per Windows Phone 8.1, questo è il posto giusto.  La versione 2.0 di ADAL è ancora completamente supportata ed è lo strumento consigliato per lo sviluppo di app per Windows Phone 8.1 con Azure AD.
+> Questo esempio di codice usa ADAL versione 2.0.  Per la tecnologia più recente, si consiglia di provare invece l' [esercitazione di Windows universale con ADAL versione 3.0](active-directory-devquickstarts-windowsstore.md).  Se si sta creando un'app per Windows Phone 8.1, questo è il posto giusto.  La versione 2.0 di ADAL è ancora completamente supportata ed è lo strumento consigliato per lo sviluppo di app per Windows Phone 8.1 con Azure AD.
 > 
 > 
 

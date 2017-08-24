@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM da uno snapshot | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare una VM da uno snapshot
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM da uno snapshot | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare una VM da uno snapshot
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: ramankum
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: b5e33d7dcee5b5241de796d632a9b6069b991f7b
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: 960a44e0df2c46cea464d9277f22f449b62e7d06
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 05/31/2017
 
 ---
 
@@ -33,13 +34,13 @@ Questo script crea una macchina virtuale da uno snapshot di un disco del sistema
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh "Creare una VM da uno snapshot")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh "Creare una VM da uno snapshot")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione 
 
 Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorare le prestazioni dell&quot;app Web di Azure | Microsoft Docs
+title: Monitorare le prestazioni dell'app Web di Azure | Microsoft Docs
 description: Monitoraggio delle prestazioni applicative per le app Web di Azure. Tempo di caricamento e risposta del grafico, informazioni sulle dipendenze e impostazione di avvisi sulle prestazioni.
 services: application-insights
 documentationcenter: .net
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: da09e09bb0605da583716e125f5d961bfb7af0c7
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: b25f3dd41c8dc381258bb42d8802ba4b56e05903
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitoraggio delle prestazioni dell'applicazione web di Azure
@@ -31,7 +30,7 @@ Nel [portale di Azure](https://portal.azure.com) è possibile configurare il mon
 * **Fase di compilazione** : è possibile installare un pacchetto nell'app durante lo sviluppo. Questa opzione è più versatile. Oltre agli stessi pacchetti standard, è possibile scrivere codice per personalizzare la telemetria o per inviare dati di telemetria personalizzati. È possibile registrare attività specifiche o registrare eventi in base alla semantica del dominio dell'app. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Strumentazione della fase di esecuzione con Application Insights
-Se si esegue già un'App Web in Azure, vengono già visualizzati alcuni dati di monitoraggio, cioè la frequenza di esecuzione con errori e la frequenza delle richieste. Aggiungere Application Insights per ottenere più dati, come i tempi di risposta, il monitoraggio delle chiamate alle dipendenze, il rilevamento intelligente e il potente linguaggio di query di Analisi. 
+Se si esegue già un'App Web in Azure, vengono già visualizzati alcuni dati di monitoraggio, cioè la frequenza di esecuzione con errori e la frequenza delle richieste. Aggiungere Application Insights per usufruire di maggiori funzionalità, come i tempi di risposta, il monitoraggio delle chiamate alle dipendenze, il rilevamento intelligente e l'avanzato linguaggio di query di Log Analytics. 
 
 1. **Selezionare Application Insights** nel pannello di controllo di Azure per l'App Web.
    
@@ -102,7 +101,7 @@ Application Insights può fornire ulteriori dati di telemetria installando un SD
    
     È possibile [personalizzare le ricerche](app-insights-diagnostic-search.md).
 
-Per le ricerche più avanzate nei dati di telemetria, usare il [linguaggio di query di Analisi](app-insights-analytics-tour.md).
+Per ricerche più avanzate sui dati di telemetria, usare il [linguaggio di query di Log Analytics](app-insights-analytics-tour.md).
 
 ## <a name="more-telemetry"></a>Altri dati di telemetria
 

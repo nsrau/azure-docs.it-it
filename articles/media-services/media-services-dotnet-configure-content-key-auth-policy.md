@@ -1,5 +1,5 @@
 ---
-title: Configurare i criteri di autorizzazione della chiave simmetrica mediante l&quot;SDK di Servizi multimediali per .NET | Microsoft Docs
+title: Configurare i criteri di autorizzazione della chiave simmetrica mediante l'SDK di Servizi multimediali per .NET | Microsoft Docs
 description: Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica utilizzando .NET SDK di Servizi multimediali.
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
+ms.contentlocale: it-it
 ms.lasthandoff: 01/11/2017
-
 
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Crittografia dinamica: configurare i criteri di autorizzazione della chiave simmetrica

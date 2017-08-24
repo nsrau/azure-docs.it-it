@@ -1,55 +1,57 @@
 ---
-title: Caratteristiche delle directory di Azure Active Directory | Documentazione Microsoft
-description: Gestire le directory di Azure Active Directory considerando le directory come risorse completamente indipendenti
-services: active-directory
+title: Caratteristiche dell'interazione dei tenant di Azure Active Directory | Microsoft Docs
+description: Gestire i tenant di Azure Active Directory considerando i tenant come risorse completamente indipendenti
+services: active-tenant
 documentationcenter: 
 author: curtand
 manager: femila
 editor: 
 ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
-ms.service: active-directory
+ms.service: active-tenant
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2017
+ms.date: 07/27/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
-ms.openlocfilehash: 5ec00d5e8380f121dd9302cf08a0708c530aab9b
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d25d2c731034d0785bbd404ec693c4c41d913d01
 ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="understand-how-multiple-azure-active-directory-directories-interact"></a>Comprendere l'interazione di più directory di Azure Active Directory
-In Azure Active Directory (Azure AD), ogni directory è una risorsa totalmente indipendente: un peer con funzionalità complete e logicamente indipendente dalle altre directory gestite. Non esiste alcuna relazione padre-figlio tra le directory. Questa indipendenza tra le directory include l'indipendenza delle risorse, l'indipendenza amministrativa e l'indipendenza della sincronizzazione.
+
+# <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Informazioni sull'interazione di più tenant di Azure Active Directory
+
+In Azure Active Directory (Azure AD) ogni tenant è una risorsa totalmente indipendente, ovvero un peer logicamente indipendente dagli altri tenant gestiti. Tra i tenant non esiste alcuna relazione padre-figlio. Questa indipendenza tra i tenant include l'indipendenza delle risorse, l'indipendenza amministrativa e l'indipendenza della sincronizzazione.
 
 ## <a name="resource-independence"></a>Indipendenza delle risorse.
-Se si crea o si elimina una risorsa in una directory, ciò non influisce sulle risorse contenute in un'altra directory, con l'eccezione parziale degli utenti esterni, come spiegato più avanti. Se si usa un dominio personalizzato "contoso.com" con una directory, non è possibile usarlo con altre directory.
+* Se si crea o si elimina una risorsa in un tenant, ciò non influisce sulle risorse contenute in un altro tenant, con l'eccezione parziale degli utenti esterni. 
+* Se si usa uno dei nomi di dominio con un tenant, questo non potrà essere usato con altri tenant.
 
 ## <a name="administrative-independence"></a>Indipendenza amministrativa
-Se un utente non amministratore della directory "Contoso" crea una directory di test denominata "Test", si verifica quanto segue:
+Se un utente non amministratore del tenant "Contoso" crea un tenant di test denominato "Test", si verifica quanto segue:
 
-* Per impostazione predefinita, l'utente che crea una directory viene aggiunto come utente esterno nella nuova directory e gli viene assegnato il ruolo di amministratore globale in quella directory.
-* Gli amministratori della directory "Contoso" non hanno privilegi amministrativi diretti per la directory "Test" se tali privilegi non vengono loro concessi specificamente da un amministratore di "Test". Gli amministratori di "Contoso" possono controllare l'accesso alla directory "Test" se controllano l'account utente che ha creato "Test".
-* Se si modifica, ovvero si aggiunge o si rimuove, un ruolo di amministratore per un utente in una directory, la modifica non influisce sul ruolo di amministratore che l'utente può avere in un'altra directory.
+* Per impostazione predefinita, l'utente che crea un tenant viene aggiunto come utente esterno nel nuovo tenant e gli viene assegnato il ruolo di amministratore globale in quel tenant.
+* Gli amministratori del tenant "Contoso" non dispongono di privilegi amministrativi diretti per il tenant "Test", a meno che questi privilegi non vengano specificamente concessi da un amministratore di "Test". Gli amministratori di "Contoso" possono tuttavia controllare l'accesso al tenant "Test" se controllano l'account utente che ha creato "Test".
+* Se si aggiunge o si rimuove un ruolo di amministratore per un utente in un tenant, la modifica non influisce sui ruoli di amministratore che l'utente può avere in un altro tenant.
 
 ## <a name="synchronization-independence"></a>Indipendenza della sincronizzazione
-È possibile configurare ogni directory di Azure AD in modo indipendente per sincronizzare i dati da una singola istanza di uno degli elementi seguenti:
+È possibile configurare ogni tenant di Azure AD in modo indipendente per sincronizzare i dati da una singola istanza di uno degli elementi seguenti:
 
-* Strumento di sincronizzazione directory (DirSync), per sincronizzare i dati con una singola foresta AD
-* Connettore di Azure Active Directory per Forefront Identity Manager, per sincronizzare i dati con una o più foreste locali e/o origini dati non Azure AD.
+* Strumento Azure AD Connect, per sincronizzare i dati con una singola foresta AD.
+* Connettore dei tenant di Azure Active Directory per Forefront Identity Manager, per sincronizzare i dati con una o più foreste locali e/o origini dati non Azure AD.
 
-## <a name="add-an-azure-ad-directory"></a>Aggiungere una directory di Microsoft Azure
-Per aggiungere una directory di Azure AD nel portale di Azure classico, selezionare l'estensione di Azure Active Directory a sinistra e toccare **Aggiungi**.
+## <a name="add-an-azure-ad-tenant"></a>Aggiungere un tenant di Azure AD
+Per aggiungere un tenant di Azure AD nel portale di Azure, accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale per Azure AD e selezionare **Nuovo** a sinistra.
 
 > [!NOTE]
-> A differenza di altre risorse di Azure, le proprie directory non sono risorse figlio di una sottoscrizione di Azure. Se si annulla o si lascia scadere la propria sottoscrizione di Azure, sarà comunque possibile accedere ai dati delle directory tramite Azure PowerShell, l'API Graph di Azure o altre interfacce come l'interfaccia di amministrazione di Office 365. È anche possibile associare un'altra sottoscrizione alla directory.
->
+> A differenza di altre risorse di Azure, i tenant non sono risorse figlio di una sottoscrizione di Azure. Se si annulla o si lascia scadere la sottoscrizione di Azure, sarà comunque possibile accedere ai dati del tenant tramite Azure PowerShell, l'API Graph di Azure o l'interfaccia di amministrazione di Office 365. È anche possibile associare un'altra sottoscrizione al tenant.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un'ampia panoramica dei problemi relativi alle licenze di Microsoft Azure e le procedure consigliate, vedere [che cosa sono le licenze di Azure Active Directory?](active-directory-licensing-what-is.md).
+Per un'ampia panoramica dei problemi relativi alle licenze di Azure AD e le procedure consigliate, vedere [Informazioni sulle licenze dei tenant di Azure Active Directory](active-directory-licensing-whatis-azure-portal.md)
 

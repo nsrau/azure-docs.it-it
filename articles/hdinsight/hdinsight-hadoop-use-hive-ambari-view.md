@@ -1,5 +1,5 @@
 ---
-title: Visualizzazioni di Ambari per l&quot;uso di Hive in HDInsight (Hadoop) | Documentazione Microsoft
+title: Usare le visualizzazioni di Ambari per l'uso di Hive in HDInsight (Hadoop) - Azure | Documentazione Microsoft
 description: Informazioni su come usare la visualizzazione Hive dal Web browser per inviare query Hive. La visualizzazione Hive fa parte delle visualizzazioni di Ambari fornite con il cluster HDInsight basato su Linux.
 services: hdinsight
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 511d6dd1933f44cd0cb5ba800972a7c112a24c04
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 80df3da4d62feb814ea2dd97c96e57954093c5c5
+ms.contentlocale: it-it
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>Usare la visualizzazione Hive con Hadoop in HDInsight
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Ambari è un'utilità per la gestione e il monitoraggio fornita con i cluster HDInsight basati su Linux. Una delle funzionalità fornite da Ambari è un'interfaccia utente Web che può essere usata per eseguire query Hive. Si tratta della **vista Hive**, elemento delle visualizzazioni di Ambari fornite con il cluster HDInsight.
+Informazioni su come eseguire query Hive usando la vista Hive di Ambari. Ambari è un'utilità per la gestione e il monitoraggio fornita con i cluster HDInsight basati su Linux. Una delle funzionalità fornite da Ambari è un'interfaccia utente Web che può essere usata per eseguire query Hive.
 
 > [!NOTE]
 > Ambari include numerose funzionalità non illustrate in questo documento. Per altre informazioni, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md).
@@ -37,37 +37,30 @@ Ambari è un'utilità per la gestione e il monitoraggio fornita con i cluster HD
 * Un cluster HDInsight basato su Linux. Per informazioni sulla creazione di un cluster, vedere [Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="open-the-hive-view"></a>Aprire la visualizzazione Hive
 
 Per accedere alle visualizzazioni di Ambari dal portale di Azure, selezionare il cluster HDInsight e quindi **Visualizzazioni di Ambari** nella sezione **Collegamenti rapidi**.
 
-![Sezione Collegamenti rapidi](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
+![Sezione Collegamenti rapidi del portale](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
-È anche possibile passare direttamente ad Ambari accedendo a https://CLUSTERNAME.azurehdinsight.net in un Web browser. Sostituire **CLUSTERNAME** con il nome del cluster HDInsight. Per elencare le viste disponibili, selezionare il set di quadratini nel menu della pagina, accanto al collegamento **Admin**. Selezionare **Vista Hive**.
+Nell'elenco di viste selezionare __vista Hive__.
 
-![Selezione delle visualizzazioni di Ambari](./media/hdinsight-hadoop-use-hive-ambari-view/selecthiveview.png).
+![Vista Hive selezionata](./media/hdinsight-hadoop-use-hive-ambari-view/select-hive-view.png)
 
 > [!NOTE]
 > Quando si accede ad Ambari, viene richiesto di eseguire l'autenticazione al sito. Immettere il nome dell'account amministratore (il valore predefinito è `admin`) e la password usati durante la creazione del cluster.
 
-Verrà visualizzata una pagina simile alla seguente:
+Verrà visualizzata una pagina simile all'immagine seguente:
 
-![Immagine della pagina della visualizzazione Hive, contenente una sezione Query Editor](./media/hdinsight-hadoop-use-hive-ambari-view/hiveview.png)
+![Immagine del foglio di lavoro della query per la vista Hive](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-## <a name="view-tables"></a>Visualizzare tabelle
-Nella sezione **Database Explorer** (Esplora database) della pagina selezionare la voce **default** nella scheda **Databases**. Viene visualizzato un elenco di tabelle nel database predefinito. In un nuovo cluster HDInsight dovrebbe essere presente una sola tabella, **hivesampletable**.
+## <a name="hivequery"></a>Eseguire una query
 
-![Database Explorer con il database predefinito espanso](./media/hdinsight-hadoop-use-hive-ambari-view/databaseexplorer.png)
+Per eseguire una query Hive, seguire questa procedura dalla vista di Hive.
 
-Poiché vengono aggiunte tabelle tramite la procedura descritta in questo documento, è possibile usare l'icona di aggiornamento nell'angolo superiore destro di Database Explorer per aggiornare l'elenco.
-
-## <a name="hivequery"></a>Query editor
-
-Attenersi alla seguente procedura dalla vista di Hive per eseguire una query Hive.
-
-1. Nella sezione **Query Editor** (Editor di query) della pagina incollare l'istruzione HiveQL seguente nel foglio di lavoro:
+1. Dalla scheda __Query__ incollare le istruzioni HiveQL seguenti nel foglio di lavoro:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -79,26 +72,26 @@ Attenersi alla seguente procedura dalla vista di Hive per eseguire una query Hiv
 
     Di seguito sono elencate le istruzioni che eseguono queste azioni:
 
-   * **DROP TABLE** : elimina la tabella e il file di dati, qualora la tabella esista già.
+   * `DROP TABLE`: elimina la tabella e il file di dati, qualora la tabella esista già.
 
-   * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive.
+   * `CREATE EXTERNAL TABLE`: crea una nuova tabella "esterna" in Hive.
    Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso originale.
 
-   * **ROW FORMAT** : indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
+   * `ROW FORMAT`: indica il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 
-   * **STORED AS TEXTFILE LOCATION** : indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
+   * `STORED AS TEXTFILE LOCATION`: indica dove sono archiviati i dati e che sono archiviati come testo.
 
-   * **SELECT** : seleziona un numero di tutte le righe in cui la colonna t4 include il valore [ERROR].
+   * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna t4 include il valore [ERROR].
 
      > [!NOTE]
      > Usa le tabelle esterne se si prevede che i dati sottostanti verranno aggiornati da un'origine esterna. Ad esempio, un processo di caricamento dati automatizzato o un'altra operazione MapReduce. L'eliminazione di una tabella esterna *non* comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
-2. Usare il pulsante **Execute** (Esegui) nella parte inferiore di Query Editor per avviare la query. Il pulsante diventa arancione e il testo cambia in **Stop execution** (Arresta esecuzione). Sotto Query Editor (Editor di query) verrà visualizzata la sezione **Query Process Results** (Risultati elaborazione query) con le informazioni sul processo.
+    > [!IMPORTANT]
+    > Mantenere la selezione di __Database__ __predefinita__. Gli esempi di questo documento usano il database predefinito incluso in HDInsight.
 
-   > [!IMPORTANT]
-   > È possibile che alcuni browser non aggiornino correttamente il log o le informazioni sui risultati. Se si esegue un processo che prosegue all'infinito senza aggiornare il log o restituire risultati, provare a usare Mozilla FireFox o Google Chrome.
+2. Per avviare la query, usare il pulsante **Execute** (Esegui) sotto il foglio di lavoro. Il pulsante diventa arancione e il testo cambia in **Stop** (Arresta).
 
-3. Al termine dell'elaborazione della query, nella sezione **Query Process Results** (Risultati elaborazione query) vengono visualizzati i risultati dell'operazione. Il pulsante **Stop execution** (Arresta esecuzione) verrà sostituito da un pulsante **Execute** (Esegui) verde al completamento della query. La scheda **Results** conterrà le informazioni seguenti:
+3. Al termine dell'elaborazione della query, nella scheda **Results** (Risultati) vengono visualizzati i risultati dell'operazione. Il testo seguente è il risultato della query:
 
         sev       cnt
         [ERROR]   3
@@ -110,7 +103,7 @@ Attenersi alla seguente procedura dalla vista di Hive per eseguire una query Hiv
 
 4. Selezionare le prime quattro righe di questa query, quindi selezionare **Execute** (Esegui). Si noti che, al termine del processo, non viene visualizzato alcun risultato. Se si usa il pulsante **Execute** (Esegui) quando parte della query è selezionata, verranno eseguite solo le istruzioni selezionate. In questo caso, la selezione non include l'istruzione finale che recupera le righe dalla tabella. Se si seleziona solo tale riga e si usa **Execute** (Esegui), verranno visualizzati i risultati previsti.
 
-5. Usare il pulsante **New Worksheet** (Nuovo foglio di lavoro) nella parte inferiore di **Query Editor** per aggiungere un nuovo foglio di lavoro. Nel nuovo foglio di lavoro immettere le istruzioni HiveQL seguenti:
+5. Per aggiungere un foglio di lavoro, usare il pulsate **New Worksheet** (Nuovo foglio di lavoro) nella parte inferiore di **Query Editor** (Editor query). Nel nuovo foglio di lavoro immettere le istruzioni HiveQL seguenti:
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -121,86 +114,54 @@ Attenersi alla seguente procedura dalla vista di Hive per eseguire una query Hiv
 
    * **CREATE TABLE IF NOT EXISTS** : crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, viene creata una tabella interna. Una tabella interna verrà archiviata nel data warehouse di Hive e gestita completamente da Hive. A differenza delle tabelle esterne, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
-   * **STORED AS ORC** : archivia i dati nel formato ORC (Optimized Row Columnar). Questo è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
+   * **STORED AS ORC** : archivia i dati nel formato ORC (Optimized Row Columnar). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.
 
-   * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti [ERROR], quindi inserisce i dati nella tabella **errorLogs**.
+   * **INSERT OVERWRITE ... SELECT**: seleziona dalla tabella **log4jLogs** le righe contenenti `[ERROR]` e quindi inserisce i dati nella tabella **errorLogs**.
 
      Usare il pulsante **Execute** (Esegui) per eseguire la query. La scheda **Results** (Risultati) non contiene informazioni quando la query restituisce zero righe. Lo stato visualizzato deve essere **SUCCEEDED** dopo il completamento della query.
 
-### <a name="hive-settings"></a>Settings di Hive
-
-Selezionare l'icona **Settings** (Impostazioni) a destra dell'editor.
-
-![Icona di impostazioni per la vista di hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-settings-icon.png)
-
-Questa opzione può essere usata per modificare diverse impostazioni di Hive, ad esempio il motore di esecuzione per Hive da Tez (impostazione predefinita), in MapReduce.
-
-### <a name="visualization"></a>Visualizzazione
-
-Selezionare l'icona __Visualization__ (Visualizzazione) a destra dell'editor.
-
-![Icona di visualizzazione per la vista di Hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization-icon.png)
-
-Verrà aperta l'interfaccia di visualizzazione, in cui è possibile creare visualizzazioni dei dati restituiti dalla query. Di seguito viene illustrata una visualizzazione di esempio usando i dati di `hivesampletable` inclusi in HDInsight.
-
-![Visualizzazione di esempio](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visualization.png)
-
 ### <a name="visual-explain"></a>Visual Explain
 
-Selezionare l'icona **Visual Explain** a destra dell'editor.
+Per aprire una visualizzazione del piano di query, selezionare la scheda **Visual Explain** (Spiegazione visiva) sotto il foglio di lavoro.
 
-![Icona di Visual Explain per la vista di Hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-visual-explain-icon.png)
+La vista **Visual Explain** (Spiegazione visiva) della query può essere utile per conoscere il flusso delle query complesse. Per un equivalente testuale di questa visualizzazione, usare il pulsante **Explain** (Spiega) in Query Editor.
 
-Questa è la visualizzazione **Visual Explain** (Spiegazione visiva) della query, che può essere utile per conoscere il flusso delle query complesse. Per un equivalente testuale di questa visualizzazione, usare il pulsante **Explain** (Spiega) in Query Editor.
+### <a name="tez-ui"></a>Interfaccia utente di Tez
 
-![Immagine di Visual Explain](./media/hdinsight-hadoop-use-hive-ambari-view/visualexplain.png)
+Per visualizzare l'interfaccia utente di Tez per la query, selezionare la scheda **Tez** sotto il foglio di lavoro.
 
-### <a name="tez"></a>Tez
+> [!IMPORTANT]
+> Tez non viene usato per risolvere tutte le query. Molte query possono essere risolte senza usare Tez. 
 
-Selezionare l'icona **Tez** a destra dell'editor.
+Se per risolvere la query è stato usato Tez, viene visualizzato il grafo aciclico diretto. Se si vuole visualizzare il DAG per le query eseguite in passato o eseguire il debug del processo Tez, usare invece [Tez View](hdinsight-debug-ambari-tez-view.md) .
 
-![Icona di Tez per la vista di hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-tez-icon.png)
+## <a name="view-job-history"></a>Visualizzare la cronologia processo
 
-Verrà visualizzato il grafo aciclico diretto (DAG) usato da Tez per questa query, se disponibile. Se si vuole visualizzare il DAG per le query eseguite in passato o eseguire il debug del processo Tez, usare invece [Tez View](hdinsight-debug-ambari-tez-view.md) .
+La scheda __Jobs__ (Processi) visualizza una cronologia delle query Hive.
 
-### <a name="notifications"></a>Notifiche
+![Immagine della cronologia processo](./media/hdinsight-hadoop-use-hive-ambari-view/job-history.png)
 
-Selezionare l'icona **Notifications** (Notifiche) a destra dell'editor.
+## <a name="database-tables"></a>Tabelle di database
 
-![Icona delle notifiche per la vista di hive](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-notifications-icon.png)
+È possibile usare la scheda __Tables__ (Tabelle) per utilizzare le tabelle in un database Hive.
 
-Le notifiche sono messaggi generati quando si eseguono query. Ad esempio, si riceverà una notifica quando viene inviata una query o quando si verifica un errore.
+![Immagine della scheda delle tabelle](./media/hdinsight-hadoop-use-hive-ambari-view/tables.png)
 
 ## <a name="saved-queries"></a>Query salvate
 
-1. In Query Editor creare un foglio di lavoro e immettere la query seguente:
+Dalla scheda Query è facoltativamente possibile salvare le query. Dopo avere salvato una query, è possibile usarla di nuovo dalla scheda __Saved Queries__ (Query salvate).
 
-    ```hiveql
-    SELECT * from errorLogs;
-    ```
+![Immagine della scheda delle query salvate](./media/hdinsight-hadoop-use-hive-ambari-view/saved-queries.png)
 
-    Eseguire la query per verificare che funzioni. I risultati sono simili all'esempio seguente:
+## <a name="user-defined-functions"></a>Funzioni definite dall'utente
 
-        errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
-        2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
-        2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
-        2012-02-03     19:25:27     SampleClass4     [ERROR]     incorrect     id
+Hive può anche essere esteso tramite funzioni definite dall'utente, che consentono di implementare funzionalità o logica non facilmente modellate in HiveQL.
 
-2. Usare il pulsante **Save as** (Salva con nome) nella parte inferiore dell'editor. Assegnare a questa query il nome **Errorlogs** e selezionare **OK**. Il nome del foglio di lavoro diventa **Errorlogs**.
+La scheda della funzione definita dall'utente nella parte superiore della vista Hive consente di dichiarare e salvare un set di funzioni definite dall'utente, che è possibile usare con **Query Editor**.
 
-3. Selezionare la scheda **Saved Queries** (Query salvate) nella parte superiore della pagina della visualizzazione Hive. Ora **Errorlogs** viene elencato come una query salvata e rimarrà in questo elenco fino a quando non viene rimosso. Selezionando il nome, la query verrà aperta in Query Editor.
+![Immagine della scheda delle funzioni definite dall'utente](./media/hdinsight-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-## <a name="query-history"></a>Cronologia delle query
-
-Il pulsante **History** (Cronologia) nella parte superiore della visualizzazione Hive consente di visualizzare le query eseguite in precedenza. Usarlo per selezionare alcune delle query eseguite in precedenza. Quando si seleziona una query, viene aperta in Query Editor.
-
-## <a name="user-defined-functions-udf"></a>Funzioni definite dall'utente (UDF)
-
-Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)**, che consentono di implementare funzionalità o logica non facilmente modellate in HiveQL.
-
-La scheda della funzione definita dall'utente nella parte superiore della visualizzazione Hive consente di dichiarare e salvare un set di funzioni definite dall'utente che può essere usato con **Query Editor**.
-
-Dopo avere aggiunto una funzione definita dall'utente alla visualizzazione Hive, verrà visualizzato un pulsante **Insert udfs** (Inserisci funzioni definite dall'utente) nella parte inferiore di **Query Editor**. Se si seleziona questo pulsante, verrà visualizzato un elenco di riepilogo a discesa di funzioni definite dall'utente nella visualizzazione Hive. La selezione di una funzione definita dall'utente aggiungerà istruzioni HiveQL alla query per abilitare la funzione definita dall'utente.
+Dopo avere aggiunto una funzione definita dall'utente alla visualizzazione Hive, verrà visualizzato un pulsante **Insert udfs** (Inserisci funzioni definite dall'utente) nella parte inferiore di **Query Editor**. Se si seleziona questa voce, verrà visualizzato un elenco di riepilogo a discesa di funzioni definite dall'utente nella vista Hive. La selezione di una funzione definita dall'utente aggiungerà istruzioni HiveQL alla query per abilitare la funzione definita dall'utente.
 
 Ad esempio, se è stata specificata una funzione definita dall'utente con le proprietà seguenti:
 
@@ -219,14 +180,19 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Si potrà quindi usare la funzione definita dall'utente nella query, ad esempio `SELECT myawesomeudf(name) FROM people;`.
+Si potrà quindi usare la funzione definita dall'utente nella query, Ad esempio, `SELECT myawesomeudf(name) FROM people;`.
 
-Per altre informazioni sull'uso di funzioni definite dall'utente con Hive in HDInsight, vedere gli articoli seguenti:
+Per altre informazioni sull'uso di funzioni definite dall'utente con Hive in HDInsight, vedere i documenti seguenti:
 
 * [Usare Python con Hive e Pig in HDInsight](hdinsight-python.md)
 * [Come aggiungere una funzione definita dall'utente Hive personalizzata in HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+## <a name="hive-settings"></a>Settings di Hive
+
+Le impostazioni possono essere usate per modificare varie impostazioni di Hive. Consentono ad esempio di cambiare il motore di esecuzione per Hive da Tez (opzione predefinita) a MapReduce.
+
 ## <a id="nextsteps"></a>Passaggi successivi
+
 Per informazioni generali su Hive in HDInsight:
 
 * [Usare Hive con Hadoop in HDInsight](hdinsight-use-hive.md)

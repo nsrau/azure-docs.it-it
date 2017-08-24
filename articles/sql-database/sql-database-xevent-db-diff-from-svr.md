@@ -9,18 +9,18 @@ editor:
 tags: 
 ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.custom: monitor & tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 8c94c8789696507d89e08a637067ca040d45246a
-ms.lasthandoff: 04/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 6953166f21194f3cbcef3f260b3e7a50d5bf5460
+ms.contentlocale: it-it
+ms.lasthandoff: 07/19/2017
 
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/10/2017
 
 In questo argomento viene illustrato come l'implementazione di eventi estesi nel database SQL di Azure è leggermente diversa rispetto agli eventi estesi in Microsoft SQL Server.
 
-- Il database SQL ha acquisito la funzionalità degli eventi estesi nella seconda metà del calendario 2015.
+- SQL Database V12 ha acquisito la funzionalità degli eventi estesi nella seconda metà del calendario 2015.
 - SQL Server ha gli eventi estesi dal 2008.
 - Il set di funzionalità degli eventi estesi nel database SQL è un subset affidabile delle funzionalità in SQL Server.
 
@@ -126,7 +126,7 @@ Per gli eventi estesi sono disponibili DMV aggiuntive comuni a Microsoft SQL Ser
 
 È possibile eseguire un semplice **SELECT** di SQL per ottenere un elenco di eventi, azioni e destinazioni disponibili.
 
-```tsql
+```sql
 SELECT
         o.object_type,
         p.name         AS [package_name],

@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
-ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
 ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Caricare dati con Data Platform Studio di Redgate
@@ -33,7 +31,7 @@ ms.lasthandoff: 02/16/2017
 > 
 > 
 
-Questa esercitazione mostra come usare [DPS (Data Platform Studio) di Redgate](http://www.red-gate.com/products/azure-development/data-platform-studio/) per spostare dati da un'istanza di SQL Server locale a Azure SQL Data Warehouse. Data Platform Studio applica le correzioni e le ottimizzazioni di compatibilità più appropriate, motivo per cui è il modo più rapido per iniziare a utilizzare SQL Data Warehouse.
+Questa esercitazione illustra come usare [Data Platform Studio (DPS) di Redgate](http://www.red-gate.com/products/azure-development/data-platform-studio/) per spostare dati da un'istanza di SQL Server locale ad Azure SQL Data Warehouse. Data Platform Studio applica le correzioni e le ottimizzazioni di compatibilità più appropriate, motivo per cui è il modo più rapido per iniziare a utilizzare SQL Data Warehouse.
 
 > [!NOTE]
 > [Redgate](http://www.red-gate.com), partner Microsoft da lunga data, offre diversi strumenti di SQL Server. Questa funzionalità di Data Platform Studio è disponibile gratuitamente per uso sia commerciale che non commerciale.
@@ -46,7 +44,7 @@ Prima di iniziare questa esercitazione, è necessario avere a disposizione quant
 
 * **Database di SQL Server locale**: i dati da importare in SQL Data Warehouse devono provenire da un'istanza di SQL Server locale (versione 2008 R2 o successiva). Data Platform Studio non è in grado di importare direttamente dati da un database SQL di Azure o da file di testo.
 * **Account di archiviazione di Azure**: Data Platform Studio colloca temporaneamente i dati in Archiviazione BLOB di Azure prima di caricarli in SQL Data Warehouse. L'account di archiviazione deve usare il modello di distribuzione "Resource Manager" (impostazione predefinita) e non il modello di distribuzione "Classica". Se non si dispone di un account di archiviazione, vedere l'articolo relativo alla creazione di tale account. 
-* **SQL Data Warehouse**: in questa esercitazione i dati vengono spostati da un'istanza di SQL Server locale a SQL Data Warehouse, motivo per cui è necessario avere un data warehouse online. Se non si dispone di un data warehouse, vedere l'articolo relativo alla creazione di un'istanza di Azure SQL Data Warehouse.
+* **SQL Data Warehouse**: questa esercitazione sposta i dati da un'istanza di SQL Server locale a SQL Data Warehouse ed è quindi necessario avere un data warehouse online. Se non si dispone di un data warehouse, vedere l'articolo relativo alla creazione di un'istanza di Azure SQL Data Warehouse.
 
 > [!NOTE]
 > Per migliorare le prestazioni, creare l'account di archiviazione e il data warehouse nella stessa area geografica.
@@ -67,7 +65,7 @@ Nella schermata principale di DPS selezionare il collegamento Import to Azure SQ
 ![][1]
 
 ## <a name="step-3-install-the-data-platform-studio-gateway"></a>Passaggio 3: Installare il gateway di Data Platform Studio
-Per connettersi al database SQL Server locale è necessario installare il gateway di DPS. Il gateway è un agente client che fornisce l'accesso all'ambiente locale, estrae i dati e li carica nell'account di archiviazione. I dati non passano mai attraverso i server Redgate. Per installare il gateway:
+Per connettersi al database di SQL Server locale è necessario installare il gateway di DPS. Il gateway è un agente client che fornisce l'accesso all'ambiente locale, estrae i dati e li carica nell'account di archiviazione. I dati non passano mai attraverso i server Redgate. Per installare il gateway:
 
 1. Fare clic sul collegamento **Create Gateway** (Crea gateway).
 2. Scaricare e installare il gateway usando il programma di installazione fornito
@@ -113,7 +111,7 @@ DPS conferma che si vogliono importare i dati. È sufficiente fare clic sul puls
 
 ![][6]
 
-DPS mostra una visualizzazione contenente lo stato di avanzamento dell'estrazione e del caricamento dei dati dall'istanza di SQL Server locale nonché lo stato di avanzamento dell'importazione in SQL Data Warehouse.
+DPS mostra una visualizzazione contenente lo stato di avanzamento dell'estrazione e del caricamento dei dati dall'istanza di SQL Server locale e lo stato di avanzamento dell'importazione in SQL Data Warehouse.
 
 ![][7]
 

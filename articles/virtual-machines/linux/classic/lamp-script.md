@@ -1,6 +1,6 @@
 ---
-title: Usare l&quot;estensione CustomScript in una macchina virtuale Linux | Microsoft Docs
-description: Informazioni su come utilizzare l&quot;estensione CustomScript per distribuire le applicazioni in macchine virtuali Linux in Azure create utilizzando il modello di distribuzione classica.
+title: Usare l'estensione CustomScript in una macchina virtuale Linux | Microsoft Docs
+description: Informazioni su come utilizzare l'estensione CustomScript per distribuire le applicazioni in macchine virtuali Linux in Azure create utilizzando il modello di distribuzione classica.
 editor: tysonn
 manager: timlt
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 06/01/2017
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 1c1591079bf09da6fbe50d848b05ec7791657e04
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8d8c1e583939b9d1aea53db3f4378829e9b40410
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux
@@ -28,14 +28,14 @@ ms.lasthandoff: 04/03/2017
 
 L'estensione CustomScript di Microsoft Azure per Linux fornisce un modo per personalizzare le macchine virtuali (VM) tramite l'esecuzione di codice arbitrario scritto in un linguaggio supportato dalla macchina virtuale (ad esempio, Python e Bash). In tal modo è possibile automatizzare la distribuzione di applicazioni a più computer in un modo molto flessibile.
 
-È possibile distribuire l'estensione CustomScript tramite il portale di Azure classico, Windows PowerShell o l'interfaccia della riga di comando di Azure (CLI di Azure).
+È possibile distribuire l'estensione CustomScript tramite il portale di Azure, Windows PowerShell o l'interfaccia della riga di comando di Azure.
 
 In questo articolo utilizzeremo la CLI di Azure per distribuire una semplice applicazione LAMP a una macchina virtuale di Ubuntu creata utilizzando il modello di distribuzione classica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per questo esempio, creare innanzitutto due macchine virtuali di Azure che eseguano Ubuntu 14.04 o la versione successiva. Le macchine virtuali vengono chiamate *script-vm* e *lamp-vm*. Quando si creano macchine virtuali, utilizzare sempre nomi univoci. Uno viene utilizzato per eseguire i comandi dell’interfaccia della riga di comando e uno viene utilizzato per distribuire l'applicazione LAMP.
 
-Sono inoltre necessari un account di archiviazione di Azure e una chiave di accesso (che è possibile ottenere nel portale di Azure classico).
+Sono necessari anche un account di archiviazione di Azure e una chiave di accesso, che è possibile ottenere nel portale di Azure.
 
 Per informazioni sulla creazione delle macchine virtuali Linux in Azure, fare riferimento a [Creare una macchina virtuale che esegue Linux](createportal.md).
 
@@ -104,7 +104,3 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 [Automatizzare le attività di personalizzazione delle macchine virtuali Linux utilizzando l'estensione CustomScript](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Estensioni per Linux di Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
-
-[Computing Linux e open source in Azure](../opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-

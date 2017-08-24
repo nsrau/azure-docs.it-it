@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;app Web in un ambiente del servizio app
-description: Informazioni su come creare app Web e piani di servizio app in un ambiente del servizio app
+title: Creare un'app Web in un ambiente del servizio app (versione 1)
+description: Informazioni su come creare app Web e piani di servizio app in un ambiente del servizio app (versione 1)
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -12,18 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 7/11/2017
 ms.author: ccompy
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: a78d37ee59663896acc3192f8ae03575270101a8
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: 0779486b040b8dc51cdd42521ba965e58388425a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/26/2017
 
 ---
-# <a name="create-a-web-app-in-an-app-service-environment"></a>Creare un'app Web in un ambiente del servizio app
+# <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
+
+> [!NOTE]
+> Questo articolo fa riferimento all'ambiente del servizio app (versione 1),  una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione all'ambiente del servizio app](../app-service/app-service-environment/intro.md).
+> 
+
 ## <a name="overview"></a>Panoramica
-Questa esercitazione illustra come creare app Web e piani di servizio app in un [ambiente del servizio app](app-service-app-service-environment-intro.md) . 
+Questa esercitazione illustra come creare app Web e piani di servizio app in un [ambiente del servizio app (versione 1)](app-service-app-service-environment-intro.md). 
 
 > [!NOTE]
 > Se si vuole imparare a creare un'app Web ma non è necessario farlo in un ambiente del servizio app, vedere [Creare un'app Web .NET](app-service-web-get-started-dotnet.md) o una delle esercitazioni correlate per altri linguaggi e framework.
@@ -42,7 +47,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
     Se sono presenti più sottoscrizioni, ricordare che per creare un'app nell'ambiente del servizio app è necessario usare la stessa sottoscrizione usata per la creazione dell'ambiente. 
 3. Selezionare o creare un gruppo di risorse.
    
-    I *gruppi di risorse* consentono di gestire risorse di Azure correlate come un'unità e sono utili per stabilire le regole di *controllo degli accessi in base al ruolo* per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ResourceGroups]. 
+    I *gruppi di risorse* consentono di gestire risorse di Azure correlate come un'unità e sono utili per stabilire le regole di *controllo degli accessi in base al ruolo*  per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ResourceGroups]. 
 4. Selezionare o creare un piano di servizio app.
    
     *piani di servizio app* sono costituiti da set gestiti di app Web.  Quando si seleziona il prezzo, in genere l'importo addebitato viene applicato al piano di servizio app invece che alle singole app. Nell'ambiente del servizio app vengono addebitate le istanze di calcolo allocate all'ambiente e non quanto elencato nel piano di servizio app.  Per aumentare il numero di istanze di un'app Web, si aumentano le istanze del piano di servizio app e tale operazione influisce su tutte le app Web incluse nel piano.  Il piano può prevedere restrizioni relative alla quantità per alcune funzionalità, come gli slot di sito o l'integrazione della rete virtuale.  Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)

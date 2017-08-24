@@ -1,5 +1,5 @@
 ---
-title: Eseguire query Hive con HDInsight .NET SDK | Documentazione Microsoft
+title: Eseguire query Hive con HDInsight .NET SDK - Azure | Microsoft Docs
 description: Informazioni su come inviare processi Hadoop ad Azure HDInsight Hadoop con HDInsight .NET SDK.
 editor: cgronlun
 manager: jhubbard
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: 6e9626cf8da4e4106dfedc164af0f0ba52bf2f06
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: c3eac45065bad80fd7b1fd29ac77a162eef3fa28
 ms.contentlocale: it-it
-ms.lasthandoff: 03/04/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: Terminologia di Azure Data Catalog | Documentazione Microsoft
-description: Questo articolo fornisce un&quot;introduzione ai concetti e ai termini usati nella documentazione di Azure Data Catalog.
+description: Questo articolo fornisce un'introduzione ai concetti e ai termini usati nella documentazione di Azure Data Catalog.
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/15/2017
+ms.date: 08/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: e9e1009bc20679a907e4bd2387865a6000b4a898
 ms.contentlocale: it-it
 ms.lasthandoff: 11/17/2016
-
 
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia del Catalogo dati di Azure

@@ -1,6 +1,6 @@
 ---
-title: Distribuzione dell&quot;archivio Git locale nel servizio app di Azure
-description: Informazioni su come abilitare la distribuzione dell&quot;archivio Git locale nel servizio app di Azure.
+title: Distribuzione dell'archivio Git locale nel servizio app di Azure
+description: Informazioni su come abilitare la distribuzione dell'archivio Git locale nel servizio app di Azure.
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6e476e1dc550f246027c015dee75850236baa9a9
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: da848aec495a8248fd4791f350d439e937831d01
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -43,8 +44,10 @@ Per creare un nuovo repository Git, eseguire le operazioni seguenti.
 1. Avviare uno strumento da riga di comando, ad esempio **GitBash** (Windows) o **Bash** (shell Unix). Nei sistemi OS X è possibile accedere alla riga di comando tramite l'applicazione **Terminale** .
 2. Passare alla directory in cui deve essere collocato il contenuto da distribuire.
 3. Eseguire il comando seguente per inizializzare un nuovo repository Git:
-   
-        git init
+
+```bash  
+git init
+```
 
 ## <a name="Step2"></a>Passaggio 2: Eseguire il commit del contenuto
 Il servizio app supporta applicazioni create in diversi linguaggi di programmazione. 
@@ -54,11 +57,15 @@ Il servizio app supporta applicazioni create in diversi linguaggi di programmazi
    * Usando un editor di testo creare un nuovo file denominato **index.html** nella radice del repository Git
    * Aggiungere il testo seguente come contenuto del file index.html e salvarlo: *Hello Git!*
 2. Dalla riga di comando verificare che sia selezionata la radice del repository Git. Usare quindi il comando seguente per aggiungere file al repository:
-   
-        git add -A 
+
+```bash  
+git add -A
+```
 3. In seguito, eseguire il commit delle modifiche al repository con il comando seguente:
-   
-        git commit -m "Hello Azure App Service"
+
+```bash  
+git commit -m "Hello Azure App Service"
+```  
 
 ## <a name="Step3"></a>Passaggio 3: Abilitare il repository dell'app del servizio app
 Eseguire la procedura seguente per abilitare un repository Git per l'app del servizio app.
@@ -88,10 +95,11 @@ Eseguire la procedura seguente per pubblicare l'app nel servizio app usando l'ar
    > 
    > 
 4. Effettuare il push del contenuto nel servizio app usando il nuovo riferimento remoto **azure** creato.
-   
-        git push azure master
-   
-    Verrà richiesto di inserire la password creata in precedenza durante la reimpostazione delle credenziali di distribuzione nel portale di Azure. Immettere la password. Si noti che Gitbash non ripete gli asterischi nella console mentre si digita la password. 
+
+```bash  
+git push azure master
+```
+    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 5. Tornare all'app nel portale di Azure. Nel pannello **Distribuzioni** verrà visualizzata una voce di log dell'ultimo push effettuato. 
    
     ![](./media/app-service-deploy-local-git/deployment_history.png)
@@ -121,8 +129,9 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 **Soluzione**: ripetere l'operazione push, specificando il ramo master. Ad esempio:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Sintomo**: non sono state trovate corrispondenze per src refspec [nomeramo].
 
@@ -130,8 +139,9 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 **Soluzione**: ripetere l'operazione push, specificando il ramo master. Ad esempio:
 
-    git push azure master
-
+```bash  
+git push azure master
+```
 - - -
 **Sintomo**: RPC non riuscita; risultato = 22, codice HTTP = 502.
 
@@ -139,8 +149,9 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 **Soluzione**: modificare la configurazione Git nel computer locale per ingrandire il postBuffer
 
-    git config --global http.postBuffer 524288000
-
+```bash  
+git config --global http.postBuffer 524288000
+```
 - - -
 **Sintomo**: errore. Le modifiche vengono sottoposte a commit nel repository remoto ma l'app Web non viene aggiornata.
 

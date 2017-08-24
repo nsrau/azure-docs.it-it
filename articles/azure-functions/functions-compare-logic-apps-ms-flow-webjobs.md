@@ -1,5 +1,5 @@
 ---
-title: Scegliere tra Flow, App per la logica, Funzioni e Processi Web | Documentazione Microsoft
+title: Scegliere tra Flow, App per la logica, Funzioni e Processi Web | Microsoft Docs
 description: "Mettere a confronto i servizi di integrazione cloud di Microsoft e decidere quali è consigliabile usare."
 services: functions,app-service\logic
 documentationcenter: na
@@ -10,17 +10,17 @@ keywords: microsoft flow, flow, app per la logica, funzioni di azure, funzioni, 
 ms.assetid: e9ccf7ad-efc4-41af-b9d3-584957b1515d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/08/2016
-ms.author: chrande; glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 0f35d79870301bcba9f009f7dbc00696ce426458
+ms.date: 08/03/2017
+ms.author: glenga
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Scegliere tra Flow, App per la logica, Funzioni e Processi Web
@@ -50,7 +50,7 @@ La tabella seguente consente di determinare se per una data integrazione è più
 | --- | --- | --- |
 | Destinatari |Impiegati, utenti aziendali |Professionisti IT, sviluppatori |
 | Scenari |Self-service |Cruciale |
-| Strumento di progettazione |Nel browser, solo interfaccia utente |Nel browser e in [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) è disponibile la [visualizzazione Codice](../logic-apps/logic-apps-author-definitions.md) |
+| Strumento di progettazione |Nel browser e app per dispositivi mobili, solo interfaccia utente |Nel browser e in [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) è disponibile la [visualizzazione Codice](../logic-apps/logic-apps-author-definitions.md) |
 | DevOps |Ad hoc, sviluppo nell'ambiente di produzione |Controllo del codice sorgente, test, supporto, oltre ad automazione e gestibilità in [Azure Resource Manager](../logic-apps/logic-apps-arm-provision.md) |
 | Esperienza di amministrazione |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Sicurezza |Procedure standard: [sovranità dei dati](https://wikipedia.org/wiki/Technological_Sovereignty), [crittografia dati inattivi](https://wikipedia.org/wiki/Data_at_rest#Encryption) per i dati sensibili e così via. |Garanzie di sicurezza di Azure: [Sicurezza di Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Centro sicurezza](https://azure.microsoft.com/services/security-center/), [log di controllo](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) e altro. |
@@ -82,15 +82,15 @@ La tabella seguente riepiloga le differenze tra Funzioni e Processi Web:
 | Prezzi |Pagamento a consumo o parte del piano di servizio app |Parte del piano di servizio app |
 | Tipo di esecuzione |Attivata, pianificata (da trigger timer) |Attivata, continua, pianificata |
 | Eventi di attivazione |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Hub eventi di Azure](functions-bindings-event-hubs.md), [HTTP/webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [App per dispositivi mobili del Servizio app di Azure](functions-bindings-mobile-apps.md), [Hub di notifica di Azure](functions-bindings-notification-hubs.md), [Bus di servizio di Azure](functions-bindings-service-bus.md), [Archiviazione di Azure](functions-bindings-storage.md) |[Archiviazione di Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Bus di servizio di Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
-| Sviluppo nel browser |x | |
-| Windows Scripting |sperimentale |x |
-| PowerShell |sperimentale |x |
-| C# |x |x |
-| F# |x | |
-| Bash |sperimentale |x |
-| PHP |sperimentale |x |
-| Python |sperimentale |x |
-| JavaScript |x |x |
+| Sviluppo nel browser |supportato | non supportato |
+| Windows Scripting |sperimentale |supportato |
+| PowerShell |sperimentale |supportato |
+| C# |supportato |supportato |
+| F# |supportato |non supportato |
+| Bash |sperimentale |supportato |
+| PHP |sperimentale |supportato |
+| Python |sperimentale |supportato |
+| JavaScript |supportato |supportato |
 
 L'uso di Funzioni o di Processi Web dipende in definitiva dalle operazioni che già si svolgono con il servizio app. Se è disponibile un'app del servizio app per cui si vogliono eseguire frammenti di codice e avere la possibilità di gestirli insieme nello stesso ambiente DevOps, è consigliabile usare Processi Web. Se si vogliono eseguire frammenti di codice per altri servizi di Azure o anche per app di terze parti oppure si vogliono gestire i frammenti di codice di integrazione separatamente dalle app del servizio app o ancora si vogliono chiamare i frammenti di codice da un'app per la logica, è consigliabile sfruttare tutti i miglioramenti disponibili in Funzioni.  
 

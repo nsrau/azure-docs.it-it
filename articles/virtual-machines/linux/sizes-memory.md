@@ -3,7 +3,7 @@ title: Dimensioni delle macchine virtuali Linux in Azure - Memoria | Documentazi
 description: Elenca le diverse dimensioni ottimizzate per la memoria per le macchine virtuali Linux disponibili in Azure.
 services: virtual-machines-linux
 documentationcenter: 
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
-ms.author: cynthn
-translationtype: Human Translation
+ms.date: 07/28/2017
+ms.author: jonbeck
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 7db935bb8e40c3ddd446a9a529f3886c5a221435
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 
@@ -39,3 +39,4 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su come le [unità di calcolo di Azure](../windows/acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.
+

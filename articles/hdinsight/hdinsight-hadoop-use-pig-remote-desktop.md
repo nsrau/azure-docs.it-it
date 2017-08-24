@@ -1,6 +1,6 @@
 ---
-title: Usare Pig di Hadoop con Desktop remoto in HDInsight | Documentazione Microsoft
-description: Informazioni su come usare il comando Pig per l&quot;esecuzione di istruzioni Pig Latin da una connessione Desktop remoto a un cluster Hadoop basato su Windows in HDInsight.
+title: Usare Pig di Hadoop con Desktop remoto in HDInsight - Azure | Microsoft Docs
+description: Informazioni su come usare il comando Pig per l'esecuzione di istruzioni Pig Latin da una connessione Desktop remoto a un cluster Hadoop basato su Windows in HDInsight.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,11 +16,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 543483b08b32b7a280979502c5548702995f90af
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9ab67d21b65323b7f927cb2197c0e123ebe3351e
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Eseguire processi Pig da una connessione Desktop remoto
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/12/2017
 Questo documento fornisce una procedura dettagliata dell'uso del comando Pig per l'esecuzione di istruzioni Pig Latin da una connessione Desktop remoto a un cluster HDInsight basato su Windows. Pig Latin consente di creare applicazioni MapReduce descrivendo le trasformazioni di dati, anziché eseguendo il mapping e la riduzione delle funzioni.
 
 > [!IMPORTANT]
-> Desktop remoto è disponibile solo nei cluster HDInsight che usano Windows come sistema operativo. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [HDInsight deprecato in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-deprecation-date).
+> Desktop remoto è disponibile solo nei cluster HDInsight che usano Windows come sistema operativo. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Per HDInsight 3.4 o versione successiva, vedere [Usare Pig con HDInsight e SSH](hdinsight-hadoop-use-pig-ssh.md) per informazioni sull'esecuzione interattiva di processi Pig sul cluster dalla riga di comando.
 
@@ -51,7 +51,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
     Verrà visualizzato un prompt dei comandi `grunt>` .
 3. Immettere la seguente istruzione:
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
 
     Questo comando carica i contenuti del file sample.log nel file LOGS. È possibile visualizzare i contenuti del file usando il seguente comando:
 
@@ -80,9 +80,9 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordina i livelli di registrazione in base al numero (decrescente) e memorizza i risultati in RESULT</td>
     </tr>
     </table>
-6. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE` . Ad esempio, il seguente comando salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster:
+6. È anche possibile salvare i risultati di una trasformazione usando `STORE` l'istruzione. Ad esempio, il seguente comando salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster:
 
-        STORE RESULT into 'wasbs:///example/data/pigout'
+        STORE RESULT into 'wasb:///example/data/pigout'
 
    > [!NOTE]
    > I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un messaggio di errore.
@@ -98,7 +98,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
 1. Dopo aver chiuso il prompt grunt, aprire il **Blocco note** e creare un nuovo file denominato **pigbatch.pig** nella directory **%PIG_HOME%**.
 2. Digitare o incollare le seguenti righe nel file **pigbatch.pig** e quindi salvarlo:
 
-        LOGS = LOAD 'wasbs:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
         GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;

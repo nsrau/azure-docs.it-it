@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di rete perimetrale: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall&quot;utente e un gruppo di sicurezza di rete | Documentazione Microsoft'
-description: Creare una rete perimetrale con un firewall, routing definito dall&quot;utente e un gruppo di sicurezza di rete
+title: 'Esempio di rete perimetrale: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall''utente e un gruppo di sicurezza di rete | Documentazione Microsoft'
+description: Creare una rete perimetrale con un firewall, routing definito dall'utente e un gruppo di sicurezza di rete
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 24d6a25e872eabb7d64d57d5ee66969401e4f1cd
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Esempio 3: Creare una rete perimetrale per proteggere le reti con un firewall, routing definito dall'utente e un gruppo di sicurezza di rete
@@ -25,7 +26,7 @@ ms.openlocfilehash: 24d6a25e872eabb7d64d57d5ee66969401e4f1cd
 
 Questo esempio illustra come creare una rete perimetrale con un firewall, quattro server Windows, routing definito dall'utente, inoltro IP e gruppi di sicurezza di rete. Illustra in dettaglio anche ogni comando rilevante per favorire una comprensione più approfondita di ogni passaggio. È disponibile anche una sezione sugli scenari di traffico con istruzioni dettagliate sul percorso seguito dal traffico attraverso i livelli di difesa della rete perimetrale. La sezione Riferimenti, infine, include tutto il codice e istruzioni complete per creare l'ambiente per testare e sperimentare vari scenari. 
 
-![Rete perimetrale bidirezionale con dispositivo virtuale di rete, gruppo di sicurezza di rete e routing definito dall'utente][1]
+![Rete perimetrale bidirezionale con appliance virtuale di rete, gruppo di sicurezza di rete e routing definito dall'utente][1]
 
 ## <a name="environment-setup"></a>Configurazione dell'ambiente
 In questo esempio è presente una sottoscrizione che include gli elementi seguenti:
@@ -84,7 +85,7 @@ Se nella tabella di route sono presenti due prefissi identici, di seguito è rip
 3. "Default" = route di sistema. La rete virtuale locale e le voci statiche sono quelle visualizzate nella tabella di route precedente.
 
 > [!NOTE]
-> È ora possibile utilizzare il routing definito dall'utente con ExpressRoute e i gateway VPN per forzare l'instradamento del traffico cross-premise in entrata e in uscita a un'appliance di rete virtuale.
+> È ora possibile usare il routing definito dall'utente con ExpressRoute e i gateway VPN per forzare l'instradamento del traffico tra sedi in entrata e in uscita a un'appliance virtuale di rete (NVA).
 > 
 > 
 
@@ -262,7 +263,7 @@ Il secondo oggetto prerequisito è costituito da oggetti servizio, che rappresen
 
 I valori possono essere modificati per rappresentare il servizio RDP per un server specifico. Per AppVM01 la regola RDP predefinita precedente dovrà essere modificata per riflettere i nuovi valori per il nome del servizio, la descrizione e la porta RDP esterna usati nel diagramma della figura 8. Si noti che le porte vengono modificate, dalla porta RDP 3389 predefinita alla porta esterna usata per questo server specifico, nel caso di AppVM01 la porta esterna 8025. Il servizio modificato è illustrato di seguito:
 
-![Regole AppVM01][6]
+![Regola AppVM01][6]
 
 Questo processo deve essere ripetuto per creare i servizi RDP per i server rimanenti, AppVM02, DNS01 e IIS01. La creazione di questi servizi renderà più semplice e intuitiva la creazione delle regole illustrata nella sezione successiva.
 
@@ -274,11 +275,11 @@ Questo processo deve essere ripetuto per creare i servizi RDP per i server riman
 ### <a name="firewall-rules-creation"></a>Creazione di regole del firewall
 In questo esempio si usano tre tipi di regole del firewall ognuna con icone distinte:
 
-Regola Application Redirect:  ![Icona di Application Redirect][7]
+La regola di reindirizzamento dell'applicazione: ![Icona di reindirizzamento dell'applicazione][7]
 
-Regola Destination NAT:  ![Icona di Destination NAT][8]
+Regola Destination NAT: ![Icona di Destination NAT][8]
 
-Regola Pass:  ![Icona di Pass][9]
+Regola Pass: ![Icona di Pass][9]
 
 Altre informazioni su queste regole sono disponibili sul sito Web Barracuda.
 
@@ -983,9 +984,4 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

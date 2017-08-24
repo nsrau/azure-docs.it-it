@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: d2e2effa9c215107cf0893a74df0b909fbf5d4c0
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -41,7 +42,7 @@ Per verificare se l'indirizzo IP *10.0.0.7* è disponibile in una rete virtuale 
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> Se si desidera eseguire il test del comando precedente in un ambiente sicuro, seguire le istruzioni in [Crea rete virtuale](virtual-networks-create-vnet-classic-portal.md) per creare una rete virtuale denominata *TestVnet* e assicurarsi che usi lo spazio degli indirizzi *10.0.0.0/8*.
+> Per testare il comando precedente in un ambiente sicuro, seguire le istruzioni in [Creare una rete virtuale (versione classica)](virtual-networks-create-vnet-classic-pportal.md) per creare una rete virtuale denominata *TestVnet* e assicurarsi che usi lo spazio degli indirizzi *10.0.0.0/8*.
 > 
 > 
 

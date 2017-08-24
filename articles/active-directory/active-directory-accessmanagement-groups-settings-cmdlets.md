@@ -1,6 +1,6 @@
 ---
 title: Configurare le impostazioni di gruppo usando i cmdlet di Azure Active Directory | Microsoft Docs
-description: Come gestire le impostazioni per i gruppi con i cmdlet di Azure Active Directory.
+description: Come gestire le impostazioni dei gruppi con i cmdlet di Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,23 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2017
-ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 49ba7e6d5d67b109632b08ce936357804c80da40
-ms.lasthandoff: 04/27/2017
-
+ms.date: 07/26/2017
+ms.author: rodejo
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 7dd4833000e8550b172e0451c48788b1e627a1fb
+ms.contentlocale: it-it
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 
 > [!IMPORTANT]
-> Questo contenuto si applica solo ai gruppi unificati, noti anche come gruppi di Office 365. Questi cmdlet sono attualmente in anteprima pubblica.
+> Questo contenuto si applica solo ai gruppi di Office 365. 
 
 Le impostazioni di Gruppi di Office 365 vengono configurare con un oggetto Settings e un oggetto SettingsTemplate. Inizialmente, nella directory non sarà presente alcun oggetto Settings. Ciò significa che la directory è configurata con le impostazioni predefinite. Per modificarle, è necessario creare un nuovo oggetto Settings usando un modello di impostazioni. I modelli di impostazioni sono definiti da Microsoft. Sono disponibili diversi modelli di impostazioni. Per configurare le impostazioni di gruppo per la directory, si userà il modello denominato "Group.Unified". Per configurare le impostazioni di gruppo per un singolo gruppo, usare il modello denominato "Group.Unified.Guest". Questo modello viene usato per gestire l'accesso guest a un gruppo. 
 
-I cmdlet fanno parte del modulo Azure Active Directory PowerShell V2. Per altre informazioni su questo modulo e per istruzioni su come scaricare e installare il modulo nel computer in uso, vedere [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (PowerShell di Azure Active Directory versione 2). Si noti che poiché questi cmdlet sono attualmente in anteprima pubblica, è necessario installare la versione di anteprima del modulo disponibile [qui](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.85).
+I cmdlet fanno parte del modulo Azure Active Directory PowerShell V2. Per altre informazioni su questo modulo e per istruzioni su come scaricare e installare il modulo nel computer in uso, vedere [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/) (PowerShell di Azure Active Directory versione 2). È possibile installare la release della versione 2 del modulo da [qui](https://www.powershellgallery.com/packages/AzureAD/).
+
+## <a name="retrieve-a-specific-settings-value"></a>Recuperare un valore di impostazione specifico
+Se si conosce il nome dell'impostazione da recuperare, è possibile usare il cmdlet seguente per recuperare il valore corrente dell'impostazione. In questo esempio viene recuperato il valore per un'impostazione denominata "UsageGuidelinesUrl". Più avanti in questo capitolo sono disponibili altre informazioni sulle impostazioni di directory e i rispettivi nomi.
+
+```powershell
+(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+```
 
 ## <a name="create-settings-at-the-directory-level"></a>Creare le impostazioni a livello di directory
 I passaggi seguenti consentono di creare le impostazioni a livello di directory, applicabili a tutti i gruppi unificati presenti nella directory stessa.
@@ -68,7 +75,7 @@ I passaggi seguenti consentono di creare le impostazioni a livello di directory,
 5. Infine, applicare le impostazioni:
   
   ```
-  New-AzureADDirectorySetting -DirectorySetting $settings
+  New-AzureADDirectorySetting -DirectorySetting $setting
   ```
 
 Al termine, il cmdlet restituisce l'ID del nuovo oggetto Settings:

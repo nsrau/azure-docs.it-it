@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/04/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 9bed9392502dae01724c4ca86b8c735ab60a2882
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 76de1d40e8c24abda33e99a137f4a6c263f60a8b
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -28,22 +30,25 @@ ms.openlocfilehash: 9bed9392502dae01724c4ca86b8c735ab60a2882
 > 
 > 
 
-Questo argomento è utile per i clienti che dispongono di un **endpoint di streaming** di tipo **Premium**. Per altre informazioni sui tipi di endpoint di streaming e la configurazione della rete CDN, vedere l'argomento [Streaming Endpoint overview](media-services-portal-manage-streaming-endpoints.md) (Panoramica sugli endpoint di streaming).
+Gli endpoint di streaming **Premium** sono ideali per i carichi di lavoro avanzati, in quanto offrono una capacità di larghezza di banda dedicata e scalabile. Per impostazione predefinita, i clienti con un endpoint di streaming **Premium** ottengono un'unità di streaming. L'endpoint di streaming può essere ridimensionato aggiungendo unità di streaming. Ogni unità di streaming fornisce all'applicazione capacità di larghezza di banda aggiuntiva. Per altre informazioni sui tipi di endpoint di streaming e la configurazione della rete CDN, vedere l'argomento [Streaming Endpoint overview](media-services-portal-manage-streaming-endpoints.md) (Panoramica sugli endpoint di streaming).
  
-Quando si dispone di un tipo **Premium** tipo, per impostazione predefinita si ottiene un'unità di streaming. Se è necessario ridimensionare l'endpoint di streaming, eseguire la procedura descritta in questo argomento.
+Questo argomento illustra come ridimensionare un endpoint di streaming.
 
 Per informazioni sui prezzi, vedere [Dettagli prezzi di Servizi multimediali](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 ## <a name="scale-streaming-endpoints"></a>Ridimensionare gli endpoint di streaming
 
-Per creare e modificare il numero di unità di streaming, seguire questa procedura:
+Per modificare il numero di unità di streaming, seguire questa procedura:
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
 2. Nella finestra **Impostazioni** selezionare **Endpoint di streaming**.
 3. Fare clic sull'endpoint di streaming da ridimensionare. 
+
+    [!NOTE] È possibile ridimensionare solo endpoint di streaming **Premium**.
+
 4. Spostare il dispositivo di scorrimento per specificare il numero di unità di streaming.
 
-![endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
+    ![endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Analizzare i percorsi di apprendimento di Servizi multimediali.
@@ -52,10 +57,5 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

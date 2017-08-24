@@ -1,5 +1,3 @@
-## <a name="create-a-service-namespace"></a>Creare uno spazio dei nomi del servizio
-
 Per iniziare a usare le code del bus di servizio in Azure, è innanzitutto necessario creare uno spazio dei nomi. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione. 
 
 Per creare uno spazio dei nomi:
@@ -16,6 +14,7 @@ Per creare uno spazio dei nomi:
 8. Fare clic su **Crea**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 ### <a name="obtain-the-management-credentials"></a>Ottenere le credenziali di gestione
+
 1. Nell'elenco degli spazi dei nomi fare clic sul nome dello spazio dei nomi appena creato.
 2. Nel pannello dello spazio dei nomi fare clic su **Criteri di accesso condivisi**.
 3. Nel pannello **Criteri di accesso condivisi** fare clic su **RootManageSharedAccessKey**.

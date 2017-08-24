@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: d7f6274b6c72827c0f73da816a524bc35a30bb27
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: d42045b1c354b7bd5f9299181aefd6d98fda382b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/07/2017
 
 ---
 
@@ -43,14 +43,14 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
         </div>
         </a>
     </li>
-     <li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=iot-hub">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="/media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -62,17 +62,17 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-csharp-csharp-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-simulated">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/dotnet.svg" alt="" />
+                            <img src="/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione all'hub IoT di Azure con .NET</h3>
+                        <h3>Introduzione ai dispositivi simulati</h3>
                     </div>
                 </div>
             </div>
@@ -80,17 +80,17 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-java-java-getstarted">
+        <a href="/azure/iot-hub/iot-hub-get-started-physical">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/java.svg" alt="" />
+                            <img src="/media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione all'hub IoT di Azure con Java</h3>
+                        <h3>Introduzione ai dispositivi fisici</h3>
                     </div>
                 </div>
             </div>
@@ -98,35 +98,17 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
         </a>
     </li>
     <li>
-        <a href="/azure/iot-hub/iot-hub-node-node-getstarted">
+        <a href="/azure/iot-hub/iot-hub-devguide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="/media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione all'hub IoT di Azure con Node.js</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/iot-hub/iot-hub-device-sdk-c-intro">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/c.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introduzione all'hub IoT con C</h3>
+                        <h3>Guida per sviluppatori</h3>
                     </div>
                 </div>
             </div>
@@ -159,11 +141,10 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
                         <h3>Lingue</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (servizio)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (dispositivi)</a></p>
+                        <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">SDK per dispositivi C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (servizio)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (dispositivi)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iothub/1.1.9/index.html">Nodo (servizio)</a></p>
-                        <p><a href="https://azure.github.io/azure-iot-sdk-node/azure-iot-device/1.1.9/index.html">Nodo (dispositivi)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">SDK per Node.js</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
@@ -178,6 +159,7 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
                         <h3>REST</h3>
                         <p><a href="/rest/api/iothub/iothubresource">REST (provider di risorse)</a></p>
                         <p><a href="/rest/api/iothub/deviceapi">REST (identità dispositivi)</a></p>
+                        <p><a href="/rest/api/iothub/devicetwinapi">REST (dispositivi gemelli)</a></p>
                         <p><a href="/rest/api/iothub/httpruntime">REST (messaggistica dei dispositivi)</a></p>
                         <p><a href="/rest/api/iothub/jobapi">REST (processi)</a></p>
                     </div>
@@ -186,6 +168,4 @@ Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Inte
         </div>
     </li>
 </ul>
-
-
 

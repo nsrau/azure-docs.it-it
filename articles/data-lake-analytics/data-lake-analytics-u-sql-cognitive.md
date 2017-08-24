@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-translationtype: Human Translation
-ms.sourcegitcommit: 21b4d574705d589406f50cac106a47ada71d24cd
-ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -26,11 +28,11 @@ ms.openlocfilehash: 596459e25f8ad072a55ad45a2f444c71b27fd60c
 Le funzionalità cognitive per U-SQL consentono agli sviluppatori di usare l'intelligence nei programmi di Big Data che creano. Processo complessivo in breve:
 
 * Usare l'istruzione REFERENCE ASSEMBLY per abilitare le funzionalità cognitive per lo script U-SQL
-* Uso dell'operazione PROCESS per l'utilizzo delle funzionalità cognitive 
+* Chiamare l'operazione PROCESS per usare le funzionalità cognitive 
 
 ## <a name="imaging-scenarios"></a>Scenari di creazione dell'immagine
 
-### <a name="a-simple-example-image-tagging"></a>Un semplice esempio: tag di immagine
+### <a name="example-image-tagging"></a>Esempio: tag di immagine
 
 L'esempio seguente illustra un uso end-to-end delle funzionalità di creazione dell'immagine per rilevare gli oggetti nelle immagini.
 
@@ -104,7 +106,7 @@ Si supponga di avere un input costituito da "Guerra e pace" di Leo Tolstoy.
         FROM @"/usqlext/samples/cognition/war_and_peace.csv"
         USING Extractors.Csv();
 
-### <a name="extract-key-phrases-for-each-paragraph"></a>Estrarre le frasi chiave da ogni paragrafo.
+### <a name="extract-key-phrases-for-each-paragraph"></a>Estrarre le frasi chiave da ogni paragrafo
 
     @keyphrase =
         PROCESS @WarAndPeace
@@ -150,10 +152,5 @@ Si supponga di avere un input costituito da "Guerra e pace" di Leo Tolstoy.
                 Chapter,
                 Text
         USING new Cognition.Text.SentimentAnalyzer(true);
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

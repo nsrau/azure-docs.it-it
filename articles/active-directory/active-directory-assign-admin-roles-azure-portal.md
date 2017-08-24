@@ -1,6 +1,6 @@
 ---
 title: Assegnazione dei ruoli di amministratore in Azure Active Directory | Documentazione Microsoft
-description: Illustra i ruoli di amministratore disponibili con Azure Active Directory e come assegnarli.
+description: "Il ruolo dell'amministratore può creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente o gestire i domini. Un utente a cui viene assegnato un ruolo amministrativo ha le stesse autorizzazioni in tutti i servizi cloud sottoscritti dall'organizzazione."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
-ms.author: femila
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: e8d3eb7e336383eb639e55656b26d881e8c2adb0
+ms.date: 07/25/2017
+ms.author: curtand
+ms.reviewer: Vince.Smith
+ms.custom: it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 633e34ec3cdc9cf881978bf513294ea2365145dd
 ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Assegnazione dei ruoli di amministratore in Azure Active Directory
@@ -35,7 +36,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **Amministratore fatturazione**: effettua acquisti, gestisce le sottoscrizioni, gestisce i ticket di supporto e monitora l'integrità del servizio.
 
-* **Amministratore di conformità**: gli utenti con questo ruolo hanno autorizzazioni di gestione nel Centro sicurezza e conformità di Office 365 e nell'Interfaccia di amministrazione di Exchange. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://microsoft.sharepoint.com/teams/adiamteam/_layouts/15/WopiFrame.aspx?sourcedoc={dae8d6f3-5990-46a2-b12b-4c0e561bc7cc}&action=view&wdAccPdf=1).
+* **Amministratore di conformità**: gli utenti con questo ruolo hanno autorizzazioni di gestione nel Centro sicurezza e conformità di Office 365 e nell'Interfaccia di amministrazione di Exchange. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Amministratore del servizio CRM**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft CRM Online, quando il servizio è presente, nonché la possibilità di gestire i ticket di supporto e monitorare l'integrità del servizio. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -140,8 +141,33 @@ Sono disponibili i ruoli di amministratore seguenti:
 ## <a name="details-about-the-global-administrator-role"></a>Dettagli sul ruolo di amministratore globale
 L'amministratore globale ha accesso a tutte le funzionalità amministrative. Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo di amministratore globale per la directory. Solo gli amministratori globali possono assegnare altri ruoli di amministratore.
 
+### <a name="to-add-a-colleague-as-a-global-administrator"></a>Per aggiungere un collega come amministratore globale
+
+1. Accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con un account di amministratore globale per la directory del tenant.
+
+   ![Apertura dell'interfaccia di amministrazione di Azure AD](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
+
+2. Selezionare **Users and groups (Utenti e gruppi) &gt; All users** (Tutti gli utenti)
+
+3. Trovare l'utente che si desidera designare come amministratore globale e aprire il pannello per tale utente.
+
+4. Nel pannello dell'utente selezionare **Ruolo della directory**.
+ 
+5. Nel pannello del ruolo della directory selezionare il ruolo **Amministratore globale** e salvare.
+
 ## <a name="assign-or-remove-administrator-roles"></a>Assegnare o rimuovere ruoli di amministratore
 Per informazioni su come assegnare ruoli amministrativi a un utente in Azure Active Directory, vedere [Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory](active-directory-users-assign-role-azure-portal.md).
+
+## <a name="deprecated-roles"></a>Ruoli deprecati
+
+I ruoli seguenti non devono essere usati. Questi ruoli sono stati deprecati e verranno rimossi da Azure AD in futuro.
+
+* Amministratore di licenze ad hoc
+* Autore di utenti verificati tramite posta elettronica
+* Aggiunta di dispositivi
+* Gestione dispositivi
+* Utenti di dispositivi
+* Aggiunta di dispositivi all'area di lavoro
 
 ## <a name="next-steps"></a>Passaggi successivi
 

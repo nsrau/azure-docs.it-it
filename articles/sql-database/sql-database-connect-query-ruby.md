@@ -1,81 +1,67 @@
 ---
-title: Connettersi al database SQL di Azure tramite Ruby | Documentazione Microsoft
-description: Presentazione di un esempio di codice Ruby da usare per connettersi al database SQL di Azure ed eseguire query.
+title: Usare Ruby per eseguire query sul database SQL di Azure | Microsoft Docs
+description: Questo argomento illustra come usare Ruby per creare un programma che si connette a un database SQL di Azure ed esegue query usando istruzioni Transact-SQL.
 services: sql-database
 documentationcenter: 
-author: ajlam
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 05/07/2017
-ms.author: andrela;sstein;carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 56f1b57798b073622d273b16975981b23a0ad55d
+ms.topic: hero-article
+ms.date: 07/14/2017
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 25ff9a9cfaa5494dbb006c84e235099fe51e6545
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="azure-sql-database-use-ruby-to-connect-and-query-data"></a>Database SQL di Azure: usare Ruby per connettersi ai dati ed eseguire query
+# <a name="use-ruby-to-query-an-azure-sql-database"></a>Usare Ruby per eseguire query su un database SQL di Azure
 
-Questa guida introduttiva illustra come usare [Ruby](https://Ruby.org) per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database da piattaforme Mac OS e Ubuntu Linux.
+Questa esercitazione introduttiva illustra come usare [Ruby](https://www.ruby-lang.org) per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.
 
-Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
+## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un database: portale](sql-database-get-started-portal.md)
-- [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+Per completare questa esercitazione introduttiva, accertarsi di avere i prerequisiti seguenti:
 
-## <a name="install-ruby-and-database-communication-libraries"></a>Installare le librerie di comunicazione Ruby e del database
+- un database SQL di Azure. Questa guida introduttiva usa le risorse create in una delle guide introduttive seguenti: 
 
-Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo con Ruby ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con Ruby, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server), selezionare **Ruby** e quindi il sistema operativo in uso.
+   - [Creare un database: portale](sql-database-get-started-portal.md)
+   - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+   - [Creare un database: PowerShell](sql-database-get-started-powershell.md)
 
-### <a name="mac-os"></a>**Mac OS**
-Aprire il terminale in uso e passare a una directory in cui si prevede di creare lo script Ruby. Immettere i comandi seguenti per installare **brew**, **FreeTDS** e **TinyTDS**.
+- Una [regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) per l'indirizzo IP pubblico del computer usato per questa esercitazione introduttiva.
+- Avere installato Ruby e il software correlato per il sistema operativo.
+    - **MacOS**: installare Homebrew, installare rbenv e ruby-build, installare Ruby e quindi installare FreeTDS. Vedere i [passaggi 1.2, 1.3, 1.4 e 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
+    - **Ubuntu**: installare i prerequisiti per Ruby, installare rbenv e ruby-build, installare Ruby e quindi installare FreeTDS. Vedere i [passaggi 1.2, 1.3, 1.4 e 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
-brew update
-brew install FreeTDS
-gem install tiny_tds
-```
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Aprire il terminale in uso e passare a una directory in cui si prevede di creare lo script Ruby. Immettere i comandi seguenti per installare **FreeTDS** e **TinyTDS**.
-
-```bash
-wget ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.27.tar.gz
-tar -xzf freetds-1.00.27.tar.gz
-cd freetds-1.00.27
-./configure --prefix=/usr/local --with-tdsver=7.3
-make
-make install
-gem install tiny_tds
-```
-
-## <a name="get-connection-information"></a>Ottenere informazioni di connessione
+## <a name="sql-server-connection-information"></a>Informazioni di connessione SQL Server
 
 Ottenere le informazioni di connessione necessarie per connettersi al database SQL di Azure. Nelle procedure successive saranno necessari il nome completo del server, il nome del database e le informazioni di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
-3. Nella pagina **Panoramica** per il database, verificare il nome completo del server, come mostrato nell'immagine seguente. È possibile passare il puntatore sul nome del server per visualizzare l'opzione **Fare clic per copiare**. 
+3. Nella pagina **Panoramica** del database esaminare il nome completo del server. È possibile passare il puntatore sul nome del server per visualizzare l'opzione **Fare clic per copiare**, come illustrato nell'immagine seguente:
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se si dimenticano le informazioni di accesso per il server, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.
-    
+4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.
 
-## <a name="select-data"></a>Selezionare i dati
-Usare il codice seguente per eseguire una query per individuare i primi 20 prodotti per categoria tramite la funzione [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) con un'istruzione Transact-SQL [SELECT](https://docs.microsoft.com/sql/t-sql/queries/select-transact-sql). Questa funzione TinyTDS::Client accetta una query e restituisce un set di risultati. Il set di risultati è iterato usando [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds). Sostituire il server, il database, il nome utente, e i parametri della password con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT.
+> [!IMPORTANT]
+> È necessario avere una regola del firewall impostata per l'indirizzo IP pubblico del computer su cui si esegue questa esercitazione. Se si usa un computer o un indirizzo IP pubblico diverso, creare una [regola del firewall a livello di server con il portale di Azure](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+
+## <a name="insert-code-to-query-sql-database"></a>Inserire il codice per eseguire query sul database SQL
+
+1. Nell'editor di testo preferito creare un nuovo file, **sqltest.rb**.
+
+2. Sostituire il contenuto con il codice seguente e aggiungere i valori appropriati per il server, il database, l'utente e la password.
 
 ```ruby
 require 'tiny_tds'
@@ -97,100 +83,20 @@ result.each do |row|
 end
 ```
 
-## <a name="insert-data"></a>Inserire dati
-Usare il codice seguente per inserire un nuovo prodotto nella tabella SalesLT.Product tramite la funzione [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) con un'istruzione Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Sostituire il server, il database, il nome utente, e i parametri della password con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT.
+## <a name="run-the-code"></a>Eseguire il codice
 
-Questo esempio illustra come eseguire un'istruzione INSERT in modo sicuro, come passare parametri che proteggono l'applicazione dalla vulnerabilità ad attacchi [SQL injection](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) e come recuperare il valore di [chiave primaria](https://docs.microsoft.com/sql/relational-databases/tables/primary-and-foreign-key-constraints) generato automaticamente.    
-  
-Per usare TinyTDS con Azure, si consiglia di eseguire diverse istruzioni `SET` per modificare la modalità di gestione di informazioni specifiche della sessione corrente. Le istruzioni consigliate `SET`vengono fornite nell’esempio di codice Ad esempio, `SET ANSI_NULL_DFLT_ON` consentirà a nuove colonne create di autorizzare valori nulli anche se lo stato di supporto di valori nulli della colonna non è indicato in modo esplicito.  
-  
-Per allinearlo con il formato [datetime](https://docs.microsoft.com/sql/t-sql/data-types/datetime-transact-sql) di Microsoft SQL Server, usare la funzione [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) per eseguire il cast nel formato datetime corrispondente.
+1. Al prompt dei comandi eseguire questi comandi:
 
-```ruby
-require 'tiny_tds'
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-client = TinyTds::Client.new username: username, password: password, 
-    host: server, port: 1433, database: database, azure: true
+   ```bash
+   ruby sqltest.rb
+   ```
 
-# settings for Azure
-result = client.execute("SET ANSI_NULLS ON")
-result = client.execute("SET CURSOR_CLOSE_ON_COMMIT OFF")
-result = client.execute("SET ANSI_NULL_DFLT_ON ON")
-result = client.execute("SET IMPLICIT_TRANSACTIONS OFF")
-result = client.execute("SET ANSI_PADDING ON")
-result = client.execute("SET QUOTED_IDENTIFIER ON")
-result = client.execute("SET ANSI_WARNINGS ON")
-result = client.execute("SET CONCAT_NULL_YIELDS_NULL ON")
+2. Verificare che vengano restituite le prime 20 righe e quindi chiudere la finestra dell'applicazione.
 
-def insert(name, productnumber, color, standardcost, listprice, sellstartdate)
-    tsql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) 
-        VALUES (N'#{name}', N'#{productnumber}',N'#{color}',N'#{standardcost}',N'#{listprice}',N'#{sellstartdate}')"
-    result = client.execute(tsql)
-    result.each
-    puts "#{result.affected_rows} row(s) affected"
-end
-insert('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')
-```
-
-## <a name="update-data"></a>Aggiornare i dati
-Usare il codice seguente per aggiornare il nuovo prodotto aggiunto in precedenza tramite la funzione [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) con un'istruzione Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Sostituire il server, il database, il nome utente, e i parametri della password con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT.
-
-```ruby
-require 'tiny_tds'
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-client = TinyTds::Client.new username: username, password: password, 
-    host: server, port: 1433, database: database, azure: true
-    
-def update(name, listPrice, client)
-    tsql = "UPDATE SalesLT.Product SET ListPrice = N'#{listPrice}' WHERE Name =N'#{name}'";
-    result = client.execute(tsql)
-    result.each
-    puts "#{result.affected_rows} row(s) affected"
-end
-update('BrandNewProduct', 500, client)
-```
-
-## <a name="delete-data"></a>Eliminare i dati
-Usare il codice seguente per eliminare il nuovo prodotto aggiunto in precedenza tramite la funzione [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) con un'istruzione Transact-SQL [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql). Sostituire il server, il database, il nome utente, e i parametri della password con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT.
-
-```ruby
-require 'tiny_tds'
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-client = TinyTds::Client.new username: username, password: password, 
-    host: server, port: 1433, database: database, azure: true
-
-# settings for Azure
-result = client.execute("SET ANSI_NULLS ON")
-result = client.execute("SET CURSOR_CLOSE_ON_COMMIT OFF")
-result = client.execute("SET ANSI_NULL_DFLT_ON ON")
-result = client.execute("SET IMPLICIT_TRANSACTIONS OFF")
-result = client.execute("SET ANSI_PADDING ON")
-result = client.execute("SET QUOTED_IDENTIFIER ON")
-result = client.execute("SET ANSI_WARNINGS ON")
-result = client.execute("SET CONCAT_NULL_YIELDS_NULL ON")
-
-def delete(name, client)
-    tsql = "DELETE FROM SalesLT.Product WHERE Name = N'#{name}'"
-    result = client.execute(tsql)
-    result.each
-    puts "#{result.affected_rows} row(s) affected"
-end
-delete('BrandNewProduct', client)
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Progettare il primo database SQL di Azure](sql-database-design-first-database.md)
 - [Repository GitHub per TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
-- [Segnalare problemi e porre domande](https://github.com/rails-sqlserver/tiny_tds/issues)
+- [Segnalare problemi o porre domande su TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues)
 - [Driver Ruby per SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
-
 

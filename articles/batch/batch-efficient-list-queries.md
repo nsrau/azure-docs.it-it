@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 08/02/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 791b7a22e5b7edd2e31f6ab01131530a8053ac2b
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: a80b207f591bd888d4749287527013c5e554fb6e
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creare query per elencare le risorse di Batch in modo efficiente
@@ -27,6 +27,13 @@ ms.lasthandoff: 02/28/2017
 Viene illustrato come migliorare le prestazioni dell'applicazione Azure Batch, riducendo la quantità di dati restituiti dal servizio quando si eseguono query su processi, attività e nodi di calcolo con la libreria [Batch .NET][api_net].
 
 Quasi tutte le applicazioni Batch devono eseguire un tipo di monitoraggio o un'altra operazione che esegue query sul servizio Batch, spesso a intervalli regolari. Per determinare ad esempio se sono ancora presenti attività in coda in un processo, è necessario ottenere dati per ogni attività nel processo. Per determinare lo stato dei nodi nel pool è necessario ottenere dati in ogni nodo nel pool. Questo articolo illustra come eseguire queste query nel modo più efficiente.
+
+> [!NOTE]
+> Il servizio Batch fornisce supporto speciale delle API per lo scenario comune di conteggio delle attività in un processo. Invece di usare una query di tipo elenco a questo scopo, è possibile chiamare l'operazione di [recupero del conteggio delle attività][rest_get_task_counts]. Questa operazione restituisce il numero di attività in sospeso, in esecuzione o completate, nonché di quelle riuscite e non riuscite. L'operazione di recupero dei conteggi delle attività è più efficiente di una query di tipo elenco. Per altre informazioni, vedere [Conteggiare le attività per un processo in base allo stato (anteprima)](batch-get-task-counts.md). 
+>
+> Questa operazione non è disponibile nelle versioni del servizio Batch precedenti alla 2017-06-01.5.1. Se si usa una versione meno recente del servizio, usare una query di tipo elenco per conteggiare le attività in un processo.
+>
+> 
 
 ## <a name="meet-the-detaillevel"></a>Definire livelli di dettaglio
 In un'applicazione Batch di produzione, le entità da elaborare, ad esempio processi, attività e nodi di calcolo, possono essere migliaia. Quando si richiedono informazioni su queste risorse, una grande quantità di dati deve "transitare" dal servizio Batch all'applicazione in ogni query. Limitando il numero di elementi e il tipo di informazioni restituiti da una query, è possibile aumentarne la velocità e quindi migliorare le prestazioni dell'applicazione.
@@ -293,3 +300,4 @@ Il [forum di Azure Batch][forum] su MSDN consente di seguire discussioni su Batc
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
+[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job

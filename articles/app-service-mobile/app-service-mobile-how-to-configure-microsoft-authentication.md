@@ -1,10 +1,10 @@
 ---
-title: Come configurare l&quot;autenticazione dell&quot;account Microsoft per un&quot;applicazione dei servizi app
-description: Informazioni su come configurare l&quot;autenticazione dell&quot;account Microsoft per un&quot;applicazione dei servizi app.
+title: Come configurare l'autenticazione dell'account Microsoft per un'applicazione dei servizi app
+description: Informazioni su come configurare l'autenticazione dell'account Microsoft per un'applicazione dei servizi app.
 author: mattchenderson
 services: app-service
 documentationcenter: 
-manager: adrianha
+manager: syntaxc4
 editor: 
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.service: app-service
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: 429e6f32a3bebe0e0759c675f61b9ee588e550d0
+ms.contentlocale: it-it
 ms.lasthandoff: 03/09/2017
-
 
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Come configurare l’applicazione del servizio app per usare l'account di accesso Microsoft
@@ -37,11 +37,11 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
    > [!NOTE]
    > L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso */.auth/login/microsoftaccount/callback*. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
    > Assicurarsi che sia in uso lo schema HTTPS.
-   > 
-   > 
+   
 7. In "Segreti applicazione" fare clic su **Genera nuova password**. Prendere nota del valore visualizzato. Una volta chiusa la pagina, il valore non verrà più mostrato.
 
-    > [AZURE.IMPORTANT] La password è una credenziale di sicurezza importante. Non condividerla con altri e non distribuirla all'interno di un'applicazione client.
+    > [!IMPORTANT]
+    > La password è una credenziale di sicurezza importante. Non condividerla con altri e non distribuirla all'interno di un'applicazione client.
 
 ## <a name="secrets"> </a>Aggiungere le informazioni dell'account Microsoft all'applicazione del servizio app
 1. Nel [portale di Azure] passare all'applicazione e fare clic su **Impostazioni** > **Autenticazione/Autorizzazione**.

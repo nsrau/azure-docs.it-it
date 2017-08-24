@@ -22,7 +22,6 @@
 ## Pianificare e progettare
 ### [Concetti relativi alla progettazione](active-directory-aadconnect-design-concepts.md)
 ### [Topologie per Azure AD Connect](active-directory-aadconnect-topologies.md)
-### [Single Sign-On](active-directory-aadconnect-sso.md)
 ### [Active Directory Federation Services in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Considerazioni speciali sulle istanze](active-directory-aadconnect-instances.md)
 ### [Quando si ha già Azure AD](active-directory-aadconnect-existing-tenant.md)
@@ -30,15 +29,28 @@
 ### [Rinnovare i certificati per Office 365 e Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Abilitare il writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md)
 ### [Opzioni di accesso utente](active-directory-aadconnect-user-signin.md)
+#### [Seamless Single Sign-On](active-directory-aadconnect-sso.md)
+##### [Avvio rapido](active-directory-aadconnect-sso-quick-start.md)
+##### [Come funziona?](active-directory-aadconnect-sso-how-it-works.md)
+##### [Domande frequenti](active-directory-aadconnect-sso-faq.md)
+##### [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-sso.md)
+#### [Autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md)
+##### [Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md)
+##### [Limitazioni correnti](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
+##### [Come funziona?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
+##### [Aggiornare gli agenti di anteprima](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
+##### [Blocco intelligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
+##### [Domande frequenti](active-directory-aadconnect-pass-through-authentication-faq.md)
+##### [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ### [Supporto di più domini per la federazione](active-directory-aadconnect-multiple-domains.md)
 ### [Aggiornamento automatico](active-directory-aadconnect-feature-automatic-upgrade.md)
+### [Usare un provider di identità SAML 2.0 per l'accesso Single Sign-On](active-directory-aadconnect-federation-saml-idp.md)
 
 
 
 ## Gestire il Servizio di sincronizzazione Azure AD Connect
 ### [Impedire eliminazioni accidentali](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md)
-### [Autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md)
 ### [Account del servizio Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installazione guidata](active-directory-aadconnectsync-installation-wizard.md)
 ### [Modificare la configurazione predefinita](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
@@ -70,7 +82,8 @@
 ### [Errore LargeObject provocato da userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Come eseguire il ripristino dal limite di 10 GB per LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Sincronizzazione delle identità e resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](active-directory-aadconnect-ports.md)
 ## [Funzionalità in anteprima](active-directory-aadconnect-feature-preview.md)
@@ -95,5 +108,8 @@
 
 
 # Risorse
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ##[Domande frequenti su Azure AD Connect](active-directory-aadconnect-faq.md)
 ##[Deprecazione di DirSync](active-directory-aadconnect-dirsync-deprecated.md)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+

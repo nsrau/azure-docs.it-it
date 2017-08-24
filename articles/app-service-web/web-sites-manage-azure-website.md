@@ -1,6 +1,6 @@
 ---
-title: Scalare un&quot;app Web in Servizio app di Azure
-description: Collegamenti a risorse per la gestione di un&quot;applicazione web nel servizio di applicazione Azure.
+title: Scalare un'app Web in Servizio app di Azure
+description: Collegamenti a risorse per la gestione di un'applicazione web nel servizio di applicazione Azure.
 services: app-service\web
 documentationcenter: 
 author: erikre
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
-translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 50630084a3df9bc1fed27efb41bc557d0e03916f
-ms.lasthandoff: 12/06/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9e19618a1b24bbdf3163ddfc3423c5c932dcd7af
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>Scalare un'app Web in Servizio app di Azure
@@ -45,8 +45,8 @@ Utilizzare il [portale di Azure](https://portal.azure.com/) per impostare varie 
 
 Oltre a tali impostazioni di configurazione di base, può essere opportuno configurare quanto segue:
 
-* **Secure Socket Layer (SSL)** . Per utilizzare SSL con un nome di dominio personalizzato, è necessario ottenere un certificato SSL e configurare il sito Web in modo tale che lo utilizzi. Vedere [Abilitazione di HTTPS per un'app Web nel servizio app di Azure](web-sites-configure-ssl-certificate.md).
-* **Nome di dominio personalizzato.**  L'applicazione web dispone automaticamente un sottodominio in azurewebsites.net. È possibile associare un nome di dominio personalizzato, ad esempio contoso.com. Vedere [Configurazione di un nome di dominio personalizzato nel servizio app di Azure](web-sites-custom-domain-name.md).
+* **Secure Socket Layer (SSL)** . Per utilizzare SSL con un nome di dominio personalizzato, è necessario ottenere un certificato SSL e configurare il sito Web in modo tale che lo utilizzi. Vedere [Abilitazione di HTTPS per un'app Web nel servizio app di Azure](app-service-web-tutorial-custom-ssl.md).
+* **Nome di dominio personalizzato.** L'applicazione web dispone automaticamente un sottodominio in azurewebsites.net. È possibile associare un nome di dominio personalizzato, ad esempio contoso.com. Vedere [Configurazione di un nome di dominio personalizzato nel servizio app di Azure](app-service-web-tutorial-custom-domain.md).
 
 Configurazione specifica per ciascun linguaggio:
 
@@ -77,10 +77,6 @@ Se non sono stati abilitati i backup automatici, è possibile creare un [backup 
 
 Valutare l'opportunità di applicare una [distribuzione a fasi](web-sites-staged-publishing.md). Questa opzione consente di pubblicare aggiornamenti a una distribuzione a fasi che viene eseguita in parallelo alla distribuzione di produzione. 
 
-Se si utilizza Visual Studio Team Services, è possibile configurare la distribuzione continua dal controllo codice sorgente:
-
-* [Utilizzo di Controllo della versione di Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
-* [Utilizzo di Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
 
 <!-- Anchors. -->
 

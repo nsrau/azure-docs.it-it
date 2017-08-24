@@ -1,6 +1,6 @@
 ---
-title: Formulare una domanda a cui i dati possono rispondere - Problemi di analisi scientifica dei dati - Azure | Documentazione Microsoft
-description: Informazioni su come formulare una domanda mirata sull&quot;analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
+title: Formulare una domanda a cui i dati possono rispondere - Problemi di data science - Azure Machine Learning | Microsoft Docs
+description: Informazioni su come formulare una domanda mirata sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Include un confronto delle domande di classificazione e regressione.
 keywords: problemi di analisi scientifica dei dati, domande di analisi scientifica dei dati, formulare domande, domande di regressione, domande di classificazione, domanda ben strutturata
 services: machine-learning
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2017
-ms.author: cgronlun;garye
-translationtype: Human Translation
-ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
-ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
-
+ms.date: 07/13/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 403c496d4f032d1f373dacc16868abb40f968b6f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Porre una domanda a cui è possibile rispondere con i dati
@@ -26,6 +27,7 @@ ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
 Informazioni su come formulare un problema come domanda sull'analisi scientifica dei dati in Analisi scientifica dei dati per principianti, video 3. Questo video include un confronto di domande per gli algoritmi di classificazione e regressione.
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
+<br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
 >
@@ -65,7 +67,7 @@ Se la domanda è "Quale sarà il prezzo di vendita del mio titolo la prossima se
 
 Se la domanda è "Quale auto del mio parco macchine avrà per prima un guasto?", sarà necessario assicurarsi che i dati includano informazioni sui guasti precedenti.
 
-![Dati di destinazione: esempi di risposta. Formulare una domanda di analisi scientifica dei dati.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-target-data.png)
+![Dati di destinazione: esempi di risposta. Formulare una domanda di analisi scientifica dei dati.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/target-data.png)
 
 Questi esempi di risposte sono detti destinazione. Una destinazione è ciò che si sta tentando di stimare in relazione ai punti dati futuri, se si tratta di una categoria o di un numero.
 
@@ -82,7 +84,7 @@ Per vedere come è possibile trasformare questi dati, si osserverà la domanda "
 
 La risposta a questa domanda può tuttavia essere semplice se la si riformula in "Quanto è interessante ogni notizia in questo elenco per il lettore?" A questo punto è possibile assegnare a ogni articolo un punteggio numerico e quindi è facile identificare quello con il punteggio più elevato. Si tratta di una riformulazione della domanda di classificazione in una domanda di regressione o di quantità.
 
-![Riformulare la domanda. Domanda di classificazione e domanda di regressione.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/machine-learning-data-science-classification-question-vs-regression-question.png)
+![Riformulare la domanda. Domanda di classificazione e domanda di regressione.](./media/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data/classification-question-vs-regression-question.png)
 
 Come si pone una domanda è un'indicazione per individuare l'algoritmo che può fornire una risposta.
 
@@ -97,9 +99,4 @@ Anche gli altri video della serie "Analisi scientifica dei dati per principianti
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](machine-learning-create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

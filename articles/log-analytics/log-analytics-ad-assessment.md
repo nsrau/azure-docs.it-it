@@ -1,6 +1,6 @@
 ---
-title: Ottimizzare l&quot;ambiente Active Directory con Log Analytics di Azure|Documentazione Microsoft
-description: "È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l&quot;integrità degli ambienti server a intervalli regolari."
+title: Ottimizzare l'ambiente Active Directory con Log Analytics di Azure|Documentazione Microsoft
+description: "È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,19 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/03/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: d50d25e4ea594b5231d29a862f3a98f07de70324
-ms.lasthandoff: 03/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Active Directory Assessment in Log Analytics
 
-È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari. Questo articolo consente di installare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
+![Simbolo di Valutazione AD](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
+
+È possibile usare la soluzione Active Directory Assessment per valutare i rischi e l'integrità degli ambienti server a intervalli regolari. Questo articolo descrive come installare e usare la soluzione in modo che si possano intraprendere azioni correttive per problemi potenziali.
 
 La soluzione offre un elenco con priorità di raccomandazioni specifiche per l'infrastruttura distribuita dei server, classificate in quattro aree di interesse che consentono di comprendere rapidamente il rischio e agire in maniera appropriata.
 
@@ -51,7 +53,21 @@ Usare le informazioni seguenti per installare e configurare le soluzioni.
   >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati per Active Directory Assessment
-Active Directory Assessment raccoglie dati WMI, dati del Registro di sistema e dati sulle prestazioni tramite gli agenti abilitati.
+
+Valutazione Active Directory raccoglie i dati dalle origini seguenti tramite gli agenti abilitati:
+
+- Agenti di raccolta del Registro di sistema
+- Agenti di raccolta LDAP
+- .NET Framework
+- Agenti di raccolta del registro eventi
+- Active Directory Service Interfaces (ADSI)
+- Windows PowerShell
+- Agenti di raccolta dei dati di file
+- Strumentazione gestione Windows (WMI)
+- API dello strumento DCDIAG
+- API di File Replication Service (NTFRS)
+- Codice personalizzato in C#
+
 
 La tabella seguente illustra i metodi di raccolta dati per gli agenti, se Operations Manager (SCOM) è obbligatorio e la frequenza con cui i dati vengono raccolti da un agente.
 
@@ -60,7 +76,7 @@ La tabella seguente illustra i metodi di raccolta dati per gli agenti, se Operat
 | Windows |![Sì](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Sì](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Sì](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 giorni |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Informazioni sulla classificazione in ordine di priorità delle raccomandazioni
-A ogni raccomandazione generata viene assegnato un valore di ponderazione che identifica l'importanza relativa della raccomandazione. Vengono visualizzate solo le dieci raccomandazioni più importanti.
+A ogni raccomandazione generata viene assegnato un valore di ponderazione che identifica l'importanza relativa della raccomandazione. Vengono visualizzate solo le 10 raccomandazioni più importanti.
 
 ### <a name="how-weights-are-calculated"></a>Come vengono calcolate le ponderazioni
 Le ponderazioni sono valori aggregati che si basano su tre fattori chiave:
@@ -69,7 +85,7 @@ Le ponderazioni sono valori aggregati che si basano su tre fattori chiave:
 * L' *impatto* del problema per l'organizzazione se causa effettivamente un problema. Un impatto più elevato equivale a un punteggio complessivamente maggiore per la raccomandazione.
 * Il *lavoro* richiesto per implementare la raccomandazione. Un lavoro richiesto più elevato equivale a un punteggio complessivamente inferiore per la raccomandazione.
 
-La ponderazione per ogni raccomandazione è espressa come percentuale del punteggio totale disponibile per ogni area di interesse. Ad esempio, se una raccomandazione nell'area di interesse relativa a sicurezza e conformità ha un punteggio pari al 5%, l'implementazione della raccomandazione aumenterà del 5% il punteggio complessivo di quell'area.
+La ponderazione per ogni raccomandazione è espressa come percentuale del punteggio totale disponibile per ogni area di interesse. Ad esempio, se una raccomandazione nell'area di interesse Sicurezza e conformità ha un punteggio pari al 5%, l'implementazione della raccomandazione aumenta del 5% il punteggio complessivo di quell'area.
 
 ### <a name="focus-areas"></a>Aree di interesse
 **Sicurezza e conformità** : quest'area di interesse descrive raccomandazioni relative alle potenziali minacce e violazioni della sicurezza, ai criteri aziendali e ai requisiti di conformità tecnici, legali e normativi.
@@ -95,7 +111,7 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 2. Nella pagina **Assessment** verificare le informazioni di riepilogo in uno dei pannelli dell'area di interesse, quindi fare clic su un'area specifica per visualizzare le raccomandazioni corrispondenti.
 3. In una delle pagine relative alle aree di interesse è possibile visualizzare le raccomandazioni relative all'ambiente specifico, classificate in ordine di priorità. Fare clic su una raccomandazione in **Affected Objects** (Oggetti interessati) per visualizzare i dettagli relativi al motivo per cui è stata generata.  
     ![immagine delle raccomandazioni di Assessment (Valutazione)](./media/log-analytics-ad-assessment/ad-focus.png)
-4. È possibile eseguire le azioni correttive suggerite in **Suggested Actions**(Azioni suggerite). Dopo la risoluzione dell'elemento, le valutazioni successive indicheranno che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
+4. È possibile eseguire le azioni correttive suggerite in **Suggested Actions**(Azioni suggerite). Dopo la risoluzione dell'elemento, le valutazioni successive indicano che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
 
 ## <a name="ignore-recommendations"></a>Ignorare le raccomandazioni
 Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS userà per impedirne la visualizzazione nei risultati della valutazione.
@@ -106,6 +122,10 @@ Per ignorare delle raccomandazioni è possibile creare un file di testo che OMS 
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
    Ecco lo screenshot che mostra la query di ricerca nei log: ![raccomandazioni con esito negativo](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Scegliere le raccomandazioni da ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
@@ -125,6 +145,11 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
+>
+> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 2. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
 
 ## <a name="ad-assessment-solutions-faq"></a>Domande frequenti sulle soluzioni AD Assessment

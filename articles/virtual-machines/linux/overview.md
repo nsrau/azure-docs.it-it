@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
-ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 704403704bd52ba1fe1815345708ab4d2d2547af
-ms.lasthandoff: 04/04/2017
+ms.custom: H1Hack27Feb2017, mvc
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -51,7 +52,6 @@ Con Macchine virtuali di Azure è possibile distribuire in modo flessibile un'am
 Quando si distribuisce una VM in Azure, si selezionano le dimensioni della VM in una delle serie di dimensioni adatte per il proprio carico di lavoro. Le dimensioni influiscono anche sulla potenza di elaborazione, sulla memoria e sulla capacità di archiviazione della macchina virtuale. I costi vengono addebitati in base alla quantità di tempo in cui la VM è in esecuzione e utilizza le risorse allocate. Elenco completo delle [dimensioni delle macchine virtuali](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Ecco alcune linee guida fondamentali per la selezione delle dimensioni di una VM da una delle serie disponibili (A, D, DS, G e GS).
-
 * Le VM serie A sono VM di fascia bassa con prezzi vantaggiosi per carichi di lavoro leggeri e scenari di sviluppo e test. Sono ampiamente disponibili in tutte le aree e possono connettersi e usare tutte le risorse standard disponibili per le macchine virtuali.
 * Le dimensioni della serie A (A8 - A11) sono speciali configurazioni a elevato utilizzo di calcolo adatte per applicazioni di cluster di calcolo ad alte prestazioni.
 * Le macchine virtuali serie D sono progettate per eseguire le applicazioni che richiedono maggiore potenza di calcolo e prestazioni del disco temporaneo. Le macchine virtuali serie D forniscono processori più veloci, un rapporto tra memoria e memoria centrale superiore e un'unità SSD ( solid-state drive) per il disco temporaneo.
@@ -68,7 +68,7 @@ Per ottenere le impostazioni cultura DevOps corrette, l'intera infrastruttura de
 * [Modelli di Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Azure sta implementando il supporto per [cloud-init](http://cloud-init.io/) nella maggior parte delle implementazioni Linux che lo supportano.  Attualmente le VM Ubuntu di Canonical vengono distribuite con cloud-init abilitato per impostazione predefinita.  Fedora, CentOS e RedHats RHEL supportano cloud-init, tuttavia nelle immagini Azure gestite tramite RedHat non è installato cloud-init.  Per usare cloud-init in un sistema operativo della famiglia RedHat, è necessario creare un'immagine personalizzata con cloud-init installato.
+Azure sta implementando il supporto per [cloud-init](http://cloud-init.io/) nella maggior parte delle implementazioni Linux che lo supportano.  Attualmente le VM Ubuntu di Canonical vengono distribuite con cloud-init abilitato per impostazione predefinita.  RedHats RHEL, CentOS e Fedora supportano cloud-init, ma cloud-init non è installato nelle immagini di Azure gestite tramite RedHat.  Per usare cloud-init in un sistema operativo della famiglia RedHat, è necessario creare un'immagine personalizzata con cloud-init installato.
 
 * [Uso di cloud-init nelle macchine virtuali Linux di Azure](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -93,14 +93,14 @@ Microsoft collabora con i partner per verificare che le immagini disponibili ven
 * Docker - [Azure Marketplace - Azure Container Service con Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-## <a name="getting-setup-on-azure"></a>Configurazione in Azure
+## <a name="getting-started-with-linux-on-azure"></a>Introduzione a Linux in Azure
 Per iniziare a usare Azure, è necessario un account Azure, aver installato l'interfaccia della riga di comando di Azure e disporre di una coppia di chiavi pubblica e privata SSH.
 
 ### <a name="sign-up-for-an-account"></a>Iscriversi per ottenere un account
 Il primo passaggio quando si usa il cloud di Azure è effettuare l'iscrizione per un account Azure.  Per iniziare, accedere alla pagina relativa alla [creazione di un account Azure](https://azure.microsoft.com/pricing/free-trial/) .
 
 ### <a name="install-the-cli"></a>Installare l'interfaccia della riga di comando
-Con il nuovo account di Azure, è possibile iniziare a usare immediatamente il portale di Azure, che è un pannello di amministrazione basato sul Web.  Per gestire il cloud di Azure tramite la riga di comando, installare `azure-cli`.  Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install) sulla workstation Mac o Linux in uso.
+Con il nuovo account di Azure, è possibile iniziare a usare immediatamente il portale di Azure, che è un pannello di amministrazione basato sul Web.  Per gestire il cloud di Azure tramite la riga di comando, installare `azure-cli`.  Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) nella workstation Mac o Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
 A questo punto si dispone di un account Azure, del portale Web di Azure e dell'interfaccia della riga di comando di Azure.  Il passaggio successivo consiste nel creare una coppia di chiavi SSH per accedere tramite SSH in Linux senza specificare una password.  [Creare le chiavi SSH in Linux e Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per abilitare gli accessi senza password e migliorare la sicurezza.
@@ -118,8 +118,6 @@ La creazione di una VM Linux nel portale Web di Azure consente di selezionare fa
 ### <a name="login-using-ssh-without-a-password"></a>Accesso tramite SSH senza una password
 La VM è ora in esecuzione in Azure ed è possibile eseguire l'accesso.  L'uso di password per l'accesso tramite SSH non è sicuro e richiede tempo.  L'uso delle chiavi SSH è il modo più sicuro e rapido per eseguire l'accesso.  Quando si crea una VM Linux tramite il portale o l'interfaccia della riga di comando, sono disponibili due opzioni di autenticazione.  Se si sceglie una password per SSH, Azure configura la VM in modo da consentire gli accessi tramite password.  Se si sceglie di usare una chiave pubblica SSH, Azure configura la VM per consentire solo gli accessi tramite le chiavi SSH e disabilita gli accessi tramite password. Per proteggere la VM Linux consentendo solo gli accessi tramite le chiavi SSH, usare l'opzione di chiave pubblica SSH durante la creazione della VM nel portale o nell'interfaccia della riga di comando.
 
-* [Disabilitare le password SSH nella VM Linux configurando SSHD](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 ## <a name="related-azure-components"></a>Componenti di Azure correlati
 ## <a name="storage"></a>Archiviazione
 * [Introduzione ad Archiviazione di Microsoft Azure](../../storage/storage-introduction.md)
@@ -135,7 +133,7 @@ La VM è ora in esecuzione in Azure ed è possibile eseguire l'accesso.  L'uso d
 ## <a name="containers"></a>Contenitori
 * [Macchine virtuali e contenitori in Azure](containers.md)
 * [Introduzione al servizio contenitore di Azure](../../container-service/container-service-intro.md)
-* [Distribuire un cluster del servizio contenitore di Azure](../../container-service/container-service-deployment.md)
+* [Distribuire un cluster del servizio contenitore di Azure](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Quella descritta è panoramica di Linux in Azure.  Il passaggio successivo consiste nella creazione di alcune macchine virtuali.

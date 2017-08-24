@@ -3,7 +3,7 @@ title: Panoramica del servizio di inoltro di Azure e dei relativi vantaggi | Mic
 description: Panoramica del servizio di inoltro di Azure
 services: service-bus-relay
 documentationcenter: .net
-author: banisadr
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 03/09/2017
-ms.author: babanisa;sethm
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
-ms.lasthandoff: 03/10/2017
+ms.date: 06/14/2017
+ms.author: sethm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="what-is-azure-relay"></a>Che cos'è il servizio di inoltro di Azure?
+
 Il servizio di inoltro di Azure semplifica le applicazioni ibride consentendo di esporre in modo sicuro nel cloud pubblico i servizi che risiedono in una rete aziendale, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale. Il servizio di inoltro supporta un'ampia gamma di protocolli di trasporto e standard dei servizi Web.
 
 Il servizio di inoltro supporta il tradizionale traffico unidirezionale, richiesta/risposta e peer-to-peer. Supporta inoltre la distribuzione degli eventi nell'ambito di Internet per abilitare scenari di pubblicazione/sottoscrizione e le comunicazioni tramite socket bidirezionale per migliorare l'efficienza point-to-point. 
@@ -47,15 +49,19 @@ Sia le connessioni ibride che gli inoltri WCF consentono la connessione sicura a
 | **Più modelli di programmazione RPC** | |x |
 
 ## <a name="hybrid-connections"></a>Connessioni ibride
+
 La funzionalità [Connessioni ibride del servizio di inoltro di Azure](relay-hybrid-connections-protocol.md) è un'evoluzione sicura basata su protocolli aperti delle funzionalità di inoltro esistenti e può essere implementata in qualsiasi piattaforma e linguaggio con funzionalità WebSocket di base. Questo include esplicitamente l'API WebSocket dei comuni Web browser. La funzionalità Connessioni ibride è basata su HTTP e WebSocket.
 
 ## <a name="wcf-relays"></a>Inoltri WCF
+
 L'inoltro WCF si applica all'intero .NET Framework (NETFX) e a WCF. È possibile avviare la connessione tra il servizio locale e il servizio di inoltro usando una suite di associazioni di "inoltro" WCF. Dietro le quinte, eseguire il mapping delle associazioni di inoltro ai nuovi elementi di associazione di trasporto progettati per creare i componenti di canale WCF che si integrano con il bus di servizio nel cloud.
 
 ## <a name="service-history"></a>Storia del servizio
-Le connessioni ibride sostituiscono la precedente funzionalità con nome simile di "Servizi BizTalk", basata sull'inoltro WCF del bus di servizio di Azure. La nuova funzionalità Connessioni ibride è complementare all'inoltro WCF esistente e nel prossimo futuro queste due funzionalità coesisteranno fianco a fianco nel servizio di inoltro. Condividono un gateway comune, ma costituiscono per il resto implementazioni diverse.
+
+Le connessioni ibride sostituiscono la precedente funzionalità con nome simile di "Servizi BizTalk", basata sull'inoltro WCF del bus di servizio di Azure. La nuova funzionalità Connessioni ibride è complementare all'inoltro WCF esistente e nel prossimo futuro queste due funzionalità coesisteranno fianco a fianco nel servizio di inoltro di Azure. Condividono un gateway comune, ma costituiscono per il resto implementazioni diverse.
 
 ## <a name="next-steps"></a>Passaggi successivi:
+
 * [Domande frequenti sul servizio di inoltro](relay-faq.md)
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)

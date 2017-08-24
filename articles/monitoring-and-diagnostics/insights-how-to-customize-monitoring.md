@@ -2,7 +2,7 @@
 title: Panoramica delle metriche in Microsoft Azure | Microsoft Docs
 description: Informazioni su come personalizzare i grafici di monitoraggio in Azure.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2015
+ms.date: 06/06/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c9f907e55664e266fe994fb851ce744679dfb3e4
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Panoramica delle metriche in Microsoft Azure
-Tutti i servizi di Azure tengono traccia delle metriche chiave che consentono di monitorare l'integrità, le prestazioni, la disponibilità e l'utilizzo dei dispositivi. È possibile visualizzare queste metriche nel portale di Azure e usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per accedere al set completo di metriche a livello di codice.
+Tutti i servizi di Azure tengono traccia delle metriche chiave che consentono di monitorare l'integrità, le prestazioni, la disponibilità e l'utilizzo dei dispositivi. È possibile visualizzare queste metriche nel portale di Azure e usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) o [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) per accedere al set completo di metriche a livello di codice.
 
 Per alcuni servizi, potrebbe essere necessario attivare la diagnostica per visualizzare le metriche. Per altri, ad esempio le macchine virtuali, si otterrà un set di metriche di base, ma sarà necessario abilitare le metriche ad alta frequenza del set completo. Per altre informazioni, vedere [Abilitare il monitoraggio e la diagnostica](insights-how-to-use-diagnostics.md) .
 
@@ -29,7 +30,7 @@ Per alcuni servizi, potrebbe essere necessario attivare la diagnostica per visua
 È possibile rappresentare in un grafico qualsiasi metrica in un periodo di tempo scelto.
 
 1. Nel [portale di Azure](https://portal.azure.com/)fare clic su **Sfoglia**e quindi su una risorsa che si intende monitorare.
-2. La sezione **Monitoraggio** include le metriche più importanti per ogni risorsa di Azure. Ad esempio, un'app Web contiene **Richieste ed errori**, mentre una macchina virtuale includerebbe **Percentuale CPU** e **Lettura e scrittura disco**:  ![Sezione Monitoraggio](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
+2. La sezione **Monitoraggio** include le metriche più importanti per ogni risorsa di Azure. Ad esempio, un'app Web contiene **Richieste ed errori**, mentre una macchina virtuale includerebbe **Percentuale CPU** e **Lettura e scrittura disco**: ![Sezione Monitoraggio](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 3. Facendo clic su un grafico qualsiasi viene visualizzato il pannello **Metrica** . Nel pannello, oltre al grafico, c'è una tabella che mostra le aggregazioni delle metriche (ad esempio, valore medio, minimo e massimo per l'intervallo di tempo scelto). Sotto si trovano le regole di avviso per la risorsa.
     ![Pannello Metrica](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 4. Per personalizzare le righe visualizzate, fare clic sul pulsante **Modifica** nel grafico o sul comando **Modifica grafico** nel pannello Metrica.
@@ -48,7 +49,7 @@ Con la personalizzazione avanzata del portale è possibile aggiungere tutti i gr
 
 1. Nel menu **...** nella parte superiore del pannello fare clic su **Aggiungi riquadri**:  
     ![Menu di aggiunta](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. È quindi possibile selezionare un grafico nella **Raccolta** a destra dello schermo:  ![Raccolta](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. È quindi possibile selezionare un grafico nella **Raccolta** a destra dello schermo: ![Raccolta](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Se la metrica desiderata non è visibile, è sempre possibile aggiungere una delle metriche preimpostate e fare cli su **Modifica** per visualizzare nel grafico la metrica necessaria.
 
 ## <a name="monitoring-usage-quotas"></a>Monitoraggio delle quote di utilizzo
@@ -58,7 +59,7 @@ La maggior parte delle metriche mostrano le tendenze nel tempo, ma alcuni dati, 
 
 ![Utilizzo](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
-Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) per accedere a livello di codice al set completo di quote di utilizzo.
+Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) o [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) per accedere a livello di codice al set completo di quote di utilizzo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Ricevere notifiche di avviso](insights-receive-alert-notifications.md) ogni volta che una metrica supera una soglia.
@@ -67,10 +68,5 @@ Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com
 * [Monitorare le prestazioni dell'applicazione](../application-insights/app-insights-azure-web-apps.md) se si desidera comprendere esattamente il comportamento del codice nel cloud.
 * Usare [Application Insights per app JavaScript e pagine Web](../application-insights/app-insights-web-track-usage.md) per ottenere l'analisi client sui browser che visitano una pagina Web.
 * [Monitorare la disponibilità e i tempi di risposta di qualsiasi pagina Web](../application-insights/app-insights-monitor-web-app-availability.md) con Application Insights per definire se la pagina è inattiva.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

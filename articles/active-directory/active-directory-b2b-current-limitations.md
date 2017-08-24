@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 05/23/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: cdc951d4e16e7f0df425dba7c33d86255276f526
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 581e5d1fb5fb08d0dc89ed2c85edcb5f0005650b
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -27,13 +28,10 @@ ms.lasthandoff: 04/13/2017
 Collaborazione B2B di Azure Active Directory (Azure AD) è soggetta alle limitazioni descritte in questo articolo.
 
 ## <a name="possible-double-multi-factor-authentication"></a>Possibile autenticazione a più fattori doppia
-Con B2B di Azure AD è possibile imporre l'autenticazione a più fattori dell'organizzazione delle risorse (l'organizzazione che invita). I motivi di questo approccio vengono descritti nel dettaglio in [Accesso condizionale per gli utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md). Se un partner ha quindi già configurato e imposto l'autenticazione a più fattori, è possibile che gli utenti del partner debbano eseguire l'autenticazione una volta nella propria organizzazione e di nuovo nell'organizzazione principale.
-
-Nelle versioni future verranno introdotti criteri con cui sarà possibile evitare l'autenticazione doppia scegliendo di considerare attendibile l'autenticazione a più fattori del partner.
-
+Con B2B di Azure AD è possibile imporre l'autenticazione a più fattori dell'organizzazione delle risorse (l'organizzazione che invita). I motivi di questo approccio vengono descritti nel dettaglio in [Accesso condizionale per gli utenti di Collaborazione B2B](active-directory-b2b-mfa-instructions.md). Se un partner ha già configurato e applicato l'autenticazione a più fattori, è possibile che i rispettivi utenti debbano eseguire l'autenticazione una volta nella propria organizzazione e di nuovo nell'organizzazione di destinazione.
 
 ## <a name="instant-on"></a>Immediatezza
-Nei flussi di Collaborazione B2B gli utenti vengono aggiunti alla directory e aggiornati in modo dinamico durante il riscatto dell'invito, l'assegnazione di app e così via. Le operazioni di aggiornamento e scrittura vengono eseguite generalmente in un'istanza della directory e devono essere replicate in tutte le istanze. Può trascorre del tempo prima che la replica sia completata. A volte si sono verificati problemi di autorizzazione, quando l'oggetto viene scritto o aggiornato in un'istanza della directory e la chiamata per recuperare tale oggetto ha carico bilanciato in un'altra istanza. Abbiamo lavorato molto per eliminare o ridurre queste latenze di replica. È possibile che, in casi rari, si verifichino ancora problemi di questo genere. In tal caso, aggiornare o riprovare. Se si sta scrivendo un'app usando l'API, è consigliabile riprovare, interrompendo temporaneamente, per risolvere il problema.
+Nei flussi di Collaborazione B2B gli utenti vengono aggiunti alla directory e aggiornati in modo dinamico durante il riscatto dell'invito, l'assegnazione di app e così via. Le operazioni di aggiornamento e scrittura vengono eseguite generalmente in un'istanza della directory e devono essere replicate in tutte le istanze. La replica viene completata quando tutte le istanze sono state aggiornate. In alcuni casi, quando un oggetto viene scritto o aggiornato in un'istanza e la chiamata per il recupero dell'oggetto viene effettuata a un'altra istanza, è possibile che si verifichino latenze della replica. In tal caso, aggiornare o riprovare. Se si sta scrivendo un'app usando l'API, è consigliabile riprovare, interrompendo temporaneamente, per risolvere il problema.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

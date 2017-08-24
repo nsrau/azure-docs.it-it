@@ -1,14 +1,18 @@
 # [Panoramica](media-services-overview.md)
+## [Scenari e disponibilità](scenarios-and-availability.md)
 ## [Concetti](media-services-concepts.md)
 
-# Introduzione
+# Attività iniziali
 ## [Creare e gestire gli account](media-services-portal-create-account.md)
 ## [Configurare l'ambiente di sviluppo](media-services-set-up-computer.md)
-###[.NET](media-services-dotnet-how-to-use.md)
-###[REST](media-services-rest-how-to-use.md)  
-## Connessione a livello di codice
-### [.NET](media-services-dotnet-connect-programmatically.md)
-### [REST](media-services-rest-connect-programmatically.md)
+### [.NET](media-services-dotnet-how-to-use.md)
+### [REST](media-services-rest-how-to-use.md)  
+## [Usare l'autorizzazione AAD per accedere all'API](media-services-use-aad-auth-to-access-ams-api.md)
+### [Usare il portale per gestire l'autorizzazione AAD](media-services-portal-get-started-with-aad.md)
+### [Accedere all'API con .NET](media-services-dotnet-get-started-with-aad.md)
+### [Accedere all'API con REST](media-services-rest-connect-with-aad.md)
+### [Usare l'interfaccia della riga di comando per creare e configurare l'app AAD](media-services-cli-create-and-configure-aad-app.md)
+### [Usare PowerShell per creare e configurare l'app AAD](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Distribuire video su richiesta
 ### [Portale](media-services-portal-vod-get-started.md)
@@ -21,9 +25,6 @@
 
 # Procedure
 ## Gestisci
-### Account
-#### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](/rest/api/media/mediaservice)
 ### Entità
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
@@ -107,7 +108,6 @@
 ### [Codificatori locali](media-services-live-streaming-with-onprem-encoders.md)
 #### [Portale](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Streaming live con il codificatore cloud](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -127,16 +127,15 @@
 ### [Panoramica del modello di licenza Widevine](media-services-widevine-license-template-overview.md)
 ### [Distribuzione di licenze DRM](media-services-deliver-keys-and-licenses.md)
 ### [Uso di partner per distribuire licenze Widevine a Servizi multimediali](media-services-licenses-partner-integration.md)
+#### [Uso di Axinom per distribuire licenze Widevine a Servizi multimediali](media-services-axinom-integration.md)
+#### [Uso di castLabs per distribuire licenze Widevine a Servizi multimediali](media-services-castlabs-integration.md)
 ### [Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
 ### [Trasmettere i contenuti HLS in modo protetto con Apple FairPlay](media-services-protect-hls-with-fairplay.md)
+### [Progettazione ibrida del sottosistema DRM](hybrid-design-drm-sybsystem.md)
 ### [CENC con Multi-DRM e controllo di accesso](media-services-cenc-with-multidrm-access-control.md)
-### [Uso di Axinom per distribuire licenze Widevine a Servizi multimediali](media-services-axinom-integration.md)
-### [Uso di castLabs per distribuire licenze Widevine a Servizi multimediali](media-services-castlabs-integration.md)
-
-### Distribuzione degli asset
-#### Configurare i criteri di distribuzione degli asset
-##### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-##### [REST](media-services-rest-configure-asset-delivery-policy.md)
+### Configurare i criteri di distribuzione degli asset
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### Creare entità ContentKey
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
@@ -149,6 +148,7 @@
 ### [Analizzare i file multimediali usando il portale](media-services-portal-analyze.md)
 ### [Elaborare con Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Elaborare con Indexer](media-services-index-content.md)
+#### [Set di impostazioni per le attività](indexer-task-preset.md)
 ### [Elaborare con Hyperlapse](media-services-hyperlapse-content.md)
 ### [Elaborare con Face Detector](media-services-face-and-emotion-detection.md)
 ### [Elaborare con Motion Detector](media-services-motion-detection.md)
@@ -165,7 +165,6 @@
 ### [Elaborazione di contenuti multimediali](media-services-scale-media-processing-overview.md)
 #### [Portale](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Endpoint di streaming
 #### [Portale](media-services-portal-scale-streaming-endpoints.md)
 
@@ -211,13 +210,16 @@
 ### [Logica di ripetizione dei tentativi](media-services-retry-logic-in-dotnet-sdk.md)
 
 # riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (gestione dei servizi)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media)
+## [REST](/rest/api/media/mediaservice)  
 
 # Risorse
-## [Note sulla versione](media-services-release-notes.md)
-## [Prezzi](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Community di Servizi multimediali di Azure](media-services-community.md)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Prezzi](https://azure.microsoft.com/pricing/details/media-services/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Note sulla versione](media-services-release-notes.md)
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=media-services)

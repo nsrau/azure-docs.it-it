@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 07/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 53425eaf388e5164d2664c163f56a33d48cf8a36
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: df5c836abbf09889f4859170359c0ee6c1b03378
 ms.contentlocale: it-it
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -120,9 +120,9 @@ Se l'applicazione ospitata nella macchina virtuale back-end di un servizio di bi
 * Configurare macchine virtuali del pool back-end separate per ogni applicazione. 
 * Configurare l'applicazione in macchine virtuali con due schede di interfaccia di rete in modo che ogni applicazione usi un'interfaccia di rete e un indirizzo IP propri. 
 
-### <a name="cause-4-accessing-the-internet-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: accesso all'indirizzo VIP del servizio di bilanciamento del carico Internet dalla macchina virtuale del pool back-end di Load Balancer
+### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: accesso all'indirizzo VIP del servizio di bilanciamento del carico interno dalla macchina virtuale del pool back-end di Load Balancer
 
-Se è configurato un indirizzo VIP del bilanciamento del carico interno in una rete virtuale e una delle VM del back-end sta provando ad accedere all'indirizzo VIP del servizio di bilanciamento del carico Internet, verrà generato un errore. Questo scenario non è supportato.
+Se è configurato un indirizzo VIP del bilanciamento del carico interno in una rete virtuale e una delle VM del back-end sta tentando di accedere all'indirizzo VIP del servizio di bilanciamento del carico Internet, verrà generato un errore. Questo scenario non è supportato.
 **Risoluzione**: valutare un gateway applicazione o altri proxy, ad esempio nginx o haproxy, per supportare questo tipo di scenario. Per altre informazioni sul gateway applicazione, vedere [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Altre acquisizioni di rete

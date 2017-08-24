@@ -3,7 +3,7 @@ title: Guida del portale di registrazione delle app | Microsoft Docs
 description: "Descrizione delle varie funzionalità disponibili nel portale di registrazione delle app di Microsoft."
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: lnalepa
 manager: mbaldwin
 editor: 
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
@@ -13,10 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
-ms.author: dastrock
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 19d8d860e39139d3003c216659b7203e2482154e
+ms.author: lenalepa
+ms.custom: aaddev
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: b961254274409215d79b5cb2c9ee230a97b42769
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -45,10 +48,5 @@ Quando si abilita il supporto Live SDK, per qualsiasi segreto applicazione creat
 Disabilitando il supporto Live SDK il segreto applicazione viene scritto unicamente nell'archivio dati di Azure AD.  L'archivio dati di Azure AD incorpora normative di livello aziendale che permettono di soddisfare determinati standard, ad esempio la conformità FISMA.  Se si abilita il supporto Live SDK, l'applicazione potrebbe non essere conforme in base ad alcuni di questi standard.
 
 Se si intende usare solo l'endpoint di Azure AD 2.0, è possibile disabilitare il supporto Live SDK.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

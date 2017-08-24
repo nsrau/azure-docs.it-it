@@ -1,6 +1,6 @@
 ---
-title: Problemi di accesso a un&quot;applicazione usando un collegamento diretto | Microsoft Docs
-description: Come risolvere i problemi di accesso a un&quot;applicazione da un URL con collegamento diretto usando Azure AD
+title: Problemi di accesso a un'applicazione usando un collegamento diretto | Microsoft Docs
+description: Come risolvere i problemi di accesso a un'applicazione da un URL con collegamento diretto usando Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 7e7c19173229586cc788dbb5a6a01a9b075d33e9
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

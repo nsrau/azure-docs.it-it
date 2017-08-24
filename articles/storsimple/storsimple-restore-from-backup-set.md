@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c507135c4db758e58d8236de4bc76435b8caf32d
+ms.translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 12484338f5b4d489604d70a657ef0992b6267297
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Ripristinare un volume StorSimple da un set di backup
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Nella pagina **Catalogo di backup** vengono visualizzati tutti i set di backup creati quando si eseguono backup manuali o automatizzati. È possibile utilizzare questa pagina per elencare tutti i backup per un criterio di backup o un volume, selezionare o eliminare i backup o utilizzare un backup per ripristinare o clonare un volume.
 
  ![Pagina catalogo di backup](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
@@ -64,7 +66,7 @@ Prima di avviare un ripristino su un volume, assicurarsi che il volume sia offli
    1. Selezionare un dispositivo appropriato.
    2. Nell'elenco a discesa, scegliere il volume o il criterio di backup per il backup che si desidera selezionare.
    3. Specificare l'intervallo di tempo.
-   4. Fare clic sull'icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png)  per eseguire la query.
+   4. Fare clic sull'icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) per eseguire la query.
       
       I backup associati al volume selezionato o al criterio di backup dovrebbero essere visualizzati nell'elenco dei set di backup.
 3. Espandere il set di backup per visualizzare i volumi associati. Questi volumi devono essere disconnessi nell'host e nel dispositivo prima di poterli ripristinare. Seguire la procedura illustrata in [Portare un volume offline](storsimple-manage-volumes.md#take-a-volume-offline).
@@ -87,10 +89,5 @@ Per guardare un video che illustra come è possibile utilizzare le funzionalità
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [gestire i volumi StorSimple](storsimple-manage-volumes.md).
 * Informazioni su come [usare il servizio StorSimple Manager per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

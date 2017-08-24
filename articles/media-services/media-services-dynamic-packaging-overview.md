@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 06/29/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: da455a350f61e17425cd308d0fdc8bb5294a0b76
 ms.openlocfilehash: 574921fdecdadaa48c572685f7486d4e7b1d25f4
+ms.contentlocale: it-it
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -48,7 +50,7 @@ Per preparare l'asset per lo streaming dinamico sono disponibili due opzioni:
 2. [Usare il codificatore Media Encoder Standard per generare set MP4 velocità in bit adattiva H.264](media-services-dotnet-encode-with-media-encoder-standard.md).
 3. [Trasmettere i contenuti in streaming](media-services-deliver-content-overview.md).
 
-## <a name="a-idunsupportedformatsaformats-that-are-not-supported-by-dynamic-packaging"></a><a id="unsupported_formats"></a>Formati non supportati dalla creazione dinamica dei pacchetti
+## <a id="unsupported_formats"></a>Formati non supportati dalla creazione dinamica dei pacchetti
 I formati di file di origine seguenti non sono supportati dalla creazione dinamica dei pacchetti.
 
 * File Dolby Digital MP4.
@@ -59,10 +61,5 @@ I formati di file di origine seguenti non sono supportati dalla creazione dinami
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Creare la prima funzione nel portale di Azure | Microsoft Docs
-description: Informazioni su come creare la prima funzione di Azure per l&quot;esecuzione senza server tramite il portale di Azure.
+description: Informazioni su come creare la prima funzione di Azure per l'esecuzione senza server tramite il portale di Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/10/2017
+ms.date: 08/07/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 0c7ef7004618966ae8c2d32027c460b2b643923e
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: d7d3aef1e713cf080b23575f56321e00a0b4af1f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
@@ -51,7 +51,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Espandere la nuova app per le funzioni e quindi fare clic sul pulsante **+** accanto a **Funzioni**.
 
-2.  Nella pagina **Get started quickly** (Operatività immediata) fare clic su **Webhook e API**, scegliere un linguaggio per la funzione e fare clic su **Crea funzione**. 
+2.  Nella pagina **Iniziare rapidamente con una funzione preconfezionata** selezionare **Webhook e API**, **scegliere un linguaggio** per la funzione e fare clic su **Creare questa funzione**. 
    
     ![Guida di avvio rapido di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -59,21 +59,19 @@ Viene creata una funzione nel linguaggio prescelto usando il modello per una fun
 
 ## <a name="test-the-function"></a>Testare la funzione
 
-1. Nella nuova funzione fare clic su **</> Get function URL** (Ottieni URL funzione) e copiare il valore di **URL funzione**. 
+1. Nella nuova funzione fare clic su **</> Recupera URL della funzione**, selezionare **predefinito (tasto funzione)** e quindi fare clic su **Copia**. 
 
     ![Creare l'URL della funzione dal portale di Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Incollare l'URL per la richiesta HTTP nella barra degli indirizzi del browser. Aggiungere la stringa di query `&name=<yourname>` all'URL ed eseguire la richiesta. Di seguito viene illustrata la risposta nel browser alla richiesta GET restituita dalla funzione:
+2. Incollare l'URL della funzione nella barra degli indirizzi del browser. Aggiungere la stringa di query `&name=<yourname>` all'URL e premere il tasto `Enter` per eseguire la richiesta. L'esempio seguente riporta la risposta restituita dalla funzione nel browser Edge:
 
     ![Risposta della funzione nel browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     L'URL della richiesta include una chiave necessaria per impostazione predefinita per accedere a una funzione tramite HTTP.   
 
-## <a name="view-the-function-logs"></a>Visualizzare i log di funzione 
+3. Quando viene eseguita la funzione, vengono scritte nei log informazioni di traccia. Per visualizzare l'output di traccia dell'esecuzione precedente, tornare alla funzione nel portale e fare clic sulla freccia verso l'alto nella parte inferiore della schermata per espandere **Log**. 
 
-Quando viene eseguita la funzione, vengono scritte nei log informazioni di traccia. Per visualizzare l'output di traccia dell'esecuzione precedente, tornare alla funzione nel portale e fare clic sulla freccia verso l'alto nella parte inferiore della schermata per espandere **Log**. 
-
-![Visualizzatore log di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
+   ![Visualizzatore log di Funzioni nel portale di Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

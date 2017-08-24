@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi all&quot;iscrizione ad Azure | Documentazione Microsoft
-description: Descrive come eseguire la risoluzione di alcuni problemi comuni relativi all&quot;iscrizione ad Azure.
+title: Risolvere i problemi relativi all'iscrizione ad Azure | Microsoft Docs
+description: Descrive come eseguire la risoluzione di alcuni problemi comuni relativi all'iscrizione ad Azure.
 services: 
 documentationcenter: 
 author: JiangChen79
@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: a50b4fb4b19acf270aaf94fea613e745ec2af649
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Risolvere i problemi di iscrizione per Azure
@@ -38,14 +39,17 @@ Seguire questa procedura per aggiornare le impostazioni relative ai cookie del b
 3. Aggiornare la pagina di sottoscrizione di Azure e controllare se il problema è risolto.
 4. Se il problema persiste, chiudere e riavviare il browser, quindi riprovare.
 
-## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Assenza di messaggi di testo o chiamate durante la verifica dell'account di sottoscrizione
-Se si seleziona **Invia messaggi di testo** potrebbero occorrere fino a quattro minuti per il recapito del codice di testo al telefono. Per la verifica dell'identità, immettere ovviamente un numero di telefono che può ricevere messaggi SMS o, per l'opzione **Chiama**, che può ricevere chiamate. Il numero di telefono immesso viene usato solo per la verifica dell'identità e non viene archiviato come un numero di contatto per l'account.
+## <a name="credit-card-form-doesnt-support-my-billing-address"></a>Il modulo della carta di credito non supporta il mio indirizzo di fatturazione
+L'indirizzo di fatturazione deve essere nel paese selezionato nella sezione **Info sull'utente**. Assicurarsi di selezionare il paese corretto.
 
-Di seguito sono riportati alcuni suggerimenti:
+## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Assenza di messaggi di testo o chiamate durante la verifica dell'account di sottoscrizione
+Mentre è in genere molto più veloce, il recapito del codice di verifica potrebbe richiedere un massimo di quattro minuti. Il numero di telefono immesso per la verifica non viene archiviato come numero di contatto per l'account.
+
+Altri suggerimenti:
 * Non è possibile usare un numero di telefono VoIP per il processo di verifica tramite telefono.
 * Verificare il numero di telefono immesso, incluso il prefisso internazionale selezionato nel menu a discesa.
-* Se il telefono non può ricevere SMS, usare l'opzione **Chiama**.
-* Se il passaggio di verifica telefonica non riesce né con l'opzione **Invia messaggio di testo**, né tramite il metodo **Chiama**, usare un altro numero di telefono.
+* Se il telefono non può ricevere SMS, provare l'opzione **Chiama**.
+* Verificare che il telefono possa ricevere chiamate o messaggi SMS da un numero proveniente dagli Stati Uniti.
 
 Quando si riceve l'SMS o la chiamata, immettere il codice ricevuto nella casella di testo.
 
@@ -55,6 +59,9 @@ Le carte di credito o debito virtuali o prepagate non sono accettate come opzion
 ## <a name="free-trial-is-not-available"></a>"La prova gratuita non è disponibile"
 È stata usata una sottoscrizione di Azure in passato? Le condizioni per l'utilizzo di Azure prevedono un limite di una sola attivazione della versione di valutazione gratuita per un utente che non ha mai usato Azure in precedenza. Se quindi si è già usato un qualsiasi altro tipo di sottoscrizione di Azure, non è possibile attivare una versione di valutazione gratuita. Considerare l'iscrizione per una [sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/).
 
+## <a name="i-saw-a-charge-on-my-free-trial-account"></a>Ho visto un addebito sul mio account della versione di valutazione gratuita
+Potrebbe essere addebitato per la verifica un importo sulla carta di credito dopo l'iscrizione, che viene rimosso tra i 3 e i 5 giorni. Se si è preoccupati della gestione dei costi, leggere altre informazioni per [evitare costi imprevisti](https://docs.microsoft.com/azure/billing/billing-getting-started).
+
 ## <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Non è possibile attivare un piano con vantaggi di Azure, ad esempio MSDN, BizSpark, BizSparkPlus o MPN
 Assicurarsi di usare le credenziali di accesso corrette. Controllare quindi il programma dei vantaggi per assicurarsi di averne diritto. 
 
@@ -63,7 +70,7 @@ Assicurarsi di usare le credenziali di accesso corrette. Controllare quindi il p
   * Se non è possibile verificare lo stato, contattare i [centri del Servizio clienti per abbonamenti MSDN](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 * BizSpark
   * Accedere al [portale di BizSpark](https://www.microsoft.com/bizspark/default.aspx#start-two) e verificare lo stato di idoneità per BizSpark e BizSpark Plus.
-  * Se non è possibile verificare lo stato, è possibile [contattare il team di BizSpark](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
+  * Se non è possibile verificare lo stato, è possibile [ottenere assistenza nei forum di BizSpark](http://aka.ms/bzforums).
 * MPN
   * Accedere al [portale di MPN](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) e verificare lo stato di idoneità. È possibile usufruire di vantaggi aggiuntivi se si hanno le [competenze Cloud Platform](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx)appropriate.
   * Se non è possibile verificare lo stato, contattare il [supporto tecnico di MPN](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).

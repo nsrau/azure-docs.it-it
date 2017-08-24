@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 04/24/2017
+ms.date: 06/05/2017
 ms.author: alok;rotimpe
-translationtype: Human Translation
-ms.sourcegitcommit: a384756abaca45fc6863f8bc59dc3d6cb4fa974a
-ms.openlocfilehash: ae9a4f99d5b38944f38534021523e2153ce7f0d0
-ms.lasthandoff: 01/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 5ddc02905fbb7f9f7c5deb9b970101788d824642
+ms.contentlocale: it-it
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -61,17 +62,19 @@ Il servizio Web offre un’API basata su REST in HTTPS che può essere usata in 
 Per chiamare l'API, è necessario conoscere la posizione endpoint e la chiave API.  Entrambi gli elementi, insieme al codice di esempio per chiamare l'API, sono disponibili nella pagina dei [servizi Web di AzureML](https://services.azureml.net/webservices/).  Passare all'API desiderato e quindi fare clic sulla scheda "Consumo" per individuarli.  Si noti che è possibile chiamare l'API come API Swagger (vale a dire con il parametro URL `format=swagger`) o come un API non Swagger (ovvero senza il parametro URL `format`).  Il codice di esempio usa il formato Swagger.  Di seguito viene riportato un esempio di richiesta e risposta in formato non Swagger.  Questi esempi sono endpoint di stagionalità.  L'endpoint di non stagionalità è simile.
 
 ### <a name="sample-request-body"></a>Corpo della richiesta di esempio
-La richiesta contiene due oggetti: `input1` e `GlobalParameters`.  Nella richiesta di esempio riportata di seguito, alcuni parametri vengono inviati in modo esplicito, mentre per altri questo non avviene (scorrere verso il basso per un elenco completo dei parametri per ogni endpoint).  I parametri che non vengono inviati in modo esplicito nella richiesta useranno i valori predefiniti indicati di seguito.
+La richiesta contiene due oggetti: `Inputs` e `GlobalParameters`.  Nella richiesta di esempio riportata di seguito, alcuni parametri vengono inviati in modo esplicito, mentre per altri questo non avviene (scorrere verso il basso per un elenco completo dei parametri per ogni endpoint).  I parametri che non vengono inviati in modo esplicito nella richiesta useranno i valori predefiniti indicati di seguito.
 
     {
-        "input1": {
-            "ColumnNames": ["Time", "Data"],
-            "Values": [
-                ["5/30/2010 18:07:00", "1"],
-                ["5/30/2010 18:08:00", "1.4"],
-                ["5/30/2010 18:09:00", "1.1"]
-            ]
-        },
+                "Inputs": {
+                        "input1": {
+                                "ColumnNames": ["Time", "Data"],
+                                "Values": [
+                                        ["5/30/2010 18:07:00", "1"],
+                                        ["5/30/2010 18:08:00", "1.4"],
+                                        ["5/30/2010 18:09:00", "1.1"]
+                                ]
+                        }
+                },
         "GlobalParameters": {
             "tspikedetector.sensitivity": "3",
             "zspikedetector.sensitivity": "3",

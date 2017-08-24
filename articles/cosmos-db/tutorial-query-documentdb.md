@@ -1,14 +1,14 @@
 ---
 title: Procedura per l&quot;esecuzione di query con SQL in Azure Cosmos DB | Microsoft Docs
 description: Informazioni sull&quot;esecuzione di query sui dati DocumentDB con SQL in Azure Cosmos DB
-services: cosmosdb
+services: cosmos-db
 documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: 
 tags: 
 ms.assetid: 
-ms.service: cosmosdb
+ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
 ms.topic: article
@@ -17,17 +17,17 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: dd34ff43e78175b0d6a6e38bbd1303070f6549ab
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: a2a562c06c6302b9548e758b4c6754ec13b6001d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/31/2017
 
 
 ---
 
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: procedura per l'esecuzione di query con SQL
 
-L'[API DocumentDB](../documentdb/documentdb-introduction.md) di Azure Cosmos DB supporta l'esecuzione di query sui documenti usando SQL. Questo articolo include un documento di esempio e due esempi di query SQL e relativi risultati.
+L'[API DocumentDB](documentdb-introduction.md) di Azure Cosmos DB supporta l'esecuzione di query sui documenti usando SQL. Questo articolo include un documento di esempio e due esempi di query SQL e relativi risultati.
 
 Questo articolo illustra le attività seguenti: 
 
@@ -68,10 +68,10 @@ Le query SQL di questo articolo usano il documento di esempio seguente.
 ```
 ## <a name="where-can-i-run-sql-queries"></a>Dove è possibile eseguire query SQL?
 
-È possibile eseguire query usando Esplora dati nel Portale di Azure, tramite le [API REST e gli SDK](../documentdb/documentdb-query-collections-query-explorer.md) e anche usando [Query Playground](https://www.documentdb.com/sql/demo), che esegue query su un set di dati di esempio esistente.
+È possibile eseguire query usando Esplora dati nel Portale di Azure, tramite le [API REST e gli SDK](documentdb-sdk-dotnet.md) e anche usando [Query Playground](https://www.documentdb.com/sql/demo), che esegue query su un set di dati di esempio esistente.
 
 Per altre informazioni sulle query SQL, vedere:
-* [Query e sintassi SQL](../documentdb/documentdb-sql-query.md)
+* [Query e sintassi SQL](documentdb-sql-query.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -89,23 +89,34 @@ Nel precedente documento della famiglia, la query SQL seguente restituisce i doc
 
 **Risultati**
 
-    [{
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }]
+```json
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 ## <a name="example-query-2"></a>Query di esempio 2
 

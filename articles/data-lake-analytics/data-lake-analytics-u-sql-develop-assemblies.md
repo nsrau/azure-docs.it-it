@@ -1,5 +1,5 @@
 ---
-title: Sviluppare assembly U-SQL per processi Azure Data Lake Analytics | Documentazione Microsoft
+title: Sviluppare assembly U-SQL per processi Azure Data Lake Analytics | Microsoft Docs
 description: "Informazioni su come sviluppare assembly da usare più volte in processi di Data Lake Analytics. "
 services: data-lake-analytics
 documentationcenter: 
@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/30/2016
 ms.author: jejiang
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98b04d28d1b905dad19ad6cf608733c6554f01cf
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
@@ -32,8 +34,8 @@ Il modo più semplice per usare codice personalizzato consiste nello sfruttare g
 Per risolvere questi problemi, è possibile attivare code-behind in assembly e registrare gli assembly nel catalogo di Data Lake Analytics.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Visual Studio 2015, Visual Studio 2013 Update 4 oppure Visual Studio 2012 con Visual C++ installato
-* Microsoft Azure SDK per .NET versione 2.5 o successiva.  Installare il prodotto usando il programma di installazione della piattaforma Web.
+* Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 aggiornamento 4 o Visual Studio 2012 con Visual C++ installato
+* Microsoft Azure SDK per .NET versione 2.5 o successiva.  Eseguire l'installazione usando il programma di installazione della piattaforma Web o il programma di installazione di Visual Studio
 * Un account di Analisi Data Lake.  Vedere [Introduzione ad Azure Data Lake Analytics con il Portale di Azure](data-lake-analytics-get-started-portal.md).
 * Seguire i passaggi dell’esercitazione [Introduzione a U-SQL Studio di Analisi Azure Data Lake](data-lake-analytics-u-sql-get-started.md) .
 * Connettersi ad Azure.
@@ -79,8 +81,3 @@ Vedere [Usare gli strumenti di Azure Data Lake per Visual Studio Code](data-lake
 * [Utilizzare gli strumenti Data Lake per Visual Studio per lo sviluppo di applicazioni U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 * [Usare il catalogo Data Lake Analytics(U-SQL)](data-lake-analytics-use-u-sql-catalog.md)
 * [Usare gli strumenti di Azure Data Lake per Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-
-
-<!--HONumber=Dec16_HO2-->
-
-

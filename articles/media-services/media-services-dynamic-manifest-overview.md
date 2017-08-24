@@ -12,11 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 06/29/2017
 ms.author: cenkd;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
 ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
+ms.contentlocale: it-it
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -92,7 +94,7 @@ Per altre informazioni su come distribuire i contenuti e gli URL di streaming di
 > 
 > 
 
-### <a name="a-idfiltersafilters"></a><a id="filters"></a>Filtri
+### <a id="filters"></a>Filtri
 Sono disponibili due tipi di filtri di asset: 
 
 * Filtri globali (possono essere applicati a qualsiasi asset nell'account di Servizi multimediali di Azure e hanno una durata equivalente a quella dell'account). 
@@ -100,7 +102,7 @@ Sono disponibili due tipi di filtri di asset:
 
 I filtri globali e i filtri locali presentano esattamente le stesse proprietà e si differenziano solo per il tipo di scenario in cui sono più appropriati. I filtri globali, in genere, sono più adatti per i profili di dispositivo (filtro di rendering), mentre i filtri locali possono essere usati per tagliare un asset specifico.
 
-## <a name="a-idscenariosacommon-scenarios"></a><a id="scenarios"></a>Scenari comuni
+## <a id="scenarios"></a>Scenari comuni
 Come accennato in precedenza, quando si distribuiscono contenuti ai clienti (eventi in live streaming o video on demand), l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Possono tuttavia verificarsi anche altre situazioni in cui è opportuno applicare filtri agli asset e usare **manifesti dinamici**. Le sezioni seguenti forniscono una breve panoramica di diversi scenari di filtro.
 
 * Definizione di un solo sottoinsieme di rendering audio e video che possa essere gestito da determinati dispositivi (anziché tutti i rendering associati all'asset). 
@@ -210,9 +212,4 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

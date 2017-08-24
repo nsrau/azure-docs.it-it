@@ -1,6 +1,6 @@
 ---
-title: Come modificare le impostazioni predefinite per la durata del token per un&quot;applicazione personalizzata | Microsoft Docs
-description: Informazioni su come aggiornare i criteri di durata del token per l&quot;applicazione che si sta sviluppando in Azure AD
+title: Come modificare le impostazioni predefinite per la durata del token per un'applicazione personalizzata | Microsoft Docs
+description: Informazioni su come aggiornare i criteri di durata del token per l'applicazione che si sta sviluppando in Azure AD
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
 ms.openlocfilehash: 54c30123bb582f515dfb0324cdfd897a6c4af5c0
+ms.contentlocale: it-it
 ms.lasthandoff: 04/14/2017
-
 
 ---
 

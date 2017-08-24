@@ -1,17 +1,20 @@
 ---
-title: Creare un&quot;app per le funzioni e distribuire codice di funzione da GitHub | Documentazione Microsoft
-description: Creare un&quot;app per le funzioni e distribuire codice di funzione da GitHub
+title: Creare un'app per le funzioni e distribuire codice di funzione da GitHub | Documentazione Microsoft
+description: Creare un'app per le funzioni e distribuire codice di funzione da GitHub
 services: functions
+ms.service: functions
 keywords: 
+ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
 ms.topic: sample
+ms.custom: mvc
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 152dfe6a9bafada83457d3518fbc3758dd34cde0
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: b886b73218292daec3afd50b2589c987434cd665
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 # <a name="create-an-app-service"></a>Creare un servizio app
@@ -21,7 +24,11 @@ Questo script di esempio crea un'app per le funzioni usando il [piano a consumo]
 * Un archivio GitHub contenente il codice di funzione per il quale si hanno autorizzazioni amministrative.
 * [Token di accesso personale](https://help.github.com/articles/creating-an-access-token-for-command-line-use) per il proprio account GitHub.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 

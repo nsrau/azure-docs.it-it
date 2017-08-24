@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare rapidamente una macchina virtuale Windows Server 2016 | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Creare rapidamente una macchina virtuale Windows Server 2016
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare rapidamente una macchina virtuale Windows Server 2016 | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare rapidamente una macchina virtuale Windows Server 2016
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -39,7 +39,7 @@ Questo script crea una macchina virtuale di Azure che esegue Windows Server 2016
 
 Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 

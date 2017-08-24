@@ -12,22 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/14/2017
+ms.date: 07/05/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0355c8a943947f5d53d7cd6892db3567c3bf0cce
-ms.lasthandoff: 04/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Come amministrare Cache Redis di Azure
 Questo argomento descrive come eseguire attività di amministrazione, ad esempio il [riavvio](#reboot) e la [pianificazione degli aggiornamenti](#schedule-updates) per le istanze di Cache Redis di Azure.
-
-> [!IMPORTANT]
-> Le impostazioni e le funzionalità descritte in questo articolo sono disponibili solo per le cache di livello Premium.
-> 
-> 
 
 ## <a name="reboot"></a>Reboot
 Il pannello **Riavvia** consente di riavviare uno o più nodi della cache. La funzionalità di riavvio consente di testare la resilienza dell'applicazione in presenza di un errore di un nodo della cache.
@@ -52,7 +48,7 @@ L'impatto sulle applicazioni client varia a seconda dei nodi che si riavviano.
 * **Nodi di una cache Premium con clustering abilitato**: quando si riavviano uno o più nodi di una cache Premium con clustering abilitato, il comportamento per i nodi selezionati è analogo a quello che si ottiene quando si riavviano il nodo o i nodi corrispondenti di una cache non cluster.
 
 > [!IMPORTANT]
-> La funzionalità di riavvio è disponibile solo per le cache del piano Premium.
+> Il riavvio ora è disponibile per tutti i piani tariffari.
 > 
 > 
 
@@ -83,10 +79,10 @@ Se si riavvia solo uno dei nodi, in genere i dati non vengono persi, ma è comun
 Sì, per istruzioni relative a PowerShell vedere [To reboot a Redis cache](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache)(Per riavviare una Cache Redis).
 
 ### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>Con quali piani tariffari è possibile usufruire della funzionalità di riavvio?
-La funzionalità di riavvio è disponibile solo per il piano tariffario Premium.
+Il riavvio è disponibile per tutti i piani tariffari.
 
 ## <a name="schedule-updates"></a>Pianificare gli aggiornamenti
-Il pannello **Pianifica aggiornamenti** consente di definire un intervallo di manutenzione per la cache. Quando viene specificato l'intervallo di manutenzione, tutti gli aggiornamenti del server Redis vengono eseguiti durante questo intervallo. 
+Il pannello **Pianifica aggiornamenti** consente di definire un intervallo di manutenzione per la cache di livello Premium. Quando viene specificato l'intervallo di manutenzione, tutti gli aggiornamenti del server Redis vengono eseguiti durante questo intervallo. 
 
 > [!NOTE] 
 > Si noti che l'intervallo di manutenzione è applicabile solo agli aggiornamenti del server Redis e non a tutti gli aggiornamenti di Azure o del sistema operativo delle macchine virtuali che ospitano la cache.

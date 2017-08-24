@@ -1,5 +1,5 @@
 ---
-title: Associazioni HTTP e webhook in Funzioni di Azure | Documentazione Microsoft
+title: Associazioni HTTP e webhook in Funzioni di Azure | Microsoft Docs
 description: Informazioni su come usare trigger e associazioni HTTP e webhookin Funzioni di Azure.
 services: functions
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 06958522139d621f86afd8bf25128ee64cf822b3
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f31c0eec6b570c4d9f798185f8f0f8c49a7e400d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
@@ -35,10 +35,7 @@ Funzioni di Azure fornisce le associazioni seguenti:
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!TIP]
->
-> È consigliabile leggere il documento sulle procedure consigliate su [HTTPClient](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md).
->
+[!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 <a name="httptrigger"></a>
 
@@ -58,7 +55,7 @@ Un trigger HTTP viene definito includendo un oggetto JSON simile al seguente nel
     "type": "httpTrigger",
     "direction": "in",
     "authLevel": "function",
-    "methods": [ "GET" ],
+    "methods": [ "get" ],
     "route": "values/{id}"
 },
 ```
@@ -160,7 +157,7 @@ Con questa configurazione, la funzione può ora essere indirizzata con la route 
 In questo modo il codice della funzione può supportare due parametri nell'indirizzo: "category" e "id". I parametri sono compatibili con qualsiasi [vincolo di route dell'API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints). Il codice di funzione C# seguente usa entrambi i parametri.
 
 ```csharp
-    public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+    public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
                                                     TraceWriter log)
     {
         if (id == null)
@@ -265,7 +262,7 @@ Vedere l'esempio specifico del linguaggio, che cerca un parametro `name` nella s
 
 * [C#](#httptriggercsharp)
 * [F#](#httptriggerfsharp)
-* [Node.js](#httptriggernodejs)
+* [Node.JS](#httptriggernodejs)
 
 
 <a name="httptriggercsharp"></a>
@@ -292,6 +289,22 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     return name == null
         ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
         : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+}
+```
+
+È anche possibile eseguire l'associazione a un POCO invece di `HttpRequestMessage`. POCO sarà idratato dal corpo della richiesta e analizzato come JSON. Analogamente, un tipo può essere passato all'associazione dell'output di risposta HTTP e verrà restituito come corpo della risposta, con un codice di stato 200.
+```csharp
+using System.Net;
+using System.Threading.Tasks;
+
+public static string Run(CustomObject req, TraceWriter log)
+{
+    return "Hello " + req?.name;
+}
+
+public class CustomObject {
+     public String name {get; set;}
+}
 }
 ```
 

@@ -1,7 +1,6 @@
 ---
-
 title: Creazione di report in Azure Active Directory | Microsoft Docs
-description: Elenca i vari report disponibili per Azure Active Directory
+description: Offre una panoramica generale della creazione di report in Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,190 +12,110 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 07/13/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c7fe995f097c72ab5275249538fe2bb65efac256
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-active-directory-reporting"></a>Creazione di report in Azure Active Directory
 
+La creazione di report in Azure Active Directory permette di ottenere informazioni approfondite sullo stato dell'ambiente.  
+I dati forniti consentono di:
 
-*Questo documento fa parte della [guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).*
+- Determinare l'utilizzo di app e servizi da parte degli utenti
+- Rilevare rischi potenziali che pregiudicano l'integrità dell'ambiente
+- Risolvere problemi che influiscono negativamente sulla produttività degli utenti  
 
-I report di Azure Active Directory (Azure AD) offrono tutte le informazioni necessarie per determinare lo stato dell'ambiente.
+L'architettura dei report si basa su due elementi fondamentali:
 
-Le aree principali dei report sono due:
+- Report sulla sicurezza
+- Report sull’attività
 
-* **Attività di accesso** : informazioni sull'utilizzo delle applicazioni gestite e sulle attività di accesso utente
-* **Log di controllo** : informazioni relative alle attività di sistema sulla gestione di utenti e gruppi, sulle applicazioni gestite e sulle attività di directory
+![Creazione di report](./media/active-directory-reporting-azure-portal/01.png)
 
-A seconda dell'ambito dei dati cercati, è possibile accedere a questi report facendo clic su **Utenti e gruppi** o su **Applicazioni aziendali** nell'elenco di servizi nel [Portale di Azure](https://portal.azure.com).
 
-## <a name="sign-in-activities"></a>Attività di accesso
-### <a name="user-sign-in-activities"></a>Attività di accesso utente
-Le informazioni contenute nel report relativo all'accesso utente consentono di rispondere a domande come le seguenti:
 
-* Qual è il modello di accesso di un utente?
-* Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
-* Qual è lo stato di questi accessi?
+## <a name="security-reports"></a>Report sulla sicurezza
 
-Il punto di ingresso a questi dati è il grafico relativo agli accessi utente della sezione **Panoramica** in **Utenti e gruppi**.
+I report sulla sicurezza in Azure Active Directory consentono di proteggere le identità dell'organizzazione.  
+Azure Active Directory prevede due tipi di report sulla sicurezza:
 
- ![Report](./media/active-directory-reporting-azure-portal/05.png "Report")
+- **Utenti contrassegnati per il rischio**: il [report sulla sicurezza relativo agli utenti contrassegni per il rischio](active-directory-reporting-security-user-at-risk.md) offre una panoramica degli account utente che potrebbero essere stati compromessi.
 
-Il grafico degli accessi utente visualizza le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
+- **Accessi a rischio**: il [report sulla sicurezza relativo agli accessi a rischio](active-directory-reporting-security-risky-sign-ins.md) offre una indicazione sui tentativi di accesso che potrebbero essere stati eseguiti da qualcuno che non è il legittimo proprietario di un account utente. 
 
-![Report](./media/active-directory-reporting-azure-portal/02.png "Report")
+**Quale licenza di Azure AD è necessaria per accedere a un report sulla sicurezza?**  
+Tutte le edizioni di Azure Active Directory offrono report sugli utenti contrassegnati per il rischio e sugli accessi a rischio.  
+Tuttavia, il livello di granularità dei report varia a seconda delle edizioni: 
 
-Quando si fa clic su un giorno nel grafico degli accessi, si ottiene un elenco dettagliato delle attività di accesso.
+- Nelle edizioni **Azure Active Directory Free e Basic**  è già incluso un elenco degli utenti contrassegnati per il rischio e degli accessi a rischio. 
 
-![Report](./media/active-directory-reporting-azure-portal/03.png "Report")
+- Nell'edizione **Azure Active Directory Premium 1** questo modello consente anche di esaminare alcuni degli eventi di rischio sottostanti che sono stati rilevati per ogni report. 
 
-Ogni riga nell'elenco di attività di accesso offre informazioni dettagliate sull'accesso selezionato, ad esempio:
+- L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate sugli eventi di rischio sottostanti e permette anche di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
 
-* Chi ha effettuato l'accesso?
-* Qual era il nome UPN correlato?
-* Qual era l'applicazione di destinazione dell'accesso?
-* Qual è l'indirizzo IP dell'accesso?
-* Qual era lo stato dell'accesso?
 
-### <a name="usage-of-managed-applications"></a>Utilizzo di applicazioni gestite
-Con una visualizzazione dei dati di accesso basata sulle applicazioni, è possibile rispondere a domande come:
+## <a name="activity-reports"></a>Report sull’attività
 
-* Chi sta usando le applicazioni?
-* Quali sono le prime 3 applicazioni nell'organizzazione?
-* Di recente è stata implementata un'applicazione. Come sta andando?
+Azure Active Directory prevede due tipi di report sull'attività:
 
-Il punto di ingresso a questi dati sono le prime 3 applicazioni nell'organizzazione nel report sugli ultimi 30 giorni della sezione **Panoramica** in **Applicazioni aziendali**.
+- **Log di controllo**: il [report sull'attività relativo ai log di controllo](active-directory-reporting-activity-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
 
- ![Report](./media/active-directory-reporting-azure-portal/06.png "Report")
+- **Accessi**: il [report sull'attività relativo agli accessi](active-directory-reporting-activity-sign-ins.md) permette di determinare chi ha eseguito le attività segnalate nel report dei log di controllo.
 
-Il grafico sull'utilizzo delle app visualizza le aggregazioni settimanali degli accessi per le prime 3 applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
-![Report](./media/active-directory-reporting-azure-portal/78.png "Report")
 
-Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
+Il **report dei log di controllo** include i record delle attività di sistema per la conformità.
+I dati forniti consentono, tra l'altro, di risolvere scenari comuni. Ad esempio:
 
-![Report](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Report")
+- Un utente del tenant ha avuto accesso a un gruppo amministrativo e si vuole sapere chi ha concesso tale accesso. 
 
-Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
+- Si vuole ottenere un elenco degli utenti che accedono a un'app specifica caricata di recente, per sapere se viene usata.
 
-![Report](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Report")
+- Si vuole conoscere il numero di reimpostazioni della password eseguite nel tenant.
 
-L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di accesso nell'applicazione.
 
-![Report](./media/active-directory-reporting-azure-portal/85.png "Report")
+**Quale licenza di Azure AD è necessaria per accedere al report dei log di controllo?**  
+Il report dei log di controllo è disponibile per le funzionalità per le quali si possiede una licenza. Se è disponibile una licenza per una funzionalità specifica, si ha anche accesso alle relative informazioni del log di controllo.
 
-Usando la selezione colonne, è possibile selezionare i campi dati che si vuole visualizzare.
+Per altre informazioni, vedere il **Confronto tra le funzionalità generalmente disponibili nelle edizioni Free, Basic e Premium**  in [Caratteristiche e funzionalità di Azure Active Directory ](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
 
-![Report](./media/active-directory-reporting-azure-portal/column_chooser.png "Report")
 
-### <a name="filtering-sign-ins"></a>Filtro degli accessi
-È possibile utilizzare i seguenti campi per filtrare gli accessi in modo da limitare la quantità di dati visualizzati.
 
-* Data e ora 
-* Nome dell'entità utente (utente)
-* Nome dell'applicazione
-* Nome del client
-* Stato accesso
+Il **report sull'attività relativo agli accessi** permette di rispondere a domande simili alle seguenti:
 
-![Report](./media/active-directory-reporting-azure-portal/293.png "Report")
+- Qual è il modello di accesso di un utente?
+- Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
+- Qual è lo stato di questi accessi?
 
-Un altro metodo per filtrare le voci nelle attività di accesso consiste nel cercare voci specifiche.
-Il metodo della ricerca consente di definire l'ambito degli accessi in base a **utenti**, **gruppi** or **applicazioni** specifiche.
 
-![Report](./media/active-directory-reporting-azure-portal/84.png "Report")
+**Quale licenza di Azure AD è necessaria per accedere al report sull'attività relativo agli accessi?**  
+Per visualizzare il report sull'attività relativo agli accessi, è necessario che al tenant sia associata una licenza di Azure AD Premium
 
-## <a name="audit-logs"></a>Log di controllo
-I log di controllo in Azure Active Directory forniscono i record delle attività di sistema per la conformità.
 
-Nel portale di Azure le categorie principali delle attività correlate al controllo sono tre:
+## <a name="programmatic-access"></a>Accesso a livello di codice
 
-* Utenti e gruppi   
-* applicazioni
-* Directory   
+Oltre all'interfaccia utente, la creazione di report di Azure Active Directory offre anche l'[accesso a livello di codice](active-directory-reporting-api-getting-started-azure-portal.md) ai dati dei report. I dati di questi report possono essere molto utili per le applicazioni, ad esempio i sistemi SIEM e gli strumenti di controllo e business intelligence. L'API di creazione report di Azure AD fornisce l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare le API da numerosi linguaggi di programmazione e strumenti. 
 
-Per un elenco completo delle attività dei report di controllo, vedere l' [elenco di eventi dei report di controllo](active-directory-reporting-audit-events.md#list-of-audit-report-events).
-
-Il punto di ingresso a tutti i dati di controllo è **Log di controllo** nella sezione **Attività** di **Azure Active Directory**.
-
-![Controllo](./media/active-directory-reporting-azure-portal/61.png "Controllo")
-
-Un log di controllo ha una visualizzazione elenco che indica gli attori (chi), le attività (cosa) e le destinazioni.
-
-![Controllo](./media/active-directory-reporting-azure-portal/345.png "Controllo")
-
-Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere altri dettagli sull'elemento.
-
-![Controllo](./media/active-directory-reporting-azure-portal/873.png "Controllo")
-
-### <a name="users-and-groups-audit-logs"></a>Log di controllo di utenti e gruppi
-Con i report di controllo basati su utenti e gruppi, è possibile ottenere risposte a domande come:
-
-* Quali tipi di aggiornamenti sono stati applicati agli utenti?
-* Quanti utenti sono stati modificati?
-* Quante password sono state modificate?
-* Quali operazioni ha eseguito un amministratore in una directory?
-* Quali sono i gruppi che sono stati aggiunti?
-* Sono presenti gruppi con modifiche all'appartenenza?
-* I proprietari dei gruppi sono stati modificati?
-* Quali licenze sono state assegnate a un gruppo o a un utente?
-
-Per esaminare semplicemente i dati di controllo relativi a utenti e gruppi, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** di **Utenti e gruppi**.
-
-![Controllo](./media/active-directory-reporting-azure-portal/93.png "Controllo")
-
-### <a name="application-audit-logs"></a>Log di controllo delle applicazioni
-Con i report di controllo basati sulle applicazioni, è possibile ottenere risposte a domande come:
-
-* Quali sono le applicazioni che sono state aggiunte o aggiornate?
-* Quali sono le applicazioni che sono state rimosse?
-* È stata modificata un'entità servizio per un'applicazione?
-* I nomi delle applicazioni sono stati modificati?
-* Chi ha dato il consenso a un'applicazione?
-
-Per esaminare semplicemente i dati di controllo relativi alle applicazioni, è disponibile una visualizzazione filtrata in **Log di controllo** nella sezione **Attività** di **Applicazioni aziendali**.
-
-![Controllo](./media/active-directory-reporting-azure-portal/134.png "Controllo")
-
-### <a name="filtering-audit-logs"></a>Filtro dei log di controllo
-È possibile utilizzare i seguenti campi per filtrare gli accessi in modo da limitare la quantità di dati visualizzati.
-
-* Data e ora
-* Nome dell'entità utente (attore)
-* Tipo di attività
-* Attività
-
-![Controllo](./media/active-directory-reporting-azure-portal/356.png "Controllo")
-
-Il contenuto dell'elenco **Tipo di attività** è correlato al punto di ingresso in questo pannello.  
-Se il punto di ingresso è Azure Active Directory, l'elenco contiene tutti i tipi di attività possibili:
-
-* Applicazione 
-* Gruppo 
-* Utente
-* Dispositivo
-* Directory
-* Criteri
-* Altri
-
-![Controllo](./media/active-directory-reporting-azure-portal/825.png "Controllo")
-
-Le attività nell'elenco sono organizzate per tipo.
-Ad esempio, se si seleziona **Group** (Gruppo) come **Activity Type** (Tipo di attività), l'elenco **Activity** (Attività) contiene solo le attività relative ai gruppi.   
-
-![Controllo](./media/active-directory-reporting-azure-portal/654.png "Controllo")
-
-Un altro metodo per filtrare le voci di un log di controllo consiste nel cercare voci specifiche.
-
-![Controllo](./media/active-directory-reporting-azure-portal/237.png "Controllo")
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).
+
+Per altre informazioni sui vari tipi di report in Azure Active Directory, vedere:
+
+- [Report sugli utenti contrassegnati per il rischio](active-directory-reporting-security-user-at-risk.md)
+- [Report sugli accessi a rischio](active-directory-reporting-security-risky-sign-ins.md)
+- [Report dei log di controllo](active-directory-reporting-activity-audit-logs.md)
+- [Report dei log di accesso](active-directory-reporting-activity-sign-ins.md)
+
+Per altre informazioni sull'accesso ai dati dei report tramite l'API di creazione report, vedere: 
+
+- [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
+<!--Image references-->
+[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

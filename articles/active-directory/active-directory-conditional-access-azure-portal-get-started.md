@@ -1,6 +1,6 @@
 ---
-title: Introduzione all&quot;accesso condizionale in Azure Active Directory (anteprima) | Documentazione Microsoft
-description: "Verificare l&quot;accesso condizionale usando una condizione della località."
+title: Introduzione all'accesso condizionale in Azure Active Directory | Microsoft Docs
+description: "Verificare l'accesso condizionale usando una condizione della località."
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2017
+ms.date: 07/31/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: ae60cd810b4beb26f714e2ea2566e5354c482fa8
-ms.openlocfilehash: 3022f5e27ddaf125161bbf7132b41a27024f40b6
-
+ms.reviewer: calebb
+ms.translationtype: Human Translation
+ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
+ms.openlocfilehash: 52b65b24867906d0c574a323904d980e126bcbd2
+ms.contentlocale: it-it
+ms.lasthandoff: 05/05/2017
 
 ---
-# <a name="get-started-with-conditional-access-in-azure-active-directory---preview"></a>Introduzione all'accesso condizionale in Azure Active Directory (anteprima)
-
-Il comportamento illustrato in questo argomento è attualmente in [anteprima](active-directory-preview-explainer.md).
+# <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introduzione all'accesso condizionale in Azure Active Directory
 
 L'accesso condizionale è una funzionalità di Azure Active Directory che consente di definire le condizioni in base alle quali gli utenti autorizzati possono accedere alle app. 
 
@@ -160,10 +160,5 @@ L'autenticazione a più fattori deve essere necessaria solo durante il tentativo
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'argomento, vedere [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

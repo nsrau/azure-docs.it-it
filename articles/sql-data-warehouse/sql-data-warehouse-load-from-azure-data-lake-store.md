@@ -15,19 +15,17 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/25/2017
 ms.author: cakarst;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: aca0e4cfdcfb3e3ed2e69ad8153b4c965b299806
-ms.lasthandoff: 03/15/2017
-
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 6f8d220a64e04b7dfa021aacf68dadf0d55393bf
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Caricare dati da Azure Data Lake Store a SQL Data Warehouse
 Questo documento illustra tutti i passaggi necessari per caricare i dati da Azure Data Lake Store (ADLS) a SQL Data Warehouse usando PolyBase.
 Anche se è possibile eseguire query ad hoc sui dati archiviati in ADLS usando le tabelle esterne, è consigliabile importare i dati in SQL Data Warehouse.
 Tempo stimato: 10 minuti se si hanno i prerequisiti necessari.
->
 In questa esercitazione si apprenderà come:
 
 1. Creare oggetti di database esterno da caricare da Azure Data Lake Store.
@@ -41,12 +39,13 @@ Per eseguire questa esercitazione è necessario:
 
 >[!NOTE] 
 > Sono necessari ID client, chiave e valore dell'endpoint di token OAuth 2.0 dell'applicazione Active Directory per la connessione ad Azure Data Lake da SQL Data Warehouse. I dettagli su come ottenere questi valori sono disponibili nel collegamento precedente.
+>Per la registrazione di app di Azure Active Directory usare l'ID applicazione come ID client.
 
 * SQL Server Management Studio o SQL Server Data Tools. Per il download di SSMS e la connessione, vedere [Query con SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
 * Un'istanza di Azure SQL Data Warehouse. Per crearne una, vedere https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
 
-* Un'istanza di Azure Data Lake Store con crittografia disabilitata. Per crearne una, vedere: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* Un'istanza di Azure Data Lake Store, con o senza crittografia abilitata. Per crearne una, vedere: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 
@@ -80,6 +79,12 @@ WITH
     SECRET = '<key>'
 ;
 
+-- It should look something like this:
+CREATE DATABASE SCOPED CREDENTIAL ADLCredential
+WITH
+    IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
+    SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
+;
 ```
 
 
@@ -161,7 +166,7 @@ La creazione di una tabella esterna è semplice, ma esistono alcuni aspetti da c
 Il caricamento dei dati con PolyBase è fortemente tipizzato. Ciò significa che ogni riga di dati inserita deve soddisfare la definizione dello schema tabella.
 Il caricamento di una riga non corrispondente alla definizione dello schema verrà rifiutato.
 
-Il tipo rifiutato e il valore rifiutato consentono di definire il numero di righe o la percentuale dei dati che dovranno essere presenti nella tabella finale.
+Le opzioni REJECT_TYPE e REJECT_VALUE permettono di definire il numero di righe o la percentuale dei dati che dovranno essere presenti nella tabella finale.
 Se durante il caricamento viene raggiunto il valore rifiutato, il caricamento avrà esito negativo. La causa più comune del rifiuto delle righe è una mancata corrispondenza con la definizione dello schema.
 Se ad esempio a una colonna viene erroneamente assegnato lo schema di int quando i dati nel file sono in formato stringa, il caricamento di tutte le righe avrà esito negativo.
 

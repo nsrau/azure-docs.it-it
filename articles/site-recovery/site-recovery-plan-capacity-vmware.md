@@ -1,6 +1,6 @@
 ---
-title: "Pianificare la capacità e la scalabilità per la replica VMware in Azure | Documentazione Microsoft"
-description: "Consultare questo articolo per pianificare la capacità e la scalabilità quando si esegue la replica di VM VMware in Azure"
+title: "Pianificare la capacità e la scalabilità per la replica VMware in Azure con Azure Site Recovery | Microsoft Docs"
+description: "Consultare questo articolo per pianificare la capacità e la scalabilità quando si esegue la replica delle macchine virtuali VMware in Azure con Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,22 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/05/2017
+ms.date: 05/24/2017
 ms.author: rayne
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 86366359e065c9a9b4a52136254588e67125fb5f
-ms.lasthandoff: 03/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
+ms.openlocfilehash: 8b580ac239bfb6d7b633fb03d4cfb91b168b0610
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Pianificare la capacità e la scalabilità per la replica VMware con Azure Site Recovery
 
-Consultare questo articolo per scoprire come pianificare la capacità e la scalabilità durante la replica locale di VM VMware e server fisici in Azure, con [Azure Site Recovery](site-recovery-overview.md).
+Consultare questo articolo per scoprire come pianificare la capacità e la scalabilità durante la replica locale delle macchine virtuali VMware e dei server fisici in Azure, con [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="how-do-i-start-capacity-planning"></a>Come si inizia per pianificare la capacità?
 
-Raccogliere informazioni sull'ambiente di replica usando [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc). Vengono fornite informazioni sul numero di macchine virtuali compatibili e incompatibili, sui dischi per ogni macchina virtuale e sulla varianza dei dati per disco. Vengono specificati anche i requisiti della larghezza di banda di rete e l'infrastruttura di Azure necessaria per l'esecuzione della replica e del failover di test.
+Raccogliere informazioni sull'ambiente di replica usando [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) per la replica VMware. [Altre informazioni](site-recovery-deployment-planner.md) su questo strumento. È possibile ottenere informazioni sulle macchine virtuali compatibili e non, i dischi per ogni macchina virtuale e la varianza di dati per ogni disco. Lo strumento specifica anche i requisiti della larghezza di banda di rete e l'infrastruttura di Azure necessaria per la corretta esecuzione della replica e il failover del test.
 
 ## <a name="capacity-considerations"></a>Considerazioni sulla capacità
 
@@ -79,7 +80,7 @@ Il modo in cui i server vengono adattati dipende dalle preferenze personali in m
 
 ## <a name="control-network-bandwidth"></a>Controllare la larghezza di banda della rete
 
-Lo [strumento Deployment Planner](https://aka.ms/asr-deployment-planner-doc) può essere usato per calcolare la larghezza di banda necessaria per la replica (sia per la replica iniziale sia per quella differenziale). Per controllare la quantità di larghezza di banda utilizzata per la replica è possibile scegliere una delle opzioni seguenti:
+Dopo aver usato lo [strumento di pianificazione della distribuzione](site-recovery-deployment-planner.md) per calcolare la larghezza di banda necessaria per la replica, per la replica iniziale e poi delta, è possibile controllare la quantità di larghezza di banda usata per la replica con due opzioni:
 
 * **Limitare la larghezza di banda**: il traffico VMware che viene replicato in Azure passa attraverso un server di elaborazione specifico. È possibile limitare la larghezza di banda nei computer eseguiti come server di elaborazione.
 * **Influire sulla larghezza di banda**: è possibile influire sulla larghezza di banda usata per la replica tramite una coppia di chiavi del Registro di sistema.
@@ -87,6 +88,7 @@ Lo [strumento Deployment Planner](https://aka.ms/asr-deployment-planner-doc) pu�
   * Il valore **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** specifica il numero di thread usati per il trasferimento dati durante il failback.
 
 ### <a name="throttle-bandwidth"></a>Limitare la larghezza di banda
+
 1. Aprire lo snap-in MMC di Azure Backup nel computer usato come server di elaborazione. Per impostazione predefinita, è disponibile un collegamento a Backup sul desktop o nella cartella seguente: C:\Programmi\Microsoft Azure Recovery Services Agent\bin\wabadmin.
 2. Nello snap-in fare clic su **Modifica proprietà**.
 
@@ -140,9 +142,7 @@ Se è necessario ridimensionare la distribuzione oltre 200 computer di origine o
 3. In **Selezionare il server di elaborazione di destinazione** selezionare il nuovo server di elaborazione da usare e le macchine virtuali che dovranno essere gestite dal server. Fare clic sull'icona informazioni per ottenere informazioni sul server. Per consentire di prendere le decisioni relative al carico, viene visualizzato lo spazio medio necessario per replicare ogni macchina virtuale selezionata nel nuovo server di elaborazione. Fare clic sul segno di spunta per avviare la replica nel nuovo server di elaborazione.
 
 
+## <a name="next-steps"></a>Passaggi successivi
 
-
-
-
-
+Scaricare ed eseguire [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)
 

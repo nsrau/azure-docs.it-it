@@ -1,6 +1,6 @@
 ---
-title: Ripristinare un&quot;app in Azure
-description: Informazioni su come ripristinare l&quot;app da un backup.
+title: Ripristinare un'app in Azure
+description: Informazioni su come ripristinare l'app da un backup.
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 49aa35a42e4f6dab2f8d556f7b1b10bfdef7b7db
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: 61396e8a3521c25eaf49c66a4948e520377d342a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 06/09/2017
 
 ---
 # <a name="restore-an-app-in-azure"></a>Ripristinare un'app in Azure
@@ -35,26 +34,26 @@ Il ripristino da backup è disponibile per le app in esecuzione a livello **Stan
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Ripristinare un'app da un backup esistente
-1. Nel pannello **Impostazioni** dell'app nel portale di Azure fare clic su **Backup** per visualizzare il pannello **Backup**. Quindi fare clic su **Ripristina ora** nella barra dei comandi.
+1. Nel pannello **Impostazioni** dell'app nel Portale di Azure fare clic su **Backup** per visualizzare il pannello **Backup**. Fare quindi clic su **Ripristina**.
    
     ![Scegliere Ripristina][ChooseRestoreNow]
 2. Nel pannello **Ripristina** , selezionare l'origine di backup.
    
-    ![](./media/web-sites-restore/021ChooseSource.png)
+    ![](./media/web-sites-restore/021ChooseSource1.png)
    
     L'opzione **Backup dell'app** mostra tutti i backup esistenti dell'app corrente, che possono essere facilmente selezionati.
     L'opzione **Archiviazione** consente di selezionare qualsiasi file ZIP del backup da un account di archiviazione e un contenitore di Azure esistenti nella sottoscrizione.
     Se si sta tentando di ripristinare un backup di un'altra app, usare l'opzione **Archiviazione** .
 3. Quindi, specificare la destinazione per il ripristino dell’app in **Destinazione di ripristino**.
    
-    ![](./media/web-sites-restore/022ChooseDestination.png)
+    ![](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > Se si sceglie **Sovrascrivi**, tutti i dati esistenti nell'app corrente verranno cancellati e sovrascritti. Prima di scegliere **OK**, assicurarsi che sia esattamente ciò che si desidera eseguire.
    > 
    > 
    
-    È possibile selezionare **App esistente** per ripristinare il backup dell’app in un'altra applicazione nello stesso gruppo di risorse. Prima di usare questa opzione, deve già essere stata creata un'altra app nel gruppo di risorse con mirroring della configurazione in quello definito nel backup dell’app.
+    È possibile selezionare **App esistente** per ripristinare il backup dell’app in un'altra applicazione nello stesso gruppo di risorse. Prima di utilizzare questa opzione, deve già essere stata creata un'altra app nel gruppo di risorse con mirroring della configurazione del database in quello definito nel backup dell’app. È anche possibile creare una **nuova** app in cui ripristinare il contenuto.
 
 4. Fare clic su **OK**.
 
@@ -86,7 +85,7 @@ Nel pannello dei dettagli verranno visualizzate le informazioni disponibili corr
 
 
 <!-- IMAGES -->
-[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png
+[ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow1.png
 [ViewContainers]: ./media/web-sites-restore/03ViewContainers.png
 [StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
 [BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png

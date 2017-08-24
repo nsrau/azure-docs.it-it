@@ -1,70 +1,48 @@
 ---
-title: Connettersi al database SQL di Azure tramite Node.js | Documentazione Microsoft
-description: Presentazione di un esempio di codice Node.js da usare per connettersi al database SQL di Azure ed eseguire query.
+title: Usare Node.js per eseguire query sul database SQL di Azure | Microsoft Docs
+description: Questo argomento illustra come usare Node.js per creare un programma che si connette a un database SQL di Azure ed esegue query usando istruzioni Transact-SQL.
 services: sql-database
 documentationcenter: 
-author: LuisBosquez
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
-ms.custom: quick start connect
+ms.custom: mvc,develop apps
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 05/07/2017
-ms.author: lbosq
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 99c1ce93f30a54fcf0d76b1367c2f9545258c1f9
+ms.topic: hero-article
+ms.date: 07/05/2017
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 1907a95df9132c059d7985b6d5cd913536bf3403
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="azure-sql-database-use-nodejs-to-connect-and-query-data"></a>Database SQL di Azure: usare Node.js per connettersi ai dati ed eseguire query
+# <a name="use-nodejs-to-query-an-azure-sql-database"></a>Usare Node.js per eseguire query su un database SQL di Azure
 
-Questa guida introduttiva illustra come connettersi a un database SQL di Azure tramite [Node.js](https://nodejs.org/en/) e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database da piattaforme Windows, Ubuntu Linux e Mac OS.
+Questa esercitazione introduttiva illustra come usare [Node.js](https://nodejs.org/en/) per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.
 
-Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide seguenti:
+## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un database: portale](sql-database-get-started-portal.md)
-- [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+Per completare questa esercitazione introduttiva, accertarsi di avere:
 
-## <a name="install-nodejs"></a>Installare Node.js 
+- un database SQL di Azure. Questa guida introduttiva usa le risorse create in una delle guide introduttive seguenti: 
 
-Le procedure descritte in questa sezione presuppongono che si abbia familiarità con lo sviluppo con Node.js ma non con il database SQL di Azure. Se non si ha esperienza con lo sviluppo con Node.js, andare alla pagina [Build an app using SQL Server](https://www.microsoft.com/en-us/sql-server/developer-get-started/) (Creare un'app con SQL Server), selezionare **Node.js** e quindi il sistema operativo in uso.
+   - [Creare un database: portale](sql-database-get-started-portal.md)
+   - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+   - [Creare un database: PowerShell](sql-database-get-started-powershell.md)
 
-### <a name="mac-os"></a>**Mac OS**
-Immettere i comandi seguenti per installare **brew**, una gestione pacchetti facile da usare per Mac OS X e **Node.js**.
+- Una [regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) per l'indirizzo IP pubblico del computer usato per questa esercitazione introduttiva.
+- Avere installato Node.js e il software correlato per il sistema operativo.
+    - **MacOS**: installare Homebrew e Node.js e quindi installare il driver ODBC e SQLCMD. Vedere i [passaggi 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+    - **Ubuntu**: installare Node.js e quindi installare il driver ODBC e SQLCMD. Vedere i [passaggi 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+    - **Windows**: installare Chocolatey e Node.js e quindi installare il driver ODBC e SQLCMD. Vedere i [passaggi 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install node
-```
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Immettere i comandi seguenti per installare la gestione pacchetti **Node.js** e **npm** per Node.js.
-
-```bash
-sudo apt-get install -y nodejs npm
-```
-
-### <a name="windows"></a>**Windows**
-Visitare la [pagina di download di Node.js](https://nodejs.org/en/download/) e selezionare l'opzione di installazione di Windows desiderata.
-
-
-## <a name="install-the-tedious-sql-server-driver-for-nodejs"></a>Installare il driver del server Tedious SQL per il Node.js
-Il driver consigliato per il Node.js è **[tedious](https://github.com/tediousjs/tedious)**. Tedious è un'iniziativa open source a cui Microsoft contribuisce per le applicazioni Node.js su qualsiasi piattaforma. Per questa esercitazione è necessaria una directory vuota per contenere il codice e le dipendenze `npm` che verranno installate.
-
-Per installare il driver **tedious** eseguire il comando seguente all'interno della directory:
-
-```cmd
-npm install tedious
-```
-
-## <a name="get-connection-information"></a>Ottenere informazioni di connessione
+## <a name="sql-server-connection-information"></a>Informazioni di connessione SQL Server
 
 Ottenere le informazioni di connessione necessarie per connettersi al database SQL di Azure. Nelle procedure successive saranno necessari il nome completo del server, il nome del database e le informazioni di accesso.
 
@@ -75,190 +53,98 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.
+
+> [!IMPORTANT]
+> È necessario avere una regola del firewall impostata per l'indirizzo IP pubblico del computer su cui si esegue questa esercitazione. Se si usa un computer o un indirizzo IP pubblico diverso, creare una [regola del firewall a livello di server con il portale di Azure](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+
+## <a name="create-a-nodejs-project"></a>Creare un progetto Web Node.js
+
+Aprire un prompt dei comandi e creare una cartella denominata *sqltest*. Passare alla cartella creata ed eseguire questo comando:
+
     
-## <a name="select-data"></a>Selezionare i dati
-
-Usare il codice seguente per eseguire query sul database SQL di Azure per individuare i primi 20 prodotti per categoria. In primo luogo, importare le classi di connessione e di richiesta del driver dalla libreria del driver tedious. Successivamente, creare l'oggetto di configurazione e sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. Creare un oggetto `Connection` tramite l'oggetto `config` specificato. Successivamente, definire la callback per l'evento `connect` dell'oggetto `connection` per eseguire la funzione `queryDatabase()`.
-
-```js
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
-
-
-// Create connection to database
-var config = {
-  userName: 'your_username', // update me
-  password: 'your_password', // update me
-  server: 'your_server.database.windows.net', // update me
-  options: {
-      database: 'your_database' //update me
-  }
-}
-var connection = new Connection(config);
-
-// Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) {
-    if (err) {
-        console.log(err)
-    }
-    else{
-        queryDatabase()
-    }
-});
-
-function queryDatabase(){
-    console.log('Reading rows from the Table...');
-
-    // Read all rows from table
-    request = new Request(
-        "SELECT TOP 1 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
-        function(err, rowCount, rows) {
-            console.log(rowCount + ' row(s) returned');
-        }
-    );
+    npm init -y
+    npm install tedious
+    npm install async
     
-    request.on('row', function(columns) {
-        columns.forEach(function(column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
-        });
-    });
 
-    connection.execSql(request);
-}
-```
+## <a name="insert-code-to-query-sql-database"></a>Inserire il codice per eseguire query sul database SQL
 
-## <a name="insert-data-into-the-database"></a>Inserire i dati nel database
-Usare il codice seguente per inserire un nuovo prodotto nella tabella SalesLT.Product tramite la funzione `insertIntoDatabase()` e l'istruzione Transact-SQL [INSERT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql). Sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. 
+1. Nell'ambiente di sviluppo o nell'editor di testo preferito creare un nuovo file, **sqltest.js**.
 
-```js
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
+2. Sostituire il contenuto con il codice seguente e aggiungere i valori appropriati per il server, il database, l'utente e la password.
 
+   ```js
+   var Connection = require('tedious').Connection;
+   var Request = require('tedious').Request;
 
-// Create connection to database
-var config = {
-  userName: 'your_username', // update me
-  password: 'your_password', // update me
-  server: 'your_server.database.windows.net', // update me
-  options: {
-      database: 'your_database' //update me
-  }
-}
+   // Create connection to database
+   var config = 
+      {
+        userName: 'someuser', // update me
+        password: 'somepassword', // update me
+        server: 'edmacasqlserver.database.windows.net', // update me
+        options: 
+           {
+              database: 'somedb' //update me
+              , encrypt: true
+           }
+      }
+   var connection = new Connection(config);
 
-var connection = new Connection(config);
-
-// Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) {
-    if (err) {
-        console.log(err)
-    }
-    else{
-        insertIntoDatabase()
-    }
-});
-
-function insertIntoDatabase(){
-    console.log("Inserting a brand new product into database...");
-    request = new Request(
-        "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')",
-        function(err, rowCount, rows) {
-            console.log(rowCount + ' row(s) inserted');
-        }
+   // Attempt to connect and execute queries if connection goes through
+   connection.on('connect', function(err) 
+      {
+        if (err) 
+          {
+             console.log(err)
+          }
+       else
+          {
+              queryDatabase()
+          }
+      }
     );
-    connection.execSql(request);
-}
+
+   function queryDatabase()
+      { console.log('Reading rows from the Table...');
+
+          // Read all rows from table
+        request = new Request(
+             "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
+                function(err, rowCount, rows) 
+                   {
+                       console.log(rowCount + ' row(s) returned');
+                       process.exit();
+                   }
+               );
+    
+        request.on('row', function(columns) {
+           columns.forEach(function(column) {
+               console.log("%s\t%s", column.metadata.colName, column.value);
+            });
+                });
+        connection.execSql(request);
+      }
 ```
 
-## <a name="update-data-in-the-database"></a>Aggiornare i dati nel database
-Usare il codice seguente per eliminare il nuovo prodotto aggiunto in precedenza tramite la funzione `updateInDatabase()` e l'istruzione Transact-SQL [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql). Sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. Questo esempio usa il nome del Prodotto inserito nell'esempio precedente.
+## <a name="run-the-code"></a>Eseguire il codice
 
-```js
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
+1. Al prompt dei comandi eseguire questi comandi:
 
+   ```js
+   node sqltest.js
+   ```
 
-// Create connection to database
-var config = {
-  userName: 'your_username', // update me
-  password: 'your_password', // update me
-  server: 'your_server.database.windows.net', // update me
-  options: {
-      database: 'your_database' //update me
-  }
-}
-
-var connection = new Connection(config);
-
-// Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) {
-    if (err) {
-        console.log(err)
-    }
-    else{
-        updateInDatabase()
-    }
-});
-
-function updateInDatabase(){
-    console.log("Updating the price of the brand new product in database...");
-    request = new Request(
-        "UPDATE SalesLT.Product SET ListPrice = 50 WHERE Name = 'BrandNewProduct'",
-        function(err, rowCount, rows) {
-            console.log(rowCount + ' row(s) updated');
-        }
-    );
-    connection.execSql(request);
-}
-```
-
-## <a name="delete-data-from-the-database"></a>Eliminare i dati dal database
-Usare il codice seguente per eliminare i dati da un database. Sostituire le variabili **nome utente**, **password**, **server** e **database** con i valori specificati al momento della creazione del database con i dati di esempio AdventureWorksLT. Questa volta, usare un'**istruzione DELETE** nella funzione `deleteFromDatabase()`. Questo esempio usa anche il nome del Prodotto inserito nell'esempio precedente.
-
-```js
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
-
-
-// Create connection to database
-var config = {
-  userName: 'your_username', // update me
-  password: 'your_password', // update me
-  server: 'your_server.database.windows.net', // update me
-  options: {
-      database: 'your_database' //update me
-  }
-}
-
-var connection = new Connection(config);
-
-// Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) {
-    if (err) {
-        console.log(err)
-    }
-    else{
-        deleteFromDatabase()
-    }
-});
-
-function deleteFromDatabase(){
-    console.log("Deleting the brand new product in database...");
-    request = new Request(
-        "DELETE FROM SalesLT.Product WHERE Name = 'BrandNewProduct'",
-        function(err, rowCount, rows) {
-            console.log(rowCount + ' row(s) returned');
-        }
-    );
-    connection.execSql(request);
-}
-```
-
+2. Verificare che vengano restituite le prime 20 righe e quindi chiudere la finestra dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Progettare il primo database SQL di Azure](sql-database-design-first-database.md)
-- [Driver Microsoft Node.js per SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- [Connettersi al database SQL con SQL Server Management Studio ed eseguire una query T-SQL di esempio](sql-database-connect-query-ssms.md)
-- [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md)
+
+- Informazioni sul [driver Microsoft Node.js per SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/).
+- Informazioni su come [connettersi ed eseguire query su un database SQL di Azure usando .NET Core](sql-database-connect-query-dotnet-core.md) in Windows/Linux/macOS.  
+- Informazioni su come [iniziare a usare .NET Core in Windows/Linux/macOS con la riga di comando](/dotnet/core/tutorials/using-with-xplat-cli).
+- Informazioni su come [progettare il primo database SQL di Azure con SSMS](sql-database-design-first-database.md) o su come [progettare il primo database SQL di Azure con .NET](sql-database-design-first-database-csharp.md).
+- Informazioni su come [connettersi ed eseguire query con SSMS](sql-database-connect-query-ssms.md).
+- Informazioni su come [connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).
 
 
 

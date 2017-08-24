@@ -6,20 +6,21 @@ keywords: gestione delle password in Active Directory, gestione delle password, 
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
+ms.reviewer: gahug
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/17/2017
 ms.author: joflore
+ms.custom: it-pro
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9dc195040d0fa1321dff9ec97d9ca1e4770d325
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 7783d0fc30b4b7d098a89595771993b33fb0aa97
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
 # <a name="password-writeback-overview"></a>Panoramica del writeback delle password
@@ -74,11 +75,23 @@ Quando un utente federato e con sincronizzazione di hash della password reimpost
 
     È disponibile un messaggio specifico per molti di questi casi e all'utente viene indicato cosa può fare per risolvere il problema.
 
-## <a name="scenarios-supported-for-password-writeback"></a>Scenari supportati per il writeback delle password
+## <a name="configuring-password-writeback"></a>Configurazione del writeback delle password
 
 È consigliabile usare la funzionalità di aggiornamento automatico di [Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md) se si vuole usare il writeback delle password.
 
-Altre informazioni su [Ciclo di vita del supporto di DirSync e Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md)
+Gli strumenti DirSync e Azure AD Sync non sono più supportati per l'attivazione del writeback delle password. L'articolo [Aggiornamento da DirSync e Azure AD Sync](connect/active-directory-aadconnect-dirsync-deprecated.md) contiene altre informazioni per facilitare la transizione.
+
+La procedura seguente presuppone che Azure AD Connect sia già stato configurato nell'ambiente tramite le impostazioni [Rapida](./connect/active-directory-aadconnect-get-started-express.md) o [Personalizzata](./connect/active-directory-aadconnect-get-started-custom.md).
+
+1. Per configurare e abilitare il writeback delle password accedere al server Azure AD Connect e avviare la configurazione guidata di **Azure AD Connect**.
+2. Nella schermata iniziale fare clic su **Configura**.
+3. Nella schermata Attività aggiuntive fare clic su **Personalizzazione delle opzioni di sincronizzazione** e quindi scegliere **Avanti**.
+4. Nella schermata Connessione ad Azure AD immettere le credenziali di amministratore globale e scegliere **Avanti**.
+5. Nelle schermate Connessione delle directory e Filtro di domini e unità organizzative è possibile scegliere **Avanti**.
+6. Nella schermata Funzionalità facoltative selezionare la casella accanto a **Writeback delle password** e fare clic su **Avanti**.
+   ![Abilitare il writeback delle password in Azure AD Connect][Writeback]
+7. Nella schermata Pronto per la configurazione fare clic su **Configura** e attendere il completamento del processo.
+8. Quando si vede La configurazione è stata completata è possibile fare clic su **Esci**
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
 
@@ -183,4 +196,5 @@ I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazi
 * [**Domande frequenti**](active-directory-passwords-faq.md) - Come Perché? Cosa? Dove? Chi? Quando? - Risposte alle domande di maggiore interesse
 * [**Risoluzione dei problemi**](active-directory-passwords-troubleshoot.md): informazioni su come risolvere i problemi comuni con la reimpostazione password self-service
 
+[Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Abilitare il writeback delle password in Azure AD Connect"
 

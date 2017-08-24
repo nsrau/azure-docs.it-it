@@ -1,6 +1,6 @@
 ---
-title: Problema nell&quot;installazione dell&quot;estensione del browser per il pannello di accesso dell&quot;applicazione | Microsoft Docs
-description: Informazioni su come correggere gli errori comuni riscontrabili durante l&quot;installazione dell&quot;estensione del browser per il pannello di accesso
+title: Problema nell'installazione dell'estensione del browser per il pannello di accesso dell'applicazione | Microsoft Docs
+description: Informazioni su come correggere gli errori comuni riscontrabili durante l'installazione dell'estensione del browser per il pannello di accesso
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 40ace51c4ba74039b3a5d5997acdf2da7b98b4a9
-ms.lasthandoff: 04/17/2017
-
+ms.reviewer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 8b7327508633e33917d1fa9c1f35ed1bde5a26e1
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -35,11 +36,11 @@ Per l'accesso Single Sign-On basato su password il browser dell'utente finale pu
 
 -   Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive
 
+-   Edge su Windows 10 Anniversary Edition o versioni successive 
+
 -   Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 
 -   Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
-
-**Nota**: l'estensione per l'accesso SSO basato su password sarà disponibile per Edge in Windows 10 quando le estensioni del browser saranno supportate per Edge.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Come installare l'estensione del browser per il pannello di accesso
 
@@ -59,11 +60,11 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 7.  Accedere al pannello di accesso e verificare se è possibile **avviare** le applicazioni con accesso SSO basato su password.
 
-È anche possibile scaricare l'estensione per Chrome e Firefox dai collegamenti diretti seguenti:
+È anche possibile scaricare l'estensione per Chrome ed Edge dai collegamenti diretti seguenti:
 
 -   [Estensione Pannello di accesso per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Estensione Pannello di accesso per Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Estensione Pannello di accesso per Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Impostazione dei Criteri di gruppo per Internet Explorer
 
@@ -75,11 +76,11 @@ I prerequisiti includono:
 
 -   Per modificare l'oggetto Criteri di gruppo è necessaria l'autorizzazione "Modifica impostazione". Questa autorizzazione è assegnata per impostazione predefinita ai membri dei gruppi di sicurezza seguenti: Domain Administrators, Enterprise Administrators e Group Policy Creator Owners. [Altre informazioni](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
-Per istruzioni passo passo su come configurare i Criteri di gruppo e distribuirli agli utenti, seguire l'esercitazione [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy).
+Per istruzioni passo passo su come configurare i Criteri di gruppo e distribuirli agli utenti, seguire l'esercitazione [Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo](active-directory-saas-ie-group-policy.md).
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Risoluzione dei problemi del pannello di accesso in Internet Explorer
 
-Per accedere a uno strumento diagnostico e per istruzioni passo passo sulla configurazione dell'estensione per Internet Explorer, seguire la procedura nella sezione sulla [risoluzione dei problemi relativi all'estensione del pannello di accesso per Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot).
+Per accedere a uno strumento diagnostico e per istruzioni passo passo sulla configurazione dell'estensione per Internet Explorer, seguire la procedura nella sezione sulla [risoluzione dei problemi relativi all'estensione del pannello di accesso per Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 ## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Se questi passaggi per la risoluzione dei problemi non risolvono il problema
 

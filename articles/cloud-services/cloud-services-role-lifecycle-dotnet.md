@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 07/18/2017
 ms.author: adegeo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9924c7352300c70e949fb86a19dfaf68b9fe8b50
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizzare il ciclo di vita di un ruolo Web o di lavoro in .NET
@@ -81,10 +82,5 @@ L’esecuzione dell'override del metodo **Run** non è obbligatoria, l'implement
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [creare un pacchetto del servizio cloud](cloud-services-model-and-package.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

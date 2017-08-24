@@ -12,12 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2017
+ms.date: 05/16/2017
 ms.author: shlo
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 446a7b585ca1204d49d76f71106799cbd2b0aa70
-ms.lasthandoff: 03/29/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
+ms.openlocfilehash: 3013607e62a3ac532cb0c035130fe35e503a345c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/17/2017
 
 
 ---
@@ -40,6 +41,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 | [Pipeline ibrida con Hortonworks Hadoop locale](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |Questo esempio usa un cluster Hadoop locale come computer di destinazione per l'esecuzione di processi in Data Factory in modo analogo all'aggiunta di altre destinazioni di calcolo quali un cluster Hadoop basato su HDInsight nel cloud. |
 | [Strumento di conversione JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |Questo strumento consente di convertire documenti JSON da una versione precedente a 2015-07-01-preview (impostazione predefinita) o a una versione successiva. |
 | [File di input di esempio U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |Si tratta di un file di esempio usato da un'attività di U-SQL. |
+| [Eliminare il file BLOB](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity) | In questo esempio viene illustrato un file C# che può essere usato come parte di un'attività .net personalizzata ADF per eliminare i file dal percorso BLOB di Azure di origine dopo averli copiati.|
 
 ## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 È possibile trovare i seguenti modelli di Azure Resource Manager per Data Factory in GitHub.
@@ -101,7 +103,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
    3. Selezionare la **sottoscrizione di Azure** in cui creare la data factory.
    4. Selezionare il **gruppo di risorse** per la data factory.
    5. Selezionare **Stati Uniti Occidentali**, **Stati Uniti Orientali** o **Europa settentrionale** per l'**area**.
-   6. Fare clic su **Next**.
+   6. Fare clic su **Avanti**.
 6. Nella pagina **Configure data stores** (Configura archivi dati) specificare un **database SQL di Azure** e un **account di archiviazione di Azure** esistenti oppure crearne di nuovi, quindi scegliere Avanti.
 7. Nella pagina **Configura calcolo** selezionare le impostazioni predefinite e fare clic su **Avanti**.
 8. Nella pagina **Riepilogo** esaminare tutte le impostazioni e fare clic su **Avanti**.

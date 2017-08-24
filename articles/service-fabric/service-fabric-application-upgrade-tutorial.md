@@ -1,6 +1,6 @@
 ---
-title: Esercitazione sull&quot;aggiornamento di un&quot;app di Service Fabric | Documentazione Microsoft
-description: Questo articolo esamina l&quot;esperienza di distribuzione di un&quot;applicazione di Service Fabric, la modifica del codice e l&quot;implementazione di un aggiornamento tramite Visual Studio.
+title: Esercitazione sull'aggiornamento di un'app di Service Fabric | Documentazione Microsoft
+description: Questo articolo esamina l'esperienza di distribuzione di un'applicazione di Service Fabric, la modifica del codice e l'implementazione di un aggiornamento tramite Visual Studio.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 8/9/2017
 ms.author: subramar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 2b1b12666b71bf173342d5864772a94b9625d38b
+ms.contentlocale: it-it
 ms.lasthandoff: 04/25/2017
-
 
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio

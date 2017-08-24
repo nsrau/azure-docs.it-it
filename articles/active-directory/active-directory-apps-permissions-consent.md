@@ -1,6 +1,6 @@
 ---
 title: App, autorizzazioni e consenso in Azure Active Directory | Documentazione Microsoft
-description: "Azure AD Connect integra le directory locali con Azure Active Directory. Consente di fornire un&quot;identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD."
+description: "Azure AD Connect integra le directory locali con Azure Active Directory. Consente di fornire un'identità comune per le applicazioni di Office 365, Azure e SaaS integrate con Azure AD."
 keywords: introduzione ad Azure AD Connect, app, informazioni su Azure AD Connect, installare active directory
 services: active-directory
 documentationcenter: 
@@ -13,12 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
+ms.date: 07/31/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 095497656a1c6ed1fe5322b6015de750d8fd6f15
-ms.openlocfilehash: 3706ed729a525526a415d3a3367e6b8245ead812
-
+ms.reviewer: jesakowi
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -27,6 +30,8 @@ In Azure Active Directory è possibile aggiungere applicazioni alla directory.  
 
 ![](media/active-directory-apps-permissions-consent/apps1.png)
 
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo.
 
 ## <a name="types-of-apps"></a>Tipi di app
 
@@ -215,10 +220,5 @@ Nel caso di FabrikamMail, sarà simile a quanto segue:
 (**ClientId** è l'ID dell'oggetto entità servizio di FabrikamMail (quello appena creato), **PrincipalId** è l'ID dell'oggetto utente (dell'utente che ha concesso il consenso), **ResourceId** è l'ID dell'oggetto entità servizio di Exchange Scope è l'autorizzazione di Exchange che ha ottenuto il consenso).
 
 Se agli utenti non è stato concesso il consenso, visualizzeranno una schermata indicante la necessità di disporre dell'autorizzazione.
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script di Azure PowerShell - Ridimensionare un&quot;app Web manualmente | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Ridimensionare un&quot;app Web manualmente
+title: Esempio di script di Azure PowerShell - Ridimensionare un'app Web manualmente | Microsoft Docs
+description: Esempio di script di Azure PowerShell - Ridimensionare un'app Web manualmente
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -10,14 +10,16 @@ tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.service: app-service
 ms.devlang: multiple
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
-translationtype: Human Translation
+ms.custom: mvc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 963b1de38d4f81e1f2a7045d56e05d9ea8014f37
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 ---

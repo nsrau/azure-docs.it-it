@@ -1,5 +1,5 @@
 ---
-title: "Considerazioni di progettazione dell&quot;identità ibrida di Azure Active Directory - Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità | Documentazione Microsoft"
+title: "Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità | Documentazione Microsoft"
 description: "Consente di definire le attività della gestione ibrida delle identità in base alle opzioni disponibili per ogni fase del ciclo di vita."
 documentationcenter: 
 services: active-directory
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2017
+ms.date: 07/18/2017
 ms.author: billmath
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 14e78eca1e03125143b8814c5652c43f3f3fd3a8
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18b40486a66d8e092a8af299460145989a1ab99d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità
@@ -34,7 +35,7 @@ Nelle aziende IT sofisticate gli account includono centinaia di parametri che de
 
 | Fase di gestione del ciclo di vita | Locale | Cloud | Ibrido |
 | --- | --- | --- | --- |
-| Gestione e provisioning degli account |Il ruolo del server Servizi di dominio Active Directory® consente di creare un'infrastruttura scalabile, sicura e gestibile per la gestione di utenti e risorse, nonché di fornire supporto per le applicazioni abilitate per le directory, ad esempio Microsoft® Exchange Server. <br><br> [È possibile eseguire il provisioning dei gruppi in Servizi di dominio Active Directory tramite un Identity manager](https://technet.microsoft.com/library/ff686261.aspx) <br>[ È possibile eseguire il provisioning degli utenti in Servizi di dominio Active Directory](https://technet.microsoft.com/library/ff686263.aspx) <br><br>  Gli amministratori possono usare il controllo di accesso per gestire l'accesso degli utenti alle risorse condivise per motivi di sicurezza. In Active Directory il controllo di accesso è gestito a livello di oggetto impostando diversi livelli di accesso, o autorizzazioni, agli oggetti, ad esempio Controllo completo, Scrittura, Lettura o Nessun accesso. Il controllo di accesso in Active Directory definisce il modo in cui gli utenti possono usare gli oggetti di Active Directory. Per impostazione predefinita, le autorizzazioni sugli oggetti in Active Directory sono configurate sull'impostazione più sicura. |È necessario creare un account per ogni utente che accederà a un servizio cloud Microsoft. È anche possibile modificare gli account utente oppure eliminarli quando non sono più necessari. Per impostazione predefinita, gli utenti non hanno autorizzazioni di amministratore, ma è possibile scegliere facoltativamente di assegnarle. Per altre informazioni, vedere [Gestione degli utenti in Azure AD](active-directory-create-users.md). <br><br>  In Azure Active Directory una delle caratteristiche principali è la possibilità di gestire l'accesso alle risorse. Queste risorse possono far parte della directory, come nel caso delle autorizzazioni per gestire oggetti tramite i ruoli nella directory, o risorse che sono esterne alla directory, come ad esempio le applicazioni SaaS, i servizi di Azure e i siti di SharePoint o in risorse locali. <br><br>  L'elemento principale della soluzione per la gestione degli accessi di Azure Active Directory è il gruppo di sicurezza. Il proprietario della risorsa (o l'amministratore della directory) può assegnare ad un gruppo il compito di fornire un determinato diritto di accesso per le risorse che possiede. Ai membri del gruppo verrà fornito l'accesso e il proprietario della risorsa può delegare il diritto di gestire l'elenco di membri di un gruppo a un altro utente, ad esempio un responsabile di reparto o un amministratore dell'helpdesk<br> <br>  L'argomento relativo alla gestione dei gruppi in Azure AD fornisce informazioni dettagliate su come gestire gli accessi tramite i gruppi. |Estendere le identità di Active Directory nel cloud tramite la sincronizzazione e la federazione |
+| Gestione e provisioning degli account |Il ruolo del server Servizi di dominio Active Directory® consente di creare un'infrastruttura scalabile, sicura e gestibile per la gestione di utenti e risorse, nonché di fornire supporto per le applicazioni abilitate per le directory, ad esempio Microsoft® Exchange Server. <br><br> [È possibile eseguire il provisioning dei gruppi in Servizi di dominio Active Directory tramite un Identity manager](https://technet.microsoft.com/library/ff686261.aspx) <br>[ È possibile eseguire il provisioning degli utenti in Servizi di dominio Active Directory](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Gli amministratori possono usare il controllo di accesso per gestire l'accesso degli utenti alle risorse condivise per motivi di sicurezza. In Active Directory il controllo di accesso è gestito a livello di oggetto impostando diversi livelli di accesso, o autorizzazioni, agli oggetti, ad esempio Controllo completo, Scrittura, Lettura o Nessun accesso. Il controllo di accesso in Active Directory definisce il modo in cui gli utenti possono usare gli oggetti di Active Directory. Per impostazione predefinita, le autorizzazioni sugli oggetti in Active Directory sono configurate sull'impostazione più sicura. |È necessario creare un account per ogni utente che accederà a un servizio cloud Microsoft. È anche possibile modificare gli account utente oppure eliminarli quando non sono più necessari. Per impostazione predefinita, gli utenti non hanno autorizzazioni di amministratore, ma è possibile scegliere facoltativamente di assegnarle. Per altre informazioni, vedere [Gestione degli utenti in Azure AD](active-directory-create-users.md). <br><br> In Azure Active Directory una delle caratteristiche principali è la possibilità di gestire l'accesso alle risorse. Queste risorse possono far parte della directory, come nel caso delle autorizzazioni per gestire oggetti tramite i ruoli nella directory, o delle risorse esterne alla directory, come ad esempio le applicazioni SaaS, i servizi di Azure e i siti di SharePoint o delle risorse locali. <br><br> L'elemento principale della soluzione per la gestione degli accessi di Azure Active Directory è il gruppo di sicurezza. Il proprietario della risorsa (o l'amministratore della directory) può assegnare ad un gruppo il compito di fornire un determinato diritto di accesso per le risorse che possiede. Ai membri del gruppo verrà fornito l'accesso e il proprietario della risorsa può delegare il diritto di gestire l'elenco di membri di un gruppo a un altro utente, ad esempio un responsabile di reparto o un amministratore dell'helpdesk<br> <br> L'argomento relativo alla gestione dei gruppi in Azure AD fornisce informazioni dettagliate su come gestire gli accessi tramite i gruppi. |Estendere le identità di Active Directory nel cloud tramite la sincronizzazione e la federazione |
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 Il controllo degli accessi in base al ruolo usa i ruoli e i criteri di provisioning per valutare, testare e imporre regole e processi aziendali per concedere l'accesso agli utenti. Gli amministratori principali creano i criteri di provisioning, assegnano gli utenti ai ruoli e definiscono set di assegnazioni alle risorse per questi ruoli. Il controllo degli accessi in base al ruolo estende la soluzione di gestione delle identità per usare processi basati sul software e ridurre l'interazione manuale dell'utente nel processo di provisioning.
@@ -99,10 +100,5 @@ Esaminare la tabella seguente per un confronto tra le opzioni di sincronizzazion
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

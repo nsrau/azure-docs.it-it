@@ -1,10 +1,10 @@
 ---
-title: Come configurare l&quot;autenticazione Google per un&quot;applicazione dei servizi app
-description: Informazioni su come configurare l&quot;autenticazione Google per un&quot;applicazione dei servizi app.
+title: Come configurare l'autenticazione Google per un'applicazione dei servizi app
+description: Informazioni su come configurare l'autenticazione Google per un'applicazione dei servizi app.
 services: app-service
 documentationcenter: 
 author: mattchenderson
-manager: adrianha
+manager: syntaxc4
 editor: 
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
 ms.openlocfilehash: 09db38cfb5fb4277d4ca259eb10e388af33f1773
+ms.contentlocale: it-it
 ms.lasthandoff: 03/09/2017
-
 
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Come configurare l'applicazione del servizio app per usare l'account di accesso di Google
@@ -37,8 +37,8 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 6. Incollare l'**URL** del servizio app copiato in precedenza in **Origini JavaScript autorizzate** e quindi incollare l'URI di reindirizzamento in **URI di reindirizzamento autorizzati**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso */.auth/login/google/callback*. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assicurarsi che sia in uso lo schema HTTPS. Fare quindi clic su **Crea**.
 7. Fare clic sulla schermata successiva e annotare i valori di ID client e Segreto client.
 
-    > [AZURE.IMPORTANT]
-    Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
+    > [!IMPORTANT]
+    > Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
 
 
 ## <a name="secrets"> </a>Aggiungere le informazioni di Google all'applicazione

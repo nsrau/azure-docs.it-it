@@ -1,6 +1,6 @@
 ---
 title: Creare un gateway applicazione di Azure - Interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Informazioni su come creare un gateway applicazione usando l&quot;interfaccia della riga di comando di Azure 1.0 in Resource Manager
+description: Informazioni su come creare un gateway applicazione usando l'interfaccia della riga di comando di Azure 1.0 in Resource Manager
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 07/31/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: f550ec9a8d254378d165f0c842459fd50ade7945
-ms.openlocfilehash: 9ea999ea483543beda8d258f58dc8fba479aa603
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: e7b16e789e0f241aa8ca2292aacb2bccde8777ee
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creare un gateway applicazione con l'interfaccia della riga di comando di Azure
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/30/2017
 > 
 > 
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello&7;. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata sui cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati e supporto per più siti.
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata sui cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati e supporto per più siti.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Prerequisito: installare l'interfaccia della riga di comando di Azure
 
@@ -50,11 +50,8 @@ Questo scenario mostra come creare un gateway applicazione usando il portale di 
 Questo scenario illustrerà come:
 
 * Creare un gateway applicazione Medium con due istanze.
-* Creare una rete virtuale denominata AdatumAppGatewayVNET con un blocco CIDR riservato 10.0.0.0/16.
-* Creare una subnet denominata Appgatewaysubnet che usa 10.0.0.0/28 come blocco CIDR.
-* Configurare un certificato per l'offload SSL.
-
-![Esempio dello scenario][scenario]
+* Creare una rete virtuale denominata ContosoVNET con un blocco CIDR riservato di 10.0.0.0/16.
+* Creare una subnet denominata subnet01 che usa 10.0.0.0/28 come blocco CIDR.
 
 > [!NOTE]
 > La configurazione aggiuntiva del gateway applicazione, che include i probe di integrità personalizzati, gli indirizzi del pool back-end e le regole aggiuntive, viene definita dopo la configurazione del gateway applicazione e non durante la distribuzione iniziale.
@@ -67,7 +64,7 @@ Il gateway applicazione di Azure richiede una propria subnet. Quando si crea una
 
 Aprire il **prompt dei comandi di Microsoft Azure**ed effettuare l'accesso. 
 
-```azurecli
+```azurecli-interactive
 azure login
 ```
 
@@ -85,7 +82,7 @@ Dopo avere immesso il codice ed effettuato l'accesso, chiudere il browser per co
 
 ## <a name="switch-to-resource-manager-mode"></a>Passare alla modalità Resource Manager
 
-```azurecli
+```azurecli-interactive
 azure config mode arm
 ```
 
@@ -93,38 +90,63 @@ azure config mode arm
 
 Prima di creare il gateway applicazione viene creato un gruppo di risorse che contenga il gateway applicazione. Di seguito è riportato il comando.
 
-```azurecli
-azure group create -n AdatumAppGatewayRG -l eastus
+```azurecli-interactive
+azure group create \
+--name ContosoRG \
+--location eastus
 ```
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Dopo aver creato il gruppo di risorse, viene creata una rete virtuale per il gateway applicazione.  Nell'esempio seguente, lo spazio degli indirizzi era 10.0.0.0/16 come definito nelle note sullo scenario precedente.
 
-```azurecli
-azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGatewayRG -l eastus
+```azurecli-interactive
+azure network vnet create \
+--name ContosoVNET \
+--address-prefixes 10.0.0.0/16 \
+--resource-group ContosoRG \
+--location eastus
 ```
 
 ## <a name="create-a-subnet"></a>Creare una subnet
 
 Dopo aver creato la rete virtuale, viene aggiunta una subnet per il gateway applicazione.  Se si intende usare il gateway applicazione con un'app Web ospitata nella stessa rete virtuale del gateway applicazione, assicurarsi di lasciare spazio sufficiente per un'altra subnet.
 
-```azurecli
-azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
+```azurecli-interactive
+azure network vnet subnet create \
+--resource-group ContosoRG \
+--name subnet01 \
+--vnet-name ContosoVNET \
+--address-prefix 10.0.0.0/28 
 ```
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
 Dopo aver creato la rete virtuale e la subnet, i prerequisiti per il gateway applicazione sono soddisfatti. Per il passaggio seguente sono necessari anche un certificato PFX esportato prima e la password del certificato. Gli indirizzi IP usati per il back-end sono gli indirizzi IP per il server back-end. Questi valori possono essere indirizzi IP privati nella rete virtuale, indirizzi IP pubblici o nomi di dominio completi per i server back-end.
 
-```azurecli
-azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+```azurecli-interactive
+azure network application-gateway create \
+--name AdatumAppGateway \
+--location eastus \
+--resource-group ContosoRG \
+--vnet-name ContosoVNET \
+--subnet-name subnet01 \
+--servers 134.170.185.46,134.170.188.221,134.170.185.50 \
+--capacity 2 \
+--sku-tier Standard \
+--routing-rule-type Basic \
+--frontend-port 80 \
+--http-settings-cookie-based-affinity Enabled \
+--http-settings-port 80 \
+--http-settings-protocol http \
+--frontend-port http \
+--sku-name Standard_Medium
 ```
 
 > [!NOTE]
 > Per un elenco di parametri che possono essere specificati durante la creazione, eseguire questo comando: **azure network application-gateway create --help**.
 
-Questo esempio crea un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Viene anche configurato l'offload SSL. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
+Questo esempio crea un gateway applicazione di base con le impostazioni predefinite per il listener, il pool back-end, le impostazioni HTTP back-end e le regole. Queste impostazioni possono essere modificate in base alla propria distribuzione dopo che è stato completato il provisioning.
 Se l'applicazione Web è già stata definita con il pool back-end nei passaggi precedenti, dopo la creazione, inizia il bilanciamento del carico.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -135,8 +157,8 @@ Per informazioni su come configurare l'offload SSL ed evitare costose attività 
 
 <!--Image references-->
 
-[scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
-[1]: ./media/application-gateway-create-gateway-cli/figure1.png
-[2]: ./media/application-gateway-create-gateway-cli/figure2.png
-[3]: ./media/application-gateway-create-gateway-cli/figure3.png
+[scenario]: ./media/application-gateway-create-gateway-cli-nodejs/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli-nodejs/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli-nodejs/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli-nodejs/figure3.png
 

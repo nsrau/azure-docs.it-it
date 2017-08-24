@@ -1,6 +1,6 @@
 ---
-title: Problemi di configurazione del provisioning utenti in un&quot;applicazione della raccolta di Azure AD | Microsoft Docs
-description: "Come risolvere i problemi comuni riscontrati durante la configurazione del provisioning utenti per un&quot;applicazione già elencata nella raccolta di Azure AD"
+title: Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD | Microsoft Docs
+description: "Come risolvere i problemi comuni riscontrati durante la configurazione del provisioning utenti per un'applicazione già elencata nella raccolta di Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: e15784a662b1691774eb3d9cc8b3fbe66ac67385
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

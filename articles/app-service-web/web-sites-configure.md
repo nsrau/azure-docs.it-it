@@ -1,6 +1,6 @@
 ---
 title: Configurazione delle app Web in Servizio app di Azure
-description: Come configurare un&quot;app Web nel servizio app di Azure
+description: Come configurare un'app Web nel servizio app di Azure
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 98e5764f84f23ec586ebd823634b9024e4689c5c
-ms.lasthandoff: 01/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
+ms.contentlocale: it-it
+ms.lasthandoff: 06/21/2017
 
 
 ---
@@ -51,7 +52,7 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 **Web Socket**. Impostare **ATTIVATO** per abilitare il protocollo WebSocket, ad esempio se l'app Web usa [ASP.NET SignalR] o [socket.io].
 
 <a name="alwayson"></a>
-**Always On**. Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. In modalità Basic o Standard è possibile abilitare **Always On** affinché l'app rimanga sempre caricata. Se nell'app vengono eseguiti processi Web continui, è necessario abilitare **Always On**, altrimenti l'esecuzione dei processi Web potrebbe non avvenire in modo affidabile.
+**Always On**. Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. In modalità Basic o Standard è possibile abilitare **Always On** affinché l'app rimanga sempre caricata. Se nell'app vengono eseguiti processi Web continui o processi Web attivati mediante un'espressione CRON è necessario abilitare **Always On**, altrimenti l'esecuzione dei processi Web potrebbe non avvenire in modo affidabile.
 
 **Versione pipeline gestita**. Consente di impostare la [modalità pipeline]IIS. Lasciare questa opzione impostata su Integrato (predefinita), tranne nel caso in cui un'app meno recente richieda una versione precedente di IIS.
 
@@ -163,9 +164,9 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [portale di Azure]: https://portal.azure.com/
-[Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./web-sites-custom-domain-name.md
+[Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./app-service-web-tutorial-custom-domain.md
 [Configurare ambienti di staging per le app Web nel servizio app di Azure]: ./web-sites-staged-publishing.md
-[Abilitare HTTPS per un'app in Azure App Service]: ./web-sites-configure-ssl-certificate.md
+[Abilitare HTTPS per un'app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [Procedura: monitorare lo stato degli endpoint]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Informazioni di base sul monitoraggio di App Web nel servizio app di Azure]: ./web-sites-monitor.md
 [modalità pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application

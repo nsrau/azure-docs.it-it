@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 8e487cd33bef73ac66e1b1b6ee614b5a1376d772
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: dcc7c088d7b6db7af334977315f122dca3c17f69
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Creare cluster di Service Fabric in Windows Server o Linux
@@ -36,7 +36,7 @@ La creazione di un cluster in Azure viene eseguita tramite un modello di Resourc
 * Windows Server 2016 
 * Linux Ubuntu 16.04 (in anteprima pubblica) 
 
-## <a name="create-service-fabric-standalone-clusters-on-premise-or-with-any-cloud-provider"></a>Creare cluster autonomi di Service Fabric in locale o con qualsiasi provider di cloud
+## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Creare cluster autonomi di Service Fabric in locale o con qualsiasi provider di cloud
 Service Fabric offre un pacchetto di installazione per creare cluster autonomi di Service Fabric in locale o con qualsiasi provider di cloud.
 
 Per altre informazioni sulla configurazione di cluster autonomi di Service Fabric in Windows Server, vedere [Creazione di cluster di Service Fabric per Windows Server](service-fabric-cluster-creation-for-windows-server.md)

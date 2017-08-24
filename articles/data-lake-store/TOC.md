@@ -10,7 +10,6 @@
 ## [Uso di .NET SDK](data-lake-store-get-started-net-sdk.md)
 ## [Uso di Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [Uso dell'API REST](data-lake-store-get-started-rest-api.md)
-## [Uso dell'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli.md)
 ## [Uso dell'interfaccia della riga di comando di Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 ## [Uso di Node.js](data-lake-store-manage-use-nodejs.md)
 ## [Uso di Python](data-lake-store-get-started-python.md)
@@ -59,8 +58,9 @@
 ### [Pianificare la disponibilità elevata](data-lake-store-troubleshooting-guidance.md)
 
 # riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
 ## [PowerShell](/powershell/module/azurerm.datalakestore)
-## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (gestione di account)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
@@ -69,10 +69,12 @@
 ## [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/dls)
 
 # Risorse
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-lake-store)
-## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Forum di Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog di Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [Forum di Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

@@ -1,6 +1,6 @@
 ---
-title: Come trovare le origini dati | Microsoft Docs
-description: "Articolo sulle procedure di individuazione degli asset di dati registrati con il catalogo dati di Azure, che include ricerca e filtri e l’utilizzo della funzionalità di evidenziazione dei risultati del portale catalogo dati di Azure."
+title: Come trovare le origini dati in Azure Data Catalog | Microsoft Docs
+description: "Questo articolo illustra le procedure di individuazione degli asset di dati registrati con Azure Data Catalog, inclusi la ricerca, i filtri e l'uso delle funzionalità di evidenziazione dei risultati del portale di Azure Data Catalog."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,59 +13,58 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/15/2017
+ms.date: 08/15/2017
 ms.author: maroche
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c90aff38ebe33e8c26f9e46db7e61786ea9a7dd
+ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
+ms.openlocfilehash: 1cefc0341789a4751d4e3ee687048ccd291559e3
 ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 06/21/2017
 
 ---
-# <a name="how-to-discover-data-sources"></a>Come individuare le origini dati
+# <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Come trovare le origini dati in Azure Data Catalog
 ## <a name="introduction"></a>Introduzione
-**Catalogo dati di Microsoft Azure** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. In altre parole, il **Catalogo dati di Azure** consente agli utenti di individuare, comprendere e usare origini dati e aiuta le organizzazioni a ottenere maggior valore dai dati esistenti. Una volta che un’origine dati è stata registrata con il **Catalogo dati Azure**, i relativi metadati vengono indicizzati dal servizio, in modo che gli utenti possano eseguire facilmente ricerche per individuare i dati necessari.
+Azure Data Catalog è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per le origini dati aziendali. In altre parole, Data Catalog permette agli utenti di trovare, comprendere e usare le origini dati e consente alle organizzazioni di ottenere maggior valore dai dati esistenti. Dopo che un'origine dati è stata registrata con Data Catalog, i metadati vengono indicizzati dal servizio, in modo che sia possibile eseguire facilmente ricerche per trovare i dati necessari.
 
 ## <a name="searching-and-filtering"></a>Ricerca e filtri
-L’individuazione delle origini dati in **Catalogo dati Azure** utilizza due meccanismi principali: ricerca e filtri.
+L'individuazione in Data Catalog usa due meccanismi principali: ricerca e filtri.
 
-La ricerca è progettata per essere intuitiva e potente: per impostazione predefinita, i termini di ricerca vengono confrontati con qualsiasi proprietà del catalogo, tra cui le annotazioni fornite dall'utente.
+La ricerca è stata progettata in modo da essere intuitiva ed efficiente. Per impostazione predefinita, i termini di ricerca vengono confrontati con qualsiasi proprietà del catalogo, tra cui le annotazioni indicate dall'utente.
 
-I filtri sono progettati per completare la ricerca. Gli utenti possono selezionare caratteristiche specifiche, ad esempio esperti, tipo di origine dati, tipo di oggetto e tag, per visualizzare solo gli asset di dati corrispondenti e per limitare anche i risultati della ricerca ai corrispondenti asset.
+I filtri sono progettati per completare la ricerca. È possibile selezionare caratteristiche specifiche, ad esempio esperti, tipo di origine dati, tipo di oggetto e tag. È possibile visualizzare gli asset di dati corrispondenti e vincolare i risultati della ricerca agli asset corrispondenti.
 
-Utilizzando una combinazione di ricerca e filtri, gli utenti possono navigare rapidamente tra le origini dati che sono state registrate con il **Catalogo dati Azure** per individuare quelle di proprio interesse.
+Usando una combinazione di ricerca e filtri, gli utenti possono spostarsi rapidamente tra le origini dati registrate con Data Catalog per trovare le origini dati di proprio interesse.
 
 ## <a name="search-syntax"></a>Sintassi di ricerca
-Anche se la ricerca di testo libero predefinita è semplice e intuitiva, gli utenti possono utilizzare anche la sintassi di ricerca del **Catalogo dati Azure**per ottenere un maggiore controllo sui risultati della ricerca. **Catalogo dati di Azure** supporta le seguenti tecniche:
+Anche se la ricerca di testo libero predefinita è semplice e intuitiva, è possibile usare anche la sintassi di ricerca di Data Catalog per un maggiore controllo sui risultati della ricerca. La ricerca di Data Catalog supporta le tecniche seguenti:
 
 | Tecnica | Uso | Esempio |
 | --- | --- | --- |
-| Ricerca di base |Ricerca di base utilizzando uno o più termini di ricerca. I risultati sono gli asset che corrispondono alle proprietà di uno o più  termini specificati. |dati di vendita |
-| Ambito della proprietà |Restituire solo le origini di dati dove il termine di ricerca corrisponde alla proprietà specificata |nome:finanza |
-| Operatori booleani |Ampliare o restringere una ricerca utilizzando operazioni booleane |finanza NON aziendale |
-| Raggruppamento con parentesi |Utilizzare le parentesi per raggruppare parti della query per ottenere l'isolamento logico, soprattutto in combinazione con gli operatori booleani |nanome:finanza E (tag:Q1 O tag:Q2) |
-| Operatori di confronto |Utilizzare confronti invece di uguaglianze per le proprietà che hanno dati di tipo numero e data |modifiedTime > "11/05/2014" |
+| Ricerca di base |Ricerca di base che usa uno o più termini di ricerca. I risultati sono gli asset che corrispondono alle proprietà di uno o più termini specificati. |`sales data` |
+| Ambito della proprietà |Restituire solo le origini dati dove il termine di ricerca corrisponde alla proprietà specificata. |`name:finance` |
+| Operatori booleani |Ampliare o restringere una ricerca usando operazioni booleane. |`finance NOT corporate` |
+| Raggruppamento con parentesi |Usare le parentesi per raggruppare parti della query per ottenere l'isolamento logico, soprattutto in combinazione con gli operatori booleani. |`name:finance AND (tags:Q1 OR tags:Q2)` |
+| Operatori di confronto |Usare confronti invece di uguaglianze per le proprietà che hanno dati di tipo numero e data. |`modifiedTime > "11/05/2014"` |
 
-Per ulteriori informazioni sulla ricerca del **Catalogo dati Azure** , vedere [https://msdn.microsoft.com/library/azure/mt267594.aspx](https://msdn.microsoft.com/library/azure/mt267594.aspx).
+Per altre informazioni sulla ricerca di Data Catalog, vedere l'articolo [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx).
 
 ## <a name="hit-highlighting"></a>Evidenziazione dei risultati
-Quando si visualizzano i risultati della ricerca, le proprietà visualizzate che corrispondono ai criteri di ricerca specificati, ad esempio nome di asset di dati, descrizione e tag, verranno evidenziate per rendere più semplice identificare il motivo per cui un asset di dati specificato è stato restituito da una ricerca specifica.
+Quando si visualizzano i risultati della ricerca, le proprietà visualizzate che corrispondono ai criteri di ricerca specificati (ad esempio, nome di asset di dati, descrizione e tag) vengono evidenziate per semplificare l'identificazione del motivo per cui un asset di dati specificato è stato restituito da una determinata ricerca.
 
 > [!NOTE]
-> Gli utenti possono disattivare l’evidenziazione dei risultati se desiderano, tramite l'opzione "Evidenziazione" nel portale del **Catalogo dati Azure** .
+> Per disattivare l'evidenziazione dei risultati, usare l'opzione **Evidenzia** nel portale di Data Catalog.
 >
 >
 
-Quando si visualizzano i risultati della ricerca, il motivo per cui un asset di dati è incluso potrebbe non essere sempre evidente, anche con l’evidenziazione abilitata. Poiché tutte le proprietà vengono ricercate per impostazione predefinita, un asset di dati potrebbe essere restituito a causa di una corrispondenza con una proprietà a livello di colonna. E poiché più utenti possono annotare gli asset di dati registrati con tag e descrizioni, è possibile che non tutti i metadati vengano visualizzati nell'elenco dei risultati della ricerca.
+Quando si visualizzano i risultati della ricerca, il motivo per cui un asset di dati è incluso potrebbe non essere sempre evidente, anche con l'evidenziazione abilitata. Poiché tutte le proprietà vengono ricercate per impostazione predefinita, un asset di dati potrebbe essere restituito a causa di una corrispondenza con una proprietà a livello di colonna. E poiché più utenti possono annotare gli asset di dati registrati con tag e descrizioni, è possibile che non tutti i metadati vengano visualizzati nell'elenco dei risultati della ricerca.
 
-Nella visualizzazione affiancata predefinita, ogni riquadro mostrato nei risultati della ricerca includerà un'icona "visualizza le corrispondenze con il termine di ricerca", che consente all'utente di visualizzare rapidamente il numero di corrispondenze e il relativo percorso e di passare a esse se lo si desidera.
+Nella visualizzazione affiancata predefinita ogni riquadro che appare nei risultati della ricerca include un'icona **Visualizza corrispondenze con i termini di ricerca**, per poter visualizzare rapidamente il numero di corrispondenze e il relativo percorso e di passare a esse se necessario.
 
  ![Evidenziazione dei risultati e corrispondenze di ricerca nel portale catalogo dati di Azure.](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Riepilogo
-La registrazione di un'origine dati con il **Catalogo dati di Azure** rende più semplice individuare e comprendere l'origine dati, copiando i metadati strutturali e descrittivi dall'origine dati nel servizio Catalogo. Una volta registrata un'origine dati, gli utenti possono individuarla mediante i filtri e la ricerca all'interno del portale **Catalogo dati Azure** .
+Poiché la registrazione di un'origine dati con Data Catalog copia i metadati strutturali e descrittivi dall'origine dati al servizio catalogo, diventa più facile trovare e comprendere l'origine dati. Dopo avere registrato un'origine dati, è possibile trovarla usando i filtri e la ricerca dal portale di Data Catalog.
 
-## <a name="see-also"></a>Vedere anche
-* [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md) .
+## <a name="next-steps"></a>Passaggi successivi
+* Per istruzioni dettagliate su come trovare le origini dati, vedere [Introduzione ad Azure Data Catalog](data-catalog-get-started.md).
 

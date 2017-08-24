@@ -4,7 +4,7 @@ description: "Gestire entità e spazi dei nomi di Hub eventi da .NET"
 services: event-hubs
 cloud: na
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 ms.assetid: 
 ms.service: event-hubs
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 4/10/2017
-ms.author: jotaub;sethm
-translationtype: Human Translation
+ms.author: sethm
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: a9023448c4ced1edf54c84bb103454cbd76fbfba
+ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
-
 
 ---
 
@@ -48,7 +48,7 @@ Il modello di modifica delle risorse di Hub eventi segue un protocollo comune:
 
 1. Ottenere un token dall'istanza di Azure Active Directory che usa la libreria `Microsoft.IdentityModel.Clients.ActiveDirectory`.
     ```csharp
-    var context = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
     var result = await context.AcquireTokenAsync(
         "https://management.core.windows.net/",

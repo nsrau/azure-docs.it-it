@@ -1,0 +1,61 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione del servizio contenitore di Azure con Kubernetes
+metadata:
+  document_id: null
+  title: Documentazione del servizio contenitore di Azure con Kubernetes - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.'
+  services: container-service
+  author: carolz
+  manager: carolz
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07-21-2017
+  ms.author: carolz
+abstract:
+  description: 'Il servizio contenitore di Azure consente di distribuire rapidamente un cluster Kubernetes pronto per l''ambiente di produzione. Informazioni su come usare il servizio contenitore di Azure insieme a Kubernetes con guide introduttive, esercitazioni ed esempi.'
+sections:
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: 'Informazioni su come distribuire i cluster Kubernetes mediante il servizio contenitore di Azure:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
+            text: Creare un cluster Kubernetes
+            href: /azure/container-service/kubernetes/container-service-kubernetes-walkthrough
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: 'Informazioni su come distribuire, gestire e aggiornare le applicazioni in un cluster Kubernetes del servizio contenitore di Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Creare immagini del contenitore da un'applicazione</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-acr">Caricare immagini del contenitore nel registro contenitori di Azure</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster">Distribuire un cluster Kubernetes nel servizio contenitore di Azure</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-application">Eseguire le immagini del contenitore in Kubernetes</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-scale">Ridimensionare un'applicazione e l'infrastruttura Kubernetes</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-app-update">Aggiornare un'applicazione in esecuzione in Kubernetes</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-monitor">Monitorare Kubernetes con OMS</a>
+  - title: Esempi
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/container-service/cli-samples">Interfaccia della riga di comando di Azure</a>
+  - title: Riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: <p><a href="/cli/azure/acs">Interfaccia della riga di comando di Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/compute/containerservices">API REST</a></p>

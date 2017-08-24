@@ -1,5 +1,5 @@
 ---
-title: Distribuire l&quot;estensione Pannello di accesso di Azure per Internet Explorer con un criterio di gruppo | Documentazione Microsoft
+title: Distribuire l'estensione Pannello di accesso di Azure per Internet Explorer con un criterio di gruppo | Documentazione Microsoft
 description: Come usare Criteri di gruppo per distribuire il componente aggiuntivo di Internet Explorer per il portale App personali.
 services: active-directory
 documentationcenter: 
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 08/02/2017
 ms.author: markvi
+ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
-ms.openlocfilehash: af36f45e66b68e2e76651eb408682f36ee0cbb68
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 53ce95811bbeb306ae986fda91d3387db4e71998
 ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo

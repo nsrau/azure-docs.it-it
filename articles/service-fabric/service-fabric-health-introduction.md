@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio dello stato in Service Fabric | Microsoft Docs
-description: "Introduzione al modello di monitoraggio dell&quot;integrità di Azure Service Fabric, che offre il monitoraggio del cluster e dei relativi servizi e applicazioni."
+description: "Introduzione al modello di monitoraggio dell'integrità di Azure Service Fabric, che offre il monitoraggio del cluster e dei relativi servizi e applicazioni."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 07/19/2017
 ms.author: oanapl
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9d261741efd7e49e40b807b1631ff8a2b9eefdb1
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 598a4d35faebb592f840b1bec7e77c7a091ea2de
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
@@ -31,7 +31,7 @@ Il video seguente di Microsoft Virtual Academy descrive anche i concetti del mod
 </a></center>
 
 > [!NOTE]
-> Il sottosistema di integrità è stato introdotto per rispondere alla necessità di aggiornamenti monitorati. Service Fabric offre aggiornamenti monitorati delle applicazioni e dei cluster che garantiscono disponibilità completa, senza tempi di inattività e con un intervento minimo o addirittura nessun intervento da parte dell'utente. Per raggiungere tali obiettivi, l'aggiornamento verifica l'integrità in base ai criteri di aggiornamento configurati e prosegue solo se l'integrità rientra nelle soglie specificate. In caso contrario, l'aggiornamento viene sottoposto a rollback o sospeso automaticamente per consentire agli amministratori di risolvere il problema. Per altre informazioni sugli aggiornamenti delle applicazioni, vedere [questo articolo](service-fabric-application-upgrade.md).
+> Il sottosistema di integrità è stato introdotto per rispondere alla necessità di aggiornamenti monitorati. Service Fabric offre aggiornamenti monitorati delle applicazioni e dei cluster che garantiscono disponibilità completa, senza tempi di inattività e con un intervento minimo o addirittura nessun intervento da parte dell'utente. Per raggiungere questi obiettivi, l'aggiornamento controlla l'integrità in base ai criteri di aggiornamento configurati. Un aggiornamento può continuare solo quando l'integrità rientra nelle soglie desiderate. In caso contrario, l'aggiornamento viene sottoposto a rollback o sospeso automaticamente per consentire agli amministratori di risolvere il problema. Per altre informazioni sugli aggiornamenti delle applicazioni, vedere [questo articolo](service-fabric-application-upgrade.md).
 > 
 > 
 
@@ -39,9 +39,9 @@ Il video seguente di Microsoft Virtual Academy descrive anche i concetti del mod
 L'archivio integrità mantiene le informazioni di integrità relative alle entità del cluster per facilitarne il recupero e la valutazione. Viene implementato come servizio con stato persistente di Service Fabric per garantire la scalabilità e una disponibilità elevata. L'archivio integrità fa parte dell'applicazione **fabric:/System** ed è disponibile quando il cluster è operativo.
 
 ## <a name="health-entities-and-hierarchy"></a>Entità e gerarchia di integrità
-Le entità di integrità sono organizzate in una gerarchia logica che acquisisce le interazioni e le dipendenze tra le diverse entità. Le entità e la gerarchia vengono compilate automaticamente dall'archivio integrità in base ai report inviati dai componenti di Service Fabric.
+Le entità di integrità sono organizzate in una gerarchia logica che acquisisce le interazioni e le dipendenze tra le diverse entità. L'archivio integrità crea automaticamente la gerarchia e le entità di integrità in base ai report ricevuti dai componenti di Service Fabric.
 
-Le entità di integrità corrispondono alle entità di Service Fabric. Ad esempio, un'**entità applicazione di integrità** corrisponde a un'istanza di applicazione distribuita nel cluster, mentre un'**entità nodo di integrità**corrisponde a un nodo del cluster di Service Fabric. La gerarchia di integrità acquisisce le interazioni delle entità di sistema e costituisce la base per una valutazione avanzata dell'integrità. Per informazioni sui concetti chiave di Service Fabric, vedere la [panoramica tecnica di Service Fabric](service-fabric-technical-overview.md). Per altre informazioni sull'applicazione, vedere il [modello di applicazione di Service Fabric](service-fabric-application-model.md).
+Le entità di integrità corrispondono alle entità di Service Fabric. Ad esempio, un'**entità applicazione di integrità** corrisponde a un'istanza di applicazione distribuita nel cluster, mentre un'**entità nodo di integrità** corrisponde a un nodo del cluster di Service Fabric. La gerarchia di integrità acquisisce le interazioni delle entità di sistema e costituisce la base per una valutazione avanzata dell'integrità. Per informazioni sui concetti chiave di Service Fabric, vedere la [panoramica tecnica di Service Fabric](service-fabric-technical-overview.md). Per altre informazioni sull'applicazione, vedere il [modello di applicazione di Service Fabric](service-fabric-application-model.md).
 
 Le entità e la gerarchia di integrità consentono di eseguire in modo efficace la creazione di report, il debug e il monitoraggio del cluster e delle applicazioni. Il modello di integrità offre un'accurata rappresentazione *granulare* dell'integrità dei numerosi elementi mobili all'interno del cluster.
 
@@ -52,23 +52,23 @@ Le entità di integrità, organizzate in una gerarchia basata su relazioni padre
 
 Le entità di integrità sono le seguenti:
 
-* **Cluster**. Rappresenta l'integrità di un cluster di Service Fabric. I report sull'integrità del cluster illustrano le condizioni che influiscono sull'intero cluster e non possono essere ricondotte a uno o più elementi figlio non integri, ad esempio lo split brain del cluster a causa di problemi di comunicazione o di partizionamento della rete.
-* **Nodo**. Rappresenta l'integrità di un nodo di Service Fabric. I report sull'integrità del nodo illustrano le condizioni che influiscono sulla funzionalità del nodo. In genere influiscono su tutte le entità distribuite in esecuzione su di esso. Ad esempio, indicano la presenza di un nodo con spazio su disco non sufficiente o con problemi relativi ad altre proprietà a livello di computer, come la memoria o le connessioni, oppure l'esistenza di un nodo non attivo. L'entità nodo è identificata dal nome del nodo (stringa).
+* **Cluster**. Rappresenta l'integrità di un cluster di Service Fabric. I report sull'integrità del cluster illustrano le condizioni che interessano l'intero cluster. Queste condizioni interessano più entità nel cluster o il cluster stesso. In base alla condizione, il reporter non può restringere il problema a uno o più elementi figlio non integri. ad esempio lo split brain del cluster a causa di problemi di comunicazione o di partizionamento della rete.
+* **Nodo**. Rappresenta l'integrità di un nodo di Service Fabric. I report sull'integrità del nodo illustrano le condizioni che influiscono sulla funzionalità del nodo. In genere influiscono su tutte le entità distribuite in esecuzione su di esso. Ad esempio, un nodo con spazio su disco non sufficiente o con problemi relativi ad altre proprietà a livello di computer, come la memoria o le connessioni, oppure la presenza di un nodo non attivo. L'entità nodo è identificata dal nome del nodo (stringa).
 * **Applicazione**. Rappresenta l'integrità di un'istanza di applicazione in esecuzione nel cluster. I report sull'integrità dell'applicazione illustrano le condizioni che influiscono sull'integrità generale dell'applicazione e non possono essere limitati a singoli elementi figlio, servizi o applicazioni distribuite. Ad esempio, indicano l'interazione end-to-end tra diversi servizi nell'applicazione. L'entità applicazione è identificata dal nome dell'applicazione (URI).
-* **Servizio**. Rappresenta l'integrità di un servizio in esecuzione nel cluster. I report sull'integrità del servizio illustrano le condizioni che influiscono sull'integrità generale del servizio e non possono essere limitati a una partizione o a una replica. Ad esempio, indicano una configurazione del servizio, una porta o una condivisione file esterna, che causa problemi a tutte le partizioni. L'entità servizio è identificata dal nome del servizio (URI).
+* **Servizio**. Rappresenta l'integrità di un servizio in esecuzione nel cluster. I report sull'integrità del servizio illustrano le condizioni che interessano l'integrità generale del servizio. Il reporter non può restringere il problema a una partizione o una replica non integra. Ad esempio, indicano una configurazione del servizio, una porta o una condivisione file esterna, che causa problemi a tutte le partizioni. L'entità servizio è identificata dal nome del servizio (URI).
 * **Partizione**. Rappresenta l'integrità di una partizione del servizio. I report sull'integrità della partizione illustrano le condizioni che influiscono sull'intero set di repliche. Ad esempio, indicano quando un numero di repliche è al di sotto del conteggio target o quando una partizione mostra una perdita di quorum. L'entità partizione è identificata dall'ID partizione (GUID).
-* **Replica**. Rappresenta l'integrità di una replica di un servizio con stato o di un'istanza di un servizio senza stato. È l'unità più piccola di cui i watchdog e i componenti di sistema possono segnalare la condizione per un'applicazione. Ad esempio, nel caso di servizi con stato, la replica primaria può segnalare se non riesce a replicare le operazioni nelle repliche secondarie o se il processo di replica non procede con il ritmo previsto. Un'istanza senza stato può segnalare se le risorse si stanno esaurendo o se presenta problemi di connettività. L'entità replica è identificata dall'ID partizione (GUID) e dall'ID replica o dall'ID istanza (long).
-* **Applicazione distribuita**. Rappresenta l'integrità di un' *applicazione in esecuzione in un nodo*. I report sull'integrità dell'applicazione distribuita illustrano le condizioni specifiche dell'applicazione nel nodo che non possono essere ricondotte ai pacchetti servizio distribuiti nello stesso nodo. Ad esempio, indicano quando non è possibile scaricare il pacchetto dell'applicazione nel nodo o quando si verifica un problema durante la configurazione delle entità di sicurezza dell'applicazione nel nodo. L'applicazione distribuita è identificata dal nome dell'applicazione (URI) e dal nome del nodo (stringa).
-* **Pacchetto servizio distribuito**. Rappresenta l'integrità di un pacchetto servizio in esecuzione in un nodo del cluster. Illustra le condizioni specifiche di un pacchetto servizio che non influiscono sugli altri pacchetti servizio nello stesso nodo per la stessa applicazione. Ad esempio, indica che non è possibile avviare un pacchetto di codice nel pacchetto del servizio o leggere un pacchetto di configurazione. Il pacchetto del servizio distribuito è identificato dal nome dell'applicazione (URI), dal nome del nodo (stringa) e dal nome del manifesto del servizio (stringa).
+* **Replica**. Rappresenta l'integrità di una replica di un servizio con stato o di un'istanza di un servizio senza stato. La replica è l'unità più piccola di cui i watchdog e i componenti di sistema possono segnalare la condizione per un'applicazione. Nel caso di servizi con stato, ad esempio, una replica primaria che non è in grado di replicare le operazioni nelle repliche secondarie oppure un processo di replica lento. Un'istanza senza stato può segnalare se le risorse si stanno esaurendo o se presenta problemi di connettività. L'entità replica è identificata dall'ID partizione (GUID) e dall'ID replica o dall'ID istanza (long).
+* **Applicazione distribuita**. Rappresenta l'integrità di un' *applicazione in esecuzione in un nodo*. I report sull'integrità dell'applicazione distribuita illustrano le condizioni specifiche dell'applicazione nel nodo che non possono essere ricondotte ai pacchetti servizio distribuiti nello stesso nodo. Ad esempio, errori a causa dei quali non è possibile scaricare il pacchetto dell'applicazione nel nodo e problemi di configurazione delle entità di sicurezza dell'applicazione nel nodo. L'applicazione distribuita è identificata dal nome dell'applicazione (URI) e dal nome del nodo (stringa).
+* **Pacchetto servizio distribuito**. Rappresenta l'integrità di un pacchetto servizio in esecuzione in un nodo del cluster. Illustra le condizioni specifiche di un pacchetto servizio che non influiscono sugli altri pacchetti servizio nello stesso nodo per la stessa applicazione. Ad esempio, indica che non è possibile avviare un pacchetto di codice nel pacchetto del servizio o leggere un pacchetto di configurazione. Il pacchetto del servizio distribuito è identificato dal nome dell'applicazione (URI), dal nome del nodo (stringa), dal nome del manifesto del servizio (stringa) e dall'ID di attivazione del pacchetto del servizio (stringa).
 
 La granularità del modello di integrità facilita il rilevamento e l'eliminazione dei problemi. Ad esempio, se un servizio non risponde, è possibile segnalare che l'istanza dell'applicazione non è integra. La segnalazione a tale livello non è tuttavia l'approccio ideale, perché il problema potrebbe non riguardare tutti i servizi all'interno dell'applicazione. Il report dovrebbe essere applicato al servizio non integro oppure a una partizione figlio specifica a cui eventualmente puntano altre informazioni. I dati vengono esposti automaticamente attraverso la gerarchia e la partizione non integra sarà visibile a livello di servizio e di applicazione. Questa aggregazione di individuare e risolvere più rapidamente la causa radice del problema.
 
-La gerarchia di integrità è costituita da relazioni padre-figlio. Un cluster è costituito da nodi e applicazioni. Le applicazioni hanno servizi e applicazioni distribuite e le applicazioni distribuite hanno pacchetti del servizio distribuiti. I servizi dispongono di partizioni e ogni partizione dispone di una o più repliche. Tra i nodi e le entità distribuite esiste una relazione speciale. Se un nodo non è integro in base alla segnalazione effettuata dal relativo componente di sistema autorevole (servizio Gestione failover), il problema interessa le applicazioni distribuite, i pacchetti servizio e le repliche distribuiti al suo interno.
+La gerarchia di integrità è costituita da relazioni padre-figlio. Un cluster è costituito da nodi e applicazioni. Le applicazioni hanno servizi e applicazioni distribuite e le applicazioni distribuite hanno pacchetti del servizio distribuiti. I servizi dispongono di partizioni e ogni partizione dispone di una o più repliche. Tra i nodi e le entità distribuite esiste una relazione speciale. Un nodo non integro in base alla segnalazione effettuata dal relativo componente di sistema autorevole (servizio Gestione failover) influisce sulle applicazioni distribuite, sui pacchetti del servizio e sulle repliche distribuite.
 
 La gerarchia di integrità rappresenta lo stato più recente del sistema in base agli ultimi report sull'integrità, che forniscono informazioni quasi in tempo reale.
 I watchdog interni ed esterni possono segnalare la condizione delle stesse entità in base alla logica specifica dell'applicazione o a condizioni monitorate personalizzate. I report utente coesistono con i report di sistema.
 
-Durante la progettazione di un servizio cloud di grandi dimensioni, pianificare di investire nella segnalazione dello stato di integrità e nella relativa risposta, in modo da facilitare il debug, il monitoraggio e il funzionamento del servizio.
+Durante la progettazione di un servizio cloud di grandi dimensioni, pianificare un investimento per i report e gli interventi relativi all'integrità. Questo investimento iniziale semplifica il debug, il monitoraggio e la gestione del servizio.
 
 ## <a name="health-states"></a>Stati di integrità
 Service Fabric usa tre stati di integrità per indicare se un'entità è integra o meno: OK, Warning ed Error. Tutti i report inviati all'archivio integrità devono specificare uno di questi stati. Come risultato della valutazione dell'integrità viene restituito uno di tali stati.
@@ -76,15 +76,15 @@ Service Fabric usa tre stati di integrità per indicare se un'entità è integra
 I possibili [stati di integrità](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) sono:
 
 * **OK**. L'entità è integra. Non vengono segnalati problemi noti per l'entità o i relativi elementi figlio (se esistenti).
-* **Avviso**. L'entità presenta qualche problema, ma non può essere considerata non integra. Ad esempio, si verificano ritardi che però non causano ancora problemi funzionali. In alcuni casi questa condizione può risolversi senza alcun intervento particolare ed è utile per avere visibilità sulle operazioni in corso. In altri casi tale condizione può trasformarsi in un problema serio senza l'intervento dell'utente.
+* **Avviso**. L'entità ha alcuni problemi, ma può comunque funzionare correttamente. Ad esempio, si verificano ritardi che però non causano ancora problemi funzionali. In alcuni casi, la condizione di avviso potrebbe risolversi automaticamente senza l'intervento esterno. In questi casi, i report sull'integrità forniscono informazioni e visibilità sulla situazione. In altri casi tale condizione può trasformarsi in un problema serio senza l'intervento dell'utente.
 * **Error**. L'entità non è integra. È necessario intervenire per correggere lo stato dell'entità, che non può funzionare correttamente.
-* **Unknown**. L'entità non è presente nell'archivio integrità. È possibile ottenere questo risultato dalle query distribuite che uniscono i risultati da più componenti. Ad esempio, la query per ottenere l'elenco dei nodi passa a **FailoverManager** e **HealthManager**, mentre la query per ottenere l'elenco delle applicazioni passa a **ClusterManager** e **HealthManager**. Tali query uniscono i risultati provenienti da più componenti di sistema. Se un altro componente di sistema restituisce un'entità che ancora non ha raggiunto l'archivio integrità o ne è stata rimossa, il risultato unito presenterà lo stato di integrità "Unknown".
+* **Unknown**. L'entità non è presente nell'archivio integrità. È possibile ottenere questo risultato dalle query distribuite che uniscono i risultati da più componenti. Ad esempio, la query per ottenere l'elenco dei nodi passa a **FailoverManager**, **ClusterManager** e **HealthManager**, mentre la query per ottenere l'elenco delle applicazioni passa a **ClusterManager** e **HealthManager**. Tali query uniscono i risultati provenienti da più componenti di sistema. Se un altro componente di sistema restituisce un'entità non presente nell'archivio integrità, il risultato unito ha uno stato di integrità sconosciuto. Un'entità non è nell'archivio perché non sono ancora stati elaborati i report sull'integrità o è stata eseguita la pulizia dell'entità dopo l'eliminazione.
 
 ## <a name="health-policies"></a>Criteri di integrità
 L'archivio integrità applica criteri di integrità per determinare se un'entità è integra in base ai relativi report e agli elementi figlio.
 
 > [!NOTE]
-> I criteri di integrità possono essere specificati nel manifesto del cluster, per la valutazione dell'integrità del cluster e dei nodi, o nel manifesto dell'applicazione, per la valutazione dell'applicazione e degli eventuali elementi figlio. Le richieste di valutazione dell'integrità possono anche passare in criteri personalizzati, usati solo per la valutazione in questione.
+> I criteri di integrità possono essere specificati nel manifesto del cluster, per la valutazione dell'integrità del cluster e dei nodi, o nel manifesto dell'applicazione, per la valutazione dell'applicazione e degli eventuali elementi figlio. Le richieste di valutazione dell'integrità possono anche passare criteri personalizzati, usati solo per la valutazione in questione.
 > 
 > 
 
@@ -192,7 +192,7 @@ Dopo aver eseguito la valutazione di tutti gli elementi figlio, l'archivio integ
 ## <a name="health-reporting"></a>Creazione di report sull'integrità
 I componenti di sistema, le applicazioni Fabric di sistema e i watchdog interni/esterni possono generare report in relazione alle entità di Service Fabric. I generatori di report determinano *localmente* l'integrità delle entità monitorate in base alle condizioni sottoposte a monitoraggio. Non considerano alcuno stato globale o dato aggregato Il comportamento desiderato prevede generatori di report semplici e non organismi complessi che devono tenere conto di numerosi aspetti per decidere quali informazioni inviare.
 
-Per inviare i dati di integrità all'archivio integrità, i generatori di report devono identificare l'entità interessata e creare un report sull'integrità. Il report può quindi essere inviato tramite l'API, usando [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), tramite PowerShell o tramite REST.
+Per inviare i dati di integrità all'archivio integrità, i generatori di report devono identificare l'entità interessata e creare un report sull'integrità. Per inviare il report, usare l'API [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), le API di integrità dei report esposte negli oggetti `Partition` o `CodePackageActivationContext`, i cmdlet di PowerShell o REST.
 
 ### <a name="health-reports"></a>Report sull'integrità
 I [report sull'integrità](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) per ognuna delle entità incluse nel cluster contengono le informazioni seguenti:
@@ -208,7 +208,7 @@ I [report sull'integrità](https://docs.microsoft.com/dotnet/api/system.fabric.h
   * Replica. ID della replica del servizio con stato o ID dell'istanza del servizio senza stato (INT64).
   * DeployedApplication. Nome dell'applicazione (URI) e nome del nodo (stringa).
   * DeployedServicePackage. Nome dell'applicazione (URI), nome del nodo (stringa) e nome del manifesto del servizio (stringa).
-* **Property**. *Stringa* (non un'enumerazione fissa) che consente al generatore di report di categorizzare l'evento di integrità per una proprietà specifica dell'entità. Ad esempio, il generatore di report A può segnalare l'integrità di Node01 in base alla proprietà "storage", mentre il generatore di report B può segnalare l'integrità di Node01 in base alla proprietà "connectivity". Entrambi questi report vengono considerati come eventi di integrità separati nell'archivio integrità per l'entità Node01.
+* **Property**. *Stringa* (non un'enumerazione fissa) che consente al generatore di report di categorizzare l'evento di integrità per una proprietà specifica dell'entità. Ad esempio, il reporter A può segnalare l'integrità di Node01 in base alla proprietà "Storage", mentre il reporter B può segnalare l'integrità di Node01 in base alla proprietà "Connectivity". Entrambi questi report vengono considerati come eventi di integrità separati nell'archivio integrità per l'entità Node01.
 * **Description**. Stringa che consente a un generatore di report di fornire informazioni dettagliate sull'evento di integrità. **SourceId**, **Property** e **HealthState** descrivono il report in modo esauriente. Description aggiunge informazioni leggibili sul report semplificando la comprensione del report sull'integrità da parte di amministratori e utenti.
 * **HealthState**. [Enumerazione](service-fabric-health-introduction.md#health-states) che descrive lo stato di integrità del report. I valori accettati sono OK, Warning ed Error.
 * **TimeToLive**. Intervallo di tempo che indica per quanto è valido il report sull'integrità. Insieme a **RemoveWhenExpired**, indica all'archivio integrità come valutare gli eventi scaduti. Per impostazione predefinita, il valore è infinito e quindi il report è sempre valido.
@@ -239,7 +239,7 @@ L'esempio seguente invia tramite PowerShell un report sull'integrità dell'appli
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ExcludeHealthStatistics
 
 
 ApplicationName                 : fabric:/WordCount
@@ -303,7 +303,7 @@ HealthEvents                    :
 
 ## <a name="health-model-usage"></a>Uso del modello di integrità
 Il modello di integrità consente la scalabilità dei servizi cloud e della piattaforma Service Fabric sottostante perché il monitoraggio e la determinazione dell'integrità vengono distribuiti tra i diversi monitor all'interno del cluster.
-Altri sistemi hanno un unico servizio centralizzato a livello di cluster che analizza tutte le *informazioni potenzialmente utili generate dai servizi*. Questo approccio ne impedisce la scalabilità e non consente la raccolta di informazioni molto specifiche per identificare i problemi effettivi e potenziali risalendo alla causa principale.
+Altri sistemi hanno un unico servizio centralizzato a livello di cluster che analizza tutte le *informazioni potenzialmente utili generate dai servizi*. Questo approccio ne impedisce la scalabilità e non consente la raccolta di informazioni specifiche per identificare i problemi effettivi e potenziali risalendo alla causa principale.
 
 Il modello di integrità viene usato in larga misura per il monitoraggio e la diagnosi, per la valutazione dell'integrità del cluster e dell'applicazione e per aggiornamenti monitorati. Altri servizi usano i dati di integrità per eseguire riparazioni automatiche, generare la cronologia dell'integrità del cluster e inviare avvisi in determinate condizioni.
 

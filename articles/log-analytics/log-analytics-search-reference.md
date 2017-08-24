@@ -12,18 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
+ms.date: 07/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
-ms.openlocfilehash: 47fb74c608315b256e88dd774af7cb5260529607
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: f5da86a95623234d14b0a99ee64c7b98d7e920a1
 ms.contentlocale: it-it
-ms.lasthandoff: 04/29/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="log-analytics-search-reference"></a>Guida di riferimento alla ricerca in Log Analytics
+
+>[!NOTE]
+> Questo articolo descrive le ricerche log tramite il linguaggio di query corrente in Log Analytics.  Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), è consigliabile vedere le [informazioni di riferimento sul nuovo linguaggio](https://docs.loganalytics.io/queryLanguage/query_language.html).
+
 La sezione di riferimento seguente relativa al linguaggio di ricerca descrive le opzioni della sintassi di query generale che è possibile usare quando si ricercano dati e si filtrano espressioni per restringere la ricerca. Vengono inoltre descritti i comandi che è possibile usare per intervenire sui dati recuperati.
 
 È possibile ottenere informazioni sui campi restituiti nelle ricerche e sui facet che consentono di ottenere maggiori informazioni sulle categorie di dati simili nella [sezione Riferimenti al campo Ricerca e ai facet](#search-field-and-facet-reference).
@@ -692,7 +695,7 @@ Restituisce i seguenti record da MyBackup_CL con tutti i campi corrispondenti da
 
 
 ### <a name="extend"></a>Extend
-Consente di creare campi di runtime nelle query. È anche possibile usare il comando measure dopo il comando extend se si vuole eseguire l'aggregazione.
+Consente di creare campi di runtime nelle query. Si noti che i campi di runtime non possono essere usati con il comando measure per eseguire l'aggregazione.
 
 **Esempio 1**
 

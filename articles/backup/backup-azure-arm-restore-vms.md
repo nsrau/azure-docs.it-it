@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/12/2017
 ms.author: markgal;trinadhk;
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 61f09a6f103b9cedaf19f1128a21fa8d5df974a1
-ms.lasthandoff: 03/31/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 2ab86ed8aafb01e97b3ac9ba0411f4b80f88ac5b
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -102,7 +103,7 @@ Dopo aver selezionato il punto di ripristino, scegliere una configurazione per l
    * Ripristinare la macchina virtuale completa
    * Ripristinare i dischi di cui è stato eseguito il backup
 
-Il portale offre un'opzione di creazione rapida per la macchina virtuale ripristinata. Se si desidera personalizzare la configurazione della macchina virtuale o i nomi delle risorse create come parte dell'opzione di creazione di una nuova macchina virtuale, usare PowerShell o il portale per ripristinare i dischi su cui è stato eseguito il backup e i comandi di PowerShell per collegarli alla scelta della configurazione della macchina virtuale. Oppure usare il modello di cui sono dotati i dischi di ripristino per personalizzare la macchina virtuale ripristinata. Vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](#restoring-vms-with-special-network-configurations) per informazioni dettagliate su come ripristinare una macchina virtuale che dispone di più schede di interfaccia di rete o nel bilanciamento del carico. 
+Il portale offre un'opzione di creazione rapida per la macchina virtuale ripristinata. Se si desidera personalizzare la configurazione della macchina virtuale o i nomi delle risorse create come parte dell'opzione di creazione di una nuova macchina virtuale, usare PowerShell o il portale per ripristinare i dischi su cui è stato eseguito il backup e i comandi di PowerShell per collegarli alla scelta della configurazione della macchina virtuale. Oppure usare il modello di cui sono dotati i dischi di ripristino per personalizzare la macchina virtuale ripristinata. Vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](#restoring-vms-with-special-network-configurations) per informazioni dettagliate su come ripristinare una macchina virtuale che dispone di più schede di interfaccia di rete o nel bilanciamento del carico. Se la macchina virtuale Windows usa le [licenze HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), è necessario ripristinare i dischi e usare PowerShell o il modello come specificato di seguito per creare la macchina virtuale e assicurarsi di specificare LicenseType come "Windows_Server" durante la creazione della macchina virtuale per sfruttare i vantaggi HUB sulla macchina virtuale ripristinata. 
  
 ## <a name="create-a-new-vm-from-restore-point"></a>Creare una nuova macchina virtuale dal punto di ripristino
 Se non lo si è già fatto, [selezionare un punto di ripristino](#restoring-vms-with-special-network-configurations) prima di passare alla creazione di una nuova macchina virtuale dal punto di ripristino. Dopo aver selezionato il punto di ripristino, nel pannello **Configurazione di ripristino** specificare o selezionare i valori per ciascuno dei campi seguenti:
@@ -117,7 +118,9 @@ Se non lo si è già fatto, [selezionare un punto di ripristino](#restoring-vms-
 ![Configurazione guidata del ripristino configurata](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
 > [!NOTE]
-> Se si vuole ripristinare una macchina virtuale distribuita con il modello di distribuzione Resource Manager, è necessario identificare una rete virtuale. Una rete virtuale è facoltativa per una macchina virtuale distribuita con il modello di distribuzione classica.
+> 1. Se si vuole ripristinare una macchina virtuale distribuita con il modello di distribuzione Resource Manager, è necessario identificare una rete virtuale. Una rete virtuale è facoltativa per una macchina virtuale distribuita con il modello di distribuzione classica.
+> 2. Se si desidera ripristinare le macchine virtuali con dischi gestiti, assicurarsi che l'account di archiviazione selezionato non sia stato abilitato per la crittografia del servizio di archiviazione (Storage Service Encryption - SSE) nel corso del suo ciclo di vita.
+> 3. Tutti i dischi ripristinati saranno di tipo premium o standard a seconda del tipo di archiviazione dell'account di archiviazione selezionato (standard o premium). Attualmente non sono supportati dischi in modalità mista durante il ripristino.  
 >
 >
 
@@ -195,11 +198,26 @@ Dopo aver immesso i valori richiesti, accettare le *Condizioni per l'utilizzo* e
 * Se la macchina virtuale di backup dispone di indirizzo IP statico, dopo il ripristino, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti durante la creazione della macchina virtuale ripristinata. Altre informazioni su come [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * La macchina virtuale ripristinata non avrà set di disponibilità. È consigliabile usare l'opzione di ripristino dei dischi e [aggiungere il set di disponibilità](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) durante la creazione di una macchina virtuale da PowerShell o dei modelli tramite i dischi ripristinati. 
 
+
 ## <a name="backup-for-restored-vms"></a>Backup per le macchine virtuali ripristinate
 Se la macchina virtuale è stata ripristinata nello stesso gruppo di risorse con lo stesso nome della macchina virtuale di cui è stato originariamente eseguito il backup, l'operazione di backup continua nella macchina virtuale dopo il ripristino. Se la macchina virtuale è stata ripristinata in un gruppo di risorse diverso o se è stato specificato un nome diverso per la macchina virtuale ripristinata, quest'ultima verrà considerata come nuova ed è necessario configurare il backup per la macchina virtuale ripristinata.
 
 ## <a name="restoring-a-vm-during-azure-datacenter-disaster"></a>Ripristino di una macchina virtuale durante un'emergenza nel data center di Azure
 Backup di Azure consente di ripristinare le macchine virtuali di cui è stato eseguito il backup nel data center associato nel caso in cui nel data center primario in cui le macchine virtuali sono in esecuzione si verifichi un'emergenza e sia stato configurato l'insieme di credenziali di Backup con ridondanza geografica. In tali situazioni è necessario selezionare un account di archiviazione presente nel data center associato. La parte rimanente del processo di ripristino rimane invariata. Backup di Azure usa un servizio di calcolo di un'area geografica per creare la macchina virtuale ripristinata. Altre informazioni sulla [resilienza dei centri dati di Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
+
+## <a name="restoring-domain-controller-vms"></a>Ripristino delle macchine virtuali del controller di dominio
+L'esecuzione del backup delle macchine virtuali del controller di dominio (DC) è uno scenario supportato da Backup di Azure. Tuttavia è necessario prestare attenzione durante il processo di ripristino. Il processo di ripristino corretto dipende dalla struttura del dominio. Nel caso più semplice, è presente un solo controller di dominio per un singolo dominio. Più comunemente per i carichi di produzione, saranno presenti più controller di dominio per ogni dominio, ad esempio alcuni controller locali. Infine, è possibile avere una foresta con più domini. 
+
+Da una prospettiva Active Directory, la macchina virtuale di Azure è come qualsiasi altra macchina virtuale in un hypervisor moderno supportato. La differenza principale con gli hypervisor locali consiste nel fatto che in Azure non è disponibile una console per la macchina virtuale. La console è obbligatoria per alcuni scenari, ad esempio per il ripristino tramite un backup di tipo di ripristino bare metal (BMR). Tuttavia, il ripristino della macchina virtuale dall'insieme di credenziali di backup è una sostituzione completa per il ripristino bare metal. È anche disponibile Active Directory Restore Mode (DSRM), in modo che tutti gli scenari di ripristino di Active Directory siano attuabili. Per altre informazioni di base, vedere [Backup and Restore considerations for virtualized Domain Controllers](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) (Considerazioni sul backup e sul ripristino per i controller di dominio virtualizzati) e [Planning for Active Directory Forest Recovery](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx) (Pianificazione del ripristino delle foreste di Active Directory).
+
+### <a name="single-dc-in-a-single-domain"></a>Controller di dominio unico in un singolo dominio
+La macchina virtuale può essere ripristinata (come qualsiasi altra macchina virtuale) dal portale di Azure o tramite PowerShell.
+
+### <a name="multiple-dcs-in-a-single-domain"></a>Controller di dominio multipli in un singolo dominio
+Nel caso in cui sia possibile raggiungere altri controller di dominio dello stesso dominio sulla rete, è possibile ripristinare il controller di dominio come qualsiasi macchina virtuale. Se si tratta dell'ultimo controller nel dominio o viene eseguito un ripristino in una rete isolata, è necessario seguire la procedura di ripristino della foresta.
+
+### <a name="multiple-domains-in-one-forest"></a>Domini multipli in una foresta
+Nel caso in cui sia possibile raggiungere altri controller di dominio dello stesso dominio sulla rete, è possibile ripristinare il controller di dominio come qualsiasi macchina virtuale. Tuttavia, in tutti gli altri casi è consigliabile il ripristino della foresta.
 
 ## <a name="restoring-vms-with-special-network-configurations"></a>Ripristino delle macchine virtuali con configurazioni di rete speciali
 È possibile eseguire il backup e ripristinare le macchine virtuali con le configurazioni di rete speciali seguenti. Queste configurazioni richiedono tuttavia alcune considerazioni speciali nel corso del processo di ripristino.

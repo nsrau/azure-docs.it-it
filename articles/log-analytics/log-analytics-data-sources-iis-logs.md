@@ -1,6 +1,6 @@
 ---
 title: Log IIS in Log Analytics | Documentazione Microsoft
-description: "Internet Information Services (IIS) archivia le attività dell&quot;utente in file log che possono essere raccolti da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati nel repository OMS."
+description: "Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati nel repository OMS."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 07/12/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c6e2ecebf6cd1b246c155c158d12d4d83bd1feda
-ms.openlocfilehash: bda2da933accb769bae4c9b420ae330014fc2ba0
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
 ms.contentlocale: it-it
-ms.lasthandoff: 02/27/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log di IIS in Log Analytics
@@ -78,9 +77,19 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 | Tipo=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Numero di voci del log di IIS per ULR per l'host www.contoso.com. |
 | Tipo=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Numero totale di byte ricevuti da ogni computer che esegue IIS. |
 
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query precedenti verranno sostituite da quelle seguenti.
+
+> | Query | Descrizione |
+|:--- |:--- |
+| W3CIISLog |Tutti i record del log di IIS. |
+| W3CIISLog &#124; where scStatus==500 |Tutti i record del log IIS con stato restituito pari a 500. |
+| W3CIISLog &#124; summarize count() by cIP |Numero di voci del log di IIS in base all'indirizzo IP del client. |
+| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem |Numero di voci del log di IIS per ULR per l'host www.contoso.com. |
+| W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Numero totale di byte ricevuti da ogni computer che esegue IIS. |
+
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare Log Analytics per raccogliere altre [origini dati](log-analytics-data-sources.md) per l'analisi.
 * Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 * Configurare gli avvisi di Log Analytics per notificare in modo proattivo le condizioni importanti riscontrate nei log di IIS.
-
 

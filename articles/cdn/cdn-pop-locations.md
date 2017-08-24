@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
+ms.openlocfilehash: 7c13931aa6d17036e59674cdd917e3ca221ac57f
+ms.contentlocale: it-it
+ms.lasthandoff: 06/16/2017
 
 
 ---
@@ -39,16 +41,11 @@ Questo argomento elenca le località POP correnti per la **rete CDN di Azure for
 | Europa meridionale |Madrid, Spagna<br />Milano, Italia |**&#x2713;**\* |
 | Asia orientale |Tokyo, Giappone<br />Osaka, Giappone<br />Batam, Indonesia<br />Giacarta, Indonesia<br />Hong Kong<br />Kaohsiung, Taiwan<br />Seoul, Corea del Sud<br />Singapore |**&#x2713;**\* |
 | Asia meridionale e centrale |Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India |**&#x2713;**\* |
-| Medio Oriente/Asia occidentale |Muscat, Oman |**&#x2713;**\* |
+| Medio Oriente/Asia occidentale |Muscat, Oman <br /> Fujirah, Emirati Arabi Uniti |**&#x2713;**\* |
 | Africa | |**&#x2713;**\* |
 | Australia e Nuova Zelanda |Melbourne, Australia<br />Sydney, Australia |**&#x2713;**\* |
 
 ## <a name="see-also"></a>Vedere anche
 * [API dei nodi periferici della rete CDN di Azure per ottenere gli indirizzi IP da inserire nell'elenco elementi consentiti](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

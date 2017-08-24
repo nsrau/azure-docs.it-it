@@ -2,7 +2,7 @@
 title: Panoramica degli avvisi in Microsoft Azure e Monitoraggio di Azure | Microsoft Docs
 description: Gli avvisi consentono di monitorare le metriche, gli eventi e i log delle risorse di Azure e, successivamente, inviare una notifica quando una condizione specificata viene soddisfatta.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,58 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 76c8feb077cca27dc96f43e708cdef4fbb0f824c
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 3d30ce72a3be298eba1f4e8f8d33b769971c96cb
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi in Microsoft Azure?
-Questo articolo descrive cosa sono gli avvisi, quali vantaggi offrono e come iniziare a farne uso. In particolare si applica a Monitoraggio di Azure, ma vengono forniti indicazioni per altri servizi.  
+Questo articolo descrive le varie origini di avvisi in Microsoft Azure, lo scopo di tali avvisi, i vantaggi che offrono e un'introduzione sul loro utilizzo. L'articolo è incentrato in particolare su Monitoraggio di Azure, ma include indicazioni anche relative ad altri servizi. Gli avvisi rappresentano un modo per monitorare Azure attraverso la configurazione di condizioni sui dati e la notifica di quando le condizioni corrispondono ai dati di monitoraggio più recenti.
 
-Gli avvisi sono un metodo per monitorare le metriche, gli eventi e i log delle risorse di Azure e ricevere una notifica quando una condizione specificata viene soddisfatta.  
+## <a name="taxonomy-of-azure-alerts"></a>Tassonomia degli avvisi di Azure
+Azure usa i termini seguenti per descrivere gli avvisi e le relative funzioni:
+* **Avviso**: una definizione di criteri (una o più regole o condizioni) che vengono attivati quando vengono soddisfatti.
+* **Attivo**: lo stato di quando vengono soddisfatti i criteri definiti da un avviso.
+* **Risolto**: lo stato di quando i criteri definiti da un avviso non sono più soddisfatti dopo esserlo stati precedentemente.
+* **Notifica**: l'azione eseguita quando un avviso diventa attivo.
+* **Azione**: una chiamata specifica inviata a un ricevitore di una notifica (ad esempio, l'invio di un messaggio di posta elettronica a un indirizzo o la pubblicazione in un URL del webhook). Le notifiche possono in genere attivare più azioni.
 
 ## <a name="alerts-in-different-azure-services"></a>Avvisi in diversi servizi di Azure
-Gli avvisi sono disponibili in diversi servizi, tra cui:
+Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare questi servizi, [vedere questo articolo](./monitoring-overview.md). Ecco un riepilogo dei tipi di avviso disponibili in Azure:
 
-* **Application Insights**: abilita gli avvisi per le metriche e i test Web. Vedere [Impostare gli avvisi in Application Insights](../application-insights/app-insights-alerts.md) e [Monitorare la disponibilità e la velocità di risposta dei siti Web](../application-insights/app-insights-monitor-web-app-availability.md).
-* **Log Analytics (Operations Management Suite)**: consente il routing dei log di diagnostica e attività a Log Analytics. Operations Management Suite consente gli avvisi relativi alla metrica, ai log e altri tipi di avviso. Per altre informazioni, vedere [Avvisi in Log Analytics](../log-analytics/log-analytics-alerts.md).  
-* **Monitoraggio di Azure**: abilita gli avvisi basati su valori della metrica e sugli eventi del log attività. È possibile usare l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/dn931943.aspx) per gestire gli avvisi.  Per altre informazioni, vedere [Uso del portale di Azure, di PowerShell o dell'interfaccia della riga di comando per creare avvisi](insights-alerts-portal.md).
+| Service | Tipo di avviso | Servizi supportati | Descrizione |
+|---|---|---|---|
+| Monitoraggio di Azure | [Avvisi delle metriche](./insights-alerts-portal.md) | [Metriche supportate con Monitoraggio di Azure](./monitoring-supported-metrics.md) | Ricevere una notifica quando una metrica a livello di piattaforma soddisfa una condizione specifica (ad esempio, la % della CPU in una macchina virtuale è superiore a 90 negli ultimi 5 minuti). |
+| Monitoraggio di Azure | [Avvisi del log attività](./monitoring-activity-log-alerts.md) | Tutti i tipi di risorse disponibili in Azure Resource Manager | Ricevere una notifica quando un nuovo evento nel [Log attività di Azure](./monitoring-overview-activity-logs.md) corrisponde a condizioni specifiche (ad esempio, quando un'operazione di "eliminazione VM" si verifica in myProductionResourceGroup o quando viene generato un nuovo evento di integrità del servizio con stato "Attivo"). |
+| Application Insights | [Avvisi metrica](../application-insights/app-insights-alerts.md) | Un'applicazione qualsiasi dotata delle funzionalità per l'invio di dati ad Application Insights | Ricevere una notifica quando una metrica a livello di piattaforma soddisfa una condizione specifica (ad esempio, il tempo di risposta di un server è superiore a 2 secondi). |
+| Application Insights | [Avvisi di test Web](../application-insights/app-insights-monitor-web-app-availability.md) | Un sito Web qualsiasi dotato delle funzionalità per l'invio di dati ad Application Insights | Ricevere una notifica quando la disponibilità o la velocità di risposta di un sito Web è inferiore alle aspettative. |
+| Log Analytics | [Avvisi di Log Analytics](../log-analytics/log-analytics-alerts.md) | Qualsiasi servizio configurato per l'invio di dati in Log Analytics | Ricevere una notifica quando una query di ricerca di Log Analytics sui dati di metrica e/o evento soddisfa criteri specifici. |
 
-## <a name="visual-summary"></a>Riepilogo visivo
-Nel diagramma seguente sono riepilogati gli avvisi e le operazioni che è possibile eseguire in particolare in "Monitoraggio di Azure". Altre azioni potrebbero essere disponibili per i servizi elencati in precedenza. Ad esempio, attualmente gli avvisi nei log di diagnostica sono disponibili solo in Log Analytics.
+## <a name="alerts-on-azure-monitor-data"></a>Avvisi sui dati di Monitoraggio di Azure
+Sono disponibili due tipi di avvisi al di fuori dei dati disponibili da Monitoraggio di Azure: gli avvisi metrica e gli avvisi del log attività.
+
+* **Avvisi metrica**: questo avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata. L'avviso genera una notifica quando viene "attivato" (quando la soglia viene superata e viene soddisfatta la condizione di avviso) e quando viene "risolto" (quando il valore rientra nella soglia e la condizione non viene più soddisfatta). Per un elenco in continua crescita delle metriche disponibili supportate dal monitoraggio di Azure, vedere [l'elenco delle metriche supportate in Monitoraggio di Azure](monitoring-supported-metrics.md).
+* **Avvisi del log attività**: un avviso di log in streaming si attiva quando viene generato un evento di log attività che corrisponde ai criteri di filtro assegnati. Questi avvisi hanno un solo stato, vale a dire "Attivato", perché il motore degli avvisi applica semplicemente i criteri di filtro a qualsiasi nuovo evento. Questi avvisi possono essere usati per notificare quando si verifica un nuovo evento imprevisto relativo all'integrità del servizio o quando un utente o un'applicazione esegue un'operazione nella sottoscrizione, ad esempio "Elimina macchina virtuale".
+
+Per i dati del registro di diagnostica disponibili tramite Monitoraggio di Azure, è consigliabile indirizzare i dati in Log Analytics e usare un avviso di Log Analytics. Il diagramma seguente riepiloga le origini dei dati in Monitoraggio di Azure e, a livello concettuale, i modi per avvisare di tali dati.
 
 ![Avvisi illustrati](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
 
-## <a name="what-can-trigger-alerts-in-azure-monitor"></a>Cosa possono attivare gli avvisi in Monitoraggio di Azure
+## <a name="how-do-i-receive-a-notification-on-an-azure-monitor-alert"></a>Come si riceve una notifica su un avviso di Monitoraggio di Azure?
+Gli avvisi di Azure nelle versioni precedenti da servizi diversi usano metodi di notifica predefiniti propri. Monitoraggio di Azure offre ora un raggruppamento di notifiche riutilizzabili chiamato gruppi di azioni. I gruppi di azioni specificano un set di destinatari di una notifica (un numero qualsiasi di indirizzi di posta elettronica, numeri di telefono (per SMS) o URL di webhook) e ogni volta che viene attivato un avviso che fa riferimento al gruppo di azioni, tutti i destinatari ricevono la notifica. Ciò consente di riutilizzare un raggruppamento di destinatari, ad esempio un elenco di ingegneri su richiesta, in molti oggetti di avviso. Solo gli avvisi del log attività prevedono l'utilizzo di gruppi di azioni al momento, ma anche molti altri tipi di avviso di Azure useranno presto i gruppi di azioni.
 
-È possibile ricevere gli avvisi basati su:
-
-* **Valori della metrica**: l'avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata per eccesso o difetto. Vale a dire che si attiva sia quando la condizione viene inizialmente soddisfatta e successivamente quando tale condizione non è più soddisfatta. Per un elenco in continua crescita delle metriche disponibili supportate dal monitoraggio di Azure, vedere [l'elenco delle metriche supportate in Monitoraggio di Azure](monitoring-supported-metrics.md).
-* **Eventi del log attività**: questo avviso viene attivato quando si verifica un determinato evento in una risorsa o quando viene pubblicata una notifica del servizio nella sottoscrizione.
-
-## <a name="what-can-metric-alerts-do"></a>Funzione degli avvisi di metrica
-È possibile configurare un avviso per eseguire le azioni seguenti:
-
-* Inviare notifiche tramite posta elettronica all'amministratore del servizio, ai co-amministratori e/o ad altri indirizzi di posta elettronica specificati.
-* Richiamare un webhook, che consente di avviare altre azioni di automazione. Tra gli esempi sono incluse le chiamate:
+I gruppi di azioni supportano la notifica tramite la registrazione a un URL di webhook oltre che agli indirizzi di posta elettronica e ai numeri SMS. Ciò consente l'automazione e la correzione, ad esempio, usando:
     - Runbook di Automazione di Azure
     - Funzione di Azure
     - App per la logica di Azure
     - un servizio di terze parti
 
-## <a name="what-can-activity-log-alerts-do"></a>Funzione degli avvisi del log attività
-È possibile configurare un avviso per eseguire le azioni seguenti:
-* Attivare l'avviso ogni volta che un evento specifico si verifica in una delle risorse nella sottoscrizione
-* Attivare l'avviso ogni volta che viene registrata una notifica del servizio nella sottoscrizione
-* Avvisare i membri di un gruppo di azione tramite
-    * sms
-    * Email
-    * webhook
+Gli avvisi di metrica non usano ancora i gruppi di azioni. In un singolo avviso di metrica è possibile configurare le notifiche per:
+* Inviare notifiche tramite posta elettronica all'amministratore del servizio, ai co-amministratori e/o ad altri indirizzi di posta elettronica specificati.
+* Richiamare un webhook, che consente di avviare altre azioni di automazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione usando:

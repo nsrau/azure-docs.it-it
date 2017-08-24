@@ -1,17 +1,39 @@
-Quando si crea un gateway di rete virtuale è necessario specificare il codice SKU del gateway da usare. Quando si seleziona uno SKU superiore, al gateway vengono allocati un maggior numero di CPU e una larghezza di banda superiore, di conseguenza il gateway può supportare una velocità effettiva di rete più elevata per la rete virtuale.
+Quando si crea un gateway di rete virtuale è necessario specificare il codice SKU del gateway da usare. Selezionare gli SKU che soddisfano i requisiti inerenti ai tipi di carichi di lavoro, alle velocità effettive, alle funzionalità e ai contratti di servizio.
 
-Il gateway VPN può usare i codici SKU seguenti:
+[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
 
-* Basic
-* Standard
-* HighPerformance
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-Il gateway VPN non usa lo SKU UltraPerformance. Per informazioni sullo SKU UltraPerformance, vedere la documentazione relativa a [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+###  <a name="workloads"></a>Carichi di lavoro di produzione *e* di sviluppo e test
 
-Nella scelta di uno SKU, considerare quanto segue:
+A causa delle differenze in termini di contratti di servizio e set di funzionalità, per i carichi di produzione *e* di sviluppo e test è consigliabile usare SKU diversi, come descritto di seguito:
 
-* Per usare un tipo di VPN PolicyBased, è necessario usare lo SKU di livello Basic. Le VPN basate su criteri, precedentemente denominate routing statico, non sono supportate negli altri SKU.
-* BGP non è supportato nello SKU di livello Basic.
-* Le configurazioni con coesistenza di gateway VPN ed ExpressRoute non sono supportate nello SKU di livello Basic.
-* Le connessioni del gateway VPN S2S attivo/attivo possono essere configurate solo nello SKU HighPerformance.
+| **Carico di lavoro**                       | **SKU**               |
+| ---                                | ---                    |
+| **Carichi di lavoro critici, di produzione** | VpnGw1, VpnGw2, VpnGw3 |
+| **Sviluppo e test o modello di verifica**   | Basic                  |
+|                                    |                        |
 
+Se si usano gli SKU di versione precedente, per la produzione sono consigliati gli SKU Standard e HighPerformance. Per informazioni sugli SKU precedenti, vedere [SKU del gateway (legacy)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+
+###  <a name="feature"></a>Set di funzionalità degli SKU del gateway
+
+I nuovi SKU del gateway semplificano i set di funzionalità offerti nei gateway:
+
+| **SKU**| **Funzionalità**|
+| ---    | ---         |
+|Basic   | Basato su route: 10 tunnel con P2S<br>Basato su criteri (IKEv1): 1 tunnel; nessun P2S|
+| VpnGw1, VpnGw2, VpnGw3 |VPN basata su route fino a 30 tunnel (*) <br>P2S, BGP, attivo-attivo, IPsec personalizzato/criterio IKE, coesistenza ExpressRoute/VPN |
+|        |             |
+
+(*) È possibile configurare "PolicyBasedTrafficSelectors" per la connessione di un gateway VPN basato su route (VpnGw1, VpnGw2, VpnGw3) a più dispositivi firewall locali basati su criteri. Per informazioni dettagliate, vedere [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) (Connettere gateway VPN a più dispositivi VPN basati su criteri tramite PowerShell).
+
+###  <a name="resize"></a>Ridimensionamento degli SKU di gateway
+
+1. È possibile eseguire il ridimensionamento tra gli SKU VpnGw1, VpnGw2 e VpnGw3.
+2. Quando si usano SKU del gateway di versione precedente, è possibile eseguire il ridimensionamento tra gli SKU Basic, Standard e HighPerformance.
+2. **Non** è possibile invece eseguire il ridimensionamento dagli SKU Basic/Standard/HighPerformance ai nuovi SKU VpnGw1/VpnGw2/VpnGw3. È necessario [eseguire la migrazione](#migrate) ai nuovi SKU.
+
+###  <a name="migrate"></a>Migrazione dagli SKU di versione precedente ai nuovi SKU
+
+[!INCLUDE [Migrate SKU](./vpn-gateway-migrate-legacy-sku-include.md)]

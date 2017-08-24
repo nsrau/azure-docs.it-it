@@ -1,10 +1,10 @@
 ---
-title: Modificare le informazioni sul profilo dell&quot;account Azure| Microsoft Docs
-description: "L&quot;articolo descrive come modificare il profilo dell&quot;account di Azure e fornisce le risposte alle domande comuni, ad esempio perché non è possibile modificare il paese nel Centro account di Azure"
+title: Modificare le informazioni sul profilo dell'account Azure| Microsoft Docs
+description: "L'articolo descrive come modificare il profilo dell'account di Azure e fornisce le risposte alle domande comuni, ad esempio perché non è possibile modificare il paese nel Centro account di Azure"
 services: 
 documentationcenter: 
 author: genlin
-manager: narmstr
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
@@ -13,12 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 06/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
 ms.openlocfilehash: c4f76065996c7db43ec5503ff76fc7a1bbeb87ed
+ms.contentlocale: it-it
 ms.lasthandoff: 03/03/2017
 
 ---

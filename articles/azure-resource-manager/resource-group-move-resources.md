@@ -12,27 +12,26 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 06/28/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: f1b9beabfb0a92e5cc49d6af762693ae45a85e42
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: fe6a28afbee573351186e361126ddca7db764311
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 Questo argomento illustra come spostare le risorse in una nuova sottoscrizione o in un nuovo gruppo di risorse nella stessa sottoscrizione. È possibile usare il portale, PowerShell, l'interfaccia della riga di comando di Azure o l'API REST per spostare una risorsa. Le operazioni di spostamento descritte in questo argomento non richiedono assistenza da parte del supporto tecnico di Azure.
 
-Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati durante l'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco indica che non è possibile aggiungere, aggiornare o eliminare le risorse dei gruppi di risorse, ma non che le risorse sono bloccate. Se ad esempio si sposta un Server SQL con il relativo database in un nuovo gruppo di risorse, nelle applicazioni che usano il database non si verificano tempi di inattività, poiché rimane possibile leggere e scrivere nel database. 
+Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di destinazione sono bloccati durante l'operazione. Le operazioni di scrittura ed eliminazione sono bloccate nei gruppi di risorse fino al completamento dello spostamento. Questo blocco indica che non è possibile aggiungere, aggiornare o eliminare le risorse dei gruppi di risorse, ma non che le risorse sono bloccate. Se ad esempio si sposta un Server SQL con il relativo database in un nuovo gruppo di risorse, nelle applicazioni che usano il database non si verificano tempi di inattività, poiché rimane possibile leggere e scrivere nel database.
 
 Non è possibile modificare il percorso della risorsa. Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
 
 > [!NOTE]
-> In questo articolo viene descritto come spostare le risorse nell'offerta di un account di Azure esistente. Se si vuole che modificare l'offerta dell'account di Azure, ad esempio effettuando l'aggiornamento da pagamento in base al consumo a pagamento anticipato, pur continuando a lavorare con le risorse esistenti, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](../billing/billing-how-to-switch-azure-offer.md). 
-> 
-> 
+> In questo articolo viene descritto come spostare le risorse nell'offerta di un account di Azure esistente. Se si vuole che modificare l'offerta dell'account di Azure, ad esempio effettuando l'aggiornamento da pagamento in base al consumo a pagamento anticipato, pur continuando a lavorare con le risorse esistenti, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](../billing/billing-how-to-switch-azure-offer.md).
+>
+>
 
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
 Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La verifica di queste condizioni consente di evitare errori.
@@ -51,20 +50,20 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   az account show --subscription "Example Subscription" --query tenantId
   ```
 
-  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, è possibile tentare di modificare la directory della sottoscrizione. Tuttavia, questa opzione è disponibile solo per gli amministratori del servizio sono registrati con un account Microsoft (non un account aziendale). Per tentare di modificare la directory, accedere al [portale classico](https://manage.windowsazure.com/), selezionare **Impostazioni**, quindi la sottoscrizione. Se l'icona **Modifica directory** è disponibile, selezionarla per modificare l'istanza di Azure Active Directory associata. 
+  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, è possibile tentare di modificare la directory della sottoscrizione. Tuttavia, questa opzione è disponibile solo per gli amministratori del servizio sono registrati con un account Microsoft (non un account aziendale). Per tentare di modificare la directory, accedere al [portale classico](https://manage.windowsazure.com/), selezionare **Impostazioni**, quindi la sottoscrizione. Se l'icona **Modifica directory** è disponibile, selezionarla per modificare l'istanza di Azure Active Directory associata.
 
-  ![modifica directory](./media/resource-group-move-resources/edit-directory.png) 
+  ![modifica directory](./media/resource-group-move-resources/edit-directory.png)
 
   Se questa icona non è disponibile, è necessario contattare il supporto per spostare le risorse in un nuovo tenant.
 
 2. Il servizio deve abilitare lo spostamento di risorse. In questo argomento sono elencati i servizi che consentono di spostare risorse e quelli che invece non lo permettono.
-3. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](resource-manager-supported-services.md#resource-providers-and-types).
+3. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa. Per informazioni su come controllare lo stato della registrazione e registrare i provider di risorse, vedere [Provider e tipi di risorse](resource-manager-supported-services.md).
 
 ## <a name="when-to-call-support"></a>Quando chiamare il supporto
 È possibile spostare la maggior parte delle risorse tramite le operazioni self-service descritte in questo argomento. Usare le operazioni self-service per:
 
 * Spostare le risorse di Resource Manager.
-* Spostare le risorse classiche in base alle [limitazioni della distribuzione classica](#classic-deployment-limitations). 
+* Spostare le risorse classiche in base alle [limitazioni della distribuzione classica](#classic-deployment-limitations).
 
 Chiamare il supporto quando è necessario:
 
@@ -93,7 +92,7 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 * Hub eventi
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
 * Hub IoT
-* Insieme di credenziali di chiave 
+* Insieme di credenziali di chiave
 * Servizi di bilanciamento del carico
 * App per la logica
 * Machine Learning
@@ -114,16 +113,18 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 * Analisi dei flussi
 * Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
 * Gestione traffico
-* Macchine virtuali: non è supportato lo spostamento in una nuova sottoscrizione se i relativi certificati sono archiviati in un insieme di credenziali delle chiavi
+* Macchine virtuali
+* Macchine virtuali con certificato archiviato in Key Vault: lo spostamento al nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento fra sottoscrizioni non è abilitato.
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Set di scalabilità di macchine virtuali
-* Reti virtuali: attualmente non è possibile spostare una rete virtuale con peering fino a quando non viene disabilitato il peering di rete virtuale. Dopo che il peering è stato disabilitato, è possibile spostare la rete virtuale e abilitare il peering di rete virtuale.
-* Gateway VPN 
+* Reti virtuali: attualmente non è possibile spostare una rete virtuale con peering fino a quando non viene disabilitato il peering di rete virtuale. Dopo che il peering è stato disabilitato, è possibile spostare la rete virtuale e abilitare il peering di rete virtuale. Inoltre, è impossibile spostare una rete virtuale in una sottoscrizione diversa se la rete virtuale contiene una qualsiasi subnet con collegamenti di navigazione delle risorse. Ad esempio, una subnet della rete virtuale ha un collegamento di navigazione delle risorse quando una risorsa redis Microsoft.Cache viene distribuita in questa subnet.
+* Gateway VPN
 
- 
+
 ## <a name="services-that-do-not-enable-move"></a>Servizi che non abilitano lo spostamento
 I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 
+* AD Domain Services
 * Servizio ibrido per l'integrità di AD
 * gateway applicazione
 * Set di disponibilità con macchine virtuali con Managed Disks
@@ -138,7 +139,7 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino, vedere [Limitazioni dei servizi di ripristino](#recovery-services-limitations).
 * Sicurezza
 * Snapshot creati da Managed Disks
-* Macchine virtuali con certificato archiviato in insieme di credenziali delle chiavi
+* Gestione dispositivi StorSimple
 * Macchine virtuali con Managed Disks
 * Reti virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Impossibile spostare le macchine virtuali create da risorse Marketplace fra sottoscrizioni. La risorsa deve essere sottoposta a deprovisioning nella sottoscrizione corrente e distribuita nuovamente nella nuova sottoscrizione
@@ -146,7 +147,7 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 Quando si usano le app del servizio app non è possibile spostare solo un piano di servizio app. Per spostare le app del servizio app, le opzioni disponibili sono:
 
-* Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. In base a questo requisito è necessario spostare anche le risorse del servizio app non associate al piano di servizio app. 
+* Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. In base a questo requisito è necessario spostare anche le risorse del servizio app non associate al piano di servizio app.
 * Spostare le app in un gruppo di risorse diverso, ma mantenere tutti i piani di servizio app nel gruppo di risorse originale.
 
 Per il corretto funzionamento dell'app non è necessario che il piano di servizio app risieda nello stesso gruppo di risorse in cui si trova l'app stessa.
@@ -183,7 +184,7 @@ Per ottenere questo risultato è necessario eseguire due operazioni di spostamen
 3. Caricare il certificato nell'App Web
 
 ## <a name="recovery-services-limitations"></a>Limitazioni dei servizi di ripristino
-Lo spostamento non è abilitato per le risorse di archiviazione, di rete o di calcolo usate per configurare il ripristino di emergenza con Azure Site Recovery. 
+Lo spostamento non è abilitato per le risorse di archiviazione, di rete o di calcolo usate per configurare il ripristino di emergenza con Azure Site Recovery.
 
 Ad esempio, si supponga di avere configurato la replica delle macchine locali su un account di archiviazione (Storage1) e di desiderare che il computer protetto venga avviato dopo il failover in Azure come macchina virtuale (VM1) collegata a una rete virtuale (Network1). Non è possibile spostare una di queste risorse di Azure - Storage1 VM1 e Network1 - nei gruppi di risorse all'interno della stessa sottoscrizione o tra le sottoscrizioni.
 
@@ -194,13 +195,13 @@ Ad esempio, si supponga di avere configurato la replica delle macchine locali su
 Quando si sposta un cluster HDInsight in una nuova sottoscrizione, spostare prima altre risorse, ad esempio l'account di archiviazione. Spostare quindi il cluster HDInsight.
 
 ## <a name="classic-deployment-limitations"></a>Limitazioni della distribuzione classica
-Le opzioni per lo spostamento delle risorse distribuite con il modello classico variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione. 
+Le opzioni per lo spostamento delle risorse distribuite con il modello classico variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
 
 ### <a name="same-subscription"></a>Stessa sottoscrizione
 Quando si spostano risorse da un gruppo di risorse a un altro gruppo di risorse nella stessa sottoscrizione, sono valide le restrizioni seguenti:
 
 * Le reti virtuali (classiche) non possono essere spostate.
-* Le macchine virtuali (classiche) devono essere spostate con il servizio cloud. 
+* Le macchine virtuali (classiche) devono essere spostate con il servizio cloud.
 * Il servizio cloud può essere spostato solo quando lo spostamento include tutte le macchine virtuali del servizio stesso.
 * È possibile spostare un solo servizio cloud alla volta.
 * È possibile spostare un solo account di archiviazione (classico) alla volta.
@@ -222,18 +223,18 @@ Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazio
   ```HTTP   
   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
-   
+
      Nel corpo della richiesta includere:
 
-  ```json 
+  ```json
   {
     "role": "source"
   }
   ```
-  
+
      La risposta per l'operazione di convalida ha il formato seguente:
 
-  ```json 
+  ```json
   {
     "status": "{status}",
     "reasons": [
@@ -245,34 +246,34 @@ Per spostare le risorse classiche in una nuova sottoscrizione, usare le operazio
 
 2. Controllare se la sottoscrizione di destinazione può partecipare a un'operazione di spostamento tra sottoscrizioni. Usare l'operazione seguente:
 
-  ```HTTP 
+  ```HTTP
   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
   ```
 
      Nel corpo della richiesta includere:
 
-  ```json 
+  ```json
   {
     "role": "target"
   }
   ```
-   
+
      La risposta ha lo stesso formato della convalida della sottoscrizione di origine.
 3. Se entrambe le sottoscrizioni superano la convalida, spostare tutte le risorse classiche da una sottoscrizione a un'altra usando l'operazione seguente:
 
-  ```HTTP 
+  ```HTTP
   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
   ```
 
     Nel corpo della richiesta includere:
 
-  ```json 
+  ```json
   {
     "target": "/subscriptions/{target-subscription-id}"
   }
   ```
 
-Questa operazione potrebbe richiedere alcuni minuti. 
+Questa operazione potrebbe richiedere alcuni minuti.
 
 ## <a name="use-portal"></a>Usare il portale
 Per spostare le risorse, selezionare il gruppo contenente queste risorse, quindi usare il pulsante **Sposta**.
@@ -378,7 +379,7 @@ Viene richiesto di confermare che si vuole spostare la risorsa specificata.
 Per spostare le risorse esistenti in un gruppo di risorse o una sottoscrizione diversi, eseguire:
 
 ```HTTP
-POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
+POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
 ```
 
 Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le risorse da spostare. Per altre informazioni sull'operazione REST di spostamento, vedere [Spostare le risorse](https://msdn.microsoft.com/library/azure/mt218710.aspx).
@@ -388,5 +389,4 @@ Nel corpo della richiesta specificare il gruppo di risorse di destinazione e le 
 * Per informazioni sui comandi dell'interfaccia della riga di comando di Azure per la gestione della sottoscrizione, vedere [Uso dell'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
 * Per informazioni sull'organizzazione logica delle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
-
 

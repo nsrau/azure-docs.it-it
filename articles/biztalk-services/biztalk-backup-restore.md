@@ -14,22 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 589b95fdd05478305fa8ef629fc6758bdd716da6
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="biztalk-services-backup-and-restore"></a>Servizi BizTalk: backup e ripristino
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 I Servizi BizTalk di Azure includono funzioni di backup e ripristino. Questo argomento descrive come eseguire il backup e il ripristino dei Servizi BizTalk usando il portale di Azure classico.
 
 È anche possibile eseguire il backup dei Servizi BizTalk mediante l' [API REST](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
 
 > [!NOTE]
 > Il backup delle connessioni ibride NON viene eseguito, indipendentemente dall'edizione. È necessario ricreare le connessioni ibride.
-> 
-> 
+
 
 ## <a name="before-you-begin"></a>Operazioni preliminari
 * Le funzionalità di backup e ripristino potrebbero non essere disponibili per tutte le edizioni. Vedere [Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md).

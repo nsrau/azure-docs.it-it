@@ -13,10 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 587a8e225b18ae2a07d766f1a0d75623e44aec9f
-ms.lasthandoff: 04/25/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e3952c6be537e28f7f2cde8f33750b1894fde8e4
+ms.contentlocale: it-it
+ms.lasthandoff: 06/03/2017
 
 
 ---
@@ -122,7 +123,7 @@ Il servizio di Backup di Azure usa le estensioni della macchina virtuale di Azur
 L'articolo di SAP HANA [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) (Pianificazione del backup e strategia di ripristino) indica un piano di base per eseguire i backup:
 
 - Snapshot di archiviazione (giornaliero)
-- Backup completo dei dati tramite file o eseguendo il backup (una volta alla settimana)
+- Backup completo dei dati tramite il formato di file o backint (una volta alla settimana)
 - Backup automatici dei log
 
 Facoltativamente, è possibile procedere completamente senza snapshot di archiviazione. Questi possono essere sostituiti da backup delta di HANA, ad esempio backup incrementali o differenziali. Vedere [Delta Backups](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm) (Backup delta).

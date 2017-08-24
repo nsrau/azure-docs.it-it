@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: fc5c87e45f3c92172f01a462451bc145ce8b0b16
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
+ms.openlocfilehash: 9023ca104fcab29bc0b16ecd3a6584848e2d453e
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Risorse di documentazione di Processi Web di Azure
 ## <a name="overview"></a>Panoramica
-Questo argomento include i collegamenti a risorse della documentazione relative all'uso di Processi Web di Azure e di Azure WebJobs SDK. Processi Web di Azure costituisce una soluzione semplice per eseguire script o programmi come processi in background nel contesto di un'[app Web del servizio app, un'app per le API o un'app per dispositivi mobili](../app-service/app-service-value-prop-what-is.md). È infatti possibile caricare ed eseguire un file eseguibile in formato cmd, bat, exe (.NET), ps1, sh, php, py, js e jar, che verrà eseguito come processo Web in base a una pianificazione (cron) o senza interruzioni.
+Questo argomento include i collegamenti a risorse della documentazione relative all'uso di Processi Web di Azure e di Azure WebJobs SDK. Processi Web di Azure costituisce una soluzione semplice per eseguire script o programmi come processi in background nel contesto di un'[app Web del servizio app, un'app per le API o un'app per dispositivi mobili](../app-service/app-service-value-prop-what-is.md). È infatti possibile caricare ed eseguire un file eseguibile in formato cmd, bat, exe (.NET), ps1, sh, php, py, js e jar. che verrà eseguito come processo Web in base a una pianificazione (cron) o senza interruzioni.
 
-Lo scopo di [WebJobs SDK](websites-webjobs-resources.md) è semplificare il codice scritto per le attività comuni che possono essere eseguite da un processo Web, ad esempio l'elaborazione di immagini, l'elaborazione della coda, l'aggregazione RSS, la manutenzione di file e l'invio di messaggi di posta elettronica. WebJobs SDK offre funzionalità incorporate per l'uso dell'Archiviazione di Azure e del bus di servizio, per la pianificazione di attività, per la gestione degli errori e per molti altri scenari comuni. È progettato per l'estensibilità e ha a disposizione un [repository open source di estensioni](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). [Funzioni di Azure](../azure-functions/functions-overview.md) (attualmente in anteprima) si basa su una versione di WebJobs SDK che usa script C#, Node.js e in altri linguaggi. 
+Lo scopo di [WebJobs SDK](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk) è semplificare il codice scritto per le attività comuni che possono essere eseguite da un processo Web, ad esempio l'elaborazione di immagini, l'elaborazione della coda, l'aggregazione RSS, la manutenzione di file e l'invio di messaggi di posta elettronica. WebJobs SDK offre funzionalità incorporate per l'uso dell'Archiviazione di Azure e del bus di servizio, per la pianificazione di attività, per la gestione degli errori e per molti altri scenari comuni. È progettato per l'estensibilità e ha a disposizione un [repository open source di estensioni](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). [Funzioni di Azure](../azure-functions/functions-overview.md) (attualmente in anteprima) si basa su una versione di WebJobs SDK che usa script C#, Node.js e in altri linguaggi. 
 
 [!INCLUDE [app-service-web-webjobs-corenote](../../includes/app-service-web-webjobs-corenote.md)]
 
-Grazie agli strumenti integrati in Visual Studio, è inoltre semplice creare, distribuire e gestire processi Web. È possibile creare processi Web da modelli, nonché pubblicarli e gestirli (eseguirli/arrestarli/monitorarli/eseguirne il debug). 
+Grazie agli strumenti integrati in Visual Studio, è inoltre semplice creare, distribuire e gestire processi Web. È possibile creare processi Web da modelli, nonché pubblicarli e gestirli, ovvero eseguirli/arrestarli/monitorarli/eseguirne il debug. 
 
 Il dashboard Processi Web nel portale di Azure include efficaci funzionalità di gestione per controllare completamente l'esecuzione di processi Web, tra cui la possibilità di richiamare singole funzioni nei processi Web. Il dashboard visualizza inoltre i runtime delle funzioni e l'output delle registrazioni. 
 
@@ -38,7 +39,7 @@ Il dashboard Processi Web nel portale di Azure include efficaci funzionalità di
 * [Post di blog sui vantaggi offerti da Processi Web di Azure](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (di Troy Hunt)
 * [Funzionalità di Processi Web di Azure](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Informazioni su WebJobs SDK](websites-dotnet-webjobs-sdk.md)
-* [Indicazioni di processi di background Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
+* [Indicazioni di processi di background Microsoft Patterns and Practices](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs)
 * [Annuncio della versione 1.1.0 RTM di Microsoft Azure WebJobs SDK](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Introduzione a Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)
 * [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)

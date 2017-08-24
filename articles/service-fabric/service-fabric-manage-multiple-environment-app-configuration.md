@@ -1,9 +1,9 @@
 ---
 title: "Gestire più ambienti in Service Fabric | Microsoft Docs"
-description: "Le applicazioni di Service Fabric possono essere eseguite su cluster le cui dimensioni variano da un solo computer a molte migliaia. In alcuni casi è possibile che si voglia configurare l&quot;applicazione in modo diverso per i diversi ambienti. Questo articolo illustra come definire diversi parametri dell&quot;applicazione per ogni ambiente,"
+description: "Le applicazioni di Service Fabric possono essere eseguite su cluster le cui dimensioni variano da un solo computer a molte migliaia. In alcuni casi è possibile che si voglia configurare l'applicazione in modo diverso per i diversi ambienti. Questo articolo illustra come definire diversi parametri dell'applicazione per ogni ambiente,"
 services: service-fabric
 documentationcenter: .net
-author: seanmck
+author: mikkelhegn
 manager: timlt
 editor: 
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/06/2017
-ms.author: seanmck
-translationtype: Human Translation
-ms.sourcegitcommit: b57655c8041fa366d0aeb13e744e30e834ec85fa
-ms.openlocfilehash: 7432e45ef33bd4d51fca8e8db8ec880e8beaf3ab
-ms.lasthandoff: 02/08/2017
-
+ms.date: 08/18/2017
+ms.author: mikkelhegn
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
+ms.openlocfilehash: eaf1daf8d9f973fe82ba9e82c60a2a82f2681786
+ms.contentlocale: it-it
+ms.lasthandoff: 06/09/2017
 
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>Gestire i parametri dell'applicazione per più ambienti
-I cluster di Azure Service Fabric possono essere creati usando un solo computer fino a molte migliaia. Anche se i file binari dell'applicazione possono essere eseguiti senza modifiche in questa varietà di ambienti, spesso è consigliabile configurare l'applicazione in modo diverso, in base al numero di computer in cui si esegue la distribuzione.
+I cluster di Azure Service Fabric possono essere creati usando un solo computer fino a molte migliaia. Anche se i file binari dell'applicazione possono essere eseguiti senza modifiche in questa ampia gamma di ambienti, spesso è consigliabile configurare l'applicazione in modo diverso, in base al numero di computer in cui si esegue la distribuzione.
 
-Ad esempio, considerare `InstanceCount` per un servizio senza stato. Quando si eseguono applicazioni in Azure, in genere è consigliabile impostare questo parametro sul valore speciale "-1", In questo modo si garantisce che il servizio sia in esecuzione in ogni nodo del cluster (o in ogni nodo nel tipo di nodo se è stato impostato un vincolo di posizionamento). Questa configurazione non è tuttavia appropriata per un cluster con un singolo computer, perché non è possibile avere più processi in ascolto sullo stesso endpoint in un singolo computer. Al contrario, `InstanceCount` verrà in genere impostato su "1".
+Ad esempio, considerare `InstanceCount` per un servizio senza stato. Quando si eseguono applicazioni in Azure, in genere è consigliabile impostare questo parametro sul valore speciale "-1". Questa configurazione garantisce che il servizio sia in esecuzione in ogni nodo del cluster (o in ogni nodo nel tipo di nodo se è stato impostato un vincolo di posizionamento). Non è tuttavia appropriata per un cluster con un singolo computer, perché non è possibile avere più processi in ascolto sullo stesso endpoint in un singolo computer. Al contrario, `InstanceCount` viene in genere impostato su "1".
 
 ## <a name="specifying-environment-specific-parameters"></a>Definizione dei parametri specifici dell'ambiente
 La soluzione per questo problema di configurazione è costituita da un set di servizi predefiniti con parametri e file di parametri dell'applicazione che compilano i valori dei parametri per un determinato ambiente. I parametri predefiniti per servizi e applicazioni vengono configurati all'interno dei manifesti dei servizi e delle applicazioni. La definizione dello schema per i file ServiceManifest.xml e ApplicationManifest.xml viene installata con gli strumenti e l'SDK di Service Fabric in *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
@@ -33,18 +33,18 @@ La soluzione per questo problema di configurazione è costituita da un set di se
 Le applicazioni di infrastruttura di servizi sono costituite da una raccolta di istanze del servizio. Anche se è possibile creare un'applicazione vuota e quindi tutte le istanze del servizio dinamicamente, la maggior parte delle applicazioni include un set di servizi di base che devono essere sempre creati quando si creano istanze dell'applicazione. Questi servizi sono detti "servizi predefiniti" e vengono specificati nel manifesto dell'applicazione, con i segnaposto per la configurazione specifica dei singoli ambienti racchiusi tra parentesi quadre:
 
 ```xml
-    <DefaultServices>
-        <Service Name="Stateful1">
-            <StatefulService
-                ServiceTypeName="Stateful1Type"
-                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
-                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+  <DefaultServices>
+      <Service Name="Stateful1">
+          <StatefulService
+              ServiceTypeName="Stateful1Type"
+              TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+              MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
-                <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]"
-                    LowKey="-9223372036854775808"
-                    HighKey="9223372036854775807"
-                />
+              <UniformInt64Partition
+                  PartitionCount="[Stateful1_PartitionCount]"
+                  LowKey="-9223372036854775808"
+                  HighKey="9223372036854775807"
+              />
         </StatefulService>
     </Service>
   </DefaultServices>
@@ -54,7 +54,7 @@ Ogni parametro denominato deve essere definito nell'elemento Parameters del mani
 
 ```xml
     <Parameters>
-        <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
+        <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
         <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
         <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
     </Parameters>
@@ -73,14 +73,14 @@ Il [modello applicativo di Service Fabric](service-fabric-application-model.md) 
 Si supponga di avere la seguente impostazione nel file Config\Settings.xml per il servizio `Stateful1`:
 
 ```xml
-    <Section Name="MyConfigSection">
-      <Parameter Name="MaxQueueSize" Value="25" />
-    </Section>
+  <Section Name="MyConfigSection">
+     <Parameter Name="MaxQueueSize" Value="25" />
+  </Section>
 ```
 Per eseguire l'override di questo valore per una coppia applicazione/ambiente specifica, creare un valore `ConfigOverride` durante l'importazione del manifesto del servizio nel manifesto dell'applicazione.
 
 ```xml
-    <ConfigOverrides>
+  <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
            <Section Name="MyConfigSection">
@@ -99,7 +99,7 @@ Questo parametro può quindi essere configurato dall'ambiente, come illustrato i
 
 ### <a name="setting-and-using-environment-variables"></a>Impostazione e uso delle variabili di ambiente 
 È possibile specificare e impostare le variabili di ambiente nel file ServiceManifest.xml e quindi sostituire tali impostazioni nel file ApplicationManifest.xml per ogni istanza.
-L'esempio seguente illustra due variabili di ambiente, una con un valore impostato e l'altra che verrà sostituita. È possibile usare i parametri dell'applicazione per impostare i valori delle variabili di ambiente in modo analogo a come verrebbero usati per le sostituzioni di configurazione.
+L'esempio seguente illustra due variabili di ambiente, una con un valore impostato e l'altra sostituita. È possibile usare i parametri dell'applicazione per impostare i valori delle variabili di ambiente in modo analogo a come verrebbero usati per le sostituzioni di configurazione.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -177,7 +177,7 @@ Il codice seguente mostra come elencare le variabili di ambiente di Service Fabr
         }
     }
 ```
-Di seguito vengono elencate delle variabili di ambiente di esempio per un tipo di applicazione chiamato `GuestExe.Application` con un tipo di servizio denominato `FrontEndService`, in esecuzione sul computer di sviluppo locale.
+Di seguito sono riportati esempi di variabili di ambiente per un tipo di applicazione chiamato `GuestExe.Application` con un tipo di servizio denominato `FrontEndService`, in esecuzione sul computer di sviluppo locale.
 
 * **Fabric_ApplicationName = fabric:/GuestExe.Application**
 * **Fabric_CodePackageName = Code**
@@ -193,7 +193,7 @@ Il progetto di applicazione di Service Fabric può includere uno o più file di 
 
     <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <Parameters>
-            <Parameter Name ="Stateful1_MinReplicaSetSize" Value="2" />
+            <Parameter Name ="Stateful1_MinReplicaSetSize" Value="3" />
             <Parameter Name="Stateful1_PartitionCount" Value="1" />
             <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
         </Parameters>
@@ -203,7 +203,7 @@ Per impostazione predefinita, una nuova applicazione include tre file di paramet
 
 ![File di parametri dell'applicazione in Esplora soluzioni][app-parameters-solution-explorer]
 
-Per creare un nuovo file di parametri, è sufficiente copiarne e incollarne uno esistente e specificare un nuovo nome.
+Per creare un file di parametri, è sufficiente copiarne e incollarne uno esistente e specificare un nuovo nome.
 
 ## <a name="identifying-environment-specific-parameters-during-deployment"></a>Identificazione di parametri specifici per il singolo ambiente durante la distribuzione
 In fase di distribuzione è necessario scegliere il file di parametri appropriato da usare con l'applicazione. È possibile eseguire questa operazione nella finestra di dialogo Pubblica in Visual Studio o in PowerShell.

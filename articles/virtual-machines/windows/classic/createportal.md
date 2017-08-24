@@ -1,6 +1,6 @@
 ---
 title: Creare una macchina virtuale Windows personalizzata | Microsoft Docs
-description: Scoprire come creare una macchina virtuale Windows personalizzata dal portale di Azure classico con il modello di distribuzione classico.
+description: Informazioni su come creare una macchina virtuale Windows personalizzata dal portale di Azure usando il modello di distribuzione classico.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 05/30/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 27676a48b5e98636ba245e18e67676a608738512
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: 4d7b7a17751cc476d0365cbcbff3fcf23dd0c6ff
+ms.contentlocale: it-it
+ms.lasthandoff: 06/01/2017
 
 
 ---

@@ -8,17 +8,17 @@ manager: jwhit
 editor: 
 ms.assetid: f980fb52-8ec2-4dd9-85e2-8e52e449f1ba
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: 858ed6ca4355c36c728ae88bf9488f362d487646
-ms.openlocfilehash: 7ffef4a8dcd10fa6608d200b4ca34fb3517c0cc6
-ms.lasthandoff: 02/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: d50a4bdbafccd645ca339b2dd1ab97456704e3ae
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery-using-the-classic-portal-legacy"></a>Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery tramite il portale classico (legacy)
@@ -59,12 +59,12 @@ Prima di iniziare:
 
 Eseguire la migrazione nel modo seguente:
 
-1. Vedere la sezione relativa alla [distribuzione avanzata nel portale classico](site-recovery-vmware-to-azure-classic.md#enhanced-deployment). Vedere le sezioni relative all'[architettura](site-recovery-vmware-to-azure-classic.md#scenario-architecture) avanzata e ai [prerequisiti](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment).
+1. Vedere la sezione relativa alla [distribuzione avanzata nel portale classico](site-recovery-vmware-to-azure-classic.md). Vedere le sezioni relative all'[architettura](site-recovery-vmware-to-azure-classic.md) avanzata e ai [prerequisiti](site-recovery-vmware-to-azure-classic.md).
 2. Disinstallare il servizio Mobility dai computer di cui si sta eseguendo la replica. Una nuova versione del servizio verrà installata nei computer nel momento in cui verranno aggiunti al nuovo gruppo di protezione.
-3. Scaricare una [chiave di registrazione dell'insieme di credenziali](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key) ed eseguire la [procedura guidata per la configurazione unificata](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server) per installare i componenti server di configurazione, server di elaborazione e server di destinazione master. Altre informazioni sulla [pianificazione della capacità](site-recovery-vmware-to-azure-classic.md#capacity-planning).
-4. [Impostare le credenziali](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) che Site Recovery può usare per accedere al server VMware e rilevare automaticamente le macchine virtuali VMware. Vedere la sezione relativa alle [autorizzazioni necessarie](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-5. Aggiungere [server vCenter o host vSphere](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts). Possono essere necessari 15 minuti o più perché i server vengano visualizzati nel portale di Site Recovery.
-6. Creare un [nuovo gruppo protezione dati](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). Possono essere necessari fino a 15 minuti per l'aggiornamento del portale in modo che le macchine virtuali vengano individuate e visualizzate. Se non si vuole attendere, è possibile evidenziare il nome del server di gestione, senza farvi clic sopra, e fare clic su **Aggiorna**.
+3. Scaricare una [chiave di registrazione dell'insieme di credenziali](site-recovery-vmware-to-azure-classic.md) ed eseguire la [procedura guidata per la configurazione unificata](site-recovery-vmware-to-azure-classic.md) per installare i componenti server di configurazione, server di elaborazione e server di destinazione master. Altre informazioni sulla [pianificazione della capacità](site-recovery-vmware-to-azure-classic.md).
+4. [Impostare le credenziali](site-recovery-vmware-to-azure-classic.md) che Site Recovery può usare per accedere al server VMware e rilevare automaticamente le macchine virtuali VMware. Vedere la sezione relativa alle [autorizzazioni necessarie](site-recovery-vmware-to-azure-classic.md).
+5. Aggiungere [server vCenter o host vSphere](site-recovery-vmware-to-azure-classic.md). Possono essere necessari 15 minuti o più perché i server vengano visualizzati nel portale di Site Recovery.
+6. Creare un [nuovo gruppo protezione dati](site-recovery-vmware-to-azure-classic.md). Possono essere necessari fino a 15 minuti per l'aggiornamento del portale in modo che le macchine virtuali vengano individuate e visualizzate. Se non si vuole attendere, è possibile evidenziare il nome del server di gestione, senza farvi clic sopra, e fare clic su **Aggiorna**.
 7. Nel nuovo gruppo protezione dati fare clic su **Esegui la migrazione delle macchine virtuali**.
 
     ![Aggiungi account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration1.png)
@@ -392,11 +392,11 @@ Si noti che i primi quattro indirizzi IP in qualsiasi subnet sono riservati per 
    4. Estrarre i file dal programma di installazione compresso con gzip eseguendo: **tar –xvzf Microsoft-ASR_UA_8.4.0.0_RHEL6-64***
       ![Server di destinazione master Linux](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
    5. Accertarsi di essere nella directory nella quale è stato estratto il contenuto del file TAR.
-   6. Copiare la passphrase del server di configurazione in un file locale usando il comando **echo *`<passphrase>`* >passphrase.txt**
-   7. Eseguire il comando "**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**".
+   6. Copiare la passphrase del server di configurazione in un file locale usando il comando ***echo `<passphrase>`* >passphrase.txt**
+   7. Eseguire il comando "***sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i `<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**".
 
       ![Registrare il server di destinazione](./media/site-recovery-vmware-to-azure-classic-legacy/linux-mt-install.png)
-7. Attendere da&10; a&15; minuti, quindi verificare nella pagina che il server di destinazione master sia elencato come registrato nella scheda **Server** > **Server di configurazione** **Dettagli server**. Se si usa Linux e il server non è stato registrato, eseguire di nuovo lo strumento di configurazione dell'host da /usr/local/ASR/Vx/bin/hostconfigcli. Sarà necessario impostare le autorizzazioni di accesso eseguendo chmod come utente ROOT.
+7. Attendere da 10 a 15 minuti, quindi verificare nella pagina che il server di destinazione master sia elencato come registrato nella scheda **Server** > **Server di configurazione** **Dettagli server**. Se si usa Linux e il server non è stato registrato, eseguire di nuovo lo strumento di configurazione dell'host da /usr/local/ASR/Vx/bin/hostconfigcli. Sarà necessario impostare le autorizzazioni di accesso eseguendo chmod come utente ROOT.
 
     ![Verificare il server di destinazione](./media/site-recovery-vmware-to-azure-classic-legacy/target-server-list.png)
 
@@ -471,10 +471,10 @@ I componenti di Site Recovery vengono aggiornati periodicamente. Quando sono dis
 3. Se si eseguono macchine virtuali o server fisici in cui è già installato il servizio Mobility, è possibile ottenere gli aggiornamenti per il servizio come segue:
 
    * **Opzione 1**: scaricare gli aggiornamenti seguenti.
-     * [Windows Server (solo&64; bit)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
+     * [Windows Server (solo 64 bit)](http://download.microsoft.com/download/8/4/8/8487F25A-E7D9-4810-99E4-6C18DF13A6D3/Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe)
      * [CentOS 6.4,6.5,6.6 (solo 64 bit)](http://download.microsoft.com/download/7/E/D/7ED50614-1FE1-41F8-B4D2-25D73F623E9B/Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz)
      * [Oracle Enterprise Linux 6.4,6.5 (solo 64 bit)](http://download.microsoft.com/download/5/2/6/526AFE4B-7280-4DC6-B10B-BA3FD18B8091/Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz)
-     * [SUSE Linux Enterprise Server SP3 (solo&64; bit)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
+     * [SUSE Linux Enterprise Server SP3 (solo 64 bit)](http://download.microsoft.com/download/B/4/2/B4229162-C25C-4DB2-AD40-D0AE90F92305/Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz)
      * Dopo l'aggiornamento del server di elaborazione, la versione aggiornata del servizio Mobility è disponibile nella cartella C:\pushinstallsvc\repository nel server di elaborazione.
    * **Opzione 2**: se è disponibile un computer su cui è installata una versione precedente del servizio Mobility, è possibile aggiornare automaticamente il servizio Mobility nel computer dal portale di gestione.
 
@@ -567,7 +567,7 @@ I pacchetti software usati per installare il servizio Mobility sono nel server d
 
 | Sistema operativo di origine | Pacchetto del servizio Mobility nel server di elaborazione |
 | --- | --- |
-| Windows Server (solo&64; bit) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe` |
+| Windows Server (solo 64 bit) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe` |
 | CentOS 6.4, 6.5, 6.6 (solo 64 bit) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_RHEL6-64_GA_28Jul2015_release.tar.gz` |
 | SUSE Linux Enterprise Server 11 SP3 (solo 64 bit) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_SLES11-SP3-64_GA_28Jul2015_release.tar.gz` |
 | Oracle Enterprise Linux 6.4, 6.5 (solo 64 bit) |`C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz` |
@@ -629,7 +629,7 @@ Per abilitare la protezione, aggiungere macchine virtuali e server fisici a un g
 * Le macchine virtuali vengono individuate ogni 15 minuti e possono essere necessari fino a 15 minuti perché vengano visualizzate in Azure Site Recovery dopo l'individuazione.
 * Anche le modifiche dell'ambiente nella macchina virtuale (ad esempio, l'installazione degli strumenti VMware) possono richiedere fino a 15 minuti per l'aggiornamento in Site Recovery.
 * È possibile controllare l'ora dell'ultima individuazione nel campo **ORA ULTIMO CONTATTO** per il server vCenter o l'host ESXi nella pagina **Server di configurazione**.
-* Se è già stato creato un gruppo di protezione e successivamente si aggiunge un server vCenter o un host ESXi, sono necessari&15; minuti per l'aggiornamento del portale di Azure Site Recovery e per la visualizzazione delle macchine virtuali nella finestra di dialogo **Aggiungi macchine virtuali a un gruppo di protezione** .
+* Se è già stato creato un gruppo di protezione e successivamente si aggiunge un server vCenter o un host ESXi, sono necessari 15 minuti per l'aggiornamento del portale di Azure Site Recovery e per la visualizzazione delle macchine virtuali nella finestra di dialogo **Aggiungi macchine virtuali a un gruppo di protezione** .
 * Se si desidera procedere immediatamente con l'aggiunta di computer al gruppo di protezione senza attendere l'individuazione pianificata, evidenziare il server di configurazione (senza fare clic su di esso) e fare clic sul pulsante **Aggiorna** .
 * Quando si aggiungono macchine virtuali o computer fisici a un gruppo di protezione, il server di elaborazione esegue automaticamente il push e l'installazione del servizio Mobility nel server di origine, se non è già installato.
 * Per il funzionamento del meccanismo di push automatico, accertarsi di avere configurato i computer protetti come descritto nel passaggio precedente.

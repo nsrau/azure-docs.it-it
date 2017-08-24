@@ -12,21 +12,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/05/2017
+ms.date: 05/30/2017
 ms.author: lmazuel
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 90f417768d58c42df9b786b5c50d96970f133548
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
+ms.openlocfilehash: ee96a30d10f882da936f554152fab8a9c6897807
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
 # <a name="how-to-use-service-management-from-python"></a>Come usare la gestione dei servizi da Python
-> [!NOTE]
-> L'API di gestione del servizio è stata sostituita con la nuova API di Gestione risorse, attualmente disponibile in una versione di anteprima.  Vedere la [documentazione di Gestione risorse di Azure](http://azure-sdk-for-python.readthedocs.org/) per informazioni dettagliate su come usare la nuova API di Gestione risorse da Python.
-> 
-> 
-
 La guida descrive come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](https://github.com/Azure/azure-sdk-for-python) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure classico][management-portal] (ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**). Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
 
 ## <a name="WhatIs"> </a>Informazioni sulla gestione dei servizi
@@ -45,8 +41,8 @@ Per connettersi all'endpoint di gestione dei servizi, sono necessari un ID sotto
 
 > [!NOTE]
 > È ora possibile usare i certificati creati con OpenSSL per l'esecuzione in Windows.  È necessario Python 2.7.4 o versioni successive. Per gli utenti è consigliabile usare i certificati OpenSSL anziché pfx, perché il supporto per i certificati pfx verrà probabilmente rimosso in futuro.
-> 
-> 
+>
+>
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certificati di gestione in Windows/Mac/Linux (OpenSSL)
 Per creare il certificato di gestione, è possibile utilizzare [OpenSSL](http://www.openssl.org/) .  È in realtà necessario creare due certificati, uno per il server (un file `.cer`) e uno per il client (un file `.pem`). Per creare il file `.pem` , eseguire:
@@ -432,5 +428,4 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](/devel
 
 
 [cloud service]:/services/cloud-services/
-
 

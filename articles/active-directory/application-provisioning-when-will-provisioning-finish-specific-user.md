@@ -1,6 +1,6 @@
 ---
-title: "Identificare se un utente specifico è in grado di accedere a un&quot;applicazione | Microsoft Docs"
-description: "Come identificare se un utente fondamentale è in grado di accedere a un&quot;applicazione configurata per il provisioning utenti con Azure AD"
+title: "Identificare se un utente specifico è in grado di accedere a un'applicazione | Microsoft Docs"
+description: "Come identificare se un utente fondamentale è in grado di accedere a un'applicazione configurata per il provisioning utenti con Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: b1f16079ad13c4e45f93a7e5e3d29568738e03cf
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

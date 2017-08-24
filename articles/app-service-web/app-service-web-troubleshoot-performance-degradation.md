@@ -1,5 +1,5 @@
 ---
-title: Rallentamento delle prestazioni dell&quot;app Web nel servizio app | Documentazione Microsoft
+title: Rallentamento delle prestazioni dell'app Web nel servizio app | Documentazione Microsoft
 description: Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app Web nel Servizio app di Azure.
 services: app-service\web
 documentationcenter: 
@@ -7,20 +7,20 @@ author: cephalin
 manager: erikre
 editor: 
 tags: top-support-issue
-keywords: prestazioni dell&quot;applicazione Web, app lenta, rallentamento app
+keywords: prestazioni dell'applicazione Web, app lenta, rallentamento app
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2016
+ms.date: 08/03/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
-ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 1cfe7ec37ad8b24a8bd9ab2bf67e95675a57b675
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Risoluzione dei problemi di rallentamento delle prestazioni delle app Web nel Servizio app di Azure
@@ -34,9 +34,10 @@ Quando si esplora l'app Web, le pagine vengono caricate lentamente e a volte si 
 ## <a name="cause"></a>Causa
 Spesso la causa dell'errore deriva da problemi a livello dell'applicazione, ad esempio:
 
-* le richieste impiegano troppo tempo
+* le richieste di rete impiegano troppo tempo
+* il codice dell'applicazione o le query di database non sono efficienti
 * utilizzo elevato di memoria/CPU da parte dell'applicazione
-* arresto anomalo dell'applicazione a causa di un'eccezione.
+* arresto anomalo dell'applicazione a causa di un'eccezione
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 La risoluzione dei problemi prevede tre attività distinte, in ordine sequenziale:
@@ -54,7 +55,7 @@ La risoluzione dei problemi prevede tre attività distinte, in ordine sequenzial
 Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell’integrità del servizio](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### <a name="monitor-your-web-app"></a>Monitorare l'app Web
-Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pannello dell'app Web fare clic sul riquadro **Richieste ed errori** . Il pannello **Metrica** mostra le metriche che si possono aggiungere.
+Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pannello dell'app Web fare clic sul riquadro **Richieste ed errori** . Il pannello **Metrica** mostra tutte le metriche che si possono aggiungere.
 
 Le metriche più comunemente monitorate per le app Web sono
 
@@ -72,7 +73,7 @@ Per altre informazioni, vedere:
 * [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Monitorare lo stato degli endpoint
-Se si esegue l'app Web nel piano tariffario **Standard** , App Web consente di monitorare 2 endpoint da 3 aree geografiche.
+Se si esegue l'app Web nel piano tariffario **Standard**, App Web consente di monitorare due endpoint da tre aree geografiche.
 
 Il monitoraggio degli endpoint configura i test Web da posizioni distribuite a livello geografico che testano il tempo di risposta e di attività degli URL Web. Il test esegue un'operazione HTTP GET sull'URL Web per determinare il tempo di risposta e di attività da ogni posizione. Ogni posizione configurata esegue un testo ogni cinque minuti.
 
@@ -83,9 +84,12 @@ Per configurarlo, vedere [Eseguire il monitoraggio delle app nel servizio app di
 Per altre informazioni sul monitoraggio degli endpoint, vedere anche il video che illustra come [mantenere attivi i siti Web di Azure e monitorare gli endpoint con Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) .
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Monitoraggio delle prestazioni dell'applicazione usando le estensioni
-È anche possibile monitorare le prestazioni dell'applicazione sfruttando le *estensioni del sito*.
+È anche possibile monitorare le prestazioni dell'applicazione usando le *estensioni del sito*.
 
-Ogni app Web del servizio app fornisce un endpoint di gestione estensibile che consente di sfruttare un set avanzato di strumenti distribuiti come estensioni del sito. Questi strumenti includono ad esempio editor del codice sorgente come [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) e strumenti di gestione per risorse connesse come un database MySQL connesso a un'app Web.
+Ogni app Web del servizio app fornisce un endpoint di gestione estensibile che consente di usare un set avanzato di strumenti distribuiti come estensioni del sito. Le estensioni includono: 
+
+- Editor di codice sorgente come [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Strumenti di gestione per risorse connesse come un database MySQL connesso a un'app Web.
 
 [Azure Application Insights](/services/application-insights/) e [New Relic](/marketplace/partners/newrelic/newrelic/) sono due delle estensioni disponibili di monitoraggio delle prestazioni. Per utilizzare New Relic, è necessario installare un agente in fase di esecuzione. Per usare Azure Application Insights, è necessario ricompilare il codice con un SDK ed è anche possibile installare un'estensione che consente l'accesso a dati aggiuntivi. SDK consente di scrivere il codice per monitorare l'utilizzo e prestazioni dell'applicazione in modo più dettagliato.
 
@@ -96,27 +100,38 @@ Per usare New Relic, vedere [Gestione delle prestazioni delle applicazioni con N
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Raccogliere i dati
-#### <a name="enable-diagnostics-logging-for-your-web-app"></a>Abilitare la registrazione diagnostica per l'app Web
-L'ambiente App Web offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, logicamente separate in diagnostica del server Web e diagnostica dell'applicazione.
+L'ambiente App Web offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, separate in diagnostica del server Web e diagnostica delle applicazioni.
 
-##### <a name="web-server-diagnostics"></a>Diagnostica del server Web
+#### <a name="enable-web-server-diagnostics"></a>Abilitare la diagnostica del server Web
 È possibile abilitare o disabilitare i seguenti tipi di log:
 
 * **Registrazione degli errori dettagliata**: consente di registrare informazioni dettagliate sugli errori relativi ai codici di stato HTTP che indicano un'operazione non riuscita (codice di stato 400 o superiore), incluse eventualmente le informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore.
 * **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. Ciò può essere utile se si sta provando a migliorare le prestazioni delle app Web o a isolare la causa di un errore HTTP specifico.
 * **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il formato di file di log esteso W3C. Ciò è utile nel determinare le metriche generali dell'app Web, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
 
-##### <a name="application-diagnostics"></a>Diagnostica applicazioni
-La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono usare la classe `System.Diagnostics.Trace` per registrare le informazioni nel log di diagnostica applicazioni.
+#### <a name="enable-application-diagnostics"></a>Abilitare la diagnostica delle applicazioni
+Esistono diverse opzioni per raccogliere dati sulle prestazioni dell'applicazione da App Web, profilare l'applicazione in tempo reale da Visual Studio oppure modificare il codice dell'applicazione per registrare altre informazioni e tracce. È possibile scegliere le opzioni in base al livello di accesso consentito all'applicazione e ai dati osservati tramite gli strumenti di monitoraggio.
+
+##### <a name="use-application-insights-profiler"></a>Usare Application Insights Profiler
+È possibile abilitare Application Insights Profiler per avviare l'acquisizione di tracce dettagliate delle prestazioni. È possibile accedere alle tracce acquisite fino a cinque giorni prima, quando occorre analizzare i problemi che si sono verificati in passato. È possibile scegliere questa opzione, a condizione che sia disponibile l'accesso alla risorsa Application Insights dell'app Web nel portale di Azure.
+
+Application Insights Profiler offre statistiche sui tempi di risposta per ogni chiamata Web e tracce che indicano la riga del codice che ha causato risposte lente. In alcuni casi l'app del servizio app è lenta perché una parte del codice non scritta in modo efficiente. È possibile ad esempio che siano presenti un codice sequenziale che può essere eseguito in parallelo e conflitti di blocco di database non previsti. La rimozione di questi colli di bottiglia nel codice migliora le prestazioni dell'app. Questi colli di bottiglia tuttavia risultano difficili da rilevare se non vengono configurati tracce e log elaborati. Le tracce raccolte da Application Insights Profiler sono utili per identificare le righe di codice che rallentano l'applicazione e consentono di risolvere questa problematica per le app del servizio app.
+
+ Per altre informazioni, vedere [Profilatura delle app Web di Azure attive con Application Insights](../application-insights/app-insights-profiler.md).
+
+##### <a name="use-remote-profiling"></a>Usare la profilatura remota
+Nel servizio app di Azure è possibile profilare in modalità remota app Web, app per le API e processi Web. Scegliere questa opzione se si ha accesso alla risorsa app Web e si sa come riprodurre il problema o se si conosce l'intervallo di tempo esatto in cui si verifica il problema di prestazioni.
+
+La profilatura remota è utile se l'utilizzo della CPU da parte del processo è elevato e l'esecuzione del processo è più lenta del previsto o se la latenza delle richieste HTTP è superiore al normale. In questi casi è possibile profilare il processo in modalità remota e ottenere campioni di stack di chiamate della CPU per analizzare l'attività del processo e i percorsi critici del codice.
+
+Per altre informazioni, vedere [Remote Profiling support in Azure App Service](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service) (Supporto della profilatura remota in Servizio app di Azure).
+
+##### <a name="set-up-diagnostic-traces-manually"></a>Configurare manualmente le tracce di diagnostica
+Se si ha accesso al codice sorgente dell'applicazione Web, la diagnostica delle applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono usare la classe `System.Diagnostics.Trace` per registrare le informazioni nel log di diagnostica applicazioni. È tuttavia necessario modificare il codice o ridistribuire l'applicazione. Questo metodo è consigliato se l'app è in esecuzione in un ambiente di testing.
 
 Per istruzioni dettagliate su come configurare l'applicazione per la registrazione, vedere [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](web-sites-enable-diagnostic-log.md).
 
-#### <a name="use-remote-profiling"></a>Usare la profilatura remota
-Nel servizio app di Azure è possibile profilare in modalità remota app Web, app per le API e processi Web. Se l'esecuzione del processo è più lenta del previsto o se la latenza delle richieste HTTP è superiore al normale e anche l'utilizzo della CPU da parte del processo è elevato, è possibile profilare il processo in modalità remota e ottenere campioni di stack di chiamate della CPU per analizzare l'attività del processo e i percorsi critici del codice.
-
-Per altre informazioni, vedere il post di blog sul [supporto per la profilatura remota nel servizio app di Azure](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
-
-#### <a name="use-the-azure-app-service-support-portal"></a>Usare il portale di supporto del servizio app di Azure
+#### <a name="use-the-azure-app-service-support-portal"></a>Usare il portale di supporto del Servizio app di Azure
 Il servizio app Web consente di risolvere i problemi relativi all'app Web grazie ai dati disponibili nei log HTTP, nei log eventi, nei dump dei processi e così via. È possibile accedere a tutte queste informazioni tramite il portale di supporto disponibile all'indirizzo **http://&lt;nome app>.scm.azurewebsites.net/Support**
 
 Il portale di supporto del servizio app di Azure contiene tre schede separate per supportare i tre passaggi di uno scenario di risoluzione dei problemi comune:
@@ -125,13 +140,13 @@ Il portale di supporto del servizio app di Azure contiene tre schede separate pe
 2. Eseguire l'analisi tramite la raccolta di informazioni di diagnostica e l'esecuzione di analizzatori predefiniti
 3. Attenuare il problema
 
-Se si riscontra il problema in questo preciso istante, fare clic su **Analizza** > **Diagnostica** > **Esegui diagnosi adesso** per creare una sessione di diagnostica in cui verranno raccolti log HTTP, log del visualizzatore eventi, dump della memoria, log degli errori PHP e report sui processi PHP.
+Nel momento in cui si riscontra il problema, fare clic su **Analizza** > **Diagnostica** > **Esegui diagnosi adesso** per creare una sessione di diagnostica in cui vengono raccolti log HTTP, log del visualizzatore eventi, dump della memoria, log degli errori PHP e report sui processi PHP.
 
-Una volta raccolti i dati, verrà eseguita l'analisi dei dati e verrà generato un report HTML.
+Una volta raccolti i dati, il portale di supporto esegue un'analisi dei dati e genera un report HTML.
 
 Per impostazione predefinita, i dati verranno archiviati nella cartella D:\home\data\DaaS, da cui sarà possibile scaricarli.
 
-Per altre informazioni sul portale di supporto del servizio app di Azure, vedere il post di blog relativo ai [nuovi aggiornamenti all'estensione del sito di supporto per Siti Web di Azure](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+Per altre informazioni sul portale di supporto di Servizio app di Azure, vedere [New Updates to Support Site Extension for Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites) (Nuovi aggiornamenti all'estensione del sito di supporto per Siti Web di Azure).
 
 #### <a name="use-the-kudu-debug-console"></a>Usare la console di debug Kudu
 Il servizio App Web include una console di debug che è possibile usare per il debug, l'esplorazione e il caricamento di file, nonché endpoint JSON per ottenere informazioni sull'ambiente in uso. Questa console è chiamata *console Kudu* o *dashboard SCM* dell'app Web.
@@ -157,17 +172,17 @@ Nel servizio app di Azure, per ottimizzare le prestazioni e la velocità effetti
 
 Per altre informazioni sul ridimensionamento, vedere [Ridimensionare un'app Web nel servizio app di Azure](web-sites-scale.md).
 
-È anche possibile scegliere di eseguire l'applicazione in più di un'istanza. In questo modo, non solo si ottiene una maggiore capacità di elaborazione, ma si può usufruire della tolleranza di errore. Se il processo si arresta in un'istanza, l'altra istanza continuerà a gestire le richieste.
+È anche possibile scegliere di eseguire l'applicazione in più di un'istanza. La scalabilità orizzontale non consente solo di ottenere una maggiore capacità di elaborazione, ma anche di usufruire di un certo livello di tolleranza di errore. Se il processo si arresta in un'istanza, le altre istanze continuano a gestire le richieste.
 
 È possibile impostare il ridimensionamento manuale o automatico.
 
 #### <a name="use-autoheal"></a>Usare la funzionalità AutoHeal
-La funzionalità AutoHeal consente di riciclare il processo di lavoro per l'app in base alle impostazioni specificate, ad esempio modifiche di configurazione, richieste, limiti basati sulla memoria o il tempo necessario per l'esecuzione di una richiesta. Nella maggior parte dei casi, riciclare il processo costituisce il modo più veloce per risolvere un problema. Anche se è possibile riavviare l'app Web direttamente dall'interno del portale di Azure, la funzionalità AutoHeal eseguirà questa operazione automaticamente. È sufficiente aggiungere alcuni trigger nel file web.config radice per l'app Web. Si noti che queste impostazioni funzionano allo stesso modo anche per le applicazioni non .NET.
+La funzionalità AutoHeal consente di riciclare il processo di lavoro per l'app in base alle impostazioni specificate, ad esempio modifiche di configurazione, richieste, limiti basati sulla memoria o il tempo necessario per l'esecuzione di una richiesta. Nella maggior parte dei casi, riciclare il processo costituisce il modo più veloce per risolvere un problema. Anche se è possibile riavviare l'app Web direttamente dall'interno del portale di Azure, la funzionalità AutoHeal esegue questa operazione automaticamente. È sufficiente aggiungere alcuni trigger nel file web.config radice per l'app Web. Queste impostazioni funzionano allo stesso modo anche per le app non .NET.
 
 Per altre informazioni, vedere il post di blog relativo alla [correzione automatica di Siti Web di Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### <a name="restart-the-web-app"></a>Riavviare l'app Web
-Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel pannello dell'app Web del [portale di Azure](https://portal.azure.com/)sono disponibili le opzioni per arrestare o riavviare l'app.
+Il riavvio è spesso il modo più semplice per risolvere problemi occasionali. Nel pannello dell'app Web del [portale di Azure](https://portal.azure.com/) sono disponibili le opzioni per arrestare o riavviare l'app.
 
  ![riavviare l'app Web per risolvere i problemi di prestazioni](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft Docs
-description: "Analizzare l&quot;uso, la disponibilità e le prestazioni dell&quot;applicazione locale o Web di Microsoft Azure con Application Insights."
+description: "Analizzare l'uso, la disponibilità e le prestazioni dell'applicazione locale o Web di Microsoft Azure con Application Insights."
 services: application-insights
 documentationcenter: .net
 author: CFreemanwa
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c31abf49a05f7911d4ec82db59efa2724ab7b49b
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 43733e452126c85ab9e19b6036aea96f56fc4d12
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Impostare Application Insights: tenere traccia delle dipendenze
@@ -134,7 +133,7 @@ Fare clic su un'occorrenza di una richiesta non riuscita ed esaminare gli eventi
 ![Fare clic su un tipo di richiesta, fare clic sull'istanza per ottenere una vista diversa della stessa istanza, fare clic su di essa per ottenere informazioni dettagliate sull'eccezione.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analytics
-È possibile tenere traccia delle dipendenze nel [linguaggio di query di Analytics](app-insights-analytics.md). Di seguito sono riportati alcuni esempi.
+È possibile tenere traccia delle dipendenze nel [linguaggio di query di Log Analytics](https://docs.loganalytics.io/). Di seguito sono riportati alcuni esempi.
 
 * Trovare eventuali chiamate alle dipendenze non riuscite:
 

@@ -35,7 +35,7 @@ In questa sezione viene utilizzato SQL Server Configuration Manager, installato 
 4. In Esplora oggetti, se si espande **Database**si noterà che il database di appartenenza è stato creato.
 
 ### <a name="create-a-new-sql-server-login-and-set-permissions"></a>Creare un nuovo account di accesso di SQL Server e impostare le autorizzazioni
-Infine, si creerà un nuovo account di accesso di SQL Server con autorizzazioni limitate. Il servizio di Azure si connetterà al sistema SQL Server locale utilizzando questo account di accesso anziché l'account di accesso sa incorporato, che dispone di autorizzazioni complete nel server.
+Infine, si creerà un nuovo account di accesso di SQL Server con autorizzazioni limitate. Il servizio di Azure si connetterà al sistema SQL Server locale usando questo account di accesso anziché l'account di accesso sa predefinito, che ha autorizzazioni complete nel server.
 
 1. In Esplora oggetti di SQL Server Management Studio fare clic con il pulsante destro del mouse sul database **OnPremisesDB** e scegliere **Nuova query**.
 2. Incollare la seguente query TSQL nella relativa finestra.
@@ -64,9 +64,4 @@ Infine, si creerà un nuovo account di accesso di SQL Server con autorizzazioni 
        GO  
 3. Nello script precedente, sostituire la stringa `<**secure_password**>` con una password di protezione per il nuovo elemento *HybridConnectionsLogin*.
 4. **Eseguire** la query per creare il nuovo account di accesso e concedere le autorizzazioni necessarie nel database locale.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

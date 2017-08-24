@@ -1,5 +1,5 @@
 ---
-title: Configurare i cluster HDInsight aggiunti al dominio | Documentazione Microsoft
+title: Configurare cluster HDInsight aggiunti al dominio - Azure | Microsoft Docs
 description: Maggiori informazioni su come configurare i cluster HDInsight aggiunti al dominio
 services: hdinsight
 documentationcenter: 
@@ -15,15 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 1fb13d60eebbaf45ca9cb394c073c834bbe59bb9
-ms.lasthandoff: 04/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Configurare i cluster HDInsight aggiunti al dominio (anteprima)
+
 In questo articolo viene descritto come configurare un cluster Azure HDInsight con Azure Active Directory (Azure AD) e [Apache Ranger](http://hortonworks.com/apache/ranger/) per sfruttare criteri avanzati di autenticazione e controllo degli accessi in base al ruolo.  HDInsight aggiunto al dominio può essere configurato solo nei cluster basati su Linux. Per altre informazioni, consultare [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) (Introduzione ai cluster HDInsight aggiunti al dominio).
+
+> [!IMPORTANT]
+> Oozie non è abilitato su HDInsight aggiunto al dominio.
 
 Questo articolo è la prima esercitazione di una serie:
 
@@ -71,8 +76,8 @@ In questa esercitazione sono illustrati i passaggi per configurare un cluster HD
 
 È disponibile uno script di PowerShell che automatizza i passaggi da 3 a 7.  Per altre informazioni, vedere l'articolo su come [configurare i cluster HDInsight aggiunti al dominio con Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md).
 
-## <a name="create-an-azure-classic-vnet"></a>Creare una rete virtuale classica di Azure
-In questa sezione viene creata una rete virtuale classica tramite il portale di Azure. Nella sezione successiva viene attivato Azure AD DS per Azure AD nella rete virtuale classica. Per maggiori informazioni sulla procedura seguente e su come usare altri metodi di creazione della rete virtuale, vedere [Creare una rete virtuale (classica) usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md).
+## <a name="create-an-azure-virtual-network-classic"></a>Creare una rete virtuale di Azure (versione classica)
+In questa sezione sono contenute informazioni su come creare una rete virtuale (versione classica) usando il portale di Azure. Nella sezione successiva viene attivato Azure AD DS per Azure AD nella rete virtuale. Per maggiori informazioni sulla procedura seguente e su come usare altri metodi di creazione della rete virtuale, vedere [Creare una rete virtuale (classica) usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 **Per creare una rete virtuale classica**
 
@@ -250,7 +255,7 @@ In questa sezione viene creato un cluster Hadoop basato su Linux in HDInsight us
      
      * **Tipo di cluster**: Hadoop. HDInsight aggiunto al dominio è attualmente supportato solo nei cluster Hadoop.
      * **Sistema operativo**: Linux.  HDInsight aggiunto al dominio è supportato solo nei cluster HDInsight basati su Linux.
-     * **Versione**: Hadoop 2.7.3 (HDI 3.5). HDInsight aggiunto al dominio è supportato solo nei cluster HDInsight versione 3.5.
+     * **Versione**: HDI 3.6. HDInsight aggiunto al dominio è supportato solo nei cluster HDInsight versione 3.6.
      * **Tipo di cluster**: PREMIUM
        
        Fare clic su **Seleziona** per salvare le modifiche.

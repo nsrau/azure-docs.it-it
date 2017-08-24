@@ -1,10 +1,10 @@
 ---
-title: Creare un&quot;app iOS in App per dispositivi mobili del servizio app di Azure | Microsoft Docs
-description: Seguire questa esercitazione per iniziare a usare i back-end dell&quot;app per dispositivi mobili di Azure per lo sviluppo per iOS in Objective-C o Swift
+title: Creare un'app iOS in App per dispositivi mobili del servizio app di Azure | Microsoft Docs
+description: Seguire questa esercitazione per iniziare a usare i back-end dell'app per dispositivi mobili di Azure per lo sviluppo per iOS in Objective-C o Swift
 services: app-service\mobile
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
 ms.service: app-service-mobile
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6839bcaca7170aa62773303310b69b2a73b631a6
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 36936ae66c458fcbedeec95cfa2f573a40c8af53
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-an-ios-app"></a>Creare un'app iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come aggiungere [app per dispositivi mobili di Azure](app-service-mobile-value-prop.md), un servizio back-end cloud, a un'app per iOS. Per prima cosa si creerà un nuovo back-end mobile. Si userà quindi una semplice app per iOS *Todo list* per archiviare i dati in Azure.
 
 Per completare l'esercitazione, è necessario un computer Mac e [un account Azure](https://azure.microsoft.com/pricing/free-trial/)
@@ -38,12 +39,7 @@ Per completare l'esercitazione, è necessario un computer Mac e [un account Azur
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 
 <!-- URLs -->
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-
-
-
-<!--HONumber=Nov16_HO2-->
-
 

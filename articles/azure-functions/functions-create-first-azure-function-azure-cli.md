@@ -1,21 +1,22 @@
 ---
-title: Creare la prima funzione dall&quot;interfaccia della riga di comando di Azure| Microsoft Docs
-description: Informazioni su come creare la prima funzione di Azure per l&quot;esecuzione senza server tramite l&quot;interfaccia della riga di comando di Azure.
+title: Creare la prima funzione dall'interfaccia della riga di comando di Azure| Microsoft Docs
+description: Informazioni su come creare la prima funzione di Azure per l'esecuzione senza server tramite l'interfaccia della riga di comando di Azure.
 services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 05/02/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: functions
+ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3dc0e1b26c95ac6583dd3b1068b36deb54f7ac5a
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 2292b35819c5a98b690041e10f6e6d1a93fa7837
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -30,18 +31,14 @@ Questa esercitazione di avvio rapido illustra come usare Funzioni di Azure per c
 Prima di eseguire questo esempio, è necessario disporre di quanto segue:
 
 + Un account [GitHub](https://github.com) attivo. 
-+ [L'interfaccia della riga di comando di Azure installata](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 + Una sottoscrizione di Azure attiva.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login) e seguire le istruzioni visualizzate. 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
-```azurecli
-az login
-```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -49,7 +46,7 @@ Creare un gruppo di risorse con [az group create](/cli/azure/group#create). Un g
 
 Nell'esempio seguente viene creato il gruppo di risorse denominato `myResourceGroup`:
 
-```azurecli
+```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 ## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
@@ -58,7 +55,7 @@ Funzioni usa un account di archiviazione di Azure per gestire lo stato e altre i
 
 Nel comando seguente sostituire il segnaposto `<storage_name>` con il nome globalmente univoco dell'account di archiviazione. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole.
 
-```azurecli
+```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
 ```
 
@@ -88,7 +85,7 @@ Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. L
 
 Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco dell'app per le funzioni e il nome dell'account di archiviazione con `<storage_name>`. Dato che verrà usato come dominio DNS predefinito per l'app per le funzioni, è necessario che `<app_name>` sia univoco tra tutte le app in Azure. 
 
-```azurecli
+```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
 ```
 Per impostazione predefinita, viene creata un'app per le funzioni con il piano di hosting a consumo, in base al quale le risorse vengono aggiunte dinamicamente in base alle esigenze delle funzioni e si paga solo quando le funzioni sono in esecuzione. Per altre informazioni, vedere [Scegliere il piano di hosting corretto](functions-scale.md). 
@@ -119,7 +116,7 @@ Dopo aver creato l'app per le funzioni, è possibile ora distribuire il codice d
 
 Esistono diversi modi per creare il codice di funzione nella nuova app per le funzioni. In questo argomento viene effettuata la connessione a un repository di esempio in GitHub. Come in precedenza, nel codice seguente sostituire il segnaposto `<app_name>` con il nome dell'app per le funzioni creata. 
 
-```azurecli
+```azurecli-interactive
 az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
 ```
 Dopo aver impostato l'origine di distribuzione, l'interfaccia della riga di comando di Azure visualizza informazioni simili all'esempio seguente (i valori null sono stati rimossi per una migliore leggibilità):
@@ -159,7 +156,7 @@ Se nella riga di comando non è disponibile un cURL, immettere lo stesso URL nel
 
 Altre guide di avvio rapido di questa raccolta si basano sulla presente guida di avvio rapido. Se si prevede di continuare a usare le guide di avvio rapido successive o le esercitazioni, non pulire le risorse create in questa guida di avvio rapido. Se non si prevede di continuare, usare il comando seguente per eliminare tutte le risorse create da questa guida di avvio rapido:
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 Quando richiesto, digitare `y`.

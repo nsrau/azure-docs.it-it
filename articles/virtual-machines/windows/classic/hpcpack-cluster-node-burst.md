@@ -1,6 +1,6 @@
 ---
 title: Aggiungere nodi burst in un cluster HPC Pack | Microsoft Docs
-description: Informazioni su come espandere un cluster HPC Pack in Azure su richiesta tramite l&quot;aggiunta di istanze del ruolo di lavoro in esecuzione in un servizio cloud
+description: Informazioni su come espandere un cluster HPC Pack in Azure su richiesta tramite l'aggiunta di istanze del ruolo di lavoro in esecuzione in un servizio cloud
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d27376e81f5be3d4f473ef044a84a18ac451921f
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Aggiungere nodi "burst" su richiesta in un cluster HPC Pack in Azure
@@ -77,7 +77,7 @@ Dopo aver aggiunto e avviato i nodi, questi saranno pronti per l'uso per l'esecu
 Se si verificano problemi durante la distribuzione di nodi di Azure, vedere [Risoluzione dei problemi delle distribuzioni di nodi di Azure con Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per usare dimensioni di istanza a elevato uso di calcolo per i nodi burst, vedere le considerazioni discusse in [Informazioni sulle VM serie H e serie A a elevato uso di calcolo](../../virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Per usare dimensioni di istanza a elevato uso di calcolo per i nodi burst, vedere le considerazioni discusse in [Dimensioni delle VM High Performance Computing (HPC)](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Se si vogliono aumentare o ridurre automaticamente le risorse di calcolo di Azure in base al carico di lavoro del cluster, vedere [Aumentare e ridurre automaticamente le risorse di calcolo di Azure in un cluster HPC Pack](hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->

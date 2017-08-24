@@ -1,6 +1,6 @@
 ---
-title: Script dell&quot;interfaccia della riga di comando di Azure - Replica multiarea per Azure Cosmos DB | Documentazione Microsoft
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Replica multiarea per Azure Cosmos DB
+title: Script dell'interfaccia della riga di comando di Azure - Replica multiarea per Azure Cosmos DB | Documentazione Microsoft
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Replica multiarea per Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -9,18 +9,18 @@ editor:
 tags: azure-service-management
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: sample
+ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-ms.date: 05/10/2017
+ms.date: 06/02/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: cde5ff007dc7b26db33e195dd6cb528675ecd391
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ab716c28b88412438d0cea80377f9f0f40dc8bd6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -28,7 +28,9 @@ ms.lasthandoff: 05/15/2017
 
 Questo esempio replica qualsiasi tipo di database di Azure Cosmos DB in più aree e configura le priorità di failover mediante l'interfaccia della riga di comando di Azure.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -38,7 +40,7 @@ Questo esempio replica qualsiasi tipo di database di Azure Cosmos DB in più are
 
 Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
@@ -49,8 +51,8 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | Comando | Note |
 |---|---|
 | [az group create](/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az cosmosdb update](/cli/azure/cosmosdb/name#update) | Aggiorna un account Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#update) | Aggiorna un account Azure Cosmos DB. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Installare IIS | Microsoft Docs
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Installare IIS
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Installare IIS | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Installare IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -39,7 +39,7 @@ Questo script crea una macchina virtuale di Azure con Windows Server 2016 e usa 
 
 Eseguire questo comando per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive 
 az group delete --name myResourceGroup --yes
 ```
 

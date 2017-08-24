@@ -1,6 +1,6 @@
 ---
 title: Autenticazione basata su certificati di Azure Active Directory in Android | Documentazione Microsoft
-description: Informazioni sugli scenari supportati e i requisiti per configurare l&quot;autenticazione basata su certificati nelle soluzioni con i dispositivi Android
+description: Informazioni sugli scenari supportati e i requisiti per configurare l'autenticazione basata su certificati nelle soluzioni con i dispositivi Android
 services: active-directory
 author: MarkusVi
 documentationcenter: na
@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2017
+ms.date: 07/28/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0e2bbb2a94986ca93035aa553db0f9b54af635d5
-ms.lasthandoff: 04/27/2017
-
+ms.reviewer: nigu
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: d37f0fcf4c91879c31b04dfd19cadee00e98ba91
+ms.contentlocale: it-it
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticazione basata su certificati di Azure Active Directory in Android
@@ -30,7 +31,9 @@ L'autenticazione basata su certificati (CBA) consente di essere autenticati da A
 
 La configurazione di questa funzionalità elimina la necessità di immettere una combinazione di nome utente e password in determinate applicazioni di posta e applicazioni Microsoft Office sul dispositivo mobile. 
 
-Questo argomento indica i requisiti e gli scenari supportati per la configurazione dell'autenticazione basata su certificati su un dispositivo Android per gli utenti dei tenant nei piani di Office 365 Enterprise, Business, Education e US Government. 
+Questo argomento indica i requisiti e gli scenari supportati per la configurazione dell'autenticazione basata su certificati su un dispositivo iOS (Android) per gli utenti dei tenant nei piani di Office 365 Enterprise, Business, Education, US Government, China e Germany.
+
+
 
 Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Government Defense e Federal.
 
@@ -45,6 +48,8 @@ Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Gove
 | Yammer |![Controllo][1] |
 | Skype for Business Online |![Controllo][1] |
 | App Azure Information Protection |![Controllo][1] |
+| Microsoft Teams |![Controllo][1] |
+
 
 
 ### <a name="implementation-requirements"></a>Requisiti di implementazione

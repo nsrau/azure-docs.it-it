@@ -12,23 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 3/31/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ecfe9d512b0ffc891120d899f0541d3d3c9f6498
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 3116e2c15242ea7be8eeb77281b40bc4b38b846e
+ms.contentlocale: it-it
+ms.lasthandoff: 06/15/2017
 
 ---
 
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Failback in Site Recovery per macchine virtuali Hyper-V
 
-> [!div class="op_single_selector"]
-> * [Computer VMware/fisici da Azure](site-recovery-how-to-failback-azure-to-vmware.md)
-> * [Macchine virtuali Hyper-V da Azure](site-recovery-failback-from-azure-to-hyper-v.md)
-
-Questo articolo descrive come eseguire il failback di macchine virtuali protette da Site Recovery. 
+Questo articolo descrive come eseguire il failback di macchine virtuali protette da Site Recovery.
 
 ## <a name="prerequisites"></a>Prerequisiti
 1. Assicurarsi che il server VMM o Hyper-V del sito primario sia connesso.
@@ -55,7 +51,7 @@ Dopo il failover dalla posizione primaria alla posizione secondaria, le macchine
 
     - **Sincronizza i dati durante il failover (download completo)**: usare questa opzione se Azure è in esecuzione da molto tempo. Questa opzione è più veloce perché si prevede che la maggior parte del disco sia cambiata e non si intende sprecare tempo nel calcolo del checksum. Esegue il download del disco. Questa opzione è utile anche se la macchina virtuale locale è stata eliminata.
 
-    >[!NOTE] 
+    >[!NOTE]
     >È consigliabile scegliere questa opzione se si usa Azure da molto tempo (un mese o più) o se la macchina virtuale locale è stata eliminata. Questa opzione non esegue alcun calcolo del checksum.
     >
     >
@@ -99,6 +95,4 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 Dopo aver completato il processo di failback, eseguire il **commit** della macchina virtuale. Il commit elimina la macchina virtuale di Azure e i relativi dischi e prepara la VM a essere protetta di nuovo.
 
 Dopo aver eseguito il **commit**, è possibile avviare la *replica inversa*. In questo modo si inizierà a proteggere la macchina virtuale dalla posizione locale ad Azure. Si noti che saranno replicate solo le modifiche dal momento in cui la VM è stata disattivata in Azure e pertanto saranno inviate solo le modifiche differenziali.
-
-
 

@@ -1,20 +1,21 @@
 ---
-title: Creare un&quot;API senza server mediante Funzioni di Azure | Documentazione Microsoft
-description: 'Procedura: creare un&quot;API senza server mediante Funzioni di Azure'
+title: Creare un'API senza server mediante Funzioni di Azure | Documentazione Microsoft
+description: 'Procedura: creare un''API senza server mediante Funzioni di Azure'
 services: functions
 author: mattchenderson
 manager: erikre
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2b11d08b95d658ae2b0303107367549e6d0b5dff
+ms.custom: mvc
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f5d0bb05d0e9caebfc6c13d983518d65f7409527
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/27/2017
 
 ---
 
@@ -202,3 +203,4 @@ I riferimenti seguenti possono essere utili quando si sviluppa ulteriormente l'A
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
 [Uso di proxy in Funzioni di Azure (anteprima)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+

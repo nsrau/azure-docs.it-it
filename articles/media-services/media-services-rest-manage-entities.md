@@ -1,6 +1,6 @@
 ---
 title: "Gestione di entità di Servizi multimediali con REST | Documentazione Microsoft"
-description: "Informazioni su come gestire entità di Servizi multimediali con l&quot;API REST."
+description: "Informazioni su come gestire entità di Servizi multimediali con l'API REST."
 author: juliako
 manager: erikre
 editor: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
-ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
-ms.lasthandoff: 02/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: 68391677b1724f23d52086be0c810385e93c7196
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gestione di entità di Servizi multimediali con REST 
@@ -28,10 +28,9 @@ ms.lasthandoff: 02/10/2017
 > 
 > 
 
-Servizi multimediali di Microsoft Azure è un servizio REST basato su OData versione&3;. È possibile pertanto aggiungere, interrogare, aggiornare ed eliminare entità come in qualsiasi altro servizio OData. Verranno chiamate le eccezioni, quando necessario. Per altre informazioni su OData, vedere la pagina relativa alla [documentazione del protocollo OData](http://www.odata.org/documentation/).
+Servizi multimediali di Microsoft Azure è un servizio REST basato su OData versione 3. È possibile pertanto aggiungere, interrogare, aggiornare ed eliminare entità come in qualsiasi altro servizio OData. Verranno chiamate le eccezioni, quando necessario. Per altre informazioni su OData, vedere la pagina relativa alla [documentazione del protocollo OData](http://www.odata.org/documentation/).
 
 Questo argomento illustra come gestire le entità di Servizi multimediali di Azure con REST.
-
 
 >[!NOTE]
 > A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Ad esempio, il 1° aprile 2017 qualsiasi record di processo nell'account precedente il 31 dicembre 2016 verrà automaticamente eliminato. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto in questo argomento.
@@ -43,8 +42,7 @@ Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti co
 > [!NOTE]
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 > 
-> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere eseguite al nuovo URI, come descritto in [Connessione a un account di Servizi multimediali mediante l'API REST](media-services-rest-connect-programmatically.md). 
-> 
+> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 
 ## <a name="adding-entities"></a>Aggiunta di entità
@@ -64,7 +62,6 @@ Il seguente esempio mostra come creare un'entità AccessPolicy.
     Expect: 100-continue
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
-
 
 ## <a name="querying-entities"></a>Query di entità
 L'interrogazione e la visualizzazione delle entità è un'operazione semplice che prevede solo una richiesta HTTP GET e operazioni OData facoltative.
@@ -172,8 +169,6 @@ Il seguente esempio illustra come eliminare un localizzatore usato per caricare 
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
     Host: media.windows.net
     Content-Length: 0
-
-
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

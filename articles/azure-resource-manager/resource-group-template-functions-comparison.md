@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2017
+ms.date: 08/01/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 7f19efa7e09b0dce43851019f94285b2887c46d5
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 521e5ed06c138bcd374913588f06a2e6c1e99963
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funzioni di confronto per i modelli di Azure Resource Manager
@@ -27,12 +26,10 @@ ms.lasthandoff: 04/28/2017
 Resource Manager include numerose funzioni per l'esecuzione di confronti nei modelli.
 
 * [equals](#equals)
-* [less](#less)
-* [lessOrEquals](#lessorequals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
-
-<a id="equals" />
+* [less](#less)
+* [lessOrEquals](#lessorequals)
 
 ## <a name="equals"></a>equals
 `equals(arg1, arg2)`
@@ -46,7 +43,30 @@ Controlla se due valori sono uguali tra loro.
 | arg1 |Sì |int, stringa, matrice o oggetto |Il primo valore per verificare l'uguaglianza. |
 | arg2 |Sì |int, stringa, matrice o oggetto |Il secondo valore per verificare l'uguaglianza. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Restituisce **True** se i valori sono uguali; in caso contrario, restituisce **False**.
+
+### <a name="remarks"></a>Osservazioni
+
+La funzione uguale a viene spesso usata con l'elemento `condition` per verificare se la risorsa viene distribuita.
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+### <a name="example"></a>Esempio
 
 Il modello di esempio controlla tipi diversi di valori per verificarne l'uguaglianza. Tutti i valori predefiniti restituiscono True.
 
@@ -111,121 +131,38 @@ Il modello di esempio controlla tipi diversi di valori per verificarne l'uguagli
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Restituisce **True** se i valori sono uguali; in caso contrario, restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True  |
+| checkStrings | Booleano | True  |
+| checkArrays | Booleano | True  |
+| checkObjects | Booleano | True  |
 
-<a id="less" />
 
-## <a name="less"></a>less
-`less(arg1, arg2)`
-
-Controlla se il primo valore è minore del secondo.
-
-### <a name="parameters"></a>Parametri
-
-| Parametro | Obbligatorio | Tipo | Descrizione |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sì |int o stringa |Il primo valore per il confronto del minore. |
-| arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore. |
-
-### <a name="examples"></a>esempi
-
-Il modello di esempio controlla se un valore è minore dell'altro.
+L'esempio seguente usa [not](resource-group-template-functions-logical.md#not) con **equals**.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int"
-        },
-        "secondInt": {
-            "type": "int"
-        },
-        "firstString": {
-            "type": "string"
-        },
-        "secondString": {
-            "type": "string"
-        }
-    },
     "resources": [
     ],
     "outputs": {
-        "checkInts": {
+        "checkNotEquals": {
             "type": "bool",
-            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[less(parameters('firstString'), parameters('secondString'))]"
+            "value": "[not(equals(1, 2))]"
         }
     }
-}
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente è:
 
-Restituisce **True** se il primo valore è inferiore al secondo; in caso contrario, restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkNotEquals | Booleano | True  |
 
-<a id="lessorequals" />
-
-## <a name="lessorequals"></a>lessOrEquals
-`lessOrEquals(arg1, arg2)`
-
-Controlla se il primo valore è minore o uguale al secondo valore.
-
-### <a name="parameters"></a>Parametri
-
-| Parametro | Obbligatorio | Tipo | Descrizione |
-|:--- |:--- |:--- |:--- |
-| arg1 |Sì |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
-| arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
-
-### <a name="examples"></a>esempi
-
-Il modello di esempio controlla se un valore è minore o uguale all'altro.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int"
-        },
-        "secondInt": {
-            "type": "int"
-        },
-        "firstString": {
-            "type": "string"
-        },
-        "secondString": {
-            "type": "string"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
-        }
-    }
-}
-```
-
-### <a name="return-value"></a>Valore restituito
-
-Restituisce **True** se il primo valore è minore o uguale al secondo; in caso contrario, restituisce **False**.
-
-<a id="greater" />
 
 ## <a name="greater"></a>greater
 `greater(arg1, arg2)`
@@ -239,7 +176,11 @@ Controlla se il primo valore è maggiore del secondo.
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Restituisce **True** se il primo valore è maggiore del secondo; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
 
 Il modello di esempio controlla se un valore è maggiore dell'altro.
 
@@ -249,16 +190,20 @@ Il modello di esempio controlla se un valore è maggiore dell'altro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -276,11 +221,13 @@ Il modello di esempio controlla se un valore è maggiore dell'altro.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Restituisce **True** se il primo valore è maggiore del secondo; in caso contrario, restituisce **False**.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | False |
+| checkStrings | Booleano | True  |
 
-<a id="greaterorequals" />
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 `greaterOrEquals(arg1, arg2)`
@@ -294,7 +241,11 @@ Controlla se il primo valore è maggiore o uguale al secondo valore.
 | arg1 |Sì |int o stringa |Il primo valore per il confronto del maggiore e dell'uguaglianza. |
 | arg2 |Sì |int o stringa |Il secondo valore per il confronto del maggiore e dell'uguaglianza. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Restituisce **True** se il primo valore è maggiore o uguale al secondo; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
 
 Il modello di esempio controlla se un valore è maggiore o uguale all'altro.
 
@@ -304,16 +255,20 @@ Il modello di esempio controlla se un valore è maggiore o uguale all'altro.
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 1
         },
         "secondInt": {
-            "type": "int"
+            "type": "int",
+            "defaultValue": 2
         },
         "firstString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "A"
         },
         "secondString": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "a"
         }
     },
     "resources": [
@@ -331,9 +286,145 @@ Il modello di esempio controlla se un valore è maggiore o uguale all'altro.
 }
 ```
 
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | False |
+| checkStrings | Booleano | True  |
+
+
+
+## <a name="less"></a>less
+`less(arg1, arg2)`
+
+Controlla se il primo valore è minore del secondo.
+
+### <a name="parameters"></a>Parametri
+
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sì |int o stringa |Il primo valore per il confronto del minore. |
+| arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore. |
+
 ### <a name="return-value"></a>Valore restituito
 
-Restituisce **True** se il primo valore è maggiore o uguale al secondo; in caso contrario, restituisce **False**.
+Restituisce **True** se il primo valore è inferiore al secondo; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
+
+Il modello di esempio controlla se un valore è minore dell'altro.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstInt": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "secondInt": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "firstString": {
+            "type": "string",
+            "defaultValue": "A"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "a"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "checkInts": {
+            "type": "bool",
+            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
+        },
+        "checkStrings": {
+            "type": "bool",
+            "value": "[less(parameters('firstString'), parameters('secondString'))]"
+        }
+    }
+}
+```
+
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True  |
+| checkStrings | Booleano | False |
+
+
+## <a name="lessorequals"></a>lessOrEquals
+`lessOrEquals(arg1, arg2)`
+
+Controlla se il primo valore è minore o uguale al secondo valore.
+
+### <a name="parameters"></a>Parametri
+
+| Parametro | Obbligatorio | Tipo | Descrizione |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sì |int o stringa |Il primo valore per il confronto del minore o dell'uguaglianza. |
+| arg2 |Sì |int o stringa |Il secondo valore per il confronto del minore o dell'uguaglianza. |
+
+### <a name="return-value"></a>Valore restituito
+
+Restituisce **True** se il primo valore è minore o uguale al secondo; in caso contrario, restituisce **False**.
+
+### <a name="example"></a>Esempio
+
+Il modello di esempio controlla se un valore è minore o uguale all'altro.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "firstInt": {
+            "type": "int",
+            "defaultValue": 1
+        },
+        "secondInt": {
+            "type": "int",
+            "defaultValue": 2
+        },
+        "firstString": {
+            "type": "string",
+            "defaultValue": "A"
+        },
+        "secondString": {
+            "type": "string",
+            "defaultValue": "a"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "checkInts": {
+            "type": "bool",
+            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
+        },
+        "checkStrings": {
+            "type": "bool",
+            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
+        }
+    }
+}
+```
+
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| checkInts | Booleano | True  |
+| checkStrings | Booleano | False |
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

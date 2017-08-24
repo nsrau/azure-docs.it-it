@@ -2,7 +2,7 @@
 title: Note sulla versione del gateway di gestione dati | Microsoft Docs
 description: Note sulla versione di Gateway di gestione dati
 services: data-factory
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
@@ -11,37 +11,54 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2017
-ms.author: spelluru
+ms.date: 06/19/2017
+ms.author: abnarain
 published: true
-translationtype: Human Translation
-ms.sourcegitcommit: db0face48d84680eabd82245bd38bd49b204f9ae
-ms.openlocfilehash: a88b791bad9f71f16700ccc7efdee8ef493478a9
-ms.lasthandoff: 02/13/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c052d7e9f757164429ce867201b96305e405dce9
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
-Una delle maggiori difficoltà relative all'integrazione moderna dei dati consiste nello spostamento uniforme di dati da ambienti locali al cloud e viceversa. Data Factory facilita questa integrazione con Gateway di gestione dati, un agente che è possibile installare in locale per abilitare lo spostamento di dati ibridi.
+Una delle maggiori difficoltà relative all'integrazione moderna dei dati consiste nello spostamento di dati da ambienti locali al cloud e viceversa. Data Factory esegue questa integrazione con Gateway di gestione dati, un agente che è possibile installare in locale per abilitare lo spostamento di dati ibridi.
 
-Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione dati e su come usarlo: 
+Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione dati e su come usarlo:
 
 *  [Gateway di gestione dati](data-factory-data-management-gateway.md)
-*  [Spostare dati tra un ambiente locale e il cloud mediante Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
+*  [Spostare dati tra un ambiente locale e il cloud mediante Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-2762192"></a>VERSIONE CORRENTE (2.7.6219.2)
-
-### <a name="whats-new"></a>Novità
-- È ora possibile eseguire l'autenticazione in Azure Data Lake Store tramite l'entità servizio. In precedenza era supportato solo OAuth.
-- È stato incluso un nuovo driver per la lettura dei dati da Oracle nell'archivio dati locale nel gateway.
+## <a name="current-version-21063477"></a>VERSIONE CORRENTE (2.10.6347.7)
 
 ### <a name="enhancements-"></a>Miglioramenti
-- Sono state migliorate le prestazioni di lettura di dati dall'origine dati Oracle.
-- Risolto: problema di scadenza del token OAuth nell'origine OData.
-- Risolto: problema causato dall'impossibilità di leggere i decimali superiori ai 28 bit in Oracle.
+- È possibile aggiungere le voci DNS per aggiungere il bus di servizio all'elenco elementi consentiti, invece di inserire in tale elenco tutti gli indirizzi IP di Azure IP dal firewall (se necessario). È possibile trovare la rispettiva voce DNS nel portale di Azure (Data Factory -> "Creare e distribuire" -> "Gateway" -> "serviceUrls" (in JSON)
+- Il connettore HDFS supporta ora il certificato pubblico autofirmato, consentendo di saltare la convalida SSL.
+- Corretto: problema relativo al gateway offline durante l'aggiornamento (a causa di uno sfasamento del clock)
+
 
 
 ## <a name="earlier-versions"></a>Versioni precedenti
+
+## <a name="2963132"></a>2.9.6313.2
+### <a name="enhancements-"></a>Miglioramenti
+-   È possibile aggiungere le voci DNS per aggiungere il bus di servizio all'elenco elementi consentiti, invece di inserire in tale elenco tutti gli indirizzi IP di Azure IP dal firewall (se necessario). Altri dettagli sono disponibili qui.
+-   È ora possibile copiare i dati in/da un singolo BLOB in blocchi fino a 4,75 TB, che corrisponde alle dimensioni massime supportate per i BLOB in blocchi. Il limite precedente era di 195 GB.
+-   Corretto: problema relativo alla memoria esaurita durante la decompressione di alcuni file di piccole dimensioni durante l'attività di copia.
+-   Corretto: problema relativo all'indice non compreso nell'intervallo durante la copia da Document DB a un'istanza locale di SQL Server con funzionalità di idempotenza.
+-   Corretto: lo script di pulizia di SQL non funziona con l'istanza locale di SQL Server dalla Copia guidata.
+-   Corretto: il nome di colonna con uno spazio finale non funziona nell'attività di copia.
+
+## <a name="28662833"></a>2.8.66283.3
+### <a name="enhancements-"></a>Miglioramenti
+- Corretto: problema relativo alle credenziali mancanti al riavvio del computer gateway.
+- Corretto: problema relativo alla registrazione durante il ripristino del gateway tramite un file di backup.
+
+
+## <a name="2762401"></a>2.7.6240.1
+### <a name="enhancements-"></a>Miglioramenti
+- Corretto: lettura non corretta del valore Null decimale da Oracle come origine.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>Novità
@@ -63,7 +80,7 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 
 ### <a name="whats-new"></a>Novità
 
-- È ora possibile archiviare localmente le credenziali dell'origine dati. Le credenziali vengono crittografate. Le credenziali dell'origine dati possono essere recuperate e ripristinate usando il file di backup che può essere esportato dal gateway esistente, operando in locale. 
+- È ora possibile archiviare localmente le credenziali dell'origine dati. Le credenziali vengono crittografate. Le credenziali dell'origine dati possono essere recuperate e ripristinate usando il file di backup che può essere esportato dal gateway esistente, operando in locale.
 
 ### <a name="enhancements-"></a>Miglioramenti
 
@@ -87,10 +104,10 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 
 ## <a name="216040"></a>2.1.6040.
 
-*  Il driver DB2 è ora incluso nel pacchetto di installazione del gateway. Non è necessario installarlo separatamente. 
-*  Il driver DB2 supporta ora z/OS e DB2 for i (AS/400) oltre alle piattaforme già supportate (Linux, Unix e Windows). 
-*  Supporta l'uso di DocumentDB come origine o destinazione per gli archivi dati locali.
-*  Supporta la copia di dati da e nell'archivio BLOB ad accesso frequente o sporadico con l'account di archiviazione di uso generico già supportato. 
+*  Il driver DB2 è ora incluso nel pacchetto di installazione del gateway. Non è necessario installarlo separatamente.
+*  Il driver DB2 supporta ora z/OS e DB2 for i (AS/400) oltre alle piattaforme già supportate (Linux, Unix e Windows).
+*  Supporta l'uso di Azure Cosmos DB come origine o destinazione per gli archivi dati locali.
+*  Supporta la copia di dati da e nell'archivio BLOB ad accesso frequente o sporadico con l'account di archiviazione di uso generico già supportato.
 *  Consente di connettersi a SQL Server locale tramite il gateway con privilegi di accesso remoto.  
 
 ## <a name="2060131"></a>2.0.6013.1
@@ -105,7 +122,7 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 
     *  Controlli riorganizzati e semplificati.
 
-    *  È possibile copiare dati da un archivio tramite lo [strumento di anteprima della copia senza codice](data-factory-copy-data-wizard-tutorial.md). Per informazioni generiche su questa funzionalità, vedere [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) . 
+    *  È possibile copiare dati da un archivio tramite lo [strumento di anteprima della copia senza codice](data-factory-copy-data-wizard-tutorial.md). Per informazioni generiche su questa funzionalità, vedere [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) .
 *  Gateway di gestione dati consente di inserire i dati direttamente da un database di SQL Server locale in Azure Machine Learning.
 
 *  Miglioramenti delle prestazioni
@@ -120,7 +137,7 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 
 *  La dimensione massima del registro eventi del gateway è aumentata da 1 MB a 40 MB.
 
-*  Nel caso in cui sia necessario un riavvio durante l'aggiornamento automatico del gateway, viene visualizzata una finestra di dialogo di avviso. È possibile scegliere di riavviare subito o in un secondo tempo. 
+*  Nel caso in cui sia necessario un riavvio durante l'aggiornamento automatico del gateway, viene visualizzata una finestra di dialogo di avviso. È possibile scegliere di riavviare subito o in un secondo tempo.
 
 *  In caso di errore dell'aggiornamento automatico, il programma di installazione del gateway ritenta l'aggiornamento automatico al massimo tre volte.
 
@@ -226,7 +243,7 @@ Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione
 
 ### <a name="1253031"></a>1.2.5303.1
 
-*  Risoluzione del problema di timeout per supportare connessioni alle origini dati più dispersive in termini di tempo. 
+*  Risoluzione del problema di timeout per supportare connessioni alle origini dati più dispersive in termini di tempo.
 
 ### <a name="1155268"></a>1.1.5526.8
 

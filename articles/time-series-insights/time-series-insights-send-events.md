@@ -1,29 +1,30 @@
 ---
 title: Inviare eventi a un ambiente di Azure Time Series Insights | Microsoft Docs
-description: Questa esercitazione illustra come effettuare il push degli eventi all&quot;ambiente Time Series Insights
+description: Questa esercitazione illustra la procedura per effettuare il push degli eventi all'ambiente Time Series Insights
 keywords: 
-services: time-series-insights
+services: tsi
 documentationcenter: 
 author: venkatgct
-manager: almineev
-editor: cgronlun
+manager: jhubbard
+editor: 
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 07/21/2017
 ms.author: venkatja
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 92e3e64f235e165a6a1772b6e1724789f3ec3049
-ms.lasthandoff: 04/26/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
+ms.contentlocale: it-it
+ms.lasthandoff: 07/24/2017
 
 ---
-# <a name="send-events-to-a-time-series-insights-environment-via-event-hub"></a>Inviare eventi a un ambiente Time Series Insights tramite un hub eventi
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Inviare eventi a un ambiente Time Series Insights tramite un hub eventi
 
-Questa esercitazione illustra come creare e configurare un hub eventi ed eseguire un'applicazione di esempio per effettuare il push degli eventi. Se esiste un hub eventi che include già eventi in formato JSON, è possibile saltare questa esercitazione e visualizzare l'ambiente nell'[utilità di esplorazione delle serie temporali](https://insights.timeseries.azure.com).
+Questa esercitazione illustra come creare e configurare un hub eventi ed eseguire un'applicazione di esempio per effettuare il push degli eventi. Se è presente un hub eventi con eventi in formato JSON, saltare questa esercitazione e visualizzare l'ambiente in [Time Series Insights](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Configurare un hub eventi
 1. Per creare un hub eventi, seguire le istruzioni contenute nella [documentazione](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) sugli hub eventi.
@@ -35,25 +36,25 @@ Questa esercitazione illustra come creare e configurare un hub eventi ed eseguir
 
   ![Selezionare il gruppo di consumer dell'hub eventi](media/send-events/consumer-group.png)
 
-3. Nell'hub eventi creare "MySendPolicy" che viene usato per inviare eventi nell'esempio seguente.
+3. Nell'hub eventi creare "MySendPolicy" che viene usato per inviare eventi nell'esempio csharp.
 
   ![Selezionare Criteri di accesso condiviso e fare clic sul pulsante Aggiungi](media/send-events/shared-access-policy.png)  
 
   ![Aggiungere nuovi criteri di accesso condiviso](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Creare un'origine evento di Time Series Insights
-1. Se non è ancora stata creata un'origine evento, seguire le istruzioni indicate [qui](time-series-insights-add-event-source.md) per crearne una.
+1. Se non è ancora stata creata un'origine evento, seguire [queste istruzioni](time-series-insights-add-event-source.md) per crearne una.
 
-2. Specificare "deviceTimestamp" come nome della proprietà Timestamp. Questa proprietà viene usata come timestamp effettivo nell'esempio seguente. Il nome della proprietà Timestamp applica la distinzione tra maiuscole e minuscole e i valori devono avere il formato __aaaa-MM-ggTHH:mm:ss.FFFFFFFK__ quando viene inviato come file JSON all'hub eventi. Se la proprietà non esiste nell'evento, viene usata l'ora in cui l'evento è stato accodato all'hub eventi.
+2. Specificare "deviceTimestamp" come nome della proprietà Timestamp. Questa proprietà viene usata come timestamp effettivo nell'esempio csharp. Il nome della proprietà timestamp applica la distinzione tra maiuscole e minuscole e i valori devono avere il formato __aaaa-MM-ggTHH:mm:ss.FFFFFFFK__ quando viene inviato come file JSON all'hub eventi. Se la proprietà non esiste nell'evento, verrà usata l'ora in cui l'evento è stato accodato nell'hub eventi.
 
   ![Creare un'origine evento](media/send-events/event-source-1.png)
 
-## <a name="run-sample-code-to-push-events"></a>Eseguire il codice di esempio per effettuare il push degli eventi
+## <a name="sample-code-to-push-events"></a>Codice di esempio per effettuare il push degli eventi
 1. Passare al criterio dell'hub eventi "MySendPolicy" e copiare la stringa di connessione con la chiave del criterio.
 
   ![Copiare la stringa di connessione MySendPolicy](media/send-events/sample-code-connection-string.png)
 
-2. Eseguire questo codice che invierà 600 eventi per ognuno dei tre dispositivi. Aggiornare `eventHubConnectionString` con la stringa di connessione.
+2. Eseguire questo codice per inviare 600 eventi per ognuno dei tre dispositivi. Aggiornare `eventHubConnectionString` con la stringa di connessione.
 
 ```csharp
 using System;
@@ -131,13 +132,13 @@ Un oggetto JSON semplice.
 
 ```json
 {
-    "deviceId":"device1",
-    "deviceTimestamp":"2016-01-08T01:08:00Z"
+    "id":"device1",
+    "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
 #### <a name="output---1-event"></a>Output: 1 evento
 
-|deviceId|deviceTimestamp|
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
@@ -148,22 +149,21 @@ Una matrice JSON con due oggetti JSON. Ogni oggetto JSON verrà convertito in un
 ```json
 [
     {
-        "deviceId":"device1",
-        "deviceTimestamp":"2016-01-08T01:08:00Z"
+        "id":"device1",
+        "timestamp":"2016-01-08T01:08:00Z"
     },
     {
-        "deviceId":"device2",
-        "deviceTimestamp":"2016-01-17T01:17:00Z"
+        "id":"device2",
+        "timestamp":"2016-01-17T01:17:00Z"
     }
 ]
 ```
 #### <a name="output---2-events"></a>Output: 2 eventi
 
-|deviceId|deviceTimestamp|
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
-
 ### <a name="sample-3"></a>Esempio 3
 
 #### <a name="input"></a>Input
@@ -174,12 +174,12 @@ Un oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON.
     "location":"WestUs",
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z"
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z"
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z"
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
 }
@@ -188,7 +188,7 @@ Un oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON.
 #### <a name="output---2-events"></a>Output: 2 eventi
 Si noti che la proprietà "location" viene copiata in ogni evento.
 
-|location|events.deviceId|events.deviceTimestamp|
+|location|events.id|events.timestamp|
 |--------|---------------|----------------------|
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
@@ -197,27 +197,29 @@ Si noti che la proprietà "location" viene copiata in ogni evento.
 
 #### <a name="input"></a>Input
 
+Un oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON. Questo input dimostra che le proprietà globali possono essere rappresentate dall'oggetto JSON complesso.
+
 ```json
 {
     "location":"WestUs",
-    "manufacturerInfo":{
+    "manufacturer":{
         "name":"manufacturer1",
         "location":"EastUs"
     },
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z",
-            "deviceData":{
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z",
+            "data":{
                 "type":"pressure",
                 "units":"psi",
                 "value":108.09
             }
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z",
-            "deviceData":{
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z",
+            "data":{
                 "type":"vibration",
                 "units":"abs G",
                 "value":217.09
@@ -228,10 +230,10 @@ Si noti che la proprietà "location" viene copiata in ogni evento.
 ```
 #### <a name="output---2-events"></a>Output: 2 eventi
 
-|location|manufacturerInfo.name|manufacturerInfo.location|events.deviceId|events.deviceTimestamp|events.deviceData.type|events.deviceData.units|events.deviceData.value|
+|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
-|WestUs|manufacturer1|EastUs|device1|2016-01-08T01:17:00Z|vibration|abs G|217.09|
+|WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

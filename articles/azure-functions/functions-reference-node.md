@@ -14,14 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/06/2017
-ms.author: chrande, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: ff8a92c66303c81075c8a42baaa841301d65daf1
+ms.date: 05/25/2017
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 641afd78aae145c5e1b16a08567a22c1aafe59a8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
@@ -137,6 +136,21 @@ context.log.warn("Something has happened.");
 ```
 È possibile impostare la soglia del livello di traccia per la registrazione nel file host.json o disattivarla.  Per altre informazioni su come scrivere nei log, vedere la sezione successiva.
 
+## <a name="binding-data-type"></a>Associazione del tipo di dati
+
+Per definire il tipo di dati per un'associazione di input, usare la proprietà `dataType` nella definizione dell'associazione. Ad esempio, per leggere il contenuto di una richiesta HTTP in formato binario, usare il tipo `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Altre opzioni per `dataType` sono `stream` e `string`.
+
 ## <a name="writing-trace-output-to-the-console"></a>Scrittura dell'output di traccia nella console 
 
 In Funzioni usare i metodi `context.log` per scrivere l'output di traccia nella console. A questo punto, non è possibile usare `console.log` per scrivere nella console.
@@ -183,7 +197,7 @@ Funzioni consente di definire la soglia del livello di traccia per la scrittura 
 ```json
 { 
     "tracing": {      
-        "consoleLevel": "verbose"      
+        "consoleLevel": "verbose"     
     }
 }  
 ```
@@ -266,7 +280,7 @@ I passaggi seguenti consentono di includere i pacchetti nell'app per le funzioni
 2. Fare clic su **Debug Console** > **CMD** (Console di debug > CMD).
 
 3. Passare a `D:\home\site\wwwroot`, quindi trascinare il file package.json nella cartella **wwwroot** nella metà superiore della pagina.  
-    È possibile caricare i file nell'app per le funzioni anche in altri modi. Per altre informazioni, vedere [Come aggiornare i file delle app per le funzioni](functions-reference.md#a-idfileupdatea-how-to-update-function-app-files). 
+    È possibile caricare i file nell'app per le funzioni anche in altri modi. Per altre informazioni, vedere [Come aggiornare i file delle app per le funzioni](functions-reference.md#fileupdate). 
 
 4. Dopo aver caricato il file package.json, eseguire il comando `npm install` nella  **console di esecuzione remota Kudu**.  
     Questa azione scarica i pacchetti indicati nel file package.json e riavvia l'app per le funzioni.

@@ -36,7 +36,8 @@
 ### [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 ### [App che usano le code](service-bus-create-queues.md)
 ### [App che usano argomenti/sottoscrizioni](service-bus-create-topics-subscriptions.md)
-### [Autenticazione e autorizzazione](service-bus-sas.md)
+### [Autenticazione e autorizzazione](service-bus-authentication-and-authorization.md)
+#### [Autenticazione con firme di accesso condiviso](service-bus-sas.md)
 ### [Code e argomenti partizionati](service-bus-partitioning.md)
 ### [Code di messaggi non recapitabili](service-bus-dead-letter-queues.md)
 ### [Elaborazione di transazioni](service-bus-transactions.md)
@@ -56,8 +57,8 @@
 
 # Riferimenti
 ## .NET
-### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
+### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
 ## [PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [Eccezioni](service-bus-messaging-exceptions.md)
@@ -66,14 +67,17 @@
 ## [Sintassi di SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 
 # Risorse
-## [Dettagli sui prezzi](service-bus-pricing-billing.md)
-## [Esempi](service-bus-samples.md)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Forum MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Dettagli sui prezzi](service-bus-pricing-billing.md)
+## [Esempi](service-bus-samples.md)
+## [ServiceBus360](https://www.servicebus360.com/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=service-bus)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

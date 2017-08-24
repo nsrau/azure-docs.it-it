@@ -1,7 +1,7 @@
 ---
-title: Eseguire di nuovo l&quot;installazione guidata di Azure AD Connect | Documentazione Microsoft
+title: Eseguire di nuovo l'installazione guidata di Azure AD Connect | Documentazione Microsoft
 description: Spiega come funziona la procedura di installazione guidata la seconda volta che viene eseguita.
-keywords: L&quot;installazione guidata di Azure AD Connect consente di configurare le impostazioni di manutenzione quando viene eseguita la seconda volta
+keywords: L'installazione guidata di Azure AD Connect consente di configurare le impostazioni di manutenzione quando viene eseguita la seconda volta
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 07/13/2017
 ms.author: billmath
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: f18e11ac7482b78925d1885ceb20696146603ad2
+ms.contentlocale: it-it
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Servizio di sincronizzazione Azure AD Connect: eseguire l'installazione guidata una seconda volta

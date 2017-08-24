@@ -1,6 +1,6 @@
 ---
 title: Usare Azure Active Directory per autenticare le soluzioni del servizio Azure Batch | Microsoft Docs
-description: Batch supporta Azure AD per l&quot;autenticazione dal servizio Batch.
+description: Batch supporta Azure AD per l'autenticazione dal servizio Batch.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/27/2017
+ms.date: 06/20/2017
 ms.author: tamram
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 92090975e8e4e38b3ea99045c226a2777ef86405
+ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
+ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
@@ -108,7 +108,11 @@ Dopo aver [registrato l'applicazione](#register-your-application-with-an-azure-a
 
 3. Aprire il pannello **Impostazioni** per l'applicazione. Nella sezione **Accesso all'API** selezionare **Autorizzazioni necessarie**.
 4. Nel pannello **Autorizzazioni necessarie** fare clic sul pulsante **Aggiungi**.
-5. Nel passaggio 1 cercare **MicrosoftAzureBatch**, selezionare **Microsoft Azure Batch (MicrosoftAzureBatch)** e fare clic sul pulsante **Seleziona**.
+5. Nel passaggio 1 cercare l'API Batch. Cercare ognuna di queste stringhe fino a trovare l'API:
+    1. **MicrosoftAzureBatch**.
+    2. **Microsoft Azure Batch**. I tenant di Azure AD più recenti potrebbero usare questo nome.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** è l'ID dell'API Batch. 
+6. Dopo aver trovato l'API Batch, selezionarla e fare clic sul pulsante **Seleziona**.
 6. Nel passaggio 2 selezionare la casella di controllo accanto ad **Access Azure Batch Service** (Accedi al servizio Azure Batch) e fare clic sul pulsante **Seleziona**.
 7. Fare clic sul pulsante **Fine**.
 

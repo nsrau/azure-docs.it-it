@@ -1,6 +1,6 @@
 ---
 title: Distribuire il servizio Site Recovery Mobility con Automation DSC di Azure | Documentazione Microsoft
-description: Descrive come usare Automation DSC di Azure per distribuire automaticamente il servizio Mobility di Azure Site Recovery e l&quot;agente di Azure per le macchine virtuali VMware e la replica del server fisico in Azure
+description: Descrive come usare Automation DSC di Azure per distribuire automaticamente il servizio Mobility di Azure Site Recovery e l'agente di Azure per le macchine virtuali VMware e la replica del server fisico in Azure
 services: site-recovery
 documentationcenter: 
 author: krnese
@@ -8,17 +8,17 @@ manager: lorenr
 editor: 
 ms.assetid: 1f8cd3ac-0522-48eb-a5f0-679ee9192ddb
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/01/2017
 ms.author: krnese
-translationtype: Human Translation
-ms.sourcegitcommit: 2b9a8b5d7b889926f1cdbb6787fea1579dd21190
-ms.openlocfilehash: 941bc07fa9be765403e8fe541caf660eef15585e
-ms.lasthandoff: 02/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: cdb88505427cdea05f594277170633183dbe6d3e
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Distribuire il servizio Mobility di Azure con Automation DSC di Azure per la replica della macchina virtuale
@@ -59,9 +59,8 @@ In questo articolo viene fornito un esempio di come è possibile usare Automatio
 * La soluzione Windows Management Framework (WMF) 5.0 installata sui computer di cui che si vuole abilitare la protezione (requisito per Automation DSC)
 
   > [!NOTE]
-  > Se si desidera usare DSC per computer Windows su cui è installato WMF 4.0, vedere la sezione [Uso di DSC in ambienti non connessi](#Use DSC in disconnected environments).
-  >
-  >
+  > Se si desidera usare DSC per computer Windows su cui è installato WMF 4.0, vedere la sezione [Uso di DSC in ambienti non connessi](## Use DSC in disconnected environments).
+  
 
 Il servizio Mobility può essere installato tramite la riga di comando e accetta diversi argomenti. Ecco perché è necessario disporre dei file binari (dopo averli estratti dalla configurazione) e archiviarli in un punto in cui è possibile recuperarli usando una configurazione DSC.
 
@@ -511,5 +510,5 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo avere distribuito gli agenti del servizio Mobility, è possibile [abilitare la replica](site-recovery-vmware-to-azure.md#enable-replication) per le macchine virtuali.
+Dopo avere distribuito gli agenti del servizio Mobility, è possibile [abilitare la replica](site-recovery-vmware-to-azure.md) per le macchine virtuali.
 

@@ -10,32 +10,36 @@ manager: jhubbard
 editor: 
 ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
-ms.custom: quick start manage
+ms.custom: mvc,DBs & servers
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/15/2017
+ms.date: 05/26/2017
 ms.author: carlrab
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 9ffad92e668b76c9a4e2941b20d075bf52132d16
-ms.lasthandoff: 04/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2835a72fc90d1fd39af73c6907648908e5d9fdeb
+ms.contentlocale: it-it
+ms.lasthandoff: 07/08/2017
 
 
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati
 
-[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) è uno strumento di gestione usato per creare e gestire risorse di SQL Server dall'interfaccia utente o negli script. Questa guida introduttiva illustra come usare SSMS per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database. 
+[SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) è un ambiente integrato per la gestione di qualsiasi infrastruttura SQL, da SQL Server al database SQL per Microsoft Windows. Questa guida introduttiva illustra come usare SSMS per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database. 
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
 - [Creare un database: portale](sql-database-get-started-portal.md)
 - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
+- [Creare un database: PowerShell](sql-database-get-started-powershell.md)
 
 Prima di iniziare, assicurarsi di avere installato la versione più recente di [SSMS](https://msdn.microsoft.com/library/mt238290.aspx). 
 
-## <a name="get-connection-information"></a>Ottenere informazioni di connessione
+## <a name="sql-server-connection-information"></a>Informazioni di connessione SQL Server
 
 Ottenere le informazioni di connessione necessarie per connettersi al database SQL di Azure. Nelle procedure successive saranno necessari il nome completo del server, il nome del database e le informazioni di accesso.
 
@@ -43,11 +47,11 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
 3. Nella pagina **Panoramica** per il database, verificare il nome completo del server, come mostrato nell'immagine seguente. È possibile passare il puntatore sul nome del server per visualizzare l'opzione **Fare clic per copiare**.
 
-   ![informazioni di connessione](./media/sql-database-connect-query-ssms/connection-information.png) 
+   ![informazioni di connessione](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. Se si sono dimenticate le informazioni di accesso per il server del database SQL di Azure, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password. 
 
-## <a name="connect-to-your-database-in-the-sql-database-logical-server"></a>Connettersi al database nel server logico di database SQL
+## <a name="connect-to-your-database"></a>Connettersi al database
 
 Usare SQL Server Management Studio per stabilire una connessione al server del database SQL di Azure. 
 
@@ -58,11 +62,14 @@ Usare SQL Server Management Studio per stabilire una connessione al server del d
 1. Aprire SQL Server Management Studio.
 
 2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
-   - **Tipo di server**: specificare il motore del database
-   - **Nome server**: immettere il nome completo del server, ad esempio **mynewserver20170313.database.windows.net**
-   - **Autenticazione**: specificare l'Autenticazione di SQL Server
-   - **Accesso**: immettere l'account dell'amministratore del server
-   - **Password**: immettere la password per l'account dell'amministratore del server
+
+   | Impostazione       | Valore consigliato | Descrizione | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Tipo di server** | Motore di database | Questo valore è obbligatorio. |
+   | **Server name** (Nome server) | Nome completo del server | Il nome sarà simile a: **mynewserver20170313.database.windows.net**. |
+   | **Autenticazione** | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
+   | **Accesso** | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
+   | **Password** | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
 
    ![connetti al server](./media/sql-database-connect-query-ssms/connect.png)  
 
@@ -157,6 +164,7 @@ Usare il codice seguente per eliminare il nuovo prodotto aggiunto in precedenza 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Per altre informazioni sulla creazione e gestione di server e database con Transact-SQL, vedere [Informazioni su server e database del database SQL di Azure](sql-database-servers-databases.md).
 - Per informazioni su SSMS, vedere [Usare SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Per connettersi ed eseguire query usando Visual Studio Code, vedere [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).
 - Per connettersi ed eseguire query usando .NET, vedere [Connettersi ed eseguire query con .NET](sql-database-connect-query-dotnet.md).

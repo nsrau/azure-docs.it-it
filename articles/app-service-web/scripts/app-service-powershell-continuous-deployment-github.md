@@ -1,6 +1,6 @@
 ---
-title: Esempio di script di Azure PowerShell - Creare un&quot;app Web con distribuzione continua da GitHub | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Creare un&quot;app Web con distribuzione continua da GitHub
+title: Esempio di script di Azure PowerShell - Creare un'app Web con distribuzione continua da GitHub | Microsoft Docs
+description: Esempio di script di Azure PowerShell - Creare un'app Web con distribuzione continua da GitHub
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -11,12 +11,14 @@ ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
-translationtype: Human Translation
+ms.custom: mvc
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: c371833219426fbc4a0fd8aaa798a8b44e67672b
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
 ---

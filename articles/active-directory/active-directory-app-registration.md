@@ -1,6 +1,6 @@
 ---
 title: Registrazione di app di Azure Active Directory | Microsoft Docs
-description: Questo articolo illustra come usare il portale di Azure per registrare un&quot;applicazione in Azure Active Directory
+description: Questo articolo illustra come usare il portale di Azure per registrare un'applicazione in Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 07/20/2017
 ms.author: priyamo
-translationtype: Human Translation
+ms.reviewer: elisol
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
+ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
 
 ---

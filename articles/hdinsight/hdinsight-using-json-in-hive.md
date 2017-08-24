@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/26/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 034b61fdeb34c03bb4b58145f04138410e0d6fc6
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: bd136afebeceb0cd9c24cfc5f15601caa80a755e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>Elaborare e analizzare documenti JSON usando Hive in HDInsight
@@ -62,7 +61,7 @@ Informazioni su come elaborare e analizzare file JSON usando Hive in HDInsight. 
         ]
     }
 
-Il file è disponibile in wasbs://processjson@hditutorialdata.blob.core.windows.net/. Per altre informazioni sull'uso dell'archivio BLOB di Azure con HDInsight, vedere [Usare un archivio BLOB di Azure compatibile con HDFS con Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). È possibile copiare il file nel contenitore predefinito del cluster.
+Il file è disponibile in wasb://processjson@hditutorialdata.blob.core.windows.net/. Per altre informazioni sull'uso dell'archivio BLOB di Azure con HDInsight, vedere [Usare un archivio BLOB di Azure compatibile con HDFS con Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). È possibile copiare il file nel contenitore predefinito del cluster.
 
 In questa esercitazione viene usata la console di Hive.  Per istruzioni sull'apertura della console Hive, vedere [Usare Hive con Hadoop in HDInsight con Desktop remoto](hdinsight-hadoop-use-hive-remote-desktop.md).
 
@@ -86,7 +85,7 @@ I metodi elencati nella sezione seguente presuppongono che il documento JSON sia
 
     SELECT * FROM StudentsOneLine
 
-Il file JSON non elaborato è disponibile in **wasbs://processjson@hditutorialdata.blob.core.windows.net/**. La tabella Hive *StudentsRaw* punta al documento JSON non elaborato e non flat.
+Il file JSON non elaborato è disponibile in **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabella Hive *StudentsRaw* punta al documento JSON non elaborato e non flat.
 
 La tabella Hive *StudentsOneLine* archivia i dati nel file system predefinito di HDInsight nel percorso */json/students/*.
 
@@ -162,7 +161,7 @@ SerDe è la scelta migliore per l'analisi di documenti JSON annidati, perché co
       ![Configurazione dei valori di configurazione corretti per JDK][image-hdi-hivejson-jdk]
 2. Installare [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
    
-    Aggiungere la cartella Bin al percorso scegliendo Pannello di controllo-->Modifica le variabili di ambiente relative al sistema per l'account, quindi scegliere Variabili di ambiente.  La schermata seguente illustra come eseguire questa operazione.
+    Aggiungere la cartella Bin al percorso scegliendo Pannello di controllo-->Modifica le variabili di ambiente relative al sistema per l'account, quindi scegliere Variabili di ambiente. La schermata seguente illustra come eseguire questa operazione.
    
     ![Configurazione di Maven][image-hdi-hivejson-maven]
 3. Clonare il progetto dal sito GitHub [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) . Per eseguire questa operazione, fare clic sul pulsante "Download Zip", come illustrato nella schermata seguente.

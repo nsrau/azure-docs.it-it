@@ -1,111 +1,116 @@
 ---
-title: App multi-tenant di esempio del database SQL di Azure | Microsoft Docs
-description: Introduzione all&quot;app Wingtip Tickets (WTP) di esempio del database SQL di Azure
+title: 'Introduzione a SaaS Wingtip: app multi-tenant di database SQL di Azure | Microsoft Docs'
+description: Uso dell'app SaaS Wingtip, un'applicazione multi-tenant di esempio che usa il database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: scale out apps
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 05/10/2017
-ms.author: billgib; sstein
+ms.topic: article
+ms.date: 06/09/2017
+ms.author: sstein
 ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 265eab8104d8af7c510a88dffb9d70a2b3b37631
+ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
+ms.openlocfilehash: 6d4a5df599137e95ca5458fae74b8daa565b0338
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 06/22/2017
 
 
 ---
-# <a name="introduction-to-the-wingtip-tickets-platform-wtp-sample-saas-application"></a>Introduzione all'applicazione SaaS di esempio Wingtip Tickets Platform
+# <a name="introduction-to-the-wingtip-saas-application"></a>Introduzione all'applicazione SaaS Wingtip
 
-L'applicazione SaaS Wingtip Tickets Platform (WTP) è un'app multi-tenant di esempio che dimostra i vantaggi peculiari di database SQL. L'app usa un database per ogni tenant, il modello di applicazione SaaS, per soddisfare le richieste di più tenant. L'app WTP è progettata per dimostrare le funzionalità del database SQL di Azure che supportano gli scenari SaaS, inclusi i modelli di progettazione e gestione SaaS. Per iniziare, è sufficiente [distribuire l'app WTP, operazione che richiede meno di cinque minuti](sql-database-saas-tutorial.md).
+L'applicazione *SaaS Wingtip* è un'app multi-tenant di esempio che dimostra i vantaggi peculiari del database SQL. L'app usa un database per ogni tenant, il modello di applicazione SaaS, per soddisfare le richieste di più tenant. L'app è progettata per presentare le funzionalità del database SQL di Azure che supportano gli scenari SaaS, inclusi diversi modelli di progettazione e gestione SaaS. Per iniziare, è sufficiente distribuire l'app SaaS Wingtip, operazione che richiede meno di cinque minuti.
 
-Dopo aver distribuito l'app WTP, esplorare la [raccolta di esercitazioni](#sql-database-saas-tutorials) che si basano sulla distribuzione iniziale. Ogni esercitazione è incentrata su attività tipiche implementate nelle applicazioni SaaS. Le attività vengono implementate seguendo i modelli SaaS che sfruttano le funzionalità predefinite di database SQL. I modelli descritti includono il provisioning di nuovi tenant, il ripristino dei database tenant, l'esecuzione di query distribuite su tutti i tenant e la distribuzione di modifiche allo schema in tutti i database tenant. Ogni esercitazione include script riutilizzabili, con spiegazioni dettagliate che semplificano notevolmente la comprensione e l'implementazione degli stessi modelli di gestione SaaS nelle proprie applicazioni.
+Il codice sorgente e gli script di gestione dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Per eseguire gli script, [scaricare la cartella Learning Modules](#download-and-unblock-the-wingtip-saas-scripts) nel computer locale.
 
-Anche se l'applicazione WTP è completa e interessante come applicazione di esempio, è importante concentrarsi sui modelli SaaS fondamentali e le loro relazioni con il livello dati. In altre parole, concentrarsi sul livello dati senza dedicare troppo tempo all'analisi dell'app stessa. Comprendere l'implementazione di questi modelli SaaS fondamentali è cruciale per implementare gli stessi modelli nelle proprie applicazioni, tenendo naturalmente conto delle eventuali modifiche necessarie per soddisfare requisiti aziendali specifici.
+## <a name="sql-database-wingtip-saas-tutorials"></a>Esercitazioni su SaaS con l'applicazione Wingtip e database SQL
+
+Dopo avere distribuito l'app, esplorare le esercitazioni seguenti che si basano sulla distribuzione iniziale. Queste esercitazioni illustrano i comuni modelli SaaS che sfruttano le funzionalità predefinite del database SQL, di SQL Data Warehouse e di altri servizi di Azure. Le esercitazioni includono script di PowerShell, con spiegazioni dettagliate che semplificano notevolmente la comprensione e l'implementazione degli stessi modelli di gestione SaaS nelle proprie applicazioni.
+
+
+| Esercitazione | Descrizione |
+|:--|:--|
+|[Distribuire ed esplorare l'applicazione SaaS Wingtip](sql-database-saas-tutorial.md)| **INIZIARE DA QUI.** Distribuire ed esplorare l'applicazione SaaS Wingtip nella sottoscrizione di Azure. |
+|[Effettuare il provisioning di tenant e registrarli nel catalogo](sql-database-saas-tutorial-provision-and-catalog.md)| Informazioni su come l'applicazione si connette ai tenant usando un database di catalogo e su come il catalogo esegue il mapping dei tenant ai dati. |
+|[Monitorare e gestire le prestazioni](sql-database-saas-tutorial-performance-monitoring.md)| Informazioni su come usare le funzionalità di monitoraggio del database SQL e su come impostare avvisi quando vengono superate le soglie per le prestazioni. |
+|[Eseguire il monitoraggio con Log Analytics (OMS)](sql-database-saas-tutorial-log-analytics.md) | Informazioni su come usare [Log Analytics](../log-analytics/log-analytics-overview.md) per monitorare grandi quantità di risorse in più pool. |
+|[Ripristinare un tenant singolo](sql-database-saas-tutorial-restore-single-tenant.md)| Informazioni su come eseguire un ripristino temporizzato di un database tenant. È inclusa anche la procedura per ripristinare un database parallelo, lasciando il database esistente online. |
+|[Gestire uno schema di tenant](sql-database-saas-tutorial-schema-management.md)| Informazioni su come aggiornare lo schema e i dati di riferimento in tutti i tenant SaaS Wingtip. |
+|[Eseguire analisi ad hoc](sql-database-saas-tutorial-adhoc-analytics.md) | Creare un database di analisi ad-hoc ed eseguire query distribuite in tempo reale su tutti i tenant.  |
+|[Eseguire l'analisi di tenant](sql-database-saas-tutorial-tenant-analytics.md) | Estrarre i dati del tenant in un database di analisi o in un data warehouse per l'esecuzione offline di query di analisi. |
 
 
 
 ## <a name="application-architecture"></a>Architettura dell'applicazione
 
-L'app WTP usa il modello con un database per tenant e i pool elastici SQL per ottimizzare l'efficienza.
-Usare un catalogo di tenant per il provisioning della gestione e della connettività.
-App integrata, pool, monitoraggio e avvisi per il database (OMS).
-Gestione di schema e dati di riferimento tra i tenant (processi di Database elastico).
-Query tra tenant, analisi operativa (query elastica).
-Uso di dati distribuiti geograficamente per una maggiore copertura.
-Continuità aziendale, ripristino di singoli tenant (ripristino temporizzato), ripristino di emergenza su larga scala (ripristino geografico, replica geografica, ripristino di emergenza automatico), gestione self-service dei tenant (tramite API di gestione), ripristino temporizzato per i recupero da problemi causati internamente.
-
-L'applicazione Wingtip principale usa un pool con tre tenant di esempio, oltre a un database di catalogo.
-
-![Architettura dell'app WTP](media/sql-database-wtp-overview/wtp-architecture.png)
+L'app SaaS Wingtip usa il modello con un database per tenant e i pool elastici SQL per ottimizzare l'efficienza. Per il provisioning e il mapping dei tenant ai dati, viene usato un database di catalogo. L'applicazione SaaS Wingtip principale usa un pool con tre tenant di esempio, oltre al database del catalogo. Completando molte delle esercitazioni sull'app SaaS Wingtip, si aggiungono componenti alla distribuzione iniziale, introducendo database di analisi, gestione dello schema tra database e così via.
 
 
-## <a name="sql-database-wtp-saas-tutorials"></a>Esercitazioni su SaaS con l'applicazione WTP e database SQL
-
-Le esercitazioni seguenti sono basate sulla distribuzione iniziale dell'[applicazione di esempio SaaS Wingtip Tickets Platform (WTP)](sql-database-saas-tutorial.md):
-
-| Area | Descrizione | Posizione degli script |
-|:--|:--|:--|
-|[Esercitazione sul provisioning e la catalogazione dei tenant](sql-database-saas-tutorial-provision-and-catalog.md)| Effettuare il provisioning di nuovi tenant e registrarli nel catalogo | [Script su GitHub](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Provision%20and%20Catalog) |
-|[Esercitazione sul monitoraggio e la gestione delle prestazioni](sql-database-saas-tutorial-performance-monitoring.md)| Monitorare e gestire le prestazioni dei database e del pool | [Script su GitHub](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management) |
-|[Esercitazione sul ripristino di un tenant singolo](sql-database-saas-tutorial-restore-single-tenant.md)| Ripristinare database tenant | [Script su GitHub](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Business%20Continuity%20and%20Disaster%20Recovery/RestoreTenant) |
-|[Esercitazione sulla gestione dello schema del tenant](sql-database-saas-tutorial-schema-management.md)| Eseguire query su tutti i tenant  | [Script su GitHub](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Schema%20Management) |
-|[Esercitazione sull'esecuzione di analisi ad hoc](sql-database-saas-tutorial-adhoc-analytics.md) | Creare un database di analisi ad-hoc ed eseguire query su tutti i tenant  | [Script su GitHub](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Operational%20Analytics/Adhoc%20Analytics) |
-|[Esercitazione sulla gestione con Log Analytics (OMS)](sql-database-saas-tutorial-log-analytics.md) | Configurare ed esplorare Log Analytics | [Script su GitHub](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Performance%20Monitoring%20and%20Management/LogAnalytics) |
-|[Esercitazione sull'esecuzione di analisi dei tenant](sql-database-saas-tutorial-tenant-analytics.md) | Configurare ed eseguire query di analisi sui tenant | [Script su GitHub](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules/Operational%20Analytics/Tenant%20Analytics) |
-
-## <a name="get-the-wingtip-application-scripts"></a>Ottenere gli script dell'applicazione Wingtip
-
-Gli script di Wingtip Tickets e il codice sorgente dell'applicazione sono disponibili nel repository GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). I file di script si trovano nella [cartella Learning Modules](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Scaricare la cartella **Learning Modules** nel computer locale, mantenendo la struttura delle cartelle.
-
-## <a name="working-with-the-wtp-powershell-scripts"></a>Utilizzo degli script di PowerShell per l'applicazione WTP
-
-I vantaggi dell'utilizzo dell'applicazione WTP derivano dalla possibilità di esaminare nei dettagli gli script forniti e studiare le modalità di implementazione dei diversi modelli SaaS.
-
-Per visualizzare gli script e i moduli forniti esaminandoli in dettaglio con maggiore facilità per comprenderli al meglio, usare [Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise). Dato che la maggior parte degli script con prefisso *Demo-* contiene variabili che possono essere modificate prima dell'esecuzione, con PowerShell ISE è più semplice usare questi script.
-
-Per ogni distribuzione dell'app WTP è disponibile un file **UserConfig.psm1** che contiene due parametri per l'impostazione del nome del gruppo di risorse e dell'utente definiti durante la distribuzione. Una volta completata la distribuzione, modificare il modulo **UserConfig.psm1** impostando i parametri _ResourceGroupName_ e _Name_. Questi valori vengono usati per la corretta esecuzione di altri script, quindi è consigliabile impostarli al termine della distribuzione.
+![Architettura SaaS Wingtip](media/sql-database-wtp-overview/app-architecture.png)
 
 
+Mentre si eseguono le esercitazioni e si utilizza l'app, è importante concentrarsi sugli schemi SaaS perché sono correlati al livello dati. In altre parole, concentrarsi sul livello dati senza dedicare troppo tempo all'analisi dell'app stessa. Comprendere l'implementazione di questi modelli SaaS è cruciale per implementare gli stessi modelli nelle proprie applicazioni, tenendo naturalmente conto delle eventuali modifiche necessarie per soddisfare requisiti aziendali specifici.
+
+## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Scaricare e sbloccare gli script dell'app SaaS Wingtip
+
+I contenuti eseguibili (script, DLL) possono venire bloccati da Windows quando i file ZIP vengono scaricati da un'origine esterna ed estratti. Quando si estraggono gli script da un file ZIP, ***seguire questa procedura per sbloccare il file ZIP prima di estrarlo***. In questo modo sarà possibile eseguire gli script.
+
+1. Passare al [repository GitHub SaaS Wingtip](https://github.com/Microsoft/WingtipSaaS).
+1. Fare clic su **Clone or download** (Clona o scarica).
+1. Fare clic su **Download ZIP** (Scarica ZIP) e salvare il file.
+1. Fare clic con il pulsante destro del mouse sul file **WingtipSaaS-master.zip** e scegliere **Proprietà**.
+1. Nella scheda **Generale** selezionare **Annulla blocco**.
+1. Fare clic su **OK**.
+1. Estrarre i file.
+
+Gli script si trovano nella cartella *..\\WingtipSaaS-master\\Learning Modules*.
+
+
+## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Utilizzo degli script di PowerShell per l'applicazione SaaS Wingtip
+
+Per ottenere il massimo dall'esempio, è necessario esplorare gli script forniti. Usare i punti di interruzione e scorrere gli script, esaminando in dettaglio come vengono implementati i diversi schemi SaaS. Per scorrere facilmente gli script e i moduli forniti e comprenderli a fondo, è consigliabile usare [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+
+### <a name="update-the-configuration-file-for-your-deployment"></a>Aggiornare il file di configurazione per la distribuzione
+
+Modificare il file **UserConfig.psm1** con il valore per il gruppo di risorse e per l'utente usato durante la distribuzione:
+
+1. Aprire *PowerShell ISE* e caricare ...\\Learning Modules\\*UserConfig.psm1* 
+1. Aggiornare *ResourceGroupName* e *Name* con i valori specifici della distribuzione in uso (solo alle righe 10 e 11).
+1. Salvare le modifiche.
+
+Impostando qui questi valori specifici della distribuzione, non sarà necessario aggiornarli in ogni script.
 
 ### <a name="execute-scripts-by-pressing-f5"></a>Eseguire gli script premendo F5
 
-Vari script usano *$PSScriptRoot* per consentire l'esplorazione delle cartelle e questa variabile viene valutata solo quando lo script viene eseguito premendo **F5**.  L'evidenziazione e l'esecuzione di una selezione (**F8**) può causare errori, quindi premere **F5** per l'esecuzione degli script WTP.
+Vari script usano *$PSScriptRoot* per esplorare le cartelle e *$PSScriptRoot* viene valutato solo quando gli script vengono eseguiti premendo **F5**.  L'evidenziazione e l'esecuzione di una selezione (**F8**) può causare errori, quindi premere **F5** per l'esecuzione degli script.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Eseguire gli script un'istruzione alla volta per esaminare l'implementazione
 
-L'analisi degli script è fruttuosa in particolare eseguendoli un'istruzione alla volta in modo da esaminare le operazioni eseguite. Iniziare con gli script _Demo -_ di primo livello che offrono un flusso di lavoro di alto livello e di facile lettura, che mostra i passaggi necessari per completare ciascuna attività. Analizzare più approfonditamente le singole chiamate per scoprire i dettagli di implementazione per i diversi modelli SaaS.
+Il modo migliore di comprendere gli script è di scorrerli per capirne la funzione. Esaminare gli script **Demo-** inclusi che presentano un flusso di lavoro generale facilmente interpretabile. Gli script **Demo-** illustrano la procedura necessaria per eseguire ogni attività, quindi impostare punti di interruzione e analizzare in modo più approfondito le singole chiamate per vedere i dettagli dell'implementazione per i diversi schemi SaaS.
 
-Suggerimenti per l'utilizzo e il [debug degli script di PowerShell](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise):
+Suggerimenti per esplorare e scorrere gli script PowerShell:
 
-* Aprire e configurare gli script Demo- in PowerShell ISE.
-* Eseguire o continuare l'esecuzione con **F5**. Non è consigliabile usare **F8** perché la variabile *$PSScriptRoot* non viene valutata durante l'esecuzione di selezioni di uno script.
+* Aprire gli script **Demo-** in PowerShell ISE.
+* Eseguire o continuare con **F5**. Non è consigliabile usare **F8** perché la variabile *$PSScriptRoot* non viene valutata durante l'esecuzione di selezioni di uno script.
 * Aggiungere punti di interruzione facendo clic o selezionando una riga e premendo **F9**.
 * Eseguire una funzione o una chiamata dello script in blocco con **F10** (comando Esegui istruzione/routine).
 * Eseguire una funzione o una chiamata dello script un'istruzione alla volta con **F11**.
 * Uscire dalla funzione o dalla chiamata dello script corrente con **MAIUSC+F11**.
 
 
-
-
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Esplorare lo schema del database ed eseguire query SQL tramite SSMS
 
-Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server e ai database WTP e per esplorarli.
+Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server e ai database dell'applicazione e per esplorarli.
 
-L'app di esempio WTP inizialmente ha due server di database SQL a cui connettersi, il server *tenants1* e il server *catalog*:
+La distribuzione inizialmente ha due server di database SQL a cui connettersi, il server *tenants1-&lt;Utente&gt;* e il server *catalog-&lt;Utente&gt;*. Per assicurare una connessione demo corretta, entrambi i server hanno una [regola del firewall](sql-database-firewall-configure.md) che consente tutti gli IP.
 
 
 1. Aprire *SSMS* e connettersi al server *tenants1-&lt;User&gt;.database.windows.net*.
-2. Fare clic su **Connetti** > **Motore di database...**:
+1. Fare clic su **Connetti** > **Motore di database...**:
 
    ![server di catalogo](media/sql-database-wtp-overview/connect.png)
 
@@ -115,7 +120,7 @@ L'app di esempio WTP inizialmente ha due server di database SQL a cui connetters
 
 1. Ripetere i passaggi 2 e 3 e connettersi al server *catalog-&lt;Utente&gt;.database.windows.net*.
 
-Dopo avere stabilito la connessione, entrambi i server dovrebbero essere visibili. È possibile che vengano visualizzati più o meno database a seconda del numero di tenant di cui è stato effettuato il provisioning:
+Dopo avere stabilito la connessione, entrambi i server dovrebbero essere visibili. L'elenco dei propri database potrebbe variare a seconda dei tenant di cui si è effettuato il provisioning:
 
 ![esplora oggetti](media/sql-database-wtp-overview/object-explorer.png)
 
@@ -123,4 +128,4 @@ Dopo avere stabilito la connessione, entrambi i server dovrebbero essere visibil
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire l'applicazione di esempio SaaS Wingtip Tickets](sql-database-saas-tutorial.md)
+[Distribuire l'applicazione SaaS Wingtip](sql-database-saas-tutorial.md)

@@ -2,100 +2,124 @@
   href: index.yml
 - name: Panoramica
   items:
-  - name: Database di Azure per PostgreSQL
-    href: overview.md
+    - name: Database di Azure per PostgreSQL
+      href: overview.md
 - name: Guide introduttive
   expanded: true
   items:
-  - name: 'Creare un database: portale'
-    href: quickstart-create-server-database-portal.md
-  - name: 'Creare un database: interfaccia della riga di comando di Azure'
-    href: quickstart-create-server-database-azure-cli.md
-- name: Script di esempio
-  items:
-  - name: Interfaccia della riga di comando di Azure
-    href: sample-scripts-azure-cli.md
+    - name: 'Creare un database: portale'
+      href: quickstart-create-server-database-portal.md
+    - name: 'Creare un database: interfaccia della riga di comando di Azure'
+      href: quickstart-create-server-database-azure-cli.md
+    - name: Connettersi ed eseguire query
+      items:
+        - name: Python
+          href: connect-python.md
+        - name: Node.js
+          href: connect-nodejs.md
+        - name: Java
+          href: connect-java.md
+        - name: Ruby
+          href: connect-ruby.md
+        - name: PHP
+          href: connect-php.md
+        - name: .NET
+          href: connect-csharp.md
+        - name: Go
+          href: connect-go.md
 - name: Esercitazioni
   items:
-  - name: 1. Progettare un database
-    items:
-    - name: Portale di Azure
-      href: tutorial-design-database-using-azure-portal.md
+    - name: 1. Progettare un database
+      items:
+        - name: Portale di Azure
+          href: tutorial-design-database-using-azure-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: tutorial-design-database-using-azure-cli.md
+    - name: '2. Progettare app Web: Python'
+      href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+- name: Esempi
+  items:
     - name: Interfaccia della riga di comando di Azure
-      href: tutorial-design-database-using-azure-cli.md
-  - name: '2. Progettare app Web: Python'
-    href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+      href: sample-scripts-azure-cli.md
 - name: Concetti
   items:
-  - name: Database e server
-    items:
-    - name: Server
-      href: concepts-servers.md
-    - name: Versioni supportate
-      href: concepts-supported-versions.md
-    - name: Estensioni di PostgreSQL
-      href: concepts-extensions.md
-    - name: Log del server
-      href: concepts-server-logs.md
-  - name: Risorse
-    items:
-    - name: Piani tariffari
-      href: concepts-service-tiers.md
-    - name: Unità di calcolo
-      href: concepts-compute-unit-and-storage.md
-    - name: Limiti
-      href: concepts-limits.md
-  - name: Accesso ai dati e sicurezza
-    items:
-    - name: Regole del firewall
-      href: concepts-firewall-rules.md
-    - name: Configurare SSL
-      href: concepts-ssl-connection-security.md
-  - name: Sviluppo.
-    items:
-    - name: Raccolte di connessioni
-      href: concepts-connection-libraries.md
-- name: Guide pratiche
+    - name: Database e server
+      items:
+        - name: Server
+          href: concepts-servers.md
+        - name: Versioni supportate
+          href: concepts-supported-versions.md
+        - name: Estensioni di PostgreSQL
+          href: concepts-extensions.md
+        - name: Log del server
+          href: concepts-server-logs.md
+    - name: Risorse
+      items:
+        - name: Piani tariffari
+          href: concepts-service-tiers.md
+        - name: Unità di calcolo
+          href: concepts-compute-unit-and-storage.md
+        - name: Limiti
+          href: concepts-limits.md
+    - name: Accesso ai dati e sicurezza
+      items:
+        - name: Regole del firewall
+          href: concepts-firewall-rules.md
+        - name: Configurare SSL
+          href: concepts-ssl-connection-security.md
+    - name: Sviluppo.
+      items:
+        - name: Raccolte di connessioni
+          href: concepts-connection-libraries.md
+- name: Guide alle procedure
   items:
-  - name: Regole del firewall
-    items:
-    - name: Portale di Azure
-      href: howto-manage-firewall-using-portal.md
-    - name: Interfaccia della riga di comando di Azure
-      href: howto-manage-firewall-using-cli.md
-  - name: Ripristinare un server
-    items:
-    - name: Portale di Azure
-      href: howto-restore-server-portal.md
-  - name: Eseguire la migrazione del database
-    items:
-    - name: Dump e ripristino
-      href: howto-migrate-using-dump-and-restore.md
-    - name: Importazione ed esportazione
-      href: howto-migrate-using-export-and-import.md
-  - name: Personalizzare i parametri di configurazione server
-    items:
-    - name: Interfaccia della riga di comando di Azure
-      href: howto-configure-server-parameters-using-cli.md
-  - name: Log del server
-    items:
-    - name: Interfaccia della riga di comando di Azure
-      href: howto-configure-server-logs-using-cli.md
+    - name: Regole del firewall
+      items:
+        - name: Portale di Azure
+          href: howto-manage-firewall-using-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-manage-firewall-using-cli.md
+    - name: Ripristinare un server
+      items:
+        - name: Portale di Azure
+          href: howto-restore-server-portal.md
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-restore-server-cli.md
+    - name: Eseguire la migrazione del database
+      items:
+        - name: Dump e ripristino
+          href: howto-migrate-using-dump-and-restore.md
+        - name: Importazione ed esportazione
+          href: howto-migrate-using-export-and-import.md
+    - name: Personalizzare i parametri di configurazione server
+      items:
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-configure-server-parameters-using-cli.md
+    - name: Log del server
+      items:
+        - name: Interfaccia della riga di comando di Azure
+          href: howto-configure-server-logs-using-cli.md
 - name: Riferimento
   items:
-  - name: Interfaccia della riga di comando di Azure
-    href: /cli/azure/postgres
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/postgres
+    - name: API REST
+      href: /rest/api/postgresql
 - name: Risorse
   items:
-  - name: Prezzi
-    href: https://azure.microsoft.com/pricing/details/postgresql/
-  - name: Forum MSDN
-    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
-  - name: Forum di commenti e suggerimenti
-    href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
-  - name: Aree di disponibilità
-    href: https://azure.microsoft.com/regions/services/
-  - name: Opzioni di supporto
-    href: https://azure.microsoft.com/support/options/
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/postgresql/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
+    - name: Video
+      href: videos.md
+    - name: Forum di commenti e suggerimenti
+      href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
+    - name: Aree di disponibilità
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opzioni di supporto
+      href: 'https://azure.microsoft.com/support/options/'

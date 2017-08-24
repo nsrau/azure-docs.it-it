@@ -1,6 +1,6 @@
 ---
-title: Problemi relativi allo sviluppo dell&quot;applicazione
-description: Problemi relativi allo sviluppo dell&quot;applicazione
+title: Problemi relativi allo sviluppo dell'applicazione
+description: Problemi relativi allo sviluppo dell'applicazione
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 69d366e9babcd1035b194de69933a3691c952c47
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
-
 
 ---
 

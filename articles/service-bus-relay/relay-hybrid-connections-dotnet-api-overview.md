@@ -1,9 +1,9 @@
 ---
 title: Panoramica delle API .NET Standard di Inoltro di Azure | Microsoft Docs
-description: Panoramica dell&quot;API .NET Standard di Inoltro di Azure
+description: Panoramica dell'API .NET Standard di Inoltro di Azure
 services: service-bus-relay
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
@@ -12,20 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
-ms.author: jotaub
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: d1756dee37771941caae781682b342986c7ecbc9
-ms.lasthandoff: 03/27/2017
+ms.date: 07/05/2017
+ms.author: sethm
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: f3f4a2e721b1a75a5b92a5c17a9939c7013340d4
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
+
 
 ---
 
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Panoramica dell'API .NET Standard per Connessioni ibride di Inoltro di Azure
+
 In questo articolo vengono riepilogate alcune delle principali [API client](/dotnet/api/microsoft.azure.relay) .NET Standard per Connessioni ibride di Inoltro di Azure.
   
 ## <a name="relay-connection-string-builder"></a>Generatore di stringhe di connessione di Inoltro
-La calsse [RelayConnectionStringBuilder][RelayConnectionStringBuilder] genererà stringhe in un formato specifico per Connessioni ibride di Inoltro di Azure. È possibile usarla per verificare il formato di una stringa di connessione o per generarne una da zero. Per un esempio, vedere quanto segue.
+
+La classe [RelayConnectionStringBuilder][RelayConnectionStringBuilder] genera stringhe in un formato specifico per Connessioni ibride di inoltro di Azure. È possibile usarla per verificare il formato di una stringa di connessione o per generarne una da zero. Per un esempio, vedere il codice seguente.
 
 ```csharp
 var endpoint = "{Relay namespace}";
@@ -42,7 +46,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-È inoltre possibile passare direttamente una stringa di connessione al metodo `RelayConnectionStringBuilder`. In questo modo sarà possibile verificare che la stringa di connessione è in un formato valido. Il costruttore restituirà un `ArgumentException` in caso di uno o più parametri non validi.
+È inoltre possibile passare direttamente una stringa di connessione al metodo `RelayConnectionStringBuilder`. Questa operazione consente di verificare che il formato della stringa di connessione sia valido. Se uno dei parametri non è valido, il costruttore genera un'eccezione `ArgumentException`.
 
 ```csharp
 var myConnectionString = "{RelayConnectionString}";
@@ -65,7 +69,7 @@ La classe [HybridConnectionStream][HCStream] è l'oggetto principale usato per i
 ### <a name="getting-a-hybrid-connection-stream"></a>Ottenere un flusso di Connessioni ibride
 
 #### <a name="listener"></a>Listener
-Tramite un [HybridConnectionListener][HCListener] è possibile ottenere un `HybridConnectionStream`, nel modo seguente:
+Tramite [HybridConnectionListener][HCListener] è possibile ottenere un oggetto `HybridConnectionStream` nel modo seguente:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -77,7 +81,7 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
 #### <a name="client"></a>Client
-Tramite un [HybridConnectionClient][HCClient] è possibile ottenere un `HybridConnectionStream`, nel modo seguente:
+Tramite [HybridConnectionClient][HCClient] è possibile ottenere un oggetto `HybridConnectionStream` nel modo seguente:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -87,7 +91,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### <a name="receiving-data"></a>Ricezione di dati
-La classe [HybridConnectionStream][HCStream] consente la comunicazione bidirezionale. Nella maggior parte dei casi d'uso, si vorrà avere una ricezione costante dal flusso. Se si legge testo da un flusso, si potrebbe voler usare uno [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) per usufruire di una più semplice analisi dei dati. Ad esempio, è possibile leggere i dati come testo anziché come `byte[]`.
+La classe [HybridConnectionStream][HCStream] consente la comunicazione bidirezionale. Nella maggior parte dei casi si ha una ricezione costante dal flusso. Se si legge testo da un flusso, è anche possibile usare un oggetto [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) per usufruire di una più semplice analisi dei dati. Ad esempio, è possibile leggere i dati come testo anziché come `byte[]`.
 
 Il codice seguente legge singole righe di testo dal flusso fino a quando non viene richiesto l'annullamento.
 
@@ -133,7 +137,7 @@ Per altre informazioni su Inoltro di Azure, visitare i collegamenti seguenti:
 
 * [Riferimento su Microsoft.Azure.Relay](/dotnet/api/microsoft.azure.relay)
 * [Che cos'è il servizio di inoltro di Azure?](relay-what-is-it.md)
-* [API di Inoltro disponibili](relay-api-overview.md)
+* [API di inoltro disponibili](relay-api-overview.md)
 
 [RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder
 [HCStream]: /dotnet/api/microsoft.azure.relay.hybridconnectionstream

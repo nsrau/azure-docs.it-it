@@ -1,6 +1,6 @@
 ---
 title: Gestione di applicazioni con Azure Active Directory | Documentazione Microsoft
-description: Questo articolo illustra i vantaggi dell&quot;integrazione di Azure Active Directory con le applicazioni locali, cloud e SaaS.
+description: Questo articolo illustra i vantaggi dell'integrazione di Azure Active Directory con le applicazioni locali, cloud e SaaS.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 07/05/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f6bceb2fd03230e4a39c22605ad1fea8dd422be1
-ms.lasthandoff: 12/28/2016
-
+ms.reviewer: asteen
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: b8f0cfdb468094bc761d6b939ca318fcfbea3ea4
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
@@ -54,7 +55,7 @@ Azure Active Directory è una soluzione IDaaS (Identity as a Service) Microsoft 
 * Gestione centrale dell'accesso, accesso Single Sign-On (SSO) e creazione di report. 
 * Supporto per la gestione integrata degli accessi per [migliaia di applicazioni](https://azure.microsoft.com/marketplace/active-directory/) nella raccolta di applicazioni, ad esempio Salesforce, Google Apps, Box, Concur e così via. 
 
-Con Azure Active Directory tutte le applicazioni pubblicate per partner e clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi.<br>  Ciò consente una riduzione notevole dei costi operativi.
+Con Azure Active Directory tutte le applicazioni pubblicate per partner e clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi.<br> Ciò consente una riduzione notevole dei costi operativi.
 
 Che cosa accade se è necessario implementare un'applicazione non ancora pubblicata nella raccolta di applicazioni? Nonostante la procedura risulti leggermente più dispendiosa in termini di tempo rispetto alla configurazione dell'accesso Single Sign-On delle applicazioni disponibili nella raccolta, Azure AD offre una procedura di configurazione guidata.
 

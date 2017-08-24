@@ -1,6 +1,6 @@
 ---
 title: Configurare un ambiente di sviluppo per i microservizi di Azure | Documentazione Microsoft
-description: "Installare il runtime, l&quot;SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni."
+description: "Installare il runtime, l'SDK e gli strumenti e creare un cluster di sviluppo locale. Al termine della configurazione, sarà possibile iniziare a sviluppare applicazioni."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/17/2017
+ms.date: 08/10/2017
 ms.author: ryanwi, mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: dc07c709df84bbfcbf677bc3c2977590e651b194
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f0c6957217c21bdfd76498944e248fc808f2d271
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="prepare-your-development-environment"></a>Preparare l'ambiente di sviluppo
@@ -63,24 +62,12 @@ Per Visual Studio 2015, gli strumenti di Service Fabric vengono installati con l
 Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
-> [!WARNING]
-> Alcuni clienti hanno segnalato errori durante l'installazione mediante questi collegamenti di avvio o quando hanno usato tali collegamenti nel browser Chrome. Questi errori sono problemi noti dell'Installazione guidata piattaforma Web attualmente in corso di risoluzione.  Attenersi alle soluzioni alternative seguenti:
->- Avviare i collegamenti precedenti dal browser Internet Explorer o Edge. Oppure
->- Avviare l'Installazione guidata piattaforma Web dal menu Start, individuare "Service Fabric" e installare l'SDK.
-> 
-> Ci scusiamo per l'inconveniente. 
-
 Le versioni correnti sono:
-* Service Fabric SDK 2.6.204
-* Runtime di Service Fabric 5.6.204
-* Strumenti di Visual Studio 2015 1.6.50508.2
-* Visual Studio 2017 Update 2
-
-Le versioni in anteprima correnti sono:
-* Service Fabric SDK 255.255.2709.255
-* Runtime di Service Fabric 255.255.5709.255
-* Strumenti di Visual Studio 2015 1.6.50509.5
-* Visual Studio 2017 Update 3 Preview 1
+* Service Fabric SDK 2.7.198
+* Runtime di Service Fabric 5.7.198
+* Strumenti di Service Fabric per Visual Studio 2015 1.7.50721
+* Visual Studio 2017 Update 2 include Strumenti di Service Fabric per Visual Studio 1.6.20170504
+* Visual Studio 2017 Update 3 Preview 7 (15.3.0 Preview 7.0) include Strumenti di Service Fabric per Visual Studio 1.7.20170721
 
 Per un elenco delle versioni supportate, vedere [Service Fabric support](service-fabric-support.md) (Supporto di Service Fabric)
 

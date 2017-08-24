@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;app line-of-business in Azure con l&quot;autenticazione di AD FS | Documentazione Microsoft
-description: Informazioni su come creare un&quot;app line-of-business nel servizio app di Azure che esegue l&quot;autenticazione con il servizio token di sicurezza locale. In questa esercitazione viene usato ADFS come destinazione del servizio token di sicurezza locale.
+title: Creare un'app line-of-business in Azure con l'autenticazione di AD FS | Documentazione Microsoft
+description: Informazioni su come creare un'app line-of-business nel servizio app di Azure che esegue l'autenticazione con il servizio token di sicurezza locale. In questa esercitazione viene usato AD FS come destinazione del servizio token di sicurezza locale.
 services: app-service\web
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 08/31/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
-ms.openlocfilehash: 22fe6397120c36e1aa716f4711fbe9e7c72d17e8
-ms.lasthandoff: 04/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f9a8984400378d154a504af8a41609900128d052
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-ad-fs-authentication"></a>Creare un'app line-of-business in Azure con l'autenticazione di AD FS
@@ -104,7 +104,7 @@ L'applicazione di esempio in questa esercitazione, [WebApp-WSFederation-DotNet](
    &lt;add key="ClientValidationEnabled" value="true" /&gt;
    &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
    <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-   <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
+   <mark><del>&lt;add key="ida:AADInstance" value="https://login.microsoftonline.com" /&gt;</del></mark>
    <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
    <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
    <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
@@ -287,10 +287,13 @@ Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ru
     }
    
     <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()  {      ViewBag.Message = "Your contact page.";
+    public ActionResult Contact()
+    {
+        ViewBag.Message = "Your contact page.";
    
         return View();
-    }  </pre>
+    }
+    </pre>
    
     Poiché nell'ambiente lab AD FS è stato aggiunto **Test User** a **Test Group**, si userà Test Group per il test dell'autorizzazione in `About`. Per `Contact`, si testerà il caso negativo di **Domain Admins**, a cui **Test User** non appartiene.
 3. Avviare il debugger premendo `F5` e accedere, quindi fare clic su **About**. Dovrebbe ora essere possibile visualizzare la pagina `~/About/Index` , se l'utente autenticato è autorizzato per tale azione.
@@ -345,12 +348,11 @@ Poiché sono state incluse le appartenenze a gruppi come attestazioni di tipo ru
 ## <a name="connect-to-on-premises-data"></a>Connettersi ai dati locali
 Un motivo per cui si potrebbe voler implementare la propria applicazione line-of-business in ADFS anziché in Azure Active Directory potrebbe essere correlato a questioni di conformità nella conservazione dei dati dell'organizzazione all'esterno dell'organizzazione stessa. Questo può anche significare che il sito Web di Azure deve accedere a database locali, poiché non si è autorizzati a usare il [database SQL](/services/sql-database/) come livello dati per le app Web.
 
-App Web del servizio app di Azure supporta l'accesso ai database locali mediante due approcci: [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali](web-sites-integrate-with-vnet.md). Per altre informazioni, vedere il post relativo all' [uso dell'integrazione con una rete virtuale e delle connessioni ibride con App Web del servizio app di Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+App Web del servizio app di Azure supporta l'accesso ai database locali tramite due approcci: [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali](web-sites-integrate-with-vnet.md). Per altre informazioni, vedere il post relativo all' [uso dell'integrazione con una rete virtuale e delle connessioni ibride con App Web del servizio app di Azure](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 
 ## <a name="further-resources"></a>Altre risorse
-* [Proteggere l'applicazione con SSL e l'attributo Authorize](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
 * [Eseguire l'autenticazione con l'istanza locale di Active Directory nell'app Azure](web-sites-authentication-authorization.md)
 * [Creare un'app line-of-business in Azure con l'autenticazione di Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 * [Usare l'opzione di autenticazione dell'organizzazione locale (ADFS) con ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)

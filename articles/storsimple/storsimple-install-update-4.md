@@ -12,12 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 05/30/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 3457601f1d295d17d50725ec19cae96ae6efb5b6
-ms.lasthandoff: 03/14/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: 7dc2f29db64218b9db17eaf555c43a7ad282ea07
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -47,7 +48,7 @@ Seguire questa procedura per applicare il dispositivo l'[aggiornamento 4](storsi
 
 Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 4 della serie 8000 di StorSimple (6.3.9600.17820)**. Inoltre, è necessario modificare la **data dell'ultimo aggiornamento** . 
 
-* Saranno ora disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l'installazione degli aggiornamenti. Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo. 
+* Saranno ora disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l'installazione degli aggiornamenti. Gli aggiornamenti in modalità manutenzione sono aggiornamenti problematici che comportano tempi di inattività del dispositivo e possono essere applicati solo tramite l'interfaccia di Windows PowerShell del dispositivo.
  
 * Scaricare gli aggiornamenti in modalità di manutenzione usando la procedura indicata in [Scaricare gli hotfix](#to-download-hotfixes) per cercare e scaricare KB4011837, che installa gli aggiornamenti del firmware del disco; gli altri aggiornamenti devono essere già installati a questo punto. Seguire i passaggi elencati nella sezione [Installare e verificare gli aggiornamenti rapidi in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfixes) per installare gli aggiornamenti in modalità manutenzione. 
 
@@ -76,9 +77,9 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 | Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Aggiornamento software |Regolare  <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate|
+| 1. |KB4011839 <br> (2 file) |Aggiornamento software del dispositivo <br> Aggiornamento dell'agente CiS/MDS |Regolare  <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate <br> _Installare l'aggiornamento software del dispositivo prima di eseguire l'aggiornamento dell'agente Cis/MDS_|
 | 2A. |KB4011841 <br> KB4011842 |Aggiornamenti di driver e firmware LSI <br> Aggiornamento del firmware USM (versione 3.38) |Regolare  <br></br>Senza interruzioni |~ 3 ore <br> (include 2A. + 2B. + 2 C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pacchetto di aggiornamenti della sicurezza del sistema operativo |Regolare  <br></br>Senza interruzioni |- |SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3192392  <br> KB3153704, KB3174644 <br> KB3139914  |Pacchetto di aggiornamenti della sicurezza del sistema operativo |Regolare  <br></br>Senza interruzioni |- |SecondOrderUpdate|
 | 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pacchetto di aggiornamenti del sistema operativo |Regolare  <br></br>Senza interruzioni |- |SecondOrderUpdate|
 
 Potrebbe essere necessario anche installare gli aggiornamenti del firmware del disco sopra tutti gli aggiornamenti indicati nelle tabelle precedenti. È possibile verificare se sono necessari gli aggiornamenti del firmware del disco eseguendo il cmdlet `Get-HcsFirmwareVersion` . Se si stanno eseguendo le versioni del firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106` non è quindi necessario installare questi aggiornamenti.

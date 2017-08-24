@@ -1,6 +1,6 @@
 ---
 title: Profili annidati di Gestione Traffico | Microsoft Docs
-description: "Questo articolo descrive la funzionalità &quot;Profili nidificati&quot; di Gestione traffico di Azure"
+description: "Questo articolo descrive la funzionalità \"Profili nidificati\" di Gestione traffico di Azure"
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: e274d10b59c6f198962974fda0a804f4d993c324
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: 1ac4ec2775ca9f690f5adf4f939908f8cee3f715
+ms.contentlocale: it-it
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -45,7 +46,7 @@ Il diagramma seguente illustra questo esempio:
 
 In questa configurazione, il traffico indirizzato tramite il profilo padre verrà distribuito in più aree, come di consueto. In Europa occidentale il traffico verrà distribuito dal profilo annidato alla produzione e alle distribuzioni di prova in base ai pesi assegnati.
 
-Quando il profilo padre usa il metodo di routing del traffico "Prestazioni", a ogni endpoint deve essere assegnata una posizione. Questa posizione deve essere assegnata al momento della configurazione dell'endpoint. Scegliere l'area di Azure più vicina alla distribuzione specifica. Le opzioni disponibili sono le aree di Azure, ovvero i valori delle posizioni supportati dalla tabella della latenza di Internet. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+Quando il profilo padre usa il metodo di routing del traffico "Prestazioni", a ogni endpoint deve essere assegnata una posizione. Questa posizione deve essere assegnata al momento della configurazione dell'endpoint. Scegliere l'area di Azure più vicina alla distribuzione specifica. Le opzioni disponibili sono le aree di Azure, ovvero i valori delle posizioni supportati dalla tabella della latenza di Internet. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance).
 
 ## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Esempio 2: Monitoraggio degli endpoint nei profili nidificati
 

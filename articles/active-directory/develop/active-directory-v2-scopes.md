@@ -119,7 +119,7 @@ Seguendo questa procedura, l'applicazione può ottenere le autorizzazioni per tu
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Richiedere le autorizzazioni nel portale di registrazione dell'app
 1. Passare all'applicazione nel [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o [creare un'app](active-directory-v2-app-registration.md), se non se ne possiede già una.
-2. Individuare la sezione **Autorizzazioni di Microsoft Graph ** e aggiungere le autorizzazioni richieste dall'applicazione.
+2. Individuare la sezione **Autorizzazioni di Microsoft Graph**  e aggiungere le autorizzazioni richieste dall'applicazione.
 3. **Salvare** la registrazione dell'app.
 
 ### <a name="recommended-sign-the-user-in-to-your-app"></a>Consigliato: connettere l'utente dall'applicazione

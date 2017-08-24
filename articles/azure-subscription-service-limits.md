@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
+ms.date: 07/26/2017
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 2450eada5a49763542c95799a381f2029fec7575
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: a54d38948ee5a752297167c7f4435e52b5dbb27f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -28,9 +28,9 @@ In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azu
 Vedere [Prezzi di Azure](https://azure.microsoft.com/pricing/) per altre informazioni sui prezzi di Azure. Nella pagina è possibile stimare i costi usando il [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/) o visitando la pagina dei dettagli dei prezzi per un servizio, ad esempio [Macchine virtuali Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Per suggerimenti su come gestire i costi, vedere [Evitare costi imprevisti con la fatturazione del costi e la fatturazione di Azure](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Per aumentare il limite o la quota oltre il valore **Limite predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente nessuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili. 
+> Per aumentare il limite o la quota oltre il valore **Limite predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](azure-supportability/resource-manager-core-quotas-request.md). I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente nessuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili. 
 > 
-> Le sottoscrizioni per le versioni di valutazione gratuite non sono idonee ad aumenti di limite o di quota. Se è disponibile una versione di valutazione gratuita, è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) . Per altre informazioni, vedere [Aggiornare la versione di valutazione gratuita di Azure all'offerta con pagamento in base al consumo](billing-upgrade-azure-subscription.md).
+> Le sottoscrizioni per le versioni di valutazione gratuite non sono idonee ad aumenti di limite o di quota. Se è disponibile una versione di valutazione gratuita, è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) . Per altre informazioni, vedere [Aggiornare la versione di valutazione gratuita di Azure all'offerta con pagamento in base al consumo](billing/billing-upgrade-azure-subscription.md).
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Limiti e Azure Resource Manager
@@ -59,6 +59,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Servizi BizTalk](#biztalk-services-limits)
 * [RETE CDN](#cdn-limits)
 * [Servizi cloud](#cloud-services-limits)
+* [Istanze di contenitore](#container-instances-limits)
 * [Data Factory](#data-factory-limits)
 * [Analisi Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -115,6 +116,9 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Limiti dei set di scalabilità delle macchine virtuali
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
+
+### <a name="container-instances-limits"></a>Limiti per Istanze di contenitore
+[!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
 
 ### <a name="networking-limits"></a>Limiti relativi alla rete
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]

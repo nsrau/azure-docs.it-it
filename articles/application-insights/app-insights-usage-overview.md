@@ -1,6 +1,6 @@
 ---
-title: Analisi dell&quot;utilizzo per applicazioni Web con Azure Application Insights | Microsoft docs
-description: Informazioni sugli utenti e le operazioni eseguite con l&quot;app Web.
+title: Analisi dell'utilizzo per applicazioni Web con Azure Application Insights | Microsoft docs
+description: Informazioni sugli utenti e le operazioni eseguite con l'app Web.
 services: application-insights
 documentationcenter: 
 author: botatoes
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: fe513adfe40b675b1154e24388316eb7ee09a37d
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 80142d9f27abed181bca6f5f536b950198e66e20
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -41,6 +41,10 @@ La migliore esperienza viene ottenuta tramite l'installazione di Application Ins
 
     Pubblicare l'app per monitorare le prestazioni dell'app ed esaminare le operazioni eseguite dagli utenti con l'app.
 
+## <a name="include-user-and-session-id-in-your-telemetry"></a>Includere l'ID di utente e sessione nei dati di telemetria
+Per tenere traccia degli utenti nel tempo, Application Insights richiede un modo per identificarli. Lo strumento Eventi è l'unico strumento relativo all'uso per cui non è richiesto un ID utente o un ID di sessione.
+
+Per iniziare a inviare questi ID, vedere [qui](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
 
 ## <a name="explore-usage-demographics-and-statistics"></a>Esplorare le statistiche e i dati demografici di uso
 Scoprire quando le persone usano l'app, a quali pagine sono più interessati, dove si trovano, quali browser e sistemi operativi usano. 
@@ -123,7 +127,6 @@ Altre informazioni sugli [eventi personalizzati](app-insights-api-custom-events-
 ### <a name="slice-and-dice-events"></a>Analisi approfondita degli eventi
 
 Negli strumenti Utenti, Sessioni ed Eventi, è possibile eseguire un'analisi approfondita degli eventi personalizzati per utente, nome dell'evento e proprietà.
-
 ![Utenti](./media/app-insights-usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Progettare i dati di telemetria con l'app
@@ -167,9 +170,10 @@ Nell'inizializzatore dell'app Web, ad esempio Global.asax.cs:
 Tutti i nuovi TelemetryClients aggiungono automaticamente il valore di proprietà specificato. I singoli eventi di telemetria possono eseguire la sostituzione dei valori predefiniti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-* [Utenti e sessioni](app-insights-usage-segmentation.md)
-* [Conservazione](app-insights-usage-retention.md)
-* [Codifica di eventi personalizzati](app-insights-api-custom-events-metrics.md)
-
+   - [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
+   - [Grafici a imbuto](usage-funnels.md)
+   - [Conservazione](app-insights-usage-retention.md)
+   - [Flussi degli utenti](app-insights-usage-flows.md)
+   - [Cartelle di lavoro](app-insights-usage-workbooks.md)
+   - [Aggiungere il contesto utente](app-insights-usage-send-user-context.md)
 

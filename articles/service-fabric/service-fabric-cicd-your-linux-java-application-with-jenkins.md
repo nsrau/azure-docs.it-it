@@ -1,6 +1,6 @@
 ---
-title: Compilazione e integrazione continue per un&quot;applicazione Java Linux di Azure Service Fabric tramite Jenkins | Microsoft Docs
-description: Compilazione continua e integrazione per un&quot;applicazione Java Linux tramite Jenkins
+title: Compilazione e integrazione continue per un'applicazione Java Linux di Azure Service Fabric tramite Jenkins | Microsoft Docs
+description: Compilazione continua e integrazione per un'applicazione Java Linux tramite Jenkins
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 08/23/2017
 ms.author: saysa
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: 71e3d130f22515d22dc7f486f3dede936b874049
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: 32d39e2c19348bc4a1ba218cfc411a70f9f212e3
+ms.contentlocale: it-it
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Usare Jenkins per compilare e distribuire l'applicazione Java Linux
@@ -30,7 +30,7 @@ Jenkins è uno strumento diffuso per l'integrazione e la distribuzione continue 
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Configurare Jenkins all'interno di un cluster di Service Fabric
 
-È possibile configurare Jenkins all'interno o all'esterno di un cluster di Service Fabric. Le sezioni seguenti illustrano come configurarlo all'interno di un cluster.
+È possibile configurare Jenkins all'interno o all'esterno di un cluster di Service Fabric. Le sezioni seguenti mostrano come configurare questa funzionalità in un cluster utilizzando un account di archiviazione Azure per salvare lo stato dell’istanza del contenitore.
 
 ### <a name="prerequisites"></a>Prerequisiti
 1. Un cluster Linux Service Fabric pronto. Docker è già installato in un cluster di Service Fabric creato dal portale di Azure. Se si esegue il cluster localmente, verificare se Docker è installato usando il comando ``docker info``. Se non è installato, installarlo usando i comandi seguenti:
@@ -42,9 +42,25 @@ Jenkins è uno strumento diffuso per l'integrazione e la distribuzione continue 
 2. Applicazione contenitore di Service Fabric distribuita nel cluster seguendo questa procedura:
 
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git -b JenkinsDocker
+git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
-azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+```
+
+3. Sono necessari i dettagli dell'opzione di connessione della condivisione file di archiviazione di Azure, in cui si desidera mantenere lo stato dell'istanza del contenitore Jenkins. Se si utilizza il portale di Microsoft Azure per lo stesso, attenersi alla procedura: Creare un account di archiviazione di Azure, ad esempio ``sfjenkinsstorage1``. Creare una **condivisione file** con tale account di archiviazione, ad esempio ``sfjenkins``. Fare clic su **Connetti** per la condivisione file e annotare i valori visualizzati in **Connessione da Linux**, come illustrato di seguito.
+```sh
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+```
+
+4. Aggiornare i valori segnaposto dello ```setupentrypoint.sh``` script con i corrispondenti dettagli di archiviazione di Azure.
+```sh
+vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
+```
+Sostituire ``[REMOTE_FILE_SHARE_LOCATION]`` con il valore ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` dall'output di connessione al punto 3 sopra.
+Sostituire ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` con il valore ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` dal punto 3 sopra.
+
+5. Connettersi al cluster e installare l'applicazione contenitore.
+```azurecli
+sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 Un contenitore Jenkins viene installato nel cluster e può essere monitorato tramite Service Fabric Explorer.
@@ -102,7 +118,7 @@ A questo punto, quando si esegue ``docker info`` nel terminale, l'output indica 
   5. Configurare GitHub per l'interazione con Jenkins seguendo la procedura illustrata in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generazione di una nuova chiave SSH e aggiunta della chiave all'agente SSH).
         * Usare le istruzioni fornite da GitHub per generare la chiave SSH e aggiungerla all'account GitHub che ospita il repository.
         * Eseguire i comandi specificati nell'articolo indicato in precedenza nella shell Docker di Jenkins, non nell'host.
-        * Per accedere alla shell di Jenkins dall'host, eseguire questi comandi:
+      * Per accedere alla shell di Jenkins dall'host, eseguire questi comandi:
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash

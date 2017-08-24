@@ -1,9 +1,9 @@
 ---
 title: Introduzione alle app Web Java per Azure AD | Microsoft Docs
-description: Compilare un&quot;app Web Java che gestisce l&quot;accesso degli utenti con un account aziendale o dell&quot;istituto di istruzione.
+description: Compilare un'app Web Java che gestisce l'accesso degli utenti con un account aziendale o dell'istituto di istruzione.
 services: active-directory
 documentationcenter: java
-author: brandwe
+author: navyasric
 manager: mbaldwin
 editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 02/01/2017
-ms.author: brandwe
+ms.author: nacanuma
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: a20017a63ebed745e2d101d556e93594325533dc
 ms.contentlocale: it-it
 ms.lasthandoff: 03/18/2017
-
 
 ---
 # <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Accesso e disconnessione all'app Web Java con Azure AD
@@ -186,7 +185,7 @@ In questo passaggio si configura l'app Web Java per l'uso del protocollo di aute
         <display-name>Archetype Created Web Application</display-name>
         <context-param>
             <param-name>authority</param-name>
-            <param-value>https://login.windows.net/</param-value>
+            <param-value>https://login.microsoftonline.com/</param-value>
         </context-param>
         <context-param>
             <param-name>tenant</param-name>

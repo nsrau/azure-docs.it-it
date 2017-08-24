@@ -1,6 +1,7 @@
 ---
-title: Aggiungere o modificare informazioni del profilo per un utente in anteprima di Azure Active Directory | Documentazione Microsoft
-description: Descrive come aggiungere il profilo utente, inclusa l&quot;immagine del profilo, in Azure Active Directory
+
+title: Aggiungere o modificare informazioni del profilo per un utente in Azure Active Directory | Microsoft Docs
+description: Descrive come aggiungere il profilo utente, inclusa l'immagine del profilo, in Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/24/2017
+ms.date: 06/27/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 0dc1f1ef73334187fe76302ff3bd5a5446dec768
-ms.openlocfilehash: 21370f9c30ac1dcaa979ab9724155c91bda128f7
-ms.lasthandoff: 02/27/2017
+ms.reviewer: jeffsta
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
+ms.openlocfilehash: ccc6dfaf1653d5888541d78f5e9e20b183709574
+ms.contentlocale: it-it
+ms.lasthandoff: 05/08/2017
 
 
 ---
-# <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory-preview"></a>Aggiungere o modificare informazioni sul profilo per un utente in anteprima di Azure Active Directory
-Questo articolo illustra come aggiungere informazioni sul profilo utente, ad esempio un'immagine o i dati sull'autenticazione di telefono e posta elettronica in anteprima di Azure Active Directory (Azure AD). [Funzionalità disponibili nell'anteprima](active-directory-preview-explainer.md) Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](active-directory-users-create-azure-portal.md).
+# <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Aggiungere o modificare informazioni sul profilo per un utente in Azure Active Directory
+Questo articolo descrive come aggiungere informazioni sul profilo utente, ad esempio un'immagine o i dati sull'autenticazione di telefono e posta elettronica in Azure Active Directory (Azure AD). Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## <a name="to-change-profile-information"></a>Per modificare le informazioni sul profilo
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
@@ -39,9 +42,9 @@ Questo articolo illustra come aggiungere informazioni sul profilo utente, ad ese
 6. Aggiungere o modificare le informazioni sul profilo. Sulla barra dei comandi selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Aggiungere nuovi utenti ad anteprima di Azure Active Directory](active-directory-users-create-azure-portal.md)
-* [Reimpostare la password per un utente in anteprima di Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
-* [Assegnare un utente ai ruoli di amministratore in anteprima di Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Aggiungere o modificare informazioni sul profilo per un utente in anteprima di Azure Active Directory](active-directory-users-work-info-azure-portal.md)
-* [Eliminare un utente da una directory in anteprima di Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
+* [Aggiungere o modificare utenti in Azure Active Directory](active-directory-users-create-azure-portal.md)
+* [Reimpostare la password per un utente in Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
+* [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
+* [Aggiungere o modificare informazioni sul profilo per un utente in Azure Active Directory](active-directory-users-work-info-azure-portal.md)
+* [Eliminare un utente da una directory in Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
 

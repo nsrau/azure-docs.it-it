@@ -12,26 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 07/13/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: a26b1f6c13b11d0fb6b47599fee43f955cbf7b7a
-ms.lasthandoff: 04/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
+ms.contentlocale: it-it
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Pianificare la capacità delle macchine virtuali Hyper-V con la soluzione Capacity and Performance (anteprima)
 
-![Soluzione Capacity and Performance](./media/log-analytics-capacity/capacity-solution.png) È possibile usare la soluzione Capacity and Performance di Log Analytics per determinare la capacità dei server Hyper-V. La soluzione fornisce informazioni approfondite sull'ambiente Hyper-V illustrando l'utilizzo generale (CPU, memoria e disco) dell'host e delle macchine virtuali in esecuzione negli host Hyper-V. Vengono acquisite le metriche relative a CPU, memoria e dischi di tutti gli host e delle macchine virtuali in esecuzione su tali server.
+![Simbolo di Capacità e prestazioni](./media/log-analytics-capacity/capacity-solution.png)
+
+È possibile usare la soluzione Capacity and Performance di Log Analytics per determinare la capacità dei server Hyper-V. La soluzione fornisce informazioni approfondite sull'ambiente Hyper-V illustrando l'utilizzo generale (CPU, memoria e disco) dell'host e delle macchine virtuali in esecuzione negli host Hyper-V. Vengono acquisite le metriche relative a CPU, memoria e dischi di tutti gli host e delle macchine virtuali in esecuzione su tali server.
 
 La soluzione:
 
--    Visualizza gli host con l'utilizzo più alto e più basso di CPU e memoria
--    Visualizza le VM con l'utilizzo più alto e più basso di CPU e memoria
--    Visualizza le VM con l'utilizzo più alto e più basso di operazioni di I/O al secondo e velocità effettiva
--    Visualizza le VM in esecuzione nei diversi host
--    Visualizza i dischi con velocità effettiva, operazioni di I/O al secondo e latenza più elevate nei volumi condivisi cluster
+-   Visualizza gli host con l'utilizzo più alto e più basso di CPU e memoria
+-   Visualizza le VM con l'utilizzo più alto e più basso di CPU e memoria
+-   Visualizza le VM con l'utilizzo più alto e più basso di operazioni di I/O al secondo e velocità effettiva
+-   Visualizza le VM in esecuzione nei diversi host
+-   Visualizza i dischi con velocità effettiva, operazioni di I/O al secondo e latenza più elevate nei volumi condivisi cluster
 - Consente di personalizzare e applicare filtri in base ai gruppi
 
 > [!NOTE]
@@ -129,7 +131,18 @@ La tabella seguente presenta ricerche log di esempio per i dati su capacità e p
 | Scomposizione totale velocità effettiva tra tutti i CSV | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 | Scomposizione totale latenza tra tutti i CSV | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query precedenti verranno sostituite da quelle seguenti.
 
+> | Query | Descrizione |
+|:--- |:--- |
+| Tutte le configurazioni di memoria degli host | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
+| Tutte le configurazioni di memoria delle macchine virtuali | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
+| Scomposizione totale IOPS dei dischi tra tutte le macchine virtuali | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "VHD Reads/s" or CounterName == "VHD Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+| Scomposizione totale velocità effettiva dei dischi tra tutte le macchine virtuali | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "VHD Read MB/s" or CounterName == "VHD Write MB/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+| Scomposizione totale IOPS tra tutti i CSV | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Reads/s" or CounterName == "CSV Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+| Scomposizione totale velocità effettiva tra tutti i CSV | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Reads/s" or CounterName == "CSV Writes/s") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
+| Scomposizione totale latenza tra tutti i CSV | Perf &#124; where ObjectName == "Capacity and Performance" and (CounterName == "CSV Read Latency" or CounterName == "CSV Write Latency") &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), CounterName, InstanceName |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

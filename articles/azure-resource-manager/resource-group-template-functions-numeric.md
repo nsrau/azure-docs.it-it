@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 06/13/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 66984bef9e82df80818eea31bd37de524b567b33
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae0261134b8d4a934048f58d6c679a48a904950b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funzioni numeriche per i modelli di Azure Resource Manager
@@ -51,7 +50,11 @@ Restituisce la somma dei due numeri interi forniti.
 |operand1 |Sì |int |Il primo numero da aggiungere. |
 |operand2 |Sì |int |Il secondo numero da aggiungere. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Un intero che contiene la somma dei parametri.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente aggiunge due parametri.
 
@@ -62,12 +65,14 @@ L'esempio seguente aggiunge due parametri.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to add"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to add"
             }
@@ -84,9 +89,11 @@ L'esempio seguente aggiunge due parametri.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è:
 
-Un intero che contiene la somma dei parametri.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| addResult | int | 8 |
 
 <a id="copyindex" />
 
@@ -110,7 +117,7 @@ La proprietà **loopName** consente di specificare se copyIndex fa riferimento a
  
 Per una descrizione completa dell'uso di **copyIndex**, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md).
 
-### <a name="examples"></a>esempi
+### <a name="example"></a>Esempio
 
 L'esempio seguente illustra un ciclo di copy e il valore di indice incluso nel nome. 
 
@@ -146,7 +153,11 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 | operand1 |Sì |int |Il numero da dividere. |
 | operand2 |Sì |int |Il numero usato per dividere. Non può essere 0. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Un intero che rappresenta la divisione.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come dividere un parametro per un altro parametro.
 
@@ -157,12 +168,14 @@ L'esempio seguente mostra come dividere un parametro per un altro parametro.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 8,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -179,9 +192,11 @@ L'esempio seguente mostra come dividere un parametro per un altro parametro.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è:
 
-Un intero che rappresenta la divisione.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| divResult | int | 2 |
 
 <a id="float" />
 
@@ -196,7 +211,10 @@ Converte il valore in un numero a virgola mobile. Usare questa funzione solo qua
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o int |Il valore da convertire in un numero a virgola mobile. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+Un numero a virgola mobile.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente illustra come usare float per passare parametri a un'app per la logica:
 
@@ -214,9 +232,6 @@ L'esempio seguente illustra come usare float per passare parametri a un'app per 
         },
 ```
 
-### <a name="return-value"></a>Valore restituito
-Un numero a virgola mobile.
-
 <a id="int" />
 
 ## <a name="int"></a>int
@@ -230,7 +245,11 @@ Converte il valore specificato in un numero intero.
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì |stringa o int |Il valore da convertire in numero intero. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Un intero del valore convertito.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente converte il valore del parametro fornito dall'utente in intero.
 
@@ -239,25 +258,28 @@ L'esempio seguente converte il valore del parametro fornito dall'utente in inter
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "appId": { "type": "string" }
-    },
-    "variables": { 
-        "intValue": "[int(parameters('appId'))]"
+        "stringToConvert": { 
+            "type": "string",
+            "defaultValue": "4"
+        }
     },
     "resources": [
     ],
     "outputs": {
-        "divResult": {
+        "intResult": {
             "type": "int",
-            "value": "[variables('intValue')]"
+            "value": "[int(parameters('stringToConvert'))]"
         }
     }
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è:
 
-Un intero.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| intResult | int | 4 |
+
 
 <a id="min" />
 
@@ -272,7 +294,11 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+un intero che rappresenta il valore minimo dalla raccolta.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la funzione min con una matrice e un elenco di numeri interi:
 
@@ -300,9 +326,12 @@ L'esempio seguente mostra come usare la funzione min con una matrice e un elenco
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-un intero che rappresenta il valore minimo dalla raccolta.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -317,7 +346,11 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Un intero che rappresenta il valore massimo dalla raccolta.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come usare la funzione max con una matrice e un elenco di numeri interi:
 
@@ -345,9 +378,12 @@ L'esempio seguente mostra come usare la funzione max con una matrice e un elenco
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-Un intero che rappresenta il valore massimo dalla raccolta.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| arrayOutput | int | 5 |
+| intOutput | int | 5 |
 
 <a id="mod" />
 
@@ -363,7 +399,10 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 | operand1 |Sì |int |Il numero da dividere. |
 | operand2 |Sì |int |Il numero usato per dividere; non può corrispondere a 0. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+Un intero che rappresenta il resto.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente restituisce il resto della divisione di un parametro per un altro parametro.
 
@@ -374,12 +413,14 @@ L'esempio seguente restituisce il resto della divisione di un parametro per un a
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer being divided"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer used to divide"
             }
@@ -396,8 +437,11 @@ L'esempio seguente restituisce il resto della divisione di un parametro per un a
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
-Un intero che rappresenta il resto.
+L'output dell'esempio precedente con i valori predefiniti è:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| modResult | int | 1 |
 
 <a id="mul" />
 
@@ -413,7 +457,11 @@ Restituisce la moltiplicazione dei due numeri interi forniti.
 | operand1 |Sì |int |Il primo numero da moltiplicare. |
 | operand2 |Sì |int |Il secondo numero da moltiplicare. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+
+Un intero che rappresenta la moltiplicazione.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
 
@@ -424,12 +472,14 @@ L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 5,
             "metadata": {
                 "description": "First integer to multiply"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Second integer to multiply"
             }
@@ -446,9 +496,11 @@ L'esempio seguente mostra come moltiplicare un parametro per un altro parametro.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
+L'output dell'esempio precedente con i valori predefiniti è:
 
-Un intero che rappresenta la moltiplicazione.
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| mulResult | int | 15 |
 
 <a id="sub" />
 
@@ -464,7 +516,10 @@ Restituisce la sottrazione dei due numeri interi forniti.
 | operand1 |Sì |int |Il numero da cui sottrarre. |
 | operand2 |Sì |int |Il numero sottratto. |
 
-### <a name="examples"></a>esempi
+### <a name="return-value"></a>Valore restituito
+Un intero che rappresenta la sottrazione.
+
+### <a name="example"></a>Esempio
 
 L'esempio seguente mostra come sottrarre un parametro da un altro parametro.
 
@@ -475,12 +530,14 @@ L'esempio seguente mostra come sottrarre un parametro da un altro parametro.
     "parameters": {
         "first": {
             "type": "int",
+            "defaultValue": 7,
             "metadata": {
                 "description": "Integer subtracted from"
             }
         },
         "second": {
             "type": "int",
+            "defaultValue": 3,
             "metadata": {
                 "description": "Integer to subtract"
             }
@@ -497,8 +554,11 @@ L'esempio seguente mostra come sottrarre un parametro da un altro parametro.
 }
 ```
 
-### <a name="return-value"></a>Valore restituito
-Un intero che rappresenta la sottrazione.
+L'output dell'esempio precedente con i valori predefiniti è:
+
+| Nome | Tipo | Valore |
+| ---- | ---- | ----- |
+| subResult | int | 4 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

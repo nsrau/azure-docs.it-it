@@ -12,11 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 05/26/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5360387816cbbcd631114730fad8b7ce2c8c8aa6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
+ms.openlocfilehash: e5c8c3b098772c0586712305a577b24a6f0d924c
+ms.contentlocale: it-it
+ms.lasthandoff: 05/31/2017
 
 
 ---
@@ -24,13 +26,13 @@ ms.openlocfilehash: 5360387816cbbcd631114730fad8b7ce2c8c8aa6
 > [!div class="op_single_selector"]
 > * [Portale di Azure](cloud-services-configure-ssl-certificate-portal.md)
 > * [Portale di Azure classico](cloud-services-configure-ssl-certificate.md)
-> 
+>
 
 La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
 > [!NOTE]
 > Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service-web/web-sites-configure-ssl-certificate.md).
-> 
+>
 
 In questa attività viene usata una distribuzione di produzione. Alla fine di questo argomento vengono fornite informazioni sull'uso di una distribuzione di gestione temporanea.
 
@@ -58,13 +60,13 @@ A questo punto, è necessario includere le informazioni sul certificato nei file
 L'applicazione deve essere configurata per utilizzare il certificato ed è necessario aggiungere un endpoint HTTPS. Di conseguenza, è necessario aggiornare i file di definizione e configurazione del servizio.
 
 1. Nell'ambiente di sviluppo aprire il file di definizione del servizio (CSDEF), aggiungere una sezione **Certificates** all'interno della sezione **WebRole** e includere le informazioni seguenti relative al certificato (e ai certificati intermedi):
-   
+
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
     ...
         <Certificates>
-            <Certificate name="SampleCertificate" 
-                        storeLocation="LocalMachine" 
+            <Certificate name="SampleCertificate"
+                        storeLocation="LocalMachine"
                         storeName="My"
                         permissionLevel="limitedOrElevated" />
             <!-- IMPORTANT! Unless your certificate is either
@@ -82,31 +84,31 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
     ...
     </WebRole>
     ```
-   
+
    Nella sezione **Certificates** è definito il nome del certificato, il relativo percorso e il nome dell'archivio in cui è situato.
-   
-   Le autorizzazioni (attributo`permisionLevel` ) possono essere impostate su uno dei seguenti valori:
-   
+
+   Le autorizzazioni (attributo`permisionLevel`) possono essere impostate su uno dei seguenti valori:
+
    | Valore di autorizzazione | Descrizione |
    | --- | --- |
    | limitedOrElevated |**(Predefinito)** Tutti i processi di ruolo possono accedere alla chiave privata. |
    | elevated |Solo i processi con autorizzazioni elevate possono accedere alla chiave privata. |
 
 2. Nel file csdef aggiungere un elemento **InputEndpoint** all'interno della sezione **Endpoints** per abilitare HTTPS:
-   
+
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
     ...
         <Endpoints>
-            <InputEndpoint name="HttpsIn" protocol="https" port="443" 
+            <InputEndpoint name="HttpsIn" protocol="https" port="443"
                 certificate="SampleCertificate" />
         </Endpoints>
     ...
     </WebRole>
     ```
 
-3. Nel file di definizione del servizio aggiungere un elemento **Binding** all'interno della sezione **Sites**. Viene aggiunto un binding HTTPS per il mapping dell'endpoint al sito:
-   
+3. Nel file di definizione del servizio aggiungere un elemento **Binding** all'interno della sezione **Sites**. Questo elemento aggiunge un'associazione HTTPS per il mapping dell'endpoint al sito:
+
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
     ...
@@ -120,72 +122,71 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
     ...
     </WebRole>
     ```
-   
-   Tutte le modifiche necessarie al file di definizione del servizio sono state completate ma è ora necessario aggiungere le informazioni del certificato al file di configurazione del servizio.
-4. Nel file di configurazione del servizio (CSCFG), ServiceConfiguration.Cloud.cscfg, aggiungere una sezione **Certificates** all'interno della sezione **Role**, sostituendo il valore di identificazione personale illustrato di seguito con quello del certificato:
-   
+
+   Tutte le modifiche necessarie al file di definizione del servizio sono state completate, ma è ora necessario aggiungere le informazioni del certificato al file di configurazione del servizio.
+4. Nel file di configurazione del servizio (CSCFG), ServiceConfiguration.Cloud.cscfg, aggiungere in **Certificates** un valore corrispondente al proprio certificato. L'esempio di codice seguente contiene i dettagli della sezione **Certificates**, fatta eccezione per il valore dell'identificazione personale.
+
    ```xml
     <Role name="Deployment">
     ...
         <Certificates>
-            <Certificate name="SampleCertificate" 
-                thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+            <Certificate name="SampleCertificate"
+                thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff"
                 thumbprintAlgorithm="sha1" />
             <Certificate name="CAForSampleCertificate"
-                thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
+                thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc"
                 thumbprintAlgorithm="sha1" />
         </Certificates>
     ...
     </Role>
     ```
 
-Nell'esempio precedente viene usato **sha1** come algoritmo di identificazione personale. Specificare il valore appropriato per l'algoritmo di identificazione personale del certificato in uso.
+Questo esempio usa **sha1** come algoritmo di identificazione personale. Specificare il valore appropriato per l'algoritmo di identificazione personale del certificato in uso.
 
 Ora che i file di definizione e configurazione del servizio sono stati aggiornati, creare il pacchetto della distribuzione per il caricamento in Azure. Se si usa **cspack**, non usare il flag **/generateConfigurationFile**, poiché questo sovrascriverebbe le informazioni del certificato appena inserite.
 
 ## <a name="step-3-upload-a-certificate"></a>Passaggio 3: Caricare un certificato
-Connettersi al portale e...
+Connettersi al portale di Azure e...
 
-1. Nel portale selezionare il **servizio cloud**. Il servizio è disponibile nella sezione **Tutte le risorse**. 
-   
+1. Nella sezione **Tutte le risorse** del portale selezionare il servizio cloud.
+
     ![Pubblicare il servizio cloud](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 2. Fare clic su **Certificati**.
-   
+
     ![Fare clic sull'icona dei certificati](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-3. Fornire il **File**, la **Password** e fare clic su **Carica**.
+3. Fare clic su **Carica** nella parte superiore dell'area dei certificati.
+
+    ![Scegliere la voce di menu Carica](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
+
+4. Specificare il **file** e la **password**, quindi fare clic su **Carica** nella parte inferiore dell'area di immissione di dati.
 
 ## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Passaggio 4: Connettersi all'istanza del ruolo usando HTTPS
 Ora che la distribuzione è in esecuzione in Azure, è possibile connettersi a questa usando HTTPS.
 
 1. Fare clic sull'**URL del sito** per aprire il Web browser.
-   
+
    ![Fare clic sull'URL del sito](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
 2. Nel Web browser modificare il collegamento per usare **https** invece di **http**, quindi accedere alla pagina.
-   
+
    > [!NOTE]
    > Se si usa un certificato autofirmato, quando si passa a un endpoint HTTPS con il certificato autofirmato associato, è possibile che nel browser venga visualizzato un errore del certificato. L'uso di un certificato firmato da un'Autorità di certificazione attendibile eliminerà il problema. Nel frattempo l'errore può essere ignorato. Un'altra opzione consiste nell'aggiungere il certificato autofirmato nell'archivio certificati dell'Autorità di certificazione attendibile dell'utente.
-   > 
-   > 
-   
+   >
+   >
+
    ![Anteprima del sito](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
-   
+
    > [!TIP]
    > Se si desidera utilizzare SSL per una distribuzione di gestione temporanea anziché di produzione, è necessario innanzitutto determinare l'URL usato per la distribuzione di gestione temporanea. Una volta distribuito il servizio cloud, l'URL dell'ambiente di gestione temporanea è determinato dal GUID **ID distribuzione** nel formato seguente: `https://deployment-id.cloudapp.net/`  
-   > 
+   >
    > Creare un certificato con il nome comune (CN) uguale all'URL basato su GUID, ad esempio,**328187776e774ceda8fc57609d404462.cloudapp.net**. Usare il portale per aggiungere il certificato al servizio cloud di gestione temporanea. Aggiungere le informazioni del certificato ai file CSDEF e CSCFG, ricreare il pacchetto dell'applicazione e aggiornare la distribuzione di gestione temporanea per usare il nuovo pacchetto.
-   > 
+   >
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * [Gestire il servizio cloud](cloud-services-how-to-manage-portal.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

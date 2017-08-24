@@ -3,6 +3,7 @@
 # Introduzione
 ## [Creare una directory Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Registrare l'applicazione](active-directory-b2c-app-registration.md)
+## [Criteri predefiniti](active-directory-b2c-reference-policies.md)
 ## App per dispositivi mobili e desktop
 ### [Panoramica](active-directory-b2c-reference-oauth-code.md)
 ### iOS
@@ -24,6 +25,7 @@
 ### [JavaScript con Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## API Web
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
 ### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Chiamare un'API Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
@@ -63,6 +65,7 @@
 #### [Ottenere attestazioni aggiuntive](active-directory-b2c-rest-api-step-custom.md)
 ### Personalizzare l'accesso
 #### [Configurare l'input utente](active-directory-b2c-configure-signup-self-asserted-custom.md)
+#### [Attributi personalizzati](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personalizzare l'interfaccia utente](active-directory-b2c-ui-customization-custom.md)
 #### [Personalizzare i token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 ### Risoluzione dei problemi
@@ -70,26 +73,29 @@
 ## Riferimento
 ### [Note sulla versione](active-directory-b2c-developer-notes-custom.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossario
 ### [Tipi di applicazioni](active-directory-b2c-apps.md)
 ### [Protocolli di autenticazione](active-directory-b2c-reference-protocols.md)
-### [Criteri predefiniti](active-directory-b2c-reference-policies.md)
 ### [Token](active-directory-b2c-reference-tokens.md)
 ## [Aree di disponibilità e residenza dei dati](active-directory-b2c-reference-tenant-type.md)
 ## [Abilitare la fatturazione](active-directory-b2c-how-to-enable-billing.md)
 ## [Gestione delle minacce](active-directory-b2c-reference-threat-management.md)
 ## [Problemi relativi alla creazione di una directory](active-directory-b2c-support-create-directory.md)
+## [App extensions](active-directory-b2c-reference-extensions-app.md)
 
 # Risorse correlate
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Autenticazione a più fattori](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Risorse
-## [Prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Forum di commenti e suggerimenti su Azure AD B2C](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
-## [Video](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c)
-## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Domande frequenti](active-directory-b2c-faqs.md)
+## [Prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Supporto](active-directory-b2c-support.md)
+## [Video](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c)

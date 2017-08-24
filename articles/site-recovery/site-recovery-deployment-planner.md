@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure | Microsoft Docs
-description: Guida dell&quot;utente di Azure Site Recovery Deployment Planner.
+description: Guida dell'utente di Azure Site Recovery Deployment Planner.
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -8,18 +8,17 @@ manager: garavd
 editor: 
 ms.assetid: 
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/21/2017
+ms.date: 06/29/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 5c716069bdff2a23bf81b2d2d0793a8616cf9c83
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
@@ -68,7 +67,7 @@ Lo strumento prevede due fasi principali: profilatura e generazione di report. �
 
 | Requisito server | Descrizione|
 |---|---|
-|Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Microsoft Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://developercenter.vmware.com/tool/vsphere_powercli/6.0)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter devono essere impostate su 2 o su un valore superiore</li></ul>|
+|Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Microsoft Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter devono essere impostate su 2 o su un valore superiore</li></ul>|
 | Generazione di report | Un PC o server Windows con Microsoft Excel 2013 o versione successiva |
 | Autorizzazioni utente | Autorizzazioni di sola lettura per l'account utente usato per accedere al server VMware vCenter o all'host VMware vSphere ESXi durante la profilatura |
 
@@ -140,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Operation | StartProfiling |
 | -Server | Nome di dominio completo o indirizzo IP del server vCenter o dell'host vSphere ESXi con le VM da profilare.|
 | -User | Nome utente per la connessione al server vCenter o all'host vSphere ESXi. L'utente deve avere almeno l'accesso in sola lettura.|
-| -VMListFile |    File contenente l'elenco di VM da profilare. Il percorso del file può essere assoluto o relativo. Il file deve contenere un solo nome/indirizzo IP di VM per riga. Il nome della macchina virtuale specificato nel file deve corrispondere al nome della VM nel server vCenter o nell'host vSphere ESXi.<br>Ad esempio, il file VMList.txt contiene le VM seguenti:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -VMListFile | File contenente l'elenco di VM da profilare. Il percorso del file può essere assoluto o relativo. Il file deve contenere un solo nome/indirizzo IP di VM per riga. Il nome della macchina virtuale specificato nel file deve corrispondere al nome della VM nel server vCenter o nell'host vSphere ESXi.<br>Ad esempio, il file VMList.txt contiene le VM seguenti:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
 | -NoOfDaysToProfile | Numero di giorni per i quali eseguire la profilatura. È consigliabile eseguire la profilatura per più di 15 giorni per far sì che il modello di carico di lavoro nell'ambiente venga osservato nel periodo specificato e usato per fornire un'indicazione accurata. |
 | -Directory | (Facoltativo) UNC (Universal Naming Convention) o percorso della directory locale per l'archiviazione dei dati generati durante la profilatura. Per impostazione predefinita, se non viene specificato un nome di directory, verrà usata la directory denominata "ProfiledData" nel percorso corrente. |
 | -Password | (Facoltativo) Password da usare per connettersi al server vCenter o all'host vSphere ESXi. Se non se ne specifica una in questa fase, verrà chiesta all'esecuzione del comando.|
@@ -205,10 +204,7 @@ Al termine della profilatura, è possibile eseguire lo strumento in modalità di
 | -StartDate | (Facoltativo) Data e ora di inizio in MM-GG-AAAA:HH:MM, in formato 24 ore. *StartDate* deve essere specificato con *EndDate*. Quando StartDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
 | -EndDate | (Facoltativo) Data e ora di fine in MM-GG-AAAA:HH:MM, in formato 24 ore. *EndDate* deve essere specificato con *StartDate*. Quando EndDate è specificato, il report viene generato per i dati profilati raccolti nell'intervallo compreso tra StartDate ed EndDate. |
 | -GrowthFactor | (Facoltativo) Fattore di crescita, espresso come percentuale. Il valore predefinito è 30%. |
-| -UseManagedDisks | (Facoltativo) UseManagedDisks: Yes/No. Il valore predefinito è Yes. Il calcolo del numero di macchine virtuali che può essere inserito in un singolo account di archiviazione dipende dalla selezione o meno di un disco gestito per il failover e il failover di test. |
-
-Per l'inserimento in un singolo account di archiviazione, il calcolo tiene conto del fatto che il failover e il failover di test delle macchine virtuali vengano eseguiti su un disco gestito anziché su un disco non gestito. |
-
+| -UseManagedDisks | (Facoltativo) UseManagedDisks: Yes/No. Il valore predefinito è Yes. Il numero di macchine virtuali che possono essere inserite in un singolo account di archiviazione viene calcolato a seconda che il failover e il failover di test delle macchine virtuali vengano eseguiti su un disco gestito anziché su un disco non gestito. |
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Esempio 1: Generare un report con valori predefiniti quando i dati profilati si trovano nell'unità locale
 ```
@@ -459,7 +455,9 @@ Il foglio di lavoro Input offre una panoramica dell'ambiente VMware profilato.
 **VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Yes**\* è per i casi in cui la VM è idonea per l'[Archiviazione Premium di Azure](https://aka.ms/premium-storage-workload). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Ad esempio:
 * <128 GB rientrano nella categoria P10.
 * Da 128 GB a 512 GB rientrano nella categoria P20.
-* Da 512 GB a 1023 GB rientrano nella categoria P30.
+* Da 512 GB a 1024 GB rientrano nella categoria P30.
+* Da 1025 GB a 2048 GB rientrano nella categoria P40.
+* Da 2049 GB a 4095 GB rientrano nella categoria P50.
 
 Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene alla categoria P20 o P30, ma le dimensioni lo associano a un tipo di disco di archiviazione Premium inferiore, lo strumento contrassegna tale VM con **Yes**\*. Lo strumento consiglia anche di modificare le dimensioni del disco di origine per renderlo idoneo al tipo di disco di archiviazione Premium raccomandato oppure di modificare il tipo di disco di destinazione dopo il failover.
 
@@ -497,7 +495,8 @@ Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene al
 
 **VM Compatibility** (Compatibilità VM): indica perché la VM è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](https://aka.ms/azure-storage-scalbility-performance) pubblicati, possono essere uno dei seguenti:
 
-* Dimensioni disco superiori a 1023 GB. Archiviazione di Azure non supporta attualmente dimensioni superiori a 1 TB.
+* Dimensioni disco superiori a 4095 GB. Archiviazione di Azure attualmente non supporta dischi dati di dimensioni superiori a 4095 GB.
+* Disco del sistema operativo superiore a 2048 GB. Archiviazione di Azure attualmente non supporta dischi del sistema operativo di dimensioni superiori a 2048 GB.
 * Il tipo di avvio è EFI. Azure Site Recovery supporta attualmente solo macchine virtuali con tipo di avvio BIOS.
 
 * Le dimensioni totali della VM (replica + failover di test) superano i limiti supportati dall'account di archiviazione (35 TB). Questa incompatibilità si verifica in genere quando un singolo disco della VM ha una caratteristica di prestazioni che supera i limiti massimi supportati da Azure o da Site Recovery per l'archiviazione Standard. In questo caso la VM rientra nell'area dell'archiviazione Premium. Le dimensioni massime supportate da un account di archiviazione Premium sono tuttavia pari a 35 TB e non è possibile proteggere una singola VM su più account di archiviazione. Si noti anche che, quando un failover di test viene eseguito in una VM protetta, viene eseguito nello stesso account di archiviazione in cui è in corso la replica. In questo caso, configurare il doppio delle dimensioni del disco per far sì che la replica prosegua e il failover di test venga completato in parallelo.
@@ -531,11 +530,11 @@ Se in virtù delle caratteristiche di un carico di lavoro un disco appartiene al
 
 **Destinazione archiviazione di replica** | **Dimensioni medie I/O disco di origine** |**Varianza dati media disco di origine** | **Varianza dati totale giornaliera disco di origine**
 ---|---|---|---
-Archiviazione standard | 8 KB    | 2 MBps | 168 GB per disco
-Premium, disco P10 | 8 KB    | 2 MBps | 168 GB per disco
-Premium, disco P10 | 16 KB | 4 MBps |    336 GB per disco
+Archiviazione standard | 8 KB | 2 MBps | 168 GB per disco
+Premium, disco P10 | 8 KB | 2 MBps | 168 GB per disco
+Premium, disco P10 | 16 KB | 4 MBps | 336 GB per disco
 Premium, disco P10 | 32 KB o superiori | 8 MBps | 672 GB per disco
-Disco P20 o P30 Premium | 8 KB    | 5 MBps | 421 GB per disco
+Disco P20 o P30 Premium | 8 KB  | 5 MBps | 421 GB per disco
 Disco P20 o P30 Premium | 16 KB o superiori |10 MBps | 842 GB per disco
 
 Si tratta di numeri medi presupponendo una sovrapposizione I/O del 30%. Site Recovery può gestire una velocità effettiva maggiore in base alla percentuale di sovrapposizione, alle dimensioni di scrittura maggiori e all'effettivo I/O del carico di lavoro. I numeri precedenti presuppongono un backlog tipico di circa cinque minuti, ovvero i dati, dopo essere stati caricati, verranno elaborati e verrà creato un punto di ripristino entro cinque minuti.
@@ -563,6 +562,15 @@ Per aggiornare Deployment Planner, seguire questa procedura:
 
 
 ## <a name="version-history"></a>Cronologia delle versioni
+
+### <a name="131"></a>1.3.1
+Ultimo aggiornamento: 19 luglio 2017
+
+È stata aggiunta la nuova funzionalità seguente:
+
+* Aggiunta del supporto per dischi di dimensioni superiori a 1 TB nella generazione di report. È ora possibile usare Deployment Planner per pianificare la replica di macchine virtuali con dischi di dimensioni superiori a 1 TB (fino a 4095 GB).
+Per altre informazioni, vedere il post di blog sul [supporto di dischi di grandi dimensioni in Azure Site Recovery](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/).
+
 
 ### <a name="13"></a>1.3
 Ultimo aggiornamento: 9 maggio 2017
