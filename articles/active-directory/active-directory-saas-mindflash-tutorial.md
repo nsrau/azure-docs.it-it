@@ -184,11 +184,11 @@ Per consentire agli utenti di Azure AD di accedere a Mindflash, è necessario es
    
     ![Aggiungi nuovi utenti](./media/active-directory-saas-mindflash-tutorial/ic787141.png "Aggiungi nuovi utenti")
    
-    a. Nella casella di testo **First Name** (Nome) digitare**** **Britta**.
+    a. Nella casella di testo **First Name** **(Nome)** digitare **Britta**.
 
-    b. Nella casella di testo **Last name** (Cognome) digitare**** **Simon**.
+    b. Nella casella di testo **Last name** **(Cognome)** digitare **Simon**.
     
-    c. Nella casella di testo **Email** (Indirizzo e-mail) digitare**** **BrittaSimon@contoso.com**.
+    c. Nella casella di testo **Email** **(Indirizzo e-mail)** digitare **BrittaSimon@contoso.com**.
 
     b. Fare clic su **Aggiungi**.
 
