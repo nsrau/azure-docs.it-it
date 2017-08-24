@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introduzione ad Azure Cosmos DB | Microsoft Docs
 description: "Informazioni su Azure Cosmos DB. Questo database multimodello distribuito a livello globale è pensato per garantire bassa latenza, scalabilità elastica e disponibilità elevata."
 services: cosmos-db
