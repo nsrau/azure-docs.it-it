@@ -1,6 +1,6 @@
 # Panoramica
 ## [Informazioni sulle macchine virtuali](../../virtual-machines-windows-about.md)
-## [Dischi e dischi rigidi virtuali](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Dischi e dischi rigidi virtuali](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Reti virtuali](../../../virtual-network/virtual-networks-overview.md)
 ## [Domande frequenti](faq.md)
 ## [Confrontare macchine virtuali, siti Web e servizi cloud](../../../app-service-web/choose-web-site-cloud-service-vm.md)

@@ -17,9 +17,9 @@
 ### [Sviluppare e distribuire un'applicazione Node.js](cloud-services-nodejs-develop-deploy-app.md)
 ### [Sviluppare un'applicazione Web Node.js con Express](cloud-services-nodejs-develop-deploy-express-app.md)
 ### Archiviazione e Visual Studio
-#### [Archivio BLOB e servizi connessi](../storage/vs-storage-cloud-services-getting-started-blobs.md)
-#### [Archivio code e servizi connessi](../storage/vs-storage-cloud-services-getting-started-queues.md)
-#### [Archivio tabelle e servizi connessi](../storage/vs-storage-cloud-services-getting-started-tables.md)
+#### [Archivio BLOB e servizi connessi](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
+#### [Archivio code e servizi connessi](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
+#### [Archivio tabelle e servizi connessi](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
 ### Configurare i pacchetti per la compilazione continua e la distribuzione
 #### [TFS e Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurare le regole del traffico per un ruolo](cloud-services-enable-communication-role-instances.md)

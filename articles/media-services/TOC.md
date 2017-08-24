@@ -25,9 +25,6 @@
 
 # Procedure
 ## Gestisci
-### Account
-#### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](/rest/api/media/mediaservice)
 ### Entità
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
@@ -111,7 +108,6 @@
 ### [Codificatori locali](media-services-live-streaming-with-onprem-encoders.md)
 #### [Portale](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Streaming live con il codificatore cloud](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -169,7 +165,6 @@
 ### [Elaborazione di contenuti multimediali](media-services-scale-media-processing-overview.md)
 #### [Portale](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Endpoint di streaming
 #### [Portale](media-services-portal-scale-streaming-endpoints.md)
 
