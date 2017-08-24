@@ -1,4 +1,4 @@
----
+﻿---
 title: Distribuire i dati a livello globale con Azure Cosmos DB | Microsoft Docs
 description: Informazioni sulla replica geografica a livello globale, sul failover e sul ripristino dei dati usando i database globali di Azure Cosmos DB, un servizio database multimodello distribuito a livello globale.
 services: cosmos-db
@@ -32,7 +32,7 @@ Azure è ovunque, offre una copertura globale in oltre 30 aree geografiche ed è
 
 Durante lo sviluppo di Azure Cosmos DB, è emerso che non era possibile aggiungere la distribuzione globale a posteriori, perché non è una funzionalità che si può integrare su un sistema di database basato su "singolo sito". Le funzionalità offerte da un database distribuito a livello globale superano quelle del ripristino di emergenza con ridondanza geografica tradizionale offerte dai database basati su "singolo sito". Il database basati su singolo sito che offrono la funzionalità di ripristino di emergenza con ridondanza geografica rappresentano un sottoinsieme limitato dei database distribuiti a livello globale. 
 
-Grazie alla funzionalità di distribuzione globale chiavi in mano di Azure Cosmos DB, gli sviluppatori non devono creare i propri scaffolding di replica usando il modello lambda, ad esempio la [replica di AWS DynamoDB](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md), sul log del database oppure eseguendo "doppie scritture" tra più aree. Questi approcci non sono consigliati perché la correttezza non è garantita e non offrono contratti di servizio affidabili. 
+Grazie alla funzionalità di distribuzione globale chiavi in mano di Azure Cosmos DB, gli sviluppatori non devono creare le proprie infrastrutture di replica usando il modello lambda, come per la [replica di AWS DynamoDB](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md), sul log del database oppure eseguendo "doppie scritture" tra più aree. Questi approcci non sono consigliati perché la correttezza non è garantita e non offrono contratti di servizio affidabili.
 
 In questo articolo viene illustrata una panoramica delle funzionalità di distribuzione globale di Azure Cosmos DB e viene descritto l'approccio esclusivo di Azure Cosmos DB per l'offerta di contratti di servizio completi. 
 
@@ -93,8 +93,8 @@ Azure Cosmos DB supporta il failover automatico in caso di una o più interruzio
 ### <a id="GranularFailover"></a>Progettato per varie granularità di failover
 Attualmente le funzionalità di failover automatico e manuale sono esposte al livello di granularità dell'account del database. Si noti che internamente Azure Cosmos DB è progettato per offrire funzionalità di failover *automatico* a granularità più fini di un database, di una raccolta o persino di una partizione (di una raccolta proprietaria di un intervallo di chiavi). 
 
-### <a id="MultiHomingAPIs"></a>API multihosting in Azure Cosmos DB
-Azure Cosmos DB consente di interagire con il database tramite endpoint logici (indipendenti dall'area) o fisici (specifici dell'area). L'uso di endpoint logici garantisce che l'applicazione possa usufruire del multihosting in modo trasparente in caso di failover. Gli endpoint fisici, invece, offrono all'applicazione un controllo con granularità fine per reindirizzare le letture e le scritture ad aree specifiche.
+### <a id="MultiHomingAPIs"></a>API multihoming in Azure Cosmos DB
+Azure Cosmos DB consente di interagire con il database tramite endpoint logici (indipendenti dall'area) o fisici (specifici dell'area). L'uso di endpoint logici garantisce che l'applicazione possa usufruire del multihoming in modo trasparente in caso di failover. Gli endpoint fisici, invece, offrono all'applicazione un controllo con granularità fine per reindirizzare le letture e le scritture ad aree specifiche.
 
 Informazioni su come configurare le preferenze di lettura per le [API DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md), [API Graph](../cosmos-db/tutorial-global-distribution-graph.md), [API Table](../cosmos-db/tutorial-global-distribution-table.md) e [API MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) sono disponibili nei rispettivi articoli collegati.
 

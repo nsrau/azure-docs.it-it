@@ -1,4 +1,4 @@
----
+﻿---
 title: Casi d'uso e scenari comuni per Azure Cosmos DB | Microsoft Docs
 description: 'Informazioni sui primi cinque casi d''uso per Cosmos DB: contenuto generato dall''utente, registrazione di eventi, dati di catalogo, dati delle preferenze utente e "Internet delle cose" (IoT).'
 services: cosmos-db
@@ -89,7 +89,7 @@ Azure Cosmos DB viene comunemente usato all'interno di applicazioni Web e per di
 ### <a name="social-applications"></a>Applicazioni social
 Un caso di uso comune per Azure Cosmos DB prevede l'archiviazione e la query del contenuto generato dall'utente (UGC, User Generated Content) per applicazioni Web e per dispositivi mobili, soprattutto applicazioni per social media. Alcuni esempi di UGC includono sessioni di chat, tweet, post di blog, classificazioni e commenti. Spesso il contenuto UGC nelle applicazioni per social media comprende testo in formato libero, proprietà, tag e relazioni non limitati da una struttura rigida. I contenuti come chat, commenti e post possono essere archiviati in Cosmos DB senza richiedere trasformazioni o livelli di mapping relazionale a oggetti complessi.  Le proprietà dei dati possono essere aggiunte o modificate facilmente in modo che rispondano ai requisiti quando gli sviluppatori scorrono il codice dell'applicazione, velocizzando così la fase di sviluppo.  
 
-Le applicazioni che si integrano con social network di terze parti devono adeguarsi alle modifiche degli schemi di queste reti. I dati, man mano che vengono automaticamente indicizzati in Cosmos DB per impostazione predefinita, sono pronti per l'esecuzione di query in qualsiasi momento. Queste applicazioni hanno quindi la flessibilità necessaria per recuperare le proiezioni in base alle rispettive esigenze.
+Le applicazioni che si integrano con social network di terze parti devono adeguarsi alle modifiche degli schemi di queste reti. I dati, man mano che vengono automaticamente indicizzati in Azure Cosmos DB per impostazione predefinita, sono pronti per l'esecuzione di query in qualsiasi momento. Queste applicazioni hanno quindi la flessibilità necessaria per recuperare le proiezioni in base alle rispettive esigenze.
 
 Molte applicazioni di social networking vengono eseguite su scala globale e possono presentare modelli di utilizzo non prevedibili. La flessibilità nella scalabilità dell'archivio dati è essenziale man mano che il livello dell'applicazione viene scalato in modo da soddisfare la domanda di utilizzo.  È possibile scalare orizzontalmente aggiungendo altre partizioni di dati con un account Cosmos DB.  Si possono anche creare altri account Cosmos DB in più aree. Per la disponibilità delle aree del servizio Cosmos DB, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
@@ -98,7 +98,7 @@ Molte applicazioni di social networking vengono eseguite su scala globale e poss
 ### <a name="personalization"></a>Personalizzazione
 Oggi le applicazioni moderne sono caratterizzate da esperienze e visualizzazioni complesse, in genere dinamiche e in grado di soddisfare le preferenze o gli stati d'animo degli utenti e le diverse esigenze di personalizzazione. È quindi necessario che le applicazioni possano recuperare le impostazioni personalizzate in modo efficace per eseguire rapidamente il rendering delle esperienze e degli elementi dell'interfaccia utente. 
 
-JSON, supportato da Cosmos DB, è un formato adatto a rappresentare i dati di layout dell'interfaccia utente, essendo non solo leggero, ma anche facilmente interpretabile da JavaScript. Cosmos DB offre livelli di coerenza regolabili che consentono letture veloci con scritture a bassa latenza. Di conseguenza, l'archiviazione dei dati di layout dell'interfaccia utente, incluse le impostazioni personalizzate, come documenti JSON in Cosmos DB è un metodo efficace per avere questi dati in rete.
+JSON, supportato da Azure Cosmos DB, è un formato adatto a rappresentare i dati di layout dell'interfaccia utente, essendo non solo leggero, ma anche facilmente interpretabile da JavaScript. Azure Cosmos DB offre livelli di coerenza regolabili che consentono letture veloci con scritture a bassa latenza. Di conseguenza, l'archiviazione dei dati di layout dell'interfaccia utente, incluse le impostazioni personalizzate, come documenti JSON in Cosmos DB è un metodo efficace per avere questi dati in rete.
 
 ![Architettura di riferimento per app Web per Azure Cosmos DB](./media/use-cases/personalization.png)
 

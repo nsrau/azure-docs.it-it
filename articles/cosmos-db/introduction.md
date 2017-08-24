@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduzione ad Azure Cosmos DB | Microsoft Docs
 description: "Informazioni su Azure Cosmos DB. Questo database multimodello distribuito a livello globale è pensato per garantire bassa latenza, scalabilità elastica e disponibilità elevata."
 services: cosmos-db
@@ -31,14 +31,14 @@ Azure Cosmos DB è il database multimodello distribuito a livello globale di Mic
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluzioni che traggono vantaggio da Azure Cosmos DB
 
-Qualsiasi [applicazione Web, per dispositivi mobili, di gioco e IoT](use-cases.md) che debba gestire un numero molto elevato di letture e scritture su scala [globale](distribute-data-globally.md) e con tempi di risposta contenuti per una serie di dati può trarre vantaggio dalla disponibilità, velocità effettiva elevata, bassa latenza e coerenza ottimizzabile [garantite](https://azure.microsoft.com/support/legal/sla/cosmos-db/) da Azure Cosmos DB.
+Qualsiasi [applicazione Web, per dispositivi mobili, di gioco e IoT](use-cases.md) che debba gestire un numero molto elevato di letture e scritture su scala [globale](distribute-data-globally.md) con tempi di risposta contenuti per una varietà di dati può trarre beneficio da disponibilità, velocità effettiva elevata, bassa latenza e coerenza ottimizzabile [garantite](https://azure.microsoft.com/support/legal/sla/cosmos-db/) di Azure Cosmos DB.
 
 ## <a name="key-capabilities"></a>Funzionalità principali
-Come servizio di database distribuito a livello globale, Azure Cosmos DB fornisce le funzionalità seguenti che consentono di compilare applicazioni scalabili e altamente reattive:
+Come servizio di database distribuito a livello globale, Azure Cosmos DB fornisce le seguenti funzionalità, che consentono di creare applicazioni scalabili e altamente reattive:
 
 * **Distribuzione globale chiavi in mano**
-    * È possibile [distribuire i dati](distribute-data-globally.md) a un numero qualsiasi di [aree di Azure](https://azure.microsoft.com/regions/) semplicemente [facendo clic su un pulsante](tutorial-global-distribution-documentdb.md). Ciò consente di inserire i dati nelle località in cui si trovano gli utenti, garantendo la latenza più bassa possibile ai clienti. 
-    * Con l'API multihosting di Azure Cosmos DB, l'app sa sempre dove si trova l'area più vicina e invia le richieste al data center più vicino. Tutto questo è possibile senza modificare la configurazione. Si imposta l'area di scrittura e il numero di aree di lettura desiderato. Le altre operazioni vengono gestite automaticamente.
+    * È possibile [distribuire i dati](distribute-data-globally.md) a un numero qualsiasi di [aree di Azure](https://azure.microsoft.com/regions/) semplicemente [facendo clic su un pulsante](tutorial-global-distribution-documentdb.md). Ciò consente di portare i dati nelle località in cui si trovano gli utenti, garantendo loro la latenza più bassa possibile. 
+    * Con l'API multihoming di Azure Cosmos DB, l'app sa sempre dove si trova l'area più vicina e invia le richieste al data center più vicino. Tutto questo è possibile senza modificare la configurazione. Si imposta l'area di scrittura e il numero di aree di lettura desiderato. Le altre operazioni vengono gestite automaticamente.
 
 * **Più modelli di dati e API comuni per l'accesso e le query sui dati**
     * Il modello di dati basato sulla sequenza di record ATOM (ARS) su cui si fonda Azure Cosmos DB supporta in modo nativo più modelli di dati, tra cui modelli di documenti, grafi, coppie chiave-valore, tabelle e colonne.
@@ -83,7 +83,7 @@ Azure Cosmos DB fornisce le migliori funzionalità dei database relazionali e no
 
 | Capabilities | Database relazionali   | Database non relazionali (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |
-| Distribuzione globale | No | No | Sì, distribuzione chiavi in mano in oltre 30 aree con le API multihosting|
+| Distribuzione globale | No | No | Sì, distribuzione chiavi in mano in oltre 30 aree con le API multihoming|
 | Scalabilità orizzontale | No | Sì | Sì, archiviazione e velocità effettiva sono scalabili in modo indipendente | 
 | Garanzie di latenza | No | Sì | Sì, 99% delle letture in <10 ms e delle scritture in <15 ms | 
 | Disponibilità elevata | No | Sì | Sì, Cosmos DB è sempre online, ha compromessi secondo il teorema PACELC e offre opzioni di failover automatico e manuale|

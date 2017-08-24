@@ -1,4 +1,4 @@
----
+﻿---
 title: "Disponibilità elevata di SAP HANA in Macchine virtuali di Azure (VM) | Microsoft Docs"
 description: "Configurare la disponibilità elevata di SAP HANA in Macchine virtuali di Azure (VM)."
 services: virtual-machines-linux
