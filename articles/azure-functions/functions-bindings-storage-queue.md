@@ -292,5 +292,5 @@ Per un esempio di funzione che usa trigger e associazioni della coda, vedere [Cr
 
 <!-- LINKS -->
 
-["CloudQueueMessage"]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
 

@@ -135,7 +135,8 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
                                System.out.println(resultSet.getString(1) + " "
                                    + resultSet.getString(2));
                            }
-                   }
+                    connection.close();
+                   }                   
            }
            catch (Exception e) {
                    e.printStackTrace();
