@@ -14,7 +14,7 @@
     | **Sottoscrizione** | Scegliere la sottoscrizione | Sottoscrizione di Azure da usare. |
     | **[Gruppo di risorse](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nome del gruppo di risorse in cui creare l'app per le funzioni. |
     | **[Piano di servizio app](../articles/azure-functions/functions-scale.md)** | Piano a consumo | Quando si crea un nuovo piano, assicurarsi di scegliere **A consumo** in **Dimensioni**.  |
-    | **[Account di archiviazione](../articles/storage/storage-create-storage-account.md#create-a-storage-account)** | Nome globalmente univoco | Usare un account di archiviazione esistente o crearne uno nuovo.   |
+    | **[Account di archiviazione](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** | Nome globalmente univoco | Usare un account di archiviazione esistente o crearne uno nuovo.   |
 
 4. Fare clic su **Crea** per creare un'app per le funzioni con queste impostazioni in Azure. Al termine del provisioning prendere nota del valore di **URL sito**, che è l'indirizzo dell'app per le funzioni in Azure. 
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 905a70bfd37ccdb9f2944b4a9348c3b60dedda44
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuire e gestire un'appliance cloud StorSimple in Azure (aggiornamento 3 e versioni successive)
@@ -45,7 +45,7 @@ L'appliance cloud StorSimple è disponibile in due modelli, Standard 8010 (in pr
 | **Capacità massima** |30 TB |64 TB |
 | **Macchina virtuale di Azure** |Standard_A3 (4 core, 7 GB di memoria)| Standard_DS3 (4 core, 14 GB di memoria)|
 | **Aree di disponibilità** |Tutte le aree di Azure |Le aree di Azure che supportano Archiviazione Premium e VM DS3 di Azure<br></br>Usare [questo elenco](https://azure.microsoft.com/regions/services/) per verificare se nella propria area sono disponibili sia le **macchine virtuali serie DS** che l'**archiviazione su disco**. |
-| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../storage/storage-premium-storage.md) |
+| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../storage/common/storage-premium-storage.md) |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test basati su cloud <br></br>Bassa latenza e carichi di lavoro a prestazioni superiori<br></br>Dispositivo secondario per il ripristino di emergenza |
 
 <sup>1</sup> *precedentemente noto come 1100*.
@@ -94,7 +94,7 @@ Prima di effettuare il provisioning dell'appliance cloud, è necessario eseguire
 Prima di creare un'appliance cloud, effettuare gli aggiornamenti seguenti nel servizio Gestione dispositivi StorSimple:
 
 * Aggiungere [record controllo di accesso](storsimple-8000-manage-acrs.md) per le VM che svolgeranno il ruolo di server host per l'appliance cloud.
-* Usare un [account di archiviazione](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) nella stessa area dell'appliance cloud. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. Con l'appliance cloud è possibile usare un account di archiviazione Standard o Premium. Altre informazioni su come creare un [account di archiviazione Standard](../storage/storage-create-storage-account.md) o un [account di archiviazione Premium](../storage/storage-premium-storage.md)
+* Usare un [account di archiviazione](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) nella stessa area dell'appliance cloud. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. Con l'appliance cloud è possibile usare un account di archiviazione Standard o Premium. Altre informazioni su come creare un [account di archiviazione Standard](../storage/common/storage-create-storage-account.md) o un [account di archiviazione Premium](../storage/common/storage-premium-storage.md)
 * Per la creazione dell'appliance cloud usare un account di archiviazione diverso rispetto a quello usato per i dati. Se si utilizza lo stesso account di archiviazione, si potrebbe verificare una riduzione delle prestazioni.
 
 Prima di iniziare, verificare quanto segue:

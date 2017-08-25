@@ -7,7 +7,7 @@
 * Procedure consigliate di scalabilità del servizio app
   
   * Esaurimento delle porte e pool di connessioni
-  * [Uso di Archiviazione di Azure dalla propria app del servizio app](../articles/storage/storage-dotnet-how-to-use-blobs.md)
+  * [Uso di Archiviazione di Azure dalla propria app del servizio app](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
   * [Uso della rete CDN di Azure dalla propria app del servizio app](../articles/cdn/cdn-overview.md)
   * [Uso di Cache Redis di Azure dalla propria app del servizio app](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
 * Distribuzione area geografica

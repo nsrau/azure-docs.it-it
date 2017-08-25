@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 03d4c2a75ff99a55aaa58ca76d6145fd0eec9fac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1a26fe127448f794bbad11043aa3c8770bc2ac8c
 ms.contentlocale: it-it
-ms.lasthandoff: 04/18/2017
-
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Caricare dati con PolyBase in SQL Data Warehouse
@@ -255,8 +253,8 @@ Per altre informazioni utili durante lo sviluppo di una soluzione che usa PolyBa
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
-[Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
-[latest version of AzCopy]: ../storage/storage-use-azcopy.md
+[Getting Started with the AzCopy Command-Line Utility]:../storage/common/storage-use-azcopy.md
+[latest version of AzCopy]:../storage/common/storage-use-azcopy.md
 
 <!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx

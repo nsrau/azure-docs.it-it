@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Batch e soluzioni HPC per carichi di lavoro di elaborazione su larga scala
@@ -106,7 +106,7 @@ I servizi di calcolo di Azure sono alla base di una soluzione Big Compute e i di
 ### <a name="storage-services"></a>Servizi di archiviazione
 In genere una soluzione Big Compute opera su un set di dati di input e genera dati per i relativi risultati. Tra i servizi di archiviazione di Azure usati in soluzioni Big Compute sono inclusi:
 
-* [BLOB, tabelle e archiviazione delle code](https://azure.microsoft.com/documentation/services/storage/) : gestione di grandi quantità di dati non strutturati, dati NoSQL e messaggi per flusso di lavoro e comunicazione, rispettivamente. Ad esempio, è possibile usare l'archiviazione BLOB per set di dati tecnici di grandi dimensioni o per le immagini di input o i file multimediali elaborati dall'applicazione. È possibile utilizzare le code per la comunicazione asincrona in una soluzione. Vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md).
+* [BLOB, tabelle e archiviazione delle code](https://azure.microsoft.com/documentation/services/storage/) : gestione di grandi quantità di dati non strutturati, dati NoSQL e messaggi per flusso di lavoro e comunicazione, rispettivamente. Ad esempio, è possibile usare l'archiviazione BLOB per set di dati tecnici di grandi dimensioni o per le immagini di input o i file multimediali elaborati dall'applicazione. È possibile utilizzare le code per la comunicazione asincrona in una soluzione. Vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/common/storage-introduction.md).
 * [Archiviazione file di Azure](https://azure.microsoft.com/services/storage/files/) : consente la condivisione di file e dati comuni in Azure con il protocollo SMB standard, necessario per alcune soluzioni cluster HPC.
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) : fornisce un file system distribuito Apache Hadoop iperscalabile per il cloud, utile per analisi batch in tempo reale e interattive.
 

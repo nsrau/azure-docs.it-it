@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Set di scalabilità VM di Azure e dischi gestiti
@@ -45,7 +45,7 @@ In alternativa, è possibile esaminare il [repository di Modelli di avvio rapido
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui dischi gestiti in generale, vedere [questo articolo](../storage/storage-managed-disks-overview.md).
+Per altre informazioni sui dischi gestiti in generale, vedere [questo articolo](../virtual-machines/windows/managed-disks-overview.md).
 
 Per informazioni su come convertire un modello di Resource Manager per eseguire il provisioning dei set di scalabilità con i dischi gestiti, consultare [questo articolo](./virtual-machine-scale-sets-convert-template-to-md.md). Le stesse modifiche applicate ai modelli di Resource Manager si applicano anche all'API REST di Azure.
 

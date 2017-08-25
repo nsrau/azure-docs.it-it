@@ -13,7 +13,7 @@ ACU: 180-240
 | Standard_L32s* | 32 | 256  | 5,630 | 64             | ND/ND (0)          | 40.000/1.000                            | 8 / 20000 | 
  
 
-La massima velocità effettiva del disco possibile con le VM serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/storage-premium-storage.md). 
+La massima velocità effettiva del disco possibile con le VM serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/common/storage-premium-storage.md). 
 
 *L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 

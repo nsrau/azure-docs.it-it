@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Servizi cloud di Azure e ASP.NET | Documentazione Microsoft
-description: "Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. L&quot;app viene eseguita in un servizio cloud, con un ruolo Web e un ruolo di lavoro. Usa Entity Framework, il database SQL e le code e i BLOB di archiviazione di Azure."
+description: "Informazioni sulla creazione di un app a più livelli con ASP.NET MVC e Azure. L'app viene eseguita in un servizio cloud, con un ruolo Web e un ruolo di lavoro. Usa Entity Framework, il database SQL e le code e i BLOB di archiviazione di Azure."
 services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
@@ -172,7 +171,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 4. Nell'elenco a discesa **Replica** scegliere **Archiviazione con ridondanza locale**.
 
-    Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato viene replicato in un data center secondario per permettere il failover in caso di emergenza grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage/storage-create-storage-account.md).
+    Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato viene replicato in un data center secondario per permettere il failover in caso di emergenza grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage/common/storage-create-storage-account.md).
 
 5. In **Gruppo di risorse** fare clic su **Usa esistente** e selezionare il gruppo di risorse usato per il servizio cloud.
 6. Scegliere dall'elenco a discesa **Località** la stessa area geografica selezionata per il servizio cloud.

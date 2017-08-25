@@ -59,7 +59,7 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 | I dati possono essere letti dalla località secondaria e da quella primaria. |No |No |No |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
-Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks).
+Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
 
 ### <a name="storage-costs"></a>Costi di archiviazione
 I prezzi variano a seconda del tipo di archiviazione e della disponibilità selezionata.
@@ -75,7 +75,7 @@ I prezzi variano a seconda del tipo di archiviazione e della disponibilità sele
 Per informazioni sulle opzioni di disponibilità e sui prezzi dei vari tipi di archiviazione, vedere i [prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
 ## <a name="availability-sets"></a>Set di disponibilità
-Un set di disponibilità è un raggruppamento logico di macchine virtuali che permette ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando una sola VM usa [Archiviazione Premium di Azure](../articles/storage/storage-premium-storage.md), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. 
+Un set di disponibilità è un raggruppamento logico di macchine virtuali che permette ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando una sola VM usa [Archiviazione Premium di Azure](../articles/storage/common/storage-premium-storage.md), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure. 
 
 Un set di disponibilità comprende due raggruppamenti aggiuntivi che proteggono dagli errori hardware (domini di errore) e consentono di applicare gli aggiornamenti in modo sicuro (domini di aggiornamento).
 
@@ -90,7 +90,7 @@ Un dominio di errore è un raggruppamento logico di tutto l'hardware sottostante
 Un dominio di aggiornamento è un gruppo logico di hardware sottostante che può essere sottoposto a manutenzione oppure riavviato nello stesso momento. Man mano che si creano le macchine virtuali all'interno di un set di disponibilità, la piattaforma Azure le distribuisce automaticamente in questi domini di aggiornamento. Questo approccio garantisce che almeno un'istanza dell'applicazione rimanga in esecuzione durante gli interventi di manutenzione periodica della piattaforma Azure. I domini di aggiornamento non vengono necessariamente riavviati in ordine sequenziale durante la manutenzione pianificata, ma ne viene riavviato uno solo alla volta.
 
 ### <a name="managed-disk-fault-domains"></a>Domini di errore di Managed Disks
-Le VM che usano [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md) sono allineate con i domini di errore dei dischi gestiti quando si usa un set di disponibilità gestito. Questo allineamento garantisce che tutti i dischi gestiti collegati a una VM siano nello stesso dominio di errore dei dischi gestiti. In un set di disponibilità gestito possono essere create solo VM con dischi gestiti. Il numero di domini di errore dei dischi gestiti varia in base all'area: due o tre domini di errore di dischi gestiti per area.
+Le VM che usano [Azure Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md) sono allineate con i domini di errore dei dischi gestiti quando si usa un set di disponibilità gestito. Questo allineamento garantisce che tutti i dischi gestiti collegati a una VM siano nello stesso dominio di errore dei dischi gestiti. In un set di disponibilità gestito possono essere create solo VM con dischi gestiti. Il numero di domini di errore dei dischi gestiti varia in base all'area: due o tre domini di errore di dischi gestiti per area.
 
 ![Domini di errore dei dischi gestiti](./media/virtual-machines-common-manage-availability/md-fd.png)
 

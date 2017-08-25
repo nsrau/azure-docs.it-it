@@ -18,10 +18,10 @@ ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 4eb32dd18c57af8d46e7afb63047c0985458705d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fd0356286be46f99fd9ab8eabc53256103038407
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introduction-to-private-docker-container-registries"></a>Introduzione ai registri per contenitori Docker privati
@@ -49,7 +49,7 @@ Gli sviluppatori possono anche effettuare il push in un registro contenitori nel
 
 
 ## <a name="key-concepts"></a>Concetti chiave
-* **Registro**. Creare uno o più registri contenitori nella sottoscrizione di Azure. Ogni registro è supportato da un [account di archiviazione](../storage/storage-introduction.md) di Azure standard nella stessa località. Sfruttare l'archiviazione locale con prossimità di rete delle immagini contenitore creando un registro nella stessa località di Azure delle distribuzioni. Il nome completo di un registro ha il formato `myregistry.azurecr.io`.
+* **Registro**. Creare uno o più registri contenitori nella sottoscrizione di Azure. Ogni registro è supportato da un [account di archiviazione](../storage/common/storage-introduction.md) di Azure standard nella stessa località. Sfruttare l'archiviazione locale con prossimità di rete delle immagini contenitore creando un registro nella stessa località di Azure delle distribuzioni. Il nome completo di un registro ha il formato `myregistry.azurecr.io`.
 
   Per [controllare l'accesso](container-registry-authentication.md) a un registro contenitori si usa un'[entità servizio](../active-directory/active-directory-application-objects.md) supportata da Azure Active Directory o un account amministratore specificato. Per l'autenticazione al registro, eseguire il comando `docker login` standard.
 

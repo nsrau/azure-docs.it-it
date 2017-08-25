@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
@@ -46,7 +46,7 @@ Il flusso di lavoro generale seguente è proprio di quasi tutte le applicazioni 
 Le sezioni seguenti illustrano queste e altre risorse di Batch che abilitano lo scenario di calcolo distribuito.
 
 > [!NOTE]
-> Per usare il servizio Batch, è necessario un [account Batch](#account). La maggior parte delle soluzioni Batch usa anche un account di [Archiviazione di Azure][azure_storage] per il recupero e l'archiviazione dei file. Il servizio Batch supporta attualmente solo il tipo di account di archiviazione **per utilizzo generico**, come descritto nel passaggio 5 di [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+> Per usare il servizio Batch, è necessario un [account Batch](#account). La maggior parte delle soluzioni Batch usa anche un account di [Archiviazione di Azure][azure_storage] per il recupero e l'archiviazione dei file. Il servizio Batch supporta attualmente solo il tipo di account di archiviazione **per utilizzo generico**, come descritto nel passaggio 5 di [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -114,7 +114,7 @@ La tabella seguente confronta le modalità di allocazione pool di tipo Servizio 
 
 La maggior parte delle soluzioni Batch usa l'Archiviazione di Azure per archiviare i file delle risorse e i file di output.  
 
-Batch supporta attualmente solo il tipo di account di archiviazione per utilizzo generico, come descritto nel passaggio 5 di [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Le attività di Batch, incluse le attività standard, le attività di avvio, le attività di preparazione del processo e le attività di rilascio del processo, devono specificare file di risorse che si trovano negli account di archiviazione per utilizzo generico.
+Batch supporta attualmente solo il tipo di account di archiviazione per utilizzo generico, come descritto nel passaggio 5 di [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). Le attività di Batch, incluse le attività standard, le attività di avvio, le attività di preparazione del processo e le attività di rilascio del processo, devono specificare file di risorse che si trovano negli account di archiviazione per utilizzo generico.
 
 
 ## <a name="compute-node"></a>Nodo di calcolo

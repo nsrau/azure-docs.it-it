@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 8de3df11a59178b782d50b7662aa5d8cab11a260
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Introduzione all'SDK di Batch per Python
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/06/2017
 >
 >
 
-Questo articolo illustra i concetti di base relativi ad [Azure Batch][azure_batch] e al client [Python di Batch][py_azure_sdk] esaminando una piccola applicazione Batch scritta in Python. Verrà illustrato il modo in cui due script di esempio usano il servizio Batch per elaborare un carico di lavoro parallelo in macchine virtuali Linux nel cloud e come interagiscono con [Archiviazione di Azure](../storage/storage-introduction.md) per lo staging e il recupero di file. Saranno disponibili informazioni su un flusso di lavoro comune dell'applicazione Batch e sui principali componenti di Batch, ad esempio processi, attività, pool e nodi di calcolo.
+Questo articolo illustra i concetti di base relativi ad [Azure Batch][azure_batch] e al client [Python di Batch][py_azure_sdk] esaminando una piccola applicazione Batch scritta in Python. Verrà illustrato il modo in cui due script di esempio usano il servizio Batch per elaborare un carico di lavoro parallelo in macchine virtuali Linux nel cloud e come interagiscono con [Archiviazione di Azure](../storage/common/storage-introduction.md) per lo staging e il recupero di file. Saranno disponibili informazioni su un flusso di lavoro comune dell'applicazione Batch e sui principali componenti di Batch, ad esempio processi, attività, pool e nodi di calcolo.
 
 ![Flusso di lavoro della soluzione Batch (di base)][11]<br/>
 
@@ -42,7 +41,7 @@ Questo articolo presuppone che l'utente sappia usare Python e Linux e possa sodd
 ### <a name="accounts"></a>Account
 * **Account Azure**: se non si ha già una sottoscrizione di Azure, [creare un account Azure gratuito][azure_free_account].
 * **Account Batch**: dopo aver creato una sottoscrizione di Azure, [creare un account Azure Batch](batch-account-create-portal.md).
-* **Account di archiviazione**: vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+* **Account di archiviazione**: vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
 
 ### <a name="code-sample"></a>Esempio di codice
 L'[esempio di codice][github_article_samples] Python usato nell'esercitazione è uno dei molti esempi di codice Batch disponibili nel repository [azure-batch-samples][github_samples] in GitHub. È possibile scaricare tutti gli esempi facendo clic su **Clone or download > Download ZIP** (Clona o scarica > Scarica ZIP) nella home page del repository oppure facendo clic sul collegamento di download diretto [azure-batch-samples-master.zip][github_samples_zip]. Dopo aver estratto il contenuto del file ZIP, i due script per questa esercitazione sono disponibili nella directory `article_samples` :
@@ -153,7 +152,7 @@ if __name__ == '__main__':
 ![Creare contenitori in Archiviazione di Azure][1]
 <br/>
 
-Batch include il supporto predefinito per l'interazione con Archiviazione di Azure. I contenitori nell'account di archiviazione forniranno i file necessari per le attività eseguite nell'account Batch, oltre a una posizione in cui archiviare i dati di output prodotti. La prima operazione eseguita dallo script *python_tutorial_client.py* consiste nel creare tre contenitori nell'[archivio BLOB di Azure](../storage/storage-introduction.md#blob-storage):
+Batch include il supporto predefinito per l'interazione con Archiviazione di Azure. I contenitori nell'account di archiviazione forniranno i file necessari per le attività eseguite nell'account Batch, oltre a una posizione in cui archiviare i dati di output prodotti. La prima operazione eseguita dallo script *python_tutorial_client.py* consiste nel creare tre contenitori nell'[archivio BLOB di Azure](../storage/common/storage-introduction.md#blob-storage):
 
 * **application**: in questo contenitore verrà archiviato lo script Python eseguito dalle attività, *python_tutorial_task.py*.
 * **input**: le attività scaricheranno i file di dati da elaborare dal contenitore *input* .
@@ -183,7 +182,7 @@ blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 Dopo la creazione dei contenitori, l'applicazione può caricare i file che verranno usati dalle attività.
 
 > [!TIP]
-> [Come usare l'archiviazione BLOB di Azure da Python](../storage/storage-python-how-to-use-blob-storage.md) offre utili informazioni generali sull'uso dei contenitori e dei BLOB di Archiviazione di Azure, quindi è consigliabile prenderne visione quando si inizia a usare Batch.
+> [Come usare l'archiviazione BLOB di Azure da Python](../storage/blobs/storage-python-how-to-use-blob-storage.md) offre utili informazioni generali sull'uso dei contenitori e dei BLOB di Archiviazione di Azure, quindi è consigliabile prenderne visione quando si inizia a usare Batch.
 >
 >
 
@@ -277,7 +276,7 @@ Le firme di accesso condiviso sono stringhe che consentono l'accesso sicuro a co
 * **Firma di accesso condiviso per contenitori**: quando completa le operazioni sul nodo di calcolo, ogni attività carica il rispettivo file di output nel contenitore *output* in Archiviazione di Azure. A tale scopo, *python_tutorial_task.py* usa una firma di accesso condiviso del contenitore che fornisce l'accesso in scrittura al contenitore stesso. La funzione `get_container_sas_token` in *python_tutorial_client.py* ottiene la firma di accesso condiviso del contenitore, che viene quindi passata alle attività come argomento della riga di comando. Il passaggio 5, [Aggiungere attività a un processo](#step-5-add-tasks-to-job), illustra l'utilizzo della firma di accesso condiviso del contenitore.
 
 > [!TIP]
-> Per altre informazioni su come fornire un accesso sicuro ai dati nell'account di archiviazione, vedere la serie in due parti sulle firme di accesso condiviso, [Parte 1: Informazioni sul modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> Per altre informazioni su come fornire un accesso sicuro ai dati nell'account di archiviazione, vedere la serie in due parti sulle firme di accesso condiviso, [Parte 1: Informazioni sul modello di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) e [Parte 2: Creare e usare una firma di accesso condiviso con il servizio BLOB](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md).
 >
 >
 

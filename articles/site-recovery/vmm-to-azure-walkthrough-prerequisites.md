@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 87a5d721ca785329b407d31126bd0b211b17ccf3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47c178c66ec98fe5d333edd725b64465026e73ed
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +33,7 @@ Dopo aver esaminato l'[architettura dello scenario](vmm-to-azure-walkthrough-arc
 **Requisito** | **Dettagli**
 --- | ---
 **Account di Azure** | È necessario un account [Microsoft Azure](http://azure.microsoft.com/).
-**Archiviazione di Azure** | Per archiviare i dati replicati è necessario un account di archiviazione di Azure.<br/><br/> L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino di Azure.<br/><br/>È possibile usare l'[archiviazione con ridondanza geografica](../storage/storage-redundancy.md#geo-redundant-storage) o locale. È consigliabile usare l'archiviazione con ridondanza geografica, che permette di garantire una maggiore resilienza dei dati in caso di interruzione del servizio a livello di area o se non è possibile ripristinare l'area primaria.<br/><br/> È possibile usare un account di archiviazione Standard di Azure oppure [Archiviazione Premium](../storage/storage-premium-storage.md) di Azure. Archiviazione Premium può ospitare carichi di lavoro con I/O elevato e viene in genere usata per le macchine virtuali che richiedono un livello di prestazioni di I/O costantemente elevato e bassa latenza. Se si usa Archiviazione Premium per i dati replicati, è necessario anche un account di archiviazione Standard. Quest'ultimo permette di archiviare i log di replica in cui vengono acquisite le modifiche in corso ai dati locali.
+**Archiviazione di Azure** | Per archiviare i dati replicati è necessario un account di archiviazione di Azure.<br/><br/> L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino di Azure.<br/><br/>È possibile usare l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage) o locale. È consigliabile usare l'archiviazione con ridondanza geografica, che permette di garantire una maggiore resilienza dei dati in caso di interruzione del servizio a livello di area o se non è possibile ripristinare l'area primaria.<br/><br/> È possibile usare un account di archiviazione Standard di Azure oppure [Archiviazione Premium](../storage/common/storage-premium-storage.md) di Azure. Archiviazione Premium può ospitare carichi di lavoro con I/O elevato e viene in genere usata per le macchine virtuali che richiedono un livello di prestazioni di I/O costantemente elevato e bassa latenza. Se si usa Archiviazione Premium per i dati replicati, è necessario anche un account di archiviazione Standard. Quest'ultimo permette di archiviare i log di replica in cui vengono acquisite le modifiche in corso ai dati locali.
 **Rete di Azure** | È necessaria una [rete di Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md) a cui le macchine virtuali di Azure possano connettersi dopo il failover. La rete di Azure deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 **Server VMM locali** | È necessario avere a disposizione uno o più server VMM che eseguono System Center 2012 R2 o versioni successive.<br/><br/> Ogni server VMM deve avere uno o più cloud privati. Ogni cloud deve avere uno o più gruppi host.<br/><br/> Il server VMM deve avere accesso a Internet.
 **Hyper-V locale** | I server host Hyper-V devono eseguire almeno Windows Server 2012 R2 con il ruolo Hyper-V abilitato o Microsoft Hyper-V Server 2012 R2, con gli ultimi aggiornamenti installati.<br/><br/> L'host Hyper-V deve trovarsi in un gruppo host VMM, in un cloud VMM.<br/><br/> Un host deve avere una o più macchine virtuali da replicare.<br/><br/> Gli host Hyper-V devono essere connessi a Internet per la replica in Azure, direttamente o con un proxy. I server Hyper-V devono avere le correzioni specificate nell'articolo [2961977](https://support.microsoft.com/kb/2961977).

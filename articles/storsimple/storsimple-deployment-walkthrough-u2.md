@@ -1,6 +1,6 @@
 ---
 title: Distribuire il dispositivo StorSimple (Aggiornamento 2) | Documentazione Microsoft
-description: Descrive i passaggi e le procedure consigliate per la distribuzione dell&quot;aggiornamento 2 del servizio e del dispositivo StorSimple.
+description: Descrive i passaggi e le procedure consigliate per la distribuzione dell'aggiornamento 2 del servizio e del dispositivo StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
-ms.openlocfilehash: f71c7e080b2c0b382f241d55b9ca0c7507c24a88
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3286db40856c9f0eb2564c01f1483870952a19e6
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-2"></a>Distribuire un dispositivo StorSimple locale (Aggiornamento 2)
@@ -177,7 +178,7 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un backup pianif
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurare un nuovo account di archiviazione per il servizio
 Si tratta di un passaggio che è necessario eseguire solo se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio. Per creare un contenitore di volumi di StorSimple, è necessario un account di archiviazione di Microsoft Azure.
 
-Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md) per istruzioni dettagliate.
+Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md) per istruzioni dettagliate.
 
 Eseguire i passaggi seguenti nel portale di gestione, nella pagina del **servizio StorSimple Manager** .
 
@@ -220,10 +221,5 @@ Eseguire i passaggi seguenti nel portale di gestione per creare un backup manual
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare un [dispositivo virtuale](storsimple-virtual-device-u2.md).
 * Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

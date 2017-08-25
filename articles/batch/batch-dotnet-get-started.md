@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Iniziare a creare soluzioni con la libreria di client Batch per .NET
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 >
 >
 
-Questo articolo consente di apprendere le nozioni di base di [Azure Batch][azure_batch] e della libreria di [Batch .NET][net_api] esaminando nel dettaglio un'applicazione C# di esempio. Viene illustrato come questa applicazione di esempio usa il servizio Batch per elaborare un carico di lavoro parallelo nel cloud e come interagisce con [Archiviazione di Azure](../storage/storage-introduction.md) per la gestione temporanea e il recupero di file. Saranno disponibili informazioni su un flusso di lavoro comune dell'applicazione Batch e sui principali componenti di Batch, ad esempio processi, attività, pool e nodi di calcolo.
+Questo articolo consente di apprendere le nozioni di base di [Azure Batch][azure_batch] e della libreria di [Batch .NET][net_api] esaminando nel dettaglio un'applicazione C# di esempio. Viene illustrato come questa applicazione di esempio usa il servizio Batch per elaborare un carico di lavoro parallelo nel cloud e come interagisce con [Archiviazione di Azure](../storage/common/storage-introduction.md) per la gestione temporanea e il recupero di file. Saranno disponibili informazioni su un flusso di lavoro comune dell'applicazione Batch e sui principali componenti di Batch, ad esempio processi, attività, pool e nodi di calcolo.
 
 ![Flusso di lavoro della soluzione Batch (di base)][11]<br/>
 
@@ -41,10 +41,10 @@ Questo articolo presuppone che si sia in grado di usare C# e Visual Studio e di 
 ### <a name="accounts"></a>Account
 * **Account Azure**: se non si ha già una sottoscrizione di Azure, [creare un account Azure gratuito][azure_free_account].
 * **Account Batch**: dopo aver creato una sottoscrizione di Azure, [creare un account Azure Batch](batch-account-create-portal.md).
-* **Account di archiviazione**: vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+* **Account di archiviazione**: vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
-> Batch supporta attualmente *solo* account di archiviazione **per utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) dell'articolo [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+> Batch supporta attualmente *solo* account di archiviazione **per utilizzo generico**, come descritto nel passaggio 5 [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) dell'articolo [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
 >
 >
 
@@ -128,7 +128,7 @@ Passare all'inizio del metodo `MainAsync` nel file `Program.cs` del progetto *Do
 ![Creare contenitori in Archiviazione di Azure][1]
 <br/>
 
-Batch include il supporto predefinito per l'interazione con Archiviazione di Azure. I contenitori nell'account di archiviazione forniranno i file necessari per le attività eseguite nell'account Batch, oltre a una posizione in cui archiviare i dati di output prodotti. La prima operazione eseguita dall'applicazione client *DotNetTutorial* è la creazione di tre contenitori nell'[archivio BLOB di Azure](../storage/storage-introduction.md):
+Batch include il supporto predefinito per l'interazione con Archiviazione di Azure. I contenitori nell'account di archiviazione forniranno i file necessari per le attività eseguite nell'account Batch, oltre a una posizione in cui archiviare i dati di output prodotti. La prima operazione eseguita dall'applicazione client *DotNetTutorial* è la creazione di tre contenitori nell'[archivio BLOB di Azure](../storage/common/storage-introduction.md):
 
 * **application**: in questo contenitore verranno archiviate l'applicazione eseguita dalle attività e le eventuali dipendenze, ad esempio le DLL.
 * **input**: le attività scaricheranno i file di dati da elaborare dal contenitore *input* .
@@ -188,7 +188,7 @@ private static async Task CreateContainerIfNotExistAsync(
 Dopo la creazione dei contenitori, l'applicazione può caricare i file che verranno usati dalle attività.
 
 > [!TIP]
-> [Come usare l'archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md) offre utili informazioni generali sull'uso dei contenitori e dei BLOB di Archiviazione di Azure, quindi è consigliabile prenderne visione quando si inizia a usare Batch.
+> [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) offre utili informazioni generali sull'uso dei contenitori e dei BLOB di Archiviazione di Azure, quindi è consigliabile prenderne visione quando si inizia a usare Batch.
 >
 >
 
@@ -286,7 +286,7 @@ Le firme di accesso condiviso sono stringhe che, se incluse come parte di un URL
 * **Firme di accesso condiviso di contenitori**: quando completa le operazioni sul nodo di calcolo, ogni attività carica il rispettivo file di output nel contenitore *output* in Archiviazione di Azure. A questo scopo, TaskApplication usa una firma di accesso condiviso del contenitore che fornisce l'accesso in scrittura al contenitore come parte del percorso durante il caricamento del file. Il recupero della firma di accesso condiviso del contenitore viene eseguito in modo analogo al recupero della firma di accesso condiviso del BLOB. In DotNetTutorial si noterà che il metodo helper `GetContainerSasUrl` chiama a tale scopo [CloudBlobContainer.GetSharedAccessSignature][net_sas_container]. Altre informazioni sul modo in cui TaskApplication usa la firma di accesso condiviso del contenitore sono disponibili più avanti nel "Passaggio 6: Monitorare le attività".
 
 > [!TIP]
-> Per altre informazioni su come fornire l'accesso sicuro ai dati nell'account di archiviazione, vedere la serie in due parti sulle firme di accesso condiviso [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) e [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> Per altre informazioni su come fornire l'accesso sicuro ai dati nell'account di archiviazione, vedere la serie in due parti sulle firme di accesso condiviso [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) e [Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md).
 >
 >
 

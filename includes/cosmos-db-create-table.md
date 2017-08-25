@@ -10,6 +10,5 @@
     ID tabella|sample-table|ID della nuova tabella. I nomi delle tabelle presentano gli stessi requisiti relativi ai caratteri degli ID di database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali.
     Capacità di archiviazione| 10 GB|Lasciare il valore predefinito. Indica la capacità di archiviazione del database.
     Velocità effettiva|400 UR/s|Lasciare il valore predefinito. È possibile aumentare la [velocità effettiva](../articles/cosmos-db/request-units.md) in un secondo momento se si vuole ridurre la latenza.
-    UR/min|Off|Usare il valore predefinito.
 
 3. Dopo aver compilato il modulo, fare clic su **OK**.
