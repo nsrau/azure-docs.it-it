@@ -1,6 +1,6 @@
 ---
-title: "Disponibilità e coerenza nell&quot;Hub eventi di Azure | Microsoft Docs"
-description: "Come fornire la quantità massima di disponibilità e coerenza con l&quot;Hub eventi di Azure usando le partizioni."
+title: "Disponibilità e coerenza nell'Hub eventi di Azure | Microsoft Docs"
+description: "Come fornire la quantità massima di disponibilità e coerenza con l'Hub eventi di Azure usando le partizioni."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: bbc81a89f3be7b04c7a9e347ac1dae007515b042
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 681a9d1636d547492f6f827461c6b2494b918778
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -28,7 +27,7 @@ ms.lasthandoff: 05/16/2017
 ## <a name="overview"></a>Panoramica
 Hub eventi di Azure usa un [modello di partizionamento](event-hubs-features.md#partitions) per migliorare la disponibilità e la parallelizzazione all'interno di un singolo hub eventi. Se ad esempio un hub eventi include quattro partizioni e una di queste partizioni viene spostata da un server a un altro in un'operazione di bilanciamento del carico, è comunque possibile inviare e ricevere dalle altre tre partizioni. Più partizioni consentono anche di avere più lettori simultaneamente che elaborano i dati, migliorando la velocità effettiva di aggregazione. Comprendere le implicazioni del partizionamento e dell'ordinamento in un sistema distribuito è un aspetto critico della progettazione di una soluzione.
 
-Per spiegare il compromesso tra ordinamento e disponibilità, vedere il [teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), noto anche come Teorema di Brewer. Il teorema discute la scelta tra coerenza, disponibilità e tolleranza di partizione.
+Per spiegare il compromesso tra ordinamento e disponibilità, vedere il [teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), noto anche come teorema di Brewer. Il teorema discute la scelta tra coerenza, disponibilità e tolleranza di partizione.
 
 Il teorema di Brewer definisce coerenza e disponibilità come segue:
 * Tolleranza di partizione: la capacità di un sistema di elaborazione dei dati di continuare l'elaborazione dei dati anche se si verifica un errore della partizione.

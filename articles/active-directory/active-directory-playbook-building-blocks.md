@@ -1,5 +1,4 @@
 ---
-
 title: Blocchi predefiniti del playbook dei modelli di verifica di Azure Active Directory | Microsoft Docs
 description: "Esplorare e implementare rapidamente gli scenari di Gestione delle identità e degli accessi"
 services: active-directory
@@ -15,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 671f2d386aca23bc5c02d0e0ab23e6d9d79a8693
 ms.contentlocale: it-it
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
@@ -77,7 +75,7 @@ Tempo di completamento approssimativo: un'ora per meno di 1.000 utenti dei model
 1. Esaminare le considerazioni sulla sicurezza della sincronizzazione degli hash delle password [qui](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Se la sincronizzazione degli hash delle password per gli utenti di produzione pilota non può essere assolutamente usata, considerare le seguenti alternative:
    * Creare utenti test nel dominio di produzione. Assicurarsi di non sincronizzare altri account
    * Passare a un ambiente UAT
-2.    Se si vuole procedere con la federazione, è importante capire quali sono i costi associati a una soluzione federativa con un provider di identità locale oltre il modello di verifica e valutarli in relazione ai vantaggi che si sta cercando:
+2.  Se si vuole procedere con la federazione, è importante capire quali sono i costi associati a una soluzione federativa con un provider di identità locale oltre il modello di verifica e valutarli in relazione ai vantaggi che si sta cercando:
     * È nel percorso critico quindi è necessaria la progettazione per un'elevata disponibilità
     * È un servizio locale per cui è necessaria la pianificazione della capacità
     * È un servizio locale che è necessario monitorare, gestire, aggiornare con patch
@@ -102,7 +100,7 @@ Tempo previsto per il completamento: 15 minuti
 | Passaggio | Risorse |
 | --- | --- |
 | Accedere al portale di gestione di Azure AD | [Portale di gestione di Azure AD - Informazioni personalizzate distintive dell'azienda](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Caricare le risorse per la pagina di accesso (logo alto, logo piccolo, etichette e così via). Facoltativamente, se si usa AD FS, allineare le stesse risorse con le pagine di accesso di AD FS | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso: elementi personalizzabili](active-directory-add-company-branding.md#customizable-elements) |
+| Caricare le risorse per la pagina di accesso (logo alto, logo piccolo, etichette e così via). Facoltativamente, se si usa AD FS, allineare le stesse risorse con le pagine di accesso di AD FS | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso: elementi personalizzabili](active-directory-add-company-branding.md) |
 | Attendere un paio di minuti che la modifica diventi effettiva |  |
 | Accedere con le credenziali utente del modello di verifica a https://myapps.microsoft.com |  |
 | Verificare l'aspetto nel browser | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](active-directory-add-company-branding.md) |
@@ -487,7 +485,7 @@ Tempo previsto per il completamento: 15 minuti
 | Si noti che se GA2 non si è mai registrato per l'autenticazione a più fattori, sarà necessaria la registrazione per Azure MFA |  |
 | Tornare alla scheda originale del passaggio 3 e fare clic sul pulsante di aggiornamento nel browser. Si noti che ora si ha accesso alle impostazioni utente per la modifica | |
 | Facoltativamente, se gli amministratori globali hanno abilitato la posta elettronica, è possibile controllare la posta in arrivo di GA1 e GA2 e vedere la notifica dell'attivazione del ruolo |  |
-| 8  Controllare la cronologia di controllo e osservare il report per verificare se è visualizzata l'elevazione di GA2. | [Che cos'è Azure AD Privileged Identity Management?: Verificare l'attività del ruolo](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| Controllare la cronologia di controllo e osservare il report per verificare se è visualizzata l'elevazione di GA2. | [Che cos'è Azure AD Privileged Identity Management?: Verificare l'attività del ruolo](active-directory-privileged-identity-management-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>Considerazioni
 

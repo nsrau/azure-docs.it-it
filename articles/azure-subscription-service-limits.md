@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: a54d38948ee5a752297167c7f4435e52b5dbb27f
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 9c2a5531592591fcd90019a9c0b561566ccbe54a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -52,6 +52,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Gateway applicazione](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automazione](#automation-limits)
+* [Griglia di eventi di Azure](#azure-event-grid-limits)
 * [Cache Redis di Azure](#azure-redis-cache-limits)
 * [Azure RemoteApp](#azure-remoteapp-limits)
 * [Backup](#backup-limits)
@@ -243,6 +244,9 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 
 ### <a name="active-directory-limits"></a>Limiti relativi ad Active Directory
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
+
+### <a name="azure-event-grid-limits"></a>Limiti relativi a Griglia di eventi di Azure
+[!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
 ### <a name="azure-remoteapp-limits"></a>Limiti relativi a RemoteApp di Azure
 [!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]

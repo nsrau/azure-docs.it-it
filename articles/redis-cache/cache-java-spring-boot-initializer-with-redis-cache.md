@@ -1,6 +1,6 @@
 ---
 title: Come configurare un'app Spring Boot Initializer per l'uso della cache Redis
-description: Informazioni su come configurare un'applicazione creata con Spring Boot Initializer per l'uso della cache Redis di Azure.
+description: Informazioni su come configurare un'applicazione Spring Boot creata con Spring Initializr per l'uso di Cache Redis di Azure.
 services: redis-cache
 documentationcenter: java
 author: rmcmurray
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/21/2017
 ms.author: robmcm;zhijzhao;yidon
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ea85a9cfe7079ade33a437987798a165a056dc02
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: fb3fc96a2136b7c326bb0eb291b7204e7acf0190
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="overview"></a>Panoramica
 
-**[Spring Framework]**  è una soluzione open source che consente agli sviluppatori Java di creare applicazioni di livello enterprise. Uno dei progetti più comuni che si basa su questa piattaforma è [Spring Boot], che fornisce un approccio semplificato per la creazione di applicazioni Java autonome. Per semplificare le operazioni iniziali con Spring Boot per gli sviluppatori, alcuni pacchetti Spring Boot di esempio sono disponibili in <https://github.com/spring-guides/>. Oltre a consentire di scegliere dall'elenco di progetti Spring Boot di base, **[Spring Initializr]** semplifica le operazioni iniziali degli sviluppatori per la creazione di applicazioni Spring Boot personalizzate.
+**[Spring Framework]**  è una soluzione open source che consente agli sviluppatori Java di creare applicazioni di livello enterprise. Uno dei progetti più comuni che si basa su questa piattaforma è [Spring Boot], che fornisce un approccio semplificato per la creazione di applicazioni Java autonome. Per semplificare le operazioni iniziali con Spring Boot per gli sviluppatori, alcuni pacchetti Spring Boot di esempio sono disponibili all'indirizzo <https://github.com/spring-guides/>. Oltre a consentire di scegliere dall'elenco di progetti Spring Boot di base, **[Spring Initializr]** semplifica le operazioni iniziali degli sviluppatori per la creazione di applicazioni Spring Boot personalizzate.
 
 Questo articolo illustra in modo dettagliato come creare una cache Redis tramite il portale di Azure, come usare **Spring Initializr** per creare un'applicazione personalizzata e quindi come creare un'applicazione Web Java che archivia e recupera dati tramite la cache Redis.
 
@@ -37,7 +37,7 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 
 * Sottoscrizione di Azure; se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN] oppure iscriversi per ottenere un [account Azure gratuito].
 
-* [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), versione 1.7 o versione successiva.
+* [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/) versione 1.7 o successiva.
 
 * [Apache Maven](http://maven.apache.org/), versione 3.0 o versione successiva.
 
@@ -51,15 +51,15 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 
    ![Portale di Azure][AZ02]
 
-1. Nel pannello **Nuova cache Redis** immettere il **Nome DNS** per la cache, quindi specificare i valori per **Sottoscrizione**, **Gruppo di risorse **, **Posizione** e **Piano tariffario**. Dopo avere specificato queste opzioni, fare clic su **Crea** per creare la cache.
+1. Nella pagina **Nuova cache Redis** immettere il valore di **Nome DNS** per la cache e quindi specificare **Sottoscrizione**, **Gruppo di risorse**, **Località** e **Piano tariffario**. Dopo avere specificato queste opzioni, fare clic su **Crea** per creare la cache.
 
    ![Portale di Azure][AZ03]
 
-1. Quando la cache è stata creata, verrà elencata nel **Dashboard** di Azure, oltre che nei pannelli **Tutte le risorse** e **Caches Redis**. È possibile selezionare la cache in una di queste posizioni per aprire il pannello delle proprietà per la cache.
+1. Al termine, la cache verrà elencata nel **dashboard** di Azure, nonché nelle pagine **Tutte le risorse** e **Caches Redis**. È possibile fare clic sulla cache in una di queste posizioni per aprire la pagina delle proprietà per la cache.
 
    ![Portale di Azure][AZ04]
 
-1. Quando viene visualizzato il pannello contenente l'elenco di proprietà per la cache, fare clic su **Chiavi di accesso** e copiare le chiavi di accesso per la cache.
+1. Quando viene visualizzata la pagina contenente l'elenco delle proprietà della cache, fare clic su **Chiavi di accesso** e copiare le chiavi di accesso per la cache.
 
    ![Portale di Azure][AZ05]
 
@@ -98,10 +98,13 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 
    ```yaml
    # Specify the DNS URI of your Redis cache.
-   spring.redisHost=myspringbootcache.redis.cache.windows.net
+   spring.redis.host=myspringbootcache.redis.cache.windows.net
+
+   # Specify the port for your Redis cache.
+   spring.redis.port=6380
 
    # Specify the access key for your Redis cache.
-   spring.redisPassword=447564652c20426f6220526f636b7321
+   spring.redis.password=57686f6120447564652c2049495320526f636b73=
    ```
 
    ![Modifica del file application.properties][RE02]
@@ -116,7 +119,7 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 
    `/users/example/home/myazuredemo/src/main/java/com/contoso/myazuredemo/controller`
 
-1. Creare un file denominato *HelloController.java* nella cartella *controller* appena creata, quindi aggiungere il codice seguente al file:
+1. Creare un nuovo file denominato *HelloController.java* nella cartella *controller*. Aprire il file in un editor di testo e aggiungere il codice seguente:
 
    ```java
    package com.contoso.myazuredemo;
@@ -131,11 +134,15 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
    public class HelloController {
    
       // Retrieve the DNS name for your cache.
-      @Value("${spring.redisHost}")
+      @Value("${spring.redis.host}")
       private String redisHost;
 
+      // Retrieve the port for your cache.
+      @Value("${spring.redis.port}")
+      private int redisPort;
+
       // Retrieve the access key for your cache.
-      @Value("${spring.redisPassword}")
+      @Value("${spring.redis.password}")
       private String redisPassword;
 
       @RequestMapping("/")
@@ -143,7 +150,7 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
       public String hello() {
       
          // Create a JedisShardInfo object to connect to your Redis cache.
-         JedisShardInfo jedisShardInfo = new JedisShardInfo(redisHost, 6380, true);
+         JedisShardInfo jedisShardInfo = new JedisShardInfo(redisHost, redisPort, true);
          // Specify your access key.
          jedisShardInfo.setPassword(redisPassword);
          // Create a Jedis object to store/retrieve information from your cache.
@@ -165,8 +172,8 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 1. Compilare l'applicazione Spring Boot con Maven ed eseguirla, ad esempio:
 
    ```shell
-   mvn package
-   java -jar target/myazuredemo-0.0.1-SNAPSHOT.jar
+   mvn clean package
+   mvn spring-boot:run
    ```
 
 1. Testare l'app Web passando a http://localhost:8080 tramite un Web browser o usare una sintassi simile all'esempio seguente, se si hanno curl disponibili:

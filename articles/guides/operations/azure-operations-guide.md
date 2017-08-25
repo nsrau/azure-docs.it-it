@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: a9dfb0af80ef018e5e655e6e5c78fb0b7e426794
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3440c350d50e3344f0b220ca3d8de6369bc824a4
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -452,7 +452,7 @@ Analogamente, è possibile usare l'interfaccia della riga di comando di Azure pe
 
 **Dischi delle macchine virtuali**
 
-Quando si distribuisce una macchina virtuale, è necessario creare anche un account di archiviazione per il disco del sistema operativo della macchina virtuale e per eventuali dischi dati aggiuntivi. È possibile selezionare un account di archiviazione esistente o crearne uno nuovo. Poiché la dimensione massima di un BLOB è di 1.024 GB, un disco di macchina virtuale singolo può avere una dimensione massima di 1.023 GB. Per configurare un disco dati di maggiori dimensioni, è possibile esporre più dischi dati alla macchina virtuale e riunirli in un pool sotto forma di disco logico singolo. Per altre informazioni, vedere "Linee guida per l'infrastruttura di archiviazione" per [Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md) e [Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md).
+Quando si distribuisce una macchina virtuale, è necessario creare anche un account di archiviazione per il disco del sistema operativo della macchina virtuale e per eventuali dischi dati aggiuntivi. È possibile selezionare un account di archiviazione esistente o crearne uno nuovo. Poiché la dimensione massima di un BLOB è di 1.024 GB, un disco di macchina virtuale singolo può avere una dimensione massima di 1.023 GB. Per configurare un disco dati di maggiori dimensioni, è possibile esporre più dischi dati alla macchina virtuale e riunirli in un pool sotto forma di disco logico singolo. Per altre informazioni, vedere gli articoli relativi alla gestione dei dischi di Azure per [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) e [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 **Strumenti di archiviazione**
 

@@ -1,6 +1,6 @@
 ---
 title: 'Pubblicare app client native: Azure AD | Microsoft Docs'
-description: Illustra come abilitare la comunicazione tra le app client native e il connettore del proxy di applicazione di Azure AD per consentire l&quot;accesso remoto sicuro alle app locali.
+description: Illustra come abilitare la comunicazione tra le app client native e il connettore del proxy di applicazione di Azure AD per consentire l'accesso remoto sicuro alle app locali.
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -12,17 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 08/11/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 24396f7c82bcc0fb076c4fceca0ec4b0963d36e8
+ms.reviewer: 
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: de6dec5a19380170a69e361b063d7ed0f7117795
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
-# <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Come abilitare le app client native per l'interazione con le applicazioni proxy
+# <a name="how-to-enable-native-client-apps-to-interact-with-proxy-ppplications"></a>Come abilitare le app client native per l'interazione con applicazioni proxy
+
+>[!NOTE]
+>Questo articolo si applica solo al portale di Azure classico, che sta per essere ritirato. È consigliabile usare il [portale di Azure](https://portal.azure.com). Nel portale di Azure le app del proxy di applicazione hanno le stesse funzionalità di accesso condizionale di qualsiasi altra app SaaS. Per altre informazioni sull'accesso condizionale, vedere [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+
 Il proxy di applicazione di Azure Active Directory è ampiamente usato per pubblicare applicazioni browser come SharePoint, Outlook Web Access e applicazioni line-of-business personalizzate. Può essere usato anche per pubblicare app client native, che differiscono dalle app Web perché vengono installate in un dispositivo. A tale scopo, è necessario il supporto di token di Azure AD inviati in intestazioni HTTP Authorize standard.
 
 ![Relazione tra utenti finali, Azure Active Directory e applicazioni pubblicate](./media/active-directory-application-proxy-native-client/richclientflow.png)

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 05/15/2017
 ms.author: sdanie
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c758aa5955362d04abf69c760d2aed7983cdf102
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 59d46990e02c0719d2b4df01e216a97fd649c509
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure
@@ -109,31 +109,31 @@ Vi sono sette requisiti delle porte in uscita.
 - Tre delle porte instradano il traffico a endpoint di Azure che servono Archiviazione di Azure e Azure DNS.
 - Gli intervalli di porte rimanenti sono destinati alle comunicazioni interne subnet di Redis. Per le comunicazioni subnet interne di Redis non è richiesta alcuna regola NSG subnet.
 
-| Porte | Direzione | Protocollo di trasporto | Scopo | IP remoto |
-| --- | --- | --- | --- | --- |
-| 80, 443 |In uscita |TCP |Dipendenze Redis in Archiviazione di Azure/PKI (Internet) |* |
-| 53 |In uscita |TCP/UDP |Dipendenze Redis nel DNS (Internet/rete virtuale) |* |
-| 8443 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |
-| 10221-10231 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |
-| 20226 |In uscita |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
-| 13000-13999 |In uscita |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
-| 15000-15999 |In uscita |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
+| Porte | Direzione | Protocollo di trasporto | Scopo | IP locale | IP remoto |
+| --- | --- | --- | --- | --- | --- |
+| 80, 443 |In uscita |TCP |Dipendenze Redis in Archiviazione di Azure/PKI (Internet) | (Subnet Redis) |* |
+| 53 |In uscita |TCP/UDP |Dipendenze Redis nel DNS (Internet/rete virtuale) | (Subnet Redis) |* |
+| 8443 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) | (Subnet Redis) |
+| 10221-10231 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) | (Subnet Redis) |
+| 20226 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
+| 13000-13999 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
+| 15000-15999 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 
 
 ### <a name="inbound-port-requirements"></a>Requisiti delle porte in ingresso
 
 Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in questi intervalli provengono da altri servizi ospitati nella stessa VNET o sono interne alle comunicazioni subnet di Redis.
 
-| Porte | Direzione | Protocollo di trasporto | Scopo | IP remoto |
-| --- | --- | --- | --- | --- |
-| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure |Rete virtuale, Bilanciamento carico di Azure |
-| 8443 |In ingresso |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
-| 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure |Azure Load Balancer |
-| 10221-10231 |In ingresso |TCP |Comunicazioni interne per Redis |(Subnet Redis), bilanciamento del carico di Azure |
-| 13000-13999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure |Rete virtuale, Bilanciamento carico di Azure |
-| 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure |Rete virtuale, Bilanciamento carico di Azure |
-| 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure |Azure Load Balancer |
-| 20226 |In ingresso |TCP |Comunicazioni interne per Redis |(Subnet Redis) |
+| Porte | Direzione | Protocollo di trasporto | Scopo | IP locale | IP remoto |
+| --- | --- | --- | --- | --- | --- |
+| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) |Rete virtuale, Bilanciamento carico di Azure |
+| 8443 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
+| 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
+| 10221-10231 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis), bilanciamento del carico di Azure |
+| 13000-13999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | (Subnet Redis) |Rete virtuale, Bilanciamento carico di Azure |
+| 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | (Subnet Redis) |Rete virtuale, Bilanciamento carico di Azure |
+| 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
+| 20226 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 
 ### <a name="additional-vnet-network-connectivity-requirements"></a>Ulteriori requisiti di connettività della rete VNET
 

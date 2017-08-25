@@ -11,16 +11,17 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: d0e56fb385c4997bd1a14d1afed0af7a38181b22
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 4248a3769ba8a0fb067b3904d55d487fe67e5778
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -116,11 +117,14 @@ Per definire i volumi da rendere disponibili per il montaggio, aggiungere una ma
         "properties": {
           "image": "seanmckenna/aci-hellofiles",
           "resources": {
-            "request": {
+            "requests": {
               "cpu": 1,
               "memoryInGb": 1.5
             }
           },
+          "ports": [{
+            "port": 80
+          }],
           "volumeMounts": [{
             "name": "myvolume",
             "mountPath": "/aci/logs/"
@@ -128,12 +132,19 @@ Per definire i volumi da rendere disponibili per il montaggio, aggiungere una ma
         }  
       }],
       "osType": "Linux",
+      "ipAddress": {
+        "type": "Public",
+        "ports": [{
+          "protocol": "tcp",
+          "port": "80"
+        }]
+      },
       "volumes": [{
         "name": "myvolume",
         "azureFile": {
-            "shareName": "acishare",
-            "storageAccountName": "[parameters('storageaccountname')]",
-            "storageAccountKey": "[parameters('storageaccountkey')]"
+          "shareName": "acishare",
+          "storageAccountName": "[parameters('storageaccountname')]",
+          "storageAccountKey": "[parameters('storageaccountkey')]"
         }
       }]
     }
@@ -179,7 +190,13 @@ Con il modello definito, è possibile creare il contenitore e montarne il volume
 az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
 ```
 
-Dopo l'avvio del contenitore è possibile gestire i file della condivisione nel percorso di montaggio specificato.
+Dopo l'avvio del contenitore, è possibile usare la semplice app Web distribuita tramite l'immagine **seanmckenna/aci-hellofiles** per gestire i file nella condivisione file di Azure nel percorso di montaggio specificato. Ottenere l'indirizzo IP dell'app Web con il comando seguente:
+
+```azurecli-interactive
+az container show --resource-group myResourceGroup --name hellofiles -o table
+```
+
+È possibile usare uno strumento come [Microsoft Azure Storage Explorer](http://storageexplorer.com) per recuperare e ispezionare il file scritto nella condivisione file.
 
 >[!NOTE]
 > Per altre informazioni sull'uso dei modelli di Azure Resource Manager e dei file dei parametri e sulla distribuzione con l'interfaccia della riga di comando di Azure, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).

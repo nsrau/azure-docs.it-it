@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
+ms.contentlocale: it-it
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Panoramica su gestione e monitoraggio della sicurezza di Azure
@@ -26,7 +26,7 @@ Azure offre meccanismi di sicurezza utili per la gestione e il monitoraggio dei 
 
 La sicurezza dei servizi cloud Microsoft è una responsabilità condivisa tra l'utente e Microsoft. Responsabilità condivisa significa che Microsoft è responsabile di Microsoft Azure e della sicurezza fisica dei propri data center, tramite l'uso di meccanismi di sicurezza come porte con ingresso tramite badge, recinzioni e agenti di sicurezza. Azure offre anche elevati livelli di protezione cloud a livello di software che soddisfano le complesse esigenze di sicurezza, privacy e conformità dei clienti.
 
-L'utente è proprietario dei dati e delle identità ed è responsabile della protezione di tali elementi, della sicurezza delle risorse locali, nonché della sicurezza dei componenti cloud di cui ha il controllo. Microsoft offre funzionalità e controlli di sicurezza che facilitano la protezione di dati e applicazioni. Le responsabilità di sicurezza dell'utente dipendono dal tipo di servizio cloud.
+L'utente è proprietario dei dati e delle identità ed è responsabile della protezione di tali elementi, della sicurezza delle risorse locali, nonché della sicurezza dei componenti cloud di cui ha il controllo. Microsoft offre funzionalità e controlli di sicurezza che facilitano la protezione di dati e applicazioni. Il grado di responsabilità dell'utente per la sicurezza dipende dal tipo di servizio cloud.
 
 Nel grafico seguente vengono riepilogate le responsabilità di Microsoft e del cliente.
 

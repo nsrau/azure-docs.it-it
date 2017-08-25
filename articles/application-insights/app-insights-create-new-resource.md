@@ -12,28 +12,27 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: f73a24993fdeaced422b2f7a1283722a82c2be77
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 054e49478e70aeb15a012592fbb9642c39a60496
 ms.contentlocale: it-it
-ms.lasthandoff: 12/13/2016
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
-Application Insights di Azure visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa dunque parte della [configurazione di Application Insights per monitorare una nuova applicazione][start]. In molti casi questa operazione può essere eseguita automaticamente dall'IDE, ovvero la modalità consigliata in cui è disponibile. In alcuni casi si crea tuttavia una risorsa manualmente, ad esempio per disporre di risorse separate per le compilazioni di sviluppo e produzione dell'applicazione.
+Application Insights di Azure visualizza dati relativi all'applicazione in una *risorsa* di Microsoft Azure. La creazione di una nuova risorsa fa dunque parte della [configurazione di Application Insights per monitorare una nuova applicazione][start]. In molti casi, la creazione di una risorsa può essere eseguita automaticamente dall'IDE. In alcuni casi si crea tuttavia una risorsa manualmente, ad esempio per disporre di risorse separate per le compilazioni di sviluppo e produzione dell'applicazione.
 
-Dopo aver creato la risorsa, si ottiene la relativa chiave di strumentazione, che consente di configurare l'SDK nell'applicazione. In tal modo, i dati di telemetria verranno inviati alla risorsa.
+Dopo aver creato la risorsa, si ottiene la relativa chiave di strumentazione, che consente di configurare l'SDK nell'applicazione. La chiave della risorsa collega i dati di telemetria alla risorsa.
 
 ## <a name="sign-up-to-microsoft-azure"></a>Iscriversi a Microsoft Azure
 Se non si ha ancora un [account Microsoft, è possibile ottenerne uno ora](http://live.com). (se si usano servizi come Outlook.com, OneDrive, Windows Phone o XBox Live, si ha già un account Microsoft).
 
-È necessaria anche una sottoscrizione di [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando Windows Live ID. Si paga solo l'uso effettivo e il piano Basic predefinito consente di accedere a un certo uso sperimentale gratuito.
+È necessaria anche una sottoscrizione di [Microsoft Azure](http://azure.com). Se il team o l'organizzazione ha una sottoscrizione di Azure, il proprietario potrà aggiungere l'utente alla sottoscrizione usando Windows Live ID. Si paga solo l'uso effettivo. Il piano Basic predefinito consente di accedere a un certo uso sperimentale gratuito.
 
-Dopo aver ottenuto una sottoscrizione, accedere ad Application Insights all'indirizzo [http://portal.azure.com](https://portal.azure.com)usando il proprio Live ID.
+Dopo aver ottenuto una sottoscrizione, accedere ad Application Insights all'indirizzo [http://portal.azure.com](https://portal.azure.com) usando il proprio Live ID.
 
-## <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
+## <a name="create-an-application-insights-resource"></a>Creare una risorsa Application Insights
 In [portal.azure.com](https://portal.azure.com)aggiungere una nuova risorsa di Application Insights:
 
 ![Fare clic su Nuovo, Application Insights](./media/app-insights-create-new-resource/01-new.png)
@@ -49,7 +48,7 @@ Dopo aver creato l'app, verrà visualizzato un nuovo pannello che mostra i dati 
 Per visualizzare di nuovo questo pannello al successivo accesso ad Azure, cercare il riquadro di avvio rapido dell'app nella schermata iniziale. In alternativa, fare clic su Sfoglia per cercarlo.
 
 ## <a name="copy-the-instrumentation-key"></a>Eseguire una copia della chiave di strumentazione
-La chiave di strumentazione identifica la risorsa creata. Sarà necessario fornirla all'SDK.
+La chiave di strumentazione identifica la risorsa creata. È necessario fornirla all'SDK.
 
 ![Fare clic su Informazioni di base, quindi sulla chiave di strumentazione e infine premere CTRL+C.](./media/app-insights-create-new-resource/02-props.png)
 
@@ -63,9 +62,9 @@ L'SDK include i moduli standard che inviano dati di telemetria senza che occorra
 ## <a name="monitor"></a>Visualizzare i dati di telemetria
 Chiudere il pannello di avvio rapido per tornare al pannello dell'applicazione nel portale di Azure.
 
-Fare clic sul riquadro Cerca per vedere [Diagnostic Search][diagnostic] (Ricerca diagnostica), ovvero la finestra in cui verranno visualizzati i primi eventi. 
+Fare clic sul riquadro Cerca per vedere [Diagnostic Search][diagnostic] (Ricerca diagnostica), ovvero la finestra in cui vengono visualizzati i primi eventi. 
 
-Se si prevedono più dati, fare clic su Aggiorna dopo pochi secondi.
+Se si prevedono più dati, fare clic su **Aggiorna** dopo pochi secondi.
 
 ## <a name="creating-a-resource-automatically"></a>Creazione automatica di una risorsa
 È possibile scrivere uno [script di PowerShell](app-insights-powershell.md) per creare automaticamente una risorsa.

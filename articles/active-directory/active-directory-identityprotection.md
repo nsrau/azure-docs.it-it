@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 8132b4844260a997e62effd167f2f1206f3edbcd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
@@ -122,7 +122,8 @@ Le sezioni seguenti forniscono altre informazioni e i passaggi relativi a un'ana
 
 ## <a name="risky-sign-ins"></a>Accessi a rischio
 
-Aure Active Directory rileva alcuni [tipi di eventi di rischio](active-directory-reporting-risk-events.md#risk-event-types) in tempo reale. Tutti gli eventi di rischio in tempo reale rilevati durante un accesso di un utente rientrano nel concetto logico degli *accessi a rischio*. Un accesso a rischio è indicativo di un tentativo di accesso che potrebbe non essere stato eseguito dal legittimo proprietario di un account utente. Il ciclo di vita di un accesso a rischio termina quando un utente effettua la disconnessione.
+Azure Active Directory rileva i [tipi di eventi di rischio](active-directory-reporting-risk-events.md#risk-event-types) in tempo reale e offline. Ogni evento di rischio in tempo reale rilevato per un accesso di un utente rientra nel concetto logico degli accessi a rischio. Un accesso a rischio è indicativo di un tentativo di accesso che potrebbe non essere stato eseguito dal legittimo proprietario di un account utente.
+
 
 ### <a name="sign-in-risk-level"></a>Livello di rischio di un accesso
 
@@ -212,7 +213,7 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 ## <a name="users-flagged-for-risk"></a>Utenti contrassegnati per il rischio
 
-Tutti gli [eventi di rischio](active-directory-identity-protection-risk-events.md) rilevati da Azure Active Directory per un utente rientrano nel concetto logico degli *utenti contrassegnati per il rischio*. Un *utente contrassegnato per il rischio*, o *utente a rischio*, è indicativo di un account utente che potrebbe essere stato compromesso.   
+Tutti gli [eventi di rischio](active-directory-identity-protection-risk-events.md) attivi rilevati da Azure Active Directory per un utente rientrano nel concetto logico del rischio utente. Un utente contrassegnato per il rischio è indicativo di un account utente che potrebbe essere stato compromesso.
 
 ![Utenti contrassegnati per il rischio](./media/active-directory-identityprotection/1200.png)
 

@@ -3,7 +3,7 @@ title: Configurare un cluster autonomo di Azure Service Fabric | Microsoft Docs
 description: Informazioni su come configurare un cluster di Service Fabric autonomo o privato.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
@@ -13,19 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
-ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.author: dekapur
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
 Questo articolo descrive come configurare un cluster di Service Fabric autonomo usando il file ***ClusterConfig.JSON***. Questo file può essere usato per specificare informazioni quali i nodi di Service Fabric e i relativi indirizzi IP, i vari tipi di nodi nel cluster, le configurazioni di sicurezza e la topologia di rete in termini di domini di errore/aggiornamento per il cluster autonomo.
 
-Quando si [scarica un pacchetto autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alcuni campioni del file ClusterConfig.JSON vengono scaricati sul computer in uso. I campioni i cui nomi contengono *DevCluster* aiuteranno a creare un cluster con tutti e tre i nodi nello stesso computer, ad esempio nodi logici. Almeno uno di questi nodi deve essere contrassegnato come primario. Questo cluster è utile per un ambiente di sviluppo o test e non è supportato come cluster di produzione. I campioni i cui nomi contengono *MultiMachine* aiuteranno a creare un cluster di qualità di produzione, in cui ogni nodo si trova in un computer separato. Il numero di nodi primari per i cluster si baserà sul [livello di affidabilità](#reliability).
+Quando si [scarica un pacchetto autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alcuni campioni del file ClusterConfig.JSON vengono scaricati sul computer in uso. I campioni i cui nomi contengono *DevCluster* aiuteranno a creare un cluster con tutti e tre i nodi nello stesso computer, ad esempio nodi logici. Almeno uno di questi nodi deve essere contrassegnato come primario. Questo cluster è utile per un ambiente di sviluppo o test e non è supportato come cluster di produzione. I campioni i cui nomi contengono *MultiMachine* aiuteranno a creare un cluster di qualità di produzione, in cui ogni nodo si trova in un computer separato.
 
 1. *ClusterConfig.Unsecure.DevCluster.JSON* e *ClusterConfig.Unsecure.MultiMachine.JSON* mostrano rispettivamente come creare cluster senza protezione per test e produzione. 
 2. *ClusterConfig.Windows.DevCluster.JSON* e *ClusterConfig.Windows.MultiMachine.JSON* mostrano come creare cluster di test o produzione protetti tramite [protezione di Windows](service-fabric-windows-cluster-windows-security.md).
@@ -83,15 +82,7 @@ La sezione **properties** in ClusterConfig.JSON viene usata per configurare il c
 <a id="reliability"></a>
 
 ### <a name="reliability"></a>Affidabilità
-Nella sezione **reliabilityLevel** viene definito il numero di copie dei servizi di sistema eseguibili sui nodi primari del cluster. Ciò aumenta l'affidabilità di questi servizi e quindi del cluster. È possibile impostare questa variabile su *Bronze*, *Silver*, *Gold* o *Platinum* per 3, 5, 7 o 9 copie di questi servizi rispettivamente. Ecco un esempio.
-
-    "reliabilityLevel": "Bronze",
-
-Si noti che poiché un nodo primario esegue una sola copia dei servizi di sistema, è necessario un minimo di 3 nodi primari per livelli di affidabilità *Bronze*, 5 per *Silver*, 7 per *Gold* e 9 per *Platinum*.
-
-Se non si specifica la proprietà reliabilityLevel in clusterConfig.json il sistema calcola il valore reliabilityLevel ottimale in base al numero di nodi di tipo primario disponibili. Se ad esempio sono disponibili 4 nodi primari, reliabilityLevel viene impostato su Minimo, mentre se sono disponibili 5 nodi primari viene impostato su Medio. Nel futuro l'opzione per la configurazione del livello di affidabilità verrà rimossa, in quanto il cluster rileverà e userà automaticamente il livello di affidabilità ottimale.
-
-ReliabilityLevel è aggiornabile. È possibile creare un clusterConfig.json v2 e applicare la scalabilità verticale come descritto in [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](service-fabric-cluster-upgrade-windows-server.md). È anche possibile aggiornare a un clusterConfig.json v2 in cui reliabilityLevel non è specificato, pertanto il livello di affidabilità viene calcolato automaticamente. 
+Il concetto di **reliabilityLevel** definisce il numero di repliche o istanze dei servizi di sistema di Service Fabric eseguibili nei nodi primari del cluster. Determina l'affidabilità di questi servizi e quindi del cluster. Il valore viene calcolato dal sistema in fase di creazione e di aggiornamento del cluster.
 
 ### <a name="diagnostics"></a>Diagnostica
 La sezione **diagnosticsStore** consente di configurare i parametri per consentire la diagnostica e la risoluzione degli errori di nodi o cluster, come illustrato nel frammento riportato di seguito. 
@@ -150,7 +141,7 @@ La sezione **nodeTypes** descrive il tipo dei nodi del cluster. Per ogni cluster
         "isPrimary": true
     }]
 
-**name** è il nome descrittivo per questo tipo di nodo particolare. Per creare un nodo di questo tipo, assegnare il nome descrittivo alla variabile **nodeTypeRef** per tale nodo, come indicato [sopra](#clusternodes). Per ogni tipo di nodo, definire gli endpoint di connessione che verranno usati. È possibile scegliere qualsiasi numero di porta per gli endpoint di connessione, purché non entrino in conflitto con altri endpoint in questo cluster. In un cluster multinodo saranno presenti uno o più nodi primari (ad esempio **isPrimary** impostato su *true*), in base a [**reliabilityLevel**](#reliability). Leggere l'articolo [Considerazioni sulla pianificazione della capacità del cluster Service Fabric](service-fabric-cluster-capacity.md) per informazioni sui valori **nodeTypes** e **reliabilityLevel** e per conoscere la differenza tra i tipi di nodo primari e non primari. 
+**name** è il nome descrittivo per questo tipo di nodo particolare. Per creare un nodo di questo tipo, assegnare il nome descrittivo alla variabile **nodeTypeRef** per tale nodo, come indicato [sopra](#clusternodes). Per ogni tipo di nodo, definire gli endpoint di connessione che verranno usati. È possibile scegliere qualsiasi numero di porta per gli endpoint di connessione, purché non entrino in conflitto con altri endpoint in questo cluster. In un cluster multinodo saranno presenti uno o più nodi primari (ad esempio **isPrimary** impostato su *true*), in base a [**reliabilityLevel**](#reliability). Per informazioni su **nodeTypes** e **reliabilityLevel** e per sapere quali sono i tipi di nodo primari e non primari, vedere [Considerazioni sulla pianificazione della capacità del cluster Service Fabric](service-fabric-cluster-capacity.md). 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>Endpoint usati per configurare i tipi di nodi
 * *clientConnectionEndpointPort* è la porta usata dal client per connettersi al cluster quando si usano le API del client. 

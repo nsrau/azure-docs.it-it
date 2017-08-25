@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/09/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 36d2a8f00f9dcb2e1cef103b33973d2bed754cdc
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 494ade55f21c19d9c68d5cc52756528401d9bb77
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
@@ -76,7 +76,9 @@ Altre funzioni list possono avere formati di restituzione diversi. Per visualizz
 
 ### <a name="remarks"></a>Osservazioni
 
-Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Le operazioni disponibili non includono solo listKeys, ma anche operazioni come `list`, `listAdminKeys` e `listStatus`. Per determinare quali tipi di risorse dispongono di un'operazione list, usare le opzioni seguenti:
+Qualsiasi operazione che inizia con **list** può essere usata come funzione nel modello. Le operazioni disponibili non includono solo listKeys, ma anche operazioni come `list`, `listAdminKeys` e `listStatus`. Non è tuttavia possibile usare operazioni **list** che richiedono valori nel corpo della richiesta. L'operazione [List Account SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS), ad esempio, richiede parametri del corpo della richiesta come *signedExpiry*, quindi non è possibile usarla in un modello.
+
+Per determinare quali tipi di risorse dispongono di un'operazione list, usare le opzioni seguenti:
 
 * Visualizzare le [operazioni dell'API REST](/rest/api/) di un provider di risorse e individuare le operazioni list. Gli account di archiviazione, ad esempio, dispongono dell'[operazione listKeys](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
 * Usare il cmdlet di PowerShell [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation). L'esempio seguente ottiene tutte le operazioni list degli account di archiviazione:
@@ -280,7 +282,7 @@ L'esempio precedente restituisce un oggetto nel formato seguente:
 }
 ```
 
-L'esempio seguente fa riferimento a un account di archiviazione non distribuito in questo modello, ma esistente nello stesso gruppo di risorse.
+L'esempio seguente fa riferimento a un account di archiviazione non distribuito in questo modello. L'account di archiviazione esiste già nello stesso gruppo di risorse.
 
 ```json
 {
@@ -425,7 +427,7 @@ Per ottenere l'ID risorsa per un database in un gruppo di risorse differente, us
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-Spesso è necessario usare questa funzione quando si usa un account di archiviazione o una rete virtuale in un gruppo di risorse alternative. L'account di archiviazione o la rete virtuale possono essere usati in più gruppi di risorse, quindi non devono essere eliminati quando si elimina un singolo gruppo di risorse. L'esempio seguente mostra come usare facilmente una risorsa di un gruppo di risorse esterno:
+Spesso è necessario usare questa funzione quando si usa un account di archiviazione o una rete virtuale in un gruppo di risorse alternative. L'esempio seguente mostra come usare facilmente una risorsa di un gruppo di risorse esterno:
 
 ```json
 {

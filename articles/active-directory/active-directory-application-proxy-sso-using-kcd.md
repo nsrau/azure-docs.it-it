@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 96553e9d2faac08ef861bc1f277b286b798bde0b
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 149af1f68e574f78127a9c2de8a0e79ed8774d29
 ms.contentlocale: it-it
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -90,10 +90,10 @@ Il flusso di delega Kerberos nel proxy di applicazione di Azure AD inizia quando
 
 Per altre informazioni su Kerberos, vedere [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tutto quello che si desidera sapere sulla delega vincolata Kerberos (KCD)).
 
-Le app non Windows usano generalmente nomi utente o nomi account SAM invece di indirizzi e-mail di dominio. Se questa situazione si applica alle applicazioni, è necessario configurare il campo di identità di accesso designato in modo che connetta le identità cloud alle identità di applicazione. 
+Le app non Windows usano generalmente nomi utente o nomi account SAM invece di indirizzi e-mail di dominio. Se questa situazione si applica alle applicazioni, è necessario configurare il campo dell'identità di accesso delegata in modo che connetta le identità del cloud alle identità delle applicazioni. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Utilizzo dell'accesso Single Sign-On quando le identità cloud e locali non sono identiche
-Il proxy di applicazione presuppone che gli utenti dispongano della stessa identità nel cloud e in locale. Se non è questo il caso, è comunque possibile usare la delega vincolata Kerberos per Single Sign-On. Configurare un'**identità di accesso designata** per ogni applicazione in modo da specificare le identità da usare durante l'esecuzione di Single Sign-On.  
+Il proxy di applicazione presuppone che gli utenti dispongano della stessa identità nel cloud e in locale. Se non è questo il caso, è comunque possibile usare la delega vincolata Kerberos per Single Sign-On. Configurare un'**identità di accesso delegata** per ogni applicazione in modo da specificare le identità da usare durante l'esecuzione del Single Sign-On.  
 
 Questa funzionalità consente a molte organizzazioni con diverse identità locali e cloud di disporre dell'accesso Single Sign-On dal cloud ad applicazioni locali senza richiedere agli utenti di immettere nomi utente e password diversi. Sono incluse organizzazioni che:
 

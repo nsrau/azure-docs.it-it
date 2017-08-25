@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b9b53ca61ff9448b4b587f6c406046b3d1a80d15
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Pianificazione e progettazione per il gateway VPN
@@ -40,13 +40,13 @@ Se si desidera connettere i siti locali in modo sicuro a una rete virtuale, sono
 * Che tipo di gateway VPN è necessario per la soluzione che si desidera creare?
 * Quale SKU del gateway è opportuno usare?
 
-### <a name="planning-table"></a>Tabella di pianificazione
+### <a name="planningtable"></a>Tabella di pianificazione
 
 La tabella seguente può aiutare nella scelta della migliore opzione di connettività per la soluzione.
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gateway-skus"></a>SKU del gateway
+### <a name="gwsku"></a>SKU del gateway
 
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -69,7 +69,7 @@ Per prima cosa, consultare i diagrammi nell'articolo [Informazioni sul gateway V
 
 Le sezioni seguenti illustrano le nozioni di base del gateway VPN. 
 
-#### <a name="networking-services-limits"></a>Limiti dei servizi di rete
+#### <a name="servicelimits"></a>Limiti dei servizi di rete
 
 Scorrere le tabelle per visualizzare i [limiti dei servizi di rete](../azure-subscription-service-limits.md#networking-limits). I limiti elencati potrebbero influire sulla progettazione.
 

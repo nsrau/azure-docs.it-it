@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1cc36d1fd40121fed23ab6a84429a303690c2726
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 3c4c7e78b25bd4210a8909e5582e8a31764f17c2
 ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introduzione ai criteri personalizzati
@@ -31,7 +31,8 @@ Dopo avere completato i passaggi descritti in questo articolo, il criterio perso
 
 Prima di procedere, assicurarsi di disporre di un tenant di Azure AD B2C, che è un contenitore per tutti gli utenti, le app, i criteri e altro ancora. In assenza di un tenant, è necessario [creare un tenant di Azure AD B2C](active-directory-b2c-get-started.md). Prima di procedere, è consigliabile che tutti gli sviluppatori completino le procedure dettagliate relative ai criteri predefiniti di Azure AD B2C e configurino la propria applicazione con i criteri predefiniti. Le applicazioni useranno entrambi i tipi di criteri con una semplice modifica del nome dei criteri per richiamare i criteri personalizzati.
 
-Per accedere alla funzionalità di modifica dei criteri personalizzati è necessaria una sottoscrizione di Azure valida collegata al tenant.
+>[!NOTE]
+>Per accedere alla funzionalità di modifica dei criteri personalizzati è necessaria una sottoscrizione di Azure valida collegata al tenant. Se il [tenant di Azure AD B2C non è collegato a una sottoscrizione di Azure](active-directory-b2c-how-to-enable-billing.md) oppure la sottoscrizione di Azure è disabilitata, il pulsante Framework dell'esperienza di gestione delle identità non è disponibile.
 
 ## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Aggiungere chiavi di crittografia e di firma al tenant di B2C per l'uso da parte dei criteri personalizzati
 

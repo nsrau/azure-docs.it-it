@@ -1,7 +1,6 @@
 ---
-
 title: Governance in Azure | Microsoft Docs
-description: "Informazioni sui servizi di calcolo basati sul cloud che includono un&quot;ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell&quot;applicazione o dell&quot;organizzazione."
+description: "Informazioni sui servizi di calcolo basati sul cloud che includono un'ampia gamma di istanze e servizi di calcolo con scalabilità automatica per soddisfare le esigenze dell'applicazione o dell'organizzazione."
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 91fb3c70d95cca46dd68e3f15ad67c914cfbfa5b
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
 ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -424,7 +422,7 @@ Microsoft si avvale di un team per la sicurezza e conformità che supervisiona e
 
 Operations Management Suite (OMS) è una raccolta di servizi di gestione progettati nel cloud sin dall'inizio. Anziché distribuire e gestire le risorse localmente, i componenti OMS sono ospitati integralmente in Azure. La configurazione è minima ed è possibile essere operativi in davvero pochi minuti.
 
-![Operation Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
 Anche se i servizi OMS vengono eseguiti nel cloud, non significa che non siano in grado di gestire efficacemente l'ambiente locale.
 
@@ -434,7 +432,7 @@ I runbook nel cloud non possono generalmente accedere alle risorse locali, ma è
 
 Le funzionalità principali di OMS vengono fornite da un set di servizi eseguiti in Azure. Ogni servizio fornisce una funzione di gestione specifica ed è possibile combinare i servizi per realizzare scenari di gestione diversi.
 
-![Operation Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
 Operation Manager di Azure estende le sue funzionalità offrendo soluzioni di gestione. Le [soluzioni di gestione](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) sono set pre-confezionati di logica che implementano uno scenario di gestione usando uno o più servizi OMS.
 

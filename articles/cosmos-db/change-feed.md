@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 5cc565adf4a4b6820ad676d9689c9697e9158b9f
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 4af05aa1563341ca62c63c4b8256f11118c38efd
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Uso del supporto del feed delle modifiche in Azure Cosmos DB
@@ -53,14 +53,15 @@ Il feed delle modifiche consente di elaborare con efficienza set di dati di gran
 
 È possibile usare Azure Cosmos DB per ricevere e archiviare i dati di eventi da dispositivi, sensori, infrastrutture e applicazioni, per poi elaborarli in tempo reale con [Analisi di flusso di Azure](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) o [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
-Nelle app Web e per dispositivi mobili è possibile tenere traccia di modifiche come quelle apportate al profilo, alle preferenze o alle località dei clienti per attivare determinate azioni come l'invio di notifiche push ai loro dispositivi tramite [Funzioni di Azure](../azure-functions/functions-bindings-documentdb.md) o [Servizi app](https://azure.microsoft.com/services/app-service/). Se si usa Azure Cosmos DB per creare un gioco, è ad esempio possibile usare il feed delle modifiche per implementare classifiche in tempo reale in base ai punteggi delle partite completate.
+Nelle app Web e per dispositivi mobili [senza server](http://azure.com/serverless) è possibile tenere traccia di eventi come le modifiche al profilo, alle preferenze o alle località dei clienti per attivare determinate azioni come l'invio di notifiche push ai lori dispositivi tramite [Funzioni di Azure](../azure-functions/functions-bindings-documentdb.md) o [Servizi app](https://azure.microsoft.com/services/app-service/). Se si usa Azure Cosmos DB per creare un gioco, è ad esempio possibile usare il feed delle modifiche per implementare classifiche in tempo reale in base ai punteggi delle partite completate.
 
 ## <a name="how-change-feed-works-in-azure-cosmos-db"></a>Funzionamento del feed delle modifiche in Azure Cosmos DB
 Azure Cosmos DB offre la possibilità di leggere in modo incrementale gli aggiornamenti effettuati a una raccolta di Azure Cosmos DB. Questo feed di modifiche ha le seguenti proprietà:
 
 * Le modifiche sono persistenti in Azure Cosmos DB e possono essere elaborate in modo asincrono.
 * Le modifiche ai documenti all'interno di una raccolta sono immediatamente disponibili nel feed di modifiche.
-* Ogni modifica apportata a un documento viene visualizzata solo una volta nel feed di modifiche. Solo la modifica più recente per un determinato documento viene inclusa nel registro modifiche. Le modifiche intermedie potrebbero non essere disponibili.
+* Ogni modifica apportata a un documento viene visualizzata una sola volta nel feed delle modifiche e i client gestiscono la logica di checkpoint. La libreria del processore del feed delle modifiche fornisce funzionalità di checkpoint automatici e semantica di tipo "at least once".
+* Solo la modifica più recente per un determinato documento viene inclusa nel registro modifiche. Le modifiche intermedie potrebbero non essere disponibili.
 * Il feed delle modifiche è ordinato in base all'ordine di modifica in ciascun valore di chiave della partizione. Non esiste alcun ordine garantito tra i valori partition-key.
 * Le modifiche possono essere sincronizzate da qualsiasi punto nel tempo, in altre parole non è previsto un periodo di conservazione fisso per cui sono disponibili le modifiche.
 * Le modifiche sono disponibili in blocchi di intervalli di chiavi di partizione. Questa funzionalità consente di apportare modifiche da raccolte di grandi dimensioni per poi elaborarle in parallelo da più consumer/server.
@@ -70,7 +71,7 @@ Il feed di modifiche di Azure Cosmos DB è abilitato per impostazione predefinit
 
 ![Elaborazione distribuita del feed delle modifiche di Azure Cosmos DB](./media/change-feed/changefeedvisual.png)
 
-Sono disponibili alcune opzioni per l'implementazione di un feed di modifiche nel codice client. Le sezioni immediatamente successive illustrano come implementare il feed di modifiche tramite l'API REST di Azure Cosmos DB e DocumentDB SDK. Per le applicazioni .NET è tuttavia consigliabile usare la nuova [Libreria del processore di feed di modifiche](#change-feed-processor) per l'elaborazione di eventi dal feed di modifiche, poiché semplifica la lettura delle modifiche tra le partizioni e abilita l'esecuzione in parallelo di più thread.
+Sono disponibili alcune opzioni per l'implementazione di un feed di modifiche nel codice client. Le sezioni immediatamente successive illustrano come implementare il feed di modifiche tramite l'API REST di Azure Cosmos DB e DocumentDB SDK. Per le applicazioni .NET è tuttavia consigliabile usare la nuova [Libreria del processore di feed di modifiche](#change-feed-processor) per l'elaborazione di eventi dal feed di modifiche, poiché semplifica la lettura delle modifiche tra le partizioni e abilita l'esecuzione in parallelo di più thread. 
 
 ## <a id="rest-apis"></a>Uso dell'API REST e di DocumentDB SDK
 Azure Cosmos DB offre contenitori elastici di archiviazione e velocità effettiva chiamati **raccolte**. I dati nelle raccolte vengono raggruppati in modo logico tramite [chiavi di partizione](partition-data.md), per motivi di scalabilità e prestazioni. Azure Cosmos DB offre varie API per l'accesso ai dati, tra cui la ricerca per ID (Read/Get), le query e i feed di lettura (analisi). È possibile ottenere il feed delle modifiche popolando due nuove intestazioni di richiesta nell'API `ReadDocumentFeed` di DocumentDB. Il feed può essere elaborato in parallelo su più intervalli di chiavi di partizione.
@@ -198,7 +199,7 @@ Azure Cosmos DB supporta il recupero di documenti per ogni intervallo di chiavi 
 ReadDocumentFeed supporta i seguenti scenari/attività per l'elaborazione incrementale di modifiche apportate alle raccolte di Azure Cosmos DB:
 
 * Lettura di tutte le modifiche ai documenti fin dall'inizio, ovvero dalla creazione della raccolta.
-* Lettura di tutte le modifiche agli aggiornamenti futuri eseguiti per i documenti a partire dalla data attuale.
+* Lettura di tutte le modifiche agli aggiornamenti futuri dei documenti a partire dal momento corrente oppure tutte le modifiche da un momento specificato dall'utente.
 * Lettura di tutte le modifiche ai documenti da una versione logica della raccolta (ETag). È possibile creare checkpoint dei consumer in base all'ETag restituito dalle richieste read-feed incrementali.
 
 Le modifiche includono aggiunte e aggiornamenti ai documenti. Per acquisire le eliminazioni, è necessario usare una proprietà "eliminazione temporanea" all'interno di documenti oppure usare la [proprietà TTL integrata](time-to-live.md) per segnalare un'eliminazione in sospeso nel feed delle modifiche.
@@ -220,10 +221,14 @@ La tabella seguente elenca la [richiesta](/rest/api/documentdb/common-documentdb
         <td>If-None-Match</td>
         <td>
             <p>Nessuna intestazione: restituisce tutte le modifiche fin dall'inizio (creazione della raccolta)</p>
-            <p>"*": restituisce tutte le nuove modifiche ai dati all'interno della raccolta</p>
+            <p>"*": restituisce tutte le nuove modifiche ai dati all'interno della raccolta</p>           
             <p>&lt;etag&gt;: se impostato su un ETag di raccolta, restituisce tutte le modifiche effettuate da quel timestamp logico</p>
         </td>
     </tr>
+    <tr>    
+        <td>If-Modified-Since</td> 
+        <td>Formato di ora RFC 1123. Ignorata se viene specificata l'intestazione If-None-Match</td> 
+    </tr> 
     <tr>
         <td>x-ms-documentdb-partitionkeyrangeid</td>
         <td>L'ID dell'intervallo di chiavi di partizione per la lettura dei dati.</td>
@@ -232,8 +237,7 @@ La tabella seguente elenca la [richiesta](/rest/api/documentdb/common-documentdb
 
 **Intestazioni delle risposte per ReadDocumentFeed incrementale**:
 
-<table>
-    <tr>
+<table> <tr>
         <th>Nome intestazione</th>
         <th>Descrizione</th>
     </tr>
@@ -263,6 +267,8 @@ Le modifiche vengono ordinate in base all'ora in ciascun valore di chiave di par
 
 > [!NOTE]
 > Il feed delle modifiche può consentire di ottenere un numero maggiore di elementi in una pagina rispetto a quanto specificato in `x-ms-max-item-count` in caso di inserimento o aggiornamento di più documenti in stored procedure o trigger. 
+
+Quando si usa .NET SDK (1.17.0), impostare il campo `StartTime` in `ChangeFeedOptions` per restituire direttamente i documenti modificati dal momento indicato da `StartTime` quando si chiama `CreateDocumentChangeFeedQuery`. Specificando `If-Modified-Since` usando l'API REST, la richiesta restituirà non i documenti stessi, ma il token di continuazione o `etag` nell'intestazione della risposta. Per restituire i documenti modificati nel periodo specificato, è necessario usare il token di continuazione `etag` nella richiesta successiva con `If-None-Match` per restituire i documenti effettivi. 
 
 .NET SDK fornisce le classi helper [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) e [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) per l'accesso alle modifiche apportate a una raccolta. Il frammento seguente mostra come recuperare tutte le modifiche dall'inizio usando l'SDK di .NET da un singolo client.
 

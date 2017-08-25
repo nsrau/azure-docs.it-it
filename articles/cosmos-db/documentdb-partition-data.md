@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 3fbb2f0629e510dfa9dac8e363eafb8e668e81d4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>Partizionamento in Azure Cosmos DB con l'API DocumentDB
@@ -42,7 +42,10 @@ Per iniziare a usare il codice, scaricare il progetto dell'[esempio di driver di
 <a name="partition-keys"></a>
 <a name="single-partition-and-partitioned-collections"></a>
 <a name="migrating-from-single-partition"></a>
-## Chiavi di partizione, Nell'API DocumentDB la definizione delle chiavi di partizione viene specificata sotto forma di percorso JSON. La tabella seguente mostra esempi di definizioni di chiavi di partizione e i valori corrispondenti a ognuna. La chiave di partizione viene specificata come percorso, ad esempio `/department` rappresenta la proprietà department. 
+
+## <a name="partition-keys"></a>Chiavi di partizione
+
+Nell'API DocumentDB è necessario specificare la definizione della chiave di partizione sotto forma di percorso JSON. La tabella seguente mostra esempi di definizioni di chiavi di partizione e i valori corrispondenti a ognuna. La chiave di partizione viene specificata come percorso, ad esempio `/department` rappresenta la proprietà department. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>

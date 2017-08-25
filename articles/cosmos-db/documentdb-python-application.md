@@ -13,14 +13,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 08/09/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: bdfc077bbb7f23c3a52cd42f45878f6f50a27bae
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a2bc8beb764f90c038a511ddcfe8c5b3d04913a7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Creare un'applicazione Web Python Flask con Azure Cosmos DB
@@ -37,13 +37,13 @@ Questa esercitazione mostra come usare Azure Cosmos DB per archiviare e accedere
 In questa esercitazione del database vengono trattati i seguenti argomenti:
 
 1. Creazione e provisioning di un account Cosmos DB.
-2. Creare un'applicazione MVC Python.
-3. Connettersi e usare Azure Cosmos DB dall'applicazione Web.
-4. Distribuire l'applicazione Web in Siti Web di Azure.
+2. Creazione di un'applicazione Python Flask.
+3. Connessione a Cosmos DB e uso dall'applicazione Web.
+4. Distribuzione dell'applicazione Web in Azure.
 
 Seguendo questa esercitazione, si creerà una semplice applicazione di voto che consente di votare per un sondaggio.
 
-![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/documentdb-python-application/image1.png)
+![Screenshot dell'applicazione di voto creata in questa esercitazione del database](./media/documentdb-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>Prerequisiti per l'esercitazione del database
 Prima di seguire le istruzioni di questo articolo, verificare che siano disponibili i seguenti elementi:
@@ -53,19 +53,19 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
     OPPURE 
 
     Un'installazione locale dell'[emulatore Azure Cosmos DB](local-emulator.md).
-* [Visual Studio 2013](http://www.visualstudio.com/) o una versione successiva oppure [Visual Studio Express](), che è la versione gratuita. Le istruzioni riportate in questa esercitazione sono scritte in modo specifico per Visual Studio 2015. 
-* Python Tools per Visual Studio, disponibile su [GitHub](http://microsoft.github.io/PTVS/). Questa esercitazione usa Python Tools per Visual Studio 2015. 
-* Azure Python SDK per Visual Studio 2.4 o versione successiva, disponibile su [azure.com](https://azure.microsoft.com/downloads/). Questa esercitazione usa Microsoft Azure SDK per Python 2.7.
-* Python 2.7 disponibile su [python.org][2]. Questa esercitazione usa Python 2.7.11. 
+* [Microsoft Visual Studio Community 2017](http://www.visualstudio.com/).  
+* [Python Tools for Visual Studio](https://github.com/Microsoft/PTVS/).  
+* [Microsoft Azure SDK per Python 2.7](https://azure.microsoft.com/downloads/). 
+* [Python 2.7.13](https://www.python.org/downloads/windows/). 
 
 > [!IMPORTANT]
-> Se si installa Python 2.7 per la prima volta, nella schermata relativa alla personalizzazione di Python 2.7.11 assicurarsi di selezionare **Add python.exe to Path**.
+> Se si installa Python 2.7 per la prima volta, nella schermata Customize Python 2.7.13 (Personalizza Python 2.7.13) assicurarsi di selezionare **Add python.exe to Path** (Aggiungi python.exe a percorso).
 > 
-> ![Schermata Customize Python 2.7.11, in cui è necessario selezionare Add python.exe to Path](./media/documentdb-python-application/image2.png)
+> ![Schermata Customize Python 2.7.11, in cui è necessario selezionare Add python.exe to Path](./media/documentdb-python-application/cosmos-db-python-install.png)
 > 
 > 
 
-* Compilatore Microsoft Visual C++ per Python 2.7 disponibile nell'[Area download Microsoft][3].
+* [Compilatore Microsoft Visual C++ per Python 2.7](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
 ## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Passaggio 1: Creare un account del database di Azure Cosmos DB
 Creare prima di tutto un account Cosmos DB. Se si ha già un account o si usa l'emulatore Azure Cosmos DB per questa esercitazione, è possibile andare al [Passaggio 2: Creare una nuova applicazione Web Python Flask](#step-2:-create-a-new-python-flask-web-application).
@@ -87,7 +87,7 @@ Verrà ora illustrata in dettaglio la procedura per creare un'applicazione Web P
     ![Schermata della finestra Nuovo progetto in Visual Studio con Python selezionato a sinistra, progetto web Flask selezionato nella parte centrale ed esercitazioni sul nome nella casella nome](./media/documentdb-python-application/image9.png)
 4. Nella finestra **Python Tools for Visual Studio** selezionare **Install into a virtual environment** (Installa in un ambiente virtuale). 
    
-    ![Schermata dell'esercitazione del database - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/image10.png)
+    ![Schermata dell'esercitazione del database - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/python-install-virtual-environment.png)
 5. Nella finestra **Add Virtual Environment** (Aggiungi ambiente virtuale) è possibile accettare le impostazioni predefinite e usare Python 2.7 come ambiente di base, perché PyDocumentDB attualmente non supporta Python 3.x, quindi fare clic su **Create**. Questo permette di configurare l'ambiente virtuale Python per il progetto.
    
     ![Schermata dell'esercitazione del database - Python Tools per la finestra di Visual Studio](./media/documentdb-python-application/image10_A.png)
@@ -114,7 +114,7 @@ Dopo la configurazione del progetto sarà necessario aggiungere i pacchetti Flas
 2. Salvare il file **requirements.txt** . 
 3. In Esplora soluzioni fare clic con il pulsante destro del mouse su **env** e scegliere **Install from requirements.txt**.
    
-    ![Schermata che mostra env (Python 2.7) selezionata con l'installazione da requirements.txt evidenziato nell'elenco](./media/documentdb-python-application/image11.png)
+    ![Schermata che mostra env (Python 2.7) selezionata con l'installazione da requirements.txt evidenziato nell'elenco](./media/documentdb-python-application/cosmos-db-python-install-from-requirements.png)
    
     Al termine dell'installazione, la finestra di output visualizza quanto segue:
    
@@ -200,10 +200,6 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [!TIP]
-> Il metodo **CreateCollection** accetta **RequestOptions** come terzo parametro facoltativo. Consente di specificare il tipo di offerta per la raccolta. Se non viene specificato alcun valore offerType, la raccolta verrà creata usando il tipo di offerta predefinito. Per altre informazioni sui tipi di offerta di Cosmos DB, vedere [Livelli di prestazioni in Azure Cosmos DB](performance-levels.md).
-> 
-> 
 
 ### <a name="read-database-collection-document-and-submit-form"></a>Leggere il database, la raccolta e il documento e inviare il form
 * Ancora in **views.py**aggiungere il codice seguente alla fine del file. Verrà configurato il form e verranno letti il database, la raccolta e il documento. Non eliminare nessuna porzione del codice esistente dal file **views.py**. Aggiungere semplicemente la parte nuova alla fine del file.
@@ -314,7 +310,7 @@ def vote():
     {% extends "layout.html" %}
     {% block content %}
     <h2>Python + Azure Cosmos DB Voting Application.</h2>
-    <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
+    <h3>This is a sample Cosmos DB voting application using PyDocumentDB</h3>
     <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
     {% endblock %}
@@ -351,43 +347,39 @@ def vote():
     ```
 6. Dopo aver aggiunto tutti i file, l'aspetto di Esplora soluzioni dovrebbe risultare simile al seguente:
    
-    ![Schermata della finestra Esplora soluzioni di Visual Studio](./media/documentdb-python-application/image15.png)
+    ![Schermata della finestra Esplora soluzioni di Visual Studio](./media/documentdb-python-application/cosmos-db-python-solution-explorer.png)
 
 ## <a name="step-4-run-your-web-application-locally"></a>Passaggio 4: Esecuzione dell'applicazione Web in locale
 1. Premere **CTRL**+**MAIUSC**+**B** per compilare la soluzione.
 2. Al termine della compilazione, avviare il sito Web premendo **F5**. Dovrebbe venire visualizzata la schermata seguente.
    
-    ![Screenshot di Python e dell'applicazione per votazione di Azure Cosmos DB visualizzati in un Web browser](./media/documentdb-python-application/image16.png)
+    ![Screenshot di Python e dell'applicazione per votazione di Azure Cosmos DB visualizzati in un Web browser](./media/documentdb-python-application/cosmos-db-pythonr-run-application.png)
 3. Fare clic su **Create/Clear the Voting Database** per generare il database.
    
-    ![Schermata della pagina di creazione dell'applicazione web - informazioni dettagliate sullo sviluppo](./media/documentdb-python-application/image17.png)
+    ![Schermata della pagina di creazione dell'applicazione web - informazioni dettagliate sullo sviluppo](./media/documentdb-python-application/cosmos-db-python-run-create-page.png)
 4. Fare quindi clic su **Voto** e selezionare un'opzione.
    
-    ![Schermata dell'applicazione Web con una domanda relativa al voto](./media/documentdb-python-application/image18.png)
+    ![Schermata dell'applicazione Web con una domanda relativa al voto](./media/documentdb-python-application/cosmos-db-vote.png)
 5. Ogni voto espresso va a incrementare il contatore appropriato.
    
-    ![Schermata dei risultati della pagina voto visualizzata](./media/documentdb-python-application/image19.png)
+    ![Schermata dei risultati della pagina voto visualizzata](./media/documentdb-python-application/cosmos-db-voting-results.png)
 6. Per arrestare il debug del sito Web, premere MAIUSC+F5.
 
-## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>Passaggio 5: Distribuire l'applicazione Web in Siti Web di Azure
-Ora che l'applicazione completa funziona correttamente con Cosmos DB, sarà possibile distribuirla in Siti Web di Azure.
+## <a name="step-5-deploy-the-web-application-to-azure"></a>Passaggio 5: Distribuire l'applicazione Web in Azure
+Ora che l'applicazione completa funziona correttamente su Cosmos DB, è possibile distribuirla in Azure.
 
 1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, assicurarsi che il progetto non sia ancora in esecuzione localmente e quindi selezionare **Pubblica**.  
    
      ![Schermata dell'esercitazione selezionata in Esplora soluzioni, con l'opzione Pubblica evidenziata](./media/documentdb-python-application/image20.png)
-2. Nella finestra di dialogo **Pubblica sul Web** selezionare **App Web di Microsoft Azure** e quindi fare clic su **Avanti**.
+2. Nella finestra di dialogo **Pubblica** selezionare **Servizio app di Microsoft Azure**, selezionare **Crea nuovo** e quindi fare clic su **Pubblica**.
    
-    ![Screenshot della finestra Pubblica sul Web con App Web di Microsoft Azure evidenziato](./media/documentdb-python-application/image21.png)
-3. Nella finestra **App Web di Microsoft Azure** fare clic su **Nuovo**.
+    ![Screenshot della finestra Pubblica sul Web con Servizio app di Microsoft Azure evidenziato](./media/documentdb-python-application/cosmos-db-python-publish.png)
+3. Nella finestra di dialogo **Crea servizio app** immettere il nome dell'app Web, specificando anche **Sottoscrizione**, **Gruppo di risorse** e **Piano di Servizio app**, quindi fare clic su **Crea**.
    
-    ![Screenshot della finestra App Web di Microsoft Azure](./media/documentdb-python-application/select-existing-website.png)
-4. Nella finestra **Crea sito in Microsoft Azure** immettere i valori per **Nome app Web**, **Piano di Servizio app**, **Gruppo di risorse** e **Area**, quindi fare clic su **Crea**.
-   
-    ![Schermata della finestra di dialogo Crea sito in Microsoft Azure](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
-5. Nella finestra di dialogo **Pubblica sul Web** fare clic su **Pubblica**.
-   
-    ![Schermata della finestra di dialogo Crea sito in Microsoft Azure](./media/documentdb-python-application/publish-web.png)
-6. Dopo alcuni secondi, Visual Studio completerà la pubblicazione dell'applicazione Web e avvierà un browser in cui sarà possibile ammirare il proprio lavoro in esecuzione in Azure.
+    ![Screenshot della finestra App Web di Microsoft Azure](./media/documentdb-python-application/cosmos-db-python-create-app-service.png)
+4. Dopo alcuni secondi, Visual Studio completerà la pubblicazione del servizio app e avvierà un browser in cui sarà possibile osservare il proprio lavoro in esecuzione in Azure.
+
+    ![Screenshot della finestra App Web di Microsoft Azure](./media/documentdb-python-application/cosmos-db-python-appservice-created.png)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 Se si tratta della prima app Python eseguita nel computer, assicurarsi che le cartelle seguenti o i percorsi di installazione equivalenti siano inclusi nella variabile PATH:
@@ -397,11 +389,11 @@ Se si tratta della prima app Python eseguita nel computer, assicurarsi che le ca
 Se si riceve un errore nella pagina di voto e il progetto ha un nome diverso da **tutorial** (esercitazione), assicurarsi che **\_\_init\_\_.py** faccia riferimento al nome di progetto corretto nella riga `import tutorial.view`.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Congratulazioni. Si è creata la prima applicazione Web Python tramite Cosmos DB e la si è pubblicata in Siti Web di Azure.
+Congratulazioni. È stata appena creata la prima applicazione Web Python con Cosmos DB, che è stata quindi pubblicata in Azure.
 
 Questo argomento viene aggiornato e migliorato spesso in base al feedback degli utenti.  Dopo aver completato l'esercitazione, utilizzare i pulsanti per la votazione nella parte superiore e inferiore della pagina e assicurarsi di includere il feedback sui miglioramenti che si desidera vedere. Se si desidera contattarci, è possibile includere l'indirizzo di posta elettronica nel commento per il follow-up.
 
-Per aggiungere altre funzionalità all'applicazione web, esaminare le API disponibili nell' [SDK per Python di DocumentDB](documentdb-sdk-python.md).
+Per aggiungere altre funzionalità all'applicazione Web, esaminare le API disponibili in [Azure Cosmos DB Python SDK](documentdb-sdk-python.md).
 
 Per altre informazioni su Azure, Visual Studio e Python, vedere il [centro per sviluppatori di Python](https://azure.microsoft.com/develop/python/). 
 

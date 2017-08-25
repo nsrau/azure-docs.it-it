@@ -1,4 +1,25 @@
+---
+title: 'Introduzione a iOS con Azure AD v2: configurazione (ARP) | Microsoft Docs'
+description: "Informazioni sulle modalità per le applicazioni iOS (Swift) per chiamare un'API che richiede token di accesso dall'endpoint di Azure Active Directory v2"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 5ce5d26943839d9fe53508d396825289d77cf2f8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/15/2017
 
+---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Aggiungere le informazioni di registrazione dell'applicazione all'app
 
 In questo passaggio è necessario aggiungere l'ID applicazione al progetto:
@@ -33,3 +54,4 @@ Sotto il nodo radice <code>dict</code> aggiungere quanto segue:
     </dict>
 </array>
 ```
+

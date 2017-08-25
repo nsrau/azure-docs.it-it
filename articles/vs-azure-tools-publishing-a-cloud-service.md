@@ -1,6 +1,6 @@
 ---
 title: Pubblicazione di un Servizio cloud con gli Strumenti di Azure | Documentazione Microsoft
-description: Informazioni su come pubblicare progetti di servizi cloud di Azure tramite Visual Studio..
+description: Informazioni su come pubblicare progetti di servizi cloud di Azure tramite Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 8/14/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5e83532c65c5f6699d401ec9371ac2ad7f3868e8
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 23cea0486a769d4f446f5114016d5accbe8113cf
+ms.contentlocale: it-it
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Pubblicazione di un servizio cloud con gli strumenti di Azure
@@ -147,10 +148,5 @@ Potrebbe essere necessario includere file specifici nel pacchetto di servizio in
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla pubblicazione in Azure da Visual Studio, vedere [Procedura guidata Pubblica l'applicazione Azure](vs-azure-tools-publish-azure-application-wizard.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

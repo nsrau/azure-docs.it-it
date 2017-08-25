@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 297fe8850499212ca41b0b5ca132b7de8c761297
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK: risorse e note sulla versione
@@ -62,19 +62,27 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="release-notes"></a>Note sulla versione
 
+### <a name="1.12.2"/>1.12.2</a>
+*   Correzione della documentazione di npm.
+
+### <a name="1.12.1"/>1.12.1</a>
+* Correzione di un bug in executeStoredProcedure per cui i documenti coinvolti contenevano caratteri Unicode speciali (LS, PS).
+* Correzione di un bug nella gestione di documenti con caratteri Unicode nella chiave di partizione.
+* Correzione del supporto per la creazione di raccolte con i supporti di memorizzazione dei nomi. Problema GitHub n. 114.
+* Correzione del supporto per il token di autorizzazione. Problema GitHub n. 178.
+
 ### <a name="1.12.0"/>1.12.0</a>
-* Aggiunta del supporto per la funzionalità [unità di richiesta al minuto (RU/m)](../cosmos-db/request-units-per-minute.md).
 * Aggiunta del supporto per nuovi [livelli di coerenza](consistency-levels.md) denominati ConsistentPrefix.
 * Aggiunta del supporto per UriFactory.
-* Risolto un bug di supporto unicode. Problema GitHub #171
+* Correzione di un bug del supporto Unicode. Problema GitHub n. 171.
 
 ### <a name="1.11.0"/>1.11.0</a>
 * Aggiunta del supporto per le query di aggregazione (COUNT, MIN, MAX, SUM e AVG).
 * Aggiunta dell'opzione per il controllo del grado di parallelismo per query nella partizione.
 * Aggiunta dell'opzione per disabilitare la verifica SSL durante l'esecuzione sull'emulatore Azure Cosmos DB.
 * Velocità effettiva minima ridotta nelle raccolte partizionate da 10.100 UR/s a 2.500 UR/s.
-* Correzione del bug del token di continuazione per raccolta a partizione singola (github #107).
-* Correzione del bug executeStoredProcedure nella gestione di 0 come parametro singolo (github #155).
+* Correzione del bug del token di continuazione per la raccolta a partizione singola. Problema GitHub n. 107.
+* Correzione del bug executeStoredProcedure nella gestione di 0 come parametro singolo. Problema GitHub n. 155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Corretta l'intestazione agente-utente per includere la versione di SDK.
@@ -118,7 +126,7 @@ ms.lasthandoff: 07/25/2017
 * Correzione del problema [n. 95](https://github.com/Azure/azure-documentdb-node/issues/95) : avviso di perdita del listener EventEmitter.
 
 ### <a name="1.5.1"/>1.5.1</a>
-* Correzione del problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90) : ridenominazione della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
+* Correzione del problema [n. 92](https://github.com/Azure/azure-documentdb-node/issues/90): ridenominazione della cartella Hash in hash per i sistemi con distinzione tra maiuscole e minuscole.
 
 ### <a name="1.5.0"/>1.5.0</a>
 * Implementazione del supporto per il partizionamento orizzontale mediante l'aggiunta di resolver della partizione a intervalli e hash.
@@ -160,16 +168,18 @@ ms.lasthandoff: 07/25/2017
 * SDK con disponibilità generale.
 
 ## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
-Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
+Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
-Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
+Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
-Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
+Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato viene rifiutata dal servizio.
 
 <br/>
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |10 agosto 2017 |--- |
+| [1.12.1](#1.12.1) |10 agosto 2017 |--- |
 | [1.12.0](#1.12.0) |10 maggio 2017 |--- |
 | [1.11.0](#1.11.0) |16 marzo 2017 |--- |
 | [1.10.2](#1.10.2) |27 gennaio 2017 |--- |

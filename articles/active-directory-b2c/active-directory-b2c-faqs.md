@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6683b116e5e42c0ba6f1d0f381143bf846bd9810
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 3321eaea6ce56e284b7ff0d92ce895e08d0ea177
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-active-directory-b2c-faqs"></a>Azure Active Directory B2C: domande frequenti
@@ -37,7 +36,11 @@ In un tenant di Azure AD, gli utenti che vi appartengono effettuano l'accesso co
 In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale.  Sono supportati anche nomi utente arbitrari come account locali (ad esempio, joe, bob, sarah o jim). È possibile scegliere uno di questi due tipi di account locale configurando Azure AD B2C nel portale di Azure.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
-Attualmente sono supportati Facebook, Google +, LinkedIn, account Microsoft, Amazon, Twitter (anteprima), WeChat (anteprima), Weibo (anteprima) e QQ (anteprima).  Viene aggiunto il supporto per altri provider di identità di social networking noti, in base alle esigenze dei clienti.
+Attualmente sono supportati Facebook, Google +, LinkedIn, Amazon, Twitter (anteprima), WeChat (anteprima), Weibo (anteprima) e QQ (anteprima). Verrà aggiunto il supporto per altri provider di identità di social networking noti, in base alle esigenze dei clienti.
+
+In Azure AD B2C è stato aggiunto anche il supporto per i [criteri personalizzati](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  I [criteri personalizzati](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) consentono agli sviluppatori di creare criteri con qualsiasi provider di identità che supporta [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) o SAML. 
+
+Per un'introduzione ai criteri personalizzati, vedere lo [starter pack sui criteri personalizzati](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>È possibile configurare ambiti per raccogliere altre informazioni sugli utenti da diversi provider di identità di social networking?
 No, ma questa funzionalità verrà implementata in futuro. Gli ambiti predefiniti usati per il gruppo di provider di identità di social networking supportato sono:
@@ -52,7 +55,7 @@ No, ma questa funzionalità verrà implementata in futuro. Gli ambiti predefinit
 No, l'applicazione può essere ospitata ovunque (nel cloud o in locale). Per interagire con Azure AD B2C deve avere la possibilità di inviare e ricevere richieste HTTP su endpoint accessibili pubblicamente.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Nel caso di più tenant Azure AD B2C, come è possibile gestirli nel portale di Azure?
-Ogni tenant di Azure AD B2C ha uno specifico pannello delle funzionalità B2C nel portale di Azure. Per informazioni su come passare al pannello delle funzionalità B2C di un tenant specifico nel portale di Azure, vedere [Azure AD B2C: registrare l'applicazione](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) . Quando si passa da una directory di Azure AD B2C all'altra nel portale di Azure, il pannello delle funzionalità B2C non rimane aperto nella maggior parte dei browser.
+Ogni tenant di Azure AD B2C ha uno specifico pannello delle funzionalità B2C nel portale di Azure. Per informazioni su come passare al pannello delle funzionalità B2C di un tenant specifico nel portale di Azure, vedere [Azure AD B2C: registrare l'applicazione](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) . Quando si passa da una directory di Azure AD B2C all'altra nel portale di Azure, il pannello delle funzionalità B2C non rimane aperto nella maggior parte dei browser.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Come si personalizzano i messaggi di posta elettronica di verifica (il contenuto e il campo "Da:") inviati da Azure AD B2C?
 È possibile usare la [funzionalità di personalizzazione della società](../active-directory/active-directory-add-company-branding.md) per personalizzare il contenuto dei messaggi di posta elettronica di verifica. In particolare, è possibile personalizzare i due elementi di posta elettronica seguenti:
@@ -109,7 +112,7 @@ No, per il momento. Questa funzionalità verrà implementata in futuro. La verif
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Come si elimina il tenant di Azure AD B2C?
 Attenersi a questa procedura per eliminare il tenant di Azure AD B2C:
 
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
+1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
 1. Passare ai pannelli **Applications** (Applicazioni), **Identity providers** (Provider di identità) e **All policies** (Tutti i criteri) ed eliminare tutte le voci in ognuno di essi.
 1. Accedere ora al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Usare lo stesso account aziendale o dell'istituto d'istruzione o lo stesso account Microsoft usato per l'iscrizione ad Azure.
 1. Passare all'estensione di Active Directory a sinistra e fare clic sul nome del tenant B2C.

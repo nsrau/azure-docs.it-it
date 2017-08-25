@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/12/2017
+ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2ab86ed8aafb01e97b3ac9ba0411f4b80f88ac5b
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: e1fe2b94d462a30f09cb23ab905542aa121ba46b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>Usare il portale di Azure per ripristinare macchine virtuali
@@ -131,7 +130,7 @@ Se si desidera personalizzare la macchina virtuale da creare dai dischi di cui �
 
 Al termine dell'operazione di ripristino, è possibile:
 * [Usare il modello per personalizzare la macchina virtuale ripristinata](#use-templates-to-customize-restore-vm)
-* [Usare i dischi ripristinati per collegarlo a una macchina virtuale esistente](../virtual-machines/windows/attach-disk-portal.md)
+* [Usare i dischi ripristinati per collegarlo a una macchina virtuale esistente](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Creare una nuova macchina virtuale tramite PowerShell dai dischi ripristinati.](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 Nel pannello **Configurazione di ripristino** fare clic su **OK** per portare a termine la configurazione di ripristino. Nel pannello **Ripristino** fare clic su **Ripristina** per attivare l'operazione di ripristino.
@@ -172,19 +171,11 @@ Una volta [completata l'operazione di ripristino dei dischi](#Track-the-restore-
 Per ottenere il modello generato come parte dell'opzione dei dischi di ripristino
 
 1. Visualizzare i dettagli del processo di ripristino corrispondenti al processo. 
-2. Verrà elencato l'URI del modello da cui è possibile scaricare il modello. Si noti il nome del contenitore nei valori. 
+2. Nella schermata dei dettagli del processo di ripristino fare clic sul pulsante *Deploy Template* (Distribuisci modello) per avviare la distribuzione del modello. 
 
      ![drill-down del processo di ripristino](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
-     
-3. Dai valori annotare il nome dell'account di archiviazione di destinazione, il nome del contenitore, l'URI del BLOB del modello. Passare ad *Account di archiviazione di destinazione > selezionare BLOB > Contenitori*, passare al file e scaricare il file che inizia con il nome *azuredeploy*.
-
-    ![download-template-storage-account](./media/backup-azure-arm-restore-vms/download-template.png)
-    
-   In alternativa, è possibile usare [Azure Storage explorer](http://storageexplorer.com/) (Esplora archivi di Azure) per passare alla sottoscrizione corrispondente > Account di archiviazione di destinazione > contenitori BLOB e selezionare il nome del contenitore annotato nel passaggio precedente. Nel riquadro di destra che mostra i file all'interno del contenitore, scaricare il file il cui nome inizia con *azuredeploy*. 
    
-   ![download-template-storage-explorer](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
-     
-Dopo aver scaricato il modello, usare la distribuzione dei modelli per [modificare e distribuire il modello](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) o aggiungere altre personalizzazioni [creando un modello](../azure-resource-manager/resource-group-authoring-templates.md) prima della distribuzione. È possibile usare l'opzione Carica file per distribuire il modello scaricato in precedenza. 
+Nel pannello Deploy Template (Distribuisci modello) per la distribuzione personalizzata usare la distribuzione del modello per [modificare e distribuire il modello](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) o aggiungere altre personalizzazioni [creando un modello](../azure-resource-manager/resource-group-authoring-templates.md) prima della distribuzione. 
 
    ![caricamento della distribuzione del modello](./media/backup-azure-arm-restore-vms/loading-template.png)
    
@@ -196,7 +187,7 @@ Dopo aver immesso i valori richiesti, accettare le *Condizioni per l'utilizzo* e
 * Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza la password viene bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/linux/classic/reset-access.md)nella macchina virtuale ripristinata usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni per evitare la reimpostazione della password dopo il ripristino.
 * Le estensioni presenti durante la configurazione di backup verranno installate, ma non attivate. In caso di problemi, reinstallare le estensioni. 
 * Se la macchina virtuale di backup dispone di indirizzo IP statico, dopo il ripristino, la macchina virtuale ripristinata avrà un indirizzo IP dinamico per evitare conflitti durante la creazione della macchina virtuale ripristinata. Altre informazioni su come [aggiungere un indirizzo IP statico alla macchina virtuale ripristinata](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* La macchina virtuale ripristinata non avrà set di disponibilità. È consigliabile usare l'opzione di ripristino dei dischi e [aggiungere il set di disponibilità](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set) durante la creazione di una macchina virtuale da PowerShell o dei modelli tramite i dischi ripristinati. 
+* La macchina virtuale ripristinata non avrà set di disponibilità. È consigliabile usare l'opzione di ripristino dei dischi e [aggiungere il set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) durante la creazione di una macchina virtuale da PowerShell o dei modelli tramite i dischi ripristinati. 
 
 
 ## <a name="backup-for-restored-vms"></a>Backup per le macchine virtuali ripristinate

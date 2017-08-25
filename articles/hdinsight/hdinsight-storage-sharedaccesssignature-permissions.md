@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/11/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5cd05743425069925e71e85a616967c812bd3491
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 470d4a57adf161b41a0b41061bec3840ddbf7f27
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
@@ -55,7 +55,7 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 
 Esistono due tipi di firme di accesso condiviso:
 
-* Ad hoc: l'ora di inizio, la scadenza e le autorizzazioni della firma di accesso condiviso vengono tutte specificate nell'URI corrispondente oppure sono implicite, nel caso in cui l'ora di inizio venga omessa.
+* Ad hoc: l'ora di inizio, la scadenza e le autorizzazioni per la firma di accesso condiviso vengono tutte specificate nell'URI corrispondente.
 
 * Criteri di accesso archiviati: i criteri di accesso archiviati vengono definiti per un contenitore di risorse, ovvero un contenitore BLOB. I criteri di accesso archiviati possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati.
 
@@ -63,16 +63,19 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
 
 1. Viene raggiunta la scadenza specificata nella firma.
 
-2. Viene raggiunta la scadenza specificata nei criteri di accesso archiviati a cui fa riferimento la firma di accesso condiviso. Tale situazione può verificarsi alla scadenza dell'intervallo oppure perché i criteri di accesso archiviati sono stati modificati in modo che la scadenza ricorra nel passato e ciò corrisponde a un modo per revocare la firma di accesso condiviso.
+2. Viene raggiunta la scadenza specificata nei criteri di accesso archiviati a cui fa riferimento la firma di accesso condiviso. Gli scenari seguenti portano a raggiungere la scadenza:
+
+    * L'intervallo di tempo è trascorso.
+    * Per i criteri di accesso archiviati è stata impostata una scadenza nel passato. Modificando la scadenza è possibile revocare la firma di accesso condiviso.
 
 3. I criteri di accesso archiviati cui viene fatto riferimento nella firma di accesso condiviso vengono eliminati e ciò corrisponde a un altro modo per revocare la firma. Se si ricreano i criteri di accesso archiviati specificando lo stesso nome, tutti i token di firma di accesso condiviso relativi ai criteri precedenti restano validi, a condizione che l'ora di scadenza indicata nella firma di accesso condiviso non sia trascorsa. Se si intende revocare la firma di accesso condiviso, verificare di usare un nome diverso per ricreare i criteri di accesso archiviati con scadenza nel futuro.
 
-4. La chiave dell'account utilizzata per creare la firma di accesso condiviso viene rigenerata. Se si rigenera la chiave, l'autenticazione di tutte le applicazioni che usano la chiave precedente avrà esito negativo. È necessario aggiornare tutti i componenti alla nuova chiave.
+4. La chiave dell'account utilizzata per creare la firma di accesso condiviso viene rigenerata. Se si rigenera la chiave, l'autenticazione di tutte le applicazioni che usano la chiave precedente avrà esito negativo. Aggiornare tutti i componenti con la nuova chiave.
 
 > [!IMPORTANT]
 > L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account.
 
-È consigliabile usare sempre i criteri di accesso archiviati, per poter revocare le firme o estendere la data di scadenza in base alle esigenze. I passaggi illustrati in questo documento permettono di usare i criteri di accesso archiviati per generare firme di accesso condiviso.
+È consigliabile usare sempre i criteri di accesso archiviati. Con i criteri archiviati, è possibile revocare le firme o estendere la scadenza in base alle esigenze. I passaggi illustrati in questo documento permettono di usare i criteri di accesso archiviati per generare firme di accesso condiviso.
 
 Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni sul modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -92,7 +95,7 @@ Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni su
 
    * FileToUpload: percorso di un file caricato nel contenitore.
 
-4. Eseguire il progetto. Dopo la generazione della firma di accesso condiviso, viene visualizzata una finestra della console con informazioni simili al testo seguente:
+4. Eseguire il progetto. Dopo la generazione della firma di accesso condiviso, vengono visualizzate informazioni simili al testo seguente:
 
         Container SAS token using stored access policy: sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14
 
@@ -133,39 +136,48 @@ La directory `CreateCluster` del repository include un esempio di creazione di u
 
 1. Aprire il file `CreateCluster\HDInsightSAS.ps1` in un editor di testo e modificare i valori seguenti all'inizio del documento.
 
-        # Replace 'mycluster' with the name of the cluster to be created
-        $clusterName = 'mycluster'
-        # Valid values are 'Linux' and 'Windows'
-        $osType = 'Linux'
-        # Replace 'myresourcegroup' with the name of the group to be created
-        $resourceGroupName = 'myresourcegroup'
-        # Replace with the Azure data center you want to the cluster to live in
-        $location = 'North Europe'
-        # Replace with the name of the default storage account to be created
-        $defaultStorageAccountName = 'mystorageaccount'
-        # Replace with the name of the SAS container created earlier
-        $SASContainerName = 'sascontainer'
-        # Replace with the name of the SAS storage account created earlier
-        $SASStorageAccountName = 'sasaccount'
-        # Replace with the SAS token generated earlier
-        $SASToken = 'sastoken'
-        # Set the number of worker nodes in the cluster
-        $clusterSizeInNodes = 2
+    ```powershell
+    # Replace 'mycluster' with the name of the cluster to be created
+    $clusterName = 'mycluster'
+    # Valid values are 'Linux' and 'Windows'
+    $osType = 'Linux'
+    # Replace 'myresourcegroup' with the name of the group to be created
+    $resourceGroupName = 'myresourcegroup'
+    # Replace with the Azure data center you want to the cluster to live in
+    $location = 'North Europe'
+    # Replace with the name of the default storage account to be created
+    $defaultStorageAccountName = 'mystorageaccount'
+    # Replace with the name of the SAS container created earlier
+    $SASContainerName = 'sascontainer'
+    # Replace with the name of the SAS storage account created earlier
+    $SASStorageAccountName = 'sasaccount'
+    # Replace with the SAS token generated earlier
+    $SASToken = 'sastoken'
+    # Set the number of worker nodes in the cluster
+    $clusterSizeInNodes = 3
+    ```
 
     Ad esempio, sostituire `'mycluster'` con il nome del cluster che si vuole creare. I valori della firma di accesso condiviso devono corrispondere ai valori usati nei passaggi precedenti durante la creazione di un token dell'account di archiviazione e della firma di accesso condiviso.
 
     Dopo aver modificato i valori, salvare il file.
-2. Aprire un nuovo prompt dei comandi di Azure PowerShell. Se non si ha familiarità con Azure PowerShell o non è stato installato, vedere [Install and configure Azure PowerShell][powershell] (Installare e configurare Azure PowerShell).
-3. Dal prompt dei comandi usare il comando seguente per eseguire l'autenticazione alla sottoscrizione di Azure:
 
-        Login-AzureRmAccount
+2. Aprire un nuovo prompt dei comandi di Azure PowerShell. Se non si ha familiarità con Azure PowerShell o non è stato installato, vedere [Install and configure Azure PowerShell][powershell] (Installare e configurare Azure PowerShell).
+
+1. Dal prompt dei comandi usare il comando seguente per eseguire l'autenticazione alla sottoscrizione di Azure:
+
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
     Quando richiesto, accedere con l'account associato alla sottoscrizione di Azure.
 
     Se l'account è associato a più sottoscrizioni di Azure, può essere necessario usare `Select-AzureRmSubscription` per selezionare la sottoscrizione da usare.
+
 4. Dal prompt dei comandi, passare alla directory `CreateCluster` che contiene il file HDInsightSAS.ps1. Usare quindi il comando seguente per eseguire lo script
 
-        .\HDInsightSAS.ps1
+    ```powershell
+    .\HDInsightSAS.ps1
+    ```
 
     Durante l'esecuzione dello script, mentre vengono creati il gruppo di risorse e gli account di archiviazione, l'output viene registrato nel prompt di PowerShell. Viene chiesto di immettere l'utente HTTP per il cluster HDInsight. Questo account viene usato per proteggere l'accesso HTTP/s al cluster.
 
@@ -218,31 +230,42 @@ Per verificare che l'accesso sia effettivamente limitato, usare i metodi seguent
 * Per i cluster HDInsight **basati su Windows** , usare Desktop remoto per connettersi al cluster. Per altre informazioni, vedere [Connettersi a HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
     Dopo aver stabilito la connessione, usare l'icona della **riga di comando di Hadoop** sul desktop per aprire il prompt dei comandi.
+
 * Per i cluster HDInsight **basati su Linux** , usare SSH per connettersi al cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Dopo aver stabilito la connessione al cluster, usare la procedura seguente per verificare che nell'account di archiviazione della firma di accesso condiviso sia solo possibile leggere ed elencare gli elementi:
 
-1. Dal prompt dei comandi, digitare quanto segue. Sostituire **SASCONTAINER** con il nome del contenitore creato per l'account di archiviazione della firma di accesso condiviso. Sostituire **SASACCOUNTNAME** con il nome dell'account di archiviazione usato per la firma di accesso condiviso:
+1. Per elencare il contenuto del contenitore, usare il comando seguente dal prompt: 
 
-        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```bash
+    hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    ```
 
-    Verrà visualizzato il contenuto del contenitore, che deve includere il file caricato durante la creazione del contenitore e della firma di accesso condiviso.
+    Sostituire **SASCONTAINER** con il nome del contenitore creato per l'account di archiviazione della firma di accesso condiviso. Sostituire **SASACCOUNTNAME** con il nome dell'account di archiviazione usato per la firma di accesso condiviso.
+
+    L'elenco include il file caricato quando sono stati creati il contenitore e la firma di accesso condiviso.
 
 2. Usare il comando seguente per verificare che sia possibile leggere il contenuto del file. Sostituire **SASCONTAINER** e **SASACCOUNTNAME** come indicato nel passaggio precedente. Sostituire **FILENAME** con il nome del file visualizzato nel comando precedente:
 
-        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    ```bash
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+    ```
 
     Verrà visualizzato il contenuto del file.
 
 3. Usare il comando seguente per scaricare il file nel file system locale:
 
-        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    ```bash
+    hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+    ```
 
     Il file verrà scaricato in un file locale denominato **testfile.txt**.
 
 4. Usare il comando seguente per caricare il file locale in un nuovo file denominato **testupload.txt** nella risorsa di archiviazione della firma di accesso condiviso:
 
-        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    ```bash
+    hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    ```
 
     Verrà visualizzato un messaggio simile al testo seguente:
 
@@ -250,7 +273,9 @@ Dopo aver stabilito la connessione al cluster, usare la procedura seguente per v
 
     Questo errore si verifica perché il percorso di archiviazione è di sola lettura+elenco. Usare il comando seguente per inserire i dati nella risorsa di archiviazione predefinita per il cluster, accessibile in scrittura:
 
-        hdfs dfs -put testfile.txt wasb:///testupload.txt
+    ```bash
+    hdfs dfs -put testfile.txt wasb:///testupload.txt
+    ```
 
     Questa volta l'operazione avrà esito positivo.
 

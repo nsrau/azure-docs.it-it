@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 99386a92b76d0d58f7f5c94d30d3423559eee685
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights 
@@ -311,7 +311,7 @@ Dal punto di vista del volume (*VolumeMap*), le tabelle visualizzano tutti i dis
 
 Se la VM di destinazione ospita istanze di SQL Server, nel report verrà visualizzata una scheda aggiuntiva denominata **SQL Server**:
 
-![Scheda SQL](media/how-to-use-perfInsights/sqltab.png)
+![Scheda per SQL](media/how-to-use-perfInsights/sqltab.png)
 
 Questa sezione contiene una scheda "Panoramica" e altre schede secondarie per ogni istanza di SQL Server ospitata nella VM.
 
@@ -350,3 +350,4 @@ Questo messaggio verrà inviato da **CTS Automated Diagnostics Services** (ctsad
 Per maggiore sicurezza, verrà chiesto di cambiare la password al primo uso.
 
 Dopo l'accesso a DTM, verrà visualizzata una finestra di dialogo per caricare il file **CollectedData\_aaaa-MM-gg\_hh\_mm\_ss.zip** raccolto da PerfInsights.
+

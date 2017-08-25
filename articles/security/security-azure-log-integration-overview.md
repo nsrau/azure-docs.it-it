@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 08/10/2017
 ms.author: TomSh
 ms.custom: azlog
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 5e672bd6b9356ce16663e843e4a4e7365cb159c3
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 1aa93ac52d1d5c4efe222c6da505e3639170cf55
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-log-integration"></a>Introduzione all'integrazione dei log di Microsoft Azure
@@ -29,10 +29,10 @@ Informazioni sull'integrazione dei log di Azure, le funzionalità principali e i
 
 L'integrazione dei log di Azure è una soluzione gratuita che consente di integrare log non elaborati dalle risorse di Azure nei sistemi SIEM (Security Information and Event Management) locali.
 
-L'integrazione dei log di Azure raccoglie gli eventi di Windows dai canali del Visualizzatore eventi di Windows, i [log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), gli [avvisi del Centro sicurezza di Azure](../security-center/security-center-intro.md) e i [log di Diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) dalle risorse di Azure. Questa integrazione aiuta il sistema SIEM a fornire un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza.
+L'integrazione dei log di Azure raccoglie gli eventi di Windows da log del Visualizzatore eventi di Windows, [log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [avvisi del Centro sicurezza di Azure](../security-center/security-center-intro.md) e [log di Diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) dalle risorse di Azure. Questa integrazione aiuta il sistema SIEM a fornire un dashboard unificato per tutti gli asset, locali o su cloud, consentendo di aggregare, correlare, analizzare e inviare avvisi per gli eventi di sicurezza.
 
 >[!NOTE]
-Al momento i soli cloud supportati sono quello commerciale e quello di Azure per enti pubblici. Gli altri cloud per ora non sono supportati.
+Al momento i soli cloud supportati sono quello commerciale e quello di Azure per enti pubblici. Gli altri cloud non sono supportati.
 
 ![Integrazione dei log di Azure][1]
 
@@ -43,23 +43,10 @@ Azure produce registrazioni complete per ogni servizio di Azure. Questi log rapp
 * I **log del piano dati** che offrono visibilità sugli eventi generati come parte dell'uso di una risorsa di Azure. Un esempio di questo tipo di log sono i canali **Sistema**, **Sicurezza** e **Applicazione** del Visualizzatore eventi di Windows in una macchina virtuale Windows. Un altro esempio è la registrazione di diagnostica configurata tramite Monitor di Azure
 * Gli **eventi elaborati** forniscono eventi analizzati e informazioni sugli avvisi elaborate per conto del cliente. Un esempio di questo tipo di evento è costituito dagli avvisi del Centro sicurezza di Azure, in cui il Centro sicurezza di Azure ha elaborato e analizzato la sottoscrizione per fornire avvisi pertinenti alle condizioni di sicurezza attuali.
 
-L'integrazione dei log di Azure supporta attualmente l'integrazione dei log di attività di Azure, del log eventi delle macchine virtuali Windows incluse nella sottoscrizione di Azure, degli avvisi del Centro sicurezza di Azure, dei log di Diagnostica di Azure e dei log di controllo di Azure Active Directory.
+L'integrazione dei log di Azure supporta ArcSight, QRadar e Splunk. Verificare sempre con il fornitore SIEM se è disponibile un connettore nativo. In alcuni casi, non sarà necessario usare l'integrazione dei log di Azure quando sono disponibili i connettori nativi. Per altre informazioni sui tipi di log supportati, vedere le domande frequenti.
 
 >[!NOTE]
 L'integrazione dei log di Azure è una soluzione gratuita, ma ci saranno costi di archiviazione di Azure derivanti dall'archiviazione di informazioni nel file di log.
-
-La tabella seguente illustra la categoria Log e i dettagli dell'integrazione SIEM
-
-| Tipo di log  |Log Analytics con supporto JSON (Splunk, ELK)| ArcSight  | QRadar  |   
-|---|---|---|---|
-|  Log di controllo AAD |  Sì | Richiede la creazione di un file parser JSON FlexConnector. Per altre informazioni, vedere la documentazione ArcSight.  |  È necessario creare un'estensione Origine log. Per altre informazioni, vedere la documentazione QRadar. |  
-| Log attività  | Sì  |  File parser JSON FlexConnector disponibile nell'area download con il download dell'integrazione log di Azure. |  [DSM QRadar](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html) (invio tramite Syslog) |  
-| Avvisi del Centro sicurezza di Azure  | Sì  |  Richiede la creazione di un file parser JSON FlexConnector. Per altre informazioni, vedere la documentazione ArcSight. | [DSM QRadar](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html) (invio tramite Syslog)   |   
-| Log di diagnostica (log di risorse) | Sì | L'utente finale deve creare un file parser JSON FlexConnector. Per informazioni su questa operazione, vedere la documentazione ArcSight. | È necessario creare un'estensione Origine log. Per altre informazioni, vedere la documentazione QRadar. |
-| Log VM | Sì, tramite Eventi inoltrati e non attraverso JSON | Sì, tramite Eventi inoltrati | Sì, tramite Eventi inoltrati |
-
-Per altre informazioni sui tipi di log supportati, consultare le [domande frequenti](security-azure-log-integration-faq.md)
-
 
 L'assistenza della community è disponibile tramite il [forum MSDN di Integrazione log di Azure](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Il forum offre ai membri della community di AzLog la possibilità di supporto reciproco con domande, risposte, suggerimenti e trucchi su come ottenere il massimo dall'integrazione dei log di Azure. Inoltre, il team di Integrazione log di Azure monitora questo forum e offrirà il suo contributo quando possibile.
 

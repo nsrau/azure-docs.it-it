@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: d8b0bde3778054042c32dbc9c9e08d0b2f1fd3ca
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ottimizzazione delle prestazioni delle query con Azure Cosmos DB
@@ -153,7 +153,7 @@ Di seguito sono indicati i fattori più comuni che influiscono sulle prestazioni
 | Metriche di esecuzione delle query | Analizzare le metriche di esecuzione delle query per identificare le potenziali riscritture di forme di dati e query.  |
 
 ### <a name="provisioned-throughput"></a>Velocità effettiva con provisioning
-In Cosmos DB vengono creati contenitori di dati, ognuno con una velocità effettiva riservata espressa in unità richiesta (UR) al secondo e al minuto. Una lettura di un documento di 1 KB è 1 UR e ogni operazione (incluse le query) è normalizzata secondo un numero fisso di UR in base alla relativa complessità. Se ad esempio è previsto un provisioning di 1000 UR/sec per il contenitore e si dispone di una query come `SELECT * FROM c WHERE c.city = 'Seattle'` che usa 5 UR, è possibile eseguire (1000 UR/sec) / (5 UR/query) = 200 query di questo tipo al secondo. 
+In Cosmos DB è possibile creare contenitori di dati, ognuno con una velocità effettiva riservata espressa in unità richiesta (UR) al secondo. Una lettura di un documento di 1 KB è 1 UR e ogni operazione (incluse le query) è normalizzata secondo un numero fisso di UR in base alla relativa complessità. Se ad esempio è previsto un provisioning di 1000 UR/sec per il contenitore e si dispone di una query come `SELECT * FROM c WHERE c.city = 'Seattle'` che usa 5 UR, è possibile eseguire (1000 UR/sec) / (5 UR/query) = 200 query di questo tipo al secondo. 
 
 Se si inviano più di 200 query al secondo, il servizio inizia a limitare le velocità delle richieste in ingresso sopra il valore di 200 query al secondo. L'SDK gestisce automaticamente questo caso eseguendo un nuovo tentativo/backoff, pertanto è possibile osservare una latenza superiore per queste query. L'aumento della velocità effettiva con provisioning al valore richiesto migliora la velocità effettiva e la latenza delle query. 
 
@@ -174,18 +174,73 @@ Per altre informazioni sul partizionamento e sulle chiavi di partizione, vedere 
 ### <a name="sdk-and-query-options"></a>Opzioni per SDK e query
 Per informazioni su come ottenere le migliori prestazioni sul lato client da Azure Cosmos DB, vedere [Suggerimenti sulle prestazioni](performance-tips.md) e [Test delle prestazioni](performance-testing.md). Sono inclusi l'uso degli SDK più recenti, la configurazione di impostazioni specifiche della piattaforma come il numero predefinito di connessioni, la frequenza della Garbage Collection e l'uso delle opzioni di connettività leggera come Direct/TCP. 
 
-Per le query, ottimizzare `MaxBufferedItemCount` e `MaxDegreeOfParallelism` per identificare le configurazioni migliori per l'applicazione, soprattutto se si eseguono query tra più partizioni (senza un filtro per il valore della chiave di partizione).
+
+#### <a name="max-item-count"></a>Numero massimo di elementi
+Per le query, il valore di `MaxItemCount` può avere un impatto significativo sulla durata delle query end-to-end. Ogni round trip al server restituirà un numero di elementi mai maggiore di quello specificato in `MaxItemCount` (100 elementi per impostazione predefinita). L'impostazione di un valore maggiore (-1 è il valore massimo e consigliato) migliora la durata complessiva delle query limitando il numero di round trip tra server e client, in particolare per le query con set di risultati di grandi dimensioni.
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        MaxItemCount = -1, 
+    }).AsDocumentQuery();
+```
+
+#### <a name="max-degree-of-parallelism"></a>Massimo grado di parallelismo
+Per le query, ottimizzare `MaxDegreeOfParallelism` per identificare le configurazioni migliori per l'applicazione, in particolare se si eseguono query tra partizioni (senza un filtro per il valore della chiave di partizione). `MaxDegreeOfParallelism` controlla il numero massimo di attività in parallelo, ovvero il numero massimo di partizioni accessibili in parallelo. 
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        MaxDegreeOfParallelism = -1, 
+        EnableCrossPartitionQuery = true 
+    }).AsDocumentQuery();
+```
+
+Presupponendo che
+* D = Numero massimo predefinito di attività in parallelo (= numero totale di processori nel computer client)
+* P = Numero massimo di attività in parallelo specificato dall'utente
+* N = Numero di partizioni cui è necessario accedere per rispondere a una query
+
+Di seguito sono indicate le implicazioni sul comportamento delle query in parallelo per diversi valori di P.
+* (P == 0) => Modalità seriale
+* (P == 1) => Massimo un'attività
+* (P > 1) => Attività in parallelo minime (P, N) 
+* (P < 1) => Attività in parallelo minime (N, D)
 
 Per le note sulla versione degli SDK e altre informazioni sulle classi e i metodi implementati, vedere [SDK di DocumentDB](documentdb-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Latenza di rete
 Per configurare la distribuzione globale e connettersi all'area più vicina, vedere [Distribuzione globale di Azure Cosmos DB](tutorial-global-distribution-documentdb.md). La latenza di rete ha un impatto significativo sulle prestazioni delle query quando è necessario eseguire più round trip o recuperare un set di risultati di grandi dimensioni dalla query. 
 
+La sezione sulle metriche di esecuzione delle query descrive come recuperare la durata di esecuzione delle query del server ( `totalExecutionTimeInMs`), in modo da poter differenziare tra il tempo impiegato dall'esecuzione delle query e quello impiegato per il trasferimento di rete.
+
 ### <a name="indexing-policy"></a>Criterio di indicizzazione
 Per informazioni su percorsi, tipi e modalità di indicizzazione e sul relativo impatto sull'esecuzione delle query, vedere [Configurazione dei criteri di indicizzazione](indexing-policies.md). Per impostazione predefinita, i criteri di indicizzazione usano l'indicizzazione hash per le stringhe, che è efficace per le query di uguaglianza, ma non per le query di intervallo o orderby. Se sono necessarie query di intervallo per le stringhe, è consigliabile specificare il tipo di indice di intervallo per tutte le stringhe. 
 
 ## <a name="query-execution-metrics"></a>Metriche di esecuzione delle query
 È possibile ottenere metriche dettagliate sull'esecuzione delle query passando l'intestazione facoltativa `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` in .NET SDK). Il valore restituito in `x-ms-documentdb-query-metrics` contiene le seguenti coppie chiave-valore, pensate per risoluzione dei problemi più avanzati di esecuzione delle query. 
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        PopulateQueryMetrics = true, 
+    }).AsDocumentQuery();
+
+FeedResponse<dynamic> result = await query.ExecuteNextAsync();
+
+// Returns metrics by partition key range Id
+IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
+
+```
 
 | Metrica | Unità | Descrizione | 
 | ------ | -----| ----------- |

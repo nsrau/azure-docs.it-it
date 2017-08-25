@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/16/2017
 ms.author: monicar
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 800eadb6cc558303553a204771b18cec525a2af9
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 8fd682db20b99d2cff9fd7fa45cb662d932fefea
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
@@ -30,8 +30,8 @@ Il glossario di Microsoft Azure è un breve dizionario di terminologia cloud per
 * [Terminologia del cloud computing](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - Terminologia generale relativa al cloud.
 
 ## <a name="account"></a>account
-Account Microsoft aziendale, dell'istituto di istruzione o personale usato per l'accesso e la gestione di una sottoscrizione di Azure.  
-Vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+Account usato per accedere alla sottoscrizione di Azure e gestirla. Viene spesso definito account Azure anche se un account può essere un account Microsoft aziendale, dell'istituto di istruzione o personale esistente oppure un nome utente e una password di Office 365. È anche possibile creare un account per gestire una sottoscrizione di Azure quando ci si iscrive alla [versione di valutazione gratuita](https://azure.microsoft.com).  
+Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [Account che si possono usare per l'accesso](active-directory/active-directory-how-subscriptions-associated-directory.md#accounts-that-you-can-use-to-sign-in).
 
 ## <a name="api-app"></a>App per le API
 Nome alternativo per [app del servizio app](#app-service-app).

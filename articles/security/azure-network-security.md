@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: bec61dd630348e4657862077f07b1313ed0ed373
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -314,7 +314,7 @@ Questo flusso di comunicazione è possibile perché Azure utilizza una serie di 
 
 -   Da una rete virtuale alla rete locale tramite un gateway VPN.
 
-Molte aziende hanno rigidi requisiti di sicurezza e conformità che richiedono l'ispezione locale di tutti i pacchetti di rete per l'applicazione di criteri specifici. Azure offre un meccanismo denominato [tunneling forzato](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) che instrada il traffico dalle macchine virtuali alla rete locale, creando una route personalizzata o per mezzo di annunci [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) tramite ExpressRoute o VPN. annunci tramite ExpressRoute o VPN.
+Molte aziende hanno rigidi requisiti di sicurezza e conformità che richiedono l'ispezione locale di tutti i pacchetti di rete per l'applicazione di criteri specifici. Azure offre un meccanismo denominato [tunneling forzato](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) che instrada il traffico dalle macchine virtuali alla rete locale, creando una route personalizzata o per mezzo di annunci [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) tramite ExpressRoute o VPN.
 
 Il tunneling forzato in Azure viene configurato tramite route di rete virtuale definite dall'utente. Il reindirizzamento del traffico a un sito locale viene espresso come route predefinita al gateway VPN di Azure.
 
@@ -386,7 +386,6 @@ Il gateway applicazione consente di ottimizzare le prestazioni e la disponibilit
 
 
 Nel gateway applicazione è incluso anche un [Web application firewall (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview). Questo offre alle applicazioni Web la protezione da exploit e vulnerabilità Web comuni. Il gateway applicazione può essere configurato come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni.
-come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni.
 
 È possibile eseguire il Web application firewall del gateway applicazione in modalità di rilevamento o di prevenzione. Gli amministratori lo eseguono comunemente in modalità di rilevamento per tenere traccia di eventuali schemi dannosi nel traffico. Quando vengono rilevati exploit potenziali, il passaggio alla modalità di prevenzione blocca il traffico in ingresso sospetto.
 

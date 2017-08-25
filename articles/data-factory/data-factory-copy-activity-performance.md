@@ -1,6 +1,6 @@
 ---
-title: "Guida alle prestazioni dell&quot;attività di copia e all&quot;ottimizzazione | Microsoft Docs"
-description: "Informazioni sui fattori principali che influiscono sulle prestazioni dello spostamento di dati in Azure Data Factory quando si usa l&quot;attività di copia."
+title: "Guida alle prestazioni dell'attività di copia e all'ottimizzazione | Microsoft Docs"
+description: "Informazioni sui fattori principali che influiscono sulle prestazioni dello spostamento di dati in Azure Data Factory quando si usa l'attività di copia."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/10/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: d89a09a41d6b57134a0de95750410b1f09cadbd2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
@@ -40,22 +39,19 @@ L'articolo illustra:
 > [!NOTE]
 > Se non si ha familiarità con l'attività di copia in generale, vedere [Spostare dati con l'attività di copia](data-factory-data-movement-activities.md) prima di continuare a leggere l'articolo.
 >
->
 
 ## <a name="performance-reference"></a>Informazioni di riferimento sulle prestazioni
+
+Come riferimento, la tabella sotto mostra la velocità effettiva di copia in MBps per le coppie di origine e sink specifiche in base a test interni. A scopo di confronto, viene illustrato anche in che modo le diverse impostazioni di [unità di spostamento dati cloud](#cloud-data-movement-units) o la [scalabilità di Gateway di gestione dati](data-factory-data-management-gateway-high-availability-scalability.md) (nodi gateway multipli) possono favorire le prestazioni di copia.
+
 ![Matrice delle prestazioni](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [!NOTE]
-> È possibile raggiungere una velocità effettiva più elevata sfruttando un numero maggiore di unità di spostamento dati di quello massimo predefinito, pari a 32 per l'esecuzione di un'attività di copia da cloud a cloud. Ad esempio, con 100 unità di spostamento dati è possibile copiare i dati dal BLOB di Azure in Azure Data Lake Store a **1,0 GB al secondo**. Vedere la sezione [Unità di spostamento dati cloud](#cloud-data-movement-units) per informazioni dettagliate su questa funzionalità e sullo scenario supportato. Contattare il [Supporto tecnico di Azure](https://azure.microsoft.com/support/) per richiedere altre unità di spostamento dati.
->
->
 
 **Punti da notare:**
 * La velocità effettiva viene calcolata con la formula seguente: [dimensione dei dati letti dall'origine]/[durata dell'esecuzione dell'attività di copia].
 * I numeri di riferimento delle prestazioni nella tabella sono stati misurati usando il set di dati [TPC-H](http://www.tpc.org/tpch/) nell'esecuzione di una singola attività di copia.
-* Per eseguire la copia tra archivi dati cloud, impostare **cloudDataMovementUnits** su 1 e 4 (o 8) per il confronto. **parallelCopies** non è specificato. Per informazioni dettagliate su queste funzionalità, vedere la sezione [Copia parallela](#parallel-copy) .
 * Nel caso degli archivi dati di Azure, l'origine e il sink si trovano nella stessa area di Azure.
-* Per lo spostamento di dati ibrido, ovvero da locale al cloud o viceversa, è stata usata una singola istanza del gateway in esecuzione su un computer separato dall'archivio dati locale. La configurazione è elencata nella tabella seguente. Durante l'esecuzione di una singola attività nel gateway, l'operazione di copia ha usato solo una piccola parte della CPU, della memoria o della larghezza di banda di rete del computer di test.
+* Per la copia ibrida tra archivi dati locali e cloud, ogni nodo del gateway è in esecuzione su un computer separato dall'archivio dati locale, con le specifiche indicate di seguito. Durante l'esecuzione di una singola attività nel gateway, l'operazione di copia ha usato solo una piccola parte della CPU, della memoria o della larghezza di banda di rete del computer di test. Vedere [Considerazioni su Gateway di gestione dati](#considerations-for-data-management-gateway).
     <table>
     <tr>
         <td>CPU</td>
@@ -70,6 +66,10 @@ L'articolo illustra:
         <td>Interfaccia Internet: 10 Gbps, interfaccia Intranet: 40 Gbps</td>
     </tr>
     </table>
+
+
+> [!TIP]
+> È possibile raggiungere una velocità effettiva più elevata sfruttando un numero maggiore di unità di spostamento dati di quello massimo predefinito, pari a 32 per l'esecuzione di un'attività di copia da cloud a cloud. Ad esempio, con 100 unità di spostamento dati è possibile copiare i dati dal BLOB di Azure in Azure Data Lake Store a **1,0 GB al secondo**. Vedere la sezione [Unità di spostamento dati cloud](#cloud-data-movement-units) per informazioni dettagliate su questa funzionalità e sullo scenario supportato. Contattare il [Supporto tecnico di Azure](https://azure.microsoft.com/support/) per richiedere altre unità di spostamento dati.
 
 ## <a name="parallel-copy"></a>Copia parallela
 È possibile leggere dati dall'origine o scrivere dati nella destinazione **in parallelo all'interno di un'esecuzione dell'attività di copia**. Questa funzionalità migliora la velocità effettiva di un'operazione di copia e riduce il tempo necessario per spostare i dati.
@@ -115,7 +115,6 @@ I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono 1 (val
 
 > [!NOTE]
 > Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la **copia di più file da Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP in Blob storage/Data Lake Store/Azure SQL Database**.
->
 >
 
 ### <a name="parallelcopies"></a>parallelCopies
@@ -247,15 +246,21 @@ Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copi
    * Funzionalità per le prestazioni:
      * [Copia parallela](#parallel-copy)
      * [Unità di spostamento dati cloud](#cloud-data-movement-units)
-     * [Copia di staging](#staged-copy)   
+     * [Copia di staging](#staged-copy)
+     * [Scalabilità di Gateway di gestione dati](data-factory-data-management-gateway-high-availability-scalability.md)
+   * [Gateway di gestione dati](#considerations-for-data-management-gateway)
    * [Origine](#considerations-for-the-source)
    * [Sink](#considerations-for-the-sink)
    * [Serializzazione e deserializzazione](#considerations-for-serialization-and-deserialization)
    * [Compressione](#considerations-for-compression)
    * [Mapping di colonne](#considerations-for-column-mapping)
-   * [Gateway di gestione dati](#considerations-for-data-management-gateway)
    * [Altre considerazioni](#other-considerations)
 3. **Espandere la configurazione all'intero set di dati**. Dopo aver ottenuto prestazioni e risultati di esecuzione soddisfacenti, è possibile espandere la definizione del set di dati e il periodo attivo della pipeline per coprire l'intero set di dati.
+
+## <a name="considerations-for-data-management-gateway"></a>Considerazioni su Gateway di gestione dati
+**Configurazione del gateway**: è consigliabile usare un computer dedicato per ospitare Gateway di gestione dati. Vedere [Considerazioni sull'uso di Gateway di gestione dati](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+
+**Monitoraggio e scalabilità verticale/orizzontale del gateway**: un singolo gateway logico con uno o più nodi del gateway può consentire più esecuzioni di attività di copia contemporaneamente. È possibile visualizzare lo snapshot quasi in tempo quasi reale dell'utilizzo delle risorse, ad esempio CPU, memoria, rete (ingresso/uscita) e così via, in un computer gateway oltre che il numero di processi simultanei in esecuzione rispetto ai limiti nel portale di Azure. Vedere [Monitorare il gateway nel portale](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Se si hanno necessità complesse di spostamento di dati ibridi, con un numero elevato di esecuzioni di attività di copia simultanee o con un volume elevato di dati da copiare, prendere in considerazione la possibilità di [aumentare le prestazioni o sfruttare la scalabilità orizzontale del gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) in modo da utilizzare al meglio la risorsa o effettuare il provisioning di più risorse a supporto della copia. 
 
 ## <a name="considerations-for-the-source"></a>Considerazioni sull'origine
 ### <a name="general"></a>Generale
@@ -341,13 +346,6 @@ Quando il set di dati di input o di output è un file, è possibile impostare l'
 È possibile impostare la proprietà **columnMappings** nell'attività di copia perché venga eseguito il mapping di tutte o di un subset delle colonne di input alle colonne di output. Dopo aver letto i dati dall'origine, il servizio di spostamento dati deve eseguire il mapping delle colonne sui dati prima di scriverli nel sink. Questa ulteriore elaborazione riduce la velocità effettiva di copia.
 
 Se l'archivio dati di origine è disponibile per query, ad esempio nel caso di un archivio relazionale come il database SQL o SQL Server, oppure nel caso di un archivio NoSQL come un archivio tabelle o Azure Cosmos DB, è consigliabile eseguire il push della logica di filtro e riordinamento colonne per la proprietà **query** anziché usare il mapping colonne. In questo modo la proiezione si verifica quando il servizio di spostamento dati legge i dati dall'archivio dati di origine, in cui è molto più efficiente.
-
-## <a name="considerations-for-data-management-gateway"></a>Considerazioni su Gateway di gestione dati
-Per le raccomandazioni sulla configurazione del gateway, vedere le [considerazioni per l'uso di Gateway di gestione dati](data-factory-data-management-gateway.md#considerations-for-using-gateway).
-
-**Ambiente del computer gateway**: è consigliabile usare un computer dedicato per ospitare Gateway di gestione dati. Usare strumenti come PerfMon per esaminare la CPU, la memoria e l'uso della larghezza di banda durante un'operazione di copia nel computer gateway. Se la CPU, la memoria o la larghezza di banda di rete diventa un collo di bottiglia, passare a un computer più potente.
-
-**Esecuzioni simultanee dell'attività di copia**: una singola istanza di Gateway di gestione dati può gestire più esecuzioni dell'attività di copia nello stesso momento, o simultaneamente. Il numero massimo di processi simultanei viene calcolato in base alla configurazione hardware del computer gateway. I processi di copia aggiuntivi vengono accodati finché non vengono selezionati dal gateway o non si verifica il timeout di un altro processo. Per evitare la contesa per le risorse nel computer gateway, è possibile usare la funzionalità di staging sulla pianificazione dell'attività di copia per ridurre il numero di processi di copia in coda allo stesso tempo o valutare la possibilità di dividere il carico in più computer gateway.
 
 ## <a name="other-considerations"></a>Altre considerazioni
 Se i dati da copiare sono di grandi dimensioni, è possibile modificare la logica di business per partizionare ulteriormente i dati usando il meccanismo di sezionamento in Data Factory. Quindi, pianificare esecuzioni più frequenti dell'attività di copia per ridurre le dimensioni dei dati per ogni singola esecuzione.

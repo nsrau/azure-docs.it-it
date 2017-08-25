@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 08/08/2017
 ms.author: robmcm;yungez;kevinzha
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 9e4decbcbbfca72475bfac032d39d1df7bdd4019
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 273cc750857c5e466882060a38ac0f3475811e98
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -53,7 +53,7 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 
    ![Portale di Azure][AZ02]
 
-1. Nel pannello **Azure Cosmos DB** immettere le informazioni seguenti:
+1. Nella pagina **Azure Cosmos DB** immettere le informazioni seguenti:
 
    * Immettere un **ID** univoco, che verrà usato come URI per il database, ad esempio *wingtiptoysdata.documents.azure.com*.
    * Scegliere **SQL (Document DB)** per l'API.
@@ -65,11 +65,11 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 
    ![Portale di Azure][AZ03]
 
-1. Al termine della creazione, il database viene elencato nel **Dashboard** di Azure e nei pannelli **Tutte le risorse** e **Azure Cosmos DB**. È possibile fare clic sul database in una di queste posizioni per aprire il pannello delle proprietà per la cache.
+1. Al termine della creazione, il database viene elencato nel **Dashboard** di Azure e nelle pagine **Tutte le risorse** e **Azure Cosmos DB**. È possibile fare clic sul database in una di queste posizioni per aprire la pagina delle proprietà per la cache.
 
    ![Portale di Azure][AZ04]
 
-1. Quando viene visualizzato il pannello delle proprietà per il database, fare clic su **Chiavi di accesso** e copiare le chiavi di accesso e l'URI per il database; questi valori verranno usati all'interno dell'applicazione Spring Boot.
+1. Quando viene visualizzata la pagina delle proprietà per il database, fare clic su **Chiavi di accesso** e copiare le chiavi di accesso e l'URI per il database. Questi valori verranno usati all'interno dell'applicazione Spring Boot.
 
    ![Portale di Azure][AZ05]
 
@@ -151,76 +151,9 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 
 ## <a name="add-sample-code-to-implement-basic-database-functionality"></a>Aggiungere il codice di esempio per implementare le funzionalità di base del database
 
-### <a name="modify-the-main-application-class"></a>Modificare la classe dell'applicazione main
+In questa sezione si creano due classi Java per l'archiviazione dei dati utente e si modifica la classe principale dell'applicazione per creare un'istanza della classe utente e salvarla nel database.
 
-1. Individuare il file Java dell'applicazione main nella directory del pacchetto dell'app, ad esempio:
-
-   `C:\SpringBoot\wingtiptoys\src\main\java\com\example\wingtiptoys\WingtiptoysApplication.java`
-
-   -oppure-
-
-   `/users/example/home/wingtiptoys/src/main/java/com/example/wingtiptoys/WingtiptoysApplication.java`
-
-   ![Individuare il file Java dell'applicazione][JV01]
-
-1. Aprire il file Java dell'applicazione main in un editor di testo e aggiungere le righe seguenti al file:
-
-   ```java
-   package com.example.wingtiptoys;
-
-   import org.springframework.boot.SpringApplication;
-   import org.springframework.boot.autoconfigure.SpringBootApplication;
-   import org.springframework.beans.factory.annotation.Autowired;
-   import org.springframework.boot.CommandLineRunner;
-
-   @SpringBootApplication
-   public class WingtiptoysApplication implements CommandLineRunner {
-
-      @Autowired
-      private UserRepository repository;
-    
-      public static void main(String[] args) {
-         SpringApplication.run(WingtiptoysApplication.class, args);
-      }
-
-      public void run(String... var1) throws Exception {
-         final User testUser = new User("testId", "testFirstName", "testLastName");
-
-         repository.deleteAll();
-         repository.save(testUser);
-
-         final User result = repository.findOne(testUser.getId());
-
-         System.out.printf("\n\n%s\n\n",result.toString());
-      }
-   }
-   ```
-   > [!NOTE]
-   >
-   > La classe dell'applicazione usa due classi: *UserRepository* e *User*, di cui verrà eseguita la definizione e l'implementazione in un secondo momento.
-   >
-
-1. Salvare e chiudere il file Java dell'applicazione main.
-
-### <a name="define-a-data-repository-interface"></a>Definire un'interfaccia del repository di dati
-
-1. Creare un nuovo file denominato *UserRepository.java* nella stessa directory del file dell'applicazione Java main.
-
-1. Aprire il file *UserRepository.java* in un editor di testo e aggiungere le righe seguenti al file per definire l'interfaccia utente del repository che estende l'interfaccia del repository predefinita di DocumentDB:
-
-   ```java
-   package com.example.wingtiptoys;
-
-   import com.microsoft.azure.spring.data.documentdb.repository.DocumentDbRepository;
-   import org.springframework.stereotype.Repository;
-
-   @Repository
-   public interface UserRepository extends DocumentDbRepository<User, String> {}   
-   ```
-
-1. Salvare e chiudere il file *UserRepository.java*.
-
-### <a name="define-a-basic-class-for-storing-data"></a>Definire una classe di base per l'archiviazione di dati
+### <a name="define-a-basic-class-for-storing-user-data"></a>Definire una classe di base per l'archiviazione dei dati utente
 
 1. Creare un nuovo file denominato *User.java* nella stessa directory del file dell'applicazione Java main.
 
@@ -273,6 +206,71 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 
 1. Salvare e chiudere il file *User.java*.
 
+### <a name="define-a-data-repository-interface"></a>Definire un'interfaccia del repository di dati
+
+1. Creare un nuovo file denominato *UserRepository.java* nella stessa directory del file dell'applicazione Java main.
+
+1. Aprire il file *UserRepository.java* in un editor di testo e aggiungere le righe seguenti al file per definire l'interfaccia utente del repository che estende l'interfaccia del repository predefinita di DocumentDB:
+
+   ```java
+   package com.example.wingtiptoys;
+
+   import com.microsoft.azure.spring.data.documentdb.repository.DocumentDbRepository;
+   import org.springframework.stereotype.Repository;
+
+   @Repository
+   public interface UserRepository extends DocumentDbRepository<User, String> {}   
+   ```
+
+1. Salvare e chiudere il file *UserRepository.java*.
+
+### <a name="modify-the-main-application-class"></a>Modificare la classe dell'applicazione main
+
+1. Individuare il file Java dell'applicazione main nella directory del pacchetto dell'app, ad esempio:
+
+   `C:\SpringBoot\wingtiptoys\src\main\java\com\example\wingtiptoys\WingtiptoysApplication.java`
+
+   -oppure-
+
+   `/users/example/home/wingtiptoys/src/main/java/com/example/wingtiptoys/WingtiptoysApplication.java`
+
+   ![Individuare il file Java dell'applicazione][JV01]
+
+1. Aprire il file Java dell'applicazione main in un editor di testo e aggiungere le righe seguenti al file:
+
+   ```java
+   package com.example.wingtiptoys;
+
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.boot.CommandLineRunner;
+
+   @SpringBootApplication
+   public class WingtiptoysApplication implements CommandLineRunner {
+
+      @Autowired
+      private UserRepository repository;
+    
+      public static void main(String[] args) {
+         SpringApplication.run(WingtiptoysApplication.class, args);
+      }
+
+      public void run(String... var1) throws Exception {
+         final User testUser = new User("testId", "testFirstName", "testLastName");
+
+         repository.deleteAll();
+         repository.save(testUser);
+
+         final User result = repository.findOne(testUser.getId());
+
+         System.out.printf("\n\n%s\n\n",result.toString());
+      }
+   }
+   ```
+
+1. Salvare e chiudere il file Java dell'applicazione main.
+
 ## <a name="build-and-test-your-app"></a>Compilare e testare l'app
 
 1. Aprire un prompt dei comandi e cambiare la directory passando alla cartella in cui si trova il file *pom.xml*, ad esempio:
@@ -294,7 +292,7 @@ I prerequisiti seguenti sono necessari per seguire le procedure disponibili in q
 
    ![Output positivo dall'applicazione][JV02]
 
-1. FACOLTATIVO: è possibile usare il portale di Azure per visualizzare il contenuto di Azure Cosmos DB nel pannello delle proprietà per il database facendo clic su **Esplora documenti** e quindi selezionando l'elemento nell'elenco per visualizzare il contenuto.
+1. FACOLTATIVO: è possibile usare il portale di Azure per visualizzare il contenuto di Azure Cosmos DB nella pagina delle proprietà del database facendo clic su **Esplora documenti** e quindi selezionando l'elemento nell'elenco per visualizzare il contenuto.
 
    ![Utilizzo di Esplora documenti per visualizzare i dati][JV03]
 

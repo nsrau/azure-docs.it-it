@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 85723eeb9c030dc51bdad47ea8e0996ff7868336
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a09e965b6fc9b89023c09092860fcf79773a4518
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Business Object Cloud
@@ -45,7 +46,7 @@ Per configurare l'integrazione di Azure AD con SAP Business Object Cloud, sono n
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
@@ -111,9 +112,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<sub-domain>.projectorca.cloud/`.
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente: 
+    | |
+    |-|-|
+    | `https://<sub-domain>.sapanalytics.cloud/` |
+    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `<sub-domain>.projectorca.cloud`
+    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
+    | |
+    |-|-|
+    | `<sub-domain>.sapbusinessobjects.cloud` |
+    | `<sub-domain>.sapanalytics.cloud` |
 
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Contattare il [team di supporto del client SAP Business Object Cloud](https://www.sap.com/product/analytics/cloud-analytics.support.html) per ottenere l'URL di accesso. Sarà quindi possibile ottenere l'identificatore scaricando i metadati di SAP Business Object Cloud dalla console di amministrazione che è illustrata più avanti nell'esercitazione. 
@@ -195,8 +204,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="creating-an-sap-business-object-cloud-test-user"></a>Creazione di un utente di test di SAP Business Object Cloud
 
-Per consentire agli utenti di Azure AD di accedere a SAP Business Object Cloud, è necessario eseguirne il provisioning in SAP Business Object Cloud.  
-Nel caso di SAP Business Object Cloud, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure AD di accedere a SAP Business Object Cloud, è necessario eseguirne il provisioning in SAP Business Object Cloud. Per SAP Business Object Cloud, il provisioning è un'attività manuale.
 
 **Per eseguire il provisioning di un account utente, seguire questa procedura:**
 

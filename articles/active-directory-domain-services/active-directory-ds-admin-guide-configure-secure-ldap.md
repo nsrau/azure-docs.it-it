@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 08/14/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f4134d10e57ff7c8ea6308f076f33e4dc703082c
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Azure AD Domain Services
@@ -48,7 +47,7 @@ Acquisire un certificato valido in base alle linee guida riportate di seguito pr
 5. **Scopo del certificato** : il certificato deve essere valido per l'autenticazione server SSL.
 
 > [!NOTE]
-> **Autorità di certificazione globali (enterprise):** Azure AD Domain Services attualmente non supporta l'uso di certificati LDAP sicuri rilasciati dall'autorità di certificazione globale (enterprise) dell'organizzazione. Questa restrizione è dovuta al fatto che il servizio non considera attendibile la CA come autorità di certificazione radice. Si prevede di aggiungere il supporto per le CA globali (enterprise) in futuro. Se è indispensabile usare certificati rilasciati dalla CA globale (enterprise), [contattare il supporto tecnico](active-directory-ds-contact-us.md) per assistenza.
+> **Autorità di certificazione globali (enterprise):** Azure AD Domain Services non supporta l'uso di certificati LDAP sicuri rilasciati dall'autorità di certificazione globale (enterprise) dell'organizzazione. Questa restrizione è dovuta al fatto che il servizio non considera attendibile la CA come autorità di certificazione radice. 
 >
 >
 
