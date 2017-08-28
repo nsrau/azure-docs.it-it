@@ -12,7 +12,6 @@
     ID raccolta|Items|Nome della nuova raccolta. I nomi delle raccolte prevedono requisiti per i caratteri uguali a quelli degli ID dei database.
     Capacità di archiviazione| Fissa (10 GB)|Usare il valore predefinito. Questo valore indica la capacità di archiviazione del database.
     Velocità effettiva|400 UR|Usare il valore predefinito. Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.
-    UR/min|Off|Lasciare il valore predefinito.
     Chiave di partizione|/category|Chiave di partizione che distribuisce i dati in modo uniforme a ogni partizione. Quando si crea una raccolta ad alte prestazioni è importante selezionare la chiave di partizione corretta. Per altre informazioni, vedere [Progettazione per il partizionamento](../articles/cosmos-db/partition-data.md#designing-for-partitioning).    
 3. Dopo aver completato il modulo, fare clic su **OK**.
 

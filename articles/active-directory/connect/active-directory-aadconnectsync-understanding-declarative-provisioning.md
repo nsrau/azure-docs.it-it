@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 5b715ec247183fc1b8cb3fa485612bb0f992b5cf
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
 ms.contentlocale: it-it
-ms.lasthandoff: 01/27/2017
+ms.lasthandoff: 08/22/2017
 
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
@@ -103,7 +103,7 @@ Nei flussi di attributi è disponibile un'impostazione per stabilire se gli attr
 
 Sono disponibili anche **Merge** (Unisci) e **MergeCaseInsensitive** (Unisci senza distinzione maiuscole/minuscole). Queste opzioni consentono di unire i valori da diverse origini. Ad esempio, possono essere usate per unire l'attributo proxyAddresses o membro di più foreste diverse. Quando si usano queste opzioni, tutte le regole di sincronizzazione nell'ambito per un oggetto devono usare lo stesso tipo di unione. Non è possibile definire **Update** (Aggiorna) da un connettore e **Merge** (Unisci) da un altro. In questo caso, viene visualizzato un errore.
 
-La differenza tra **Merge** (Unisci) e **MergeCaseInsensitive** (Unisci senza distinzione maiuscole/minuscole) è la modalità di elaborazione dei valori di attributo duplicati. Il motore di sincronizzazione assicura che non vengano inseriti valori duplicati nell'attributo di destinazione. Con **MergeCaseInsensitive**(Unisci senza distinzione maiuscole/minuscole) non saranno presenti valori duplicati con solo una differenza tra maiuscole/minuscole. Ad esempio, nell'attributo di destinazione non saranno presenti sia "SMTP:bob@contoso.com" che "smtp:bob@contoso.com". **Merge** (Unisci) verifica solo i valori esatti e potrebbero essere presenti più valori in cui è presente solo una differenza tra maiuscole/minuscole.
+La differenza tra **Merge** (Unisci) e **MergeCaseInsensitive** (Unisci senza distinzione maiuscole/minuscole) è la modalità di elaborazione dei valori di attributo duplicati. Il motore di sincronizzazione assicura che non vengano inseriti valori duplicati nell'attributo di destinazione. Con **MergeCaseInsensitive**(Unisci senza distinzione maiuscole/minuscole) non saranno presenti valori duplicati con solo una differenza tra maiuscole/minuscole. Ad esempio, nell'attributo di destinazione non saranno presenti né "SMTP:bob@contoso.com" né "smtp:bob@contoso.com". **Merge** (Unisci) verifica solo i valori esatti e potrebbero essere presenti più valori in cui è presente solo una differenza tra maiuscole/minuscole.
 
 L'opzione **Replace** (Sostituisci) è come **Update** (Aggiorna), ma non viene usata.
 

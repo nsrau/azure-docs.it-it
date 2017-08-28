@@ -19,7 +19,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
 ms.openlocfilehash: 9bb863261da64c97f99757d4a0cb3474a7755591
 ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/22/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app Web per le API DocumentDB con .NET e il portale di Azure
