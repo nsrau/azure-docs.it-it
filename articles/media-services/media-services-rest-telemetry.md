@@ -4,7 +4,7 @@ description: Questo articolo illustra come usare i dati di telemetria di Servizi
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services

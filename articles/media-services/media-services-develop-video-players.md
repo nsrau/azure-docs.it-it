@@ -2,7 +2,7 @@
 title: Sviluppo di applicazioni di lettore video
 description: "L'argomento offre collegamenti a Player Framework e plug-in che è possibile usare per sviluppare le applicazioni client in modo che usino i flussi multimediali da Servizi multimediali."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

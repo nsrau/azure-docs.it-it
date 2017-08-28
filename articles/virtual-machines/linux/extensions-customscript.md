@@ -1,6 +1,6 @@
 ---
 title: Eseguire script personalizzati nelle macchine virtuali Linux | Microsoft Docs
-description: "Automatizzare le attività di configurazione delle macchine virtuali Linux usando l&quot;estensione script personalizzata"
+description: "Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione script personalizzata"
 services: virtual-machines-linux
 documentationcenter: 
 author: neilpeterson
@@ -20,7 +20,6 @@ ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 89001404fa7255efc656b98983502d1f1d84fd73
 ms.contentlocale: it-it
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Uso dell'estensione script personalizzata di Azure con macchine virtuali Linux
@@ -119,7 +118,7 @@ File di configurazione pubblica:
 
 ```json
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
+  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"]
 }
 ```
 
@@ -134,7 +133,7 @@ File di configurazione protetta:
 Comando dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings ./protected-config.json
 ```
 
 ## <a name="resource-manager-template"></a>Modello di Resource Manager

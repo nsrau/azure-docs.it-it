@@ -3,8 +3,8 @@ title: Debug di un servizio cloud o di una macchina virtuale di Azure in Visual 
 description: Debug di un servizio cloud o di una macchina virtuale in Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
 ms.service: visual-studio-online
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
 ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
+ms.contentlocale: it-it
 ms.lasthandoff: 12/08/2016
-
 
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio

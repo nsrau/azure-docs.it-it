@@ -3,8 +3,8 @@ title: Come diagnosticare gli errori con Connessione guidata di Azure Active Dir
 description: La procedura guidata di connessione di Active Directory ha rilevato un tipo di autenticazione incompatibile.
 services: active-directory
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2017
-ms.author: tarcher
+ms.author: kraigb
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: fef47d27bc68e5b11b06dc6b67d7afdb088bad15
 ms.contentlocale: it-it
 ms.lasthandoff: 05/25/2017
-
 
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Diagnosi degli errori con Connessione guidata di Azure Active Directory

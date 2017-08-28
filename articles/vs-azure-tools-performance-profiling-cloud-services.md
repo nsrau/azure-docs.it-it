@@ -3,8 +3,8 @@ title: Test delle prestazioni di un servizio cloud | Documentazione Microsoft
 description: Test delle prestazioni di un servizio cloud con il profiler di Visual Studio
 services: visual-studio-online
 documentationcenter: n/a
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24
 ms.service: visual-studio-online
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 7bd8de649ba2975c47f7e84feb0438c51756a697
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>Test delle prestazioni di un servizio cloud
@@ -113,10 +114,5 @@ Viene creata una sessione di profilatura per ogni istanza di un ruolo nel serviz
 [Debug di servizi cloud](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
 [Pubblicazione in un servizio cloud di Azure da Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

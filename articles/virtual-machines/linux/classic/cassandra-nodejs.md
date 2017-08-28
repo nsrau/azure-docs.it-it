@@ -3,7 +3,7 @@ title: Eseguire Cassandra con Linux in Azure | Microsoft Docs
 description: "Spiega come eseguire un cluster Cassandra in Linux in Macchine virtuali di Azure da un’app Node.js"
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: hanuk
+author: tomarcher
 manager: routlaw
 editor: 
 tags: azure-service-management
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: hanuk;tarcher
+ms.author: tarcher
 ms.translationtype: HT
 ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
 ms.openlocfilehash: acfa9f6f0166167341fc54c4d55fb37e0a338024

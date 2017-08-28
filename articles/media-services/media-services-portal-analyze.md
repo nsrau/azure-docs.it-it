@@ -4,7 +4,7 @@ description: Questo argomento illustra come elaborare i contenuti multimediali c
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services

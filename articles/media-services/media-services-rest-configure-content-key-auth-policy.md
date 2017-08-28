@@ -4,7 +4,7 @@ description: Informazioni su come configurare i criteri di autorizzazione per un
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 7af5f9e2-8ed8-43f2-843b-580ce8759fd4
 ms.service: media-services

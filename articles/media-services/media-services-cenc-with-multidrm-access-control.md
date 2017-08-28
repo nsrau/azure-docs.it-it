@@ -4,7 +4,7 @@ description: "Informazioni su come ottenere la licenza per Microsoft® Smooth St
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services

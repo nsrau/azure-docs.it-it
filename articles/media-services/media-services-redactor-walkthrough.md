@@ -4,7 +4,7 @@ description: Questo argomento fornisce istruzioni dettagliate su come eseguire u
 services: media-services
 documentationcenter: 
 author: Lichard
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: rli; juliako;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procedura dettagliata: offuscare i volti con Analisi Servizi multimediali di Azure
@@ -91,12 +91,12 @@ Se lo sviluppatore tenta di analizzare i dati delle annotazioni JSON, consultare
 
 ### <a name="set-up-the-tool"></a>Impostare lo strumento
 
-1.    Scaricare e compilare l'intera soluzione. 
+1.  Scaricare e compilare l'intera soluzione. 
 
     ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.    Scaricare FFmpeg da [qui](https://ffmpeg.org/download.html). Questo progetto è stato originariamente sviluppato con la versione be1d324 (04-10-2016) con il collegamento statico. 
-3.    Copiare ffmpeg.exe e ffprobe.exe nella stessa cartella di output di AzureMediaRedactor.exe. 
+2.  Scaricare FFmpeg da [qui](https://ffmpeg.org/download.html). Questo progetto è stato originariamente sviluppato con la versione be1d324 (04-10-2016) con il collegamento statico. 
+3.  Copiare ffmpeg.exe e ffprobe.exe nella stessa cartella di output di AzureMediaRedactor.exe. 
 
     ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -114,13 +114,13 @@ Se lo sviluppatore tenta di analizzare i dati delle annotazioni JSON, consultare
     
     ![Offuscamento dei volti](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.    Il campo di testo in basso verrà aggiornato con gli ID dei volti. Creare un file denominato "idlist.txt" contenente questi ID come elenco delimitato da nuova riga. 
+5.  Il campo di testo in basso verrà aggiornato con gli ID dei volti. Creare un file denominato "idlist.txt" contenente questi ID come elenco delimitato da nuova riga. 
 
     >[!NOTE]
     > Il file idlist.txt deve essere salvato in formato ANSI. È possibile usare il Blocco note per il salvataggio in formato ANSI.
     
-6.    Caricare questo file nell'output di asset del Passaggio 1. In questo asset caricare anche il video originale e impostarlo come asset principale. 
-7.    Eseguire il processo di offuscamento nell'asset con la modalità "Redact" (Offusca) per ottenere il video finale offuscato. 
+6.  Caricare questo file nell'output di asset del Passaggio 1. In questo asset caricare anche il video originale e impostarlo come asset principale. 
+7.  Eseguire il processo di offuscamento nell'asset con la modalità "Redact" (Offusca) per ottenere il video finale offuscato. 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

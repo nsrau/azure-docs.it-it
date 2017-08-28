@@ -4,7 +4,7 @@ description: Questo argomento illustra come usare .NET per eseguire la codifica 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services

@@ -4,7 +4,7 @@ description: Questo articolo illustra come usare il portale di Azure per configu
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services

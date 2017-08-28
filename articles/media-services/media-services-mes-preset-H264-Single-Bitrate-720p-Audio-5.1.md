@@ -2,7 +2,7 @@
 title: Codec video H.264 a bitrate singolo con risoluzione 720p e audio 5.1 | Microsoft Docs
 description: "Questo argomento fornisce una panoramica del set di impostazioni delle attività **Codec video H.264 a bitrate singolo con risoluzione 720p e audio 5.1**."
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

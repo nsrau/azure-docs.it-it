@@ -4,7 +4,7 @@ description: "Questo argomento descrive come configurare un canale che riceve un
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services

@@ -4,7 +4,7 @@ description: Questo articolo spiega come usare Servizi multimediali di Azure per
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services

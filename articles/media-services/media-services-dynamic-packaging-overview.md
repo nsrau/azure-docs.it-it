@@ -2,7 +2,7 @@
 title: Panoramica della creazione dinamica dei pacchetti di Servizi multimediali di Azure | Documentazione Microsoft
 description: Questo argomento fornisce una panoramica della creazione dinamica dei pacchetti.
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 
@@ -19,7 +19,6 @@ ms.sourcegitcommit: da455a350f61e17425cd308d0fdc8bb5294a0b76
 ms.openlocfilehash: 574921fdecdadaa48c572685f7486d4e7b1d25f4
 ms.contentlocale: it-it
 ms.lasthandoff: 01/27/2017
-
 
 ---
 # <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti

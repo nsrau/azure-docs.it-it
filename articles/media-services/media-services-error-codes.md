@@ -2,7 +2,7 @@
 title: Codici di errore di Servizi multimediali di Azure | Microsoft Docs
 description: Questo argomento fornisce una panoramica dei codici di errore di Servizi multimediali di Azure.
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

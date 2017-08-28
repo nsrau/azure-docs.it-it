@@ -4,7 +4,7 @@ description: Azure Media Indexer consente di rendere disponibile per la ricerca 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services

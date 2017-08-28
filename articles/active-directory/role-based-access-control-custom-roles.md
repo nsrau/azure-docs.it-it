@@ -3,7 +3,7 @@ title: Creare ruoli personalizzati per il controllo degli accessi in base al ruo
 description: "Informazioni su come definire i ruoli personalizzati con il Controllo degli accessi in base al ruolo per una gestione più precisa delle identità nella sottoscrizione di Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/11/2017
-ms.author: kgremban
+ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT

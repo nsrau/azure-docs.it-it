@@ -20,7 +20,6 @@ ms.openlocfilehash: 146c9f5c751443608f8f405be949398f9f721053
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Sostituire un'unità disco del dispositivo StorSimple serie 8000
 
@@ -105,6 +104,7 @@ Dopo aver rimosso un'unità guasta nel dispositivo StorSimple, seguire questa pr
 3. Con il supporto dell'unità inserito, chiudere il punto di manipolazione del supporto dell'unità continuando a spingere il supporto dell'unità nello chassis, fino a quando il punto di manipolazione del supporto dell'unità non si chiude a scatto in una posizione bloccata.
 4. Utilizzare la chiave di blocco fornita da Microsoft (cacciavite Torx a prova di manomissione) per fissare in posizione il punto di manipolazione del supporto girando la vite di blocco di un quarto in senso orario.
 5. Verificare che la sostituzione sia riuscita e che l'unità sia operativa. Accedere al portale di Azure e passare a **Impostazioni** > **Integrità hardware**. In **Componenti condivisi** o **Componenti condivisi EBOD** , lo stato dell'unità deve essere verde, ovvero integro.
+<!---Loc Comment: It seems it should say "Device settings > Hardware health" instead of "Settings > Hardware health"---->
    
    > [!NOTE]
    > Potrebbero essere necessarie diverse ore affinché lo stato del disco diventi verde dopo la sostituzione.

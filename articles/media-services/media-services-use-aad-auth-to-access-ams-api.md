@@ -4,7 +4,7 @@ description: Informazioni sui concetti e i passaggi da eseguire per usare Azure 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.service: media-services
 ms.workload: media
@@ -18,7 +18,6 @@ ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: bdeae5d1440cf8930a9cbc1ddea38ea7754ff7f6
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD

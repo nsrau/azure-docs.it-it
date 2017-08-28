@@ -4,7 +4,7 @@ description: "Questo argomento offre una panoramica del set di impostazioni dell
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.service: media-services
 ms.workload: media
