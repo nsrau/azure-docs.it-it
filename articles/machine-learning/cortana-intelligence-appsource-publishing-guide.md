@@ -115,6 +115,6 @@ Per informazioni su qualsiasi campo, inviare un messaggio all'indirizzo di posta
 Congratulazioni per aver pubblicato l'app.
 Il livello di ricavi che verranno ottenuti pubblicando l'app in AppSource dipende essenzialmente dalla capacità di influenzare i destinatari. Vedere [Growth-Hacking your Cortana Intelligence app on AppSource](http://aka.ms/aagrowthhackguide) (Growth Hacking di un'app Cortana Intelligence in AppSource) per maggiori dettagli su come ottimizzare i ricavi.
 
-In caso di domande o suggerimenti, contattare Microsoft all'indirizzo < appsourcecissupport@microsoft.com >.
+In caso di domande o suggerimenti, contattare Microsoft all'indirizzo <appsourcecissupport@microsoft.com>.
 
 
