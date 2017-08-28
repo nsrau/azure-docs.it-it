@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 91c443f6d9998f15f4b1b1eaad33f0a319fcf4d4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: aa1cec2ef11da6aa8a8c4089be36994ab5f61682
 ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
@@ -265,9 +265,12 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
     ```
     Assicurarsi che il report indichi un disco integro e pulito.
 
-2. Configurare le impostazioni dei dati di configurazione di avvio. Eseguire i seguenti comandi in una finestra CMD con privilegi elevati:
+2. Configurare le impostazioni dei dati di configurazione di avvio. 
+
+    > [!Note]
+    > Assicurarsi che questi comandi vengano eseguiti in una finestra dei comandi con privilegi elevati e **NON** in PowerShell:
    
-   ```PowerShell
+   ```CMD
    bcdedit /set {bootmgr} integrityservices enable
    
    bcdedit /set {default} device partition=C:

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 14736524bf3c6d299838d8e3dc8b18db117d1041
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 3144ced01b524abb035dc1c6f0cdf764bec46804
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Creare un'app Web ASP.NET con criteri di iscrizione, accesso, modifica del profilo e reimpostazione della password di Azure Active Directory B2C
@@ -61,7 +61,7 @@ In Azure AD B2C ogni esperienza utente è definita da [criteri](active-directory
 
 ### <a name="add-your-identity-providers"></a>Aggiungere i provider di identità
 
-Dalle impostazioni selezionare **Provider di identità** e scegliere l'iscrizione tramite ID utente o tramite posta elettronica.
+Dalle impostazioni selezionare **Provider di identità** e scegliere l'iscrizione tramite nome utente o posta elettronica.
 
 ### <a name="create-a-sign-up-and-sign-in-policy"></a>Creare criteri di iscrizione e di accesso
 

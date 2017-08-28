@@ -2,7 +2,7 @@
 title: Codec video H.264 a bitrate singolo con risoluzione 16x9 SD e audio 5.1 | Documentazione Microsoft
 description: "Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate singolo con risoluzione 16x9 SD e audio 5.1**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

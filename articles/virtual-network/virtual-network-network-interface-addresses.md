@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6722365e5a5e4c58d91dd178de264a403d53c02
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -63,7 +63,7 @@ Prima di completare qualsiasi altro passaggio nelle altre sezioni di questo arti
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-ip-address-settings"></a>Modificare le impostazioni degli indirizzi IP
 
@@ -84,7 +84,7 @@ Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-ip-addresses"></a>Rimuovere indirizzi IP
 
@@ -102,7 +102,7 @@ Può essere necessario modificare il metodo di assegnazione di un indirizzo IPv4
 |Strumento|Comando|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-configurations"></a>Configurazioni IP
 
@@ -113,7 +113,7 @@ Gli indirizzi IP [privati](#private) e (facoltativamente) [pubblici](#public) ve
 Ogni interfaccia di rete viene assegnata a una configurazione IP primaria. Una configurazione IP primaria:
 
 - ha un indirizzo [IPv4](#ipv4) [privato](#private) assegnato. Non è possibile assegnare un indirizzo [IPv6](#ipv6) privato a una configurazione IP primaria.
-- Può avere anche un indirizzo IPv4 [pubblico](#public) assegnato. Non è possibile assegnare un indirizzo IPv6 pubblico a una configurazione IP primaria o secondaria. È tuttavia possibile assegnare un indirizzo IPv6 pubblico a un servizio di bilanciamento del carico di Azure, che consente di caricare il traffico di bilanciamento all'indirizzo IPv6 privato di una macchina virtuale. Vedere [dettagli e le limitazioni per IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations) per altre informazioni.
+- Può avere anche un indirizzo IPv4 [pubblico](#public) assegnato. Non è possibile assegnare un indirizzo IPv6 pubblico a una configurazione IP primaria o secondaria. È tuttavia possibile assegnare un indirizzo IPv6 pubblico a un servizio di bilanciamento del carico di Azure, che consente di caricare il traffico di bilanciamento all'indirizzo IPv6 privato di una macchina virtuale. Per altre informazioni, vedere [Dettagli e le limitazioni per IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
 
 ### <a name="secondary"></a>Secondario
 
@@ -142,7 +142,7 @@ Per impostazione predefinita, i server DHCP di Azure assegnano l'indirizzo IPv4 
 
 In alcuni scenari è necessario impostare manualmente l'indirizzo IP di un'interfaccia di rete all'interno del sistema operativo della macchina virtuale. Ad esempio, è necessario impostare manualmente gli indirizzi IP primari e secondari di un sistema operativo Windows quando si aggiungono più indirizzi IP a una macchina virtuale di Azure. Per una macchina virtuale Linux, potrebbe essere necessario impostare manualmente solo gli indirizzi IP secondari. Vedere [Add IP addresses to a VM operating system](virtual-network-multiple-ip-addresses-portal.md#os-config) (Aggiungere indirizzi IP a un sistema operativo VM) per maggiori dettagli. Quando si imposta manualmente l'indirizzo IP all'interno del sistema operativo, è consigliabile assegnare sempre gli indirizzi alla configurazione IP per un'interfaccia di rete usando il metodo di assegnazione statico (anziché dinamico). Assegnando l'indirizzo usando il metodo statico ci si assicura che l'indirizzo non cambi in Azure. Se è necessario modificare l'indirizzo assegnato a una configurazione IP, è consigliabile:
 
-1. Ripristinare l'assegnazione dell'indirizzo IP a DHCP all'interno del sistema operativo e riavviare la macchina virtuale, per garantire che la macchina virtuale riceva un indirizzo dai server DHCP di Azure.
+1. Per garantire che la macchina virtuale riceva un indirizzo dai server DHCP di Azure, ripristinare l'assegnazione dell'indirizzo IP a DHCP all'interno del sistema operativo e riavviare la macchina virtuale.
 2. Arrestare (deallocare) la macchina virtuale.
 3. Modificare l'indirizzo IP per la configurazione IP all'interno di Azure.
 4. Avviare la macchina virtuale.
@@ -183,21 +183,19 @@ Ogni interfaccia di rete deve avere una configurazione IP [primaria](#primary) a
 
 ### <a name="ipv6"></a>IPv6
 
-È possibile assegnare uno o nessun indirizzo [IPv6](#ipv6) privato a una configurazione IP secondaria di un'interfaccia di rete. L'interfaccia di rete non può avere configurazioni IP secondarie esistenti. Non è possibile aggiungere una configurazione IP con un indirizzo IPv6 tramite il portale. Per aggiungere una configurazione IP con un indirizzo IPv6 privato a un'interfaccia di rete esistente, è necessario usare PowerShell o l'interfaccia della riga di comando. Non è possibile collegare l'interfaccia di rete a una macchina virtuale esistente.
+È possibile assegnare uno o nessun indirizzo [IPv6](#ipv6) privato a una configurazione IP secondaria di un'interfaccia di rete. L'interfaccia di rete non può avere configurazioni IP secondarie esistenti. Non è possibile aggiungere una configurazione IP con un indirizzo IPv6 tramite il portale. Per aggiungere una configurazione IP con un indirizzo IPv6 privato a un'interfaccia di rete esistente, usare PowerShell o l'interfaccia della riga di comando. Non è possibile collegare l'interfaccia di rete a una macchina virtuale esistente.
 
 > [!NOTE]
-> Nonostante sia possibile creare un'interfaccia di rete con un indirizzo IPv6 tramite il portale, non è possibile creare una macchina virtuale con un indirizzo IPv6 privato, né collegare un'interfaccia di rete durante la creazione di una macchina virtuale tramite il portale. È necessario usare PowerShell o l'interfaccia della riga di comando di Azure 2.0 per creare un'interfaccia di rete con un indirizzo IPv6 privato, quindi collegare l'interfaccia di rete durante la creazione di una macchina virtuale. Non è possibile collegare un'interfaccia di rete con un indirizzo IPv6 privato ad essa assegnato in una macchina virtuale esistente. Non è possibile aggiungere un indirizzo IPv6 privato a una configurazione IP per qualsiasi interfaccia di rete associata a una macchina virtuale usando gli strumenti (portale, interfaccia della riga di comando o PowerShell).
+> Anche se è possibile creare un'interfaccia di rete con un indirizzo IPv6 tramite il portale, il portale non consente di aggiungere un'interfaccia di rete esistente a una macchina virtuale nuova o esistente. Usare PowerShell o l'interfaccia della riga di comando di Azure 2.0 per creare un'interfaccia di rete con un indirizzo IPv6 privato e quindi collegare l'interfaccia di rete durante la creazione di una macchina virtuale. Non è possibile collegare un'interfaccia di rete con un indirizzo IPv6 privato ad essa assegnato in una macchina virtuale esistente. Non è possibile aggiungere un indirizzo IPv6 privato a una configurazione IP per qualsiasi interfaccia di rete associata a una macchina virtuale usando gli strumenti (portale, interfaccia della riga di comando o PowerShell).
 
 Non è possibile assegnare un indirizzo IPv6 pubblico a una configurazione IP primaria o secondaria.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per creare una macchina virtuale con diverse configurazioni IP, vedere gli articoli seguenti:
 
-**Comandi**
-
 |Attività|Strumento|
 |---|---|
 |Creare una macchina virtuale con più NIC|[Interfaccia della riga di comando](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Creare una macchina virtuale con una singola scheda di interfaccia di rete e più indirizzi IPv4|[Interfaccia della riga di comando](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Creare una macchina virtuale con una singola scheda di interfaccia di rete con un indirizzo IPv6 privato (dietro un bilanciamento del carico di Azure)|[Interfaccia della riga di comando](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Modello di Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|Creare una macchina virtuale con una singola scheda di interfaccia di rete con un indirizzo IPv6 privato (dietro un Azure Load Balancer)|[Interfaccia della riga di comando](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Modello di Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 

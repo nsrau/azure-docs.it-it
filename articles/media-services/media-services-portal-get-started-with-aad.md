@@ -4,7 +4,7 @@ description: Informazioni su come usare il portale di Azure per accedere all'aut
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

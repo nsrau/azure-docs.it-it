@@ -1,6 +1,6 @@
 ---
 title: Integrazione di Elenco dei servizi con System Center Operations Manager | Microsoft Docs
-description: "Elenco dei servizi è una soluzione di Operations Management Suite che individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione fra i servizi. Questo articolo illustra l&quot;uso di Elenco dei servizi per creare automaticamente diagrammi applicazioni distribuite in Operations Manager."
+description: "Elenco dei servizi è una soluzione di Operations Management Suite che individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione fra i servizi. Questo articolo illustra l'uso di Elenco dei servizi per creare automaticamente diagrammi applicazioni distribuite in Operations Manager."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,18 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 0b710c338be3a2c2fde6bba43173f7c5f480e357
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a7dbe54ffb4daa941c19b51ba263dd3d23b7a98b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integrazione di Elenco dei servizi con System Center Operations Manager
   > [!NOTE]
-  > Poiché è disponibile in anteprima privata, questa funzionalità non deve essere usata nei sistemi di produzione.
+  > Questa funzionalità è disponibile in anteprima pubblica.
   > 
   
 Elenco dei servizi di Operations Management Suite individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping della comunicazione fra i servizi. Elenco dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza bisogno di alcuna configurazione a parte l'installazione di un agente. Per altre informazioni, vedere la [documentazione su Elenco dei servizi](operations-management-suite-service-map.md).
@@ -62,17 +61,21 @@ Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seg
 
     ![Area di lavoro di configurazione di Operations Manager](media/oms-service-map/scom-config-workspace.png)
 
-4. Nella finestra **Selezione server** è possibile configurare il gruppo di server di Elenco dei servizi con i server che si desidera sincronizzare tra Operations Manager ed Elenco dei servizi. Fare clic su **Aggiungi/Rimuovi server**.   
+4. Nella finestra **Machine Group Selection** (Selezione gruppi di computer) è possibile scegliere i gruppi di computer di Mapping dei servizi da sincronizzare con Operations Manager. Fare clic su **Add/Remove Machine Groups** (Aggiungi/Rimuovi gruppi di computer), scegliere i gruppi nell'elenco **Available Machine Groups** (Gruppi di computer disponibili) e fare clic su **Aggiungi**.  Dopo avere completato la selezione dei gruppi, fare clic su **OK** per terminare.
+    
+    ![Gruppi di computer di configurazione di Operations Manager](media/oms-service-map/scom-config-machine-groups.png)
+    
+5. Nella finestra **Selezione server** è possibile configurare il gruppo di server di Elenco dei servizi con i server che si desidera sincronizzare tra Operations Manager ed Elenco dei servizi. Fare clic su **Aggiungi/Rimuovi server**.   
     
     Perché l'integrazione crei un diagramma applicazioni distribuite per un server, quest'ultimo deve essere:
 
-    * Gestito da Operations Manager.
-    * Gestito da Elenco dei servizi.
-    * Elencato nel gruppo di server di Elenco dei servizi.
+    * Gestito da Operations Manager
+    * Gestito da Mapping dei servizi
+    * Elencato nel gruppo di server di Mapping dei servizi
 
     ![Gruppo di configurazione di Operations Manager](media/oms-service-map/scom-config-group.png)
 
-5. Facoltativo: selezionare il pool di risorse server di gestione per comunicare con Operations Management Suite, quindi fare clic su **Aggiungi area di lavoro**.
+6. Facoltativo: selezionare il pool di risorse server di gestione per comunicare con Operations Management Suite, quindi fare clic su **Aggiungi area di lavoro**.
 
     ![Pool di risorse di configurazione di Operations Manager](media/oms-service-map/scom-config-pool.png)
 
@@ -80,23 +83,22 @@ Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seg
 
     ![Pool di risorse di configurazione di Operations Manager](media/oms-service-map/scom-config-success.png)
 
-    >[!NOTE]
-    >L'intervallo di sincronizzazione predefinito è impostato su 60 minuti. È possibile configurare gli override per modificare l'intervallo di sincronizzazione. È anche possibile aggiungere manualmente server al gruppo di server di Elenco dei servizi tramite il riquadro **Tecnologie**. A tale scopo, selezionare **Gruppi**, quindi cercare **Service Map Servers Group** (Gruppo di server di Elenco dei servizi). Le mappe di tali server verranno sincronizzate con la sincronizzazione successiva, in base all'intervallo di sincronizzazione configurato.
 
 ## <a name="monitor-service-map"></a>Monitorare le metriche del servizio
 Dopo aver connesso l'area di lavoro di Operations Management Suite, nel riquadro **Monitoraggio** della console di Operations Manager comparirà una nuova cartella denominata Elenco dei servizi.
 
 ![Riquadro Monitoraggio di Operations Manager](media/oms-service-map/scom-monitoring.png)
 
-La cartella Elenco dei servizi ha tre nodi:
-* **Avvisi attivi**: elenca tutti gli avvisi attivi per le comunicazioni tra Operations Manager e la soluzione Elenco dei servizi in Operations Management Suite.
-
-    >[!NOTE]
-    >Tali avvisi non corrispondono agli avvisi di Operations Management Suite rilevati in Operations Manager.
+La cartella Mapping dei servizi ha quattro nodi:
+* **Avvisi attivi**: elenca tutti gli avvisi attivi per le comunicazioni tra Operations Manager e Mapping dei servizi.  Si noti che tali avvisi non corrispondono agli avvisi di Operations Management Suite sincronizzati con Operations Manager. 
 
 * **Server**: contiene l'elenco dei server monitorati configurati per la sincronizzazione da Elenco dei servizi.
 
     ![Riquadro Monitoraggio server di Operations Manager](media/oms-service-map/scom-monitoring-servers.png)
+
+* **Machine Group Dependency Views** (Visualizzazioni dipendenze gruppi di computer): elenca tutti i gruppi di computer sincronizzati da Mapping dei servizi. È possibile fare clic su un gruppo per visualizzarne il diagramma applicazioni distribuite.
+
+    ![Diagramma applicazioni distribuite di Operations Manager](media/oms-service-map/scom-group-dad.png)
 
 * **Server Dependency Views** (Visualizzazioni dipendenze server): elenca tutti i server sincronizzati da Elenco dei servizi. È possibile fare clic su un server per visualizzarne il diagramma applicazioni distribuite.
 
@@ -120,15 +122,16 @@ Viene creata una regola _Microsoft.SystemCenter.ServiceMapImport.Rule_ per recup
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
 La progettazione attuale presenta i problemi e le limitazioni seguenti:
-* Anche se è possibile aggiungere manualmente server al gruppo di server di Elenco dei servizi tramite il riquadro **Tecnologie**, le mappe di tali server verranno sincronizzate da Elenco dei servizi solo durante il ciclo di sincronizzazione successivo. L'impostazione predefinita è 60 minuti, ma è possibile modificare l'intervallo di tempo. 
-* È possibile connettersi a una sola area di lavoro Operations Management Suite.
+* È possibile connettersi a una sola area di lavoro di Operations Management Suite.
+* Anche se è possibile aggiungere manualmente server al gruppo di server di Mapping dei servizi tramite il riquadro **Creazione e modifica**, le mappe di tali server non vengono sincronizzate immediatamente.  Verranno sincronizzate da Mapping dei servizi durante il ciclo di sincronizzazione successivo.
+* Se si apportano modifiche ai diagrammi applicazioni distribuite creati dal Management Pack, tali modifiche verranno probabilmente sovrascritte durante la sincronizzazione successiva con Mapping dei servizi.
 
 ## <a name="create-a-service-principal"></a>Creare un’entità servizio
 Per la documentazione ufficiale di Azure sulla creazione di un'entità servizio, vedere:
-* [Create a service principal by using PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) (Creare un'entità servizio usando PowerShell)
-* [Create a service principal by using Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli) (Creare un'entità servizio usando Azure CLI)
-* [Create a service principal by using the Azure portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Creare un'entità servizio usando il portale di Azure)
+* [Create a service principal by using PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) (Creare un'entità servizio usando PowerShell)
+* [Create a service principal by using Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli) (Creare un'entità servizio usando Azure CLI)
+* [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) (Creare un'entità servizio usando il portale di Azure)
 
 ### <a name="feedback"></a>Commenti e suggerimenti
-Per inviare commenti sull'elenco dei servizi e sulla relativa documentazione, Visitare la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
+Per inviare commenti su Mapping dei servizi e sulla relativa documentazione, Vedere la [pagina per i suggerimenti degli utenti](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), in cui è possibile suggerire funzionalità o votare i suggerimenti esistenti.
 

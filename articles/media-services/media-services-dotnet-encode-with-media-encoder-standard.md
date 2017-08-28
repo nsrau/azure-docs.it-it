@@ -4,7 +4,7 @@ description: Questo argomento illustra come usare .NET per codificare un asset c
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
 ms.service: media-services

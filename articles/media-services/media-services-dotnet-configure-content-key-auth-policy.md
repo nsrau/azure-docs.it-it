@@ -4,7 +4,7 @@ description: Informazioni su come configurare i criteri di autorizzazione per un
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
 ms.service: media-services

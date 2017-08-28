@@ -2,7 +2,7 @@
 title: Logica di ripetizione dei tentativi in Media Services SDK for .NET | Microsoft Docs
 description: Questo argomento offre una panoramica della logica di ripetizione dei tentativi in Media Services SDK for .NET.
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

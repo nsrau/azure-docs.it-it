@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 91c747a4fbb3c3c3d799741e7d3b5d4646931136
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -72,7 +72,7 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
 
    ![Scegliere "Portale di OMS"](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. Nella home page di OMS scegliere **Raccolta soluzioni**.
+4. Se nella home page di OMS viene visualizzato il banner di aggiornamento, selezionare il banner in modo da aggiornare per prima l'area di lavoro di OMS. Scegliere quindi **Raccolta soluzioni**.
 
    ![Scegliere "Raccolta soluzioni"](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
@@ -91,6 +91,11 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
 1. Per visualizzare il numero e lo stato delle esecuzioni dell'app per la logica, andare alla pagina di panoramica dell'area di lavoro OMS. Verificare i dettagli nel riquadro **Logic Apps Management** (Gestione delle app per la logica).
 
    ![Riquadro di panoramica con il numero e lo stato delle esecuzioni dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+
+   > [!Note]
+   > Se al posto del riquadro di gestione delle app per la logica viene visualizzato il banner di aggiornamento, selezionare il banner in modo da aggiornare per prima l'area di lavoro di OMS.
+  
+   > ![Aggiornare "l'area di lavoro di OMS"](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. Per visualizzare un riepilogo con dettagli aggiuntivi sulle esecuzioni dell'app per la logica, scegliere il riquadro **Logic Apps Management** (Gestione delle app per la logica).
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Active Directory Assessment in Log Analytics
@@ -73,7 +73,7 @@ La tabella seguente illustra i metodi di raccolta dati per gli agenti, se Operat
 
 | Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sì](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![Sì](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![No](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![Sì](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 giorni |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 giorni |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Informazioni sulla classificazione in ordine di priorità delle raccomandazioni
 A ogni raccomandazione generata viene assegnato un valore di ponderazione che identifica l'importanza relativa della raccomandazione. Vengono visualizzate solo le 10 raccomandazioni più importanti.
@@ -176,13 +176,6 @@ Dopo la successiva esecuzione della valutazione pianificata, per impostazione pr
 *Quanto tempo occorre per la raccolta di dati?*
 
 * La raccolta di dati effettiva sul server richiede circa 1 ora. Potrebbe essere necessario più tempo nei server in cui è presente un numero elevato di server di Active Directory.
-
-*Quali tipi di dati vengono raccolti?*
-
-* Vengono raccolti i tipi di dati seguenti:
-  * WMI
-  * Registro
-  * Contatori delle prestazioni
 
 *È possibile definire l'orario per la raccolta di dati?*
 

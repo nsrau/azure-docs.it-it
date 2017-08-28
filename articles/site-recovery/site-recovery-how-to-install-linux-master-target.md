@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 02/13/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9c057534ae8168146d389a1d76213d48e24ae9cb
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="install-a-linux-master-target-server"></a>Installare un server di destinazione master Linux
@@ -50,6 +50,15 @@ Creare il server di destinazione master in base alle linee guida per il ridimens
 - **Dimensioni disco sistema operativo**: almeno 100 GB (per installare CentOS6.6)
 - **Dimensioni disco aggiuntive per l'unità di conservazione**: 1 TB
 - **Core CPU**: almeno 4 core
+
+Sono supportati i kernel Ubuntu seguenti.
+
+
+|Serie di kernel  |Supporta fino a  |
+|---------|---------|
+|4.4      |4.4.0-81-generico         |
+|4.8      |4.8.0-56-generico         |
+|4.10     |4.10.0-24-generico        |
 
 
 ## <a name="deploy-the-master-target-server"></a>Distribuire il server di destinazione master
@@ -200,7 +209,7 @@ Per abilitare il parametro, attenersi alla procedura seguente:
 
 Dato che il server di destinazione master per Azure Site Recovery richiede una versione molto specifica di Ubuntu, assicurarsi che gli aggiornamenti del kernel siano disabilitati per la macchina virtuale.
 
- Se sono abilitati, eventuali aggiornamenti regolari causeranno malfunzionamenti del server di destinazione master.
+Se sono abilitati, eventuali aggiornamenti regolari causeranno malfunzionamenti del server di destinazione master.
 
 #### <a name="download-and-install-additional-packages"></a>Scaricare e installare i pacchetti aggiuntivi
 

@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: cb37c7209a3449047bad97ce50344e1530f0e222
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso in Azure Service Fabric
@@ -135,6 +135,15 @@ Il gateway applicazione necessita quindi di un modo per distinguere tra questi d
 L'intestazione della risposta HTTP indica una situazione HTTP 404 normale, in cui la risorsa richiesta non esiste e il gateway applicazione non prova a risolvere di nuovo l'indirizzo del servizio.
 
 ## <a name="setup-and-configuration"></a>Installazione e configurazione
+
+### <a name="enable-reverse-proxy-via-azure-portal"></a>Abilitare il proxy inverso tramite il portale di Azure
+
+Il portale di Azure fornisce un'opzione per abilitare il proxy inverso durante la creazione di un nuovo cluster di Service Fabric.
+In **Crea cluster di Service Fabric**, Passaggio 2: Configurazione cluster, Configurazione del tipo di nodo, selezionare la casella di controllo "Abilita proxy inverso".
+Per la configurazione di un proxy inverso sicuro, è possibile specificare un certificato SSL nel Passaggio 3: Sicurezza, Configurare le impostazioni di sicurezza del cluster, selezionare la casella di controllo "Includi un certificato SSL per il proxy inverso" e immettere i dettagli del certificato.
+
+### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Abilitare il proxy inverso tramite modelli di Azure Resource Manager
+
 È possibile usare il [modello di Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) per abilitare il proxy inverso in Service Fabric per il cluster.
 
 Per esempi del modello di Azure Resource Manager per la configurazione del proxy inverso sicuro con un certificato e la gestione del rollover dei certificati, vedere [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) (Configurare il proxy inverso HTTPS in un cluster sicuro).

@@ -4,7 +4,7 @@ description: Questo argomento fornisce informazioni generali su tutti gli aspett
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services

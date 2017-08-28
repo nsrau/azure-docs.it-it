@@ -11,22 +11,22 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 75abfb977a47ccef45bcc2124b31fbd06ea7d68e
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2363e725d44facc5417c0baf3f80c8b55fdca470
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analisi della conservazione degli utenti per applicazioni Web con Application Insights
 
-Il pannello Conservazione in [Azure Application Insights](app-insights-overview.md) consente analizzare il numero di utenti che tornano all'app e la frequenza con cui si eseguono attività specifiche o a si raggiungono determinati obiettivi. Ad esempio, se si esegue un sito di giochi, è possibile confrontare il numero di utenti che ritornano sul sito dopo aver perso una partita con il numero di utenti che ritornano dopo averla vinta. Queste informazioni consentono di migliorare sia l'esperienza per l'utente che la strategia aziendale.
+La funzionalità di conservazione in [Azure Application Insights](app-insights-overview.md) consente di analizzare il numero di utenti che tornano all'app e la frequenza con cui si eseguono attività specifiche o si raggiungono determinati obiettivi. Ad esempio, se si esegue un sito di giochi, è possibile confrontare il numero di utenti che ritornano sul sito dopo aver perso una partita con il numero di utenti che ritornano dopo averla vinta. Queste informazioni consentono di migliorare sia l'esperienza per l'utente che la strategia aziendale.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
-Se nel pannello Conservazione nel portale di Application Insights non vengono ancora visualizzati i dati, leggere le [informazioni su come iniziare a usare gli strumenti d'uso](app-insights-usage-overview.md).
+Se nello strumento Conservazione nel portale di Application Insights non vengono ancora visualizzati i dati, leggere le [informazioni su come iniziare a usare gli strumenti di utilizzo](app-insights-usage-overview.md).
 
 ## <a name="the-retention-tool"></a>Strumento Conservazione
 
@@ -37,8 +37,11 @@ Se nel pannello Conservazione nel portale di Application Insights non vengono an
 3. Aggiungere uno o più filtri alle proprietà. Ad esempio, è possibile concentrarsi sugli utenti di un determinato paese o area. Fare clic su **Aggiorna** sopo aver impostato i filtri. 
 4. Il grafico generale della conservazione mostra un riepilogo degli utenti conservati per il periodo di tempo selezionato. 
 5. Nella griglia viene visualizzato il numero di utenti conservati secondo il generatore di query al numero 2. Ogni riga rappresenta una coorte di utenti che hanno eseguito qualsiasi evento nel periodo di tempo indicato. Ogni cella nella riga mostra il numero di utenti della coorte che sono ritornati almeno una volta nel periodo successivo. Alcuni utenti potrebbero ritornare in periodi diversi. 
-6. Le schede dei dettagli mostrano i primi 5 eventi di avvio e i primi 5 eventi restituiti per consentire agli utenti una migliore comprensione del loro report di conservazione. 
+6. Le schede dei dettagli mostrano i primi 5 eventi di avvio e i primi 5 eventi restituiti per consentire agli utenti una migliore comprensione del report di conservazione. 
 
+![Passaggio del mouse sullo strumento Conservazione](./media/app-insights-usage-retention/hover.png)
+
+Gli utenti possono passare il mouse sulle celle dello strumento Conservazione per accedere al pulsante di analisi e alle descrizioni dei comandi che spiegano il significato di ogni cella. Usando il pulsante di analisi, gli utenti accedono allo strumento di analisi con una query pre-popolata per la generazione di utenti dalla cella. 
 
 ## <a name="use-business-events-to-track-retention"></a>Usare gli eventi aziendali per tenere traccia della conservazione
 
@@ -66,6 +69,9 @@ O nel codice server di ASP.NET:
 - Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
     - [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
     - [Grafici a imbuto](usage-funnels.md)
+    - [Flussi degli utenti](app-insights-usage-flows.md)
     - [Cartelle di lavoro](app-insights-usage-workbooks.md)
     - [Aggiungere il contesto utente](app-insights-usage-send-user-context.md)
+
+
 

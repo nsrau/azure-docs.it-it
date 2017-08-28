@@ -1,9 +1,9 @@
 ---
 title: Proteggere un cluster di Azure Service Fabric in Windows usando i certificati | Microsoft Docs
-description: "Questo articolo descrive come proteggere le comunicazioni all&quot;interno del cluster autonomo o privato, nonché tra i client e il cluster."
+description: "Questo articolo descrive come proteggere le comunicazioni all'interno del cluster autonomo o privato, nonché tra i client e il cluster."
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
-ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 51ed17ab8f036f00b285232500dc9f606f2a7e2f
+ms.author: dekapur
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ebac24385560377bac27a8b8c425323c57392bd2
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows con certificati X.509
@@ -40,10 +39,26 @@ Per iniziare, [scaricare il pacchetto del cluster autonomo](service-fabric-clust
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
+        },        
+        "ClusterCertificateCommonNames": {
+            "CommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]"
+            }
+            ],
+            "X509StoreName": "My"
         },
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ServerCertificateCommonNames": {
+            "CommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]"
+            }
+            ],
             "X509StoreName": "My"
         },
         "ClientCertificateThumbprints": [
@@ -67,6 +82,14 @@ Per iniziare, [scaricare il pacchetto del cluster autonomo](service-fabric-clust
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
+        },
+        "ReverseProxyCertificateCommonNames": {
+            "CommonNames": [
+                {
+                "CertificateCommonName": "[CertificateCommonName]"
+                }
+            ],
+            "X509StoreName": "My"
         }
     }
 },
@@ -84,13 +107,16 @@ La tabella seguente include un elenco dei certificati necessari per la configura
 
 | **CertificateInformation Setting** | **Descrizione** |
 | --- | --- |
-| ClusterCertificate |Questo certificato è necessario per proteggere la comunicazione tra i nodi di un cluster. È possibile usare due diversi certificati, uno primario e uno secondario per l'aggiornamento. Impostare l'identificazione personale del certificato primario nella sezione **Thumbprint** e quella del certificato secondario nelle variabili **ThumbprintSecondary**. |
-| ServerCertificate |Questo certificato viene presentato al client quando tenta di connettersi al cluster. Per praticità, è possibile scegliere di usare lo stesso certificato per *ClusterCertificate* e *ServerCertificate*. È possibile usare due diversi certificati del server, uno primario e uno secondario per l'aggiornamento. Impostare l'identificazione personale del certificato primario nella sezione **Thumbprint** e quella del certificato secondario nelle variabili **ThumbprintSecondary**. |
+| ClusterCertificate |Consigliato per l'ambiente di test. Questo certificato è necessario per proteggere la comunicazione tra i nodi di un cluster. È possibile usare due diversi certificati, uno primario e uno secondario per l'aggiornamento. Impostare l'identificazione personale del certificato primario nella sezione **Thumbprint** e quella del certificato secondario nelle variabili **ThumbprintSecondary**. |
+| ClusterCertificateCommonNames |Consigliato per l'ambiente di produzione. Questo certificato è necessario per proteggere la comunicazione tra i nodi di un cluster. È possibile usare uno o due nomi comuni del certificato del cluster. |
+| ServerCertificate |Consigliato per l'ambiente di test. Questo certificato viene presentato al client quando tenta di connettersi al cluster. Per praticità, è possibile scegliere di usare lo stesso certificato per *ClusterCertificate* e *ServerCertificate*. È possibile usare due diversi certificati del server, uno primario e uno secondario per l'aggiornamento. Impostare l'identificazione personale del certificato primario nella sezione **Thumbprint** e quella del certificato secondario nelle variabili **ThumbprintSecondary**. |
+| ServerCertificateCommonNames |Consigliato per l'ambiente di produzione. Questo certificato viene presentato al client quando tenta di connettersi al cluster. Per praticità, è possibile scegliere di usare lo stesso certificato per *ClusterCertificateCommonNames* e *ServerCertificateCommonNames*. È possibile usare uno o due nomi comuni del certificato del server. |
 | ClientCertificateThumbprints |Si tratta di un set di certificati che da installare nei client autenticati. È possibile avere diversi certificati client installati nei computer a cui si vuole consentire l'accesso al cluster. Impostare l'identificazione personale di ogni certificato nella variabile **CertificateThumbprint** . Se si imposta **IsAdmin** su *true*, il client in cui è installato questo certificato può eseguire attività di gestione degli amministratori per il cluster. Se **IsAdmin** è *false*, il client con questo certificato può eseguire solo le azioni consentite con diritti di accesso utente, in genere di sola lettura. Per altre informazioni sui ruoli, vedere [Controllo degli accessi in base al ruolo (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
 | ClientCertificateCommonNames |Impostare il nome comune del primo certificato client per **CertificateCommonName**. **CertificateIssuerThumbprint** è l'identificazione personale dell'autorità emittente del certificato. Per altre informazioni sui nomi comuni e sull'autorità emittente, vedere [Utilizzo dei certificati](https://msdn.microsoft.com/library/ms731899.aspx) . |
-| ReverseProxyCertificate |Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](service-fabric-reverseproxy.md). Se si usa questo certificato, assicurarsi che reverseProxyEndpointPort sia impostato in nodeTypes. |
+| ReverseProxyCertificate |Consigliato per l'ambiente di test. Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](service-fabric-reverseproxy.md). Se si usa questo certificato, assicurarsi che reverseProxyEndpointPort sia impostato in nodeTypes. |
+| ReverseProxyCertificateCommonNames |Consigliato per l'ambiente di produzione. Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](service-fabric-reverseproxy.md). Se si usa questo certificato, assicurarsi che reverseProxyEndpointPort sia impostato in nodeTypes. |
 
-Ecco un esempio di una configurazione cluster in cui sono stati specificati certificati cluster, server e client.
+Ecco un esempio di una configurazione cluster in cui sono stati specificati certificati cluster, server e client. Si noti che per i certificati del cluster/server/proxy inverso, non è consentito configurare insieme l'identificazione personale e il nome comune per lo stesso tipo di certificato.
 
  ```JSON
  {
@@ -132,13 +158,21 @@ Ecco un esempio di una configurazione cluster in cui sono stati specificati cert
             "ClusterCredentialType": "X509",
             "ServerCredentialType": "X509",
             "CertificateInformation": {
-                "ClusterCertificate": {
-                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
-                    "X509StoreName": "My"
+                "ClusterCertificateCommonNames": {
+                  "CommonNames": [
+                    {
+                      "CertificateCommonName": "myClusterCertCommonName"
+                    }
+                  ],
+                  "X509StoreName": "My"
                 },
-                "ServerCertificate": {
-                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
-                    "X509StoreName": "My"
+                "ServerCertificateCommonNames": {
+                  "CommonNames": [
+                    {
+                      "CertificateCommonName": "myServerCertCommonName"
+                    }
+                  ],
+                  "X509StoreName": "My"
                 },
                 "ClientCertificateThumbprints": [{
                     "CertificateThumbprint": "c4 c18 8e aa a8 58 77 98 65 f8 61 4a 0d da 4c 13 c5 a1 37 6e",
@@ -181,6 +215,10 @@ Ecco un esempio di una configurazione cluster in cui sono stati specificati cert
     }
 }
  ```
+
+## <a name="certificate-roll-over"></a>Rollover del certificato
+Quando si usa il nome comune del certificato al posto dell'identificazione personale, il rollover del certificato non richiede l'aggiornamento della configurazione del cluster.
+Se il rollover del certificato implica il rollover dell'autorità di certificazione, mantenere il certificato dell'autorità di certificazione precedente nell'archivio del certificato per almeno 2 ore dopo aver installato il nuovo certificato dell'autorità di certificazione.
 
 ## <a name="acquire-the-x509-certificates"></a>Acquisire i certificati X.509
 Per proteggere la comunicazione nel cluster, è prima necessario ottenere i certificati X.509 per i nodi del cluster. Per limitare inoltre la connessione al cluster a computer o utenti autorizzati, è necessario ottenere e installare i certificati per i computer client.

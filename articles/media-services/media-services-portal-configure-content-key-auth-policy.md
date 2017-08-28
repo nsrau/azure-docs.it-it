@@ -4,7 +4,7 @@ description: Informazioni su come configurare i criteri di autorizzazione per un
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: ee82a3fa-c34b-48f2-a108-8ba321f1691e
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 096d67dc4880f4c0a50e3981485dbe2d8f4c22a7
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2ad1199ac4cbf40ea9eb9c55046094fd988c7325
+ms.contentlocale: it-it
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="configure-content-key-authorization-policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica
@@ -66,17 +66,7 @@ Quando si configurano i criteri di restrizione **TOKEN**, è necessario specific
 ### <a name="playready"></a>PlayReady
 Quando si protegge il contenuto con **PlayReady**, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il modello di licenza PlayReady. Per impostazione predefinita, vengono definiti i seguenti criteri:
 
-<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-      <LicenseTemplates>
-        <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-          <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-          <LicenseType>Nonpersistent</LicenseType>
-          <PlayRight>
-            <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-          </PlayRight>
-        </PlayReadyLicenseTemplate>
-      </LicenseTemplates>
-    </PlayReadyLicenseResponseTemplate>
+<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"> <LicenseTemplates> <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices> <ContentKey i:type="ContentEncryptionKeyFromHeader" /> <LicenseType>Nonpersistent</LicenseType> <PlayRight> <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput> </PlayRight> </PlayReadyLicenseTemplate> </LicenseTemplates> </PlayReadyLicenseResponseTemplate>
 
 È possibile fare clic sul pulsante **importa xml criterio** e specificare codice XML differente, conforme allo schema XML definito [qui](media-services-playready-license-template-overview.md).
 

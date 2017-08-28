@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: ed62e35930b64919f4be0f3491f4eda995b81e7f
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
 ms.contentlocale: it-it
 ms.lasthandoff: 08/10/2017
 
@@ -24,7 +24,9 @@ ms.lasthandoff: 08/10/2017
 Questo articolo consente di configurare una soluzione di disponibilità elevata e scalabilità con Gateway di gestione dati.    
 
 > [!NOTE]
-> Questo articolo presuppone che l'utente abbia già familiarità con i concetti di base relativi a Gateway di gestione dati. In caso contrario, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md).  
+> Questo articolo presuppone che l'utente abbia già familiarità con i concetti di base relativi a Gateway di gestione dati. In caso contrario, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md).
+
+>**Questa funzionalità di anteprima è ufficialmente supportata in Gateway di gestione dati versione 2.12.xxxx.x e successive**. Assicurarsi quindi che sia in uso la versione 2.12.xxxx.x o successiva. Scaricare la versione più recente di Gateway di gestione dati [qui](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Panoramica
 È possibile associare gateway di gestione dati installati in più computer locali a un solo gateway logico nel portale. Questi computer sono chiamati **nodi**. È possibile avere fino a **quattro nodi** associati a un gateway logico. I vantaggi di avere più nodi (computer locali con un gateway installato) per un gateway logico sono:  
@@ -125,7 +127,7 @@ Questa sezione presuppone che siano stati letti i due articoli seguenti o che si
 11. Per eliminare un nodo del gateway, fare clic su **Elimina nodo** sulla barra degli strumenti, selezionare il nodo che si vuole eliminare e quindi fare clic su **Elimina** sulla barra degli strumenti. Questa azione elimina il nodo selezionato dal gruppo. Si noti che questa azione non disinstalla il software del gateway di gestione dati dal nodo (computer Windows locale). Usare **Installazione applicazioni** nel Pannello di controllo nel computer locale per disinstallare il gateway. Quando il nodo viene disinstallato dal gateway, viene automaticamente eliminato nel portale.   
 
 ## <a name="upgrade-an-existing-gateway"></a>Aggiornare un gateway esistente
-È possibile aggiornare un gateway esistente per usare la funzionalità di disponibilità elevata e scalabilità. Questa funzionalità può essere usata solo con i nodi che hanno il gateway di gestione dati versione >= 2.9.xxxx. È possibile visualizzare la versione del gateway di gestione dati installato in un computer nella scheda **Guida** di Gestione configurazione di Gateway di gestione dati. 
+È possibile aggiornare un gateway esistente per usare la funzionalità di disponibilità elevata e scalabilità. Questa funzionalità può essere usata solo con i nodi che eseguono Gateway di gestione dati versione >= 2.12.xxxx. È possibile visualizzare la versione del gateway di gestione dati installato in un computer nella scheda **Guida** di Gestione configurazione di Gateway di gestione dati. 
 
 1. Aggiornare il gateway nel computer locale alla versione più recente scaricando ed eseguendo un pacchetto di installazione MSI dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Vedere la sezione [Installazione](data-factory-data-management-gateway.md#installation) per i dettagli.  
 2. Passare al portale di Azure. Avviare la **pagina Data Factory** per la data factory. Fare clic sul riquadro Servizi collegati per avviare la **pagina Servizi collegati**. Selezionare il gateway per avviare la **pagina del gateway**. Facendo clic abilitare **Anteprima funzionalità**, come mostrato nell'immagine seguente: 
@@ -247,3 +249,4 @@ Dopo l'eliminazione fare clic su **Funzionalità in anteprima** nella stessa pag
 Vedere gli articoli seguenti:
 - [Gateway di gestione dati](data-factory-data-management-gateway.md): offre una panoramica dettagliata del gateway.
 - [Spostare dati tra archivi dati locali e cloud](data-factory-move-data-between-onprem-and-cloud.md): contiene una procedura dettagliata con le istruzioni per usare un gateway a nodo singolo. 
+

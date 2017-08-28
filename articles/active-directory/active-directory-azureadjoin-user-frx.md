@@ -1,10 +1,10 @@
 ---
-title: Configurazione di un nuovo dispositivo con Azure AD durante l&quot;installazione| Documentazione Microsoft
-description: Argomento che spiega come configurare l&quot;aggiunta di Azure AD durante la procedura di configurazione guidata iniziale.
+title: Configurazione di un nuovo dispositivo con Azure AD durante l'installazione| Documentazione Microsoft
+description: Argomento che spiega come configurare l'aggiunta di Azure AD durante la procedura di configurazione guidata iniziale.
 services: active-directory
 documentationcenter: 
-author: femila
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: 
 tags: azure-classic-portal
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -20,7 +20,6 @@ ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a6227096559af9b9beba7081ba770db80189dc18
 ms.contentlocale: it-it
 ms.lasthandoff: 12/28/2016
-
 
 ---
 # <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>Configurazione di un nuovo dispositivo con Azure AD durante l'installazione

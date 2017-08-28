@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 08/15/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 1cdaa8c4bf511a07383023f1baf79449ef7fdd35
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origini dei dati del registro eventi di Windows in Log Analytics
@@ -38,7 +38,9 @@ Mentre si digita il nome di un registro eventi, Log Analytics fornisce suggerime
 ## <a name="data-collection"></a>Raccolta dei dati
 Log Analytics raccoglie ogni evento corrispondente a un livello di gravità selezionato da un registro eventi monitorato quando viene creato l'evento.  L'agente registra la propria posizione in ogni registro eventi da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, Log Analytics raccoglie gli eventi dal momento in cui è stato interrotto, anche se gli eventi sono stati creati mentre l'agente era offline.  Esiste la possibilità che questi eventi non vengano raccolti se il registro eventi esegue il wrapping con eventi non raccolti che vengono sovrascritti mentre l'agente è offline.
 
-
+>[!NOTE]
+>Log Analytics non raccoglie gli eventi di controllo creati da SQL Server dal *MSSQLSERVER* di origine con l'ID evento 18453 che contiene le parole chiave *Classico* o *Successo del controllo* e la parola chiave *0xa0000000000000*.
+>
 
 ## <a name="windows-event-records-properties"></a>Proprietà dei record eventi di Windows
 I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente vengono riportate le loro proprietà:

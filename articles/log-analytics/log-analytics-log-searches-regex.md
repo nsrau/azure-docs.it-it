@@ -1,6 +1,6 @@
 ---
 title: Espressioni regolari nelle ricerche di log in Log Analytics OMS | Microsoft Docs
-description: "È possibile usare la parola chiave RegEx nelle ricerche di log in Log Analytics per filtrare i risultati in base a un&quot;espressione regolare.  In questo articolo viene descritta la sintassi per queste espressioni con diversi esempi."
+description: "È possibile usare la parola chiave RegEx nelle ricerche di log in Log Analytics per filtrare i risultati in base a un'espressione regolare.  In questo articolo viene descritta la sintassi per queste espressioni con diversi esempi."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 08/08/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6c01fe7a791742d283505057a310891a075029ef
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Uso di espressioni regolari per filtrare ricerche log in Log Analytics
@@ -25,6 +25,9 @@ ms.lasthandoff: 04/12/2017
 Le [ricerche log](log-analytics-log-searches.md) consentono di estrarre informazioni dal repository Log Analytics.  Le [espressioni di filtro](log-analytics-search-reference.md#filter-expressions) consentono di filtrare i risultati della ricerca in base a criteri specifici.  La parola chiave **RegEx** consente di specificare un'espressione regolare per il filtro.  
 
 Questo articolo contiene informazioni dettagliate sulla sintassi di espressioni regolari usate da Log Analytics.
+
+> [!NOTE]
+> È possibile usare solo RegEx con i campi ricercabili.  Per altre informazioni sui campi ricercabili, vedere **Tipi di campo** in [Trovare dati con ricerche nei log in Log Analytics](log-analytics-log-searches.md#use-additional-filters).
 
 
 ## <a name="regex-keyword"></a>Parola chiave RegEx
@@ -73,7 +76,7 @@ Specificare più occorrenze di un carattere specifico.
 |:--|:--|:--|:--|
 | a{n} |  *n* occorrenze del carattere. | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
 | a{n,} |  *n* o più occorrenze del carattere. | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
-| a{n,m} |  Da *n* a *m* occorrenze del carattere. | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
+| a{n,m} |  *n* a *m* occorrenze del carattere. | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
 
 
 ## <a name="logical-expressions"></a>Espressioni logiche

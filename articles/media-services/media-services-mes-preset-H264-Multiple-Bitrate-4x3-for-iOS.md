@@ -2,7 +2,7 @@
 title: Codec video H.264 a bitrate multipli con risoluzione 4x3 per iOS | Documentazione Microsoft
 description: "Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate multipli con risoluzione 4x3 per iOS**."
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: ac797f879ef306a7d423969ecfadca3a423b4cd5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b1bc18307227a728e2bc8fd95e30fdc1cbdb8c59
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminare un gateway di rete virtuale usando PowerShell (classico)
@@ -33,7 +32,7 @@ ms.lasthandoff: 05/11/2017
 
 Questo articolo illustra come eliminare un gateway VPN nel modello di distribuzione classica tramite PowerShell. Dopo aver eliminato il gateway di rete virtuale, modificare il file di configurazione di rete per rimuovere gli elementi che non sono più in uso.
 
-##<a name="step-1-connect-to-azure"></a>Passaggio 1: Connettersi ad Azure
+##<a name="connect"></a>Passaggio 1: Connettersi ad Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Installare i cmdlet di PowerShell più recenti.
 
@@ -47,7 +46,7 @@ Aprire la console di PowerShell con diritti elevati e connettersi all'account. P
 Add-AzureAccount
 ```
 
-## <a name="step-2-export-and-view-the-network-configuration-file"></a>Passaggio 2: Esportare e visualizzare il file di configurazione di rete
+## <a name="export"></a>Passaggio 2: Esportare e visualizzare il file di configurazione di rete
 
 Creare una directory nel computer ed esportarvi il file di configurazione di rete. Usare questo file per visualizzare le informazioni di configurazione correnti e modificare la configurazione di rete.
 
@@ -59,7 +58,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 Aprire il file con un editor di testo e visualizzare il nome di una rete virtuale classica. Quando si crea una rete virtuale nel portale di Azure, il nome completo che usa Azure non è visibile nel portale. Ad esempio, una rete virtuale che nel portale di Azure sembra avere il nome di "ClassicVNet1" potrebbe avere un nome molto più lungo nel file di configurazione di rete. Il nome potrebbe essere simile a: "Gruppo ClassicRG1 ClassicVNet1". I nomi delle reti virtuali sono elencati come **"VirtualNetworkSite name ="**. Usare i nomi nel file di configurazione di rete durante l'esecuzione dei cmdlet di PowerShell.
 
-## <a name="step-3-delete-the-virtual-network-gateway"></a>Passaggio 3: Eliminare il gateway di rete virtuale
+## <a name="delete"></a>Passaggio 3: Eliminare il gateway di rete virtuale
 
 Quando si elimina un gateway di rete virtuale, vengono interrotte tutte le connessioni alla rete virtuale tramite il gateway. Se ci sono client P2S connessi alla rete virtuale, verranno disconnessi senza alcun avviso.
 
@@ -75,11 +74,11 @@ Se ha esito positivo, il risultato mostra quanto segue:
 Status : Successful
 ```
 
-## <a name="step-4-modify-the-network-configuration-file"></a>Passaggio 4: Modificare il file di configurazione di rete
+## <a name="modify"></a>Passaggio 4: Modificare il file di configurazione di rete
 
 Quando si elimina un gateway di rete virtuale, il cmdlet non modifica il file di configurazione di rete. È necessario modificare il file per rimuovere gli elementi che non sono più in uso. Le sezioni seguenti consentono di modificare il file di configurazione di rete che è stato scaricato.
 
-### <a name="local-network-site-references"></a>Riferimento al sito di rete locale
+### <a name="lnsref"></a>Riferimenti al sito di rete locale
 
 Per rimuovere le informazioni di riferimento al sito, apportare modifiche alla configurazione in **ConnectionsToLocalNetwork/LocalNetworkSiteRef**. La rimozione di un riferimento al sito locale induce Azure a eliminare un tunnel. A seconda della configurazione che è stata creata, **LocalNetworkSiteRef** potrebbe non essere elencato.
 
@@ -102,7 +101,7 @@ Esempio:
  </Gateway>
 ```
 
-###<a name="local-network-sites"></a>Siti di rete locale
+###<a name="lns"></a>Siti di rete locale
 
 Rimuovere tutti i siti locali che non sono più in uso. A seconda della configurazione creata, è possibile che **LocalNetworkSite** non sia elencato.
 
@@ -136,7 +135,7 @@ In questo esempio viene rimosso solo Site3.
  </LocalNetworkSites>
 ```
 
-### <a name="client-addresspool"></a>Client AddressPool
+### <a name="clientaddresss"></a>Pool di indirizzi client
 
 Se era presente una connessione P2S sulla rete virtuale, si avrà **VPNClientAddressPool**. Rimuovere i pool di indirizzi client che corrispondono al gateway di rete virtuale che è stato eliminato.
 
@@ -157,7 +156,7 @@ Esempio:
  </Gateway>
 ```
 
-### <a name="gatewaysubnet"></a>GatewaySubnet
+### <a name="gwsub"></a>GatewaySubnet
 
 Eliminare il **GatewaySubnet** corrispondente alla rete virtuale.
 
@@ -182,7 +181,7 @@ Esempio:
  </Subnets>
 ```
 
-## <a name="step-5-upload-the-network-configuration-file"></a>Passaggio 5: Caricare il file di configurazione di rete
+## <a name="upload"></a>Passaggio 5: Caricare il file di configurazione di rete
 
 Salvare le modifiche e caricare la configurazione di rete in Azure. Assicurarsi di modificare il percorso del file in base al proprio ambiente.
 

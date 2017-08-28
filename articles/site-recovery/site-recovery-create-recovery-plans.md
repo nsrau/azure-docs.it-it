@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="create-recovery-plans"></a>Creare piani di ripristino
@@ -44,6 +44,7 @@ Per inviare commenti o domande, è possibile usare la parte inferiore di questo 
     - Per la replica da VMM ad Azure, selezionare **Tipo origine** > **VMM**.  Selezionare il server VMM di origine e **Azure** come destinazione.
     - Per la replica Hyper-V in Azure (senza VMM), selezionare **Tipo origine** > **Sito Hyper-V**. Selezionare il sito come origine e **Azure**come destinazione.
     - Per una VM VMware o un server fisico locale in Azure, selezionare un server di configurazione come origine e **Azure** come destinazione.
+    - Per un piano di ripristino di Azure in Azure, selezionare un'area di Azure come origine e un'area secondaria di Azure come destinazione. Le aree secondarie di Azure sono solo quelle in cui le macchine virtuali sono protette.
 2. In **Seleziona macchine virtuali** selezionare le macchine virtuali (o il gruppo di replica) che si vuole aggiungere al gruppo predefinito (gruppo 1) nel piano di ripristino.
 
 ## <a name="customize-and-extend-recovery-plans"></a>Personalizzare ed estendere i piani di ripristino

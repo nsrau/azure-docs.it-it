@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ed867e1e7702d3f178feeab007ac94fb1d67c140
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 06503f9564e00ef62587d02f2da4778974e246c5
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-table-storage"></a>Salvare i messaggi dell'hub IoT che contengono dati di sensori nell'archiviazione tabelle di Azure
@@ -47,7 +47,7 @@ Si apprenderà come creare un account di archiviazione di Azure e un'app per le 
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuova** > **Archiviazione** > **Account di archiviazione**.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuova** > **Archiviazione** > **Account di archiviazione** > **Crea**.
 
 2. Immettere le informazioni necessarie per l'account di archiviazione:
 
@@ -109,7 +109,7 @@ L'hub IoT espone un endpoint predefinito compatibile con l'hub eventi per consen
 
 ## <a name="create-and-deploy-an-azure-function-app"></a>Creare e distribuire un'app per le funzioni di Azure
 
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuovo** > **Calcolo** > **App per le funzioni**.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuovo** > **Calcolo** > **App per le funzioni** > **Crea**.
 
 2. Immettere le informazioni necessarie per l'app per le funzioni.
 
@@ -169,7 +169,7 @@ L'hub IoT espone un endpoint predefinito compatibile con l'hub eventi per consen
 
 8. In **Gruppo di consumer dell'hub eventi** immettere il nome del gruppo di consumer creato, quindi fare clic su **Salva**.
 
-9. Fare clic su **Sviluppo** e quindi su **Visualizza file**.
+9. Fare clic sulla funzione creata a sinistra e quindi fare clic su **Visualizza file** a destra.
 
 10. Sostituire il codice in `index.js` con il codice seguente:
 

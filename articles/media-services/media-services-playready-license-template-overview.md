@@ -2,7 +2,7 @@
 title: Panoramica del modello di licenza PlayReady di Servizi multimediali
 description: Questo argomento offre una panoramica di un modello di licenza PlayReady usato per configurare le licenze PlayReady.
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

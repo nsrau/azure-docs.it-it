@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a95283a5c52a2860a4c4ac9e47938fe7c6b1be84
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 77097d59077cd8e199acdb5dc0d8427369565eea
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurare una connessione da rete virtuale a rete virtuale (versione classica)
@@ -48,7 +48,7 @@ Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche d
 
 ![Connessioni da rete virtuale a rete virtuale](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>Perché connettere reti virtuali?
+### <a name="why"></a>Perché connettere reti virtuali?
 
 È possibile connettere reti virtuali per i seguenti motivi:
 
@@ -70,7 +70,7 @@ Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, veder
 
 Prima di iniziare questo esercizio, scaricare e installare la versione più recente dei cmdlet di PowerShell per gestione del servizio (SM, Service Management) di Azure. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Il portale viene utilizzato per la maggior parte dei passaggi, ma per creare connessioni tra VNet, occorre utilizzare PoweShell. Non è possibile creare connessioni dal portale di Azure.
 
-## <a name="step1"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
+## <a name="plan"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
 
 È importante stabilire gli intervalli che verranno usati per configurare le reti virtuali. Per questa configurazione, controllare che nessun intervallo di rete virtuale si sovrapponga a un altro o a una delle reti locali alle quali si connette.
 
@@ -166,13 +166,13 @@ Ogni rete virtuale deve essere un gateway di rete virtuale. Il gateway di rete v
 4. Configurare le **dimensioni del gateway**. Questa impostazione fa riferimento allo [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 5. Configurare il **tipo di routing**. Il tipo di routing per questa configurazione deve essere **Dinamico**. Non è possibile modificare il tipo di routing in un secondo momento, a meno che non si chiuda il gateway per crearne uno nuovo.
 6. Fare clic su **OK**.
-7. Nel pannello **Nuova connessione VPN** fare clic su **OK** per iniziare a creare il gateway di rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dello SKU gateway selezionato.
+7. Nel pannello **Nuova connessione VPN** fare clic su **OK** per iniziare a creare il gateway di rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dell'SKU gateway selezionato.
 
-## <a name="step-5---configure-testvnet4-settings"></a>Passaggio 5: configurare le impostazioni di TestVNet4
+## <a name="vnet4settings"></a>Passaggio 5: Configurare le impostazioni di TestVNet4
 
 Ripetere i passaggi per [creare un sito locale](#localsite) e [creare il gateway di rete virtuale](#gw) per configurare TestVNet4, sostituendo i valori se necessario. Se si esegue questo esercizio, usare i [valori di esempio](#vnetvalues).
 
-## <a name="step-6---update-the-local-sites"></a>Passaggio 6: aggiornare i siti locali
+## <a name="updatelocal"></a>Passaggio 6: Aggiornare i siti locali
 
 Dopo aver creato il gateway di rete virtuale per entrambe le reti virtuali, è necessario modificare i valori di **Indirizzo IP del gateway VPN** per i siti locali.
 
@@ -208,7 +208,7 @@ Dopo aver creato il gateway di rete virtuale per entrambe le reti virtuali, è n
 6. Chiudere gli altri pannelli.
 7. Ripetere questi passaggi per TestVNet4.
 
-## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a>Passaggio 7: recuperare i valori del file di configurazione di rete
+## <a name="getvalues"></a>Passaggio 7: Recuperare i valori del file di configurazione di rete
 
 Quando si creano reti virtuali classiche nel portale di Azure, il nome da visualizzare non è il nome completo usato per PowerShell. Ad esempio, una rete virtuale che sembra avere il nome **TestVNet1** nel portale potrebbe avere un nome molto più lungo nel file di configurazione di rete. Il nome potrebbe essere simile a: **Gruppo ClassicRG TestVNet1**. Quando si creano le connessioni, è importante usare i valori visualizzati nel file di configurazione di rete.
 
@@ -246,7 +246,7 @@ Nelle procedure seguenti, ci si connetterà al proprio account Azure per scarica
   ```
 4. Aprire il file con un editor di testo e visualizzare il nome delle reti virtuali e dei siti. Questo sarà il nome da usare nella creazione delle le connessioni.<br>I nomi delle reti virtuali sono elencati come **Nome VirtualNetworkSite =**<br>I nomi dei siti sono elencati come **Nome LocalNetworkSiteRef =**
 
-## <a name="step-8---create-the-vpn-gateway-connections"></a>Passaggio 8: creare le connessioni al gateway VPN
+## <a name="createconnections"></a>Passaggio 8: Creare le connessioni al gateway VPN
 
 Quando tutti i passaggi precedenti sono stati completati, è possibile impostare le chiavi già condivise IPsec/IKE e creare la connessione. Questa procedura usa PowerShell. Impossibile configurare le connessioni da rete virtuale a rete virtuale per il modello di distribuzione classico nel portale di Azure.
 

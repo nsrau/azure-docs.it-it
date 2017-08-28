@@ -17,13 +17,13 @@ ms.workload: big-data
 ms.date: 08/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: daf03179c3a9383c6ff3ca11215cc760164f96d5
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 71482e24e519319d506d61e0582420e35f1cae70
 ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/10/2017
 
 ---
-# <a name="example-storm-toplogies-and-components-for-apache-storm-on-hdinsight"></a>Esempi di topologie e componenti Storm per Apache Storm in HDInsight
+# <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Esempi di topologie e componenti Storm per Apache Storm in HDInsight
 
 Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'uso con Apache Storm in HDInsight. Questi esempi coprono un'ampia gamma di argomenti, dalla creazione di codice C# di base e topologie Java all'uso dei servizi di Azure come Hub eventi, Cosmos DB, Power BI, Database SQL, HBase in HDInsight e Archiviazione di Azure. Alcuni esempi illustrano anche come usare le tecnologie non Azure o addirittura non Microsoft, quali SignalR e Socket.IO.
 
@@ -46,7 +46,7 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
 | [Introduzione a Python con Storm in HDInsight](hdinsight-storm-develop-python-topology.md) |Componenti Python con una topologia Flux |Python |
 | [Usare Kafka con Storm in HDInsight](hdinsight-apache-storm-with-kafka.md) | Lettura e scrittura di Apache Storm in Apache Kafka | Java |
 
-## <a name="next-steps"></a>Passaggi successivi
+### <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Apache Storm in HDInsight][2b8c3488]
 * [Informazioni sulla distribuzione e la gestione di topologie Storm con Storm in HDInsight][6eb0d3b8]

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 95404f9dbffa08edf12ee6c07f671d5f207ce99a
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
@@ -52,7 +52,7 @@ La sincronizzazione dati usa una topologia hub-spoke per sincronizzare i dati. U
 
 La sincronizzazione dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o database di SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
 
--   **Sincronizzazione dati ibrida:** con la sincronizzazione dati è possibile mantenere i dati sincronizzati tra database locali e database SQL di Azure per rendere possibili applicazioni ibride con livello dati proprio in SQL. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
+-   **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere i dati sincronizzati tra database locali e database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
 
 -   **Applicazioni distribuite:** in molti casi è vantaggioso separare carichi di lavoro diversi in database differenti. Ad esempio, se si dispone di un database di produzione di grandi dimensioni, ma è anche necessario eseguire un carico di lavoro di report o analisi su tali dati, può essere utile avere un secondo database per questo carico di lavoro aggiuntivo. Questo approccio riduce al minimo l'impatto a livello di prestazioni sul carico di lavoro di produzione. È possibile usare la sincronizzazione dati per mantenere sincronizzati i due database.
 

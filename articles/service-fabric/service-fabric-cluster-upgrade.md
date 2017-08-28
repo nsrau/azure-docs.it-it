@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2017
+ms.date: 8/10/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6efb5c20140d3ea76a2a9cd1eb495db69f14048d
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Aggiornare un cluster di Azure Service Fabric
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/21/2017
 Per i sistemi attuali la progettazione a livello di aggiornamento è fondamentale per il successo a lungo termine di un prodotto. Un cluster di Azure Service Fabric è una risorsa di proprietà dell'utente parzialmente gestita da Microsoft. Questo articolo descrive ciò che viene gestito automaticamente e ciò che è possibile configurare manualmente.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controllo della versione di Fabric eseguita nel cluster
-È possibile impostare il cluster per ricevere gli aggiornamenti automatici di Fabric quando Microsoft rilascia una nuova versione oppure scegliere di selezionare una versione supportata di Fabric da eseguire nel cluster.
+È possibile impostare il cluster per ricevere gli aggiornamenti automatici di Fabric quando vengono rilasciati da Microsoft oppure è possibile selezionare una versione di Fabric supportata da eseguire nel cluster.
 
 A questo scopo, impostare l'opzione di configurazione "upgradeMode" del cluster nel portale oppure usare Resource Manager al momento della creazione o successivamente in un cluster attivo. 
 

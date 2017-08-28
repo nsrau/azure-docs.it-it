@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 08/16/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 398abb0a56f1a12ad563dce889c602af4a5b9bcf
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 7f56f6d89a9990ab7e7f50a86993e9e22b73d646
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Esercitazione su Power BI per Azure Cosmos DB: visualizzare dati tramite il connettore per Power BI
@@ -34,6 +34,9 @@ Dopo aver completato questa esercitazione su Power BI, si potrà rispondere alle
 * Come è possibile recuperare dati da una raccolta di Power BI Desktop?
 * Come è possibile trasformare dati JSON annidati in Power BI Desktop?
 * Come è possibile pubblicare e condividere i report personalizzati in PowerBI.com?
+
+> [!NOTE]
+> Il connettore Power BI per Azure Cosmos DB si connette a Power BI Desktop per estrarre e trasformare i dati. I report creati in Power BI Desktop possono essere quindi pubblicati in PowerBI.com. Non è possibile estrarre e trasformare direttamente in PowerBI.com dati di Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare di avere accesso alle risorse seguenti:

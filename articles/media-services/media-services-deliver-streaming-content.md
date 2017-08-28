@@ -2,7 +2,7 @@
 title: Pubblicare contenuti di Servizi multimediali di Azure mediante .NET | Microsoft Docs
 description: Informazioni su come creare un localizzatore da usare per un URL di streaming. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET.
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

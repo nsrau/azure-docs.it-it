@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: cbcb0b626aceccf9c5a29e60e5b0c66e7812dee1
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 7db1ad970ebb93d46d5a861f9a9b27bf121531a3
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificare le impostazioni del gateway di rete locale usando l'interfaccia della riga di comando di Azure
@@ -34,17 +33,17 @@ In alcuni casi le impostazioni per il prefisso indirizzo o l'indirizzo IP gatewa
 >
 >
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="before"></a>Prima di iniziare
 
 Installare la versione più recente dei comandi dell'interfaccia della riga di comando (2.0 o successiva). Per informazioni sull'installazione dei comandi dell'interfaccia della riga di comando, vedere [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Installare l'interfaccia della riga di comando di Azure 2.0).
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="modify-ip-address-prefixes"></a>Modificare i prefissi degli indirizzi IP
+## <a name="ipaddprefix"></a>Modificare i prefissi degli indirizzi IP
 
 [!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
 
-## <a name="modify-the-gateway-ip-address"></a>Modificare l'indirizzo IP del gateway
+## <a name="gwip"></a>Modificare l'indirizzo IP del gateway
 
 [!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 

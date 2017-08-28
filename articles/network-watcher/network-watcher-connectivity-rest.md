@@ -1,6 +1,6 @@
 ---
-title: "Controllare la connettività con Azure Network Watcher - API REST di Azure | Microsoft Docs"
-description: "Questa pagina descrive come controllare la connettività con Network Watcher usando l'API REST di Azure"
+title: "Verificare la connettività con Azure Network Watcher - Portale di Azure | Microsoft Docs"
+description: "Questa pagina descrive come verificare la connettività con Network Watcher nel portale di Azure"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -11,31 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 08/02/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9a900752dccfd82524951a01ebf70f882a35afd9
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-rest-api"></a>Controllare la connettività con Azure Network Watcher usando l'API REST di Azure
+# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Verificare la connettività con Azure Network Watcher usando il portale di Azure
 
 > [!div class="op_single_selector"]
+> - [Portale](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-connectivity-cli.md)
 > - [API REST di Azure](network-watcher-connectivity-rest.md)
 
 Informazioni su come usare la connettività per verificare se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.
-
-Questo articolo descrive i diversi tipi di controlli che possono essere eseguiti con la connettività.
-
-* [Controllare la connettività a una macchina virtuale](#check-connectivity-to-a-virtual-machine)
-* [Problemi relativi alla convalida del routing](#validate-routing-issues)
-* [Controllare la latenza del sito Web](#check-website-latency)
-* [Controllare la connettività a un endpoint di archiviazione](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -101,7 +95,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-L'ID della macchina virtuale dell'output seguente viene usato nell'esempio seguente:
+L'ID della macchina virtuale dell'output seguente verrà usato nell'esempio descritto più avanti:
 
 ```json
 ...

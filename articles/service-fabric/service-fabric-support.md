@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: pkc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 70b2fefa654a73693a8064654cde1d767bfdd496
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 78e68cff3a757cbbcd8dc6f53120e6a4af54591a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
@@ -83,7 +83,8 @@ Di seguito è riportato un elenco delle versioni di Service Fabric supportate co
 | 5.3.* |Versione 2.3 o precedente |24 febbraio 2017 |
 | 5.4.* |Versione 2.4 o precedente |10 maggio 2017     |
 | 5.5.* |Versione 2.5 o precedente |10 agosto 2017    |
-| 5.6.* |Versione 2.6 o precedente |Versione corrente, nessuna data di fine supporto
+| 5.6.* |Versione 2.6 o precedente |13 ottobre 2017    |
+| 5.7.* |Versione 2.7 o precedente |Versione corrente, nessuna data di fine supporto
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versioni di anteprima di Service Fabric non supportate per l'uso in produzione

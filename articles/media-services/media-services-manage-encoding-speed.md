@@ -4,7 +4,7 @@ description: "Questo articolo illustra brevemente la procedura per gestire la ve
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9
 ms.service: media-services

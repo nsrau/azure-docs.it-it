@@ -4,7 +4,7 @@ description: Confronto dei livelli di servizio e di prestazioni del database SQL
 keywords: opzioni di database,prestazioni del database
 services: sql-database
 documentationcenter: 
-author: janeng
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
@@ -15,18 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
-ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 68d55d2dd088ce6350bd65b79206f161f9d3d788
+ms.author: carlrab
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b25ff5331f119efd44c61808f7d1d5decb226bd6
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
-<a id="what-performance-options-are-available-for-an-azure-sql-database" class="xliff"></a>
-
-# Opzioni di prestazioni disponibili per un database SQL di Azure
+# <a name="what-performance-options-are-available-for-an-azure-sql-database"></a>Opzioni di prestazioni disponibili per un database SQL di Azure
 
 Il [database SQL di Azure](sql-database-technical-overview.md) offre quattro livelli di servizio per i database sia singoli che [in pool](sql-database-elastic-pool.md): **Basic**, **Standard**, **Premium** e **Premium RS**. Ogni livello di servizio include più livelli di prestazioni ([DTU](sql-database-what-is-a-dtu.md)) e opzioni di archiviazione per la gestione di carichi di lavoro e dimensioni dei dati differenti. Livelli di prestazioni più elevati offrono risorse di calcolo e di archiviazione aggiuntive progettate per garantire un aumento della velocità effettiva e della capacità. È possibile cambiare i livelli di servizio e di prestazioni e lo spazio di archiviazione in modo dinamico senza tempi di inattività. 
 - I livelli di servizio **Basic**, **Standard** e **Premium** garantiscono un tempo di attività previsto dal contratto di servizio del 99,99%, opzioni di continuità aziendale flessibili, funzionalità di sicurezza e fatturazione su base oraria. 
@@ -35,9 +32,7 @@ Il [database SQL di Azure](sql-database-technical-overview.md) offre quattro liv
 > [!IMPORTANT]
 > Un database SQL di Azure ottiene un set garantito di risorse e le caratteristiche di prestazioni previste per il database non saranno influenzate da altri database in Azure. 
 
-<a id="choosing-a-service-tier" class="xliff"></a>
-
-## Scelta di un piano di servizio
+## <a name="choosing-a-service-tier"></a>Scelta di un piano di servizio
 Nella tabella seguente sono riportati esempi dei livelli ottimali adatti ai carichi di lavoro di diverse applicazioni.
 
 | Livello di servizio | Carichi di lavoro di destinazione |
@@ -80,16 +75,12 @@ Dopo aver individuato il livello di servizio appropriato, è possibile determina
 > Per informazioni sul raggruppamento di database in pool elastici SQL per la condivisione delle risorse di calcolo e di archiviazione, vedere l'argomento relativo ai [pool elastici SQL](sql-database-elastic-pool.md). Il resto di questo argomento è incentrato sui livelli di servizio e di prestazioni per i database singoli.
 >
 
-<a id="single-database-service-tiers-and-performance-levels" class="xliff"></a>
-
-## Livelli di servizio e di prestazioni per database singoli
+## <a name="single-database-service-tiers-and-performance-levels"></a>Livelli di servizio e di prestazioni per database singoli
 Per i database singoli, all'interno di ogni livello di servizio sono disponibili più livelli di prestazioni e spazi di archiviazione. 
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-<a id="scaling-up-or-scaling-down-a-single-database" class="xliff"></a>
-
-## Ridimensionamento di un singolo database
+## <a name="scaling-up-or-scaling-down-a-single-database"></a>Ridimensionamento di un singolo database
 
 Dopo aver selezionato inizialmente un livello di servizio e di prestazioni, è possibile ridimensionare un singolo database in modo dinamico in base all'esperienza effettiva.  
 
@@ -100,17 +91,20 @@ La modifica del livello di servizio e/o di prestazioni di un database crea una r
 
 La durata dell'intero processo di scalabilità verticale dipende dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio, il passaggio di un database di 250 GB al livello di servizio Standard o dal livello di servizio Standard a un altro livello o nell'ambito dello stesso livello di servizio Standard viene completato entro 6 ore. Per un database delle stesse dimensioni in fase di modifica dei livelli di prestazioni all'interno del livello di servizio Premium, il completamento dovrebbe avvenire entro 3 ore.
 
+> [!TIP]
+> Per controllare lo stato di un'operazione di ridimensionamento di un database SQL in corso, è possibile usare la query seguente: ```select * from sys.dm_operation_status```.
+>
+
 * Se si esegue l'aggiornamento a un livello di servizio o di prestazioni superiore, le dimensioni massime del database non aumentano a meno che non si specifichino esplicitamente dimensioni massime più elevate.
 * Per effettuare il downgrade di un database, le relative dimensioni devono essere inferiori alle dimensioni massime consentite per il livello di servizio di destinazione. 
-* Quando si aggiorna un database con [replica geografica](sql-database-geo-replication-portal.md) abilitata, l'indicazione generale è aggiornare i database secondari al livello di prestazioni desiderato prima di aggiornare il database primario.
-* Quando si effettua il downgrade dal livello di servizio **Premium** a uno inferiore, è prima necessario terminare tutte le relazioni di replica geografica. Per arrestare il processo di replica tra il database primario e i database secondari, seguire la procedura descritta nell'argomento relativo al [ripristino dopo un'interruzione del servizio](sql-database-disaster-recovery.md).
+* Quando si aggiorna un database con [replica geografica](sql-database-geo-replication-portal.md) abilitata, l'indicazione generale è aggiornare i database secondari al livello di prestazioni desiderato prima di aggiornare il database primario. Durante l'aggiornamento a un'edizione diversa è necessario aggiornare per primo il database secondario. 
+* Quando si effettua il downgrade di un database con [replica geografica](sql-database-geo-replication-portal.md) abilitata, l'indicazione generale è di eseguire il downgrade dei database primari al livello di prestazioni desiderato prima di eseguire questa operazione per il database secondario. Al momento del downgrade a un'edizione diversa, è necessario eseguire questa operazione iniziando dal database primario. 
+
 * Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. In caso di downgrade al livello **Basic**, il periodo di conservazione dei backup sarà inferiore. Vedere l'articolo relativo ai [backup del database SQL di Azure](sql-database-automated-backups.md).
 * Le nuove proprietà del database non vengono applicate finché non sono state completate le modifiche.
 
 
-<a id="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize" class="xliff"></a>
-
-## Limitazioni correnti dei database P11 e P15 con dimensioni massime di 4 TB
+## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitazioni correnti dei database P11 e P15 con dimensioni massime di 4 TB
 
 Come illustrato in precedenza, le dimensioni massime di 4 TB per i database P11 e P15 sono supportate in alcune aree. Ai database P11 e P15 con dimensioni massime di 4 TB si applicano le considerazioni e le limitazioni seguenti:
 
@@ -125,9 +119,7 @@ Come illustrato in precedenza, le dimensioni massime di 4 TB per i database P11 
    - Aggiornamento del database primario in una relazione di replica geografica: portando a 4 TB le dimensioni massime di un database primario, viene attivata la stessa modifica nel database secondario. Entrambi gli aggiornamenti devono avere esito positivo per applicare la modifica al database primario. Si applicano limitazioni per l'opzione da 4 TB (vedere sopra). Se il database secondario si trova in un'area che non supporta l'opzione da 4 TB, il database primario non viene aggiornato.
 - Il servizio di importazione/esportazione per caricare i database P11 o P15 da 4 TB non è supportato. Usare SqlPackage.exe per [importare](sql-database-import.md) ed [esportare](sql-database-export.md) i dati.
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal" class="xliff"></a>
-
-## Gestire i livelli di servizio e di prestazioni per database singoli con il portale di Azure
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal"></a>Gestire i livelli di servizio e di prestazioni per database singoli con il portale di Azure
 
 Per impostare o modificare il livello di servizio, il livello di prestazioni o lo spazio di archiviazione per un database SQL di Azure nuovo o esistente con il portale di Azure, aprire la finestra **Configura prestazioni** relativa al database facendo clic su **Piano tariffario (piano DTU)**, come illustrato nello screenshot seguente. 
 
@@ -141,9 +133,7 @@ Per impostare o modificare il livello di servizio, il livello di prestazioni o l
 > Se si seleziona un livello di servizio P11 o P15, vedere [Limitazioni correnti dei database P11 e P15 con dimensioni massime di 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize).
 >
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-powershell" class="xliff"></a>
-
-## Gestire i livelli di servizio e di prestazioni per database singoli con PowerShell
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-powershell"></a>Gestire i livelli di servizio e di prestazioni per database singoli con PowerShell
 
 Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo spazio di archiviazione per database SQL di Azure con PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere l'articolo su come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
@@ -157,9 +147,7 @@ Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo 
 > [!TIP]
 > Per uno script di esempio di PowerShell che monitora le metriche delle prestazioni di un database, lo ridimensiona passando a un livello di prestazioni superiore e crea una regola di avviso per una delle metriche delle prestazioni, vedere [Monitorare e ridimensionare un database SQL singolo usando PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli" class="xliff"></a>
-
-## Gestire i livelli di servizio e di prestazioni per database singoli con l'interfaccia della riga di comando di Azure
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli"></a>Gestire i livelli di servizio e di prestazioni per database singoli con l'interfaccia della riga di comando di Azure
 
 Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo spazio di archiviazione per database SQL di Azure con l'interfaccia della riga di comando di Azure, usare i [comandi per database SQL](/cli/azure/sql/db) seguenti. Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. Per creare e gestire pool elastici SQL, vedere l'articolo relativo ai [pool elastici](sql-database-elastic-pool.md).
 
@@ -176,9 +164,7 @@ Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo 
 > Per uno script di esempio dell'interfaccia della riga di comando di Azure che ridimensiona un database SQL di Azure singolo passando a un livello di prestazioni diverso dopo l'esecuzione di query sulle dimensioni del database, vedere l'articolo su come [usare l'interfaccia della riga di comando per monitorare e ridimensionare un database SQL singolo](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
-<a id="manage-single-database-service-tiers-and-performance-levels-using-transact-sql" class="xliff"></a>
-
-## Gestire i livelli di servizio e di prestazioni per database singoli con Transact-SQL
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-transact-sql"></a>Gestire i livelli di servizio e di prestazioni per database singoli con Transact-SQL
 
 Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo spazio di archiviazione per database SQL di Azure con Transact-SQL, usare i comandi T-SQL seguenti. È possibile eseguire questi comandi usando il portale di Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) o qualsiasi altro programma che può connettersi a un server di database SQL di Azure e passare comandi Transact-SQL. 
 
@@ -196,15 +182,11 @@ ALTER DATABASE <myDatabaseName>
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-<a id="manage-single-databases-using-the-rest-api" class="xliff"></a>
-
-## Gestire database singoli con l'API REST
+## <a name="manage-single-databases-using-the-rest-api"></a>Gestire database singoli con l'API REST
 
 Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo spazio di archiviazione per database SQL di Azure con l'API REST, vedere [Azure SQL Database REST API](/rest/api/sql/) (API REST per database SQL di Azure).
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sulle [DTU](sql-database-what-is-a-dtu.md).
 * Per informazioni sul monitoraggio dell'utilizzo di DTU, vedere l'articolo relativo a [monitoraggio e ottimizzazione delle prestazioni](sql-database-troubleshoot-performance.md).

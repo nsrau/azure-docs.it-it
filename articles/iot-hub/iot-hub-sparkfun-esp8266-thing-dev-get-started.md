@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 08/16/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9b3d968379d38ac4e4080de7eae6ffea89f73a49
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Connettere Sparkfun ESP8266 Thing Dev all'hub IoT di Azure nel cloud
@@ -191,6 +191,14 @@ L'applicazione di esempio consente di simulare i dati di temperatura e umidità 
 
 1. Nell'IDE di Arduino fare clic su **Strumento** > **Porta** e quindi fare clic sulla porta seriale di Sparkfun ESP8266 Thing Dev.
 1. Fare clic su **Schizzo** > **Carica** per compilare e distribuire l'applicazione di esempio in Sparkfun ESP8266 Thing Dev.
+
+> [!Note]
+> Se si usa macOS è possibile visualizzare i messaggi seguenti durante il caricamento. `warning: espcomm_sync failed`,`error: espcomm_open failed`. Aprire la finestra del terminal e completare le azioni riportate di seguito per risolvere questo problema.
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
 
 ### <a name="enter-your-credentials"></a>Immettere le credenziali
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/27/2017
 ms.author: msfussell
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 691325bdc34f960aed0c65797abc1edd2a76efd2
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 9871bc5aa4e74ab0faef401d67c4e9558eb5e14b
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servizio DNS in Azure Service Fabric

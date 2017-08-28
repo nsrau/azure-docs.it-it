@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: banders
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a552bbce2c6a1b60ab73e3e945985ff3dccbc93a
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ce8065d777bb315d4f9589d1b24a5152296facfe
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -400,7 +400,7 @@ Nel portale di OMS fare clic sul riquadro **Wire Data 2.0** per aprire il dashbo
 
 ![Esempio di ricerca log](./media/log-analytics-wire-data/log-search-example01.png)
 
-Analogamente, è possibile usare il pannello **Subnet locali** per determinare la quantità di traffico di rete sulle subnet. Gli utenti spesso definiscono le subnet per aree critiche delle applicazioni. Questo pannello offre un quadro di tali aree.
+Analogamente, è possibile usare il pannello **Subnet locali** per determinare la quantità di traffico di rete sulle subnet. Gli utenti spesso definiscono le subnet per aree critiche per le applicazioni. Questo pannello offre un quadro di tali aree.
 
 ![Esempio di ricerca log](./media/log-analytics-wire-data/log-search-example02.png)
 

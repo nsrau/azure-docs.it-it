@@ -4,7 +4,7 @@ description: "Questo argomento offre una panoramica degli scenari e della dispon
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

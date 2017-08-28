@@ -4,7 +4,7 @@ description: Questo argomento offre una panoramica dello streaming live con Serv
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services

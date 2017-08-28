@@ -4,7 +4,7 @@ description: "Questo articolo fornisce informazioni sulle modalità per aggiorna
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services

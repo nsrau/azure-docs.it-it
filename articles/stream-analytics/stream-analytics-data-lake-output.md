@@ -1,10 +1,10 @@
 ---
 title: Output di Data Lake Store per Analisi di flusso | Documentazione Microsoft
-description: Configurazione dell&quot;autenticazione e dell&quot;autorizzazione di un Archivio Data Lake di Azure in un processo di analisi di flusso
+description: Configurazione dell'autenticazione e dell'autorizzazione di un Archivio Data Lake di Azure in un processo di analisi di flusso
 keywords: 
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
@@ -14,23 +14,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
-ms.lasthandoff: 01/25/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
+ms.contentlocale: it-it
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Output di Archivio Data Lake per Analisi di flusso
 I processi di Analisi di flusso supportano numerosi metodi di output, tra cui [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. Archivio Data Lake consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Autorizzare un account Archivio Data Lake
-1. Quando si seleziona Data Lake Store come output nel portale di gestione di Azure, verrà richiesto di autorizzare l'uso del Data Lake Store esistente o di richiedere l'accesso a Data Lake Store tramite il portale di Azure classico.
+1. Quando si seleziona Data Lake Store come output nel portale di Azure, verrà richiesto di autorizzare l'uso del Data Lake Store esistente o di richiedere l'accesso a Data Lake Store tramite il portale di Azure classico.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
-2. Se si dispone già di un accesso ad Archivio Data Lake, fare clic su "Autorizza ora" e per un istante viene visualizzata una pagina che indica "Reindirizzamento all'autorizzazione...". La pagina si chiude automaticamente e verrà visualizzata la pagina che consente di configurare l'output di Archivio Data Lake.
+2. Se si ha già accesso a Data Lake Store, fare clic su "Autorizza ora". Per un breve tempo viene visualizzata una pagina con il messaggio "Reindirizzamento all'autorizzazione in corso". La pagina si chiude automaticamente e verrà visualizzata la pagina che consente di configurare l'output di Archivio Data Lake.
 
 Se non si è iscritti a Data Lake Store, è possibile selezionare il collegamento "Iscriversi adesso" per avviare la richiesta, oppure seguire le [istruzioni introduttive](../data-lake-store/data-lake-store-get-started-portal.md).
 
@@ -49,7 +49,7 @@ Dopo aver autenticato l'account, è possibile configurare le proprietà per l'ou
 </tr>
 <tr>
 <td>Account di Archivio Data Lake</td>
-<td>Nome dell'account di archiviazione a cui si sta inviando l'output. Verrà visualizzato un elenco a discesa degli account di Archivio Data Lake ai quali ha accesso l'utente connesso al portale.</td>
+<td>Nome dell'account di archiviazione a cui si sta inviando l'output. Verrà visualizzato un elenco di account Data Lake Store a cui l'utente connesso può accedere.</td>
 </tr>
 <tr>
 <td>Schema prefisso percorso [<I>facoltativo</I>]</td>

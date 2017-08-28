@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Ottimizzare l'ambiente SQL Server con la soluzione SQL Assessment in Log Analytics
@@ -66,7 +66,7 @@ La tabella seguente illustra i metodi di raccolta dati per gli agenti, se Operat
 
 | Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![Sì](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![Sì](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![No](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![Sì](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 giorni |
+| Windows | &#8226; | &#8226; |  |  | &#8226; |7 giorni |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Account RunAs di Operations Manager per OMS
 Log Analytics in OMS usa l'agente e il gruppo di gestione di Operations Manager per raccogliere e inviare dati al servizio OMS. OMS si basa si Management Pack per i carichi di lavoro per offrire servizi a valore aggiunto. Ogni carico di lavoro richiede privilegi specifici per eseguire i Management Pack in un contesto di sicurezza diverso, ad esempio un account di dominio. È necessario fornire informazioni sulle credenziali configurando un account RunAs di Operations Manager.

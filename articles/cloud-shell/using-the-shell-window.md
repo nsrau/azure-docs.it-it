@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 345217452a25448f31fabdcc25dca182bbcf72eb
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a47961dfdaf178a6b793bd68105d9792a9275bb3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -54,7 +54,8 @@ Alla chiusura di una sessione, assicurarsi di chiudere ogni finestra della sessi
 * Scorrere con il mouse o il touchpad per spostare il testo del terminale.
 
 ## <a name="exit-command"></a>Comando Exit
-L'esecuzione di `exit` termina la sessione attiva. Questo comportamento si verifica per impostazione predefinita dopo 10 minuti senza interazione.
+L'esecuzione di `exit` termina la sessione attiva. Questo comportamento si verifica per impostazione predefinita dopo 20 minuti senza interazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Avvio rapido di Cloud Shell](quickstart.md)
+

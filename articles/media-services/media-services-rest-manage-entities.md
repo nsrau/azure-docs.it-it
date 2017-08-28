@@ -2,7 +2,7 @@
 title: "Gestione di entità di Servizi multimediali con REST | Documentazione Microsoft"
 description: "Informazioni su come gestire entità di Servizi multimediali con l'API REST."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 68391677b1724f23d52086be0c810385e93c7196
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1e4336bef9324b5aa9456135cac9b71d19e02050
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gestione di entità di Servizi multimediali con REST 
@@ -28,22 +28,23 @@ ms.lasthandoff: 08/01/2017
 > 
 > 
 
-Servizi multimediali di Microsoft Azure è un servizio REST basato su OData versione 3. È possibile pertanto aggiungere, interrogare, aggiornare ed eliminare entità come in qualsiasi altro servizio OData. Verranno chiamate le eccezioni, quando necessario. Per altre informazioni su OData, vedere la pagina relativa alla [documentazione del protocollo OData](http://www.odata.org/documentation/).
+Servizi multimediali di Microsoft Azure è un servizio REST basato su OData versione 3. È possibile aggiungere, interrogare, aggiornare ed eliminare entità come in qualsiasi altro servizio OData. Verranno chiamate le eccezioni, quando necessario. Per altre informazioni su OData, vedere la pagina relativa alla [documentazione del protocollo OData](http://www.odata.org/documentation/).
 
 Questo argomento illustra come gestire le entità di Servizi multimediali di Azure con REST.
 
 >[!NOTE]
 > A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Ad esempio, il 1° aprile 2017 qualsiasi record di processo nell'account precedente il 31 dicembre 2016 verrà automaticamente eliminato. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto in questo argomento.
 
-## <a name="considerations-when-working-with-ams-rest"></a>Considerazioni relative all'uso di AMS REST
+## <a name="considerations"></a>Considerazioni  
 
-Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
+Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
-> [!NOTE]
-> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
-> 
-> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
-> 
+## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
+
+Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
 
 ## <a name="adding-entities"></a>Aggiunta di entità
 Ogni entità in Servizi multimediali viene aggiunta a un set di entità, ad esempio asset, mediante una richiesta HTTP POST.

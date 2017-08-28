@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9687b8342723239d1ab07bcaf59176f4a0911215
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 181ed544ae4697753490642fea8eef636322a114
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Abilitare la riprotezione da Azure a un sito locale
@@ -58,7 +58,10 @@ Quando ci si prepara per la riprotezione di macchine virtuali, eseguire o prende
 
     La destinazione master ha altri prerequisiti elencati in [Elementi comuni da controllare dopo aver installato un server di destinazione master](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-* Quando si esegue un failback, è necessario un server di configurazione locale. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione. In caso contrario, il failback ha esito negativo. Verificare di pianificare backup regolari del server. In caso di emergenza, ripristinare il server con lo stesso indirizzo IP in modo che il failback funzioni.
+* Quando si esegue un failback, è necessario un server di configurazione locale. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione. In caso contrario, il failback ha esito negativo. 
+
+> [!IMPORTANT]
+> Assicurarsi di pianificare backup regolari del server di configurazione. In caso di emergenza, ripristinare il server con lo stesso indirizzo IP in modo che il failback funzioni.
 
 * Configurare l'impostazione `disk.EnableUUID=true` nei parametri di configurazione della macchina virtuale di destinazione master in VMware. Se questa riga non esiste, aggiungerla perché questa impostazione è necessaria per fornire un valore UUID coerente al disco della macchina virtuale (VMDK) in modo che venga installato correttamente.
 
@@ -115,7 +118,7 @@ Per informazioni sull'installazione di un server di destinazione master, vedere:
 
 #### <a name="what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback"></a>Tipi di archivio dati supportati nell'host ESXi locale durante il failback
 
-Azure Site Recovery supporta attualmente solo il failback in un archivio dati VMFS (Virtual Machine File System) Un archivio dati vSAN o NFS non è supportato. A causa di questa limitazione, l'input di selezione dell'archivio dati nella schermata di riprotezione risulterà vuoto in caso di database NFS o mostrerà l'archivio dati vSAN ma avrà esito negativo durante il processo. Se si prevede di eseguire il failback, è possibile creare un archivio dati VMFS in locale ed eseguire il failback in tale archivio. Questo failback determinerà un download completo di VMDK.
+Azure Site Recovery attualmente supporta il failback solo in un archivio dati VMFS (Virtual Machine File System) o vSAN. Un archivio dati NFS non è supportato. A causa di questa limitazione, l'input di selezione dell'archivio dati nella schermata di riprotezione risulterà vuoto in caso di database NFS o mostrerà l'archivio dati vSAN ma avrà esito negativo durante il processo. Se si prevede di eseguire il failback, è possibile creare un archivio dati VMFS in locale ed eseguire il failback in tale archivio. Questo failback determinerà un download completo di VMDK.
 
 ### <a name="common-things-to-check-after-completing-installation-of-the-master-target-server"></a>Elementi comuni da controllare dopo aver installato il server di destinazione master
 

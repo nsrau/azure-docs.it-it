@@ -4,7 +4,7 @@ description: Questa esercitazione descrive i passaggi per ridimensionare l'elabo
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services

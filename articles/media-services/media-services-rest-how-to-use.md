@@ -1,10 +1,10 @@
 ---
-title: Informazioni generali sull'API REST di Servizi multimediali | Documentazione Microsoft
+title: Informazioni generali sull'API REST di Servizi multimediali | Microsoft Docs
 description: Informazioni generali sull'API REST di Servizi multimediali
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f4d2fe502e6b6a93c0e455a5369b63deb9074c82
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a874bc48cc94fff32382ccdb832f0fbd3d08e03f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali
@@ -103,13 +103,14 @@ Nella seguente tabella è riportato l'elenco completo dei verbi HTTP che è poss
 | MERGE |Aggiorna un oggetto esistente con le modifiche alle proprietà denominate. |
 | HEAD |Restituisce i metadati di un oggetto per una risposta GET. |
 
-## <a name="limitation"></a>Limitazione
-Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. È necessario usare **Skip** e **Take** (.NET)/**top** (REST) come descritto in [questo esempio .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e in [questo esempio di API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-
-## <a name="discovering-media-services-model"></a>Individuazione del modello di Servizi multimediali
+## <a name="discover-media-services-model"></a>Individuare il modello di Servizi multimediali
 Per rendere più facilmente individuabili le entità di Servizi multimediali, è possibile usare l'operazione $metadata, che consente di recuperare tutti i tipi validi di entità, le proprietà di entità, le associazioni, le funzioni, le azioni e così via. L'esempio seguente illustra come costruire l'URI: https://media.windows.net/API/$metadata.
 
 Aggiungere "?api-version=2.x" alla fine dell'URI se si desidera visualizzare i metadati in un browser o se nella richiesta non è stata inclusa l'intestazione x-ms-version.
+
+## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
+
+Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

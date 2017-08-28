@@ -4,7 +4,7 @@ description: Informazioni sui concetti e i passaggi da eseguire per usare Azure 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

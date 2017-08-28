@@ -4,7 +4,7 @@ description: Questa esercitazione illustra la procedura di creazione di un accou
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
 ms.service: media-services

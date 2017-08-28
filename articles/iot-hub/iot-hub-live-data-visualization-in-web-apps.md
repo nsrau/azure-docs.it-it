@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/16/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4f30643926def3259e603a94c741b8f65427b8da
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: e037f5c29cabf8e5d0d3e7ded187280a0652d5c3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure usando la funzionalità App Web del Servizio App di Azure
@@ -112,6 +112,9 @@ Nella pagina **Panoramica** dell'app Web fare clic sull'URL per aprire l'app Web
 Vengono visualizzati i dati di temperatura e umidità in tempo reale dall'hub IoT.
 
 ![Pagina dell'app Web che mostra temperatura e umidità in tempo reale](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
+
+> [!NOTE]
+> Verificare che l'applicazione di esempio sia in esecuzione nel dispositivo. Se non lo fosse, si otterrà un grafico vuoto, ed è possibile fare riferimento alle esercitazioni descritte in [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 L'app Web è stata usata correttamente per visualizzare i dati del sensore in tempo reale dall'hub IoT.

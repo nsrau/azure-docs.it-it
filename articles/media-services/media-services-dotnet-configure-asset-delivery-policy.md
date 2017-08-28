@@ -4,7 +4,7 @@ description: Questo argomento illustra come configurare criteri di distribuzione
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 3ec46f58-6cbb-4d49-bac6-1fd01a5a456b
 ms.service: media-services

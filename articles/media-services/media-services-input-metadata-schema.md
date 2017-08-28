@@ -2,7 +2,7 @@
 title: Schema dei metadati di input dei Servizi multimediali di Azure | Microsoft Docs
 description: Questo argomento fornisce una panoramica dello schema di input dei Servizi multimediali di Azure.
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

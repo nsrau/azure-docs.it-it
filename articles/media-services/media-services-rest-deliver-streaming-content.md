@@ -2,7 +2,7 @@
 title: Pubblicare contenuti di Servizi multimediali di Azure mediante REST
 description: Informazioni su come creare un localizzatore da usare per un URL di streaming. Nel codice viene usata l'API REST.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: bb3ae3d26d174d0f37cc348cde570250699bf067
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3aa6bdac17a78b78490f255b0e86e1c210b64cc6
 ms.contentlocale: it-it
-ms.lasthandoff: 03/14/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Pubblicare contenuti di Servizi multimediali di Azure mediante REST
@@ -37,6 +37,17 @@ ms.lasthandoff: 03/14/2017
 Questo argomento illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e creare URL di streaming Smooth, MPEG DASH e HLS, e come creare URL di download progressivo.
 
 La sezione [seguente](#types) mostra i tipi enum i cui valori vengono usati nelle chiamate REST.   
+
+> [!NOTE]
+> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
+> 
+
+## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
+
+Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Creare un localizzatore di streaming OnDemand
 Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessario effettuare le seguenti operazioni:
@@ -184,6 +195,8 @@ esempio:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche
+[Informazioni generali sull'API REST di Servizi multimediali](media-services-rest-how-to-use.md)
+
 [Configurare i criteri di distribuzione dell'asset](media-services-rest-configure-asset-delivery-policy.md)
 
 

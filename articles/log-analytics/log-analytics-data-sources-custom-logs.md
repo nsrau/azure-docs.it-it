@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 08/15/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 8105cd6ef87a592a0a84ff44a2ce94efcd874a2c
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
@@ -35,6 +35,10 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 - Il file di log non deve consentire aggiornamenti circolari in cui il file viene sovrascritto con le nuove voci.
 - Il file di log deve usare la codifica ASCII o UTF-8.  Non sono supportati altri formati, ad esempio UTF-16.
 
+>[!NOTE]
+>Se sono presenti voci duplicate nel file di log, Log Analytics le raccoglierà.  Tuttavia, i risultati della ricerca non saranno coerenti se i risultati del filtro mostrano più eventi rispetto al numero di risultati.  È importante convalidare il log per determinare se l'applicazione che lo crea è la causa di questo comportamento e indirizzarlo se possibile prima di creare la definizione della raccolta dei log personalizzati.  
+>
+  
 ## <a name="defining-a-custom-log"></a>Definizione di un log personalizzato
 Usare la procedura seguente per definire un file di log personalizzato.  Scorrere fino alla fine dell'articolo per la procedura dettagliata di un esempio che spiega come aggiungere un log personalizzato.
 

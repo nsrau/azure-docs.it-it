@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/11/2017
 ms.author: raprasa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: a438b5079ae48c82fb2dbd5ce4547302364e0ef5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 130f0eb259621737d6dbdb151e363915fb334ce1
 ms.contentlocale: it-it
-ms.lasthandoff: 06/26/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup online automatico e ripristino con Azure Cosmos DB
@@ -50,13 +49,16 @@ L'immagine di seguito illustra i backup completi periodici di tutte le entità d
 
 ![Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure](./media/online-backup-and-restore/automatic-backup.png)
 
-## <a name="retention-period-for-a-given-snapshot"></a>Periodo di conservazione di uno snapshot specifico
-Come descritto in precedenza, vengono eseguiti snapshot dei dati ogni 4 ore e gli ultimi due snapshot vengono mantenuti per 30 giorni. In base alle normative di conformità, gli snapshot vengono eliminati dopo 90 giorni.
+## <a name="backup-retention-period"></a>Periodo di conservazione dei backup
+Come descritto sopra, Azure Cosmos DB crea snapshot dei dati ogni quattro ore e conserva gli ultimi due snapshot di ogni partizione per 30 giorni. In base alle normative di conformità, gli snapshot vengono eliminati dopo 90 giorni.
 
 Se si vuole mantenere gli snapshot, è possibile usare l'opzione di esportazione in JSON nello [strumento di migrazione dei dati](import-data.md#export-to-json-file) di Azure Cosmos DB per pianificare backup aggiuntivi. 
 
-## <a name="restore-database-from-the-online-backup"></a>Ripristinare il database dal backup online
-Nel caso di un'involontaria eliminazione dei dati, è possibile [creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dall'ultimo backup automatico. Per il ripristino di uno snapshot specifico del backup, Cosmos DB richiede che i dati siano stati disponibili almeno per la durata del ciclo di backup per tale snapshot.
+## <a name="restoring-a-database-from-an-online-backup"></a>Ripristino di un database da un backup online
+Se si elimina involontariamente il database o la raccolta, è possibile [creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dall'ultimo backup automatico. Se è necessario ripristinare il database a causa di un problema di danneggiamento dei dati, vedere [Gestione del danneggiamento dei dati](#handling-data-corruption) perché è necessario eseguire passaggi aggiuntivi per evitare che i dati danneggiati penetrino nei backup. Per il ripristino di uno snapshot specifico del backup, Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.
+
+## <a name="handling-data-corruption"></a>Gestione del danneggiamento dei dati
+Azure Cosmos DB conserva gli ultimi due backup di ogni partizione del sistema. Questo modello è ideale quando un contenitore (raccolta di documenti, grafo, tabella) o un database viene eliminato involontariamente perché consente di ripristinare una delle versioni più recenti. Se tuttavia gli utenti causano un problema di danneggiamento dei dati, Azure Cosmos DB potrebbe non rilevare il danneggiamento dei dati che potrebbe quindi penetrare nei backup. Non appena il danneggiamento viene rilevato, è consigliabile eliminare il contenitore danneggiato (raccolta/grafo/tabella) in modo che i backup siano protetti e non vengano sovrascritti con i dati danneggiati. Poiché il backup più recente potrebbe risalire a quattro ore prima, l'utente può usare il [feed delle modifiche](change-feed.md) per acquisire e archiviare le ultime quattro ore di dati prima di eliminare il contenitore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

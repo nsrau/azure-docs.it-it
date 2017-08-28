@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 781431dc8dd576e6fb6807ade4a0a1e909abcab7
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -72,8 +72,7 @@ Se viene specificato un driver di registro Docker, è necessario distribuire gli
 
 Vedere gli articoli seguenti per distribuire i contenitori a un cluster Service Fabric:
 
-[Distribuire un contenitore Windows in Service Fabric su Windows Server 2016](service-fabric-deploy-container.md)
 
-[Distribuire un contenitore Docker in Service Fabric su Linux](service-fabric-deploy-container-linux.md)
+[Distribuire un contenitore in Service Fabric](service-fabric-deploy-container.md)
 
 

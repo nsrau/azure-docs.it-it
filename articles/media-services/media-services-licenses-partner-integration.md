@@ -4,7 +4,7 @@ description: Questo articolo illustra come usare Servizi multimediali di Azure p
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 5bcad5a4-c0bb-4871-9cce-808a913c53e6
 ms.service: media-services

@@ -15,24 +15,24 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 71d910bc0e459528805521ba991e5291396a3b8d
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: ef50adf3af19bce494c3256308b443c8eaccdcea
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
-Questa esercitazione è la prima parte di una serie e illustra come creare un'applicazione di Azure Service Fabric con un front-end API Web ASP.NET Core e un servizio back-end con stato per archiviare i dati. 
+Questa è la prima di una serie di esercitazioni.  Illustra come creare un'applicazione di Azure Service Fabric con un front-end API Web ASP.NET Core e un servizio back-end con stato per archiviare i dati. Al termine, sarà disponibile un'applicazione di voto con un front-end Web ASP.NET Core che salva i risultati delle votazioni in un servizio back-end con stato nel cluster. Se non si vuole creare manualmente l'applicazione di voto, è possibile [scaricare il codice sorgente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) per l'applicazione completata e passare direttamente alla [Descrizione dettagliata dell'applicazione di voto di esempio](#walkthrough_anchor).
 
 ![Diagramma dell'applicazione](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 Nella prima parte della serie si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un servizio API Web ASP.NET Core come servizio Reliable
-> * Creare un servizio Reliable con stato
-> * Implementare la comunicazione remota del servizio e l'uso di un proxy del servizio
+> * Creare un servizio API Web ASP.NET Core come servizio Reliable con stato
+> * Creare un servizio applicazione Web ASP.NET Core come servizio Web senza stato
+> * Usare il proxy inverso per comunicare con il servizio con stato
 
 In questa serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
@@ -47,7 +47,7 @@ Prima di iniziare questa esercitazione:
 - [Installare Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Creare un servizio API Web ASP.NET come servizio Reliable
-ASP.NET Core è un framework di sviluppo Web multipiattaforma leggero, che consente di creare un'interfaccia utente Web e API Web moderne. Per comprendere a fondo la modalità di integrazione di ASP.NET Core con Service Fabric, si consiglia di leggere l'articolo [ASP.NET Core in Reliable Services di Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Per il momento, è possibile seguire questa esercitazione per essere subito operativi. Per altre informazioni su ASP.NET Core, vedere la [documentazione di ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
+Per prima cosa, creare il front-end Web dell'applicazione di voto usando ASP.NET Core. ASP.NET Core è un framework di sviluppo Web multipiattaforma leggero, che consente di creare un'interfaccia utente Web e API Web moderne. Per comprendere a fondo la modalità di integrazione di ASP.NET Core con Service Fabric, si consiglia di leggere l'articolo [ASP.NET Core in Reliable Services di Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Per il momento, è possibile seguire questa esercitazione per essere subito operativi. Per altre informazioni su ASP.NET Core, vedere la [documentazione di ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
 > [!NOTE]
 > L'esercitazione si basa sugli strumenti di [ASP.NET Core per Visual Studio 2017](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc). Gli strumenti di .NET Core per Visual Studio 2015 non saranno più oggetto di aggiornamenti.
@@ -58,272 +58,506 @@ ASP.NET Core è un framework di sviluppo Web multipiattaforma leggero, che conse
 
 3. Nella finestra di dialogo **Nuovo progetto** scegliere **Cloud > Applicazione di Service Fabric**.
 
-4. Assegnare all'applicazione il nome **MyApplication** e fare clic su **OK**.
+4. Assegnare all'applicazione il nome **Voting** e fare clic su **OK**.
 
    ![Finestra di dialogo Nuovo progetto in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. Nella pagina **Nuovo servizio Service Fabric** scegliere **ASP.NET Core senza stato** e assegnare al servizio il nome **MyWebAPIFrontEnd**.
+5. Nella pagina **Nuovo servizio Service Fabric** scegliere **ASP.NET Core senza stato** e assegnare al servizio il nome **VotingWeb**.
    
    ![Scelta di un servizio Web ASP.NET nella finestra di dialogo del nuovo servizio](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. Nella pagina successiva è disponibile un set di modelli di progetto ASP.NET Core. Per questa esercitazione si sceglierà **API Web**, ma è possibile applicare gli stessi concetti anche alla compilazione di un'applicazione Web completa.
+6. Nella pagina successiva è disponibile un set di modelli di progetto ASP.NET Core. Per questa esercitazione scegliere **Applicazione Web**. 
    
-   ![Scelta di un tipo di progetto ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
+   ![Scegliere un tipo di progetto ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
    Visual Studio crea un'applicazione e un progetto di servizio e li visualizza in Esplora soluzioni.
 
    ![Esplora soluzioni dopo la creazione dell'applicazione con il servizio API Web ASP.NET Core]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-### <a name="deploy-and-debug-the-application-locally"></a>Distribuire l'applicazione ed eseguirne il debug in locale
-A questo punto è possibile eseguire il debug dell'applicazione e analizzarne il comportamento predefinito fornito dal modello API Web ASP.NET Core.
+### <a name="add-angularjs-to-the-votingweb-service"></a>Aggiungere AngularJS al servizio VotingWeb
+Aggiungere [AngularJS](http://angularjs.org/) al servizio usando il [supporto per Bower](/aspnet/core/client-side/bower) predefinito. Aprire *bower.json* e aggiungere le voci appropriate per Angular e Angular-Bootstrap e quindi salvare le modifiche.
 
-In Visual Studio premere `F5` per distribuire l'applicazione per il debug. `F5` ha esito negativo se in precedenza Visual Studio non è stato aperto come **amministratore**.
+```json
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "2.2.0",
+    "jquery-validation": "1.14.0",
+    "jquery-validation-unobtrusive": "3.2.6",
+    "angular": "v1.6.5",
+    "angular-bootstrap": "v1.1.0"
+  }
+}
+```
+Durante il salvataggio del file *bower.json*, Angular viene installato nella cartella *wwwroot/lib* del progetto. Viene anche elencato nella cartella *Dependencies/Bower*.
+
+### <a name="update-the-sitejs-file"></a>Aggiornare il file site.js
+Aprire il file *wwwroot/js/site.js*.  Sostituirne il contenuto con il codice JavaScript usato dalle visualizzazioni Home:
+
+```javascript
+var app = angular.module('VotingApp', ['ui.bootstrap']);
+app.run(function () { });
+
+app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeout', function ($rootScope, $scope, $http, $timeout) {
+
+    $scope.refresh = function () {
+        $http.get('api/Votes?c=' + new Date().getTime())
+            .then(function (data, status) {
+                $scope.votes = data;
+            }, function (data, status) {
+                $scope.votes = undefined;
+            });
+    };
+
+    $scope.remove = function (item) {
+        $http.delete('api/Votes/' + item)
+            .then(function (data, status) {
+                $scope.refresh();
+            })
+    };
+
+    $scope.add = function (item) {
+        var fd = new FormData();
+        fd.append('item', item);
+        $http.put('api/Votes/' + item, fd, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        })
+            .then(function (data, status) {
+                $scope.refresh();
+                $scope.item = undefined;
+            })
+    };
+}]);
+```
+
+### <a name="update-the-indexcshtml-file"></a>Aggiornare il file Index.cshtml
+Aprire il file *Views/Home/Index.cshtml*, ovvero la visualizzazione specifica del controller Home.  Sostituirne il contenuto con il codice seguente e quindi salvare le modifiche.
+
+```html
+@{
+    ViewData["Title"] = "Service Fabric Voting Sample";
+}
+
+<div ng-controller="VotingAppController" ng-init="refresh()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+                <h2>Service Fabric Voting Sample</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <form class="col-xs-12 center-block">
+                    <div class="col-xs-6 form-group">
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                    </div>
+                    <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Add
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="row">
+                    <div class="col-xs-4">
+                        Click to vote
+                    </div>
+                </div>
+                <div class="row top-buffer" ng-repeat="vote in votes.data">
+                    <div class="col-xs-8">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
+                            <span class="pull-left">
+                                {{vote.key}}
+                            </span>
+                            <span class="badge pull-right">
+                                {{vote.value}} Votes
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.key)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+### <a name="update-the-layoutcshtml-file"></a>Aggiornare il file _Layout.cshtml
+Aprire il file *Views/Shared/_Layout.cshtml*, ovvero il layout predefinito per l'app ASP.NET.  Sostituirne il contenuto con il codice seguente e quindi salvare le modifiche.
+
+```html
+<!DOCTYPE html>
+<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+```
+
+### <a name="update-the-votingwebcs-file"></a>Aggiornare il file VotingWeb.cs
+Aprire il file *VotingWeb.cs*, che crea il WebHost ASP.NET Core all'interno del servizio senza stato tramite il server Web WebListener.  Aggiungere la direttiva `using System.Net.Http;` all'inizio del file.  Sostituire la funzione `CreateServiceInstanceListeners()` con il codice seguente e quindi salvare le modifiche.
+
+```csharp
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+    return new ServiceInstanceListener[]
+    {
+        new ServiceInstanceListener(serviceContext =>
+            new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting WebListener on {url}");
+
+                return new WebHostBuilder().UseWebListener()
+                            .ConfigureServices(
+                                services => services
+                                    .AddSingleton<StatelessServiceContext>(serviceContext)
+                                    .AddSingleton<HttpClient>())
+                            .UseContentRoot(Directory.GetCurrentDirectory())
+                            .UseStartup<Startup>()
+                            .UseApplicationInsights()
+                            .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                            .UseUrls(url)
+                            .Build();
+            }))
+    };
+}
+```
+
+### <a name="add-the-votescontrollercs-file"></a>Aggiungere il file VotesController.cs
+Aggiungere un controller che definisce le azioni di voto. Fare clic con il pulsante destro del mouse sulla cartella **Controller** e quindi selezionare **Aggiungi->Nuovo elemento->Classe**.  Assegnare al file il nome "VotesController.cs" e fare clic su **Aggiungi**.  Sostituire il contenuto del file con il codice seguente e quindi salvare le modifiche.  Nella sezione [Aggiornare il file VotesController.cs](#updatevotecontroller_anchor) disponibile più avanti, questo file verrà modificato per poter leggere e scrivere i dati di voto dal servizio back-end.  Per il momento, il controller restituisce nella visualizzazione i dati di una stringa statica.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Text;
+using System.Net.Http;
+using System.Net.Http.Headers;
+
+namespace VotingWeb.Controllers
+{
+    [Produces("application/json")]
+    [Route("api/Votes")]
+    public class VotesController : Controller
+    {
+        private readonly HttpClient httpClient;
+
+        public VotesController(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
+
+        // GET: api/Votes
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            List<KeyValuePair<string, int>> votes= new List<KeyValuePair<string, int>>();
+            votes.Add(new KeyValuePair<string, int>("Pizza", 3));
+            votes.Add(new KeyValuePair<string, int>("Ice cream", 4));
+
+            return Json(votes);
+        }
+     }
+}
+```
+
+
+
+### <a name="deploy-and-run-the-application-locally"></a>Distribuire ed eseguire l'applicazione in locale
+È ora possibile andare avanti con l'esercitazione ed eseguire l'applicazione. In Visual Studio premere `F5` per distribuire l'applicazione per il debug. `F5` ha esito negativo se in precedenza Visual Studio non è stato aperto come **amministratore**.
 
 > [!NOTE]
-> La prima volta che si esegue e si distribuisce l'applicazione in locale, Visual Studio crea un cluster locale per il debug e questa operazione può richiedere tempo. Lo stato della creazione del cluster verrà visualizzato nella finestra di output di Visual Studio.
+> La prima volta che si esegue e si distribuisce l'applicazione in locale, Visual Studio crea un cluster locale per il debug.  La creazione del cluster può richiedere del tempo. Lo stato della creazione del cluster verrà visualizzato nella finestra di output di Visual Studio.
 
-Quando il cluster è pronto, si riceverà una notifica dall'applicazione di gestione cluster locale di Service Fabric, nell'area di notifica.
+L'app Web, a questo punto, dovrebbe aver l'aspetto seguente:
 
-1. Per eseguire il debug dell'applicazione, premere F5 in Visual Studio.
-2. Al termine della distribuzione, Visual Studio avvia il browser nella radice del servizio API Web ASP.NET. Il modello API Web ASP.NET Core non prevede un comportamento predefinito per la radice, quindi nel browser verrà visualizzato un errore.
-3. Aggiungere `/api/values` all'URL nel browser. Questa richiesta richiama il metodo `Get` su ValuesController nel modello API Web. Restituisce la risposta predefinita trasmessa dal modello, ovvero una matrice JSON contenente due stringhe:
-   
-![Valori predefiniti restituiti dal modello API Web ASP.NET Core](./media/service-fabric-tutorial-create-dotnet-app/browser-aspnet-template-values.png)
-
-> [!NOTE]
-> Per modificare il comportamento predefinito di Visual Studio 2017 durante il debug di un'applicazione, è possibile modificare le proprietà del progetto di applicazione di Service Fabric **MyApplication**.
-> Per questa esercitazione, impostare Modalità di debug applicazione su **Aggiorna l'applicazione** e aggiungere **'/api/values'** alla proprietà dell'URL dell'applicazione per ottimizzare l'esperienza di debug.
-> 
+![Front-end ASP.NET Core](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
 Per arrestare il debug dell'applicazione, tornare a Visual Studio e premere **MAIUSC+F5**.
-
-### <a name="understanding-the-service-fabric-application-and-service"></a>Informazioni sul servizio e sull'applicazione di Service Fabric
-La soluzione di Visual Studio contiene ora due progetti.
-1. Il progetto di applicazione di Service Fabric, **MyApplication**
-    - Questo progetto non contiene codice direttamente. Fa invece riferimento a un set di progetti di servizio. Include inoltre altri tipi di contenuto per specificare come è composta e distribuita l'applicazione.
-2. Il progetto di servizio, **MyWebAPIFrontEnd**
-    - Questo progetto è il progetto API Web ASP.NET Core, che contiene il codice e la configurazione per il servizio. Esaminando il file di codice ValuesController.cs nella cartella Controllers, è possibile notare che si tratta di un normale controller API Web ASP.NET Core. Non ci sono requisiti specifici per il codice scritto come parte dei controller quando si esegue un'API Web ASP.NET Core come servizio Reliable in Service Fabric.
-
-Per altre informazioni sul modello di applicazione in Service Fabric, vedere [Modellare un'applicazione in Service Fabric](service-fabric-application-model.md).
-
-Per altre informazioni sui contenuti del progetto di servizio, vedere [Introduzione a Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>Aggiungere un servizio back-end con stato a un'applicazione
 Ora che c'è un servizio API Web ASP.NET in esecuzione nell'applicazione, è possibile procedere e aggiungere un servizio Reliable con stato per archiviare alcuni dati nell'applicazione.
 
-Service Fabric consente di archiviare in modo coerente e affidabile i dati all'interno del servizio usando raccolte Reliable Collections. Le raccolte Reliable Collections sono un semplice set di classi di raccolte con un livello elevato di disponibilità e affidabilità che risulterà familiare a chiunque abbia usato raccolte C#.
+Service Fabric consente di archiviare in modo coerente e affidabile i dati all'interno del servizio usando raccolte Reliable Collections. Le Reliable Collection sono un set di classi di raccolte con elevati livelli di disponibilità e affidabilità che risultano familiari a chiunque abbia usato raccolte C#.
 
-In questa esercitazione si crea un servizio, che archivia un valore del contatore in una raccolta Reliable Collections.
+In questa esercitazione si creerà un servizio che archivia un valore del contatore in una Reliable Collection.
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Servizi** nel progetto dell'applicazione e scegliere **Aggiungi > Nuovo servizio Service Fabric**.
    
     ![Aggiunta di un nuovo servizio a un'applicazione esistente](./media/service-fabric-tutorial-create-dotnet-app/vs-add-new-service.png)
 
-2. Nella finestra di dialogo **Nuovo servizio Service Fabric** scegliere **Servizio con stato**, assegnare il nome **MyStatefulService** al servizio e fare clic su **OK**.
+2. Nella finestra di dialogo **Nuovo servizio Service Fabric** scegliere **ASP.NET Core con stato**, assegnare al servizio il nome **VotingData** e fare clic su **OK**.
 
     ![Finestra di dialogo Nuovo servizio in Visual Studio](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
 
     Una volta creato il progetto di servizio, l'applicazione includerà due servizi. Man mano che si compila l'applicazione, è possibile aggiungere altri servizi nello stesso modo. Per ogni servizio, sarà possibile eseguire in modo indipendente il controllo della versione e l'aggiornamento.
 
-### <a name="deploy-and-debug-the-application-locally"></a>Distribuire l'applicazione ed eseguirne il debug in locale
-Con il nuovo servizio aggiunto all'applicazione, eseguire il debug dell'applicazione completa e osservare il comportamento predefinito del nuovo servizio.
+3. Nella pagina successiva è disponibile un set di modelli di progetto ASP.NET Core. Per questa esercitazione si sceglierà **API Web**,
 
-Per eseguire il debug dell'applicazione, premere F5 in Visual Studio.
+    ![Scegliere un tipo di progetto ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
 
-> [!NOTE]
-> Se si sceglie di usare **Aggiorna l'applicazione** come modalità di debug dell'applicazione, viene chiesto di concedere al cluster di Service Fabric locale l'accesso alla cartella di output di compilazione dell'applicazione.
-> 
+    Visual Studio crea un progetto di servizio e lo visualizza in Esplora soluzioni.
 
-Entrambi i servizi dell'applicazione vengono compilati, distribuiti e dichiarati nel cluster di Service Fabric locale. All'avvio dei servizi, Visual Studio avvia comunque il browser, ma apre automaticamente anche il **visualizzatore eventi di diagnostica**, in cui viene visualizzato l'output di traccia dei servizi.
-   
-![Visualizzatore eventi di diagnostica](./media/service-fabric-tutorial-create-dotnet-app/diagnostic-events-viewer.png)
+    ![Esplora soluzioni](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-Il visualizzatore eventi di diagnostica mostra i messaggi di traccia di tutti i servizi che fanno parte della soluzione Visual Studio di cui viene eseguito il debug. Mettendo in pausa il visualizzatore eventi di diagnostica, è possibile espandere uno dei messaggi di servizio, per controllare le relative proprietà. In questo modo, è possibile vedere il servizio nel cluster che ha generato il messaggio, il nodo in cui è attualmente in esecuzione l'istanza del servizio e altre informazioni.
+### <a name="add-the-votedatacontrollercs-file"></a>Aggiungere il file VoteDataController.cs
 
-![Visualizzatore eventi di diagnostica](./media/service-fabric-tutorial-create-dotnet-app/expanded-diagnostics-viewer.png)
+Nel progetto **VotingData** fare clic con il pulsante destro del mouse sulla cartella **Controller** e quindi selezionare **Aggiungi->Nuovo elemento->Classe**. Assegnare al file il nome "VoteDataController.cs" e fare clic su **Aggiungi**. Sostituire il contenuto del file con il codice seguente e quindi salvare le modifiche.
 
-Verranno visualizzati i messaggi di servizio provenienti dal servizio con stato creato, in quanto **serviceTypeName** è **MyStatefulServiceType**. È anche possibile vedere che vengono inviati messaggi con un testo che si riferisce al contatore corrente. Questo messaggio viene restituito dalla riga di codice evidenziata nel metodo `RunAsync` di **MyStatefulService.cs**, come illustrato nello screenshot seguente.
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.ServiceFabric.Data;
+using System.Threading;
+using Microsoft.ServiceFabric.Data.Collections;
 
-![Coda di messaggi del servizio](./media/service-fabric-tutorial-create-dotnet-app/service-message-code.png)
-
-Per altre informazioni sulla restituzione di informazioni di diagnostica da applicazioni e servizi, vedere [Monitoraggio e diagnostica in Azure Service Fabric](service-fabric-diagnostics-overview.md).
-
-Per arrestare il debug dell'applicazione, tornare a Visual Studio e premere **MAIUSC+F5**.
-
-### <a name="understanding-the-mystatefulservice-code"></a>Informazioni sul codice di MyStatefulService
-Per comprendere come viene usato un dizionario Reliable per archiviare i dati nel cluster, esaminare il codice nel servizio **MyStatefulService**.
-
-Nel servizio ci sono cinque righe di codice correlate a creazione, aggiornamento e lettura dal dizionario Reliable.
-
-![Codice del dizionario Reliable](./media/service-fabric-tutorial-create-dotnet-app/reliable-dictionary-code.png)
-
-1. Ogni volta che viene eseguito il metodo `RunAsync` del servizio (ovvero all'avvio del servizio), questa riga di codice ottiene o aggiunge al servizio un dizionario Reliable con il nome `myDictionary`.
-2. Tutte le interazioni con i valori in un dizionario Reliable richiedono una transazione, che viene creata dall'istruzione using immessa in questa riga di codice.
-3. Questa riga di codice ottiene il valore associato alla chiave specificata nella chiamata al metodo, ad esempio `Counter`.
-4. Questa riga di codice aggiorna il valore associato alla chiave `Counter` incrementandolo.
-5. Questa chiamata al metodo esegue il commit della transazione e restituisce un risultato quando il valore aggiornato viene archiviato in un quorum di nodi del cluster.
-
-Per informazioni più dettagliate su dizionari Reliable e raccolte Reliable Collections, vedere [Introduzione alle Reliable Collections nei servizi con stato di Service Fabric](service-fabric-reliable-services-reliable-collections.md).
-
-## <a name="connect-the-services"></a>Connettere i servizi
-Nel passaggio successivo i due servizi vengono connessi e si fa in modo che l'API Web front-end restituisca il valore corrente dal dizionario Reliable dei servizi back-end.
-
-L'infrastruttura di servizi offre la massima flessibilità nella comunicazione con Reliable Services. All'interno di una singola applicazione possono esserci servizi accessibili tramite TCP. Altri servizi potrebbero essere accessibili tramite un'API REST HTTP e altri ancora tramite Web Socket. Per informazioni sulle opzioni disponibili e sui compromessi necessari, vedere [Comunicazione con i servizi](service-fabric-connect-and-communicate-with-services.md).
-
-In questa esercitazione si usa la [comunicazione remota del servizio con Reliable Services](service-fabric-reliable-services-communication-remoting.md).
-
-Nell'approccio di comunicazione remota del servizio (basato sulle chiamate Remote Procedure Call o RPC) viene definita un'interfaccia da usare come contratto pubblico per il servizio. Quindi si usa tale interfaccia per generare una classe proxy per l'interazione con il servizio.
-
-### <a name="create-the-remoting-interface"></a>Creare l'interfaccia di comunicazione remota
-Prima di tutto, è necessario creare l'interfaccia da usare come contratto tra i due servizi. L'interfaccia viene creata in un progetto di libreria di classi separato, perché tutti i servizi che la usano devono farvi riferimento.
-
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi** > **Nuovo progetto**.
-2. Scegliere la voce **Visual C#** nel riquadro di spostamento sinistro e quindi selezionare il modello **Libreria di classi (.NET Framework)**. Verificare che la versione di .NET Framework sia impostata su **4.5.2** o successiva.
-   
-    ![Creazione di un progetto interfaccia per il servizio con stato](./media/service-fabric-tutorial-create-dotnet-app/vs-add-class-library-project.png)
-
-3. Assegnare alla libreria di classi il nome **MyStatefulService.Interface** e fare clic su **OK**.
-
-4. Fare clic con il pulsante destro del mouse sulla soluzione in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet per la soluzione**.
-
-5. Scegliere **Sfoglia** e cercare **Microsoft.ServiceFabric.Services.Remoting**. Scegliere di eseguire l'installazione per i tre progetti di servizio nella soluzione: 
-   
-    ![Aggiunta del pacchetto NuGet dei servizi](./media/service-fabric-tutorial-create-dotnet-app/add-nuget.png)
-
-6. Nella libreria di classi creare un'interfaccia con un solo metodo, `GetCountAsync`, ed estendere l'interfaccia da `Microsoft.ServiceFabric.Services.Remoting.IService`. L'interfaccia di comunicazione remota deve derivare da questa interfaccia, per indicare che si tratta di un'interfaccia di comunicazione remota del servizio. 
-   
-    ```c#
-    using Microsoft.ServiceFabric.Services.Remoting;  
-    using System.Threading.Tasks;
-    ...
-    namespace MyStatefulService.Interface
-    {           
-        public interface ICounter: IService
-        {
-            Task<long> GetCountAsync();
-        }
-    }
-    ```
-7. Fare clic con il pulsante destro del mouse sul progetto **MyStatefulService.Interface** in Esplora soluzioni e scegliere **Proprietà**. Selezionare la scheda **Compila** e quindi il valore **x64** nel menu a discesa **Destinazione piattaforma**. 
-
-8. Salvare tutte le modifiche.
-
-### <a name="implement-the-interface-in-your-stateful-service"></a>Implementare l'interfaccia nel servizio con stato
-Dopo aver definito l'interfaccia, è ora necessario implementarla nel servizio con stato.
-
-1. Aggiungere un riferimento al progetto di libreria di classi contenente l'interfaccia dal progetto **MyStatefulService**.
-   
-    ![Aggiunta di un riferimento al progetto libreria di classi nel servizio con stato](./media/service-fabric-tutorial-create-dotnet-app/vs-add-class-library-reference.png)
-
-    ![Aggiunta di un riferimento al progetto libreria di classi nel servizio con stato](./media/service-fabric-tutorial-create-dotnet-app/vs-add-class-library-reference-2.png)
-
-2. Aprire il file `MyStatefulService.cs` ed estenderlo per implementare l'interfaccia `ICounter` creata.
-   
-    ```c#
-    using MyStatefulService.Interface;
-    ...
-   
-    public class MyStatefulService : StatefulService, ICounter
-    {        
-          // ...
-    }
-    ```
-
-3. Implementare ora il singolo metodo definito nell'interfaccia `ICounter`: `GetCountAsync`.
-   
-    ```c#
-    public async Task<long> GetCountAsync()
-    {
-        var myDictionary =
-          await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
-   
-        using (var tx = this.StateManager.CreateTransaction())
-        {          
-            var result = await myDictionary.TryGetValueAsync(tx, "Counter");
-            return result.HasValue ? result.Value : 0;
-        }
-    }
-    ```
-
-    - Questo metodo restituisce il valore archiviato della chiave `Counter` nel dizionario Reliable denominato `myDictionary`. 
-
-### <a name="expose-the-stateful-service-using-service-remoting"></a>Esporre il servizio con stato usando la comunicazione remota del servizio
-Dopo aver implementato l'interfaccia `ICounter`, il passaggio finale consiste nell'aprire l'endpoint di comunicazione remota del servizio. Per i servizi con stato, Service Fabric offre un metodo sostituibile denominato `CreateServiceReplicaListeners`, in cui è possibile specificare uno o più listener di comunicazione in base al tipo di comunicazione che si vuole abilitare per il servizio.
-
-In questo caso si sostituisce il metodo `CreateServiceReplicaListeners` esistente e si specifica un'istanza dell'oggetto `ServiceRemotingListener`, che crea un endpoint RPC chiamabile dai client tramite `ServiceProxy`.  
-
-Modificare il metodo **CreateServiceReplicaListeners** nel file **MyStatefulService.cs** e aggiungere un'istruzione using allo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.Runtime`.
-
-```c#
-using Microsoft.ServiceFabric.Services.Remoting.Runtime;
-
-...
-
-protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+namespace VotingData.Controllers
 {
-    return new List<ServiceReplicaListener>()
+    [Route("api/[controller]")]
+    public class VoteDataController : Controller
     {
-        new ServiceReplicaListener(
-            (context) =>
-                this.CreateServiceRemotingListener(context))
-    };
+        private readonly IReliableStateManager stateManager;
+
+        public VoteDataController(IReliableStateManager stateManager)
+        {
+            this.stateManager = stateManager;
+        }
+
+        // GET api/VoteData
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var ct = new CancellationToken();
+
+            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+
+            using (ITransaction tx = this.stateManager.CreateTransaction())
+            {
+                var list = await votesDictionary.CreateEnumerableAsync(tx);
+
+                var enumerator = list.GetAsyncEnumerator();
+
+                var result = new List<KeyValuePair<string, int>>();
+
+                while (await enumerator.MoveNextAsync(ct))
+                {
+                    result.Add(enumerator.Current);
+                }
+
+                return Json(result);
+            }
+        }
+
+        // PUT api/VoteData/name
+        [HttpPut("{name}")]
+        public async Task<IActionResult> Put(string name)
+        {
+            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+
+            using (ITransaction tx = this.stateManager.CreateTransaction())
+            {
+                await votesDictionary.AddOrUpdateAsync(tx, name, 1, (key, oldvalue) => oldvalue + 1);
+                await tx.CommitAsync();
+            }
+
+            return new OkResult();
+        }
+
+        // DELETE api/VoteData/name
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> Delete(string name)
+        {
+            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+
+            using (ITransaction tx = this.stateManager.CreateTransaction())
+            {
+                if (await votesDictionary.ContainsKeyAsync(tx, name))
+                {
+                    await votesDictionary.TryRemoveAsync(tx, name);
+                    await tx.CommitAsync();
+                    return new OkResult();
+                }
+                else
+                {
+                    return new NotFoundResult();
+                }
+            }
+        }
+    }
 }
 ```
 
-Il servizio con stato è ora pronto per ricevere traffico da altri servizi tramite RPC usando la comunicazione remota del servizio.
 
-### <a name="call-the-stateful-back-end-service-from-the-front-end-service"></a>Chiamare il servizio back-end con stato dal servizio front-end
-Ora che il servizio back-end ha esposto un'interfaccia, non resta che aggiungere il codice per comunicare con essa dal servizio API Web ASP.NET. Per comunicare usando la comunicazione remota del servizio, si usa un proxy del servizio di ValuesController.
+## <a name="connect-the-services"></a>Connettere i servizi
+Nel passaggio successivo i due servizi verranno connessi e l'applicazione Web front-end otterrà e imposterà informazioni di voto dal servizio back-end.
 
-1. In Esplora soluzioni espandere **MyWebAPIFrontEnd**, fare clic con il pulsante destro del mouse su **Dipendenze** e scegliere **Aggiungi riferimento**.  Selezionare **MyStatefulService.Interface** e fare clic su **OK**.
-   
-2. Nella cartella **Controller** aprire il file `ValuesController.cs`. Aggiungere le istruzioni using seguenti al file:
+L'infrastruttura di servizi offre la massima flessibilità nella comunicazione con Reliable Services. All'interno di una singola applicazione possono esserci servizi accessibili tramite TCP. Altri servizi potrebbero essere accessibili tramite un'API REST HTTP e altri ancora tramite Web Socket. Per informazioni sulle opzioni disponibili e sui compromessi necessari, vedere [Comunicazione con i servizi](service-fabric-connect-and-communicate-with-services.md).
 
-    ```c#
-    using MyStatefulService.Interface;
-    using Microsoft.ServiceFabric.Services.Client;
-    using Microsoft.ServiceFabric.Services.Remoting.Client;
-    ```
-    
-3. Il metodo `Get` attualmente restituisce solo una matrice di stringhe hardcoded con "value1" e "value2", che corrisponde a quanto visto in precedenza nel browser. Sostituire l'implementazione con il codice seguente:
-   
-    ```
-    public async Task<IEnumerable<string>> Get()
+In questa esercitazione si userà l'[API Web ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md).
+
+<a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
+
+### <a name="update-the-votescontrollercs-file"></a>Aggiornare il file VotesController.cs
+Nel progetto **VotingWeb** aprire il file *Controllers/VotesController.cs*.  Sostituire il contenuto della definizione di classe `VotesController` con il codice seguente e quindi salvare le modifiche.
+
+```csharp
+    public class VotesController : Controller
     {
-        ICounter counter =
-            ServiceProxy.Create<ICounter>(new Uri("fabric:/MyApplication/MyStatefulService"), new ServicePartitionKey(0));
-   
-        long count = await counter.GetCountAsync();
-   
-        return new string[] { count.ToString() };
+        private readonly HttpClient httpClient;
+        string serviceProxyUrl = "http://localhost:19081/Voting/VotingData/api/VoteData";
+        string partitionKind = "Int64Range";
+        string partitionKey = "0";
+
+        public VotesController(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
+
+        // GET: api/Votes
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            IEnumerable<KeyValuePair<string, int>> votes;
+
+            HttpResponseMessage response = await this.httpClient.GetAsync($"{serviceProxyUrl}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return this.StatusCode((int)response.StatusCode);
+            }
+
+            votes = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync());
+
+            return Json(votes);
+        }
+
+        // PUT: api/Votes/name
+        [HttpPut("{name}")]
+        public async Task<IActionResult> Put(string name)
+        {
+            string payload = $"{{ 'name' : '{name}' }}";
+            StringContent putContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            string proxyUrl = $"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}";
+
+            HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent);
+
+            return new ContentResult()
+            {
+                StatusCode = (int)response.StatusCode,
+                Content = await response.Content.ReadAsStringAsync()
+            };
+        }
+
+        // DELETE: api/Votes/name
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> Delete(string name)
+        {
+            HttpResponseMessage response = await this.httpClient.DeleteAsync($"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return this.StatusCode((int)response.StatusCode);
+            }
+
+            return new OkResult();
+
+        }
     }
-    ```
- 
-    La prima riga di codice in questo metodo crea l'oggetto ServiceProxy nel servizio con stato tramite l'interfaccia ICounter. Quando si crea un oggetto ServiceProxy, è necessario fornire due informazioni: un ID di partizione e il nome del servizio.
-   
-    I servizi con stato possono essere partizionati per essere ridimensionati suddividendone lo stato in diversi bucket in base a una chiave, ad esempio l'ID cliente o il CAP. In questa semplice applicazione la chiave non è importante, perché il servizio con stato ha una sola partizione. Qualsiasi chiave specificata rimanda alla stessa partizione. Per altre informazioni sul partizionamento dei servizi, vedere [Partizionare Reliable Services di Service Fabric](service-fabric-concepts-partitioning.md).
-   
-    Il nome del servizio è un URI in formato fabric:/&lt;nome_applicazione&gt;/&lt;nome_servizio&gt;.
-   
-    Con queste due informazioni, Service Fabric può identificare in modo univoco il computer a cui inviare le richieste. La classe `ServiceProxy` gestirà facilmente anche i casi in cui il computer che ospita la partizione del servizio con stato presenta un errore e un altro computer deve essere alzato di livello per sostituirlo. Questa astrazione semplifica la scrittura di codice client per gestire altri servizi.
-   
-    Una volta che il proxy è disponibile, è sufficiente richiamare il metodo `GetCountAsync` e restituirne il risultato.
+```
+<a id="walkthrough" name="walkthrough_anchor"></a>
 
-4. Premere di nuovo F5 per eseguire l'applicazione modificata. Come in precedenza, Visual Studio avvia automaticamente il browser nella radice del progetto Web. Aggiungere il percorso "api/values" per visualizzare il valore del contatore attualmente restituito.
-   
-    ![Valore del contatore con stato visualizzato nel browser](./media/service-fabric-tutorial-create-dotnet-app/browser-aspnet-counter-value.png)
-   
-    Aggiornare regolarmente il browser per visualizzare l'aggiornamento del valore del contatore.
+## <a name="walk-through-the-voting-sample-application"></a>Descrizione dettagliata dell'applicazione di voto di esempio
+L'applicazione di voto è costituita da due servizi:
+- Il servizio front-end Web (VotingWeb) - Un servizio front-end Web ASP.NET Core che gestisce la pagina Web e che espone le API Web per la comunicazione con il servizio back-end.
+- Il servizio back-end (VotingData) - Un servizio Web ASP.NET Core che espone un'API per l'archiviazione dei risultati delle votazioni in un oggetto Reliable Dictionary reso persistente su disco.
 
-Per arrestare il debug dell'applicazione, tornare a Visual Studio e premere **MAIUSC+F5**.
+![Diagramma dell'applicazione](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+
+Quando l'utente vota nell'applicazione, si verificano gli eventi seguenti:
+1. JavaScript invia la richiesta di voto all'API Web nel servizio front-end Web come una richiesta HTTP PUT.
+
+2. Il servizio front-end Web usa un proxy per individuare e inoltrare una richiesta PUT HTTP al servizio back-end.
+
+3. Il servizio back-end accetta la richiesta in ingresso e archivia il risultato aggiornato in un oggetto Reliable Dictionary, che viene replicato in più nodi all'interno del cluster e reso persistente su disco. Tutti i dati dell'applicazione sono archiviati nel cluster, quindi non è necessario alcun database.
+
+## <a name="debug-in-visual-studio"></a>Eseguire il debug in Visual Studio
+Durante il debug dell'applicazione in Visual Studio, viene usato un cluster di sviluppo locale di Service Fabric. È possibile modificare l'esperienza di debug in base allo specifico scenario. In questa applicazione, i dati vengono archiviati nel servizio back-end tramite un oggetto Reliable Dictionary. Visual Studio rimuove l'applicazione per impostazione predefinita quando si arresta il debugger. La rimozione dell'applicazione determina la rimozione anche dei dati nel servizio back-end. Per rendere persistenti i dati tra le sessioni di debug, è possibile modificare la proprietà **Modalità di debug applicazione** del progetto **Voting** in Visual Studio.
+
+Per osservare che cosa avviene nel codice, completare la procedura seguente:
+1. Aprire il file **VotesController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web (riga 47). È possibile eseguire una ricerca nel file usando Esplora soluzioni in Visual Studio.
+
+2. Aprire il file **VoteDataController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web (riga 50).
+
+3. Tornare al browser e fare clic su un'opzione di voto oppure aggiungere una nuova opzione di voto. È stato raggiunto il primo punto di interruzione nel controller API del front-end Web.
+    
+    1. In questa posizione, il codice JavaScript nel browser invia una richiesta al controller API Web nel servizio front-end.
+    
+    ![Aggiungere il servizio front-end di voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+
+    2. Prima di tutto, costruire l'URL del proxy inverso per il servizio back-end **(1)**.
+    3. Inviare quindi la richiesta PUT HTTP al proxy inverso **(2)**.
+    4. Infine, restituire la risposta dal servizio back-end al client **(3)**.
+
+4. Premere **F5** per continuare.
+    1. Ora ci troviamo al punto di interruzione nel servizio back-end.
+    
+    ![Aggiungere il servizio back-end di voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+
+    2. Nella prima riga del metodo **(1)** usiamo `StateManager` per ottenere o aggiungere un oggetto Reliable Dictionary denominato `counts`.
+    3. Tutte le interazioni con i valori in un oggetto Reliable Dictionary richiedono una transazione, che viene creata dall'istruzione using **(2)**.
+    4. Nella transazione, aggiorniamo quindi il valore della chiave pertinente per l'opzione di voto e viene eseguito il commit dell'operazione **(3)**. Dopo la restituzione del metodo Commit, i dati vengono aggiornati nel dizionario e replicati negli altri nodi del cluster. A questo punto, i dati sono archiviati in modo sicuro nel cluster e il servizio back-end può eseguire il failover in altri nodi, rendendo comunque disponibili i dati.
+5. Premere **F5** per continuare.
+
+Per interrompere la sessione di debug, premere **MAIUSC+F5**.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa parte dell'esercitazione si è appreso come:
 
 > [!div class="checklist"]
-> * Creare un servizio API Web ASP.NET Core come servizio Reliable
-> * Creare un servizio Reliable con stato
-> * Implementare la comunicazione remota del servizio e l'uso di un proxy del servizio
+> * Creare un servizio API Web ASP.NET Core come servizio Reliable con stato
+> * Creare un servizio applicazione Web ASP.NET Core come servizio Web senza stato
+> * Usare il proxy inverso per comunicare con il servizio con stato
 
 Passare all'esercitazione successiva:
 > [!div class="nextstepaction"]

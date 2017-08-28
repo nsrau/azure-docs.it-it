@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: download e note sulla versione
@@ -53,6 +53,11 @@ ms.lasthandoff: 08/09/2017
 
 ## <a name="release-notes"></a>Note sulla versione
 
+### <a name="a-name11701170"></a><a name="1.17.0"/>1.17.0 
+
+* Aggiunta del supporto per PartitionKeyRangeId come FeedOption per limitare l'ambito dei risultati di query a un intervallo di chiavi di partizione specifico. 
+* Aggiunta del supporto per StartTime come ChangeFeedOption per avviare la ricerca delle modifiche a partire dall'ora di inizio.
+
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * È stato risolto un problema nella classe JsonSerializable che può generare un'eccezione di overflow dello stack.
 
@@ -67,7 +72,6 @@ ms.lasthandoff: 08/09/2017
 *   Risolto un problema che interessava i computer x64 che non supportano l'istruzione SSE4 e generano una SEHException durante l'esecuzione di query nell'API di DocumentDB di Azure Cosmos DB.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*   Aggiunta del supporto per la funzionalità di unità richiesta al minuto (UR/m).
 *   Aggiunta del supporto per un nuovo livello di coerenza denominato ConsistentPrefix.
 *   Aggiunta del supporto per le metriche delle query per le singole partizioni.
 *   Aggiunta del supporto per la limitazione delle dimensioni del token di continuazione per le query.
@@ -254,6 +258,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |10 agosto 2017 |--- |
 | [1.16.1](#1.16.1) |07 agosto 2017 |--- |
 | [1.16.0](#1.16.0) |02 agosto 2017 |--- |
 | [1.15.0](#1.15.0) |30 giugno 2017 |--- |
