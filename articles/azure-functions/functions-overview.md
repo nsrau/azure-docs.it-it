@@ -4,7 +4,7 @@ description: Informazioni su come usare Funzioni di Azure per ottimizzare i cari
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server

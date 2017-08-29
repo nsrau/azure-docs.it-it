@@ -4,7 +4,7 @@ description: Archiviare dati non strutturati tramite Funzioni di Azure e Cosmos 
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, Cosmos DB, calcolo dinamico, architettura senza server

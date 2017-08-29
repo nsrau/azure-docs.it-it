@@ -4,7 +4,7 @@ description: Usare Funzioni di Azure per creare una funzione senza server che vi
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4

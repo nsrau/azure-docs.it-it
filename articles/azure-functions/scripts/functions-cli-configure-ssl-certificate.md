@@ -4,7 +4,7 @@ description: Esempio di script dell'interfaccia della riga di comando di Azure -
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2

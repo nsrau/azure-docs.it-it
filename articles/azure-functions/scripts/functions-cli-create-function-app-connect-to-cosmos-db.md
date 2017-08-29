@@ -4,7 +4,7 @@ description: Esempio di script dell'interfaccia della riga di comando - Creare u
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: functions
 ms.assetid: 

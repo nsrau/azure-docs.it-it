@@ -4,7 +4,7 @@ description: Informazioni su come usare trigger e associazioni di Archiviazione 
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server

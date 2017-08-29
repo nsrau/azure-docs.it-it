@@ -3,7 +3,7 @@ title: Creare un'API senza server mediante Funzioni di Azure | Documentazione Mi
 description: 'Procedura: creare un''API senza server mediante Funzioni di Azure'
 services: functions
 author: mattchenderson
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.tgt_pltfrm: na
 ms.devlang: multiple

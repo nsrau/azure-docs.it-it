@@ -4,7 +4,7 @@ description: Utilizzo di associazioni di file esterni in Funzioni di Azure
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
