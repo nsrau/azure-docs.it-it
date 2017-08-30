@@ -161,8 +161,7 @@
 #### [Contattare il supporto tecnico](storsimple-8000-contact-microsoft-support.md)
 ##### [Creare un pacchetto per il supporto](storsimple-8000-create-manage-support-package.md)
 
-### Eseguire la migrazione
-#### [Dalla serie 5000-7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
+### Migrazione
 #### [Da altri dispositivi di archiviazione](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Aggiornare
@@ -300,17 +299,18 @@
 #### [Contattare il supporto tecnico](storsimple-contact-microsoft-support.md)
 ##### [Creare un pacchetto per il supporto](storsimple-create-manage-support-package.md)
 
-### Eseguire la migrazione
-#### [Dalla serie 5000-7000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
+### Migrazione
 #### [Da altri dispositivi di archiviazione](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Aggiornare
+#### [Installare l'aggiornamento 5: versione corrente](storsimple-install-update-5.md)
 #### [Installare l'aggiornamento 4](storsimple-install-update-4.md)
 #### [Installare l'aggiornamento 3](storsimple-install-update-3.md)
 #### [Aggiornare il dispositivo](storsimple-update-device.md)
 
 ## Note sulla versione
-### [Aggiornamento 4 - Versione corrente](storsimple-update4-release-notes.md)
+### [Aggiornamento 5: versione corrente](storsimple-update5-release-notes.md)
+### [Aggiornamento 4](storsimple-update4-release-notes.md)
 ### [Aggiornamento 3](storsimple-update3-release-notes.md)
 ### [Aggiornamento 2.2](storsimple-update21-release-notes.md)
 
