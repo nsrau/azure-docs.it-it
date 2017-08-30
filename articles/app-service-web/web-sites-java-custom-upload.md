@@ -1,6 +1,6 @@
 ---
 title: Caricamento di un sito Web Java personalizzato in Azure
-description: In questa esercitazione viene illustrato come caricare un&quot;applicazione web di Java personalizzata in Azure applicazione servizio Web Apps.
+description: In questa esercitazione viene illustrato come caricare un'applicazione web di Java personalizzata in Azure applicazione servizio Web Apps.
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: df6443bb27285e8ba719c229dd1b12114acc48c7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9c8f9ee7780859f7640ac82d6ebce85082170ad7
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-a-custom-java-web-app-to-azure"></a>Caricamento di un sito Web Java personalizzato in Azure
@@ -201,7 +201,7 @@ Mediante Liferay 6.1.2 Community Edition GA3 in bundle con Tomcat sono stati mod
 **Server.xml**
 
 * Impostare la porta di arresto su -1.
-* Impostare il connettore HTTP su       `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
+* Impostare il connettore HTTP su `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 * Impostare come commento il connettore AJP.
 
 Nella cartella **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** creare un file denominato **portal-ext.properties**. Il file deve contenere una riga, come illustrato di seguito:
@@ -241,7 +241,7 @@ Dopo avere apportato le modifiche indicate, riavviare l'app Web che esegue Lifer
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Liferay, vedere [http://www.liferay.com](http://www.liferay.com).
 
-Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](/develop/java/).
+Per altre informazioni su Java, vedere [Azure for Java developers](/java/azure) (Azure per sviluppatori Java).
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

@@ -8,13 +8,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 08/21/2017
 ms.author: bruceper
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: b5ce7d5e0e353002803991f58dde78ab5c4627b9
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1775902aa7ec820c3b6c34eda60961eecd27f014
 ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Come usare l'eliminazione temporanea di Key Vault con PowerShell
@@ -27,6 +27,12 @@ La funzionalità di eliminazione temporanea di Azure Key Vault consente il recup
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Azure PowerShell 4.0.0 o versione successiva - Se non è già installato, installare Azure PowerShell e associarlo alla sottoscrizione di Azure. A questo proposito, vedere [Come installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+
+>[!NOTE]
+> È possibile che nell'ambiente venga caricata una versione obsoleta del file di formattazione dell'output dell'insieme di credenziali delle chiavi di PowerShell. In questo caso, è possibile scegliere una delle soluzioni seguenti:
+> 
+> - Eseguire l'aggiornamento alla [versione 4.4.0 o successiva di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.2.0) per risolvere il problema.
+> - Usare la query seguente se non viene visualizzata la proprietà abilitata per l'eliminazione temporanea descritta in questo argomento: `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 
 Per informazioni sui comandi di PowerShell relativi a Key Vault, vedere [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0) (Documentazione su PowerShell per Azure Key Vault).
 

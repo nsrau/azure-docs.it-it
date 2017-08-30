@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: radwiv;chadmat;genli
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 7dfc5160a0ede19b4317a39187f0f864b037141b
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2e0347854b5d30c955a50a01d6f7ba08e24f94b6
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
@@ -48,11 +48,11 @@ Il diagramma seguente mostra la connettività logica di una rete locale a una re
 
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Calcolare il traffico in ingresso/in uscita massimo previsto
 
-1.    Determinare i requisiti di velocità effettiva di base dell'applicazione.
-2.    Determinare i limiti di velocità effettiva del gateway VPN di Azure. Per altre informazioni, vedere la sezione "Velocità effettiva aggregata stimata per tipo di VPN e SKU" in [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md).
-3.    Determinare le [informazioni aggiuntive relative alla velocità effettiva della macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-sizes.md) in base alle dimensioni della macchina virtuale.
-4.    Determinare la larghezza di banda del provider di servizi Internet (ISP).
-5.    Eseguire il calcolo di velocità effettiva prevista - larghezza di banda minima di (macchina virtuale, gateway, ISP) * 0,8.
+1.  Determinare i requisiti di velocità effettiva di base dell'applicazione.
+2.  Determinare i limiti di velocità effettiva del gateway VPN di Azure. Per altre informazioni, vedere la sezione "Velocità effettiva aggregata stimata per tipo di VPN e SKU" in [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md).
+3.  Determinare le [informazioni aggiuntive relative alla velocità effettiva della macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-sizes.md) in base alle dimensioni della macchina virtuale.
+4.  Determinare la larghezza di banda del provider di servizi Internet (ISP).
+5.  Eseguire il calcolo di velocità effettiva prevista - larghezza di banda minima di (macchina virtuale, gateway, ISP) * 0,8.
 
 Se la velocità effettiva calcolata non soddisfa i requisiti di velocità effettiva di base dell'applicazione, è necessario aumentare la larghezza di banda della risorsa identificata come collo di bottiglia. Per ridimensionare un gateway VPN di Azure, vedere [Changing a gateway SKU](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Modifica SKU del gateway). Per ridimensionare una macchina virtuale, vedere [Ridimensionare una VM ](../virtual-machines/virtual-machines-windows-resize-vm.md). Se non si dispone della larghezza di banda Internet prevista, è consigliabile anche contattare il provider di servizi Internet.
 
@@ -89,7 +89,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
     </br>
-    **Linux di Azure:** le immagini Linux di Azure dispongono di firewall permissivi. Se un'applicazione è in ascolto su una porta, è consentito il passaggio del traffico. Per le immagini personalizzate protette potrebbero essere necessarie porte aperte in modo esplicito. Firewall a livello di sistema operativo Linux comuni includono `iptables`, `ufw` o `firewalld`.
+    **Linux di Azure**: le immagini Linux di Azure dispongono di firewall permissivi. Se un'applicazione è in ascolto su una porta, è consentito il passaggio del traffico. Per le immagini personalizzate protette potrebbero essere necessarie porte aperte in modo esplicito. Firewall a livello di sistema operativo Linux comuni includono `iptables`, `ufw` o `firewalld`.
 
 3. Sul nodo del server passare alla directory in cui è stato estratto iperf3.exe. Eseguire quindi iPerf in modalità server e impostarlo per l'ascolto sulla porta 5001, come nei comandi seguenti:
 
@@ -124,7 +124,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
 
 - Le applicazioni di copia dei file, ad esempio Esplora risorse e RDP, non usano più thread durante la copia dei file. Per prestazioni ottimali, usare un'applicazione per la copia dei file multithread, ad esempio [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx), per copiare i file a 16 o 32 thread. Per modificare il numero di thread per la copia dei file in Richcopy, fare clic su **Azione** > **Opzioni copia** > **Copia dei file**.<br><br>
 ![Problemi di esecuzione lenta della copia dei file](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
-- Velocità di lettura/scrittura disco macchina virtuale insufficiente. Per altre informazioni, vedere [Risoluzione dei problemi di Archiviazione di Azure](../storage/storage-e2e-troubleshooting.md).
+- Velocità di lettura/scrittura disco macchina virtuale insufficiente. Per altre informazioni, vedere [Risoluzione dei problemi di Archiviazione di Azure](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interfaccia con connessione rivolta all'esterno del dispositivo locale
 Se l'indirizzo IP per Internet del dispositivo VPN locale è incluso nella definizione della [rete locale](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) in Azure, potrebbe non essere possibile vedere la VPN, potrebbero verificarsi sporadiche disconnessioni o problemi di prestazioni.

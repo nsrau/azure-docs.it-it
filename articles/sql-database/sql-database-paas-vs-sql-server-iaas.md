@@ -1,6 +1,6 @@
 ---
 title: Confronto tra il database SQL (PaaS) e SQL Server nel cloud in VM (IaaS) | Documentazione Microsoft
-description: Informazioni su come trovare l&quot;opzione di SQL Server cloud ottimale per l&quot;applicazione, ovvero database SQL di Azure (PaaS) o SQL Server nel cloud su macchine virtuali di Azure.
+description: Informazioni su come trovare l'opzione di SQL Server cloud ottimale per l'applicazione, ovvero database SQL di Azure (PaaS) o SQL Server nel cloud su macchine virtuali di Azure.
 services: sql-database, virtual-machines
 keywords: SQL Server cloud, SQL Server nel cloud, database PaaS, cloud SQL Server, DBaaS
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: d7506c8abb6eca7e2681764b2bedc2f4755b768a
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)
@@ -66,7 +65,7 @@ La tabella seguente riepiloga le caratteristiche principali del database SQL di 
 |  |Nuove applicazioni progettate per il cloud con vincoli di tempo per lo sviluppo e il marketing. |Applicazioni esistenti che richiedono una migrazione rapida al cloud con poche modifiche. Scenari di sviluppo e test rapidi quando non si vuole acquistare hardware SQL Server locale non di produzione. |
 |  | Team che richiedono funzionalità incorporate di disponibilità elevata, ripristino di emergenza e aggiornamento per il database. |Team che possono configurare e gestire la disponibilità elevata, il ripristino di emergenza e l'applicazione di patch per SQL Server. Alcune funzionalità automatiche fornite semplifica notevolmente queste operazioni. | |
 |  | Team che preferiscono non gestire il le impostazioni del sistema operativo e di configurazione sottostanti. |Casi in cui è necessario un ambiente personalizzato con diritti amministrativi completi. | |
-|  | Database con dimensioni fino a 1 TB o database di dimensioni superiori che possono essere [partizionati orizzontalmente o verticalmente](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) in base a un modello di aumento del numero di istanze. |Istanze di SQL Server con un massimo di 64 TB di spazio di archiviazione. L'istanza può supportare tutti i database necessari. | |
+|  | Database con dimensioni fino a 4 TB o database di dimensioni superiori che possono essere [partizionati orizzontalmente o verticalmente](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) in base a un modello di scalabilità orizzontale. |Istanze di SQL Server con un massimo di 64 TB di spazio di archiviazione. L'istanza può supportare tutti i database necessari. | |
 |  | [Compilazione di applicazioni software come un servizio (SaaS)](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrazione e compilazione di applicazioni aziendali e ibride. | |
 |  | | |
 | **Risorse:** |Non si vogliono usare risorse IT per la configurazione e la gestione dell'infrastruttura sottostante, ma ci si vuole concentrare sul livello dell'applicazione. |Sono disponibili alcune risorse IT per la configurazione e la gestione. Alcune funzionalità automatiche fornite semplifica notevolmente queste operazioni. |
@@ -140,7 +139,7 @@ Scegliere il **database SQL di Azure** se:
 
 Scegliere **SQL Server nelle macchine virtuali di Azure** se:
 
-* Sono disponibili applicazioni locali esistenti da estendere nel cloud o di cui si vuole eseguire la migrazione nel cloud oppure si intende compilare applicazioni aziendali di dimensioni superiori a 1 TB. Questo approccio offre il vantaggio di una compatibilità completa con SQL, capacità del database elevata, pieno controllo su SQL Server e Windows e tunneling protetto in locale, oltre a ridurre al minimo i costi per lo sviluppo e la modifica delle applicazioni esistenti.
+* Sono disponibili applicazioni locali esistenti da estendere nel cloud o di cui si vuole eseguire la migrazione nel cloud oppure si intende compilare applicazioni aziendali di dimensioni superiori a 4 TB. Questo approccio offre il vantaggio di una compatibilità completa con SQL, capacità del database elevata, pieno controllo su SQL Server e Windows e tunneling protetto in locale, oltre a ridurre al minimo i costi per lo sviluppo e la modifica delle applicazioni esistenti.
 * Sono disponibili risorse IT esistenti ed è possibile essere il proprietario di operazioni relative ad applicazione di patch, backup e disponibilità elevata del database. Alcune funzionalità automatizzate semplificano notevolmente queste operazioni. 
 
 ## <a name="next-steps"></a>Passaggi successivi

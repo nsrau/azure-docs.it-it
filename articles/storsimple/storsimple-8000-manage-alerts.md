@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/31/2017
+ms.date: 08/22/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 3b55e2f382d2ee9a1f6d459c7fdec0378f2de9d1
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: b7f9a2b7eb3dbf4cc97fac9a410359e068e67eb1
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
@@ -202,12 +202,13 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 | Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete "Data0" sul dispositivo *<device1>* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e prefisso di lunghezza "22" sul dispositivo *<device1>* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per altre informazioni sui modelli di URL disponibili nel portale di Azure, visitare https://aka.ms/ss-8000-network-reqs. Se si usa Azure per enti pubblici, passare ai modelli di URL disponibili in https://aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Avvisi di prestazioni
 
 | Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
-| Il carico del dispositivo ha superato <*soglia*>. |Tempi di risposta più lenti del previsto. |Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di loro non sono più necessari o possono essere spostati in un altro dispositivo.<br>Per comprendere lo stato corrente, leggere [Usare il servizio Gestione dispositivi StorSimple per monitorare il dispositivo](storsimple-monitor-device.md) |
+| Il carico del dispositivo ha superato <*soglia*>. |Tempi di risposta più lenti del previsto. |Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di loro non sono più necessari o possono essere spostati in un altro dispositivo.| Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |Per comprendere lo stato corrente, vedere [Usare il servizio Gestione dispositivi StorSimple per monitorare il dispositivo](storsimple-monitor-device.md) |
 
 ### <a name="security-alerts"></a>Avvisi di sicurezza
 

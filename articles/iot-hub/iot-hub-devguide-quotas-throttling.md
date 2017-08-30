@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 3aab67303fd349195c2ffb8d0854efec74e47070
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: dfe06ee6b8fadfe6d34397661c974181f870239e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
@@ -44,7 +43,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Inoltri dal cloud al dispositivo | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Ricezioni dal cloud al dispositivo <br/> (solo quando il dispositivo usa HTTP)| 16,67/sec/unità (1000/min/unità) | 16,67/sec/unità (1000/min/unità) | 833,33/sec/unità (50000/min/unità) |
 | Caricamento di file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifice caricamento file/sec/unità (5000/min/unità) |
-| Metodi diretti | 10/sec/unità | 30/sec/unità | 1500/sec/unità | 
+| Metodi diretti | 20/sec/unità | 60/sec/unità | 3000/sec/unità | 
 | Letture del dispositivo gemello | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
 | Aggiornamenti dei dispositivi gemelli | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |

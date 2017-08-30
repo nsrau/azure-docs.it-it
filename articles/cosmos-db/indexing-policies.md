@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
@@ -59,6 +59,10 @@ Il frammento di codice .NET seguente mostra come impostare criteri di indicizzaz
 > Per impostazione predefinita, Azure Cosmos DB indicizza tutte le proprietà delle stringhe nei documenti in modo coerente con un indice hash e le proprietà numeriche con un indice di intervallo.  
 > 
 > 
+
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>Personalizzazione dei criteri di indicizzazione tramite il portale
+
+È possibile modificare i criteri di indicizzazione di una raccolta tramite il portale di Azure. Aprire l'account di Azure Cosmos DB nel portale di Azure, selezionare la raccolta, nel menu di spostamento sinistro scegliere **Impostazioni** e quindi fare clic su **Criteri di indicizzazione**. Nel pannello **Criteri di indicizzazione** modificare i criteri di indicizzazione e quindi fare clic su **OK** per salvare le modifiche. 
 
 ### <a id="indexing-modes"></a>Modalità di indicizzazione del database
 Azure Cosmos DB supporta tre modalità di indicizzazione che possono essere configurate tramite i criteri di indicizzazione in una raccolta di Azure Cosmos DB: coerente, differita e nessuna.

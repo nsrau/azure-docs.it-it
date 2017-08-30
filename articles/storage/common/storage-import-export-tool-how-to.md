@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 86073f5d15253d658fcb371e913dd3a543a2b075
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 20a720833842f9579fd4fccaa39e964def48197e
+ms.contentlocale: it-it
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -26,16 +26,16 @@ ms.lasthandoff: 03/30/2017
 
 Lo strumento Importazione/Esportazione di Azure (WAImportExport.exe) consente di creare e gestire i processi per il servizio Importazione/Esportazione di Azure e trasferire così grandi quantità di dati da e verso l'archiviazione BLOB di Azure.
 
-Questa documentazione riguarda la versione più recente dello strumento di importazione/esportazione di Azure. Per informazioni sull'uso della versione 1, vedere [Uso dello strumento di importazione/esportazione di Azure (v1)](storage-import-export-tool-how-to-v1.md).
+Questa documentazione riguarda la versione più recente dello strumento di importazione/esportazione di Azure. Per informazioni sull'utilizzo del modello di distribuzione classica, vedere [Using the Azure Import/Export Tool v1](storage-import-export-tool-how-to-v1.md) (Uso dello strumento di importazione/esportazione di Azure - versione 1).
 
-Questi articoli illustrano come usare lo strumento per eseguire le operazioni seguenti:  
+Gli articoli seguenti mostrano come:  
 
-- Installare e configurare lo strumento di importazione/esportazione.
+- Installare e configurare lo strumento di importazione/esportazione di Azure.
 - Preparare i dischi rigidi per un processo di importazione di dati dalle unità dell'utente all'archivio BLOB di Azure.
 - Esaminare lo stato di un processo con i file di log di copia. 
 - Ripristinare un processo di importazione. 
 - Ripristinare un processo di esportazione. 
-- Risolvere i problemi relativi allo strumento di importazione/esportazione di Azure, in caso di problemi durante il processo. 
+- Risolvere i problemi relativi allo strumento di importazione/esportazione di Azure. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

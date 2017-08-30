@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
-ms.openlocfilehash: a5e0a76a29a82d5364ee1adb5c912e76064dd1f9
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6c5361c7e47209c8eb4d5630b44b3dcfeedeaf01
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Server
 Questa esercitazione illustra la procedura dettagliata di costruzione e distribuzione di un modello di Machine Learning usando SQL Server e un set di dati disponibili pubblicamente: il set di dati [Corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) . La procedura segue un flusso di lavoro di analisi scientifica dei dati standard: acquisizione ed esplorazione dei dati, funzionalità ingegneristiche per facilitare l'apprendimento e quindi compilazione e distribuzione di un modello.
 
-## <a name="a-namedatasetanyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
+## <a name="dataset"></a>Descrizione del set di dati relativo alle corse dei taxi di New York
 I dati relativi alle corse dei taxi a NYC hanno dimensioni di circa 20 GB sotto forma di file CSV compressi(circa 48 GB senza compressione), e includono oltre 173 milioni di corse singole nonché le tariffe pagate per ciascuna corsa. Il record di ogni corsa include la località di partenza e di arrivo, il numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
 
 1. Il file CSV 'trip_data' contiene i dettagli delle corse, ad esempio il numero dei passeggeri, i punti partenza e arrivo, la durata e la lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
@@ -45,10 +46,10 @@ I dati relativi alle corse dei taxi a NYC hanno dimensioni di circa 20 GB sotto 
 
 La chiave univoca che consente di unire trip\_data e trip\_fare è composta dai campi: medallion, hack\_licence e pickup\_datetime.
 
-## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Esempi di attività di stima
+## <a name="mltasks"></a>Esempi di attività di stima
 Verranno formulati tre problemi di stima, basati su *tip\_amount*, vale a dire:
 
-1. Classificazione binaria: consente di prevedere se sia stata lasciata una mancia per la corsa oppure no, vale a dire se un *tip\_amount* superiore a $&0; rappresenta un esempio positivo, mentre un *tip\_amount* pari a $&0; rappresenta un esempio negativo.
+1. Classificazione binaria: consente di prevedere se sia stata lasciata una mancia per la corsa oppure no, vale a dire se un *tip\_amount* superiore a $ 0 rappresenta un esempio positivo, mentre un *tip\_amount* pari a $ 0 rappresenta un esempio negativo.
 2. Classificazione multiclasse: consente di prevedere l'intervallo di mance lasciato per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
    
         Class 0 : tip_amount = $0
@@ -58,7 +59,7 @@ Verranno formulati tre problemi di stima, basati su *tip\_amount*, vale a dire:
         Class 4 : tip_amount > $20
 3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.  
 
-## <a name="a-namesetupasetting-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Configurazione dell'ambiente di analisi scientifica dei dati Azure per l’analitica avanzata
+## <a name="setup"></a>Configurazione dell'ambiente di analisi scientifica dei dati Azure per l’analitica avanzata
 Come è possibile vedere nella guida di [pianificazione dell'ambiente](machine-learning-data-science-plan-your-environment.md) , sono disponibili diverse opzioni per utilizzare il set di dati Corse dei taxi di NYC in Azure:
 
 * Utilizzare i dati nei BLOB di Azure, quindi creare un modello in Azure Machine Learning
@@ -68,7 +69,7 @@ In questa esercitazione verrà illustrato come eseguire l'importazione in blocco
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
-1. [Creare un account di archiviazione](../storage/storage-create-storage-account.md)
+1. [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md)
 2. [Creare un'area di lavoro di Machine Learning di Azure](machine-learning-create-workspace.md)
 3. [Eseguire il provisioning di una macchina virtuale Data Science](machine-learning-data-science-setup-sql-server-virtual-machine.md), che fornirà SQL Server e un server IPython Notebook.
    
@@ -83,7 +84,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure:
 
 In base alle dimensioni del set di dati, al percorso dell'origine dati e all'ambiente di destinazione Azure selezionato, questo scenario è simile allo [Scenario \#n.5: Set di dati di grandi dimensioni in file locali, con destinazione SQL Server nella macchina virtuale di Azure](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
 
-## <a name="a-namegetdataaget-the-data-from-public-source"></a><a name="getdata"></a>Acquisizione dei dati da un'origine pubblica
+## <a name="getdata"></a>Acquisizione dei dati da un'origine pubblica
 Per visualizzare il set di dati [Corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/) dal relativo percorso pubblico, è possibile usare uno qualsiasi dei metodi descritti in [Spostamento dei dati da e verso l'archivio BLOB di Azure](machine-learning-data-science-move-azure-blob.md) e copiare i dati nella nuova macchina virtuale.
 
 Per copiare i dati usando AzCopy:
@@ -97,7 +98,7 @@ Per copiare i dati usando AzCopy:
     Al termine dell'esecuzione di AzCopy, nella cartella dovrebbero essere presenti 24 file CSV compressi (12 per trip\_data e 12 per trip\_fare).
 4. Decomprimere i file scaricati. Prendere nota della cartella in cui si trovano i dati non compressi. Il riferimento di questa cartella sarà <percorso\_a\_file\_dati\>.
 
-## <a name="a-namedbloadabulk-import-data-into-sql-server-database"></a><a name="dbload"></a>Importazione in blocco dei dati nel database SQL Server
+## <a name="dbload"></a>Importazione in blocco dei dati nel database SQL Server
 È possibile migliorare le prestazioni relative al caricamento/trasferimento di grandi quantità di dati in un database SQL e le successive query usando *Tabelle e viste partizionate*. In questa sezione, verranno seguite le istruzioni fornite in [Importazione in blocco dei dati in parallelo tramite le tabelle delle partizioni di SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) per creare un nuovo database e caricare i dati nelle tabelle partizionate in parallelo.
 
 1. Dopo aver effettuato l'accesso alla VM, avviare **SQL Server Management Studio**.
@@ -138,7 +139,7 @@ Per copiare i dati usando AzCopy:
 11. In **SQL Server Management Studio** esplorare lo script di esempio fornito **sample\_queries.sql**. Per eseguire una qualsiasi query di esempio, evidenziare le righe della query, quindi fare clic su **!Esegui** nella barra degli strumenti.
 12. I dati di Corse dei taxi di NYC vengono caricati in due tabelle distinte. Per migliorare le operazioni di unione, è consigliabile indicizzare le tabelle. Lo script di esempio **create\_partitioned\_index.sql** consente di creare indici partizionati sulla chiave di join composita **medallion, hack\_license, and pickup\_datetime**.
 
-## <a name="a-namedbexploreadata-exploration-and-feature-engineering-in-sql-server"></a><a name="dbexplore"></a>Esplorazione dei dati e progettazione di funzionalità in SQL Server
+## <a name="dbexplore"></a>Esplorazione dei dati e progettazione di funzionalità in SQL Server
 In questa sezione, verranno eseguite l'esplorazione dei dati e la generazione di funzionalità mediante l'esecuzione di query SQL direttamente in **SQL Server Management Studio** tramite un database SQL Server creato in precedenza. Uno script di esempio denominato **sample\_queries.sql** viene fornito nella cartella **Script di esempio**. Modificare lo script per cambiare il nome del database, se è diverso da quello predefinito: **TaxiNYC**.
 
 In questo esercizio, verranno effettuate le seguenti operazioni:
@@ -253,7 +254,7 @@ Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 
-## <a name="a-nameipnbadata-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Esplorazione dei dati e progettazione di funzionalità in IPython Notebook
+## <a name="ipnb"></a>Esplorazione dei dati e progettazione di funzionalità in IPython Notebook
 In questa sezione, verranno eseguite l'esplorazione dei dati e la generazione di funzionalità mediante l'esecuzione di query Pyton e SQL tramite un database SQL Server creato in precedenza. Un blocco di appunti IPython di esempio denominato **machine-Learning-data-science-process-sql-story.ipynb** viene fornito nella cartella **Blocchi di appunti di esempio IPython**. Tale blocco di appunti è disponibile anche in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
 La sequenza consigliata quando si utilizzano i Big Data è la seguente:
@@ -378,7 +379,7 @@ Allo stesso modo, è possibile verificare la relazione tra **rate\_code** e **tr
 ![Grafico n. 8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Sottocampionamento dei dati in SQL
-Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Import data (Importa dati)** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Import data][import-data] (Importa dati) con un semplice **SELECT * FROM <nome\_della\_nuova\_tabella>**.
+Quando si preparano i dati per la creazione di modelli in [Azure Machine Learning Studio](https://studio.azureml.net), è possibile decidere la **query SQL da usare direttamente nel modulo Importa dati** o salvare in modo definitivo i dati compilati e campionati in una nuova tabella e poi usarla nel modulo [Importa dati][import-data] con un semplice **SELECT * FROM <nome\_della\_nuova\_tabella>**.
 
 In questa sezione verrà creata una nuova tabella per contenere i dati campionati e compilati. Un esempio di query SQL diretta per la creazione di modelli viene fornita nella sezione [Esplorazione dei dati e progettazione di funzionalità in SQL Server](#dbexplore) .
 
@@ -552,7 +553,7 @@ A questo punto è possibile procedere con la creazione e la distribuzione di mod
 2. Classificazione multiclasse: consente di prevedere l'intervallo di mance pagato, in base alle classi definite in precedenza.
 3. Attività di regressione: consente di prevedere l'importo della mancia lasciata per una corsa.  
 
-## <a name="a-namemlmodelabuilding-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Compilazione di modelli in Azure Machine Learning
+## <a name="mlmodel"></a>Compilazione di modelli in Azure Machine Learning
 Per iniziare l'esercizio relativo alla creazione di modelli, accedere all'area di lavoro Azure Machine Learning. Se non è ancora disponibile un'area di lavoro di machine learning, vedere [Creare un'area di lavoro Azure Machine Learning](machine-learning-create-workspace.md).
 
 1. Per iniziare a utilizzare Azure Machine Learning, vedere [Informazioni su Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md)
@@ -580,7 +581,7 @@ In questo esercizio, i dati sono già stati esplorati e compilati in SQL Server,
 2. Selezione del **Database SQL Azure** come **Origine dati** nel pannello **Proprietà**.
 3. Immissione del nome DNS del database nel campo **Nome server database** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Immissione del **Nome database** nel campo corrispondente.
-5. Immissione del **Nome utente SQL** in **Nome account utente server, e della password** in Password account utente server**.
+5. Immissione del **Nome utente SQL** in **Nome account utente server e della password in **Password account utente server**.
 6. Selezione dell'opzione **Accetta qualsiasi certificato server** .
 7. Nell'area di testo di modifica **Query database** , incollare la query che consente di estrarre i campi di database necessari (inclusi i campi calcolati come le etichette) e sottocampionare i dati nella dimensione campione desiderata.
 
@@ -595,7 +596,7 @@ Nella figura seguente viene fornito un esempio di un esperimento di classificazi
 > 
 > 
 
-## <a name="a-namemldeployadeploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Distribuzione di modelli in Azure Machine Learning
+## <a name="mldeploy"></a>Distribuzione di modelli in Azure Machine Learning
 Quando il modello è pronto, è possibile distribuirlo in modo semplice come servizio Web direttamente dall'esperimento. Per ulteriori informazioni sulla distribuzione di servizi Web Azure Machine Learning, vedere [Distribuzione di un servizio Web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti operazioni:
@@ -653,9 +654,4 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

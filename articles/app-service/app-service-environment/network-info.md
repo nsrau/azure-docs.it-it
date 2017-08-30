@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 891ed3f496ca394c9139ad9f94986a19d8cef769
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: cd498198e0f206ddca2e3396813b2f2093ec3731
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
@@ -62,11 +62,18 @@ Una dipendenza per l'accesso in ingresso dell'ambiente del servizio app è:
 
 | Uso | Da | A |
 |-----|------|----|
-| Gestione | Internet | Subnet dell'ambiente del servizio app: 454, 455 |
+| gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
 |  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: tutte le porte | Subnet dell'ambiente del servizio app: tutte le porte
-|  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Qualsiasi
+|  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Subnet dell'ambiente del servizio app: tutte le porte
+|  Indirizzi IP assegnati alle app | Indirizzi assegnati alle app | Subnet dell'ambiente del servizio app: tutte le porte
 
-Il traffico in ingresso fornisce comandi e controllo dell'ambiente del servizio app oltre al monitoraggio del sistema. Gli indirizzi IP di origine per questo traffico non sono costanti. La configurazione della sicurezza di rete deve consentire l'accesso da tutti gli indirizzi IP sulle porte 454 e 455.
+Il traffico in ingresso fornisce comandi e controllo dell'ambiente del servizio app oltre al monitoraggio del sistema. Gli IP di origine per il traffico sono indicati nel documento [Indirizzi di gestione dell'Ambiente del servizio app][ASEManagement]. La configurazione della sicurezza di rete deve consentire l'accesso da tutti gli indirizzi IP sulle porte 454 e 455.
+
+All'interno della subnet dell'ambiente del servizio app ci sono molte porte usate per la comunicazioni dei componenti interni e che possono cambiare.  Per questo motivo, è necessario che a tutte le porte nella subnet dell'ambiente del servizio app sia possibile accedere dalla subnet dell'ambiente del servizio app. 
+
+Per le comunicazioni tra Azure Load Balancer e la subnet dell'ambiente del servizio app, le porte minime che devono essere aperte sono le porte 454, 455 e 16001. La porta 16001 viene usata per mantenere attivo il traffico tra il servizio di bilanciamento del carico e l'ambiente del servizio app. Se si usa un ambiente del servizio app ILB, è possibile limitare il traffico alle porte 454, 455 e 16001.  Se si usa un ambiente del servizio app esterno, è necessario prendere in considerazione le normali porte di accesso delle app.  Se si usano indirizzi assegnati alle app, è necessario aprire tutte le porte.  Quando un indirizzo è assegnato a un'app specifica, il servizio di bilanciamento del carico usa porte non conosciute in anticipo per inviare il traffico HTTP e HTTPS all'ambiente del servizio app.
+
+Se si usano indirizzi IP assegnati alle app, è necessario consentire il traffico dagli indirizzi IP assegnati alle app alla subnet dell'ambiente del servizio app.
 
 Per l'accesso in uscita, un ambiente del servizio app dipende da più sistemi esterni. Tali dipendenze di sistema sono definite con nomi DNS e non corrispondono a un set fisso di indirizzi IP. Per questo, l'ambiente del servizio app richiede l'accesso in uscita dalla subnet dell'ambiente del servizio app a tutti gli indirizzi IP esterni su un'ampia gamma di porte. Per un ambiente del servizio app esistono le seguenti dipendenze in uscita:
 
@@ -245,4 +252,5 @@ Per distribuire l'ambiente del servizio app in una rete virtuale integrata con E
 [AppDeploy]: ../../app-service-web/web-sites-deploy.md
 [ASEWAF]: ../../app-service-web/app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[ASEManagement]: ./management-addresses.md
 
