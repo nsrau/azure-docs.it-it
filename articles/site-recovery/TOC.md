@@ -140,6 +140,8 @@
 ## Monitorare e risolvere i problemi
 ### [Problemi di replica da Azure ad Azure](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [Problemi di replica da sito locale ad Azure](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [Problemi di installazione del servizio Mobility](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [problemi del failover in Azure](site-recovery-failover-to-azure-troubleshoot.md)
 ### [Raccogliere i log e risolvere i problemi locali](site-recovery-monitoring-and-troubleshooting.md)
 
 # Riferimento

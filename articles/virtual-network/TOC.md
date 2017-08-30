@@ -140,6 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [Test della velocità effettiva](virtual-network-bandwidth-testing.md)
 ### [Non è possibile eliminare le reti virtuali](virtual-network-troubleshoot-cannot-delete-vnet.md)
+### [Problemi di connettività da VM a VM](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

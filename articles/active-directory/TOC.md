@@ -44,7 +44,6 @@
 #### [Scenari aggiuntivi per le licenze basate sui gruppi](active-directory-licensing-group-advanced.md)
 #### [Esempi di PowerShell per le licenze basate sui gruppi](active-directory-licensing-ps-examples.md)
 ### [Aggiungere utenti da altre directory (portale classico)](active-directory-create-users-external.md)
-### [Eliminare utenti](active-directory-users-delete-user-azure-portal.md)
 ### [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
 ### [Reimpostare una password](active-directory-users-reset-password-azure-portal.md)
 ### [Gestire le informazioni di lavoro di un utente](active-directory-users-work-info-azure-portal.md)
@@ -132,10 +131,14 @@
 
 ## Gestire i dispositivi
 ### [Introduzione](device-management-introduction.md)
+### [Uso del portale di Azure](device-management-azure-portal.md)
 ### [Domande frequenti](device-management-faq.md)
 ### Attività
+#### [Configurare i dispositivi Windows 10 registrati in Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
+#### [Configurare i dispositivi aggiunti ad Azure AD](device-management-azuread-joined-devices-setup.md)
 #### [Configurare dispositivi aggiunti ad Azure AD ibridi](device-management-hybrid-azuread-joined-devices-setup.md) 
 #### [Distribuire in locale](active-directory-device-registration-on-premises-setup.md)
+#### [Aggiunta ad Azure AD durante il completamento dell'installazione in Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Risoluzione dei problemi
 #### [Dispositivi Windows 10 e Windows Server 2016 aggiunti ad Azure AD ibridi](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Dispositivi Windows legacy aggiunti ad Azure AD ibridi](device-management-troubleshoot-hybrid-join-windows-legacy.md)
@@ -297,7 +300,6 @@
 #### [Introduzione](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Procedure consigliate](active-directory-conditional-access-best-practices.md)
 #### [Riferimento tecnico](active-directory-conditional-access-technical-reference.md)
-#### [App supportate](active-directory-conditional-access-supported-apps.md)
 #### [Informazioni sui criteri dei dispositivi](active-directory-conditional-access-device-policies.md)
 #### [Configurare l'accesso alle app connesse](active-directory-conditional-access-policy-connected-applications.md)
 #### [Correzione](active-directory-conditional-access-device-remediation.md)

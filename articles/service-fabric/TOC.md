@@ -18,7 +18,7 @@
 # Esempi
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Interfaccia della riga di comando di Azure](samples-cli.md)
+## [Interfaccia della riga di comando di Service Fabric](samples-cli.md)
 # Concetti
 ## [Informazioni sui microservizi](service-fabric-overview-microservices.md)
 ## [Quadro generale](service-fabric-content-roadmap.md)
@@ -113,11 +113,14 @@
 #### [Limitazione](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Spostamento dei servizi](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [Eseguire l'integrazione con Gestione API](service-fabric-api-management-overview.md)
+
 ## Monitorare e diagnosticare
 ### [Panoramica](service-fabric-diagnostics-overview.md)
 ### [Modello di integrità](service-fabric-health-introduction.md)
 ### [Diagnostica in Reliable Services con stato](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnostica in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+### [Contatori delle prestazioni per la comunicazione remota con Reliable Services](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # Guide pratiche
 ## Configurazione dell'ambiente di sviluppo
@@ -126,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## Creare un'applicazione
+### [Creare la prima app C# in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 ### Creare un servizio eseguibile guest
 #### [Ospitare un'applicazione Node.js in Windows](quickstart-guest-app.md)
 #### [Distribuire un eseguibile guest](service-fabric-deploy-existing-app.md)
@@ -206,9 +210,7 @@
 ### [Eseguire il debug di un servizio Java in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitorare e diagnosticare in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## Eseguire l'integrazione con Gestione API
-### [Panoramica](service-fabric-api-management-overview.md)
-### [Avvio rapido](service-fabric-api-management-quick-start.md)
+## [Distribuire Gestione API e Service Fabric in Azure](service-fabric-api-management-quick-start.md)
 
 ## Eseguire la migrazione da Servizi cloud
 ### [Confrontare Servizi cloud e Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -221,7 +223,7 @@
 ### Distribuire o rimuovere applicazioni
 #### [Distribuire applicazioni in un cluster locale](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Interfaccia della riga di comando di Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [API client Fabric](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -256,6 +258,7 @@
 #### [Aggiornamento](service-fabric-cluster-upgrade.md)
 #### [Configurare il controllo di accesso](service-fabric-cluster-security-roles.md)
 #### [Configurare](service-fabric-cluster-fabric-settings.md)
+#### [Aprire una porta nel servizio di bilanciamento del carico](create-load-balancer-rule.md)
 #### [Gestire i certificati cluster](service-fabric-cluster-security-update-certs-azure.md)
 #### [Eliminazione](service-fabric-cluster-delete.md)
 
@@ -275,8 +278,7 @@
 ### [Visualizzare un cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md)
 
-### [Gestire un cluster con l'interfaccia della riga di comando di XPlat](service-fabric-azure-cli.md)
-### [Gestire un cluster con i comandi dell'interfaccia della riga di comando di Azure 2.0](service-fabric-azure-cli-2-0.md)
+### [Gestire un cluster con l'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 ### [Applicare patch ai nodi del cluster](service-fabric-patch-orchestration-application.md)
 
 ### Gestire e orchestrare le risorse cluster
