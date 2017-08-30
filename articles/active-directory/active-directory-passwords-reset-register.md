@@ -4,7 +4,7 @@ description: Registrare i dati di autenticazione per la reimpostazione password 
 services: active-directory
 keywords: 
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: barlanmsft
 manager: femila
 ms.reviewer: sahenry
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: joflore
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: HT
 ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
@@ -67,5 +67,4 @@ Gli amministratori possono richiedere all'utente di confermare i metodi di auten
 * [Non è possibile accedere all'account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
 [Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Pagina di registrazione per la reimpostazione della password con metodi registrati e pulsante Fine"
-
 

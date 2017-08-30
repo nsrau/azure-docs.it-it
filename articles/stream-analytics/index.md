@@ -1,8 +1,8 @@
 ---
 title: Documentazione di Analisi di flusso di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come eseguire analisi IoT nel cloud con un&quot;elaborazione degli eventi completamente gestita. Analisi in tempo reale da applicazioni, sensori, dispositivi e altro ancora.
+description: Informazioni su come eseguire analisi IoT nel cloud con un'elaborazione degli eventi completamente gestita. Analisi in tempo reale da applicazioni, sensori, dispositivi e altro ancora.
 services: stream-analytics
-author: carolz
+author: samacha
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/23/2017
-ms.author: carolz
+ms.author: samacha
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: f82be4ff7bd0839be4f826f9a04ba0876f4ec91d

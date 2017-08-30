@@ -4,7 +4,7 @@ description: Questa pagina offre indicazioni su dove trovare le istruzioni per v
 keywords: autenticazione utente, esperienza di accesso con telefono cellulare, accesso con telefono dell'ufficio
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.service: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.translationtype: HT
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/16/2017
 ## <a name="what-will-your-sign-in-experience-be"></a>Come sarà l'esperienza di accesso?
 L'esperienza di accesso varia a seconda di ciò che si desidera usare come secondo fattore: una telefonata, un'app di autenticazione o un messaggio. Scegliere l'opzione che meglio descrive l'operazione:
 
-| Come si accede? | 
+| Come si accede? |
 | --- |
 | [Con una telefonata al cellulare o al telefono dell'ufficio](#signing-in-with-a-phone-call) |
 | [Con un messaggio sul cellulare](#signing-in-with-a-text-message)
@@ -49,11 +49,11 @@ Le informazioni seguenti descrivono l'esperienza di verifica in due passaggi con
 ## <a name="signing-in-with-a-text-message"></a>Accesso tramite messaggio di testo
 Le informazioni seguenti descrivono l'esperienza di verifica in due passaggi tramite messaggio di testo al telefono cellulare:
 
-1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password. 
-2. Microsoft invia un messaggio di testo che contiene un codice numerico. 
-3. Immettere il codice nell'apposita casella sulla pagina di accesso. 
+1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
+2. Microsoft invia un messaggio di testo che contiene un codice numerico.
+3. Immettere il codice nell'apposita casella sulla pagina di accesso.
 
-## <a name="signing-in-with-the-microsoft-authenticator-app"></a>Accesso con l'app Authenticator Microsoft 
+## <a name="signing-in-with-the-microsoft-authenticator-app"></a>Accesso con l'app Authenticator Microsoft
 Le informazioni seguenti descrivono l'esperienza d'uso dell'app Microsoft Authenticator per le verifiche in due passaggi. Esistono due modi diversi di usare l'app. È possibile ricevere notifiche push sul dispositivo oppure aprire l'app per ottenere un codice di verifica.
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Per eseguire l'accesso con una notifica dell'app Microsoft Authenticator
@@ -67,7 +67,7 @@ Le informazioni seguenti descrivono l'esperienza d'uso dell'app Microsoft Authen
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>Per effettuare l'accesso usando un codice di verifica con l'app Microsoft Authenticator
 
-Se si usa l'app Microsoft Authenticator per ottenere i codici di verifica, quando si apre l'app viene visualizzato un numero nel nome dell'account. Questo numero cambia ogni trenta secondi, pertanto non è possibile usare lo stesso numero di due volte. Quando viene richiesto un codice di verifica, aprire l'app e utilizzare il numero attualmente visualizzato. 
+Se si usa l'app Microsoft Authenticator per ottenere i codici di verifica, quando si apre l'app viene visualizzato un numero nel nome dell'account. Questo numero cambia ogni trenta secondi, pertanto non è possibile usare lo stesso numero di due volte. Quando viene richiesto un codice di verifica, aprire l'app e utilizzare il numero attualmente visualizzato.
 
 1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
 2. Microsoft richiede un codice di verifica.
@@ -91,4 +91,5 @@ In caso di problemi di accesso con la verifica in due passaggi, è possibile ott
 
 Informazioni su come [Gestire le impostazioni della verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md).
 
-Altre informazioni sull'[introduzione all'app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per poter effettuare l'accesso tramite notifiche, invece che con messaggi e telefonate. 
+Altre informazioni sull'[introduzione all'app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per poter effettuare l'accesso tramite notifiche, invece che con messaggi e telefonate.
+

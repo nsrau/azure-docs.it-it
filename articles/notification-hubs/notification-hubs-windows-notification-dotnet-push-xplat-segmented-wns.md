@@ -234,7 +234,7 @@ In questa esercitazione si è appreso a trasmettere le ultime novità per catego
 [19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
-[get-started]: /manage/services/notification-hubs/getting-started-windows-dotnet/
+[get-started]: /azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification
 [Usare Hub di notifica per la trasmissione di notizie localizzate]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/

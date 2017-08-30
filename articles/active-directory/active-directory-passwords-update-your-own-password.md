@@ -48,9 +48,9 @@ Eseguire i passaggi descritti di seguito per ripristinare la password self-servi
 
    > [!NOTE]
    > Se il personale IT non ha abilitato questa funzionalità, viene visualizzato un collegamento "Contattare l'amministratore" che consente di ricevere assistenza per posta elettronica o tramite un portale Web.
-   > 
+   >
    > Se è necessario sbloccare l'account, scegliere qui l'opzione "Ricordo la password, ma non riesco ad accedere".
-   > 
+   >
 
 3. A seconda della configurazione definita dal personale IT, verranno visualizzate una o più delle opzioni seguenti per la reimpostazione della password self-service. Prima di usare l'articolo [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md), l'utente o il personale IT hanno specificato alcune di queste informazioni.
 

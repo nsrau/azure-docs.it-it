@@ -3,7 +3,7 @@ title: App Microsoft Authenticator per telefoni cellulari | Documentazione Micro
 description: "Informazioni su come effettuare l'aggiornamento alla versione più recente di Azure Authenticator."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
 ms.translationtype: HT
@@ -28,20 +28,20 @@ L'app Microsoft Authenticator offre un livello di sicurezza aggiuntivo in un acc
 
 L'app può essere usata in uno dei due modi seguenti:
 
-* **Notifica**. L'app consente di impedire l'accesso non autorizzato agli account e arrestare le transazioni illecite effettuando il push di una notifica allo smartphone o al tablet dell'utente. È sufficiente visualizzare la notifica e, se legittima, selezionare **Verifica**. In caso contrario, è possibile selezionare **Nega**. 
+* **Notifica**. L'app consente di impedire l'accesso non autorizzato agli account e arrestare le transazioni illecite effettuando il push di una notifica allo smartphone o al tablet dell'utente. È sufficiente visualizzare la notifica e, se legittima, selezionare **Verifica**. In caso contrario, è possibile selezionare **Nega**.
 * **Codice di verifica**. L'app può essere usata come token software per generare un codice di verifica OAuth. Dopo aver inserito il nome utente e la password, si immette il codice fornito dall'app nella schermata di accesso. Il codice di verifica offre una seconda forma di autenticazione.
 
 L'app Microsoft Authenticator sostituisce l'app Azure Authenticator. L'app Azure Authenticator continua a funzionare, ma questo articolo offre informazioni utili nel caso in cui si decida di passare alla nuova app Microsoft Authenticator.  
 
 ## <a name="opt-in-for-two-step-verification"></a>Fornire il consenso esplicito per la verifica in due passaggi
 
-L'app Microsoft Authenticator non funziona in modo autonomo. Configurare ogni account in modo da richiedere un secondo metodo di verifica dopo l'accesso con il nome utente e la password. 
+L'app Microsoft Authenticator non funziona in modo autonomo. Configurare ogni account in modo da richiedere un secondo metodo di verifica dopo l'accesso con il nome utente e la password.
 
 Per un account aziendale o dell'istituto di istruzione, non è possibile scegliere questa funzionalità in autonomia, ma sarà necessario che un amministratore della sicurezza fornisca il consenso esplicito per conto dell'utente e lo inviti a registrare i metodi di verifica per il proprio account. Per altre informazioni relative a questo scenario, vedere [Quali sono i vantaggi di Azure Multi-Factor Authentication?](multi-factor-authentication-end-user.md).
 
-Per un account personale, è necessario configurare manualmente la verifica in due passaggi. Per un account Microsoft, questi passaggi sono disponibili in [Informazioni sulla verifica in due passaggi](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). 
+Per un account personale, è necessario configurare manualmente la verifica in due passaggi. Per un account Microsoft, questi passaggi sono disponibili in [Informazioni sulla verifica in due passaggi](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-È possibile usare l'app Microsoft Authenticator anche con account non Microsoft. La funzionalità potrebbe avere un nome diverso, ma dovrebbe essere facile da individuare tra le impostazioni di sicurezza o di accesso. 
+È possibile usare l'app Microsoft Authenticator anche con account non Microsoft. La funzionalità potrebbe avere un nome diverso, ma dovrebbe essere facile da individuare tra le impostazioni di sicurezza o di accesso.
 
 ## <a name="install-the-app"></a>Installare l'app
 L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
@@ -67,7 +67,7 @@ Per un account Microsoft personale (che consente di accedere ad Outlook.com, Xbo
 
     Se la fotocamera non funziona correttamente è possibile [immettere manualmente il codice a matrice e l'URL](#add-an-account-to-the-app-manually).
 
-5. Quando l'app mostra il nome dell'account con un codice di sei cifre riportato sotto il nome, la procedura è terminata. 
+5. Quando l'app mostra il nome dell'account con un codice di sei cifre riportato sotto il nome, la procedura è terminata.
 
     ![Schermata Account](./media/authenticator-app-how-to/accounts.png)
 
@@ -109,3 +109,4 @@ Successivamente, ogni volta che verrà richiesto di verificare le informazioni d
 Dopo che l'account è stato aggiunto all'app, potrebbe essere chiesto di eseguire una verifica di prova per assicurarsi che la configurazione sia corretta. Dopo questa verifica, la procedura è terminata. Non è necessario fare altro fino al successivo accesso.
 
 Se si sceglie di usare codici di verifica nell'app, vengono prima visualizzati nella home page. Questi codici cambiano ogni 30 secondi in modo da riceverne sempre uno nuovo ogni volta che è necessario. Tuttavia, non è necessario fare altro finché non si accede e non viene chiesto di immettere un codice di verifica.  
+

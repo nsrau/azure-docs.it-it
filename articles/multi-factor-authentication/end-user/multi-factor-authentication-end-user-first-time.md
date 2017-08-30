@@ -4,7 +4,7 @@ description: "Quando l'azienda configura Azure Multi-Factor Authentication, verr
 services: multi-factor-authentication
 keywords: come usare directory di azure, active directory nel cloud, esercitazione di active directory
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: pblachar
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: HT
 ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
@@ -36,7 +36,7 @@ Quando il reparto IT richiede all'utente di iniziare a usare la verifica in due 
 
 Per iniziare, selezionare **Set it up now.** (Avvia la configurazione adesso.)
 
-Se all'accesso non viene visualizzata una schermata simile alla seguente, seguire le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) per trovare la pagina delle impostazioni in cui è possibile gestire le opzioni di verifica. 
+Se all'accesso non viene visualizzata una schermata simile alla seguente, seguire le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) per trovare la pagina delle impostazioni in cui è possibile gestire le opzioni di verifica.
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Decidere come verificare gli accessi
 
