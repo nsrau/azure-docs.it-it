@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 482bcf08b1256e26e15f7093fda621da4fdd5344
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
@@ -131,10 +131,10 @@ Macchine virtuali migrate tramite Site Recovery | Supportato | Se si tratta di u
 
 **Configurazione** | **Supportato/Non supportato** | **Osservazioni**
 --- | --- | ---
-Dimensioni massime del disco del sistema operativo | 1023 GB | Vedere [Dischi usati dalle VM.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
-Dimensioni massime del disco dati | 1023 GB | Vedere [Dischi usati dalle VM.](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)
+Dimensioni massime del disco del sistema operativo | 1023 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Dimensioni massime del disco dati | 1023 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Numero di dischi dati | Fino a 64 come supportato da una dimensione specifica di una macchina virtuale di Azure | Vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/windows/sizes.md)
-Disco temporaneo | Sempre escluso dalla replica | Il disco temporaneo è sempre escluso dalla replica. Non è opportuno inserire dati persistenti su un disco temporaneo in base alle indicazioni di Azure. Vedere [Disco temporaneo sulle macchine virtuali di Azure](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk) per ulteriori dettagli.
+Disco temporaneo | Sempre escluso dalla replica | Il disco temporaneo è sempre escluso dalla replica. Non è opportuno inserire dati persistenti su un disco temporaneo in base alle indicazioni di Azure. Vedere [Disco temporaneo sulle macchine virtuali di Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) per ulteriori dettagli.
 Frequenza di modifica dei dati sul disco | Massimo 6 MB/s per disco | Se la frequenza di modifica dei dati sul disco supera costantemente 6 MB/s, la replica non verrà aggiornata. Se invece si tratta di un picco di dati occasionale e la frequenza di modifica dei dati supera 6 MB/s solo per un breve intervallo, la replica verrà aggiornata. In questo caso, potrebbero verificarsi punti di ripristino leggermente ritardati.
 Dischi su account di archiviazione standard | Supportato |
 Dischi su account di archiviazione premium | Supportato | Se una macchina virtuale dispone di dischi distribuiti tra account di archiviazione standard e premium, è possibile selezionare un account di archiviazione di destinazione diverso per ogni disco per assicurarsi di avere la stessa configurazione di archiviazione nell'area di destinazione
@@ -152,7 +152,7 @@ ZRS | Non supportate |
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 
 >[!IMPORTANT]
-> Assicurarsi di seguire le [indicazioni per l'archiviazione](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) per le macchine virtuali di Azure di origine per evitare problemi di prestazioni. Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di seguire (../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) come le macchine virtuali di origine.
+> Assicurarsi di seguire le [indicazioni per l'archiviazione](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) per le macchine virtuali di Azure di origine per evitare problemi di prestazioni. Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di seguire (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) come le macchine virtuali di origine.
 
 ## <a name="support-for-network-configuration"></a>Supporto per la configurazione di rete
 **Configurazione** | **Supportato/Non supportato** | **Osservazioni**

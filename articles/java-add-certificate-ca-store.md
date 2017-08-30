@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un certificato all&quot;archivio CA Java | Microsoft Docs
-description: "Informazioni su come aggiungere un certificato dell&quot;autorità di certificazione (CA) all&quot;archivio certificati CA Java (cacerts) per il servizio Twilio o il bus di servizio di Azure."
+title: Aggiungere un certificato all'archivio CA Java | Microsoft Docs
+description: "Informazioni su come aggiungere un certificato dell'autorità di certificazione (CA) all'archivio certificati CA Java (cacerts) per il servizio Twilio o il bus di servizio di Azure."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a967a522ebbdce57fa5b4f938369ddd88253701c
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4f3ec837588c6e959e82108ca25ab4289e40d3f5
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>Aggiunta di un certificato all'archivio certificati CA Java
@@ -55,6 +55,6 @@ Se è necessario aggiungere Baltimore CyberTrust Root, il numero di serie è 02:
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui certificati radice usati da Azure, vedere l'articolo relativo alla [migrazione dei certificati radice di Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-Per ulteriori informazioni su Java, vedere il [Centro per sviluppatori di Java](/develop/java/).
+Per altre informazioni su Java, vedere [Azure for Java developers](/java/azure) (Azure per sviluppatori Java).
 
 

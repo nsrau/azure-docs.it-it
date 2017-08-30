@@ -15,48 +15,62 @@ ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3525661bd55aead07ce8d97464ba16393d28c04c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 63a24f6b153390533bba0888fd1051508c65bf6e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer (anteprima)
 
-Questo articolo contiene le note sulla versione di anteprima di Azure Storage Explorer 0.8.15, nonché sulle versioni precedenti.
+Questo articolo contiene le note sulla versione di anteprima di Azure Storage Explorer 0.8.16, nonché sulle versioni precedenti.
 
 [Microsoft Azure Storage Explorer (anteprima)](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
-## <a name="version-0815-preview"></a>Versione 0.8.15 (anteprima)
-13/07/2017
+## <a name="version-0816-preview"></a>Versione 0.8.16 (anteprima)
+21/08/2017
 
-### <a name="download-azure-storage-explorer-0815-preview"></a>Download di Azure Storage Explorer 0.8.15 (anteprima)
-- [Azure Storage Explorer 0.8.15 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.8.15 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.8.15 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-0816-preview"></a>Download di Azure Storage Explorer 0.8.16 (anteprima)
+- [Azure Storage Explorer 0.8.16 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.8.16 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.8.16 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nuovo
+* Quando si apre un BLOB, Storage Explorer richiederà di caricare il file scaricato se viene rilevata una modifica
+* Esperienza di accesso ad Azure Stack migliorata
+* Miglioramento delle prestazioni per il caricamento/download contemporanei di molti file di piccole dimensioni
 
-* Miglioramento delle prestazioni di caricamento e download di BLOB.
-* Miglioramento dell'esperienza di file in conflitto per il download e il caricamento di BLOB.
-* Miglioramento della visualizzazione di errori nel log attività durante il caricamento e il download di BLOB.
-* Aumento delle dimensioni massime di caricamento e download di BLOB a 8 TB per BLOB di pagine e ~4.7 TB per i BLOB in blocchi.
 
-### <a name="known-issues"></a>Problemi noti
+### <a name="fixes"></a>Correzioni
+* Per alcuni tipi di BLOB, la scelta della sostituzione in presenza di un conflitto di caricamento talvolta comporta il riavvio del caricamento. 
+* Nella versione 0.8.15 i caricamenti rimangono talvolta bloccati al 99%.
+* Durante il caricamento di file in una condivisione file, se si sceglie di caricare in una directory non ancora esistente, il caricamento ha esito negativo.
+* Storage Explorer generava timestamp non corretti per le firme di accesso condiviso e le query di tabella.
 
-* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Si tratta di un [limite della libreria di nodi dell'archiviazione di Azure](https://github.com/Azure/azure-storage-node/issues/317).
-* Dopo aver completato il caricamento di un blob, viene aggiornata la scheda che ha avviato il caricamento. Questa è una modifica rispetto al comportamento precedente. Verrà inoltre visualizzata nuovamente la radice del contenitore in cui ci si trova. 
-* Se si sceglie il certificato PIN/smart card non corretto, è necessario riavviare Storage Explorer per fare in modo che dimentichi tale selezione.
+
+Problemi noti
+* L'uso di una stringa di connessione con nome e chiave attualmente non funziona. Questo problema verrà risolto nella prossima versione. Fino ad allora è possibile collegarsi con nome e chiave.
+* Se si tenta di aprire un file con un nome di file di Windows non valido, il download genera un errore di file non trovato.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Si tratta di un limite della libreria di nodi di Archiviazione di Azure.
+* Dopo aver completato il caricamento di un blob, viene aggiornata la scheda che ha avviato il caricamento. Questa è una modifica rispetto al comportamento precedente. Verrà inoltre visualizzata nuovamente la radice del contenitore in cui ci si trova.
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
 * Il pannello delle impostazioni dell'account potrebbe indicare che è necessario immettere nuovamente le credenziali per filtrare le sottoscrizioni.
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
 * Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
-* Ubuntu 14.04 richiede l'aggiornamento della versione gcc. La procedura per effettuare l'aggiornamento è riportata qui sotto: 
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
-* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer: 
-    * sudo apt-get install libgconf-2-4
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-0814-preview"></a>Versione 0.8.14 (anteprima)
 22/06/2017
@@ -82,10 +96,16 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
 * Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato. 
 * Ubuntu 14.04 richiede l'aggiornamento della versione gcc. La procedura per effettuare l'aggiornamento è riportata qui sotto:
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+
+
 
 ## <a name="previous-releases"></a>Versioni precedenti
 
@@ -104,6 +124,7 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
 * [Versione 0.7.20160129.1](#version-07201601291)
 * [Versione 0.7.20160105.0](#version-07201601050)
 * [Versione 0.7.20151116.0](#version-07201511160)
+
 
 ### <a name="version-0813"></a>Versione 0.8.13
 12/05/2017
@@ -131,10 +152,14 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
 * Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato. 
 * Ubuntu 14.04 richiede l'aggiornamento della versione gcc. La procedura per effettuare l'aggiornamento è riportata qui sotto:
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### <a name="version-0812--0811--0810"></a>Versione 0.8.12/0.8.11/0.8.10
 07/04/2017
@@ -170,10 +195,14 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
 * La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
 * Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato. 
 * Ubuntu 14.04 richiede l'aggiornamento della versione gcc. La procedura per effettuare l'aggiornamento è riportata qui sotto:
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### <a name="version-089--088"></a>Versione 0.8.9/0.8.8
 23/02/2017

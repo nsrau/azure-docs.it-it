@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 08/9/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 2d45090b09d83a98cc0811dca8d6f2384d1b11ad
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50df1e3db239a6aa34ac91bfbd582625c5b0041b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="examples-and-common-scenarios-for-azure-logic-apps"></a>Esempi e scenari comuni per le app per la logica di Azure
@@ -31,7 +31,7 @@ Le app per la logica di Azure forniscono l'orchestrazione e l'integrazione resil
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>Rispondere ai trigger ed estendere le azioni
 
-Ogni app per la logica inizia con un trigger. Ad esempio, il flusso di lavoro può iniziare con un evento pianificato, una chiamata manuale o un evento da un sistema esterno, ad esempio il trigger "quando un file viene aggiunto a un server FTP". Le app per la logica di Azure supportano attualmente oltre 100 connettori pronti per l'uso, che vanno da sistemi SAP locali a Servizi cognitivi di Azure. Per i sistemi e i servizi che non potrebbero non avere connettori pubblicati, è anche possibile estendere le app per la logica.
+Ogni app per la logica inizia con un trigger. Ad esempio, il flusso di lavoro può iniziare con un evento pianificato, una chiamata manuale o un evento da un sistema esterno, ad esempio il trigger "quando un file viene aggiunto a un server FTP". App per la logica di Azure supporta attualmente oltre 100 connettori pronti per l'uso, che vanno da sistemi SAP locali a Servizi cognitivi Microsoft. Per i sistemi e i servizi che non potrebbero non avere connettori pubblicati, è anche possibile estendere le app per la logica.
 
 * [Creare trigger o azioni personalizzate](../logic-apps/logic-apps-create-api-app.md)
 * [Configurare azioni con esecuzione prolungata per l'esecuzione dei flussi di lavoro](../logic-apps/logic-apps-create-api-app.md)
@@ -75,6 +75,10 @@ Le app per la logica offrono inoltre l'integrazione con molti servizi, come Funz
 * [Chiamare Funzioni di Azure da app per la logica](../logic-apps/logic-apps-azure-functions.md)
 * [Scenario: Attivare app per la logica con Funzioni di Azure](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/) (Chiamare endpoint SOAP da app per la logica)
+
+## <a name="end-to-end-scenarios"></a>Scenari end-to-end
+
+* [Whitepaper: Enterprise integration end-to-end case management with Azure services, like Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps) (White paper: gestione dei casi end-to-end di integrazione aziendale con i servizi di Azure, ad esempio App per la logica)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

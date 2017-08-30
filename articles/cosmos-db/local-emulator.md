@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
+ms.date: 08/22/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 8e21861de95308a99beab3ff5ed5bd95c4f04e33
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: a0f6a845a345ebd4ef0a58abf4934ce400103109
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali
@@ -146,7 +146,7 @@ Esplora dati indica se è disponibile un nuovo aggiornamento per il download.
 > I dati creati in una versione dell'emulatore di Azure Cosmos DB non sono necessariamente accessibili quando si usa una versione diversa. Se è necessario rendere persistenti i dati a lungo termine, si consiglia di archiviare i dati in un account di Azure Cosmos DB invece che nell'emulatore di Azure Cosmos DB. 
 
 ## <a name="authenticating-requests"></a>Autenticazione delle richieste
-Come per Azure Document nel cloud, tutte le richieste effettuate nell'emulatore di Azure Cosmos DB devono essere autenticate. L'emulatore di Azure Cosmos DB supporta un singolo account fisso e una chiave di autenticazione nota per l'autenticazione della chiave master. Questo account e questa chiave sono le uniche credenziali consentite per l'uso con l'emulatore di Azure Cosmos DB. Sono:
+Come per Azure Cosmos DB nel cloud, tutte le richieste effettuate nell'emulatore di Azure Cosmos DB devono essere autenticate. L'emulatore di Azure Cosmos DB supporta un singolo account fisso e una chiave di autenticazione nota per l'autenticazione della chiave master. Questo account e questa chiave sono le uniche credenziali consentite per l'uso con l'emulatore di Azure Cosmos DB. Sono:
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -362,6 +362,8 @@ Per modificare il numero di raccolte disponibili nell'emulatore di Azure Cosmos 
 
 Usa i suggerimenti seguenti per aiutare a risolvere i problemi dell'emulatore di Azure Cosmos DB:
 
+- Se è stata installata una nuova versione dell'emulatore e si verificano errori, provare a ripristinare i dati. Per ripristinare i dati, fare clic con il pulsante destro del mouse sull'icona dell'emulatore di Azure Cosmos DB nell'area di notifica e quindi fare clic su Reset Data (Ripristina dati). Se gli errori persistono, è possibile provare a disinstallare e reinstallare l'app. Per istruzioni, vedere [Disinstallare l'emulatore locale](#uninstall).
+
 - In caso di arresto anomalo dell'emulatore di Azure Cosmos DB, raccogliere file di dump dalla cartella c:\Users\nome_utente\AppData\Local\CrashDumps, comprimerli e allegarli a un messaggio di posta elettronica da inviare all'indirizzo [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 - In caso di arresti anomali del sistema in CosmosDB.StartupEntryPoint.exe, eseguire il comando seguente da un prompt dei comandi di amministratore: `lodctr /R` 
@@ -382,6 +384,13 @@ Per raccogliere le tracce di debug, eseguire i comandi seguenti da un prompt dei
 5. `CosmosDB.Emulator.exe /stoptraces`
 6. Passare a `%ProgramFiles%\Azure Cosmos DB Emulator` e individuare il file docdbemulator_000001.etl.
 7. Inviare il file con estensione etl insieme alla procedura per la riproduzione all'indirizzo [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) per il debug.
+
+### <a id="uninstall"></a>Disinstallare l'emulatore locale
+
+1. Chiudere tutte le istanze aperte dell'emulatore locale facendo clic con il pulsante destro del mouse sull'icona dell'emulatore di Azure Cosmos DB nell'area di notifica e quindi fare clic su Esci. La chiusura di tutte le istanze può richiedere qualche minuto.
+2. Nella casella di ricerca di Windows digitare **Apps & features** (App e funzionalità) e fare clic sul risultato **Apps & features (System settings)** (App e funzionalità - Impostazioni di sistema).
+3. Nell'elenco di app scorrere fino a **Azure Cosmos DB Emulator** (Emulatore di Azure Cosmos DB), selezionarla, fare clic su **Disinstalla**, confermare e quindi fare clic nuovamente su **Disinstalla**.
+4. Quando l'app è disinstallata, passare a C:\Users\<user>\AppData\Local\CosmosDBEmulator ed eliminare la cartella. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
