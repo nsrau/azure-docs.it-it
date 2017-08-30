@@ -11,29 +11,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/11/2017
+ms.date: 08/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: d74ff0bc33576812b1d30289dd9c503c73956911
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6fc863010cc59e20e7d86ea9344489e574be75f2
 ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Connettere HDInsight alla rete locale
 
-Informazioni su come connettere HDInsight alla rete locale usando Reti virtuali di Azure e un gateway VPN. Questo documento fornisce le informazioni seguenti:
+Informazioni su come connettere HDInsight alla rete locale usando Reti virtuali di Azure e un gateway VPN. Questo documento fornisce le informazioni di pianificazione su:
 
-* Come creare una rete virtuale di Azure che si connette alla rete locale.
+* Uso di HDInsight in una rete virtuale di Azure che si connette alla rete locale.
 
-* Come abilitare la risoluzione dei nomi DNS tra la rete virtuale e la rete locale.
+* Configurazione della risoluzione dei nomi DNS tra la rete virtuale e la rete locale.
 
-* Come usare i gruppi di sicurezza di rete per limitare l'accesso Internet per HDInsight.
+* Configurazione dei gruppi di sicurezza di rete per limitare l'accesso Internet per HDInsight.
 
-* Come individuare le porte fornite da HDInsight nella rete virtuale.
+* Porte fornite da HDInsight nella rete virtuale.
 
 ## <a name="create-the-virtual-network-configuration"></a>Creare la configurazione della rete virtuale
+
+> [!IMPORTANT]
+> Per istruzioni dettagliate sulla connessione di HDInsight alla rete locale tramite una rete virtuale di Azure, vedere il documento [Connettere HDInsight alla rete locale](connect-on-premises-network.md).
 
 Vedere i documenti seguenti per informazioni su come creare una rete virtuale di Azure connessa alla rete locale:
     
@@ -77,7 +80,7 @@ Per creare una VM Linux che usa il software DNS [Bind](https://www.isc.org/downl
 
     ![Creare una macchina virtuale Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. Nel pannello __Informazioni di base__ immettere le informazioni seguenti:
+2. Nella sezione __Informazioni di base__ immettere le informazioni seguenti:
 
     * __Nome__: nome descrittivo che identifica questa macchina virtuale. Ad esempio __DNSProxy__.
     * __Nome utente__: nome dell'account SSH.
@@ -89,9 +92,9 @@ Per creare una VM Linux che usa il software DNS [Bind](https://www.isc.org/downl
 
     Lasciare i valori predefiniti per le altre voci e quindi selezionare __OK__.
 
-3. Nel pannello __Scegli una dimensione__ selezionare la dimensione della VM. Per questa esercitazione selezionare l'opzione più piccola e a più basso costo. Per continuare, usare il pulsante __Seleziona__.
+3. Nella sezione __Scegli una dimensione__ selezionare la dimensione della macchina virtuale. Per questa esercitazione selezionare l'opzione più piccola e a più basso costo. Per continuare, usare il pulsante __Seleziona__.
 
-4. Nel pannello __Impostazioni__ immettere le informazioni seguenti:
+4. Nella sezione __Impostazioni__ immettere le informazioni seguenti:
 
     * __Rete virtuale__: selezionare la rete virtuale creata in precedenza.
 
@@ -103,9 +106,9 @@ Per creare una VM Linux che usa il software DNS [Bind](https://www.isc.org/downl
 
     Lasciare i valori predefiniti per le altre voci e quindi selezionare __OK__ per continuare.
 
-5. Nel pannello __Acquisto__ fare clic sul pulsante __Acquisto__ per creare la macchina virtuale.
+5. Nella sezione __Acquisto__ fare clic sul pulsante __Acquista__ per creare la macchina virtuale.
 
-6. Dopo che la macchina virtuale è stata creata, viene visualizzato il relativo pannello __Panoramica__. Nell'elenco a sinistra selezionare __Proprietà__. Salvare i valori di __Indirizzo IP pubblico__ e __Indirizzo IP privato__. Verranno usati nella sezione successiva.
+6. Dopo che la macchina virtuale è stata creata, viene visualizzata la relativa sezione __Panoramica__. Nell'elenco a sinistra selezionare __Proprietà__. Salvare i valori di __Indirizzo IP pubblico__ e __Indirizzo IP privato__. Verranno usati nella sezione successiva.
 
     ![Indirizzi IP pubblico e privato](./media/connect-on-premises-network/vm-ip-addresses.png)
 
@@ -120,7 +123,7 @@ Per creare una VM Linux che usa il software DNS [Bind](https://www.isc.org/downl
     Sostituire `sshuser` con l'account utente SSH specificato durante la creazione del cluster.
 
     > [!NOTE]
-    > È possibile ottenere l'utilità `ssh` in diversi modi. In Linux, Unix e macOS viene in genere fornita come parte del sistema operativo. Se si usa Windows, prendere in considerazione una delle opzioni seguenti:
+    > È possibile ottenere l'utilità `ssh` in diversi modi. In Linux, Unix e macOS viene fornita come parte del sistema operativo. Se si usa Windows, prendere in considerazione una delle opzioni seguenti:
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
     > * [Bash in Ubuntu su Windows 10](https://msdn.microsoft.com/commandline/wsl/about)

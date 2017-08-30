@@ -13,17 +13,40 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 08/22/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4d818112d8b6cc07a73d2521ef229c90e0d5884b
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 7ee836b4c0c87fc7d271f59dcb16f3293e68dc9a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novità di Azure Data Catalog
 Gli aggiornamenti ad **Azure Data Catalog** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio Azure Data Catalog.
+
+## <a name="whats-new-for-august-2017"></a>Novità di agosto 2017 
+A partire da agosto 2017 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+
+*   Nuovo esempio per sviluppatori disponibile per la creazione e la gestione dei metadati di relazione con l'API REST di Data Catalog. L'esempio *Import relationship information into Data Catalog* (Importare informazioni sulle relazioni in Data Catalog) è disponibile nella [pagina degli esempi di codice di Data Catalog](https://azure.microsoft.com/resources/samples/?service=data-catalog&sort=0). 
+* Supporto per l'estrazione di metadati di relazione join da origini dati Teradata durante la registrazione di tabelle correlate con lo strumento di registrazione dell'origine dati.
+* Supporto per gli oggetti funzione con valori di tabella di SQL Server durante la registrazione delle origini dati SQL Server con lo strumento di registrazione dell'origine dati.
+* Vari aggiornamenti e miglioramenti per aumentare le prestazioni e l'usabilità del portale di Data Catalog.
+
+## <a name="whats-new-for-july-2017"></a>Novità di luglio 2017 
+A partire da luglio 2017 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
+*   Supporto per un controllo più granulare sulle operazioni consentite sui metadati, tra cui:
+    - Gli amministratori del catalogo possono limitare la capacità degli utenti di aggiungere tag e i metadati correlati al catalogo, abilitando l'accesso in sola lettura al catalogo.
+    - Gli amministratori del catalogo possono limitare la capacità degli utenti di registrare nuove origini dati nel catalogo.
+    - Gli amministratori del catalogo possono limitare la capacità degli utenti di diventare proprietari di metadati dell'asset di dati nel catalogo.
+    - È possibile concedere autorizzazioni a utenti e gruppi di sicurezza di Azure Active Directory per facilitare la gestione delle autorizzazioni.
+* Supporto per le relazioni tra gli asset di dati registrati e rilevamento di asset di dati correlati nel portale di Data Catalog, tra cui:
+    - Estrazione dei metadati di relazione da origini dati SQL Server (incluso il database SQL di Azure), Oracle e MySQL durante l'uso dello strumento di registrazione dell'origine dati di Data Catalog.
+    - Rilevamento di asset di dati correlati durante la visualizzazione dei metadati degli asset nel portale di Data Catalog.
+    - Operazioni per definire, rilevare e gestire le relazioni tra gli asset di dati con l'API REST di Data Catalog.
+
+Per altre informazioni sulla gestione delle autorizzazioni in Data Catalog, vedere [Come proteggere l'accesso al catalogo dati e agli asset di dati](data-catalog-how-to-secure-catalog.md).
+Per altre informazioni sulle relazioni in Data Catalog, vedere [Come visualizzare gli asset di dati correlati in Azure Data Catalog](data-catalog-how-to-view-related-data-assets.md).
 
 ## <a name="whats-new-for-june-2017"></a>Novità di giugno 2017 
 A partire da giugno 2017 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:

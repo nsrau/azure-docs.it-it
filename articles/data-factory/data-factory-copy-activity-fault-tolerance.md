@@ -1,6 +1,6 @@
 ---
-title: "Tolleranza di errore dell'attività di copia di Azure Data Factory: ignorare le righe incompatibili | Microsoft Docs"
-description: Informazioni sulla tolleranza di errore per ignorare le righe incompatibili durante la copia usando Azure Data Factory
+title: "Aggiungere la tolleranza di errore all'attività di copia di Azure Data Factory ignorando le righe incompatibili | Microsoft Docs"
+description: "Informazioni su come aggiungere la tolleranza di errore all'attività di copia di Azure Data Factory ignorando le righe incompatibili"
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,30 +14,33 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d613537657af3bbe379a53e92532bf6b184d762b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e2a108752259d5da3b401666c6bdbaad13b7ea90
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="copy-activity-fault-tolerance---skip-incompatible-rows"></a>Tolleranza di errore dell'attività di copia: ignorare le righe incompatibili
+# <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Aggiungere la tolleranza di errore all'attività di copia ignorando le righe incompatibili
 
-L'[attività di copia](data-factory-data-movement-activities.md) offre diverse opzioni per le righe incompatibili durante la copia di dati tra gli archivi dati di origine e sink. È possibile scegliere di interrompere l'attività di copia quando vengono rilevati dati incompatibili (comportamento predefinito) oppure continuare a copiare tutti i dati ignorando le righe incompatibili. È anche possibile registrare le righe incompatibili nel BLOB di Azure per poter esaminare la causa dell'errore, correggere i dati nell'origine dati e riprovare.
+L'[attività di copia](data-factory-data-movement-activities.md) di Azure Data Factory offre due modi per gestire le righe incompatibili durante la copia di dati tra gli archivi dati di origine e sink:
+
+- È possibile interrompere l'attività di copia quando vengono rilevati dati incompatibili (comportamento predefinito).
+- È possibile continuare a copiare tutti i dati aggiungendo la tolleranza di errore e ignorando le righe di dati incompatibili. È anche possibile registrare le righe incompatibili nell'archivio BLOB di Azure. È quindi possibile esaminare il log per conoscere la causa dell'errore, correggere i dati nell'origine dati e ripetere l'attività di copia.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
-Attualmente l'attività di copia consente di rilevare, ignorare e registrare la situazione di incompatibilità seguente durante la copia:
+L'attività di copia supporta tre scenari per rilevare, ignorare e registrare i dati incompatibili:
 
-- **Incompatibilità dei tipi di dati tra i tipi nativi di origine e sink**
+- **Incompatibilità tra il tipo di dati di origine e il tipo nativo sink**
 
-    Esempio: copia da un file con estensione csv nel BLOB di Azure al database SQL di Azure con lo schema definito nel database SQL di Azure con tre colone di tipo *INT*. Le righe con dati numerici (ad esempio `123,456,789`) nel file con estensione csv di origine vengono copiate correttamente, mentre le righe contenenti valori non numerici (ad esempio `123,456,abc`) vengono ignorate come righe incompatibili.
+    Esempio: si vogliono copiare dati da un file CSV nell'archivio BLOB a un database SQL con una definizione di schema che contiene tre colonne di tipo **INT**. Le righe del file CSV contenenti dati numerici, ad esempio `123,456,789`, vengono copiate nell'archivio sink. Tuttavia, le righe che contengono valori non numerici, ad esempio `123,456,abc`, vengono rilevate come incompatibili e vengono ignorate.
 
-- **Numero di colonne non corrispondente tra origine e sink**
+- **Mancata corrispondenza nel numero di colonne tra l'origine e il sink**
 
-    Esempio: copia da un file con estensione csv nel BLOB di Azure al database SQL di Azure con lo schema definito nel database SQL di Azure con sei colonne. Le righe contenenti sei colonne nel file con estensione csv di origine vengono copiate correttamente, mentre le righe con un numero di colonne diverso vengono ignorate come righe incompatibili.
+    Esempio: si vogliono copiare dati da un file CSV nell'archivio BLOB a un database SQL con una definizione di schema che contiene sei colonne. Le righe del file CSV che contengono sei colonne vengono copiate nell'archivio sink. Le righe del file CSV che contengono più o meno di sei colonne vengono rilevate come incompatibili e vengono ignorate.
 
 - **Violazione della chiave primaria durante la scrittura in un database relazionale**
 
-    Esempio: copia da un server SQL al database SQL di Azure con chiave primaria definita nel sink nel database SQL di Azure ma non nel server SQL di origine. Le righe duplicate che possono essere presenti nell'origine non sono consentite durante la scrittura nel sink. L'attività copia solo la prima riga nel sink e ignora la seconda o le righe successive con valore di chiave primaria duplicato dall'origine al sink.
+    Esempio: si vogliono copiare dati da un'istanza di SQL Server a un database SQL. Il database SQL del sink contiene la definizione di una chiave primaria, che invece manca nell'istanza di SQL Server di origine. Non è possibile copiare nel sink le righe duplicate presenti nell'origine. L'attività di copia copierà nel sink solo la prima riga dei dati di origine. Le righe di origine successive che contengono il valore della chiave primaria duplicato vengono rilevate come incompatibili e vengono ignorate.
 
 ## <a name="configuration"></a>Configurazione
 L'esempio seguente offre la definizione JSON per specificare di ignorare le righe incompatibili nell'attività di copia:
@@ -60,22 +63,22 @@ L'esempio seguente offre la definizione JSON per specificare di ignorare le righ
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
-| enableSkipIncompatibleRow | Specificare se ignorare o meno le righe incompatibili durante la copia. | True<br/>False (impostazione predefinita) | No |
-| redirectIncompatibleRowSettings | Un gruppo di proprietà che può essere specificato quando si vuole registrare le righe incompatibili. | &nbsp; | No |
-| linkedServiceName | Il servizio collegato dell'archiviazione di Azure per archiviare il log che contiene tutte le righe ignorate. | Specificare il nome del servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata per archiviare il file di log. | No |
-| path | Il percorso del file di log che contiene tutte le righe ignorate. | Specificare il percorso dell'archiviazione BLOB che deve registrare i dati incompatibili. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No |
+| **enableSkipIncompatibleRow** | Specificare se ignorare o meno le righe incompatibili durante la copia. | True<br/>False (impostazione predefinita) | No |
+| **redirectIncompatibleRowSettings** | Un gruppo di proprietà che può essere specificato quando si vuole registrare le righe incompatibili. | &nbsp; | No |
+| **linkedServiceName** | Servizio collegato di Archiviazione di Azure con cui archiviare il log che contiene le righe ignorate. | Nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione da usare per archiviare il file di log. | No |
+| **path** | Percorso del file di log che contiene le righe ignorate. | Specificare il percorso dell'archivio BLOB da usare per registrare i dati incompatibili. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No |
 
 ## <a name="monitoring"></a>Monitoraggio
-Al termine dell'esecuzione dell'attività di copia, è possibile visualizzare il numero di righe ignorate nella sezione di monitoraggio come illustrato di seguito:
+Al termine dell'esecuzione dell'attività di copia, è possibile visualizzare il numero di righe ignorate nella sezione di monitoraggio:
 
-![Monitoraggio delle righe incompatibili ignorate](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
+![Monitorare le righe incompatibili ignorate](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
 
-Se si configura la registrazione delle righe incompatibili, per determinare le righe ignorate e la causa principale dell'incompatibilità, vedere il file di log nel percorso seguente: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`.
+Se si configura la registrazione delle righe incompatibili, il file di log sarà disponibile nel percorso: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. Il file di log contiene le righe ignorate e la causa radice dell'incompatibilità.
 
 Nel file vengono registrati sia i dati originali che l'errore corrispondente. Di seguito è riportato un esempio del contenuto del file di log:
 ```
 data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.,
-data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).,
+data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

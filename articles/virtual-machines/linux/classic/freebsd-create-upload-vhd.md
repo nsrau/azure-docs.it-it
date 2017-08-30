@@ -1,5 +1,5 @@
 ---
-title: Creare e caricare un&quot;immagine della macchina virtuale FreeBSD | Microsoft Docs
+title: Creare e caricare un'immagine della macchina virtuale FreeBSD | Microsoft Docs
 description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo FreeBSD per creare una macchina virtuale di Azure.
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kyliel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Creare e caricare un disco rigido virtuale con FreeBSD in Azure
@@ -128,7 +127,7 @@ Dalla macchina virtuale in cui è stato installato il sistema operativo FreeBSD,
 
    * In **URL** digitare il nome di un sottodominio da usare nell'URL dell'account di archiviazione. La voce può contenere da 3 a 24 lettere minuscole e numeri. Questo nome diventa il nome host all'interno dell'URL utilizzato per fare riferimento alle risorse di archiviazione BLOB di Azure, archiviazione code di Azure o archiviazione tabelle di Azure per la sottoscrizione.
    * Nel menu a discesa **Località/gruppo di affinità** scegliere la **località o il gruppo di affinità** per l'account di archiviazione. Un gruppo di affinità consente di inserire i servizi cloud e le risorse di archiviazione nello stesso data center.
-   * Nel campo **Replica** decidere se usare la replica **Con ridondanza geografica** per l'account di archiviazione. La replica geografica è attivata per impostazione predefinita. Se questa opzione è selezionata, i dati vengono replicati in una posizione secondaria, senza alcun costo aggiuntivo, per garantire il failover a tale posizione qualora si verifichi un errore grave nella posizione primaria. La località secondaria viene assegnata automaticamente e non può essere modificata. Se è necessario un maggiore controllo sulla posizione dell'archiviazione basata sul cloud a causa di requisiti legali o criteri dell'organizzazione, è possibile disattivare la replica geografica. Tenere presente che se si attiva la replica geografica in un momento successivo, verrà addebitato un corrispettivo di trasferimento dati una tantum per la replica dei dati esistenti nella posizione secondaria. I servizi di archiviazione senza replica geografica sono offerti a un prezzo scontato. Altri dettagli sulla gestione della replica geografica degli account di archiviazione sono disponibili nell'articolo [Replica dell'archiviazione di Azure](../../../storage/storage-redundancy.md).
+   * Nel campo **Replica** decidere se usare la replica **Con ridondanza geografica** per l'account di archiviazione. La replica geografica è attivata per impostazione predefinita. Se questa opzione è selezionata, i dati vengono replicati in una posizione secondaria, senza alcun costo aggiuntivo, per garantire il failover a tale posizione qualora si verifichi un errore grave nella posizione primaria. La località secondaria viene assegnata automaticamente e non può essere modificata. Se è necessario un maggiore controllo sulla posizione dell'archiviazione basata sul cloud a causa di requisiti legali o criteri dell'organizzazione, è possibile disattivare la replica geografica. Tenere presente che se si attiva la replica geografica in un momento successivo, verrà addebitato un corrispettivo di trasferimento dati una tantum per la replica dei dati esistenti nella posizione secondaria. I servizi di archiviazione senza replica geografica sono offerti a un prezzo scontato. Altri dettagli sulla gestione della replica geografica degli account di archiviazione sono disponibili nell'articolo [Replica dell'archiviazione di Azure](../../../storage/common/storage-redundancy.md).
 
      ![Immissione dei dettagli dell'account di archiviazione](./media/freebsd-create-upload-vhd/Storage-create-account.png)
 5. Fai clic su **Crea account di archiviazione**. L'account verrà visualizzato in **Archiviazione**.
@@ -164,12 +163,12 @@ Prima di poter caricare un file VHD, è necessario stabilire una connessione sic
 
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Usare il metodo basato sul certificato per caricare un file VHD
 1. Aprire la console di Azure PowerShell.
-2. Digitare:  `Get-AzurePublishSettingsFile`.
+2. Digitare `Get-AzurePublishSettingsFile`.
 3. Viene aperta una finestra del browser in cui viene chiesto se scaricare il file con estensione publishsettings, che contiene informazioni e un certificato per la sottoscrizione di Azure.
 
     ![Pagina di download del browser](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. Salvare il file .publishsettings.
-5. Digitare  `Import-AzurePublishSettingsFile <PathToFile>`, dove `<PathToFile>` è il percorso completo del file con estensione publishsettings.
+5. Digitare `Import-AzurePublishSettingsFile <PathToFile>`, dove `<PathToFile>` è il percorso completo del file con estensione publishsettings.
 
    Per altre informazioni, vedere [Iniziare a usare i cmdlet di Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 

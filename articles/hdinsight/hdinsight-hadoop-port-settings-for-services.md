@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/02/2017
+ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: f4e42ca177ac6c11111d4ffc0d772cafc13f8657
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Porte usate dai servizi Hadoop su HDInsight
@@ -75,13 +75,19 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 > [!NOTE]
 > Alcuni servizi sono disponibili solo su tipi di cluster specifici. Ad esempio, HBase è disponibile solo su tipi di cluster HBase.
 
+> [!IMPORTANT]
+> Alcuni servizi vengono eseguiti in un solo nodo head alla volta. Se quando si tenta di connettersi al servizio nel nodo head primario viene visualizzato un errore 404, riprovare usando il nodo head secondario.
+
 ### <a name="ambari"></a>Ambari
 
-| Service | Nodi | Port | Path | Protocol | 
+| Service | Nodi | Porta | Percorso URL | Protocol | 
 | --- | --- | --- | --- | --- |
 | Interfaccia utente Web Ambari | Nodi head | 8080 | / | HTTP |
 | API REST Ambari | Nodi head | 8080 | /api/v1 | HTTP |
 
+Esempi:
+
+* API REST Ambari: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>Porte HDFS
 
@@ -161,6 +167,11 @@ Tutti i servizi esposti pubblicamente su Internet devono essere autenticati:
 
 ### <a name="spark-ports"></a>Porte Spark
 
-| Service | Nodi | Port | Protocol | Descrizione |
-| --- | --- | --- | --- | --- |
-| Server Spark Thrift |Nodi head |10002 |Thrift |Servizio per la connessione a Spark SQL (Thrift/JDBC) |
+| Service | Nodi | Port | Protocol | Percorso URL | Descrizione |
+| --- | --- | --- | --- | --- | --- |
+| Server Spark Thrift |Nodi head |10002 |Thrift | &nbsp; | Servizio per la connessione a Spark SQL (Thrift/JDBC) |
+| Server Livy | Nodi head | 8998 | HTTP | /batches | Servizio per l'esecuzione di istruzioni, processi e applicazioni |
+
+Esempi:
+
+* Livy: `curl "http://10.0.0.11:8998/batches"`. In questo esempio, `10.0.0.11` è l'indirizzo IP del nodo head che ospita il servizio Livy.
