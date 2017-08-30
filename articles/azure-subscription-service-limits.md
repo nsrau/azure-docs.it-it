@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/21/2017
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 9c2a5531592591fcd90019a9c0b561566ccbe54a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a76acd67e9ba7822f2837b3c08e2ede389047f11
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -52,6 +52,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Gateway applicazione](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automazione](#automation-limits)
+* [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Griglia di eventi di Azure](#azure-event-grid-limits)
 * [Cache Redis di Azure](#azure-redis-cache-limits)
 * [Azure RemoteApp](#azure-remoteapp-limits)
@@ -65,7 +66,6 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Analisi Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [DocumentDB](#documentdb-limits)
 * [Hub eventi](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Insieme di credenziali di chiave](#key-vault-limits)
@@ -140,7 +140,7 @@ I limiti seguenti si applicano quando si usano Gestione risorse di Azure e i gru
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### <a name="storage-limits"></a>Limiti relativi ad Archiviazione
-Per altre informazioni sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage/storage-scalability-targets.md).
+Per altre informazioni sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage/common/storage-scalability-targets.md).
 <!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>Limiti relativi al servizio di archiviazione
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
@@ -183,8 +183,8 @@ La tabella seguente mostra i limiti per i servizi Biztalk di Azure.
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
-### <a name="documentdb-limits"></a>Limiti relativi a DocumentDB
-DocumentDB è un database con scalabilità globale in cui la velocità effettiva e lo spazio di archiviazione possono essere ridimensionati in modo da gestire qualsiasi requisito dell'applicazione. Per eventuali domande sulla scalabilità offerta da DocumentDB, inviare un messaggio di posta elettronica all'indirizzo askdocdb@microsoft.com.
+### <a name="azure-cosmos-db-limits"></a>Limiti relativi ad Azure Cosmos DB
+Azure Cosmos DB è un database con scalabilità globale in cui la velocità effettiva e lo spazio di archiviazione possono essere ridimensionati in modo da gestire qualsiasi requisito dell'applicazione. Per eventuali domande sulla scalabilità offerta da Azure Cosmos DB, inviare un messaggio di posta elettronica all'indirizzo askcosmosdb@microsoft.com.
 
 ### <a name="mobile-engagement-limits"></a>Limiti relativi a Mobile Engagement
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]

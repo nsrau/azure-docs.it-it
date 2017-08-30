@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: e1602fb9ac5b7a85a5965cd4b87bdd09a80ec5a3
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Servizio metadati di Azure: eventi pianificati (anteprima) per VM Windows
@@ -29,6 +29,8 @@ ms.lasthandoff: 08/16/2017
 >
 
 Eventi pianificati è uno dei servizi secondari del Servizio metadati di Azure. Presenta informazioni sugli eventi imminenti, ad esempio i riavvii, in modo che l'applicazione possa prepararsi di conseguenza e limitare le interruzioni. Il servizio è disponibile per tutti i tipi di macchine virtuali di Azure, inclusi PaaS e IaaS. Il servizio dà alla macchina virtuale il tempo sufficiente per eseguire attività preventive e ridurre al minimo l'effetto di un evento. 
+
+Eventi pianificati è disponibile per VM sia Linux che Windows. Per informazioni su Eventi pianificati in Linux, vedere [Eventi pianificati per macchine virtuali Linux](../windows/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Perché usare gli eventi pianificati
 

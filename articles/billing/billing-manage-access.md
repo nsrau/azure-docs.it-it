@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2017
+ms.date: 08/22/2017
 ms.author: vikdesai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 247782a86a0d20486513dff0dae0c1564b5ecb72
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gestire l'accesso alle informazioni di fatturazione per Azure tramite il controllo di accesso basato sui ruoli
@@ -34,7 +34,11 @@ L'amministratore dell'account deve concedere il consenso esplicito tramite il [p
 
 1. Selezionare **Fatture** e quindi **Access to invoices** (Accesso alle fatture).
 
-1. **Attivare** l'accesso.
+    ![Lo screenshot mostra come delegare l'accesso alle fatture](./media/billing-manage-access/AA-optin.png)
+
+1. Impostare su **On** l'accesso, quindi salvare le modifiche per consentire agli utenti nei ruoli con ambito della sottoscrizione di scaricare la fattura.
+
+    ![Lo screenshot mostra le impostazioni on-off per delegare l'accesso alla fattura](./media/billing-manage-access/AA-optinAllow.png)
 
 Il consenso esplicito permette all'amministratore del servizio, al coamministratore, al proprietario, al collaboratore, al lettore e al lettore della fatturazione nella sottoscrizione di scaricare le fatture PDF nel portale di Azure. Tuttavia, le fatture redatte prima di dicembre 2016 sono disponibili solo per l'amministratore dell'account attualmente.
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 1153aed6504eb3c31d99f44be8359506477d9336
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b6e1c7587c0b47d04862b4850741aaa3b7d191a8
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -37,9 +37,9 @@ Quando si registra l'endpoint del webhook con Griglia di eventi, viene inviata u
 * In fase di creazione/aggiornamento della sottoscrizione dell'evento, Griglia di eventi pubblica un evento "SubscriptionValidationEvent" nell'endpoint di destinazione.
 * L'evento contiene un valore di intestazione "Event-Type: Validation".
 * Il corpo dell'evento ha lo stesso schema degli altri eventi di Griglia di eventi.
-* I dati dell'evento includono una proprietà "validation_code" con una stringa generata casualmente, ad esempio "validation_code: acb13…".
+* I dati dell'evento includono una proprietà "ValidationCode" con una stringa generata in modo casuale, ad esempio "ValidationCode: acb13…".
 
-Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida, ad esempio "validation_response: acb13…".
+Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida, ad esempio "ValidationResponse: acb13…".
 
 È infine importante notare che Griglia di eventi di Azure supporta solo endpoint di webhook HTTPS.
 ## <a name="event-subscription"></a>Sottoscrizione dell'evento

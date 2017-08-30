@@ -4,7 +4,7 @@ description: Testare Funzioni di Azure con Postman, cURL e Node.js.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: funzioni di azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, test
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: a58bf41ec11b5826b60c1fc999240ea655be6d9d
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aca03ba4137893157fcbe6650336782ab88cd234
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
@@ -234,7 +234,7 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 
 
 ### <a name="test-with-a-timer-trigger"></a>Eseguire il test con un trigger del timer
-Alcune funzioni non possono essere testate adeguatamente con gli strumenti citati in precedenza. Prendiamo ad esempio una funzione trigger della coda eseguita quando un messaggio viene inserito in [Archiviazione code di Azure](../storage/storage-dotnet-how-to-use-queues.md). È sempre possibile scrivere codice per inserire un messaggio nella coda. Di seguito ne viene fornito un esempio in un progetto console. Esiste tuttavia un altro approccio che può essere usato per eseguire direttamente il test delle funzioni.  
+Alcune funzioni non possono essere testate adeguatamente con gli strumenti citati in precedenza. Prendiamo ad esempio una funzione trigger della coda eseguita quando un messaggio viene inserito in [Archiviazione code di Azure](../storage/queues/storage-dotnet-how-to-use-queues.md). È sempre possibile scrivere codice per inserire un messaggio nella coda. Di seguito ne viene fornito un esempio in un progetto console. Esiste tuttavia un altro approccio che può essere usato per eseguire direttamente il test delle funzioni.  
 
 È possibile usare un trigger del timer configurato con un'associazione di output della coda. Il codice del trigger del timer può quindi scrivere i messaggi di prova nella coda. In questa sezione ne viene presentato un esempio.
 
@@ -377,12 +377,12 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
     2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
 
-### <a name="test-a-queue-trigger-function-with-code-c"></a>Eseguire il test di una funzione trigger della coda con il codice C# #
-Si è accennato in precedenza che è possibile testare un trigger della coda tramite codice per inserire un messaggio nella coda. L'esempio di codice seguente si basa sul codice C# illustrato nell'esercitazione [Introduzione all'archiviazione code di Azure](../storage/storage-dotnet-how-to-use-queues.md) . Da questo collegamento è disponibile il codice anche per altri linguaggi.
+### <a name="test-a-queue-trigger-function-with-code-c"></a>Testare una funzione trigger della coda con codice C# #
+Si è accennato in precedenza che è possibile testare un trigger della coda tramite codice per inserire un messaggio nella coda. L'esempio di codice seguente si basa sul codice C# illustrato nell'esercitazione [Introduzione all'archiviazione code di Azure](../storage/queues/storage-dotnet-how-to-use-queues.md) . Da questo collegamento è disponibile il codice anche per altri linguaggi.
 
 Per testare il codice in un'app console è necessario:
 
-* [Configurare la stringa di connessione di archiviazione nel file app.config](../storage/storage-dotnet-how-to-use-queues.md).
+* [Configurare la stringa di connessione di archiviazione nel file app.config](../storage/queues/storage-dotnet-how-to-use-queues.md).
 * Passare `name` e `address` come parametri per l'app. Ad esempio, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. Questo codice accetta il nome e l'indirizzo per un nuovo utente come argomenti della riga di comando in fase di esecuzione.
 
 Codice C# di esempio:
