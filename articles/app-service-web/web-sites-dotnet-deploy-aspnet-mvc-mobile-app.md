@@ -349,7 +349,7 @@ Il browser per dispositivi mobili aggiornato avrà il seguente aspetto:
 > 
 
 ## <a name="bkmk_improvedates"></a> Migliorare l'elenco Dates
-È possibile intervenire sulla visualizzazione *Dates* nello stesso modo in cui sono state migliorate le visualizzazioni *Speakers* e *Tags`Html.ActionLink`. Usare le modifiche del codice descritte in precedenza, ma , ma applicare la sintassi del metodo * seguente in *Views\\Home\\AllDates.cshtml*:
+È possibile intervenire sulla visualizzazione *Dates* nello stesso modo in cui sono state migliorate le visualizzazioni *Speakers* e *Tags* `Html.ActionLink`. Usare le modifiche del codice descritte in precedenza, ma , ma applicare la sintassi del metodo seguente in *Views\\Home\\AllDates.cshtml*:
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
                      "SessionsByDate", 
