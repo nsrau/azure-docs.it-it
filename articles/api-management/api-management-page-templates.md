@@ -3,7 +3,7 @@ title: Modelli di pagina in Gestione API di Azure | Documentazione Microsoft
 description: Informazioni su come personalizzare il contenuto delle pagine del portale per sviluppatori usando un set di modelli in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: e57df269-1019-4b74-b74d-53155b809d59
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: d3c947ec67a6acba3058afcef36a18bf5debd55d
+ms.contentlocale: it-it
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelli di pagina in Gestione API di Azure
@@ -33,7 +35,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 > [!NOTE]
 >  La documentazione seguente include alcuni modelli predefiniti di esempio. A causa dei continui miglioramenti che vengono apportati, questi modelli sono però soggetti a modifiche. È possibile visualizzare i modelli predefiniti direttamente nel portale per sviluppatori accedendo ai singoli modelli desiderati. Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="a-namesignina-sign-in"></a><a name="SignIn"></a> Accesso  
+##  <a name="SignIn"></a> Accesso  
  Il modello di **accesso** consente di personalizzare la pagina di accesso del portale per sviluppatori.  
   
  ![Pagina di accesso](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelli della pagina di accesso APIM del portale per sviluppatori")  
@@ -132,7 +134,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 }  
 ```  
   
-##  <a name="a-namesignupa-sign-up"></a><a name="SignUp"></a> Iscrizione  
+##  <a name="SignUp"></a> Iscrizione  
  Il modello di **iscrizione** consente di personalizzare la pagina di iscrizione del portale per sviluppatori.  
   
  ![Pagina di iscrizione](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Modelli della pagina di iscrizione APIM del portale per sviluppatori")  
@@ -180,7 +182,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 }  
 ```  
   
-##  <a name="a-namepagenotfounda-page-not-found"></a><a name="PageNotFound"></a> Pagina non trovata  
+##  <a name="PageNotFound"></a> Pagina non trovata  
  Il modello **Pagina non trovata** consente di personalizzare la pagina Pagina non trovata del portale per sviluppatori.  
   
  ![Pagina non trovata](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Modelli di Pagina non trovata APIM del portale per sviluppatori")  
@@ -244,8 +246,3 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

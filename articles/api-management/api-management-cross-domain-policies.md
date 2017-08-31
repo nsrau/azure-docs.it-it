@@ -1,9 +1,9 @@
 ---
 title: Criteri tra domini in Gestione API di Azure | Microsoft Docs
-description: Informazioni sui criteri tra domini disponibili per l&quot;uso in Gestione API di Azure.
+description: Informazioni sui criteri tra domini disponibili per l'uso in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
+ms.contentlocale: it-it
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-namecrossdomainpoliciesa-cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Criteri tra domini  
+##  <a name="CrossDomainPolicies"></a> Criteri tra domini  
   
 -   [Permetti chiamate tra i domini](api-management-cross-domain-policies.md#AllowCrossDomainCalls) : rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.  
   
@@ -30,7 +32,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) : aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser.  
   
-##  <a name="a-nameallowcrossdomaincallsa-allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> Permetti chiamate tra i domini  
+##  <a name="AllowCrossDomainCalls"></a> Permetti chiamate tra i domini  
  Usare il criterio `cross-domain` pe rendere accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -65,7 +67,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 -   **Ambiti del criterio:** globali  
   
-##  <a name="a-namecorsa-cors"></a><a name="CORS"></a> CORS  
+##  <a name="CORS"></a> CORS  
  Il criterio `cors` aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.  
   
  CORS permette a un browser e a un server di interagire e di determinare se permettere o meno richieste specifiche con origini diverse, ad esempio chiamate XMLHttpRequests effettuate da JavaScript in una pagina Web in altri domini. Ciò offre una maggiore flessibilità rispetto a permettere solo richieste con la stessa origine e una maggiore sicurezza rispetto a permettere tutte le richieste con origini diverse.  
@@ -149,7 +151,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 -   **Ambiti del criterio:** API, operazione  
   
-##  <a name="a-namejsonpa-jsonp"></a><a name="JSONP"></a> JSONP  
+##  <a name="JSONP"></a> JSONP  
  Il criterio `jsonp` aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser. JSONP è un metodo usato in programmi JavaScript per richiedere dati da un server in un dominio diverso. JSONP supera le limitazioni applicate dalla maggior parte dei Web browser, in cui l'accesso alle pagine Web deve essere effettuato nello stesso dominio.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -189,8 +191,3 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

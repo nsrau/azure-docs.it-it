@@ -3,7 +3,7 @@ title: Modelli di pagina dei problemi in Gestione API di Azure | Documentazione 
 description: Informazioni su come personalizzare il contenuto delle pagine dei problemi nel portale per sviluppatori in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 6a14bd0cb95f8965ae53ff60fe1e638199a0b5b5
+ms.contentlocale: it-it
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelli di pagina dei problemi in Gestione API di Azure
@@ -29,7 +31,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 > [!NOTE]
 >  La documentazione seguente include alcuni modelli predefiniti di esempio. A causa dei continui miglioramenti che vengono apportati, questi modelli sono però soggetti a modifiche. È possibile visualizzare i modelli predefiniti direttamente nel portale per sviluppatori accedendo ai singoli modelli desiderati. Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).  
   
-##  <a name="a-nameissuelista-issue-list"></a><a name="IssueList"></a> Elenco problemi  
+##  <a name="IssueList"></a> Elenco problemi  
  Il modello **Elenco problemi** consente di personalizzare il corpo della pagina di elenco problemi nel portale per sviluppatori.  
   
  ![Elenco problemi portale per sviluppatori](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Elenco problemi APIM portale per sviluppatori")  
@@ -134,8 +136,3 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

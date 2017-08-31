@@ -1,8 +1,8 @@
 ---
 title: Documentazione di Azure ExpressRoute - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come configurare e gestire una connessione ExpressRoute privata ai servizi cloud di Microsoft dall&quot;infrastruttura locale o dall&quot;impianto di colocazione.
+description: Informazioni su come configurare e gestire una connessione ExpressRoute privata ai servizi cloud di Microsoft dall'infrastruttura locale o dall'impianto di colocazione.
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

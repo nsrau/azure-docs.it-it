@@ -1,6 +1,6 @@
 ---
 title: Diagnostica e risoluzione dei problemi | Documentazione Microsoft
-description: Questa esercitazione illustra come diagnosticare e risolvere i problemi nell&quot;ambiente Time Series Insights
+description: Questa esercitazione illustra come diagnosticare e risolvere i problemi nell'ambiente Time Series Insights
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -8,7 +8,7 @@ author: venkatgct
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na

@@ -1,9 +1,9 @@
 ---
-title: 'Lezione supplementare dell&quot;esercitazione su Azure Analysis Services: righe di dettaglio | Microsoft Docs'
-description: Descrive come creare un&quot;espressione di righe di dettaglio nell&quot;esercitazione su Azure Analysis Services.
+title: 'Lezione supplementare dell''esercitazione su Azure Analysis Services: righe di dettaglio | Microsoft Docs'
+description: Descrive come creare un'espressione di righe di dettaglio nell'esercitazione su Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: Documentazione di Estensione database di SQL Server di Azure - Esercitazioni | Documentazione Microsoft
 description: Informazioni su come usare Estensione database di SQL Server per eseguire la migrazione dei dati non attivi in modo sicuro ad Azure senza modificare le query o le applicazioni. Esercitazioni e altri documenti.
 services: sql-server-stretch-database
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 91c1cb9713d087982dc68f2511b72ef86a050616
 ms.openlocfilehash: bb5e0fa9981133a77c235a42be369b3bbacb4ac0
+ms.contentlocale: it-it
+ms.lasthandoff: 02/17/2017
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Documentazione di Estensione database di SQL Server
@@ -99,10 +101,5 @@ Informazioni su come usare Estensione database di SQL Server per eseguire la mig
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

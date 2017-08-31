@@ -2,7 +2,7 @@
 title: Documentazione del registro contenitori di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come creare e gestire registri di contenitore per archiviare le immagini di distribuzione con un servizio di registro Docker gestito. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
 services: container-registry
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
 ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
+ms.contentlocale: it-it
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -108,9 +110,4 @@ Informazioni su come usare il servizio contenitore di Azure per archiviare e ges
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

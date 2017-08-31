@@ -4,7 +4,7 @@ description: Informazioni su Analisi di flusso, un servizio gestito che consente
 keywords: "analisi come servizio, servizi gestiti, elaborazione dei flussi, analisi di flusso, che cos'è Analisi di flusso"
 services: stream-analytics
 documentationcenter: 
-author: jenniehubbard
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
-ms.author: jhubbard
+ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -98,6 +98,6 @@ Come servizio gestito nel cloud, Analisi di flusso contribuisce a evitare la per
 * Informazioni sul linguaggio di query simile a SQL per Analisi di flusso e su concetti specifici come le [funzioni finestra](stream-analytics-window-functions.md).
 * Informazioni su come [ridimensionare i processi di Analisi di flusso](stream-analytics-scale-jobs.md). 
 * Informazioni su come [integrare Analisi di flusso e Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-* Trovare le risposte alle domande su Analisi di flusso nel [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+* Trovare le risposte alle domande su Analisi di flusso nel [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 

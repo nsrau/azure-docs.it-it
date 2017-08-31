@@ -1,8 +1,8 @@
 ---
 title: Documentazione di Archiviazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come usare l&quot;Archiviazione di Azure, gli archivi BLOB e tabella e le archiviazioni code, file e su disco macchina virtuale nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
+description: Informazioni su come usare l'Archiviazione di Azure, gli archivi BLOB e tabella e le archiviazioni code, file e su disco macchina virtuale nel cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

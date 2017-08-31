@@ -3,7 +3,7 @@ title: 'Lezione supplementare dell''esercitazione su Azure Analysis Services: si
 description: Descrive come usare la sicurezza dinamica tramite filtri di riga nell'esercitazione su Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

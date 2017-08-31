@@ -6,14 +6,14 @@ metadata:
   title: 'Documentazione di Azure PostgreSQL: esercitazioni e informazioni di riferimento sulle API'
   description: Il database di Azure per PostgreSQL è un servizio di database relazionale in Microsoft Cloud creato per gli sviluppatori e basato sul motore di database PostgreSQL open source.
   services: postgresql
-  author: jasonwhowell
-  manager: jhubbard
+  author: czeumault
+  manager: carolz
   ms.service: postgresql
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: jasonh
+  ms.author: carolz
 abstract:
   description: 'Il database di Azure per PostgreSQL è un servizio di database relazionale basato sul motore di database Postgres open source.  Si tratta di un database distribuito come servizio completamente gestito capace di gestire carichi di lavoro mission-critical con prestazioni prevedibili, sicurezza, disponibilità elevata e scalabilità dinamica.  È possibile sviluppare applicazioni con il database di Azure per PostgreSQL sfruttando la piattaforma e gli strumenti open source preferiti.  Informazioni su come usare il database di Azure per PostgreSQL con le guide rapide, le esercitazioni e gli esempi.'
 sections:

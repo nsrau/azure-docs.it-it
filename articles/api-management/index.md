@@ -2,7 +2,7 @@
 title: Documentazione di Gestione API di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare Gestione API per pubblicare le API in modo sicuro e scalabile. I documenti mostrano come creare gateway API moderni per i servizi back-end esistenti.
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
 ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
+ms.contentlocale: it-it
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="api-management-documentation"></a>Documentazione di Gestione API
@@ -143,10 +145,5 @@ Informazioni su come usare Gestione API per pubblicare API per sviluppatori este
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

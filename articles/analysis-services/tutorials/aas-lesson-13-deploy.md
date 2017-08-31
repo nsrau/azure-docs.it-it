@@ -3,7 +3,7 @@ title: 'Esercitazione su Azure Analysis Services - Lezione 13: Distribuire | Mic
 description: Descrive come distribuire il progetto per l'esercitazione in Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

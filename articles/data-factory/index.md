@@ -1,8 +1,8 @@
 ---
 title: Documentazione di Azure Data Factory - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come usare Data Factory per configurare pipeline di dati automatizzate da e verso origini locali e cloud per spostare ed elaborare i dati per l&quot;analisi.
+description: Informazioni su come usare Data Factory per configurare pipeline di dati automatizzate da e verso origini locali e cloud per spostare ed elaborare i dati per l'analisi.
 services: data-factory
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

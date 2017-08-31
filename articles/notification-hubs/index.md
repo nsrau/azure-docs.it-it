@@ -2,7 +2,7 @@
 title: Documentazione di Hub di notifica di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come inviare notifiche push da qualsiasi back-end per tutti i dispositivi mobili con hub di notifica. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

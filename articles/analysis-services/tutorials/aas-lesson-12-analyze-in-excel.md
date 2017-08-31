@@ -1,9 +1,9 @@
 ---
 title: 'Esercitazione su Azure Analysis Services - Lezione 12: Analizzare in Excel | Microsoft Docs'
-description: "Descrive come usare la funzionalità Analizza in Excel nel progetto per l&quot;esercitazione su Azure Analysis Services."
+description: "Descrive come usare la funzionalità Analizza in Excel nel progetto per l'esercitazione su Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

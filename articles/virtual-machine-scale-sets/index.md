@@ -2,7 +2,7 @@
 title: "Documentazione dei set di scalabilità di macchine virtuali di Azure: esercitazioni e riferimento per le API | Documentazione Microsoft"
 description: "Informazioni su come usare i set di scalabilità di macchina virtuale per creare VM Windows o Linux a scalabilità automatica per soluzioni Big Compute, Big Data e in contenitori."
 services: virtual-machine-scale-sets
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
+ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
 
 ---

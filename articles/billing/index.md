@@ -2,7 +2,7 @@
 title: Documentazione della fatturazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni sulla fatturazione di Azure e su come gestire e monitorare usi e costi. Esercitazioni, FAQ, informazioni di riferimento sulle API e altri documenti.
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

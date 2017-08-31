@@ -1,9 +1,9 @@
 ---
-title: 'Lezione supplementare dell&quot;esercitazione su Azure Analysis Services: gerarchie incomplete | Microsoft Docs'
-description: Questo articolo descrive come correggere le gerarchie incomplete nell&quot;esercitazione di Azure Analysis Services.
+title: 'Lezione supplementare dell''esercitazione su Azure Analysis Services: gerarchie incomplete | Microsoft Docs'
+description: Questo articolo descrive come correggere le gerarchie incomplete nell'esercitazione di Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

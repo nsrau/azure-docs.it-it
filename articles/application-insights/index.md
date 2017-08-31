@@ -2,7 +2,7 @@
 title: Documentazione di Azure Application Insights - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare Application Insights, un servizio estensibile per la gestione delle prestazioni delle applicazioni, per rilevare, valutare e diagnosticare i problemi in App Web e servizi.
 services: application-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
 ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
+ms.contentlocale: it-it
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="application-insights-documentation"></a>Documentazione di Application Insights
@@ -163,10 +165,5 @@ Informazioni su come usare Application Insights, un servizio estendibile per la 
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
