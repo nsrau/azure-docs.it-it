@@ -187,7 +187,7 @@ Per visualizzare altre informazioni, è possibile fare doppio clic su ogni singo
 ## <a name="faq"></a>Domande frequenti sulle connessioni da rete virtuale a rete virtuale
 Visualizzare i dettagli delle frequenti per altre informazioni sulle connessioni da rete virtuale a rete virtuale.
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali - Documentazione](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) .

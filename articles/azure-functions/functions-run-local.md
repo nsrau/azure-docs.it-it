@@ -76,7 +76,7 @@ Il file local.settings.json archivia le impostazioni di app, le stringhe di conn
   "IsEncrypted": false,   
   "Values": {
     "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>", 
+    "AzureWebJobsDashboard": "<connection string>" 
   },
   "Host": {
     "LocalHttpPort": 7071, 

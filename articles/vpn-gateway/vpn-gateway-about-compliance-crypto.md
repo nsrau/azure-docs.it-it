@@ -53,7 +53,7 @@ I gateway VPN di Azure ora supportano i criteri IPsec/IKE personalizzati per con
 
 ## <a name="ipsecike-policy-faq"></a>Domande frequenti sui criteri IPsec/IKE
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -366,7 +366,7 @@ Il passaggio è stato suddiviso in due sessioni dell'interfaccia della riga di c
 [!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Domande frequenti sulle connessioni da rete virtuale a rete virtuale
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

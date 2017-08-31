@@ -14,16 +14,16 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6b21f38ddd64278db26d7042349470805b799203
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
 ms.contentlocale: it-it
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
 
-Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro Phyton con [Python Tools for Visual Studio][Python Tools for Visual Studio]. Si apprenderà come usare Visual Studio per creare e distribuire un servizio cloud di base che usa Python.
+Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro Phyton con [Python Tools for Visual Studio][Python Tools for Visual Studio]. Informazioni su come usare Visual Studio per creare e distribuire un servizio cloud di base che usa Python.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Visual Studio 2013, 2015 o 2017](https://www.visualstudio.com/)
@@ -170,7 +170,7 @@ Gli script seguenti sono stati scritti per Python 3.5. Per usare la versione 2.x
 Creare ora i file **PrepPython.ps1** e **PipInstaller.ps1** nella cartella **./bin** del ruolo.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Questo script installa Python. Se la variabile di ambiente **PYTHON2** è impostata su **on** verrà installato Python 2.7, in caso contrario verrà installato Python 3.5.
+Questo script installa Python. Se la variabile di ambiente **PYTHON2** è impostata su **on**, viene installato Python 2.7. In caso contrario, viene installato Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -216,7 +216,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Questo script chiama pip e installa tutte le dipendenze presenti nel file **requirements.txt**. Se la variabile di ambiente **PYTHON2** è impostata su **on** verrà usato Python 2.7, in caso contrario verrà usato Python 3.5.
+Questo script chiama pip e installa tutte le dipendenze presenti nel file **requirements.txt**. Se la variabile di ambiente **PYTHON2** è impostata su **on**, viene usato Python 2.7. In caso contrario, viene usato Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -251,7 +251,7 @@ if (-not $is_emulated){
 
 Il file **bin\LaunchWorker.ps1** è stato originariamente creato per eseguire molte attività preliminari, ma non funziona. Sostituire il contenuto del file con lo script seguente.
 
-Questo script chiama il file **worker.py** dal progetto Python. Se la variabile di ambiente **PYTHON2** è impostata su **on** verrà usato Python 2.7, in caso contrario verrà usato Python 3.5.
+Questo script chiama il file **worker.py** dal progetto Python. Se la variabile di ambiente **PYTHON2** è impostata su **on**, viene usato Python 2.7. In caso contrario, viene usato Python 3.5.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -303,9 +303,9 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 ## <a name="run-locally"></a>Esecuzione locale
-Se si imposta il progetto servizio cloud come progetto di avvio e si preme F5, il servizio cloud verrà eseguito nell'emulatore locale di Azure.
+Se si imposta il progetto servizio cloud come progetto di avvio e si preme F5, il servizio cloud viene eseguito nell'emulatore locale di Azure.
 
-Anche se PTVS supporta l'avvio nell'emulatore, il debug (ad esempio, punti di interruzione) non funzionerà.
+Anche se PTVS supporta l'avvio nell'emulatore, il debug (ad esempio, punti di interruzione) non funziona.
 
 Per eseguire il debug dei ruoli di lavoro e Web, è possibile impostare il progetto di ruolo come progetto di avvio e ed eseguirne il debug.  È anche possibile impostare più progetti di avvio.  Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Imposta progetti di avvio**.
 
@@ -320,21 +320,21 @@ Seguire la procedura guidata. Se necessario, abilitare Desktop remoto. Desktop r
 
 Dopo aver finito di configurare le impostazioni, fare clic su **Pubblica**.
 
-Nella finestra di output verranno visualizzati alcuni stati, quindi apparirà la finestra Log attività di Microsoft Azure.
+Nella finestra di output vengono visualizzati alcuni stati, quindi apparirà la finestra Log attività di Microsoft Azure.
 
 ![Finestra Log attività di Microsoft Azure](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
-Saranno necessari alcuni minuti per completare la distribuzione, quindi i ruoli di lavoro e/o Web verranno eseguiti in Azure.
+Sono necessari alcuni minuti per completare la distribuzione, quindi i ruoli di lavoro e/o Web vengono eseguiti in Azure.
 
 ### <a name="investigate-logs"></a>Esaminare i log
-Dopo che la macchina virtuale del servizio cloud è stata avviata e ha installato Python, è possibile esaminare i log per trovare eventuali messaggi di errore. Questi log si trovano nella cartella **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** conterrà almeno un errore relativo al tentativo dello script di verificare se Python è installato e **PipInstaller.err.txt** può segnalare una versione obsoleta di pip.
+Dopo che la macchina virtuale del servizio cloud è stata avviata e ha installato Python, è possibile esaminare i log per trovare eventuali messaggi di errore. Questi log si trovano nella cartella **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** contiene almeno un errore relativo al tentativo dello script di verificare se Python è installato e **PipInstaller.err.txt** può segnalare una versione obsoleta di pip.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni più dettagliate sull'uso di ruoli di lavoro e Web in Python Tools per Visual Studio, vedere la documentazione PTVS:
 
 * [Progetti servizio cloud][Cloud Service Projects]
 
-Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lavoro e Web, ad esempio sull'uso dell'archiviazione o del bus di servizio di Azure, vedere gli articoli seguenti.
+Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lavoro e Web, ad esempio sull'uso dell'archiviazione o del bus di servizio di Azure, vedere gli articoli seguenti:
 
 * [Servizio BLOB][Blob Service]
 * [Servizio tabelle][Table Service]
@@ -350,9 +350,9 @@ Per altre informazioni dettagliate sull'uso di servizi di Azure dai ruoli di lav
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
-[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
-[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Blob Service]:../storage/blobs/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/queues/storage-python-how-to-use-queue-storage.md
+[Table Service]:../cosmos-db/table-storage-how-to-use-python.md
 [Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 

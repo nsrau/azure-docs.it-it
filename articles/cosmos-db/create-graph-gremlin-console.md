@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Creare, eseguire query e attraversare un grafo nella console Gremlin
@@ -28,7 +28,7 @@ Questa guida introduttiva illustra come creare un account Azure Cosmos DB, un da
 
 ![Azure Cosmos DB dalla console Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
-La console Gremlin è basata su Groovy/Java e può essere eseguita su Linux, Mac e Windows. È possibile scaricare la console dal [sito Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip).
+La console Gremlin è basata su Groovy/Java e può essere eseguita su Linux, Mac e Windows. È possibile scaricare la console dal [sito Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,7 +36,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-È anche necessario installare la [console Gremlin](http://tinkerpop.apache.org/). Usare la versione 3.2.4 o successive.
+È anche necessario installare la [console Gremlin](http://tinkerpop.apache.org/). Usare la versione 3.2.5 o successiva.
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -47,7 +47,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Connettersi al servizio app
-1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory apache-tinkerpop-gremlin-console-3.2.4/conf.
+1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory apache-tinkerpop-gremlin-console-3.2.5/conf.
 2. Immettere le configurazioni per *Hosts*, *Port*, *Username*, *Password*, *ConnectionPool* e *Serializer*:
 
     Impostazione|Valore consigliato|Descrizione
@@ -64,7 +64,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
     Per il valore Password, copiare la **chiave primaria** dalla pagina **Chiavi**: ![Visualizzare e copiare la chiave primaria nella pagina Chiavi del portale di Azure](./media/create-graph-gremlin-console/keys.png)
 
 
-3. Nel terminale eseguire `bin/gremlin.bat` o `bin/gremlin.sh` per avviare la [console Gremlin](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/).
+3. Nel terminale eseguire `bin/gremlin.bat` o `bin/gremlin.sh` per avviare la [console Gremlin](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. Nel terminale eseguire `:remote connect tinkerpop.server conf/remote-secure.yaml` per connettersi al servizio app.
 
     > [!TIP]

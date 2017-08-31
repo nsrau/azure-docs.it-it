@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 35b7e0a730d73f646462b9cde3c8bbabac4d7c67
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -33,6 +33,7 @@ Per eseguire un'applicazione esistente in un contenitore Linux in un cluster di 
 * Un computer di sviluppo che esegue:
   * [SDK e strumenti di Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE per Linux](https://docs.docker.com/engine/installation/#prior-releases). 
+  * [Interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 
 * Un registro all'interno del registro contenitori di Azure. A questo scopo, [creare un registro contenitori](../container-registry/container-registry-get-started-portal.md) nella sottoscrizione di Azure. 
 
@@ -201,12 +202,12 @@ gradle
 ```
 
 ## <a name="deploy-the-application"></a>Distribuire l'applicazione
-Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale tramite l'interfaccia della riga di comando di Azure.
+Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale tramite l'interfaccia della riga di comando di Service Fabric.
 
 Connettersi al cluster locale di Service Fabric.
 
 ```bash
-azure servicefabric cluster connect
+sfctl cluster select --endpoint http://localhost:19080
 ```
 
 Usare lo script di installazione messo a disposizione nel modello per copiare il pacchetto dell'applicazione nell'archivio immagini del cluster, registrare il tipo di applicazione e creare un'istanza dell'applicazione.

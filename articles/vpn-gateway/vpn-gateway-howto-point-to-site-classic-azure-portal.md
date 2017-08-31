@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: cd4baa2e99ab84e55d00d76df4773f70430aa4c6
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 5ac679279bb977fb7d38b5046164d1b5f6a80e0a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato (versione classica): portale di Azure
@@ -34,7 +34,10 @@ Questo articolo illustra come creare una rete virtuale con una connessione da pu
 > * [Portale di Azure (classico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-Una configurazione da punto a sito (P2S) permette di creare una connessione protetta da un singolo computer client a una rete virtuale. Una soluzione Da punto a sito è utile quando ci si vuole connettere alla rete virtuale da una posizione remota, ad esempio da casa o durante una riunione, oppure quando solo pochi client devono connettersi a una rete virtuale. La connessione VPN da punto a sito viene avviata dal computer client tramite il client VPN di Windows nativo che è stato configurato per connettersi alla rete virtuale con un pacchetto di configurazione del client. I client che si connettono usano i certificati per eseguire l'autenticazione. 
+Un gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. Una VPN P2S è anche una soluzione utile da usare al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. 
+
+P2S usa Secure Socket Tunneling Protocol (SSTP), un protocollo VPN basato su SSL. Una connessione VPN P2S viene stabilita avviandola dal computer client.
+
 
 ![Diagramma da punto a sito](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
@@ -192,6 +195,8 @@ Se si vuole creare una connessione da punto a sito da un computer client diverso
 
   ![Connessione stabilita](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/connected.png)
 
+#### <a name="troubleshooting-p2s-connections"></a>Risoluzione dei problemi delle connessioni P2S
+
 [!INCLUDE [verify-client-certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
 ### <a name="verifyvpnconnect"></a>Verificare la connessione VPN
@@ -255,7 +260,7 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 
 ## <a name="faq"></a>Domande frequenti sulla connettività da punto a sito
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Per altre informazioni sulla rete e sulle macchine virtuali, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/linux/azure-vm-network-overview.md).
