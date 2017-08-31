@@ -4,10 +4,10 @@ hide_bc: true
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8d0d10a53be9299931821c75c8c17bb967a05449
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: cec37e94b31d08930d7262b2f30dd3e84793af46
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 <div id="main" class="v2">
@@ -705,6 +705,12 @@ ms.lasthandoff: 08/23/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>Dischi</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>Archiviazione file</p>
@@ -739,7 +745,7 @@ ms.lasthandoff: 08/23/2017
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                     <h3>Dati e analisi</h3>
                                     <ul>
@@ -1200,7 +1206,7 @@ ms.lasthandoff: 08/23/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Eseguire processi di calcolo usando i contenitori</p>
+                                                    <p>Gestione del calcolo e pianificazione dei processi a livello di cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1483,6 +1489,25 @@ ms.lasthandoff: 08/23/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Dischi</h3>
+                                                    <p>Archiviazione su dischi per le VM</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/storage/files/storage-files-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1595,7 +1620,7 @@ ms.lasthandoff: 08/23/2017
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -1865,7 +1890,7 @@ ms.lasthandoff: 08/23/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Eseguire processi di calcolo usando i contenitori</p>
+                                                    <p>Gestione del calcolo e pianificazione dei processi a livello di cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,3 +3753,4 @@ ms.lasthandoff: 08/23/2017
         </ul>
     </div>
 </div>
+

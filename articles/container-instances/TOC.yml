@@ -43,6 +43,8 @@
   items:
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modelli - Istanze di contenitore
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Aree di disponibilità
