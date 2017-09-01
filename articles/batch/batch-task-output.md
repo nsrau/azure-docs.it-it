@@ -89,7 +89,7 @@ Per altre informazioni su come rendere persistente l'output delle attività con 
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>Usare la libreria Batch File Conventions per .NET
 
-Gli sviluppatori che creano soluzioni per Batch con C# e .NET possono usare la [libreria File Conventions per .NET] [ nuget_package] per rendere persistenti i dati delle attività in un account di Archiviazione di Azure, in base allo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). La libreria File Conventions gestisce lo spostamento dei file di output in Archiviazione di Azure e la denominazione dei contenitori e dei BLOB di destinazione in modo noto.
+Gli sviluppatori che creano soluzioni per Batch con C# e .NET possono usare la [libreria File Conventions per .NET][nuget_package] per rendere persistenti i dati delle attività in un account di Archiviazione di Azure, in base allo [standard Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). La libreria File Conventions gestisce lo spostamento dei file di output in Archiviazione di Azure e la denominazione dei contenitori e dei BLOB di destinazione in modo noto.
 
 La libreria File Conventions supporta l'esecuzione di query sui file di output sia in base all'ID che allo scopo, semplificando così l'individuazione dei file senza che siano necessari gli URI completi. 
 
