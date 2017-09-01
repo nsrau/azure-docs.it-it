@@ -105,7 +105,7 @@ Il server di Backup di Azure può proteggere i dati nelle applicazioni in cluste
 -   Hyper-V - Se si protegge un cluster Hyper-V con protezione DPM con aumento delle prestazioni, non è possibile aggiungere una protezione secondaria per i carichi di lavoro protetti di Hyper-V.
 
     Se si esegue Hyper-V in Windows Server 2008 R2, assicurarsi di installare l'aggiornamento descritto in KB [975354](https://support.microsoft.com/en-us/kb/975354).
-    Se si esegue Hyper-V in Windows Server 2008 R2 in una configurazione cluster, assicurarsi di installare SP2, come descritto in KB [971394](https://support.microsoft.com/en-us/kb/971394).
+    Se si esegue Hyper-V in Windows Server 2008 R2 in una configurazione cluster, assicurarsi di installare SP2 e l'hotfix a cui si fa riferimento nell'articolo KB [971394](https://support.microsoft.com/en-us/kb/971394).
 
 -   Exchange Server - Il server di Backup di Azure può proteggere i cluster di dischi non condivisi per le versioni di Exchange Server supportate (replica continua cluster) e può inoltre proteggere Exchange Server configurato per la replica continua locale.
 
