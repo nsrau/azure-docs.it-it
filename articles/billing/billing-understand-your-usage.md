@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 0d4f2e19ec3417b7ca111f777e34b1ce66ddb32d
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendere i dettagli degli addebiti basati sui dati di utilizzo dettagliato di Microsoft Azure 
@@ -29,6 +28,11 @@ Per ottenere questo file con i dati di utilizzo dettagliato, vedere [Come ottene
 È disponibile in un formato di file CSV (valori separati dalla virgola) che è possibile aprire in un foglio di calcolo. Se sono disponibili due versioni, scaricare la versione 2. Questo è il formato di file più recente.
 
 Gli addebiti in base all'utilizzo corrispondono agli addebiti **mensili** totali per una sottoscrizione e non tengono in considerazione eventuali accrediti o sconti applicabili.
+
+
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Termini e descrizioni relativi al file di utilizzo dettagliato
 Le sezioni seguenti descrivono i termini più importanti presenti nella versione 2 del file di utilizzo dettagliato.

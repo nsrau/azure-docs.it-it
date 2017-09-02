@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Creare un&quot;app con Node.js e l&quot;API DocumentDB | Microsoft Docs'
-description: Presenta un esempio di codice Node.js che permette di connettersi all&quot;API DocumentDB di Azure Cosmos DB e di eseguire query su di essa
+title: 'Azure Cosmos DB: Creare un''app con Node.js e l''API DocumentDB | Microsoft Docs'
+description: Presenta un esempio di codice Node.js che permette di connettersi all'API DocumentDB di Azure Cosmos DB e di eseguire query su di essa
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -12,7 +12,7 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
@@ -20,7 +20,6 @@ ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 5a23f76a27c33bf3ba35e1959faf3e4d18d10683
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app per le API DocumentDB con Node.js e il portale di Azure

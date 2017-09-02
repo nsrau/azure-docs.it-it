@@ -1,6 +1,6 @@
 ---
-title: Effettuare il push di un&quot;immagine Docker in un registro di Azure privato | Microsoft Docs
-description: Effettuare il push e il pull di immagini Docker in un registro di contenitori privati in Azure tramite l&quot;interfaccia della riga di comando di Docker
+title: Effettuare il push di un'immagine Docker in un registro di Azure privato | Microsoft Docs
+description: Effettuare il push e il pull di immagini Docker in un registro di contenitori privati in Azure tramite l'interfaccia della riga di comando di Docker
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -11,15 +11,16 @@ keywords:
 ms.assetid: 64fbe43f-fdde-4c17-a39a-d04f2d6d90a1
 ms.service: container-registry
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: b6c26f28aa1e574ba3aabe53eda359cb6bf2edcc
+ms.contentlocale: it-it
 ms.lasthandoff: 03/27/2017
 
 ---
