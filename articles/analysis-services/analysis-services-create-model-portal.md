@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 6c76bcb919b08cbd67e93f54dac216ab2aec06b0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-model-in-azure-portal"></a>Creare un modello nel portale di Azure
 
-La finestra di progettazione Web (anteprima) nel portale di Azure offre un modo semplice e rapido per creare e modificare modelli tabulari ed eseguire query nei dati dei modelli direttamente dal browser in uso. 
+La funzione di progettazione Web di Azure Analysis Services (anteprima) nel portale di Azure offre un modo semplice e rapido per creare e modificare modelli tabulari ed eseguire query nei dati dei modelli direttamente dal browser in uso. 
 
 Tenere presente che la finestra di progettazione Web è in versione di **anteprima**. Anche se vengono aggiunte continuamente nuove funzionalità, nell'anteprima le funzionalità sono limitate. Per operazioni più avanzate di sviluppo e testing dei modelli, è consigliabile usare Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
 

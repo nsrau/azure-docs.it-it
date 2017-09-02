@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 05/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf07c4142d025517637e31b27f1f34b6d402d6fe
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>Aggiungere funzionalità alla prima app Web
@@ -58,7 +58,7 @@ Come verrà illustrato, l'aggiunta di autenticazione all'app è molto semplice. 
     Se quindi si apre una sessione non autenticata in un browser diverso, verrà visualizzata una schermata di accesso quando si passa allo stesso URL.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     Se non si è mai usato Azure Active Directory, è possibile che la directory predefinita non includa utenti di Azure AD. In tal caso, l'unico account presente è probabilmente l'account Microsoft con la sottoscrizione di Azure. È per questo che prima è stato automaticamente eseguito l'accesso all'app nello stesso browser.
-   È possibile usare lo stesso account Microsoft anche per accedere a questa pagina di accesso.
+    È possibile usare lo stesso account Microsoft anche per accedere a questa pagina di accesso.
 
 Verrà eseguita l'autenticazione di tutto il traffico diretto all'app Web.
 
@@ -150,8 +150,8 @@ Con l'app distribuita è possibile eseguire altre operazioni. Ecco un elenco par
 * [Accedere alle risorse locali](web-sites-hybrid-connection-get-started.md) : è possibile accedere a un database locale esistente o a un sistema CRM.
 * [Eseguire il backup dell'app](web-sites-backup.md): è possibile configurare il backup e il ripristino per l'app Web e prepararsi a errori imprevisti ed eseguire il ripristino da tali errori.
 * [Abilitare i log di diagnostica](web-sites-enable-diagnostic-log.md) : è possibile leggere i log IIS da tracce di Azure o dell'applicazione. È possibile leggerli in un flusso, scaricarli o trasferirli in [Application Insights](../application-insights/app-insights-overview.md) per un'analisi pronta all'uso.
-* [Analizzare l'app per cercare vulnerabilità:](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
-   è possibile analizzare l'app Web per cercare minacce attuali mediante il servizio fornito da [Tinfoil Security](https://www.tinfoilsecurity.com/).
+* [Analizzare l'app per cercare vulnerabilità](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
+  È possibile analizzare l'app Web per cercare minacce attuali mediante il servizio fornito da [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Eseguire processi in background](../azure-functions/functions-overview.md) : è possibile eseguire processi per l'elaborazione di dati, la creazione di report e così via.
 * [Conoscere il funzionamento del servizio app](../app-service/app-service-how-works-readme.md)
 
