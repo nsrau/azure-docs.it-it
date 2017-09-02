@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
-ms.lasthandoff: 12/28/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
+ms.contentlocale: it-it
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Servizi di dominio Azure AD - Contatto
@@ -29,7 +29,7 @@ In caso di problemi con il dominio gestito, verificare se è possibile risolvere
 
 Perché sia possibile analizzare il problema, assicurarsi di indicare i dati seguenti.
 
-* L'**ID tenant** per la directory di Azure AD. L'ID tenant è il GUID visualizzato nella barra degli indirizzi del browser quando si passa alla pagina in cui viene abilitato Servizi di dominio Azure AD per la directory.
+* L'**ID tenant/ID directory** per la directory di Azure AD. L'ID tenant è il GUID presente nel campo ID directory della [pagina delle proprietà per la directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)
 * Il **nome di dominio DNS** configurato per il dominio gestito di Servizi di dominio Azure AD.
 
 ## <a name="provide-feedback"></a>Commenti e suggerimenti

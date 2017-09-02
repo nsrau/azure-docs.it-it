@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/18/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 0b861bea8948c7022d2ce95a2a7975a5ad7ad8a7
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: f4d9a08551d616ff98bc8734cbeec01d6e0d04ca
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
@@ -37,14 +38,12 @@ Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta t
 > - Al momento non è possibile creare un gruppo di dispositivi in base agli attributi dell'utente proprietario. Le regole di appartenenza dispositivo possono fare riferimento solo ad attributi immediati degli oggetti dispositivo nella directory.
 
 ## <a name="to-create-an-advanced-rule"></a>Per creare una regola avanzata
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale o amministratore di account utente.
-2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
-
-   ![Apertura di Gestione utenti](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
-3. Nel pannello **Utenti e gruppi** selezionare **Tutti i gruppi**.
+1. Accedere al [centro amministrativo Azure AD](https://aad.portal.azure.com) con un account di amministratore globale o amministratore di account utente.
+2. Selezionare **Utenti e gruppi**.
+3. Selezionare **Tutti i gruppi**.
 
    ![Apertura del pannello Gruppi](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. Nel pannello **Utenti e gruppi - Tutti i gruppi** selezionare il comando **Aggiungi**.
+4. In **Tutti i gruppi**, selezionare **Nuovo gruppo**.
 
    ![Aggiungere un nuovo gruppo](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. Nel pannello **Gruppo** immettere un nome e una descrizione per il nuovo gruppo. Selezionare un **Tipo di appartenenza** di **Utente dinamico** o **Dispositivo dinamico**, a seconda che si intenda creare una regola per gli utenti o per i dispositivi e quindi selezionare **Aggiungi query dinamica**. Per gli attributi usati per le regole di dispositivo, vedere [Uso degli attributi per creare regole per gli oggetti dispositivo](#using-attributes-to-create-rules-for-device-objects).
@@ -74,8 +73,6 @@ La lunghezza totale del corpo della regola avanzata non può superare i 2048 car
 > [!NOTE]
 > Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È inoltre possibile eseguire controlli Null usando $null come costante, ad esempio user.department -eq $null.
 > Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
->
->
 
 ## <a name="supported-expression-rule-operators"></a>Operatori delle regole di espressione supportati
 Nella tabella seguente sono elencati tutti gli operatori delle regole di espressione supportati e la relativa sintassi da usare nel corpo della regola avanzata:
@@ -95,11 +92,15 @@ Nella tabella seguente sono elencati tutti gli operatori delle regole di espress
 
 ## <a name="operator-precedence"></a>Precedenza degli operatori
 
-Tutti gli operatori sono elencati di seguito in base alla precedenza, dal minore al maggiore. Gli operatori sulla stessa riga hanno la stessa precedenza. -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-
-Tutti gli operatori possono essere usati con o senza trattino come prefisso.
-
-Si noti che le parentesi non sono sempre necessarie. Le parentesi devono essere aggiunte solo quando la precedenza non rispetta i requisiti specifici,
+Tutti gli operatori sono elencati di seguito per la precedenza da una posizione inferiore a quelli superiori. Gli operatori nella stessa riga hanno uguale precedenza:
+````
+-any -all
+-or
+-and
+-not
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+````
+Tutti gli operatori possono essere usati con o senza trattino come prefisso. Le parentesi sono necessarie solo quando la priorità non soddisfa i requisiti.
 ad esempio:
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
@@ -271,25 +272,25 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 3. Dopo aver salvato la regola, tutti gli utenti con il valore Manager ID specificato verranno aggiunti al gruppo.
 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Uso degli attributi per creare regole per gli oggetti dispositivo
-È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. È possibile usare gli attributi del dispositivo seguenti:
+È anche possibile creare una regola che consenta di selezionare gli oggetti dispositivo per l'appartenenza a un gruppo. È possibile usare gli attributi del dispositivo seguenti.
 
-| Proprietà              | Valori consentiti                  | Utilizzo                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | Qualsiasi valore stringa.                | (device.displayName - eq "Iphone di Rob")                       |
-| deviceOSType            | Qualsiasi valore stringa.                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | Qualsiasi valore stringa.                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | Qualsiasi valore stringa.                | (device.deviceCategory -eq "")                              |
-| deviceManufacturer      | Qualsiasi valore stringa.                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | Qualsiasi valore stringa.                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Qualsiasi valore stringa.                | (device.deviceOwnership -eq "")                             |
-| domainName              | Qualsiasi valore stringa.                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | Qualsiasi valore stringa.                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | Qualsiasi valore stringa.                | (device.managementType -eq "")                              |
-| organizationalUnit      | Qualsiasi valore stringa.                | (device.organizationalUnit -eq "")                          |
-| deviceId                | un deviceId valido                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | un objectId AAD valido            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+ Attributo del dispositivo  | Valori | Esempio
+ ----- | ----- | ----------------
+ accountEnabled | true false | (device.accountEnabled -eq true)
+ displayName | Qualsiasi valore stringa. |(device.displayName - eq "Iphone di Rob")
+ deviceOSType | Qualsiasi valore stringa. | (device.deviceOSType -eq "IOS")
+ deviceOSVersion | Qualsiasi valore stringa. | (device.OSVersion -eq "9.1")
+ deviceCategory | nome di una categoria di dispositivo valido | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | Qualsiasi valore stringa. | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | Qualsiasi valore stringa. | (device.deviceModel -eq "iPad Air")
+ deviceOwnership | Personale, Azienda | (device.deviceOwnership -eq "Company")
+ domainName | Qualsiasi valore stringa. | (device.domainName -eq "contoso.com")
+ enrollmentProfileName | Nome del profilo di registrazione dispositivi Apple | (device.enrollmentProfileName -eq "DEP iPhones")
+ isRooted | true false | (device.isRooted -eq true)
+ managementType | MDM (per i dispositivi mobili)<br>PC (per i computer gestiti dall'agente di PC Intune) | (device.managementType -eq "MDM")
+ organizationalUnit | qualsiasi valore di stringa corrispondente al nome dell'unità organizzativa impostato da un server di Active Directory locale | (device.organizationalUnit -eq "US PCs")
+ deviceId | ID dispositivo di Azure AD valido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objectId | ID oggetto di Azure AD valido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 
 

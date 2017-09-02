@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 20572ecbde79bc2722f3a25f297c92d8e722a3e8
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
-
-> [!div class="op_single_selector"]
-> * [Portale di Azure](active-directory-conditional-access-azure-portal.md)
-> * [portale di Azure classico](active-directory-conditional-access.md)
 
 In un mondo in cui i dispositivi mobili e il cloud hanno sempre più importanza, Azure Active Directory consente ovunque l'accesso Single Sign-On a dispositivi, app e servizi. Con il proliferare dei dispositivi (inclusi i dispositivi BYOD), del lavoro al di fuori delle reti aziendali e delle app SaaS di terze parti, i professionisti IT hanno due obiettivi opposti:
 
@@ -73,11 +69,11 @@ L'implementazione corrente di Azure Active Directory consente di configurare i r
 
 - **Autenticazione a più fattori**: è possibile richiedere l'autenticazione avanzata tramite l'autenticazione a più fattori. I provider possono usare Azure Multi-Factor Authentication o un provider di autenticazione a più fattori locale, in combinazione con Active Directory Federation Services (AD FS). L'uso dell'autenticazione a più fattori assicura la protezione delle risorse nel caso in cui un utente non autorizzato abbia avuto l'accesso alle credenziali di un utente valido.
 
-- **Dispositivo conforme**: è possibile impostare criteri di accesso condizionale a livello di dispositivo. È possibile impostare un criterio per consentire l'accesso alle risorse dell'organizzazione soltanto ai computer conformi o registrati in un'applicazione di gestione di dispositivi mobili. Ad esempio, è possibile usare Intune per verificare la conformità dei dispositivi e quindi segnalarla a Azure AD affinché ne tenga conto durante l'accesso alle applicazioni. Per istruzioni dettagliate su come usare Intune per proteggere le applicazioni e i dati, vedere Proteggere le applicazioni e i dati con Microsoft Intune. È inoltre possibile usare Intune per applicare la protezione dei dati per i dispositivi smarriti o rubati. Per altre informazioni, vedere Proteggere i dati con la cancellazione completa o selettiva tramite Microsoft Intune.
+- **Dispositivo conforme**: è possibile impostare criteri di accesso condizionale a livello di dispositivo. È possibile impostare un criterio per consentire l'accesso alle risorse dell'organizzazione soltanto ai computer conformi o registrati nella gestione di dispositivi mobili. Ad esempio, è possibile usare Intune per verificare la conformità dei dispositivi e quindi segnalarla a Azure AD affinché ne tenga conto durante l'accesso alle applicazioni. Per istruzioni dettagliate su come usare Intune per proteggere le applicazioni e i dati, vedere [Proteggere le applicazioni e i dati con Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune). È inoltre possibile usare Intune per applicare la protezione dei dati per i dispositivi smarriti o rubati. Per altre informazioni, vedere [Proteggere i dati con la cancellazione completa o selettiva tramite Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
 
-- **Dispositivo aggiunto a un dominio**: è possibile richiedere che il dispositivo usato per connettersi ad Azure Active Directory sia un dispositivo aggiunto a un dominio. Questo criterio si applica ai computer desktop, portatili o tablet aziendali Windows. Per altre informazioni su come configurare la registrazione automatica dei dispositivi aggiunti a un dominio con Azure AD, vedere [Registrazione automatica dei dispositivi con Azure Active Directory per i dispositivi Windows aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration.md).
+- **Dispositivo aggiunto a un dominio**: è possibile richiedere che il dispositivo usato per connettersi ad Azure Active Directory sia un dispositivo aggiunto ad Active Directory (AD) locale. Questo criterio si applica ai computer desktop, portatili o tablet aziendali Windows. 
 
-Se in un criterio di accesso condizionale è selezionato più di un requisito, è anche possibile configurare i requisiti per applicarli. È possibile scegliere di richiedere tutti i tutti i controlli selezionati o solo uno.
+Se si dispone di più controlli selezionati, è possibile inoltre configurare se tutti gli elementi sono richiesti quando viene elaborato il criterio.
 
 ![Controllo](./media/active-directory-conditional-access-azure-portal/06.png)
 
@@ -137,10 +133,19 @@ Un rischio di accesso è un oggetto usato da Azure Active Directory per tenere t
 
 ### <a name="device-platforms"></a>Piattaforme del dispositivo
 
-La piattaforma del dispositivo è caratterizzata dal sistema operativo in esecuzione nel dispositivo (Android, iOS, Windows Phone, Windows). È possibile definire le piattaforme del dispositivo incluse, ma anche quelle escluse da un criterio.  
-Per usare le piattaforme del dispositivo, impostare prima i controlli di configurazione su **Sì** e quindi selezionare tutte oppure una o più piattaforme del dispositivo a cui il criterio si applica. Se si selezionano singole piattaforme del dispositivo, il criterio ha effetto solo su queste piattaforme. In questo caso, gli accessi alle altre piattaforme supportate non sono interessati dal criterio.
+Le piattaforme del dispositivo sono caratterizzate dal sistema operativo in esecuzione sul dispositivo:
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- macOS (anteprima). 
 
 ![Condizioni](./media/active-directory-conditional-access-azure-portal/02.png)
+
+È possibile definire le piattaforme del dispositivo incluse, ma anche quelle escluse da un criterio.  
+Per usare le piattaforme del dispositivo, impostare prima i controlli di configurazione su **Sì** e quindi selezionare tutte oppure una o più piattaforme del dispositivo a cui il criterio si applica. Se si selezionano singole piattaforme del dispositivo, il criterio ha effetto solo su queste piattaforme. In questo caso, gli accessi alle altre piattaforme supportate non sono interessati dal criterio.
+
 
 ### <a name="locations"></a>Località
 
@@ -198,4 +203,4 @@ Molti clienti Intune usano l'accesso condizionale per assicurarsi che solo i dis
 
 Per informazioni su come configurare un criterio di accesso condizionale, vedere [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introduzione all'accesso condizionale in Azure Active Directory).
 
-Per altre informazioni sugli aspetti da conoscere e su ciò che è consigliabile evitare quando si configurano i criteri di accesso condizionale, vedere 
+Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

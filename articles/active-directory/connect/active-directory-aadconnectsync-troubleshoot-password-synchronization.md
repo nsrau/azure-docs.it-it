@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: bd1b931681331d4de06e227983dfce98b4cc84f2
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione della password con il servizio di sincronizzazione Azure AD Connect
@@ -269,6 +269,10 @@ I valori possibili per la colonna dello stato sono i seguenti:
 | SourceConnectorNotPresent |Nessun oggetto trovato nello spazio connettore di Active Directory locale. |
 | TargetNotExportedToDirectory |L'oggetto nello spazio connettore di Azure AD non è stato ancora esportato. |
 | MigratedCheckDetailsForMoreInfo |La voce di log è stata creata prima della compilazione 1.0.9125.0 e viene visualizzata nello stato precedente. |
+| Errore |Il servizio ha restituito un errore sconosciuto. |
+| Sconosciuto |Si è verificato un errore durante il tentativo di elaborare un batch degli hash delle password.  |
+| MissingAttribute |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non sono disponibili. |
+| RetryRequestedByTarget |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non erano disponibili in precedenza. Viene effettuato un tentativo di risincronizzare l'hash della password dell'utente. |
 
 ## <a name="scripts-to-help-troubleshooting"></a>Script per facilitare la risoluzione dei problemi
 

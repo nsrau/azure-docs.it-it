@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 9cfdb94d1e030fe9d467389acf8894d79efd17d1
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
 ms.contentlocale: it-it
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
@@ -138,4 +138,64 @@ Di seguito è riportato un esempio ApplicationManifest che è necessario imposta
   </Certificates>
 </ApplicationManifest>
 ```
+
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>Override degli endpoint in ServiceManifest.xml
+
+In ApplicationManifest aggiungere una sezione ResourceOverride che sarà un elemento di pari livello della sezione ConfigOverrides. In questa sezione è possibile specificare l'override per la sezione Endpoint nella sezione delle risorse specificata in ServiceManifest.
+
+Per eseguire l'override di EndPoint in ServiceManifest utilizzando ApplicationParameters modificare ApplicationManifest come riportato di seguito:
+
+Nella sezione ServiceManifestImport, aggiungere una nuova sezione "ResourceOverrides"
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Stateless1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <ResourceOverrides>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" Port="[Port]" Protocol="[Protocol]" Type="[Type]" />
+        <Endpoint Name="ServiceEndpoint1" Port="[Port1]" Protocol="[Protocol1] "/>
+      </Endpoints>
+    </ResourceOverrides>
+        <Policies>
+           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+        </Policies>
+  </ServiceManifestImport>
+```
+
+In Parametri aggiungere sotto:
+
+```xml
+  <Parameters>
+    <Parameter Name="Port" DefaultValue="" />
+    <Parameter Name="Protocol" DefaultValue="" />
+    <Parameter Name="Type" DefaultValue="" />
+    <Parameter Name="Port1" DefaultValue="" />
+    <Parameter Name="Protocol1" DefaultValue="" />
+  </Parameters>
+```
+
+Durante la distribuzione dell'applicazione ora è possibile passare questi valori come ApplicationParameters ad esempio:
+
+```powershell
+PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
+```
+
+Nota: se i valori forniti per ApplicationParameters sono vuoti, si torna al il valore predefinito fornito in ServiceManifest per l'EndPointName corrispondente.
+
+ad esempio:
+
+Se in ServiceManifest è stato specificato
+
+```xml
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="ServiceEndpoint1" Protocol="tcp"/>
+    </Endpoints>
+  </Resources>
+```
+
+E il valore Port1 e Protocol1 per i parametri dell'applicazione è null o vuoto. La porta è ancora stabilita da ServiceFabric. E il protocollo sarà tcp.
+
+Si supponga di specificare un valore errato. Ad esempio per la porta è stato specificato un valore stringa "Foo" anziché di tipo int.  Il comando New-ServiceFabricApplication avrà esito negativo con errore: il parametro di override con nome "ServiceEndpoint1" attributo "Port1" nella sezione "ResourceOverrides" non è valido. Il valore specificato è "Foo", mentre era richiesto "int".
 

@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory B2C: Usare Application Insights per risolvere i problemi relativi ai criteri personalizzati | Microsoft Docs'
-description: Informazioni su come configurare Application Insights per tenere traccia dell&quot;esecuzione di criteri personalizzati
+title: Application Insights per risolvere i problemi relativi ai criteri personalizzati - Azure AD B2C | Microsoft Docs
+description: Informazioni su come configurare Application Insights per tenere traccia dell'esecuzione di criteri personalizzati
 services: active-directory-b2c
 documentationcenter: 
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
 editor: parakhj
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: db658319637f1a45616091e034a0fc4db44885d4
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ad31e5f4ef3be78d8d2dd6b9c7d83e447d9ef776
 ms.contentlocale: it-it
-ms.lasthandoff: 05/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 

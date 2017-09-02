@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 35d7f6d655f53891c00ca6c736c8c12b99fdc5ef
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
 ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
@@ -166,22 +165,17 @@ Lo scaffolding Yeoman include uno script Gradle per compilare l'applicazione e s
 $ gradle
 ```
 
-Si ottiene un pacchetto dell'applicazione di Service Fabric che può essere distribuito tramite l'interfaccia della riga di comando di Azure Service Fabric.
+Si ottiene un pacchetto dell'applicazione di Service Fabric che può essere distribuito tramite l'interfaccia della riga di comando di Service Fabric.
 
-### <a name="deploy-with-xplat-cli"></a>Eseguire la distribuzione con l'interfaccia della riga di comando di XPlat
+### <a name="deploy-with-service-fabric-cli"></a>Distribuzione con l'interfaccia della riga di comando di Service Fabric
 
-Se si usa l'interfaccia della riga di comando di XPlat, lo script install.sh contiene i comandi dell'interfaccia della riga di comando di Azure necessari per distribuire il pacchetto dell'applicazione. Eseguire lo script install.sh per distribuire l'applicazione.
+Lo script install.sh contiene i comandi dello script install.sh contiene i comandi dell'interfaccia della riga di comando di Service Fabric necessari per distribuire il pacchetto dell'applicazione. Eseguire lo script install.sh per distribuire l'applicazione.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Eseguire la distribuzione con l'interfaccia della riga di comando di Azure 2.0
+## <a name="next-steps"></a>Passaggi successivi
 
-Se si usa l'interfaccia della riga di comando di Azure 2.0, vedere la documentazione di riferimento sulla gestione di un [ciclo di vita dell'applicazione tramite l'interfaccia della riga di comando di Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## <a name="related-articles"></a>Articoli correlati
-
-* [Introduzione a Service Fabric e all'interfaccia della riga di comando di Azure 2.0](service-fabric-azure-cli-2-0.md)
-* [Introduzione all'interfaccia della riga di comando di XPlat per Service Fabric](service-fabric-azure-cli.md)
+* [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ddec69e57e84f33c37831a0da2c21955d78fff98
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
 ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 

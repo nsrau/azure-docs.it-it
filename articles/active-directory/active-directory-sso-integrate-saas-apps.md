@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 08/17/2017
 ms.author: curtand
-ms.reviewer: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
+ms.reviewer: aaronsm
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integrare i servizi Single Sign-On di Azure Active Directory nelle app SaaS
@@ -33,6 +33,9 @@ ms.lasthandoff: 05/08/2017
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
 Per iniziare a configurare Single Sign-On per un'applicazione che si desidera introdurre nella propria organizzazione, sarà necessario usare una directory esistente in Azure Active Directory (Azure AD). È possibile usare una directory di Azure AD ottenuta tramite Microsoft Azure, Office 365 o Windows Intune. Se si dispone di due o più directory di questo tipo, vedere [Amministrare la directory di Azure AD](active-directory-administer.md) per determinare quale usare.
+
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. Per informazioni su come assegnare i ruoli amministratore nell'interfaccia di amministrazione di Azure AD, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-enterprise-apps-manage-sso.md).
 
 ## <a name="authentication"></a>Autenticazione
 Per le applicazioni che supportano i protocolli SAML 2.0, WS-Federation o OpenID Connect, Azure Active Directory usa i certificati di firma per stabilire relazioni di trust. Per altre informazioni su questo aspetto, vedere [Gestione dei certificati per Single Sign-On federato](active-directory-sso-certs.md).
@@ -72,7 +75,7 @@ Per le applicazioni SaaS disponibili nella raccolta delle app, Azure AD offre va
 
 Se l'app non è presente nella raccolta, è possibile [aggiungerla alla raccolta delle app di Azure AD come applicazione personalizzata](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 Vedere anche [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md).
 

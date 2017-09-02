@@ -3,7 +3,7 @@ title: Cronologia del rilascio delle versioni dei connettori | Documentazione Mi
 description: Questo argomento include l'elenco di tutte le versioni dei connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: fimguy
 manager: femila
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
+ms.date: 08/18/2017
+ms.author: fimguy
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
 I connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM) vengono aggiornati frequentemente.
 
 > [!NOTE]
-> L'argomento riguarda solo FIM e MIM. Questi connettori non sono supportati in Azure AD Connect.
+> L'argomento riguarda solo FIM e MIM. Questi connettori non sono supportati per l'installazione in Azure AD Connect. I Connettori rilasciati sono preinstallati su AADConnect quando si aggiorna alla Build specificata.
 
 L'argomento include l'elenco di tutte le versioni dei connettori rilasciate.
 
@@ -38,23 +38,36 @@ Collegamenti correlati:
 * [connettore PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
 * [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
+
+## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+
+
+### <a name="fixed-issues"></a>Problemi risolti:
+
+* Servizi Web generici:
+  * Risoluzione di un problema che previene la creazione di un progetto SOAP quando si sono verificati due o più endpoint.
+* Generic SQL:
+  * Nell'operazione di importazione GSQL non convertiva correttamente l'ora, quando salvato nello spazio del connettore. Il formato di data e ora predefinito per lo spazio del connettore di GSQL è stato modificato da "aaaa-MM-GG: ssZ" a "aaaa-MM-GG: ssZ".
+
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>Problemi risolti:
 
 * Servizi Web generici:
-  * Lo strumento Wsconfig non ha convertito correttamente la matrice Json dalla "richiesta di esempio" per il metodo di servizio REST. Per questo motivo, si sono verificati problemi con la serializzazione di questa matrice Json per la richiesta REST.
-  * Lo strumento Web Service Connector Configuration non supporta l'utilizzo di simboli di spazio nei nomi attributo JSON. Il criterio di sostituzione può essere aggiunto manualmente al file WSConfigTool.exe.config, ad esempio ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+  * Lo strumento Wsconfig non ha convertito correttamente la matrice Json dalla "richiesta di esempio" per il metodo di servizio REST. Si sono verificati problemi con la serializzazione di questa matrice Json per la richiesta REST.
+  * Lo strumento Web Service Connector Configuration non supporta l'utilizzo di simboli di spazio nei nomi attributo JSON 
+    * Il criterio di sostituzione può essere aggiunto manualmente al file WSConfigTool.exe.config, ad esempio```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
 
 * Lotus Notes:
-  * Se l'opzione **Consenti rilascio di attestati personalizzati per aziende/unità organizzative** è disabilitata, il connettore ha esito negativo durante l'esportazione (aggiornamento); dopo il flusso di esportazione tutti gli attributi vengono esportati in Domino, ma al momento dell'esportazione viene restituita una KeyNotFoundException a Sync. Ciò accade perché l'operazione di ridenominazione non riesce quando tenta di modificare il parametro DN (attributo UserName) modificando uno dei seguenti attributi:  
-    - LastName
-    - FirstName
-    - MiddleInitial
-    - AltFullName
-    - AltFullNameLanguage
-    - o
-    - altcommonname
+  * Se l'opzione **Consenti rilascio di attestati personalizzati per aziende/unità organizzative** è disattivata, il connettore ha esito negativo durante l'esportazione (aggiornamento); dopo il flusso di esportazione tutti gli attributi vengono esportati in Domino, ma al momento dell'esportazione viene restituita una KeyNotFoundException a Sync. 
+    * Ciò accade perché l'operazione di ridenominazione non riesce quando tenta di modificare il parametro DN (attributo UserName) modificando uno dei seguenti attributi:  
+      - LastName
+      - FirstName
+      - MiddleInitial
+      - AltFullName
+      - AltFullNameLanguage
+      - o
+      - altcommonname
 
   * Se l’opzione **Consenti rilascio di attestati personalizzati per aziende/unità organizzative** è abilitata, ma il file di certificazione richiesto è vuoto, si verifica una KeyNotFoundException.
 
