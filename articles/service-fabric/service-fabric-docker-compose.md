@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f4899748ee191a64156c0e2fae87c195ae4dbc8c
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: e05d1a3d6111e3bbc34008226bcd1fdf35935450
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="docker-compose-application-support-in-azure-service-fabric-preview"></a>Supporto dell'applicazione Docker Compose in Azure Service Fabric (anteprima)
@@ -27,10 +27,10 @@ Docker usa il file [docker-compose.yml](https://docs.docker.com/compose) per la 
 
 Poiché questo supporto è disponibile in anteprima, è supportato solo un subset delle direttive Compose. Non sono supportati, ad esempio, gli aggiornamenti dell'applicazione. Tuttavia, è sempre possibile rimuovere e distribuire le applicazioni invece di aggiornarle.
 
-Per usare questa versione di anteprima, creare il cluster con la versione di anteprima dell'SDK (versione 255.255.x.x) tramite il portale di Azure. 
+Per usare questa versione di anteprima, creare il cluster con la versione 5.7 o versione successiva del runtime di Service Fabric tramite il portale di Azure con l'SDK corrispondente. 
 
 > [!NOTE]
-> Questa funzionalità è in versione di anteprima e non è supportata.
+> Questa funzionalità è in versione di anteprima e non è supportata in produzione.
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Distribuire un file Docker Compose in Service Fabric
 
@@ -56,24 +56,24 @@ Per eliminare l'applicazione Compose tramite PowerShell, usare il comando seguen
 Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerApp
 ```
 
-### <a name="use-azure-cli-20"></a>Usare l'interfaccia della riga di comando 2.0 di Azure
+### <a name="use-azure-service-fabric-cli-sfctl"></a>Usare l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
 
-In alternativa, è possibile usare il comando dell'interfaccia della riga di comando di Azure seguente:
+In alternativa, è possibile usare il comando dell'interfaccia della riga di comando di Service Fabric seguente:
 
 ```azurecli
-az sf compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
+sfctl compose create --application-id fabric:/TestContainerApp --compose-file docker-compose.yml [ [ --repo-user --repo-pass --encrypted ] | [ --repo-user ] ] [ --timeout ]
 ```
 
 Dopo aver creato l'applicazione, è possibile controllarne lo stato usando il comando seguente:
 
 ```azurecli
-az sf compose status --application-id TestContainerApp [ --timeout ]
+sfctl compose status --application-id TestContainerApp [ --timeout ]
 ```
 
 Per eliminare l'applicazione Compose, usare il comando seguente:
 
 ```azurecli
-az sf compose remove  --application-id TestContainerApp [ --timeout ]
+sfctl compose remove  --application-id TestContainerApp [ --timeout ]
 ```
 
 ## <a name="supported-compose-directives"></a>Direttive Compose supportate
@@ -116,10 +116,6 @@ Questo modello offre flessibilità, ma è previsto anche il supporto di un model
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere le informazioni sul [modello di applicazione di Service Fabric](service-fabric-application-model.md).
-
-## <a name="related-articles"></a>Articoli correlati
-
-* [Introduzione a Service Fabric e all'interfaccia della riga di comando di Azure 2.0](service-fabric-azure-cli-2-0.md)
-* [Introduzione all'interfaccia della riga di comando XPlat per Service Fabric](service-fabric-azure-cli.md)
+* Leggere le informazioni sul [modello di applicazione di Service Fabric](service-fabric-application-model.md)
+* [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 

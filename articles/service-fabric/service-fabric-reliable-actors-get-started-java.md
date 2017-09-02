@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 450c60abeaaf96c7d82152d425265a6b6714f689
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 288f1ed1016f50031065e66444d2562427194dc7
 ms.contentlocale: it-it
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introduzione a Reliable Actors
@@ -188,20 +187,16 @@ $ gradle
 
 Si otterrà un pacchetto dell'applicazione di Service Fabric che può essere distribuito tramite gli strumenti dell'interfaccia della riga di comando di Service Fabric.
 
-### <a name="deploy-with-xplat-cli"></a>Eseguire la distribuzione con l'interfaccia della riga di comando di XPlat
+### <a name="deploy-service-fabric-cli"></a>Distribuire l'interfaccia della riga di comando di Service Fabric
 
-Se si usa l'interfaccia della riga di comando di XPlat, lo script install.sh contiene i comandi dell'interfaccia della riga di comando di Azure necessari per distribuire il pacchetto dell'applicazione. Eseguire lo script install.sh per distribuire l'applicazione.
+Lo script install.sh contiene i comandi dell'interfaccia della riga di comando di Service Fabric (sfctl) necessari per distribuire il pacchetto dell'applicazione.
+Eseguire lo script install.sh per distribuire l'applicazione.
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>Eseguire la distribuzione con l'interfaccia della riga di comando di Azure 2.0
+## <a name="next-steps"></a>Passaggi successivi
 
-Se si usa l'interfaccia della riga di comando di Azure 2.0, vedere la documentazione di riferimento sulla gestione di un [ciclo di vita dell'applicazione tramite l'interfaccia della riga di comando di Azure 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## <a name="related-articles"></a>Articoli correlati
-
-* [Introduzione a Service Fabric e all'interfaccia della riga di comando di Azure 2.0](service-fabric-azure-cli-2-0.md)
-* [Introduzione all'interfaccia della riga di comando di XPlat per Service Fabric](service-fabric-azure-cli.md)
+* [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 

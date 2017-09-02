@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: SubramaR
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: ad20216374306d8b5035140f3d8e107c595b623e
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: dddc9f698d9776999d406117b46285a0f90d9620
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="service-fabric-on-linux"></a>Service Fabric in Linux
@@ -40,13 +40,14 @@ L'anteprima limitata supporta la creazione di cluster di sviluppo con un solo co
 
 
 ## <a name="supported-tooling"></a>Strumenti supportati
-L'anteprima supporta l'interazione con il cluster tramite l'interfaccia della riga di comando di Azure. Per gli sviluppatori Java viene offerta l'integrazione con Eclipse e Yeoman, con supporto di Eclipse in Linux e OSX. Per l'integrazione in OSX viene usata in background una VM Linux tramite Vagrant. Per gli sviluppatori C# viene offerta l'integrazione don Yeoman per la generazione di modelli di applicazione.
+L'anteprima supporta l'interazione con il cluster tramite l'interfaccia della riga di comando di Service Fabric. Per gli sviluppatori Java viene offerta l'integrazione con Eclipse e Yeoman, con supporto di Eclipse in Linux e OSX. Per l'integrazione in OSX viene usata in background una VM Linux tramite Vagrant. Per gli sviluppatori C# viene offerta l'integrazione don Yeoman per la generazione di modelli di applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-1. Acquisire familiarità con i framework di programmazione [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md).
-2. [Preparare l'ambiente di sviluppo in Linux](service-fabric-get-started-linux.md)
-3. [Preparare l'ambiente di sviluppo in OSX](service-fabric-get-started-mac.md)
-4. [Creare la prima applicazione Java di Service Fabric in Linux](service-fabric-create-your-first-linux-application-with-java.md)
-5. [Configurare l'integrazione e la distribuzione continue di Service Fabric con Jenkins e GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-6. [Differenze in Service Fabric tra Windows e Linux](service-fabric-linux-windows-differences.md)
+
+* Acquisire familiarità con i framework di programmazione [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md)
+* [Preparare l'ambiente di sviluppo in Linux](service-fabric-get-started-linux.md)
+* [Preparare l'ambiente di sviluppo in OSX](service-fabric-get-started-mac.md)
+* [Creare la prima applicazione Java di Service Fabric in Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Configurare l'integrazione e la distribuzione continue di Service Fabric con Jenkins e GitHub](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* [Differenze in Service Fabric tra Windows e Linux](service-fabric-linux-windows-differences.md)
 

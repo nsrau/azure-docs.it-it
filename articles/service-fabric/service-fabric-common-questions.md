@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2017
+ms.date: 08/18/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ce6debc0832da565d24a3ca82e2fa5bf7b797f8a
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -29,21 +29,28 @@ Esistono molte domande frequenti sulle caratteristiche e sulle modalità di uso 
 
 ## <a name="cluster-setup-and-management"></a>Configurazione e gestione del cluster
 
-### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions"></a>È possibile creare un cluster che si estenda a più aree di Azure?
+### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>È possibile creare un cluster che si estenda a più aree di Azure o ai miei data center?
 
-Non ancora, ma si tratta di una richiesta comune che continueremo ad analizzare.
+Sì. 
 
-Il nucleo della tecnologia di clustering di Service Fabric non dispone di informazioni sulle aree di Azure e può essere usata per unire macchine in esecuzione in tutto il mondo, purché dispongano di connettività di rete l'una con l'altra. Tuttavia, la risorsa cluster di Service Fabric in Azure è divisa in aree, così come i set di scalabilità di macchine virtuali su cui viene creato il cluster. Inoltre, offrire una replica di dati a coerenza elevata tra macchine lontane geograficamente l'una dall'altra è una sfida di non poco conto. Vogliamo garantire prestazioni pianificabili e accettabili prima di supportare cluster caratterizzati da più aree.
+La tecnologia di clustering principale di Service Fabric può essere usata per unire macchine in esecuzione in tutto il mondo, purché dispongano di connettività di rete l'una con l'altra. La compilazione e l'esecuzione di questo tipo di cluster possono essere tuttavia complicate.
+
+Se si è interessati a questo scenario, invitiamo a contattarci tramite [Service Fabric Github Issues List](https://github.com/azure/service-fabric-issues) o tramite il supporto tecnico per ottenere altro materiale sussidiario. Il team di Service Fabric sta lavorando per fornire ulteriori informazioni, materiale sussidiario e consigli per questo scenario. 
+
+Alcuni aspetti da considerare: 
+
+1. La risorsa cluster di Service Fabric in Azure è ora divisa in aree, così come i set di scalabilità di macchine virtuali su cui viene creato il cluster. Ciò significa che in caso di malfunzionamento di un'area si potrebbe perdere la possibilità di gestire il cluster tramite Azure Resource Manager o il Portale di Azure. Questa situazione può verificarsi anche se il cluster resta in esecuzione ed è possibile interagire direttamente con esso. Azure inoltre attualmente non offre la possibilità di disporre di una singola rete virtuale che può essere usata tra le aree. Ciò significa che un cluster con più aree in Azure richiede [indirizzi IP pubblici per ogni macchina virtuale nei set di scalabilità di macchine virtuali di Microsoft Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) o [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Queste opzioni di rete hanno effetti diversi sui costi, sulle prestazioni e su alcuni livelli di progettazione di applicazioni. È richiesta un'attenta analisi e una pianificazione prima di affrontare un ambiente di questo tipo.
+2. La manutenzione, gestione e monitoraggio di tali computer possono diventare complicati, soprattutto quando estesi su _tipi_ di ambienti, ad esempio tra provider di cloud diversi o tra risorse locali e Azure. È necessario determinare accuratamente gli aggiornamenti, il monitoraggio, la gestione e la diagnostica per il cluster e le applicazioni prima di eseguire i carichi di lavoro di produzione in tale ambiente. Se si ha già grande esperienza di risoluzione di questi problemi in Azure o nei propri Data center, è possibile che si possano applicare queste stesse soluzioni durante la compilazione o l'esecuzione del cluster di Service Fabric. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>I nodi di Service Fabric ricevono automaticamente aggiornamenti del sistema operativo?
 
-Non ancora, ma si tratta di una richiesta comune che abbiamo intenzione di implementare in futuro.
+Non ancora, ma si tratta di una richiesta comune che Azure intende implementare in futuro.
+
+Nel frattempo, abbiamo [fornito un'applicazione](service-fabric-patch-orchestration-application.md) attraverso la quale i sistemi operativi sottostanti ai nodi di Service Fabric ricevono patch e sono aggiornati.
 
 Il problema con gli aggiornamenti del sistema operativo è che solitamente richiedono un riavvio della macchina, causando così una perdita temporanea di disponibilità. Di per sé non sarebbe un problema, poiché Service Fabric reindirizzerà automaticamente verso altri nodi il traffico di tali servizi. Tuttavia, se gli aggiornamenti del sistema operativo non vengono coordinati all'interno del cluster, esiste il rischio di interruzione simultanea per parecchi nodi. Tali riavvii simultanei possono causare la perdita totale di disponibilità per un servizio o, perlomeno, per una partizione specifica (per un servizio con stato).
 
 In futuro Microsoft intende supportare un criterio di aggiornamento del sistema operativo completamente automatico e coordinato tra i vari domini di aggiornamento, per garantire la disponibilità nonostante i riavvii e altri guasti o errori imprevisti.
-
-Nel frattempo è stato [messo a disposizione uno script](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/) che un amministratore del cluster può usare per avviare manualmente l'applicazione sicura di patch di ogni nodo.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>È possibile usare set di scalabilità di macchine virtuali di grandi dimensioni nel cluster di Service Fabric? 
 
@@ -121,7 +128,7 @@ Tenendo presente che ciascun oggetto deve essere archiviato tre volte (una prima
 
 Si noti che questo calcolo presuppone inoltre:
 
-- Che la distribuzione dei dati nelle partizioni sia approssimativamente uniforme o che si indichino le metriche di caricamento a Resource Manager nel cluster. Per impostazione predefinita, Service Fabric bilancia il carico in base al numero di repliche. Nell'esempio precedente, vengono inserite 10 repliche primarie e 20 repliche secondarie su ciascun nodo nel cluster. Quanto descritto in precedenza è ideale per carichi distribuiti in modo uniforme tra le partizioni. Se i carichi non sono uniformi, è necessario segnalarli in modo che Resource Manager possa raggruppare più repliche di piccole dimensioni e consentire alle repliche di dimensioni maggiori di utilizzare più memoria su un singolo nodo.
+- Che la distribuzione dei dati nelle partizioni sia approssimativamente uniforme o che si indichino le metriche di caricamento a Cluster Resource Manager. Per impostazione predefinita, Service Fabric bilancia il carico in base al numero di repliche. Nell'esempio precedente, vengono inserite 10 repliche primarie e 20 repliche secondarie su ciascun nodo nel cluster. Quanto descritto in precedenza è ideale per carichi distribuiti in modo uniforme tra le partizioni. Se i carichi non sono uniformi, è necessario segnalarli in modo che Resource Manager possa raggruppare più repliche di piccole dimensioni e consentire alle repliche di dimensioni maggiori di utilizzare più memoria su un singolo nodo.
 
 - Che il servizio Reliable in questione sia l'unico ad archiviare stato nel cluster. Poiché è possibile distribuire più servizi in un cluster, è necessario tenere conto delle risorse di esecuzione e gestione dello stato richieste da ciascun servizio.
 
