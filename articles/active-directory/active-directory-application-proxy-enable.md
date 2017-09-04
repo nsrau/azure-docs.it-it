@@ -83,7 +83,7 @@ Per preparare l'ambiente per il proxy di applicazione di Azure AD, è necessario
 
    * Fornire le credenziali di amministratore globale di Azure AD. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
    * Verificare che l'amministratore che registra il connettore si trovi nella stessa directory in cui è stato abilitato il servizio proxy dell'applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias di tale dominio.
-   * Se l'opzione **Configurazione sicurezza avanzata IE** è**** attivata nel server in cui si sta installando il connettore, potrebbe non venire visualizzata la schermata di registrazione. Per ottenere l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
+   * Se l'opzione **Configurazione sicurezza avanzata IE** è **attivata** nel server in cui si sta installando il connettore, potrebbe non venire visualizzata la schermata di registrazione. Per ottenere l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
 
 Per ottenere una disponibilità elevata, è consigliabile distribuire almeno due connettori. Ogni connettore deve essere registrato separatamente.
 

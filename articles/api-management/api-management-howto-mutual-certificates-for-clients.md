@@ -1,9 +1,9 @@
 ---
-title: Proteggere le API usando l&quot;autenticazione con certificato client in Gestione API - Gestione API di Azure | Documentazione Microsoft
-description: Informazioni su come proteggere l&quot;accesso alle API usando i certificati client
+title: Proteggere le API usando l'autenticazione con certificato client in Gestione API - Gestione API di Azure | Documentazione Microsoft
+description: Informazioni su come proteggere l'accesso alle API usando i certificati client
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.service: api-management

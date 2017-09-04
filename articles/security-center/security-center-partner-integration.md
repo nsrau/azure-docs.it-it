@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4d0909e926de14a0cbe9799b969ac7a1946d69d1
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Integrazione dei partner nel Centro sicurezza di Azure
@@ -61,9 +61,9 @@ In base alla configurazione dell'ambiente Azure e ai criteri di sicurezza defini
 
 ## <a name="manage-partner-solutions"></a>Gestire le soluzioni partner
 
-Dopo la distribuzione, per visualizzare informazioni sull'integrità della soluzione ed eseguire attività di gestione di base selezionare il riquadro **Soluzioni partner** nel pannello **Centro sicurezza**. Per altre informazioni sulla gestione delle soluzioni partner nel Centro sicurezza, leggere [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md).
+Dopo la distribuzione, per visualizzare informazioni sull'integrità della soluzione ed eseguire attività di gestione di base selezionare l'opzione **Soluzioni partner** nel pannello **Centro sicurezza**. Per altre informazioni sulla gestione delle soluzioni partner nel Centro sicurezza, leggere [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md).
 
-![Integrazione dei partner](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![Integrazione dei partner](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > Il supporto per Symantec Endpoint Protection è limitato all'individuazione. Non sono disponibili avvisi sull'integrità.

@@ -18,10 +18,10 @@ ms.date: 03/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c35892421c3d3019204c9e763980e813930d19a8
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: e69d96e5f18b4334a63445b08979c457d241e818
 ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -349,7 +349,7 @@ Titolo: Risoluzione dei problemi e monitoraggio di SAP HANA in Azure (istanze di
 
 Riepilogo: Questa guida offre informazioni utili per definire il monitoraggio di SAP HANA in ambiente Azure e informazioni aggiuntive sulla risoluzione dei problemi. 
 
-Ultimo aggiornamento: dicembre 2016
+Ultimo aggiornamento: agosto 2017
 
 [Questo documento è disponibile qui](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

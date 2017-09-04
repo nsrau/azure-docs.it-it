@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Creare un&quot;app Web con .NET e l&quot;API MongoDB | Microsoft Docs'
-description: Presenta un esempio di codice .NET che permette di connettersi all&quot;API MongoDB di Azure Cosmos DB ed eseguire query su di essa
+title: 'Azure Cosmos DB: Creare un''app Web con .NET e l''API MongoDB | Microsoft Docs'
+description: Presenta un esempio di codice .NET che permette di connettersi all'API MongoDB di Azure Cosmos DB ed eseguire query su di essa
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -12,7 +12,7 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: Human Translation
@@ -20,7 +20,6 @@ ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: b95afa4dd3cd264ea911c7aa809c7862f9576da8
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app Web per le API MongoDB con .NET e il portale di Azure

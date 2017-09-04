@@ -1,9 +1,9 @@
 ---
 title: Criteri di memorizzazione nella cache in Gestione API di Azure | Microsoft Docs
-description: Informazioni sui criteri di memorizzazione nella cache disponibili per l&quot;uso in Gestione API di Azure.
+description: Informazioni sui criteri di memorizzazione nella cache disponibili per l'uso in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
+ms.contentlocale: it-it
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-namecachingpoliciesa-caching-policies"></a><a name="CachingPolicies"></a> Criteri di memorizzazione nella cache  
+##  <a name="CachingPolicies"></a> Criteri di memorizzazione nella cache  
   
 -   Criteri di memorizzazione nella cache della risposta  
   
@@ -38,7 +40,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
     -   [Rimuovi valore dalla cache](#RemoveCacheByKey) : rimuove un elemento dalla cache in base alla chiave.  
   
-##  <a name="a-namegetfromcachea-get-from-cache"></a><a name="GetFromCache"></a> Recupera dalla cache  
+##  <a name="GetFromCache"></a> Recupera dalla cache  
  Usare il criterio `cache-lookup` per eseguire una ricerca nella cache e restituire una risposta valida memorizzata nella cache, se disponibile. Questo criterio può essere applicato nei casi in cui il contenuto della risposta rimane statico in un periodo di tempo. La memorizzazione delle risposte nella cache riduce la larghezza di banda e i requisiti di elaborazione imposti sul server Web back-end e riduce la latenza percepita dagli utenti delle API.  
   
 > [!NOTE]
@@ -128,7 +130,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 -   **Ambiti del criterio:** API, operazione, prodotto  
   
-##  <a name="a-namestoretocachea-store-to-cache"></a><a name="StoreToCache"></a> Archivia nella cache  
+##  <a name="StoreToCache"></a> Archivia nella cache  
  Il criterio `cache-store` memorizza nella cache le risposte in base alle impostazioni specificate per la cache. Questo criterio può essere applicato nei casi in cui il contenuto della risposta rimane statico in un periodo di tempo. La memorizzazione delle risposte nella cache riduce la larghezza di banda e i requisiti di elaborazione imposti sul server Web back-end e riduce la latenza percepita dagli utenti delle API.  
   
 > [!NOTE]
@@ -201,7 +203,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 -   **Ambiti del criterio:** API, operazione, prodotto  
   
-##  <a name="a-namegetfromcachebykeya-get-value-from-cache"></a><a name="GetFromCacheByKey"></a> Recupera valore dalla cache  
+##  <a name="GetFromCacheByKey"></a> Recupera valore dalla cache  
  Usare il criterio `cache-lookup-value` per eseguire la ricerca nella cache in base alla chiave e restituiscono un valore memorizzato nella cache. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri.  
   
 > [!NOTE]
@@ -246,7 +248,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 -   **Ambiti del criterio:** global, API, operation, product  
   
-##  <a name="a-namestoretocachebykeya-store-value-in-cache"></a><a name="StoreToCacheByKey"></a> Archivia valore nella cache  
+##  <a name="StoreToCacheByKey"></a> Archivia valore nella cache  
  `cache-store-value` esegue l'archiviazione nella cache in base alla chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri.  
   
 > [!NOTE]
@@ -289,7 +291,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 -   **Ambiti del criterio:** global, API, operation, product  
   
-###  <a name="a-nameremovecachebykeya-remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Rimuovi valore dalla cache  
+###  <a name="RemoveCacheByKey"></a> Rimuovi valore dalla cache  
  `cache-remove-value` elimina un elemento memorizzato nella cache identificato in base alla chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri.  
   
 #### <a name="policy-statement"></a>Istruzione del criterio  
@@ -330,8 +332,3 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

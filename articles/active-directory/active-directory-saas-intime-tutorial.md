@@ -205,7 +205,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro InTime nel pannello di accesso, dovrebbe essere visualizzata la pagina di accesso dell'applicazione InTime. Fare clic sul pulsante di**** accesso per visualizzare una serie di IdP in un elenco di pulsanti. Fare clic sul **nome IDP** fornito dal [team di supporto di InTime](mailto:hdollard@intimesoft.com) per accedere all'applicazione InTime. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
+Quando si fa clic sul riquadro InTime nel pannello di accesso, dovrebbe essere visualizzata la pagina di accesso dell'applicazione InTime. Fare clic sul pulsante di **accesso** per visualizzare una serie di IdP in un elenco di pulsanti. Fare clic sul **nome IDP** fornito dal [team di supporto di InTime](mailto:hdollard@intimesoft.com) per accedere all'applicazione InTime. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

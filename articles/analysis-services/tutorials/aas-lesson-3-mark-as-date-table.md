@@ -1,9 +1,9 @@
 ---
 title: 'Esercitazione su Azure Analysis Services - Lezione 3: Contrassegnare come tabella data | Microsoft Docs'
-description: Descrive come contrassegnare una tabella data nel progetto per l&quot;esercitazione su Azure Analysis Services.
+description: Descrive come contrassegnare una tabella data nel progetto per l'esercitazione su Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

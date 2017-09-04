@@ -2,7 +2,7 @@
 title: Documentazione di Azure Site Recovery - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: "Informazioni su come configurare il ripristino di emergenza cloud e la continuità aziendale per server fisici e macchine virtuali tramite la distribuzione e la gestione della replica."
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

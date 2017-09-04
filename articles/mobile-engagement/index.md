@@ -1,8 +1,8 @@
 ---
 title: Documentazione di Azure Mobile Engagement - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come ottenere informazioni approfondite sull&quot;uso delle app per dispositivi mobili e sulla segmentazione degli utenti in tempo reale, oltre che su come abilitare le notifiche push contestualizzate e la messaggistica in-app.
+description: Informazioni su come ottenere informazioni approfondite sull'uso delle app per dispositivi mobili e sulla segmentazione degli utenti in tempo reale, oltre che su come abilitare le notifiche push contestualizzate e la messaggistica in-app.
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3de3024e93aee7ace0e243eef0beb4008dc50db5
 ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
+ms.contentlocale: it-it
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -207,10 +209,5 @@ Informazioni su come incrementare l'uso, la conservazione e la monetizzazione de
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

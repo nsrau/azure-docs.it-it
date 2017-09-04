@@ -4,7 +4,7 @@ description: "Questo documento contiene procedure dettagliate che illustrano com
 services: media-services
 documentationcenter: 
 author: xstof
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 5cb610b4b2387af48ef29acdcc5e40e154f515a7
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 565497bd5a35e3c4d69d29512307cf3ca2364bdd
 ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Esercitazioni avanzate del flusso di lavoro Premium del codificatore multimediale

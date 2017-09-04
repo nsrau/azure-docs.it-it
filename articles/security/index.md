@@ -2,7 +2,7 @@
 title: Documentazione della sicurezza di Azure - Esercitazioni | Documentazione Microsoft
 description: Informazioni su come personalizzare le opzioni di sicurezza nei servizi Azure per soddisfare i requisiti delle distribuzioni di servizi e dati nel cloud.
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

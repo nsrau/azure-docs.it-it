@@ -3,8 +3,8 @@ title: "Cosa è successo a un progetto di servizi di cloud? | Microsoft Docs"
 description: 'Viene descritto cosa succede in un progetto di servizi di cloud dopo la connessione a un account di archiviazione di Azure utilizzando i servizi connessi a Visual Studio '
 services: storage
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
 ms.service: storage
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a4fce79c9b4ec245bc4353e08daf309ea97bdb4a
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4c9de56f6daf07097c0f593db37d14dce3bce05f
+ms.contentlocale: it-it
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>Cosa è successo a un progetto di servizi di cloud (servizio connesso a Visual Studio Archiviazione di Azure)?
@@ -40,10 +41,5 @@ Sono stati creati elementi con la stringa di connessione e la chiave dell'accoun
 * **ServiceDefinition.csdef**
 * **ServiceConfiguration.Cloud.cscfg**
 * **ServiceConfiguration.Local.cscfg**
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

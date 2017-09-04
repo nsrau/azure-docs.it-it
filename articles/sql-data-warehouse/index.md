@@ -1,8 +1,8 @@
 ---
 title: Documentazione di Azure SQL Data Warehouse - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come usare SQL Data Warehouse, l&quot;unione di SQL Server con l&quot;elaborazione parallela massiva. La documentazione illustra come caricare, analizzare, gestire ed esportare dati.
+description: Informazioni su come usare SQL Data Warehouse, l'unione di SQL Server con l'elaborazione parallela massiva. La documentazione illustra come caricare, analizzare, gestire ed esportare dati.
 services: sql-data-warehouse
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
 ms.openlocfilehash: b9f5bc85d6fca466be7abbe67b400856e1635459
+ms.contentlocale: it-it
 ms.lasthandoff: 04/08/2017
 
 ---

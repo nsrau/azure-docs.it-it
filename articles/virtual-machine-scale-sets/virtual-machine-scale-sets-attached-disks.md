@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Set di scalabilità di macchine virtuali di Azure e dischi di dati collegati
@@ -99,10 +99,21 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
     }          
 ]
 ```
+
 Selezionare quindi _PUT_ per applicare le modifiche al set di scalabilità. Questo esempio funziona se si usano macchine virtuali con dimensioni che supportano più di due dischi di dati collegati.
 
 > [!NOTE]
 > Quando si apporta una modifica a una definizione di set di scalabilità, ad esempio l'aggiunta o la rimozione di un disco di dati, la modifica si applica a tutte le nuove macchine virtuali, mentre si applica a quelle esistenti solo se la proprietà _upgradePolicy_ è impostata su "Automatic". Se è impostata su "Manual", è necessario applicare manualmente il nuovo modello alle macchine virtuali esistenti. È possibile eseguire questa operazione nel portale, usando il comando _AzureRmVmssInstance_ di PowerShell o il comando _az vmss update-instances_ dell'interfaccia della riga di comando.
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Aggiunta di dischi dati pre-popolati a un set di scalabilità esistente 
+> Quando si aggiungono dischi a un modello di set di scalabilità esistente, da progettazione il disco viene sempre creato vuoto. Questo scenario include anche nuove istanze create dal set di scalabilità. Questo comportamento è dovuto alla presenza di un disco dati vuoto nella definizione del set di scalabilità. Per creare unità dati pre-popolate per un modello di set di scalabilità esistente, è possibile scegliere tra le due opzioni seguenti:
+
+* Copiare i dati dalla macchina virtuale dell'istanza 0 ai dischi dati delle altre macchine virtuali eseguendo uno script personalizzato.
+* Creare un'immagine gestita con il disco del sistema operativo e un disco dati, con i dati necessari, e creare un nuovo set di scalabilità con l'immagine. In questo modo ogni nuova macchina virtuale creata avrà un disco dati incluso nella definizione del set di scalabilità. Dato che la definizione farà riferimento a un'immagine con un disco dati che contiene dati personalizzati, ogni macchina virtuale nel set di scalabilità includerà automaticamente tali modifiche.
+
+> Per informazioni su come creare un'immagine personalizzata, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](/azure/virtual-machines/windows/capture-image-resource/). 
+
+> L'utente deve acquisire la macchina virtuale dell'istanza 0 che contiene i dati necessari e usare tale disco rigido virtuale per la definizione dell'immagine.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Rimuovere un disco dati da un set di scalabilità
 È possibile rimuovere un disco dati da un set di scalabilità di macchine virtuali usando il comando _az vmss disk detach_ dell'interfaccia della riga di comando di Azure. Ad esempio il comando seguente rimuove il disco definito in lun 2:

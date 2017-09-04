@@ -3,7 +3,7 @@ title: Domande frequenti su Gestione API di Azure | Microsoft Docs
 description: Risposte alle domande comuni, modelli e procedure consigliate in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23

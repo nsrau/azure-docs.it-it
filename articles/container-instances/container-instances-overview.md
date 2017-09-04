@@ -27,7 +27,7 @@ ms.lasthandoff: 07/26/2017
 
 # <a name="azure-container-instances"></a>Istanze di contenitore di Azure
 
-I contenitori si stanno rapidamente affermando come soluzione preferita per creare pacchetti, distribuire e gestire le applicazioni cloud. Istanze di contenitore di Azure rappresenta il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore. 
+I contenitori si stanno rapidamente affermando come soluzione preferita per creare pacchetti, distribuire e gestire le applicazioni cloud. Istanze di contenitore di Azure rappresenta il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore.
 
 Istanze di contenitore di Azure è un'ottima soluzione per qualsiasi scenario e funziona anche in contenitori isolati, inclusi i processi di compilazione, l'automazione di attività e le applicazioni semplici. Per gli scenari in cui si rende necessaria l'orchestrazione completa dei contenitori, quali il rilevamento dei servizi tra più contenitori, la scalabilità automatica e gli aggiornamenti coordinati delle applicazioni, è consigliabile usare il [Servizio contenitore di Azure](https://docs.microsoft.com/azure/container-service/).
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 359653f29adc538a4fe2f2143e8132bdd9a9d15b
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 72514dabf3af0b282d1bb49c542c13f7095e03d8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scenari di distribuzione e casi d'uso
@@ -38,7 +38,7 @@ Man mano che i server e altri elementi dell'infrastruttura raggiungono la fine d
 Considerare i seguenti punti importanti per questo scenario di distribuzione:
 
 * Per impostazione predefinita, i domini gestiti forniti da Servizi di dominio Azure AD offrono una singola struttura di unità organizzativa di tipo semplice. Tutte le macchine aggiunte al dominio si trovano in una singola unità organizzativa di tipo semplice. È tuttavia possibile scegliere di creare unità organizzative personalizzate.
-* Servizi di dominio Azure AD supporta Criteri di gruppo semplici nel formato di un oggetto Criteri di gruppo predefinito per i contenitori di utenti e computer. Non è possibile applicare Criteri di gruppo per unità organizzativa o reparto, ma è necessario applicare un filtro Strumentazione gestione Windows (WMI) o creare oggetti Criteri di gruppo personalizzati.
+* Servizi di dominio Azure AD supporta Criteri di gruppo semplici nel formato di un oggetto Criteri di gruppo predefinito per i contenitori di utenti e computer. È possibile creare oggetti Criteri di gruppo personalizzati e assegnarli a unità organizzative personalizzate.
 * Servizi di dominio Azure AD supporta lo schema dell'oggetto computer di Active Directory di base. Non è possibile estendere lo schema dell'oggetto computer.
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Spostamento di un'applicazione locale che usa l'autenticazione di binding LDAP nei servizi di infrastruttura di Azure
@@ -77,10 +77,8 @@ Considerare i seguenti punti importanti per questo scenario di distribuzione:
 * Assicurarsi che l'applicazione usi nome utente e password per l'autenticazione. L'autenticazione basata su certificati/smart card non è supportata da Servizi di dominio Azure AD.
 * Non è possibile modificare direttamente le password nel dominio gestito. Gli utenti finali possono modificare le password tramite il meccanismo di reimpostazione della password self-service o nella directory locale. Queste modifiche vengono automaticamente sincronizzate e rese disponibili nel dominio gestito.
 
-## <a name="azure-remoteapp"></a>Azure RemoteApp
-Azure RemoteApp consente all'amministratore di Contoso di creare una raccolta aggiunta al dominio. Questa funzione consente alle applicazioni remote gestite da Azure RemoteApp potranno quindi essere eseguite in computer aggiunti al dominio e potranno accedere altre risorse tramite l'autenticazione integrata di Windows. Contoso può usare Servizi di dominio Azure Active Directory per fornire un dominio gestito usato dalle raccolte aggiunte al dominio di Azure RemoteApp.
+## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Distribuzioni dei servizi desktop remoto di Windows Server in Azure
+È possibile utilizzare Azure Active Directory Domain Services per fornire servizi di dominio AD gestiti ai server di desktop remoti distribuiti in Azure.
 
-![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
-
-Per altre informazioni su questo scenario di distribuzione, vedere il post del blog su Servizi Desktop remoto che illustra come [sollevare e spostare i carichi di lavoro con Azure RemoteApp e Servizi di dominio Azure Active Directory](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
+Per ulteriori informazioni su questo scenario di distribuzione, vedere come [integrare Azure AD Domain Services con la distribuzione di Servizi Desktop remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds).
 

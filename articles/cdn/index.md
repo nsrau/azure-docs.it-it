@@ -2,7 +2,7 @@
 title: Documentazione della rete CDN di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare la rete per la distribuzione di contenuti (CDN) per fornire contenuti da data center globali a qualsivoglia dispositivo. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

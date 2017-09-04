@@ -2,7 +2,7 @@
 title: Documentazione di Azure Batch - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare Azure Batch per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala. Esercitazioni, informazioni di riferimento sulle API e altri documenti.
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

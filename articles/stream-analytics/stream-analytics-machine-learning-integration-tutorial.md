@@ -4,7 +4,7 @@ description: Come usare una funzione definita dall'utente e Machine Learning in 
 keywords: 
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6d374a622a43396a0b26d7e3f21050fe35244442
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -225,7 +225,7 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
     SELECT text, sentiment(text) as result from datainput  
     )  
 
-    Select text, result.[Scored Labels]  
+    Select text, result.[Score]  
     Into datamloutput
     From sentiment  
     ```    
@@ -269,8 +269,7 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
 
 * **Richieste della funzione** indica il numero di richieste inviate al servizio Web di Machine Learning.  
 * **Eventi della funzione** indica il numero di eventi nella richiesta. Per impostazione predefinita, ogni richiesta a un servizio Web di Machine Learning contiene fino a 1.000 eventi.  
-  
-    ![Analisi di flusso e Machine Learning, visualizzazione di monitoraggio di Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/job-monitor.png)  
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

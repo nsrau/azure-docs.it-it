@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: ac11c6c8532007ee40db128dd9933c99a32a9420
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: c8f731502d6589bfa908aa26cf418a65b18be635
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
 ## <a name="overview"></a>Panoramica
-È possibile usare il servizio Gestione dispositivi di StorSimple per monitorare dispositivi specifici all'interno della soluzione StorSimple. È possibile creare grafici personalizzati basati su prestazioni I/O, uso della capacità, velocità effettiva della rete e metriche delle prestazioni del dispositivo, per poi aggiungerli al dashboard. Per altre informazioni, vedere [customize your portal dashboard](/articles/azure-portal/azure-portal-dashboards.md) (personalizzare il dashboard del portale).
+È possibile usare il servizio Gestione dispositivi di StorSimple per monitorare dispositivi specifici all'interno della soluzione StorSimple. È possibile creare grafici personalizzati basati su prestazioni I/O, uso della capacità, velocità effettiva della rete e metriche delle prestazioni del dispositivo, per poi aggiungerli al dashboard. Per altre informazioni, vedere [customize your portal dashboard](../azure-portal/azure-portal-dashboards.md) (personalizzare il dashboard del portale).
 
 Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, nel portale di Azure selezionare il servizio Gestione dispositivi di StorSimple. Selezionare il dispositivo dall'elenco dei dispositivi e passare a **Monitoraggio**. Sarà quindi possibile visualizzare i grafici **Capacità**, **Utilizzo** e **Prestazioni** per il dispositivo selezionato.
 

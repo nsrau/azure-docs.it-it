@@ -218,10 +218,12 @@
               href: gremlin-support.md
         - name: API di tabella
           items:
-            - name: Archiviazione tabelle
-              href: /rest/api/storageservices/Table-Service-Concepts
+            - name: Panoramica dell'archivio tabelle
+              href: table-storage-overview.md
             - name: Guida alla progettazione dell'archivio tabelle
               href: table-storage-design-guide.md
+            - name: API REST dell'archivio tabelle
+              href: /rest/api/storageservices/Table-Service-Concepts
             - name: Esercitazioni
               items:
                 - name: .NET

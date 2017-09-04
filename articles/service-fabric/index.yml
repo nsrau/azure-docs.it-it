@@ -2,15 +2,10 @@
 documentType: LandingData
 title: Documentazione di Azure Service Fabric
 metadata:
-  title: >-
-    Documentazione di Azure Service Fabric - Esercitazioni e informazioni di
-    riferimento sulle API | Documentazione Microsoft
-  meta.description: >-
-    Learn how to use Service Fabric middleware platform to package and deploy
-    microservices for cloud-scale applications. Tutorials, API references, and
-    code samples.
+  title: Documentazione di Azure Service Fabric - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
+  meta.description: 'Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.'
   services: service-fabric
-  author: carolz
+  author: null
   manager: carolz
   layout: LandingPage
   ms.assetid: null
@@ -21,47 +16,28 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: >-
-    Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica
-    la disposizione in pacchetti, la distribuzione e la gestione di microservizi
-    e contenitori scalabili e affidabili. Gli sviluppatori e gli amministratori
-    non devono più occuparsi di risolvere complessi problemi di infrastruttura e
-    possono concentrarsi sull'implementazione di carichi di lavoro cruciali e
-    impegnativi, con la certezza di assicurare scalabilità, affidabilità e
-    gestibilità. Informazioni su come usare Azure Service Fabric con le guide
-    rapide, le esercitazioni e gli esempi.
+  description: 'Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la disposizione in pacchetti, la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. Gli sviluppatori e gli amministratori non devono più occuparsi di risolvere complessi problemi di infrastruttura e possono concentrarsi sull''implementazione di carichi di lavoro cruciali e impegnativi, con la certezza di assicurare scalabilità, affidabilità e gestibilità. Informazioni su come usare Azure Service Fabric con le guide rapide, le esercitazioni e gli esempi.'
 sections:
   - title: Guide introduttive di 5 minuti
     items:
       - type: paragraph
-        text: >-
-          Informazioni su come distribuire la prima applicazione Service Fabric
-          sul cloud:
+        text: 'Informazioni su come distribuire la prima applicazione Service Fabric sul cloud:'
       - type: list
         style: icon48
         items:
           - image:
-              src: >-
-                https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg
+              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg'
             text: .NET
-            href: >-
-              https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-dotnet
+            href: 'https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-dotnet'
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
-        text: >-
-          Informazioni su come distribuire, gestire e monitorare applicazioni
-          Web sicure in Azure
+        text: 'Informazioni su come distribuire, gestire e monitorare applicazioni Web sicure in Azure'
       - type: list
         style: ordered
         items:
-          - html: >-
-              <a href="service-fabric-tutorial-create-dotnet-app">Distribuire
-              un'applicazione .NET</a>
-          - html: >-
-              <a
-              href="service-fabric-tutorial-create-cluster-azure-ps">Trasferire
-              in modalità lift-and-shift un'applicazione .NET esistente</a>
+          - html: <a href="service-fabric-tutorial-create-dotnet-app">Distribuire un'applicazione .NET</a>
+          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Trasferire in modalità lift-and-shift un'applicazione .NET esistente</a>
   - title: Video di formazione gratuiti su PluralSight
     items:
       - type: list
@@ -69,21 +45,15 @@ sections:
         className: cardsFTitle
         items:
           - title: Sviluppo con .NET
-            href: >-
-              https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
             image:
-              src: >-
-                https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
-              href: >-
-                https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+              src: 'https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg'
+              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
           - title: Modelli e architettura cloud
-            href: >-
-              https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+            href: 'https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7'
             image:
-              src: >-
-                https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg
-              href: >-
-                https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7
+              src: 'https://docs.microsoft.com/en-us/media/logos/logo_pluralsight.svg'
+              href: 'https://www.pluralsight.com/courses/microsoft-azure-dotnet-cloud-architecture?twoid=FEED65A23CB221A7'
   - title: Esempi
     items:
       - type: list
@@ -91,24 +61,11 @@ sections:
         className: cardsD
         items:
           - title: Esempi di script
-            html: >-
-              <p><a href="service-fabric-powershell-samples">Azure
-              PowerShell</a></p>
+            html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p>
           - title: .NET
-            html: >-
-              <p><a
-              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-getting-started/">Attività
-              iniziali</a></p><p><a
-              href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Valutazione</a></p><p><a
-              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-web-reference-app/">Riferimenti
-              Web</a></p><p><a
-              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a
-              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-watchdog-service/">Watchdog</a></p>
+            html: '<p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-getting-started/">Attività iniziali</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Valutazione</a></p><p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-web-reference-app/">Riferimenti Web</a></p><p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-watchdog-service/">Watchdog</a></p>'
           - title: Java
-            html: >-
-              <p><a
-              href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-java-getting-started/">Attività
-              iniziali</a></p>
+            html: '<p><a href="https://azure.microsoft.com/en-us/resources/samples/service-fabric-java-getting-started/">Attività iniziali</a></p>'
   - title: Riferimento
     items:
       - type: list
@@ -116,18 +73,8 @@ sections:
         className: cardsD
         items:
           - title: Riga di comando
-            html: >-
-              <p><a href="/cli/azure/sf">Interfaccia della riga di comando di
-              Azure</a></p><p><a
-              href="/powershell/module/azurerm.servicefabric">Azure
-              PowerShell</a></p><p><a
-              href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+            html: <p><a href="/cli/azure/sf">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
           - title: Lingue
-            html: >-
-              <p><a href="/java/api/overview/azure/servicefabric">API
-              Java</a></p><p><a
-              href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
+            html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
           - title: REST
-            html: >-
-              <p><a href="/rest/api/servicefabric">Informazioni di riferimento
-              sulle API REST</a></p>
+            html: <p><a href="/rest/api/servicefabric">Informazioni di riferimento sulle API REST</a></p>

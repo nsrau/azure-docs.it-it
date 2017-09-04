@@ -1,4 +1,4 @@
----
+﻿---
 title: Sicurezza database - Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come Azure Cosmos DB garantisca la protezione del database e la sicurezza dei dati.
 keywords: sicurezza del database NoSQL, sicurezza delle informazioni, sicurezza dei dati, crittografia del database, protezione del database, criteri di sicurezza, test di sicurezza
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/18/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 80b58ac0a5a34a9ff573d161ca26dbfd2dba25c7
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 50bd4eb02be8f03baf186255429bec51c036aa43
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -29,7 +29,7 @@ Questo articolo illustra le procedure consigliate per la sicurezza del database 
  
 ## <a name="whats-new-in-azure-cosmos-db-security"></a>Novità della sicurezza di Azure Cosmos DB
 
-La crittografia di dati inattivi è ora disponibile per i documenti archiviati in Azure Cosmos DB in tutte le aree di Azure, ad eccezione di enti pubblici, Azure in Cina e Azure in Germania. Le altre aree verranno abilitate la settimana prossima, insieme con la crittografia di dati inattivi nei backup. La crittografia di dati inattivi viene applicata automaticamente sai per i clienti nuovi che per quelli esistenti in queste aree. Non è necessario eseguire alcuna configurazione e latenza, velocità effettiva, disponibilità e funzionalità sono eccezionali come prima, con il vantaggio che i dati sono sicuri e protetti con la crittografia di dati inattivi.
+La crittografia dei dati inattivi è ora disponibile per i documenti e i backup archiviati nel database Azure Cosmos in tutte le aree di Azure. La crittografia di dati inattivi viene applicata automaticamente sai per i clienti nuovi che per quelli esistenti in queste aree. Non è necessario eseguire alcuna configurazione e latenza, velocità effettiva, disponibilità e funzionalità sono eccezionali come prima, con il vantaggio che i dati sono sicuri e protetti con la crittografia di dati inattivi.
 
 ## <a name="how-do-i-secure-my-database"></a>Come proteggere il database 
 

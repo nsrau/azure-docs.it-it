@@ -463,7 +463,7 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
 
 ## <a name="faq"></a>Domande frequenti sulle connessioni da rete virtuale a rete virtuale
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

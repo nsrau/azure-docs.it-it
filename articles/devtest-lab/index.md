@@ -2,7 +2,7 @@
 title: Documentazione di Azure DevTest Labs - Esercitazioni | Documentazione Microsoft
 description: Informazioni su come creare rapidamente ambienti di test delle applicazioni usando elementi riutilizzabili. Esercitazioni, video e altro mostrano come creare, gestire e proteggere i laboratori.
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 3c54e0f89529fb159c3940f5792c4c0e095ee3fb
+ms.contentlocale: it-it
 ms.lasthandoff: 05/03/2017
 
 ---

@@ -1,9 +1,9 @@
 ---
 title: Criteri di autenticazione di Gestione API di Azure | Documentazione Microsoft
-description: Informazioni sui criteri di autenticazione disponibili per l&quot;uso in Gestione API di Azure.
+description: Informazioni sui criteri di autenticazione disponibili per l'uso in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
@@ -14,21 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: f447e43799e56114d52b0dc0f5c36265f2870c8e
+ms.contentlocale: it-it
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="a-nameauthenticationpoliciesa-authentication-policies"></a><a name="AuthenticationPolicies"></a> Criteri di autenticazione  
+##  <a name="AuthenticationPolicies"></a> Criteri di autenticazione  
   
 -   [Autenticazione con base](api-management-authentication-policies.md#Basic): consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.  
   
 -   [Autenticazione con certificato](api-management-authentication-policies.md#ClientCertificate): consente di eseguire l'autenticazione con un servizio back-end tramite certificati client.  
   
-##  <a name="a-namebasica-authenticate-with-basic"></a><a name="Basic"></a> Autenticazione con base  
+##  <a name="Basic"></a> Autenticazione con base  
  Usare il criterio `authentication-basic` per eseguire l'autenticazione con un servizio di back-end tramite l'autenticazione di base. Questo criterio imposta l'intestazione di autorizzazione HTTP sul valore corrispondente alle credenziali specificate nei criteri.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -63,7 +65,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 -   **Ambiti del criterio:** API  
   
-##  <a name="a-nameclientcertificatea-authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticazione con certificato client  
+##  <a name="ClientCertificate"></a> Autenticazione con certificato client  
  Usare il criterio `authentication-certificate` per eseguire l'autenticazione con un servizio di back-end tramite il certificato client. Il certificato deve essere prima [installato in Gestione API](http://go.microsoft.com/fwlink/?LinkID=511599) e viene identificato tramite la relativa identificazione personale.  
   
 ### <a name="policy-statement"></a>Istruzione del criterio  
@@ -100,8 +102,3 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

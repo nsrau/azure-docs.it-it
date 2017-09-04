@@ -2,7 +2,7 @@
 title: Documentazione del servizio app di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare il servizio app per creare app web e per dispositivi mobili, per tutte le piattaforme e tutti i dispositivi, con esercitazioni, video, informazioni di riferimento sulle API e altri documenti.
 services: app-service
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
 ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
+ms.contentlocale: it-it
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="app-service-documentation"></a>Documentazione del servizio app
@@ -132,10 +134,5 @@ Informazioni su come usare il servizio app per sviluppare e ospitare app web e p
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Ottenere i dettagli di un&quot;istanza di Cache Redis di Azure | Documentazione Microsoft
-description: Esempio di script dell&quot;interfaccia della riga di comando di Azure - Ottenere i dettagli di un&quot;istanza di Cache Redis di Azure
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Ottenere i dettagli di un'istanza di Cache Redis di Azure | Documentazione Microsoft
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Ottenere i dettagli di un'istanza di Cache Redis di Azure
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -13,11 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/14/2017
+ms.date: 08/30/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
 ms.openlocfilehash: 9f4eb32227bd8a68837eabd58b9d058bc4995d17
+ms.contentlocale: it-it
 ms.lasthandoff: 04/15/2017
 
 ---

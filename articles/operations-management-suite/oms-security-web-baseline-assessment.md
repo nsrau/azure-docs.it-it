@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8be49b182df675fe3235d148b87379e1dff3a384
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Valutazione baseline Web nella soluzione Sicurezza e controllo di Operations Management Suite
@@ -29,6 +29,9 @@ Questo documento illustra come usare le funzionalità della valutazione baseline
 OMS Security offre attualmente la possibilità di eseguire una valutazione baseline della sicurezza dei sistemi operativi. Analizza le impostazioni del sistema operativo dei server ogni 24 ore e permette di visualizzare le impostazioni potenzialmente vulnerabili. Per altre informazioni sull'argomento, vedere [Valutazione baseline nella soluzione Sicurezza e controllo di Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline).
 
 L'obiettivo della valutazione baseline Web è trovare le impostazioni del server Web potenzialmente vulnerabili. Le tre origini principali per le configurazioni baseline Web sono le configurazioni di .NET, ASP.NET e IIS.  Come avviene per la valutazione baseline del sistema operativo, OMS Security analizza i server Web ogni 24 ore e permette di visualizzarne lo stato di sicurezza.  In Internet Information Services (IIS) le configurazioni sono personalizzabili e questo consente di eseguire l'override di diversi livelli di applicazioni e siti. L'analisi controlla le impostazioni per ogni livello di applicazione e sito, oltre che per il livello radice predefinito. Questo permette di identificare non solo le impostazioni potenzialmente vulnerabili e di apportare rapidamente le correzioni necessarie, ma anche le raccomandazioni per tali impostazioni.
+
+>[!NOTE] 
+>È possibile scaricare gli identificatori di configurazioni comuni e le regole di base usate da Sicurezza di OMS in questa [pagina](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0).
 
 
 ## <a name="web-security-baseline-assessment"></a>Valutazione baseline della sicurezza Web

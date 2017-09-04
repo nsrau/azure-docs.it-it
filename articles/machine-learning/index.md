@@ -1,8 +1,8 @@
 ---
 title: Documentazione di Azure Machine Learning - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Documentazioni, video e modelli di esempio per Machine Learning, un servizio cloud per data scientist e sviluppatori che usano l&quot;analisi predittiva nelle applicazioni.
+description: Documentazioni, video e modelli di esempio per Machine Learning, un servizio cloud per data scientist e sviluppatori che usano l'analisi predittiva nelle applicazioni.
 services: machine-learning
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f33e230cc32b9da3129a0be720a7be0bb463e096
 ms.openlocfilehash: 241cf0904f1c410575017f586c65f41ee3efc753
+ms.contentlocale: it-it
+ms.lasthandoff: 02/17/2017
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Documentazione di Azure Machine Learning
@@ -140,10 +142,5 @@ Informazioni su come data scientist e sviluppatori usano Machine Learning per in
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

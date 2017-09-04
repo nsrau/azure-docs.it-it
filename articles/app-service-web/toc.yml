@@ -117,8 +117,6 @@
               href: app-service-linux-intro.md
             - name: Gestire tramite l'interfaccia della riga di comando
               href: app-service-linux-cli.md
-            - name: Creare un'app Web in Linux
-              href: app-service-linux-how-to-create-web-app.md
             - name: App Web Ruby in Linux
               href: app-service-linux-ruby-get-started.md
             - name: App Web Node.js in Linux

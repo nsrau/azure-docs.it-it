@@ -2,8 +2,8 @@
 title: Documentazione di Azure Data Lake Analytics - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come eseguire analisi di Big Data con Data Lake Analytics. Le esercitazioni illustrano come eseguire analisi batch, in tempo reale e interattive e come scrivere query U-SQL.
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

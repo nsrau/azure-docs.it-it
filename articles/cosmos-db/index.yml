@@ -6,7 +6,7 @@ metadata:
   title: 'Documentazione di Azure Cosmos DB: esercitazioni e informazioni di riferimento sulle API'
   description: 'Informazioni su come usare Azure Cosmos DB per compilare database a più modelli distribuiti a livello globale. Le esercitazioni mostrano come compilare ed eseguire query su documenti, coppie chiave/valore e database a grafi.'
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

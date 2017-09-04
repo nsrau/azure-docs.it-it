@@ -3,7 +3,7 @@ title: 'Accesso tramite telefono e Microsoft Authenticator: account di Azure e M
 description: "Uso del telefono per accedere all'account Microsoft anziché digitare la password. Questo articolo risponde alle domande frequenti su questa funzionalità."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,44 +12,44 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 002b850221c25111c33c145cb45973488bbbb4e1
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 9fb25f9f26a220c90f82add02fa5bdb954a926c3
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Accedere con il telefono, non con la password
 
-L'app Microsoft Authenticator consente di proteggere gli account eseguendo la verifica in due passaggi dopo aver inserito la password. Ma non tutti sanno che può sostituire completamente la password dell'account personale di Microsoft. 
+L'app Microsoft Authenticator consente di proteggere gli account eseguendo la verifica in due passaggi dopo aver inserito la password. Ma non tutti sanno che può sostituire completamente la password dell'account personale di Microsoft.
 
-Questa funzionalità è disponibile su dispositivi iOS e Android e funziona con gli account personali di Microsoft. 
+Questa funzionalità è disponibile su dispositivi iOS e Android e funziona con gli account personali di Microsoft.
 
 ## <a name="how-it-works"></a>Funzionamento
 
-Molti utenti usano l'app Microsoft Authenticator per eseguire la verifica in due passaggi quando si accede all'account personale di Microsoft. Digitare la password, quindi passare all'applicazione per approvare una notifica oppure ottenere un codice di verifica. Con l'accesso tramite telefono è possibile ignorare la password ed eseguire le operazioni di verifica dell'identità sul telefono. Trattandosi di un tipo di verifica in due passaggi, per verificare l'identità è comunque necessario specificare una cosa che si conosce e una cosa di cui si è in possesso. Il telefono è la cosa si possiede, mentre il PIN del telefono o la chiave biometrica è la cosa che si conosce. 
+Molti utenti usano l'app Microsoft Authenticator per eseguire la verifica in due passaggi quando si accede all'account personale di Microsoft. Digitare la password, quindi passare all'applicazione per approvare una notifica oppure ottenere un codice di verifica. Con l'accesso tramite telefono è possibile ignorare la password ed eseguire le operazioni di verifica dell'identità sul telefono. Trattandosi di un tipo di verifica in due passaggi, per verificare l'identità è comunque necessario specificare una cosa che si conosce e una cosa di cui si è in possesso. Il telefono è la cosa si possiede, mentre il PIN del telefono o la chiave biometrica è la cosa che si conosce.
 
 ## <a name="how-to-get-started"></a>Attività iniziali
 
-Per accedere all'account personale di Microsoft con il telefono, seguire questi passaggi: 
+Per accedere all'account personale di Microsoft con il telefono, seguire questi passaggi:
 
-1. Abilitare l'accesso all'account personale tramite telefono. 
+1. Abilitare l'accesso all'account personale tramite telefono.
 
   - Se l'utente non ha ancora l'app Microsoft Authenticator, installarla e aggiungere l'account personale di Microsoft seguendo i passaggi sulla [pagina di Microsoft Authenticator](microsoft-authenticator-app-how-to.md). Gli account appena aggiunti vengono abilitati automaticamente, quindi è possibile iniziare.
 
   - Se si usa già Microsoft Authenticator per la verifica in due passaggi, selezionare l'account personale dalla home page dell'app e scegliere **Abilita l'accesso tramite telefono** dal menu a discesa.
 
-  >[!NOTE] 
-  >Per proteggere l'account è necessario un PIN o un blocco biometrico sul dispositivo. Se il telefono resta sbloccato, l'app chiede all'utente di impostare un blocco prima di abilitare l'accesso tramite telefono. 
+  >[!NOTE]
+  >Per proteggere l'account è necessario un PIN o un blocco biometrico sul dispositivo. Se il telefono resta sbloccato, l'app chiede all'utente di impostare un blocco prima di abilitare l'accesso tramite telefono.
 
-3. La maggior parte delle pagine in cui in genere l'utente inserisce la password dell'account di Microsoft ha un collegamento che dice **Usa un'app**. Selezionare il collegamento per accedere tramite il telefono. 
+3. La maggior parte delle pagine in cui in genere l'utente inserisce la password dell'account di Microsoft ha un collegamento che dice **Usa un'app**. Selezionare il collegamento per accedere tramite il telefono.
 
 4. Microsoft invia una notifica al telefono cellulare dell'utente. Approvare la notifica per accedere al proprio account.   
 
-## <a name="faq"></a>Domande frequenti 
+## <a name="faq"></a>Domande frequenti
 
 ### <a name="how-is-signing-in-with-my-phone-more-secure-than-typing-a-password"></a>In che modo l'accesso tramite telefono è più sicuro dell'accesso tramite password?  
 
@@ -61,11 +61,11 @@ La chiave usata è simile alle chiavi usate nelle specifiche di Windows Hello e 
 
 Oggi, la funzione di accesso tramite telefono funziona solo con le app e i servizi Web che si basano sugli account di Microsoft, con le app di iOS o Android che usano un account personale di Microsoft e le app su Windows 10 che usano un account personale di Microsoft. Quando si accede a uno di questi siti Web o app, nella pagina in cui in genere si inserisce la password è presente un collegamento che afferma **Usa un'app**. 
 
-L'accesso tramite telefono non può essere usato per sbloccare un computer Windows, una XBOX o una versione desktop delle app di Microsoft, ad esempio le app di Office al momento. 
+L'accesso tramite telefono non può essere usato per sbloccare un computer Windows, una XBOX o una versione desktop delle app di Microsoft, ad esempio le app di Office al momento.
  
 ### <a name="does-this-replace-two-step-verification-should-i-turn-it-off"></a>Questa funzione sostituisce la verifica in due passaggi? È consigliabile disattivarla?   
 
-In alcuni casi sì. Microsoft vuole espandere l'ambito dell'accesso tramite telefono, ma per ora, in alcuni casi, all'interno dell'ecosistema di Microsoft questa funzione non è supportata. In questi casi, viene usata ancora la verifica in due passaggi per eseguire un accesso sicuro. Per questo motivo, no, non è consigliabile disattivare la verifica in due passaggi per l'account. 
+In alcuni casi sì. Microsoft vuole espandere l'ambito dell'accesso tramite telefono, ma per ora, in alcuni casi, all'interno dell'ecosistema di Microsoft questa funzione non è supportata. In questi casi, viene usata ancora la verifica in due passaggi per eseguire un accesso sicuro. Per questo motivo, no, non è consigliabile disattivare la verifica in due passaggi per l'account.
  
 ### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-do-i-have-to-approve-two-notifications"></a>Se la verifica in due passaggi resta attiva per il mio account, devo approvare due notifiche?
 
@@ -73,7 +73,7 @@ No. L'accesso all'account di Microsoft tramite telefono viene considerato una ve
 
 ### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>Se perdo il telefono o non ce l'ho con me, come eseguo l'accesso all'account?  
 
-È sempre possibile fare clic su **Use a password instead** (Usa la password) nella pagina di accesso per tornare a usare la password. Tenere presente che, se si usa la verifica in due passaggi, è comunque necessario un secondo metodo per verificare l'accesso. Per questo motivo si consiglia di assicurarsi di avere informazioni di sicurezza aggiuntive e aggiornate nel proprio account. È possibile gestire le informazioni di sicurezza all'indirizzo https://account.live.com/proofs/manage. 
+È sempre possibile fare clic su **Use a password instead** (Usa la password) nella pagina di accesso per tornare a usare la password. Tenere presente che, se si usa la verifica in due passaggi, è comunque necessario un secondo metodo per verificare l'accesso. Per questo motivo si consiglia di assicurarsi di avere informazioni di sicurezza aggiuntive e aggiornate nel proprio account. È possibile gestire le informazioni di sicurezza all'indirizzo https://account.live.com/proofs/manage.
  
 ### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>Come smetto di usare questa funzionalità e torno all'inserimento della password?
 

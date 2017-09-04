@@ -1,6 +1,6 @@
 ---
 title: Criteri avanzati di Gestione API di Azure | Microsoft Docs
-description: Informazioni sui criteri avanzati disponibili per l&quot;uso in Gestione API di Azure.
+description: Informazioni sui criteri avanzati disponibili per l'uso in Gestione API di Azure.
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9272946fe4a03a732aa686680bba054c8ef1688
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
@@ -28,7 +28,9 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   [Controlla flusso](api-management-advanced-policies.md#choose): applica in modo condizionale le istruzioni dei criteri sulla base dei risultati della valutazione di [espressioni](api-management-policy-expressions.md) booleane.  
   
--   [Inoltra richiesta](#ForwardRequest) : inoltra la richiesta al servizio back-end.  
+-   [Inoltra richiesta](#ForwardRequest) : inoltra la richiesta al servizio back-end.
+
+-   [Limita la concorrenza](#LimitConcurrency): previene ai criteri racchiusi l’esecuzione di un numero maggiore di richieste contemporaneamente rispetto a quello specificato.
   
 -   [Registra in Hub eventi](#log-to-eventhub): invia messaggi nel formato specificato a un Hub eventi definito da un'entità Logger. 
 
@@ -266,6 +268,56 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 -   **Ambiti del criterio:** tutti gli ambiti  
   
+##  <a name="LimitConcurrency"></a>Limita concorrenza  
+ Il criterio `limit-concurrency` previene ai criteri racchiusi l’esecuzione di un numero maggiore di richieste in un dato momento rispetto a quello specificato. In caso di superamento della soglia, le nuove richieste vengono aggiunte a una coda, fino a raggiungere la lunghezza massima della coda. Al momento di esaurimento della coda, le nuove richieste avranno immediatamente esito negativo.
+  
+###  <a name="LimitConcurrencyStatement"></a>Istruzione del criterio  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### <a name="examples"></a>esempi  
+  
+####  <a name="ChooseExample"></a>Esempio  
+ Nell'esempio seguente viene illustrato come limitare il numero di richieste inoltrate a un back-end in base al valore di una variabile di contesto.
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### <a name="elements"></a>Elementi  
+  
+|Elemento|Descrizione|Obbligatorio|  
+|-------------|-----------------|--------------|    
+|limita concorrenza|Elemento radice.|Sì|  
+  
+### <a name="attributes"></a>Attributi  
+  
+|Attributo|Descrizione|Obbligatorio|Default|  
+|---------------|-----------------|--------------|--------------|  
+|key|Stringa. Espressione consentita. Specifica l'ambito di concorrenza. Può essere condivisa da più criteri.|Sì|N/D|  
+|numero max|Un intero. Specifica un numero massimo di richieste autorizzate ad accedere al criterio.|Sì|N/D|  
+|timeout|Un intero. Espressione consentita. Specifica il numero di secondi che una richiesta deve attendere per accedere a un ambito prima che si verifichi "403 numero eccessivo di richieste"|No|Infinity|  
+|lunghezza massima della coda|Un intero. Espressione consentita. Specifica la lunghezza massima della coda. Le richieste in entrata che provano ad accedere a questo criterio verranno interrotta con "403 numero eccessivo di richieste" immediatamente quando la coda è esaurita.|No|Infinity|  
+  
+###  <a name="ChooseUsage"></a>Uso  
+ Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+  
+-   **Sezioni del criterio:**in ingresso, in uscita, back-end, on-error  
+  
+-   **Ambiti del criterio:** tutti gli ambiti  
+
 ##  <a name="log-to-eventhub"></a>Registra in Hub eventi  
  Il criterio `log-to-eventhub` invia messaggi nel formato specificato a un Hub eventi definito da un'entità Logger. Come suggerisce il nome, il criterio viene usato per il salvataggio di informazioni selezionate sul contesto di richiesta o risposta per l'analisi online o offline.  
   
@@ -963,6 +1015,6 @@ Si noti l'utilizzo di [proprietà](api-management-howto-properties.md) come valo
   
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso di questi criteri, vedere:
--    [Criteri in Gestione API](api-management-howto-policies.md) 
--    [Espressioni di criteri](api-management-policy-expressions.md)
+-   [Criteri in Gestione API](api-management-howto-policies.md) 
+-   [Espressioni di criteri](api-management-policy-expressions.md)
 

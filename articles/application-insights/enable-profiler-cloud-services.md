@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 750dd6c3b50a15d566d170390ac5faa0cb11a628
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: c2cae6129386260f2bf35f75d44fa001f7541d40
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -32,7 +32,7 @@ Il diagramma seguente illustra come funziona il profiler per le risorse di Servi
 
 ## <a name="prerequisites-for-the-walkthrough"></a>Prerequisiti per la procedura dettagliata
 
-* Un modello di distribuzione Resource Manager che consente di installare gli agenti del profiler nelle VM ([WindowsVirtualMachine.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachine.json)) o nei set di scalabilità ([WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json)).
+* Un modello di distribuzione Resource Manager che consente di installare gli agenti del profiler nelle VM ([WindowsVirtualMachine.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)) o nei set di scalabilità ([WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)).
 
 * Istanza di Application Insights abilitata per la profilatura. Per istruzioni, vedere [Abilitare il profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler#enable-the-profiler).
 
@@ -51,7 +51,8 @@ Nel pannello **Application Insights** immettere le informazioni per la risorsa, 
 ![Pannello Application Insights](./media/enable-profiler-compute/createai.png)
 
 ## <a name="apply-an-application-insights-instrumentation-key-in-the-azure-resource-manager-template"></a>Applicare una chiave di strumentazione di Application Insights nel modello di Azure Resource Manager
-1. Se il modello non è ancora stato scaricato, scaricarlo da [GitHub](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachine.json).
+
+1. Se il modello non è ancora stato scaricato, scaricarlo da [GitHub](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json).
 
 2. Trovare la chiave di Application Insights.
    
@@ -191,7 +192,7 @@ Seguire questa procedura per poter raccogliere alcuni dati di esempio da visuali
 ```
 
 ## <a name="enable-the-profiler-on-virtual-machine-scale-sets"></a>Abilitare il profiler nei set di scalabilità di macchine virtuali
-Per informazioni su come abilitare il profiler, scaricare il modello [WindowsVirtualMachineScaleSet.json](https://github.com/CFreemanwa/samples/blob/master/WindowsVirtualMachineScaleSet.json). Applicare le stesse modifiche di un modello di VM alla risorsa di estensione di diagnostica per il set di scalabilità di macchine virtuali.
+Per informazioni su come abilitare il profiler, scaricare il modello [WindowsVirtualMachineScaleSet.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json). Applicare le stesse modifiche di un modello di VM alla risorsa di estensione di diagnostica per il set di scalabilità di macchine virtuali.
 
 Assicurarsi che ogni istanza nel set di scalabilità abbia accesso a Internet. L'agente del profiler può quindi inviare i campioni raccolti ad Application Insights per la visualizzazione e l'analisi.
 
@@ -205,7 +206,7 @@ Assicurarsi che ogni istanza nel set di scalabilità abbia accesso a Internet. L
 ### <a name="provision-the-service-fabric-cluster-to-have-the-azure-diagnostics-extension-that-installs-the-profiler-agent"></a>Effettuare il provisioning del cluster di Service Fabric in modo da avere l'estensione di Diagnostica di Azure che installa l'agente del profiler
 Un cluster di Service Fabric può essere sicuro o non sicuro. È possibile impostare un cluster di gateway come non sicuro in modo che non richieda un certificato per l'accesso. I cluster che ospitano la logica di business e i dati devono essere sicuri. È possibile abilitare il profiler in cluster di Service Fabric sia sicuri che non sicuri. Questa procedura dettagliata usa un cluster non sicuro come esempio per illustrare le modifiche necessarie per abilitare il profiler. È possibile effettuare il provisioning di un cluster sicuro nello stesso modo.
 
-1. Scaricare [ServiceFabricCluster.json](https://github.com/CFreemanwa/samples/blob/master/ServiceFabricCluster.json). Come per le VM e i set di scalabilità di macchine virtuali, sostituire `Application_Insights_Key` con la propria chiave di Application Insights:
+1. Scaricare [ServiceFabricCluster.json](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json). Come per le VM e i set di scalabilità di macchine virtuali, sostituire `Application_Insights_Key` con la propria chiave di Application Insights:
 
    ```
    "publisher": "AIP.Diagnostics.Test",

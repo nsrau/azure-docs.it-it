@@ -15,11 +15,11 @@
 ### [Usare un simulatore online](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
 ### [Usare un dispositivo fisico](iot-hub-get-started-physical.md)
+#### [Raspberry Pi con Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 #### [Raspberry Pi con Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi con C](iot-hub-raspberry-pi-kit-c-get-started.md)
-#### [Raspberry Pi con Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 
-#### [IoT DevKit con Visual Studio Code](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+#### [MXChip IoT DevKit con Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 #### [Intel Edison con Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison con C](iot-hub-intel-edison-kit-c-get-started.md)

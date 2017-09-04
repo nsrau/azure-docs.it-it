@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: bb3cf81c9b179e520e58a6fe5e455a136b9bb349
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 595d611aac4f57b7ab5b7ab4e46edf1eff796185
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -132,7 +132,11 @@ L'architettura di microservizi è supportata. È necessario configurare più imp
 
 **D. I probe personalizzati supportano caratteri jolly o regex nei dati di risposta?**
 
-I probe personalizzati non supportano caratteri jolly o regex nei dati di risposta.
+I probe personalizzati non supportano caratteri jolly o regex nei dati di risposta. 
+
+**D. Come vengono elaborate le regole?**
+
+Le regole vengono elaborate nell'ordine in cui sono configurate. È consigliabile che le regole multisito siano configurate prima delle regole di base per ridurre le probabilità che il traffico sia indirizzato a un back-end inappropriato, in quanto la regola di base selezionarebbe il traffico in base alla porta prima che venga valutata la regola multisito.
 
 **D. Come vengono elaborate le regole?**
 
@@ -186,33 +190,36 @@ Sono supportati certificati autofirmati, certificati della CA e certificati con 
 
 **D. Quali sono i pacchetti di crittografia attualmente supportati dal gateway applicazione?**
 
-Di seguito sono indicati i pacchetti di crittografia attualmente supportati in ordine di priorità.
+Di seguito sono elencati i pacchetti di crittografia attualmente supportati dal gateway applicazione. Per informazioni su come configurare le opzioni SSL, vedere l'articolo [Configure SSL policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md) (Configurare versioni di criteri SSL e pacchetti di crittografia nel gateway applicazione).
 
-TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
-
-TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
-
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
-
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
-
-TLS_RSA_WITH_AES_256_GCM_SHA384
-
-TLS_RSA_WITH_AES_128_GCM_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA256
-
-TLS_RSA_WITH_AES_128_CBC_SHA256
-
-TLS_RSA_WITH_AES_256_CBC_SHA
-
-TLS_RSA_WITH_AES_128_CBC_SHA
-
-TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_AES_256_GCM_SHA384
+- TLS_RSA_WITH_AES_128_GCM_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA256
+- TLS_RSA_WITH_AES_128_CBC_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA
+- TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 **D. Il gateway applicazione supporta anche la ripetizione della crittografia del traffico nel back-end?**
 
@@ -222,9 +229,16 @@ Sì, il gateway applicazione supporta l'offload SSL e l'SSL end-to-end, che cons
 
 Sì, è possibile configurare il gateway applicazione per rifiutare TLS1.0, TLS1.1 e TLS1.2. SSL 2.0 e 3.0 sono già disabilitati per impostazione predefinita e non sono configurabili.
 
-**D. È possibile configurare i criteri SSL per gestire i pacchetti di crittografia?**
+**D. È possibile configurare l'ordine dei pacchetti di crittografia e dei criteri?**
 
-No, non attualmente.
+Sì, la [configurazione dei pacchetti di crittografia](application-gateway-ssl-policy-overview.md) è supportata. Quando si definiscono criteri personalizzati, deve essere abilitato almeno uno dei pacchetti di crittografia seguenti. Il gateway applicazione usa SHA256 per la gestione del back-end.
+
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_128_GCM_SHA256
+* TLS_RSA_WITH_AES_256_CBC_SHA256
+* TLS_RSA_WITH_AES_128_CBC_SHA256
 
 **D. Quanti certificati SSL sono supportati?**
 

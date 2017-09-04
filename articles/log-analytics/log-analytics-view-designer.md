@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 29ffb61715d803340abdb7e02aa64e9233676798
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e3c463d749dc4179df58286b9bb75584880a6bc6
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Usare Progettazione viste per creare viste personalizzate in Log Analytics
@@ -30,7 +30,7 @@ Altri articoli disponibili su Progettazione viste sono:
 * [Informazioni di riferimento sulle parti della visualizzazione](log-analytics-view-designer-parts.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate.
 
 >[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query in tutte le viste devono essere scritte nel [nuovo linguaggio di query](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Le viste create prima dell'aggiornamento dell'area di lavoro verranno automaticamente convertite.
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query in tutte le viste devono essere scritte nel [nuovo linguaggio di query](https://go.microsoft.com/fwlink/?linkid=856078).  Le viste create prima dell'aggiornamento dell'area di lavoro verranno automaticamente convertite.
 
 ## <a name="concepts"></a>Concetti
 Le viste create con Progettazione viste contengono gli elementi riportati nella tabella seguente.

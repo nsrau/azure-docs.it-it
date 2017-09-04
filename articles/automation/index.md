@@ -1,8 +1,8 @@
 ---
 title: Documentazione di Automazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: "Informazioni su come usare l&quot;Automazione per automatizzare i processi e la gestione delle configurazioni al fine di risparmiare tempo e aumentare l&quot;affidabilità delle operazioni amministrative standard."
+description: "Informazioni su come usare l'Automazione per automatizzare i processi e la gestione delle configurazioni al fine di risparmiare tempo e aumentare l'affidabilità delle operazioni amministrative standard."
 services: automation
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 00c4fe633a7ef76b20d2a9d1c704bb09da6b19a0
+ms.contentlocale: it-it
 ms.lasthandoff: 04/20/2017
 
 ---

@@ -3,7 +3,7 @@ title: Modelli di applicazione in Gestione API di Azure | Documentazione Microso
 description: Informazioni su come personalizzare il contenuto delle pagine Applicazione nel portale per sviluppatori in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: f3122c4d-e10e-4cdf-977b-36e8f4133fc8
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: df71d6d36949f457ad95576e37ae3da2fef7d4d7
+ms.contentlocale: it-it
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="application-templates-in-azure-api-management"></a>Modelli di applicazione in Gestione API di Azure
@@ -31,7 +33,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 > [!NOTE]
 >  La documentazione seguente include alcuni modelli predefiniti di esempio. A causa dei continui miglioramenti che vengono apportati, questi modelli sono però soggetti a modifiche. È possibile visualizzare i modelli predefiniti direttamente nel portale per sviluppatori accedendo ai singoli modelli desiderati. Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
-##  <a name="a-nameproductlista-application-list"></a><a name="ProductList"></a> Elenco applicazioni  
+##  <a name="ProductList"></a> Elenco applicazioni  
  Il modello **Elenco applicazioni** consente di personalizzare il corpo della pagina di elenco applicazioni nel portale per sviluppatori.  
   
  ![Modelli della pagina Elenco applicazioni nel portale per sviluppatori](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Modelli della pagina Elenco applicazioni APIM nel portale per sviluppatori")  
@@ -132,7 +134,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 }  
 ```  
   
-##  <a name="a-nameapplicationa-application"></a><a name="Application"></a> Applicazione  
+##  <a name="Application"></a> Applicazione  
  Il modello **Applicazione** consente di personalizzare il corpo della pagina dell'applicazione nel portale per sviluppatori.  
   
  ![Modelli della pagina Applicazione nel portale per sviluppatori](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Modelli della pagina Applicazione APIM nel portale per sviluppatori")  
@@ -220,8 +222,3 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

@@ -2,7 +2,7 @@
 title: "Gestione di asset ed entità correlate con Media Services .NET SDK"
 description: "Informazioni su come gestire asset ed entità correlate con Media Services SDK for .NET."
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestione di asset ed entità correlate con Media Services .NET SDK
@@ -38,8 +38,7 @@ Questo argomento illustra come gestire le entità dei Servizi multimediali di Az
 Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Ottenere un riferimento a un asset
-Un'attività comune consiste nell'ottenere un riferimento a un asset esistente in Servizi multimediali. L'esempio di codice seguente mostra come ottenere un riferimento a un asset dalla raccolta Assets sull'oggetto contesto del server, in base all'ID dell'asset.
-L'esempio di codice seguente usa una query Linq per ottenere un riferimento a un oggetto IAsset.
+Un'attività comune consiste nell'ottenere un riferimento a un asset esistente in Servizi multimediali. L'esempio di codice seguente mostra come ottenere un riferimento a un asset dalla raccolta Assets sull'oggetto contesto del server, in base all'ID dell'asset. L'esempio di codice seguente usa una query Linq per ottenere un riferimento a un oggetto IAsset.
 
     static IAsset GetAsset(string assetId)
     {

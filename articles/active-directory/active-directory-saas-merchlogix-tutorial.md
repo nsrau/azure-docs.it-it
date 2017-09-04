@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2017
+ms.date: 08/17/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 55227c7302285c721381886c63b7cbfdc114b0bb
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 44fc8226480cafc130720fbe78aa85ee95caec6c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Esercitazione: Integrazione di Azure Active Directory con Merchlogix
@@ -109,9 +109,12 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Merchlogix](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<domain>/login.php?saml=true`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<DOMAIN>/login.php?saml=true`.
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<domain>/simplesaml/module.php/saml/sp/metadata.php/login-windows-net`
+    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
+    
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Merchlogix](http://www.merchlogix.com/contact/).
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -121,7 +124,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-merchlogix-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Merchlogix** fare clic su **Configura Merchlogix** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+6. Nella sezione **Configurazione di Merchlogix** fare clic su **Configura Merchlogix** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML**  e l'**URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
     ![Configurazione di Merchlogix](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 

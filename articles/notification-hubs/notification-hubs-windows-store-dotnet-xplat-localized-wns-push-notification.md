@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sull&quot;invio di ultime notizie localizzate mediante Hub di notifica
+title: Esercitazione sull'invio di ultime notizie localizzate mediante Hub di notifica
 description: Informazioni su come usare Hub di notifica di Azure per inviare notifiche relative alle ultime notizie localizzate.
 services: notification-hubs
 documentationcenter: windows
@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e864e832b4c50644bf4062dee29d34ff9fe2774e
-
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
+ms.contentlocale: it-it
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Utilizzo di Hub di notifica per inviare notizie localizzate
@@ -182,38 +183,33 @@ Modificare il file MainPage.xaml in modo da includere una casella combinata per 
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
 <!-- Anchors. -->
-[Concetti relativi ai modelli]: #concepts
-[Interfaccia utente dell'app]: #ui
-[Compilazione dell'app client di Windows Store]: #building-client
-[Send notifications from your back-end]: #send (Inviare notifiche dal back-end)
+[Template concepts]: #concepts
+[The app user interface]: #ui
+[Building the Windows Store client app]: #building-client
+[Send notifications from your back-end]: #send
 [Next Steps]:#next-steps
 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Servizio mobile]: /develop/mobile/tutorials/get-started
-[Usare Hub di notifica per inviare notifiche agli utenti: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Usare Hub di notifica per inviare notifiche agli utenti: Servizi mobili]: /manage/services/notification-hubs/notify-users
-[Utilizzo di Hub di notifica per inviare le ultime notizie]: /manage/services/notification-hubs/breaking-news-dotnet
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
+[Utilizzo di Hub di notifica per inviare le ultime notizie]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
 
-[Invia un'app]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Applicazioni personali]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK per Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introduzione a Servizi mobili]: /develop/mobile/tutorials/get-started/#create-new-service
-[Introduzione ai dati]: /develop/mobile/tutorials/get-started-with-data-dotnet
-[Aggiungere l'autenticazione all'app Android]: /develop/mobile/tutorials/get-started-with-users-dotnet
-[Introduzione alle notifiche push]: /develop/mobile/tutorials/get-started-with-push-dotnet
-[Inviare notifiche push agli utenti di app]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[Autorizzare gli utenti con gli script]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js (JavaScript e HTML)
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-dotnet
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591 (Oggetto WNS)
-[linee guida su Hub di notifica]: http://msdn.microsoft.com/library/jj927170.aspx
-[Procedure di Hub di notifica per iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 

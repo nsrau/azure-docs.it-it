@@ -1,8 +1,8 @@
 ---
 title: Documentazione di Azure Data Catalog - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: "Informazioni su come configurare un catalogo dati in cui l&quot;organizzazione può trovare, comprendere e usare le origini dati. Esercitazioni, informazioni di riferimento sulle API e altri documenti."
+description: "Informazioni su come configurare un catalogo dati in cui l'organizzazione può trovare, comprendere e usare le origini dati. Esercitazioni, informazioni di riferimento sulle API e altri documenti."
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

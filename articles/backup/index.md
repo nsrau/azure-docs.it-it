@@ -2,7 +2,7 @@
 title: Documentazione di Backup di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Usare la documentazione di Backup per informazioni su come eseguire il backup nel cloud. Vedere le esercitazioni e i video per il backup di applicazioni, server Windows e macchine virtuali di Azure.
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

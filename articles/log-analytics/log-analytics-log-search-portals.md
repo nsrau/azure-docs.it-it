@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: b415141f152e88e13678c464eddc4f73df2da54e
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 29dfa31d38f85574f84ed351bc5c26224b1a7e16
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portali per la creazione e la modifica di ricerche log in Azure Log Analytics
@@ -50,6 +50,6 @@ Il portale Advanced Analytics offre funzionalità avanzate e viene per questo di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Completare un'esercitazione sull'uso del [portale per la ricerca log](log-analytics-log-search-log-search-portal.md) o del [portale Advanced Analytics](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) per creare query.
-- Vedere un'[esercitazione sulla scrittura di query](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) con il nuovo linguaggio di query.
+- Completare un'esercitazione sull'uso del [portale per la ricerca log](log-analytics-log-search-log-search-portal.md) o del [portale Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587) per creare query.
+- Vedere un'[esercitazione sulla scrittura di query](https://go.microsoft.com/fwlink/?linkid=856078) con il nuovo linguaggio di query.
 

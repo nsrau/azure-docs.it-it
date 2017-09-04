@@ -14,88 +14,83 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 57d1902d815da38aaf6438e04b7f55c03259144f
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: a347eedbf5511dc83e1bc7721667441cfb87cb59
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/23/2017
 
 ---
-# <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Esercitazione: Configurazione di Workplace by Facebook per il Provisioning utenti
+# <a name="tutorial-configure-workplace-by-facebook-for-user-provisioning"></a>Esercitazione: Configurazione di Workplace by Facebook per il Provisioning utenti
 
-L'obiettivo di questa esercitazione è descrivere le procedure da eseguire in Workplace by Facebook e Azure AD per eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Workplace by Facebook.
+Questa esercitazione illustra i passaggi necessari per eseguire automaticamente il provisioning e il de-provisioning degli account utente da Azure Active Directory (Azure AD) a Workplace by Facebook.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Workplace by Facebook, sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con Workplace by Facebook, sono necessari:
 
 - Sottoscrizione di Azure AD.
-- Una sottoscrizione di Workplace by Facebook abilitata per l'accesso Single Sign-On
+- Una sottoscrizione di Workplace by Facebook abilitata per l'accesso single sign-on (SSO)
 
-> [!NOTE]
-> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
-
-A questo scopo, è consigliabile seguire le indicazioni seguenti:
+A questo scopo, seguire queste indicazioni:
 
 - Non usare l'ambiente di produzione a meno che non sia necessario.
-- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese: [offerta prova](https://azure.microsoft.com/pricing/free-trial/).
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una [versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="assigning-users-to-workplace-by-facebook"></a>Assegnazione di utenti a Workplace by Facebook
+## <a name="assign-users-to-workplace-by-facebook"></a>Assegnazione di utenti a Workplace by Facebook
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti e i gruppi che sono stati "assegnati" a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure AD usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti e i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app Workplace by Facebook. Una volta deciso, è possibile assegnare questi utenti all'app Workplace by Facebook seguendo le istruzioni riportate di seguito: [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Prima di configurare e abilitare il servizio di provisioning, stabilire quali utenti e gruppi in Azure AD rappresentano gli utenti che devono accedere all'app Workplace by Facebook. È possibile assegnare questi utenti all'app Workplace by Facebook seguendo le istruzioni riportate in: [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 >[!IMPORTANT]
->*   È consigliabile assegnare un singolo utente di Azure AD a Workplace by Facebook per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
->*   Quando si assegna un utente a Workplace by Facebook, è necessario selezionare un ruolo utente valido. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
+>*   Testare la configurazione del provisioning tramite l'assegnazione di un singolo utente di Azure AD a Workplace by Facebook. Assegnare utenti e gruppi aggiuntivi in un secondo momento.
+>*   Quando si assegna un utente a Workplace by Facebook, è necessario selezionare un ruolo utente valido. Il ruolo di accesso predefinito non è applicabile per il provisioning.
 
-## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning automatizzato degli utenti
+## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning utenti automatico
 
-Questa sezione illustra la connessione di Azure AD all'API per il provisioning degli account utente di Workplace by Facebook e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Workplace by Facebook in base all'assegnazione di utenti e gruppi in Azure AD.
+Questa sezione descrive la connessione di Azure AD all'API di provisioning dell'account utente di Workplace by Facebook. Inoltre saranno fornite informazioni su come configurare il servizio di provisioning per creare, aggiornare e disabilitare gli account utente assegnati in Workplace by Facebook. Questo è basato sull'assegnazione di utenti e gruppi in Azure AD.
 
 >[!Tip]
->Si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per Workplace by Facebook, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
+>È possibile anche scegliere di abilitare l'accesso SSO basato su SAML per Workplace by Facebook, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso SSO può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
 
 ### <a name="configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Configurare l'account utente eseguendo il provisioning a Workplace by Facebook in Azure AD
 
-Questa sezione descrive come abilitare il provisioning degli account utente di Active Directory in Workplace by Facebook.
-
 Azure AD consente di sincronizzare automaticamente i dettagli dell'account degli utenti assegnati a Workplace by Facebook. La sincronizzazione automatica consente a Workplace by Facebook di ottenere i dati necessari per autorizzare gli utenti ad accedere, prima che questi tentino di eseguire l'accesso per la prima volta. Esegue anche il deprovisioning degli utenti da Workplace by Facebook una volta che l'accesso viene revocato in Azure AD.
 
-1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory** > **App aziendali** > **Tutte le applicazioni**.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Directory** > **App aziendali** > **Tutte le applicazioni**.
 
-2. Se si è già configurato Workplace by Facebook per l'accesso Single Sign-On, cercare l'istanza di Workplace by Facebook usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **Workplace by Facebook** nella raccolta di applicazioni. Selezionare Workplace by Facebook nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
+2. Se si è già configurato Workplace by Facebook per l'accesso SSO, cercare l'istanza di Workplace by Facebook usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **Workplace by Facebook** nella raccolta di applicazioni. Selezionare **Workplace by Facebook** nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
 3. Selezionare l'istanza di Workplace by Facebook e quindi la scheda **Provisioning**.
 
 4. Impostare **Modalità di provisioning** su **Automatico**. 
 
-    ![provisioning](./media/active-directory-saas-facebook-at-work-provisioning-tutorial/provisioning.png)
+    ![Schermata delle opzioni di provisioning di Workplace by Facebook](./media/active-directory-saas-facebook-at-work-provisioning-tutorial/provisioning.png)
 
-5. Nella sezione **Credenziali amministratore** inserire il token segreto e l'URL del tenant dell'amministratore di Workplace by Facebook.
+5. Nella sezione **Credenziali amministratore** inserire il **token segreto** e l'**URL del tenant** dell'amministratore di Workplace by Facebook.
 
-6. Nel portale di Azure fare clic su **Connessione di test** per verificare che Azure AD possa connettersi all'app Workplace by Facebook. Se la connessione non riesce, verificare che l'account Workplace by Facebook abbia le autorizzazioni di amministratore di team.
+6. Nel portale di Azure, selezionare **Connessione di test** per verificare che Azure AD possa connettersi all'app Workplace by Facebook. Se la connessione non riesce, verificare che l'account Workplace by Facebook disponga delle autorizzazioni di amministratore di team.
 
-7. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
+7. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **E-mail di notifica** e selezionare la casella di controllo.
 
-8. Fare clic su **Salva**.
+8. Selezionare **Salva**.
 
 9. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to Workplace by Facebook** (Sincronizza utenti di Azure Active Directory in Workplace by Facebook).
 
-10. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD a Workplace by Facebook. Gli attributi selezionati come proprietà **Corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Workplace by Facebook per le operazioni di aggiornamento. Selezionare il pulsante Salva per eseguire il commit delle modifiche.
+10. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD a Workplace by Facebook. Gli attributi selezionati come proprietà **Corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Workplace by Facebook per le operazioni di aggiornamento. Per eseguire il commit di tutte le modifiche, selezionare **Salva**.
 
-11. Per abilitare il servizio di provisioning di Azure AD per Workplace by Facebook, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**
+11. Per abilitare il servizio di provisioning di Azure AD per Workplace by Facebook, nella sezione **Impostazioni** modificare lo **Stato del provisioning** su **Sì**.
 
-12. Fare clic su **Salva**.
+12. Selezionare **Salva**.
 
-Per altre informazioni su come configurare il provisioning automatico, vedere [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
+Per ulteriori informazioni su come configurare il provisioning automatico, vedere [la documentazione di Facebook](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers).
 
 È ora possibile creare un account di test. Attendere 20 minuti per verificare che l'account sia stato sincronizzato con Workplace by Facebook.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](active-directory-saas-tutorial-list.md)
+* [Gestione del provisioning degli account utente per le app aziendali](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Configura accesso Single Sign-On](active-directory-saas-facebook-at-work-tutorial.md)
+* [Configurare l'accesso Single Sign-On](active-directory-saas-facebook-at-work-tutorial.md)
 
 

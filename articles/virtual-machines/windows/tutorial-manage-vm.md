@@ -70,7 +70,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupVM `
   -Location EastUS `
   -Name myVnet `
-  -AddressPrefix 192.168.0.0/16 ` 
+  -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
 ```
 ### <a name="create-public-ip-address"></a>Creare un indirizzo IP pubblico
@@ -78,9 +78,9 @@ $vnet = New-AzureRmVirtualNetwork `
 Creare un indirizzo IP pubblico con [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
 ```powershell
-$pip = New-AzureRmPublicIpAddress ` 
+$pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupVM `
-  -Location EastUS ` 
+  -Location EastUS `
   -AllocationMethod Static `
   -Name myPublicIPAddress
 ```
@@ -251,18 +251,22 @@ Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
 ```
 
 ```powershell
-Skus                            Offer         PublisherName          Location
-----                            -----         -------------          --------
-2008-R2-SP1                     WindowsServer MicrosoftWindowsServer EastUS  
-2008-R2-SP1-BYOL                WindowsServer MicrosoftWindowsServer EastUS  
-2012-Datacenter                 WindowsServer MicrosoftWindowsServer EastUS  
-2012-Datacenter-BYOL            WindowsServer MicrosoftWindowsServer EastUS  
-2012-R2-Datacenter              WindowsServer MicrosoftWindowsServer EastUS  
-2012-R2-Datacenter-BYOL         WindowsServer MicrosoftWindowsServer EastUS  
-2016-Datacenter                 WindowsServer MicrosoftWindowsServer EastUS  
-2016-Datacenter-Server-Core     WindowsServer MicrosoftWindowsServer EastUS  
-2016-Datacenter-with-Containers WindowsServer MicrosoftWindowsServer EastUS  
-2016-Nano-Server                WindowsServer MicrosoftWindowsServer EastUS
+Skus                                      Offer         PublisherName          Location
+----                                      -----         -------------          --------
+2008-R2-SP1                               WindowsServer MicrosoftWindowsServer EastUS  
+2008-R2-SP1-smalldisk                     WindowsServer MicrosoftWindowsServer EastUS  
+2012-Datacenter                           WindowsServer MicrosoftWindowsServer EastUS  
+2012-Datacenter-smalldisk                 WindowsServer MicrosoftWindowsServer EastUS  
+2012-R2-Datacenter                        WindowsServer MicrosoftWindowsServer EastUS  
+2012-R2-Datacenter-smalldisk              WindowsServer MicrosoftWindowsServer EastUS  
+2016-Datacenter                           WindowsServer MicrosoftWindowsServer EastUS  
+2016-Datacenter-Server-Core               WindowsServer MicrosoftWindowsServer EastUS  
+2016-Datacenter-Server-Core-smalldisk     WindowsServer MicrosoftWindowsServer EastUS
+2016-Datacenter-smalldisk                 WindowsServer MicrosoftWindowsServer EastUS
+2016-Datacenter-with-Containers           WindowsServer MicrosoftWindowsServer EastUS
+2016-Datacenter-with-Containers-smalldisk WindowsServer MicrosoftWindowsServer EastUS
+2016-Datacenter-with-RDSH                 WindowsServer MicrosoftWindowsServer EastUS
+2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
 È possibile usare queste informazioni per distribuire una macchina virtuale con un'immagine specifica. In questo esempio viene impostato il nome dell'immagine per l'oggetto della macchina virtuale. Fare riferimento agli esempi precedenti in questa esercitazione per la procedura di distribuzione completa.
@@ -352,7 +356,7 @@ Per recuperare lo stato di una determinata VM, usare il comando [Get-AzureRmVM](
 
 ```powershell
 Get-AzureRmVM `
-    -ResourceGroupName myResourceGroup `
+    -ResourceGroupName myResourceGroupVM `
     -Name myVM `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```

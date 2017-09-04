@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 806aba12d07c10816a106b9b2af0e824ceb25ade
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Informazioni di riferimento sui riquadri per Progettazione viste di Log Analytics
@@ -30,7 +30,7 @@ Altri articoli disponibili su Progettazione viste sono:
 * [Informazioni di riferimento sulle parti della visualizzazione](log-analytics-view-designer-parts.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate.
 
 >[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query in tutte le viste devono essere scritte nel [nuovo linguaggio](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).  Le viste create prima dell'aggiornamento dell'area di lavoro verranno automaticamente convertite.
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query in tutte le viste devono essere scritte nel [nuovo linguaggio di query](https://go.microsoft.com/fwlink/?linkid=856078).  Le viste create prima dell'aggiornamento dell'area di lavoro verranno automaticamente convertite.
 
 Nella tabella seguente sono elencati i diversi tipi di riquadri disponibili in Progettazione viste.  Nelle sezioni seguenti vengono descritti i dettagli di ogni tipo di riquadro e le relative proprietà.
 

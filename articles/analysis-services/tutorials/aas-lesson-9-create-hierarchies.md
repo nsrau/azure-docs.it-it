@@ -3,7 +3,7 @@ title: 'Esercitazione su Azure Analysis Services - Lezione 9: Creare gerarchie |
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

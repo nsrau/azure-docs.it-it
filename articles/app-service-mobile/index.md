@@ -1,12 +1,12 @@
 ---
 title: Documentazione delle app per dispositivi mobili di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come per usare App per dispositivi mobili nel Servizio app di azure per creare e ospitare app iOS, Android o Windows native oppure app multipiattaforma tramite Xamarin o Cordova.
-services: app-service\mobile
-author: carolz
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page

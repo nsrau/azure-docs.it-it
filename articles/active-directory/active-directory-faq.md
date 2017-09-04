@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
@@ -28,7 +28,7 @@ Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-d
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Accedere ad Azure e Azure Active Directory
-**D: Perché viene visualizzato il messaggio "Non sono state trovate sottoscrizioni" quando si prova ad accedere ad Azure AD nel Portale di Azure classico (https://manage.windowsazure.com)?**
+**D: Perché viene visualizzato il messaggio "Non sono state trovate sottoscrizioni" quando si prova ad accedere ad Azure AD nel portale di Azure classico?**
 
 **A:** Per accedere al portale di Azure classico, ogni utente deve avere autorizzazioni per una sottoscrizione di Azure. Se si ha una sottoscrizione di Office 365 o Azure AD a pagamento, accedere a [http://aka.ms/accessAAD](http://aka.ms/accessAAD) per un passaggio di attivazione una tantum. In caso contrario sarà necessario attivare un [account Azure](https://azure.microsoft.com/pricing/free-trial/) gratuito o una sottoscrizione a pagamento.
 
@@ -212,5 +212,5 @@ Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisionin
 - - -
 **D: È possibile configurare una connessione LDAP sicura con Azure AD?**
 
-**R:** No.  Azure AD non supporta il protocollo LDAP.
+**R:** No. Azure AD non supporta il protocollo LDAP.
 

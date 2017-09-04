@@ -1,9 +1,9 @@
 ---
 title: Criteri di Gestione API di Azure | Documentazione Microsoft
-description: Informazioni sui criteri disponibili per l&quot;uso in Gestione API di Azure.
+description: Informazioni sui criteri disponibili per l'uso in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 1cc460cb-8e67-41aa-bc76-bbafc1892798
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: eea563ccbceab0833fb5e5eaf75e3a4347ef1ea4
+ms.contentlocale: it-it
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
@@ -26,7 +28,7 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
   
  Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](api-management-advanced-policies.md#choose) e [set variable](api-management-advanced-policies.md#set-variable), sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati](api-management-advanced-policies.md#AdvancedPolicies) ed [Espressioni di criteri](api-management-policy-expressions.md).  
   
-##  <a name="a-nameproxypoliciesa-policies"></a><a name="ProxyPolicies"></a> Criteri  
+##  <a name="ProxyPolicies"></a> Criteri  
   
 -   [Criteri di limitazione dell'accesso](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
   
@@ -120,9 +122,4 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
   
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

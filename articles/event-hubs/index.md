@@ -2,7 +2,7 @@
 title: Documentazione di Hub eventi di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare l'Hub eventi per inserire milioni di eventi al secondo da dispositivi e applicazioni IoT connessi su un'ampia serie di piattaforme.
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
