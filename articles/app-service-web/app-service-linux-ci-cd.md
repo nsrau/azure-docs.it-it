@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6b6c173c6c4bb3f670c54208c80e6d966a1f396e
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: f8f7d51003f8a55b7f51e8cc2cea838e8e5a6196
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>Distribuzione continua con App Web di Azure in Linux
@@ -32,7 +32,13 @@ In questa esercitazione si configura la distribuzione continua per un'immagine p
 
 Accedere al portale di Azure all'indirizzo http://portal.azure.com
 
-## <a name="step-2---enable-docker-hub-continuous-deployment"></a>Passaggio 2: Abilitare la distribuzione continua di hub Docker
+## <a name="step-2---enable-container-continuous-deployment-feature"></a>Passaggio 2: Abilitare la funzionalità di distribuzione continua del contenitore
+
+È possibile abilitare la funzionalità di distribuzione continua tramite l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) ed eseguendo il comando seguente
+
+```azurecli-interactive
+az webapp deployment container config -n sname -g rgname -e true
+``` 
 
 Nel **[portale di Azure](https://portal.azure.com/)** fare clic sull'opzione **Servizio app** a sinistra nella pagina.
 
@@ -43,6 +49,12 @@ In **Impostazioni app** aggiungere un'app denominata `DOCKER_ENABLE_CI` con il v
 ![inserire l'immagine dell'impostazione dell'app](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
 ## <a name="step-3---prepare-webhook-url"></a>Passaggio 3 - Preparare l'URL webhook
+
+È possibile ottenere l'URL Webhook tramite l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) ed eseguendo il comando seguente
+
+```azurecli-interactive
+az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
+``` 
 
 Per l'URL del Webhook, è necessario avere l'endpoint seguente: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
@@ -76,13 +88,13 @@ Quando l'immagine viene aggiornata, l'app Web viene aggiornata automaticamente c
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Definizione di App Web di Azure in Linux](./app-service-linux-intro.md)
-* [Creazione di app in App Web di Azure in Linux](./app-service-linux-how-to-create-web-app.md)
 * [Registro contenitori di Azure](https://azure.microsoft.com/en-us/services/container-registry/)
 * [Uso della configurazione PM2 per Node.js in App Web su Linux](app-service-linux-using-nodejs-pm2.md)
 * [Uso di .NET Core in App Web di Azure in Linux](app-service-linux-using-dotnetcore.md)
 * [Uso di Ruby in App Web di Azure in Linux](app-service-linux-ruby-get-started.md)
 * [Come usare un'immagine Docker personalizzata per App Web di Azure in Linux](./app-service-linux-using-custom-docker-image.md)
 * [Domande frequenti su App Web del Servizio app di Azure su Linux](./app-service-linux-faq.md) 
+* [Gestire App Web in Linux tramite interfaccia della riga di comando di Azure 2.0](./app-service-linux-cli.md)
 
 
 
