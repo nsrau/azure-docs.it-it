@@ -1,6 +1,6 @@
 ---
-title: Come aggiungere un&quot;origine evento hub IoT a un ambiente Azure Time Series Insights | Documentazione Microsoft
-description: Questa esercitazione illustra come aggiungere un&quot;origine evento connessa a un hub IoT all&quot;ambiente Time Series Insights
+title: Come aggiungere un'origine evento hub IoT a un ambiente Azure Time Series Insights | Documentazione Microsoft
+description: Questa esercitazione illustra come aggiungere un'origine evento connessa a un hub IoT all'ambiente Time Series Insights
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -8,18 +8,18 @@ author: sandshadow
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/19/2017
 ms.author: edett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 72037677fac528ff8174d25b474ca7e70826a7b0
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 3b98728ced81256d05b1bed2c92fc66c5ca61b98
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="how-to-add-an-iot-hub-event-source"></a>Come aggiungere un'origine evento hub IoT
@@ -46,7 +46,7 @@ La tabella seguente riporta le singole opzioni della scheda Nuova origine evento
 
 | Nome proprietà | DESCRIZIONE |
 | --- | --- |
-| Nome dell'origine evento | Il nome dell'origine evento. Questo nome deve essere univoco all'interno dell'ambiente Time Series Insights.
+| Nome origine evento | Il nome dell'origine evento. Questo nome deve essere univoco all'interno dell'ambiente Time Series Insights.
 | Sorgente | Scegliere **Hub IoT** per creare un'origine evento hub IoT.
 | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub IoT è stato creato.
 | Nome dell'hub IoT | Selezionare il nome dell'hub IoT.
@@ -59,7 +59,7 @@ La tabella seguente riporta le singole proprietà della scheda Nuova origine eve
 
 | Nome proprietà | DESCRIZIONE |
 | --- | --- |
-| Nome dell'origine evento | Il nome dell'origine evento. Questo nome deve essere univoco all'interno dell'ambiente Time Series Insights.
+| Nome origine evento | Il nome dell'origine evento. Questo nome deve essere univoco all'interno dell'ambiente Time Series Insights.
 | Sorgente | Scegliere **Hub IoT** per creare un'origine evento hub IoT.
 | ID sottoscrizione | La sottoscrizione in cui l'hub IoT è stato creato.
 | Gruppo di risorse | La sottoscrizione in cui l'hub IoT è stato creato.
@@ -70,5 +70,5 @@ La tabella seguente riporta le singole proprietà della scheda Nuova origine eve
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-1. Aggiungere un criterio di accesso ai dati nell'ambiente [Definire i criteri di accesso ai dati](time-series-insights-data-access.md)
+1. Aggiungere i criteri di accesso ai dati nell'ambiente [Definire i criteri di accesso ai dati](time-series-insights-data-access.md)
 1. Accedere all'ambiente nel [portale di Time Series Insights](https://insights.timeseries.azure.com)

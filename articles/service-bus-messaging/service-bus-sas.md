@@ -1,6 +1,6 @@
 ---
 title: Autenticazione del bus di servizio di Azure con firme di accesso condiviso | Documentazione Microsoft
-description: Panoramica dell&quot;autenticazione del bus di servizio con firme di accesso condiviso, dettagli dell&quot;autenticazione con firme di accesso condiviso con il bus di servizio.
+description: Panoramica dell'autenticazione del bus di servizio con firme di accesso condiviso, dettagli dell'autenticazione con firme di accesso condiviso con il bus di servizio.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09577d3160137b7879a5c128552d8dcbef89bb0d
-ms.openlocfilehash: c025629c7700c0ee7b6495a922b9bf6823769cfa
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
 ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 

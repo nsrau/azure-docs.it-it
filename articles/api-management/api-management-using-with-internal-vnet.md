@@ -3,7 +3,7 @@ title: Come usare Gestione API di Azure con le reti virtuali interne | Microsoft
 description: Informazioni su come installare e configurare Gestione API di Azure in una rete virtuale interna.
 services: api-management
 documentationcenter: 
-author: solankisamir
+author: vladvino
 manager: kjoshi
 editor: 
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b9df2c3e7f49a47bfd714f28c5ab53590ca9a719
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: a4c2bda1226ca05c775d011fba7bc59d4dab8998
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="using-azure-api-management-service-with-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
@@ -63,23 +62,23 @@ Quando si usa Gestione API in modalità di rete virtuale esterna, il DNS è gest
 ### <a name="access-on-default-host-names"></a>Accesso ai nomi host predefiniti:
 Quando si crea un servizio Gestione API nel Cloud Azure pubblico, denominato ad esempio "contoso", vengono configurati i seguenti endpoint di servizio per impostazione predefinita.
 
->    Gateway o Proxy: contoso.azure-api.net
+>   Gateway o Proxy: contoso.azure-api.net
 
 > Portale di pubblicazione portale per sviluppatori: contoso.portal.azure-api.net
 
 > Endpoint di gestione diretta: contoso.management.azure-api.net
 
->    GIT: contoso.scm.azure-api.net
+>   GIT: contoso.scm.azure-api.net
 
 Per accedere a questi endpoint del servizio Gestione API è possibile creare una macchina virtuale in una subnet connessa alla rete virtuale in cui viene distribuito Gestione API. Supponendo che l'indirizzo IP virtuale interno per il servizio sia 10.0.0.5, è possibile eseguire il mapping del file host (%SystemDrive%\drivers\etc\hosts) come segue:
 
-> 10.0.0.5      contoso.azure-api.net
+> 10.0.0.5    contoso.azure-api.net
 
-> 10.0.0.5      contoso.portal.azure-api.net
+> 10.0.0.5    contoso.portal.azure-api.net
 
-> 10.0.0.5      contoso.management.azure-api.net
+> 10.0.0.5    contoso.management.azure-api.net
 
-> 10.0.0.5      contoso.scm.azure-api.net
+> 10.0.0.5    contoso.scm.azure-api.net
 
 È quindi possibile accedere tutti gli endpoint di servizio dalla macchina virtuale creata. Se si usa un server DNS personalizzato in una rete virtuale, è anche possibile creare record DNS A e accedere agli endpoint da qualsiasi punto nella rete virtuale. 
 

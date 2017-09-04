@@ -1,10 +1,10 @@
 ---
-title: Introduzione all&quot;archiviazione BLOB e ai Servizi connessi di Visual Studio (progetti processo Web) | Documentazione Microsoft
+title: Introduzione all'archiviazione BLOB e ai Servizi connessi di Visual Studio (progetti processo Web) | Documentazione Microsoft
 description: Informazioni su come iniziare a usare il servizio di archiviazione di BLOB di Azure in un progetto WebJob dopo aver eseguito la connessione a un account di archiviazione di Azure con i servizi connessi di Visual Studio.
 services: storage
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.service: storage
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ef7bff5dcf58cfb26e3d3fa39204ae61e69e400
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: a50a265feff8c0aec28825eb0bc4e33585ea5a02
+ms.contentlocale: it-it
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introduzione all'archiviazione BLOB di Azure e ai servizi relativi a Visual Studio (progetti WebJob)
@@ -40,7 +41,7 @@ L'esempio di codice seguente copia i BLOB di testo del contenitore di *input* ne
             output = input.ReadToEnd();
         }
 
-Il costruttore dell'attributo usa un parametro di stringa che specifica il nome del contenitore e un segnaposto per il nome del BLOB. In questo esempio, se viene creato un BLOB denominato *Blob1.txt* nel contenitore di *input* la funzione crea un BLOB denominato *Blob1.txt* nel contenitore di *output*.
+Il costruttore dell'attributo usa un parametro di stringa che specifica il nome del contenitore e un segnaposto per il nome del BLOB. In questo esempio, se viene creato un BLOB denominato *Blob1.txt* nel contenitore di *input*, la funzione crea un BLOB denominato *Blob1.txt* nel contenitore di *output*.
 
 È possibile specificare un modello di nome con il segnaposto del nome del BLOB, come illustrato nel seguente esempio di codice:
 
@@ -63,7 +64,7 @@ usare questa soluzione per il modello:
 Nell'esempio il valore del segnaposto *name* sarebbe *soundfile.mp3*.
 
 ### <a name="separate-blob-name-and-extension-placeholders"></a>Segnaposto di nome ed estensione di BLOB separati
-L'esempio di codice seguente modifica l'estensione del file mentre copia nel contenitore di *input* i BLOB visualizzati nel contenitore di *output*. Il codice registra l'estensione del BLOB di *input* e imposta l'estensione del BLOB di *output* su *.txt*.
+L'esempio di codice seguente modifica l'estensione del file mentre copia i BLOB visualizzati nel contenitore di *input* nel contenitore di *output*. Il codice registra l'estensione del BLOB di *input* e imposta l'estensione del BLOB di *output* su *.txt*.
 
         public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
             [Blob("output/{name}.txt")] out string output,
@@ -219,10 +220,5 @@ Tra gli argomenti correlati trattati nell'articolo sono inclusi i seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare Processi Web di Azure e WebJobs SDK, vedere le [risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

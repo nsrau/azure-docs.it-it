@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 08/24/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: bc8ca9bb349f41a6ae7371b4fc33cc09fb179c11
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="pen-testing"></a>Test di penetrazione
@@ -43,5 +43,5 @@ I test standard che è possibile eseguire includono:
 
 Tra i tipi di test che non è possibile eseguire sono incluse tutte le tipologie di attacco [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack), tra cui l'avvio di un attacco DoS vero e proprio o l'esecuzione di test correlati che possono determinare, dimostrare o simulare tutti i tipi di attacco DoS.
 
-Si è pronti a iniziare il test di penetrazione delle applicazioni ospitate in Microsoft Azure? Se la risposta è sì, andare alla pagina [Panoramica del test di penetrazione](https://security-forms.azure.com/penetration-testing/terms) e fare clic sul pulsante per la creazione di una richiesta di test alla fine della pagina. Sono disponibili anche altre informazioni sui termini e sulle condizioni del test di penetrazione e utili collegamenti per poter segnalare i problemi di sicurezza correlati ad Azure o ad altri servizi Microsoft.
+Si è pronti a iniziare il test di penetrazione delle applicazioni ospitate in Microsoft Azure? Se la risposta è sì, andare alla pagina [Panoramica del test di penetrazione](https://technet.microsoft.com/library/mt784683.aspx) e fare clic sul pulsante per la creazione di una richiesta di test alla fine della pagina. Sono disponibili anche altre informazioni sui termini e sulle condizioni del test di penetrazione e utili collegamenti per poter segnalare i problemi di sicurezza correlati ad Azure o ad altri servizi Microsoft.
 

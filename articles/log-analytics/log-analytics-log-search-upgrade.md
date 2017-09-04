@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 8cde51313f683fbf96a89c8335eb75348b05dee6
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Aggiornare l'area di lavoro di Azure Log Analytics alla nuova ricerca log
 
 > [!NOTE]
-> L'aggiornamento del nuovo linguaggio di query di Log Analytics è attualmente facoltativo, perciò si ha tutto il tempo di [passare al nuovo linguaggio](https://docs.loganalytics.io/learn/tutorials/getting_started_with_queries.html).  
+> L'aggiornamento del nuovo linguaggio di query di Log Analytics è attualmente facoltativo, perciò si ha tutto il tempo di [passare al nuovo linguaggio](https://go.microsoft.com/fwlink/?linkid=856078).  
 
 Il nuovo linguaggio di query di Log Analytics è arrivato ed è necessario aggiornare l'area di lavoro per sfruttarlo.  Questo articolo illustra i vantaggi del nuovo linguaggio e spiega come eseguire la conversione dell'area di lavoro.  Se si sceglie di non eseguire l'aggiornamento adesso, l'area di lavoro continuerà a funzionare come prima, ma sarà convertita automaticamente in un secondo momento.  Si riceverà la notifica della data prestabilita con molto anticipo.
 
@@ -33,7 +33,7 @@ Questo articolo riporta informazioni dettagliate sul nuovo linguaggio e il proce
 ## <a name="why-the-new-language"></a>Perché il nuovo linguaggio?
 Siamo consapevoli del fatto che qualsiasi transizione comporti disagi, ma non stiamo modificando il linguaggio di query solo per il gusto di farlo.  Questa modifica offre un valore significativo ai clienti di Log Analytics sotto molti aspetti.
 
-- **Semplice e potente.** Il nuovo linguaggio è più facile da capire ed è analogo a SQL, con costrutti più simili al linguaggio naturale rispetto alla versione precedente. 
+- **Semplice e potente.** Il nuovo linguaggio è più facile da capire ed è analogo a SQL, con costrutti più simili al linguaggio naturale rispetto alla versione precedente.
 - **Linguaggio di piping completo.**  Il nuovo linguaggio presenta funzionalità di piping più avanzate rispetto alla versione precedente.  È possibile eseguire il piping praticamente di qualsiasi output verso un altro comando, per creare query più complesse rispetto a quanto fosse possibile precedentemente.
 - **Estrazione di campi in fase di ricerca.**  Il nuovo linguaggio supporta campi calcolati al runtime più avanzati rispetto alla versione precedente.  È possibile usare calcoli complessi per campi estesi e quindi usare i campi calcolati per altri comandi, inclusi join e aggregazioni.
 - **Join avanzati.**  Il nuovo linguaggio fornisce join più avanzati rispetto alla versione precedente, inclusa la possibilità di eseguire join di tabelle su più campi, usare join interni ed esterni e creare un join su campi estesi.
@@ -42,11 +42,11 @@ Siamo consapevoli del fatto che qualsiasi transizione comporti disagi, ma non st
 - **Portale Advanced Analytics.**  Il portale Advanced Analytics offre funzionalità di analisi non disponibili nel portale Log Analytics, inclusa la modifica multirighe delle query, altre visualizzazioni e diagnostica avanzata.
 - **Coerenza con altre applicazioni.**  Il nuovo linguaggio e il portale Advanced Analytics sono già utilizzati per l'analisi in Application Insights.  La sua implementazione per Log Analytics aggiunge coerenza tra i servizi di Azure.
 - **Migliore integrazione con Power BI.** Le query nel nuovo linguaggio possono essere esportate in Power BI Desktop, che mette a disposizione complesse funzionalità di trasformazione di dati.
-- **E altro ancora.** Per informazioni dettagliate ed esercitazioni sul nuovo linguaggio, vedere il sito sul [linguaggio di query di Azure Log Analytics](https://docs.loganalytics.io/index.html).
+- **E altro ancora.** Per informazioni dettagliate ed esercitazioni sul nuovo linguaggio, vedere il sito sul [linguaggio di query di Azure Log Analytics](https://docs.loganalytics.io).
 
 
 ## <a name="when-can-i-upgrade"></a>Quando è possibile eseguire l'aggiornamento?
-L'aggiornamento verrà implementato in tutte le aree di Azure, perciò potrebbe essere disponibile in alcune aree prima di altre.  Per sapere quando è disponibile l'aggiornamento della propria area di lavoro, osservare quando compare il banner viola nella parte superiore dell'area di lavoro stessa che invita a eseguire l'aggiornamento. 
+L'aggiornamento verrà implementato in tutte le aree di Azure, perciò potrebbe essere disponibile in alcune aree prima di altre.  Per sapere quando è disponibile l'aggiornamento della propria area di lavoro, osservare quando compare il banner viola nella parte superiore dell'area di lavoro stessa che invita a eseguire l'aggiornamento.
 
 ![Aggiornamento 1](media/log-analytics-log-search-upgrade/upgrade-01a.png)
 
@@ -71,16 +71,17 @@ Per ripristinare l'area di lavoro precedente, passare a **Impostazioni** nell'ar
 Se si verifica un problema che non consente il completamento dell'aggiornamento, è possibile passare al [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda o [creare una richiesta di assistenza](../azure-supportability/how-to-create-azure-support-request.md) dal portale di Azure.
 
 ## <a name="how-do-i-learn-the-new-language"></a>Come è possibile imparare il nuovo linguaggio?
-Essendo usato da più servizi, abbiamo creato un [sito esterno in cui pubblicare la documentazione](https://docs.loganalytics.io/) per il nuovo linguaggio.  Sono incluse esercitazioni, esempi e una guida di riferimento completa che consente di imparare il necessario in breve tempo. È possibile completare un'esercitazione sul nuovo linguaggio nella sezione di [introduzione alle query](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) e accedere alla guida di riferimento al linguaggio nella sezione sul [linguaggio di query di Log Analytics](https://docs.loganalytics.io/queryLanguage/query_language.html).  
+Essendo usato da più servizi, abbiamo creato un [sito esterno in cui pubblicare la documentazione](https://docs.loganalytics.io/) per il nuovo linguaggio.  Sono incluse esercitazioni, esempi e una guida di riferimento completa che consente di imparare il necessario in breve tempo. È possibile completare un'esercitazione sul nuovo linguaggio nella sezione di [introduzione alle query](https://go.microsoft.com/fwlink/?linkid=856078) e accedere alla guida di riferimento al linguaggio nella sezione sul [linguaggio di query di Log Analytics](https://go.microsoft.com/fwlink/?linkid=856079).  
 
 Se si conosce già il linguaggio di query di Log Analytics precedente, è possibile usare il convertitore di linguaggio che viene aggiunto all'area di lavoro come parte dell'aggiornamento.
 
 È sufficiente digitare la query precedente e quindi fare clic su **Converti** per visualizzare la versione convertita.  È possibile quindi fare clic sul pulsante di ricerca per eseguire la ricerca o copiare e incollare la query convertita per utilizzarla altrove, ad esempio come regola di avviso.
-  
+
 ![Convertitore di linguaggio](media/log-analytics-log-search-upgrade/language-converter.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Completare un'[esercitazione sul nuovo linguaggio](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html).
+- Completare un'[esercitazione sul nuovo linguaggio](https://go.microsoft.com/fwlink/?linkid=856078).
 - Completare un'[esercitazione sull'uso del portale di ricerca log](log-analytics-log-search-log-search-portal.md) con il nuovo linguaggio di query.
-- Vedere un'introduzione al nuovo [portale Advanced Analytics](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).
+- Vedere un'introduzione al nuovo [portale Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).
+

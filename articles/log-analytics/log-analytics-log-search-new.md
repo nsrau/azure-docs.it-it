@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 07f8189d1380f5956db8614e82b8b704b152fb26
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Informazioni sulle ricerche log in Log Analytics
@@ -33,7 +33,7 @@ Una ricerca log è necessaria per recuperare qualsiasi tipo di dati da Log Analy
 
 Di seguito sono indicati alcuni dei vari modi in cui verranno usate le ricerche log in Log Analytics:
 
-- **Portali.** È possibile eseguire un'analisi interattiva dei dati nel repository con il [portale per la ricerca log](log-analytics-log-search-log-search-portal.md) o il [portale Advanced Analytics](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html).  In questo modo è possibile modificare le query e analizzare i risultati in una vasta gamma di formati e visualizzazioni.  Per la maggior parte delle query create si inizia in uno dei portali, per poi copiarle dopo aver verificato che il funzionamento corrisponde alle esigenze.
+- **Portali.** È possibile eseguire un'analisi interattiva dei dati nel repository con il [portale per la ricerca log](log-analytics-log-search-log-search-portal.md) o il [portale Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587).  In questo modo è possibile modificare le query e analizzare i risultati in una vasta gamma di formati e visualizzazioni.  Per la maggior parte delle query create si inizia in uno dei portali, per poi copiarle dopo aver verificato che il funzionamento corrisponde alle esigenze.
 - **Regole di avviso.** Le [regole di avviso](log-analytics-alerts.md) consentono di identificare in modo proattivo i problemi dai dati nell'area di lavoro.  Ogni regola di avviso è basata su una ricerca log che viene eseguita automaticamente a intervalli regolari.  I risultati vengono esaminati per determinare se è necessario creare un avviso.
 - **Visualizzazioni.**  È possibile creare visualizzazioni dei dati da includere nei dashboard degli utenti con [Progettazione viste](log-analytics-view-designer.md).  Le ricerche log forniscono i dati usati dai [riquadri](log-analytics-view-designer-tiles.md) e dalle [parti della visualizzazione](log-analytics-view-designer-parts.md) in ogni visualizzazione.  È possibile eseguire il drill-down dalle parti della visualizzazione nel portale per la ricerca log per eseguire ulteriori analisi dei dati.
 - **Esportazione.**  Quando si esportano dati dall'area di lavoro di Log Analytics in Excel o [Power BI](log-analytics-powerbi.md), si crea una ricerca log per definire i dati da esportare.
@@ -83,5 +83,5 @@ Per una documentazione completa sul linguaggio di query di Azure Log Analytics, 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Leggere le informazioni sui [portali usati per creare e modifiche le ricerche log](log-analytics-log-search-portals.md).
-- Vedere un'[esercitazione sulla scrittura di query](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html) con il nuovo linguaggio di query.
+- Vedere un'[esercitazione sulla scrittura di query](https://go.microsoft.com/fwlink/?linkid=856078) con il nuovo linguaggio di query.
 

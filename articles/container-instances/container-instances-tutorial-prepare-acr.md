@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
 ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -60,32 +60,12 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 Nella parte restante di questa esercitazione si usa `<acrname>` come segnaposto per il nome del registro contenitori scelto.
 
-## <a name="get-azure-container-registry-information"></a>Ottenere informazioni su Registro contenitori di Azure
+## <a name="container-registry-login"></a>Accesso al registro contenitori
 
-Dopo aver creato il registro contenitori è possibile eseguire una query per trovare il server di accesso e la password. Il codice seguente restituisce questi valori. Prendere nota di ogni valore per il server di accesso e la password perché in questa esercitazione viene fatto riferimento a essi.
-
-Server di accesso del registro contenitori (sostituire con il nome del registro):
+È necessario accedere all'istanza del Registro contenitori di Azure prima di eseguire il push di immagini in essa. Usare il comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) per completare l'operazione. È necessario specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 
 ```azurecli
-az acr show --name <acrName> --query loginServer
-```
-
-Nella parte restante di questa esercitazione, si usa `<acrLoginServer>` come segnaposto per il valore del server di accesso del registro contenitori.
-
-Password del registro contenitori:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
-Nella parte restante di questa esercitazione, si usa `<acrPassword>` come segnaposto per il valore della password del registro contenitori.
-
-## <a name="login-to-the-container-registry"></a>Accedere al registro contenitori
-
-È necessario accedere all'istanza del registro contenitori prima di eseguire il push di immagini. Usare il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) per completare l'operazione. Quando si esegue docker login è necessario fornire il nome del server di accesso e le credenziali del registro.
-
-```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+az acr login --name <acrName>
 ```
 
 Al termine, il comando restituisce un messaggio di accesso riuscito.
@@ -105,6 +85,12 @@ Output:
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+```
+
+Per ottenere il nome loginServer, eseguire questo comando.
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
 ```
 
 Applicare all'immagine *aci-tutorial-app* il tag del server di accesso del registro contenitori. Aggiungere anche `:v1` alla fine del nome dell'immagine. Questo tag indica il numero di versione dell'immagine.
@@ -142,7 +128,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 Per restituire un elenco di immagini di cui è stato eseguito il push nel Registro contenitori di Azure, usare il comando [az acr repository list](/cli/azure/acr/repository#list). Aggiornare il comando con il nome del registro contenitori.
 
 ```azurecli
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+az acr repository list --name <acrName> --output table
 ```
 
 Output:
@@ -156,7 +142,7 @@ aci-tutorial-app
 Per visualizzare i tag per un'immagine specifica, usare il comando [az acr repository show-tags](/cli/azure/acr/repository#show-tags).
 
 ```azurecli
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository aci-tutorial-app --output table
+az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
 Output:

@@ -1,9 +1,9 @@
 ---
 title: Elaborazione in tempo reale in Analisi di flusso per le funzioni di Azure | Microsoft Docs
-description: Informazioni su come utilizzare una funzione di Azure connessa a una coda del bus di servizio per popolare una cache Redis di Azure dall&quot;output di un processo di analisi di flusso.
+description: Informazioni su come utilizzare una funzione di Azure connessa a una coda del bus di servizio per popolare una cache Redis di Azure dall'output di un processo di analisi di flusso.
 keywords: flusso di dati, cache redis, coda bus di servizio
 services: stream-analytics
-author: ryancrawcour
+author: samacha
 manager: jhubbard
 documentationcenter: 
 ms.assetid: d428bb33-4244-4001-b93d-c77bed816527
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: ryancraw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70471749ef2b0ccaa4662cbf8a1dfa7ef4b21cfa
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="how-to-store-data-from-azure-stream-analytics-in-an-azure-redis-cache-using-azure-functions"></a>Come archiviare i dati dall'analisi di flusso di Azure nella Cache Redis di Azure utilizzando le funzioni di Azure
@@ -189,7 +188,7 @@ Siamo entusiasti di vedere tutto ciò che le nuove funzioni di Azure e l'analisi
 
 Per i neofiti di Microsoft Azure, li invitiamo a provare questa soluzione registrandosi per ottenere un [account di prova gratuito di Azure](https://azure.microsoft.com/pricing/free-trial/). Per i neofiti della funzionalità di analisi di flusso, li invitiamo a [creare il primo processo di analisi di flusso](stream-analytics-create-a-job.md).
 
-In caso di domande o per ricevere assistenza, pubblicare un messaggio nel forum [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) o [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
+In caso di domande o per ricevere assistenza, pubblicare un messaggio nel forum [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) o [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics). 
 
 È anche possibile consultare le risorse seguenti:
 
