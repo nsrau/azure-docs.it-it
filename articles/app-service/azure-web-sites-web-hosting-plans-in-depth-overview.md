@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 07d5056fdea9d4975fe91a5b842a9208385e779e
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: f97be571d104e3cc1c6ee732886fa7133ba0dc83
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="azure-app-service-plans-in-depth-overview"></a>Panoramica approfondita dei piani di servizio app di Azure
@@ -33,7 +33,7 @@ I piani di servizio app definiscono:
 - Dimensione dell'istanza (Small, Medium, Large)
 - SKU (Gratuito, Condiviso, Basic, Standard, Premium)
 
-Nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) le app Web, le app per dispositivi mobili, le app per le API e le app per le funzioni (o Funzioni) vengono tutte eseguite in un piano di servizio app.  Le app appartenenti a sottoscrizione, area e gruppo di risorse identici possono condividere un piano di servizio app. 
+Nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) le app Web, le app per dispositivi mobili, le app per le API e le app per le funzioni (o Funzioni) vengono tutte eseguite in un piano di servizio app.  Le app appartenenti alla stessa sottoscrizione e area possono condividere lo stesso piano di servizio app. 
 
 Tutte le applicazioni assegnate a un **piano di servizio app**  condividono le risorse definite dal piano, in modo da consentire un risparmio sui costi quando si ospitano più app in un unico piano di servizio app.
 

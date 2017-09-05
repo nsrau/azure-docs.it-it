@@ -1,6 +1,6 @@
 ---
-title: Abilitare la crittografia per l&quot;account di archiviazione nel Centro sicurezza di Azure | Microsoft Docs
-description: In questo documento viene illustrato come implementare le raccomandazioni del Centro sicurezza di Azure **Abilitare la crittografia per l&quot;account di archiviazione nel Centro sicurezza di Azure**.
+title: Abilitare la crittografia per l'account di archiviazione nel Centro sicurezza di Azure | Microsoft Docs
+description: In questo documento viene illustrato come implementare le raccomandazioni del Centro sicurezza di Azure **Abilitare la crittografia per l'account di archiviazione nel Centro sicurezza di Azure**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 7b5df25f46a2824acb361401ab90c960b8e5978f
-ms.openlocfilehash: 5b580183002ae5c42cc08343cea7f659c635d590
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Abilitare la crittografia per l'account di archiviazione nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure consiglia all'utente di abilitare la crittografia del servizio di archiviazione di Azure per i dati inattivi.
 
-La Crittografia del servizio di archiviazione (SSE) applica la crittografia ai dati quando vengono scritti nell'archiviazione di Azure e li decrittografa prima del recupero.  SSE è attualmente disponibile solo per il servizio BLOB di Azure e può essere usata per BLOB in blocchi, BLOB di pagine e BLOB di aggiunta.  Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/storage-service-encryption.md).
+La Crittografia del servizio di archiviazione (SSE) applica la crittografia ai dati quando vengono scritti nell'archiviazione di Azure e li decrittografa prima del recupero.  SSE è attualmente disponibile solo per il servizio BLOB di Azure e può essere usata per BLOB in blocchi, BLOB di pagine e BLOB di aggiunta.  Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md).
 
 
 > [!Note]
-> Dopo avere attivato la crittografia, vengono crittografati solo i nuovi dati. Qualsiasi BLOB esistente nell'account di archiviazione non viene crittografato. Per crittografare un BLOB esistente, vedere [Domande frequenti su Crittografia del servizio di archiviazione per i dati inattivi](../storage/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> Dopo avere attivato la crittografia, vengono crittografati solo i nuovi dati. Qualsiasi BLOB esistente nell'account di archiviazione non viene crittografato. Per crittografare un BLOB esistente, vedere [Domande frequenti su Crittografia del servizio di archiviazione per i dati inattivi](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
 >
 >
 
@@ -53,7 +54,7 @@ A questo punto è stata abilitata la crittografia di archiviazione per **storage
 ## <a name="see-also"></a>Vedere anche
 In questo documento viene illustrato come implementare la raccomandazione del Centro sicurezza di Azure "Abilitare la crittografia per l'account di archiviazione di Azure". Per ulteriori informazioni sulla crittografia del servizio di archiviazione di Azure, vedere le risorse seguenti:
 
-* [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/storage-service-encryption.md)
+* [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md)
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
@@ -68,9 +69,4 @@ Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png
 [2]: ./media/security-center-enable-encryption-for-storage-account/enable-storage-encryption.png
 [3]: ./media/security-center-enable-encryption-for-storage-account/encryption-blade.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

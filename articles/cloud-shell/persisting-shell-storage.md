@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/21/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 26428ad0d3acda959235ffa780294154ba61bca5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 61a8bfcf3704f361432400771d8fcc8b81927b53
 ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -32,8 +32,8 @@ Al primo avvio Cloud Shell richiede di associare una condivisione file nuova o e
 
 Quando si usano le impostazioni di base e si seleziona una sola sottoscrizione, Cloud Shell crea tre risorse per conto dell'utente nell'area di Azure supportata più vicina all'utente:
 * Gruppo di risorse: `cloud-shell-storage-<region>`
-* Account di archiviazione: `cs-uniqueGuid`
-* Condivisione file: `cs-<user>-<domain>-com-uniqueGuid`
+* Account di archiviazione: `cs<uniqueGuid>`
+* Condivisione file: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![Impostazione della sottoscrizione](media/basic-storage.png)
 
@@ -41,7 +41,7 @@ La condivisione viene montata come `clouddrive` nella directory `$Home`. La cond
 
 ### <a name="use-existing-resources"></a>Usare le risorse esistenti
 
-Con l'opzione Avanzate è possibile associare risorse esistenti. Al prompt di impostazione dell'archiviazione, selezionare **Mostra impostazioni avanzate** per visualizzare le opzioni aggiuntive. Le condivisioni file esistenti ricevono un'immagine utente di 5 GB per mantenere persistente la directory `$Home`. I menu a discesa vengono filtrati in base all'area Cloud Shell assegnata e agli account di archiviazione ridondanti a livello locale o globale.
+Con l'opzione Avanzate è possibile associare risorse esistenti. Al prompt di impostazione dell'archiviazione, selezionare **Mostra impostazioni avanzate** per visualizzare le opzioni aggiuntive. Le condivisioni file esistenti ricevono un'immagine utente di 5 GB per mantenere persistente la directory `$Home`. I menu a discesa vengono filtrati in base all'area Cloud Shell e agli account di archiviazione con ridondanza locale e geografica.
 
 ![Impostazione del gruppo di risorse](media/advanced-storage.png)
 
@@ -67,11 +67,11 @@ Con Cloud Shell è possibile eseguire un comando denominato `clouddrive`, che co
 È possibile aggiornare la condivisione file associata a Cloud Shell usando il comando `clouddrive mount`.
 
 Se si monta una condivisione file esistente, gli account di archiviazione devono avere le caratteristiche seguenti:
-* Avere un account di archiviazione ridondante a livello locale o globale per supportare le condivisioni file.
+* Essere account di archiviazione con ridondanza locale o geografica per supportare le condivisioni file.
 * Trovarsi nell'area assegnata. Durante l'onboarding, l'area a cui si è assegnati viene elencata nel nome del gruppo di risorse `cloud-shell-storage-<region>`.
 
 ### <a name="supported-storage-regions"></a>Aree di archiviazione supportate
-I file di Azure devono risiedere nella stessa area del computer Cloud Shell in cui vengono montati. I computer Cloud Shell esistono nelle aree seguenti:
+I file di Azure devono risiedere nella stessa area del computer Cloud Shell in cui vengono montati. I cluster Cloud Shell esistono attualmente nelle aree seguenti:
 |Area|Region|
 |---|---|
 |Americhe|Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti occidentali|
@@ -94,7 +94,7 @@ Per visualizzare altri dettagli, eseguire `clouddrive mount -h`, come illustrato
 ![Esecuzione del comando `clouddrive mount`](media/mount-h.png)
 
 ## <a name="unmount-clouddrive"></a>Smontare `clouddrive`
-È possibile smontare in qualsiasi momento una condivisione file montata in Cloud Shell. Dal momento però che Cloud Shell richiede una condivisione file montata, se la condivisione file viene smontata, alla sessione successiva verrà chiesto di crearne e montarne una nuova.
+È possibile smontare in qualsiasi momento una condivisione file montata in Cloud Shell. Dopo la disinstallazione della condivisione file verrà richiesto di installare una nuova condivisione file prima della sessione successiva.
 
 Per rimuovere una condivisione file da Cloud Shell:
 1. Eseguire `clouddrive unmount`.
@@ -107,23 +107,23 @@ Per visualizzare altri dettagli, eseguire `clouddrive unmount -h`, come illustra
 ![Esecuzione del comando "clouddrive unmount"](media/unmount-h.png)
 
 > [!WARNING]
-> Sebbene l'esecuzione di questo comando non elimini le risorse, l'eliminazione manuale di un gruppo di risorse, un account di archiviazione o una condivisione file di cui è stato eseguito il mapping a Cloud Shell cancellerà l'immagine del disco della directory `$Home` e tutti i file presenti nella condivisione file. Questa azione non può essere annullata.
+> L'esecuzione di questo comando non elimina alcuna risorsa. L'eliminazione manuale del gruppo di risorse, dell'account di archiviazione o della condivisione file di cui è stato eseguito il mapping a Cloud Shell cancellerà l'immagine del disco della directory `$Home` ed eventuali altri file presenti nella condivisione file. Questa azione non può essere annullata.
 
 ## <a name="list-clouddrive-file-shares"></a>Elencare le condivisioni file `clouddrive`
 Per sapere quale condivisione file è montata come `clouddrive`, eseguire il comando `df` seguente. 
 
-Il percorso file a clouddrive indicherà il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio, `//storageaccountname.file.core.windows.net/filesharename`
+Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
+Filesystem                                               1K-blocks     Used Available Use% Mounted on
+overlay                                                   30428648 15585636  14826628  52% /
+tmpfs                                                       986704        0    986704   0% /dev
+tmpfs                                                       986704        0    986704   0% /sys/fs/cgroup
+/dev/sda1                                                 30428648 15585636  14826628  52% /etc/hosts
+shm                                                          65536        0     65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName        6291456  5242944   1048512  84% /usr/justin/clouddrive
+/dev/loop0                                                 5160576   601652   4296780  13% /home/justin
 ```
 
 ## <a name="transfer-local-files-to-cloud-shell"></a>Trasferire file locali in Cloud Shell

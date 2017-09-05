@@ -15,116 +15,99 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 202e7ec116e5e49beaad8c2d570a3659236e9b0f
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: bf6a98fd7e7e11764bef174f9efd0635fa7efe9a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="create-activity-log-alerts-on-service-notifications"></a>Creare gli avvisi del log attività nelle notifiche del servizio
+# <a name="create-activity-log-alerts-on-service-notifications"></a>Creare gli avvisi del log attività per le notifiche del servizio
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive come impostare gli avvisi del log attività per le notifiche sull'integrità del servizio usando il portale di Azure.  
 
-È possibile ricevere un avviso quando Azure invia le notifiche sull'integrità del servizio alla sottoscrizione di Azure.  
-È possibile configurare l'avviso in base agli elementi seguenti:
-- Classe di notifica dell'integrità del servizio (Evento imprevisto, Manutenzione, Informazioni e così via)
-- I servizi interessati
-- Le aree interessate
-- Stato della notifica (Attivo o Risolto)
-- Livello delle notifiche (Informativo, Avviso, Errore)
+È possibile ricevere un avviso quando Azure invia le notifiche sull'integrità del servizio alla sottoscrizione di Azure. È possibile configurare l'avviso in base a:
+
+- La classe di notifica sull'integrità del servizio, ad esempio evento imprevisto, manutenzione, informazioni.
+- I servizi interessati.
+- Le aree interessate.
+- Lo stato della notifica (attivo o risolto).
+- Il livello delle notifiche (informativo, avviso, errore).
 
 È anche possibile configurare l'utente a cui deve essere inviato l'avviso:
-- Selezionare un gruppo di azione esistente
-- Creare un nuovo gruppo di azione (che può essere usato successivamente per avvisi futuri)
 
-Altre informazioni sui gruppi di azione sono disponibili [qui](monitoring-action-groups.md)
+- Selezionare un gruppo di azione esistente.
+- Creare un nuovo gruppo di azione che può essere usato per avvisi futuri.
 
-Per informazioni su come configurare gli avvisi di notifica di integrità del servizio usando i modelli Azure Resource Manager: [modelli di Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+Per altre informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](monitoring-action-groups.md).
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-with-the-azure-portal"></a>Creare un avviso per una notifica di integrità del servizio per un nuovo gruppo di azione con il portale di Azure
-1.  Nel [portale](https://portal.azure.com) passare al servizio **Monitoraggio**
+Per informazioni su come configurare gli avvisi di notifica sull'integrità del servizio usando i modelli Azure Resource Manager, vedere [Modelli di Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
 
-    ![Monitoraggio](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
+## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Creare un avviso per una notifica sull'integrità del servizio per un nuovo gruppo di azione usando il portale di Azure
+1. Nel [portale](https://portal.azure.com)selezionare **Monitoraggio**.
 
-2.  Fare clic sull'opzione **Monitoraggio** per aprire il relativo pannello. Per prima cosa si apre la sezione **Log di attività**.
+    ![Servizio "Monitoraggio"](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
 
-3.  Fare clic sulla sezione **Avvisi**.
+2. Nella sezione **Log attività** selezionare **Avvisi**.
 
-    ![Avvisi](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
+    ![Scheda "Avvisi"](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
 
-4.  Selezionare il comando **Aggiungi avviso del log attività** e compilare i campi
+3. Selezionare il comando **Aggiungi avviso del log attività** e compilare i campi.
 
-    ![Aggiungere un avviso](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
+    ![Comando "Aggiungi avviso del log attività"](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
 
-5.  Specificare un **Nome** e una **Descrizione** per l'avviso del log attività.
+4. Immettere un nome nella casella **Nome avviso del log attività** e specificare una **descrizione**.
 
-    ![Aggiungere un avviso a nuovo gruppo di azione](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group.png)
+    ![Finestra di dialogo "Aggiungi avviso del log attività"](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group.png)
 
-6.  L'avviso del log attività verrà salvato in **Sottoscrizione**. Verrà compilato automaticamente nella sottoscrizione attualmente in uso. Questa è la sottoscrizione che verrà monitorata e per la quale verranno distribuiti gli avvisi.
+5. Nella casella **Sottoscrizione** viene inserita automaticamente la sottoscrizione corrente. Questa sottoscrizione viene usata per salvare l'avviso del log attività. Questa è la sottoscrizione in cui verrà distribuita la risorsa di avviso e in cui verranno monitorati gli eventi nel log attività.
 
-7.  Scegliere il **Gruppo di risorse** a cui verrà associato l'avviso nella **Sottoscrizione**.
+6. Selezionare il **gruppo di risorse** in cui verrà creata la risorsa di avviso. Non è il gruppo di risorse che viene monitorato dall'avviso, ma è quello in cui si trova la risorsa di avviso.
 
-8.  In **Categoria evento** selezionare l'opzione 'Integrità del servizio'. Specificare **Servizio, Area, Tipo, Stato** e **Livello** delle notifiche sull'integrità del servizio che si vuole ricevere.
+7. Nella casella **Categoria di eventi** , selezionare **Integrità dei servizi**. Facoltativamente, selezionare **Servizio**, **Area**, **Tipo**, **Stato** e **Livello** delle notifiche sull'integrità del servizio che si vuole ricevere.
 
-9.  Creare un gruppo di azione **Nuovo** specificando **Nome** e **Nome breve**; il nome breve viene visualizzato nelle notifiche quando viene generato l'avviso.
+8. In **Avvisi tramite** selezionare il pulsante **Nuovo** gruppo di azione. Immettere un nome nella casella **Nome gruppo di azione** e un nome nella casella **Nome breve gruppo di azione**. Viene fatto riferimento al nome breve nelle notifiche inviate all'attivazione dell'avviso.
 
-10. Definire quindi un elenco di ricevitori specificando i dati seguenti relativi al ricevitore
+9. Definire un elenco di ricevitori specificando i dati seguenti relativi al ricevitore:
 
-    a. **Nome:** nome, alias o identificatore del ricevitore.
+    a. **Nome**: immettere il nome, l'alias o l'identificatore del ricevitore.
 
-    b. **Tipo azione:** scegliere di contattare il ricevitore tramite SMS, posta elettronica o webhook
+    b. **Tipo di azione**: selezionare webhook, posta elettronica o SMS.
 
-    c. **Dettagli:** in base al tipo di azione selezionata, specificare un numero di telefono, un indirizzo di posta elettronica o l'URI del webhook.
+    c. **Dettagli:** in base al tipo di azione selezionato, immettere un numero di telefono, un indirizzo di posta elettronica o l'URI del webhook.
 
-11. Al termine fare clic su **OK** per creare l'avviso.
+10. Fare clic su **OK** per creare l'avviso.
 
-Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
+Entro pochi minuti, l'avviso diventa attivo e inizia ad attivarsi in base alle condizioni specificate al momento della creazione.
 
-Per altre informazioni sullo schema webhook per gli avvisi del log attività [fare clic qui](monitoring-activity-log-alerts-webhook.md)
+Per informazioni sullo schema webhook per gli avvisi del log attività, vedere [Webhook per gli avvisi del log attività di Azure](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->Il gruppo di azioni definito in questi passaggi sarà riutilizzabile come gruppo di azioni esistente per tutte le definizioni di avviso future.
+>Il gruppo di azione definito in questi passaggi è riutilizzabile come gruppo di azione esistente per tutte le future definizioni di avviso.
 >
 >
 
-## <a name="create-an-alert-on-a-service-health-notification-using-an-existing-action-group-with-the-azure-portal"></a>Creare un avviso per una notifica di integrità del servizio usando un gruppo di azioni esistente con il portale di Azure
-1.  Nel [portale](https://portal.azure.com), passare al servizio **Monitoraggio**
+## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-the-azure-portal"></a>Creare un avviso per una notifica sull'integrità del servizio per un gruppo di azione esistente usando il portale di Azure
 
-    ![Monitoraggio](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
-2.  Fare clic sull'opzione **Monitoraggio** per aprire il relativo pannello. Per prima cosa si apre la sezione **Log di attività**.
+1. Seguire i passaggi da 1 a 7 nella sezione precedente per creare una notifica sull'integrità del servizio. 
 
-3.  Fare clic sulla sezione **Avvisi**.
+2. In **Avvisi tramite** selezionare il pulsante Gruppo di azione **esistente**. Selezionare il gruppo di azioni appropriato.
 
-    ![Avvisi](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades.png)
-4.  Selezionare il comando **Aggiungi avviso del log attività** e compilare i campi
+3. Fare clic su **OK** per creare l'avviso.
 
-    ![Aggiungere un avviso](./media/monitoring-activity-log-alerts-on-service-notifications/add-activity-log-alert.png)
-5.  Specificare un **Nome** e una **Descrizione** per l'avviso del log attività.
+Entro pochi minuti, l'avviso diventa attivo e inizia ad attivarsi in base alle condizioni specificate al momento della creazione.
 
-    ![Aggiungere un avviso esistente a un gruppo di azione](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-existing-action-group.png)
-6.  L'avviso del log attività verrà salvato in **Sottoscrizione**. Verrà compilato automaticamente nella sottoscrizione attualmente in uso. Questa è la sottoscrizione che verrà monitorata e per la quale verranno distribuiti gli avvisi.
+## <a name="manage-your-alerts"></a>Gestire gli avvisi
 
-7.  Scegliere il **Gruppo di risorse** a cui verrà associato l'avviso nella **Sottoscrizione**.
+Dopo la creazione, l'avviso sarà visibile nella sezione **Avvisi** del pannello **Monitoraggio**. Selezionare l'avviso da gestire per:
 
-8.  In **Categoria evento** selezionare l'opzione 'Integrità del servizio'. Specificare **Servizio, Area, Tipo, Stato** e **Livello** delle notifiche sull'integrità del servizio che si vuole ricevere.
+* Modificarlo.
+* Eliminarlo.
+* Disabilitarlo o abilitarlo per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
 
-9.  Scegliere la **Notifica tramite** un **gruppo di azione esistente**. Selezionare il gruppo di azioni appropriato.
-
-10. Al termine fare clic su **OK** per creare l'avviso.
-
-Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
-
-## <a name="managing-your-alerts"></a>Gestione degli avvisi
-
-Dopo aver creato un avviso, esso sarà visibile nella sezione Avvisi del servizio Monitoraggio. Selezionare l'avviso che si vuole gestire per:
-* **Modificarlo**.
-* **Eliminarlo**.
-* **Disabilitarlo** o **abilitarlo** per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
-
-## <a name="next-steps"></a>Passaggi successivi:
-- Informazioni sulle [notifiche sull'integrità del servizio](monitoring-service-notifications.md)
-- Informazioni sulla [limitazione della frequenza delle notifiche](monitoring-alerts-rate-limiting.md)
-- Esaminare lo [schema webhook degli avvisi del log attività](monitoring-activity-log-alerts-webhook.md)
-- Ottenere una [panoramica degli avvisi del log attività](monitoring-overview-alerts.md) e informazioni sulla ricezione degli avvisi  
-- Altre informazioni sui [gruppi di azioni](monitoring-action-groups.md)
+## <a name="next-steps"></a>Passaggi successivi
+- Informazioni sulle [notifiche per l'integrità del servizio](monitoring-service-notifications.md).
+- Informazioni sulla [limitazione della frequenza delle notifiche](monitoring-alerts-rate-limiting.md).
+- Esaminare lo [schema webhook degli avvisi del log attività](monitoring-activity-log-alerts-webhook.md).
+- Leggere una [panoramica degli avvisi del log attività](monitoring-overview-alerts.md) e informazioni su come ricevere gli avvisi. 
+- Altre informazioni sui [gruppi di azione](monitoring-action-groups.md).
 

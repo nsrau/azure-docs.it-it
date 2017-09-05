@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 08/21/2017
 ms.author: johnkem; magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 8961676a60d922912e383937ca38c5d2f89a348a
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Raccogliere e usare i dati dei log dalle risorse di Azure
@@ -34,15 +34,13 @@ Non tutte le risorse supportano il nuovo tipo di log di diagnostica di risorsa d
 
 ![Log di diagnostica di risorsa e altri tipi di log ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
-Figura 1: Log di diagnostica di risorsa e altri tipi di log
-
 ## <a name="what-you-can-do-with-resource-level-diagnostic-logs"></a>Possibili operazioni con i log di diagnostica a livello di risorsa
 Ecco alcune delle attività che è possibile eseguire con i log di diagnostica di risorsa:
 
 ![Posizionamento logico dei log di diagnostica di risorsa](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
 
-* Salvarli in un [**account di archiviazione**](monitoring-archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione, in giorni, tramite le **impostazioni di diagnostica di risorsa**.
+* Salvarli in un [**account di archiviazione**](monitoring-archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni tramite le **impostazioni di diagnostica di risorsa**.
 * [Trasmetterli a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
 * Analizzarli con [OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
@@ -51,22 +49,22 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica d
 ## <a name="resource-diagnostic-settings"></a>Impostazioni di diagnostica di risorsa
 I log di diagnostica per le non di calcolo vengono configurati tramite le impostazioni di diagnostica di risorsa. Le **impostazioni di diagnostica di risorsa** permettono di controllare quanto segue:
 
-* Destinazione dei log di diagnostica di risorsa, ad esempio un account di archiviazione, un Hub eventi e/o OMS Log Analytics.
-* Categorie di log da inviare.
+* Destinazione dei log di diagnostica di risorsa e delle metriche, ad esempio un account di archiviazione, un Hub eventi e/o OMS Log Analytics.
+* Categorie di log e metriche da inviare.
 * Periodo di tempo in cui ogni log di categoria deve essere mantenuto nell'account di archiviazione
     - Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. Se impostato su zero giorni, i log vengono conservati all'infinito.
     - Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o OMS, i criteri di conservazione non hanno alcun effetto.
     - I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente.
 
-È possibile configurare facilmente queste impostazioni usando il pannello di diagnostica di risorsa nel portale di Azure, i comandi di Azure PowerShell e l'interfaccia della riga di comando di Azure oppure l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+È possibile configurare facilmente queste impostazioni usando le impostazioni diagnostica di risorsa nel portale di Azure, i comandi di Azure PowerShell e dell'interfaccia della riga di comando di Azure oppure l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!WARNING]
-> Le metriche e i log di diagnostica per le risorse di calcolo, ad esempio le macchine virtuali o Service Fabric, usano un [meccanismo distinto per la configurazione e la selezione degli output](../azure-diagnostics.md).
+> Le metriche e i log di diagnostica per il livello di sistema operativo guest delle risorse di calcolo, ad esempio le macchine virtuali o Service Fabric, usano un [meccanismo distinto per la configurazione e la selezione degli output](../azure-diagnostics.md).
 >
 >
 
 ## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Come abilitare la raccolta dei log di diagnostica di risorsa
-La raccolta dei log di diagnostica di risorsa può essere abilitata [durante la creazione di una risorsa in un modello di Resource Manager](./monitoring-enable-diagnostic-logs-using-template.md) o successivamente usando il pannello della risorsa nel portale. È possibile abilitare la raccolta anche in qualsiasi momento usando i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'API REST di Monitoraggio di Azure.
+La raccolta dei log di diagnostica di risorsa può essere abilitata [durante la creazione di una risorsa in un modello di Resource Manager](./monitoring-enable-diagnostic-logs-using-template.md) o successivamente usando la pagina della risorsa nel portale. È possibile abilitare la raccolta anche in qualsiasi momento usando i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'API REST di Monitoraggio di Azure.
 
 > [!TIP]
 > Le istruzioni riportate di seguito potrebbero non essere direttamente applicabili a tutte le risorse. Vedere i collegamenti dello schema nella parte inferiore della pagina per comprendere i possibili passaggi speciali per determinati tipi di risorse.
@@ -74,14 +72,29 @@ La raccolta dei log di diagnostica di risorsa può essere abilitata [durante la 
 >
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-in-the-portal"></a>Abilitare la raccolta dei log di diagnostica di risorsa nel portale
-È possibile abilitare la raccolta dei log di diagnostica di risorsa nel portale di Azure dopo avere creato una risorsa seguendo questa procedura:
+È possibile abilitare la raccolta dei log di diagnostica di risorsa nel portale di Azure dopo avere creato una risorsa passando a una risorsa specifica o usando Monitoraggio di Azure. Per abilitare questa raccolta tramite Monitoraggio di Azure:
 
-1. Passare al pannello della risorsa e aprire il pannello **Diagnostica** .
-2. Fare clic su **Sì** e selezionare un account di archiviazione e/o un hub eventi.
+1. Nel [portale di Azure](http://portal.azure.com) passare a Monitoraggio di Azure e fare clic su **Impostazioni di diagnostica**
 
-   ![Abilitare i log di diagnostica dopo la creazione della risorsa](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
-3. In **Log** selezionare le **categorie di log** da raccogliere o trasmettere.
+    ![Sezione relativa al monitoraggio di Monitoraggio di Azure](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
+
+2. Facoltativamente filtrare l'elenco in base al tipo di risorsa o al gruppo di risorse, quindi fare clic sulla risorsa per cui si vuole specificare un'impostazione di diagnostica.
+
+3. Se non esiste un'impostazione sulla risorsa selezionata, viene chiesto di creare un'impostazione. Fare clic su "Attiva diagnostica".
+
+   ![Aggiungi impostazione di diagnostica - Nessuna impostazione esistente](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-none.png)
+
+   Se esistono già impostazioni sulla risorsa, verrò visualizzato un elenco di impostazioni già configurate per questa risorsa. Fare clic su "Add diagnostic setting" (Aggiungi impostazione di diagnostica).
+
+   !["Add diagnostic setting" (Aggiungi impostazione di diagnostica) - impostazioni esistenti](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-multiple.png)
+
+3. Assegnare un nome all'impostazione, selezionare le caselle per ogni destinazione a cui si vuole inviare i dati e configurare la risorsa che verrà usata per ogni destinazione. Facoltativamente, impostare un numero di giorni per la conservazione di questi log usando i dispositivi di scorrimento **Conservazione (giorni)** (applicabile solo alla destinazione dell'account di archiviazione). Se il valore di conservazione è zero giorni, i log vengono conservati all'infinito.
+   
+   !["Add diagnostic setting" (Aggiungi impostazione di diagnostica) - impostazioni esistenti](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
+    
 4. Fare clic su **Salva**.
+
+Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log di diagnostica vengono inviati alle destinazioni specifiche non appena vengono generati nuovi dati di eventi.
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Abilitare la raccolta dei log di diagnostica di risorsa con PowerShell
 Per abilitare la raccolta dei log di diagnostica di risorsa tramite Azure PowerShell, usare i comandi seguenti:
@@ -94,7 +107,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [y
 
 L'ID account di archiviazione è l'ID risorsa per l'account di archiviazione a cui devono essere inviati i log.
 
-Per abilitare lo streaming dei log di diagnostica a un hub eventi, usare questo comando:
+Per abilitare lo streaming dei log di diagnostica a un Hub eventi, usare questo comando:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
@@ -147,88 +160,20 @@ azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource 
 Per modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure, vedere [questo documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## <a name="manage-resource-diagnostic-settings-in-the-portal"></a>Gestire le impostazioni di diagnostica di risorsa nel portale
-Verificare che tutte le risorse siano configurate con le impostazioni di diagnostica. Passare al pannello **Monitoraggio** nel portale e aprire il pannello **Log di diagnostica**.
+Verificare che tutte le risorse siano configurate con le impostazioni di diagnostica. Passare a **Monitoraggio** nel portale e aprire **Impostazioni di diagnostica**.
 
-![Pannello Log di diagnostica nel portale](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
+![Pannello Log di diagnostica nel portale](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-Potrebbe essere necessario fare clic su "Altri servizi" per individuare il pannello Monitoraggio.
+Potrebbe essere necessario fare clic su "Altri servizi" per individuare la sezione Monitoraggio.
 
-In questo pannello è possibile visualizzare e filtrare tutte le risorse che supportano i log di diagnostica per vedere se la diagnostica è abilitata. È inoltre possibile controllare in quali account di archiviazione, hub eventi e/o aree di lavoro di Log Analytics è presente il flusso di tali log.
+Qui è possibile visualizzare e filtrare tutte le risorse che supportano le impostazioni di diagnostica per verificare se la diagnostica è abilitata. È possibile anche eseguire il drill-down per verificare se sono definite più impostazioni per una risorsa e controllare in quale account di archiviazione, spazio dei nomi di Hub eventi e/o area di lavoro di Log Analytics vengono trasmessi i dati.
 
-![Risultati del pannello Log di diagnostica nel portale](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
+![Risultati di Log di diagnostica nel portale](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-blade.png)
 
-Facendo clic su una risorsa vengono visualizzati tutti i log memorizzati nell'account di archiviazione ed è possibile disattivare o modificare le impostazioni di diagnostica. Fare clic sull'icona di download per scaricare i log relativi a un periodo di tempo specifico.
+Aggiungendo un'impostazione di diagnostica verrà visualizzata la vista Impostazioni di diagnostica in cui è possibile abilitare, disabilitare o modificare le impostazioni di diagnostica per la risorsa selezionata.
 
-![Una risorsa del pannello Log di diagnostica](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
-
-> [!NOTE]
-> I log di diagnostica verranno visualizzati soltanto in questa vista e saranno disponibili per il download se le impostazioni di diagnostica sono state configurate per salvare i log in un account di archiviazione.
->
->
-
-Facendo clic sul collegamento per le **impostazioni di diagnostica**, verrà visualizzato il pannello Impostazioni di diagnostica, in cui è possibile abilitare, disabilitare o modificare tali impostazioni per la risorsa selezionata.
-
-## <a name="supported-services-and-schema-for-resource-diagnostic-logs"></a>Servizi e schema supportati per i log di diagnostica di risorsa
-Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e della categoria di log.   
-
-| Service | Schema e documenti |
-| --- | --- |
-| Gestione API | Lo schema non è disponibile. |
-| Gateway applicazione |[Registrazione diagnostica per il gateway applicazione](../application-gateway/application-gateway-diagnostics.md) |
-| Automazione di Azure |[Analisi dei log per Automazione di Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Azure Batch |[Registrazione diagnostica di Azure Batch](../batch/batch-diagnostics.md) |
-| Customer Insights | Lo schema non è disponibile. |
-| Rete per la distribuzione di contenuti (CDN) | Lo schema non è disponibile. |
-| Cosmos DB | Lo schema non è disponibile. |
-| Analisi Data Lake |[Accesso ai log di diagnostica per Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Archivio Data Lake |[Accesso ai log di diagnostica per Archivio Data Lake di Azure](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Hub eventi |[Log di diagnostica di Hub eventi in Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
-| Insieme di credenziali di chiave |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-logging.md) |
-| Bilanciamento del carico |[Analisi dei log per Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
-| App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
-| Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md) |
-| Servizi di ripristino | Lo schema non è disponibile.|
-| Search |[Abilitazione e uso di Analisi del traffico di ricerca](../search/search-traffic-analytics.md) |
-| Gestione server | Lo schema non è disponibile. |
-| Bus di servizio |[Log di diagnostica del bus di servizio di Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| Analisi di flusso |[Log di diagnostica dei processi](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-
-## <a name="supported-log-categories-per-resource-type"></a>Categorie di log supportate per tipo di risorsa
-|Tipo di risorsa|Categoria|Nome visualizzato della categoria|
-|---|---|---|
-|Microsoft.ApiManagement/service|GatewayLogs|Log correlati ad ApiManagement Gateway|
-|Microsoft.Automation/automationAccounts|JobLogs|Log del processo|
-|Microsoft.Automation/automationAccounts|JobStreams|Flussi del processo|
-|Microsoft.Automation/automationAccounts|DscNodeStatus|Stato del nodo Dsc|
-|Microsoft.Batch/batchAccounts|ServiceLog|Log del servizio|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Ottiene le metriche dell'endpoint, ad esempio la larghezza di banda, i dati in uscita e così via|
-|Microsoft.CustomerInsights/hubs|AuditEvents|Eventi di controllo|
-|Microsoft.DataLakeAnalytics/accounts|Audit|Log di controllo|
-|Microsoft.DataLakeAnalytics/accounts|Requests|Log delle richieste|
-|Microsoft.DataLakeStore/accounts|Audit|Log di controllo|
-|Microsoft.DataLakeStore/accounts|Requests|Log delle richieste|
-|Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
-|Microsoft.EventHub/namespaces|ArchiveLogs|Log di archiviazione|
-|Microsoft.EventHub/namespaces|OperationalLogs|Log operativi|
-|Microsoft.EventHub/namespaces|AutoScaleLogs|Log di scalabilità automatica|
-|Microsoft.KeyVault/vaults|AuditEvent|Log di controllo|
-|Microsoft.Logic/workflows|WorkflowRuntime|Eventi di diagnostica del runtime del flusso di lavoro|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventi di rilevamento degli account di integrazione|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Event del gruppo di sicurezza di rete|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contatore di regole del gruppo di sicurezza di rete|
-|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventi di avviso del servizio di bilanciamento del carico|
-|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Stato di integrità dei probe del servizio di bilanciamento del carico|
-|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log di accesso del gateway applicazione|
-|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log delle prestazioni del gateway applicazione|
-|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log del firewall del gateway applicazione|
-|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dati dei report di Backup di Azure|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Processi di Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventi di Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Elementi replicati di Azure Site Recovery|
-|Microsoft.Search/searchServices|OperationLogs|Log delle operazioni|
-|Microsoft.ServiceBus/namespaces|OperationalLogs|Log operativi|
-|Microsoft.StreamAnalytics/streamingjobs|Esecuzione|Esecuzione|
-|Microsoft.StreamAnalytics/streamingjobs|Creazione|Creazione|
+## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Servizi, categorie e schemi supportati per i log di diagnostica di risorsa
+[Vedere questo articolo](monitoring-diagnostic-logs-schema.md) per un elenco completo di servizi, categorie di log e schemi supportati usati da questi servizi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Personalizzare regole del Web application firewall nel gateway applicazione di Azure - portale | Documentazione Microsoft
-description: Questa pagina descrive come personalizzare le regole del Web application firewall nel gateway applicazione con il portale.
+title: Personalizzare regole del Web application firewall nel gateway applicazione di Azure - Portale di Azure | Microsoft Docs
+description: Questo articolo descrive come personalizzare le regole del web application firewall nel gateway applicazione con il portale di Azure.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -16,48 +16,57 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: c3e93614f012eecff0e88f5f2ad13db199406f4a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: cdcbadbc3765dfc583c26e1b1453863d421c9a72
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="customize-web-application-firewall-rules-through-the-portal"></a>Personalizzare le regole del Web application firewall tramite il portale
+# <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalizzare le regole del web application firewall con il portale di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Interfaccia della riga di comando di Azure 2.0](application-gateway-customize-waf-rules-cli.md)
 
-Il Web application firewall del gateway applicazione fornisce la protezione per le Applicazioni Web. Queste protezioni vengono fornite dai set di regole CRS dell'OWASP. Alcune regole possono generare falsi positivi e bloccare il traffico reale.  Per questo motivo il gateway applicazione offre la possibilità di personalizzare regole e gruppi di regole in un gateway applicazione abilitato per il web application firewall. Per altre informazioni su regole e gruppi di regole specifici, visitare la pagina relativa a [regole e gruppi di regole CRS del Web application firewall](application-gateway-crs-rulegroups-rules.md)
+Il Web application firewall del gateway applicazione di Azure (WAF) fornisce la protezione per le Applicazioni Web. Queste protezioni vengono fornite dal Set di regole principali (CRS) di Open Web Application Security Project (OWASP). Alcune regole possono generare falsi positivi e bloccare il traffico reale. Per questo motivo, il gateway applicazione offre la possibilità di personalizzare regole e gruppi di regole. Per altre informazioni su regole e gruppi di regole specifici, vedere l'[Elenco di regole e gruppi di regole CRS del Web application firewall](application-gateway-crs-rulegroups-rules.md).
 
 >[!NOTE]
-> Se il gateway applicazione non sta usando il livello WAF, viene visualizzata l'opzione per aggiornare il gateway applicazione al livello WAF, come illustrato nella figura seguente:
+> Se il gateway applicazione non sta usando il livello WAF, l'opzione per aggiornare il gateway applicazione al livello WAF, come visualizzato nel riquadro a destra. 
 
-![abilitare WAF][fig1]
+![Abilitare WAF][fig1]
 
 ## <a name="view-rule-groups-and-rules"></a>Visualizzare le regole e i gruppi di regole
 
-Passare a un gateway applicazione e selezionare **Web application firewall**.  Fare clic su **Advanced rule configuration** (Configurazione regole avanzata).  Questa visualizzazione mostra una tabella nella pagina di tutti i gruppi di regole forniti con il set di regole selezionato.
+**Visualizzare le regole e i gruppi di regole**
+   1. Esplorare il gateway applicazione, e quindi selezionare **Web application firewall**.  
+   2. Selezionare **Advanced rule configuration** (Configurazione regole avanzata).  
+   Questa visualizzazione mostra una tabella nella pagina di tutti i gruppi di regole forniti con il set di regole selezionato. Vengono selezionate tutte le caselle di controllo della regola.
 
-![configurare regole disabilitate][1]
+![Configurare regole disabilitate][1]
 
 ## <a name="search-for-rules-to-disable"></a>Ricerca di regole da disabilitare
 
-Il pannello delle impostazioni del Web application firewall offre la possibilità di filtrare le regole in base a una ricerca di testo. Il risultato visualizza solo le regole e i gruppi di regole contenenti il testo ricercato.
+Il pannello delle **Impostazioni del Web application firewall** offre la possibilità di filtrare le regole tramite una ricerca di testo. Il risultato visualizza solo le regole e i gruppi di regole contenenti il testo ricercato.
 
-![cercare le regole][2]
+![Cercare le regole][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Disabilitare le regole e i gruppi di regole
 
-Quando si disabilitano le regole, è possibile disabilitare un intero gruppo di regole o regole specifiche in uno o più gruppi di regole.  Dopo avere deselezionato le regole da disabilitare, fare clic su **Salva**.  Questo passaggio salva le modifiche nel gateway applicazione.
+Quando si disabilitano le regole, è possibile disabilitare un intero gruppo di regole o regole specifiche in uno o più gruppi di regole. 
 
-![salvare le modifiche][3]
+**Disabilitare gruppi di regole o regole specifiche**
+
+   1. Cercare le regole o i gruppi di regole che si desidera disabilitare.
+   2. Deselezionare le caselle di controllo per le regole che si desidera disabilitare. 
+   2. Selezionare **Salva**. 
+
+![Salvare le modifiche][3]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Una volta configurate le regole disabilitate, informazioni su come visualizzare i log del WAF sono disponibili nella sezione relativa alla [diagnostica del gateway applicazione](application-gateway-diagnostics.md#diagnostic-logging)
+Dopo aver configurato le regole disattivate, viene descritto come visualizzare i log WAF. Per altre informazioni, vedere [Diagnostica del gateway applicazione](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

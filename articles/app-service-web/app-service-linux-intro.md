@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 69156ec555b34d066a65bdc202267cfc53de47a0
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 67dee77dd4e46d097358d86626a859b7dc7982e7
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Introduzione ad App Web di Azure in Linux
@@ -39,6 +39,9 @@ App Web in Linux supporta attualmente gli stack di applicazioni seguenti:
     * 6.6
     * 6.9
     * 6.10
+    * 6.11
+    * 8.0
+    * 8.1
 * PHP
     * 5.6
     * 7.0
@@ -96,6 +99,17 @@ App Web in Linux è supportato solo nei piani di servizio app dedicati e non ha 
 
 Le app Web in Linux devono essere create in un gruppo di risorse che non contiene app Web non Linux nella stessa area.
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi ##
+
+Quando non è possibile avviare l'applicazione o si desidera controllare il log dall'app, controllare i log di Docker nella directory LogFiles. È possibile accedere a questa directory tramite il sito SCM o tramite FTP.
+Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Registrazione del contenitore Docker** in **Log di diagnostica**.
+
+![Abilitazione della registrazione][2]
+
+![Uso di Kudu per visualizzare i log di Docker][1]
+
+È possibile accedere al sito SCM da **Strumenti avanzati** nel menu **Strumenti di sviluppo**.
+
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È possibile pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -109,4 +123,6 @@ Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](./web-sites-staged-publishing.md)
 * [Docker Hub Continuous Deployment with Azure Web App on Linux](./app-service-linux-ci-cd.md) (Distribuzione continua dell'hub Docker con App Web di Azure in Linux)
 
-
+<!--Image references-->
+[1]: ./media/app-service-linux-intro/kudu-docker-logs.png
+[2]: ./media/app-service-linux-intro/logging.png

@@ -1,6 +1,6 @@
 ---
 title: "Creare avvisi del log attività | Microsoft Docs"
-description: "Ricevere una notifica SMS, webhook e posta elettronica quando si verificano determinati eventi nel log attività."
+description: "Ricevere una notifica tramite SMS, webhook e posta elettronica quando si verificano determinati eventi nel log attività."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -15,131 +15,119 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: c44ecc0ee61c58ab7590e9a21a5fe002068c6b83
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-activity-log-alerts"></a>Creare avvisi del log attività
 
 ## <a name="overview"></a>Panoramica
-Gli avvisi del log attività vengono attivati quando si verifica un nuovo evento di log attività che corrisponde alle condizioni specificate nell'avviso. Questi avvisi sono risorse di Azure, pertanto possono essere creati usando un modello di Resource Manager e possono essere creati, aggiornati o eliminati nel portale di Azure. Questo articolo illustra i concetti di base degli avvisi del log attività e spiega come usare il portale di Azure per impostare un avviso per gli eventi del log attività.
+Gli avvisi del log attività vengono attivati quando si verifica un nuovo evento del log attività che corrisponde alle condizioni specificate nell'avviso. Si tratta di risorse di Azure e possono essere create usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Questo articolo illustra come usare il portale di Azure per configurare un avviso sugli eventi del log attività.
 
-Gli avvisi del log attività vengono in genere creati per uno dei due scopi seguenti:
-1. Per ricevere una notifica quando si verificano modifiche specifiche nelle risorse presenti nella sottoscrizione di Azure. Questi avvisi sono spesso limitati a risorse o gruppi di risorse specifici. Potrebbe ad esempio essere utile ricevere una notifica quando viene eliminata una macchina virtuale in myProductionResourceGroup o se vengono assegnati nuovi ruoli a un utente nella sottoscrizione.
-2. Per ricevere una notifica quando si verifica un evento di integrità del servizio. Gli eventi di integrità del servizio includono la notifica di eventi imprevisti e di eventi di manutenzione che si applicano alle risorse nella sottoscrizione.
+In genere, si creano avvisi del log attività per ricevere notifiche quando:
 
-L'avviso del log attività esegue in entrambi i casi il monitoraggio solo degli eventi nella sottoscrizione in cui è stato creato.
+* Si verificano modifiche specifiche nelle risorse nella sottoscrizione di Azure. Questi avvisi sono spesso limitati a risorse o gruppi di risorse specifici. Potrebbe ad esempio essere utile ricevere una notifica quando viene eliminata una macchina virtuale in myProductionResourceGroup o se vengono assegnati nuovi ruoli a un utente nella sottoscrizione.
+* Si verifica un evento di integrità del servizio. Gli eventi di integrità del servizio includono la notifica di eventi imprevisti e di manutenzione che si applicano alle risorse nella sottoscrizione.
 
-È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività, tuttavia il portale mostra le opzioni più comuni:
-- **Categoria**: amministrazione, integrità del servizio, scalabilità automatica, indicazione. [Vedere questo articolo per informazioni sulle categorie del log attività](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). [Altre informazioni sugli eventi di integrità del servizio sono disponibili qui](./monitoring-activity-log-alerts-on-service-notifications.md).
+In ogni caso, un avviso del log attività monitora solo degli eventi nella sottoscrizione in cui è stato creato l'evento.
+
+È possibile configurare un avviso del log attività in base a qualsiasi proprietà di primo livello nell'oggetto JSON per un evento del log attività. Tuttavia il portale mostra le opzioni più comuni:
+
+- **Categoria**: amministrazione, integrità del servizio, scalabilità automatica e indicazione. Per altre informazioni, vedere [Panoramica del log attività di Azure](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). Per altre informazioni sugli eventi di integrità del servizio, vedere [Ricevere gli avvisi del log attività sulle notifiche del servizio](./monitoring-activity-log-alerts-on-service-notifications.md).
 - **Gruppo di risorse**
 - **Risorsa**
 - **Tipo di risorsa**
-- **Nome operazione**: il nome dell'operazione di Controllo degli accessi in base al ruolo di Resource Manager.
-- **Livello**: il livello di gravità dell'evento (dettagliato, informativo, avvertenza, errore, critico)
-- **Stato**: lo stato dell'evento, in genere "Avviato," "Non riuscito" o "Riuscito"
-- **Evento avviato da**: noto anche come "chiamante". L'indirizzo di posta elettronica o un identificatore di Active Directory dell'utente che ha eseguito l'operazione.
+- **Nome operazione**: il nome dell'operazione del controllo degli accessi in base al ruolo di Resource Manager.
+- **Livello**: il livello di gravità dell'evento (dettagliato, informativo, avvertenza, errore o critico).
+- **Stato**: lo stato dell'evento, in genere Avviato, Non riuscito o Riuscito.
+- **Evento avviato da**: noto anche come "chiamante". L'indirizzo di posta elettronica o un identificatore di Azure Active Directory dell'utente che ha eseguito l'operazione.
 
 >[!NOTE]
->È necessario specificare nell'avviso almeno due dei criteri precedenti e uno di questi deve rappresentare la categoria. Non è possibile creare un avviso che viene attivato ogni volta che viene creato un evento nei log attività.
+>È necessario specificare nell'avviso almeno due dei criteri precedenti e uno di questi deve rappresentare la categoria. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
 >
 >
 
-Quando un avviso del log di attività viene attivato, usa un gruppo di azioni per generare azioni o notifiche. Un gruppo di azioni è un set riutilizzabile di destinatari della notifica (indirizzi di posta elettronica, URL di webhook o numeri di telefono SMS) a cui più avvisi possono fare riferimento per centralizzare e raggruppare i canali di notifica. È possibile usare nell'avviso del log attività un gruppo di azioni esistente o crearne uno nuovo mentre si definisce l'avviso del log attività. Altre informazioni sui [gruppi di azione sono disponibili qui](monitoring-action-groups.md)
+Quando un avviso del log di attività viene attivato, usa un gruppo di azione per generare azioni o notifiche. Un gruppo di azione è un set riutilizzabile di ricevitori di notifica, ad esempio gli indirizzi di posta elettronica, gli URL webhook o i numeri di telefono di SMS. Più avvisi possono fare riferimento ai ricevitori per centralizzare e raggruppare i canali di notifica. Quando si definisce l'avviso del log di attività, sono disponibili due opzioni. È possibile:
 
-Altre informazioni sugli avvisi del log attività per le notifiche di integrità del servizio sono disponibili [qui](monitoring-activity-log-alerts-on-service-notifications.md).
+* Usare un gruppo di azione esistente nell'avviso del log attività. 
+* Creare un nuovo gruppo di azione. 
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-with-the-azure-portal"></a>Creare un avviso per un evento del log attività con un nuovo gruppo di azioni usando il portale di Azure
-1.  Nel [portale](https://portal.azure.com) passare al pannello **Monitoraggio**.
+Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di azione nel portale di Azure](monitoring-action-groups.md).
 
-    ![Monitorare](./media/monitoring-activity-log-alerts/home-monitor.png)
-2.  Fare clic sull'opzione **Monitoraggio** per aprire il relativo pannello. Verrà aperto per prima cosa il pannello **Log attività**.
+Per altre informazioni sulle notifiche sull'integrità del servizio, vedere [Ricevere gli avvisi del log attività per le notifiche sull'integrità del servizio](monitoring-activity-log-alerts-on-service-notifications.md).
 
-3.  Fare clic sul pannello **Avvisi**.
+## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Creare un avviso per un evento del log attività con un nuovo gruppo di azione usando il portale di Azure
+1. Nel [portale](https://portal.azure.com)selezionare **Monitoraggio**.
 
-    ![Avvisi](./media/monitoring-activity-log-alerts/alerts-blades.png)
-4.  Selezionare il comando **Aggiungi avviso del log attività** e compilare i campi.
+    ![Servizio "Monitoraggio"](./media/monitoring-activity-log-alerts/home-monitor.png)
+2. Nella sezione **Log attività** selezionare **Avvisi**.
 
-5.  Scegliere un **nome** e una **descrizione** per l'avviso del log attività.
+    ![Scheda "Avvisi"](./media/monitoring-activity-log-alerts/alerts-blades.png)
+3. Selezionare il comando **Aggiungi avviso del log attività** e compilare i campi.
 
-    ![Aggiungere un avviso](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
+4. Immettere un nome per la casella **Nome avviso del log attività** e selezionare una **descrizione**.
 
-6.  L'avviso del log attività viene salvato nella **Sottoscrizione** selezionata. Viene compilato automaticamente nella sottoscrizione attualmente in uso. Questa è la sottoscrizione in cui viene distribuita la risorsa dell'avviso e in cui vengono monitorati gli avvisi del log attività.
+    ![Comando "Aggiungi avviso del log attività"](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-    ![Aggiungere-avvisi-a-nuovo-gruppo-di-azione](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
+5. Nella casella **Sottoscrizione** viene inserita automaticamente la sottoscrizione corrente. Il gruppo di azione verrà salvato in questa sottoscrizione. Questa è la sottoscrizione in cui verrà distribuita la risorsa di avviso e in cui verranno monitorati gli eventi del log attività.
 
-7.  Scegliere il **gruppo di risorse** in cui verrà creata la risorsa dell'avviso. Questo non è il gruppo di risorse che verrà monitorato *dall'*avviso, bensì il gruppo di risorse in cui la *risorsa dell'avviso stessa verrà distribuita.*
+    ![Finestra di dialogo "Aggiungi avviso del log attività"](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-8.  Selezionare facoltativamente una **Categoria evento**, che modifica il set di filtri aggiuntivi visualizzato. Per gli eventi amministrativi, questo set include le opzioni per filtrare in base ai valori dei campi **Gruppo di risorse**, **Risorsa**, **Tipo di risorsa**, **Nome operazione**, **Livello**, **Stato** ed **Evento avviato da** per identificare quali eventi devono essere monitorati dall'avviso.
+6. Selezionare il **gruppo di risorse** in cui verrà creata la risorsa di avviso. Non è il gruppo di risorse che viene monitorato dall'avviso, ma è quello in cui si trova la risorsa di avviso.
+
+7. Selezionare facoltativamente una **categoria di eventi** per modificare i filtri aggiuntivi visualizzati. Per gli eventi amministrativi, i filtri includono **Gruppo di risorse**, **Risorse**, **Tipo di risorsa**, **Nome dell'operazione**, **Livello**, **Stato** ed **Evento avviato da**. Questi valori identificano gli eventi che devono essere monitorati da questo avviso.
+
+    >[!NOTE]
+    >È necessario specificare nell'avviso almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
+    >
+    >
+
+8. Immettere un nome nella casella **Nome gruppo di azione** e un nome nella casella **Nome breve gruppo di azione**. Il nome breve viene usato al posto del nome completo di un gruppo di azione quando le notifiche vengono inviate usando questo gruppo.
+
+9.  Definire un elenco di azioni, fornendo i dati dell'azione seguenti:
+
+    a. **Nome:**: immettere il nome, l'alias o l'identificatore dell'azione.
+
+    b. **Tipo di azione**: selezionare webhook, posta elettronica o SMS.
+
+    c. **Dettagli**: in base al tipo di azione immettere un numero di telefono, un indirizzo di posta elettronica o l'URI del webhook.
+
+10. Fare clic su **OK** per creare l'avviso.
+
+La propagazione completa dell'avviso richiede alcuni minuti, quindi l'avviso diventa attivo. Si attiva quando nuovi eventi corrispondono ai criteri dell'avviso.
+
+Per altre informazioni, vedere [Informazioni sullo schema webhook degli avvisi del log attività](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->È necessario specificare nell'avviso almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che viene creato un evento nei log attività.
+>Il gruppo di azione definito in questi passaggi è riutilizzabile come gruppo di azione esistente per tutte le future definizioni di avviso.
 >
 >
 
-9.  Creare un **Nuovo** gruppo di risorse assegnandogli un **Nome** e un **Nome breve**. Il nome breve sarà indicato nelle notifiche quando viene attivato l'avviso.
+## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Creare un avviso per un evento del log attività con un gruppo di azione esistente usando il portale di Azure
+1. Seguire i passaggi da 1 a 7 nella sezione precedente per creare l'avviso del log attività.
 
-10. Definire quindi un elenco di azioni, fornendo i dati dell'azione seguenti
+2. In **Notifica tramite** selezionare il pulsante Gruppo di azione **esistente**. Selezionare un gruppo di azione esistente dall'elenco.
 
-    a. **Nome:** nome, alias o identificatore dell'azione.
+3. Fare clic su **OK** per creare l'avviso.
 
-    b. **Tipo di azione:** scegliere il tipo di azione: webhook, posta elettronica o SMS
+La propagazione completa dell'avviso richiede alcuni minuti, quindi l'avviso diventa attivo. Si attiva quando nuovi eventi corrispondono ai criteri dell'avviso.
 
-    c. **Dettagli:** in base al tipo di azione selezionato, specificare un numero di telefono, un indirizzo di posta elettronica o l'URI del webhook.
+## <a name="manage-your-alerts"></a>Gestire gli avvisi
 
-11. Al termine fare clic su **OK** per creare l'avviso.
+Dopo la creazione, l'avviso sarà visibile nella sezione Avvisi del pannello Monitoraggio. Selezionare l'avviso da gestire per:
 
-L'avviso richiederà alcuni minuti per completare la propagazione e successivamente diventerà attivo e si attiverà quando si verificheranno nuovi eventi corrispondenti ai criteri dell'avviso.
-
-[Per informazioni dettagliate sullo schema di webhook per gli avvisi del log attività, vedere questo documento](monitoring-activity-log-alerts-webhook.md).
-
->[!NOTE]
->Il gruppo di azioni definito in questi passaggi è riutilizzabile come gruppo di azioni esistente, per tutte le future definizioni di avviso.
->
->
-
-## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-with-the-azure-portal"></a>Creare un avviso per un evento del log attività con un gruppo di azioni esistente usando il portale di Azure
-1.  Nel [portale](https://portal.azure.com) passare al pannello **Monitoraggio**.
-
-    ![Monitorare](./media/monitoring-activity-log-alerts/home-monitor.png)
-2.  Fare clic sull'opzione **Monitoraggio** per aprire il relativo pannello. Per prima cosa si apre la sezione **Log di attività**.
-
-3.  Fare clic sulla sezione **Avvisi**.
-
-    ![Avvisi](./media/monitoring-activity-log-alerts/alerts-blades.png)
-4.  Selezionare il comando **Aggiungi avviso del log attività** e compilare i campi.
-
-5.  Scegliere un **Nome** e una **Descrizione** per l'avviso del log attività. Tali informazioni verranno visualizzate nelle notifiche inviate quando viene generato l'avviso.
-
-    ![Aggiungere un avviso](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
-6.  L'avviso del log attività viene salvato nella **Sottoscrizione** selezionata. Viene compilato automaticamente nella sottoscrizione attualmente in uso. Questa è la sottoscrizione in cui viene distribuita la risorsa dell'avviso e in cui vengono monitorati gli avvisi del log attività.
-
-    ![Aggiungere un avviso esistente a un gruppo di azione](./media/monitoring-activity-log-alerts/activity-log-alert-existing-action-group.png)
-7.  Scegliere il **gruppo di risorse** in cui verrà creata la risorsa dell'avviso. Questo non è il gruppo di risorse che verrà monitorato *dall'*avviso, bensì il gruppo di risorse in cui la *risorsa dell'avviso stessa verrà distribuita.*
-
-8.  Selezionare facoltativamente una **Categoria evento**, che modifica il set di filtri aggiuntivi visualizzato. Per gli eventi amministrativi, questo set include le opzioni per filtrare in base ai valori dei campi **Gruppo di risorse**, **Risorsa**, **Tipo di risorsa**, **Nome operazione**, **Livello**, **Stato** ed **Evento avviato da** per identificare quali eventi devono essere monitorati dall'avviso.
-
-9.  Scegliere la **Notifica tramite** un **gruppo di azione esistente**. Selezionare un gruppo di azioni esistente.
-
-10. Al termine fare clic su **OK** per creare l'avviso.
-
-L'avviso richiederà alcuni minuti per completare la propagazione e successivamente diventerà attivo e si attiverà quando si verificheranno nuovi eventi corrispondenti ai criteri dell'avviso.
-
-## <a name="managing-your-alerts"></a>Gestione degli avvisi
-
-L'avviso creato viene visualizzato nella sezione Avvisi del pannello Monitoraggio. Selezionare l'avviso che si desidera gestire per:
-* **Modificarlo**.
-* **Eliminarlo**.
-* **Disabilitarlo** o **abilitarlo** per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
+* Modificarlo.
+* Eliminarlo.
+* Disabilitarlo o abilitarlo per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Ottenere dei [cenni preliminari sugli avvisi](monitoring-overview-alerts.md)
-- Informazioni sulla [limitazione della frequenza delle notifiche](monitoring-alerts-rate-limiting.md)
-- Esaminare lo [schema webhook degli avvisi del log attività](monitoring-activity-log-alerts-webhook.md)
-- Altre informazioni sui [gruppi di azioni](monitoring-action-groups.md)  
-- Informazioni sulle [notifiche sull'integrità del servizio](monitoring-service-notifications.md)
-- [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- Ottenere una [panoramica degli avvisi](monitoring-overview-alerts.md).
+- Informazioni sulla [limitazione della frequenza delle notifiche](monitoring-alerts-rate-limiting.md).
+- Esaminare lo [schema webhook degli avvisi del log attività](monitoring-activity-log-alerts-webhook.md).
+- Altre informazioni sui [gruppi di azione](monitoring-action-groups.md).  
+- Informazioni sulle [notifiche per l'integrità del servizio](monitoring-service-notifications.md).
+- Creare un [avviso del log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- Creare un [avviso del log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

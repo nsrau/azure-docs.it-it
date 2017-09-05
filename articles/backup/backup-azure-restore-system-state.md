@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/31/2017
+ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: c58f363035a654f60bec4efa43e0743e9a76c22f
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 320c85f8045d9b72cf7f430d2e2736ba8e5ec269
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
@@ -178,7 +178,7 @@ Dopo avere ripristinato lo stato del sistema sotto forma di file tramite l'agent
 Il backup dello stato del sistema include i dati di Active Directory. Seguire questa procedura per ripristinare Active Directory Domain Service (AD DS) dallo stato corrente a uno stato precedente.
 
 1. Riavviare il controller di dominio in Modalità ripristino servizi directory.
-2. Seguire questa procedura per usare i cmdlet di Windows Server Backup per ripristinare AD DS.
+2. Seguire [questa procedura](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) per usare i cmdlet di Windows Server Backup per ripristinare AD DS.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Risolvere i problemi relativi a un ripristino non riuscito dello stato del sistema

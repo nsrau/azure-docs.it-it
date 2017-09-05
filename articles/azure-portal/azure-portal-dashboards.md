@@ -1,5 +1,5 @@
 ---
-title: Dashboard del portale di Azure | Documentazione Microsoft
+title: Creare e condividere i dashboard del portale di Azure | Microsoft Docs
 description: Questo articolo illustra come creare e modificare i dashboard nel portale di Azure.
 services: azure-portal
 documentationcenter: 
@@ -14,19 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: dc5b6f194a7e34d5061b9fa2e4a6123f54f6c14a
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
+ms.contentlocale: it-it
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="creating-and-sharing-dashboards-in-the-azure-portal"></a>Creazione e condivisione di dashboard nel portale di Azure
-È possibile creare più dashboard e condividerli con altri utenti che hanno accesso alle sottoscrizioni di Azure.  Questo post illustra le nozioni di base della creazione, della modifica, della pubblicazione e della gestione dell'accesso dei dashboard.
-
-## <a name="customizing-dashboards-versus-blades"></a>Personalizzazione di dashboard anziché pannelli
-Dall'introduzione dei dashboard, avvenuta alcuni mesi fa, si è verificata una costante riduzione delle personalizzazioni dei pannelli, mentre le personalizzazioni dei dashboard sono in rapido aumento. Questa netta tendenza di utilizzo dimostra che gli utenti preferiscono personalizzare i dashboard piuttosto che i pannelli. Per supportare tale tendenza, Microsoft rimuoverà la possibilità di personalizzare i pannelli e si concentrerà sul miglioramento delle funzionalità dei dashboard. Se è stato personalizzato un pannello, tale personalizzazione verrà presto rimossa. Per mantenerla, aggiungere i riquadri personalizzati a un dashboard. È sufficiente fare clic con il pulsante destro del mouse sul riquadro e scegliere **Aggiungi al dashboard** come illustrato nell'immagine seguente.
-
-![Salvare un riquadro personalizzato](./media/azure-portal-dashboards/save-customization.png)
+# <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creare e condividere dashboard nel portale di Azure
+È possibile creare più dashboard e condividerli con altri utenti che hanno accesso alle sottoscrizioni di Azure.  Questo articolo illustra le nozioni di base della creazione, della modifica, della pubblicazione e della gestione dell'accesso dei dashboard.
 
 ## <a name="create-a-dashboard"></a>Creare un dashboard
 Per creare un dashboard, selezionare il pulsante **Nuovo dashboard** accanto al nome del dashboard corrente.  
@@ -99,10 +95,5 @@ Al termine della pubblicazione del dashboard, il riquadro **Condivisione e contr
 ## <a name="next-steps"></a>Passaggi successivi
 * Per gestire le risorse, vedere [Gestire le risorse di Azure mediante il portale](../azure-resource-manager/resource-group-portal.md).
 * Per distribuire le risorse, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
