@@ -1,10 +1,10 @@
 ---
 title: Flussi di dati in tempo reale IoT e Analisi di flusso di Azure | Documentazione Microsoft
-description: Tag dei sensori IoT e flussi di dati con l&quot;elaborazione dei dati in tempo reale e l&quot;analisi di flusso
+description: Tag dei sensori IoT e flussi di dati con l'elaborazione dei dati in tempo reale e l'analisi di flusso
 keywords: soluzione IoT, introduzione a IoT
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
-ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
-ms.lasthandoff: 02/16/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
+ms.contentlocale: it-it
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introduzione all'analisi di flusso di Azure per elaborare dati dai dispositivi IoT
@@ -65,7 +65,7 @@ Per semplicità d'uso, questa guida introduttiva include un file di dati di esem
 4. Nel dashboard selezionare la casella in cui inserire il processo e quindi fare clic su **CREA**.
    
     ![creazione del processo in corso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
-5. Verrà visualizzato il messaggio "La distribuzione è stata avviata". nell'angolo superiore destro della finestra del browser. Viene quindi visualizzato il messaggio che indica il completamento dell'attività.
+5. Dovrebbe essere visualizzato un messaggio di tipo 'Distribuzione avviata...' nella parte superiore destra della finestra del browser. Viene quindi visualizzato il messaggio che indica il completamento dell'attività.
    
     ![creazione del processo in corso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
@@ -106,12 +106,12 @@ Si noti che la query, con distinzione tra maiuscole e minuscole, confronta un va
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>Query: Avviso per attivare un flusso di lavoro aziendale
 La query verrà ora resa più dettagliata. Per ogni tipo di sensore, si vuole monitorare la temperatura media in una finestra di 30 secondi e visualizzare i risultati solo se tale temperatura supera i 100 gradi. A tale scopo, scrivere la query seguente e quindi fare clic su **Test** per visualizzare i risultati. La query si trova nel file ThresholdAlerting.txt.
 
-![Query di filtro per&30; secondi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+![Query di filtro per 30 secondi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 I risultati visualizzati conterranno ora solo 245 righe e i nomi dei sensori in cui temperatura media è superiore a 100. La query raggruppa il flusso di eventi in base al nome del sensore (**dspl**) su una **finestra a cascata** di 30 secondi. Le query temporali devono specificare come si vuole definire l'avanzamento del tempo. Usando la clausola **TIMESTAMP BY** è stata specificata la colonna **OUTPUTTIME** per associare l'ora a tutti i calcoli temporali. Per informazioni dettagliate, vedere gli articoli di MSDN relativi alla [gestione del tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e alle [funzioni finestra](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 ### <a name="query-detect-absence-of-events"></a>Query: rilevare l'assenza di eventi
-La scrittura di una query per trovare una mancanza di eventi di input consente di determinare l'ultima volta in cui un sensore ha inviato dati e non ha quindi inviato alcun evento per il minuto successivo. La query si trova nel file AbsenseOfEvent.txt.
+La scrittura di una query per trovare una mancanza di eventi di input consente di determinare l'ultima volta in cui un sensore ha inviato dati e non ha quindi inviato alcun evento per i 5 secondi successivi. La query si trova nel file AbsenseOfEvent.txt.
 
 ![Rilevare l'assenza di eventi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

@@ -1,5 +1,5 @@
 ## <a name="overview"></a>Panoramica
-Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribuendo un'immagine da [Azure Marketplace](https://azure.microsoft.com/marketplace/), l'unità del sistema operativo predefinita è di 127 GB. Anche se è possibile aggiungere dischi dati alla VM (il numero dipende dalla SKU scelta) ed è consigliabile installare applicazioni e carichi di lavoro con uso intensivo della CPU su tali dischi aggiuntivi, spesso i clienti devono espandere l'unità del sistema operativo per supportare determinati scenari, come i seguenti:
+Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribuendo un'immagine da [Azure Marketplace](https://azure.microsoft.com/marketplace/), l'unità del sistema operativo predefinita è spesso di 127 GB. Per impostazione predefinita. alcune immagini hanno dimensioni minori per il disco del sistema operativo. Anche se è possibile aggiungere dischi dati alla VM (il numero dipende dalla SKU scelta) ed è consigliabile installare applicazioni e carichi di lavoro con uso intensivo della CPU su tali dischi aggiuntivi, spesso i clienti devono espandere l'unità del sistema operativo per supportare determinati scenari, come i seguenti:
 
 1. Supporto di applicazioni legacy che installano componenti nell'unità del sistema operativo.
 2. Migrazione di un computer fisico o di una macchina virtuale locali a un'unità del sistema operativo più grande.
@@ -42,7 +42,7 @@ In questo articolo verrà eseguito il ridimensionamento dell'unità del sistema 
    ```
    
    > [!WARNING]
-   > Le nuove dimensioni devono essere maggiori delle dimensioni del disco esistente. Il valore massimo consentito è 1023 GB.
+   > Le nuove dimensioni devono essere maggiori delle dimensioni del disco esistente. Il valore massimo consentito è 2048 GB. È possibile espandere il BLOB del disco rigido virtuale oltre tale dimensione, ma il sistema operativo potrà usare solo i primi 2048 GB di spazio.
    > 
    > 
 6. L'aggiornamento della VM potrebbe richiedere alcuni secondi. Al termine dell'esecuzione del comando, riavviare la VM come segue:
