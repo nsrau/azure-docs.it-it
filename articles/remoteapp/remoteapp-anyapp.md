@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Eseguire qualsiasi app su qualsiasi dispositivo con Azure RemoteApp
@@ -88,7 +88,7 @@ La prima parte viene eseguita come amministratore, quindi alcuni passaggi dovran
 1. Iniziare con la pubblicazione dell'interfaccia della riga di comando (cmd.exe). Nella scheda **Pubblicazione** selezionare **cmd** e quindi fare clic su **Pubblica > Pubblica i programmi usando il percorso**.
 2. Immettere il nome dell'app e il percorso. Per questa esercitazione, usare "Esplora file" come nome e "%SYSTEMDRIVE%\windows\explorer.exe" come percorso.
    ![Pubblicare il file cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. È necessario creare un [account di archiviazione](../storage/storage-create-storage-account.md) di Azure. In questo caso è stato denominato "accessstorage", perciò selezionare un nome significativo. Per citare in modo scorretto Highlander, può esistere un solo "accessstorage".![L'account di archiviazione di Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. È necessario creare un [account di archiviazione](../storage/common/storage-create-storage-account.md) di Azure. In questo caso è stato denominato "accessstorage", perciò selezionare un nome significativo. Per citare in modo scorretto Highlander, può esistere un solo "accessstorage".![L'account di archiviazione di Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Tornare al dashboard per ottenere il percorso dell'account di archiviazione (percorso dell'endpoint), che verrà usato tra poco, quindi assicurarsi di copiarlo.
    ![Percorso dell'account di archiviazione](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Dopo avere creato l'account di archiviazione, è necessaria la chiave di accesso primaria. Fare clic su **Gestisci chiavi di accesso**e quindi copiare la chiave di accesso primaria.

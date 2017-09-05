@@ -1,6 +1,6 @@
 ---
-title: Distribuire un&quot;app di WordPress nel Portale di Azure in cinque minuti | Microsoft Docs
-description: Informazioni su come eseguire facilmente App Web nel servizio app mediante la distribuzione di un&quot;app di WordPress. Visualizzare i risultati immediatamente.
+title: Distribuire un'app di WordPress nel Portale di Azure in cinque minuti | Microsoft Docs
+description: Informazioni su come eseguire facilmente App Web nel servizio app mediante la distribuzione di un'app di WordPress. Visualizzare i risultati immediatamente.
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 02/13/2017
 ms.author: cephalin
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
 ms.openlocfilehash: 7ef5802866bf96859d3f44cdb58cbb412b08a700
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="deploy-a-wordpress-app-in-the-azure-portal-in-five-minutes"></a>Distribuire un'app di WordPress nel Portale di Azure in cinque minuti

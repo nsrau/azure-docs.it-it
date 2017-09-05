@@ -1,5 +1,5 @@
 ---
-title: Panoramica del portale di Microsoft Azure
+title: Panoramica del portale di Azure | Microsoft Docs
 description: Informazioni su come usare il portale di Microsoft Azure.
 services: 
 documentationcenter: 
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e4c1c2b956b2cae673e60223ce777ba1096dce33
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 71820306716c6297085a29f3ceab89b55396bfe6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="microsoft-azure-portal-overview"></a>Panoramica del portale di Microsoft Azure

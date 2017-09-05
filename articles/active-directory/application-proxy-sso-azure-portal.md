@@ -1,49 +1,47 @@
 ---
-title: Accedere con Single Sign-On alle app con il proxy dell&quot;applicazione Azure AD | Microsoft Docs
-description: Attivare il Single Sign-On per le applicazioni pubblicate locali con il proxy dell&quot;applicazione Azure AD nel portale di Azure.
+title: Accedere con Single Sign-On alle app con il proxy dell'applicazione Azure AD | Microsoft Docs
+description: Attivare il Single Sign-On per le applicazioni pubblicate locali con il proxy dell'applicazione Azure AD nel portale di Azure.
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: asteen
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 07/20/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: b0454ad51a2d0edecb6f7e7748ec3b74eeefa1da
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: 9ddc0c1bd5f2cbb24f6761cfd041b820ee6464b8
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 07/28/2017
 
 ---
 
+# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Insieme di credenziali delle password per l'accesso Single Sign-On con il proxy dell'applicazione
 
-# <a name="provide-single-sign-on-with-azure-ad-application-proxy---public-preview"></a>Fornire accesso Single Sign-On mediante il proxy dell'applicazione Azure AD: anteprima pubblica
+Il proxy dell'applicazione Azure Active Directory consente di migliorare la produttività pubblicando le applicazioni locali in modo che possano accedervi anche i dipendenti remoti. Nel portale di Azure è inoltre possibile configurare l'accesso Single Sign-On (SSO) per queste applicazioni. Gli utenti devono solo eseguire l'autenticazione con Azure AD e possono accedere all'applicazione aziendale senza dover eseguire nuovamente l'accesso.
 
-Il proxy dell'applicazione Azure Active Directory consente di migliorare la produttività pubblicando le applicazioni locali in modo che possano accedervi anche i dipendenti remoti. Nel portale di Azure è inoltre possibile configurare l'accesso Single Sign-On (SSO) per queste applicazioni. A questo punto, gli utenti devono solo eseguire l'autenticazione con Azure AD e possono accedere all'applicazione aziendale senza dover effettuare nuovamente l'accesso.
+Il proxy dell'applicazione supporta numerose [modalità Single Sign-On](application-proxy-sso-overview.md). L'accesso basato su password è progettato per le applicazioni che usano una combinazione di nome utente/password per l'autenticazione. Quando si configura l'accesso basato su password per l'applicazione, gli utenti devono accedere all'applicazione locale una volta. Successivamente, Azure Active Directory archivia le informazioni di accesso e le fornisce automaticamente all'applicazione quando l'utente accede in modalità remota. 
 
-In questo articolo si usa l'esempio di un'app basata su password per illustrare come un insieme di credenziali delle password consenta un uso SSO semplice. 
-
-Si presuppone che l'utente abbia già pubblicato e testato l'app con il proxy dell'applicazione. In caso contrario, seguire i passaggi indicati in [Publish applications using Azure AD Application Proxy - Public Preview](application-proxy-publish-azure-portal.md) (Pubblicare app con il proxy dell'applicazione di Azure AD: anteprima pubblica), quindi leggere questa sezione. 
-
-Se non si ha familiarità con le funzionalità offerte dal proxy dell'applicazione, per altre informazioni vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](active-directory-application-proxy-get-started.md).
+Si presuppone che l'utente abbia già pubblicato e testato l'app con il proxy dell'applicazione. In caso contrario, seguire i passaggi in [Pubblicare applicazioni tramite il proxy di applicazione AD Azure](application-proxy-publish-azure-portal.md) prima di tornare a questo punto. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Configurare l'insieme di credenziali delle password per l'applicazione
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
 2. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Tutte le applicazioni**.
-3. Nell'elenco a discesa selezionare l'app da configurare con la funzione SSO. Se si dispone di molte applicazioni, è possibile usare la casella di ricerca per trovare quella desiderata.  
-4. Nella sezione Gestisci selezionare su **Single Sign-On**.
+3. Nell'elenco a discesa selezionare l'app da configurare con la funzione SSO.  
+4. Selezionare **Single Sign-On**.
 
    ![Selezionare Single Sign-On](./media/application-proxy-sso-azure-portal/select-sso.png)
 
 5. Per la modalità SSO, scegliere **Accesso basato su password**.
-6. Per l'URL di accesso, indicare l'URL della pagina in cui gli utenti immettono nome utente e password per accedere all'app. Si tratta solitamente dell'URL esterno creato dopo aver pubblicato l'app tramite il proxy dell'applicazione. 
+6. Per l'URL di accesso, inserire l'URL della pagina in cui gli utenti immettono nome utente e password per accedere all'app fuori dalla rete aziendale. Potrebbe trattarsi dell'URL esterno creato dopo aver pubblicato l'app tramite il proxy dell'applicazione. 
 
    ![Scegliere l'accesso basato su password e immettere l'URL](./media/application-proxy-sso-azure-portal/password-sso.png)
 
@@ -55,9 +53,9 @@ Se non si ha familiarità con le funzionalità offerte dal proxy dell'applicazio
 
 ## <a name="test-your-app"></a>Test dell'app
 
-Accedere al [sito App personali](https://myapps.microsoft.com) e selezionare l'app appena configurata. Accedere con le credenziali dell'app (o con le credenziali dell'account di prova per cui è stato configurato l'accesso). Dopo l'accesso, dovrebbe essere possibile lasciare l'app e tornare senza dover immettere nuovamente le credenziali. 
+Passare all'URL esterno che è stato configurato per l'accesso remoto all'applicazione. Accedere con le credenziali dell'app (o con le credenziali di un account di prova per cui è stato configurato l'accesso). Dopo l'accesso, dovrebbe essere possibile lasciare l'app e tornare senza dover immettere nuovamente le credenziali. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altri modi per implementare l'accesso [Single Sign-On con il proxy di applicazione](active-directory-application-proxy-sso-using-kcd.md)
-
+- Altri modi per implementare l'accesso [Single Sign-On con il proxy di applicazione](application-proxy-sso-overview.md)
+- Informazioni sulle [Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD](application-proxy-security-considerations.md)

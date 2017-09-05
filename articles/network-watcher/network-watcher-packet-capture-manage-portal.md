@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 858769130eed5c996bca151855bfc09d4832a314
+ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
+ms.openlocfilehash: 33390532cc4fc1129a4f960d589f41bc95e5a1ff
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 06/15/2017
 
 ---
 
@@ -88,7 +88,7 @@ Le proprietà che possono essere definite in un'acquisizione di pacchetti sono:
 - **Percorso file locale**: percorso locale in una macchina virtuale in cui salvare l'acquisizione di pacchetti. È abilitato solo se viene selezionato **File**. È necessario specificare un percorso valido
 - **Numero massimo di byte per pacchetto**: numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte.
 - **Numero massimo di byte per sessione**: numero totale di byte acquisiti. Con il raggiungimento di questo valore l'acquisizione dei pacchetti si arresta.
-- **Limite di tempo (secondi)**: imposta un limite di tempo per l'arresto dell'acquisizione di pacchetti. Il valore predefinito è 1800 secondi.
+- **Limite di tempo (secondi)**: imposta un limite di tempo per l'arresto dell'acquisizione di pacchetti. Il valore predefinito è 18000 secondi.
 
 > [!NOTE]
 > Gli account di archiviazione Premium non sono attualmente supportati per l'archiviazione delle acquisizioni di pacchetti.

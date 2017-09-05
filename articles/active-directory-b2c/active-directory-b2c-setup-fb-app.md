@@ -3,22 +3,22 @@ title: 'Azure Active Directory B2C: configurazione di Facebook | Documentazione 
 description: "Fornire la registrazione e l’accesso agli utenti con account su Facebook nelle applicazioni protette da Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: 
-author: parakhj
+author: sromeroz
 manager: krassk
-editor: parakhj
+editor: sromeroz
 ms.assetid: b875f235-a1d2-4abb-b9f0-b89beac38a32
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/26/2017
-ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 4c45322573bd1e4b1711b56e03c1d297f1cd468e
-ms.lasthandoff: 03/29/2017
-
+ms.date: 8/7/2017
+ms.author: sromeroz
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8c2154fcf33537358b549395d15b4ba937371cd0
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: fornire l'iscrizione e l'accesso agli utenti con account Facebook
@@ -37,30 +37,35 @@ Per utilizzare Facebook come provider di identità in Azure Active Directory (Az
     ![Facebook - Impostazioni](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
    
     ![Facebook - Impostazioni - sito Web](./media/active-directory-b2c-setup-fb-app/fb-website.png)
-9. Immettere `https://login.microsoftonline.com/` nel campo **URL sito** e quindi fare clic su **Salva modifiche**.
+9. Immettere `https://login.microsoftonline.com/` nel campo **URL sito** e quindi fare clic su **Salva modifiche** nella parte inferiore della pagina.
    
     ![Facebook - URL del sito](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 
 10. Copiare il valore di **ID App**. Fare clic su **Show** (Mostra) e copiare il valore **App Secret** (Segreto app). Sono necessari entrambi per configurare Facebook come provider di identità nel tenant. **App Segreta** è una credenziale di sicurezza importante.
    
     ![Facebook - ID app e segreto app](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
-11. Fare clic su **+ Add Product** (+ Aggiungi prodotto) nel riquadro di spostamento sinistro, quindi sul pulsante **Get Started** (Informazioni di base) accanto a **Facebook Login** (Accesso a Facebook).
+11. Fare clic su **Aggiungi prodotto** nel riquadro di spostamento sinistro, quindi fare clic sul pulsante **Configurazione** per **Account di accesso di Facebook**.
    
     ![Facebook - Accesso a Facebook](./media/active-directory-b2c-setup-fb-app/fb-login.png)
-12. Selezionare **Sito Web** e immettere `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **Valid OAuth redirect URIs** (URI di reindirizzamento OAuth validi) nella sezione **Client OAuth Settings** (Impostazioni OAuth client). Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com. Fare clic su **Salva le modifiche** nella parte inferiore della pagina.
+12. Fare clic su **Impostazioni** nel riquadro di spostamento destro in **Account di accesso di Facebook**
+
+    ![Facebook - Impostazioni Account di accesso di Facebook](./media/active-directory-b2c-setup-fb-app/fb-login-settings.png)
+13. Immettere `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **Valid OAuth redirect URIs** (URI di reindirizzamento OAuth validi) nella sezione **Client OAuth Settings** (Impostazioni OAuth client). Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com. Fare clic su **Salva le modifiche** nella parte inferiore della pagina.
     
     ![Facebook - URI di reindirizzamento OAuth](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
-13. Per rendere l'applicazione Facebook utilizzabile da AD B2C di Azure, è necessario renderla pubblicamente disponibile. A questo scopo, fare clic su **App Review** (Controllo app) nel riquadro di spostamento sinistro, impostare l'opzione nella parte superiore della pagina su **SÌ** e quindi fare clic su **Confirm** (Conferma).
+14. Per rendere l'applicazione Facebook utilizzabile da AD B2C di Azure, è necessario renderla pubblicamente disponibile. A questo scopo, fare clic su **App Review** (Controllo app) nel riquadro di spostamento sinistro, impostare l'opzione nella parte superiore della pagina su **SÌ** e quindi fare clic su **Confirm** (Conferma).
     
     ![Facebook - App pubblica](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
 ## <a name="configure-facebook-as-an-identity-provider-in-your-tenant"></a>Configurare Facebook come provider di identità nel tenant
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
+1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
 2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
-4. Fornire un **Nome** per la configurazione del provider di identità. Ad esempio, immettere "FB".
+4. Fornire un **Nome** per la configurazione del provider di identità. Ad esempio, immettere "Facebook".
 5. Fare clic su **Identity provider type** (Tipo di provider di identità), selezionare **Facebook** e scegliere **OK**.
 6. Fare clic su **Set up this identity provider** (Configura questo provider di identità), immettere l'ID app e il segreto app dell'applicazione Facebook creata in precedenza rispettivamente nei campi **ID client** e **Segreto client**.
 7. Fare clic su **OK** e quindi su **Create** (Crea) per salvare la configurazione di Facebook.
 
-
+> [!NOTE]
+> L'aggiunta di un **provider di identità** al tenant non modifica i criteri esistenti. Ricordare di aggiornare i criteri includendo il provider di identità appena creato.
+>

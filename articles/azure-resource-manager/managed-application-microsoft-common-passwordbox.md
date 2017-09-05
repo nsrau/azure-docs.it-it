@@ -1,9 +1,9 @@
 ---
-title: Elemento PasswordBox dell&quot;interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
-description: Illustra l&quot;elemento Microsoft.Common.PasswordBox dell&quot;interfaccia utente per le applicazioni gestite di Azure
+title: Elemento PasswordBox dell'interfaccia utente di Applicazione gestita di Azure | Microsoft Docs
+description: Illustra l'elemento Microsoft.Common.PasswordBox dell'interfaccia utente per le applicazioni gestite di Azure
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,12 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 196a4b8f77145f83e46b4b23e148bb3a9dffc1b5
 ms.contentlocale: it-it
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Elemento Microsoft.Common.PasswordBox dell'interfaccia utente

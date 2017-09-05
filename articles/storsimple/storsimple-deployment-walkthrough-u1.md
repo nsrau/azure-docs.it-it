@@ -1,6 +1,6 @@
 ---
 title: Distribuire il dispositivo StorSimple (Aggiornamento 1) | Documentazione Microsoft
-description: Descrive i passaggi e le procedure consigliate per la distribuzione dell&quot;aggiornamento 1 del servizio e del dispositivo StorSimple.
+description: Descrive i passaggi e le procedure consigliate per la distribuzione dell'aggiornamento 1 del servizio e del dispositivo StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Distribuire un dispositivo StorSimple locale (Aggiornamento 1)
@@ -59,7 +60,7 @@ Effettuare i seguenti passaggi necessari per configurare il dispositivo StorSimp
 | Passaggio 4: Completare l'installazione minima del dispositivo</br>Facoltativo: aggiornare il dispositivo StorSimple. |Utilizzare il servizio di gestione per completare l'installazione del dispositivo e abilitarlo per fornire l'archiviazione. |
 | Passaggio 5: Creare un contenitore di volumi. |Creare un contenitore di volumi di provisioning. Un contenitore di volumi include le impostazioni relative ad account di archiviazione, larghezza di banda e crittografia per tutti i volumi in esso contenuti. |
 | Passaggio 6: Creare un volume. |Eseguire il provisioning di volumi di archiviazione nel dispositivo StorSimple per i server. |
-| Passaggio 7: Montare, inizializzare e formattare un volume.</br> Facoltativo: Configurare MPIO. |Connettere i server all'archiviazione iSCSI fornita dal dispositivo. Facoltativamente, è possibile configurare MPIO per assicurarsi che i server possano di tollerare errori di collegamento, rete e interfaccia. |
+| Passaggio 7: Montare, inizializzare e formattare un volume.</br>Facoltativo: Configurare MPIO. |Connettere i server all'archiviazione iSCSI fornita dal dispositivo. Facoltativamente, è possibile configurare MPIO per assicurarsi che i server possano di tollerare errori di collegamento, rete e interfaccia. |
 | Passaggio 8: Eseguire un backup. |Impostare criteri di backup per proteggere i dati |
 |  | |
 | **ALTRE PROCEDURE** |Potrebbe essere necessario fare riferimento a queste procedure quando si distribuisce la soluzione. |
@@ -213,7 +214,7 @@ Eseguire i passaggi seguenti nel portale di Azure classico per creare un backup 
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurare un nuovo account di archiviazione per il servizio
 Si tratta di un passaggio che è necessario eseguire solo se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio. Per creare un contenitore di volumi di StorSimple, è necessario un account di archiviazione di Microsoft Azure.
 
-Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md) per istruzioni dettagliate.
+Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md) per istruzioni dettagliate.
 
 Eseguire i passaggi seguenti nel portale di Azure classico, nella pagina del **servizio StorSimple Manager** .
 
@@ -266,10 +267,5 @@ Per istruzioni sull'installazione di MPIO per un dispositivo StorSimple su un ho
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare un [dispositivo virtuale](storsimple-virtual-device-u2.md).
 * Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

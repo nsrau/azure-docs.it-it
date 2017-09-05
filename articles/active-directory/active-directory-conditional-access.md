@@ -1,6 +1,6 @@
 ---
-title: Accesso condizionale di Azure Active Directory | Documentazione Microsoft
-description: Usare il controllo di accesso condizionale di Azure Active Directory per controllare condizioni specifiche durante il processo di autenticazione per l&quot;accesso alle applicazioni.
+title: Accesso condizionale nel portale di Azure classico | Documentazione Microsoft
+description: Usare il controllo di accesso condizionale nel portale classico di Azure per controllare condizioni specifiche durante il processo di autenticazione per l'accesso alle applicazioni.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2017
+ms.date: 09/01/2017
 ms.author: markvi
+ms.reviewer: calebb
+ms.custom: oldportal
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 31659a7394a34cf8fb5b6ff11c955bdc9f8b65bb
+ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
+ms.openlocfilehash: b19fd8c0c41638ffec5fda32b6b1a855be2abc7b
 ms.contentlocale: it-it
-ms.lasthandoff: 03/28/2017
-
+ms.lasthandoff: 07/06/2017
 
 ---
-# <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
+# <a name="conditional-access-in-the-azure-classic-portal"></a>Accesso condizionale nel portale di Azure classico
 
-> [!div class="op_single_selector"]
-> * [Portale di Azure classico](active-directory-conditional-access.md)
-> * [Portale di Azure](active-directory-conditional-access-azure-portal.md)
+Questo argomento illustra l'accesso condizionale nel portale di Azure classico. Per informazioni più aggiornate sull'accesso condizionale in Azure Active Directory, vedere [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
 
 Le funzionalità di controllo dell'accesso condizionale di Azure Active Directory (Azure AD) consentono di proteggere con facilità le risorse sia sul cloud che in locale. I criteri di accesso condizionale, ad esempio l'autenticazione a più fattori, offrono una protezione contro il rischio di furto e phishing delle credenziali. Altri criteri di accesso condizionale garantiscono la sicurezza dei dati dell'organizzazione. Ad esempio, oltre alla richiesta delle credenziali, è possibile applicare un criterio in base al quale possono accedere ai servizi riservati dell'organizzazione solo i dispositivi registrati in un sistema di gestione di dispositivi mobili, come Microsoft Intune.
 

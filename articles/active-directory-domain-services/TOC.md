@@ -6,18 +6,18 @@
 ## [Funzionamento della sincronizzazione](active-directory-ds-synchronization.md)
 ## [Software di terze parti compatibile](active-directory-ds-compatible-software.md)
 
-# Attività iniziali
-## portale di Azure classico
-### [Attività 1: Creare il gruppo di amministratori](active-directory-ds-getting-started-create-group.md)
-### [Attività 2: Creare o selezionare una rete virtuale](active-directory-ds-getting-started-vnet.md)
-### [Attività 3: Abilitare Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
-### [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-update-dns.md)
-### [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
+# Introduzione
 ## Portale di Azure (anteprima)
 ### [Attività 1: Configurare le impostazioni di base](active-directory-ds-getting-started.md)
 ### [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
 ### [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ### [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-dns.md)
+### [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
+## Portale di Azure classico (deprecato)
+### [Attività 1: Creare il gruppo di amministratori](active-directory-ds-getting-started-create-group.md)
+### [Attività 2: Creare o selezionare una rete virtuale](active-directory-ds-getting-started-vnet.md)
+### [Attività 3: Abilitare Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
+### [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-update-dns.md)
 ### [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
 
 # Procedure
@@ -47,6 +47,9 @@
 ### [Abilitare l'anteprima dell'esperienza del portale di Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)
 
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # Risorse correlate
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -54,7 +57,8 @@
 
 # Risorse
 ## [Forum di commenti e suggerimenti su Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory)
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Contattaci](active-directory-ds-contact-us.md)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=active-directory-ds)

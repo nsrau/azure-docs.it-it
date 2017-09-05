@@ -42,6 +42,7 @@
 ## Configurare
 ### Azure
 #### [Profiler](app-insights-profiler.md)
+#### [Abilitare il profiler](enable-profiler-cloud-services.md)
 #### [Diagnostica](app-insights-azure-diagnostics.md)
 #### [Anteprime](app-insights-previews.md)
 
@@ -91,9 +92,11 @@
 
 ### Utilizzo
 #### [Panoramica](app-insights-usage-overview.md)
+#### [Inviare il contesto utente](app-insights-usage-send-user-context.md)
 #### [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
 #### [Grafici a imbuto](usage-funnels.md)
 #### [Conservazione](app-insights-usage-retention.md)
+#### [Flussi degli utenti](app-insights-usage-flows.md)
 #### [Cartelle di lavoro](app-insights-usage-workbooks.md)
 
 ### Analytics
@@ -140,7 +143,7 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Riferimento
-## [Analisi](app-insights-analytics-reference.md)
+## [Analisi](https://docs.loganalytics.io/)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
 ## [Java](/java/api/com.microsoft.applicationinsights)
 ## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -154,6 +157,7 @@
 ### [Metrica](application-insights-data-model-metric-telemetry.md)
 ### [Contesto](application-insights-data-model-context.md)
 ## [Correlazione di dati di telemetria](application-insights-correlation.md)
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=application-insights)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
@@ -161,6 +165,7 @@
 ## [Linguaggi e piattaforme](app-insights-platforms.md)
 
 ## [Prezzi](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
 ## Novità
 

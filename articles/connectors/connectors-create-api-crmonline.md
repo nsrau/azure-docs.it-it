@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: f09dd58f17b228d6381af95c40c5391886bbb8f1
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 ---
 
@@ -167,164 +168,9 @@ Per risolvere i problemi relativi a un passaggio non riuscito in un'app per la l
 
 Per altre informazioni sulla risoluzione dei problemi delle app per la logica, vedere [Diagnosi degli errori delle app per la logica](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="technical-details"></a>Dettagli tecnici
-## <a name="triggers"></a>Trigger
-| Trigger | Descrizione |
-| --- | --- |
-| Quando un record viene creato |Attiva un flusso quando viene creato un oggetto in Dynamics 365. |
-| Quando un record viene aggiornato |Attiva un flusso quando viene modificato un oggetto in Dynamics 365. |
-| Quando un record viene eliminato |Attiva un flusso quando viene eliminato un oggetto in Dynamics 365. |
+## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-## <a name="actions"></a>Azioni
-| Azione | Descrizione |
-| --- | --- |
-| Elenca i record |Questa operazione ottiene i record da un'entità. |
-| Crea un nuovo record |Questa operazione crea un nuovo record di un'entità. |
-| Recupera il record |Questa operazione ottiene il record specificato da un'entità. |
-| Elimina un record |Questa operazione elimina un record da una raccolta di entità. |
-| Aggiornare un record |Questa operazione aggiorna un record esistente per un'entità. |
-
-### <a name="trigger-and-action-details"></a>Dettagli sui trigger e le azioni
-In questa sezione sono riportati i dettagli relativi a ogni trigger e azione, incluse le proprietà di input obbligatorie o facoltative e quelle di output corrispondenti associate al connettore.
-
-#### <a name="when-a-record-is-created"></a>Quando un record viene creato
-Attiva un flusso quando viene creato un oggetto in Dynamics 365.
-
-| Nome proprietà | Nome visualizzato | Description |
-| --- | --- | --- |
-| dataset* |Nome organizzazione |Nome dell'organizzazione Dynamics 365, ad esempio Contoso |
-| table* |Entity Name |Nome dell'entità |
-| $filter |Query di filtro |Una query di filtro ODATA per limitare gli elementi restituiti |
-| $orderby |Ordina per |Query orderBy ODATA per specificare l'ordine degli elementi |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-ItemsList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="when-a-record-is-updated"></a>Quando un record viene aggiornato
-Attiva un flusso quando viene modificato un oggetto in Dynamics 365.
-
-| Nome proprietà | Nome visualizzato | Description |
-| --- | --- | --- |
-| dataset* |Nome organizzazione |Nome dell'organizzazione Dynamics 365, ad esempio Contoso |
-| table* |Entity Name |Nome dell'entità |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-ItemsList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="when-a-record-is-deleted"></a>Quando un record viene eliminato
-Attiva un flusso quando viene eliminato un oggetto in Dynamics 365.
-
-| Nome proprietà | Nome visualizzato | Description |
-| --- | --- | --- |
-| dataset* |Nome organizzazione |Nome dell'organizzazione Dynamics 365, ad esempio Contoso |
-| table* |Entity Name |Nome dell'entità |
-
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-ItemsList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="list-records"></a>Elenca i record
-Questa operazione ottiene i record da un'entità.
-
-| Nome proprietà | Nome visualizzato | Description |
-| --- | --- | --- |
-| dataset* |Nome organizzazione |Nome dell'organizzazione Dynamics 365, ad esempio Contoso |
-| table* |Entity Name |Nome dell'entità |
-| $filter |Query di filtro |Una query di filtro ODATA per limitare gli elementi restituiti |
-| $orderby |Ordina per |Query orderBy ODATA per specificare l'ordine degli elementi |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-ItemsList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="create-a-new-record"></a>Crea un nuovo record
-Questa operazione crea un nuovo record di un'entità.
-
-| Nome proprietà | Nome visualizzato | Description |
-| --- | --- | --- |
-| dataset* |Nome organizzazione |Nome dell'organizzazione Dynamics 365, ad esempio Contoso |
-| table* |Entity Name |Nome dell'entità |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Nessuno.
-
-#### <a name="get-record"></a>Recupera il record
-Questa operazione ottiene il record specificato da un'entità.
-
-| Nome proprietà | Nome visualizzato | Description |
-| --- | --- | --- |
-| dataset* |Nome organizzazione |Nome dell'organizzazione Dynamics 365, ad esempio Contoso |
-| table* |Entity Name |Nome dell'entità |
-| id* |Identificatore dell'elemento |Specifica l'identificatore del record |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Nessuno.
-
-#### <a name="delete-a-record"></a>Elimina un record
-Questa operazione elimina un record da una raccolta di entità.
-
-| Nome proprietà | Nome visualizzato | Description |
-| --- | --- | --- |
-| dataset* |Nome organizzazione |Nome dell'organizzazione Dynamics 365, ad esempio Contoso |
-| table* |Entity Name |Nome dell'entità |
-| id* |Identificatore dell'elemento |Specifica l'identificatore del record |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-#### <a name="update-a-record"></a>Aggiornare un record
-Questa operazione aggiorna un record esistente per un'entità.
-
-| Nome proprietà | Nome visualizzato | Description |
-| --- | --- | --- |
-| dataset* |Nome organizzazione |Nome dell'organizzazione Dynamics 365, ad esempio Contoso |
-| table* |Entity Name |Nome dell'entità |
-| id* |Identificatore del record |Specifica l'identificatore del record |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Nessuno.
-
-## <a name="http-responses"></a>Risposte HTTP
-Le azioni e i trigger possono restituire uno o più dei codici di stato HTTP seguenti:
-
-| Name | Descrizione |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Non autorizzata |
-| 403 |Accesso negato |
-| 404 |Non trovato |
-| 500 |Errore interno del server. Si è verificato un errore sconosciuto. |
-| default |Operazione non riuscita. |
+Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/crm/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).

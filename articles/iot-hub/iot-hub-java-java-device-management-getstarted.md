@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: f4690097da1b56a7688754294ab63ec88a457761
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 5abf1d80a62344f93d4c5491adba65a3e7400258
 ms.contentlocale: it-it
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -48,7 +47,7 @@ Al termine di questa esercitazione si avranno due app di console Java:
 * Consente di visualizzare le proprietà segnalate aggiornate.
 
 > [!NOTE]
-> L'articolo [Azure IoT SDK][lnk-hub-sdks] offre informazioni sui vari Azure IoT SDK che è possibile usare per compilare applicazioni da eseguire nei dispositivi e il backend della soluzione.
+> Per informazioni sugli SDK che consentono di compilare le applicazioni da eseguire nei dispositivi e i back-end della soluzione, vedere [Azure IoT SDK][lnk-hub-sdks].
 
 Per completare questa esercitazione, sono necessari:
 
@@ -62,11 +61,17 @@ Per completare questa esercitazione, sono necessari:
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Attivare un riavvio remoto nel dispositivo con un metodo diretto
 
-In questa sezione viene creata un'app console Java che chiama il metodo diretto di riavvio nell'app per dispositivo simulato e mostra la risposta. L'app esegue quindi il polling delle proprietà segnalate inviate dal dispositivo per determinare quando il riavvio è stato completato. Quest'app console si connette all'hub IoT per richiamare il metodo diretto e leggere le proprietà segnalate.
+In questa sezione si crea un'app console Java che:
+
+1. Richiama il metodo diretto reboot nell'app per dispositivo simulato.
+1. Visualizza la risposta.
+1. Esegue il polling delle proprietà segnalate inviate dal dispositivo per determinare quando viene completato il riavvio.
+
+Quest'app console si connette all'hub IoT per richiamare il metodo diretto e leggere le proprietà segnalate.
 
 1. Creare una cartella vuota denominata dm-get-started.
 
-1. Nella cartella dm-get-started creare un progetto Maven denominato **trigger-reboot** usando il comando seguente al prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
+1. Nella cartella dm-get-started creare un progetto Maven denominato **trigger-reboot** usando il comando seguente al prompt dei comandi. L'esempio seguente mostra un lungo comando singolo:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -78,7 +83,7 @@ In questa sezione viene creata un'app console Java che chiama il metodo diretto 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -123,7 +128,7 @@ In questa sezione viene creata un'app console Java che chiama il metodo diretto 
     import java.util.concurrent.ExecutorService;
     ```
 
-1. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire **{youriothubconnectionstring}** con la stringa di connessione dell'hub IoT indicata nella sezione *Creare un hub IoT*:
+1. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire `{youriothubconnectionstring}` con la stringa di connessione dell'hub IoT indicata nella sezione *Creare un hub IoT*:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -207,7 +212,7 @@ In questa sezione viene creata un'app console Java che chiama il metodo diretto 
 
 In questa sezione si crea un'app console Java che simula un dispositivo. L'app è in attesa della chiamata al metodo diretto di riavvio dall'hub IoT e risponde immediatamente. L'app viene quindi sospesa per un periodo di tempo per simulare il processo di riavvio prima di usare una proprietà segnalata per notificare all'app di back-end **trigger-reboot** il completamento del riavvio.
 
-1. Nella cartella dm-get-started creare un progetto Maven denominato **simulated-device** usando il comando seguente nel prompt dei comandi. Si noti che si tratta di un lungo comando singolo:
+1. Nella cartella dm-get-started creare un progetto Maven denominato **simulated-device** usando il comando seguente nel prompt dei comandi. L'esempio seguente è un lungo comando singolo:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -219,7 +224,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app �
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -262,7 +267,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app �
     import java.util.HashSet;
     ```
 
-1. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire **{yourdeviceconnectionstring}** con la stringa di connessione del dispositivo indicata nella sezione *Create a device identity* (Creare un'identità del dispositivo):
+1. Aggiungere le variabili a livello di classe seguenti alla classe **App** . Sostituire `{yourdeviceconnectionstring}` con la stringa di connessione del dispositivo indicata nella sezione *Creare un'identità del dispositivo*:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -369,14 +374,14 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app �
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. Aggiungere il codice seguente al metodo **main** per creare un'istanza di **DeviceClient**:
+1. Per creare un'istanza di **DeviceClient**, aggiungere il codice seguente al metodo **main**:
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-1. Nel metodo **main** aggiungere il codice seguente per avviare l'ascolto delle chiamate al metodo diretto:
+1. Per avviare l'ascolto delle chiamate al metodo diretto, aggiungere il codice seguente al metodo **main**:
 
     ```java
     try
@@ -394,7 +399,7 @@ In questa sezione si crea un'app console Java che simula un dispositivo. L'app �
     }
     ```
 
-1. Aggiungere il codice seguente al metodo **main** per arrestare il simulatore del dispositivo:
+1. Per arrestare il simulatore del dispositivo, aggiungere il codice seguente al metodo **main**:
 
     ```java
     System.out.println("Press any key to exit...");

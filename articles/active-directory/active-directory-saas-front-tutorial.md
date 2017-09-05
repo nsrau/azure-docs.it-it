@@ -1,229 +1,249 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Front | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Front.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Front.
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
+ms.reviewer: joflore
 ms.assetid: 88270b6d-2571-434a-b139-b6ccc3a2b19f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 07/25/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 7c4faaba6db10f6803236a5d72eed375e2c39d46
-ms.openlocfilehash: b0ecc19b62e7620b4c37c4d9f702238dcb8c44cc
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Esercitazione: Integrazione di Azure Active Directory con Front
-Questa esercitazione descrive l'integrazione di Front con Azure Active Directory (Azure AD).
+
+Questa esercitazione descrive come integrare Front con Azure Active Directory (Azure AD).
 
 L'integrazione di Front con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a Front
-* È possibile abilitare gli utenti per l'accesso Single Sign-On automatico a Front (SSO) con i propri account Azure AD
-* È possibile gestire gli account da una posizione centrale: il portale di Azure classico
+- È possibile controllare in Azure AD chi può accedere a Front.
+- È possibile abilitare gli utenti per l'accesso automatico a Front (Single Sign-On) con gli account Azure AD personali.
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per configurare l'integrazione di Azure AD con Front, sono necessari gli elementi seguenti:
 
-* Sottoscrizione di Azure AD.
-* Sottoscrizione di Front abilitata per l'accesso Single Sign-On (SSO)
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Front abilitata per l'accesso Single Sign-On
 
->[!NOTE]
->Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione. 
-> 
+> [!NOTE]
+> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-* Non usare l'ambiente di produzione, a meno che non sia necessario.
-* Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
+- Non usare l'ambiente di produzione a meno che non sia necessario.
+- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-L'obiettivo di questa esercitazione è quello di testare l'accesso Single Sign-On (SSO) di Azure AD in un ambiente di test.
-
-Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 1. Aggiunta di Front dalla raccolta
-2. Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-front-from-the-gallery"></a>Aggiunta di Front dalla raccolta
 Per configurare l'integrazione di Front in Azure AD, è necessario aggiungere Front dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Front dalla raccolta, seguire questa procedura:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro. 
-   
-    ![Active Directory][1]
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
-   
-    ![Applications][2]
-4. Fare clic su **Add** nella parte inferiore della pagina.
-   
-    ![Applicazioni][3]
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
-   
-    ![Applicazioni][4]
-6. Nella casella di ricerca digitare **Front**.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-front-tutorial/tutorial_front_01.png)
-7. Nel riquadro dei risultati selezionare **Front** e quindi fare clic su **Completa** per aggiungere l'applicazione.
-   
-    ![Selezione dell'app nella raccolta](./media/active-directory-saas-front-tutorial/tutorial_front_0001.png)
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso Single Sign-On (SSO) di Azure AD
-Questa sezione descrive come configurare e testare l'accesso Single Sign-On di Azure AD con Front in base a un utente test di nome "Britta Simon".
+    ![Pulsante Azure Active Directory][1]
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Front che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Front.
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-La relazione di collegamento viene stabilita assegnando il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente) in Front.
+    ![Pannello Applicazioni aziendali][2]
+    
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+
+    ![Pulsante Nuova applicazione][3]
+
+4. Nella casella di ricerca digitare **Front**, selezionare **Front** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+
+    ![Front nell'elenco risultati](./media/active-directory-saas-front-tutorial/tutorial_front_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Front usando un utente di test di nome "Britta Simon".
+
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di Front corrispondente a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Front.
+
+Per stabilire la relazione di collegamento, in Front assegnare il valore del **nome utente** in Azure AD come valore di **Username** (Nome utente).
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Front, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
-2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di Front](#creating-a-front-test-user)** : per avere una controparte di Britta Simon in Front collegata alla relativa rappresentazione in Azure AD.
-4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creare un utente di test di Front](#create-a-front-test-user)**: per avere una controparte di Britta Simon in Front collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
-### <a name="configuring-azure-ad-sso"></a>Configurazione dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
-In questa sezione viene abilitato l'accesso SSO di Azure AD nel portale di Azure classico e viene configurato l'accesso Single Sign-On nell'applicazione Front.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-**Per configurare l'accesso SSO di Azure AD con Front, seguire questa procedura:**
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Front.
 
-1. Nella pagina di integrazione dell'applicazione **Front** del portale classico, fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
-   
-    ![Configura accesso Single Sign-On][6] 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Front** selezionare **Single Sign-On di Azure AD** e quindi fare clic su **Avanti**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_03.png)
-3. Nella pagina della finestra di dialogo **Configurare le impostazioni dell'app**, se si desidera configurare l'applicazione in **modalità iniziata da IDP**,seguire la procedura seguente e fare clic su **Avanti**:
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_04.png)
-  1. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<company name>.frontapp.com`.
-  2. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company name>.frontapp.com/sso/saml/callback`
-  3. Fare clic su **Avanti**.
-4. Se si desidera configurare l'applicazione in **SP initiated mode** (Modalità iniziata dal provider di servizi) nella finestra di dialogo **Configurare le impostazioni dell'app** fare clic su **"Mostra opzioni avanzate (facoltativo)"**, quindi digitare l'**URL di accesso** e fare clic su **Avanti**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_05.png)
-   
-  1. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company name>.frontapp.com`
-  2. Fare clic su **Avanti**.
-   
-   >[!NOTE]
-   >Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'URL di accesso, l'ID e l'URL di risposta effettivo. Per ottenere questi valori, fare riferimento ai dettagli descritti nel **Passaggio 12** oppure contattare Front scrivendo all'indirizzo [support@frontapp.com](emailTo:support@frontapp.com).
-   >  
-5. Nella pagina **Configura accesso Single Sign-On in Front** seguire questa procedura e fare clic su **Avanti**:
-   
- ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_06.png) 
- 1. Fare clic su **Scarica certificato**e quindi salvare il file nel computer.
- 2. Fare clic su **Avanti**.
-6. Accedere al tenant di Front come amministratore.
-7. Passare a **Impostazioni (l'icona dell'ingranaggio in fondo all'intestazione laterale a sinistra) > Preferenze**.
+**Per configurare Single Sign-On di Azure AD con Front, seguire questa procedura:**
+
+1. Nella pagina di integrazione dell'applicazione **Front** del portale di Azure fare clic su **Single Sign-On**.
+
+    ![Collegamento Configura accesso Single Sign-On][4]
+
+2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+ 
+    ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
+
+3. Nella sezione **URL e dominio Front** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
+
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<companyname>.frontapp.com`
+
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<companyname>.frontapp.com/sso/saml/callback`
+
+4. Selezionare **Mostra impostazioni URL avanzate**, se si desidera configurare l'applicazione in modalità avviata da **SP**:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
+
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.frontapp.com`
+     
+    > [!NOTE] 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con identificatore, URL di risposta e URL di accesso effettivi, illustrati più avanti in questa esercitazione, oppure contattare il [team di supporto clienti di Front](mailto:support@frontapp.com) per ottenere questi valori. 
+
+5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
+
+6. Fare clic sul pulsante **Salva** .
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
+    
+7. Nella sezione **Configurazione di Front** fare clic su **Configura Front** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
+
+8. Accedere al tenant di Front come amministratore.
+
+9. Passare a **Impostazioni (l'icona dell'ingranaggio in fondo all'intestazione laterale a sinistra) > Preferenze**.
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
-8. Fare clic sul collegamento **Single Sign On** .
+
+10. Fare clic sul collegamento **Single Sign On** .
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
-9. Selezionare **SAML** nell'elenco a discesa **Single Sign On**.
+
+11. Selezionare **SAML** nell'elenco a discesa **Single Sign On**.
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
-10. Nella casella di testo **Entry Point** (Punto di ingresso) inserire il valore di **URL servizio Single Sign-On** dalla configurazione guidata dell'applicazione di Azure AD.
+
+12. Nella casella di testo **Entry Point** (Punto di ingresso) inserire il valore di **URL servizio Single Sign-On** dalla configurazione guidata dell'applicazione di Azure AD.
     
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
-11. Copiare il contenuto del certificato scaricato, copiarlo e incollarlo nella casella di testo **Certificato di firma** .
+
+13. Aprire il file del **certificato (Base64)** scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato di firma**.
     
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
-12. Verificare che gli URI corrispondano alla configurazione nel Passaggio 3.
-    
+
+14. Nella sezione **Service provider settings** (Impostazioni provider di servizi) seguire questa procedura:
+
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
-13. Fare clic sul pulsante **Salva** .
-14. Nel portale di Azure classico selezionare la conferma della configurazione e fare clic su **Avanti**.
+
+    a. Copiare il valore dell'**ID entità** e incollarlo nella casella di testo **Identificatore** nella sezione **URL e dominio Front** del portale di Azure.
+
+    b. Copiare il valore dell'**URL ACS** e incollarlo nella casella di testo **URL di accesso** nella sezione **URL e dominio Front** del portale di Azure.
     
-    ![Single Sign-On di Microsoft Azure AD][10]
-15. Nella pagina **Conferma Single Sign-on** fare clic su **Completa**.  
-    
-    ![Single Sign-On di Microsoft Azure AD][11]
+15. Fare clic sul pulsante **Salva** .
+
+> [!TIP]
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
-Questa sezione descrive come creare un utente di test chiamato Britta Simon nel portale classico.
 
-![Creare un utente di Azure AD][20]
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+
+   ![Creare un utente test di Azure AD][100]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure classico** fare clic su **Active Directory** nel riquadro di spostamento sinistro.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_09.png)
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per visualizzare l'elenco di utenti, fare clic su **Utenti**nel menu in alto.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_03.png)
-4. Per aprire la finestra di dialogo **Aggiungi utente**, fare clic su **Aggiungi utente** nella barra degli strumenti in basso.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_04.png)
-5. Nella pagina **Informazioni sull'utente** seguire questa procedura:
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_05.png)
- 1. In Tipo di utente selezionare Nuovo utente nell'organizzazione.
- 2. Nella casella di testo **Nome utente** digitare **BrittaSimon**. 
- 3. Fare clic su **Avanti**.
-6. Nella pagina **Profilo utente** seguire questa procedura:
-   
-   ![Creazione di un utente test di Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_06.png) 
- 1. Nella casella di testo **Nome** digitare **Britta**.   
- 2. Nella casella di testo **Cognome** digitare **Simon**. 
- 3. Nella casella di testo **Nome visualizzato** digitare **Britta Simon**. 
- 4. Nell'elenco **Ruolo** selezionare **Utente**. 
- 5. Fare clic su **Avanti**.
-7. Nella pagina **Ottieni password temporanea** fare clic su **crea**.
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_07.png)
-8. Nella pagina **Ottieni password temporanea** seguire questa procedura:
-   
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-front-tutorial/create_aaduser_08.png) 
- 1. Prendere nota del valore visualizzato in **Nuova password**. 
- 2. Fare clic su **Completa**.   
+1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
 
+    ![Pulsante Azure Active Directory](./media/active-directory-saas-front-tutorial/create_aaduser_01.png)
+
+2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/active-directory-saas-front-tutorial/create_aaduser_02.png)
+
+3. Per aprire la finestra di dialogo **Utente**, fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+
+    ![Pulsante Aggiungi](./media/active-directory-saas-front-tutorial/create_aaduser_03.png)
+
+4. Nella finestra di dialogo **Utente** seguire questa procedura:
+
+    ![Finestra di dialogo Utente](./media/active-directory-saas-front-tutorial/create_aaduser_04.png)
+
+    a. Nella casella **Nome** digitare **BrittaSimon**.
+
+    b. Nella casella **Nome utente** digitare l'indirizzo di posta elettronica dell'utente Britta Simon.
+
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+
+    d. Fare clic su **Crea**.
+ 
 ### <a name="create-a-front-test-user"></a>Creare un utente test di Front
-Questa sezione consente di creare un utente chiamato Britta Simon in Front. Collaborare con il team di supporto Front per aggiungere gli utenti all'account Front.
+
+In questa sezione viene creato un utente di nome Britta Simon in Front. Collaborare con il [team di supporto clienti di Front](mailto:support@frontapp.com) per aggiungere gli utenti nella piattaforma Front. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
-Questa sezione descrive come abilitare Britta Simon a usare l'accesso Single Sign-On di Azure concedendole l'accesso a Front.
 
-![Assegna utente][200]
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Front.
+
+![Assegnare il ruolo utente][200] 
 
 **Per assegnare Britta Simon a Front, seguire questa procedura:**
 
-1. Per aprire la visualizzazione delle applicazioni nel portale classico, nella visualizzazione directory fare clic su **Applicazioni** nel menu in alto.
-   
-    ![Assegna utente][201]
-2. Nell'elenco delle applicazioni, selezionare **Front**.
-   
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_50.png)
-3. Scegliere **Utenti**dal menu in alto.
-   
-    ![Assegna utente][203]
-4. Nell'elenco di utenti selezionare **Britta Simon**.
-5. Fare clic su **Assegna**sulla barra degli strumenti in basso.
-   
-    ![Assegna utente][205]
+1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
+    ![Assegna utente][201] 
+
+2. Nell'elenco delle applicazioni, selezionare **Front**.
+
+    ![Collegamento di Front nell'elenco delle applicazioni](./media/active-directory-saas-front-tutorial/tutorial_front_app.png)  
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Collegamento "Utenti e gruppi"][202]
+
+4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Riquadro Aggiungi assegnazione][203]
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+
+6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+
+7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+    
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+
 Questa sezione descrive come testare la configurazione dell'accesso Single Sign-on di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Front nel pannello di accesso, si accederà automaticamente all'applicazione Front.
+Quando si fa clic sul riquadro Front nel pannello di accesso, si accederà automaticamente all'applicazione Front. 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
+
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 
@@ -234,14 +254,11 @@ Quando si fa clic sul riquadro Front nel pannello di accesso, si accederà autom
 [3]: ./media/active-directory-saas-front-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-front-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-front-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-front-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-front-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-front-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-front-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-front-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-front-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-front-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-front-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-front-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-front-tutorial/tutorial_general_205.png
+
 

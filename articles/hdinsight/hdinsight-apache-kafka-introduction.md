@@ -1,6 +1,6 @@
 ---
 title: 'Introduzione ad Apache Kafka in HDInsight: Azure | Microsoft Docs'
-description: "Informazioni su Apache Kafka in HDInsight: che cos&quot;è, quale funzione svolge e dove trovare esempi e informazioni introduttive."
+description: "Informazioni su Apache Kafka in HDInsight: che cos'è, quale funzione svolge e dove trovare esempi e informazioni introduttive."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introduzione ad Apache Kafka in HDInsight (anteprima)
@@ -42,7 +42,7 @@ Kafka fornisce le funzionalità seguenti:
 
 * Integrazione con Azure Managed Disks: i dischi gestiti assicurano maggiore scalabilità e velocità effettiva per i dischi usati dalle macchine virtuali nel cluster HDInsight.
 
-    I dischi gestiti sono abilitati per impostazione predefinita per Kafka in HDInsight e il numero di dischi usati per ogni nodo può essere configurato durante la creazione di HDInsight. Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+    I dischi gestiti sono abilitati per impostazione predefinita per Kafka in HDInsight e il numero di dischi usati per ogni nodo può essere configurato durante la creazione di HDInsight. Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     Per informazioni sulla configurazione di dischi gestiti con Kafka in HDInsight, vedere [Configurare l'archiviazione e la scalabilità per Apache Kafka in HDInsight](hdinsight-apache-kafka-scalability.md).
 

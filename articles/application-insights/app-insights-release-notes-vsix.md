@@ -1,5 +1,5 @@
 ---
-title: Note sulla versione per l&quot;estensione di Visual Studio per Developer Analytics
+title: Note sulla versione per l'estensione di Visual Studio per Developer Analytics
 description: "Aggiornamenti più recenti per Strumenti di Visual Studio per Developer Analytics"
 services: application-insights
 documentationcenter: 
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: cfreeman
+ms.author: bwren
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 5edd37a3a042f710e7d1b9e148c24d9a548a4fea
 ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
-
 
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Note sulla versione per Strumenti di analisi per sviluppatori

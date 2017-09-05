@@ -1,11 +1,11 @@
 ---
 title: App Web Node.js con il servizio tabelle di Azure
-description: Questa esercitazione illustra come usare il servizio tabelle di Azure per archiviare i dati da un&quot;applicazione Node.js ospitata in app Web del servizio app di Azure.
+description: Questa esercitazione illustra come usare il servizio tabelle di Azure per archiviare i dati da un'applicazione Node.js ospitata in app Web del servizio app di Azure.
 tags: azure-portal
 services: app-service\web, storage
 documentationcenter: nodejs
-author: rmcmurray
-manager: erikre
+author: TomArcher
+manager: routlaw
 editor: 
 ms.assetid: 029e6f46-f586-4309-adbf-71c7b8d537d4
 ms.service: storage
@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-translationtype: Human Translation
+ms.date: 08/17/2016
+ms.author: tarcher
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
 ms.openlocfilehash: 73a7c658f06c66de51354b2d06bbddf84951f981
+ms.contentlocale: it-it
 ms.lasthandoff: 04/06/2017
-
 
 ---
 # <a name="nodejs-web-app-using-the-azure-table-service"></a>App Web Node.js con il servizio tabelle di Azure

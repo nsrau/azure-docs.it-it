@@ -1,6 +1,6 @@
 ---
-title: Come visualizzare e modificare il Cloud Solution Provider &quot;Incentivi rivenditore&quot; | Documentazione Microsoft
-description: Informazioni su come visualizzare e modificare la selezione per il CSP &quot;Incentivi rivenditore&quot;.
+title: Come visualizzare e modificare il Cloud Solution Provider "Incentivi rivenditore" | Documentazione Microsoft
+description: Informazioni su come visualizzare e modificare la selezione per il CSP "Incentivi rivenditore".
 services: marketplace-publishing
 documentationcenter: na
 author: DavidBosland
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 08/31/2017
 ms.author: DavidBosland
 ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
 ms.contentlocale: it-it
 ms.lasthandoff: 12/08/2016
-
 
 ---
 # <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Visualizzare e modificare il Cloud Solution Provider "Incentivi rivenditore" in Azure Marketplace

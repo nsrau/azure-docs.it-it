@@ -4,7 +4,7 @@ description: Questo articolo illustra come usare il portale di Azure per configu
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 4256201f2fd505ed86734e900496eb7364c9a575
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/11/2017
 
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configurazione dei criteri di protezione del contenuto tramite il portale di Azure
@@ -45,7 +46,7 @@ Questo articolo illustra come configurare i criteri di protezione del contenuto 
 Per usare il portale per avviare la configurazione della protezione del contenuto per l'intero account AMS, eseguire questa procedura:
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni** > ** Protezione del contenuto**.
+2. Selezionare **Impostazioni** > **Protezione del contenuto**.
 
 ![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -131,10 +132,5 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

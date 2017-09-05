@@ -1,6 +1,6 @@
 ---
-title: Prerequisiti di accesso all&quot;API di creazione report di Azure AD | Microsoft Docs
-description: Informazioni sui prerequisiti di accesso all&quot;API di creazione report di Azure AD
+title: Prerequisiti di accesso all'API di creazione report di Azure AD | Microsoft Docs
+description: Informazioni sui prerequisiti di accesso all'API di creazione report di Azure AD
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 8f8510b38d795a90850ef58084a04718cb5ac324
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 5fafd83c337e3c73260d89cdad7409a01ce5855b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
@@ -41,7 +41,7 @@ Per preparare l'accesso all'API di creazione report, è necessario:
 2. Concedere le autorizzazioni 
 3. Ottenere le impostazioni di configurazione 
 
-Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
+Per domande, problemi o suggerimenti, [inviare un ticket di supporto](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="register-an-azure-active-directory-application"></a>Registrare un'applicazione Azure Active Directory
 
@@ -74,7 +74,7 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
     a. Nella casella di testo **Nome** digitare `Reporting API application`.
 
-    b. In **Tipo applicazione** selezionare `Web app / API`.
+    b. Per **Tipo di applicazione** selezionare **App Web/API**.
 
     c. Nella casella di testo **URL di accesso** digitare `https://localhost`.
 

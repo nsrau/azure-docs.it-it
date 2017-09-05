@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: configurazione di Weibo | Documentazione Microsoft'
-description: Fornire l&quot;iscrizione e l&quot;accesso agli utenti con account Weibo nelle applicazioni protette da Azure Active Directory B2C.
+description: Fornire l'iscrizione e l'accesso agli utenti con account Weibo nelle applicazioni protette da Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: b6fdb9311ca2be3752c4ef74c91fe7abe9a91210
-ms.lasthandoff: 04/07/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 00c5d3781455c80b33bdbb4c872ae354531baf3e
+ms.contentlocale: it-it
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: fornire l'iscrizione e l'accesso agli utenti con account Weibo
@@ -55,7 +55,7 @@ Per usare Weibo come provider di identità in Azure Active Directory (Azure AD) 
 10. Fare clic su **提交** (Invia).  
 
 ## <a name="configure-weibo-as-an-identity-provider-in-your-tenant"></a>Configurare Weibo come provider di identità nel tenant
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
+1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
 2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Fornire un **Nome** per la configurazione del provider di identità. ad esempio, immettere "Weibo".

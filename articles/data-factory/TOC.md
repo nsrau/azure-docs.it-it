@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Tabella Web](data-factory-web-table-connector.md)
-### [Gateway di gestione dati](data-factory-data-management-gateway.md)
+### Gateway di gestione dati
+#### [Panoramica](data-factory-data-management-gateway.md)
+#### [Disponibilità e scalabilità elevate (Anteprima)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [Procedura dettagliata: Spostare dati da un'istanza SQL Server locale ad Archiviazione BLOB di Azure](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Trasformare i dati](data-factory-data-transformation-activities.md)
@@ -92,7 +95,8 @@
 ### [Risolvere i problemi relativi a Data factory](data-factory-troubleshoot.md)
 ### [Risolvere i problemi con Gateway di gestione dati](data-factory-troubleshoot-gateway-issues.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
@@ -104,6 +108,7 @@
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Note sulla versione di Gateway di gestione dati](data-factory-gateway-release-notes.md)
 ## [Richiedere una funzionalità](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-factory)

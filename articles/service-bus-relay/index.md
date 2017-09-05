@@ -1,11 +1,24 @@
 ---
-layout: LandingPage
 title: Documentazione di Inoltro del bus di servizio
 description: Informazioni sul funzionamento del servizio di inoltro di Azure in un ambiente locale e cloud ibrido, con procedure, esercitazioni, video, informazioni di riferimento sulle API e altro.
-translationtype: Human Translation
-ms.sourcegitcommit: ef8188d6790dac8b420348887c480cd4fdab07c4
-ms.openlocfilehash: 911ad28e0e93b9b46b368de2cfbbbbc9f1183b7b
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Documentazione di Inoltro del bus di servizio
 Informazioni sul modo in cui il servizio di inoltro di Azure consente applicazioni ibride tra ambienti locali e cloud di una rete aziendale e il cloud pubblico, senza dover aprire una connessione firewall o richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
@@ -30,7 +43,7 @@ Informazioni sul modo in cui il servizio di inoltro di Azure consente applicazio
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-relay">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -105,15 +118,15 @@ Informazioni sul modo in cui il servizio di inoltro di Azure consente applicazio
 
 ---
 
-<h2>Riferimento</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Esempi</h3>
-                        <p><a href="/azure/service-bus-relay/service-bus-relay-samples">Esempi di Inoltro del bus di servizio</a></p>
+                        <h3>Riga di comando</h3>
+                        <p><a href="/powershell/module/azurerm.servicebus">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -124,9 +137,8 @@ Informazioni sul modo in cui il servizio di inoltro di Azure consente applicazio
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p><a href="/dotnet/api/microsoft.servicebus.messaging">Microsoft.ServiceBus.Messaging</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.relay">Microsoft.Azure.Relay</a></p>
+                        <h3>Lingue</h3>
+                        <p><a href="/dotnet/api/overview/azure/service-bus-relay">.NET</a></p>
                     </div>
                 </div>
             </div>
@@ -137,17 +149,12 @@ Informazioni sul modo in cui il servizio di inoltro di Azure consente applicazio
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Altri</h3>
-                        <p><a href="service-bus-relay-port-settings.md">Impostazioni delle porte</a></p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/servicebus/">Informazioni di riferimento sulle API REST</a></p>
                    </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

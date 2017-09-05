@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 95adddc01ee2814515c20f36e8503de30454a8f4
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 7a4efc0fb9b3855b9dbbe445768ceb2a9940d0b2
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
@@ -31,7 +31,7 @@ Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/ca
 
 Azure Cosmos DB supporta una serie di API con operazioni diverse, che vanno dalla semplice lettura e scrittura alle query per grafi più complesse. Poiché non tutte le richieste sono uguali, viene loro assegnata una quantità normalizzata di **unità richiesta** in base alla quantità di calcolo necessaria per servire la richiesta. Il numero di unità richiesta per un'operazione è deterministico ed è possibile tenere traccia del numero di unità richiesta utilizzate da qualsiasi operazione in Azure Cosmos DB tramite un'intestazione della risposta. 
 
-Per prestazioni prevedibili, è necessario riservare una velocità effettiva in unità di 100 UR/secondo. Per ogni blocco da 100 UR/sec è possibile collegare un blocco da 1.000 UR/min. Unire il provisioning al secondo e quello al minuto permette di evitare la necessità di effettuare il provisioning per carichi di picco e di risparmiare fino al 75% dei costi rispetto a qualsiasi servizio basato unicamente sul provisioning al secondo.
+Per prestazioni prevedibili, è necessario riservare una velocità effettiva in unità di 100 UR/secondo. 
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:  
 
@@ -45,7 +45,7 @@ Azure Cosmos DB è un database multimodello. Si noti che in questo articolo l'AP
 ## <a name="request-units-and-request-charges"></a>Unità richiesta e addebiti richiesta
 Azure Cosmos DB offre prestazioni veloci e prevedibili, *riservando* risorse per soddisfare le esigenze a livello di velocità effettiva dell'applicazione.  Poiché i modelli di carico e accesso dell'applicazione cambiano nel tempo, Azure Cosmos DB consente di aumentare o diminuire facilmente la quantità di velocità effettiva riservata disponibile per l'applicazione.
 
-Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità richiesta elaborate al secondo o al minuto (componente aggiuntivo).  Si possono considerare le unità richiesta come una specie di valuta della velocità effettiva, secondo cui si *riserva* una quantità garantita di unità richiesta disponibili al secondo o al minuto per l'applicazione.  Ogni operazione in Azure Cosmos DB, ovvero scrittura di un documento, esecuzione di una query, aggiornamento di un documento, utilizza CPU, memoria e operazioni di I/O al secondo.  In altre parole, ogni operazione comporta un *addebito richiesta* espresso in *unità richiesta*.  La conoscenza dei fattori che influiscono sugli addebiti delle unità richiesta, insieme ai requisiti di velocità effettiva dell'applicazione, consente di eseguire l'applicazione nel modo più economicamente conveniente possibile. Anche lo strumento Esplora query è molto utile per testare gli elementi di base di una query.
+Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità richiesta elaborate al secondo. Si possono considerare le unità richiesta come una specie di valuta della velocità effettiva, secondo cui si *riserva* una quantità garantita di unità richiesta disponibili al secondo per l'applicazione.  Ogni operazione in Azure Cosmos DB, ovvero scrittura di un documento, esecuzione di una query, aggiornamento di un documento, utilizza CPU, memoria e operazioni di I/O al secondo.  In altre parole, ogni operazione comporta un *addebito richiesta* espresso in *unità richiesta*.  La conoscenza dei fattori che influiscono sugli addebiti delle unità richiesta, insieme ai requisiti di velocità effettiva dell'applicazione, consente di eseguire l'applicazione nel modo più economicamente conveniente possibile. Anche lo strumento Esplora query è molto utile per testare gli elementi di base di una query.
 
 Per iniziare è consigliabile guardare il video riportato di seguito, in cui Aravind Ramachandran illustra le unità richiesta e le prestazioni prevedibili con Azure Cosmos DB.
 
@@ -54,7 +54,7 @@ Per iniziare è consigliabile guardare il video riportato di seguito, in cui Ara
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Specifica della capacità in unità richiesta in Azure Cosmos DB
-Quando si crea una nuova raccolta, tabella o grafo, si specifica il numero di unità richiesta al secondo (UR/sec) da riservare. È anche possibile decidere se abilitare le unità richiesta al minuto, che permettono di decuplicare la capacità che è possibile ottenere al secondo, ma al minuto. In base alla velocità effettiva di cui è stato effettuato il provisioning, Azure Cosmos DB alloca partizioni fisiche per ospitare la raccolta e suddivide/ribilancia la crescita dei dati nelle partizioni.
+Quando si crea una nuova raccolta, tabella o grafo, si specifica il numero di unità richiesta al secondo (UR/sec) da riservare. In base alla velocità effettiva di cui è stato effettuato il provisioning, Azure Cosmos DB alloca partizioni fisiche per ospitare la raccolta e suddivide/ribilancia la crescita dei dati nelle partizioni.
 
 In Azure Cosmos DB è necessario specificare una chiave di partizione quando viene effettuato il provisioning di una raccolta con almeno 2.500 unità richiesta. La chiave di partizione è necessaria anche per ridimensionare la velocità effettiva della raccolta oltre le 2.500 unità richiesta in futuro. È quindi consigliabile configurare una [chiave di partizione](partition-data.md) durante la creazione di un contenitore, indipendentemente dalla velocità effettiva iniziale. Dato che potrebbe essere necessario suddividere i dati in più partizioni, occorre scegliere una chiave di partizione con una cardinalità elevata, da centinaia a milioni di valori distinti, in modo che Azure Cosmos DB possa ridimensionare la raccolta, la tabella o il grafo e le richieste in modo uniforme. 
 
@@ -191,7 +191,7 @@ L'uso dello strumento è molto semplice:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Usare l'intestazione della risposta di addebito della richiesta di Azure Cosmos DB
-Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK di DocumentDB. In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.  Per quanto riguarda le query, Esplora query di Azure Cosmos DB nel portale di Azure fornisce informazioni sull'addebito per le richieste relative alle query eseguite.
+Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK di Azure Cosmos DB. In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.  Per quanto riguarda le query, Esplora query di Azure Cosmos DB nel portale di Azure fornisce informazioni sull'addebito per le richieste relative alle query eseguite.
 
 ![Analisi degli addebiti delle unità richiesta in Esplora Query][1]
 
@@ -336,7 +336,7 @@ Con queste informazioni è possibile stimare i requisiti relativi alle unità ri
 In questo caso, è previsto un requisito di velocità effettiva medio di 1.275 unità richiesta/secondo.  Arrotondando alle 100 più vicine, si dovrà effettuare il provisioning di 1.300 unità richiesta/secondo per la raccolta dell'applicazione.
 
 ## <a id="RequestRateTooLarge"></a> Superamento dei limiti della velocità effettiva riservata in Azure Cosmos DB
-Tenere presente che il consumo delle unità richiesta è valutato in base a una frequenza al secondo, se l'uso delle unità richiesta al minuto è disabilitato oppure il budget non lo consente. Per le applicazioni che superano il livello di unità richiesta di cui è stato effettuato il provisioning per un contenitore, le richieste saranno limitate fino al ritorno del livello sotto il valore riservato. Nel caso di una limitazione, il server termina preventivamente la richiesta con RequestRateTooLargeException (codice di stato HTTP 429) e restituisce l'intestazione x-ms-retry-after-ms, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
+Tenere presente che, in assenza di budget, il consumo delle unità richiesta è valutato in base a una frequenza al secondo. Per le applicazioni che superano il livello di unità richiesta di cui è stato effettuato il provisioning per un contenitore, le richieste saranno limitate fino al ritorno del livello sotto il valore riservato. Nel caso di una limitazione, il server termina preventivamente la richiesta con RequestRateTooLargeException (codice di stato HTTP 429) e restituisce l'intestazione x-ms-retry-after-ms, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge

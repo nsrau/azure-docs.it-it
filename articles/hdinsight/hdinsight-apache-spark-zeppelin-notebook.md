@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: bc1b22b6269dc42add45a63d12c6c733e9d8c6ab
+ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
+ms.openlocfilehash: 9a588a28312388a524d91df7363234e0f609660e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 06/07/2017
 
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usare i notebook di Zeppelin con cluster Apache Spark in Azure HDInsight
@@ -28,8 +27,7 @@ ms.lasthandoff: 05/18/2017
 I cluster HDInsight Spark includono notebook Zeppelin che possono essere usati per eseguire processi Spark. Questo articolo illustra come usare il notebook Zeppelin in un cluster HDInsight.
 
 > [!NOTE]
-> Per impostazione predefinita, i notebook di Zeppelin sono disponibili solo per Spark 1.6.2 in cluster HDInsight versione 3.5. Se si vuole usare Zeppelin in altre versioni di cluster HDInsight Spark, è possibile installare Zeppelin usando l'azione script. Per istruzioni, vedere [Installare notebook Zeppelin per cluster Apache Spark in HDInsight Linux](hdinsight-apache-spark-use-zeppelin-notebook.md).
-> 
+> I notebook Zeppelin sono disponibili solo per Spark 1.6.3 in HDInsight 3.5 e Spark 2.1.0 in HDInsight 3.6.
 >
 
 **Prerequisiti:**
@@ -62,7 +60,7 @@ I cluster HDInsight Spark includono notebook Zeppelin che possono essere usati p
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
-        val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        val hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
    
         // Define a schema
         case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
@@ -194,7 +192,7 @@ In tal caso, per poter eseguire processi dal notebook Zeppelin è prima necessar
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-create-storageaccount]: storage-create-storage-account.md 
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md 
 
 
 

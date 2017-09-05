@@ -1,6 +1,6 @@
 ---
-title: Azure DocumentDB .NET SDK e risorse | Microsoft Docs
-description: Tutte le informazioni sull'SDK e sull'API .NET, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di DocumentDB .NET SDK.
+title: Risorse e SDK .NET per Azure Cosmos DB | Documentazione Microsoft
+description: Tutte le informazioni sull'SDK e sull'API .NET, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di Azure Cosmos DB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: e42d4746c89614f6990cb84c0b25871a078ecbec
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
-# <a name="documentdb-net-sdk-download-and-release-notes"></a>DocumentDB .NET SDK: download e note sulla versione
+# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK: download e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Feed delle modifiche .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/06/2017
 
 <tr><td>**Esempi**</td><td>[Esempi di codice .NET](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**Introduzione**</td><td>[Introduzione a DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**Attività iniziali**</td><td>[Introduzione ad Azure Cosmos DB .NET SDK](documentdb-get-started.md)</td></tr>
 
 <tr><td>**Esercitazione sull'app Web**</td><td>[Sviluppo di applicazioni Web con Azure Cosmos DB](documentdb-dotnet-application.md)</td></tr>
 
@@ -53,14 +53,25 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="release-notes"></a>Note sulla versione
 
+### <a name="a-name11701170"></a><a name="1.17.0"/>1.17.0 
+
+* Aggiunta del supporto per PartitionKeyRangeId come FeedOption per limitare l'ambito dei risultati di query a un intervallo di chiavi di partizione specifico. 
+* Aggiunta del supporto per StartTime come ChangeFeedOption per avviare la ricerca delle modifiche a partire dall'ora di inizio.
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* È stato risolto un problema nella classe JsonSerializable che può generare un'eccezione di overflow dello stack.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+*   È stato risolto un problema che richiedeva di ricompilare l'applicazione a causa dell'introduzione di JsonSerializerSettings come parametro opzionale nel costruttore DocumentClient.
+* È stato contrassegnato come obsoleto il costruttore DocumentClient che richiedeva JsonSerializerSettings come parametro più recente per consentire i valori predefiniti dei parametri ConnectionPolicy e ConsistencyLevel quando si passava il parametro JsonSerializerSettings.
+
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 *   Aggiunta del supporto per la definizione di JsonSerializerSettings personalizzate durante la creazione di un'istanza di [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   Risolto un problema che interessava i computer x64 che non supportano l'istruzione SSE4 e generano una SEHException durante l'esecuzione di query nell'API di DocumentDB.
+*   Risolto un problema che interessava i computer x64 che non supportano l'istruzione SSE4 e generano una SEHException durante l'esecuzione di query nell'API di DocumentDB di Azure Cosmos DB.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*   Aggiunta del supporto per la funzionalità di unità richiesta al minuto (UR/m).
 *   Aggiunta del supporto per un nuovo livello di coerenza denominato ConsistentPrefix.
 *   Aggiunta del supporto per le metriche delle query per le singole partizioni.
 *   Aggiunta del supporto per la limitazione delle dimensioni del token di continuazione per le query.
@@ -143,7 +154,7 @@ ms.lasthandoff: 07/06/2017
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * Aggiunta del supporto per le query parallele nelle raccolte partizionate.
 * Aggiunta del supporto ORDER BY e TOP tra partizioni per le raccolte partizionate.
-* Correzione di riferimenti mancanti a DocumentDB.Spatial.Sql.dll e Microsoft.Azure.Documents.ServiceInterop.dll, necessari quando si fa riferimento a un progetto di DocumentDB con riferimento al pacchetto Nuget DocumentDB.
+* Correzione di riferimenti mancanti a DocumentDB.Spatial.Sql.dll e Microsoft.Azure.Documents.ServiceInterop.dll, necessari quando si fa riferimento a un progetto di Azure Cosmos DB con riferimento al pacchetto Nuget Azure Cosmos DB.
 * Correzione della possibilità di usare parametri di tipi diversi per le funzioni definite dall'utente in LINQ. 
 * Risoluzione di un bug per gli account replicati a livello globale in cui le chiamate Upsert sono state indirizzate verso posizioni di lettura invece di posizioni di scrittura.
 * Aggiunta di metodi mancanti all'interfaccia IDocumentClient: 
@@ -156,7 +167,7 @@ ms.lasthandoff: 07/06/2017
 * Aggiunta del supporto per gli account di database con più aree.
 * Aggiunta del supporto per la ripetizione dei tentativi delle richieste limitate.  L'utente può personalizzare il numero di tentativi e il tempo di attesa massimo configurando la proprietà ConnectionPolicy.RetryOptions.
 * Aggiunta di una nuova interfaccia IDocumentClient che definisce le firme di tutti i metodi e di tutte le proprietà DocumenClient.  Come parte di questa modifica, anche i metodi di estensione che creano IQueryable e IOrderedQueryable sono stati modificati in metodi sulla stessa classe DocumentClient.
-* Aggiunta dell'opzione di configurazione per impostare ServicePoint.ConnectionLimit per un URI dell'endpoint di DocumentDB specifico.  Usare ConnectionPolicy.MaxConnectionLimit per modificare il valore predefinito, impostato su 50.
+* Aggiunta dell'opzione di configurazione per impostare ServicePoint.ConnectionLimit per un URI dell'endpoint di Azure Cosmos DB specifico.  Usare ConnectionPolicy.MaxConnectionLimit per modificare il valore predefinito, impostato su 50.
 * IPartitionResolver e la relativa implementazione sono stati deprecati.  Il supporto per IPartitionResolver è ora obsoleto. È consigliabile usare le raccolte partizionate per un'archiviazione e una velocità effettiva superiori.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
@@ -172,7 +183,7 @@ ms.lasthandoff: 07/06/2017
 * Implementazione delle [raccolte partizionate](partition-data.md) e dei [livelli di prestazioni definiti dall'utente](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Correzione]** Se si eseguono query nell'endpoint DocumentDB viene generato il messaggio seguente: "System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso".
+* **[Correzione]** Se si eseguono query nell'endpoint Azure Cosmos DB viene generato il messaggio seguente: "System.Net.Http.HttpRequestException: Errore durante la copia del contenuto in un flusso".
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Supporto LINQ espanso, tra cui nuovi operatori per il paging, espressioni condizionali e confronto di intervalli.
@@ -247,6 +258,9 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |10 agosto 2017 |--- |
+| [1.16.1](#1.16.1) |07 agosto 2017 |--- |
+| [1.16.0](#1.16.0) |02 agosto 2017 |--- |
 | [1.15.0](#1.15.0) |30 giugno 2017 |--- |
 | [1.14.1](#1.14.1) |23 maggio 2017 |--- |
 | [1.14.0](#1.14.0) |10 maggio 2017 |--- |

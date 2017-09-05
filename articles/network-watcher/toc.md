@@ -46,6 +46,7 @@
 ### [Interfaccia della riga di comando 2.0](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Testare la connettività
+### [Portale](network-watcher-connectivity-portal.md)
 ### [PowerShell](network-watcher-connectivity-powershell.md)
 ### [Interfaccia della riga di comando 2.0](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
@@ -64,6 +65,7 @@
 ## [Visualizzare i log dei flussi usando strumenti open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ## [Visualizzare i modelli di traffico di rete usando strumenti open source](network-watcher-using-open-source-tools.md)
 ## [Eseguire la conformità e il controllo nella rete usando PowerShell](network-watcher-nsg-auditing-powershell.md)
+## [Leggere i log del flusso del gruppo di sicurezza di rete](network-watcher-read-nsg-flow-logs.md)
 ## [Eseguire il rilevamento di intrusioni usando strumenti open source](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analizzare i log del gateway applicazione in Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 # Riferimento

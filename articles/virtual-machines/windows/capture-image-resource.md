@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;immagine gestita in Azure | Microsoft Docs
-description: "Creare un&quot;immagine gestita di un disco rigido virtuale o una macchina virtuale generalizzati in Azure. È possibile usare le immagini per creare più macchine virtuali che usino i dischi gestiti."
+title: Creare un'immagine gestita in Azure | Microsoft Docs
+description: "Creare un'immagine gestita di un disco rigido virtuale o una macchina virtuale generalizzati in Azure. È possibile usare le immagini per creare più macchine virtuali che usino i dischi gestiti."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: e428b755f6696bd6d4047ad77579a8e9665dfbd8
 ms.contentlocale: it-it
 ms.lasthandoff: 06/09/2017
-
 
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
@@ -83,7 +82,8 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 Per altre informazioni, vedere [Azure PowerShell Versioning](/powershell/azure/overview) (Controllo delle versioni di Azure PowerShell).
 
 
-1. Creare alcune variabili. 
+1. Creare alcune variabili.
+
     ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"

@@ -1,10 +1,10 @@
 ---
-title: Associazioni dell&quot;archiviazione code di Funzioni di Azure | Microsoft Docs
+title: Associazioni dell'archiviazione code di Funzioni di Azure | Microsoft Docs
 description: Informazioni su come usare trigger e associazioni di Archiviazione di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
@@ -15,13 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 85a3386c8159eb1abf01ccd35c6aea04f5710d5c
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f39f674bf576a2661a0e03710b9005b0515b3aa5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-functions-queue-storage-bindings"></a>Associazione dell'archiviazione code di Funzioni di Azure
@@ -75,7 +74,7 @@ Il trigger della coda contiene diverse proprietà di metadati. Queste proprietà
 * **ExpirationTime**: digitare `DateTimeOffset?`. Ora di scadenza del messaggio.
 * **Id**: digitare `string`. ID del messaggio in coda.
 * **InsertionTime**: digitare `DateTimeOffset?`. L'ora in cui il messaggio è stato aggiunto alla coda.
-* **NextVisibleTime**: digitare DateTimeOffset?. Ora in cui il messaggio sarà visibile.
+* **NextVisibleTime** - Tipo `DateTimeOffset?`. Ora in cui il messaggio sarà visibile.
 * **PopReceipt**: digitare `string`. Ricezione del messaggio.
 
 Per informazioni su come usare i metadati della coda, vedere l'[esempio di trigger](#triggersample).
@@ -293,4 +292,5 @@ Per un esempio di funzione che usa trigger e associazioni della coda, vedere [Cr
 
 <!-- LINKS -->
 
-["CloudQueueMessage"]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[`CloudQueueMessage`]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C: configurazione di QQ | Documentazione Microsoft'
-description: Fornire l&quot;iscrizione e l&quot;accesso agli utenti con account QQ nelle applicazioni protette da Azure Active Directory B2C.
+description: Fornire l'iscrizione e l'accesso agli utenti con account QQ nelle applicazioni protette da Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 2079e7e461800928c2253665d755f3d506b88fcc
-ms.lasthandoff: 04/07/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: b32e81494b8c84799485f154ae43ad30af394caa
+ms.contentlocale: it-it
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-qq-accounts"></a>Azure Active Directory B2C: fornire l'iscrizione e l'accesso agli utenti con account QQ
@@ -58,7 +58,7 @@ Per usare QQ come provider di identità in Azure Active Directory (Azure AD) B2C
 12. Nella parte superiore della pagina copiare l'**ID APP** e la **CHIAVE APP**.
 
 ## <a name="configure-qq-as-an-identity-provider-in-your-tenant"></a>Configurare QQ come provider di identità nel tenant
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) nel portale di Azure.
+1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
 2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità**.
 3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
 4. Fornire un **Nome** per la configurazione del provider di identità. Ad esempio, immettere "QQ".

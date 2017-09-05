@@ -1,6 +1,6 @@
 ---
-title: Linee guida per l&quot;ottimizzazione delle prestazioni di Azure Data Lake Store | Documentazione Microsoft
-description: Linee guida per l&quot;ottimizzazione delle prestazioni di Azure Data Lake Store
+title: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Store | Microsoft Docs
+description: Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Store
 services: data-lake-store
 documentationcenter: 
 author: stewu
@@ -12,85 +12,137 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/06/2017
+ms.date: 06/30/2017
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: af11866fc812cd8a375557b7bf9df5cdc9bba610
-ms.openlocfilehash: f0d0c05c08ce198e2702c76ad35b348107c664c7
-ms.lasthandoff: 01/18/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: e7ea83465328bd4c7479dec4093cd94700463854
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
-# <a name="performance-tuning-guidance-for-azure-data-lake-store"></a>Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Store
+# <a name="tuning-azure-data-lake-store-for-performance"></a>Ottimizzazione delle prestazioni di Azure Data Lake Store
 
-Questo articolo fornisce indicazioni su come ottimizzare le prestazioni di scrittura e lettura dei dati in Azure Data Lake Store. Questo articolo ha lo scopo di aiutare gli utenti a comprendere i parametri che possono essere configurati per comuni strumenti di caricamento/scaricamento di dati e carichi di lavoro di analisi dei dati. Le ottimizzazioni trattate in questa guida riguardano soprattutto i carichi di lavoro con uso intensivo di risorse caratterizzati da grandi quantità di dati da leggere o scrivere in Data Lake Store.
+Data Lake Store supporta la velocità effettiva elevata per l'analisi con uso intensivo dell'I/O e lo spostamento dei dati.  In Azure Data Lake Store è importante poter usare tutta la velocità effettiva disponibile, ovvero la quantità di dati che possono essere letti o scritti al secondo, per ottenere prestazioni ottimali.  Questo risultato viene ottenuto eseguendo il numero massimo possibile di operazioni di lettura e scrittura in parallelo.
 
-## <a name="prerequisites"></a>Prerequisiti
+![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/throughput.png)
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account di Archivio Data Lake di Azure**. Per istruzioni su come crearne uno, vedere [Introduzione ad Archivio Data Lake di Azure](data-lake-store-get-started-portal.md)
-* **Cluster Azure HDInsight** con accesso a un account di Archivio Data Lake. Vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
+Azure Data Lake Store può essere ridimensionato in modo da fornire la velocità effettiva necessaria per qualsiasi scenario di analisi. Per impostazione predefinita, un account di Azure Data Lake Store fornisce automaticamente la velocità effettiva sufficiente per soddisfare le esigenze di un'ampia categoria di casi d'uso. Per i casi in cui i clienti raggiungono il limite predefinito, è possibile contattare il supporto tecnico Microsoft per configurare l'account ADLS in modo da ottenere maggiore velocità effettiva.
 
+## <a name="data-ingestion"></a>Inserimento di dati
 
-## <a name="guidelines-for-data-ingestion-tools"></a>Linee guida per gli strumenti di inserimento dati
+Durante l'inserimento di dati da un sistema di origine ad ADLS, è importante tenere presente che l'hardware di origine, l'hardware di rete di origine e la connettività di rete ad ADLS può costituire il collo di bottiglia.  
 
-Questa sezione fornisce indicazioni generali su come migliorare le prestazioni quando i dati vengano copiati o spostati in Data Lake Store. Questa sezione spiega i fattori che limitano le prestazioni e alcuni modi per superare tali limitazioni. Di seguito sono riportate alcune considerazioni di cui tenere conto.
+![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
-* **Dati di origine**: molti vincoli possono derivare dalla provenienza dei dati di origine. La velocità effettiva può rappresentare un collo di bottiglia se i dati di origine si trovano su spindle lenti o risorse di archiviazione remote con ridotte capacità. Gli SSD, preferibilmente su disco locale, forniranno le migliori prestazioni grazie alla maggiore velocità effettiva del disco.
+È importante verificare che questi fattori non influiscano sullo spostamento dei dati.
 
-* **Rete**: se i dati di origine si trovano su VM, la connessione di rete tra la VM e Data Lake Store è importante. Usare le VM con la scheda di rete più grande disponibile per ottenere maggiore larghezza di banda di rete.
+### <a name="source-hardware"></a>Hardware di origine
 
-* **Copia tra aree**: l'I/O di dati fra aree comporta un costo di rete elevato, ad esempio l'esecuzione di uno strumento di inserimento dati in una VM nell'area Stati Uniti orientali 2 per scrivere dati in un account Data Lake Store nell'area Stati Uniti centrali. Quando si copiano dati fra aree, è possibile riscontrare un calo delle prestazioni. Per ottimizzare la velocità effettiva della rete si consiglia di usare processi di inserimento dati su VM nella stessa area dell'account Data Lake Store di destinazione.                                                                                                                                        
+Indipendentemente dall'uso di computer locali o macchine virtuali in Azure, è necessario scegliere con attenzione l'hardware appropriato. Per l'hardware del disco di origine, preferire le unità SSD alle HDD e scegliere hardware con spindle più veloci. Per l'hardware di rete di origine, usare le schede di interfaccia di rete più veloci possibili.  In Azure è consigliabile usare macchine virtuali Azure D14 che sono dotate di hardware di rete e del disco sufficientemente potente.
 
-* **Cluster**: se si eseguono processi di inserimento dati tramite un cluster HDInsight (ad esempio per DistCp), si consiglia di usare VM di serie D per il cluster in quanto contengono più memoria. Un maggior numero di memorie centrali consentirà inoltre di aumentare la velocità effettiva.                                                                                                                                                                                                                                                                                                            
+### <a name="network-connectivity-to-azure-data-lake-store"></a>Connettività di rete ad Azure Data Lake Store
 
-* **Concorrenza di thread**: se si usa un cluster HDInsight per copiare dati da un contenitore di archiviazione, esistono limitazioni sul numero di thread paralleli che possono essere usati in base alle dimensioni del cluster e del contenitore e alle impostazioni di thread. Uno dei modi più importanti per ottenere prestazioni migliori in Data Lake Store consiste nell'aumentare la concorrenza. È consigliabile ottimizzare le impostazioni per ottenere la quantità massima di concorrenza in modo da raggiungere una maggiore velocità effettiva. La tabella seguente riporta le impostazioni per ogni metodo di inserimento che è possibile configurare per ottenere maggiore concorrenza. Seguire i collegamenti nella tabella per accedere ad articoli che parlano di come usare lo strumento per inserire dati in Data Lake Store, nonché come ottimizzare le prestazioni dello strumento per la velocità effettiva massima.
+La connettività di rete tra i dati di origine e Azure Data Lake Store può talvolta costituire il collo di bottiglia. Quando i dati di origine sono in locale, valutare l'opportunità di usare un collegamento dedicato con [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) . Se i dati di origine sono in Azure, si ottengono prestazioni ottimali quando i dati si trovano nella stessa area di Azure usata da Data Lake Store.
 
-    | Strumento               | Impostazione di concorrenza                                                                |
-    |--------------------|------------------------------------------------------------------------------------|
-    | [PowerShell](data-lake-store-get-started-powershell.md)       | PerFileThreadCount, ConcurrentFileCount |
-    | [AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)    | Unità Azure Data Lake Analytics         |
-    | [DistCp](data-lake-store-copy-data-wasb-distcp.md)            | -m (mapper)                             |
-    | [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)| parallelCopies                          |
-    | [Sqoop](data-lake-store-data-transfer-sql-sqoop.md)           | fs.azure.block.size, -m (mapper)        |
+### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurare gli strumenti di inserimento di dati per la massima parallelizzazione
 
+Dopo aver risolto i colli di bottiglia provocati dall'hardware di origine e dalla connettività di rete, si è pronti per configurare gli strumenti di inserimento. La tabella seguente presenta un riepilogo delle impostazioni delle chiavi per diversi strumenti di inserimento comuni e include collegamenti ad articoli di approfondimento sull'ottimizzazione delle prestazioni.  Per altre informazioni sullo strumento da usare per uno scenario specifico, vedere questo [articolo](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-data-scenarios).
 
-## <a name="guidelines-while-working-with-hdinsight-workloads"></a>Linee guida per l'uso di carichi di lavoro HDInsight
+| Strumento               | Impostazioni     | Altre informazioni                                                                 |
+|--------------------|------------------------------------------------------|------------------------------|
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Collegamento](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)   |
+| AdlCopy    | Unità Azure Data Lake Analytics  |   [Collegamento](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper)   | [Collegamento](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Data factory di Azure| parallelCopies    | [Collegamento](../data-factory/data-factory-copy-activity-performance.md)                          |
+| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Collegamento](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
-Durante l'esecuzione di carichi di lavoro analitici per l'elaborazione dei dati in Data Lake Store si consiglia di usare versioni cluster HDInsight 3.5 per ottenere prestazioni ottimali con Data Lake Store. Quando il processo prevede un I/O più intensivo, è possibile configurare alcuni parametri per migliorare le prestazioni. Ad esempio, se il processo è costituito principalmente da lettura o scrittura, l'aumento della concorrenza di I/O da e verso Azure Data Lake Store potrebbe migliorare le prestazioni.
+## <a name="structure-your-data-set"></a>Strutturare il set di dati
 
-Azure Data Lake Store consente di ottenere prestazioni migliori quando la concorrenza è maggiore. Esistono alcuni modi generali per aumentare la concorrenza per i processi con I/O intensivo.
+Quando i dati vengono archiviati in Data Lake Store, le dimensioni dei file, il numero di file e la struttura di cartelle influiscono sulle prestazioni.  La sezione seguente descrive le procedure consigliate in queste aree.  
 
-1. **Eseguire un numero maggiore di contenitori YARN di calcolo anziché un numero minore di contenitori YARN grandi**: un numero maggiore di contenitori incrementerà la concorrenza per le operazioni di input e output in modo da sfruttare al meglio le funzionalità di Data Lake Store.
+### <a name="file-size"></a>Dimensioni complete
 
-    Si immagini, ad esempio, di avere 2 nodi D3v2 nel cluster HDInsight. Ogni nodo D3v2 ha 12 GB di memoria YARN perciò 2 macchine D3v2 avranno 24 GB di memoria YARN. Si supponga inoltre di aver impostato la dimensione del contenitore YARN su 6 GB. Questo significa che è possibile avere 4 contenitori da 6 GB ciascuno. Pertanto si possono avere 4 attività simultanee in esecuzione in parallelo. Per aumentare la concorrenza è possibile ridurre la dimensione dei contenitori a 3 GB in modo da avere 8 contenitori da 3 GB. Questo consente di avere 8 attività concorrenti eseguite in parallelo. Di seguito è illustrato questo concetto.
+I motori di analisi come HDInsight e Azure Data Lake Analytics in genere gestiscono il sovraccarico a livello di singolo file.  Se quindi si archiviano i dati in molti file di piccole dimensioni, questo può influire negativamente sulle prestazioni.  
 
-    ![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/image-1.png)
+Per ottenere prestazioni migliori, è in genere opportuno organizzare i dati in file di dimensioni più grandi.  Come regola generale, organizzare i set di dati in file di 256 MB o di dimensione maggiore. In alcuni casi, ad esempio per le immagini e i dati binari, non è possibile eseguire l'elaborazione in parallelo  ed è quindi consigliabile mantenere la dimensione dei singoli file al di sotto di 2 GB.
 
-    Una domanda comune è perché non ridurre le dimensioni del contenitore a 1GB di memoria in modo da poter ottenere 24 contenitori e aumentare ulteriormente la concorrenza. Dipende se l'attività richiede 3 GB di memoria o è sufficiente 1 GB.  L'operazione eseguita nel contenitore potrebbe essere semplice e richiedere solo 1 GB di memoria oppure complessa e richiedere 3 GB di memoria.  Se si riduce troppo la dimensione del contenitore, è possibile ottenere un'eccezione di memoria esaurita.  In questo caso sarà necessario aumentare la dimensione dei contenitori.  Oltre alla memoria, anche il numero di memorie centrali virtuali può influenzare il parallelismo.
+Le pipeline di dati hanno talvolta un controllo limitato sui dati non elaborati costituiti da molti file di piccole dimensioni.  È pertanto consigliabile prevedere l'esecuzione di un processo che genera file di maggiori dimensioni destinati all'uso da parte delle applicazioni downstream.  
 
-    ![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/image-2.png)
+### <a name="organizing-time-series-data-in-folders"></a>Organizzazione dei dati di serie temporali in cartelle
 
-2. **Aumentare la memoria del cluster per ottenere maggiore concorrenza**: è possibile aumentare la memoria del cluster mediante l'aumento della dimensione del cluster o scegliendo un tipo di VM con più memoria. Questo aumenterà la quantità di memoria YARN disponibile, in modo da poter creare più contenitori, aumentando la concorrenza.  
+Per i carichi di lavoro Hive e ADLA, l'eliminazione delle partizioni dei dati di serie temporali consente ad alcune query di limitare la lettura a un subset di dati, migliorando così le prestazioni.    
 
-    Si immagini, ad esempio, di avere un singolo nodo D3v2 nel cluster HDInsight con 12 GB di memoria YARN e contenitori da 3 GB.  Quindi si scala il cluster a 2 D3v2, aumentando la memoria YARN a 24 GB.  In questo modo la concorrenza aumenta da 4 a 8.
+Queste pipeline che inseriscono dati di serie temporali, posizionano spesso i file usando un sistema di denominazione molto strutturato per file e cartelle. Di seguito è riportato un esempio molto comune in cui i dati sono strutturati per data:
 
-    ![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/image-3.png)
+    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
 
-3. **Iniziare impostando il numero di attività sul numero di concorrenza**: a questo punto si è già impostata la dimensione del contenitore in modo appropriato per ottenere la quantità massima di concorrenza. Ora si deve impostare il numero di attività per usare tutti i contenitori. Ci sono nomi di attività diversi in ogni carico di lavoro.
+Si noti che le informazioni di data/ora vengono visualizzate sia come cartelle sia nel nome del file.
 
-    Può inoltre essere utile prendere in considerazione la dimensione del processo. Se la dimensione del processo è grande, ogni attività può presentare una grande quantità di dati da elaborare. È possibile usare più attività in modo che ogni attività non elaborerà troppi dati.
+Per la data e l'ora, di seguito è riportato un modello comune
 
-    Si immagini, ad esempio, di avere 6 contenitori. In questo caso si deve impostare le attività su 6 come punto di partenza. È possibile provare con un numero più elevato di attività per vedere se le prestazioni migliorano. Impostare un numero maggiore di attività non aumenta la concorrenza. Se si impostano le attività su un numero maggiore di 6, l'attività non verrà eseguita fino alla successiva ondata. Se si impostano le attività su un numero minore di 6, la concorrenza non sarà utilizzata pienamente.
+    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
 
-    Ogni carico di lavoro ha diversi parametri disponibili per impostare il numero di attività. La tabella seguente ne elenca alcuni.
+Anche in questo caso, la scelta relativa all'organizzazione di file e cartelle deve prevedere una gestione ottimizzata dei file di maggiori dimensioni e l'inclusione di un numero ragionevole di file in ogni cartella.
 
-    | Carico di lavoro               | Parametro per impostare le attività                                                         |
-    |--------------------|------------------------------------------------------------------------------------|
-    | [Spark in HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
-    | [Hive in HDInsight](data-lake-store-performance-tuning-hive.md)    | hive.tez.container.size         |
-    | [MapReduce in HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-    | [Storm in HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Numero di processi del ruolo di lavoro</li><li>Numero di istanze di spout executor</li><li>Numero di istanze di bolt executor </li><li>Numero di attività spout</li><li>Numero di attività bolt</li></ul>|
+## <a name="optimizing-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight"></a>Ottimizzazione dei processi con uso intensivo dell'I/O nei carichi di lavoro Hadoop e Spark in HDInsight
+
+I processi sono classificabili in una delle tre categorie seguenti:
+
+* **Uso intensivo della CPU.**  Questi processi hanno tempi di elaborazione lunghi e tempi di I/O minimi,  come i processi di machine learning e quelli di elaborazione del linguaggio naturale.  
+* **Uso intensivo della memoria.**  Questi processi usano grandi quantità di memoria,  come i processi di PageRank e quelli di analisi in tempo reale.  
+* **Uso intensivo dell'I/O.**  Questi processi impiegano la maggior parte del tempo a eseguire operazioni di I/O.  Un esempio comune è rappresentato da un processo di copia che esegue solo operazioni di lettura e scrittura.  Altri esempi includono i processi di preparazione dei dati che leggono una grande quantità di dati, eseguono alcune trasformazioni e quindi scrivono nuovamente i dati nell'archivio.  
+
+Le linee guida seguenti sono applicabili solo ai processi con uso intensivo dell'I/O.
+
+### <a name="general-considerations-for-an-hdinsight-cluster"></a>Considerazioni generali per un cluster HDInsight
+
+* **Versioni di HDInsight.** Per prestazioni ottimali, usare la versione più recente di HDInsight.
+* **Aree.** Posizionare l'istanza di Data Lake Store nella stessa area del cluster HDInsight.  
+
+Un cluster HDInsight è composto da due nodi head e da alcuni nodi di ruolo di lavoro. Ogni nodo di ruolo di lavoro fornisce un numero specifico di core e memoria, in base al tipo di macchina virtuale.  Quando si esegue un processo, YARN è il negoziatore di risorse che alloca la memoria e i core disponibili per creare contenitori.  Ogni contenitore esegue le attività necessarie per completare il processo.  I contenitori vengono eseguiti in parallelo per l'elaborazione rapida delle attività. È quindi possibile ottenere un miglioramento delle prestazioni eseguendo la quantità massima possibile di contenitori paralleli.
+
+All'interno di un cluster HDInsight sono presenti tre livelli che possono essere ottimizzati per aumentare il numero di contenitori e sfruttare tutta la velocità effettiva disponibile.  
+
+* **Livello fisico**
+* **Livello YARN**
+* **Livello del carico di lavoro**
+
+### <a name="physical-layer"></a>Livello fisico
+
+**Eseguire il cluster con più nodi e/o macchine virtuali di dimensioni maggiori.**  Un cluster di dimensioni maggiori consentirà di eseguire più contenitori YARN, come illustrato nell'immagine seguente.
+
+![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/VM.png)
+
+**Usare macchine virtuali con maggiore larghezza di banda di rete.**  La larghezza di banda di rete può costituire un collo di bottiglia se la larghezza di banda di rete disponibile è inferiore alla velocità effettiva di Data Lake Store.  Macchine virtuali differenti avranno dimensioni variabili della larghezza di banda di rete.  Scegliere un tipo di macchina virtuale con la massima larghezza di banda di rete possibile.
+
+### <a name="yarn-layer"></a>Livello YARN
+
+**Usare contenitori YARN di dimensioni inferiori.**  Ridurre le dimensioni di ogni contenitore YARN per creare altri contenitori con la stessa quantità di risorse.
+
+![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+
+A seconda del carico di lavoro, sarà sempre necessaria una dimensione minima per i contenitori YARN. Se si sceglie un contenitore troppo piccolo, si verificheranno problemi di memoria insufficiente per i processi. In genere, la dimensione dei contenitori YARN non deve essere inferiore a 1 GB. I contenitori YARN hanno spesso una dimensione di 3 GB. Per alcuni carichi di lavoro, possono essere necessari contenitori YARN più grandi.  
+
+**Aumentare il numero di core per contenitore YARN.**  Aumentare il numero di core allocati a ogni contenitore per aumentare il numero di attività parallele eseguite in ogni contenitore.  Questa soluzione è valida per le applicazioni, come Spark, che eseguono più attività per contenitore.  Per le applicazioni, come Hive, che eseguono un singolo thread in ogni contenitore, è preferibile avere più contenitori anziché più core per contenitore.   
+
+### <a name="workload-layer"></a>Livello del carico di lavoro
+
+**Usare tutti i contenitori disponibili.**  Impostare un numero di attività uguale o maggiore del numero di contenitori disponibili, in modo da usare tutte le risorse.
+
+![Prestazioni di Data Lake Store](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+
+**Le attività che non vengono eseguite correttamente sono dispendiose.** Se ogni attività deve elaborare una grande quantità di dati, l'esito negativo di un'attività ha come risultato l'esecuzione di un nuovo tentativo impegnativo in termini di risorse.  È quindi preferibile creare un numero maggiore di attività, ognuna delle quali elabora una piccola quantità di dati.
+
+Oltre alle linee guida generali sopra illustrate, ogni applicazione dispone di diversi parametri che è possibile ottimizzare. La tabella seguente elenca alcuni parametri e collegamenti per ottimizzare con facilità le prestazioni di ogni applicazione.
+
+| Carico di lavoro               | Parametro per impostare le attività                                                         |
+|--------------------|-------------------------------------------------------------------------------------|
+| [Spark in HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
+| [Hive in HDInsight](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
+| [MapReduce in HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [Storm in HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Numero di processi del ruolo di lavoro</li><li>Numero di istanze di spout executor</li><li>Numero di istanze di bolt executor </li><li>Numero di attività spout</li><li>Numero di attività bolt</li></ul>|
 
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)

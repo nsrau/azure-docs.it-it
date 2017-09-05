@@ -1,6 +1,6 @@
 ---
 title: Creare un registro per contenitori Docker privati in Azure - Interfaccia della riga di comando di Azure | Microsoft Docs
-description: Introduzione alla creazione e gestione dei registri per contenitori Docker privati con l&quot;interfaccia della riga di comando di Azure 2.0
+description: Introduzione alla creazione e gestione dei registri per contenitori Docker privati con l'interfaccia della riga di comando di Azure 2.0
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -11,17 +11,17 @@ keywords:
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
 ms.devlang: azurecli
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 99bb3db7cc80e8426e1dca14bc3d733ee6c7342c
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>Creare un registro per contenitori Docker privati usando l'interfaccia della riga di comando di Azure 2.0
@@ -35,7 +35,7 @@ Usare i comandi dell'[interfaccia della riga di comando di Azure 2.0](https://gi
 ## <a name="prerequisites"></a>Prerequisiti
 * **Interfaccia della riga di comando di Azure 2.0**: per installare e iniziare a usare l'interfaccia della riga di comando di Azure 2.0, vedere le [istruzioni di installazione](/cli/azure/install-azure-cli). Accedere alla sottoscrizione di Azure usando `az login`. Per altre informazioni, vedere [Get started with the CLI 2.0](/cli/azure/get-started-with-azure-cli) (Introduzione all'interfaccia della riga di comando di Azure 2.0).
 * **Gruppo di risorse**: creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups) prima di creare un registro di contenitori o usare un gruppo di risorse esistente. Verificare che il gruppo di risorse si trovi in una posizione in cui il servizio Container Registry è [disponibile](https://azure.microsoft.com/regions/services/). Per creare un gruppo di risorse usando l'interfaccia della riga di comando di Azure 2.0, vedere le [informazioni di riferimento sull'interfaccia della riga di comando 2.0](/cli/azure/group).
-* **Account di archiviazione** (facoltativo): creare un [account di archiviazione](../storage/storage-introduction.md) di Azure standard per eseguire il backup del registro di contenitori nella stessa posizione. Se non si specifica un account di archiviazione durante la creazione di un registro con `az acr create`, l'account viene creato automaticamente. Per creare un account di archiviazione usando l'interfaccia della riga di comando 2.0, vedere le [informazioni di riferimento sull'interfaccia della riga di comando 2.0](/cli/azure/storage/account). Archiviazione Premium non è attualmente supportata.
+* **Account di archiviazione** (facoltativo): creare un [account di archiviazione](../storage/common/storage-introduction.md) di Azure standard per eseguire il backup del registro di contenitori nella stessa posizione. Se non si specifica un account di archiviazione durante la creazione di un registro con `az acr create`, l'account viene creato automaticamente. Per creare un account di archiviazione usando l'interfaccia della riga di comando 2.0, vedere le [informazioni di riferimento sull'interfaccia della riga di comando 2.0](/cli/azure/storage/account). Archiviazione Premium non è attualmente supportata.
 * **Entità servizio** (facoltativo): quando si crea un registro con l'interfaccia della riga di comando, per impostazione predefinita il registro non è configurato per l'accesso. A seconda delle esigenze, è possibile assegnare a un registro un'entità servizio Azure Active Directory esistente (oppure crearne e assegnarne una nuova) oppure abilitare l'account di utente amministratore del registro. Vedere le sezioni più avanti in questo articolo. Per altre informazioni sull'accesso al registro, vedere [Authenticate with the container registry](container-registry-authentication.md) (Eseguire l'autenticazione al registro di contenitori).
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori

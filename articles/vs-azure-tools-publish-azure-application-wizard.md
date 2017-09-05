@@ -1,10 +1,10 @@
 ---
-title: Uso della procedura guidata Pubblica l&quot;applicazione Azure di Visual Studio | Microsoft Docs
-description: Informazioni su come configurare le varie impostazioni della procedura guidata Pubblica l&quot;applicazione Azure di Visual Studio
+title: Uso della procedura guidata Pubblica l'applicazione Azure di Visual Studio | Microsoft Docs
+description: Informazioni su come configurare le varie impostazioni della procedura guidata Pubblica l'applicazione Azure di Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 4d9e1564c3fcbdfd59edb0e24158df9954c26026
+ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
-
 
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Uso della procedura guidata Pubblica l'applicazione Azure di Visual Studio

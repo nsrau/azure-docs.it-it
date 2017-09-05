@@ -1,4 +1,3 @@
-* Se il disco non gestito si trova in un account di archiviazione crittografato in precedenza con Crittografia del servizio di archiviazione di Azure, non è possibile convertirlo in un disco gestito. Per la procedura di copia e uso di questi dischi rigidi virtuali in Managed Disks, vedere [più avanti in questo articolo](#managed-disks-and-azure-storage-service-encryption).
 
 * La conversione richiede un riavvio della macchina virtuale, quindi pianificare la migrazione delle macchine virtuali in una finestra di manutenzione preesistente. 
 

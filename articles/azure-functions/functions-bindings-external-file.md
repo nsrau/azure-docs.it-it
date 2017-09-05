@@ -4,7 +4,7 @@ description: Utilizzo di associazioni di file esterni in Funzioni di Azure
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 4400ebce2fbed709dcadf41cd2b834fd36416c15
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2082e4e9b23271be93f3e3ab43997c3243238da8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Associazioni di file esterni in Funzioni di Azure (Anteprima)
@@ -35,12 +34,10 @@ Il binding crea connessioni API ai provider SaaS o usa quelle esistenti prelevan
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[File system](https://docs.microsoft.com/azure/logic-apps/logic-apps-using-file-connector)|x|x|x
 |[FTP](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive for Business](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
-|[Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/)||x|x|
 |[Google Drive](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
@@ -72,13 +69,14 @@ See one of the following subheadings for more information:
 <a name="pattern"></a>
 
 ### <a name="name-patterns"></a>Modelli di nome
-È possibile specificare un modello di nome per il file nella proprietà `path`, ad esempio:
+È possibile specificare un modello di nome per il file nella proprietà `path`, La cartella a cui si fa riferimento deve esistere nel provider SaaS.
+Esempi:
 
 ```json
 "path": "input/original-{name}",
 ```
 
-Questo percorso individua il file denominato *original-File1.txt* nella cartella *input* e il valore della variabile `name` nel codice della funzione sarà `File1`.
+Questo percorso individua il file denominato *original-File1.txt* nella cartella *input* e il valore della variabile `name` nel codice della funzione sarà `File1.txt`.
 
 Un altro esempio:
 
@@ -149,17 +147,11 @@ Nelle funzioni C# l'associazione ai dati del file di input viene eseguita usando
 
 Nelle funzioni C# è anche possibile eseguire l'associazione a uno dei tipi seguenti e il runtime di Funzioni di Azure tenta di deserializzare i dati del file usando quel tipo:
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* `CloudBlobContainer`
-* `CloudBlobDirectory`
-* `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* Altri tipi deserializzati da [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
-
+* `StreamReader`
+* `TextReader`
 
 ## <a name="trigger-sample"></a>Esempio di trigger
 Si supponga di avere il function.json seguente, che definisce un trigger di file esterno:
@@ -182,7 +174,7 @@ Si supponga di avere il function.json seguente, che definisce un trigger di file
 Vedere l'esempio specifico del linguaggio che registra i contenuti di ogni file aggiunto alla cartella monitorata.
 
 * [C#](#triggercsharp)
-* [Node.JS](#triggernodejs)
+* [Node.js](#triggernodejs)
 
 <a name="triggercsharp"></a>
 
@@ -249,11 +241,11 @@ Nelle funzioni C# l'associazione ai dati del file di input viene eseguita usando
 
 Nelle funzioni C# è anche possibile eseguire l'associazione a uno dei tipi seguenti e il runtime di Funzioni di Azure tenta di deserializzare i dati del file usando quel tipo:
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
+* `StreamReader`
+* `TextReader`
 
 
 <a name="output"></a>
@@ -340,7 +332,7 @@ Vedere l'esempio specifico del linguaggio che copia il file di input nel file di
 
 <a name="incsharp"></a>
 
-### <a name="usage-in-c"></a>Uso in C# #
+### <a name="usage-in-c"></a>Utilizzo in C# #
 
 ```cs
 public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)

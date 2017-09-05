@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/11/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 49bac93758cb35dc1aa39c0aaf58f239d9667e77
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: a1e5461ef2188a42a3edd6cc35827874ddd6e3f3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery
@@ -56,6 +55,7 @@ Site Recovery può proteggere SQL Server, come riepilogato nella tabella.
 ### <a name="supported-sql-server-versions"></a>Versioni di SQL Server supportate
 Per gli scenari supportati, sono supportate le versioni di SQL Server seguenti:
 
+* SQL Server 2016 Enterprise e Standard
 * SQL Server 2014 Enterprise e Standard
 * SQL Server 2012 Enterprise e Standard
 * SQL Server 2008 R2 Enterprise e Standard

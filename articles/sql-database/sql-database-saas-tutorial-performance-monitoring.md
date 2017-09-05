@@ -1,11 +1,11 @@
 ---
-title: "Monitorare le prestazioni di più database SQL di Azure in un&quot;app SaaS multi-tenant | Microsoft Docs"
-description: Monitorare e gestire le prestazioni di database e pool nell&quot;app SaaS Wingtip del database SQL di Azure
+title: "Monitorare le prestazioni di più database SQL di Azure in un'app SaaS multi-tenant | Microsoft Docs"
+description: Monitorare e gestire le prestazioni di database e pool nell'app SaaS Wingtip del database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -14,14 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 07/26/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: a76b1fc1e3fad5f47ffc550833bf34937e62163d
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
 ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="monitor-performance-of-the-wingtip-saas-application"></a>Monitorare le prestazioni dell'applicazione SaaS Wingtip
@@ -118,7 +117,7 @@ L'utilizzo delle risorse del pool è l'utilizzo aggregato di tutti i database ne
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
-Poiché il pool include altri database oltre ai primi cinque, l'utilizzo del pool mostra un livello di attività non rappresentato nel grafico per i primi cinque database. Per altri dettagli, fare clic su **Utilizzo risorse database**:
+Dato che il pool include altri database oltre ai primi cinque, l'utilizzo del pool mostra un livello di attività non rappresentato nel grafico per i primi cinque database. Per altri dettagli, fare clic su **Utilizzo risorse database**:
 
 ![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
@@ -143,7 +142,6 @@ Impostare un avviso per il pool da attivare quando l'utilizzo è \>75%, come ind
    ![impostare l'avviso](media/sql-database-saas-tutorial-performance-monitoring/alert-rule.png)
 
 
-
 ## <a name="scale-up-a-busy-pool"></a>Potenziare un pool con carico eccessivo
 
 Se il livello di carico aggregato per un pool aumenta fino a superarne la capacità massima e raggiunge il 100% di utilizzo delle unità eDTU, ciò ha effetti sulle prestazioni dei database con potenziale rallentamento dei tempi di risposta alle query per tutti i database nel pool.
@@ -157,12 +155,12 @@ Se il livello di carico aggregato per un pool aumenta fino a superarne la capaci
 1. Impostare *$DemoScenario* = **3**, _Generare un carico con picchi più lunghi e più frequenti per ogni database_ per aumentare l'intensità del carico aggregato del pool senza modificare il carico di picco necessario per ogni database.
 1. Premere **F5** per applicare un carico a tutti i database tenant.
 
-1. Andare a **Pool1** nel portale.
+1. Passare a **Pool1** nel portale di Azure.
 
 Monitorare il maggiore utilizzo di eDTU del pool nel grafico superiore. Sono necessari alcuni minuti prima di vedere gli effetti del nuovo carico di lavoro maggiore, ma presto il pool dovrebbe raggiungere il massimo utilizzo e, dato che il nuovo modello di carico è costante, si verificherà presto un sovraccarico del pool.
 
-1. Per potenziare il pool, fare clic su **Configura pool**
-1. Impostare il dispositivo di scorrimento **eDTU pool** su **100**. La modifica del numero di eDTU del pool non cambia le impostazioni per i singoli database, che è ancora pari a un massimo di 50 eDTU per database. Le impostazioni per i singoli database sono visibili sul lato destro della pagina **Configura pool**.
+1. Per aumentare le prestazioni del pool, fare clic su **Configura pool** nella parte superiore della pagina **Pool1**.
+1. Impostare **eDTU pool** su **100**. La modifica del numero di eDTU del pool non cambia le impostazioni per i singoli database, che è ancora pari a un massimo di 50 eDTU per database. Le impostazioni per i singoli database sono visibili sul lato destro della pagina **Configura pool**.
 1. Fare clic su **Salva** per inviare la richiesta di ridimensionamento del pool.
 
 Tornare a **Pool1** > **Panoramica** per visualizzare i grafici di monitoraggio. Monitorare l'effetto dell'assegnazione di altre risorse al pool, anche se, con pochi database e un carico casuale, non sempre è facile notare conseguenze lampanti finché non si prolunga l'esecuzione per un periodo minimo. Mentre si analizzano i grafici tenere che presente che il valore 100% nel grafico superiore rappresenta ora 100 eDTU, mentre 100% nel grafico inferiore corrisponde ancora a 50 eDTU perché il numero massimo di eDTU per database è ancora 50.
@@ -210,7 +208,7 @@ Questo esercizio simula l'effetto di un carico elevato per Contoso Concert Hall 
 1. Nel [portale di Azure](https://portal.azure.com) aprire **Pool1**.
 1. Esaminare il grafico **Monitoraggio pool elastico** e cercare il maggiore utilizzo di eDTU del pool. Dopo un paio di minuti, il carico elevato dovrebbe iniziare a comparire e il pool dovrebbe raggiungere velocemente l'utilizzo al 100%.
 1. Esaminare i dati in **Monitoraggio database elastico** che mostrano i database più attivi nell'ultima ora. Il database *contosoconcerthall* dovrebbe essere presto visualizzato come uno dei cinque database più attivi.
-1. **Fare clic sul **grafico** Monitoraggio database elastico**. Viene aperta la pagina **Utilizzo risorse database** in cui è possibile monitorare i singoli database. Ciò consente di isolare i dati per il database *contosoconcerthall*.
+1. **Fare clic sul** **grafico** Monitoraggio database elastico. Viene aperta la pagina **Utilizzo risorse database** in cui è possibile monitorare i singoli database. Ciò consente di isolare i dati per il database *contosoconcerthall*.
 1. Nell'elenco di database fare clic su **contosoconcerthall**.
 1. Fare clic su **Piano tariffario (piano DTU)** per aprire la pagina **Configura prestazioni** in cui è possibile impostare un livello di prestazioni autonomo per il database.
 1. Fare clic sulla scheda **Standard** per aprire le opzioni di scalabilità nel livello Standard.

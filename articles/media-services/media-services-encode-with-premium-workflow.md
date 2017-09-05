@@ -4,7 +4,7 @@ description: Informazioni su come codificare con il flusso di lavoro Premium del
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 0f4c87ac-810a-4d42-8df8-923dff2016c6
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6dcc79a2adf81c82d245c99116f28eb4db983396
-ms.lasthandoff: 12/08/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 06b60925af778b3647d0accad51f65da67234cf5
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
@@ -41,12 +41,15 @@ Questo argomento illustra come codificare con il **flusso di lavoro Premium del 
 
 Le attività di codifica per **Flusso di lavoro Premium del codificatore multimediale** richiedono un file di configurazione separato, denominato file del flusso di lavoro. Questi file con estensione workflow vengono creati mediante lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md) .
 
-## <a name="encode"></a>Codificare
-Le attività di codifica per **Flusso di lavoro Premium del codificatore multimediale** richiedono un file di configurazione separato, denominato file del flusso di lavoro. Questi file con estensione workflow vengono creati mediante lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md) .
-
 I file del flusso di lavoro predefiniti sono disponibili anche [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Nella cartella è presente anche una descrizione dei file.
 
 I file del flusso di lavoro devono essere caricati come asset nel proprio account di Servizi multimediali e questo asset deve essere passato all'attività di codifica.
+
+## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
+
+Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+
+## <a name="encoding-example"></a>Esempio di codifica
 
 Il seguente esempio dimostra come codificare con **Flusso di lavoro Premium del codificatore multimediale**.
 
@@ -54,213 +57,169 @@ Vengono eseguiti questi passaggi:
 
 1. Creare un asset e caricare un file del flusso di lavoro.
 2. Creare un asset e caricare un file multimediale di origine.
-3. Ottenere il processore di contenuti multimediali “Flusso di lavoro Premium del codificatore multimediale”.
+3. Ottenere il processore di contenuti multimediali "Flusso di lavoro Premium del codificatore multimediale".
 4. Creare un processo e un'attività.
 
     Nella maggior parte dei casi, la stringa di configurazione per l'attività è vuota (come nell'esempio seguente). Esistono alcuni scenari avanzati in cui è necessario impostare dinamicamente le proprietà di runtime. In questo caso, specificare una stringa XML nell'attività di codifica. Esempi di tali scenari sono: creazione di un overlay, unione sequenziale o parallela di supporti e aggiunta di sottotitoli.
 5. Aggiungere due asset di input all'attività.
 
-    a. In primo luogo, l'asset del flusso di lavoro.
+    1. In primo luogo, l'asset del flusso di lavoro.
+    2. In secondo luogo, l'asset video.
 
-    b. In secondo luogo, l'asset video.
-
-    **Nota**: l'asset del flusso di lavoro deve essere aggiunto all'attività prima dell'asset di file multimediale.
+    >[!NOTE]
+    >La risorsa del flusso di lavoro deve essere aggiunta all'attività prima della risorsa del file multimediale.
    La stringa di configurazione per questa attività deve essere vuota.
+   
 6. Inviare il processo di codifica.
 
-Di seguito è riportato un esempio completo. Per informazioni sulla configurazione per lo sviluppo con Servizi multimediali per .NET, vedere [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md).
+        using System;
+        using System.Linq;
+        using System.Configuration;
+        using System.IO;
+        using System.Threading;
+        using System.Threading.Tasks;
+        using Microsoft.WindowsAzure.MediaServices.Client;
 
-     using System;
-    using System.Linq;
-    using System.Configuration;
-    using System.IO;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
-    using Microsoft.WindowsAzure;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-
-    namespace MediaEncoderPremiumWorkflowSample
-    {
-        class Program
+        namespace MediaEncoderPremiumWorkflowSample
         {
-            // Read values from the App.config file.
-            private static readonly string _mediaServicesAccountName =
-                ConfigurationManager.AppSettings["MediaServicesAccountName"];
-            private static readonly string _mediaServicesAccountKey =
-                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-
-            // Field for service context.
-            private static CloudMediaContext _context = null;
-            private static MediaServicesCredentials _cachedCredentials = null;
-
-            private static readonly string _supportFiles =
-                Path.GetFullPath(@"../..\Media");
-
-            private static readonly string _workflowFilePath =
-                Path.GetFullPath(_supportFiles + @"\H264 Progressive Download MP4.workflow");
-
-            private static readonly string _singleMP4InputFilePath =
-                Path.GetFullPath(_supportFiles + @"\BigBuckBunny.mp4");
-
-
-            static void Main(string[] args)
+            class Program
             {
-                // Create and cache the Media Services credentials in a static class variable.
-                _cachedCredentials = new MediaServicesCredentials(
-                                _mediaServicesAccountName,
-                                _mediaServicesAccountKey);
+                private static readonly string _AADTenantDomain =
+                    ConfigurationManager.AppSettings["AADTenantDomain"];
+                private static readonly string _RESTAPIEndpoint =
+                    ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
-                // Used the cached credentials to create CloudMediaContext.
-                _context = new CloudMediaContext(_cachedCredentials);
+                // Field for service context.
+                private static CloudMediaContext _context = null;
 
-                var workflowAsset = CreateAssetAndUploadSingleFile(_workflowFilePath);
-                var videoAsset = CreateAssetAndUploadSingleFile(_singleMP4InputFilePath);
-                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset);
+                private static readonly string _supportFiles =
+                    Path.GetFullPath(@"../..\Media");
 
-            }
+                private static readonly string _workflowFilePath =
+                    Path.GetFullPath(_supportFiles + @"\H264 Progressive Download MP4.workflow");
 
-            static public IAsset CreateAssetAndUploadSingleFile(string singleFilePath)
-            {
-                var assetName = "UploadSingleFile_" + DateTime.UtcNow.ToString();
-                var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
+                private static readonly string _singleMP4InputFilePath =
+                    Path.GetFullPath(_supportFiles + @"\BigBuckBunny.mp4");
 
-                var fileName = Path.GetFileName(singleFilePath);
-
-                var assetFile = asset.AssetFiles.Create(fileName);
-
-                Console.WriteLine("Created assetFile {0}", assetFile.Name);
-
-                Console.WriteLine("Upload {0}", assetFile.Name);
-
-                assetFile.Upload(singleFilePath);
-                Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                return asset;
-            }
-
-            static public IAsset CreateEncodingJob(IAsset workflow, IAsset video)
-            {
-                // Declare a new job.
-                IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-                // Get a media processor reference, and pass to it the name of the
-                // processor to use for the specific task.
-                IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
-
-                // Create a task with the encoding details, using a string preset.
-                ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
-                    processor,
-                    "",
-                    TaskOptions.None);
-
-                // Specify the input asset to be encoded.
-                task.InputAssets.Add(workflow);
-                task.InputAssets.Add(video); // we add one asset
-                // Add an output asset to contain the results of the job.
-                // This output is specified as AssetCreationOptions.None, which
-                // means the output asset is not encrypted.
-                task.OutputAssets.AddNew("Output asset",
-                    AssetCreationOptions.None);
-
-                // Use the following event handler to check job progress.  
-                job.StateChanged += new
-                        EventHandler<JobStateChangedEventArgs>(StateChanged);
-
-                // Launch the job.
-                job.Submit();
-
-                // Check job execution and wait for job to finish.
-                Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-                progressJobTask.Wait();
-
-                // If job state is Error the event handling
-                // method for job progress should log errors.  Here we check
-                // for error state and exit if needed.
-                if (job.State == JobState.Error)
+                static void Main(string[] args)
                 {
-                    throw new Exception("\nExiting method due to job error.");
+                    var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                    var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                    _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+
+                    var workflowAsset = CreateAssetAndUploadSingleFile(_workflowFilePath);
+                    var videoAsset = CreateAssetAndUploadSingleFile(_singleMP4InputFilePath);
+                    IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset);
+
                 }
 
-                return job.OutputMediaAssets[0];
-            }
-
-            static private void StateChanged(object sender, JobStateChangedEventArgs e)
-            {
-                Console.WriteLine("Job state changed event:");
-                Console.WriteLine("  Previous state: " + e.PreviousState);
-                Console.WriteLine("  Current state: " + e.CurrentState);
-
-                switch (e.CurrentState)
+                static public IAsset CreateAssetAndUploadSingleFile(string singleFilePath)
                 {
-                    case JobState.Finished:
-                        Console.WriteLine();
-                        Console.WriteLine("Job is finished.");
-                        Console.WriteLine();
-                        break;
-                    case JobState.Canceling:
-                    case JobState.Queued:
-                    case JobState.Scheduled:
-                    case JobState.Processing:
-                        Console.WriteLine("Please wait...\n");
-                        break;
-                    case JobState.Canceled:
-                    case JobState.Error:
-                        // Cast sender as a job.
-                        IJob job = (IJob)sender;
-                        // Display or log error details as needed.
-                        LogJobStop(job.Id);
-                        break;
-                    default:
-                        break;
+                    var assetName = "UploadSingleFile_" + DateTime.UtcNow.ToString();
+                    var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
+
+                    var fileName = Path.GetFileName(singleFilePath);
+
+                    var assetFile = asset.AssetFiles.Create(fileName);
+
+                    Console.WriteLine("Created assetFile {0}", assetFile.Name);
+
+                    Console.WriteLine("Upload {0}", assetFile.Name);
+
+                    assetFile.Upload(singleFilePath);
+                    Console.WriteLine("Done uploading {0}", assetFile.Name);
+
+                    return asset;
                 }
-            }
 
-            static private void LogJobStop(string jobId)
-            {
-                StringBuilder builder = new StringBuilder();
-                IJob job = _context.Jobs.Where(j => j.Id == jobId).FirstOrDefault();
-
-                builder.AppendLine("\nThe job stopped due to cancellation or an error.");
-                builder.AppendLine("***************************");
-                builder.AppendLine("Job ID: " + job.Id);
-                builder.AppendLine("Job Name: " + job.Name);
-                builder.AppendLine("Job State: " + job.State.ToString());
-                builder.AppendLine("Job started (server UTC time): " + job.StartTime.ToString());
-                builder.AppendLine("Media Services account name: " + _mediaServicesAccountName);
-                // Log job errors if they exist.  
-                if (job.State == JobState.Error)
+                static public IAsset CreateEncodingJob(IAsset workflow, IAsset video)
                 {
-                    builder.Append("Error Details: \n");
-                    foreach (ITask task in job.Tasks)
+                    // Declare a new job.
+                    IJob job = _context.Jobs.Create("Premium Workflow encoding job");
+                    // Get a media processor reference, and pass to it the name of the
+                    // processor to use for the specific task.
+                    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
+
+                    // Create a task with the encoding details, using a string preset.
+                    ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
+                        processor,
+                        "",
+                        TaskOptions.None);
+
+                    // Specify the input asset to be encoded.
+                    task.InputAssets.Add(workflow);
+                    task.InputAssets.Add(video); // we add one asset
+                                                 // Add an output asset to contain the results of the job.
+                                                 // This output is specified as AssetCreationOptions.None, which
+                                                 // means the output asset is not encrypted.
+                    task.OutputAssets.AddNew("Output asset",
+                        AssetCreationOptions.None);
+
+                    // Use the following event handler to check job progress.  
+                    job.StateChanged += new
+                            EventHandler<JobStateChangedEventArgs>(StateChanged);
+
+                    // Launch the job.
+                    job.Submit();
+
+                    // Check job execution and wait for job to finish.
+                    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+                    progressJobTask.Wait();
+
+                    // If job state is Error the event handling
+                    // method for job progress should log errors.  Here we check
+                    // for error state and exit if needed.
+                    if (job.State == JobState.Error)
                     {
-                        foreach (ErrorDetail detail in task.ErrorDetails)
-                        {
-                            builder.AppendLine("  Task Id: " + task.Id);
-                            builder.AppendLine("    Error Code: " + detail.Code);
-                            builder.AppendLine("    Error Message: " + detail.Message + "\n");
-                        }
+                        throw new Exception("\nExiting method due to job error.");
+                    }
+
+                    return job.OutputMediaAssets[0];
+                }
+
+                static private void StateChanged(object sender, JobStateChangedEventArgs e)
+                {
+                    Console.WriteLine("Job state changed event:");
+                    Console.WriteLine("  Previous state: " + e.PreviousState);
+                    Console.WriteLine("  Current state: " + e.CurrentState);
+
+                    switch (e.CurrentState)
+                    {
+                        case JobState.Finished:
+                            Console.WriteLine();
+                            Console.WriteLine("Job is finished.");
+                            Console.WriteLine();
+                            break;
+                        case JobState.Canceling:
+                        case JobState.Queued:
+                        case JobState.Scheduled:
+                        case JobState.Processing:
+                            Console.WriteLine("Please wait...\n");
+                            break;
+                        case JobState.Canceled:
+                        case JobState.Error:
+                            // Cast sender as a job.
+                            IJob job = (IJob)sender;
+                            // Display or log error details as needed.
+                            // LogJobStop(job.Id);
+                            break;
+                        default:
+                            break;
                     }
                 }
-                builder.AppendLine("***************************\n");
-
-                Console.Write(builder.ToString());
-            }
-
-
-            static private IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
-                var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+                private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+                {
+                    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
                     ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
-                if (processor == null)
-                    throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                    if (processor == null)
+                        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
-                return processor;
+                    return processor;
+                }
             }
         }
-    }
-
 
 Per domande relative al codificatore Premium, inviare mepd tramite un messaggio di posta elettronica a Microsoft.com.
 

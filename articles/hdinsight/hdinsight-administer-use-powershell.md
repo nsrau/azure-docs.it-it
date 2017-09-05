@@ -1,5 +1,5 @@
 ---
-title: Gestire cluster Hadoop in HDInsight con PowerShell | Microsoft Docs
+title: 'Gestire cluster Hadoop in HDInsight con PowerShell: Azure | Microsoft Docs'
 description: "Informazioni su come eseguire attività amministrative per i cluster Hadoop in HDInsight tramite Azure PowerShell."
 services: hdinsight
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: af9e0b7c0f7077b8d4e20ccafdc1fb4e1eb58505
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: c47dabd7c4aa4ba0be08c419989e536711f03677
 ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 06/09/2017
 
 
 ---

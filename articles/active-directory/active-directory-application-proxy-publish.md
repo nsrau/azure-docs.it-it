@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 526efc5b025f8050f40c49d0a07a9c2713509493
+ms.custom: it-pro; oldportal
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/05/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -63,9 +63,9 @@ Il proxy di applicazione di Azure AD consente di supportare lavoratori remoti pu
 6. Per completare la procedura guidata, fare clic sul segno di spunta nella parte inferiore della schermata. L'applicazione ora è definita in Azure AD.
 
 ## <a name="assign-users-and-groups-to-the-application"></a>Assegnazione di utenti e gruppi all'applicazione
-Per l'accesso degli utenti all'applicazione pubblicata, è necessario eseguirne l'assegnazione singolarmente o in gruppi (ricordando di assegnare l'accesso anche a se stessi). A tale scopo è necessario che ogni utente abbia una licenza Azure Basic o superiore. È possibile assegnare le licenze singolarmente o a gruppi. Per altri dettagli, vedere [Assegnazione di utenti a un'applicazione](active-directory-applications-guiding-developers-assigning-users.md). 
+Per l'accesso degli utenti all'applicazione pubblicata, è necessario eseguirne l'assegnazione singolarmente o in gruppi (ricordando di assegnare l'accesso anche a se stessi). Ogni utente assegnato deve avere una licenza Azure Basic o superiore. È possibile assegnare le licenze singolarmente o a gruppi. Per altre informazioni, vedere [Assegnazione di utenti a un'applicazione](active-directory-applications-guiding-developers-assigning-users.md). 
 
-Per le app che richiedono l'autenticazione preliminare, in questo modo vengono concesse le autorizzazioni per usare l'app. Per le app che non richiedono l'autenticazione preliminare, gli utenti possono comunque essere assegnati all'app in modo che venga visualizzata nel loro elenco applicazioni, ad esempio Le mie app.
+Per le app che richiedono l'autenticazione preliminare, con l'assegnazione di un utente viene concessa l'autorizzazione per usare l'applicazione. Per le app che non richiedono l'autenticazione preliminare, l'assegnazione di un utente consente all'utente di accedere all'applicazione tramite il pannello di accesso.
 
 1. Al termine della procedura guidata Aggiungi app, verrà visualizzata la pagina Avvio rapido dell'applicazione. Per gestire gli utenti che avranno accesso all'app, selezionare **Utenti e gruppi**.
    
@@ -90,7 +90,7 @@ Nella pagina Configura è possibile modificare le app pubblicate o configurare o
 
 Dopo la pubblicazione di applicazioni mediante il proxy dell’applicazione di Azure Active Directory, queste vengono visualizzate nell'elenco delle applicazioni in Azure AD ed è possibile gestirle.
 
-Se si disabilitano i servizi proxy dell'applicazione dopo la pubblicazione delle applicazioni, queste non sono più accessibili dall'esterno della rete privata. Questa operazione non elimina le applicazioni.
+Se si disabilitano i servizi proxy dell'applicazione dopo la pubblicazione delle applicazioni, queste non sono più accessibili dall'esterno della rete privata. Gli utenti possono comunque accedere alle applicazioni in locale come di consueto.
 
 Per visualizzare un'applicazione e verificare che sia accessibile, fare doppio clic sul nome dell'applicazione. Se il servizio proxy dell’applicazione è disabilitato e l'applicazione non è disponibile, viene visualizzato un messaggio di avviso nella parte superiore della schermata.
 

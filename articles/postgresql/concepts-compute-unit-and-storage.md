@@ -6,14 +6,14 @@ author: kamathsun
 ms.author: sukamat
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 44a6e1c8e71f3a89b5900887c71fbce92af45d6f
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e480671e6550b305c49442becaed3c0b42ce5cb3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Descrizione delle unità di calcolo nel database di Azure per PostgreSQL
@@ -27,9 +27,9 @@ La quantità di memoria per ogni unità di calcolo è ottimizzata per i piani ta
 Ad esempio, 800 unità di calcolo Standard offrono una velocità effettiva della CPU e una memoria maggiori di 8 volte rispetto alla configurazione di 100 unità di calcolo Standard. Tuttavia, mentre 100 unità di calcolo Standard offrono la stessa velocità effettiva della CPU rispetto a 100 unità di calcolo Basic, la quantità di memoria che è già configurata nel piano tariffario Standard è il doppio della quantità di memoria configurata per il piano tariffario Basic. Pertanto, il piano tariffario Standard offre prestazioni migliori del carico di lavoro e una latenza delle transazioni inferiore rispetto al piano tariffario Basic con le stesse unità di calcolo selezionate.
 
 ## <a name="how-can-i-determine-the-number-of-compute-units-needed-for-my-workload"></a>Come si determina il numero di unità di calcolo necessarie per il carico di lavoro?
-Se si sta cercando di eseguire la migrazione di un server esistente PostgreSQL in esecuzione in locale o in una macchina virtuale, è possibile determinare il numero di unità di calcolo stimando il numero di core di velocità effettiva di elaborazione necessari per il carico di lavoro. 
+Se si sta cercando di eseguire la migrazione di un server PostgreSQL esistente eseguito in locale o in una macchina virtuale, è possibile determinare il numero di unità di calcolo stimando il numero di core di velocità effettiva di elaborazione necessari per il carico di lavoro. 
 
-Se il server esistente della macchina virtuale o locale sta attualmente usando 4 core, senza contare l'hyperthread CPU, è possibile iniziare configurando 400 unità di calcolo per il database di Azure per il server PostgreSQL. Le unità di calcolo possono essere aumentate o ridotte in modo dinamico in base alle esigenze del carico di lavoro praticamente senza tempi di inattività dell'applicazione. 
+Se il server esistente nella macchina virtuale o locale sta attualmente usando 4 core, senza contare l'hyperthread CPU, è possibile iniziare configurando 400 unità di calcolo per il database di Azure per il server PostgreSQL. Le unità di calcolo possono essere aumentate o ridotte in modo dinamico in base alle esigenze del carico di lavoro praticamente senza tempi di inattività dell'applicazione. 
 
 Monitorare il grafico delle metriche nel portale di Azure o scrivere l'interfaccia della riga di comando di Azure per misurare le unità di calcolo. Le metriche pertinenti al monitoraggio sono la percentuale dell'unità di calcolo e il limite dell'unità di calcolo.
 

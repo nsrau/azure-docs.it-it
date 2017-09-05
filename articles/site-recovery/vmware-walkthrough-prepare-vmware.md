@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 88f7460c5414e7c33adbe86928fd6b56b22b3ad7
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>Passaggio 6: Preparare la replica dell'ambiente VMware locale in Azure
@@ -28,7 +27,7 @@ Usare le istruzioni riportate in questo articolo per preparare i server VMware l
 
 ## <a name="prepare-for-automatic-discovery"></a>Eseguire la preparazione per l'individuazione automatica
 
-Site Recovery individua automaticamente le VM presenti e gli host vSphere ESXi e/o quelle gestite da server vCenter.  A tale scopo, Site Recovery necessita di credenziali che consentano di accedere ai server vCenter e agli host vSphere ESXi. Eseguire la creazione come indicato di seguito:
+Site Recovery individua automaticamente le macchine virtuali eseguite in host vSphere ESXi (con o senza server vCenter). Per eseguire l'individuazione automatica, Site Recovery richiede un account per accedere agli host e ai server:
 
 1. Per usare un account dedicato, creare un ruolo a livello di vCenter con le autorizzazioni descritte nella tabella seguente. Assegnare un nome all'account, ad esempio **Azure_Site_Recovery**.
 2. Creare quindi un utente nell'host vSphere o nel server vCenter e assegnare il ruolo all'utente. Questo account utente viene specificato durante la distribuzione di Site Recovery.

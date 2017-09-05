@@ -1,6 +1,6 @@
 ---
 title: Rilevamento intelligente in Azure Application Insights | Microsoft Docs
-description: Application Insights esegue automaticamente un&quot;analisi approfondita dei dati di telemetria dell&quot;app e segnala potenziali problemi.
+description: Application Insights esegue automaticamente un'analisi approfondita dei dati di telemetria dell'app e segnala potenziali problemi.
 services: application-insights
 documentationcenter: windows
 author: rakefetj
@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 0331a20d60fd856c0d852b26f125c47a3614f1ad
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 66c4a82153dccd82977cf42c5bb9de2a8a8d6255
 ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="smart-detection-in-application-insights"></a>Rilevamento intelligente in Application Insights

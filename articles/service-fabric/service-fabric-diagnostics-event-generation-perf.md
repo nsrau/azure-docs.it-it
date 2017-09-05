@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ac019d5393e9e9b7edb7960aa50edd5af3b49ebc
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -32,12 +32,6 @@ Per i computer presenti nel cluster è opportuno raccogliere i contatori delle p
 
 | Categoria contatore | Nome contatore |
 | --- | --- |
-| PhysicalDisk(Total) | Avg. Disk Read Queue Length |
-| PhysicalDisk(Total) | Avg. Disk Write Queue Length |
-| PhysicalDisk(Total) | Letture disco/sec  |
-| PhysicalDisk(Total) | Byte letti da disco/sec  |
-| PhysicalDisk(Total) | Scritture disco/sec |
-| PhysicalDisk(Total) | Byte scritti su disco/sec |
 | PhysicalDisk(per Disk) | Avg. Disk Read Queue Length |
 | PhysicalDisk(per Disk) | Avg. Disk Write Queue Length |
 | PhysicalDisk(per Disk) | Avg. Disk sec/Read |
@@ -85,6 +79,6 @@ Se si usa Reliable Collection, infine, è consigliabile aggiungere il contatore 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Acquisire altre informazioni sulla [generazione di eventi a livello di infrastruttura](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
+* Altre informazioni sulla [generazione di eventi a livello piattaforma](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
 * Raccogliere metriche delle prestazioni tramite [Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md)
 

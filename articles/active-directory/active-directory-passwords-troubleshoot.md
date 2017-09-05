@@ -6,28 +6,41 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 6d1cfd588ad60cbdf69a432b4f4baa0b13fed0d3
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Come risolvere i problemi di reimpostazione della password self-service
 
 Se si verificano problemi di reimpostazione della password self-service, gli elementi che seguono possono aiutare a riprendere rapidamente il normale funzionamento.
+
+## <a name="troubleshoot-self-service-password-reset-errors-that-a-user-may-see"></a>Risolvere i problemi di reimpostazione della password self-service
+
+| Errore | Dettagli | Dettagli tecnici |
+| --- | --- | --- |
+| TenantSSPRFlagDisabled = 9 | Spiacenti <br> Al momento non è possibile reimpostare la password perché l'amministratore ha disabilitato la reimpostazione della password per l'organizzazione. Non c'è alcuna azione aggiuntiva da eseguire per risolvere questa situazione. Contattare l'amministratore e chiedere di abilitare questa funzionalità. Per altre informazioni, vedere [Password di Azure AD dimenticata](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: È stato rilevato che la reimpostazione della password non è stata abilitata dall'amministratore. Contattare l'amministratore e chiedere di abilitare la reimpostazione della password per l'organizzazione. |
+| WritebackNotEnabled = 10 |Spiacenti <br> Al momento non è possibile reimpostare la password perché l'amministratore non ha abilitato un servizio necessario per l'organizzazione. Non c'è alcuna azione aggiuntiva da eseguire per risolvere questa situazione. Contattare l'amministratore e chiedere di controllare la configurazione dell'organizzazione. Per altre informazioni su questo servizio necessario, vedere [Configurazione del writeback delle password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-writeback#configuring-password-writeback). | SSPR_0010: È stato rilevato che il writeback delle password non è stato abilitato. Contattare l'amministratore e chiedere di abilitare il writeback delle password. |
+| SsprNotEnabledInUserPolicy = 11 | Spiacenti  <br> Al momento non è possibile reimpostare la password perché l'amministratore non ha configurato la reimpostazione della password per l'organizzazione. Non c'è alcuna azione aggiuntiva da eseguire per risolvere questa situazione. Contattare l'amministratore e chiedere di configurare la reimpostazione della password. Per altre informazioni sulla configurazione della reimpostazione della password, leggere l'articolo [Guida introduttiva: Reimpostazione self-service della password di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started). | SSPR_0011: L'organizzazione non ha definito criteri di reimpostazione della password. Contattare l'amministratore e chiedere di definire i criteri di reimpostazione della password. |
+| UserNotLicensed = 12 | Spiacenti <br> Al momento non è possibile reimpostare la password perché l'organizzazione non ha le licenze necessarie. Non c'è alcuna azione aggiuntiva da eseguire per risolvere questa situazione. Contattare l'amministratore e chiedere di controllare l'assegnazione delle licenze. Per altre informazioni sulle licenze, leggere l'articolo [Requisiti di licenza per la reimpostazione password self-service di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-licensing). | SSPR_0012: L'organizzazione non ha le licenze necessarie per la reimpostazione della password. Contattare l'amministratore e chiedere di esaminare le assegnazioni delle licenze. |
+| UserNotMemberOfScopedAccessGroup = 13 | Spiacenti <br> Al momento non è possibile reimpostare la password perché l'amministratore non ha configurato l'account per l'uso della reimpostazione della password. Non c'è alcuna azione aggiuntiva da eseguire per risolvere questa situazione. Contattare l'amministratore e chiedere di configurare l'account per la reimpostazione della password. Per altre informazioni sulla configurazione dell'account per la reimpostazione della password, leggere l'articolo [Implementare la reimpostazione della password per gli utenti](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-best-practices). | SSPR_0012: Non si è membri di un gruppo abilitato per la reimpostazione della password. Contattare l'amministratore e richiedere di essere aggiunti al gruppo. |
+| UserNotProperlyConfigured = 14 | Spiacenti <br> Al momento non è possibile reimpostare la password perché nell'account mancano le informazioni necessarie. Non c'è alcuna azione aggiuntiva da eseguire per risolvere questa situazione. Contattare l'amministratore e chiedergli di reimpostare la password. Quando si ha di nuovo accesso all'account, è possibile capire come registrare le informazioni necessarie seguendo i passaggi descritti nell'articolo [Eseguire la registrazione per la reimpostazione password self-service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register). | SSPR_0014: Per reimpostare la password sono necessarie informazioni di sicurezza aggiuntive. Per procedere, contattare l'amministratore e chiedergli di reimpostare la password. Quando si ha di nuovo accesso all'account, è possibile registrare le informazioni di sicurezza aggiuntive all'indirizzo https://aka.ms/ssprsetup. L'amministratore può aggiungere informazioni di sicurezza aggiuntive all'account seguendo i passaggi descritti in [Impostare e leggere i dati di autenticazione tramite reimpostazione della password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-data#set-and-read-authentication-data-using-powershell). |
+| OnPremisesAdminActionRequired = 29 | Spiacenti <br> Al momento non è possibile reimpostare la password a causa di un problema con la configurazione della reimpostazione della password per l'organizzazione. Non c'è alcuna azione aggiuntiva da eseguire per risolvere questa situazione. Contattare l'amministratore e chiedere di esaminare la situazione. Per altre informazioni sul potenziale problema, leggere l'articolo [Risolvere i problemi relativi al writeback delle password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: Non è possibile reimpostare la password a causa di un errore nella configurazione locale. Contattare l'amministratore e chiedere di esaminare la situazione. |
+| OnPremisesConnectivityError = 30 | Spiacenti <br> Al momento non è possibile reimpostare la password a causa di problemi di connettività con l'organizzazione. Non c'è alcuna azione da eseguire al momento, ma il problema potrebbe venire risolto se si riprova più tardi. Se il problema persiste, contattare l'amministratore e chiedere di esaminare la situazione. Per altre informazioni sui problemi di connettività, vedere [Risolvere i problemi relativi alla connettività di writeback della password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: Non è possibile reimpostare la password a causa di una connessione scarsa con l'ambiente locale. Contattare l'amministratore e chiedere di esaminare la situazione.|
+
 
 ## <a name="troubleshoot-password-reset-configuration-in-the-azure-portal"></a>Risolvere problemi relativi alla configurazione della funzione di reimpostazione della password nel portale di Azure
 
@@ -144,7 +157,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 
 Se si verificano interruzioni del servizio con il componente di writeback della password di Azure AD Connect, ecco alcuni passaggi rapidi che è possibile eseguire per risolvere il problema:
 
-* [Riavviare il servizio di sincronizzazione di Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
+* [Riavviare il servizio di sincronizzazione di Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Disabilitare e riabilitare la funzionalità di writeback della password](#disable-and-re-enable-the-password-writeback-feature)
 * [Installare la versione più recente di Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [Risolvere i problemi relativi al writeback delle password](#troubleshoot-password-writeback)
@@ -200,6 +213,27 @@ Questi passaggi consentono di ristabilire la connessione con il servizio cloud e
 
 Se la reinstallazione della versione più recente del server Azure AD Connect non risolve il problema, come ultimo passaggio è consigliabile provare a disabilitare e riabilitare il writeback delle password come passaggio finale, dopo aver installato la versione più recente.
 
+## <a name="verify-whether-azure-ad-connect-has-the-required-permission-for-password-writeback"></a>Verificare che Azure AD Connect abbia l'autorizzazione necessaria per il writeback delle password.
+Per eseguire il writeback delle password, Azure AD Connect richiede l'autorizzazione **Reimposta password** di Active Directory. Per scoprire se Azure AD Connect ha l'autorizzazione per uno specifico account utente di Active Directory locale, è possibile usare la funzionalità Windows Effective Permission (Autorizzazione valida di Windows):
+
+1. Accedere al server di Azure AD Connect e avviare **Synchronization Service Manager** (Start → Servizio di sincronizzazione).
+2. Nella scheda **Connettori** selezionare **AD connector** (Connettore di Active Directory) e fare clic su **Proprietà**.  
+![Effective Permission - Passaggio 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+3. Nella finestra di dialogo popup selezionare la scheda **Connect to Active Directory Forest** (Connessione all'insieme di strutture di Active Directory) e annotare il valore della proprietà **Nome utente**. Si tratta dell'account di Active Directory Domain Services usato da Azure AD Connect per eseguire la sincronizzazione delle directory. Azure AD Connect potrà eseguire il writeback delle password solo se l'account di Active Directory Domain Services dispone dell'autorizzazione Reimposta password.  
+![Effective Permission - Passaggio 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+4. Accedere a un controller di dominio locale e avviare l'applicazione **Utenti e computer di Active Directory**.
+5. Fare clic su **Visualizza** e verificare che l'opzione **Funzionalità avanzate** sia abilitata.  
+![Effective Permission - Passaggio 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+6. Cercare l'account utente di Active Directory che si vuole verificare. Fare clic con il pulsante destro del mouse sull'account e selezionare **Proprietà**.  
+![Effective Permission - Passaggio 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
+7. Nella finestra di dialogo popup passare alla scheda **Sicurezza** e fare clic su **Avanzate**.  
+![Autorizzazione valida - Passaggio 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
+8. Nella finestra di dialogo Impostazioni di sicurezza avanzate passare alla scheda **Accesso valido**.
+9. Fare clic su **Selezionare un utente** e selezionare l'account di Active Directory Domain Services usato da Azure AD Connect (vedere il passaggio 3). Quindi fare clic su **Visualizza accesso valido**.  
+![Effective Permission - Passaggio 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+10. Scorrere verso il basso e cercare **Reimposta password**. Se la voce è selezionata, significa che l'account di Active Directory Domain Services ha l'autorizzazione per reimpostare la password dell'account utente di Active Directory selezionato.  
+![Effective Permission - Passaggio 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
 ## <a name="azure-ad-forums"></a>Forum di Azure AD
 
 In caso di domande generiche su Azure AD e la reimpostazione della password self-service, è possibile richiedere assistenza alla community sui [forum di Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). La community è composta da ingegneri, responsabili dei prodotti, MVP e informatici.
@@ -212,7 +246,7 @@ Per garantire un supporto adeguato, verranno richiesti il maggior numero di dett
 
 * **Descrizione generale dell'errore**: indicare il tipo di errore, il comportamento notato, e le modalità in cui è possibile riprodurre l'errore. Indicare il maggior numero di dettagli possibili.
 * **Pagina**: indicare la pagina che si stava consultando quando è stato visualizzato l'errore. Includere l'URL, se possibile, e una schermata.
-* **Codice di supporto**: il codice di supporto generato quando è stato visualizzato l'errore. 
+* **Codice di supporto**: il codice di supporto generato quando è stato visualizzato l'errore.
     * Per trovalo, riprodurre l'errore, quindi fare clic sul collegamento Codice di supporto nella parte inferiore della schermo e inviare al personale del supporto tecnico il GUID risultante.
     ![Trovare il codice di supporto nella parte inferiore della schermata][Support Code]
     * Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
@@ -224,7 +258,7 @@ Per garantire un supporto adeguato, verranno richiesti il maggior numero di dett
 * **Licenze**: indicare se all'utente è stata assegnata una licenza Azure AD Premium o Azure AD Basic.
 * **Registro eventi dell'applicazione**: indicare se si usa il writeback delle password e se l'errore si verifica nell'infrastruttura locale, allegare una copia compressa del registro eventi dell'applicazione dal server Azure AD Connect e inviarla quando si richiede assistenza.
 
-    
+
 
 [Service Restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Riavviare il servizio Azure AD Sync"
 [Support Code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Il codice di supporto si trova in basso a destra nella finestra"
@@ -233,7 +267,7 @@ Per garantire un supporto adeguato, verranno richiesti il maggior numero di dett
 
 I collegamenti seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD
 
-* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD 
+* [**Guida introduttiva**](active-directory-passwords-getting-started.md) - Iniziare a usare la gestione self-service delle password di Azure AD
 * [**Licenze**](active-directory-passwords-licensing.md): configurare le licenze di Azure AD
 * [**Dati** ](active-directory-passwords-data.md): informazioni sui dati necessari e su come vengono usati per la gestione delle password
 * [**Implementazione**](active-directory-passwords-best-practices.md): pianificare e distribuire agli utenti la reimpostazione password self-service usando le istruzioni disponibili in questo articolo

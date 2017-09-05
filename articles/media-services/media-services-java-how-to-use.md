@@ -1,10 +1,10 @@
 ---
 title: Introduzione alla distribuzione di contenuto su richiesta tramite Java | Documentazione di Microsoft
-description: Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l&quot;applicazione Servizi multimediali di Azure (AMS) usando Java.
+description: Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l'applicazione Servizi multimediali di Azure (AMS) usando Java.
 services: media-services
 documentationcenter: java
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 4cf3aaa9678c423c71cf542591a5a98547bb5cf5
+ms.contentlocale: it-it
 ms.lasthandoff: 03/14/2017
-
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Introduzione alla distribuzione di contenuto su richiesta tramite Java

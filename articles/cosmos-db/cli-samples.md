@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 06/07/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 9b117ed5187beeb1207a7ffd484129e5ee830160
+ms.translationtype: HT
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 709d2ccce0f4b9827a8076f683c7e0f74cbdd4ea
 ms.contentlocale: it-it
-ms.lasthandoff: 06/24/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -30,7 +30,7 @@ La tabella seguente include collegamenti a esempi di script di interfaccia della
 | |  |
 |---|---|
 |**Creare account di database e contenitori di Azure Cosmos DB**||
-|[Creare un account per API DocumentDB, Graph o di tabella](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Consente di creare un account, un database e un contenitore dell'API Azure Cosmos DB da usare con le API DocumentDB, Graph o di tabella. |
+|[Creare un account API DocumentDB, API Graph o API di tabella](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Consente di creare un account, un database e un contenitore dell'API Azure Cosmos DB da usare con le API DocumentDB, Graph o di tabella. |
 | [Creare un account di API MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un singolo account di API MongoDB, database e raccolta di Azure Cosmos DB. |
 |**Scalare Azure Cosmos DB**||
 | [Scalare la velocità effettiva del contenitore](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Modifica la velocità effettiva con provisioning in un contenitore.|

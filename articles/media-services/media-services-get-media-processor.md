@@ -1,10 +1,10 @@
 ---
-title: Come creare un processore multimediale | Microsoft Docs
+title: Come creare un processore di contenuti multimediali usando Azure Media Services SDK per .NET| Microsoft Docs
 description: Informazioni su come creare un componente del processore di contenuti multimediali per codificare, decodificare, convertire il formato, crittografare o decrittografare contenuti multimediali per Servizi multimediali di Azure. Negli esempi di codice, scritti in C#, viene usato Media Services SDK per .NET.
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: dbf9496f-c6f0-42a7-aa36-70f89dcb8ea2
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/31/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 88f6e1da090eb6088e54c6f81d0f83b1737d3c2c
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
+ms.openlocfilehash: cb14bebfaf073cb38bdc1f1718ef3d8c7f6c45fc
+ms.contentlocale: it-it
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Procedura: Ottenere un'istanza del processore di contenuti multimediali
@@ -31,21 +31,16 @@ ms.lasthandoff: 04/12/2017
 ## <a name="overview"></a>Overview
 In Servizi multimediali un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Un processore multimediale viene generalmente creato durante la creazione di un'attività per la codifica, la crittografia o la conversione di formato di contenuto multimediale.
 
-Nella tabella seguente sono riportati il nome e la descrizione di tutti i processori multimediali disponibili.
+## <a name="azure-media-processors"></a>Processori di contenuti multimediali di Azure 
 
-| Nome del processore multimediale | Descrizione | Altre informazioni |
-| --- | --- | --- |
-| Codificatore multimediale standard |Fornisce funzionalità standard per la codifica su richiesta. |[Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md) |
-| Flusso di lavoro Premium del codificatore multimediale |Consente di eseguire attività di codifica usando il flusso di lavoro Premium del codificatore multimediale. |[Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md) |
-| Azure Media Indexer |Consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. |[Azure Media Indexer](media-services-index-content.md) |
-| Azure Media Hyperlapse (anteprima) |Consente di ridurre le imperfezioni del video con la stabilizzazione video. Consente inoltre di velocizzare il contenuto in una clip utilizzabile. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Azure Media Encoder |Funzionalità deprecate | |
-| Storage Decryption |Funzionalità deprecate | |
-| Azure Media Packager |Funzionalità deprecate | |
-| Azure Media Encryptor |Funzionalità deprecate | |
+L'argomento seguente fornisce elenchi di processori di contenuti multimediali:
+
+* [Processori di contenuti multimediali di codifica](scenarios-and-availability.md#encoding-media-processors)
+* [Processori di contenuti multimediali di analisi](scenarios-and-availability.md#analytics-media-processors)
 
 ## <a name="get-media-processor"></a>Ottenere un processore di contenuti multimediali
-Il seguente metodo illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **_context** per fare riferimento al contesto del server descritto nella sezione [How to: Connect to Media Services Programmatically](media-services-dotnet-connect-programmatically.md) (Procedura: Connettersi a Servizi multimediali a livello di codice).
+
+Il seguente metodo illustra come ottenere un'istanza del processore di contenuti multimediali. Nell'esempio si suppone che si usi una variabile a livello di modulo denominata **_context** per fare riferimento al contesto del server descritto nella sezione [How to: Connect to Media Services Programmatically](media-services-use-aad-auth-to-access-ams-api.md) (Procedura: Connettersi a Servizi multimediali a livello di codice).
 
     private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {

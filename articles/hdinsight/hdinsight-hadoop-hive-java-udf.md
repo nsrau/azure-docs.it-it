@@ -1,6 +1,6 @@
 ---
-title: Usare una funzione definita dall&quot;utente (UDF) Java con Hive in HDInsight | Microsoft Docs
-description: Informazioni su come creare e utilizzare una funzione definita dall&quot;utente (UDF) Java da Hive in HDInsight.
+title: Funzione definita dall'utente (UDF) Java con Hive in HDInsight - Azure | Documentazione Microsoft
+description: Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Hive. In questo esempio, UDF converte una tabella di stringhe di testo in caratteri minuscoli.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -8,33 +8,32 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/04/2017
+ms.date: 06/26/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 229bebe16b619f61f2dd4acb73602b97e64cb294
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 481d234eaf88bdb210821084ee4154159470eda0
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilizzare una UDF Java con Hive in HDInsight
 
-Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Hive.
+Informazioni su come creare una funzione definita dall'utente (UDF) basata su Java che funzioni con Hive. La UDF Java di questo esempio converte una tabella di stringhe di testo in caratteri minuscoli.
 
 ## <a name="requirements"></a>Requisiti
 
-* Un cluster HDInsight (Windows o basato su Linux)
+* Un cluster HDInsight 
 
     > [!IMPORTANT]
-    > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdi-version-33-nearing-retirement-date).
+    > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-    La maggior parte delle procedure illustrate in questo documento funziona in entrambi i tipi di cluster. I passaggi necessari per caricare la funzione definita dall'utente compilata nel cluster ed eseguirla sono tuttavia specifici per i cluster basati su Linux. Vengono forniti i collegamenti alle informazioni utili per i cluster basati su Windows.
+    La maggior parte dei passaggi di questo documento vale per entrambi i cluster basati su Windows e Linux. I passaggi necessari per caricare la funzione definita dall'utente compilata nel cluster ed eseguirla sono tuttavia specifici per i cluster basati su Linux. Vengono forniti i collegamenti alle informazioni utili per i cluster basati su Windows.
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 o versione successiva (o equivalente, ad esempio OpenJDK)
 
@@ -43,9 +42,9 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 * Un editor di testo o ambiente IDE Java
 
     > [!IMPORTANT]
-    > Se si usa un server HDInsight basato su Linux e i file Python vengono creati in un client Windows, è necessario usare un editor che usa LF come terminazione di riga. Se non si è certi se l'editor usa LF o CRLF, vedere la sezione [Risoluzione dei problemi](#troubleshooting) , che include passaggi per la rimozione del carattere CR mediante le utilità nel cluster HDInsight.
+    > Se si creano i file Python in un client Windows, è necessario usare un editor che usa LF come terminazione di riga. Se non si è certi se l'editor usa LF o CRLF, vedere la sezione [Risoluzione dei problemi](#troubleshooting) , che include passaggi per la rimozione del carattere CR.
 
-## <a name="create-an-example-udf"></a>Creare una UDF di esempio
+## <a name="create-an-example-java-udf"></a>Creare una UDF Java di esempio 
 
 1. Da una riga di comando seguire questa procedura per creare un nuovo progetto Maven.
 
@@ -60,7 +59,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 
 2. Dopo aver creato il progetto, eliminare la directory **exampleudf/src/test** creata nell'ambito del progetto.
 
-3. Aprire **exampleudf/pom.xml** e sostituire la voce `<dependencies>` esistente con:
+3. Aprire **exampleudf/pom.xml** e sostituire la voce `<dependencies>` esistente con il seguente XML:
 
     ```xml
     <dependencies>
@@ -81,7 +80,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 
     Queste voci specificano le versioni di Hadoop e Hive incluse con HDInsight 3.5. È possibile trovare informazioni sulle versioni di Hadoop e Hive fornite con HDInsight dal documento relativo al [controllo delle versioni dei componenti di HDInsight](hdinsight-component-versioning.md) .
 
-    Aggiungere una sezione `<build>` prima della riga `</project>` alla fine del file. Questa sezione deve contenere quanto segue:
+    Aggiungere una sezione `<build>` prima della riga `</project>` alla fine del file. Questa sezione deve contenere il seguente XML:
 
     ```xml
     <build>
@@ -178,7 +177,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
     mvn compile package
     ```
 
-    Il comando compila la funzione definita dall'utente e la inserisce nel pacchetto **exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar**.
+    Questo comando compila e impacchetta la UDF nel file `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar`.
 
 2. Usare il comando `scp` per copiare il file nel cluster HDInsight.
 
@@ -186,7 +185,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
     ```
 
-    Sostituire **myuser** con l'account utente SSH del cluster. Sostituire **mycluster** con il nome del cluster. Se l'account SSH è protetto da una password, viene richiesto di immetterla. Se è stata usato un certificato, può essere necessario usare il parametro `-i` per specificare il file della chiave privata.
+    Sostituire `myuser` con l'account utente SSH del cluster. Sostituire `mycluster` con il nome del cluster. Se l'account SSH è protetto da una password, viene richiesto di immetterla. Se è stata usato un certificato, può essere necessario usare il parametro `-i` per specificare il file della chiave privata.
 
 3. Connettersi al cluster tramite SSH.
 
@@ -215,12 +214,12 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 2. Una volta arrivati al prompt `jdbc:hive2://localhost:10001/>` , immettere il comando seguente per aggiungere la UDF a Hive ed esporla come una funzione.
 
     ```hiveql
-    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
 
     > [!NOTE]
-    > Questo esempio assume che Archiviazione di Azure sia la risorsa di archiviazione predefinita per il cluster. Se il cluster usa invece Data Lake Store, modificare il valore `wasbs:///` in `adl:///`.
+    > Questo esempio assume che Archiviazione di Azure sia la risorsa di archiviazione predefinita per il cluster. Se il cluster usa invece Data Lake Store, modificare il valore `wasb:///` in `adl:///`.
 
 3. Utilizzare la UDF per convertire i valori recuperati da una tabella in stringhe con lettere minuscole.
 
@@ -228,7 +227,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    Questa query seleziona la piattaforma del dispositivo (Android, Windows, iOS e così via) dalla tabella, converte la stringa in lettere minuscole e la visualizza. L'output appare simile al seguente.
+    Questa query seleziona la piattaforma del dispositivo (Android, Windows, iOS e così via) dalla tabella, converte la stringa in lettere minuscole e la visualizza. L'output appare simile al seguente testo:
 
         +----------+--+
         |   _c0    |

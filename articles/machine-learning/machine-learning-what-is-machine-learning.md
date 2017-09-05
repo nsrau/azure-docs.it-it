@@ -1,7 +1,7 @@
 ---
-title: "Che cos&quot;è l&quot;apprendimento automatico in Azure? | Microsoft Docs"
-description: "Illustra i concetti di base dell&quot;apprendimento automatico nel cloud, descrive per che cosa può essere usato e definisce i termini relativi all&quot;apprendimento automatico."
-keywords: informazioni sull&quot;apprendimento automatico,termini di apprendimento automatico,predittiva,informazioni sull&quot;analisi predittiva,termini di apprendimento automatico
+title: "Che cos'è l'apprendimento automatico in Azure? | Microsoft Docs"
+description: "Illustra i concetti di base dell'apprendimento automatico nel cloud, descrive per che cosa può essere usato e definisce i termini relativi all'apprendimento automatico."
+keywords: informazioni sull'apprendimento automatico,termini di apprendimento automatico,predittiva,informazioni sull'analisi predittiva,termini di apprendimento automatico
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,30 +13,31 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2017
-ms.author: cgronlun;tedway;olgali
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 247c26b3988664bcf93fb5face6514a3dc74cebc
+ms.date: 07/12/2017
+ms.author: cgronlun
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 179a0d3696c6044ffb5b9e377effa30dda54ba7f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
-# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Introduzione ad Azure Machine Learning nel cloud
-## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
-L'apprendimento automatico è una tecnica di analisi scientifica dei dati che consente ai computer di apprendere dai dati esistenti per prevedere comportamenti, risultati e tendenze futuri.  
+# <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Introduzione a Machine Learning nel cloud di Azure
 
-Queste previsioni o stime dell'apprendimento automatico possono rendere più intelligenti le app e i dispositivi. Quando si effettuano acquisti online, l'apprendimento automatico consente di consigliare altri prodotti che potrebbero interessare in base a ciò che si è acquistato. Quando si usa la carta di credito, l'apprendimento automatico confronta la transazione con un database di transazioni e consente di rilevare eventuali frodi. Quando il robot aspirapolvere aspira la polvere in una stanza, l'apprendimento automatico gli consente di decidere se il lavoro è stato completato.
+## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
+Machine Learning è una tecnica di analisi scientifica dei dati che consente ai computer di usare i dati esistenti per prevedere comportamenti, tendenze e risultati futuri. Con Machine Learning, i computer apprendono senza essere programmati in modo esplicito. 
+
+Machine Learning è considerato una sottocategoria di intelligenza artificiale. Queste previsioni o stime di Machine Learning possono rendere più intelligenti le app e i dispositivi. Quando si effettuano acquisti online, l'apprendimento automatico consente di consigliare altri prodotti che potrebbero interessare in base a ciò che si è acquistato. Quando si usa la carta di credito, l'apprendimento automatico confronta la transazione con un database di transazioni e consente di rilevare eventuali frodi. Quando il robot aspirapolvere aspira la polvere in una stanza, l'apprendimento automatico gli consente di decidere se il lavoro è stato completato.
 
 Per una breve panoramica, guardare la serie di video [Analisi scientifica dei dati per principianti](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Senza usare un gergo tecnico o ricorrere alla matematica, Analisi scientifica dei dati per principianti presenta l'apprendimento automatico e illustra un semplice modello predittivo.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Cos'è Machine Learning nel cloud di Microsoft Azure?
+
+![Che cos'è l'apprendimento automatico? Flusso di lavoro di base per rendere operativa l'analisi predittiva in Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+
 Azure Machine Learning è un servizio di analisi predittiva basato sul cloud che consente di creare e distribuire rapidamente modelli predittivi come soluzioni di analisi.
 
 È possibile iniziare da una libreria di algoritmi pronta all'uso, usare gli algoritmi per creare modelli su un PC connesso a Internet e distribuire rapidamente la soluzione di analisi predittiva. Per ottenere risultati rapidi, iniziare con le soluzioni e gli esempi pronti all'uso di [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
-
-![Che cos'è l'apprendimento automatico? Flusso di lavoro di base per rendere operativa l'analisi predittiva in Azure Machine Learning.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure Machine Learning fornisce non solo gli strumenti per l'analisi predittiva dei modelli, ma anche un servizio completamente gestito che è possibile usare per distribuire i modelli predittivi come servizi Web pronti all'uso.
 

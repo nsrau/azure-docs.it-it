@@ -1,6 +1,6 @@
 ---
-title: Usare le metriche per monitorare l&quot;hub IoT di Azure | Documentazione Microsoft
-description: "Procedura: Usare le metriche dell&quot;hub IoT di Azure per valutare e monitorare l&quot;integrità complessiva degli hub IoT."
+title: Usare le metriche per monitorare l'hub IoT di Azure | Documentazione Microsoft
+description: "Procedura: Usare le metriche dell'hub IoT di Azure per valutare e monitorare l'integrità complessiva degli hub IoT."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -20,7 +20,6 @@ ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
 ms.openlocfilehash: 82cec2c9545cd5ae33ec6d5d0e4c7ebf1a500e5b
 ms.contentlocale: it-it
 ms.lasthandoff: 05/16/2017
-
 
 ---
 # <a name="understand-iot-hub-metrics"></a>Comprendere le metriche dell'hub IoT

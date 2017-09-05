@@ -2,7 +2,7 @@
 title: Panoramica delle metriche in Microsoft Azure | Microsoft Docs
 description: Informazioni su come personalizzare i grafici di monitoraggio in Azure.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5ccb5c0b3c2ffaf8aba855a9dbe3da9691ab149b
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Panoramica delle metriche in Microsoft Azure
@@ -31,7 +30,7 @@ Per alcuni servizi, potrebbe essere necessario attivare la diagnostica per visua
 È possibile rappresentare in un grafico qualsiasi metrica in un periodo di tempo scelto.
 
 1. Nel [portale di Azure](https://portal.azure.com/)fare clic su **Sfoglia**e quindi su una risorsa che si intende monitorare.
-2. La sezione **Monitoraggio** include le metriche più importanti per ogni risorsa di Azure. Ad esempio, un'app Web contiene **Richieste ed errori**, mentre una macchina virtuale includerebbe **Percentuale CPU** e **Lettura e scrittura disco**:  ![Sezione Monitoraggio](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
+2. La sezione **Monitoraggio** include le metriche più importanti per ogni risorsa di Azure. Ad esempio, un'app Web contiene **Richieste ed errori**, mentre una macchina virtuale includerebbe **Percentuale CPU** e **Lettura e scrittura disco**: ![Sezione Monitoraggio](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 3. Facendo clic su un grafico qualsiasi viene visualizzato il pannello **Metrica** . Nel pannello, oltre al grafico, c'è una tabella che mostra le aggregazioni delle metriche (ad esempio, valore medio, minimo e massimo per l'intervallo di tempo scelto). Sotto si trovano le regole di avviso per la risorsa.
     ![Pannello Metrica](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 4. Per personalizzare le righe visualizzate, fare clic sul pulsante **Modifica** nel grafico o sul comando **Modifica grafico** nel pannello Metrica.
@@ -50,7 +49,7 @@ Con la personalizzazione avanzata del portale è possibile aggiungere tutti i gr
 
 1. Nel menu **...** nella parte superiore del pannello fare clic su **Aggiungi riquadri**:  
     ![Menu di aggiunta](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. È quindi possibile selezionare un grafico nella **Raccolta** a destra dello schermo:  ![Raccolta](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. È quindi possibile selezionare un grafico nella **Raccolta** a destra dello schermo: ![Raccolta](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Se la metrica desiderata non è visibile, è sempre possibile aggiungere una delle metriche preimpostate e fare cli su **Modifica** per visualizzare nel grafico la metrica necessaria.
 
 ## <a name="monitoring-usage-quotas"></a>Monitoraggio delle quote di utilizzo

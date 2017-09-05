@@ -2,7 +2,7 @@
 title: Codec video H.264 a bitrate multipli con risoluzione 16x9 SD e audio 5.1 | Documentazione Microsoft
 description: "Questo argomento contiene una panoramica del set di impostazioni di attività **Codec video H264 a bitrate multipli con risoluzione 16x9 SD e audio 5.1**."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

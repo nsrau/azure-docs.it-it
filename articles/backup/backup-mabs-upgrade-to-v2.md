@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: bd7694374034faa5ef1df84397580d80e3f40e43
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -241,6 +241,39 @@ Le sezioni seguenti descrivono come aggiornare gli agenti protezione per i compu
 4. Per un computer client che non è connesso alla rete, fino a quando il computer non viene connesso alla rete, la colonna **Stato dell'agente** mostra lo stato **In attesa di aggiornamento**.
 
   Dopo che un computer client è connesso alla rete, la colonna **Aggiornamenti agente** per il computer client mostra lo stato **Aggiornamento in corso**.
+  
+### <a name="move-legacy-protection-groups-from-old-version-and-sync-the-new-version-with-azure"></a>Spostare i gruppi di protezione legacy dalla versione precedente e sincronizzare la nuova versione con Azure
+
+Quando il server di Backup di Azure e il sistema operativo sono entrambi aggiornati, è possibile proteggere le nuove origini dati tramite l'archiviazione dei backup moderna. Benché già protette, le origini dati continuano a essere protette nel modo legacy come lo erano nel server di Backup di Azure, ma la nuova protezione usa l'archiviazione dei backup moderna.
+
+I passaggi seguenti permettono di eseguire la migrazione delle origini dati dalla modalità legacy di protezione all'archiviazione dei backup moderna.
+
+• Aggiungere i nuovi volumi al pool di archiviazione DPM e assegnare nomi descrittivi e tag di origine dati, se lo si desidera.
+• Per ogni origine dati in modalità legacy, arrestare la protezione delle origini dati e conservare i dati protetti.  Questo permetterà il ripristino dei vecchi punti di recupero dopo la migrazione.
+
+• Creare un nuovo gruppo di protezione e selezionare le origini dati da archiviare con il nuovo formato.
+• DPM eseguirà una copia di replica dall'archiviazione dei backup legacy nel volume di archiviazione dei backup moderna in locale.
+Nota: questo verrà considerato un processo dell'operazione successiva al ripristino • Tutti i nuovi punti di sincronizzazione e recupero verranno quindi archiviati nell'archiviazione dei backup moderna.
+• I vecchi punti di recupero verranno esclusi man mano che scadono e finiranno per liberare spazio su disco.
+• Quando tutti i volumi legacy saranno stati eliminati dalla vecchia archiviazione, il disco può essere rimosso da Backup di Azure e dal sistema.
+• Eseguire un backup del DPMDB di Azure.
+
+Parte 2: - Informazioni importanti > Il nuovo server dovrà avere lo stesso nome del server di Backup di Azure originale. Non è possibile modificare il nome del nuovo server di Backup di Azure se si vuole usare il vecchio pool di archiviazione e il vecchio DPMDB per conservare i punti di recupero. - Deve essere presente una copia di backup del DPMDB, perché dovrà essere ripristinata
+
+1) Arrestare il server di Backup di Azure originale o portarlo offline.
+2) Reimpostare l'account del computer in Active Directory.
+3) Installare SQL Server 2016 nel nuovo computer e assegnare al computer lo stesso nome del server di Backup di Azure originale.
+4) Eseguire l'aggiunta al dominio
+5) Installare il server di Backup di Azure V2 (spostare i dischi del pool di archiviazione DPM dal vecchio server ed eseguire l'importazione)
+6) Ripristinare il DPMDB acquisito alla fine della parte 2
+7) Collegare l'archiviazione dal server di backup originale a quello nuovo.
+8) Ripristinare il DPMDB da SQL
+9) Dalla riga di comando di amministratore nel nuovo server cambiare directory per passare al percorso di installazione e alla cartella bin di Backup di Microsoft Azure
+
+Esempio di percorso: C:\windows\system32>cd "c:\Programmi\Microsoft Azure Backup\DPM\DPM\bin\"
+a Backup di Azure. Eseguire DPMSYNC -SYNC
+
+10) Eseguire DPMSYNC -SYNC. Nota: se sono stati aggiunti NUOVI dischi al pool di archiviazione DPM invece di spostare quelli vecchi, eseguire DPMSYNC -Reallocatereplica
 
 ## <a name="new-powershell-cmdlets-in-v2"></a>Nuovi cmdlet PowerShell della v2
 

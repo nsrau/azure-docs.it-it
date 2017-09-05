@@ -21,19 +21,16 @@ ms.contentlocale: it-it
 ms.lasthandoff: 07/12/2017
 
 ---
-# Usare il pannello di riepilogo del servizio per dispositivi StorSimple serie 8000
-<a id="use-the-service-summary-blade-for-storsimple-8000-series-device" class="xliff"></a>
+# <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Usare il pannello di riepilogo del servizio per dispositivi StorSimple serie 8000
 
-## Panoramica
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Panoramica
 
 Il pannello di riepilogo del servizio Gestione dispositivi StorSimple offre una visualizzazione di riepilogo di tutti i dispositivi connessi a tale servizio, evidenziando quelli che richiedono attenzione da parte dell'amministratore di sistema. Questa esercitazione illustra il pannello di riepilogo del servizio e descrive il contenuto e la funzione del dashboard nonché le attività che è possibile eseguire da questa pagina.
 
 ![Riepilogo del servizio](./media/storsimple-8000-service-dashboard/service-summary1.png)
 
 
-## Comandi di gestione
-<a id="management-commands" class="xliff"></a>
+## <a name="management-commands"></a>Comandi di gestione
 
 Nel pannello di riepilogo del servizio StorSimple vengono visualizzate le opzioni per gestire il servizio Gestione dispositivi StorSimple e i dispositivi StorSimple serie 8000 in esso registrati. I comandi per la gestione vengono visualizzati nella parte superiore del pannello e sul lato sinistro.
 
@@ -42,15 +39,13 @@ Nel pannello di riepilogo del servizio StorSimple vengono visualizzate le opzion
 Usare queste opzioni per eseguire diverse operazioni, ad esempio aggiungere volumi o condivisioni, oppure monitorare i vari processi in esecuzione nei dispositivi StorSimple.
 
 
-## Informazioni di base
-<a id="essentials" class="xliff"></a>
+## <a name="essentials"></a>Informazioni di base
 
 L'area relativa alle informazioni di base riporta alcune proprietà importanti, ad esempio il gruppo di risorse, il percorso e la sottoscrizione in cui è stato creato il servizio Gestione dispositivi StorSimple.
 
 ![Informazioni di base](./media/storsimple-8000-service-dashboard/service-summary3.png)
 
-## Riepilogo servizio di Gestione dispositivi StorSimple
-<a id="storsimple-device-manager-service-summary" class="xliff"></a>
+## <a name="storsimple-device-manager-service-summary"></a>Riepilogo servizio di Gestione dispositivi StorSimple
 
 * Il riquadro **Avvisi** offre uno snapshot di tutti gli avvisi attivi per tutti i dispositivi, raggruppati in base alla gravità.
 
@@ -85,14 +80,12 @@ L'area relativa alle informazioni di base riporta alcune proprietà importanti, 
 
     ![Fare clic sul riquadro Dispositivi](./media/storsimple-8000-service-dashboard/service-summary9.png)
 
-## Visualizzare i log attività
-<a id="view-the-activity-logs" class="xliff"></a>
+## <a name="view-the-activity-logs"></a>Visualizzare i log attività
 
 Per visualizzare le varie operazioni eseguite in Gestione dispositivi StorSimple, fare clic sul collegamento **Log attività** sul lato sinistro del pannello di riepilogo servizio StorSimple. Viene visualizzato il pannello **Log attività** in cui è possibile visualizzare un riepilogo delle operazioni recenti eseguite.
 
 ![Log attività](./media/storsimple-8000-service-dashboard/activity-logs1.png)
-## Passaggi successivi
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni su come [usare il servizio Gestione dispositivi StorSimple per amministrare un dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

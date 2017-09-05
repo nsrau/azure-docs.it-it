@@ -13,24 +13,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 1782c7e5f7cd710d6e17a26197f9fcc84c967902
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 8ff39e31d790b9d7040ec0398a42fb104890915f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Creare un server Azure Analysis Services nel portale di Azure
 Questo articolo illustra la creazione di una risorsa server Analysis Services nella sottoscrizione di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Per iniziare, è necessario:
+Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
 * **Sottoscrizione di Azure**: visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) per creare un account.
-* **Azure Active Directory**: la sottoscrizione deve essere associata a un tenant Azure Active Directory. Inoltre è necessario essere registrati ad Azure con un account nell'Azure Active Directory specifica. Gli account Microsoft non sono supportati. Per altre informazioni, vedere [Autenticazione utente](analysis-services-overview.md#secure).
+* **Azure Active Directory**: la sottoscrizione deve essere associata a un tenant Azure Active Directory. Inoltre è necessario essere registrati ad Azure con un account nell'Azure Active Directory specifica. Gli account Microsoft non sono supportati. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md).
 * **Gruppo di risorse**: usare un gruppo di risorse già esistente o [crearne uno nuovo](../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
@@ -39,8 +38,8 @@ Per iniziare, è necessario:
 > 
 
 ## <a name="to-create-a-server-in-azure-portal"></a>Per creare un server nel portale di Azure
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **+ Nuovo** > **Intelligence e analisi** > **Analysis Services**.
+1. Accedere al [portale di Azure](https://portal.azure.com).  
+2. Fare clic su **+ Nuovo** > **Dati e analisi** > **Analysis Services**.
 3. Nel pannello **Analysis Services** compilare i campi obbligatori e quindi fare clic su **Crea**.
    
     ![Creazione del server](./media/analysis-services-create-server/aas-create-server-blade.png)

@@ -12,10 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 9e09425b0143c1907d1af167782d1e4b1457d626
-ms.lasthandoff: 04/11/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
+ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
+ms.contentlocale: it-it
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -262,28 +263,28 @@ Per il campo **descrizione**, l'indice è il seguente:
 
 | Termine | Elenco di documenti |
 |------|---------------|
-| aria |    3
-| e |    4
+| aria | 3
+| e | 4
 | spiaggia | 1
-| condizionata |    3
-| comodo |    3
+| condizionata | 3
+| comodo | 3
 | distance | 1
 | isola | 2
 | kauaʻi | 2
-| posizionato |    2
+| posizionato | 2
 | nord | 2
 | oceano | 1, 2, 3
 | di | 2
 | in |2
 | tranquillo | 4
-| camere     | 1, 3
+| camere  | 1, 3
 | appartato | 4
-| costa    | 2
+| costa | 2
 | spazioso | 1
 | il | 1, 2
 | to | 1
 | view | 1, 2, 3
-| passeggiata |    1
+| passeggiata | 1
 | con | 3
 
 
@@ -385,6 +386,8 @@ In questo articolo è stata illustrata la ricerca full-text nel contesto di Rice
 + Informazioni su come applicare [analizzatori lessicali specifici della lingua](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurare gli analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzati per settori specifici.
+
++ [Fare un confronto affiancato degli analizzatori standard e in lingua inglese](http://alice.unearth.ai/) in questo sito Web demo. 
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -24,14 +24,12 @@ ms.contentlocale: it-it
 ms.lasthandoff: 03/02/2017
 
 ---
-<a id="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions" class="xliff"></a>
-# Impostare avvisi di fatturazione o di credito per le sottoscrizioni di Microsoft Azure
+# <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Impostare avvisi di fatturazione o di credito per le sottoscrizioni di Microsoft Azure
 Se si amministrano gli account per una sottoscrizione di Azure, è possibile usare Azure Billing Alert Service per creare avvisi di fatturazione personalizzati che consentono di monitorare e gestire l'attività di fatturazione per gli account Azure.
 
 Questo servizio è in anteprima, pertanto è necessario abilitarlo nella pagina relativa alle funzionalità di anteprima.
 
-<a id="set-the-alert-threshold-and-email-recipients" class="xliff"></a>
-## Impostare la soglia di avviso e i destinatari di posta elettronica
+## <a name="set-the-alert-threshold-and-email-recipients"></a>Impostare la soglia di avviso e i destinatari di posta elettronica
 1. Visitare la [pagina relativa alle funzionalità di anteprima](https://account.windowsazure.com/PreviewFeatures) e abilitare **Billing Alert Service**.
 
 1. Dopo aver ricevuto tramite posta elettronica la conferma dell'attivazione del servizio di fatturazione per la sottoscrizione, visitare la [pagina relativa alle sottoscrizioni](https://account.windowsazure.com/Subscriptions) nel portale degli account. Fare clic sulla sottoscrizione che si desidera monitorare, quindi selezionare **Avvisi**.
@@ -48,16 +46,13 @@ Questo servizio è in anteprima, pertanto è necessario abilitarlo nella pagina 
 
 Azure supporta qualsiasi indirizzo di posta elettronica ma non ne verifica il corretto funzionamento, pertanto è necessario accertarsi che non siano presenti errori di digitazione.
 
-<a id="check-on-your-alerts" class="xliff"></a>
-## Controllare gli avvisi
+## <a name="check-on-your-alerts"></a>Controllare gli avvisi
 Dopo aver impostato gli avvisi, nel centro account viene visualizzato un elenco degli avvisi già impostati ed è indicato il numero di avvisi aggiuntivi che è possibile ancora impostare. Per ogni avviso è possibile visualizzare la data e l'ora di invio, il tipo di avviso (per totale fattura o credito monetario) e il limite impostato. Il formato dell'ora è 24 ore UTC (Universal Time Coordinate) e il formato della data è aaaa-mm-gg. Fare clic sul segno più per modificare un avviso nell'elenco o sul simbolo del cestino per eliminarlo.
 
-<a id="billing-alerts-for-enterprise-agreement-ea-customers" class="xliff"></a>
-## Avvisi di fatturazione per i clienti con contratto Enterprise (EA, Enterprise Agreement)
+## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Avvisi di fatturazione per i clienti con contratto Enterprise (EA, Enterprise Agreement)
 Nell'ambito di una registrazione i clienti EA possono usufruire di avvisi per ogni reparto, impostando le quote di spesa. Per iniziare, vedere [Department Spending Quotas](https://ea.azure.com/helpdocs/departmentSpendingQuotas) (Quote di spesa per reparto) nel portale EA.
 
-<a id="learn-more-about-azure-cost-management" class="xliff"></a>
-## Altre informazioni sulla gestione dei costi in Azure
+## <a name="learn-more-about-azure-cost-management"></a>Altre informazioni sulla gestione dei costi in Azure
 - Stimare i costi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/), il [calcolatore del costo totale di proprietà](https://aka.ms/azure-tco-calculator) e quando si aggiunge un servizio.
 - [Verificare regolarmente uso e costi nel portale di Azure](billing-getting-started.md#costs).
 - Attivare i [consigli di Azure Advisor sui costi](../advisor/advisor-cost-recommendations.md).

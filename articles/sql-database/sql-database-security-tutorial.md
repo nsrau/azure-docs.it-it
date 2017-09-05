@@ -11,17 +11,16 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: mvc,security
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/28/2017
 ms.author: daredis
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: cb267625cb6ea279b4094b1cc4d456cfd7542cca
+ms.translationtype: HT
+ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
+ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 07/31/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteggere il database SQL di Azure
@@ -117,10 +116,6 @@ Questo consente di stabilire una connessione tramite Transport Layer Security (T
 3. Esaminare la stringa di connessione completa **ADO.NET**.
 
     ![Stringa di connessione ADO.NET](./media/sql-database-security-tutorial/adonet-connection-string.png)
-
-> [!TIP]
-> Per un esempio di creazione di un'applicazione .NET con il database SQL di Azure, vedere [Creare un'app ASP.NET in Azure con il database SQL](/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md).
->
 
 ## <a name="creating-database-users"></a>Creazione degli utenti del database
 

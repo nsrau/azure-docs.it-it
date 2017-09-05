@@ -1,6 +1,6 @@
 ---
-title: Informazioni sull&quot;accesso alle risorse in Azure | Microsoft Docs
-description: Questo argomento illustra i concetti relativi all&quot;uso di amministratori della sottoscrizione per controllare l&quot;accesso alle risorse nel portale di Azure completo.
+title: Informazioni sull'accesso alle risorse in Azure | Microsoft Docs
+description: Questo argomento illustra i concetti relativi all'uso di amministratori della sottoscrizione per controllare l'accesso alle risorse nel portale di Azure completo.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 07/24/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: d9143c1ec2075f71659e8deaadc93d1972ea9a85
+ms.custom: oldportal;it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: f1fda3c4192d0dae4fa60788f4d88fb72ddba4ad
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="understanding-resource-access-in-azure"></a>Informazioni sull'accesso alle risorse in Azure
-> [!NOTE]
-> Questo argomento illustra i concetti relativi all'uso di amministratori della sottoscrizione per controllare l'accesso alle risorse nel portale di Azure completo. In alternativa, il portale di anteprima di Azure fornisce la funzionalità di [controllo degli accessi in base al ruolo](role-based-access-control-configure.md) che permette di gestire le risorse di Azure con maggiore precisione.
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. Il portale di Azure fornisce la funzionalità di [controllo degli accessi in base al ruolo](role-based-access-control-configure.md), che consente di gestire le risorse di Azure con maggiore precisione.
 > 
 > 
 

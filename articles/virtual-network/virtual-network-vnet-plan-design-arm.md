@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: f40ceb542a0ee51e17ee539db4dbc91c11e056f2
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Pianificare e progettare reti virtuali di Azure
@@ -36,7 +35,7 @@ Prima di rispondere alle domande di pianificazione seguenti, tenere in considera
 * È possibile connettere tra di esse le reti virtuali tramite:
     * **[Reti virtuali con peering](virtual-network-peering-overview.md)**: le reti virtuali devono trovarsi nella stessa area di Azure. La larghezza di banda tra le risorse delle reti virtuali con peering rimane uguale a quella tra le risorse connesse alla stessa rete virtuale.
     * **Gateway VPN[ di Azure](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**: le reti virtuali possono trovarsi nella stessa area di Azure o in aree diverse. La larghezza di banda tra le risorse delle reti virtuali connesse tramite gateway VPN è limitata dalla larghezza di banda del gateway VPN.
-* È anche possibile collegare le reti virtuali alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) disponibili in Azure.
+* È anche possibile collegare le reti virtuali alla rete locale usando una delle [opzioni di connettività](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) disponibili in Azure.
 * È possibile raggruppare risorse diverse in [gruppi di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups), rendendo più semplice la gestione delle risorse come unità. Un gruppo di risorse può contenere risorse provenienti da più aree, purché le risorse appartengano alla stessa sottoscrizione.
 
 ### <a name="define-requirements"></a>Definire i requisiti
@@ -124,7 +123,7 @@ La tabella seguente illustra alcuni modelli di progettazione comuni per l'uso di
 
 * **Numero insufficiente di indirizzi IP privati per tutte le schede di interfaccia di rete in una subnet**. Se lo spazio degli indirizzi della subnet non contiene indirizzi IP sufficienti per il numero di schede di interfaccia di rete nella subnet, è necessario creare più subnet. Tenere presente che Azure riserva 5 indirizzi IP privati da ogni subnet che non possono essere usati: il primo e l'ultimo indirizzo dello spazio degli indirizzi (per l'indirizzo subnet e multicast) e 3 indirizzi da usare internamente (a scopi DHCP e DNS).
 * **Sicurezza**. È possibile usare subnet per separare gruppi di VM l'uno dall'altro per i carichi di lavoro con una struttura a più livelli e applicare diversi [gruppi di sicurezza di rete](virtual-networks-nsg.md#subnets) per queste subnet.
-* **Connettività ibrida**. È possibile usare gateway VPN e circuiti ExpressRoute per [connettere](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) le reti virtuali tra loro e ai data center locali. I gateway VPN e i circuiti ExpressRoute richiedono una propria subnet da creare.
+* **Connettività ibrida**. È possibile usare gateway VPN e circuiti ExpressRoute per [connettere](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) le reti virtuali tra loro e ai data center locali. I gateway VPN e i circuiti ExpressRoute richiedono una propria subnet da creare.
 * **Appliance virtuali**. È possibile usare un'appliance virtuale, ad esempio un firewall, un acceleratore WAN o un gateway VPN in una rete virtuale di Azure. In questo caso, è necessario [instradare il traffico](virtual-networks-udr-overview.md) a tali appliance e isolarle nella rispettiva subnet.
 
 ### <a name="subnet-and-nsg-design-patterns"></a>Modelli di progettazione di subnet e gruppi di sicurezza di rete
@@ -253,5 +252,5 @@ In base a tali requisiti, è possibile aggiungere utenti del team responsabile d
 * [Distribuire una rete virtuale](virtual-networks-create-vnet-arm-template-click.md) in base a uno scenario.
 * Comprendere come [bilanciare il carico](../load-balancer/load-balancer-overview.md) delle VM IaaS e [gestire il routing in più aree di Azure](../traffic-manager/traffic-manager-overview.md).
 * Altre informazioni sui [gruppi di sicurezza di rete e su come pianificare e progettare](virtual-networks-nsg.md) una soluzione per gruppi di sicurezza di rete.
-* Altre informazioni sulle [opzioni di connettività cross-premise e della rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel).
+* Altre informazioni sulle [opzioni di connettività cross-premise e della rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 6da663ea282e09b01ce380827fa7e31505712516
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: feee7a5c91d213a6b0bfdaf264a4da4d9e79cbe7
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Supporto SSH per App Web di Azure in Linux
@@ -56,7 +55,7 @@ Se non lo si è già fatto, è necessario eseguire l'autenticazione con la sotto
 
 Affinché un'immagine Docker personalizzata supporti la comunicazione SSH tra il contenitore e il client nel portale di Azure, eseguire la procedura seguente per l'immagine Docker. 
 
-Questa procedura viene mostrata nell'archivio del Servizio app di Azure come esempio [qui](https://github.com/Azure-App-Service/node/tree/master/4.4.7-1).
+Questa procedura viene mostrata nell'archivio del Servizio app di Azure come esempio [qui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
 1. Includere l'installazione `openssh-server` nell'[istruzione `RUN`](https://docs.docker.com/engine/reference/builder/#run) in Dockerfile per l'immagine e impostare la password per l'account radice su `"Docker!"`. 
 
@@ -90,7 +89,7 @@ Questa procedura viene mostrata nell'archivio del Servizio app di Azure come ese
     EXPOSE 2222 80
     ```
 
-4. Assicurarsi di avviare il servizio SSH. Nell'esempio [qui](https://github.com/Azure-App-Service/node/blob/master/6.9.3-1/init_container.sh) viene usato uno script della shell nella directory */bin*.
+4. Assicurarsi di avviare il servizio SSH. Nell'esempio [qui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) viene usato uno script della shell nella directory */bin*.
 
     ```bash
     #!/bin/bash
@@ -112,7 +111,6 @@ Questa procedura viene mostrata nell'archivio del Servizio app di Azure come ese
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su App Web in Linux, vedere i collegamenti seguenti. È possibile pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creazione di app in App Web di Azure in Linux](app-service-linux-how-to-create-web-app.md)
 * [Come usare un'immagine Docker personalizzata per App Web di Azure in Linux](app-service-linux-using-custom-docker-image.md)
 * [Uso della configurazione PM2 per Node.js in App Web su Linux](app-service-linux-using-nodejs-pm2.md)
 * [Uso di .NET Core in App Web di Azure in Linux](app-service-linux-using-dotnetcore.md)

@@ -1,10 +1,10 @@
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
-| VM per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area |10.000 per area |
+| VM per [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |10.000<sup>1</sup> per area |10.000 per area |
 | Numero totale di core della VM per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area | Contattare il supporto tecnico |
 | Core di VM per ogni serie (Dv2, F e così via) per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area | Contattare il supporto tecnico |
 | [Coamministratori](../articles/billing-add-change-azure-subscription-administrator.md) per sottoscrizione |Senza limiti |Senza limiti |
-| [Account di archiviazione](../articles/storage/storage-create-storage-account.md) per sottoscrizione |200 |200<sup>2</sup> |
+| [Account di archiviazione](../articles/storage/common/storage-create-storage-account.md) per sottoscrizione |200 |200<sup>2</sup> |
 | [Gruppi di risorse](../articles/azure-resource-manager/resource-group-overview.md) per sottoscrizione |800 |800 |
 | [Set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per sottoscrizione |2.000 per area |2.000 per area |
 | Letture API Gestione risorse |15.000 all'ora |15.000 all'ora |

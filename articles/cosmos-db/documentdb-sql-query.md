@@ -1,5 +1,5 @@
 ---
-title: Query SQL per l&quot;API di DocumentDB di Azure Cosmos DB | Microsoft Docs
+title: Query SQL per l'API di DocumentDB di Azure Cosmos DB | Microsoft Docs
 description: "Informazioni sulla sintassi SQL, sui concetti relativi ai database e sulle query SQL per Cosmos DB. SQL può essere usato come linguaggio di query JSON in Cosmos DB."
 keywords: sintassi sql, query sql, linguaggio di query json, concetti relativi ai database e query sql, funzioni di aggregazione
 services: cosmos-db
@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2017
+ms.date: 07/25/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 1241b6d97447fe6ee2a8abfb425b8b5f7d0f8a9c
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 862594bcbd6df8a2c62a12340ceb8096fb6bd691
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>Query SQL per l'API di DocumentDB di Azure Cosmos DB
@@ -39,10 +38,10 @@ Si consiglia di iniziare guardando il video seguente, in cui Aravind Ramachandra
 > 
 > 
 
-Tornare quindi a questo articolo, dove inizierà un’esercitazione sulle query SQL in cui verranno illustrati alcuni semplici documenti JSON e comandi SQL.
+Tornare quindi a questo articolo, dove inizia un'esercitazione sulle query SQL in cui verranno illustrati alcuni semplici documenti JSON e comandi SQL.
 
 ## <a id="GettingStarted"></a>Guida introduttiva ai comandi SQL in Cosmos DB
-Per osservare il funzionamento del linguaggio SQL di Cosmos DB, si inizierà con alcuni semplici documenti JSON e si procederà eseguendo alcune semplici query su tali documenti. Considerare questi due documenti JSON come se riguardassero due famiglie. Da notare che, con Cosmos DB, non è necessario creare schemi o indici secondari in maniera esplicita. È sufficiente inserire i documenti JSON in una raccolta di Cosmos DB e successivamente eseguire una query. In questo caso è illustrato un semplice documento JSON relativo alla famiglia Andersen: i genitori, i figli (e i loro animali domestici), l'indirizzo e le informazioni di registrazione. Il documento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate. 
+Per osservare il funzionamento del linguaggio SQL di Cosmos DB, si inizierà con alcuni semplici documenti JSON e si procederà eseguendo alcune semplici query su tali documenti. Considerare questi due documenti JSON come se riguardassero due famiglie. Con Cosmos DB, non è necessario creare schemi o indici secondari in maniera esplicita. È sufficiente inserire i documenti JSON in una raccolta di Cosmos DB e successivamente eseguire una query. In questo caso è illustrato un semplice documento JSON relativo alla famiglia Andersen: i genitori, i figli (e i loro animali domestici), l'indirizzo e le informazioni di registrazione. Il documento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate. 
 
 **Documento**  
 
@@ -170,11 +169,11 @@ La query successiva restituisce i nomi di elementi figlio specificati nella fami
 
 * Poiché l'API SQL di DocumentDB elabora i valori JSON, deve gestire entità con struttura ad albero invece di righe e colonne. Di conseguenza, il linguaggio consente di fare riferimento ai nodi dell'albero a qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3…..Nodem`, in modo analogo al linguaggio SQL relazionale con il riferimento in due parti di `<table>.<column>`.   
 * Il linguaggio strutturato di interrogazione funziona con dati senza schema. perciò il sistema di tipi deve essere associato in modo dinamico. La stessa espressione potrebbe produrre tipi differenti su documenti differenti. Il risultato di una query è un valore JSON valido, ma non è garantito che appartenga a uno schema fisso.  
-* Cosmos DB supporta solo i documenti JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON](http://www.json.org/) .  
+* Cosmos DB supporta solo i documenti JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altri dettagli, vedere le [specifiche JSON](http://www.json.org/).  
 * Una raccolta di Cosmos DB è un contenitore senza schema dei documenti JSON. Le relazioni nelle entità di dati all'interno e tra i documenti in una raccolta vengono implicitamente acquisiti dal contenitore e non dalle relazioni chiave primaria e chiave esterna. È un aspetto importante da sottolineare alla luce dei join tra documenti, descritti più avanti in questo articolo.
 
 ## <a id="Indexing"></a> Indicizzatore di Cosmos DB
-Prima di addentrarsi nella sintassi dell'API SQL di DocumentDB, vale la pena esplorare la progettazione dell'indicizzazione dell'API di Cosmos DB. 
+Prima di addentrarsi nella sintassi dell'API SQL di DocumentDB, vale la pena esplorare la progettazione dell'indicizzazione di Cosmos DB. 
 
 Lo scopo degli indici di database è gestire le query in varie forme con un consumo di risorse ridotto al minimo (ad esempio CPU, input/output), offrendo al contempo una buona velocità effettiva e basse latenze. Spesso, la scelta dell'indice corretto per l'interrogazione di un database richiede una lunga pianificazione e sperimentazione. Questo approccio costituisce una sfida per i database senza schema, in cui i dati non si conformano a un rigido schema ed evolvono rapidamente. 
 
@@ -203,11 +202,11 @@ La clausola `FROM <from_specification>` è facoltativa, a meno che l'origine non
 Una query come `SELECT * FROM Families` indica che l'intera raccolta Families è il database di origine in base al quale eseguire l'enumerazione. Invece di usare il nome della raccolta, è possibile usare uno speciale identificatore ROOT per rappresentare la raccolta. L'elenco seguente include le regole applicate per ogni query:
 
 * È possibile effettuare l'aliasing della raccolta, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Qui `f` è l'equivalente di `Families`. `AS` è una parola chiave facoltativa per eseguire l'aliasing dell'identificatore.
-* Tenere presente che, una volta effettuato l'aliasing, non sarà più possibile associare l'origine iniziale. Ad esempio, la sintassi di `SELECT Families.id FROM Families f` non è valida perché non è più possibile risolvere l'identificatore "Families".
+* Una volta eseguito l'aliasing, non sarà più possibile associare l'origine iniziale. Ad esempio, la sintassi di `SELECT Families.id FROM Families f` non è valida perché non è più possibile risolvere l'identificatore "Families".
 * Tutte le proprietà a cui è necessario fare riferimento devono essere complete. In assenza di una rigorosa aderenza allo schema, ciò viene applicato per evitare eventuali associazioni ambigue. Di conseguenza, la sintassi di `SELECT id FROM Families f` non è valida perché la proprietà `id` non è associata.
 
-### <a name="sub-documents"></a>Documenti secondari
-È anche possibile ridurre il database di origine a un sottoinsieme di dimensioni inferiori. Ad esempio, per enumerare un solo sottoalbero in ogni documento, la sottoradice può quindi diventare l'origine, come nell'esempio seguente.
+### <a name="subdocuments"></a>Documenti secondari
+È anche possibile ridurre il database di origine a un sottoinsieme di dimensioni inferiori. Ad esempio, per enumerare un solo sottoalbero in ogni documento, la sottoradice può quindi diventare l'origine, come nell'esempio seguente:
 
 **Query**
 
@@ -245,7 +244,7 @@ Una query come `SELECT * FROM Families` indica che l'intera raccolta Families è
       ]
     ]
 
-Se nell'esempio precedente veniva usata una matrice come origine, è possibile usare anche un oggetto come origine, come illustrato nell'esempio seguente. Qualsiasi valore JSON valido (diverso da Undefined) che è disponibile nell'origine verrà considerato per essere incluso nel risultato della query. Se alcune famiglie non hanno un valore `address.state` verranno escluse dal risultato della query.
+Mentre nell'esempio precedente viene usata una matrice come origine, si potrebbe usare anche un oggetto come origine, che è quanto mostrato nell'esempio seguente: qualsiasi valore JSON valido (non indefinito) che può essere trovato nell'origine viene considerato per l'inclusione nel risultato della query. Se alcune famiglie non hanno un valore `address.state` vengono escluse dal risultato della query.
 
 **Query**
 
@@ -584,7 +583,7 @@ L'operatore Ternary (?) può essere molto comodo quando si costruiscono rapidame
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-Come con altri operatori di query, se le proprietà cui viene fatto riferimento nell'espressione condizionale non sono presenti in alcun documento o se i tipi confrontati sono diversi, tali documenti verranno esclusi dai risultati della query.
+Come con altri operatori di query, se le proprietà cui viene fatto riferimento nell'espressione condizionale non sono presenti in alcun documento o se i tipi confrontati sono diversi, tali documenti vengono esclusi dai risultati della query.
 
 L'operatore Coalesce (??) può essere usato per verificare se una proprietà è presente (definita) in un documento. Questo risulta utile per le query su dati semistrutturati o di tipo misto Ad esempio, questa query restituisce il valore "lastName" se è presente oppure il valore "surname" se non è presente.
 
@@ -600,7 +599,7 @@ L'operatore Coalesce (??) può essere usato per verificare se una proprietà è 
 
 
 ## <a id="SelectClause"></a>Clausola SELECT
-La clausola SELECT (**`SELECT <select_list>`**) è obbligatoria e specifica quali valori saranno recuperati dalla query, proprio come in ANSI-SQL. Il sottoinsieme filtrato dai documenti di origine viene passato alla fase di proiezione, in cui vengono recuperati i valori JSON specificati viene costruito un nuovo oggetto JSON, per ogni input passato ad esso. 
+La clausola SELECT (**`SELECT <select_list>`**) è obbligatoria e specifica quali valori vengono recuperati dalla query, proprio come in ANSI-SQL. Il sottoinsieme filtrato dai documenti di origine viene passato alla fase di proiezione, in cui vengono recuperati i valori JSON specificati viene costruito un nuovo oggetto JSON, per ogni input passato ad esso. 
 
 L'esempio seguente illustra una tipica query SELECT. 
 
@@ -638,7 +637,7 @@ Nell'esempio seguente vengono proiettate due proprietà annidate `f.address.stat
     }]
 
 
-La proiezione supporta anche le espressioni JSON, come illustrato nell'esempio seguente.
+La proiezione supporta anche le espressioni JSON, come illustrato nell'esempio seguente:
 
 **Query**
 
@@ -680,7 +679,7 @@ Verrà ora esaminato il ruolo di `$1` . La clausola `SELECT` deve creare un ogge
 
 
 ### <a name="aliasing"></a>Aliasing
-L'esempio precedente verrà ora esteso con l'aliasing esplicito dei valori. AS è la parola chiave usata per l'aliasing. Si noti che è facoltativo, come è possibile vedere durante la proiezione del secondo valore come `NameInfo`. 
+L'esempio precedente verrà ora esteso con l'aliasing esplicito dei valori. AS è la parola chiave usata per l'aliasing. È facoltativo, come è possibile vedere durante la proiezione del secondo valore come `NameInfo`. 
 
 Nel caso in cui una query avesse due proprietà con lo stesso nome, è necessario usare l'aliasing per rinominare una o entrambe le proprietà, in modo da evitare ambiguità nel risultato proiettato.
 
@@ -752,7 +751,7 @@ Nell'esempio seguente, il risultato dell'espressione scalare è un valore boolea
 
 
 ### <a name="object-and-array-creation"></a>Creazione di oggetti e matrici
-Un'altra funzione fondamentale dell'API SQL di DocumentDB è la creazione di matrici/oggetti. Nell'esempio precedente si è osservato che è stato creato un nuovo oggetto JSON. In modo analogo, è possibile creare matrici, come illustrato negli esempi seguenti.
+Un'altra funzione fondamentale dell'API SQL di DocumentDB è la creazione di matrici/oggetti. Nell'esempio precedente si è osservato che è stato creato un nuovo oggetto JSON. In modo analogo, è possibile creare matrici, come illustrato negli esempi seguenti:
 
 **Query**
 
@@ -921,11 +920,9 @@ La parola chiave TOP può essere usata per limitare il numero di valori restitui
 
 **Risultati**
 
-    [{
-        "$1": 1
-    }]
+    [ 1 ]
 
-Le tabelle seguenti mostrano l'elenco delle funzioni di aggregazione supportate nell'API di DocumentDB. `SUM`e `AVG` vengono eseguite su valori numerici, mentre `COUNT`, `MIN` e `MAX` possono essere eseguite su numeri, stringhe, valori booleani e valori null. 
+La tabella seguente mostra l'elenco delle funzioni di aggregazione supportate nell'API di DocumentDB. `SUM`e `AVG` vengono eseguite su valori numerici, mentre `COUNT`, `MIN` e `MAX` possono essere eseguite su numeri, stringhe, valori booleani e valori null. 
 
 | Utilizzo | Descrizione |
 |-------|-------------|
@@ -935,7 +932,7 @@ Le tabelle seguenti mostrano l'elenco delle funzioni di aggregazione supportate 
 | MAX   | Restituisce il valore massimo nell'espressione. |
 | MEDIA   | Restituisce la media dei valori nell'espressione. |
 
-Le aggregazioni possono essere eseguite anche sui risultati di un'iterazione della matrice. Per informazioni dettagliate, vedere [Array Iteration in Queries](#Iteration) (Iterazione della matrice nelle query).
+Le aggregazioni possono essere eseguite anche sui risultati di un'iterazione della matrice. Per altre informazioni, vedere [Array Iteration in Queries](#Iteration) (Iterazione della matrice nelle query).
 
 > [!NOTE]
 > Tenere presente che quando si usa Esplora Query del portale di Azure, le query di aggregazione possono restituire risultati parzialmente aggregati su una pagina di query. L'SDK genera un singolo valore cumulativo in tutte le pagine. 
@@ -1055,7 +1052,7 @@ Esaminare ora un'altra query che esegue l'iterazione sui figli nella raccolta. N
       }
     ]
 
-Può essere usato per filtrare ulteriormente ciascuna voce individuale della matrice, come illustrato nell'esempio seguente.
+Può essere usato per filtrare ulteriormente ciascuna voce individuale della matrice, come illustrato nell'esempio seguente:
 
 **Query**
 
@@ -1085,7 +1082,7 @@ Può essere usato per filtrare ulteriormente ciascuna voce individuale della mat
     ]
 
 ### <a id="Joins"></a>Join
-In un database relazionale, la necessità creare un join tra tabelle è molto importante. È il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API di DocumentDB gestisce un modello dati denormalizzato di documenti senza schema. È l'equivalente logico di un "self-join".
+In un database relazionale, la necessità creare un join tra tabelle è importante. È il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API di DocumentDB gestisce un modello dati denormalizzato di documenti senza schema. È l'equivalente logico di un "self-join".
 
 La sintassi supportata dal linguaggio è <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. In generale, restituisce un set di tuple **N** (tupla con valori **N**). Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias della raccolta sui rispettivi set. In altri termini, si tratta del prodotto incrociato completo dei set che partecipano al join.
 
@@ -1103,7 +1100,7 @@ Gli esempi seguenti illustrano il funzionamento della clausola JOIN. Nell'esempi
     }]
 
 
-Nell'esempio seguente il join avviene tra la radice del documento e la sottoradice di `children` . È un prodotto incrociato tra due oggetti JSON. Il fatto che i figli siano una matrice non è effettivo nel JOIN in quanto in questo esempio si ha a che fare con una singola radice che è anche la matrice dei figli. Di conseguenza, il risultato contiene solo due risultati, perché il prodotto incrociato di ogni documento con la matrice produce esattamente un solo documento.
+Nell'esempio seguente il join avviene tra la radice del documento e la sottoradice di `children`. È un prodotto incrociato tra due oggetti JSON. Il fatto che i figli siano una matrice non è effettivo nel JOIN in quanto in questo esempio si ha a che fare con una singola radice che è anche la matrice dei figli. Di conseguenza, il risultato contiene solo due risultati, perché il prodotto incrociato di ogni documento con la matrice produce esattamente un solo documento.
 
 **Query**
 
@@ -1153,9 +1150,9 @@ Per prima cosa occorre notare che il valore `from_source` della clausola **JOIN*
 * Applicare un prodotto incrociato con la radice del documento **f** con ogni elemento figlio **c** che è stato convertito nel primo passaggio.
 * Infine, proiettare solo la proprietà nome **f** dell'oggetto radice. 
 
-Il primo documento (`AndersenFamily`) contiene solo un elemento figlio, quindi il set di risultati contiene un singolo oggetto corrispondente a questo documento. Il secondo documento (`WakefieldFamily`) contiene due elementi figlio. Quindi, il prodotto incrociato genera un oggetto separato per ogni figli, dando come risultato due oggetti, uno per ogni figlio corrispondente a questo documento. Da notare che i campi radice in entrambi i documenti saranno uguali, proprio come ci si aspetterebbe in un prodotto incrociato.
+Il primo documento (`AndersenFamily`) contiene solo un elemento figlio, quindi il set di risultati contiene un singolo oggetto corrispondente a questo documento. Il secondo documento (`WakefieldFamily`) contiene due elementi figlio. Quindi, il prodotto incrociato genera un oggetto separato per ogni figli, dando come risultato due oggetti, uno per ogni figlio corrispondente a questo documento. I campi radice in entrambi i documenti sono uguali, proprio come ci si aspetterebbe in un prodotto incrociato.
 
-La vera utilità del JOIN consiste nel formare tuple dal prodotto incrociato in una forma che altrimenti sarebbe difficile proiettare. Inoltre, come illustrato nell'esempio seguente, è possibile filtrare la combinazione di una tupla che consenta all'utente di scegliere una condizione soddisfatta dall'insieme delle tuple.
+La vera utilità del JOIN consiste nel formare tuple dal prodotto incrociato in una forma che altrimenti sarebbe difficile proiettare. Come illustrato nell'esempio seguente, è possibile filtrare la combinazione di una tupla che consenta all'utente di scegliere una condizione soddisfatta dall'insieme delle tuple.
 
 **Query**
 
@@ -1190,7 +1187,7 @@ La vera utilità del JOIN consiste nel formare tuple dal prodotto incrociato in 
 
 
 
-Questo esempio è un'estensione naturale del precedente e illustra l'esecuzione di un doppio join. Il prodotto incrociato può quindi essere visualizzato come lo pseudo-codice seguente.
+Questo esempio è un'estensione naturale del precedente e illustra l'esecuzione di un doppio join. Il prodotto incrociato può quindi essere visualizzato come lo pseudo-codice seguente:
 
     for-each(Family f in Families)
     {    
@@ -1206,7 +1203,7 @@ Questo esempio è un'estensione naturale del precedente e illustra l'esecuzione 
         }
     }
 
-`AndersenFamily` ha un figlio che ha un animale domestico. Il prodotto incrociato genera dunque una riga (1*1*1) da questa famiglia. Tuttavia, la famiglia WakefieldFamily ha due figli, ma un solo figlio, "Jesse", ha animali domestici. Jesse ha 2 animali domestici, il prodotto incrociato genera dunque 1*1*2 = 2 righe da questa famiglia.
+`AndersenFamily` ha un figlio che ha un animale domestico. Il prodotto incrociato genera dunque una riga (1\*1\*1) da questa famiglia. Tuttavia, la famiglia WakefieldFamily ha due figli, ma un solo figlio, "Jesse", ha animali domestici. Jesse ha però due animali domestici. il prodotto incrociato genera dunque 1\*1\*2 = 2 righe da questa famiglia.
 
 Nell'esempio successivo è presente un filtro aggiuntivo su `pet`. In tal modo vengono escluse tutte le tuple laddove il nome dell'animale non è "Shadow". Notare che è possibile creare tuple da matrici, filtrare in base a uno qualsiasi degli elementi della tupla e proiettare qualsiasi combinazione degli elementi. 
 
@@ -1283,7 +1280,7 @@ Nell'esempio precedente è stata creata una UDF, denominata `REGEX_MATCH`. Accet
       }
     ]
 
-È anche possibile usare l'UDF all'interno di un filtro, come mostrato nell'esempio seguente, anch'esso qualificato con il prefisso "udf.":
+È anche possibile usare l'UDF all'interno di un filtro, come mostrato nell'esempio seguente, anch'esso qualificato con il prefisso:
 
 **Query**
 
@@ -1354,7 +1351,7 @@ Riepilogando, le UDF sono un ottimo strumento per eseguire una logica di busines
 ### <a name="operator-evaluation"></a>Valutazione degli operatori
 Essendo un database JSON, Cosmos DB esegue un confronto con gli operatori JavaScript e la relativa semantica di valutazione. Benché Cosmos DB provi a mantenere la semantica di JavaScript in termini di supporto JSON, la valutazione dell'operazione devia in alcune istanze.
 
-A differenza del tradizionale linguaggio SQL, nell'API SQL di DocumentDB spesso i tipi di valori non sono noti fino al loro effettivo recupero dal database. Per poter eseguire le query in maniera efficiente, gran parte degli operatori ha rigorosi requisiti di tipi. 
+A differenza del tradizionale linguaggio SQL, nell'API SQL di DocumentDB spesso i tipi di valori non sono noti fino al loro recupero dal database. Per poter eseguire le query in maniera efficiente, gran parte degli operatori ha rigorosi requisiti di tipi. 
 
 L'API SQL di DocumentDB non esegue conversioni implicite, a differenza di JavaScript. Ad esempio, una query come `SELECT * FROM Person p WHERE p.Age = 21` corrisponde a documenti che contengono una proprietà Age il cui valore è 21. Qualsiasi altro documento la cui proprietà Age corrisponde alla stringa "21", o ad altre possibili variazioni come "021", "21.0", "0021", "00021" e così via, non verrà trovato. Questo comportamento è diverso da quanto avviene in JavaScript, che consente di eseguire implicitamente il cast dei valori di stringa al numero (in base all'operatore, ad esempio: ==). Questa scelta è fondamentale per la ricerca di indici corrispondenti nell'API SQL di DocumentDB. 
 
@@ -1402,7 +1399,7 @@ Cosmos DB supporta anche una serie di funzioni predefinite per le operazioni com
 Se attualmente si usa una funzione definita dall'utente (UDF) per cui è ora disponibile una funzione predefinita, è consigliabile usare la corrispondente funzione predefinita perché la sua esecuzione sarà più rapida ed efficiente. 
 
 ### <a name="mathematical-functions"></a>Funzioni matematiche
-Le funzioni matematiche eseguono un calcolo basato in genere su valori di input passati come argomenti e restituiscono un valore numerico. Di seguito è riportata una tabella delle funzioni matematiche predefinite supportate.
+Le funzioni matematiche eseguono un calcolo basato su valori di input passati come argomenti e restituiscono un valore numerico. Di seguito è riportata una tabella delle funzioni matematiche predefinite supportate.
 
 
 | Uso | Descrizione |
@@ -1515,7 +1512,7 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di i
 | [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Restituisce un'espressione stringa dopo la conversione di dati in caratteri maiuscoli in caratteri minuscoli. |
 | [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Restituisce un'espressione stringa dopo aver convertito i caratteri minuscoli in caratteri maiuscoli. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Sostituisce tutte le occorrenze di un valore stringa specificato con un altro valore stringa. |
-| [REPLICATE (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate) |Ripete un valore stringa in un numero di volte specificato. |
+| [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |Ripete un valore stringa in un numero di volte specificato. |
 | [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Restituisce l'inverso di un valore stringa. |
 
 Usando queste funzioni, è ora possibile eseguire query come le seguenti. Ad esempio, è possibile restituire il nome della famiglia in lettere maiuscole come segue:
@@ -1573,7 +1570,7 @@ Le funzioni scalari seguenti eseguono un'operazione su un valore di input di mat
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Restituisce il numero di elementi dell'espressione di matrice specificato. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Restituisce una matrice che rappresenta il risultato della concatenazione di due o più valori della matrice. |
-| [ARRAY_CONTAINS (arr_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Restituisce un valore booleano che indica se la matrice contiene il valore specificato. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Restituisce un valore booleano che indica se la matrice contiene il valore specificato. Può specificare se la corrispondenza è completa o parziale. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Restituisce parte di un'espressione di matrice. |
 
 Le funzioni di matrice possono essere usate per manipolare le matrici in JSON. Ad esempio, la query seguente restituisce tutti i documenti in cui uno dei genitori è "Robin Wakefield". 
@@ -1589,6 +1586,21 @@ Le funzioni di matrice possono essere usate per manipolare le matrici in JSON. A
     [{
       "id": "WakefieldFamily"
     }]
+
+È possibile specificare un frammento parziale per la corrispondenza di elementi all'interno della matrice. La query seguente trova tutti gli elementi padre con `givenName` di `Robin`.
+
+**Query**
+
+    SELECT Families.id 
+    FROM Families 
+    WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+
+**Risultati**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
 
 L'esempio seguente usa ARRAY_LENGTH per ottenere il numero di figli per ogni famiglia.
 
@@ -1662,7 +1674,7 @@ L'immagine seguente illustra l'architettura di supporto delle query LINQ usando 
 ![Architettura di supporto delle query LINQ usando API DocumentDB - Sintassi SQL, linguaggio di query JSON, concetti relativi ai database e query SQL][1]
 
 ### <a name="net-and-json-mapping"></a>Mapping .NET e JSON
-Il mapping tra oggetti .NET e documenti JSON avviene naturalmente: ogni campo del membro dati viene mappato a un oggetto JSON, in cui il nome del campo viene mappato alla parte "chiave" dell'oggetto e la parte "valore" viene mappata in modo ricorsivo alla parte del valore dell'oggetto. Si consideri l'esempio seguente. L'oggetto Family creato viene mappato al documento JSON, come illustrato di seguito. Viceversa, il documento JSON viene mappato nuovamente a un oggetto .NET.
+Il mapping tra oggetti .NET e documenti JSON avviene naturalmente: ogni campo del membro dati viene mappato a un oggetto JSON, in cui il nome del campo viene mappato alla parte "chiave" dell'oggetto e la parte "valore" viene mappata in modo ricorsivo alla parte del valore dell'oggetto. Si consideri l'esempio seguente: l'oggetto Family creato viene mappato al documento JSON, come illustrato di seguito. Viceversa, il documento JSON viene mappato nuovamente a un oggetto .NET.
 
 **Classe C#**
 
@@ -1760,7 +1772,7 @@ In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JS
      mother.familyName == "Smith";    child.givenName == s; //s è una variabile di stringa
 * Espressione di creazione oggetto/matrice: restituisce un oggetto di tipo valore composito o tipo anonimo o ancora un matrice di tali oggetti. Questi valori non possono essere annidati.
   
-     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //un tipo anonimo con 2 campi              
+     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //un tipo anonimo con due campi              
      new int[] { 3, child.grade, 5 };
 
 ### <a id="SupportedLinqOperators"></a>Elenco di operatori LINQ supportati
@@ -1972,7 +1984,7 @@ In una query annidata, la query più interna viene applicata a ogni elemento del
 
 
 ## <a id="ExecutingSqlQueries"></a>Esecuzione di query SQL
-Cosmos DB espone risorse tramite un'API REST che può essere chiamata da qualsiasi linguaggio in grado di effettuare richieste HTTP/HTTPS. In Cosmos DB sono inoltre disponibili librerie di programmazione per diversi linguaggi comuni, come NET, Node.js, JavaScript e Python. L'API REST e le varie librerie supportano tutte l'esecuzione di query tramite SQL. .NET SDK supporta l'esecuzione di query LINQ oltre a SQL.
+Cosmos DB espone risorse tramite un'API REST che può essere chiamata da qualsiasi linguaggio in grado di effettuare richieste HTTP/HTTPS. In Cosmos DB sono anche disponibili librerie di programmazione per diversi linguaggi comuni, come NET, Node.js, JavaScript e Python. L'API REST e le varie librerie supportano tutte l'esecuzione di query tramite SQL. .NET SDK supporta l'esecuzione di query LINQ oltre a SQL.
 
 Negli esempi seguenti viene illustrato come creare una query e inviarla a fronte di un account di database di Cosmos DB.
 
@@ -2105,9 +2117,11 @@ Il secondo esempio mostra una query più complessa che restituisce più risultat
 
 Se il numero di risultati di una query supera le dimensioni di una singola pagina, l'API REST restituisce un token di continuazione attraverso l'intestazione di risposta `x-ms-continuation-token` . I client possono impaginare i risultati includendo l'intestazione nei risultati successivi. È possibile controllare il numero di risultati per pagina anche attraverso l'intestazione di numero `x-ms-max-item-count` . Se la query specificata include una funzione di aggregazione come `COUNT`, la pagina di query può restituire un valore parzialmente aggregato nella pagina dei risultati. I client devono eseguire un'aggregazione di secondo livello su questi risultati per ottenere i risultati finali, ad esempio sommare i conteggi restituiti nelle singole pagine per ottenere il conteggio totale.
 
-Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. Notare che i criteri di indicizzazione della raccolta sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per le raccolte l'indice è sempre aggiornato con il contenuto del documento e i risultati della query corrisponderanno alla coerenza scelta per i dati. Se i criteri di indicizzazione vengono ridotti alla modalità differita, le query possono restituire risultati obsoleti. Per altre informazioni, vedere [Livelli di coerenza in Cosmos DB][consistency-levels].
+Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x-ms-consistency-level` come tutte le richieste dell'API REST. Ai fini della coerenza della sessione, è necessario anche ripetere l'ultima intestazione cookie `x-ms-session-token` nella richiesta di query. I criteri di indicizzazione della raccolta sulla quale è stata eseguita la query possono influenzare anche la coerenza dei risultati della query. Con le impostazioni predefinite dei criteri di indicizzazione, per le raccolte l'indice è sempre aggiornato con il contenuto del documento e i risultati della query corrispondono alla coerenza scelta per i dati. Se i criteri di indicizzazione vengono ridotti alla modalità differita, le query possono restituire risultati obsoleti. Per altre informazioni, vedere [Livelli di coerenza di Azure Cosmos DB][consistency-levels].
 
 Se i criteri di indicizzazione configurati sulla raccolta non possono supportare la query specificata, il server di Azure Cosmos DB restituisce il codice di errore 400 (Richiesta non valida). Questo codice viene restituito per le query di intervallo per ricerche hash (uguaglianza) e per i percorsi esplicitamente esclusi dall'indicizzazione. È possibile specificare l'intestazione `x-ms-documentdb-query-enable-scan` per consentire alla query di eseguire una scansione quando non è disponibile un indice.
+
+È possibile ottenere metriche dettagliate sull'esecuzione di query impostando l'intestazione `x-ms-documentdb-populatequerymetrics` su `True`. Per altre informazioni, vedere [metriche di query SQL per l'API Azure Cosmos DB DocumentDB](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 .NET SDK supporta l'esecuzione di query LINQ ed SQL. Nell'esempio seguente viene illustrato come eseguire la semplice query di filtro introdotta in precedenza in questo documento.
@@ -2200,14 +2214,10 @@ Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine de
 
 Per altri esempi contenenti query, vedere gli [esempi relativi a .NET in Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net). 
 
-> [!NOTE]
-> Per eseguire query di aggregazione, è necessario SDK 1.12.0 o versione successiva. Il supporto LINQ per le funzioni di aggregazione non è al momento supportato ma sarà disponibile nell'SDK per .NET 1.13.0.
->
-
 ### <a id="JavaScriptServerSideApi"></a>API lato server JavaScript
 Cosmos DB offre un modello di programmazione per l'esecuzione di logica dell'applicazione basata su JavaScript direttamente nelle raccolte usando stored procedure e trigger. La logica JavaScript registrata a livello di raccolta può quindi rilasciare operazioni sui documenti della raccolta specifica. Viene quindi eseguito il wrapping di queste operazioni nelle transazioni ACID Ambient.
 
-L'esempio seguente illustra come usare queryDocuments nell'API del server JavaScript per eseguire query dall'interno di stored procedure e trigger.
+L'esempio seguente mostra come usare queryDocuments nell'API del server JavaScript per eseguire query dall'interno di stored procedure e trigger.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -2257,4 +2267,3 @@ L'esempio seguente illustra come usare queryDocuments nell'API del server JavaSc
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
-

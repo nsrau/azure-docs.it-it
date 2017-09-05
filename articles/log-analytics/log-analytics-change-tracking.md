@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 7e0fa9a83c3c83145a4813422bf73a0e711d0ecc
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche
@@ -28,13 +28,13 @@ ms.lasthandoff: 07/06/2017
 
 Questo articolo spiega come usare la soluzione di rilevamento delle modifiche in Log Analytics per identificare facilmente le modifiche nell'ambiente. La soluzione rileva le modifiche apportate al software Windows e Linux, ai file e alle chiavi del Registro di Sistema di Windows, ai servizi di Windows e ai daemon Linux. Rilevando le modifiche alla configurazione è possibile localizzare eventuali problemi operativi.
 
-La soluzione viene installata per aggiornare il tipo di agente che è stato installato. La soluzione legge le modifiche al software installato, ai servizi Windows e ai daemon Linux nei server monitorati e invia i dati al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+La soluzione viene installata per aggiornare il tipo di agente che è stato installato. Vengono lette le modifiche al software installato, ai servizi di Windows e ai daemon di Linux sui server monitorati. Quindi, i dati vengono inviati al servizio di Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
 
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
 * È necessario avere un agente [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) o [Linux](log-analytics-linux-agents.md) su ogni computer in cui si vuole monitorare le modifiche.
-* Aggiungere la soluzione Rilevamento modifiche all'area di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
+* Aggiungere la soluzione di Rilevamento modifiche all'area di lavoro OMS dal [Marketplace di Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). In alternativa, è possibile aggiungere la soluzione usando le informazioni in [Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro](log-analytics-add-solutions.md). Non è necessaria una configurazione aggiuntiva.
 
 ### <a name="configure-linux-files-to-track"></a>Configurare i file di Linux da rilevare
 Seguire questa procedura per configurare i file da rilevare in computer Linux.
@@ -43,7 +43,7 @@ Seguire questa procedura per configurare i file da rilevare in computer Linux.
 2. Nella pagina **Impostazioni** fare clic su **Dati** e quindi su **Rilevamento file di Linux**.
 3. In Rilevamento modifiche file di Linux digitare l'intero percorso, includendo il nome del file che si vuole rilevare, e quindi fare clic sul simbolo **Aggiungi**. Ad esempio: "/etc/*.conf"
 4. Fare clic su **Salva**.  
-  
+
 > [!NOTE]
 > Il rilevamento dei file di Linux contiene funzionalità aggiuntive, tra cui il rilevamento di directory, la ricorsione tramite directory e il rilevamento di caratteri jolly.
 
@@ -72,16 +72,16 @@ Seguire questa procedura per configurare le chiavi del Registro di Sistema da ri
 2. **Collegamenti** (Gestione dei riferimenti dei collegamenti simbolici di Linux ad altri file o directory)
    * **Ignora** (Ignorare i collegamenti simbolici durante le ricorsioni per non includere i file/le directory a cui viene fatto riferimento)
    * **Segui** (Seguire i collegamenti simbolici durante la ricorsione per includere anche i file/le directory a cui viene fatto riferimento)
-   * **Gestisci** (Seguire i collegamenti simbolici e modificare la modalità di gestione del contenuto restituito) 
-   
+   * **Gestisci** (Seguire i collegamenti simbolici e modificare la modalità di gestione del contenuto restituito)
+
    > [!NOTE]   
-   > L'opzione dei collegamenti "Gestisci" non è consigliata poiché il recupero del contenuto di file non è supportato attualmente.
-   
+   > Questa opzione dei collegamenti "Gestisci" non è consigliata. Il recupero del contenuto del file non è supportato.
+
 3. **Esegui ricorsione** (Eseguire la ricorsione dei livelli di cartelle e rilevare tutti i file che soddisfano l'istruzione di percorso)
 4. **Sudo** (Consentire di accedere a file o directory che richiedono il privilegio sudo)
 
 ### <a name="limitations"></a>Limitazioni
-La soluzione di rilevamento modifiche non supporta attualmente gli elementi seguenti:
+La soluzione di Rilevamento modifiche non supporta attualmente gli elementi seguenti:
 
 * Cartelle (directory) per Rilevamento file di Windows
 * Ricorsione per Rilevamento file di Windows
@@ -102,9 +102,9 @@ Change Tracking consente di raccogliere l'inventario software e i metadati del s
 
 La tabella seguente mostra i metodi di raccolta di dati e altre informazioni dettagliate sul modo in cui vengono raccolti i dati per Change Tracking.
 
-| piattaforma | Agente diretto | Agente SCOM | Agente Linux | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
+| piattaforma | Agente diretto | Agente di Operations Manager | Agente Linux | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows e Linux |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![No](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sì](./media/log-analytics-change-tracking/oms-bullet-green.png) | Da 5 minuti a 50 minuti, a seconda del tipo di modifica. Per altre informazioni, vedere di seguito. |
+| Windows e Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | Da 5 minuti a 50 minuti, a seconda del tipo di modifica. Per altre informazioni, vedere la tabella seguente. |
 
 
 La tabella seguente mostra la frequenza di raccolta dati per i tipi di modifiche.
@@ -128,7 +128,7 @@ Log Analytics esegue il monitoraggio e rilevamento del Registro di sistema Windo
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown
     - Monitora gli script eseguiti all'arresto del sistema.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
-    - Monitora le chiavi che vengono caricate prima l'accesso degli utenti nel proprio account di Windows per i programmi a 32 bit in esecuzione su computer a 64 bit.
+    - Monitora le chiavi che vengono caricate prima dell'accesso degli utenti nel proprio account di Windows. La chiave viene usata per i programmi a 32 bit in esecuzione nei computer a 64 bit.
 - HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components
     - Monitora le modifiche apportate alle impostazioni dell'applicazione.
 - HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers
@@ -142,9 +142,9 @@ Log Analytics esegue il monitoraggio e rilevamento del Registro di sistema Windo
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers
     - Monitora la registrazione del gestore della sovrapposizione delle icone per i programmi a 32 bit in esecuzione su computer a 64 bit.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitora i nuovi plugin degli oggetti helper del browser per Internet Explorer, che possono essere usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione.
+    - Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects
-    - Monitora i nuovi plugin degli oggetti helper del browser per Internet Explorer, che possono essere usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione per i programmi a 32 bit in esecuzione su computer a 64 bit.
+    - Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione per i programmi a 32 bit in esecuzione su computer a 64 bit.
 - HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions
     - Monitora le nuove estensioni di Internet Explorer, come i menu degli strumenti personalizzati e i pulsanti della barra degli strumenti personalizzata.
 - HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions

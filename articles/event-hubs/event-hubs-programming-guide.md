@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 05/17/2017
+ms.date: 08/17/2017
 ms.author: sethm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 6d0a1501b97ddb2c819361b00a85ebec12f7b50e
+ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
+ms.openlocfilehash: f65b992297c429eda2090f744b9b88b1ede39533
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 06/09/2017
 
 ---
 # <a name="event-hubs-programming-guide"></a>Guida alla programmazione di Hub eventi
@@ -59,7 +58,7 @@ Tutte le operazioni di creazione di Hub eventi, tra cui [CreateEventHubIfNotExis
 La classe [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) contiene informazioni dettagliate su un hub eventi, tra cui le regole di autorizzazione, l'intervallo di conservazione dei messaggi, gli ID di partizione, lo stato e il percorso. È possibile usare questa classe per aggiornare i metadati in un hub eventi.
 
 ## <a name="create-an-event-hubs-client"></a>Creare un client di Hub eventi
-La classe primaria per l'interazione con Hub eventi è [Microsoft.ServiceBus.Messaging.EventHubClient][]. Questa classe fornisce funzionalità di mittente e destinatario. È possibile creare un'istanza di questa classe usando il metodo [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) , come illustrato nell'esempio seguente.
+La classe primaria per interagire con Hub eventi è [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Questa classe fornisce funzionalità di mittente e destinatario. È possibile creare un'istanza di questa classe usando il metodo [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) , come illustrato nell'esempio seguente.
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -109,6 +108,8 @@ Considerati gli aspetti relativi alla disponibilità, in questi scenari è possi
 - Eliminazione (i messaggi non sono importanti, eliminarli)
 - Ripetizione (nuovo tentativo di invio dei messaggi quando possibile)
 - [Mancato recapito dei messaggi](../service-bus-messaging/service-bus-dead-letter-queues.md) (usare una coda o un altro hub eventi per evitare il recapito dei soli messaggi che non è possibile elaborare)
+
+Per altre informazioni e una discussione sui compromessi tra disponibilità e coerenza, vedere [Availability and consistency in Event Hubs (Disponibilità e coerenza in Hub eventi)](event-hubs-availability-and-consistency.md). 
 
 ## <a name="batch-event-send-operations"></a>Operazioni di invio di eventi in batch
 L'invio di eventi in batch può aumentare la velocità effettiva. Il metodo [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) accetta un parametro **IEnumerable** di tipo [EventData][] e invia l'intero batch come operazione atomica all'hub eventi.
@@ -187,6 +188,7 @@ Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti segu
 
 * [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
 * [Che cos'è Hub eventi?](event-hubs-what-is-event-hubs.md)
+* [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Riferimento all'API dell'host processore di eventi](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager

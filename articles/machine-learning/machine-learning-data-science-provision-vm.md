@@ -1,6 +1,6 @@
 ---
-title: Eseguire il provisioning di una macchina virtuale per l&quot;analisi scientifica dei dati di Microsoft | Documentazione Microsoft
-description: Configurare e creare una macchina virtuale per l&quot;analisi scientifica dei dati in Azure per l&quot;analisi dei dati e l&quot;apprendimento automatico.
+title: Eseguire il provisioning di una macchina virtuale per l'analisi scientifica dei dati di Microsoft | Documentazione Microsoft
+description: Configurare e creare una macchina virtuale di Data Science in Azure per l'analisi dei dati e l'apprendimento automatico.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -11,18 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>Eseguire il provisioning di una macchina virtuale per l'analisi scientifica dei dati di Microsoft
-La macchina virtuale per l'analisi scientifica dei dati di Microsoft è un'immagine di macchina virtuale (VM) di Azure pre-installata e configurata con diversi strumenti diffusi comunemente usati per l'analisi dei dati e l'apprendimento automatico. Gli strumenti inclusi sono:
+La macchina virtuale di Data Science di Microsoft è un'immagine di macchina virtuale (VM) di Windows Azure pre-installata e configurata con diversi strumenti diffusi comunemente usati per l'analisi dei dati e l'apprendimento automatico. Gli strumenti inclusi sono:
 
 * Microsoft R Server Developer Edition
 * Distribuzione Anaconda Python
@@ -42,7 +41,13 @@ La macchina virtuale per l'analisi scientifica dei dati di Microsoft è un'immag
 * Git, che include Git Bash, per lavorare con i repository di codice sorgente fra cui GitHub e Visual Studio Team Services
 * Porte Windows di diverse comuni utilità della riga di comando di Linux (tra cui awk, sed, perl, grep, find, wget, curl e così via) accessibili dal prompt dei comandi. 
 
-L'esecuzione di analisi scientifica dei dati implica l'iterazione di una sequenza di attività: ricerca, caricamento e pre-elaborazione dei dati, generazione e test di modelli e distribuzione dei modelli per l'utilizzo in applicazioni intelligenti. I data scientist usano un'ampia gamma di strumenti per completare queste attività. Trovare le versioni software appropriate e quindi scaricarle e installarle può essere un'operazione molto dispersiva in termini di tempo. La macchina virtuale per l'analisi scientifica dei dati di Microsoft facilita questo compito fornendo un'immagine pronta da usare di cui si può eseguire il provisioning in Azure con tutti i più comuni strumenti pre-installati e configurati. 
+L'esecuzione dell'analisi scientifica dei dati comporta l'iterazione di una sequenza di attività quali:
+
+1. Ricerca, caricamento e pre-elaborazione dei dati
+2. Compilazione e test di modelli
+3. Distribuzione dei modelli per l'uso in applicazioni intelligenti
+
+I data scientist usano un'ampia gamma di strumenti per completare queste attività. Trovare le versioni software appropriate e quindi scaricarle e installarle può essere un'operazione molto dispersiva in termini di tempo. La macchina virtuale per l'analisi scientifica dei dati di Microsoft facilita questo compito fornendo un'immagine pronta da usare di cui si può eseguire il provisioning in Azure con tutti i più comuni strumenti pre-installati e configurati. 
 
 La macchina virtuale per l'analisi scientifica dei dati di Microsoft avvia rapidamente il progetto di analisi e consente di svolgere attività in vari linguaggi, ad esempio R, Python, SQL e C#. Visual Studio fornisce un IDE facile da usare per sviluppare e testare il codice. Azure SDK incluso nella VM consente di compilare le applicazioni usando vari servizi sulla piattaforma cloud di Microsoft. 
 
@@ -92,7 +97,7 @@ Dopo aver creato la VM, è possibile connettersi tramite desktop remoto con le c
 Una volta creata la VM ed effettuato il provisioning, si è pronti per iniziare a usare gli strumenti installati e configurati nella VM. Sono disponibili riquadri del menu di avvio e icone del desktop per molti strumenti. 
 
 ## <a name="how-to-create-a-strong-password-for-jupyter-and-start-the-notebook-server"></a>Come creare una password complessa per Jupyter e avviare il server notebook
-Per impostazione predefinita, il server Jupyter Notebook è preconfigurato ma disabilitato nella macchina virtuale finché non viene impostata una password Jupyter. Per creare una password complessa per il server Jupyter Notebook installato nel computer, eseguire questo comando da un prompt dei comandi nella macchina virtuale per l'analisi scientifica dei dati. In alternativa, fare doppio clic sul collegamento sul desktop denominato **Jupyter Set Password & Start** (Imposta password e avvia Jupyter) da un account amministratore della macchina virtuale locale.
+Per impostazione predefinita, il server Jupyter Notebook è preconfigurato ma disabilitato nella macchina virtuale finché non viene impostata una password Jupyter. Per creare una password complessa per il server Notebook di Jupyter installato nel computer, eseguire questo comando da un prompt dei comandi nella macchina virtuale di Data Science. In alternativa, fare doppio clic sul collegamento sul desktop denominato **Jupyter Set Password & Start** (Imposta password e avvia Jupyter) da un account amministratore della macchina virtuale locale.
 
     C:\dsvm\tools\setup\JupyterSetPasswordAndStart.cmd
 
@@ -104,6 +109,7 @@ Lo script abilita ed esegue il server Jupyter in background. Il server Jupyter v
 
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Strumenti installati nella macchina virtuale per l'analisi scientifica dei dati di Microsoft
+
 ### <a name="microsoft-r-server-developer-edition"></a>Microsoft R Server Developer Edition
 Per usare R per l'analisi, è necessario che nella macchina virtuale sia installato Microsoft R Server Developer Edition. Microsoft R Server è una piattaforma di analisi di livello aziendale su vasta scala basata su R supportata, scalabile e sicura. Grazie al supporto di diverse funzionalità per statistiche di Big Data, modellazione predittiva e apprendimento automatico, R Server supporta l'intera gamma dell'analisi: esplorazione, analisi, visualizzazione e modellazione. Usando ed estendendo il linguaggio R open source, Microsoft R Server è completamente compatibile con gli script e le funzioni R, nonché i pacchetti CRAN, per analizzare i dati a livello aziendale. Risolve anche le limitazioni in memoria di R open source aggiungendo l'elaborazione parallela e in blocchi dei dati, consentendo così di eseguire analisi su dati con volumi molto più elevati rispetto a quelli che possono essere contenuti nella memoria principale. Visual Studio Community Edition incluso nella VM contiene l'estensione Strumenti R per Visual Studio che fornisce un IDE completo per l'uso di R.  È anche possibile scaricare e usare altri IDE, come [RStudio](http://www.rstudio.com). 
 

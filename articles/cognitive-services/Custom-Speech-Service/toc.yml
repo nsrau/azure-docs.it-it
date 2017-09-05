@@ -11,32 +11,23 @@
     - name: Esplorare le funzionalità principali
       href: cognitive-services-custom-speech-get-started.md
     - name: Informazioni su come creare un modello acustico personalizzato
-      href: >-
-        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md
     - name: Informazioni su come creare un modello di lingua personalizzato
-      href: >-
-        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md
     - name: Adattare la pronuncia alle esigenze specifiche
-      href: >-
-        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-custom-pronunciation.md
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-custom-pronunciation.md
     - name: Creare un endpoint personalizzato per il riconoscimento vocale
-      href: >-
-        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md
     - name: Usare un endpoint personalizzato per il riconoscimento vocale
-      href: >-
-        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md
-    - name: >-
-        Informazioni su come eseguire la migrazione delle distribuzioni a un
-        nuovo piano tariffario
-      href: >-
-        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-migrate-tiers.md
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md
+    - name: Informazioni su come eseguire la migrazione delle distribuzioni a un nuovo piano tariffario
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-migrate-tiers.md
 - name: Risorse
   items:
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Indicazioni sulla trascrizione
-      href: >-
-        CustomSpeech-How-to-Topics/cognitive-services-custom-speech-transcription-guidelines.md
+      href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-transcription-guidelines.md
     - name: domande frequenti
       href: cognitive-services-custom-speech-faq.md
     - name: Glossario

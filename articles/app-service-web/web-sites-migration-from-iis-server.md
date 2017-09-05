@@ -1,5 +1,5 @@
 ---
-title: Migrazione di un&quot;app Web aziendale a un servizio app di Azure
+title: Migrazione di un'app Web aziendale a un servizio app di Azure
 description: Illustra come usare il Migration Assistant di App Web per eseguire rapidamente la migrazione dei siti Web IIS esistenti al servizio app per app Web
 services: app-service
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 9553c9ed02fa198d210fcb64f4657f84ef3df801
-ms.openlocfilehash: 6fdee57d33b19569ef892d0d32ea7007fd69faaf
-ms.lasthandoff: 03/23/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 18d6a8da38b42dcf5c1500f7fc26638aea26a809
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="migrate-an-enterprise-web-app-to-azure-app-service"></a>Migrazione di un'app Web aziendale a un servizio app di Azure
@@ -55,7 +55,7 @@ Il Migration Assistant crea un report di conformità per identificare le potenzi
 * Non verrà eseguita la migrazione di altri componenti, come SharePoint, le estensioni FPSE, FTP e i certificati SSL.
 
 ## <a name="how-to-use-the-web-apps-migration-assistant"></a>Come usare Migration Assistant di App Web ##
-Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che usano un server di database SQL in esecuzione su un computer Windows Server 2003 R2 (IIS 6.0) locale:
+Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che usano un server di database SQL Server in esecuzione su un computer Windows Server 2003 R2 (IIS 6.0) locale:
 
 1. Nel server IIS o nel computer client andare a [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
    
@@ -107,7 +107,7 @@ Questa sezione prende in esame un esempio di migrazione di alcuni siti Web che u
     ![](./media/web-sites-migration-from-iis-server/migration-settings.png)
     
     > [!NOTE]
-    > La casella di controllo **Abilita Azure Active Directory** nelle impostazioni personalizzate integra l'app Web di Azure con [Azure Active Directory](../active-directory/active-directory-whatis.md), la **directory predefinita**. Per altre informazioni sulla sincronizzazione di Azure Active Directory con l'Active Directory locale, vedere [Integrazione directory](http://msdn.microsoft.com/library/jj573653).
+    > La casella di controllo **Abilita Azure Active Directory** nelle impostazioni personalizzate integra l'app Web di Azure con [Azure Active Directory](../active-directory/active-directory-whatis.md), la **directory predefinita**. Per altre informazioni sulla sincronizzazione di Azure Active Directory con l'Active Directory locale, vedere [Integrazione di directory](http://msdn.microsoft.com/library/jj573653).
     > 
     > 
 11. Dopo aver apportato tutte le modifiche desiderate, fare clic su **Crea** per avviare il processo di migrazione. Lo strumento di migrazione creerà il database SQL di Azure e l'app Web di Azure e quindi pubblicherà il contenuto del sito Web e i database. L'avanzamento della migrazione è chiaramente indicato nello strumento di migrazione e sarà visualizzata una schermata di riepilogo alla fine, che include dettagli sui siti di cui è stata eseguita la migrazione, l'esito della migrazione e collegamenti alle app Web di Azure appena create. 

@@ -1,6 +1,5 @@
 > [!div class="op_single_selector"]
-> * [portale di Azure](../articles/storage/storage-enable-and-view-metrics.md)
-> * [portale di Azure classico](../articles/storage/storage-enable-and-view-metrics-classic-portal.md)
+> * [Portale di Azure](../articles/storage/common/storage-enable-and-view-metrics.md)
 > 
 > 
 

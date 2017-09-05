@@ -1,12 +1,12 @@
 ---
 title: Configurare i parametri del servizio in Database di Azure per PostgreSQL | Microsoft Docs
-description: Questo articolo descrive come configurare i parametri del servizio in Database di Azure per PostgreSQL usando l&quot;interfaccia della riga di comando di Azure.
+description: Questo articolo descrive come configurare i parametri del servizio in Database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017

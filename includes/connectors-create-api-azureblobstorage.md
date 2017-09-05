@@ -1,6 +1,6 @@
 ### <a name="prerequisites"></a>Prerequisiti
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
-* Un [account di archiviazione BLOB di Azure](../articles/storage/storage-create-storage-account.md), inclusi il nome dell'account di archiviazione e la relativa chiave di accesso. Queste informazioni sono riportate nelle proprietà dell'account di archiviazione nel portale di Azure. Altre informazioni sull'[archiviazione di Azure](../articles/storage/storage-introduction.md).
+* Un [account di archiviazione BLOB di Azure](../articles/storage/common/storage-create-storage-account.md), inclusi il nome dell'account di archiviazione e la relativa chiave di accesso. Queste informazioni sono riportate nelle proprietà dell'account di archiviazione nel portale di Azure. Altre informazioni sull'[archiviazione di Azure](../articles/storage/common/storage-introduction.md).
 
 Prima di utilizzare l'account di archiviazione Blob di Azure in app per la logica, connettersi all'account di archiviazione Blob di Azure. È possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure.  
 

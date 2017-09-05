@@ -1,8 +1,10 @@
 <!--author=alkohli last changed: 01/12/17-->
 
-#### Per completare la configurazione minima del dispositivo StorSimple
-<a id="to-complete-the-minimum-storsimple-device-setup" class="xliff"></a>
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Per completare la configurazione minima del dispositivo StorSimple
 
+   > [!NOTE]
+   > Non è possibile modificare il nome del dispositivo dopo avere completato la configurazione minima del dispositivo.
+   
 1. Nell'elenco tabulare dei dispositivi del pannello **Dispositivi** selezionare e fare clic sul dispositivo. Il dispositivo è nello stato **Pronto per la configurazione**. Viene visualizzato il pannello **Configurare il dispositivo**.
 
      ![Interfacce di rete della configurazione minima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
@@ -26,9 +28,6 @@
 1. Fare clic su **OK**. Viene avviata la configurazione del dispositivo. Al termine della configurazione del dispositivo si riceve una notifica. Nel pannello **Dispositivi** lo stato del dispositivo passa a **Online**.
 
     ![Interfacce di rete della configurazione minima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
-
-   > [!NOTE]
-   > È possibile modificare tutte le altre impostazioni del dispositivo in qualsiasi momento tramite il pannello **Impostazioni del dispositivo**.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

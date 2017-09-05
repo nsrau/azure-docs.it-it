@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/09/2017
 ms.author: ashwink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8165147d9ff811b26f7fe2626c892f2aba5bb4f8
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f06e5dd7d17c1d7795fb1f112e649cd42d7dd6d4
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Esempi di avvio rapido con PowerShell per Monitoraggio di Azure
@@ -30,19 +30,19 @@ Questo articolo illustra comandi di PowerShell di esempio per accedere rapidamen
 > 
 
 ## <a name="set-up-powershell"></a>Configurare PowerShell
-Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per altre informazioni, vedere [Come installare e configurare PowerShell](/powershell/azure/overview) .
+Se non è ancora stato fatto, configurare PowerShell per l'esecuzione sul computer. Per altre informazioni, vedere [Come installare e configurare PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Esempi in questo articolo
 Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure. È anche possibile esaminare l'elenco completo di cmdlet di PowerShell di Monitoraggio di Azure nell'argomento relativo ai [cmdlet di Monitoraggio di Azure(Azure Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Eseguire l'acccesso e usare le sottoscrizioni
-Per prima cosa, accedere alla propria sottoscrizione di Azure.
+Per prima cosa, accedere alla sottoscrizione di Azure.
 
 ```PowerShell
 Login-AzureRmAccount
 ```
 
-Questo richiede di effettuare l’accesso. Dopo aver effettuato l'accesso, vengono visualizzati l'Account, l'ID tenant e l'ID sottoscrizione predefinito. Tutti i cmdlet di Azure funzionano nel contesto della sottoscrizione predefinita. Per visualizzare l'elenco delle sottoscrizioni accessibili, usare il comando seguente.
+Questo richiede di effettuare l’accesso. Dopo aver effettuato l'accesso, vengono visualizzati l'account, l'ID tenant e l'ID sottoscrizione predefinito. Tutti i cmdlet di Azure funzionano nel contesto della sottoscrizione predefinita. Per visualizzare l'elenco delle sottoscrizioni accessibili, usare il comando seguente.
 
 ```PowerShell
 Get-AzureRmSubscription
@@ -139,14 +139,11 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 `Get-AzureRmAlertRule` supporta altri parametri. Per altre informazioni, vedere [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) .
 
-## <a name="create-alert-rules"></a>Creazione di regole di avviso
+## <a name="create-metric-alerts"></a>Creare avvisi delle metriche
 È possibile utilizzare il cmdlet `Add-AlertRule` per creare, aggiornare o disabilitare una regola di avviso.
 
 È possibile creare proprietà di posta elettronica e webhook usando rispettivamente `New-AzureRmAlertRuleEmail` e `New-AzureRmAlertRuleWebhook`. Nel cmdlet per la regola avvisi assegnare queste azioni alla proprietà **Actions** della regola avvisi.
 
-La sezione successiva contiene un esempio che illustra come creare una regola di avviso con diversi parametri.
-
-### <a name="alert-rule-on-a-metric"></a>Regola di avviso su una metrica
 La tabella seguente descrive i parametri e valori usati per creare un avviso tramite una metrica.
 
 | parametro | value |
@@ -155,7 +152,7 @@ La tabella seguente descrive i parametri e valori usati per creare un avviso tra
 | Posizione di questa regola di avviso |Stati Uniti orientali |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName dell'avviso creato |\PhysicalDisk(_Total)\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` di seguito per il recupero dei nomi esatti delle metriche |
+| MetricName dell'avviso creato |\PhysicalDisk(_Total)\Disk Writes/sec. Vedere il cmdlet `Get-MetricDefinitions` per il recupero dei nomi esatti delle metriche |
 | operator |GreaterThan |
 | Valore soglia (conteggio al secondo per questa metrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
@@ -188,40 +185,6 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 ```
 
 Il cmdlet Aggiungi avviso aggiorna anche la regola se esiste già una regola di avviso per le proprietà specificate. Per disabilitare una regola di avviso, includere il parametro **-DisableRule**.
-
-### <a name="alert-on-activity-log-event"></a>Creazione di avvisi su eventi del registro attività
-> [!NOTE]
-> Questa funzionalità è disponibile in anteprima e verrà rimossa in futuro, perché verrà sostituita.
-> 
-> 
-
-In questo scenario viene inviato un messaggio di posta elettronica quando un sito Web viene avviato correttamente nella sottoscrizione personale del gruppo di risorse *abhingrgtest123*.
-
-Configurazione di una regola di posta elettronica
-
-```PowerShell
-$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-```
-
-Configurazione di una regola di webhook
-
-```PowerShell
-$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-```
-
-Creazione di una regola per l’evento
-
-```PowerShell
-Add-AzureRmLogAlertRule -Name superalert1 -Location "East US" -ResourceGroup myrg1 -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup abhingrgtest123 -Actions $actionEmail, $actionWebhook
-```
-
-Recupero di una regola di avviso
-
-```PowerShell
-Get-AzureRmAlertRule -Name superalert1 -ResourceGroup myrg1 -DetailedOutput
-```
-
-Il cmdlet `Add-AlertRule` ammette diversi parametri supplementari. Per altre informazioni, vedere [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
 
 ## <a name="get-a-list-of-available-metrics-for-alerts"></a>Acquisizione di un elenco delle metriche disponibili per gli avvisi
 Usare il cmdlet `Get-AzureRmMetricDefinition` per visualizzare l'elenco di tutte le metriche per una specifica risorsa.

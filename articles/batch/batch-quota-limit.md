@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
+ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 56e8f5579da2b5bed7975f25f0779c54d70cb886
+ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
+ms.openlocfilehash: f3f69ed8d3a985afe07e648e7512a88b25278ced
 ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 06/30/2017
 
 
 ---
@@ -72,8 +72,10 @@ La quota di core a livello di area o per ogni famiglia di macchine virtuali deve
 | [Applicazioni](batch-application-packages.md) per account Batch |20 |
 | Pacchetti dell'applicazione per applicazione |40 |
 | Dimensioni del pacchetto dell'applicazione (ciascuno) |Circa 195 GB<sup>1</sup> |
+| Dimensione massima dell'attività di avvio | 32768 caratteri<sup>2</sup> |
 
-<sup>1</sup> Limite di archiviazione di Azure per le dimensioni massime del BLOB in blocchi
+<sup>1</sup> Limite di archiviazione di Azure per le dimensioni massime del BLOB in blocchi<br />
+<sup>2</sup> include i file di risorse e le variabili di ambiente
 
 ## <a name="view-batch-quotas"></a>Visualizzare le quote Batch
 Visualizzare le quote dell'account Batch nel [portale di Azure][portal].

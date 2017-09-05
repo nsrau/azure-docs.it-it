@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d8c8ad96ba0ba55692e80a29b7de74165a2c13bd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: d1daa01191480eaeb81727416b2134b00c698dc3
+ms.contentlocale: it-it
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Modificare il set di disponibilità per una VM Windows
@@ -89,7 +89,7 @@ I passaggi seguenti descrivono come modificare il set di disponibilità di una V
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Aggiungere dischi dati ed estensioni. Per altre informazioni, vedere [Collegare un disco dati a una VM](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ed [Esempi di configurazione dell'estensione](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). È possibile aggiungere estensioni e dischi dati alla VM tramite PowerShell o l'interfaccia della riga di comando di Azure.
+5. Aggiungere dischi dati ed estensioni. Per altre informazioni, vedere l'articolo su come [collegare un disco dati a una VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e la sezione relativa alle [estensioni nei modelli di Resource Manager](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions). È possibile aggiungere estensioni e dischi dati alla VM tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="example-script"></a>Script di esempio
 Lo script seguente offre un esempio di raccolta delle informazioni necessarie ed eliminazione e ricreazione della VM originale in un nuovo set di disponibilità.
@@ -147,8 +147,8 @@ Lo script seguente offre un esempio di raccolta delle informazioni necessarie ed
     }
 
     #Add NIC(s)
-    foreach ($nic in $OriginalVM.NetworkInterfaceIDs) {
-        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
+    foreach ($nic in $OriginalVM.NetworkProfile.NetworkInterfaces) {
+        Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic.Id
     }
 
     #Create the VM
@@ -156,6 +156,6 @@ Lo script seguente offre un esempio di raccolta delle informazioni necessarie ed
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Aumentare lo spazio di archiviazione della VM aggiungendo un ulteriore [disco dati](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Aumentare lo spazio di archiviazione della VM aggiungendo un ulteriore [disco dati](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

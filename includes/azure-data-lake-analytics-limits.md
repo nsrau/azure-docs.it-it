@@ -2,6 +2,6 @@ Analisi Data Lake semplifica l'impegnativa attività di gestione di infrastruttu
 
 | **Risorsa** | **Limite predefinito** | **Commenti** |
 | --- | --- | --- |
-| numero massimo di processi simultanei |3 | |
-| Parallelismo massimo per account |60 |Utilizzare qualsiasi combinazione di un massimo di 60 unità di parallelismo fra tre processi. |
+| numero massimo di processi simultanei |20 | |
+| Parallelismo massimo per account |250 |Utilizzare qualsiasi combinazione di un massimo di 60 unità di parallelismo fra tre processi. |
 

@@ -13,6 +13,7 @@
 ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Assegnazione di punteggi in tempo reale con Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Elaborazione di eventi in tempo reale](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Guida all'utilizzo del rilevamento delle anomalie in Azure (anteprima)](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## Creare processi
 ### [Creare input](stream-analytics-define-inputs.md)
@@ -56,6 +57,7 @@
 ### [PowerShell con un solo clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 ## [PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Linguaggio di query](https://msdn.microsoft.com/library/azure/dn834998)
@@ -65,8 +67,9 @@
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog](http://blogs.msdn.com/b/streamanalytics/)
 ## [Forum di commenti e suggerimenti](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Note sulla versione](stream-analytics-release-notes.md)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)

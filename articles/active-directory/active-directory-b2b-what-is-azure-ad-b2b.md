@@ -13,12 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/12/2017
-ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: 9cd8edf47059a5f574489a604156890d157c8b1a
-ms.lasthandoff: 04/13/2017
+ms.date: 06/27/2017
+ms.author: curtand
+ms.custom: aaddev
+ms.reviewer: sasubram
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
+ms.openlocfilehash: fbc12a52555b190d43b5e953fd4d19923a25b0ed
+ms.contentlocale: it-it
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -29,9 +32,9 @@ ms.lasthandoff: 04/13/2017
 
 Le funzionalità di Collaborazione B2B di Azure Active Directory consentono a tutte le organizzazioni che usano Azure AD di lavorare in modo sicuro e protetto con gli utenti di qualsiasi altra organizzazione, piccola o grande che sia, che usi o meno Azure AD e che abbia o meno un'organizzazione IT. 
 
-Le organizzazioni che usano Azure AD possono consentire l'accesso a documenti, risorse e applicazioni ai propri partner, pur mantenendo il totale controllo dei dati aziendali. Gli sviluppatori possono usare le API di B2B di Azure AD per scrivere applicazioni in modo da mettere in contatto due organizzazioni in modo sicuro affinché la navigazione risulti agli utenti finali semplice e intuitiva.
+Le organizzazioni che usano Azure AD possono consentire l'accesso a documenti, risorse e applicazioni ai propri partner, pur mantenendo il totale controllo dei propri dati aziendali. Gli sviluppatori possono usare le API di B2B di Azure AD per scrivere applicazioni, in modo da mettere in contatto due organizzazioni in modo sicuro. Inoltre, per gli utenti finali la navigazione risulta particolarmente semplice.
 
-Per addirittura il **97%** dei clienti Microsoft, Collaborazione B2B di Azure AD è molto importante.
+Per il 97% dei clienti Microsoft, Collaborazione B2B di Azure AD è molto importante.
 
 ![Grafico a torta](media/active-directory-b2b-what-is-azure-ad-b2b/97-percent-support.png)
 
@@ -51,7 +54,7 @@ All'inizio di aprile 2017 erano già 3 milioni circa gli utenti che usavano le f
 
 * Accesso concesso a qualsiasi app o dato aziendale applicando i criteri di autorizzazione avanzati e sofisticati di Azure AD
 
-* Esperienza utente semplice
+* Semplice per gli utenti
 
 * Sicurezza di livello aziendale per app e dati
 
@@ -67,11 +70,11 @@ All'inizio di aprile 2017 erano già 3 milioni circa gli utenti che usavano le f
 
 Gli amministratori possono aggiungere gli utenti (guest) di Collaborazione B2B nel [portale di Azure](https://portal.azure.com).
 
-![Grafico a torta](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
+![Aggiungere utenti guest](media/active-directory-b2b-what-is-azure-ad-b2b/adding-b2b-users-admin.png)
 
 ### <a name="enable-your-collaborators-to-bring-their-own-identity"></a>Abilitare i collaboratori per usare la propria identità
 
-Gli utenti di Collaborazione B2B possono accedere con un'identità a scelta. Se l'utente non ha un account Microsoft o un account Azure AD, ne viene immediatamente creato uno al riscatto dell'offerta.
+Gli utenti di Collaborazione B2B possono accedere con un'identità a scelta. Se l'utente non dispone di un account Microsoft o un account Azure AD, ne viene immediatamente creato uno al riscatto dell'offerta.
 
 ![Scelta identità di accesso](media/active-directory-b2b-what-is-azure-ad-b2b/sign-in-identity-choice.png)
 
@@ -84,14 +87,17 @@ I proprietari dell'applicazione e del gruppo possono aggiungere direttamente gli
 
 ### <a name="authorization-policies-protect-your-corporate-content"></a>Criteri di autorizzazione per proteggere i contenuti aziendali
 
-Per proteggere i dati e le app aziendali, gli amministratori possono stabilire dei criteri di accesso condizionale, ad esempio Multi-Factor Authentication, da applicare a livello di tenant o di applicazione o a utenti specifici.
+Possono essere applicati criteri di accesso condizionale, ad esempio l'autenticazione a più fattori:
+- A livello di tenant
+- A livello di applicazione
+- Per utenti specifici per proteggere dati e applicazioni aziendali
 
 ![Aggiungere un membro](media/active-directory-b2b-what-is-azure-ad-b2b/add-member.png)
 
 ### <a name="use-our-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Usare le API Microsoft e codice di esempio per compilare con facilità le applicazioni da caricare
 È possibile personalizzare il caricamento di partner esterni in base alle esigenze dell'organizzazione.
 
-Usando le [API di invito di B2B di Azure AD](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation), le organizzazioni possono ulteriormente personalizzare l'esperienza di caricamento, tra cui la creazione di portali di iscrizione self-service e il codice esempio disponibile su Github: <https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web>
+Utilizzando le [API di invito a Collaborazione B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation), è possibile personalizzare le proprie esperienze di caricamento, inclusa la creazione di portali di iscrizione self-service. Viene presentato un codice di esempio per un portale self-service [su Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
 ![Portale di iscrizione](media/active-directory-b2b-what-is-azure-ad-b2b/sign-up-portal.png)
 

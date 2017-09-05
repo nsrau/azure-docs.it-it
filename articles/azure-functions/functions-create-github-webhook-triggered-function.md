@@ -1,26 +1,26 @@
 ---
 title: Creare una funzione in Azure attivata da un webhook GitHub | Microsoft Docs
 description: Usare Funzioni di Azure per creare una funzione senza server che viene richiamata da un webhook GitHub.
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: accd5c55e7adafd5a387bf420660b808335192e6
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creare una funzione attivata da un webhook GitHub
@@ -52,7 +52,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
     ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Selezionare il modello **GitHubWebHook** per la lingua desiderata. **Assegnare un nome alla funzione** e quindi selezionare **Crea**.
+2. Selezionare il modello **GitHubWebHook** per il linguaggio desiderato. **Assegnare un nome alla funzione** e quindi selezionare **Crea**.
 
      ![Creare una funzione attivata da webhook GitHub nel portale di Azure](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 
@@ -104,5 +104,9 @@ Il webhook ora è configurato per attivare la funzione quando un nuovo commento 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata creata una funzione che viene eseguita quando viene ricevuta una richiesta da un webhook GitHub. 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)] Per altre informazioni sui trigger webhook, vedere [Binding HTTP e webhook di Funzioni di Azure](functions-bindings-http-webhook.md).
+È stata creata una funzione che viene eseguita quando viene ricevuta una richiesta da un webhook GitHub.
+
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Per altre informazioni sui trigger webhook, vedere [Associazioni HTTP e webhook in Funzioni di Azure](functions-bindings-http-webhook.md).
+

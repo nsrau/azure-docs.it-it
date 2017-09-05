@@ -4,7 +4,7 @@ description: Note sulla versione di Servizi multimediali
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 07/20/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 532afb45c73d68d6dc259fa504d9520eecdb23b7
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3ecd6ff8edf189b9389cd239b20236a2a228ed94
+ms.contentlocale: it-it
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
@@ -44,6 +44,13 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 
 ## <a id="rest_version_history"></a>Cronologia delle versioni dell'API REST
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
+
+## <a name="june-2017-release"></a>Versione di giugno 2017
+
+Servizi multimediali supporta ora l'[autenticazione basata su Azure Active Directory (Azure AD)](media-services-use-aad-auth-to-access-ams-api.md).
+
+> [!IMPORTANT]
+> Servizi multimediali supporta attualmente il modello di autenticazione del Servizio di controllo di accesso di Azure. L'autorizzazione di Controllo di accesso, tuttavia, verrà dichiarata deprecata il 1° giugno 2018. È consigliabile eseguire al più presto la migrazione al modello di autenticazione di Azure AD.
 
 ## <a name="march-2017-release"></a>Versione di marzo 2017
 

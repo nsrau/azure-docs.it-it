@@ -11,27 +11,25 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 233db1cb74a6c81cf044953ecdf6e9de6cc50ee8
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: 754c381cb242e0bdf7c56bd2a763d46acc80fbda
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# Creare un'app Web Python in Azure
-<a id="create-a-python-web-app-in-azure" class="xliff"></a>
+# <a name="create-a-python-web-app-in-azure"></a>Creare un'app Web Python in Azure
 
 Le [app Web di Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione.  Questa guida introduttiva illustra come sviluppare e distribuire un'app Python in un'app Web di Azure. Si creerà l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e si userà Git per distribuire il codice Python di esempio nell'app Web.
 
 ![App di esempio in esecuzione in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux. Una volta installati i prerequisiti, sono necessari circa cinque minuti per completare la procedura.
-## Prerequisiti
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -44,8 +42,7 @@ Per completare questa esercitazione:
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
-## Scaricare l'esempio
-<a id="download-the-sample" class="xliff"></a>
+## <a name="download-the-sample"></a>Scaricare l'esempio
 
 In una finestra del terminale eseguire il comando seguente per clonare il repository dell'app di esempio nel computer locale.
 
@@ -61,8 +58,13 @@ Passare alla directory contenente il codice di esempio.
 cd Python-docs-hello-world
 ```
 
-## Eseguire l'app in locale
-<a id="run-the-app-locally" class="xliff"></a>
+## <a name="run-the-app-locally"></a>Eseguire l'app in locale
+
+Installare i pacchetti necessari tramite `pip`.
+
+```bash
+pip install -r requirements.txt
+```
 
 Per eseguire l'applicazione in locale, aprire una finestra del terminale e usare il comando `Python` per avviare il server Web Python predefinito.
 
@@ -92,8 +94,7 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 È stata creata una nuova app Web vuota in Azure.
 
-## Eseguire la configurazione per usare Python
-<a id="configure-to-use-python" class="xliff"></a>
+## <a name="configure-to-use-python"></a>Eseguire la configurazione per usare Python
 
 Usare il comando [az webapp config set](/cli/azure/webapp/config#set) per configurare l'app Web per l'uso di Python versione `3.4`.
 
@@ -150,8 +151,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-## Passare all'app
-<a id="browse-to-the-app" class="xliff"></a>
+## <a name="browse-to-the-app"></a>Passare all'app
 
 Passare all'applicazione distribuita con il Web browser.
 
@@ -165,8 +165,7 @@ Il codice di esempio Python è in esecuzione in un'app Web del servizio app di A
 
 **Congratulazioni.** La distribuzione della prima app Python nel servizio app è stata completata.
 
-## Aggiornare e ridistribuire il codice
-<a id="update-and-redeploy-the-code" class="xliff"></a>
+## <a name="update-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice
 
 Usando un editor di testo locale, aprire il file `main.py` nell'app Python e apportare una piccola modifica al testo accanto all'istruzione `return`:
 
@@ -185,8 +184,7 @@ Al termine della distribuzione, tornare alla finestra del browser aperta nel pas
 
 ![App di esempio aggiornata in esecuzione in Azure](media/app-service-web-get-started-python/hello-azure-in-browser.png)
 
-## Gestire la nuova app Web di Azure
-<a id="manage-your-new-azure-web-app" class="xliff"></a>
+## <a name="manage-your-new-azure-web-app"></a>Gestire la nuova app Web di Azure
 
 Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app Web creata.
 
@@ -202,8 +200,7 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Passaggi successivi
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Python con PostgreSQL](app-service-web-tutorial-docker-python-postgresql-app.md)

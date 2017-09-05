@@ -1,6 +1,6 @@
 ---
-title: Effettuare il provisioning di una macchina virtuale Linux per l&quot;analisi scientifica dei dati | Microsoft Docs
-description: Configurare e creare una macchina virtuale Linux per l&quot;analisi scientifica dei dati in Azure per eseguire analisi dei dati e per l&quot;apprendimento automatico.
+title: Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati | Microsoft Docs
+description: Configurare e creare una macchina virtuale Linux per l'analisi scientifica dei dati in Azure per eseguire analisi dei dati e per l'apprendimento automatico.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: f5c33212da13b33be60488992d93305807c98d38
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati
@@ -178,7 +177,7 @@ Il server Notebook di Jupyter è stato preconfigurato con Python 2, Python 3 e i
 Nel pacchetto sono inclusi alcuni notebook di esempio: uno in Python e uno in R. È possibile visualizzare il collegamento agli esempi nella home page del notebook dopo l'autenticazione a Notebook di Jupyter con il nome utente e la password locali di Linux. È possibile creare un nuovo notebook selezionando **Nuovo** e quindi il kernel del linguaggio adatto. Se il pulsante **Nuovo** non è visualizzato, fare clic sull'icona **Jupyter** in alto a sinistra per passare alla home page del server notebook.
 
 ### <a name="apache-spark-standalone"></a>Apache Spark autonomo 
-Un'istanza autonoma di Apache Spark è preinstallata in DSVM di Linux per contribuire allo sviluppo delle applicazioni Spark inizialmente in locale, prima di eseguire i test e la distribuzione in cluster di grandi dimensioni. È possibile eseguire programmi PySpark attraverso il kernel Jupyter. Quando si apre Jupyter e si fa clic sul pulsante "Nuovo" verrà visualizzato un elenco di kernel disponibili. "Spark – Python" è il kernel PySpark che consentirà di creare applicazioni Spark usando il linguaggio Python. È anche possibile usare un IDE Python come PyCharm o Spyder per creare un programma Spark. Poiché si tratta di un'istanza autonoma, lo stack di Spark viene eseguito all'interno del programma client che esegue la chiamata. Questo rende più veloce e semplice la risoluzione dei problemi rispetto allo sviluppo in un cluster Spark. 
+Un'istanza autonoma di Apache Spark è preinstallata in DSVM di Linux per contribuire allo sviluppo delle applicazioni Spark inizialmente in locale, prima di eseguire i test e la distribuzione in cluster di grandi dimensioni. È possibile eseguire programmi PySpark attraverso il kernel Jupyter. Quando si apre Jupyter e si fa clic sul pulsante "Nuovo" verrà visualizzato un elenco di kernel disponibili. "Spark - Python" è il kernel PySpark che consente di creare applicazioni Spark usando il linguaggio Python. È anche possibile usare un IDE Python come PyCharm o Spyder per creare un programma Spark. Poiché si tratta di un'istanza autonoma, lo stack di Spark viene eseguito all'interno del programma client che esegue la chiamata. Questo rende più veloce e semplice la risoluzione dei problemi rispetto allo sviluppo in un cluster Spark. 
 
 Su Jupyter viene assicurato un blocco di appunti di esempio PySpark che è possibile trovare nella directory "SparkML" nella home directory di Jupyter ($HOME/notebooks/SparkML/pySpark). 
 

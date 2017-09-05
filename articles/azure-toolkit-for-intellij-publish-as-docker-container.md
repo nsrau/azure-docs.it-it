@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
 ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 37a9de5909cf4d6b4568e40de001861d083a85df
+ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
+ms.openlocfilehash: 96680319a6c4c0f0a4673cd6303a5b172f428797
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
+ms.lasthandoff: 06/10/2017
 
 
 ---
@@ -78,7 +78,7 @@ I contenitori Docker sono un metodo molto diffuso per la distribuzione di applic
       
    d. Nella scheda **OS and Size** (Sistema operativo e dimensioni) seguire questa procedura:      
       * **Host OS** (Sistema operativo host): specificare il sistema operativo della macchina virtuale in cui è presente l'host. 
-      * **Size** (Dimensioni): specificare le dimensioni della macchina virtuale per l'host.   
+      * **Size** (Dimensioni): immettere le dimensioni della macchina virtuale per l'host.   
        
    e. Nella scheda **Resource Group** (Gruppo di risorse) selezionare una delle opzioni seguenti:      
       * **New resource group** (Nuovo gruppo di risorse): consente di creare un nuovo gruppo di risorse per l'host.
@@ -106,12 +106,14 @@ I contenitori Docker sono un metodo molto diffuso per la distribuzione di applic
 
       * **New log in credentials** (Nuove credenziali di accesso): consente di creare un nuovo set di credenziali di accesso. Se si seleziona questa opzione, seguire questa procedura:
 
-        a. Nella scheda **VM Credentials** (Credenziali VM) specificare le informazioni seguenti per le credenziali di accesso alla macchina virtuale dell'host Docker:      * **Username** (Nome utente): nome utente delle credenziali di accesso alla macchina virtuale.
+        a. Nella scheda **VM Credentials** (Credenziali VM) specificare le informazioni seguenti per le credenziali di accesso alla macchina virtuale dell'host Docker: * **Username** (Nome utente): nome utente delle credenziali di accesso alla macchina virtuale.
              * **Password** e **Confirm** (Conferma): consente di specificare la password per accedere alla macchina virtuale.
-             * **SSH**: immettere le impostazioni Secure Shell (SSH) per l'host Docker. È possibile selezionare una delle opzioni seguenti:         * **None** (Nessuna): specifica che la macchina virtuale non consente le connessioni SSH.
+             * **SSH**: immettere le impostazioni Secure Shell (SSH) per l'host Docker. È possibile selezionare una delle opzioni seguenti: **None** (Nessuna): specifica che la macchina virtuale non consente le connessioni SSH.
                 * **Auto-generate** (Genera automaticamente): crea automaticamente le impostazioni necessarie per la connessione tramite SSH.
-                * **Import from directory** (Importa da directory): consente di specificare una directory che contiene un set di impostazioni SSH salvate in precedenza. La directory deve contenere i due file seguenti:            * *id_rsa*: contiene l'identificazione RSA per un utente.
-                   * *id_rsa.pub*: contiene la chiave pubblica RSA usata per l'autenticazione.
+                * **Import from directory** (Importa da directory): consente di specificare una directory che contiene un set di impostazioni SSH salvate in precedenza. La directory deve contenere i due file seguenti:
+                
+                  * *id_rsa*: Contains the RSA identification for a user.
+                  * *id_rsa.pub*: Contains the RSA public key that is used for authentication.
             
         b. Nella scheda **Docker Daemon Access** (Accesso daemon Docker) specificare le informazioni seguenti:
 

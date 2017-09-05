@@ -16,6 +16,7 @@
 ### [Aggiungere istruzioni switch](logic-apps-switch-case.md)
 ### [Aggiungere codice personalizzato con Funzioni di Azure](logic-apps-azure-functions.md)
 ### [Cicli, ambiti e debatching dei dati](logic-apps-loops-and-scopes.md)
+### [Messaggi dei processi batch](logic-apps-batch-process-send-receive-messages.md)
 ### [Creare definizioni di app per la logica](logic-apps-author-definitions.md)
 ### [Chiamare, attivare o annidare app per la logica](logic-apps-http-endpoint.md)
 ### [Creare API personalizzate per app per la logica](logic-apps-create-api-app.md)
@@ -64,6 +65,7 @@
 ### [Gestire app per la logica con Visual Studio](logic-apps-manage-from-vs.md)
 ### [Gestire gli account di integrazione](logic-apps-enterprise-integration-accounts.md)
 ### [Monitorare lo stato delle app per la logica](logic-apps-monitor-your-logic-apps.md)
+### [Monitorare lo stato di app per la logica in OMS con Log Analytics](logic-apps-monitor-your-logic-apps-oms.md)
 ### [Monitorare i messaggi B2B](logic-apps-monitor-b2b-message.md)
 #### [Tenere traccia dei messaggi B2B in OMS](logic-apps-track-b2b-messages-omsportal.md)
 #### [Cercare messaggi B2B in OMS](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
@@ -140,5 +142,6 @@
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)

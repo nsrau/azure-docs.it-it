@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: b606d2c3070f8020cdd9aad3f12f8f1e43125138
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d9849b5e061dd7f2ae0744a3522dc2eb1fb37035
 ms.contentlocale: it-it
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -43,7 +43,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 ## <a name="create-jenkins-instance"></a>Creare l'istanza di Jenkins
 In un'esercitazione precedente, [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md) (Come personalizzare una macchina virtuale Linux al primo avvio), è stato descritto come personalizzare una macchina virtuale al primo avvio con cloud-init. Questa esercitazione usa un file cloud-init per installare Jenkins e Docker in una macchina virtuale. 
 
-Creare un file cloud-init denominato *cloud-init-jenkins.txt* e incollare il contenuto seguente:
+Nella shell corrente creare un file denominato *cloud-init.txt* e incollare la configurazione seguente. Ad esempio, creare il file in Cloud Shell anziché nel computer locale. Immettere `sensible-editor cloud-init-jenkins.txt` per creare il file e visualizzare un elenco degli editor disponibili. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga:
 
 ```yaml
 #cloud-config
@@ -115,6 +115,8 @@ Visualizzare la password `initialAdminPassword` per l'installazione di Jenkins e
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
+Se il file non è ancora disponibile, attendere ancora qualche minuto che cloud-init completi l'installazione di Jenkins e Docker.
+
 Aprire un Web browser e passare a `http://<publicIps>:8080`. Completare la configurazione iniziale di Jenkins come segue:
 
 - Immettere la password *initialAdminPassword* ottenuta dalla macchina virtuale nel passaggio precedente.
@@ -143,11 +145,11 @@ Per fare in modo che Jenkins risponda a un evento in GitHub, ad esempio l'esecuz
 
 Nel sito Web di Jenkins fare clic su **Create new jobs** (Crea nuovi processi) dalla home page:
 
-- Immettere *HelloWorld* come nome del processo. Selezionare **Freestyle project** (Progetto Freestyle) e quindi fare clic su **OK**.
+- Immettere *HelloWorld* come nome del processo. Scegliere **Freestyle project** (Progetto Freestyle) e quindi selezionare **OK**.
 - Nella sezione **General** (Generale) selezionare il progetto **GitHub** e immettere l'URL del repository con fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world*.
 - Nella sezione **Source code management** (Gestione del codice sorgente) selezionare **Git** e immettere l'URL *.git* del repository con fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world.git*.
 - Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
-- Nella sezione **Build** (Compilazione) fare clic su **Add build step** (Aggiungi istruzione di compilazione). Selezionare **Execute shell** (Esegui shell) e quindi immettere `echo "Testing"` nella finestra di comando.
+- Nella sezione **Build** (Compilazione) scegliere **Add build step** (Aggiungi istruzione di compilazione). Selezionare **Execute shell** (Esegui shell) e quindi immettere `echo "Testing"` nella finestra di comando.
 - Fare clic su **Save** (Salva) nella parte inferiore della finestra dei processi.
 
 
@@ -157,7 +159,7 @@ Per testare l'integrazione di GitHub con Jenkins, eseguire il commit di una modi
 Nell'interfaccia utente Web di GitHub selezionare il repository con fork e quindi fare clic sul file **index.js**. Fare clic sull'icona a forma di matita per modificare il file in modo che la riga 6 corrisponda a:
 
 ```nodejs
-response.end("Hello World!");`.
+response.end("Hello World!");
 ```
 
 Per eseguire il commit delle modifiche, fare clic sul pulsante **Commit changes** (Esegui il commit delle modifiche) nella parte inferiore.
@@ -174,7 +176,7 @@ Dalla connessione SSH alla macchina virtuale, passare alla directory dell'area d
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Creare un file denominato `Dockerfile` in questa directory dell'area di lavoro e incollare il contenuto seguente:
+Creare un file con `sudo sensible-editor Dockerfile` in questa directory dell'area di lavoro e incollare il contenuto seguente: Assicurarsi che l'intero file Docker venga copiato correttamente, in particolare la prima riga:
 
 ```yaml
 FROM node:alpine
@@ -197,7 +199,7 @@ Nell'istanza di Jenkins selezionare il processo creato in un passaggio precedent
 
 - Rimuovere l'istruzione di compilazione `echo "Test"` esistente. Fare clic sulla croce rossa nell'angolo superiore destro della casella dell'istruzione di compilazione esistente.
 - Fare clic su **Add build step** (Aggiungi istruzione di compilazione) e quindi selezionare **Execute shell** (Esegui shell).
-- Nella casella **Command** (Comando) immettere i comandi Docker seguenti:
+- Nella casella **Command** (Comando) immettere i comandi Docker seguenti, quindi selezionare **Save** (Salva):
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -237,7 +239,7 @@ In questa esercitazione è stato configurato GitHub per eseguire un processo di 
 > * Creare un'immagine Docker per l'app
 > * Verificare che i commit GitHub compilino una nuova immagine Docker e gli aggiornamenti che eseguono l'app
 
-Seguire questo collegamento per vedere esempi di script predefiniti delle macchine virtuali.
+Passare all'esercitazione successiva per ottenere altre informazioni su come integrare Jenkins con Visual Studio Team Services.
 
 > [!div class="nextstepaction"]
-> [Esempi di script delle macchine virtuali Linux](./cli-samples.md)
+> [Deploy apps with Jenkins and Team Services (Distribuire app con Jenkins e Team Services)](tutorial-build-deploy-jenkins.md)

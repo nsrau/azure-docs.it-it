@@ -1,5 +1,5 @@
 ---
-title: Configurare l&quot;offload SSL - Gateway applicazione di Azure - Portale di Azure | Documentazione Microsoft
+title: Configurare l'offload SSL - Gateway applicazione di Azure - Portale di Azure | Documentazione Microsoft
 description: Questa pagina contiene istruzioni per creare un gateway applicazione con offload SSL usando il portale
 documentationcenter: na
 services: application-gateway
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: a9cb2d921d1be226661311d91367b2b6f44fa0dc
-ms.lasthandoff: 03/24/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f61be0cc4c9274c9914f7c468ce48a2a3d0a4f4a
+ms.contentlocale: it-it
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-portal"></a>Configurare un gateway applicazione per l'offload SSL con il portale
@@ -27,6 +27,7 @@ ms.lasthandoff: 03/24/2017
 > * [Portale di Azure](application-gateway-ssl-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [PowerShell per Azure classico](application-gateway-ssl.md)
+> * [Interfaccia della riga di comando di Azure 2.0](application-gateway-ssl-cli.md)
 
 Il gateway applicazione di Azure può essere configurato per terminare la sessione Secure Sockets Layer (SSL) nel gateway ed evitare costose attività di decrittografia SSL nella Web farm. L'offload SSL semplifica anche la configurazione e la gestione del server front-end dell'applicazione Web.
 
@@ -70,7 +71,7 @@ Inserire le informazioni necessarie per il listener e caricare il certificato PF
 
 ## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Creare una regola e associarla al listener
 
-Ora che il listener è stato creato, è necessario creare una regola per gestire il traffico dal listener. Le regole definiscono in che modo il traffico viene indirizzato ai pool back-end sulla base di più impostazioni di configurazione, fra cui se viene usata l'affinità di sessione basata su cookie, nonché il protocollo, la porta e i probe di integrità.
+Ora che il listener è stato creato, è necessario creare una regola per gestire il traffico dal listener. Le regole definiscono in che modo il traffico viene indirizzato ai pool back-end sulla base di varie impostazioni di configurazione, tra cui se viene usata l'affinità di sessione basata su cookie, nonché il protocollo, la porta e i probe di integrità.
 
 ### <a name="step-1"></a>Passaggio 1
 

@@ -1,5 +1,5 @@
 ---
-title: Integrazione continua in VS Team Services con i progetti di gruppi di risorse di Azure | Documentazione Microsoft
+title: Integrazione continua in VS Team Services con i progetti di gruppi di risorse di Azure | Microsoft Docs
 description: Descrive come configurare l&quot;integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure in Visual Studio.
 services: visual-studio-online
 documentationcenter: na
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b178359d2f55e9137b39f42f5562e7bb8a642c57
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
+ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
+ms.contentlocale: it-it
+ms.lasthandoff: 06/01/2017
 
 
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure
-Per distribuire un modello di Azure, è necessario eseguire attività per completare le varie fasi, ovvero compilazione, test, copia in Azure (detta anche "staging") e distribuzione del modello.  Esistono due modi diversi per distribuire i modelli Visual Studio Team Services (VS Team Services). Entrambi i metodi forniscono gli stessi risultati, quindi è opportuno scegliere quello che meglio si adatta al proprio flusso di lavoro.
+Per distribuire un modello di Azure, eseguire attività in varie fasi, ovvero compilazione, test, copia in Azure (detta anche "staging") e distribuzione del modello. Esistono due modi diversi per distribuire i modelli in Visual Studio Team Services (VS Team Services). Entrambi i metodi forniscono gli stessi risultati, quindi è opportuno scegliere quello che meglio si adatta al proprio flusso di lavoro.
 
 1. Aggiungere un singolo passaggio alla definizione di compilazione che esegue lo script di PowerShell incluso nel progetto di distribuzione Gruppo di risorse di Azure (Deploy-AzureResourceGroup.ps1). Lo script copia gli elementi e quindi distribuisce il modello.
 2. Aggiungere più istruzioni di compilazione di VS Team Services, ognuna delle quali esegue un'attività della fase.
 
-Questo articolo illustra entrambe le opzioni.  La prima opzione ha il vantaggio di usare lo stesso script usato dagli sviluppatori di Visual Studio fornendo coerenza durante tutto il ciclo di vita.  La seconda opzione offre una comoda alternativa allo script predefinito.  Entrambe le procedure presuppongono che sia già disponibile un progetto di distribuzione di Visual Studio archiviato in VS Team Services.
+Questo articolo illustra entrambe le opzioni. La prima opzione ha il vantaggio di usare lo stesso script usato dagli sviluppatori di Visual Studio e di fornire coerenza durante tutto il ciclo di vita. La seconda opzione offre una comoda alternativa allo script predefinito. Entrambe le procedure presuppongono che sia già disponibile un progetto di distribuzione di Visual Studio archiviato in VS Team Services.
 
 ## <a name="copy-artifacts-to-azure"></a>Copiare gli elementi in Azure
 Indipendentemente dallo scenario, se sono disponibili elementi necessari per la distribuzione del modello, occorre concedere ad Azure Resource Manager l'accesso a tali elementi. Questi elementi possono includere file, ad esempio:
@@ -47,7 +49,7 @@ Per chiamare lo script di PowerShell in VS Team Services, è necessario aggiorna
 4. Impostare il valore del parametro *-ArtifactsStagingDirectory* per l'interazione con un progetto compilato in VS Team Services.
 
 ### <a name="detailed-walkthrough-for-option-1"></a>Procedura dettagliata per l'opzione 1
-I passaggi seguenti illustrano la procedura necessaria per configurare la distribuzione continua in VS Team Services usando una singola attività che esegue lo script PowerShell nel progetto. 
+Le procedure seguenti illustrano i passaggi necessari per configurare la distribuzione continua in VS Team Services usando una singola attività che esegue lo script PowerShell nel progetto. 
 
 1. Modificare la definizione di compilazione di VS Team Services e aggiungere un'istruzione di compilazione di Azure PowerShell. Scegliere la definizione di compilazione nella categoria **Definizioni di compilazione** e quindi scegliere il collegamento **Modifica**.
    
@@ -93,7 +95,7 @@ I passaggi seguenti illustrano la procedura necessaria per configurare la distri
    9. Aggiungere i valori di ID entità servizio, chiave entità servizio e ID tenant alla finestra di dialogo **Aggiungi sottoscrizione di Azure**, quindi scegliere il pulsante **OK**.
       
       Ora è disponibile un'entità servizio valida da usare per eseguire lo script di Azure PowerShell.
-5. Modificare la definizione di compilazione e scegliere l'istruzione di compilazione **Azure PowerShell** . Selezionare la sottoscrizione nella casella di riepilogo a discesa **Sottoscrizione Azure** . Se la sottoscrizione non viene visualizzata, scegliere il pulsante **Aggiorna** accanto al collegamento **Gestisci**. 
+5. Modificare la definizione di compilazione e scegliere l'istruzione di compilazione **Azure PowerShell** . Selezionare la sottoscrizione nella casella di riepilogo a discesa **Sottoscrizione Azure**. Se la sottoscrizione non viene visualizzata, scegliere il pulsante **Aggiorna** accanto al collegamento **Gestisci**. 
    
    ![Configurare l'attività di compilazione di Azure PowerShell][8]
 6. Fornire un percorso per lo script di PowerShell Deploy-AzureResourceGroup.ps1. A tale scopo, scegliere il pulsante con i puntini di sospensione (...) accanto alla casella **Percorso script**, passare allo script di PowerShell Deploy-AzureResourceGroup.ps1 nella cartella **Script** del progetto, selezionarlo e quindi scegliere **OK**.    
@@ -109,7 +111,7 @@ I passaggi seguenti illustrano la procedura necessaria per configurare la distri
    | -ResourceGroupLocation |Valore dell'area geografica in cui si trova il gruppo di risorse, ad esempio **eastus** o **'East US'**. Aggiungere virgolette singole se nel nome è presente uno spazio. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/en-us/regions/). |
    | -ResourceGroupName |Nome del gruppo di risorse usato per la distribuzione. |
    | -UploadArtifacts |Questo parametro, se presente, specifica che gli elementi devono essere caricati in Azure dal sistema locale. È sufficiente impostare questa opzione se la distribuzione del modello richiede elementi aggiuntivi che si prevede di preparare usando lo script di PowerShell, ad esempio gli script di configurazione o i modelli annidati. |
-   | -StorageAccountName |Nome dell'account di archiviazione usato per la preparazione degli elementi per questa distribuzione.  Questo parametro viene usato solo se si sta eseguendo la gestione temporanea di elementi per la distribuzione. Se questo parametro viene specificato, viene creato un nuovo account di archiviazione, se lo script non ne ha creato uno durante una distribuzione precedente.  Se il parametro viene specificato, l'account di archiviazione deve esistere già. |
+   | -StorageAccountName |Nome dell'account di archiviazione usato per la preparazione degli elementi per questa distribuzione. Questo parametro viene usato solo se si sta eseguendo la gestione temporanea di elementi per la distribuzione. Se questo parametro viene specificato, viene creato un nuovo account di archiviazione, se lo script non ne ha creato uno durante una distribuzione precedente. Se il parametro viene specificato, l'account di archiviazione deve esistere già. |
    | -StorageAccountResourceGroupName |Nome del gruppo di risorse associato all'account di archiviazione. Questo parametro è obbligatorio solo se si specifica un valore per il parametro StorageAccountName. |
    | -TemplateFile |Percorso del file modello nel progetto di distribuzione del gruppo di risorse di Azure. Per maggiore flessibilità, usare un percorso relativo alla posizione dello script di PowerShell per questo parametro, invece di un percorso assoluto. |
    | -TemplateParametersFile |Percorso del file modello nel progetto di distribuzione Gruppo di risorse di Azure. Per maggiore flessibilità, usare un percorso relativo alla posizione dello script di PowerShell per questo parametro, invece di un percorso assoluto. |
@@ -129,7 +131,7 @@ I passaggi seguenti illustrano la procedura necessaria per configurare la distri
 9. Dopo aver aggiunto tutti gli elementi richiesti per l'istruzione di compilazione di Azure PowerShell, scegliere il pulsante **Accoda compilazione** per compilare il progetto. La schermata **Compilazione** mostra l'output dello script di PowerShell.
 
 ### <a name="detailed-walkthrough-for-option-2"></a>Procedura dettagliata per l'opzione 2
-I passaggi seguenti illustrano la procedura necessaria per configurare la distribuzione continua in VS Team Services usando le attività predefinite.
+Le procedure seguenti illustrano i passaggi necessari per configurare la distribuzione continua in VS Team Services usando le attività predefinite.
 
 1. Modificare la definizione di compilazione di Visual Studio Team Services per aggiungere due nuove istruzioni di compilazione. Scegliere la definizione di compilazione nella categoria **Definizioni di compilazione** e quindi scegliere il collegamento **Modifica**.
    
@@ -140,16 +142,16 @@ I passaggi seguenti illustrano la procedura necessaria per configurare la distri
 3. Scegliere la categoria **Deploy task** (Distribuisci attività), selezionare l'attività **Copia dei file di Azure** e quindi scegliere il pulsante **Aggiungi**.
    
    ![Aggiungere l'attività Copia dei file di Azure][14]
-4. Scegliere l'attività ** 	Distribuzione gruppo di risorse di Azure**, quindi scegliere il pulsante **Aggiungi** e quindi **Chiudi** per il **catalogo delle attività**.
+4. Scegliere l'attività **Distribuzione gruppo di risorse di Azure**, quindi scegliere il pulsante **Aggiungi** e quindi **Chiudi** per il **catalogo delle attività**.
    
    ![Aggiungere attività Distribuzione gruppo di risorse di Azure][15]
 5. Scegliere l'attività **Copia dei file di Azure** e compilare i relativi valori.
    
-   Se è già stato aggiunto un endpoint di servizio di Azure a VS Team Services, scegliere la sottoscrizione nell'elenco a discesa **Sottoscrizione Azure**.  Se non si dispone di una sottoscrizione vedere la procedura dettagliata per l'[opzione 1](#detailed-walkthrough-for-option-1) per istruzioni sull'impostazione di una sottoscrizione in Visual STUDIO Team Services.
+   Se è già stato aggiunto un endpoint di servizio di Azure a VS Team Services, scegliere la sottoscrizione nell'elenco a discesa **Sottoscrizione Azure**. Se non si dispone di una sottoscrizione vedere l'[opzione 1](#detailed-walkthrough-for-option-1) per istruzioni sull'impostazione di una sottoscrizione in VS Team Services.
    
    * Origine: immettere **$(Build.StagingDirectory)**
    * Tipo di connessione ad Azure: selezionare **Azure Resource Manager**
-   * Sottoscrizione di Azure Resource Manager: selezionare la sottoscrizione per l'account di archiviazione nell'elenco a discesa **Sottoscrizione di Azure**. Se la sottoscrizione non viene visualizzata, scegliere il pulsante **Aggiorna** accanto al collegamento **Gestisci**.
+   * Sottoscrizione di Azure Resource Manager: selezionare la sottoscrizione per l'account di archiviazione che si intende usare nell'elenco a discesa **Sottoscrizione Azure**. Se la sottoscrizione non viene visualizzata, scegliere il pulsante **Aggiorna** accanto al collegamento **Gestisci**.
    * Tipo di destinazione: selezionare **Blob di Azure**
    * Account di archiviazione di Resource Manager: selezionare l'account di archiviazione da usare per la gestione temporanea degli elementi
    * Nome contenitore: immettere il nome del contenitore da usare per la gestione temporanea, che può essere qualsiasi nome di contenitore valido, ma usare un contenitore dedicato a questa definizione di compilazione
@@ -163,7 +165,7 @@ I passaggi seguenti illustrano la procedura necessaria per configurare la distri
 6. Scegliere l'istruzione di compilazione di **Distribuzione gruppo di risorse di Azure** e quindi compilare i relativi valori.
    
    * Tipo di connessione ad Azure: selezionare **Azure Resource Manager**
-   * Sottoscrizione di Azure Resource Manager: selezionare la sottoscrizione per la distribuzione nell'elenco a discesa **Sottoscrizione di Azure**. In genere, questa sarà la stessa sottoscrizione usata nel passaggio precedente.
+   * Sottoscrizione di Azure Resource Manager: selezionare la sottoscrizione per la distribuzione nell'elenco a discesa **Sottoscrizione Azure**. In genere, questa sarà la stessa sottoscrizione usata nel passaggio precedente
    * Azione - selezionare **Creare o aggiornare un gruppo di risorse**
    * Gruppo di risorse: selezionare un gruppo di risorse o immettere il nome del nuovo gruppo di risorse per la distribuzione
    * Posizione: selezionare la posizione per il gruppo di risorse
@@ -196,9 +198,4 @@ Per altre informazioni sui gruppi di risorse di Azure e su Azure Resource Manage
 [15]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough16.png
 [16]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough17.png
 [17]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough18.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

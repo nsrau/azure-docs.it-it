@@ -1,12 +1,12 @@
 ---
-title: Migrare un database tramite l&quot;importazione ed esportazione nel Database di Azure per PostgreSQL | Microsoft Docs
+title: Migrare un database tramite l'importazione ed esportazione nel Database di Azure per PostgreSQL | Microsoft Docs
 description: In questo articolo viene descritto come estrarre un database PostgreSQL in un file di script da cui importare i dati nel database di destinazione.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.topic: article
 ms.date: 06/14/2017
 ms.translationtype: Human Translation

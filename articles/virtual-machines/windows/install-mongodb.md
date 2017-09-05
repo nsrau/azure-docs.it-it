@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 5fdf061d6bf9961455377935304e9075ef4e59fa
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installare e configurare MongoDB in una VM Windows in Azure
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/12/2017
 Prima di installare e configurare MongoDB, è necessario creare una VM e, idealmente, aggiungere un disco dati. Vedere gli articoli seguenti per creare una VM e aggiungere un disco dati:
 
 * Creare una macchina virtuale Windows Server usando [il portale di Azure](quick-create-portal.md) o [Azure PowerShell](quick-create-powershell.md).
-* Collegare un disco dati a una macchina virtuale Windows Server usando [il portale di Azure](attach-disk-portal.md) o [Azure PowerShell](attach-disk-ps.md).
+* Collegare un disco dati a una macchina virtuale Windows Server usando [il portale di Azure](attach-managed-disk-portal.md) o [Azure PowerShell](attach-disk-ps.md).
 
 Per iniziare a installare e configurare MongoDB, [accedere a una VM Windows Server](connect-logon.md) tramite Desktop remoto.
 

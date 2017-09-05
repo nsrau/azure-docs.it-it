@@ -13,36 +13,56 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2017
+ms.date: 08/01/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: ba380d88704d33353518c55fdc91493e804c0746
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 3b2126b1ecd1613950bbf311ae08fafd4af0d51f
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="working-with-virtual-network-gateway-skus-old-skus"></a>Lavorare con gli SKU del gateway di rete virtuale (SKU precedenti)
+# <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilizzo degli SKU del gateway di rete virtuale (SKU di versione precedente)
 
-Questo articolo contiene informazioni sugli SKU del gateway di rete virtuale precedenti. Per informazioni sugli SKU correnti, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
+Questo articolo contiene informazioni sugli SKU del gateway di rete virtuale (versione precedente). Gli SKU di versione precedente continuano a funzionare in entrambi i modelli di distribuzione per i gateway VPN che sono già stati creati. I gateway VPN classici continuano a usare gli SKU di versione precedente, sia per i gateway esistenti sia per i nuovi gateway. Quando si creano nuovi gateway VPN di Resource Manager, usare i nuovi SKU del gateway. Per informazioni sui nuovi SKU, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 
-## <a name="gateway-skus"></a>SKU del gateway
+## <a name="gwsku"></a>SKU del gateway
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-## <a name="estimated-aggregate-throughput-by-sku"></a>Velocità effettiva aggregata stimata per SKU
+## <a name="agg"></a>Velocità effettiva aggregata stimata per SKU
 
 [!INCLUDE [Aggregated throughput by legacy SKU](../../includes/vpn-gateway-table-gwtype-legacy-aggtput-include.md)]
 
-## <a name="supported-configurations-by-sku-and-vpn-type"></a>Configurazioni supportate per tipo di VPN e SKU
+## <a name="config"></a>Configurazioni supportate per tipo di VPN e SKU
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="migrating-to-the-new-gateway-skus"></a>Eseguire la migrazione ai nuovi SKU del gateway
+## <a name="resize"></a>Ridimensionare un gateway (modificare uno SKU del gateway)
+
+È possibile ridimensionare uno SKU del gateway solo all'interno della stessa famiglia di SKU. Se si ha uno SKU Standard, ad esempio, è possibile ridimensionarlo in uno SKU HighPerformance. Non è possibile invece ridimensionare gateway VPN tra gli SKU di versione precedente e le nuove famiglie di SKU. Non è possibile, ad esempio, passare da uno SKU Standard a uno SKU VpnGw2. 
+
+Per ridimensionare uno SKU del gateway per il modello di distribuzione classica, usare il comando seguente:
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
+
+Per ridimensionare uno SKU del gateway per il modello di distribuzione di Resource Manager, usare il comando seguente:
+
+```powershell
+$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+```
+
+## <a name="migrate"></a>Eseguire la migrazione ai nuovi SKU del gateway
+
+Se si sta usando il modello di distribuzione di Resource Manager, è possibile eseguire la migrazione ai nuovi SKU del gateway. Se si sta usando il modello di distribuzione classica, non è possibile eseguire la migrazione ai nuovi SKU ed è necessario invece continuare a usare gli SKU di versione precedente.
 
 [!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
 
+## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sui nuovi SKU del gateway, vedere [SKU del gateway](vpn-gateway-about-vpngateways.md#gwsku).
 
-
+Per altre informazioni sulle impostazioni di configurazione, vedere [Informazioni sulle impostazioni di configurazione del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).

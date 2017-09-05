@@ -1,6 +1,6 @@
 ---
 title: Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse
-description: Informazioni su come usare i modelli di Hub di notifica per inviare, in un&quot;unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme.
+description: Informazioni su come usare i modelli di Hub di notifica per inviare, in un'unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme.
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,14 +14,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0cc620324c75ed6ffee26fe442014d61673ba1e6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ef971fcfe68978ea9ce0810c69efbe134bb15f8a
+ms.contentlocale: it-it
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Uso di Hub di notifica per inviare notifiche agli utenti tra piattaforme diverse
-Nell'esercitazione precedente, [Utilizzo di Hub di notifica per inviare notifiche agli utenti], si è appreso come inviare notifiche push a tutti i dispositivi registrati da uno specifico utente autenticato. In tale esercitazione vengono utilizzate più richieste per inviare una notifica a ogni piattaforma client supportata. Hub di notifica supporta i modelli, che consentono di specificare il modo in cui un dispositivo desidera ricevere notifiche. Questa capacità semplifica l'invio di notifiche tra piattaforme diverse. Questo argomento descrive come servirsi dei modelli per inviare, in un'unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme. Per informazioni dettagliate sui modelli, vedere [Panoramica dell'Hub di notifica][Modelli].
+Nell'esercitazione precedente, [Utilizzo di Hub di notifica per inviare notifiche agli utenti], si è appreso come inviare notifiche push a tutti i dispositivi registrati da uno specifico utente autenticato. In tale esercitazione vengono utilizzate più richieste per inviare una notifica a ogni piattaforma client supportata. Hub di notifica supporta i modelli, che consentono di specificare il modo in cui un dispositivo desidera ricevere notifiche. Questa capacità semplifica l'invio di notifiche tra piattaforme diverse. Questo argomento descrive come servirsi dei modelli per inviare, in un'unica richiesta, una notifica indipendente dalla piattaforma destinata a tutte le piattaforme. Per informazioni dettagliate sui modelli, vedere [Panoramica dell'Hub di notifica][Templates].
+> [!IMPORTANT]
+> Progetti creati con Windows Phone 8.1 o versioni precedenti non sono supportati in Visual Studio 2017. Per altre informazioni, vedere [Selezione della piattaforma e compatibilità di Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
 > [!NOTE]
 > Hub di notifica consente a un dispositivo di registrare più modelli con lo stesso tag. In questo caso, un messaggio in arrivo destinato a tale tag ha come esito il recapito al dispositivo di più notifiche, una per ogni modello. Questo consente di visualizzare lo stesso messaggio in più notifiche visive, ad esempio sia come notifica badge che come notifica di tipo avviso popup in un'app di Windows Store.
@@ -31,7 +34,7 @@ Nell'esercitazione precedente, [Utilizzo di Hub di notifica per inviare notifich
 Per inviare notifiche tra piattaforme diverse utilizzando i modelli, eseguire la procedure seguente:
 
 1. In Esplora soluzioni in Visual Studio espandere la cartella **Controllers** e quindi aprire il file RegisterController.cs.
-2. Nel metodo **Post** individuare il blocco di codice che crea una nuova registrazione e sostituire il contenuto `switch` con il codice seguente:
+2. Nel metodo **Put** individuare il blocco di codice che crea una nuova registrazione e sostituire il contenuto di `switch` con il codice seguente:
    
         switch (deviceUpdate.Platform)
         {
@@ -85,7 +88,7 @@ Per inviare notifiche tra piattaforme diverse utilizzando i modelli, eseguire la
 Dopo avere completato questa esercitazione, è possibile reperire altre informazioni su Hub di notifica e sui modelli nei seguenti argomenti:
 
 * **[Use Notification Hubs to send breaking news]** (Usare gli hub di notifica per inviare le ultime notizie) <br/>Questo argomento descrive un altro scenario per l'uso dei modelli.
-* **[Panoramica dell'Hub di notifica][Modelli]**<br/> Panoramica con informazioni dettagliate sui modelli.
+* **[Panoramica dell'Hub di notifica][Templates]**<br/>Panoramica con informazioni dettagliate sui modelli.
 
 <!-- Anchors. -->
 
@@ -95,18 +98,13 @@ Dopo avere completato questa esercitazione, è possibile reperire altre informaz
 
 
 <!-- URLs. -->
-[Effettuare il push agli utenti - ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Effettuare il push agli utenti - Servizi mobili]: /manage/services/notification-hubs/notify-users/
-[Visual Studio 2012 Express per Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
+[Push to users ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Push to users Mobile Services]: /manage/services/notification-hubs/notify-users/
+[Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Hub di notifica di Azure]: http://go.microsoft.com/fwlink/p/?LinkId=314257
+[Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
 [Utilizzo di Hub di notifica per inviare notifiche agli utenti]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Modelli]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Procedure di Hub di notifica per Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
+[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 

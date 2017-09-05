@@ -3,7 +3,7 @@ title: Come usare il controllo degli accessi in base al ruolo in Gestione API di
 description: Informazioni su come usare i ruoli predefiniti e creare ruoli personalizzati in Gestione API di Azure
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: b048a1db135d217b319541b92cf3c30b345d1a66
-ms.openlocfilehash: cedab98452ad336748d805f0efbf50633badf8ab
-
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: a3a874b8fc4e4dcfd7b194149f677127d9f9a200
+ms.contentlocale: it-it
+ms.lasthandoff: 08/31/2017
 
 ---
 
@@ -73,9 +74,4 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
   * [Introduzione alla gestione degli accessi nel portale di Azure](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-what-is/)
   * [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](https://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-what-is/)
   * [Ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

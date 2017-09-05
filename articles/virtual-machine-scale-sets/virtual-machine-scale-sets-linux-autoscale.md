@@ -1,6 +1,6 @@
 ---
 title: "Ridimensionare set di scalabilità di macchine virtuali Linux | Microsoft Docs"
-description: "Impostare il ridimensionamento automatico per un set di scalabilità di macchine virtuali Linux tramite l&quot;interfaccia della riga di comando di Azure"
+description: "Impostare il ridimensionamento automatico per un set di scalabilità di macchine virtuali Linux tramite l'interfaccia della riga di comando di Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
+ms.contentlocale: it-it
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Ridimensionare automaticamente macchine virtuali Linux in un set di scalabilità di macchine virtuali
@@ -55,7 +55,7 @@ Nell'interfaccia della riga di comando (Bash, terminale, prompt dei comandi) pas
     ```
    
     > [!NOTE]
-    > Se si ha un ID aziendale o dell'istituto di istruzione e l'autenticazione a due fattori non è abilitata, usare `azure login -u` con l'ID per eseguire l'accesso senza una sessione interattiva. Se non si ha un'identità aziendale o dell'istituto di istruzione, è possibile [crearne una dall'account Microsoft personale](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+    > Se si ha un ID aziendale o dell'istituto di istruzione e l'autenticazione a due fattori non è abilitata, usare `azure login -u` con l'ID per eseguire l'accesso senza una sessione interattiva. Se non si ha un'identità aziendale o dell'istituto di istruzione, è possibile [crearne una dall'account Microsoft personale](../active-directory/active-directory-users-create-azure-portal.md).
     
 2. **Creare un gruppo di risorse**  
 Tutte le risorse devono essere distribuite in un gruppo di risorse. Per questa esercitazione, assegnare al gruppo di risorse il nome **vmsstest1**.
@@ -591,6 +591,6 @@ azure group delete vmsstestrg1
 * Per alcuni esempi delle funzionalità di monitoraggio in Monitoraggio di Azure, vedere [Azure Monitor Cross-platform CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md) (Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma di Monitoraggio di Azure).
 * Per informazioni sulle funzionalità di notifica, vedere [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) (Usare le azioni di scalabilità automatica per inviare notifiche di avviso tramite e-mail e webhook in Monitoraggio di Azure).
 * Per informazioni, vedere [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md) (Usare i log di controllo per inviare notifiche di avviso tramite e-mail e webhook in Monitoraggio di Azure).
-* Vedere il modello di [scalabilità automatica di un set di scalabilità di macchine virtuali che esegue un'app Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) che consente di impostare uno stack LAMP per applicare la funzionalità di ridimensionamento automatico dei set di scalabilità di macchine virtuali.
+* Vedere il modello di [app demo per la scalabilità automatica su Ubuntu 16.04](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) che consente di configurare un'app Python/Bottle per applicare la funzionalità di ridimensionamento automatico dei set di scalabilità di macchine virtuali.
 
 

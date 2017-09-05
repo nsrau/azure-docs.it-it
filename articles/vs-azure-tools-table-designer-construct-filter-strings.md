@@ -3,8 +3,8 @@ title: Creazione di stringhe di filtro per Progettazione tabelle | Documentazion
 description: Creazione di stringhe di filtro per Progettazione tabelle
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
 ms.service: storage
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 98b06b14ca7897cce884f6d80f998661cacb7ea4
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Creazione di stringhe di filtro per Progettazione tabelle
@@ -94,9 +95,4 @@ Per applicare filtri a un valore DateTime, specificare la parola chiave **dateti
 L'esempio seguente restituisce le entità in cui la proprietà CustomerSince è uguale a 10 luglio 2008:
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

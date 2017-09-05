@@ -1,5 +1,5 @@
 ---
-title: Applicazione Java HBase - Azure HDInsight | Microsoft Docs
+title: Client Java HBase - Azure HDInsight | Microsoft Docs
 description: Informazioni su come usare Apache Maven per compilare un'applicazione Apache HBase basata su Java e poi distribuirla in HBase in Azure HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9cf2a997e3016995b0dbb0e0adf9f388f70c2599
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d6ef6c988533f27338a61a587b3ce5174d8fa806
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
@@ -28,6 +27,9 @@ ms.lasthandoff: 07/08/2017
 Informazioni su come creare e compilare un'applicazione [Apache HBase](http://hbase.apache.org/) in Java. Quindi usare l'applicazione con HBase in Azure HDInsight.
 
 La procedura descritta in questo documento usa [Maven](http://maven.apache.org/) per creare e compilare il progetto. Maven è un progetto di gestione software e uno strumento di esplorazione che consente di compilare software, documentazione e report per i progetti Java.
+
+> [!NOTE]
+> La procedura descritta in questo documento è stata testata molto recentemente con HDInsight 3.6.
 
 > [!IMPORTANT]
 > I passaggi descritti in questo documento richiedono un cluster HDInsight che usa Linux. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -37,7 +39,7 @@ La procedura descritta in questo documento usa [Maven](http://maven.apache.org/)
 * [Piattaforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 o versioni successive.
 
     > [!NOTE]
-    > HDInsight 3.5 richiede Java 8. Le versioni precedenti di HDInsight richiedono Java 7.
+    > HDInsight 3.5 e versioni successive richiedono Java 8. Le versioni precedenti di HDInsight richiedono Java 7.
 
 * [Maven](http://maven.apache.org/)
 
@@ -48,13 +50,18 @@ La procedura descritta in questo documento usa [Maven](http://maven.apache.org/)
 
 ## <a name="create-the-project"></a>Creare il progetto
 
-1. Dalla riga di comando nell'ambiente di sviluppo, passare alla directory in cui si vuole creare il progetto, ad esempio `cd code/hdinsight`.
+1. Dalla riga di comando nell'ambiente di sviluppo, passare alla directory in cui si vuole creare il progetto, ad esempio `cd code\hbase`.
 
 2. Usare il comando **mvn** , che viene installato con Maven, per generare lo scaffolding per il progetto.
 
     ```bash
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
+
+    > [!NOTE]
+    > Se si usa PowerShell, è necessario racchiudere i parametri `-D` tra virgolette doppie.
+    >
+    > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     Questo comando crea una directory con lo stesso nome del parametro **artifactID** (in questo esempio **hbaseapp**). La directory contiene gli elementi seguenti:
 
@@ -88,7 +95,7 @@ La procedura descritta in questo documento usa [Maven](http://maven.apache.org/)
    | Versione del cluster HDInsight | Versione di HBase da usare |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
-   | 3.3, 3.4 e 3.5 |1.1.2 |
+   | 3.3, 3.4, 3.5 e 3.6 |1.1.2 |
 
     Per altre informazioni sulle versioni e sui componenti di HDInsight, vedere [Quali sono i diversi componenti di Hadoop disponibili in HDInsight?](hdinsight-component-versioning.md).
 
@@ -154,7 +161,9 @@ La procedura descritta in questo documento usa [Maven](http://maven.apache.org/)
 
 6. Usare il comando seguente per copiare la configurazione di HBase dal cluster HBase nella directory `conf`. Sostituire `USERNAME` con il nome di accesso a SSH. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight:
 
-        scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```bash
+    scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```
 
    Per altre informazioni sull'uso di `ssh` e `scp`, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -375,7 +384,9 @@ La procedura seguente usa `scp` per copiare il file JAR nel nodo head primario d
 
 2. Per collegarsi al cluster HBase, usare il comando seguente:
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     Sostituire `USERNAME` con il nome di accesso a SSH. Sostituire `CLUSTERNAME` con il nome del cluster HDInsight.
 
@@ -401,6 +412,10 @@ La procedura seguente usa `scp` per copiare il file JAR nel nodo head primario d
         Rae Schroeder - rae@contoso.com - ID: 4
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
+
+5. Per eliminare la tabella, usare il comando seguente:
+
+    
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Caricare il file JAR ed eseguire i processi (PowerShell)
 
@@ -459,7 +474,7 @@ La procedura seguente usa Azure PowerShell per caricare il file JAR nella risors
     $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
     # The JAR
-    $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
+    $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
 
     # The job definition
     $jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -667,7 +682,7 @@ Dopo aver completato l'esempio, usare il comando seguente per eliminare la tabel
 
 __Da una sessione `ssh`__:
 
-`hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
+`yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 
 __Da Azure PowerShell__:
 

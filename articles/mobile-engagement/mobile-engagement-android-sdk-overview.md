@@ -1,6 +1,6 @@
 ---
 title: Integrazione di Android SDK per Azure Mobile Engagement
-description: Descrive come integrare l&quot;SDK di Azure Mobile Engagement nelle app Android
+description: Descrive come integrare l'SDK di Azure Mobile Engagement nelle app Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/30/2017
+ms.date: 07/17/2017
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 1438b9479b3bbb8b7599d7d05b48e4cd6d981e0c
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 35935e911f1f17989beb71978396c6d1b7d601d6
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="android-sdk-integration-for-azure-mobile-engagement"></a>Integrazione di Android SDK per Azure Mobile Engagement
@@ -53,8 +53,16 @@ Questo documento descrive tutte le opzioni di configurazione e integrazione disp
 [Come usare l'API di assegnazione di tag di Mobile Engagement avanzata nell'app per Android](mobile-engagement-android-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Note sulla versione
-### <a name="424-03302017"></a>4.2.4 (03/30/2017)
-* Correggere i colori del testo della notifica in-app in Android 7 in modo che corrispondano a quelli di versioni precedenti di Android.
+
+### <a name="431-07172017"></a>4.3.1 (07/17/2017)
+* Correzione di un arresto anomalo del sistema che può verificarsi raramente quando si chiama `EngagementAgentUtils.isInDedicatedEngagementProcess`, che viene usato anche dalla classe `EngagementApplication`.
+
+### <a name="430-06272017"></a>4.3.0 (06/27/2017)
+* Supporto Android 8 (versioni precedenti dell'SDK non funzionano in Android 8).
+* Nessuna dipendenza nella raccolta di supporto.
+* Rimuovere la classe `EngagementFragmentActivity`.
+* A causa di [limiti di esecuzione in Background](https://developer.android.com/preview/features/background.html) in Android 8, i log in background potrebbero subire un ritardo fino a quando l'utente non interagisce con il dispositivo; ciò avrà un impatto sulla campagna Push **Consegnata** e sulle statistiche **Notifica di sistema visualizzata** che subiscono un ritardo se il dispositivo era in sospensione (la notifica verrà ancora visualizzata, suonerà e vibrerà in tempo reale senza problemi).
+* A causa di [limiti del percorso di background](https://developer.android.com/preview/features/background-location-limits.html), il percorso in tempo reale in background non verrà aggiornato frequentemente in Android 8.
 
 Per tutte le versioni, vedere le [note sulla versione complete](mobile-engagement-android-release-notes.md).
 

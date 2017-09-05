@@ -1,6 +1,6 @@
 ---
-title: Un&quot;applicazione assegnata non viene visualizzata nel pannello di accesso | Microsoft Docs
-description: Risolvere il problema relativo alla mancata visualizzazione di un&quot;applicazione nel pannello di accesso
+title: Un'applicazione assegnata non viene visualizzata nel pannello di accesso | Microsoft Docs
+description: Risolvere il problema relativo alla mancata visualizzazione di un'applicazione nel pannello di accesso
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2017
+ms.date: 07/11/2017
 ms.author: asteen
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 605e68dd86e5188f8a872745164ac879c40a1278
-ms.lasthandoff: 04/17/2017
-
+ms.reviwer: japere
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 9ea5744d77b90929598ea5feb80c7bbdff3772fc
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -131,11 +132,11 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
    1. Fare clic su **Aggiungi attributo**. Immettere il **Nome** e selezionare il **Valore** nell'elenco a discesa.
 
-   2. Fare clic su **Salva**. Il nuovo attributo verrà visualizzato nella tabella.
+   2. fare clic su **Salva**. Il nuovo attributo verrà visualizzato nella tabella.
 
 13. Fare clic su **Configura &lt;nome applicazione&gt;** per accedere alla documentazione che illustra come configurare l'accesso Single Sign-On nell'applicazione. Sono inoltre disponibili il certificato e gli URL dei metadati richiesti per configurare l'accesso SSO con l'applicazione.
 
-14. Fare clic su **Salva** per salvare la configurazione.
+14. fare clic su **Salva** per salvare la configurazione.
 
 15. Assegnare utenti all'applicazione.
 
@@ -172,7 +173,7 @@ Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, 
 
    1. Fare clic su **Aggiungi attributo**. Immettere il **Nome** e selezionare il **Valore** nell'elenco a discesa.
 
-   2. Fare clic su **Salva**. Il nuovo attributo verrà visualizzato nella tabella.
+   2. fare clic su **Salva**. Il nuovo attributo è visualizzato nella tabella.
 
 #### <a name="download-the-azure-ad-metadata-or-certificate"></a>Scaricare il certificato o i metadati di Azure AD
 
@@ -343,9 +344,9 @@ Per aggiungere un'applicazione dalla raccolta di Azure AD, seguire questa proced
 
 Dopo un breve periodo di tempo sarà possibile visualizzare il pannello di configurazione dell'applicazione.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurare l'applicazione con l'accesso Single Sign-On basato su password
+#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurare l'applicazione per un accesso Single Sign-On basato su password
 
-Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa procedura:
+Per configurare un accesso Single Sign-On per un'applicazione, seguire i passaggi seguenti:
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
@@ -367,7 +368,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 9.  [Assegnare gli utenti all'applicazione](#how-to-assign-a-user-to-an-application-directly).
 
-10. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali** e immettere il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
+10. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali**, quindi immettendo il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
 
 ### <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Come configurare l'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -375,7 +376,7 @@ Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
 -   [Aggiungere un'applicazione non inclusa nella raccolta](#add-a-non-gallery-application)
 
--   [Configurare l'applicazione con l'accesso Single Sign-On basato su password](#configure-the-application-for-password-single-sign-on)
+-   [Configurare l'applicazione per un accesso Single Sign-On basato su password](#configure-the-application-for-password-single-sign-on)
 
 #### <a name="add-a-non-gallery-application"></a>Aggiungere un'applicazione non inclusa nella raccolta
 
@@ -395,11 +396,11 @@ Per aggiungere un'applicazione dalla raccolta di Azure AD, seguire questa proced
 
 7.  Immettere il nome dell'applicazione nella casella di testo **Nome**. Fare clic su **Aggiungi**.
 
-Dopo un breve periodo di tempo sarà possibile visualizzare il pannello di configurazione dell'applicazione.
+Dopo un breve periodo di tempo, sarà possibile visualizzare il pannello di configurazione dell'applicazione.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurare l'applicazione con l'accesso Single Sign-On basato su password
+#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurare l'applicazione per un accesso Single Sign-On basato su password
 
-Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa procedura:
+Per configurare un accesso Single Sign-On per un'applicazione, seguire i passaggi seguenti:
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
@@ -423,7 +424,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 10. [Assegnare gli utenti all'applicazione](#how-to-assign-a-user-to-an-application-directly).
 
-11. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali** e immettere il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
+11. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali**, quindi immettendo il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
 
 ## <a name="problems-related-to-assigning-applications-to-users"></a>Problemi relativi all'assegnazione di applicazioni agli utenti
 
@@ -483,9 +484,9 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 9.  Fare clic sul selettore **Utenti e gruppi** nel pannello **Aggiungi assegnazione**.
 
-10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo** o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
+10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo**  o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
 
-11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **selezionato**.
+11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
 12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
 
@@ -511,7 +512,7 @@ Per controllare le licenze assegnate a un utente, seguire questa procedura:
 
 5.  Fare clic su **Tutti gli utenti**.
 
-6.  **Cercare** l'utente interessato e **fare clic sulla relativa riga** per selezionarlo.
+6.  **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
 
 7.  Fare clic su **Licenze** per verificare quali licenze sono assegnate all'utente.
 
@@ -531,15 +532,15 @@ Per assegnare una licenza a un utente, seguire questa procedura:
 
 5.  Fare clic su **Tutti gli utenti**.
 
-6.  **Cercare** l'utente interessato e **fare clic sulla relativa riga** per selezionarlo.
+6.  **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
 
-7.  Fare clic su **Licenze** per verificare quali licenze sono assegnate all'utente.
+7.  Fare clic su **Licenze** per visualizzare le licenze attualmente assegnate all'utente.
 
-8.  Fare clic sul pulsante **Assegna**.
+8.  Fare clic sul pulsante **Assegna** .
 
 9.  Selezionare **uno o più prodotti** nell'elenco dei prodotti disponibili.
 
-10. **Facoltativo**: fare clic sulla voce **Opzioni di assegnazione** per assegnare in modo granulare i prodotti. Al termine, fare clic su **OK**.
+10. **Facoltativo**: fare clic sulla voce **Opzioni di assegnazione** per assegnare in modo granulare i prodotti. Fare clic su **OK** al termine.
 
 11. Fare clic sul pulsante **Assegna** per assegnare queste licenze all'utente.
 
@@ -655,11 +656,11 @@ Per assegnare una licenza a un gruppo, seguire questa procedura:
 
 7.  Fare clic su **Licenze** per visualizzare le licenze attualmente assegnate al gruppo.
 
-8.  Fare clic sul pulsante **Assegna**.
+8.  Fare clic sul pulsante **Assegna** .
 
 9.  Selezionare **uno o più prodotti** nell'elenco dei prodotti disponibili.
 
-10. **Facoltativo**: fare clic sulla voce **Opzioni di assegnazione** per assegnare in modo granulare i prodotti. Al termine, fare clic su **OK**.
+10. **Facoltativo**: fare clic sulla voce **Opzioni di assegnazione** per assegnare in modo granulare i prodotti. Fare clic su **OK** al termine.
 
 11. Fare clic sul pulsante **Assegna** per assegnare queste licenze al gruppo. L'operazione potrebbe richiedere molto tempo a seconda della dimensione e della complessità del gruppo.
 

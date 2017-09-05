@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c731099cb91512f3bf0ecc2ffa5258788c90cd1b
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -160,7 +160,7 @@ Anche se sono state create una rete virtuale e due VM, il portale di Azure ha cr
 
     ![Contenuto del gruppo di risorse](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-Per altre informazioni, vedere gli articoli introduttivi relativi a [macchine virtuali](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [dischi](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [account di archiviazione](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile visualizzare i due gruppi di sicurezza di rete creati automaticamente dal portale. È inoltre possibile notare che il portale ha creato due risorse scheda di interfaccia di rete. Una scheda di interfaccia di rete consente a una VM di connettersi ad altre risorse attraverso la rete virtuale. Per altre informazioni, vedere l'articolo [Interfacce di rete](virtual-network-network-interface.md). Il portale ha creato anche una risorsa indirizzo IP pubblico. Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa indirizzo IP pubblico. Per altre informazioni sugli indirizzi IP pubblici, vedere l'articolo [Indirizzi IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Per altre informazioni, vedere gli articoli introduttivi relativi a [macchine virtuali](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [dischi](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [account di archiviazione](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È possibile visualizzare i due gruppi di sicurezza di rete creati automaticamente dal portale. È inoltre possibile notare che il portale ha creato due risorse scheda di interfaccia di rete. Una scheda di interfaccia di rete consente a una VM di connettersi ad altre risorse attraverso la rete virtuale. Per altre informazioni, vedere l'articolo [Interfacce di rete](virtual-network-network-interface.md). Il portale ha creato anche una risorsa indirizzo IP pubblico. Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa indirizzo IP pubblico. Per altre informazioni sugli indirizzi IP pubblici, vedere l'articolo [Indirizzi IP](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 ## <a name="connect-to-from-vms"></a>Connettersi alle VM
 
@@ -231,7 +231,7 @@ Per connettersi in uscita a Internet dalla VM del server di database, seguire qu
 1. Se non è già disponibile una connessione remota aperta alla VM MyDBServer dalla VM MyWebServer, seguire la procedura descritta nella sezione [Connettersi alla VM del server di database dalla VM del server Web](#webserver-to-dbserver) di questo articolo.
 2. Dal desktop di Windows della VM MyDBServer aprire Internet Explorer e selezionare le opzioni delle finestre di dialogo come indicato ai passaggi 2 e 3 della sezione [Connettersi a Internet dalla VM del server Web](#connect-to-internet) di questo articolo.
 3. Nella barra degli indirizzi immettere [bing.com](http:www.bing.com).
-4. Fare clic su **Aggiungi** nella finestra di Internet Explorer visualizzata, quindi fare clic su **Aggiungi** e scegliere **Chiudi** nella finestra di dialogo **Siti attendibili**. Seguire questa procedura nelle altre finestre di dialogo eventualmente visualizzate.
+4. Fare clic su **Aggiungi** nella finestra di Internet Explorer visualizzata, quindi fare clic su **Aggiungi**  e scegliere **Chiudi** nella finestra di dialogo **Siti attendibili**. Seguire questa procedura nelle altre finestre di dialogo eventualmente visualizzate.
 5. Nella pagina di ricerca di Bing immettere *whatsmyipaddress* e quindi fare clic sul pulsante con la lente di ingrandimento. Bing restituisce l'indirizzo IP pubblico attualmente assegnato alla VM dall'infrastruttura di Azure. 6. Chiudere la connessione remota alla VM MyDBServer dalla VM MyWebServer e quindi chiudere la connessione remota alla VM MyWebServer.
 
 La connessione in uscita a Internet è consentita perché tutto il traffico in uscita è consentito per impostazione predefinita, anche se alla VM MyDBServer non è assegnata una risorsa indirizzo IP pubblico. Tutte le VM sono in grado di connettersi in uscita a Internet per impostazione predefinita, anche se alla VM non è assegnata una risorsa indirizzo IP pubblico. Non è tuttavia possibile connettersi all'indirizzo IP pubblico da Internet, come invece avviene per la VM MyWebServer a cui è assegnata una risorsa indirizzo IP pubblico.

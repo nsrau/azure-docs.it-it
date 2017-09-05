@@ -4,7 +4,7 @@ description: "Questa panoramica è un'introduzione all'anteprima di sincronizzaz
 services: sql-database
 documentationcenter: 
 author: douglaslms
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 075b5563688158289d51f2f0b5da4a3441ddd13a
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
@@ -29,7 +28,7 @@ La sincronizzazione dati SQL è un servizio basato sul database SQL di Azure che
 
 La sincronizzazione dati si basa sul concetto di gruppo di sincronizzazione. Un gruppo di sincronizzazione è un gruppo di database che si vuole sincronizzare.
 
-Un gruppo di sincronizzazione ha diverse proprietà, incluse le seguenti:
+Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 
 -   Lo **schema di sincronizzazione** descrive i dati da sincronizzare.
 
@@ -39,7 +38,7 @@ Un gruppo di sincronizzazione ha diverse proprietà, incluse le seguenti:
 
 -   I **criteri di risoluzione dei conflitti** sono criteri a livello di gruppo e le impostazioni possono essere *Priorità hub* o *Priorità client*.
 
-La sincronizzazione dati usa una topologia hub-spoke per sincronizzare i dati. È necessario definire uno dei database nel gruppo come database hub. Il resto dei database sono database membri. La sincronizzazione si verifica solo tra l'hub e i singoli membri.
+La sincronizzazione dati usa una topologia hub-spoke per sincronizzare i dati. Uno dei database nel gruppo viene definito come database hub. Il resto dei database sono database membri. La sincronizzazione si verifica solo tra l'hub e i singoli membri.
 -   Il **database hub** deve essere un database SQL di Azure.
 -   I **database membri** possono essere database SQL, database di SQL Server locali o istanze di SQL Server in macchine virtuali di Azure.
 -   Il **database di sincronizzazione** contiene i metadati e il log per la sincronizzazione dati. Il database di sincronizzazione deve essere un database SQL di Azure posizionato nella stessa area del database hub. Il database di sincronizzazione viene creato dal cliente ed è di sua proprietà.
@@ -53,7 +52,7 @@ La sincronizzazione dati usa una topologia hub-spoke per sincronizzare i dati. �
 
 La sincronizzazione dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o database di SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
 
--   **Sincronizzazione dati ibrida:** con la sincronizzazione dati è possibile mantenere i dati sincronizzati tra database locali e database SQL di Azure per rendere possibili applicazioni ibride con livello dati proprio in SQL. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
+-   **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere i dati sincronizzati tra database locali e database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
 
 -   **Applicazioni distribuite:** in molti casi è vantaggioso separare carichi di lavoro diversi in database differenti. Ad esempio, se si dispone di un database di produzione di grandi dimensioni, ma è anche necessario eseguire un carico di lavoro di report o analisi su tali dati, può essere utile avere un secondo database per questo carico di lavoro aggiuntivo. Questo approccio riduce al minimo l'impatto a livello di prestazioni sul carico di lavoro di produzione. È possibile usare la sincronizzazione dati per mantenere sincronizzati i due database.
 
@@ -82,7 +81,7 @@ Il servizio di sincronizzazione dati è sconsigliato per gli scenari seguenti:
 ## <a name="limitations-and-considerations"></a>Limitazioni e considerazioni
 
 ### <a name="performance-impact"></a>Impatto sulle prestazioni
-La sincronizzazione dati usa trigger di inserimento, aggiornamento ed eliminazione per il rilevamento delle modifiche e crea tabelle laterali nel database utente. Queste attività hanno un impatto sul carico di lavoro del database, pertanto valutare il livello di servizio e procedere all'aggiornamento se necessario.
+La sincronizzazione dati usa trigger di inserimento, aggiornamento ed eliminazione per il rilevamento delle modifiche e crea tabelle laterali nel database utente per il rilevamento delle modifiche. Queste attività di rilevamento delle modifiche hanno un impatto sul carico di lavoro del database. Valutare il livello di servizio e aggiornare se necessario.
 
 ### <a name="eventual-consistency"></a>Coerenza finale
 Dato che la sincronizzazione dati è basata su trigger, la coerenza delle transazioni non è garantita. Microsoft garantisce che tutte le modifiche vengono apportate alla fine e che la sincronizzazione dati non causi perdite di dati.
@@ -103,7 +102,7 @@ Dato che la sincronizzazione dati è basata su trigger, la coerenza delle transa
 
 -   Una tabella non può includere colonne Identity che non sono la chiave primaria.
 
--   Il nome di un database non può contenere caratteri speciali.
+-   I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>Limitazioni alle dimensioni del servizio e del database
 
@@ -119,19 +118,45 @@ Dato che la sincronizzazione dati è basata su trigger, la coerenza delle transa
 | Dimensioni delle righe di dati in una tabella                                        | 24 MB                  |                             |
 | Intervallo minimo di sincronizzazione                                           | 5 minuti              |                             |
 
+## <a name="common-questions"></a>Domande frequenti
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Con quale frequenza sincronizzazione dati sincronizza i dati? 
+La frequenza minima è ogni 5 minuti.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>È possibile usare la sincronizzazione dati solo tra database SQL Server locali? 
+Non direttamente. Tuttavia, è possibile sincronizzare in maniera indiretta tra i database SQL Server locali creando un database hub in Azure e aggiungendo i database locali al gruppo di sincronizzazione.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>È possibile usare la sincronizzazione dati per effettuare il seeding dei dati da un database di produzione a un database vuoto, mantenendoli poi sincronizzati? 
+Sì. Creare manualmente lo schema nel nuovo database effettuando lo scripting dall'originale. Dopo aver creato lo schema, aggiungere le tabelle a un gruppo di sincronizzazione per copiare i dati e mantenerli sincronizzati.
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Perché vengono visualizzate tabelle che non risultano essere state create?  
+Sincronizzazione dati crea tabelle laterali nel database utente per il rilevamento delle modifiche. Non eliminarle in quanto sono richieste per il funzionamento di sincronizzazione dati.
+   
+### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>Viene visualizzato un messaggio di errore: "Impossibile inserire il valore NULL nella colonna \<colonna\>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
+Questo messaggio di errore indica uno dei due problemi seguenti:
+1.  Potrebbe essere presente una tabella priva di chiave primaria. Per risolvere il problema, aggiungere una chiave primaria a tutte le tabelle da sincronizzare.
+2.  Potrebbe essere presente una clausola WHERE nell'istruzione CREATE INDEX. La sincronizzazione non è in grado di gestire questa condizione. Per risolvere il problema, rimuovere la clausola WHERE o apportare manualmente le modifiche a tutti i database. 
+ 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>In che modo la sincronizzazione dati gestisce i riferimenti circolari? In altre parole, quando vengono sincronizzati gli stessi dati in più gruppi di sincronizzazione e pertanto continuano a cambiare?
+La sincronizzazione dati non gestisce i riferimenti circolari. Si consiglia di evitarli. 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul database SQL e la sincronizzazione dati SQL, vedere:
+Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 -   [Introduzione alla sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md)
+
+-   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL:
+    -   [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [Scaricare la documentazione tecnica completa di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 
 -   [Scaricare la documentazione dell'API REST di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
+Per altre informazioni sul database SQL, vedere:
+
 -   [Panoramica del database SQL](sql-database-technical-overview.md)
 
 -   [Gestione del ciclo di vita del database](https://msdn.microsoft.com/library/jj907294.aspx)
-
-
 

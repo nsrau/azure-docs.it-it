@@ -1,14 +1,14 @@
 ---
-title: Esempi dell&quot;interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL | Documentazione Microsoft
-description: In questo articolo sono elencati esempi di codice dell&quot;interfaccia della riga di comando di Azure disponibili per l&quot;interazione con il database di Azure per PostgreSQL.
+title: Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL | Documentazione Microsoft
+description: In questo articolo sono elencati esempi di codice dell'interfaccia della riga di comando di Azure disponibili per l'interazione con il database di Azure per PostgreSQL.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
-ms.topic: article
+ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 05/25/2017
 ms.translationtype: Human Translation

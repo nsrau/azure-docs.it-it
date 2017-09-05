@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2017
+ms.date: 08/15/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 4a70001f22b47546674c365705554ab30e05f53d
-ms.lasthandoff: 03/24/2017
-
+ms.reviewer: dhanyahk
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
+ms.contentlocale: it-it
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventi di rischio di Azure Active Directory
@@ -49,7 +50,14 @@ Gli investimenti continui di Microsoft nel processo di rilevamento garantiscono:
 
 ### <a name="leaked-credentials"></a>Credenziali perse
 
-I ricercatori Microsoft sulla sicurezza trovano le credenziali perse pubblicate nel Dark Web, in genere in formato testo normale. Queste vengono confrontate con le credenziali di Azure AD e, in caso di corrispondenza, vengono segnalate come "credenziali perse" in Identity Protection.
+I criminali informatici, quando compromettono password valide di utenti legittimi, spesso condividono tali credenziali, in genere pubblicandole sul dark Web o su pastebin oppure scambiandole o vendendole al mercato nero. Il servizio Credenziali perse di Microsoft acquisisce coppie di nome utente/password monitorando i siti Web pubblici e il dark Web e collaborando con:
+
+- Ricercatori
+- Forze dell'ordine
+- Team di sicurezza di Microsoft
+- Altre fonti attendibili 
+
+Quando le coppie di nome utente/password vengono acquisite dal servizio, vengono confrontate con le credenziali valide correnti degli utenti AAD. Quando viene trovata una corrispondenza, significa che la password di un utente è stata compromessa e si crea un *evento di rischio di credenziali perse*.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Accessi da indirizzi IP anonimi
 
@@ -64,7 +72,7 @@ Questo algoritmo di Machine Learning ignora i "*falsi positivi*" evidenti che co
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Accessi da posizioni non note
 
-Questo tipo di evento di rischio prende in considerazione le posizioni di accesso precedenti, come l'indirizzo IP, la latitudine, la longitudine e l'ASN, per determinare posizioni nuove o non note. Il sistema archivia le informazioni sulle posizioni usate in precedenza da un utente e le considera posizioni "note". L'evento di rischio viene attivato quando viene eseguito l'accesso da una posizione non inclusa nell'elenco delle posizioni note. Il sistema ha un periodo di apprendimento iniziale di 14 giorni, durante i quali le nuove posizioni non vengono contrassegnate come posizioni non note. Il sistema ignora anche gli accessi da dispositivi noti e le posizioni geograficamente vicine a una posizione nota. 
+Questo tipo di evento di rischio prende in considerazione le posizioni di accesso precedenti, come l'indirizzo IP, la latitudine, la longitudine e l'ASN, per determinare posizioni nuove o non note. Il sistema archivia le informazioni sulle posizioni usate in precedenza da un utente e le considera posizioni "note". L'evento di rischio viene attivato quando viene eseguito l'accesso da una posizione non inclusa nell'elenco delle posizioni note. Il sistema ha un periodo di apprendimento iniziale di 30 giorni, durante i quali le nuove posizioni non vengono contrassegnate come posizioni non note. Il sistema ignora anche gli accessi da dispositivi noti e le posizioni geograficamente vicine a una posizione nota. 
 
 ### <a name="sign-ins-from-infected-devices"></a>Accessi da dispositivi infetti
 
@@ -131,11 +139,11 @@ Il livello di rischio per questo tipo di evento di rischio è **Medio** perché 
 Il trasferimento impossibile indica in genere che un pirata informatico è riuscito a ottenere l'accesso. Possono, tuttavia, verificarsi falsi positivi quando un utente è in viaggio e usa un nuovo dispositivo o una VPN che non viene in genere usata da altri utenti nell'organizzazione. Un'altra origine di falsi positivi è costituita dalle applicazioni che passano in modo errato gli indirizzi IP di server come indirizzi IP di client. Questo può dare l'impressione che gli accessi si verifichino dal data center in cui è ospitato il back-end dell'applicazione. Spesso si tratta di data center Microsoft e gli accessi possono risultare eseguiti da indirizzi IP di proprietà di Microsoft. A causa di questi falsi positivi, il livello di rischio per questo evento di rischio è **Medio**.
 
 > [!TIP]
-> È possibile ridurre la quantità di falsi positivi segnalati per questo tipo di evento di rischio configurando le [reti denominate](active-directory-known-networks-azure-portal.md). 
+> È possibile ridurre la quantità di falsi positivi segnalati per questo tipo di evento di rischio configurando le [località denominate](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Accessi da posizioni non note
 
-Le posizioni non note possono indicare che un utente malintenzionato ha la possibilità di usare un'identità rubata. Possono verificarsi falsi positivi quando un utente è in viaggio, sta provando un nuovo dispositivo o usa una nuova VPN. A causa di questi falsi positivi, il livello di rischio per questo tipo di evento è **Medio**.
+Le posizioni non note possono indicare che un utente malintenzionato ha la possibilità di usare un'identità rubata. Possono verificarsi falsi positivi quando un utente è in viaggio, sta provando un nuovo dispositivo o usando una nuova VPN. A causa di questi falsi positivi, il livello di rischio per questo tipo di evento è **Medio**.
 
 ### <a name="sign-ins-from-infected-devices"></a>Accessi da dispositivi infetti
 
@@ -176,3 +184,4 @@ Esistono due posizioni in cui è possibile esaminare gli eventi di rischio segna
 
 Sebbene il rilevamento di eventi di rischio rappresenti un aspetto importante per la protezione delle identità, è anche possibile risolverli manualmente o implementare risposte automatiche mediante la configurazione di criteri di accesso condizionale. Per altre informazioni, consultare l'articolo su [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  
+

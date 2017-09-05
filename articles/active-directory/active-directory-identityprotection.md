@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory Identity Protection | Microsoft Docs
-description: "Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un&quot;identità o un dispositivo compromesso e di proteggere un&quot;identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso."
+description: "Informazioni su come Azure AD Identity Protection consente di limitare la possibilità di un utente malintenzionato di sfruttare un'identità o un dispositivo compromesso e di proteggere un'identità o un dispositivo che in precedenza è stato sospettato o ritenuto essere compromesso."
 services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 08/15/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 483e77f598beaeb924197e3eb301a26da33a3f1f
+ms.reviewer: nigu
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
@@ -82,7 +82,7 @@ Per bilanciare il carico delle attività di gestione per l'implementazione di Id
 | :--                          | ---                                |  ---   |
 | Amministratore globale         | Accesso completo a Identity Protection, implementazione di Identity Protection| |
 | Amministratore della sicurezza       | Accesso completo a Identity Protection | Implementazione di Identity Protection, reimpostazione delle password per un utente |
-| Ruolo con autorizzazioni di lettura per la sicurezza              | Accesso in sola lettura a Identity Protection | Implementazione di Identity Protection, modiche agli utenti, configurazione dei criteri, reimpostazione delle password |
+| Ruolo con autorizzazioni di lettura per la sicurezza              | Accesso in sola lettura a Identity Protection | Implementazione di Identity Protection, correzione degli utenti, configurazione dei criteri, reimpostazione delle password |
 
 
 
@@ -122,7 +122,8 @@ Le sezioni seguenti forniscono altre informazioni e i passaggi relativi a un'ana
 
 ## <a name="risky-sign-ins"></a>Accessi a rischio
 
-Aure Active Directory rileva alcuni [tipi di eventi di rischio](active-directory-reporting-risk-events.md#risk-event-types) in tempo reale. Tutti gli eventi di rischio in tempo reale rilevati durante un accesso di un utente rientrano nel concetto logico degli *accessi a rischio*. Un accesso a rischio è indicativo di un tentativo di accesso che potrebbe non essere stato eseguito dal legittimo proprietario di un account utente. Il ciclo di vita di un accesso a rischio termina quando un utente effettua la disconnessione.
+Azure Active Directory rileva i [tipi di eventi di rischio](active-directory-reporting-risk-events.md#risk-event-types) in tempo reale e offline. Ogni evento di rischio in tempo reale rilevato per un accesso di un utente rientra nel concetto logico degli accessi a rischio. Un accesso a rischio è indicativo di un tentativo di accesso che potrebbe non essere stato eseguito dal legittimo proprietario di un account utente.
+
 
 ### <a name="sign-in-risk-level"></a>Livello di rischio di un accesso
 
@@ -212,7 +213,7 @@ Per una panoramica dell'esperienza utente correlata, vedere:
 
 ## <a name="users-flagged-for-risk"></a>Utenti contrassegnati per il rischio
 
-Tutti gli [eventi di rischio](active-directory-identity-protection-risk-events.md) rilevati da Azure Active Directory per un utente rientrano nel concetto logico degli *utenti contrassegnati per il rischio*. Un *utente contrassegnato per il rischio*, o *utente a rischio*, è indicativo di un account utente che potrebbe essere stato compromesso.   
+Tutti gli [eventi di rischio](active-directory-identity-protection-risk-events.md) attivi rilevati da Azure Active Directory per un utente rientrano nel concetto logico del rischio utente. Un utente contrassegnato per il rischio è indicativo di un account utente che potrebbe essere stato compromesso.
 
 ![Utenti contrassegnati per il rischio](./media/active-directory-identityprotection/1200.png)
 

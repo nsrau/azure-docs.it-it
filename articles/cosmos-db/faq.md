@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2017
+ms.date: 07/31/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: f2c0559057e677c824a2ecd971488b35bc2cc8f8
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e9808af4aa875c5199279825325688afc69e6de6
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Domande frequenti su Azure Cosmos DB
@@ -46,6 +45,12 @@ Un'[unità richiesta](request-units.md) (UR) è l'unità di misura della velocit
 
 Ogni contenitore di Azure Cosmos DB può essere riservato con la velocità effettiva di provisioning in termini di UR di velocità effettiva al secondo. Per applicazioni di qualsiasi dimensione, è possibile effettuare un benchmark delle singole richieste per misurarne i valori di UR ed effettuare il provisioning di un contenitore per gestire il totale delle unità richiesta tra tutte le richieste. È anche possibile aumentare o ridurre la velocità effettiva del contenitore con il variare delle esigenze dell'applicazione. Per altre informazioni sulle unità richiesta e su come determinare le esigenze a livello di contenitore, vedere [Stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs) e provare il [calcolatore della velocità effettiva](https://www.documentdb.com/capacityplanner). Il termine *contenitore* fa qui riferimento a una raccolta dell'API DocumentDB, un grafo dell'API Graph, una raccolta dell'API MongoDB e una tabella dell'API Table. 
 
+### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>In che modo Azure Cosmos DB supporta diversi modelli di dati, ad esempio chiave/valore, colonne, documenti e grafi?
+
+I modelli di dati chiave/valore (tabella), colonne, documenti e grafi sono tutti supportati a livello nativo grazie alla progettazione ARS (atom, record e sequenze) su cui si basa Azure Cosmos DB. È facilmente possibile eseguire il mapping e la proiezione di atom, record e sequenze in diversi modelli di dati. Le API per un subset di modelli sono già disponibili (API DocumentDB, MongoDB, Table e Graph) e altre, specifiche di modelli di dati aggiuntivi, saranno disponibili in futuro.
+
+Azure Cosmos DB ha un motore di indicizzazione indipendente dallo schema che può indicizzare automaticamente tutti i dati inseriti senza richiedere schemi o indici secondari agli sviluppatori. Il motore si basa su un set di layout di indice logici (invertiti, colonne, albero) che separano il layout di archiviazione dai sottosistemi di elaborazione di indici e query. Cosmos DB riesce anche a supportare un set di API e protocolli di trasmissione in modalità estendibile e a convertirli nel modello di dati principale (1) e nei layout di indice logici (2), supportando in modo esclusivo più modelli di dati a livello nativo.
+
 ### <a name="is-azure-cosmos-db-hipaa-compliant"></a>Azure Cosmos DB è conforme alla normativa HIPAA?
 Sì, Azure Cosmos DB è conforme alla normativa HIPAA. La normativa HIPAA stabilisce i requisiti per l'uso, la divulgazione e la protezione delle informazioni sanitarie personali sensibili. Per altre informazioni, visitare il [Centro protezione Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
@@ -59,7 +64,7 @@ In Azure Cosmos DB non esiste alcun limite alla velocità effettiva totale che p
 Per informazioni dettagliate, vedere la pagina [Prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Gli addebiti per l'utilizzo di Azure Cosmos DB sono determinati dal numero di contenitori sottoposti a provisioning, dal numero di ore in cui i contenitori sono stati online e dalla velocità effettiva di provisioning per ogni contenitore. Il termine *contenitori* fa qui riferimento a raccolte dell'API DocumentDB, grafi dell'API Graph, raccolte dell'API MongoDB e tabelle dell'API Table. 
 
 ### <a name="is-a-free-account-available"></a>È disponibile un account gratuito?
-I nuovi utenti possono iscriversi per ottenere un [account gratuito di Azure](https://azure.microsoft.com/free/)che è valido 30 giorni e include un credito di 200 dollari statunitensi per provare tutti i servizi di Azure. Se si possiede una sottoscrizione a Visual Studio si ha invece diritto a [150 dollari statunitensi di crediti Azure gratuiti al mese](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure. 
+I nuovi utenti possono iscriversi per ottenere un [account gratuito di Azure](https://azure.microsoft.com/free/)che è valido 30 giorni e include un credito per provare tutti i servizi di Azure. Se si ha una sottoscrizione di Visual Studio, si ha anche diritto a [crediti Azure gratuiti](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) da usare per qualsiasi servizio di Azure. 
 
 È anche possibile usare l'[emulatore di Azure Cosmos DB](local-emulator.md) per sviluppare e testare gratuitamente l'applicazione in locale, senza creare una sottoscrizione di Azure. Quando si è soddisfatti del funzionamento dell'applicazione nell'emulatore di Azure Cosmos DB, è possibile iniziare a usare l'account Azure Cosmos DB nel cloud.
 
@@ -101,13 +106,13 @@ Sì. L'API DocumentDB supporta le transazioni tra documenti espresse come trigge
 ### <a name="what-is-a-collection"></a>Che cos'è una raccolta?
 Una raccolta è un gruppo di documenti con la logica dell'applicazione JavaScript associata. Una raccolta è un'entità fatturabile, in cui il [costo](performance-levels.md) è determinato dalla velocità effettiva e dallo spazio di archiviazione usato. Le raccolte possono estendersi su una o più partizioni o server e possono essere ridimensionate per gestire volumi praticamente illimitati di archiviazione o velocità effettiva.
 
-Le raccolte sono le entità di fatturazione anche per Azure Cosmos DB. Ogni raccolta viene fatturata su base oraria a seconda della velocità effettiva di provisioning e dello spazio di archiviazione usato. Per altre informazioni, vedere i [prezzi dell'API DocumentDB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+Le raccolte sono le entità di fatturazione anche per Azure Cosmos DB. Ogni raccolta viene fatturata su base oraria a seconda della velocità effettiva di provisioning e dello spazio di archiviazione usato. Per altre informazioni, vedere [Prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Come si crea un database?
 È possibile creare database usando il [portale di Azure](https://portal.azure.com), come descritto in [Aggiungere una raccolta](create-documentdb-dotnet.md#create-collection), uno degli [SDK di Azure Cosmos DB](documentdb-sdk-dotnet.md) o le [API REST](/rest/api/documentdb/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Come è possibile configurare gli utenti e le autorizzazioni?
-È possibile creare utenti e autorizzazioni usando uno degli [SDK per l'API DocumentDB](documentdb-sdk-dotnet.md) o le [API REST](/rest/api/documentdb/).  
+È possibile creare utenti e autorizzazioni usando uno degli [SDK per l'API di Cosmos DB](documentdb-sdk-dotnet.md) o le [API REST](/rest/api/documentdb/).  
 
 ### <a name="does-the-documentdb-api-support-sql"></a>L'API DocumentDB supporta SQL?
 Il linguaggio di query SQL è un sottoinsieme ottimizzato delle funzionalità di query supportate da SQL. Il linguaggio di query SQL di Azure Cosmos DB offre operatori gerarchici e relazionali avanzati ed estendibilità tramite funzioni definite dall'utente basate su JavaScript. La grammatica JSON consente la modellazione di documenti JSON come alberi con nodi con etichetta, che vengono usati sia dalle tecniche di indicizzazione automatica di Azure Cosmos DB che dal dialetto di query SQL di Azure Cosmos DB. Per informazioni sull'uso della grammatica SQL, vedere l'articolo relativo alle [query in DocumentDB][query].
@@ -121,19 +126,19 @@ L'API DocumentDB supporta il controllo della concorrenza ottimistica tramite tag
 Per applicare la concorrenza ottimistica in .NET, usare la classe [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) . Per un esempio .NET, vedere [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) nell'esempio DocumentManagement in GitHub.
 
 ### <a name="how-do-i-perform-transactions-in-the-documentdb-api"></a>Come si eseguono le transazioni nell'API DocumentDB?
-L'API DocumentDB supporta transazioni integrate con il linguaggio tramite trigger e stored procedure JavaScript. Tutte le operazioni su database negli script vengono eseguite con isolamento dello snapshot. In caso di raccolta con partizione singola, l'ambito dell'esecuzione è limitato alla raccolta. Se la raccolta è partizionata, l'ambito dell'esecuzione è limitato ai documenti con lo stesso valore di chiave di partizione all'interno della raccolta. Viene acquisito uno snapshot delle versioni (ETag) del documento all'inizio della transazione e il commit della transazione viene eseguito solo se lo script ha esito positivo. Se JavaScript genera un errore, viene eseguito il rollback della transazione. Per altre informazioni, vedere l'articolo relativo alla [programmazione lato server dell'API DocumentDB](programming.md).
+L'API DocumentDB supporta transazioni integrate con il linguaggio tramite trigger e stored procedure JavaScript. Tutte le operazioni su database negli script vengono eseguite con isolamento dello snapshot. In caso di raccolta con partizione singola, l'ambito dell'esecuzione è limitato alla raccolta. Se la raccolta è partizionata, l'ambito dell'esecuzione è limitato ai documenti con lo stesso valore di chiave di partizione all'interno della raccolta. Viene acquisito uno snapshot delle versioni (ETag) del documento all'inizio della transazione e il commit della transazione viene eseguito solo se lo script ha esito positivo. Se JavaScript genera un errore, viene eseguito il rollback della transazione. Per altre informazioni, vedere [Programmazione JavaScript lato server per Azure Cosmos DB](programming.md).
 
-### <a name="how-can-i-bulk-insert-documents-into-the-documentdb-api"></a>Come è possibile inserire in blocco documenti nell'API DocumentDB?
+### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Come è possibile eseguire inserimenti in blocco in Cosmos DB?
 È possibile eseguire l'inserimento in blocco di documenti in Azure Cosmos DB in uno dei due modi seguenti:
 
-* Strumento di migrazione dati, come descritto nell'articolo su come [importare dati nell'API DocumentDB](import-data.md).
-* Stored procedure, come descritto nell'articolo relativo alla [programmazione lato server dell'API DocumentDB](programming.md).
+* Strumento di migrazione dei dati, descritto in [Strumento di migrazione dei database per Azure Cosmos DB](import-data.md).
+* Stored procedure, descritte in [Programmazione JavaScript lato server per Azure Cosmos DB](programming.md).
 
 ### <a name="does-the-documentdb-api-support-resource-link-caching"></a>L'API DocumentDB supporta la memorizzazione nella cache dei collegamenti alle risorse?
 Sì. Dato che Azure Cosmos DB è un servizio RESTful, i collegamenti alle risorse sono immutabili e possono essere memorizzati nella cache. I client dell'API DocumentDB possono specificare un'intestazione "If-None-Match" per le letture su qualsiasi raccolta o documento di tipo risorsa e quindi aggiornare le copie locali in seguito alla modifica della versione del server.
 
 ### <a name="is-a-local-instance-of-documentdb-api-available"></a>È disponibile un'istanza locale dell'API DocumentDB?
-Sì. L'[emulatore di Azure Cosmos DB](local-emulator.md) offre un'emulazione estremamente fedele del servizio API DocumentDB. Supporta le stesse funzionalità di Azure Cosmos DB, incluso il supporto per la creazione e l'esecuzione di query su documenti JSON, il provisioning e il ridimensionamento delle raccolte e l'esecuzione di stored procedure e trigger. È possibile sviluppare e testare le applicazioni usando l'emulatore di Azure Cosmos DB e distribuirle in Azure su scala globale apportando una singola modifica di configurazione all'endpoint di connessione per Azure Cosmos DB.
+Sì. L'[emulatore di Azure Cosmos DB](local-emulator.md) offre un'emulazione estremamente fedele del servizio Cosmos DB. Supporta le stesse funzionalità di Azure Cosmos DB, incluso il supporto per la creazione e l'esecuzione di query su documenti JSON, il provisioning e il ridimensionamento delle raccolte e l'esecuzione di stored procedure e trigger. È possibile sviluppare e testare le applicazioni usando l'emulatore di Azure Cosmos DB e distribuirle in Azure su scala globale apportando una singola modifica di configurazione all'endpoint di connessione per Azure Cosmos DB.
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Sviluppo con l'API per MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Che cos'è l'API di Azure Cosmos DB per MongoDB?
@@ -168,17 +173,21 @@ L'API Table di Azure Cosmos DB è disponibile nel [portale di Azure][azure-porta
 Nel periodo di anteprima, durante il quale sono disponibili [SDK](../cosmos-db/table-sdk-dotnet.md) per .NET, vedere la guida introduttiva all'[API Table](../cosmos-db/create-table-dotnet.md) per iniziare.
 
 ### <a name="do-i-need-a-new-sdk-to-use-the-table-api-preview"></a>È necessario un nuovo SDK per usare l'API Table (anteprima)? 
-Sì. In NuGet è disponibile l'[SDK Windows Azure Storage Premium Table (anteprima)](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable). Per altre informazioni, vedere la pagina relativa a [download e note sulla versione dell'API Table .NET di Azure Cosmos DB](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md). 
+Sì. In NuGet è disponibile [Windows Azure Storage Premium Table (Preview) SDK](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable). Per altre informazioni, vedere la pagina relativa a [download e note sulla versione dell'API Table .NET di Azure Cosmos DB](https://github.com/Microsoft/azure-docs-pr/cosmos-db/table-sdk-dotnet.md). 
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>Come si forniscono commenti e suggerimenti sull'SDK o sui bug?
 È possibile condividere commenti e suggerimenti in uno dei modi seguenti:
 
-* [UserVoice](https://feedback.azure.com/forums/263030-documentdb)
+* [UserVoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 * [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api-preview"></a>Quale stringa di connessione è necessario usare per connettersi all'API Table (anteprima)?
-La stringa di connessione è `DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.com`. È possibile ottenere la stringa di connessione nella pagina Chiavi del portale di Azure. 
+La stringa di connessione è:
+```
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.documents.azure.com
+```
+È possibile ottenere la stringa di connessione nella pagina Chiavi del portale di Azure. 
 
 ### <a name="how-do-i-override-the-config-settings-for-the-request-options-in-the-new-table-api-preview"></a>Come si sostituiscono le impostazioni di configurazione per le opzioni relative alle richieste nella nuova API Table (anteprima)?
 Per informazioni sulle impostazioni di configurazione, vedere [Funzionalità di Azure Cosmos DB](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). È possibile modificare le impostazioni aggiungendole nella sezione appSettings di app.config nell'applicazione client.
@@ -219,7 +228,7 @@ Sì. È possibile connettersi creando due istanze separate di CloudTableClient, 
 Per sfruttare la nuova offerta dell'API Table con dati di archivi tabelle esistenti, contattare [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com). 
 
 ### <a name="what-is-the-roadmap-for-this-service-and-when-will-you-offer-other-standard-table-api-functionality"></a>Qual è la roadmap per questo servizio e quando verranno offerte altre funzionalità standard dell'API Table?
-È prevista l'aggiunta del supporto per i token di firma di accesso condiviso, il contesto del servizio, le statistiche, la crittografia lato client, l'analisi e altre funzionalità nel corso del processo verso la disponibilità generale. È possibile fornire commenti e suggerimenti in [UserVoice](https://feedback.azure.com/forums/263030-documentdb). 
+È prevista l'aggiunta del supporto per i token di firma di accesso condiviso, il contesto del servizio, le statistiche, la crittografia lato client, l'analisi e altre funzionalità nel corso del processo verso la disponibilità generale. È possibile fornire commenti e suggerimenti in [UserVoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api). 
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Come si espandono le dimensioni di archiviazione per questo servizio, se ad esempio *n* GB di dati iniziali crescono nel tempo fino a 1 TB? 
 Azure Cosmos DB è progettato per offrire spazio di archiviazione illimitato tramite scalabilità orizzontale. Il servizio può monitorare e aumentare efficacemente lo spazio di archiviazione. 
@@ -231,7 +240,11 @@ Azure Cosmos DB è progettato per offrire spazio di archiviazione illimitato tra
 È possibile usare lo strumento di stima della capacità per calcolare il valore di TableThroughput necessario per le operazioni. Per altre informazioni, vedere [Estimate Request Units and Data Storage](https://www.documentdb.com/capacityplanner) (Stimare le unità richiesta e l'archiviazione dei dati). In generale, è possibile rappresentare un'entità in formato JSON e specificare i numeri relativi alle operazioni. 
 
 ### <a name="can-i-use-the-new-table-api-preview-sdk-locally-with-the-emulator"></a>È possibile usare il nuovo SDK dell'API Table (anteprima) in locale con l'emulatore?
-Sì. Quando si usa il nuovo SDK, è possibile usare l'API Table (anteprima) con l'emulatore locale. Per scaricare il nuovo emulatore, vedere [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md) (Usare l'emulatore di Azure Cosmos DB per sviluppo e test in locale). Il valore di StorageConnectionString in app.config deve essere `DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
+Sì. Quando si usa il nuovo SDK, è possibile usare l'API Table (anteprima) con l'emulatore locale. Per scaricare il nuovo emulatore, vedere [Use the Azure Cosmos DB Emulator for local development and testing](local-emulator.md) (Usare l'emulatore di Azure Cosmos DB per sviluppo e test in locale). Il valore di StorageConnectionString in app.config deve essere:
+
+```
+DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=https://localhost:8081`. 
+```
 
 ### <a name="can-my-existing-application-work-with-the-table-api-preview"></a>È possibile usare un'applicazione esistente con l'API Table (anteprima)? 
 La superficie di attacco della nuova API Table (anteprima) è compatibile con l'SDK per tabelle standard di Azure esistente nelle operazioni di creazione, eliminazione, aggiornamento e query dell'API .NET. Verificare di avere una chiave di riga, perché l'API Table (anteprima) richiede sia una chiave di partizione che una chiave di riga. È prevista anche l'aggiunta di maggiore supporto a livello di SDK nel corso del processo verso la disponibilità generale di questa offerta di servizio.
@@ -314,18 +327,15 @@ Nel formato di stringa JSON nel file app.config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Come piattaforma, Azure Cosmos DB offre numerose funzionalità, come l'ordinamento, le aggregazioni, la gerarchia e così via. Queste funzionalità verranno aggiunte all'API Table? 
-Nella versione di anteprima, l'API Table offre le stesse funzionalità di query dell'archivio tabelle di Azure. Azure Cosmos DB supporta anche l'ordinamento, le aggregazioni, le query geospaziali, la gerarchia e un'ampia gamma di funzioni predefinite. Le funzionalità aggiuntive verranno incluse nell'API Table in un aggiornamento futuro del servizio. Per altre informazioni, vedere l'articolo relativo alle [query in Azure Cosmos DB](../documentdb/documentdb-sql-query.md).
+Nella versione di anteprima, l'API Table offre le stesse funzionalità di query dell'archivio tabelle di Azure. Azure Cosmos DB supporta anche l'ordinamento, le aggregazioni, le query geospaziali, la gerarchia e un'ampia gamma di funzioni predefinite. Le funzionalità aggiuntive verranno incluse nell'API Table in un aggiornamento futuro del servizio. Per altre informazioni, vedere [Query SQL per l'API di DocumentDB di Azure Cosmos DB](../documentdb/documentdb-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api-preview"></a>Quando è consigliabile modificare TableThroughput per l'API Table (anteprima)?
 È consigliabile modificare TableThroughput quando si verifica una delle condizioni seguenti:
 * Si esegue un'operazione di estrazione, trasformazione e caricamento (ETL) di dati o si vuole caricare una grande quantità di dati in breve tempo. 
-* È necessaria una velocità effettiva superiore dal contenitore al back-end. Ad esempio, si rileva che la velocità effettiva usata è superiore alla velocità effettiva di provisioning e viene applicata la limitazione. Per altre informazioni, vedere l'articolo su come [impostare la velocità effettiva](set-throughput.md).
+* È necessaria una velocità effettiva superiore dal contenitore al back-end. Ad esempio, si rileva che la velocità effettiva usata è superiore alla velocità effettiva di provisioning e viene applicata la limitazione. Per altre informazioni, vedere [Impostare la velocità effettiva per i contenitori di Azure Cosmos DB](set-throughput.md).
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-preview-table"></a>È possibile aumentare o ridurre la velocità effettiva di una tabella dell'API Table (anteprima)? 
 Sì. È possibile usare il riquadro relativo alla scalabilità del portale di Azure Cosmos DB per ridimensionare la velocità effettiva. Per altre informazioni, vedere l'articolo su come [impostare la velocità effettiva](set-throughput.md).
-
-### <a name="can-the-premium-table-api-preview-take-advantage-of-the-ru-per-minute-offering"></a>L'API Table (anteprima) Premium può sfruttare l'offerta delle UR al minuto? 
-Sì. L'API Table (anteprima) Premium usa le funzionalità di Azure Cosmos DB per offrire contratti di servizio per prestazioni, latenza, disponibilità e coerenza. Grazie a queste funzionalità, la tabella può usare l'offerta delle UR al minuto. Per altre informazioni, vedere [Unità richiesta in Azure Cosmos DB](request-units.md). Questo consente ai clienti di evitare il provisioning per i picchi e di ridurre gli spike nel carico di lavoro.
 
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>Per le tabelle appena sottoposte a provisioning viene impostato un valore predefinito di TableThroughput?
 Sì. Se non si sostituisce il valore di TableThroughput in app.config e non si usa un contenitore già creato in Azure Cosmos DB, il servizio crea una tabella con velocità effettiva di 400.
@@ -387,7 +397,7 @@ Il risultato di questo miglioramento più evidente per gli sviluppatori è attua
 
 È importante sottolineare che il [dialetto SQL](../documentdb/documentdb-sql-query.md) di DocumentDB è sempre stato solo una delle tante API che possono essere supportate da Azure Cosmos DB sottostante. Per gli sviluppatori che usano un servizio completamente gestito come Azure Cosmos DB, l'unica interfaccia per il servizio sono le API esposte dal servizio. Non cambia nulla per i clienti esistenti di DocumentDB. In Azure Cosmos DB è disponibile esattamente la stessa API SQL offerta da DocumentDB. Ora (e in futuro) è possibile accedere ad altre funzionalità prima non accessibili. 
 
-Un altro risultato evidente dei miglioramenti apportati è l'ampia base per la scalabilità globale ed elastica della velocità effettiva e dello spazio di archiviazione, Una delle prime dimostrazioni della scalabilità è costituita dalle [UR/m](../cosmos-db/request-units-per-minute.md), ma è previsto l'annuncio di funzionalità aggiuntive che consentiranno di ridurre i costi per i clienti per vari carichi di lavoro. Sono stati apportati diversi miglioramenti al sottosistema di distribuzione globale. Una delle molte funzionalità per gli sviluppatori è il modello di coerenza del prefisso, che porta a cinque il numero di modelli di coerenza ben definiti. Diverse funzionalità ancora più interessanti verranno rilasciate non appena saranno definitive. 
+Un altro risultato evidente dei miglioramenti apportati è l'ampia base per la scalabilità globale ed elastica della velocità effettiva e dello spazio di archiviazione, Sono stati apportati diversi miglioramenti al sottosistema di distribuzione globale. Una delle molte funzionalità per gli sviluppatori è il modello di coerenza del prefisso, che porta a cinque il numero di modelli di coerenza ben definiti. Diverse funzionalità ancora più interessanti verranno rilasciate non appena saranno definitive. 
 
 ### <a name="what-do-i-need-to-do-to-ensure-that-my-documentdb-resources-continue-to-run-on-azure-cosmos-db"></a>Che cosa è necessario fare per assicurarsi che le risorse di DocumentDB continuino a essere eseguite in Azure Cosmos DB?
 
@@ -405,7 +415,7 @@ DocumentDB non è più visualizzato nel portale come servizio di Azure. Al suo p
 
 ### <a name="are-there-changes-to-pricing"></a>I prezzi sono stati modificati?
 
-No, il costo per eseguire l'app in Azure Cosmos DB è lo stesso di prima. È tuttavia possibile trarre vantaggio dalla nuova funzionalità delle "unità richiesta al minuto". Per altre informazioni, vedere l'articolo [Unità richiesta al minuto in Azure Cosmos DB](../cosmos-db/request-units-per-minute.md).
+No, il costo per eseguire l'app in Azure Cosmos DB è lo stesso di prima.
 
 ### <a name="are-there-changes-to-the-slas"></a>I contratti di servizio sono stati modificati?
 

@@ -13,7 +13,12 @@
 
 # Attività iniziali
 ## [Iniziare a usare Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Iniziare a usare Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+## Iniziare a usare Spark
+### [Creare un cluster Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
+### [Eseguire query in un cluster Spark](hdinsight-apache-spark-load-data-run-query.md)
+### [Analizzare i dati usando gli strumenti di business intelligence](hdinsight-apache-spark-use-bi-tools.md)
+### [Gestire le risorse cluster](hdinsight-apache-spark-resource-manager.md)
+### [Eseguire il debug di processi Spark](hdinsight-apache-spark-job-debugging.md)
 ## [Iniziare a usare R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Iniziare a usare HBase e NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Iniziare a usare Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
@@ -52,15 +57,11 @@
 ### [Usare DataFu con Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Cluster su richiesta](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Inviare processi di Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Usare R Server
-### [Opzioni di archiviazione](hdinsight-hadoop-r-server-storage.md)
-### [Installare RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [Contesti di calcolo](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR e SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Usare Spark per l'elaborazione in memoria
+### Introduzione - Sviluppatori Spark
+#### [Creare un'app autonoma](hdinsight-apache-spark-create-standalone-application.md)
+#### [Processi remoti con Livy](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [Con Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [Con gli strumenti di business intelligence](hdinsight-apache-spark-use-bi-tools.md)
-### [Creare un'app autonoma](hdinsight-apache-spark-create-standalone-application.md)
 ### [Creare app usando Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Creare app usando IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Elaborare eventi di flusso](hdinsight-apache-spark-eventhub-streaming.md)
@@ -74,11 +75,13 @@
 ### [Usare pacchetti esterni con Jupyter usando Magic nella cella](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [Usare pacchetti esterni con Jupyter usando l'azione script](hdinsight-apache-spark-python-package-installation.md)
 ### [Usare un Jupyter Notebook locale](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [Processi remoti con Livy](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Eseguire il debug remoto dei processi con IntelliJ tramite VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-### [Gestire risorse](hdinsight-apache-spark-resource-manager.md)
-### [Tenere traccia ed eseguire il debug dei processi](hdinsight-apache-spark-job-debugging.md)
 ### [Problemi noti](hdinsight-apache-spark-known-issues.md)
+## Usare R Server
+### [Opzioni di archiviazione](hdinsight-hadoop-r-server-storage.md)
+### [Installare RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
+### [Contesti di calcolo](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR e SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## Usare HBase
 ### [Usare Phoenix e SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Analizzare i tweet in tempo reale](hdinsight-hbase-analyze-twitter-sentiment.md)
@@ -92,12 +95,10 @@
 #### [Scrivere in Data Lake Store](hdinsight-storm-write-data-lake-store.md)
 #### [Sviluppare topologie basate su Java con Maven](hdinsight-storm-develop-java-topology.md)
 #### [Sviluppare topologie C# con gli strumenti di Hadoop](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-#### [Determinare gli argomenti di tendenza di Twitter](hdinsight-storm-twitter-trending.md)
 #### [Elaborare eventi con topologie C#](hdinsight-storm-develop-csharp-event-hub-topology.md)
 #### [Elaborare eventi con topologie Java](hdinsight-storm-develop-java-event-hub-topology.md)
 #### [Usare Power BI con una topologia](hdinsight-storm-power-bi-topology.md)
 #### [Analizzare i dati dei sensori in tempo reale](hdinsight-storm-sensor-data-analysis.md)
-#### [Elaborare i dati dei sensori di un veicolo](hdinsight-storm-iot-eventhub-documentdb.md)
 #### [Correlare gli eventi nel tempo](hdinsight-storm-correlation-topology.md)
 #### [Sviluppare topologie usando Python](hdinsight-storm-develop-python-topology.md)
 ## Usare HDInsight aggiunto al dominio (anteprima)
@@ -135,6 +136,7 @@
 ### [Analizzare i log dei siti Web con Hive](hdinsight-hive-analyze-website-log.md)
 ### [Analizzare i log di telemetria di Application Insights](hdinsight-spark-analyze-application-insight-logs.md)
 ## Estendere i cluster
+### [Usare un account di archiviazione abilitato sicuro](hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)
 ### [Personalizzare i cluster usando bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)
 ### [Personalizzare i cluster con l'azione script](hdinsight-hadoop-customize-cluster-linux.md)
 ### [Connettere HDInsight alla rete locale](connect-on-premises-network.md)
@@ -198,13 +200,13 @@
 #### [Memoria e prestazioni di Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)
 #### [Accedere ai log applicazioni di Hadoop YARN in Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 #### [Abilitare i dump dell'heap per i servizi di Hadoop](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-#### [Analizzare i log di HDInsight](hdinsight-debug-jobs.md)
 #### [Comprendere e risolvere gli errori di WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)
 #### [Errore di memoria insufficiente corretto dalle impostazioni Hive](hdinsight-hadoop-hive-out-of-memory-error-oom.md)
 #### [Usare le visualizzazioni di Ambari per il debug di processi Tez](hdinsight-debug-ambari-tez-view.md)
 #### [Ottimizzare le query Hive](hdinsight-hadoop-optimize-hive-query.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight)
 ## [PowerShell](/powershell/module/azurerm.hdinsight)
 ## [.NET (Hadoop)](https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
@@ -234,8 +236,9 @@
 ### [Monitorare i cluster con l'API Ambari](hdinsight-monitor-use-ambari-api.md)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Ottenere informazioni sui forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 ## [Microsoft Professional Program per Big Data](https://academy.microsoft.com/en-us/professional-program/big-data/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Strumenti Windows per HDInsight](hdinsight-hadoop-windows-tools.md)

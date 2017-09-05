@@ -1,6 +1,6 @@
 ---
-title: Disabilitare gli accessi degli utenti per un&quot;app aziendale in Azure Active Directory | Microsoft Docs
-description: Come disabilitare un&quot;applicazione aziendale in modo che gli utenti non possano accedervi in Azure Active Directory
+title: Disabilitare gli accessi degli utenti per un'app aziendale in Azure Active Directory | Microsoft Docs
+description: Come disabilitare un'applicazione aziendale in modo che gli utenti non possano accedervi in Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
+ms.reviewer: asteen
+ms.custom: it-pro
 ms.translationtype: Human Translation
 ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
 ms.openlocfilehash: 5d27046370eada0c371c94fb573fa1bcf536f7cf
 ms.contentlocale: it-it
 ms.lasthandoff: 05/05/2017
-
 
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory

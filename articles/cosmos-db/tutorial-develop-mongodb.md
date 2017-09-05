@@ -1,6 +1,6 @@
 ---
-title: Usare l&quot;API di Azure Cosmos DB per MongoDB per creare un&quot;app Web | Microsoft Docs
-description: Esercitazione di Azure Cosmos DB per creare un&quot;app Web di database online usando l&quot;API per MongoDB.
+title: Usare l'API di Azure Cosmos DB per MongoDB per creare un'app Web | Microsoft Docs
+description: Esercitazione di Azure Cosmos DB per creare un'app Web di database online usando l'API per MongoDB.
 keywords: esempi di mongodb
 services: cosmos-db
 author: AndrewHoh
@@ -12,7 +12,7 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
@@ -131,7 +131,7 @@ Si inizia creando un account Azure Cosmos DB nel portale di Azure.
             private IMongoCollection<MyTask> GetTasksCollection()
             {
                 MongoClientSettings settings = new MongoClientSettings();
-                settings.Server = new MongoServerAddress(host, 10250);
+                settings.Server = new MongoServerAddress(host, 10255);
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
@@ -153,7 +153,7 @@ Si inizia creando un account Azure Cosmos DB nel portale di Azure.
             private IMongoCollection<MyTask> GetTasksCollectionForEdit()
             {
                 MongoClientSettings settings = new MongoClientSettings();
-                settings.Server = new MongoServerAddress(host, 10250);
+                settings.Server = new MongoServerAddress(host, 10255);
                 settings.UseSsl = true;
                 settings.SslSettings = new SslSettings();
                 settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;

@@ -1,131 +1,202 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con SpringCM | Documentazione Microsoft'
-description: Informazioni su come usare SpringCM con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SpringCM.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 4a42f797-ac58-4aca-a8e6-53bfe5529083
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/10/2017
+ms.date: 06/26/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 5600adfbc20fb499bdd206e966a9730f49a03e40
-ms.lasthandoff: 03/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: edfd06a06c730597fee4569ca1ce29092b45244a
+ms.contentlocale: it-it
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Esercitazione: Integrazione di Azure Active Directory con SpringCM
-Questa esercitazione illustra come configurare l'accesso Single Sign-On (SSO) tra Azure Active Directory e SpringCM.
 
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive come integrare SpringCM con Azure Active Directory (Azure AD).
 
-* Sottoscrizione di Azure valida
-* Sottoscrizione di SpringCM abilitata per l'accesso Single Sign-On (SSO)
+L'integrazione di SpringCM con Azure AD offre i vantaggi seguenti:
 
-Al termine dell'esercitazione, gli utenti di Azure Active Directory assegnati a SpringCM saranno in grado di eseguire l'accesso SSO tramite il pannello di accesso di AAD.
+- È possibile controllare in Azure AD chi può accedere a SpringCM
+- È possibile abilitare gli utenti per l'accesso automatico a SpringCM (Single Sign-On) con i propri account Azure AD
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-1. Abilitazione dell'integrazione dell'applicazione per SpringCM
-2. Configurazione dell'accesso Single Sign-On (SSO)
-3. Configurazione del provisioning utente
-4. Assegnazione degli utenti
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-![Scenario](./media/active-directory-saas-spring-cm-tutorial/IC797044.png "Scenario")
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="enabling-the-application-integration-for-springcm"></a>Abilitazione dell'integrazione dell'applicazione per SpringCM
-Questa sezione descrive come abilitare l'integrazione dell'applicazione per SpringCM.
+Per configurare l'integrazione di Azure AD con SpringCM, sono necessari gli elementi seguenti:
 
-**Per abilitare l'integrazione dell'applicazione per SpringCM, eseguire la procedura seguente:**
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Spring CM abilitata per l'accesso Single Sign-On
 
-1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
+> [!NOTE]
+> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
+
+A questo scopo, è consigliabile seguire le indicazioni seguenti:
+
+- Non usare l'ambiente di produzione a meno che non sia necessario.
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+
+## <a name="scenario-description"></a>Descrizione dello scenario
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+
+1. Aggiunta di SpringCM dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
+
+## <a name="adding-springcm-from-the-gallery"></a>Aggiunta di SpringCM dalla raccolta
+Per configurare l'integrazione di SpringCM in Azure AD, è necessario aggiungere SpringCM dalla raccolta al proprio elenco di app SaaS gestite.
+
+**Per aggiungere SpringCM dalla raccolta, seguire questa procedura:**
+
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+
+    ![Active Directory][1]
+
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+
+    ![Applicazioni][2]
+    
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+
+    ![Applicazioni][3]
+
+4. Nella casella di ricerca digitare **SpringCM**.
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-spring-cm-tutorial/tutorial_springcm_search.png)
+
+5. Nel pannello dei risultati selezionare **SpringCM** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-spring-cm-tutorial/tutorial_springcm_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SpringCM con un utente di test di nome "Britta Simon".
+
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di SpringCM che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SpringCM.
+
+Per stabilire la relazione di collegamento, in SpringCM assegnare il valore del **nome utente** in Azure AD come valore di **Username** (Nome utente).
+
+Per configurare e testare l'accesso Single Sign-On di Azure AD con SpringCM, è necessario completare i blocchi predefiniti seguenti:
+
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente di test di SpringCM](#creating-a-springcm-test-user)**: per avere una controparte di Britta Simon in SpringCM collegata alla relativa rappresentazione in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione SpringCM.
+
+**Per configurare Single Sign-On di Azure AD con SpringCM, seguire questa procedura:**
+
+1. Nella pagina di integrazione dell'applicazione **SpringCM** del portale di Azure fare clic su **Single Sign-On**.
+
+    ![Configura accesso Single Sign-On][4]
+
+2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+ 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/tutorial_springcm_samlbase.png)
+
+3. Nella sezione **URL e dominio SpringCM** seguire questa procedura:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/tutorial_springcm_url.png)
+
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=<identifier>`
+
+    > [!NOTE] 
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di SpringCM](https://knowledge.springcm.com/support). 
+ 
+4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (base)** e quindi salvare il file del certificato nel computer.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/tutorial_springcm_certificate.png) 
+
+5. Fare clic sul pulsante **Salva** .
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/tutorial_general_400.png)
+
+6. Nella sezione **Configurazione di SpringCM** fare clic su **Configura SpringCM** per aprire la finestra **Configura accesso**. Copiare i valori **SAML Entity ID (ID entità SAML) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/tutorial_springcm_configure.png)   
+
+7. In un'altra finestra del browser Web accedere al sito aziendale di **SpringCM** come amministratore.
+
+8. Nel menu nella parte superiore fare clic su **Vai a**, scegliere **Preferenze**, quindi nella scheda **Preferenze account** fare clic su **SAML SSO**.
    
-    ![Active Directory](./media/active-directory-saas-spring-cm-tutorial/IC700993.png "Active Directory")
+    ![SAML SSO](./media/active-directory-saas-spring-cm-tutorial/ic797051.png "SAML SSO")
 
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
+9. Nella sezione Configurazione provider di identità, eseguire la procedura seguente:
    
-    ![Applicazioni](./media/active-directory-saas-spring-cm-tutorial/IC700994.png "Applicazioni")
+    ![Configurazione del provider di identità](./media/active-directory-saas-spring-cm-tutorial/ic797052.png "Configurazione del provider di identità")
+    
+    a. Per caricare il certificato di Azure Active Directory scaricato, fare clic su **Seleziona certificato autorità di certificazione** o su **Cambia certificato autorità di certificazione**.
+    
+    b. Incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure nella casella di testo **Autorità di certificazione**.
+    
+    c. Incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure nella casella di testo **Service Provider (SP) Initiated Endpoint** (Endpoint avviato da provider di servizi).
+            
+    d. Selezionare **Abilitato SAML** in modo che sia **Abilitato**.
 
-4. Fare clic su **Add** nella parte inferiore della pagina.
-   
-    ![Aggiungere un'applicazione](./media/active-directory-saas-spring-cm-tutorial/IC749321.png "Aggiungere un'applicazione")
+    e. Fare clic su **Salva**.
+ 
+> [!TIP]
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> 
 
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
-   
-    ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-spring-cm-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-6. Nella **casella di ricerca** digitare **SpringCM**.
-   
-    ![Raccolta di applicazioni](./media/active-directory-saas-spring-cm-tutorial/IC797045.png "Raccolta di applicazioni")
+![Creare un utente di Azure AD][100]
 
-7. Nel riquadro dei risultati selezionare **SpringCM**, quindi fare clic su **Completa** per aggiungere l'applicazione.
-   
-    ![SpringCM](./media/active-directory-saas-spring-cm-tutorial/IC797046.png "SpringCM")
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
-Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a SpringCM tramite il loro  account in Azure Active Directory utilizzando la federazione basata sul protocollo SAML.
+1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-**Per configurare l'accesso Single Sign-On, seguire questa procedura:**
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-spring-cm-tutorial/create_aaduser_01.png) 
 
-1. Nella pagina di integrazione dell'applicazione **SpringCM** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
-   
-    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/IC797047.png "Configurare l'accesso Single Sign-On")
+2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-spring-cm-tutorial/create_aaduser_02.png) 
 
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a SpringCM** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
-   
-    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/IC797048.png "Configurare l'accesso Single Sign-On")
+3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+ 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-spring-cm-tutorial/create_aaduser_03.png) 
 
-3. Nella pagina **Configura URL app**, nella casella di testo **URL di accesso a SpringCM**, digitare l'URL usato dagli utenti per accedere all'applicazione SpringCM, quindi fare clic su **Avanti**. 
-   
-    L'URL dell'app è l'URL del tenant di SpringCM, ad esempio: *https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826*:
-   
-    ![Configurare l'URL dell'app](./media/active-directory-saas-spring-cm-tutorial/IC797049.png "Configurare l'URL dell'app")
+4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+ 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-spring-cm-tutorial/create_aaduser_04.png) 
 
-4. Nella pagina **Configura accesso Single Sign-On in SpringCM** per scaricare il file del certificato, fare clic su **Download certificato** e quindi salvare il certificato localmente nel computer.
-   
-    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/IC797050.png "Configurare l'accesso Single Sign-On")
+    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
 
-5. In un'altra finestra del browser Web accedere al sito aziendale di **SpringCM** come amministratore.
+    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
 
-6. Nel menu nella parte superiore fare clic su **Vai a**, scegliere **Preferenze**, quindi nella scheda **Preferenze account** fare clic su **SAML SSO**.
-   
-    ![SAML SSO](./media/active-directory-saas-spring-cm-tutorial/IC797051.png "SAML SSO")
+    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-7. Nella sezione Configurazione provider di identità, eseguire la procedura seguente:
-   
-    ![Configurazione del provider di identità](./media/active-directory-saas-spring-cm-tutorial/IC797052.png "Configurazione del provider di identità")   
-  1. Per caricare il certificato di Azure Active Directory scaricato, fare clic su **Seleziona certificato autorità di certificazione** o su **Cambia certificato autorità di certificazione**.
-  2. Nella finestra di dialogo **Configura accesso Single Sign-On in SpringCM** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e quindi incollarlo nella casella di testo **Issuer** (Autorità di certificazione).
-  3. Nella pagina **Configura accesso Single Sign-On in SpringCM** del portale di Azure classico, copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Service Provider (SP) Initiated Endpoint** (Endpoint avviato da provider di servizi).
-  4. Per **SAML Enabled** selezionare **Abilita**.
-  5. Fare clic su **Save**.
+    d. Fare clic su **Crea**.
+ 
+### <a name="creating-a-springcm-test-user"></a>Creazione di un utente di test di SpringCM
 
-8. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
-   
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Configurare l'accesso Single Sign-On")
-
-## <a name="configure-user-provisioning"></a>Configura provisioning utenti
-Per consentire agli utenti di Azure Active Directory di accedere a SpringCM, è necessario eseguirne il provisioning in SpringCM.  
-
-Nel caso di SpringCM, il provisioning è un'attività manuale.
+Per consentire agli utenti di Azure Active Directory di accedere a SpringCM, è necessario eseguirne il provisioning in SpringCM. Nel caso di SpringCM, il provisioning è un'attività manuale.
 
 >[!NOTE]
 >Per altre informazioni, vedere [Creare e modificare un utente SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user). 
-> 
 
 **Per eseguire il provisioning di un account utente in SpringCM, eseguire la procedura seguente:**
 
 1. Accedere al sito aziendale di **SpringCM** come amministratore.
 
-2. Fare clic su **GOTO** e scegliere **Rubrica**.
+2. Fare clic su **GOTO** e scegliere **RUBRICA**.
    
-    ![Crea utente](./media/active-directory-saas-spring-cm-tutorial/IC797054.png "Crea utente")
+    ![Crea utente](./media/active-directory-saas-spring-cm-tutorial/ic797054.png "Crea utente")
 
 3. Fare clic su **Create User**.
 
@@ -143,21 +214,61 @@ Nel caso di SpringCM, il provisioning è un'attività manuale.
   >È possibile usare qualsiasi altro strumento di creazione di account utente SpringCM o API fornita da SpringCM per eseguire il provisioning degli account utente di Azure AD.  
   > 
 
-## <a name="assign-users"></a>Assegna utenti
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
-**Per assegnare gli utenti a SpringCM, eseguire la procedura seguente:**
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a SpringCM.
 
-1. Nel portale di Azure classico creare un account di test.
+![Assegna utente][200] 
 
-2. Nella pagina di integrazione dell'applicazione **SpringCM**, fare clic su **Assegna utenti**.
-   
-    ![Assegnare utenti](./media/active-directory-saas-spring-cm-tutorial/IC797055.png "Assegnare utenti")
+**Per assegnare Britta Simon a SpringCM seguire questa procedura:**
 
-3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
-   
-    ![Sì](./media/active-directory-saas-spring-cm-tutorial/IC767830.png "Sì")
+1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+    ![Assegna utente][201] 
+
+2. Nell'elenco delle applicazioni selezionare **SpringCM**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-spring-cm-tutorial/tutorial_springcm_app.png) 
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Assegna utente][202] 
+
+4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Assegna utente][203]
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+
+6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+
+7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+    
+### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+ 
+Quando si fa clic sul riquadro SpringCM nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione SpringCM.
+
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-spring-cm-tutorial/tutorial_general_203.png
 
 

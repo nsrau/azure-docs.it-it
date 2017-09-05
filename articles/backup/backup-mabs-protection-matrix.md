@@ -12,11 +12,11 @@ ms.date: 05/15/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: d538ec6cbf08a39671e3c5bcb4c9ecaa2f0b1ed7
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -55,7 +55,7 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 |Server (a 32 e 64 bit)|Windows Server 2008|Server fisico<br /><br />Macchina virtuale Hyper-V locale|N|S|Volume, condivisione, cartella, file, stato del sistema/bare metal|
 |Server (a 32 e 64 bit)|Windows Server 2008|Macchina virtuale Windows in VMWare (protegge i carichi di lavoro in esecuzione nella macchina virtuale Windows in VMWare)|S|S |Volume, condivisione, cartella, file, stato del sistema/bare metal|
 |Server (a 32 e 64 bit)|Windows Storage Server 2008|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Volume, condivisione, cartella, file, stato del sistema/bare metal|
-|SQL Server|SQL Server 2016|Server fisico <br /><br /> Macchina virtuale Hyper-V locale <br /> <br /> Macchina virtuale di Azure <br /><br /> Macchina virtuale Windows in VMWare (protegge i carichi di lavoro in esecuzione nella macchina virtuale Windows in VMWare)|S (UR2 e versioni successive)|N|Tutti gli scenari di distribuzione: database|
+|SQL Server|SQL Server 2016|Server fisico <br /><br /> Macchina virtuale Hyper-V locale <br /> <br /> Macchina virtuale di Azure <br /><br /> Macchina virtuale Windows in VMWare (protegge i carichi di lavoro in esecuzione nella macchina virtuale Windows in VMWare)|S |N|Tutti gli scenari di distribuzione: database|
 |SQL Server|SQL Server 2014|Macchina virtuale di Azure (quando il carico di lavoro è in esecuzione come macchina virtuale di Azure)|S|S |Tutti gli scenari di distribuzione: database|
 |SQL Server|SQL Server 2014|Macchina virtuale Windows in VMWare (protegge i carichi di lavoro in esecuzione nella macchina virtuale Windows in VMWare)|S|S|Tutti gli scenari di distribuzione: database|
 |SQL Server|SQL Server 2012 con SP2|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S |Tutti gli scenari di distribuzione: database|
@@ -78,7 +78,7 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 |Exchange|Exchange 2010|Macchina virtuale Windows in VMWare (protegge i carichi di lavoro in esecuzione nella macchina virtuale Windows in VMWare)|S|S |Protezione (tutti gli scenari di distribuzione): Exchange Server autonomo, database in un gruppo di disponibilità del database<br /><br />Ripristino (tutti gli scenari di distribuzione): cassetta postale, database delle cassette postali in un gruppo di disponibilità del database|
 |Exchange|Exchange 2007|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione (tutti gli scenari di distribuzione): gruppo di archiviazione<br /><br />Ripristino (tutti gli scenari di distribuzione): gruppo di archiviazione, database, cassetta postale|
 |Exchange|Exchange 2007|Macchina virtuale Windows in VMWare (protegge i carichi di lavoro in esecuzione nella macchina virtuale Windows in VMWare)|S|S |Protezione (tutti gli scenari di distribuzione): gruppo di archiviazione<br /><br />Ripristino (tutti gli scenari di distribuzione): gruppo di archiviazione, database, cassetta postale|
-|SharePoint|SharePoint 2016|Server fisico<br /><br />Macchina virtuale Hyper-V locale<br /><br />Macchina virtuale di Azure (quando il carico di lavoro è in esecuzione come macchina virtuale di Azure)<br /><br />Macchina virtuale Windows in VMWare (protegge i carichi di lavoro in esecuzione nella macchina virtuale Windows in VMWare)|S (UR2 e versioni successive)|N|Protezione (tutti gli scenari di distribuzione): farm, contenuto di server web front-end<br /><br />Ripristino (tutti gli scenari di distribuzione): farm, database, applicazione web, file o elemento elenco, ricerca SharePoint, server web front-end<br /><br />Si noti che non è supportata la protezione di un farm SharePoint che usa la funzionalità AlwaysOn di SQL Server 2012 per i database di contenuti.|
+|SharePoint|SharePoint 2016|Server fisico<br /><br />Macchina virtuale Hyper-V locale<br /><br />Macchina virtuale di Azure (quando il carico di lavoro è in esecuzione come macchina virtuale di Azure)<br /><br />Macchina virtuale Windows in VMWare (protegge i carichi di lavoro in esecuzione nella macchina virtuale Windows in VMWare)|S |N|Protezione (tutti gli scenari di distribuzione): farm, contenuto di server web front-end<br /><br />Ripristino (tutti gli scenari di distribuzione): farm, database, applicazione web, file o elemento elenco, ricerca SharePoint, server web front-end<br /><br />Si noti che non è supportata la protezione di un farm SharePoint che usa la funzionalità AlwaysOn di SQL Server 2012 per i database di contenuti.|
 |SharePoint|SharePoint 2013|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione (tutti gli scenari di distribuzione): farm, contenuto di server web front-end<br /><br />Ripristino (tutti gli scenari di distribuzione): farm, database, applicazione web, file o elemento elenco, ricerca SharePoint, server web front-end<br /><br />Si noti che non è supportata la protezione di un farm SharePoint che usa la funzionalità AlwaysOn di SQL Server 2012 per i database di contenuti.|
 |SharePoint|SharePoint 2013|Macchina virtuale di Azure (quando il carico di lavoro è in esecuzione come macchina virtuale di Azure) - DMP 2012 R2 Update Rollup 3 e versioni successive|S|S|Protezione (tutti gli scenari di distribuzione): farm, ricerca SharePoint, contenuto di server web front-end<br /><br />Ripristino (tutti gli scenari di distribuzione): farm, database, applicazione web, file o elemento elenco, ricerca SharePoint, server web front-end<br /><br />Si noti che non è supportata la protezione di un farm SharePoint che usa la funzionalità AlwaysOn di SQL Server 2012 per i database di contenuti.|
 |SharePoint|SharePoint 2013|Macchina virtuale Windows in VMWare (protegge i carichi di lavoro in esecuzione nella macchina virtuale Windows in VMWare)|S|S |Protezione (tutti gli scenari di distribuzione): farm, ricerca SharePoint, contenuto di server web front-end<br /><br />Ripristino (tutti gli scenari di distribuzione): farm, database, applicazione web, file o elemento elenco, ricerca SharePoint, server web front-end<br /><br />Si noti che non è supportata la protezione di un farm SharePoint che usa la funzionalità AlwaysOn di SQL Server 2012 per i database di contenuti.|
@@ -92,7 +92,8 @@ Questo articolo elenca i vari server e carichi di lavoro che è possibile proteg
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2012 - Datacenter e Standard|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione: computer Hyper-V, volumi condivisi cluster<br /><br />Ripristino: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2008 R2 SP1 - Enterprise e Standard|Server fisico<br /><br />Macchina virtuale Hyper-V locale|S|S|Protezione: computer Hyper-V, volumi condivisi cluster<br /><br />Ripristino: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
 |Host Hyper-V - Agente protezione DPM su server host Hyper-V, cluster o macchina virtuale|Windows Server 2008|Server fisico<br /><br />Macchina virtuale Hyper-V locale|N|N|Protezione: computer Hyper-V, volumi condivisi cluster<br /><br />Ripristino: macchina virtuale, ripristino di file e cartelle a livello di elemento, volumi, dischi rigidi virtuali|
-|Linux|Linux in esecuzione come guest Hyper-V|Macchina virtuale Hyper-V locale|S|S|Hyper-V deve essere in esecuzione in Windows Server 2012 R2 o Windows Server 2016. Protezione: intera macchina virtuale<br /><br />Ripristino: intera macchina virtuale|
+|VM VMware|Server VMware 5.5, 6.0 o 6.5 |Macchina virtuale Hyper-V locale|S|Y (con UR1)|Macchine virtuali VMware in volumi condivisi cluster (CSV), NFS e archiviazione SAN<br /> Ripristino a livello di elemento di file e cartelle disponibili solo per Windows<br /> VMware vApps non è supportato|
+|Linux|Linux in esecuzione come guest Hyper-V o VMware|Macchina virtuale Hyper-V locale|S|S|Hyper-V deve essere in esecuzione in Windows Server 2012 R2 o Windows Server 2016. Protezione: intera macchina virtuale<br /><br />Ripristino: intera macchina virtuale|
 
 ## <a name="cluster-support"></a>Supporto di cluster
 Il server di Backup di Azure può proteggere i dati nelle applicazioni in cluster seguenti:
@@ -104,7 +105,7 @@ Il server di Backup di Azure può proteggere i dati nelle applicazioni in cluste
 -   Hyper-V - Se si protegge un cluster Hyper-V con protezione DPM con aumento delle prestazioni, non è possibile aggiungere una protezione secondaria per i carichi di lavoro protetti di Hyper-V.
 
     Se si esegue Hyper-V in Windows Server 2008 R2, assicurarsi di installare l'aggiornamento descritto in KB [975354](https://support.microsoft.com/en-us/kb/975354).
-    Se si esegue Hyper-V in Windows Server 2008 R2 in una configurazione cluster, assicurarsi di installare SP2, come descritto in KB [971394](https://support.microsoft.com/en-us/kb/971394).
+    Se si esegue Hyper-V in Windows Server 2008 R2 in una configurazione cluster, assicurarsi di installare SP2 e l'hotfix a cui si fa riferimento nell'articolo KB [971394](https://support.microsoft.com/en-us/kb/971394).
 
 -   Exchange Server - Il server di Backup di Azure può proteggere i cluster di dischi non condivisi per le versioni di Exchange Server supportate (replica continua cluster) e può inoltre proteggere Exchange Server configurato per la replica continua locale.
 

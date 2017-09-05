@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1d35dc01aba57dcf8a37db757138abbd7b22c8c5
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Macchine virtuali di Azure
@@ -135,7 +134,7 @@ Analysis Services, Reporting Services e il motore di Database SQL Server e origi
 * In questa distribuzione di esempio Analysis Services, Reporting Services e il motore di Database SQL Server vengono eseguiti su una singola macchina virtuale. La macchina virtuale ospita i database del server di report. La macchina virtuale è associata a un dominio locale tramite la rete virtuale di Azure o qualche altra soluzione di tunneling VPN.
 * L'origine dati è locale.
 
-![vm scenari BI iaas e origini dati locali](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
+![macchina virtuale scenari BI iaas e origini dati locali](./media/virtual-machines-windows-classic-ps-sql-bi/IC654384.gif)
 
 ## <a name="reporting-services-native-mode-configuration"></a>Configurazione di Reporting Services in modalità nativa
 L'immagine della raccolta di macchine virtuali per SQL Server include l’istallazione della modalità nativa di Reporting Services, tuttavia, il server di report non è configurato. I passaggi descritti in questa sezione consentono di configurare il server di report di Reporting Services. Per informazioni più dettagliate sulla configurazione della modalità nativa di Reporting Services, vedere [Installare il server di report in modalità nativa di Reporting Services](https://msdn.microsoft.com/library/ms143711.aspx).
@@ -225,9 +224,9 @@ Se si desidera connettersi al portale Web o a Gestione report per le versioni 20
 
 1. Creare un endpoint per la macchina virtuale sulla Porta TCP 80. Per ulteriori informazioni vedere la sezione [Endpoint della macchina virtuale e porte del Firewall](#virtual-machine-endpoints-and-firewall-ports) in questo documento.
 2. Aprire la porta 80 nel firewall della macchina virtuale.
-3. Passare al portale Web o a Gestione report usando il **nome DNS** della macchina virtuale di Azure come nome del server nell'URL. Ad esempio:
+3. Passare al portale Web o a Gestione report usando il **nome DNS** della macchina virtuale di Azure come nome del server nell'URL. ad esempio:
    
-    **Server di report**: http://uebi.cloudapp.net/reportserver  **Portale Web**: http://uebi.cloudapp.net/reports
+    **Server di report**: http://uebi.cloudapp.net/reportserver **Portale Web**: http://uebi.cloudapp.net/reports
    
     [Configurare un firewall per l'accesso al server di report](https://msdn.microsoft.com/library/bb934283.aspx)
 

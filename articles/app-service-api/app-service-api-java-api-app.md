@@ -1,6 +1,6 @@
 ---
-title: Compilare e distribuire un&quot;app per le API Java nel servizio app di Azure
-description: Informazioni su come creare un pacchetto dell&quot;app per le API Java e distribuirlo nel servizio app di Azure.
+title: Compilare e distribuire un'app per le API Java nel servizio app di Azure
+description: Informazioni su come creare un pacchetto dell'app per le API Java e distribuirlo nel servizio app di Azure.
 services: app-service\api
 documentationcenter: java
 author: rmcmurray
@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e38c540071cb49b0177e79178566d72ecb5f8886
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>Compilare e distribuire un'app per le API Java nel servizio app di Azure
@@ -278,7 +277,7 @@ Per approfondire questo esempio, è possibile acquisire informazioni su [Storage
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>Vedere anche
-Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure].
+Per altre informazioni sull'uso di Azure con Java, vedere [Azure for Java developers](/java/azure) (Azure per sviluppatori Java).
 
 <!-- URL List -->
 
@@ -287,14 +286,14 @@ Per altre informazioni su come usare Azure con Java, vedere il [Centro per svilu
 [DocumentDB Java SDK]: ../documentdb/documentdb-java-application.md
 [valutazione gratuita]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Centro per sviluppatori Java di Azure]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Java Development Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax-RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [editor Swagger online]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[Storage SDK per Java]: ../storage/storage-java-how-to-use-blob-storage.md
+[Storage SDK per Java]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [editor Swagger]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com

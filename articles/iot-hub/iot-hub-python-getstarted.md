@@ -1,6 +1,6 @@
 ---
-title: Introduzione all&quot;hub IoT di Azure (Python) | Microsoft Docs
-description: Questo articolo illustra come inviare messaggi da un dispositivo simulato all&quot;hub IoT di Azure usando gli SDK di Azure IoT per Python.
+title: Introduzione all'hub IoT di Azure (Python) | Microsoft Docs
+description: Informazioni su come inviare messaggi da dispositivo a cloud all'hub IoT di Azure usando IoT SDK per Python. Creare un dispositivo simulato e app di servizio per registrare il dispositivo, inviare messaggi e leggere messaggi dall'hub IoT.
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -10,15 +10,14 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/22/2017
+ms.date: 08/25/2017
 ms.author: dkshir
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
-ms.openlocfilehash: 572dfc8965957c4667d4124b045ffbb835786a94
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f0800b70620106f9ae9d19d63b60b726835e338f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Connettere il dispositivo simulato all'hub IoT usando Python
@@ -78,6 +77,8 @@ Questa sezione elenca i passaggi per la creazione di un'app console Python, che 
     CONNECTION_STRING = "[IoTHub Connection String]"
     DEVICE_ID = "MyFirstPythonDevice"
     ```
+   [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
+
 3. Aggiungere la funzione seguente per stampare alcune informazioni del dispositivo.
 
     ```python

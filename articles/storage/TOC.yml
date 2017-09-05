@@ -1,0 +1,16 @@
+- name: Panoramica
+  items:
+    - name: Introduzione
+      href: ./common/storage-introduction.md
+    - name: 'Scegliere BLOB, file o dischi dati'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Blobs
+  href: ./blobs/storage-blobs-introduction.md
+- name: File
+  href: ./files/storage-files-introduction.md
+- name: Code
+  href: ./queues/storage-queues-introduction.md
+- name: Tabelle
+  href: ../cosmos-db/table-storage-overview.md
+- name: Dischi
+  href: ../virtual-machines/windows/managed-disks-overview.md

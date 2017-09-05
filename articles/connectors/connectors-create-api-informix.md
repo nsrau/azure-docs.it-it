@@ -4,7 +4,7 @@ description: Panoramica del connettore Informix con i parametri dell&quot;API RE
 services: 
 documentationcenter: 
 author: gplarsen
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
@@ -14,21 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
-ms.author: plarsen
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
-ms.lasthandoff: 02/16/2017
+ms.author: plarsen; ladocs
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
+ms.openlocfilehash: b2e755b5b1b4939eac90ac55ba8398c5687124c8
+ms.contentlocale: it-it
+ms.lasthandoff: 05/26/2017
 
 
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introduzione al connettore Informix
 Microsoft Connector for Informix connette le app per la logica alle risorse archiviate in un database IBM Informix. Il connettore Informix include un client Microsoft per comunicare con computer server Informix remoti su una rete TCP/IP, tra cui: database cloud, ad esempio IBM Informix per Windows in esecuzione nella virtualizzazione Azure, e database locali tramite il gateway dati locale. Vedere l'[elenco](connectors-create-api-informix.md#supported-informix-platforms-and-versions) delle piattaforme e delle versioni di IBM Informix supportate (in questo argomento).
-
-> [!NOTE]
-> Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica. 
-> 
-> 
 
 Il connettore supporta le operazioni di database seguenti:
 
@@ -137,7 +133,7 @@ Il connettore può accedere a un database Informix cloud.
 2. Nell'elenco dei **trigger** fare clic su **Ricorrenza**. 
 3. Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**. 
 4. Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
-5. Nell'elenco delle **azioni **digitare **informix** nella casella di modifica **Cercare altre azioni** e fare clic su **Informix - Ottieni righe - anteprima**.
+5. Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e fare clic su **Informix - Ottieni righe - anteprima**.
 6. Nell'azione **Ottieni righe - anteprima** fare clic su **Cambia connessione**.
 7. Nel riquadro di configurazione **Connessioni** fare clic su **Crea nuova**. 
    
@@ -201,7 +197,7 @@ Il connettore può accedere a un database Informix cloud.
 2. Nell'elenco dei **trigger** fare clic su **Ricorrenza**. 
 3. Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**. 
 4. Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
-5. Nell'elenco delle **azioni **digitare **informix** nella casella di modifica **Cercare altre azioni** e fare clic su **Informix - Ottieni righe - anteprima**.
+5. Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e fare clic su **Informix - Ottieni righe - anteprima**.
 6. Nell'azione **Ottieni righe - anteprima** fare clic su **Cambia connessione**. 
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
    
@@ -229,7 +225,7 @@ Il connettore può accedere a un database Informix cloud.
 2. Nell'elenco dei **trigger** fare clic su **Ricorrenza**. 
 3. Nel trigger **Ricorrenza**, fare clic su **Modifica**, poi sull'elenco a discesa **Frequenza** per selezionare **Giorno** e infine fare clic su **Intervallo** per digitare **7**. 
 4. Fare clic sulla casella **+ Nuovo passaggio** e su **Aggiungi un'azione**.
-5. Nell'elenco delle **azioni **digitare **informix** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **Informix - Aggiorna riga - anteprima**.
+5. Nell'elenco delle **azioni** digitare **informix** nella casella di modifica **Cercare altre azioni** e quindi fare clic su **Informix - Aggiorna riga - anteprima**.
 6. Nell'azione **Ottieni righe - anteprima** fare clic su **Cambia connessione**. 
 7. Nel riquadro di configurazione **Connessioni** fare clic per selezionare una connessione esistente. ad esempio, selezionare **hisdemo2**.
    
@@ -271,138 +267,15 @@ Il connettore può accedere a un database Informix cloud.
     
     ![](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
 
-## <a name="technical-details"></a>Dettagli tecnici
-## <a name="actions"></a>Azioni
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. Il connettore di database Informix include le azioni seguenti. 
-
-| Azione | Descrizione |
-| --- | --- |
-| [GetRow](connectors-create-api-informix.md#get-row) |Recupera una singola riga da una tabella Informix |
-| [GetRows](connectors-create-api-informix.md#get-rows) |Recupera righe da una tabella Informix |
-| [InsertRow](connectors-create-api-informix.md#insert-row) |Inserisce una nuova riga in una tabella Informix |
-| [DeleteRow](connectors-create-api-informix.md#delete-row) |Elimina una riga da una tabella Informix |
-| [GetTables](connectors-create-api-informix.md#get-tables) |Recupera le tabelle da un database Informix |
-| [UpdateRow](connectors-create-api-informix.md#update-row) |Aggiorna una riga esistente in una tabella Informix |
-
-### <a name="action-details"></a>Informazioni dettagliate sulle azioni
-In questa sezione si vedranno i dettagli relativi a ogni azione, incluse le proprietà di input obbligatorie o facoltative e gli output corrispondenti associati al connettore.
-
-#### <a name="get-row"></a>Ottenere la riga
-Recupera una singola riga da una tabella Informix.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella Informix |
-| id* |ID di riga |Identificatore univoco della riga da recuperare |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Item
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="get-rows"></a>Ottieni righe
-Recupera righe da una tabella Informix.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella Informix |
-| $skip |Ignora conteggio |Numero di elementi da ignorare (impostazione predefinita = 0) |
-| $top |Numero massimo di Get |Numero massimo di elementi da recuperare (impostazione predefinita = 256) |
-| $filter |Query di filtro |Query di filtro ODATA per limitare il numero di elementi |
-| $orderby |Ordina per |Query orderBy ODATA per specificare l'ordine degli elementi |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-ItemsList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="insert-row"></a>Inserisci riga
-Inserisce una nuova riga in una tabella Informix.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella Informix |
-| item* |Riga |Riga da inserire nella tabella specificata in Informix |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Item
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| ItemInternalId |string |
-
-#### <a name="delete-row"></a>Elimina riga
-Elimina una riga da una tabella Informix.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella Informix |
-| id* |ID di riga |Identificatore univoco della riga da eliminare |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Nessuna.
-
-#### <a name="get-tables"></a>Ottieni tabelle
-Recupera le tabelle da un database Informix.  
-
-Non sono disponibili parametri per questa chiamata. 
-
-##### <a name="output-details"></a>Dettagli dell'output
-TablesList
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| value |array |
-
-#### <a name="update-row"></a>Aggiorna riga
-Aggiorna una riga esistente in una tabella Informix.  
-
-| Nome proprietà | Nome visualizzato | Descrizione |
-| --- | --- | --- |
-| table* |Nome tabella |Nome della tabella Informix |
-| id* |ID di riga |Identificatore univoco della riga da aggiornare |
-| item* |Riga |Riga con i valori aggiornati |
-
-L'asterisco (*) indica che la proprietà è obbligatoria.
-
-##### <a name="output-details"></a>Dettagli dell'output
-Item
-
-| Nome proprietà | Tipo di dati |
-| --- | --- |
-| ItemInternalId |string |
-
-### <a name="http-responses"></a>Risposte HTTP
-Quando si effettuano chiamate alle diverse azioni, è possibile ottenere determinate risposte. La tabella seguente indica le risposte e le relative descrizioni:  
-
-| Nome | Descrizione |
-| --- | --- |
-| 200 |OK |
-| 202 |Accepted |
-| 400 |Bad Request |
-| 401 |Non autorizzata |
-| 403 |Accesso negato |
-| 404 |Non trovato |
-| 500 |Errore interno del server. Si è verificato un errore sconosciuto |
-| default |Operazione non riuscita. |
-
 ## <a name="supported-informix-platforms-and-versions"></a>Piattaforme e versioni di Informix supportate
 Il connettore supporta le versioni di IBM Informix seguenti, in caso di configurazione per il supporto di connessioni client DRDA (Distributed Relational Database Architecture).
 
 * IBM Informix 12.1
 * IBM Informix 11.7
+
+## <a name="connector-specific-details"></a>Dettagli specifici del connettore
+
+Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/informix/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).

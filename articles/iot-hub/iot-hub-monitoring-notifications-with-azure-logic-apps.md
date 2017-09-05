@@ -1,10 +1,10 @@
 ---
 title: Monitoraggio remoto e notifiche di IoT con App per la logica di Azure | Microsoft Docs
-description: Usare le app per la logica di Azure per il monitoraggio della temperatura IoT sull&quot;hub IoT e inviare automaticamente notifiche tramite posta elettronica alla cassetta postale per le anomalie rilevate.
+description: Usare le app per la logica di Azure per il monitoraggio della temperatura IoT sull'hub IoT e inviare automaticamente notifiche tramite e-mail alla cassetta postale per eventuali anomalie rilevate.
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: Monitoraggio IoT, notifiche IoT, monitoraggio della temperatura IoT
 ms.assetid: 43043067-2e1f-42c9-953d-e2dce8fd86df
@@ -13,14 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 08/25/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: bf45f4c80c73ab47698a39e310324e34a3e21e67
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ca27c55f97d1b1d9694bf79282b7714283927ee7
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale

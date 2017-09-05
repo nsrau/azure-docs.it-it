@@ -2,7 +2,7 @@
 title: Documentazione di Azure IoT Suite - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: 
 services: iot-suite
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
 ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
+ms.contentlocale: it-it
 ms.lasthandoff: 02/09/2017
 
 ---

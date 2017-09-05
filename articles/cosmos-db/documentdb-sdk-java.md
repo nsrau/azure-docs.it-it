@@ -1,6 +1,6 @@
 ---
-title: API Java, risorse e SDK per Azure DocumentDB | Microsoft Docs
-description: Altre informazioni sulle date di rilascio e le date di ritiro dell'SDK e dell'API per Java e sulle modifiche apportate tra le versioni di DocumentDB Java SDK.
+title: 'Azure Cosmos DB: risorse, SDK e API Java di DocumentDB | Microsoft Docs'
+description: Informazioni complete sull'SDK e sull'API Java, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB DocumentDB Java SDK.
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 07/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 423f841b82ced16b3bd338f1f38db9ec0250fa66
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 15e3f7ef3bfd6b1f61fe6081a378bdb29e0a1aa2
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="documentdb-java-sdk-release-notes-and-resources"></a>DocumentDB Java SDK: note sulla versione e risorse
+# <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: risorse e note sulla versione di DocumentDB Java SDK
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [Feed delle modifiche .NET](documentdb-sdk-dotnet-changefeed.md)
 > * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
@@ -46,15 +46,18 @@ ms.lasthandoff: 06/20/2017
 
 <tr><td>**Introduzione**</td><td>[Introduzione a SDK Java](documentdb-java-get-started.md)</td></tr>
 
-<tr><td>**Esercitazione sull'app Web**</td><td>[Sviluppo di applicazioni Web con DocumentDB](documentdb-java-application.md)</td></tr>
+<tr><td>**Esercitazione sull'app Web**</td><td>[Sviluppo di applicazioni Web con Azure Cosmos DB](documentdb-java-application.md)</td></tr>
 
 <tr><td>**Runtime attualmente supportato**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
 
+### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
+* Correzioni di bug importanti per richiedere l'elaborazione durante le suddivisioni delle partizioni.
+* Risolto un problema relativo ai livelli di coerenza Strong e BoundedStaleness.
+
 ### <a name="a-name11101110"></a><a name="1.11.0"/>1.11.0
-* Aggiunta del supporto per la funzionalità di unità richiesta al minuto (UR/m).
 * Aggiunta del supporto per un nuovo livello di coerenza denominato ConsistentPrefix.
 * Risolto un bug nella raccolta in modalità di sessione di lettura.
 
@@ -159,7 +162,7 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
 
 > [!WARNING]
-> Tutte le versioni dell'SDK per Java di Azure DocumentDB precedenti alla versione **1.0.0** verranno ritirate il **29 febbraio 2016**.
+> Tutte le versioni dell'SDK DocumentDB per Java precedenti alla versione **1.0.0** verranno ritirate il **29 febbraio 2016**.
 > 
 > 
 
@@ -167,6 +170,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |11 luglio 2017 |--- |
 | [1.11.0](#1.11.0) |10 maggio 2017 |--- |
 | [1.10.0](#1.10.0) |11 marzo 2017 |--- |
 | [1.9.6](#1.9.6) |21 febbraio 2017 |--- |

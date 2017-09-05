@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: f907f388ecb897c05e822f2abd5431b3976b7987
-ms.openlocfilehash: 10581234a4475d0d3b32c7891fcf97eed55f7a1d
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
+ms.contentlocale: it-it
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Analisi dei log per i gruppi di sicurezza di rete
@@ -47,18 +47,18 @@ Deve essere abilitata la registrazione diagnostica per *ogni* gruppo di sicurezz
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per usare li portale per abilitare la registrazione, accedere al [portale](https://portal.azure.com). Fare clic su **Altri servizi**, quindi digitare *gruppi di sicurezza di rete*. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare l'accesso. Seguire le istruzioni per le risorse non di calcolo nell'articolo [Abilitare i log di diagnostica nel portale](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-in-the-portal). Selezionare **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** o entrambe le categorie di log.
+Per usare li portale per abilitare la registrazione, accedere al [portale](https://portal.azure.com). Fare clic su **Altri servizi**, quindi digitare *gruppi di sicurezza di rete*. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare l'accesso. Seguire le istruzioni per le risorse non di calcolo nell'articolo [Abilitare i log di diagnostica nel portale](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Selezionare **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** o entrambe le categorie di log.
 
 ### <a name="powershell"></a>PowerShell
 
-Per abilitare la registrazione con PowerShell, seguire le istruzioni nell'articolo [Abilitare i log di diagnostica tramite PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-powershell). Valutare le seguenti informazioni prima di immettere un comando dall'articolo:
+Per abilitare la registrazione con PowerShell, seguire le istruzioni nell'articolo [Abilitare i log di diagnostica tramite PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Valutare le seguenti informazioni prima di immettere un comando dall'articolo:
 
 - È possibile determinare il valore da usare per il parametro `-ResourceId` sostituendo in base alle necessità il [testo] seguente e quindi immettendo il comando `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. L'output dell'ID dal comando è simile a */subscriptions/[ID sottoscrizione]/resourceGroups/[Gruppo di risorse]/providers/Microsoft.Network/networkSecurityGroups/[Nome gruppo di sicurezza di rete]*.
 - Se si desidera solamente raccogliere i dati dalla categoria di log, aggiungere `-Categories [category]` alla fine del comando nell'articolo, dove la categoria è *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Se non si usa il parametro `-Categories`, la raccolta dei dati viene abilitata per entrambe le categorie di log.
 
 ### <a name="azure-command-line-interface-cli"></a>interfaccia della riga di comando di Azure (CLI)
 
-Per abilitare la registrazione con l'interfaccia della riga di comando, seguire le istruzioni nell'articolo [Abilitare i log di diagnostica tramite l'interfaccia della riga di comando](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-cli). Valutare le seguenti informazioni prima di immettere un comando dall'articolo:
+Per abilitare la registrazione con l'interfaccia della riga di comando, seguire le istruzioni nell'articolo [Abilitare i log di diagnostica tramite l'interfaccia della riga di comando](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Valutare le seguenti informazioni prima di immettere un comando dall'articolo:
 
 - È possibile determinare il valore da usare per il parametro `-ResourceId` sostituendo in base alle necessità il [testo] seguente e quindi immettendo il comando `azure network nsg show [resource-group-name] [nsg-name]`. L'output dell'ID dal comando è simile a */subscriptions/[ID sottoscrizione]/resourceGroups/[Gruppo di risorse]/providers/Microsoft.Network/networkSecurityGroups/[Nome gruppo di sicurezza di rete]*.
 - Se si desidera solamente raccogliere i dati dalla categoria di log, aggiungere `-Categories [category]` alla fine del comando nell'articolo, dove la categoria è *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Se non si usa il parametro `-Categories`, la raccolta dei dati viene abilitata per entrambe le categorie di log.

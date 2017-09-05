@@ -2,7 +2,7 @@
 title: "Set di impostazioni delle attività MES (Media Encoder Standard) | Microsoft Docs"
 description: Questo argomento fornisce una panoramica dei set di impostazioni per MES (Media Encoder Standard).
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

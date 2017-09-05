@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/26/2017
 ms.author: femila
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e76a20c7c7eef9a51c6c0373785fd810c09e34a
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali di Azure
@@ -109,7 +108,7 @@ Per altre informazioni sull'impatto sui controller di dominio, vedere la sezione
 A partire da Windows Server 2012 sono state [introdotte misure di sicurezza aggiuntive in Servizi di dominio Active Directory](https://technet.microsoft.com/library/hh831734.aspx). Queste misure di sicurezza consentono di proteggere i controller di dominio virtualizzati dai problemi precedenti, purché la piattaforma hypervisor sottostante supporti VM-GenerationID. Azure supporta VM-GenerationID e ciò significa che nei controller di dominio che eseguono Windows Server 2012 o versione successiva in macchine virtuali di Azure sono disponibili misure di sicurezza aggiuntive.
 
 > [!NOTE]
-> È consigliabile arrestare e riavviare una macchina virtuale che esegue il ruolo controller di dominio in Azure nel sistema operativo guest, anziché usare l'opzione **Arresta** nel portale di Azure o nel portale classico. Attualmente l'uso del portale per arrestare una macchina virtuale ne comporta la deallocazione. Una VM deallocata ha il vantaggio di non essere soggetta ad addebiti, ma reimposta anche l'attributo VM-GenerationID, un approccio sconsigliato per un controller di dominio. Quando VM-GenerationID viene reimpostato, anche l'attributo invocationID del database di Servizi di dominio Active Directory viene reimpostato, il pool di RID viene eliminato e SYSVOL è contrassegnato come non autorevole. Per altre informazioni, vedere [Introduzione alla virtualizzazione di Servizi di dominio Active Directory](https://technet.microsoft.com/library/hh831734.aspx) e il blog relativo alla [virtualizzazione di DFSR in modo sicuro](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
+> È consigliabile arrestare e riavviare una VM che esegue il ruolo controller di dominio in Azure nel sistema operativo guest, invece di usare l'opzione **Arresta** nel portale di Azure. Attualmente l'uso del portale per arrestare una macchina virtuale ne comporta la deallocazione. Una VM deallocata ha il vantaggio di non essere soggetta ad addebiti, ma reimposta anche l'attributo VM-GenerationID, un approccio sconsigliato per un controller di dominio. Quando VM-GenerationID viene reimpostato, anche l'attributo invocationID del database di Servizi di dominio Active Directory viene reimpostato, il pool di RID viene eliminato e SYSVOL è contrassegnato come non autorevole. Per altre informazioni, vedere [Introduzione alla virtualizzazione di Servizi di dominio Active Directory](https://technet.microsoft.com/library/hh831734.aspx) e il blog relativo alla [virtualizzazione di DFSR in modo sicuro](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx).
 > 
 > 
 
@@ -127,7 +126,7 @@ Infine è possibile distribuire un'applicazione di rete in Azure, ad esempio Sha
 
 ## <a name="contrasts-between-deploying-windows-server-active-directory-domain-controllers-on-azure-virtual-machines-versus-on-premises"></a>Differenze tra la distribuzione di controller di dominio Active Directory di Windows Server in macchine virtuali di Azure e in locale
 * Per qualsiasi scenario di distribuzione di Active Directory di Windows Server che include più di una singola VM, è necessario usare una rete virtuale di Azure per la coerenza degli indirizzi IP. Questa guida presuppone che i controller di dominio siano eseguiti in una rete virtuale di Azure.
-* Come per i controller di dominio locali, è consigliabile usare indirizzi IP statici. Un indirizzo IP statico può essere configurato solo tramite Azure PowerShell. Per altre informazioni, vedere il blog relativo all' [indirizzo IP interno statico per le macchine virtuali](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) . Se si usano sistemi di monitoraggio o altre soluzioni che controllano la configurazione dell'indirizzo IP statico all'interno del sistema operativo guest, è possibile assegnare lo stesso indirizzo IP statico alle proprietà della scheda di rete della VM. Tenere però presente che la scheda di rete verrà ignorata se la VM viene sottoposta a correzione del servizio o se viene arrestata nel portale classico e il relativo indirizzo viene deallocato. In questo caso, l'indirizzo IP statico nel sistema operativo guest dovrà essere reimpostato.
+* Come per i controller di dominio locali, è consigliabile usare indirizzi IP statici. Un indirizzo IP statico può essere configurato solo tramite Azure PowerShell. Per altre informazioni, vedere il blog relativo all' [indirizzo IP interno statico per le macchine virtuali](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) . Se si usano sistemi di monitoraggio o altre soluzioni che controllano la configurazione dell'indirizzo IP statico all'interno del sistema operativo guest, è possibile assegnare lo stesso indirizzo IP statico alle proprietà della scheda di rete della VM. Tenere però presente che la scheda di rete verrà ignorata se la VM viene sottoposta a correzione del servizio o se viene arrestata nel portale e il relativo indirizzo viene deallocato. In questo caso, l'indirizzo IP statico nel sistema operativo guest dovrà essere reimpostato.
 * La distribuzione di VM in una rete virtuale non implica né richiede che venga ristabilita la connettività a una rete locale. Questa possibilità è semplicemente abilitata dalla rete virtuale. È necessario creare una rete virtuale per le comunicazioni private tra Azure e la rete locale. È necessario distribuire un endpoint VPN nella rete locale. La VPN viene aperta da Azure alla rete locale. Per altre informazioni, vedere [Panoramica di Rete virtuale](../virtual-network/virtual-networks-overview.md) e [Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [!NOTE]

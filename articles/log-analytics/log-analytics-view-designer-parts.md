@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento sulle parti per Progettazione viste in Log Analytics di OMS | Documentazione Microsoft
-description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascuna parte di visualizzazione disponibile per l&quot;uso nelle viste personalizzate.
+description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascuna parte di visualizzazione disponibile per l'uso nelle viste personalizzate.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
-ms.openlocfilehash: 07edc26f62fada8b5e32693a172cb23b48d36e1f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
+ms.contentlocale: it-it
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Riferimento alla parte di visualizzazione relativa a Progettazione viste di Log Analytics
@@ -26,7 +27,10 @@ Progettazione viste di Log Analytics consente di creare viste personalizzate nel
 Altri articoli disponibili su Progettazione viste sono:
 
 * [Progettazione viste](log-analytics-view-designer.md): una panoramica su Progettazione viste e sulle procedure per creare e modificare viste personalizzate.
-* [Informazioni di riferimento sul riquadro](log-analytics-view-designer-tiles.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate. 
+* [Informazioni di riferimento sul riquadro](log-analytics-view-designer-tiles.md): informazioni di riferimento sulle impostazioni relative a ciascun riquadro disponibile per l'uso nelle viste personalizzate.
+
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query in tutte le viste devono essere scritte nel [nuovo linguaggio di query](https://go.microsoft.com/fwlink/?linkid=856078).  Le viste create prima dell'aggiornamento dell'area di lavoro verranno automaticamente convertite.
 
 La tabella seguente descrive i diversi tipi di riquadri disponibili in Progettazione viste.  Nelle sezioni seguenti vengono descritti i dettagli di ogni tipo di riquadro e le relative proprietà.
 
@@ -304,17 +308,17 @@ Vengono visualizzati grafici a linee con più serie provenienti da una query di 
 ## <a name="common-settings"></a>Impostazioni comuni
 Nelle sezioni seguenti vengono descritte le impostazioni comuni a più parti di visualizzazione.
 
-### <a name="a-namename-value-separatorname--value-separatora"></a><a name="name-value-separator">Nome e separatore valori</a>
+### <a name="name-value-separator">Nome e separatore valori</a>
 Delimitatore dei singoli caratteri per analizzare la proprietà text da una query di elenco in più valori.  Se si specifica un delimitatore, è possibile assegnare i nomi ai campi separati dallo stesso delimitatore nella casella Nome.
 
-Si consideri, ad esempio, una proprietà denominata *Sede* nella quale vengono inclusi dei valori, come *Redmond-Building 41* e *Bellevue-Building12*.  È possibile specificare – per il nome e separatore valori, così come *City-Building* per il nome.  Ciò comporterebbe l'analisi di ciascun valore in due proprietà chiamate *City* e *Building*. 
+Si consideri, ad esempio, una proprietà denominata *Sede* nella quale vengono inclusi dei valori, come *Redmond-Building 41* e *Bellevue-Building12*.  È possibile specificare – per il nome e separatore valori, così come *City-Building* per il nome.  Ciò comporterebbe l'analisi di ciascun valore in due proprietà chiamate *City* e *Building*.
 
-### <a name="a-namenavigation-querynavigation-querya"></a><a name="navigation-query">Query di navigazione</a>
+### <a name="navigation-query">Query di navigazione</a>
 Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Usare *{selected item}* per includere la sintassi per l'elemento selezionato dall'utente.
 
 Ad esempio, se la query include una colonna denominata *Computer* e la query di navigazione è *{selected item}*, si deve eseguire una query tipo *Computer="MyComputer"* quando l'utente ha selezionato un computer.  Se la query di navigazione è *Type=Event {selected item}* viene eseguita la query *Type=Event Computer="MyComputer"*.
 
-### <a name="a-namesparklinessparklinesa"></a><a name="sparklines">Grafici sparkline</a>
+### <a name="sparklines">Grafici sparkline</a>
 Un grafico sparkline è un grafico a linee di piccole dimensioni che mostra le variazioni nel tempo del valore di una voce di elenco.  In un elenco è possibile scegliere di visualizzare una barra orizzontale con indicato il valore relativo di una colonna numerica oppure un grafico sparkline con indicate le variazioni del valore nel tempo.
 
 La tabella seguente illustra le impostazioni di un grafico sparkline.
@@ -324,7 +328,7 @@ La tabella seguente illustra le impostazioni di un grafico sparkline.
 | Abilita grafici sparkline |Selezionare questa opzione per visualizzare i grafici sparkline anziché la barra orizzontale. |
 | Operazione |Se sono abilitati i grafici sparkline, questa è l'operazione da eseguire su ogni proprietà nell'elenco per calcolare i valori per il grafico sparkline.<br><br>- Ultimo campione: l'ultimo valore per la serie nell'intervallo di tempo.<br>- Max: il valore massimo per la serie nell'intervallo di tempo.<br>- Min: il valore minimo per la serie nell'intervallo di tempo.<br>- Somma: la somma dei valori per la serie nell'intervallo di tempo.<br>-Riepilogo: usa lo stesso comando di misurazione come query nell'intestazione. |
 
-### <a name="a-namethresholdsthresholdsa"></a><a name="thresholds">Soglie</a>
+### <a name="thresholds">Soglie</a>
 Le soglie consentono di visualizzare un'icona colorata accanto a ogni elemento dell'elenco, per far risaltare velocemente gli elementi che superano un determinato valore o che rientrano in un intervallo specifico.  Ad esempio, è possibile visualizzare un'icona verde per gli elementi con un valore accettabile, gialla se il valore è compreso in un intervallo che indica un possibile problema e rosso se il valore supera la soglia di errore.
 
 Quando si abilitano le soglie, è necessario specificarne una o più.  Se il valore di un elemento è superiore al valore di soglia, ma inferiore al valore di soglia successivo, viene usato il colore corrispondente.  Se il valore di un elemento è superiore al valore di soglia massimo, viene impostato il colore.   
@@ -342,10 +346,4 @@ La tabella seguente illustra le impostazioni relative alle soglie.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [ricerche log](log-analytics-log-searches.md) per supportare le query nelle parti di visualizzazione.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

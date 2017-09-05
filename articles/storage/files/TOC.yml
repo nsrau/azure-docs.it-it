@@ -1,0 +1,200 @@
+- name: Panoramica
+  items:
+    - name: Introduzione
+      href: storage-files-introduction.md
+    - name: 'Scegliere BLOB, file o dischi dati'
+      href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: domande frequenti
+      href: storage-files-faq.md
+- name: Introduzione
+  items:
+    - name: Creare un account di archiviazione
+      href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Creare una condivisione file
+      href: storage-how-to-create-file-share.md
+    - name: Eseguire il montaggio in Windows
+      href: storage-how-to-use-files-windows.md
+    - name: Eseguire il montaggio in Linux
+      href: storage-how-to-use-files-linux.md
+    - name: Eseguire il montaggio in Mac
+      href: storage-how-to-use-files-mac.md
+    - name: Gestire con il portale
+      href: storage-how-to-use-files-portal.md
+- name: Procedure
+  items:
+    - name: Pianificare e progettare
+      items:
+        - name: Replica
+          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Obiettivi di scalabilità e prestazioni
+          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Elenco di controllo di prestazioni e scalabilità
+          href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Concorrenza
+          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Indicazioni sul ripristino di emergenza
+          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Sviluppare
+      items:
+        - name: .NET
+          href: storage-dotnet-how-to-use-files.md
+        - name: Java
+          href: storage-java-how-to-use-file-storage.md
+        - name: C++
+          href: storage-c-plus-plus-how-to-use-files.md
+        - name: Python
+          href: storage-python-how-to-use-file-storage.md
+        - name: Esempi
+          items:
+            - name: .NET
+              href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Java
+              href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Configurare le stringhe di connessione
+          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Gestisci
+      items:
+        - name: PowerShell
+          href: storage-how-to-use-files-powershell.md
+        - name: Interfaccia della riga di comando di Azure 2.0
+          href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Interfaccia della riga di comando di Azure 1.0
+          href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Uso di Storage Explorer con Archiviazione file di Azure
+          href: ../../vs-azure-tools-storage-explorer-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Automazione di Azure
+          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Proteggere
+      items:
+        - name: Guida alla sicurezza
+          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Crittografia per i dati inattivi
+          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Richiedere il trasferimento sicuro
+          href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Autenticazione della chiave condivisa
+          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+        - name: Firme di accesso condiviso
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Monitorare e risolvere i problemi
+      items:
+        - name: 'Risolvere i problemi di connessione di File di Azure: Windows'
+          href: storage-troubleshoot-windows-file-connection-problems.md
+        - name: 'Risolvere i problemi di connessione di File di Azure: Linux'
+          href: storage-troubleshoot-linux-file-connection-problems.md
+        - name: Esercitazione sulla risoluzione dei problemi
+          href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 'Monitoraggio, diagnosi e risoluzione dei problemi'
+          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Metriche e registrazione
+          items:
+            - name: di Analisi archiviazione
+              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Abilitare e visualizzare le metriche
+              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Trasferire i dati
+      items:
+        - name: Spostare dati da e verso Archiviazione
+          href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: AzCopy in Windows
+          href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: AzCopy in Linux
+          href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Esempi
+      href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=file'
+- name: riferimento
+  items:
+    - name: PowerShell
+      href: /powershell/module/azure.storage
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/storage
+    - name: .NET
+      items:
+        - name: Gestione risorse
+          href: /dotnet/api/microsoft.azure.management.storage
+        - name: Spostamento dati
+          href: /dotnet/api/microsoft.windowsazure.storage.datamovement
+        - name: 'BLOB, code, tabelle e file'
+          href: 'https://docs.microsoft.com/en-us/dotnet/api/overview/azure/storage?view=azure-dotnet'
+    - name: Java
+      href: 'http://azure.github.io/azure-storage-java/'
+    - name: Node.js
+      href: 'http://azure.github.io/azure-storage-node'
+    - name: Ruby
+      href: 'http://azure.github.io/azure-storage-ruby'
+    - name: PHP
+      href: 'http://azure.github.io/azure-storage-php/'
+    - name: Python
+      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+    - name: C++
+      href: 'http://azure.github.io/azure-storage-cpp'
+    - name: iOS
+      href: 'http://azure.github.io/azure-storage-ios/'
+    - name: Android
+      href: 'http://azure.github.io/azure-storage-android'
+    - name: REST
+      items:
+        - name: 'BLOB, code, tabelle e file'
+          href: /rest/api/storageservices
+        - name: Provider di risorse
+          href: /rest/api/storagerp
+        - name: Importazione/Esportazione
+          href: /rest/api/storageimportexport
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Strumenti client di Archiviazione di Azure
+      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=storage'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+    - name: Azure Storage Explorer
+      items:
+        - name: Storage Explorer
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Note sulla versione di Storage Explorer
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Risolvere i problemi di Storage Explorer
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Pacchetti NuGet
+      items:
+        - name: Libreria client di archiviazione di Azure per .NET
+          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
+        - name: Libreria di spostamento dei dati di Archiviazione di Azure
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Gestione configurazione di Azure
+          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+    - name: Codice sorgente
+      items:
+        - name: .NET
+          items:
+            - name: 'BLOB, code, tabelle e file'
+              href: 'https://github.com/Azure/azure-storage-net'
+            - name: Spostamento dati
+              href: 'https://github.com/Azure/azure-storage-net-data-movement'
+            - name: Provider di risorse
+              href: 'https://github.com/Azure/azure-sdk-for-net'
+        - name: Node.js
+          href: 'http://azure.github.io/azure-storage-node/'
+        - name: Java
+          href: 'https://github.com/Azure/azure-storage-java'
+        - name: C++
+          href: 'https://github.com/Azure/azure-storage-cpp'
+        - name: PHP
+          href: 'https://github.com/Azure/azure-storage-php'
+        - name: Python
+          href: 'https://github.com/Azure/azure-storage-python'
+        - name: Ruby
+          href: 'https://github.com/Azure/azure-storage-ruby'
+        - name: iOS
+          href: 'https://github.com/Azure/azure-storage-ios'

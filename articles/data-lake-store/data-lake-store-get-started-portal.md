@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/06/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: f03181c727650eb0cfc8648cbe3d3838295cf6ad
+ms.translationtype: HT
+ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
+ms.openlocfilehash: fa13266993017374ba49709f8e22fbe6b03a28c7
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/07/2017
 
 ---
-# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Introduzione all’Archivio Data Lake di Azure tramite il portale di Azure.
+# <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Introduzione ad Azure Data Lake Store con il portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -35,23 +34,23 @@ ms.lasthandoff: 06/07/2017
 >
 > 
 
-Informazioni su come usare il portale di Azure per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Azure Data Lake Store](data-lake-store-overview.md).
+Questo articolo illustra come usare il portale di Azure per creare un account Azure Data Lake Store ed eseguire operazioni di base come creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per altre informazioni, vedere [Panoramica di Azure Data Lake Store](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
-
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a name="do-you-learn-faster-with-videos"></a>Apprendimento rapido con i video
-Guardare i video seguenti per iniziare a usare Archivio Data Lake.
+I due video seguenti contengono le stesse informazioni riportate in questo articolo:
 
 * [Creare un account Archivio Data Lake](https://mix.office.com/watch/1k1cycy4l4gen)
 * [Gestire i dati in Archivio Data Lake usando Esplora dati](https://mix.office.com/watch/icletrxrh6pc)
 
+## <a name="prerequisites"></a>Prerequisiti
+Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
+
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 ## <a name="create-an-azure-data-lake-store-account"></a>Creare un account di Azure Data Lake Store
+
 1. Accedere al nuovo [portale di Azure](https://portal.azure.com).
 2. Fare clic su **NUOVO**, selezionare **Data + Storage** (Dati + archiviazione), quindi fare clic su **Azure Data Lake Store**. Leggere le informazioni nel pannello **Azure Data Lake Store**, quindi fare clic su **Crea** nell'angolo inferiore sinistro del pannello.
-3. Nel pannello **nuovo archivio Data Lake** , fornire i valori come illustrato nella schermata riportata di seguito:
+3. Nel pannello **Nuovo Data Lake Store** inserire i valori come illustrato nello screenshot seguente:
    
     ![Creare un nuovo account Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Creare un nuovo account Azure Data Lake")
    
@@ -59,25 +58,27 @@ Guardare i video seguenti per iniziare a usare Archivio Data Lake.
    * **Sottoscrizione**. Selezionare la sottoscrizione in cui si vuole creare un nuovo account Data Lake Store.
    * **Gruppo di risorse**. Selezionare un gruppo di risorse esistente oppure selezionare l'opzione **Crea nuovo** per crearne uno. Un gruppo di risorse è un contenitore che contiene risorse correlate per un'applicazione. Per altre informazioni, vedere [Gruppi di risorse in Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
    * **Posizione**: selezionare una posizione in cui si desidera creare l'account Archivio Data Lake
-   * **Impostazioni crittografia**. È possibile scegliere se crittografare l'account Data Lake Store. Se si sceglie di crittografarlo, è anche possibile specificare come gestire la chiave di crittografia principale che si vuole usare per crittografare i dati nell'account.
+   * **Impostazioni crittografia**. Sono disponibili tre opzioni:
      
-     * (Facoltativo) Selezionare **Non abilitare la crittografia** dall'elenco a discesa per rifiutare esplicitamente la crittografia.
-     * (Impostazione predefinita) Selezionare **Usare chiavi gestite da Azure Data Lake** per gestire le chiavi di crittografia con Azure Data Lake Store.
+     * **Non abilitare la crittografia**.
+     * **Usare chiavi gestite da Azure Data Lake**,  se si vuole che le chiavi di crittografia vengano gestite da Azure Data Lake Store.
+     * **Scegliere le chiavi da Azure Key Vault**. È possibile selezionare un'istanza di Azure Key Vault esistente oppure crearne una nuova. Per usare le chiavi di un'istanza di Azure Key Vault, è necessario assegnare all'account Azure Data Lake Store le autorizzazioni per accedere a tale istanza. Per istruzioni, vedere [Assegnare le autorizzazioni per Azure Key Vault](#assign-permissions-to-azure-key-vault).
        
-         ![Crittografia di Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Crittografia di Data Lake Store")
-     * (Facoltativo) Selezionare **Scegliere le chiavi dall'insieme di credenziali delle chiavi di Azure** per usare le proprie chiavi presenti nell'insieme di credenziali delle chiavi di Azure. Con questa opzione, è anche possibile creare le chiavi e un account dell'insieme di credenziali delle chiavi, se necessario.
+        ![Crittografia di Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Crittografia di Data Lake Store")
        
-         ![Crittografia di Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Crittografia di Data Lake Store")
-       
-       Fare clic su **OK** nel pannello **Impostazioni crittografia**.
-       
-       > [!NOTE]
-       > Se si usano le chiavi di un insieme di credenziali delle chiavi di Azure per configurare la crittografia per l'account Data Lake Store, è necessario assegnare le autorizzazioni per l'accesso dell'account Azure Data Lake Store all'insieme di credenziali delle chiavi di Azure. Per le istruzioni, vedere [Assegnare le autorizzazioni all'insieme di credenziali delle chiavi di Azure](#assign-permissions-to-the-azure-key-vault).
-       > 
-       > 
+        Fare clic su **OK** nel pannello **Impostazioni crittografia**.
+
+        Per altre informazioni, vedere [Crittografia dei dati in Azure Data Lake Store](./data-lake-store-encryption.md).
+
 4. Fare clic su **Crea**. Se si è scelto di aggiungere l'account al dashboard, si viene indirizzati al dashboard, dove è possibile visualizzare lo stato di avanzamento del provisioning dell'account Data Lake Store. Una volta eseguito il provisioning dell'account di Archivio Data Lake, viene visualizzato il pannello dell’account.
 
-## <a name="assign-permissions-to-the-azure-key-vault"></a>Assegnare le autorizzazioni all'insieme di credenziali delle chiavi di Azure
+È anche possibile creare un account Data Lake Store usando modelli di Azure Resource Manager. Tali modelli sono accessibili dalla pagina [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=data+lake+store).
+
+- Senza crittografia dei dati: [Deploy Azure Data Lake Store account with no data encryption](https://azure.microsoft.com/en-us/resources/templates/101-data-lake-store-no-encryption/) (Distribuire un account Azure Data Lake Store senza crittografia dei dati).
+- Con crittografia dei dati con Data Lake Store: [Deploy Data Lake Store account with encryption(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/) (Distribuire un account Data Lake Store con crittografia - Data Lake).
+- Con crittografia dei dati con Azure Key Vault: [Deploy Data Lake Store account with encryption(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/) (Distribuire un account Data Lake Store con crittografia - Key Vault).
+
+### <a name="assign-permissions-to-azure-key-vault"></a>Assegnare le autorizzazioni per Azure Key Vault
 Se sono state usate le chiavi di un insieme di credenziali delle chiavi di Azure per configurare la crittografia nell'account Data Lake Store, è necessario configurare l'accesso tra l'account Data Lake Store e l'account dell'insieme di credenziali delle chiavi di Azure. Seguire quindi questa procedura.
 
 1. Se sono state usate le chiavi dell'insieme di credenziali delle chiavi di Azure, il pannello dell'account Data Lake Store visualizza un avviso in alto. Fare clic sull'avviso per aprire il pannello **Configurare le autorizzazioni dell'insieme di credenziali delle chiavi**.
@@ -91,7 +92,7 @@ Se sono state usate le chiavi di un insieme di credenziali delle chiavi di Azure
 ## <a name="createfolder"></a>Creare delle cartelle in Azure Data Lake Store
 È possibile creare delle cartelle con il proprio account di Archivio Data Lake per gestire e archiviare i dati.
 
-1. Aprire l'account archivio Data Lake appena creato. Dal riquadro sinistro fare clic su **Sfoglia** e selezionare **Data Lake Store**, quindi dal pannello di Data Lake Store fare clic sul nome dell’account in cui si desidera creare le cartelle. Se è stato aggiunto l'account alla schermata iniziale, fare clic sul riquadro dell’account.
+1. Aprire l'account Data Lake Store creato. Dal riquadro sinistro fare clic su **Sfoglia** e selezionare **Data Lake Store**, quindi dal pannello di Data Lake Store fare clic sul nome dell’account in cui si desidera creare le cartelle. Se è stato aggiunto l'account alla schermata iniziale, fare clic sul riquadro dell’account.
 2. Nel pannello dell'account di Archivio Data Lake, fare clic su **Esplora dati**.
    
     ![Creare cartelle nell'account Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Creare cartelle nell'account Data Lake Store")
@@ -99,19 +100,19 @@ Se sono state usate le chiavi di un insieme di credenziali delle chiavi di Azure
    
     ![Creare cartelle nell'account Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Creare cartelle nell'account Data Lake Store")
    
-    La cartella appena creata verrà elencata nel pannello **Esplora dati** . È possibile creare cartelle nidificate fino a qualsiasi livello.
+    La cartella appena creata verrà elencata nel pannello **Esplora dati**. È possibile creare cartelle nidificate fino a qualsiasi livello.
    
     ![Creare cartelle nell'account Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Creare cartelle nell'account Data Lake")
 
 ## <a name="uploaddata"></a>Caricare dati in Archivio Data Lake di Azure
-È possibile caricare i dati in un archivio Data Lake di Azure direttamente a livello di radice o in una cartella creata all'interno dell'account. Nella schermata di seguito, seguire i passaggi per caricare un file in una sotto-cartella dal pannello **Esplora dati** . In questa schermata, il file viene caricato in una sotto-cartella nei percorsi di navigazione (contrassegnati in una casella rossa).
+È possibile caricare i dati in un archivio Data Lake di Azure direttamente a livello di radice o in una cartella creata all'interno dell'account. Completare i passaggi illustrati nello screenshot seguente per caricare un file in una sottocartella dal pannello **Esplora dati**. In questa schermata, il file viene caricato in una sottocartella visualizzata nel percorso di navigazione (contrassegnato con un riquadro rosso).
 
 Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Caricare dati](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Caricare dati")
 
 ## <a name="properties"></a>Proprietà e azioni disponibili sui dati archiviati
-Fare clic sul file appena aggiunto per aprire il pannello **Proprietà** . Le proprietà associate al file e alle azioni che è possibile eseguire nel file sono disponibili in questo pannello. È inoltre possibile copiare il percorso completo al file nell'account dell’Archivio Data Lake di Azure, evidenziato nella casella rossa nella schermata riportata di seguito.
+Fare clic sul file appena aggiunto per aprire il pannello **Proprietà** . Le proprietà associate al file e alle azioni che è possibile eseguire nel file sono disponibili in questo pannello. È anche possibile copiare il percorso completo del file nell'account Azure Data Lake Store, evidenziato con il riquadro rosso nello screenshot seguente:
 
 ![Proprietà relative ai dati](./media/data-lake-store-get-started-portal/ADL.File.Properties.png "Proprietà relative ai dati")
 

@@ -10,19 +10,19 @@
 ### [Servizi cloud](cdn-cloud-service-with-cdn.md)
 ### [Archiviazione](cdn-create-a-storage-account-with-cdn.md)
 ### [Condivisione di risorse tra le origini](cdn-cors.md)
+### [Eseguire il mapping di un dominio personalizzato alla rete CDN](cdn-map-content-to-custom-domain.md)
+### [Abilitare HTTPS in un dominio personalizzato](cdn-custom-ssl.md)
 ## Ottimizzare il contenuto
 ### [Panoramica dell'ottimizzazione](cdn-optimization-overview.md)
 ####[Ottimizzazione di file di grandi dimensioni](cdn-large-file-optimization.md)
 ####[Ottimizzazione dello streaming multimediale](cdn-media-streaming-optimization.md)
 ####[Accelerazione sito dinamico](cdn-dynamic-site-acceleration.md)
  
-## Manage
-### [Abilitare HTTPS in un dominio personalizzato](cdn-custom-ssl.md)
+## Gestisci
 ### [Gestire con PowerShell](cdn-manage-powershell.md)
 ### Configurare la durata (TTL)
 #### [Contenuto App Web/Servizi cloud, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Contenuto del servizio BLOB del servizio di archiviazione](cdn-manage-expiration-of-blob-content.md)
-### [Eseguire il mapping di un dominio personalizzato alla rete CDN](cdn-map-content-to-custom-domain.md)
 ### [Limitare l'accesso in base al paese](cdn-restrict-access-by-country.md)
 ### [Compressione dei file per migliorare le prestazioni](cdn-improve-performance.md)
 ### Memorizzare il contenuto nella cache per stringa di query
@@ -51,7 +51,8 @@
 ### [Stato 404](cdn-troubleshoot-endpoint.md)
 ### [Compressione dei file](cdn-troubleshoot-compression.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
@@ -66,6 +67,7 @@
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/cdn/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=cdn)

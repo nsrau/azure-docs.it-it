@@ -1,8 +1,8 @@
 ---
-title: Integrazione di uno streaming video adattivo MPEG-DASH in un&quot;applicazione HTML5 con DASH.js | Microsoft Docs
-description: Questo argomento illustra come integrare un video in streaming adattivo MPEG-DASH in un&quot;applicazione HTML5 con DASH.js.
+title: Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js | Microsoft Docs
+description: Questo argomento illustra come integrare un video in streaming adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 35ba9161f70a27a215685830d1a9e7c1881cc3bb
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js
@@ -105,10 +106,5 @@ Per riprodurre un video, passare nel browser al file basicPlayback.html e fare c
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
 
 [Repository dash.js di GitHub](https://github.com/Dash-Industry-Forum/dash.js) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

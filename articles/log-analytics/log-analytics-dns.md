@@ -1,6 +1,6 @@
 ---
 title: Soluzione DNS Analytics in Azure Log Analytics | Microsoft Docs
-description: Configurare e usare la soluzione DNS Analytics in Log Analytics per raccogliere informazioni dettagliate nell&quot;infrastruttura DNS relative a sicurezza, prestazioni e operazioni.
+description: Configurare e usare la soluzione DNS Analytics in Log Analytics per raccogliere informazioni dettagliate nell'infrastruttura DNS relative a sicurezza, prestazioni e operazioni.
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
 ms.contentlocale: it-it
 ms.lasthandoff: 06/09/2017
-
 
 ---
 
@@ -147,6 +146,8 @@ Le informazioni consentono di identificare quanto segue:
 ![Pannello Richieste di registrazione del nome ](./media/log-analytics-dns/name-reg-req-blade.png)
 
 **Query DDI Analytics di esempio**. Contiene un elenco delle query di ricerca più comuni che recuperano direttamente dati di analisi non elaborati.
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Query di esempio](./media/log-analytics-dns/queries.png)
 

@@ -15,24 +15,27 @@
 ### [Chiavi protette dal modulo di protezione hardware](key-vault-hsm-protected-keys.md)
 ### [Eseguire la migrazione a .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### Panoramiche
-#### [Panoramica degli scenari di sicurezza](key-vault-ovw-security-worlds.md)
-#### [Panoramica dell'eliminazione temporanea](key-vault-ovw-soft-delete.md)
-#### [Panoramica delle chiavi dell'account di archiviazione](key-vault-ovw-storage-keys.md)
-#### [Panoramica della limitazione](key-vault-ovw-throttling.md)
+#### [Scenari di sicurezza](key-vault-ovw-security-worlds.md)
+#### [Eliminazione temporanea](key-vault-ovw-soft-delete.md)
+#### [Chiavi dell'account di archiviazione](key-vault-ovw-storage-keys.md)
+#### [Limitazione](key-vault-ovw-throttling.md)
 
 ## Gestisci
 ### [Registrazione di Azure Key Vault](key-vault-logging.md)
 ### [Accesso protetto da firewall](key-vault-access-behind-firewall.md)
-### [Modificare l'ID tenant](key-vault-subscription-move-fix.md)
-### [Usare i gruppi per concedere l'accesso](key-vault-group-permissions-for-apps.md)
 ### [Disponibilità e ridondanza](key-vault-disaster-recovery-guidance.md)
+### [Modificare l'ID tenant](key-vault-subscription-move-fix.md)
+### [Creare e gestire con l'interfaccia della riga di comando 2.0](key-vault-manage-with-cli2.md)
+### [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](key-vault-soft-delete-cli.md)
+### [Come usare l'eliminazione temporanea di Key Vault con PowerShell](key-vault-soft-delete-powershell.md)
+### [Usare i gruppi per concedere l'accesso](key-vault-group-permissions-for-apps.md)
 ### [Proteggere l'insieme di credenziali delle chiavi](key-vault-secure-your-key-vault.md)
 
 ## Automazione
 ### [Automazione di Azure](automation-manage-key-vault.md)
-### [Creare e gestire con l'interfaccia della riga di comando 2.0](key-vault-manage-with-cli2.md)
 
-# Riferimento
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [PowerShell](/powershell/module/azurerm.keyvault)
 ## [Interfaccia della riga di comando di Azure 2](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
@@ -50,8 +53,9 @@
 
 # Risorse
 ## [Informazioni su chiavi, segreti e certificati](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Esempi di codice](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/key-vault/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

@@ -39,12 +39,14 @@
 ### [Linee guida per l'ottimizzazione delle prestazioni di Storm in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
 
 ## Eseguire l'integrazione con i servizi di Azure
+### Con HDInsight
+#### [Uso del portale](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [Uso di PowerShell (archiviazione predefinita)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [Uso di PowerShell (archiviazione aggiuntiva)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [Uso del modello di Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Accesso alla rete virtuale di Azure dalle macchine virtuali](data-lake-store-connectivity-from-vnets.md)
 ### [Uso con Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [HDInsight con Data Lake Store - Portale](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [HDInsight con Data Lake Store come risorsa di archiviazione predefinita - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-### [HDInsight con Data Lake Store come risorsa di archiviazione aggiuntiva - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [HDInsight con Data Lake Store - Modello di Azure](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Uso con Hub eventi di Azure](data-lake-store-archive-eventhub-capture.md)
 ### [Uso con Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Usare Analisi di flusso](data-lake-store-stream-analytics.md)
 ### [Uso con Power BI](data-lake-store-power-bi.md)
@@ -58,6 +60,7 @@
 ### [Pianificare la disponibilità elevata](data-lake-store-troubleshooting-guidance.md)
 
 # riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
 ## [PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
@@ -73,6 +76,7 @@
 ## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Forum di Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

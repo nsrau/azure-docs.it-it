@@ -16,19 +16,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 993cff63037017e37ff5b0787f50ba002df28d03
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 28a836aff65636ef0031ac63f633d746436d7e4a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
-<a id="use-data-lake-store-with-azure-hdinsight-clusters" class="xliff"></a>
+# <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Usare Data Lake Store con cluster Azure HDInsight
 
-# Usare Data Lake Store con cluster Azure HDInsight
-
-Per analizzare i dati in un cluster HDInsight, è possibile archiviarli in [Archiviazione di Azure](../storage/storage-introduction.md), in [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) o in entrambe le soluzioni. Entrambe le opzioni di archiviazione consentono l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
+Per analizzare i dati in un cluster HDInsight, è possibile archiviarli in [Archiviazione di Azure](../storage/common/storage-introduction.md), in [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) o in entrambe le soluzioni. Entrambe le opzioni di archiviazione consentono l'eliminazione sicura dei cluster HDInsight usati per i calcoli, senza perdita di dati utente.
 
 Questo articolo illustra come usare Data Lake Store con i cluster HDInsight. Per sapere come usare Archiviazione di Azure con i cluster HDInsight, vedere [Usare Archiviazione di Azure con cluster Azure HDInsight](hdinsight-hadoop-use-blob-storage.md). Per altre informazioni sulla creazione di un cluster HDInsight, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -37,9 +34,7 @@ Questo articolo illustra come usare Data Lake Store con i cluster HDInsight. Per
 > 
 > 
 
-<a id="availabilities-for-hdinsight-clusters" class="xliff"></a>
-
-## Disponibilità per i cluster HDInsight
+## <a name="availabilities-for-hdinsight-clusters"></a>Disponibilità per i cluster HDInsight
 
 Hadoop supporta una nozione del file system predefinito. Il file system predefinito implica uno schema e un'autorità predefiniti e può essere usato anche per risolvere percorsi relativi. Durante il processo di creazione del cluster HDInsight è possibile specificare un contenitore BLOB in Archiviazione di Azure come file system predefinito. In alternativa, con HDInsight 3.5 e versioni successive è possibile selezionare Archiviazione di Azure o Azure Data Lake Store come file system predefinito, con alcune eccezioni. 
 
@@ -63,9 +58,7 @@ Attualmente, solo alcuni dei tipi/versioni di cluster HDInsight supportano l'uso
 L'uso di Data Lake Store come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere o scrivere nella risorsa di archiviazione di Azure dal cluster.
 
 
-<a id="use-data-lake-store-as-default-storage" class="xliff"></a>
-
-## Usare Data Lake Store come risorsa di archiviazione predefinita
+## <a name="use-data-lake-store-as-default-storage"></a>Usare Data Lake Store come risorsa di archiviazione predefinita
 
 Quando si distribuisce HDInsight con Data Lake Store come risorsa di archiviazione predefinita, i file legati al cluster vengono archiviati in Data Lake Store nel percorso seguente:
 
@@ -87,9 +80,7 @@ Per poter usare Data Lake Store come risorsa di archiviazione predefinita, è ne
 Per altre informazioni su come creare un'entità servizio e concedere l'accesso, vedere [Configurare l'accesso a Data Lake Store](#configure-data-lake-store-access).
 
 
-<a id="use-data-lake-store-as-additional-storage" class="xliff"></a>
-
-## Usare Data Lake Store come risorsa di archiviazione aggiuntiva
+## <a name="use-data-lake-store-as-additional-storage"></a>Usare Data Lake Store come risorsa di archiviazione aggiuntiva
 
 È anche possibile usare Data Lake Store come risorsa di archiviazione aggiuntiva per il cluster. In questi casi la risorsa di archiviazione predefinita del cluster può essere un BLOB del servizio di archiviazione di Azure o un account Data Lake Store. Se si eseguono processi di HDInsight con i dati archiviati in Data Lake Store come risorsa di archiviazione aggiuntiva, è necessario usare il percorso completo ai file. ad esempio:
 
@@ -104,15 +95,11 @@ Per poter usare Data Lake Store come risorsa di archiviazione aggiuntiva, è nec
 Per altre informazioni su come creare un'entità servizio e concedere l'accesso, vedere [Configurare l'accesso a Data Lake Store](#configure-data-lake-store-access).
 
 
-<a id="use-more-than-one-data-lake-store-accounts" class="xliff"></a>
-
-## Usare più di un account di Data Lake Store
+## <a name="use-more-than-one-data-lake-store-accounts"></a>Usare più di un account di Data Lake Store
 
 Le operazioni di aggiunta di un account di Data Lake Store come risorsa di archiviazione aggiuntiva e di aggiunta di più account di Data Lake Store vengono eseguite assegnando al cluster HDInsight l'autorizzazione per i dati in uno o più account di Data Lake Store. Vedere [Configurare l'accesso a Data Lake Store](#configure-data-lake-store-access).
 
-<a id="configure-data-lake-store-access" class="xliff"></a>
-
-## Configurare l'accesso a Data Lake Store
+## <a name="configure-data-lake-store-access"></a>Configurare l'accesso a Data Lake Store
 
 Per configurare l'accesso a Data Lake Store dal cluster HDInsight, è necessario disporre di un'entità servizio di Azure Active Directory (Azure AD). Solo un amministratore di Azure AD può creare un'entità servizio. L'entità servizio deve essere creata con un certificato. Per altre informazioni, vedere [Configurare l'accesso a Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access) e [Creare un'entità servizio con certificato autofirmato](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
@@ -120,9 +107,7 @@ Per configurare l'accesso a Data Lake Store dal cluster HDInsight, è necessario
 > Se si intende usare Azure Data Lake Store come risorsa di archiviazione aggiuntiva per il cluster HDInsight, è consigliabile eseguire questa operazione durante la creazione del cluster, come descritto in questo articolo. L'aggiunta di Azure Data Lake Store come ulteriore risorsa di archiviazione a un cluster HDInsight esistente è un processo complesso e soggetto a errori.
 >
 
-<a id="access-files-from-the-cluster" class="xliff"></a>
-
-## Accedere ai file dal cluster
+## <a name="access-files-from-the-cluster"></a>Accedere ai file dal cluster
 
 Esistono diversi modi per accedere ai file in Data Lake Store da un cluster HDInsight.
 
@@ -142,9 +127,7 @@ Esistono diversi modi per accedere ai file in Data Lake Store da un cluster HDIn
 
         /example/data/sample.log
 
-<a id="create-hdinsight-clusters-with-access-to-data-lake-store" class="xliff"></a>
-
-## Creare cluster HDInsight con accesso a Data Lake Store
+## <a name="create-hdinsight-clusters-with-access-to-data-lake-store"></a>Creare cluster HDInsight con accesso a Data Lake Store
 
 Usare i collegamenti seguenti per informazioni dettagliate su come creare cluster HDInsight con accesso a Data Lake Store.
 
@@ -154,9 +137,7 @@ Usare i collegamenti seguenti per informazioni dettagliate su come creare cluste
 * [Uso di modelli di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come usare Azure Data Lake Store compatibile con HDFS con HDInsight. In questo modo sarà possibile creare soluzioni scalabili di acquisizione e archiviazione a lungo termine dei dati e usare HDInsight per sbloccare le informazioni all'interno dei dati strutturati e non strutturati archiviati.
 
 Per altre informazioni, vedere:
@@ -177,7 +158,7 @@ Per altre informazioni, vedere:
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: ../storage/storage-create-storage-account.md
+[azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png

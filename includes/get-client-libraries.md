@@ -1,8 +1,8 @@
 ### <a name="install-via-composer"></a>Installazione tramite Composer
-1. [Installare GIT][install-git]. Si noti che in Windows, è anche necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH. 
+1. [Installare Git][install-git]. Si noti che in Windows, è anche necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH. 
 2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
    
-    ```
+    ```json
     {
       "require": {
         "microsoft/windowsazure": "^0.4"

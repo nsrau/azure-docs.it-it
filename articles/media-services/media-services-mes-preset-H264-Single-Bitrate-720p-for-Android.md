@@ -2,7 +2,7 @@
 title: Codec video H.264 a bitrate singolo con risoluzione 720p per Android | Microsoft Docs
 description: "Questo argomento fornisce una panoramica del set di impostazioni delle attività **Codec video H.264 a bitrate singolo con risoluzione 720p per Android**."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

@@ -3,8 +3,8 @@ title: Configurazione della diagnostica per i servizi cloud e le macchine virtua
 description: Illustra come configurare le informazioni di diagnostica per il debug di servizi cloud e delle macchine virtuali di Azure in Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76bcb201bb8d862426048b828c0c4cce0335455c
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 2516c0eb8ce470577731db9b844d5b9038465477
+ms.contentlocale: it-it
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure
@@ -301,10 +302,5 @@ Nella finestra **Proprietà** impostare la proprietà **Copia nella directory di
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle registrazioni di diagnostica in Azure, vedere [Abilitazione di Diagnostica in Servizi cloud e Macchine virtuali di Azure](cloud-services/cloud-services-dotnet-diagnostics.md) e [Abilitare la registrazione diagnostica per le app Web del Servizio app di Azure](app-service-web/web-sites-enable-diagnostic-log.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

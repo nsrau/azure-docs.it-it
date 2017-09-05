@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/08/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e3f04c20dbd0329149fdd7de56338f5baaedf5ce
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: e746f28829063f8437ad408c4681f90aec6c0e0a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -33,6 +33,7 @@ MySQL offre la connettività driver di database standard per l'uso di MySQL con 
 | Python | Windows, Linux, Mac OS X | [Guida dello sviluppatore per il connettore MySQL/Python](https://dev.mysql.com/doc/connector-python/en/) | [Scaricare](https://dev.mysql.com/downloads/connector/python/) |
 | C++ | Windows, Linux, Mac OS X | [Guida dello sviluppatore per il connettore MySQL/C++](https://dev.mysql.com/doc/connector-cpp/en/) | [Scaricare](https://dev.mysql.com/downloads/connector/python/) |
 | C | Windows, Linux, Mac OS X | [Guida dello sviluppatore per il connettore MySQL/C](https://dev.mysql.com/doc/connector-c/en/) | [Scaricare](https://dev.mysql.com/downloads/connector/c/)
+| Perl | Piattaforme Windows, Linux, Mac OS X e Unix | [DBD::MySQL](https://metacpan.org/pod/DBD::mysql) | [Scaricare](https://metacpan.org/pod/DBD::mysql) |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

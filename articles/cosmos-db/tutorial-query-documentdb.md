@@ -1,6 +1,6 @@
 ---
-title: Procedura per l&quot;esecuzione di query con SQL in Azure Cosmos DB | Microsoft Docs
-description: Informazioni sull&quot;esecuzione di query sui dati DocumentDB con SQL in Azure Cosmos DB
+title: Procedura per l'esecuzione di query con SQL in Azure Cosmos DB | Microsoft Docs
+description: Informazioni sull'esecuzione di query sui dati DocumentDB con SQL in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: cosmos-db
 ms.custom: tutorial-develop
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: a2a562c06c6302b9548e758b4c6754ec13b6001d
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 

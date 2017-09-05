@@ -1,6 +1,6 @@
 ---
 title: Autenticazione basata su certificati di Azure Active Directory in iOS | Documentazione Microsoft
-description: Informazioni sugli scenari supportati e i requisiti per configurare l&quot;autenticazione basata su certificati nelle soluzioni con i dispositivi iOS
+description: Informazioni sugli scenari supportati e i requisiti per configurare l'autenticazione basata su certificati nelle soluzioni con i dispositivi iOS
 services: active-directory
 author: MarkusVi
 documentationcenter: na
@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/30/2017
+ms.date: 08/28/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e30d5c81817eb3501615763553d501509c559f0c
-ms.lasthandoff: 04/27/2017
-
+ms.reviewer: nigu
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: af9d0c7ba9c1a3026cc042872e1ab773eb3c4c8e
+ms.contentlocale: it-it
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticazione basata su certificati di Azure Active Directory in iOS
@@ -29,7 +30,7 @@ L'autenticazione basata su certificati (CBA) consente di essere autenticati da A
 
 La configurazione di questa funzionalità elimina la necessità di immettere una combinazione di nome utente e password in determinate applicazioni di posta e applicazioni Microsoft Office sul dispositivo mobile. 
 
-Questo argomento indica i requisiti e gli scenari supportati per la configurazione dell'autenticazione basata su certificati su un dispositivo iOS per gli utenti di tenant dei piani Office 365 Enterprise, Business, Education e US Government. 
+Questo argomento indica i requisiti e gli scenari supportati per la configurazione dell'autenticazione basata su certificati su un dispositivo iOS (Android) per gli utenti dei tenant nei piani di Office 365 Enterprise, Business, Education, US Government, China e Germany.
 
 Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Government Defense e Federal.
 
@@ -40,12 +41,16 @@ Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Gove
 
 | App | Supporto |
 | --- | --- |
-| Word / Excel / PowerPoint |![Controllo][1] |
+| App Azure Information Protection |![Controllo][1] |
+| Microsoft Teams |![Controllo][1] |
 | OneNote |![Controllo][1] |
 | OneDrive |![Controllo][1] |
 | Outlook |![Controllo][1] |
-| Yammer |![Controllo][1] |
+| Power BI |![Controllo][1] |
 | Skype for Business Online |![Controllo][1] |
+| Word / Excel / PowerPoint |![Controllo][1] |
+| Yammer |![Controllo][1] |
+
 
 ## <a name="requirements"></a>Requisiti 
 

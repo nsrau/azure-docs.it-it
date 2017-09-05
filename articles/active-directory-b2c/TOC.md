@@ -46,6 +46,7 @@
 ## [Configurare i token](active-directory-b2c-token-session-sso.md)
 ## [Abilitare MFA](active-directory-b2c-reference-mfa.md)
 ## [Usare gli attributi personalizzati](active-directory-b2c-reference-custom-attr.md)
+## [Personalizzare la password](active-directory-b2c-reference-password-complexity.md)
 ## [Personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md)
 ### [Strumento di supporto per la personalizzazione](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Personalizzazione della lingua](active-directory-b2c-reference-language-customization.md)
@@ -56,9 +57,12 @@
 ## [Criteri personalizzati](active-directory-b2c-overview-custom.md)
 ## Guide
 ### [Introduzione](active-directory-b2c-get-started-custom.md)
-### Configurare i provider OIDC
+### Configurare i provider OIDC/OAUTH2
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
+#### [Account Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
+#### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
 ### Configurare i provider SAML
+#### [AD FS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrare le API RESTful
 #### [Convalidare l'input dell'utente](active-directory-b2c-rest-api-validation-custom.md)
@@ -68,12 +72,14 @@
 #### [Attributi personalizzati](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [Personalizzare l'interfaccia utente](active-directory-b2c-ui-customization-custom.md)
 #### [Personalizzare i token](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [Personalizzare la password](active-directory-b2c-reference-password-complexity-custom.md)
 ### Risoluzione dei problemi
 #### [Raccogliere i log tramite Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Riferimento
 ### [Note sulla versione](active-directory-b2c-developer-notes-custom.md)
-
-# Riferimento
+### [Definizione di framework attendibilità](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossario
 ### [Tipi di applicazioni](active-directory-b2c-apps.md)
 ### [Protocolli di autenticazione](active-directory-b2c-reference-protocols.md)
@@ -82,6 +88,7 @@
 ## [Abilitare la fatturazione](active-directory-b2c-how-to-enable-billing.md)
 ## [Gestione delle minacce](active-directory-b2c-reference-threat-management.md)
 ## [Problemi relativi alla creazione di una directory](active-directory-b2c-support-create-directory.md)
+## [App extensions](active-directory-b2c-reference-extensions-app.md)
 
 # Risorse correlate
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
@@ -89,9 +96,10 @@
 
 # Risorse
 ## [Forum di commenti e suggerimenti su Azure AD B2C](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Domande frequenti](active-directory-b2c-faqs.md)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [Supporto](active-directory-b2c-support.md)

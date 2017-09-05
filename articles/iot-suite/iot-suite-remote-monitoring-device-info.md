@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 08/24/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
@@ -21,20 +21,15 @@ ms.openlocfilehash: cef08b7c9a50e02948a1fa495158f3d0fab416e9
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
-<a id="device-information-metadata-in-the-remote-monitoring-preconfigured-solution" class="xliff"></a>
-
-# Metadati di informazioni sul dispositivo nella soluzione preconfigurata per il monitoraggio remoto
+# <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Metadati di informazioni sul dispositivo nella soluzione preconfigurata per il monitoraggio remoto
 
 La soluzione preconfigurata per il monitoraggio remoto di Azure IoT Suite dimostra un approccio per la gestione dei metadati del dispositivo. Questo articolo delinea l'approccio adottato da questa soluzione per illustrare:
 
 * Quali metadati del dispositivo vengono archiviati dalla soluzione.
 * Come la soluzione gestisce i metadati del dispositivo.
 
-<a id="context" class="xliff"></a>
-
-## Context
+## <a name="context"></a>Context
 
 La soluzione preconfigurata per il monitoraggio remoto usa l'[hub IoT di Azure][lnk-iot-hub] per consentire ai dispositivi di inviare dati al cloud. La soluzione archivia le informazioni sui dispositivi in tre posizioni diverse:
 
@@ -49,9 +44,7 @@ L'hub IoT include un [registro delle identità dei dispositivi][lnk-identity-reg
 > [!NOTE]
 > La soluzione preconfigurata per il monitoraggio remoto mantiene il registro delle identità dei dispositivi sincronizzato con le informazioni disponibili nel database Cosmos DB. Entrambi usano lo stesso ID dispositivo per identificare in modo univoco ogni dispositivo connesso all'hub IoT.
 
-<a id="device-metadata" class="xliff"></a>
-
-## Metadati del dispositivo
+## <a name="device-metadata"></a>Metadati del dispositivo
 
 L'hub IoT gestisce un [dispositivo gemello][lnk-device-twin] per ogni dispositivo simulato e fisico connesso a una soluzione di monitoraggio remoto. La soluzione usa i dispositivi gemelli per gestire i metadati associati ai dispositivi. Un dispositivo gemello è un documento JSON gestito dall'hub IoT e la soluzione usa l'API dell'hub IoT per interagire con i dispositivi gemelli.
 
@@ -90,17 +83,13 @@ Un documento JSON di metadati di informazioni sul dispositivo archiviato nel dat
 > [!NOTE]
 > Le informazioni sul dispositivo possono includere anche metadati per descrivere la telemetria inviata dal dispositivo all'hub IoT. La soluzione per il monitoraggio remoto usa questi metadati di telemetria per personalizzare la visualizzazione della [telemetria dinamica][lnk-dynamic-telemetry] nel dashboard.
 
-<a id="lifecycle" class="xliff"></a>
-
-## Ciclo di vita
+## <a name="lifecycle"></a>Ciclo di vita
 
 Quando si crea per la prima volta un dispositivo nel portale della soluzione, la soluzione crea una voce nel database Cosmos DB per archiviare la cronologia dei comandi e dei metodi. A questo punto la soluzione crea anche una voce per il dispositivo nel registro delle identità dei dispositivi che genera le chiavi usate dal dispositivo per l'autenticazione con l'hub IoT. Viene creato anche un dispositivo gemello.
 
 Quando un dispositivo si connette per la prima volta alla soluzione, invia proprietà segnalate e un messaggio informativo sul dispositivo I valori delle proprietà segnalate vengono salvati automaticamente nel dispositivo gemello. Le proprietà segnalate includono il produttore del modello, il numero di modello, il numero di serie e un elenco di metodi supportati. Il messaggio informativo sul dispositivo include un elenco dei comandi supportati dal dispositivo, incluse le informazioni sui parametri dei comandi. Quando la soluzione riceve il messaggio, aggiorna le informazioni sui dispositivi nel database Cosmos DB.
 
-<a id="view-and-edit-device-information-in-the-solution-portal" class="xliff"></a>
-
-### Visualizzare e modificare informazioni sul dispositivo nel portale della soluzione
+### <a name="view-and-edit-device-information-in-the-solution-portal"></a>Visualizzare e modificare informazioni sul dispositivo nel portale della soluzione
 
 Per impostazione predefinita, l'elenco di dispositivi nel portale della soluzione visualizza le proprietà del dispositivo seguenti come colonne: **Stato**, **ID dispositivo**, **Produttore**, **Numero modello**, **Numero di serie**, **Firmware**, **Piattaforma**, **Processore** e **RAM installata**. È possibile personalizzare le colonne facendo clic su **Editor di colonne**. Le proprietà **Latitudine** e **Longitudine** del dispositivo determinano la posizione nella mappa di Bing nel dashboard.
 
@@ -114,18 +103,14 @@ Nel riquadro **Dettagli dispositivo** nel portale della soluzione, è possibile 
 
 ![Rimuovere un dispositivo][img-device-remove]
 
-<a id="device-information-message-processing" class="xliff"></a>
-
-## Elaborazione dei messaggi informativi sul dispositivo
+## <a name="device-information-message-processing"></a>Elaborazione dei messaggi informativi sul dispositivo
 
 I messaggi informativi sul dispositivo inviati da un dispositivo sono diversi dai messaggi di telemetria. I messaggi informativi sul dispositivo includono i comandi a cui un dispositivo può rispondere e l'eventuale cronologia dei comandi. L'hub IoT non conosce i metadati contenuti in un messaggio informativo sul dispositivo ed elabora il messaggio come qualsiasi altro messaggio inviato dal dispositivo al cloud. Nella soluzione per il monitoraggio remoto, un processo di [Analisi di flusso di Azure][lnk-stream-analytics] legge i messaggi dall'hub IoT. Il processo **DeviceInfo** di Analisi di flusso filtra i messaggi contenenti **"ObjectType": "DeviceInfo"** e li inoltra all'istanza dell'host **EventProcessorHost** in esecuzione in un processo Web. La logica nell'istanza di **EventProcessorHost** usa l'ID dispositivo per trovare il record di Cosmos DB per il dispositivo specifico e aggiorna il record.
 
 > [!NOTE]
 > Un messaggio informativo sul dispositivo è un messaggio standard inviato dal dispositivo al cloud. La soluzione distingue i messaggi informativi sul dispositivo dai messaggi di telemetria usando le query di Analisi di flusso di Azure.
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver illustrato come personalizzare le soluzioni preconfigurate, è possibile esplorare alcune altre funzionalità e soluzioni preconfigurate di Suite IoT:
 

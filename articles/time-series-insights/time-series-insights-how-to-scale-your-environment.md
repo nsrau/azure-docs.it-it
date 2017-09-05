@@ -1,6 +1,6 @@
 ---
-title: Come scalare l&quot;ambiente Time Series Insights di Azure | Microsoft Docs
-description: Questa esercitazione illustra come scalare l&quot;ambiente Time Series Insights
+title: Come scalare l'ambiente Time Series Insights di Azure | Microsoft Docs
+description: Questa esercitazione illustra come scalare l'ambiente Time Series Insights
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -8,7 +8,7 @@ author: sandshadow
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na

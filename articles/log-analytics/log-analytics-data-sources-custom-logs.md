@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 08/15/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
+ms.contentlocale: it-it
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
@@ -27,13 +28,17 @@ L'origine dati dei log personalizzati in Log Analytics consente di raccogliere g
 
 I file di log da raccogliere devono soddisfare i criteri seguenti.
 
-* Il log deve avere una sola voce per ogni riga o usare un timestamp che corrisponde a uno dei formati seguenti all'inizio di ogni voce.
-  
-    AAAA-MM-GG HH:MM:SS  <br>
-    M/G/AAAA HH:MM:SS AM/PM <br>
-    Lun GG,AAAA HH:MM:SS
-* Il file di log non deve consentire aggiornamenti circolari in cui il file viene sovrascritto con le nuove voci. 
+- Il log deve avere una sola voce per ogni riga o usare un timestamp che corrisponde a uno dei formati seguenti all'inizio di ogni voce.
 
+    AAAA-MM-GG HH:MM:SS <br>M/G/AAAA HH:MM:SS AM/PM <br>Lun GG,AAAA HH:MM:SS
+
+- Il file di log non deve consentire aggiornamenti circolari in cui il file viene sovrascritto con le nuove voci.
+- Il file di log deve usare la codifica ASCII o UTF-8.  Non sono supportati altri formati, ad esempio UTF-16.
+
+>[!NOTE]
+>Se sono presenti voci duplicate nel file di log, Log Analytics le raccoglierà.  Tuttavia, i risultati della ricerca non saranno coerenti se i risultati del filtro mostrano più eventi rispetto al numero di risultati.  È importante convalidare il log per determinare se l'applicazione che lo crea è la causa di questo comportamento e indirizzarlo se possibile prima di creare la definizione della raccolta dei log personalizzati.  
+>
+  
 ## <a name="defining-a-custom-log"></a>Definizione di un log personalizzato
 Usare la procedura seguente per definire un file di log personalizzato.  Scorrere fino alla fine dell'articolo per la procedura dettagliata di un esempio che spiega come aggiungere un log personalizzato.
 
@@ -48,17 +53,17 @@ La procedura guidata per i personalizzati viene eseguita nel portale di OMS e co
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Passaggio 2. Caricare e analizzare un log di esempio
 Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata analizza e visualizza le voci nel file da convalidare.  Log Analytics usa il delimitatore specificato per identificare tutti i record.
 
-**Nuova riga** è il delimitatore predefinito e viene usato per i file di log con una sola voce per riga.  Se la riga inizia con una data e ora in uno dei formati disponibili, è possibile specificare un delimitatore **Timestamp** che supporta le voci che si estendono su più righe. 
+**Nuova riga** è il delimitatore predefinito e viene usato per i file di log con una sola voce per riga.  Se la riga inizia con una data e ora in uno dei formati disponibili, è possibile specificare un delimitatore **Timestamp** che supporta le voci che si estendono su più righe.
 
-Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni record archiviato in OMS viene popolata con la data/ora specificata per la voce nel file di log.  Se viene usato un delimitatore Nuova riga, TimeGenerated viene popolato con la data e l'ora in cui Log Analytics ha raccolto la voce. 
+Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni record archiviato in OMS viene popolata con la data/ora specificata per la voce nel file di log.  Se viene usato un delimitatore Nuova riga, TimeGenerated viene popolato con la data e l'ora in cui Log Analytics ha raccolto la voce.
 
 > [!NOTE]
-> Al momento, Log Analytics gestisce la data/ora raccolta da un log usando un delimitatore Timestamp come UTC.  Questa impostazione verrà modificata a breve in modo che venga usato il fuso orario dell'agente. 
-> 
-> 
+> Al momento, Log Analytics gestisce la data/ora raccolta da un log usando un delimitatore Timestamp come UTC.  Questa impostazione verrà modificata a breve in modo che venga usato il fuso orario dell'agente.
+>
+>
 
 1. Fare clic su **Sfoglia** e passare a un file di esempio.  In alcuni browser, questo pulsante potrebbe essere denominato **Scegli file** .
-2. Fare clic su **Avanti**. 
+2. Fare clic su **Avanti**.
 3. La procedura guidata per i log personalizzati carica il file ed elenca i record identificati.
 4. Modificare il delimitatore usato per identificare un nuovo record e selezionare il delimitatore che identifica meglio i record nel file di log.
 5. Fare clic su **Avanti**.
@@ -68,7 +73,7 @@ Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni re
 
 Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la data inclusa nel nome, come in log20100316.txt. Un modello per questo log potrebbe essere *log\*.txt*, applicabile a qualsiasi file di log in base allo schema di denominazione dell'applicazione.
 
-La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi. 
+La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
 | Descrizione | Path |
 |:--- |:--- |
@@ -95,8 +100,8 @@ Dopo che Log Analytics avvia la raccolta dal log personalizzato, i record vengon
 
 > [!NOTE]
 > Se la proprietà RawData non è presente nella ricerca, potrebbe essere necessario chiudere e riaprire il browser.
-> 
-> 
+>
+>
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Passaggio 6. Analizzare le voci del log personalizzato
 L'intera voce di log viene archiviata in una singola proprietà denominata **RawData**.  È probabile che si preferisca separare le diverse parti di informazioni di ogni voce in singole proprietà archiviate nel record.  Per farlo, usare la funzionalità [Campi personalizzati](log-analytics-custom-fields.md) di Log Analytics.
@@ -121,10 +126,10 @@ Il tipo dei record del log personalizzato corrisponde al nome del log specificat
 
 | Proprietà | Descrizione |
 |:--- |:--- |
-| TimeGenerated |Data e ora di raccolta del record con Log Analytics.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data/ora raccolta dalla voce. |
-| SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o SCOM <br> Linux – Tutti gli agenti Linux |
+| TimeGenerated |Data e ora di raccolta del record con Log Analytics.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
+| SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br> Linux – Tutti gli agenti Linux |
 | RawData |Testo completo della voce raccolta. |
-| ManagementGroupName |Nome del gruppo di gestione per gli agenti SCOM.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
+| ManagementGroupName |Nome del gruppo di gestione per gli agenti System Center Operations Manager.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Ricerche nei log con i record del log personalizzato
 I record dei log personalizzati vengono archiviati nel repository OMS esattamente come i record di qualsiasi altra origine dati.  Hanno un tipo corrispondente al nome fornito quando si definisce il log, quindi è possibile usare la proprietà Tipo nella ricerca per recuperare i record raccolti da un log specifico.
@@ -136,8 +141,17 @@ La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i re
 | Type=MyApp_CL |Tutti gli eventi da un log personalizzato denominato MyApp_CL. |
 | Type=MyApp_CL Severity_CF=error |Tutti gli eventi di un log personalizzato denominato MyApp_CL con un valore di *error* in un campo personalizzato denominato *Severity_CF*. |
 
+>[!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query precedenti verranno sostituite dalle seguenti.
+
+> | Query | Descrizione |
+|:--- |:--- |
+| MyApp_CL |Tutti gli eventi da un log personalizzato denominato MyApp_CL. |
+| MyApp_CL &#124; where Severity_CF=="error" |Tutti gli eventi di un log personalizzato denominato MyApp_CL con un valore di *error* in un campo personalizzato denominato *Severity_CF*. |
+
+
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Procedura dettagliata di esempio per l'aggiunta di un log personalizzato
-La sezione seguente descrive un esempio di creazione di un log personalizzato.  Il log di esempio raccolto ha una singola voce per ogni riga che inizia con una data e un'ora, quindi prosegue con campi delimitati da virgole per il codice, lo stato e il messaggio.  Di seguito sono visualizzate alcune voci di esempio.
+La sezione seguente descrive un esempio di creazione di un log personalizzato.  Il log di esempio raccolto ha una singola voce per ogni riga contenente una data e un'ora iniziali seguite da campi delimitati da virgole per il codice, lo stato e il messaggio.  Di seguito sono visualizzate alcune voci di esempio.
 
     2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
     2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
@@ -172,11 +186,5 @@ Viene usato Campi personalizzati per definire i campi *EventTime*, *Code*, *Stat
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Usare [Campi personalizzati](log-analytics-custom-fields.md) per analizzare le voci del log personalizzato nei singoli campi.
-* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 

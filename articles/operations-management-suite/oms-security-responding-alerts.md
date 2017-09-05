@@ -4,7 +4,7 @@ description: "Questo documento illustra come usare la funzionalità di intellige
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
@@ -13,12 +13,13 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
+ms.date: 06/13/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
-ms.lasthandoff: 11/17/2016
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
+ms.contentlocale: it-it
+ms.lasthandoff: 06/17/2017
 
 
 ---
@@ -83,7 +84,19 @@ La **mappa di intelligence per le minacce** consente di individuare facilmente l
 > [!NOTE]
 > È possibile visualizzare una dimostrazione su come usare questa funzionalità durante un processo di risposta a un evento imprevisto; a questo scopo guardare la presentazione [Mitigate datacenter security threats with guided investigation using Operations Management Suite](https://myignite.microsoft.com/videos/5000) (Mitigazione delle minacce per la sicurezza dei data center con l'analisi guidata tramite Operations Management Suite), tenuta presso Microsoft Ignite.
 > 
-> 
+
+### <a name="responding-to-distinct-malicious-ip-accessed"></a>Risposta ai diversi indirizzi IP dannosi a cui si è avuto accesso
+In alcuni scenari è possibile notare un potenziale IP dannoso a cui è stato eseguito l'accesso da un computer monitorato:
+
+![mappa di intelligence per le minacce](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+
+Questo avviso e altri all'interno della stessa categoria sono generati tramite Sicurezza di OMS usando l'[intelligence per le minacce di Microsoft](https://youtu.be/O4WtxgUrDc8). I dati di intelligence sulle minacce vengono raccolti da Microsoft, nonché acquistati da provider di intelligence per le minacce leader del settore. Questi dati vengono aggiornati frequentemente e adattati alle minacce in continua evoluzione. A causa della loro natura, devono essere combinati con altre fonti di informazioni di sicurezza quando si [analizza](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) un avviso di sicurezza. 
+
+## <a name="customize-alerts-received-via-e-mail"></a>Personalizzare gli avvisi ricevuti tramite posta elettronica
+
+È possibile personalizzare gli utenti nell'organizzazione che riceveranno una notifica quando vengono attivati gli avvisi di sicurezza dalla sicurezza di OMS. Questa opzione è disponibile in Panoramica/Impostazioni nel dashboard OMS:
+
+![Email](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
 
 ## <a name="see-also"></a>Vedere anche
 In questo documento è stato descritto come rispondere agli avvisi di sicurezza mediante la funzionalità **Threat Intelligence** (Intelligence per le minacce) disponibile nella soluzione OMS per la sicurezza e il controllo. Per altre informazioni sulle funzionalità di OMS per la sicurezza, vedere gli articoli seguenti:

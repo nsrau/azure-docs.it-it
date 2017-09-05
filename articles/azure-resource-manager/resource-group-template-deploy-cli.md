@@ -1,6 +1,6 @@
 ---
-title: Distribuire le risorse con il modello e l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
-description: Utilizzare Azure Resource Manager e l&quot;interfaccia della riga di comando di Azure per distribuire una risorsa in Azure. Le risorse sono definite in un modello di Resource Manager.
+title: Distribuire le risorse con il modello e l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Utilizzare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire una risorsa in Azure. Le risorse sono definite in un modello di Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,14 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 07/31/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 9c9eff8c828329b9d8358f88b90c174c64f5c29f
+ms.translationtype: HT
+ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
+ms.openlocfilehash: 4f1d5f4cc48470f8906edb28628006dd1996bd3a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
@@ -30,9 +29,9 @@ Il modello di Resource Manager che si distribuisce può essere un file locale ne
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
-<a id="deploy-local-template" />
+Se l'interfaccia della riga di comando di Azure non è installata, è possibile usare [Cloud Shell](#deploy-template-from-cloud-shell).
 
-## <a name="deploy-a-template-from-your-local-machine"></a>Distribuire un modello dal computer locale
+## <a name="deploy-local-template"></a>Distribuire un modello locale
 
 Per distribuire le risorse in Azure, seguire questa procedura:
 
@@ -52,7 +51,7 @@ az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+    --parameters storageAccountType=Standard_GRS
 ```
 
 Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio che include il risultato:
@@ -61,21 +60,77 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-a-template-from-an-external-source"></a>Distribuire un modello da un'origine esterna
+## <a name="deploy-external-template"></a>Distribuire un modello esterno
 
 Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 
 Per distribuire un modello esterno, usare il parametro **template-uri**. Usare l'URI indicato nell'esempio per distribuire il modello di esempio da GitHub.
    
 ```azurecli
+az login
+
+az group create --name ExampleGroup --location "Central US"
 az group deployment create \
     --name ExampleDeployment \
     --resource-group ExampleGroup \
     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+    --parameters storageAccountType=Standard_GRS
 ```
 
 L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati riservati. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-cli-sas-token.md).
+
+## <a name="deploy-template-from-cloud-shell"></a>Distribuire il modello da Cloud Shell
+
+È possibile usare [Cloud Shell](../cloud-shell/overview.md) per eseguire i comandi dell'interfaccia della riga di comando di Azure per la distribuzione del modello. Tuttavia, è prima necessario caricare il modello nella condivisione file per Cloud Shell. Per informazioni sulla configurazione di Cloud Shell per il primo utilizzo, vedere [Panoramica di Azure Cloud Shell](../cloud-shell/overview.md).
+
+1. Accedere al [Portale di Azure](https://portal.azure.com).   
+
+2. Selezionare il gruppo di risorse di Cloud Shell. Il modello del nome è `cloud-shell-storage-<region>`.
+
+   ![Selezionare il gruppo di risorse](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
+
+3. Selezionare l'account di archiviazione per Cloud Shell.
+
+   ![Selezionare l'account di archiviazione](./media/resource-group-template-deploy-cli/select-storage.png)
+
+4. Selezionare **File**.
+
+   ![Selezione dei file](./media/resource-group-template-deploy-cli/select-files.png)
+
+5. Selezionare la condivisione file per Cloud Shell. Il modello del nome è `cs-<user>-<domain>-com-<uniqueGuid>`.
+
+   ![Selezionare la condivisione file](./media/resource-group-template-deploy-cli/select-file-share.png)
+
+6. Selezionare **Aggiungi directory**.
+
+   ![Aggiungi directory](./media/resource-group-template-deploy-cli/select-add-directory.png)
+
+7. Assegnare il nome **templates** e scegliere **OK**.
+
+   ![Assegnare il nome alla directory](./media/resource-group-template-deploy-cli/name-templates.png)
+
+8. Selezionare la nuova directory.
+
+   ![Selezionare la directory](./media/resource-group-template-deploy-cli/select-templates.png)
+
+9. Selezionare **Carica**.
+
+   ![Selezionare Carica](./media/resource-group-template-deploy-cli/select-upload.png)
+
+10. Trovare e caricare il modello.
+
+   ![Caricare il file](./media/resource-group-template-deploy-cli/upload-files.png)
+
+11. Aprire il prompt.
+
+   ![Aprire Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
+
+12. Immettere i comandi seguenti in Cloud Shell:
+
+   ```azurecli
+   az group create --name examplegroup --location "South Central US"
+   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
+   ```
 
 ## <a name="parameter-files"></a>File dei parametri
 
@@ -168,7 +223,7 @@ az group deployment create \
     --mode Complete \
     --resource-group ExampleGroup \
     --template-file storage.json \
-    --parameters "{\"storageAccountType\":{\"value\":\"Standard_GRS\"}}"
+    --parameters storageAccountType=Standard_GRS
 ```
 
 ## <a name="sample-template"></a>Modello di esempio

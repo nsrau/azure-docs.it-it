@@ -1,6 +1,6 @@
 ---
 title: Analisi di utenti, sessioni ed eventi in Azure Application Insights | Microsoft Docs
-description: Analisi demografica degli utenti dell&quot;app Web.
+description: Analisi demografica degli utenti dell'app Web.
 services: application-insights
 documentationcenter: 
 author: botatoes
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 912e3e25680034828aee93d23c6a725c2cec0d45
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -67,9 +67,12 @@ La barra laterale Informazioni dettagliate mostra cluster di grandi dimensioni d
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-* [Panoramica sull'uso](app-insights-usage-overview.md)
-* [Conservazione](app-insights-usage-retention.md)
-* [Codifica di eventi personalizzati](app-insights-api-custom-events-metrics.md)
+- Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [visualizzazioni pagina](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
+    - [Grafici a imbuto](usage-funnels.md)
+    - [Conservazione](app-insights-usage-retention.md)
+    - [Flussi degli utenti](app-insights-usage-flows.md)
+    - [Cartelle di lavoro](app-insights-usage-workbooks.md)
+    - [Aggiungere il contesto utente](app-insights-usage-send-user-context.md)
 
 

@@ -2,7 +2,7 @@
 title: Documentazione di Azure Resource Manager - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: Informazioni su come usare Resource Manager per distirbuire e gestire a gruppi le risorse di una soluzione e per creare modelli per una distribuzione coerente e ripetibile delle risorse.
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

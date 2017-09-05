@@ -1,8 +1,7 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### Per eliminare un criterio di backup per StorSimple
-<a id="to-delete-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-delete-a-storsimple-backup-policy"></a>Per eliminare un criterio di backup per StorSimple
 
 1. Andare al dispositivo StorSimple e fare clic su **Criteri di backup**.
 

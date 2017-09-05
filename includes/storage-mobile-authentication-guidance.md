@@ -12,7 +12,7 @@ L'autenticazione con la chiave condivisa implica che l'applicazione userà il no
 > 
 > 
 
-Quando si usa l'autenticazione con la chiave condivisa, si creerà una [stringa di connessione](../articles/storage/storage-configure-connection-string.md). La stringa di connessione è costituita da:  
+Quando si usa l'autenticazione con la chiave condivisa, si creerà una [stringa di connessione](../articles/storage/common/storage-configure-connection-string.md). La stringa di connessione è costituita da:  
 
 * **DefaultEndpointsProtocol** : è possibile scegliere HTTP o HTTPS. Tuttavia, è vivamente consigliato l'uso di HTTPS.
 * **Nome account** : nome dell'account di archiviazione
@@ -36,5 +36,5 @@ L'esempio seguente mostra come usare Esplora archivi di Microsoft Azure per gene
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Come si può osservare, quando si usa una firma di accesso condiviso, non si espone la chiave dell'account nell'applicazione. Per altre informazioni sulla firma di accesso condiviso e sulle procedure consigliate per il relativo uso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
+Come si può osservare, quando si usa una firma di accesso condiviso, non si espone la chiave dell'account nell'applicazione. Per altre informazioni sulla firma di accesso condiviso e sulle procedure consigliate per il relativo uso, vedere [Firme di accesso condiviso, parte 1: conoscere il modello di firma di accesso condiviso](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

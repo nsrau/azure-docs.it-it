@@ -4,7 +4,7 @@ description: Informazioni su come creare flussi di lavoro di codifica avanzati c
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
 ms.service: media-services

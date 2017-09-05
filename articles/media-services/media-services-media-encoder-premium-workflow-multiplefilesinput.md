@@ -4,7 +4,7 @@ description: "Questo argomento illustra come usare setRuntimeProperties per usar
 services: media-services
 documentationcenter: 
 author: xpouyat
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
 ms.service: media-services
@@ -300,7 +300,7 @@ Di seguito sono descritti i passaggi per creare un flusso di lavoro che ha due f
 
 Aprire **Progettazione flussi di lavoro** e selezionare **File** > **New Workspace (Nuova area di lavoro)** > **Transcode Blueprint**.
 
-Il nuovo flusso di lavoro visualizzerà&3; elementi:
+Il nuovo flusso di lavoro visualizzerà 3 elementi:
 
 * Primary Source File
 * Clip List XML

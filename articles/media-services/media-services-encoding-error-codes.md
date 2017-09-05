@@ -1,10 +1,10 @@
 ---
 title: Codici di errore di codifica di Servizi multimediali di Azure | Documentazione Microsoft
-description: "Questo argomento riporta un elenco dei possibili codici di errore restituiti in caso di errore durante l&quot;esecuzione di attività di codifica."
+description: "Questo argomento riporta un elenco dei possibili codici di errore restituiti in caso di errore durante l'esecuzione di attività di codifica."
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
 ms.service: media-services
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b341416f837d03e0532b4f8c0a3f3f85641a8995
 ms.openlocfilehash: d1e6421404d9c8845eb3ccd30d84c0c8cf5930b8
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/27/2017
 
 ---
 
@@ -52,9 +53,4 @@ Per ottenere assistenza dal team di **Servizi multimediali** , aprire un [ticket
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

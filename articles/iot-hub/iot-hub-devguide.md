@@ -1,6 +1,6 @@
 ---
-title: Guida per gli sviluppatori dell&quot;hub IoT di Azure | Documentazione Microsoft
-description: "La Guida per gli sviluppatori dell&quot;hub IoT di Azure include informazioni su endpoint, sicurezza, registro delle identità, gestione dei dispositivi, metodi diretti, dispositivi gemelli, caricamenti di file, processi, linguaggio di query dell&quot;hub IoT e messaggistica."
+title: Guida per gli sviluppatori dell'hub IoT di Azure | Documentazione Microsoft
+description: "La Guida per gli sviluppatori dell'hub IoT di Azure include informazioni su endpoint, sicurezza, registro delle identità, gestione dei dispositivi, metodi diretti, dispositivi gemelli, caricamenti di file, processi, linguaggio di query dell'hub IoT e messaggistica."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/31/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: adb9a12899e9040cd83d522c734448989636fe29
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guida per gli sviluppatori dell'hub IoT di Azure

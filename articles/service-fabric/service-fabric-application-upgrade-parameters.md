@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: aa26d72524f035cca92cd39062873ceb15bffac1
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: f09dad590f32c10f75484bba9afb7ea60f29d81e
 ms.contentlocale: it-it
-ms.lasthandoff: 03/11/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="application-upgrade-parameters"></a>Parametri di aggiornamento di un'applicazione
@@ -66,7 +65,7 @@ I criteri MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService e
 
 [Aggiornamento di un'applicazione di Service Fabric mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) descrive la procedura di aggiornamento di un'applicazione tramite PowerShell.
 
-[Aggiornamento dell'applicazione con l'interfaccia della riga di comando di Azure in Linux](service-fabric-azure-cli.md#upgrading-your-application) descrive la procedura di aggiornamento di un'applicazione con l'interfaccia della riga di comando di Azure.
+[Aggiornamento dell'applicazione](service-fabric-application-lifecycle-sfctl.md#upgrade-application) descrive la procedura di aggiornamento di un'applicazione con l'interfaccia della riga di comando di Service Fabric.
 
 [Aggiornamento dell'applicazione con il plug-in Eclipse per Service Fabric](service-fabric-get-started-eclipse.md#upgrade-your-service-fabric-java-application)
 

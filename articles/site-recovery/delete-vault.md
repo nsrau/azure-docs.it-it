@@ -1,5 +1,6 @@
 ---
-title: Eliminare un insieme di credenziali dei servizi di ripristino
+title: Eliminare un insieme di credenziali di Site Recovery
+description: Informazioni su come eliminare un insieme di credenziali di Azure Site Recovery, in base allo scenario di Site Recovery.
 service: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -13,25 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajani-janaki-ram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 32fcab0c9e4665d07691dc3792bdee90fb01fe66
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: b95b9defa0a037f7d7d3ef36b99bc7c53c751050
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="delete-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
-Le dipendenze impediscono di eliminare un insieme di credenziali dei servizi di ripristino e le azioni da eseguire variano in base al tipo di scenario di Azure Site Recovery: da VMware ad Azure, da Hyper-V (con e senza VMM) ad Azure e Backup di Azure. Per eliminare un insieme di credenziali usato in Backup di Azure, selezionare [questo](../backup/backup-azure-delete-vault.md) collegamento.
+# <a name="delete-a-site-recovery-vault"></a>Eliminare un insieme di credenziali di Site Recovery
+Le dipendenze possono impedire l'eliminazione di un insieme di credenziali di Azure Site Recovery. Le azioni da eseguire variano in base allo scenario di Site Recovery: VMware in Azure, Hyper-V (con e senza System Center Virtual Machine Manager) in Azure e Backup di Azure. Per eliminare un insieme di credenziali usato in Backup di Azure, vedere [Delete a Backup vault in Azure](../backup/backup-azure-delete-vault.md) (Eliminare un insieme di credenziali di Backup in Azure).
 
 >[!Important]
->Se dopo aver eseguito il test del prodotto si vuole eliminare rapidamente l'insieme di credenziali e non si hanno problemi di perdita di dati, è possibile usare il metodo di eliminazione forzata per rimuovere l'insieme di credenziali e tutte le relative dipendenze.
+>Se si esegue il test del prodotto e non si hanno problemi di perdita di dati, usare il metodo di eliminazione forzata per rimuovere rapidamente l'insieme di credenziali e tutte le relative dipendenze.
 
-> Tenere presente che il comando di PowerShell eliminerà tutti i contenuti dell'insieme di credenziali e che questo non è un passaggio reversibile
+> Il comando di PowerShell elimina tutti i contenuti dell'insieme di credenziali e non è reversibile.
 
-## <a name="force-delete-vault-using-powershell"></a>Forzare l'eliminazione dell'insieme di credenziali con PowerShell
+## <a name="use-powershell-to-force-delete-the-vault"></a>Usare PowerShell per forzare l'eliminazione dell'insieme di credenziali 
 
-Di seguito è illustrata la procedura per eliminare un insieme di credenziali di Site Recovery anche se sono presenti elementi protetti
+Per eliminare l'insieme di credenziali di Site Recovery anche se sono presenti elementi protetti, usare i comandi seguenti:
 
     Login-AzureRmAccount
 
@@ -42,27 +42,39 @@ Di seguito è illustrata la procedura per eliminare un insieme di credenziali di
     Remove-AzureRmSiteRecoveryVault -Vault $vault
 
 
+## <a name="delete-a-site-recovery-vault"></a>Eliminare un insieme di credenziali di Site Recovery 
+Per eliminare l'insieme di credenziali, seguire la procedura consigliata per lo scenario.
 
-Per eliminare l'insieme di credenziali, seguire i passaggi consigliati (nell'ordine specificato) relativi al proprio scenario
+### <a name="vmware-vms-to-azure"></a>Da VM VMware ad Azure
 
-## <a name="delete-vault-used-in-site-recovery-for-protecting-vmware-vms-to-azure"></a>Eliminare l'insieme di credenziali usato in Site Recovery per la protezione di macchine virtuali da VMware ad Azure:
-1. Verificare che tutte le macchine virtuali protette siano eliminate: vedere la [procedura](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
-2.  Verificare che tutti i criteri di replica siano eliminati: vedere la [procedura](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
-3.  Verificare che tutti i riferimenti a vCenter siano eliminati: vedere la [procedura](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
-4. Verificare che il server di configurazione sia eliminato: vedere la [procedura](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server).
-5. Provare ora a eliminare l'insieme di credenziali.
+1. Eliminare tutte le macchine virtuali protette seguendo la procedura descritta in [Disabilitare la protezione per una VM VMware o un server fisico](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+
+2. Eliminare tutti i criteri di replica seguendo la procedura descritta in [Eliminare un criterio di replica](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+
+3. Eliminare i riferimenti a vCenter seguendo la procedura descritta in [Eliminare un server vCenter in Azure Site Recovery](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
+
+4. Eliminare il server di configurazione seguendo la procedura descritta in [Rimozione delle autorizzazioni per un server di configurazione](site-recovery-vmware-to-azure-manage-configuration-server.md##decommissioning-a-configuration-server).
+
+5. Eliminare l'insieme di credenziali.
 
 
-## <a name="delete-vault-used-in-site-recovery-for-protecting-hyper-v-vms-with-vmm-to-azure"></a>Eliminare l'insieme di credenziali usato in Site Recovery per la protezione di macchine virtuali da Hyper-V (con VMM) ad Azure:
-1.  Verificare che tutte le macchine virtuali protette siano eliminate: vedere la [procedura](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
-- Verificare che tutti i criteri di replica siano eliminati: vedere la [procedura](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
--   Eliminare i riferimenti ai server VMM: vedere la [procedura](site-recovery-manage-registration-and-protection.md##unregister-a-connected-vmm-server).
--   Provare ora a eliminare l'insieme di credenziali.
+### <a name="hyper-v-vms-with-virtual-machine-manager-to-azure"></a>Macchine virtuali Hyper-V (con Virtual Machine Manager) in Azure
+1. Eliminare tutte le macchine virtuali protette seguendo la procedura descritta in [Disabilitare la protezione per una VM VMware o un server fisico](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
 
-## <a name="delete-vault-used-in-site-recovery--for-protecting-hyper-v-vms-without-vmm-to-azure"></a>Eliminare l'insieme di credenziali usato in Site Recovery per la protezione di macchine virtuali da Hyper-V (senza VMM) ad Azure:
-1. Verificare che tutte le macchine virtuali protette siano eliminate: vedere la [procedura](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
-- Verificare che tutti i criteri di replica siano eliminati: vedere la [procedura](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
--   Eliminare i riferimenti ai server Hyper-V: vedere la [procedura](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
--   Eliminare il sito Hyper-V.
--   Provare ora a eliminare l'insieme di credenziali.
+2. Eliminare tutti i criteri di replica seguendo la procedura descritta in [Eliminare un criterio di replica](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+
+3.  Eliminare i riferimenti ai server Virtual Machine Manager seguendo la procedura descritta in [Annullare la registrazione di un server VMM connesso](site-recovery-manage-registration-and-protection.md##unregister-a-connected-vmm-server).
+
+4.  Eliminare l'insieme di credenziali.
+
+### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Macchine virtuali Hyper-V (senza Virtual Machine Manager) in Azure
+1. Eliminare tutte le macchine virtuali protette seguendo la procedura descritta in [Disabilitare la protezione per una VM VMware o un server fisico](site-recovery-manage-registration-and-protection.md##disable-protection-for-a-vmware-vm-or-physical-server).
+
+2. Eliminare tutti i criteri di replica seguendo la procedura descritta in [Eliminare un criterio di replica](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+
+3. Eliminare i riferimenti ai server Hyper-V seguendo la procedura descritta in [Annullare la registrazione di un host Hyper-V in un sito di Hyper-V](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
+
+4. Eliminare il sito Hyper-V.
+
+5. Eliminare l'insieme di credenziali.
 

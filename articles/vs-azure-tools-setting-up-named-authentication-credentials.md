@@ -1,6 +1,6 @@
 ---
-title: Configurazione delle credenziali per l&quot;autenticazione denominate | Documentazione Microsoft
-description: "Informazioni su come fornire le credenziali che Visual Studio può usare per l&quot;autenticazione delle richieste inviate a Azure per pubblicare un&quot;applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente. "
+title: Configurazione delle credenziali per l'autenticazione denominate | Documentazione Microsoft
+description: "Informazioni su come fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste inviate a Azure per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente. "
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
@@ -12,20 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
+ms.date: 8/17/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 03875b4215943a8bbabeb15610776a221cbf7b71
-
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 613f17081fcb70b126caaae7ade5739d336662a7
+ms.contentlocale: it-it
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="setting-up-named-authentication-credentials"></a>Configurazione delle credenziali per l'autenticazione denominate
-Per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente, è necessario fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste inviate a Azure. In Visual Studio è possibile fornire queste credenziali accedendo a più posizioni. Ad esempio, da Esplora server è possibile aprire il menu di scelta rapida per il nodo di **Azure** e scegliere **Connetti ad Azure**. Dopo l'accesso, le informazioni sulla sottoscrizione associate all'account Azure sono disponibili in Visual Studio. Non è necessario eseguire altre operazioni.
+Per pubblicare un'applicazione in Azure da Visual Studio o monitorare un servizio cloud esistente, è necessario fornire le credenziali che Visual Studio può usare per l'autenticazione delle richieste inviate a Azure. In Visual Studio è possibile fornire queste credenziali accedendo a più posizioni. Ad esempio, da Esplora server è possibile aprire il menu di scelta rapida per il nodo **Azure** e scegliere **Connessione alla sottoscrizione di Microsoft Azure**. Dopo l'accesso, le informazioni sulla sottoscrizione associate all'account Azure sono disponibili in Visual Studio. Non è necessario eseguire altre operazioni.
 
 Gli strumenti di Azure supportano anche un modo meno recente di fornire le credenziali, attraverso il file di sottoscrizione, con estensione publishsettings. Questo argomento illustra tale metodo, ancora supportato in Azure SDK 2.2.
 
-Per l'autenticazione in Azure sono richiesti i seguenti elementi.
+Per l'autenticazione in Azure sono richiesti gli elementi seguenti:
 
 * ID sottoscrizione
 * Un certificato X.509 v3 valido
@@ -49,7 +50,7 @@ Se si vuole creare un certificato, vedere le istruzioni contenute in [Creare e c
 ## <a name="modify-or-export-authentication-credentials-in-visual-studio"></a>Modificare o esportare le credenziali di autenticazione in Visual Studio
 È anche possibile impostare, modificare o esportare le credenziali di autenticazione nella finestra di dialogo **Nuova sottoscrizione** , visualizzata dopo una delle azioni seguenti:
 
-* In **Esplora server** aprire il menu di scelta rapida per il nodo di **Azure**, scegliere **Gestisci sottoscrizioni**, selezionare la scheda **Certificati** e infine fare clic sul pulsante **Nuovo** o **Modifica**.
+* In **Esplora server** aprire il menu di scelta rapida per il nodo **Azure**, scegliere **Gestisci e filtra sottoscrizioni**, scegliere la scheda **Certificati** e quindi scegliere **Importa**, **Nuovo** o **Modifica**.
 * Quando si pubblica un servizio cloud di Azure dalla procedura guidata **Pubblica applicazione Azure**, scegliere **Gestisci** dall'elenco **Scegliere la sottoscrizione**, selezionare la scheda Certificati e quindi fare clic sul pulsante **Nuovo** o **Modifica**.
 
 La procedura riportata di seguito presuppone che la finestra di dialogo **Nuova sottoscrizione** sia visualizzata.
@@ -73,9 +74,4 @@ La procedura riportata di seguito presuppone che la finestra di dialogo **Nuova 
        Viene visualizzata la pagina del servizio.
    4. Nella scheda **Certificati** fare clic su **Carica**.
    5. Incollare il percorso completo del file con estensione cer appena creato e digitare la password specificata.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

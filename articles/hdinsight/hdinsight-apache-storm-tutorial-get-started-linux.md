@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5121861dc9fa11bbde32c12f3987bb60f2dda057
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introduzione ad Apache Storm in HDInsight tramite esempi di Storm Starter
@@ -65,7 +65,7 @@ Per creare uno Storm nel cluster HDInsight, seguire questa procedura:
 
     * **Sistema operativo**: Linux
 
-    * **Versione**: Storm 1.0.1 (HDI 3.5)
+    * **Versione**: Storm 1.1.0 (HDI 3.6)
 
     * **Livello cluster**: Standard
 
@@ -110,7 +110,7 @@ Per creare uno Storm nel cluster HDInsight, seguire questa procedura:
     >
     > L'esempio WordCount e altri esempi di Storm Starter sono già inclusi nel cluster in `/usr/hdp/current/storm-client/contrib/storm-starter/`.
 
-Se si è interessati a visualizzare il codice sorgente per gli esempi di Storm Starter, è possibile trovare il codice all'indirizzo [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter). Questo collegamento è per Storm 1.0, che viene offerto con HDInsight 3.5. Per altre versioni di Storm, usare il pulsante __Branch__ nella parte superiore della pagina per selezionare una versione diversa di Storm.
+Se si è interessati a visualizzare il codice sorgente per gli esempi di storm-starter, è disponibile all'indirizzo [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter). Questo collegamento riguarda Storm 1.1, che viene offerto con HDInsight 3.6. Per altre versioni di Storm, usare il pulsante __Branch__ nella parte superiore della pagina per selezionare una versione diversa di Storm.
 
 ## <a name="monitor-the-topology"></a>Monitorare la topologia
 

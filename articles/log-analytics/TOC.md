@@ -31,12 +31,23 @@
 #### [Log IIS](log-analytics-data-sources-iis-logs.md)
 #### [Log personalizzati](log-analytics-data-sources-custom-logs.md)
 #### [Campi personalizzati](log-analytics-custom-fields.md)
+
 ## Eseguire query sui dati
 ### [Panoramica delle ricerche nei log](log-analytics-log-searches.md)
 ### [Informazioni di riferimento sulle ricerche](log-analytics-search-reference.md)
 #### [Espressioni regolari](log-analytics-log-searches-regex.md)
 ### [Intervenire dai risultati della ricerca](log-analytics-log-search-takeaction.md)
 ### [Gruppi di computer](log-analytics-computer-groups.md)
+
+## Nuova ricerca log
+### [Aggiornare l'area di lavoro](log-analytics-log-search-upgrade.md)
+### [Domande frequenti](log-analytics-log-search-faq.md)
+### [Panoramica delle ricerche nei log](log-analytics-log-search-new.md)
+### [Portali per la ricerca log](log-analytics-log-search-portals.md)
+#### [Usare il portale per la ricerca log](log-analytics-log-search-log-search-portal.md)
+### [Transizione dal linguaggio legacy](log-analytics-log-search-transition.md)
+### [Connettore di flusso](log-analytics-flow-tutorial.md)
+
 ## Analizzare i dati
 ### [Dashboard](log-analytics-dashboards.md)
 ### [Progettazione viste](log-analytics-view-designer.md)
@@ -74,9 +85,11 @@
 ### [Valutazione di malware](log-analytics-malware.md)
 ### [Networking Analytics](log-analytics-azure-networking-analytics.md)
 ### [Monitoraggio delle prestazioni di rete](log-analytics-network-performance-monitor.md)
+### [Office 365](../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [Assessment](log-analytics-scom-assessment.md)
 ### [Controllo di sicurezza](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
-### [Service Fabric](log-analytics-service-fabric.md)
+### [Service Fabric con PowerShell](log-analytics-service-fabric.md)
+#### [Service Fabric con Azure Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 ### [Elenco dei servizi](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 ### [SQL Assessment](log-analytics-sql-assessment.md)
 ### [Surface Hub](log-analytics-surface-hubs.md)
@@ -101,5 +114,6 @@
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=log-analytics)
 ## [Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics)

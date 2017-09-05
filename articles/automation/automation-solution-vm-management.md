@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 06/01/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: db9f2174e9928083957f160be8c268fe21cd4169
+ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
+ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 
@@ -57,23 +57,23 @@ Variabile | Descrizione|
 Runbook **SendMailO365-MS-Mgmt** ||
 SendMailO365-IsSendEmail-MS-Mgmt | Specifica se i runbook StartByResourceGroup-MS-Mgmt-VM e StopByResourceGroup-MS-Mgmt-VM possono inviare notifiche tramite posta elettronica al termine dell'operazione.  Scegliere **True**per abilitare e **False** per disabilitare gli avvisi tramite posta elettronica. Il valore predefinito è **False**.| 
 Runbook **StartByResourceGroup-MS-Mgmt-VM** ||
-StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;). I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco.|
+StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;) senza spazi. I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco.|
 StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Testo che è possibile aggiungere all'inizio del corpo del messaggio di posta elettronica.|
 StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Specifica il nome dell'account di Automazione che contiene il runbook di posta elettronica.  **Non modificare questa variabile.**|
 StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Specifica il nome del runbook di posta elettronica.  Questa variabile viene usata dai runbook StartByResourceGroup-MS-Mgmt-VM e StopByResourceGroup-MS-Mgmt-VM per inviare messaggi di posta elettronica.  **Non modificare questa variabile.**|
 StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Specifica il nome del gruppo di risorse che contiene il runbook di posta elettronica.  **Non modificare questa variabile.**|
 StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Specifica il testo per la riga dell'oggetto del messaggio di posta elettronica.|  
-StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifica i destinatari del messaggio di posta elettronica.  Immettere i nomi separati da un punto e virgola (;).|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;). I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco.  Il valore predefinito (asterisco) permette di includere tutti i gruppi di risorse nella sottoscrizione.|
+StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifica i destinatari del messaggio di posta elettronica.  Immettere i nomi separati da un punto e virgola (;) senza spazi.|
+StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;) senza spazi. I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco.  Il valore predefinito (asterisco) permette di includere tutti i gruppi di risorse nella sottoscrizione.|
 StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifica la sottoscrizione che contiene le macchine virtuali che la soluzione deve gestire.  Deve trattarsi della stessa sottoscrizione in cui risiede l'account di Automazione della soluzione.|
 Runbook **StopByResourceGroup-MS-Mgmt-VM** ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;). I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco.|
+StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;) senza spazi. I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco.|
 StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Testo che è possibile aggiungere all'inizio del corpo del messaggio di posta elettronica.|
 StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Specifica il nome dell'account di Automazione che contiene il runbook di posta elettronica.  **Non modificare questa variabile.**|
 StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Specifica il nome del gruppo di risorse che contiene il runbook di posta elettronica.  **Non modificare questa variabile.**|
 StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Specifica il testo per la riga dell'oggetto del messaggio di posta elettronica.|  
-StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifica i destinatari del messaggio di posta elettronica.  Immettere i nomi separati da un punto e virgola (;).|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;). I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco.  Il valore predefinito (asterisco) permette di includere tutti i gruppi di risorse nella sottoscrizione.|
+StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifica i destinatari del messaggio di posta elettronica.  Immettere i nomi separati da un punto e virgola (;) senza spazi.|
+StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Immettere i nomi di macchina virtuale da escludere dall'operazione di gestione e separarli usando un punto e virgola (;) senza spazi. I valori fanno distinzione tra maiuscole e minuscole ed è supportato il carattere jolly asterisco.  Il valore predefinito (asterisco) permette di includere tutti i gruppi di risorse nella sottoscrizione.|
 StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifica la sottoscrizione che contiene le macchine virtuali che la soluzione deve gestire.  Deve trattarsi della stessa sottoscrizione in cui risiede l'account di Automazione della soluzione.|  
 <br>
 

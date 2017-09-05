@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 4d86910acca16299627c4202ef073c526bd4fc26
-ms.lasthandoff: 04/14/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 595c30ab5d9adc6061ad753d952adf894ba80b2f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/27/2017
 
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connettere una rete virtuale a un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> * [Resource Manager - Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Classica: PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
 > * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [PowerShell (classico)](expressroute-howto-linkvnet-classic.md)
 > 
->  
 
 Questo articolo spiega come collegare le reti virtuali ai circuiti ExpressRoute di Azure usando il modello di distribuzione di Resource Manager e il portale di Azure. Le reti virtuali possono trovarsi nella stessa sottoscrizione o appartenere a un'altra sottoscrizione.
 
@@ -113,24 +113,24 @@ L'utente del circuito deve richiedere l'ID risorsa e una chiave di autorizzazion
 
 **Per riscattare un'autorizzazione di connessione**
 
-1.    Fare clic sul pulsante **+ New** (Nuovo).
+1.  Fare clic sul pulsante **+ New** (Nuovo).
 
     ![Click New](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 
-2.    Cercare **"Connection"** (Connessione) in Marketplace, selezionare l'opzione e fare clic **Create** (Crea).
+2.  Cercare **"Connection"** (Connessione) in Marketplace, selezionare l'opzione e fare clic **Create** (Crea).
 
     ![Cercare Connection (Connessione)](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 
-3.    Verificare che **Connection type** (Tipo di connessione) sia impostato su "ExpressRoute".
+3.  Verificare che **Connection type** (Tipo di connessione) sia impostato su "ExpressRoute".
 
 
-4.    Inserire i dettagli e fare clic su **OK** nel pannello Basics (Nozioni di base).
+4.  Inserire i dettagli e fare clic su **OK** nel pannello Basics (Nozioni di base).
 
     ![Pannello Nozioni di base](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 
-5.    Nel pannello **Settings** (Impostazioni) selezionare **Virtual network gateway** (Gateway di rete virtuale) e selezionare la casella di controllo **Redeem authorization** (Riscatta autorizzazione).
+5.  Nel pannello **Settings** (Impostazioni) selezionare **Virtual network gateway** (Gateway di rete virtuale) e selezionare la casella di controllo **Redeem authorization** (Riscatta autorizzazione).
 
-6.    Immettere i valori nei campi **Authorization key** (Chiave di autorizzazione) e **Peer circuit URI** (URI circuito peer) e assegnare un nome di connessione. Fare clic su **OK**.
+6.  Immettere i valori nei campi **Authorization key** (Chiave di autorizzazione) e **Peer circuit URI** (URI circuito peer) e assegnare un nome di connessione. Fare clic su **OK**.
 
     ![Pannello Impostazioni](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 

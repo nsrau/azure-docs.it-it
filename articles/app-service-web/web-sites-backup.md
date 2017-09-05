@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup dell&quot;app in Azure
+title: Eseguire il backup dell'app in Azure
 description: Informazioni sulla creazione dei backup delle app nel Servizio app di Azure.
 services: app-service
 documentationcenter: 
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin;aelnably
+ms.author: cephalin
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: 891359514e776e169bf05df7b84d2b99306f98bf
 ms.contentlocale: it-it
 ms.lasthandoff: 06/09/2017
-
 
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure

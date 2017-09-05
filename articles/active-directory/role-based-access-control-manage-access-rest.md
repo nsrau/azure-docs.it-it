@@ -1,9 +1,9 @@
 ---
 title: Controllo degli accessi in base al ruolo con REST - Azure AD | Microsoft Docs
-description: Gestione del controllo degli accessi in base al ruolo con l&quot;API REST
+description: Gestione del controllo degli accessi in base al ruolo con l'API REST
 services: active-directory
 documentationcenter: na
-author: kgremban
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
-ms.author: kgremban
+ms.author: andredm
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: 6decf3e228bf31f9da4ea2bfa4d0ada0b2ffad61
 ms.contentlocale: it-it
 ms.lasthandoff: 05/17/2017
-
 
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Gestione del controllo degli accessi in base al ruolo con l'API REST

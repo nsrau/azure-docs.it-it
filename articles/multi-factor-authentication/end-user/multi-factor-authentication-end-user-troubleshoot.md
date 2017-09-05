@@ -4,7 +4,7 @@ description: Questo documento fornisce informazioni sulle operazioni da eseguire
 services: multi-factor-authentication
 keywords: client di multi-factor authentication, problema di autenticazione, ID di correlazione
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
@@ -12,24 +12,48 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
-ms.author: kgremban
+ms.date: 07/06/2017
+ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 10b63a859c67b965734e32ec979b26a1ea6cc516
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4af968ec596540be428898cc4928b0d4c37bf6ac
 ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
+ms.lasthandoff: 07/08/2017
 
 ---
-# <a name="having-trouble-with-two-step-verification"></a>Problemi con la verifica in due passaggi
-In questo articolo vengono descritti alcuni problemi che possono verificarsi con la verifica in due passaggi. Se il problema che si verifica non è incluso in questo articolo, inserire un feedback dettagliato nella sezione dei commenti ai fini di un miglioramento.
+# <a name="get-help-with-two-step-verification"></a>Informazioni sulla verifica in due passaggi
+Questo articolo contiene le risposte alle domande più comuni degli utenti sulla verifica in due passaggi.
 
-## <a name="i-lost-my-phone-or-it-was-stolen"></a>Il telefono è stato perso o rubato
-Esistono due modi per rientrare nel proprio account. Il primo consiste nell'accedere con il numero di telefono di autenticazione alternativo, se è stato configurato. Il secondo consiste nel chiedere all'amministratore di cancellare le impostazioni.
+## <a name="why-do-i-have-to-perform-two-step-verification-can-i-turn-it-off"></a>Perché è necessario eseguire la verifica in due passaggi? È possibile disattivarla?
 
-Se il telefono è stato perso o rubato, è consigliabile richiedere all'amministratore di reimpostare le password dell'app e cancellare eventuali dispositivi memorizzati. Se l'amministratore non sa come eseguire questa attività, può fare riferimento a questo articolo: [Manage users and devices](../multi-factor-authentication-manage-users-and-devices.md) (Gestire utenti e dispositivi).
+La verifica in due passaggi è una funzionalità di sicurezza che l'organizzazione ha scelto di usare per proteggere gli account. È un metodo più sicuro rispetto alla sola password perché si basa su due forme di autenticazione: un elemento noto e un elemento che l'utente ha con sé. L'elemento noto è la password. L'elemento che l'utente normalmente ha con sé è un telefono o un dispositivo. Quando l'account è protetto dalla verifica in due passaggi, un utente malintenzionato che fosse riuscito a ottenere la password dell'utente non potrà comunque accedere perché non avrà accesso anche al telefono.
+
+Microsoft offre la funzionalità di verifica in due passaggi e l'organizzazione sceglie di usarla. L'utente non può rifiutare di usarla se il reparto IT la richiede, proprio come non è possibile rifiutare di usare una password per proteggere il proprio account.
+
+Se la verifica in due passaggi è attivata per l'account Microsoft personale e si desidera modificare le impostazioni, vedere invece [Informazioni sulla verifica in due passaggi](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
+
+## <a name="i-dont-have-my-phone-with-me-today"></a>Telefono momentaneamente non disponibile
+
+A volte si lascia il telefono a casa, ma si ha lo stesso la necessità di accedere alle risorse di lavoro. Il primo tentativo da effettuare è l'accesso con un altro metodo di verifica. Quando è stata eseguita la registrazione per la verifica in due passaggi, è stato impostato più di un numero di telefono? Per provare ad accedere con un metodo diverso, seguire questa procedura:
+
+1. Accedere come si farebbe normalmente.
+2. Quando si apre la pagina della verifica in due passaggi scegliere **Usa un'opzione di verifica diversa**.
+
+   ![Verifica diversa](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
+
+3. Selezionare l'opzione di verifica che si intende usare.
+4. Procedere con la verifica in due passaggi.
+
+Se il collegamento **Usa un'opzione di verifica diversa** non viene visualizzato significa che al momento della registrazione per la verifica in due passaggi non sono stati impostati metodi alternativi. Contattare il reparto IT per ottenere assistenza per accedere all'account. Dopo l'accesso, assicurarsi di [gestire le impostazioni](multi-factor-authentication-end-user-manage-settings.md) per aggiungere metodi di verifica diversi per la prossima volta.
+
+Se il collegamento **Usa un'opzione di verifica diversa** viene visualizzato, ma non si riesce comunque ad accedere ai metodi alternativi, contattare il reparto IT per ottenere assistenza per accedere all'account.
+
+## <a name="i-lost-my-phone-or-got-a-new-number"></a>Telefono perso o nuovo numero
+Esistono due modi per rientrare nel proprio account. Il primo consiste nell'accedere con il numero di telefono di autenticazione alternativo, se è stato configurato. Il secondo consiste nel chiedere al reparto IT di cancellare le impostazioni.
+
+Se il telefono è stato perso o rubato, è inoltre consigliabile informare il reparto IT in modo che possa reimpostare le password dell'app e cancellare eventuali dispositivi memorizzati.
 
 ### <a name="use-an-alternate-phone-number"></a>Usare un numero di telefono alternativo
 Se sono state impostate più opzioni di verifica, tra cui un numero di telefono secondario o un'app di autenticazione in un altro dispositivo, è possibile usarle per accedere.
@@ -38,61 +62,38 @@ Per accedere tramite il numero di telefono alternativo, seguire questa procedura
 
 1. Accedere come si farebbe normalmente.
 2. Quando viene richiesto di verificare l'account, scegliere **Usa un'opzione di verifica diversa**.
-   
-    ![Verifica diversa](./media/multi-factor-authentication-end-user-manage/differentverification.png)
-3. Selezionare il numero di telefono cui è possibile accedere.
-   
-    ![Telefono alternativo](./media/multi-factor-authentication-end-user-manage/altphone2.png)
+
+   ![Verifica diversa](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
+
+3. Selezionare il numero di telefono o il dispositivo a cui si ha accesso.
 4. Dopo essere rientrati nel proprio account, [gestire le impostazioni](multi-factor-authentication-end-user-manage-settings.md) per modificare il numero di telefono di autenticazione.
 
-> [!IMPORTANT]
-> È importante configurare un numero di telefono di autenticazione secondario. Se il numero di telefono principale e l'app per dispositivi mobili si trovano nello stesso dispositivo, è necessaria una terza opzione in caso di furto o smarrimento.   
-
 ### <a name="clear-your-settings"></a>Cancellare le impostazioni
-Se non è stato configurato un numero di telefono di autenticazione secondario, è necessario richiedere assistenza contattando l'amministratore. Chiedere all'amministratore di cancellare le impostazioni in modo che all'accesso successivo verrà richiesto di [reimpostare l'account](multi-factor-authentication-end-user-first-time.md).
+Se non è stato configurato un numero di telefono di autenticazione secondario, contattare il reparto IT per ottenere assistenza. Chiedere la cancellazione delle impostazioni in modo che al prossimo accesso verrà chiesto di eseguire di nuovo la [registrazione per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md).
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Non ricevo messaggi o chiamate sul telefono
-Esistono diversi motivi per cui si tenta di effettuare l'accesso, ma non si ricevono messaggi o telefonate. Se nel passato messaggi e chiamate venivano ricevuti senza problemi, si tratta molto probabilmente di un problema del provider del servizio telefonico, non dell'account. Assicurarsi di avere un buon segnale e, se si sta tentando di ricevere un SMS, assicurarsi che il telefono e il piano di servizio supportino gli SMS.
+Esistono diversi motivi per cui si tenta di effettuare l'accesso, ma non si ricevono messaggi o telefonate. Se nel passato messaggi e chiamate venivano ricevuti senza problemi, si tratta molto probabilmente di un problema del provider del servizio telefonico, non dell'account. Verificare di avere un buon segnale e, se si sta tentando di ricevere un SMS, controllare che questa funzionalità sia supportata. Chiedere a un amico di provare a chiamare o a inviare un SMS.
 
 Se sono trascorsi diversi minuti e non sono arrivati né SMS né chiamate, il modo più rapido per accedere al proprio account è quello di tentare con un'opzione diversa.
 
 1. Selezionare **Usa un'opzione di verifica diversa** nella pagina in cui si è in attesa della verifica.
-   
+
     ![Verifica diversa](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 2. Selezionare il metodo di recapito o il numero di telefono che si vuole usare.
-   
+
     Se sono stati ricevuti più codici di verifica, usare il più recente.
 
-Se non è stato configurato un altro metodo, contattare l'amministratore e chiedere di cancellare le impostazioni. Al tentativo di accesso successivo, verrà richiesto di [riconfigurare l'autenticazione a più fattori](multi-factor-authentication-end-user-first-time.md).
+Se non è stato configurato un altro metodo, contattare il reparto IT e chiedere di cancellare le impostazioni. Al tentativo di accesso successivo, verrà richiesto di [riconfigurare l'autenticazione a più fattori](multi-factor-authentication-end-user-first-time.md).
 
 Se si hanno spesso ritardi a causa della scarsa qualità del segnale, è consigliabile usare l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) sullo smartphone. L'app può generare codici di sicurezza casuali che consentono di accedere e che non richiedono segnale telefonico o connessione Internet.
 
 ## <a name="app-passwords-are-not-working"></a>Le password dell'app non funzionano
-Assicurarsi prima di tutto di avere immesso correttamente la password dell'app. Se non funziona ancora, provare ad accedere e [creare una password per l'app](multi-factor-authentication-end-user-app-passwords.md).  Se il problema persiste, contattare l'amministratore, richiedere l'[eliminazione delle password esistenti per l'app](../multi-factor-authentication-manage-users-and-devices.md) e creare una nuova password.
+Assicurarsi prima di tutto di avere immesso correttamente la password dell'app. La password dell'app generata sostituisce la normale password, ma solo per le applicazioni desktop precedenti che non supportano la verifica in due passaggi. Se ancora non funziona, provare ad accedere e [creare una nuova password dell'app](multi-factor-authentication-end-user-app-passwords.md).  Se il problema persiste, contattare il reparto IT e chiedere di [eliminare le password dell'app esistenti](../multi-factor-authentication-manage-users-and-devices.md) in modo da poter creare una nuova password.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Nessuna risposta al problema riscontrato.
-Se queste procedure di risoluzione dei problemi non sono state utili, contattare l'amministratore o la persona che ha configurato l'autenticazione a più fattori sul dispositivo per assistenza.
-
-È anche possibile pubblicare una domanda nel [forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) o [contattare il supporto](https://support.microsoft.com/contactus) che risponderà non appena possibile.
-
-Se si contatta il supporto, includere le informazioni seguenti:
-
-* **ID utente**: qual è l'indirizzo di posta elettronica con cui si è tentato di accedere?
-* **Descrizione generale dell'errore**: qual è il messaggio di errore esatto che viene visualizzato?  Se non è stato visualizzato alcun messaggio di errore, descrivere dettagliatamente il comportamento imprevisto riscontrato.
-* **Pagina** : la pagina che si stava consultando quando è stato visualizzato l'errore (includere l'URL).
-* **Codice di errore** : l'esatto codice di errore visualizzato.
-* **ID sessione** : l'esatto ID di sessione visualizzato.
-* **ID correlazione** : il codice ID di correlazione generato quando è stato visualizzato l'errore.
-* **Data e ora** : la data e l'ora in cui è stato visualizzato l'errore (includere il fuso orario).
-
-Molte di queste informazioni sono reperibili nella pagina di accesso. Quando non si verifica l'accesso in tempo, selezionare **Visualizza dettagli**.
-
-![Dettagli errore di accesso](./media/multi-factor-authentication-end-user-troubleshoot/view_details.png)
-
-Queste informazioni consentiranno di risolvere il problema nel più breve tempo possibile.
+Se dopo aver provato queste procedure si continua a riscontrare problemi, contattare il reparto IT per assistenza.
 
 ## <a name="related-topics"></a>Argomenti correlati
 * [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)  
 * [Domande frequenti sull'applicazione Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
 

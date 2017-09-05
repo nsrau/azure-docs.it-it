@@ -13,12 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 04/11/2017
+ms.date: 05/24/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: fac4657e9b78e900c052384e212aa9f3915f970d
-ms.lasthandoff: 04/13/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
+ms.openlocfilehash: d85f711d6551a68d1248ae8ec61e2ecc1ddc8ecd
+ms.contentlocale: it-it
+ms.lasthandoff: 05/25/2017
 
 
 ---
@@ -26,17 +27,17 @@ ms.lasthandoff: 04/13/2017
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accesso condizionale per gli utenti di Collaborazione B2B
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>Autenticazione a più fattori per gli utenti B2B
-Con la Collaborazione B2B di Azure AD, le organizzazioni possono applicare in un modo esclusivo i criteri di autenticazione a più fattori per gli utenti B2B. Questi criteri possono essere applicati a livello di tenant, a livello app o a livello utente singolo, e possono essere anche abilitati per dipendenti a tempo pieno e membri dell'organizzazione. I criteri di autenticazione a più fattori (MFA) vengono applicati all'organizzazione delle risorse.
+Con Collaborazione B2B di Azure AD, le organizzazioni possono applicare criteri di autenticazione a più fattori (MFA) per gli utenti B2B. Questi criteri possono essere applicati a livello di tenant, di app o di singolo utente, così come vengono abilitati per dipendenti a tempo pieno e membri dell'organizzazione. I criteri di autenticazione a più fattori (MFA) vengono applicati all'organizzazione delle risorse.
 
-Ciò significa:
-1. L'amministratore o l'information worker della società A invita gli utenti della società B a un'applicazione Foo della società A.
+Esempio:
+1. Un amministratore o un information worker della società A invita gli utenti della società B in un'applicazione *Foo* della società A.
 2. L'applicazione *Foo* nella società A è configurata per richiedere l'autenticazione a più fattori all'accesso.
-3. Quando l'utente della società B cerca di accedere all'app Foo dal tenant della società A, gli viene chiesto di completare una richiesta di autenticazione a più fattori come previsto dai criteri di autenticazione a più fattori della società A.
-4. L'utente può configurare la propria autenticazione a più fattori con la società A, scegliendo un'opzione di autenticazione a più fattori.
-5. Questo funzionerà per qualsiasi identità, ad esempio Azure AD o l'account del servizio gestito se gli utenti della società B eseguono l'autenticazione usando l'ID basato su social network.
-6. La società A dovrà avere SKU di Azure AD Premium adeguati che supportano l'autenticazione a più fattori. L'utente della società B utilizzerà questa licenza della società A.
+3. Quando l'utente della società B tenta di accedere all'app *Foo* nel tenant della società A, gli viene chiesto di completare una richiesta di autenticazione a più fattori.
+4. L'utente può configurare la propria autenticazione a più fattori con la società A e ne sceglie l'opzione MFA.
+5. Questo scenario funziona per qualsiasi identità, ad esempio di Azure AD o account del servizio gestito, se gli utenti della società B eseguono l'autenticazione usando un ID per social network.
+6. La società A deve avere un numero sufficiente di licenze di Azure AD Premium che supportano l'autenticazione a più fattori. L'utente della società B utilizza la licenza della società A.
 
-In sintesi, la tenancy che invia l'invito è *sempre* responsabile dell'autenticazione a più fattori degli utenti di Collaborazione B2B dell'organizzazione partner e non dell'organizzazione partner stessa (anche se ha funzionalità di autenticazione a più fattori).
+La tenancy che emette l'invito è sempre responsabile dell'autenticazione a più fattori degli utenti dell'organizzazione partner, anche se l'organizzazione partner ha funzionalità di autenticazione a più fattori.
 
 ### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Configurazione dell'autenticazione a più fattori per gli utenti di Collaborazione B2B
 La configurazione di MFA per gli utenti di Collaborazione B2B è estremamente semplice, come illustrato nel video seguente:
@@ -44,12 +45,12 @@ La configurazione di MFA per gli utenti di Collaborazione B2B è estremamente se
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
 ### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Esperienza di autenticazione a più fattori per gli utenti di B2B per il riscatto dell'offerta
-Guardare l'animazione sotto per visualizzare l'esperienza di riscatto, come illustrato nel video seguente:
+Guardare l'animazione seguente per visualizzare l'esperienza di riscatto:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>Reimpostazione dell'autenticazione a più fattori per gli utenti di Collaborazione B2B
-L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B di provare di nuovo l'identità solo usando i cmdlet di PowerShell seguenti. È quindi consigliabile usare i cmdlet di PowerShell seguenti se si vuole reimpostare il metodo di identificazione di un utente di Collaborazione B2B.
+L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B di ripetere l'identificazione solo usando i cmdlet di PowerShell seguenti:
 
 1. Connettersi ad Azure AD
 
@@ -68,7 +69,7 @@ L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B d
   PS C:\Users\tjwasserGet-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
   ```
 
-3. Reimpostare il metodo di autenticazione a più fattori per un utente specifico. È quindi possibile usare tale UserPrincipalName per eseguire il comando di reimpostazione per poter richiedere all'utente di Collaborazione B2B di impostare di nuovo i metodi di identificazione. Esempio:
+3. Reimpostare il metodo di autenticazione a più fattori per un utente specifico in modo da richiedere all'utente di Collaborazione B2B di impostare di nuovo i metodi di identificazione. Esempio:
 
   ```
   Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
@@ -76,43 +77,35 @@ L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B d
 
 ### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Perché si esegue un'autenticazione a più fattori nella tenancy delle risorse?
 
-Nella versione corrente, l'autenticazione a più fattori è sempre nella tenancy delle risorse. Il motivo è ovvio.
+Nella versione corrente, l'autenticazione a più fattori è sempre nella tenancy delle risorse, per motivi di prevedibilità. Ad esempio, si supponga che un utente di Contoso (Sara) riceve un invito da Fabrikam e Fabrikam ha abilitato l'autenticazione a più fattori per gli utenti B2B.
 
-Ad esempio, si supponga che un utente di Contoso (Sara) riceve un invito da Fabrikam e Fabrikam ha abilitato l'autenticazione a più fattori per gli utenti B2B.
+Se Contoso ha abilitato i criteri di autenticazione a più fattori per App1 ma non per App2, esaminando l'attestazione MFA di Contoso nel token si potrebbe riscontrare il problema seguente.
 
-Se Contoso ha abilitato i criteri di autenticazione a più fattori per App1, ma non App2, e si esamina la richiesta di autenticazione a più fattori di Contoso nel token per determinare se Sara deve usare un'autenticazione a più fattori in Fabrikam o meno, è possibile che si verifichi il problema seguente:
+* Giorno 1: un utente con autenticazione a più fattori in Contoso accede ad App1 e non viene quindi visualizzata una richiesta MFA aggiuntiva in Fabrikam.
 
-* Giorno 1: Sara ha effettuato l'autenticazione a più fattori in Contoso perché accede all'App1, quindi non verrà visualizzata la richiesta di autenticazione a più fattori in Fabrikam.
+* Giorno 2: l'utente ha eseguito l'accesso ad App2 in Contoso e quando accede a Fabrikam deve eseguirvi la registrazione al servizio MFA.
 
-* Giorno 2: Sara ha eseguito l'accesso all'App2 in Contoso, quindi quando accede a Fabrikam, deve eseguire la registrazione per l'autenticazione a più fattori in Fabrikam.
-
-Ciò può risultare poco chiaro per Sara e molto probabilmente non consentirà di completare l'accesso.
+Questo processo può generare confusione e determinare una riduzione del numero di accessi completati.
 
 In aggiunta, anche se Contoso ha una funzionalità di autenticazione a più fattori, non è sempre probabile che Fabrikam accetti i criteri di autenticazione a più fattori di Contoso.
 
-Infine, l'autenticazione a più fattori del tenant delle risorse funziona anche per gli account del servizio gestito (MSA) e per gli ID social network per le organizzazioni partner che non hanno un'autenticazione a più fattori impostata.
+Infine, l'autenticazione a più fattori del tenant delle risorse funziona anche per account del servizio gestito, ID per social network e organizzazioni partner che non hanno configurato l'autenticazione a più fattori.
 
-Pertanto, il consiglio per gli utenti B2B è richiedere sempre l'autenticazione a più fattori. Questo potrebbe causare la duplicazione dell'autenticazione a più fattori in alcuni casi, ma ogni volta che si accede alla tenancy delle risorse, l'esperienza degli utenti finali è prevedibile: Sara si deve registrare per l'autenticazione a più fattori con la tenancy delle risorse.
+Di conseguenza, per l'autenticazione a più fattori degli utenti B2B è consigliabile richiedere sempre l'autenticazione a più fattori nel tenant che emette l'invito. Questo requisito potrebbe causare la duplicazione dell'autenticazione a più fattori in alcuni casi, ma l'esperienza degli utenti finali è prevedibile a ogni accesso al tenant che emette l'invito: l'utente deve eseguire la registrazione al servizio MFA con tale tenant.
 
-### <a name="device-location-and-risk-based-conditional-access-for-b2b-users"></a>Dispositivo, posizione e accesso condizionale basato sui rischi per gli utenti B2B
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Accesso condizionale basato sul dispositivo, sulla posizione e sui rischi per gli utenti B2B
 
-Quando l'organizzazione Contoso abilita i criteri di accesso condizionale basato sul dispositivo, l'accesso non è permesso da dispositivi non gestiti, ovvero i dispositivi che non sono gestiti dall'organizzazione Contoso e non conformi ai criteri dei dispositivi di Contoso.
+Quando Contoso abilita criteri di accesso condizionale basati sul dispositivo per i dati aziendali, viene impedito l'accesso da dispositivi non gestiti da Contoso e non conformi ai criteri dei dispositivi di Contoso.
 
-Se il dispositivo dell'utente B2B non è gestito da Contoso, vuol dire che l'accesso degli utenti B2B delle organizzazioni partner verrà bloccato in qualsiasi contesto siano stati applicati tali criteri.
-
-È eccessivo pretendere che gli utenti di un'altra organizzazione abbiano i loro dispositivi gestiti dall'organizzazione che li invita. Pertanto, in aggiornamenti futuri, sarà possibile abilitare Contoso a considerare attendibile lo stato di conformità dei dispositivi di specifici partner. Ciò permetterebbe a Contoso di applicare i criteri per cui un utente di Fabrikam può accedere alle risorse di Contoso anche se sta usando un dispositivo gestito da Fabrikam.
-
-Nel frattempo, Contoso può creare elenchi di esclusione che contengono utenti di partner specifici dai criteri di accesso condizionale basato sui dispositivi.
+Se il dispositivo dell'utente B2B non è gestito da Contoso, l'accesso degli utenti B2B delle organizzazioni partner viene bloccato in qualsiasi contesto vengano applicati i criteri. Contoso, tuttavia, può creare elenchi di esclusione contenenti gli utenti di partner specifici per escluderli dai criteri di accesso condizionale basati sul dispositivo.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>Accesso condizionale basato sulla posizione per B2B
 
-I criteri di accesso condizionale basato sulla posizione possono essere applicati per gli utenti B2B se l'organizzazione che invita (ad esempio, Contoso) è in grado di creare un perimetro di rete attendibile (ovvero, un intervallo di indirizzi IP) che definisce le organizzazioni partner (ad esempio, Fabrikam).
+I criteri di accesso condizionale basati sulla posizione possono essere applicati per gli utenti B2B se l'organizzazione che emette l'invito può creare un intervallo di indirizzi IP attendibili che definisce le organizzazioni partner.
 
 #### <a name="risk-based-conditional-access-for-b2b"></a>Accesso condizionale basato sui rischi per B2B
 
-Non è possibile attualmente applicare criteri di accesso basato sui rischi per gli utenti B2B, perché la valutazione dei rischi viene eseguita nell'organizzazione dell'utente B2B (in altre parole, la tenancy di identità dell'utente B2B).
-
-Negli aggiornamenti futuri, si sta considerando di creare una federazione del punteggio di rischio dei partner (con il consenso dei partner) in modo che Contoso possa proteggere le app e i dati condivisi esternamente non solo da rischi conosciuti, ma anche da rischi di cui Contoso non è a conoscenza perché potrebbero verificarsi in altri posti.
+Attualmente non è possibile applicare criteri di accesso basati sui rischi agli utenti B2B, perché la valutazione dei rischi viene eseguita nell'organizzazione principale dell'utente B2B.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

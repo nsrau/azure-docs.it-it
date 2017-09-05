@@ -7,7 +7,9 @@
 ## [Routing degli URL](application-gateway-url-route-overview.md)
 ## [Multisito](application-gateway-multi-site-overview.md)
 ## [Panoramica di SSL end-to-end](application-gateway-backend-ssl.md)
+## [Criteri SSL](application-gateway-ssl-policy-overview.md)
 ## [Reindirizzamento](application-gateway-redirect-overview.md)
+## [Supporto multi-tenant](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
 ## [Limiti del servizio](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Introduzione
@@ -16,7 +18,8 @@
 #### [Portale](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Modello di Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
+#### [Interfaccia della riga di comando di Azure 1.0](application-gateway-create-gateway-cli-nodejs.md)
+#### [Interfaccia della riga di comando di Azure 2.0](application-gateway-create-gateway-cli.md)
 #### [PowerShell (classico)](application-gateway-create-gateway.md)
 ### Interno
 #### [PowerShell](application-gateway-ilb-arm.md)
@@ -25,21 +28,28 @@
 ## Configurare Web application firewall
 ### [Portale](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Interfaccia della riga di comando di Azure 2.0](application-gateway-web-application-firewall-cli.md)
 ## Personalizzare le regole di Web Application Firewall
 ### [Portale](application-gateway-customize-waf-rules-portal.md)
-## Eseguire la configurazione per l'offload SSL
+### [Interfaccia della riga di comando di Azure 2.0](application-gateway-customize-waf-rules-cli.md)
+## Configurare SSL
 ### [Portale](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (classico)](application-gateway-ssl.md)
-### [Criteri e applicazione end-to-end](application-gateway-end-to-end-ssl-powershell.md)
+### [Interfaccia della riga di comando di Azure 2.0](application-gateway-ssl.md)
+### [End-to-end](application-gateway-end-to-end-ssl-powershell.md)
+### [Criteri SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Configurare un routing basato su percorsi URL
 ### [Portale](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Interfaccia della riga di comando di Azure 2.0](application-gateway-create-url-route-cli.md)
 ## Configurare l'hosting di più siti
 ### [Portale](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configurare il reindirizzamento
 ### [PowerShell](application-gateway-configure-redirect-powershell.md)
+## Configurare le app Web come membri del pool back-end
+### [PowerShell](application-gateway-web-app-powershell.md)
 ## Configurare probe di integrità
 ### [Portale](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
@@ -67,9 +77,10 @@
 ## [Bilanciamento del carico](/azure/load-balancer/)
 ## [Gestione traffico](/azure/traffic-manager/)
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)

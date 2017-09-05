@@ -1,25 +1,25 @@
 ---
-title: Creare un&quot;app Web in Azure App Service con Azure SDK per Java
-description: Informazioni su come creare un&quot;app Web in Azure App Service a livello di codice usando Azure SDK per Java.
+title: Creare un'app Web in Azure App Service con Azure SDK per Java
+description: Informazioni su come creare un'app Web in Azure App Service a livello di codice usando Azure SDK per Java.
 tags: azure-classic-portal
-services: app-service\web
+services: app-service-web
 documentationcenter: Java
 author: donntrenton
 manager: erikre
 editor: jimbe
 ms.assetid: 8954c456-1275-4d57-aff4-ca7d6374b71e
-ms.service: multiple
+ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: v-donntr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
 ms.openlocfilehash: 19ddcc3e8e1bb3b52eeb06d81e27793c25c1e230
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="create-a-web-app-in-azure-app-service-using-the-azure-sdk-for-java"></a>Creare un'app Web in Azure App Service con Azure SDK per Java
@@ -149,7 +149,7 @@ Fare clic su **OK**. I pacchetti di Azure appaiono quindi nell'elenco **Dependen
 Scrivere ora il codice che chiama le API in Azure SDK in modo che Java crei l'app Web del servizio app.
 
 1. Creare una classe Java in cui includere il codice del punto di ingresso principale. In Project Explorer fare clic con il pulsante destro del mouse sul nodo del progetto e scegliere **New > Class** (Nuovo > Classe).
-2. In **New Java Class`WebCreator` (Nuova classe Java) assegnare alla classe il nome ** e selezionare la casella di controllo **public static void main**. Le selezioni dovrebbero essere come le seguenti:
+2. In **New Java Class** (Nuova classe Java) assegnare alla classe il nome `WebCreator` e selezionare la casella di controllo **public static void main**. Le selezioni dovrebbero essere come le seguenti:
    
     ![][2]
 3. Fare clic su **Finish**. Il file WebCreator.java appare in Project Explorer.
@@ -210,7 +210,7 @@ dove:
 * `webSpaceName` deve essere uno dei valori definiti nella classe [WebSpaceNames][WebSpaceNames].
 * `appServicePlanName` deve essere specificato come indicato sopra.
 
-> **Nota:`appServicePlanName` ogni volta che si esegue questa applicazione, è necessario cambiare il valore di ** e `webAppName` (o eliminare l'app Web nel portale di Azure) prima di eseguire di nuovo l'applicazione. In caso contrario, l'esecuzione non riuscirà perché la stessa risorsa esiste già in Azure.
+> **Nota:** `appServicePlanName` ogni volta che si esegue questa applicazione, è necessario cambiare il valore di e `webAppName` (o eliminare l'app Web nel portale di Azure) prima di eseguire di nuovo l'applicazione. In caso contrario, l'esecuzione non riuscirà perché la stessa risorsa esiste già in Azure.
 > 
 > 
 
@@ -342,7 +342,7 @@ Prima di eseguire questa applicazione, è necessario configurare alcune propriet
    
     ![][4]
 3. Sempre nella finestra di dialogo **Properties** (Proprietà) selezionare **Targeted Runtimes** (Runtime mirati) e fare clic su **New** (Nuovo).
-4. Nella finestra di dialogo **New Server Runtime Environment** (Nuovo ambiente di runtime server) selezionare un server, ad esempio **Apache Tomcat v7.0**, e fare clic su **Next** (Avanti). Nella finestra di dialogo **Tomcat Server** (Server Tomcat) impostare **Name** (Nome) su ** e impostare `Apache Tomcat v7.0`Tomcat Installation Directory** (Directory di installazione Tomcat) sulla directory in cui è stata installata la versione del server Tomcat da usare.
+4. Nella finestra di dialogo **New Server Runtime Environment** (Nuovo ambiente di runtime server) selezionare un server, ad esempio **Apache Tomcat v7.0**, e fare clic su **Next** (Avanti). Nella finestra di dialogo **Tomcat Server** (Server Tomcat) impostare **Name** (Nome) su e impostare `Apache Tomcat v7.0` **Tomcat Installation Directory** (Directory di installazione Tomcat) sulla directory in cui è stata installata la versione del server Tomcat da usare.
    
     ![][5]
    
@@ -482,7 +482,7 @@ Un altro strumento che è possibile usare per pubblicare l'applicazione è FileZ
 4. Nel pannello del sito **Local** (Locale) selezionare la directory di origine in cui si trova il file JSPHello.war. Il percorso sarà simile al seguente:
    
     `<project-path>/JSPHello/src/`
-5. Nel pannello del sito **Remote** selezionare la cartella di destinazione. Il file WAR verrà distribuito nella directory `webapps` sotto la radice dell'app Web. Passare a **, fare clic con il pulsante destro del mouse su ** e scegliere `/site/wwwroot`Create directory`wwwroot` (Crea directory). Assegnare alla directory il nome `webapps` e aprirla.
+5. Nel pannello del sito **Remote** selezionare la cartella di destinazione. Il file WAR verrà distribuito nella directory `webapps` sotto la radice dell'app Web. Passare a fare clic con il pulsante destro del mouse su e scegliere `/site/wwwroot`Create directory`wwwroot` **(Crea directory)** . Assegnare alla directory il nome `webapps` e aprirla.
 6. Trasferire JSPHello.war in `/site/wwwroot/webapps`. Selezionare JSPHello.war nell'elenco di file **Local** (Locale), fare clic con il pulsante destro del mouse su di esso e scegliere **Upload** (Carica). Dovrebbe venire visualizzato in `/site/wwwroot/webapps`.
 7. Dopo avere copiato JSPHello.war nella directory webapps, Tomcat Server decomprimerà automaticamente i file del file WAR. Anche se Tomcat Server inizia la decompressione quasi immediatamente, potrebbe volerci molto tempo (anche ore) prima che i file vengano visualizzati nel client FTP.
 

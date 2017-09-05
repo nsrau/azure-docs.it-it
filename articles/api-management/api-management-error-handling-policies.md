@@ -1,9 +1,9 @@
 ---
 title: Gestione degli errori nei criteri di Gestione API di Azure | Microsoft Docs
-description: Informazioni su come rispondere alle condizioni di errore che possono verificarsi durante l&quot;elaborazione delle richieste in Gestione API di Azure.
+description: Informazioni su come rispondere alle condizioni di errore che possono verificarsi durante l'elaborazione delle richieste in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 672b36fc80d8826247b3104ca8c5ffb13e45fa59
+ms.contentlocale: it-it
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
@@ -128,8 +130,3 @@ Gestione API di Azure consente agli autori di rispondere alle condizioni di erro
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

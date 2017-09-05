@@ -1,10 +1,10 @@
 ---
-title: Distribuire un&quot;applicazione Spring Boot nel servizio app di Azure | Microsoft Docs
-description: "Questa esercitazione fornirà agli sviluppatori i passaggi per distribuire l&quot;app Web Introduzione a Spring Boot nel servizio app di Azure."
+title: Distribuire un'applicazione Spring Boot nel servizio app di Azure | Microsoft Docs
+description: "Questa esercitazione fornirà agli sviluppatori i passaggi per distribuire l'app Web Introduzione a Spring Boot nel servizio app di Azure."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: multiple
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/20/2017
+ms.date: 08/04/2017
 ms.author: asirveda;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: ec6982f41d1e04d737c0f47571c30d813a390ea7
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -197,11 +196,9 @@ La procedura seguente illustra i passaggi per distribuire l'app Web Spring Boot 
 
 Per altre informazioni sull'uso delle applicazioni Spring Boot in Azure, vedere gli articoli seguenti:
 
-* [Eseguire un'applicazione Spring Boot in Linux nel servizio contenitore di Azure](../container-service/container-service-deploy-spring-boot-app-on-linux.md)
+* [Distribuire un'applicazione Spring Boot in Linux nel servizio contenitore di Azure](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md)
 
-* [Eseguire un'applicazione Spring Boot in un cluster Kubernetes nel servizio contenitore di Azure](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
-
-## <a name="additional-resources"></a>Risorse aggiuntive
+* [Distribuire un'applicazione Spring Boot in un cluster Kubernetes nel servizio contenitore di Azure](../container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
 Per altre informazioni su come usare Azure con Java, vedere il [Centro per sviluppatori Java di Azure] e gli [strumenti Java per Visual Studio Team Services].
 
@@ -209,7 +206,7 @@ Per altre informazioni sulla distribuzione di app Web in Azure tramite FTP, vede
 
 Per altre informazioni sul progetto di esempio Spring Boot, vedere [Introduzione a Spring Boot ].
 
-Per informazioni sulla Guida introduttiva con le proprie applicazioni Spring Boot, vedere **Spring Initializr** (Inizializzazione di SpringBoot) all'indirizzo https://start.spring.io/..
+Per informazioni sulla Guida introduttiva con le proprie applicazioni Spring Boot, vedere **Spring Initializr** (Inizializzazione di SpringBoot) all'indirizzo https://start.spring.io/.
 
 Per altre informazioni sulla configurazione delle impostazioni aggiuntive per l'app Web, vedere [Configurare app Web in Servizio app di Azure].
 

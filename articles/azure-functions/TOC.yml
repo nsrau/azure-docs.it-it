@@ -19,6 +19,8 @@
       items:
         - name: Timer
           href: functions-create-scheduled-function.md
+        - name: Webhook generico
+          href: functions-create-generic-webhook-triggered-function.md
         - name: Webhook di GitHub
           href: functions-create-github-webhook-triggered-function.md
         - name: Archiviazione BLOB
@@ -37,8 +39,12 @@
       href: functions-twitter-email.md
     - name: 2. Creare un'API senza server
       href: functions-create-serverless-api.md
+    - name: 3. Creare una definizione OpenAPI
+      href: functions-openapi-definition.md
 - name: Esempi
   items:
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
     - name: Interfaccia della riga di comando di Azure
       href: functions-cli-samples.md
 - name: Concetti
@@ -94,9 +100,10 @@
         - name: Creare una definizione OpenAPI 2.0
           href: functions-api-definition-getting-started.md
         - name: Esportare in PowerApps e Microsoft Flow
-          href: >-
-            ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
-- name: Riferimento
+          href: ../app-service/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Chiamare una funzione da PowerApps
+          href: functions-powerapps-scenario.md
+- name: riferimento
   items:
     - name: Associazioni
       items:
@@ -108,6 +115,8 @@
           href: functions-bindings-event-hubs.md
         - name: File esterno
           href: functions-bindings-external-file.md
+        - name: Tabella esterna
+          href: functions-bindings-external-table.md
         - name: HTTP e webhook
           href: functions-bindings-http-webhook.md
         - name: App per dispositivi mobili
@@ -131,9 +140,11 @@
 - name: Risorse
   items:
     - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Forum MSDN
@@ -145,5 +156,4 @@
     - name: Repository GitHub di Funzioni di Azure
       href: 'https://github.com/Azure/Azure-Functions/'
     - name: Aggiornamenti del servizio
-      href: >-
-        https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+      href: 'https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform='

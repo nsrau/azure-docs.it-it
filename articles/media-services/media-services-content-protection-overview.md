@@ -4,7 +4,7 @@ description: Questi articoli forniscono informazioni generali sulla protezione d
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
 ms.openlocfilehash: bf2bd9bca8817f64790ac62d2981a51aa36566a3
 ms.contentlocale: it-it
 ms.lasthandoff: 01/27/2017
-
 
 ---
 # <a name="protecting-content-overview"></a>Informazioni generali sulla protezione dei contenuti

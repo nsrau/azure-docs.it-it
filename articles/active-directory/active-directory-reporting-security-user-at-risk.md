@@ -1,6 +1,6 @@
 ---
-title: Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory | Microsoft Docs
-description: Informazioni sul report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory
+title: Report di sicurezza Utenti contrassegnati per il rischio nel portale di Azure Active Directory | Microsoft Docs
+description: Informazioni sul report di sicurezza Utenti contrassegnati per il rischio nel portale di Azure Active Directory
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,35 +10,50 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 01ecb98c02b2a01007c7f76805d4db4b7aeee1f0
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 76413d6e9c619a66ae34f032eb0b8f9d42c27c9d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Report di sicurezza per gli utenti a rischio nel portale di Azure Active Directory
+# <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Report di sicurezza Utenti contrassegnati per il rischio nel portale di Azure Active Directory
 
 I report di sicurezza in Azure Active Directory (Azure AD) permettono di ottenere informazioni approfondite sulla probabile presenza di account utente compromessi nell'ambiente. 
 
-Azure Active Directory rileva le azioni sospette correlate agli account utente. Per ogni azione rilevati viene creato un record denominato *evento di rischio*. Per altre informazioni, vedere [Azure Active Directory risk events](active-directory-identity-protection-risk-events.md) (Eventi di rischio di Azure Active Directory). 
+Azure Active Directory rileva le azioni sospette correlate agli account utente. Per ogni azione rilevati viene creato un record denominato *evento di rischio*. Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 
 Gli eventi di rischio rilevati vengono usati per calcolare:
 
-- **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. Per informazioni dettagliate, vedere [Accessi a rischio](active-directory-identityprotection.md#risky-sign-ins). 
+- **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. Per altre informazioni, vedere [Accessi a rischio](active-directory-identityprotection.md#risky-sign-ins). 
 
-- **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per informazioni dettagliate, vedere [Utenti contrassegnati per il rischio](active-directory-identityprotection.md#users-flagged-for-risk).  
+- **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per altre informazioni, vedere [Utenti contrassegnati per il rischio](active-directory-identityprotection.md#users-flagged-for-risk).  
 
 Nel Portale di Azure, è possibile trovare i report di sicurezza nel pannello di **Azure Active Directory** nella sezione **Sicurezza**.  
 
 ![Accessi a rischio](./media/active-directory-reporting-security-user-at-risk/10.png)
 
+
+
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Licenza di Azure AD necessaria per accedere a un report sulla sicurezza  
+
+Tutte le edizioni di Azure Active Directory offrono report sugli utenti contrassegnati per il rischio.  
+Tuttavia, il livello di granularità dei report varia a seconda delle edizioni: 
+
+- Nelle edizioni **Azure Active Directory Free e Basic**  è già incluso un elenco degli utenti contrassegnati per il rischio. 
+
+- Nell'edizione **Azure Active Directory Premium 1** questo modello consente anche di esaminare alcuni degli eventi di rischio sottostanti che sono stati rilevati per ogni report. 
+
+- L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate su tutti gli eventi di rischio sottostanti e permette di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
+
+
+
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Versione gratuita e di base di Azure Active Directory
 
-Il report per gli utenti a rischio nella versione gratuita e di base di Azure Active Directory offre un elenco degli account utente che potrebbero essere stati compromessi. 
+Il report Utenti contrassegnati per il rischio nella versione gratuita e di base di Azure Active Directory offre un elenco degli account utente che potrebbero essere stati compromessi. 
 
 
 ![Accessi a rischio](./media/active-directory-reporting-security-user-at-risk/03.png)
@@ -50,7 +65,7 @@ Analizzare la cronologia di accesso degli utenti a rischio e reimpostare la pass
 
 ## <a name="azure-active-directory-premium-editions"></a>Versione Premium di Azure Active Directory
 
-Il report per gli utenti a rischio della versione Premium di Azure Active Directory offre:
+Il report Utenti contrassegnati per il rischio della versione Premium di Azure Active Directory offre:
 
 - Un [elenco di account di utenti](active-directory-identityprotection.md#users-flagged-for-risk) che potrebbero essere stati compromessi 
 
@@ -77,8 +92,7 @@ Quando si seleziona un utente, si ottiene la visualizzazione di un report dettag
 ![Accessi a rischio](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
-Per ricercare la causa di un evento di rischio, selezionarlo dall'elenco.  
-Verrà visualizzato il pannello **Dettagli** per questo evento di rischio. Nel pannello **Dettagli**, è possibile [chiudere manualmente un evento di rischio](active-directory-identityprotection.md#closing-risk-events-manually) o riattivare un evento di rischio chiuso manualmente. 
+Per analizzare un evento di rischio, selezionarne uno nell'elenco per aprire il pannello **Dettagli** dell'evento di rischio. Nel pannello **Dettagli**, è possibile [chiudere manualmente un evento di rischio](active-directory-identityprotection.md#closing-risk-events-manually) o riattivare un evento di rischio chiuso manualmente. 
 
 
 ![Accessi a rischio](./media/active-directory-reporting-security-user-at-risk/325.png)

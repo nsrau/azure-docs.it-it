@@ -1,6 +1,6 @@
 ---
-title: Usare l&quot;estensione CustomScript in una macchina virtuale Linux | Microsoft Docs
-description: Informazioni su come utilizzare l&quot;estensione CustomScript per distribuire le applicazioni in macchine virtuali Linux in Azure create utilizzando il modello di distribuzione classica.
+title: Usare l'estensione CustomScript in una macchina virtuale Linux | Microsoft Docs
+description: Informazioni su come utilizzare l'estensione CustomScript per distribuire le applicazioni in macchine virtuali Linux in Azure create utilizzando il modello di distribuzione classica.
 editor: tysonn
 manager: timlt
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 43175672c81373b5c9cc1bddc8ce27bcaaf5ec14
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8d8c1e583939b9d1aea53db3f4378829e9b40410
 ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>Distribuire un'applicazione LAMP utilizzando l'estensione CustomScript di Azure per Linux
@@ -105,7 +104,3 @@ Di seguito sono riportate alcune risorse aggiuntive per l’interfaccia della ri
 [Automatizzare le attività di personalizzazione delle macchine virtuali Linux utilizzando l'estensione CustomScript](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Estensioni per Linux di Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
-
-[Computing Linux e open source in Azure](../opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-

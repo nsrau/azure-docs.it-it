@@ -12,7 +12,7 @@
 ## [Senza server](../../azure-functions/functions-create-first-azure-function.md)
 ## Microservizi
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
-### [Servizio contenitore](../../container-service/container-service-deployment.md) 
+### [Servizio contenitore](../../container-service/dcos-swarm/container-service-deployment.md) 
 
 # Esercitazioni
 ## Creare e distribuire un'app Web
@@ -64,12 +64,12 @@
 ### [VM Linux da un modello](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM Windows da un modello](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## Archiviare dati
-### [BLOB](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [Condivisioni file](../../storage/storage-dotnet-how-to-use-files.md)
-### [Coppie chiave-valore](../../storage/storage-dotnet-how-to-use-tables.md)
+### [BLOB](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [Condivisioni file](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [Coppie chiave-valore](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [Documenti JSON](../../documentdb/documentdb-get-started.md)
 ### [Tabelle relazionali](../../sql-database/sql-database-get-started.md)
-### [Code di messaggi](../../storage/storage-dotnet-how-to-use-queues.md)
+### [Code di messaggi](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## Scalabilità
 ### [App Web e per dispositivi mobili](../../app-service-web/web-sites-scale.md)
@@ -112,5 +112,6 @@
 # Risorse
 ## [Aree di Azure](https://azure.microsoft.com/regions/)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Esempi](https://azure.microsoft.com/resources/samples/)
 ## [Video](https://azure.microsoft.com/resources/videos/home/)

@@ -39,6 +39,7 @@
 ### [Trasmettere il log attività a Hub eventi](monitoring-stream-activity-logs-event-hubs.md)
 ### [Operazioni di controllo con Gestione risorse](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Creare avvisi del log attività con Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [Eseguire la migrazione agli avvisi del log attività](monitoring-migrate-management-alerts.md)
 ## Usare le notifiche del servizio
 ### [Visualizzare le notifiche del servizio](monitoring-service-notifications.md)
 ### [Configurare avvisi per le notifiche del servizio](monitoring-activity-log-alerts-on-service-notifications.md)
@@ -58,9 +59,12 @@
 ### [Trasmettere a Hub eventi](azure-diagnostics-streaming-event-hubs.md)
 ### [Risoluzione dei problemi](azure-diagnostics-troubleshooting.md)
 
-# Riferimento
-## [Elenco delle metriche supportate](monitoring-supported-metrics.md)
+# riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [Origini dei dati di monitoraggio](monitoring-data-sources.md)
+## [Elenco delle metriche supportate](monitoring-supported-metrics.md)
+## [Schema degli eventi del log attività](monitoring-activity-log-schema.md)
+## [Servizi, categorie e schemi supportati per i log di diagnostica](monitoring-diagnostic-logs-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
@@ -71,7 +75,8 @@
 
 # Risorse
 ## [Esempi dell'interfaccia della riga di comando di Azure 1.0](insights-cli-samples.md)
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Esempi di PowerShell](insights-powershell-samples.md)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [Modelli di avvio rapido](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)

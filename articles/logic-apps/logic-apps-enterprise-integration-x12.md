@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 4a41d9eb8b28aed499bb20e17e3c979962c78bcd
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Scambiare messaggi X12 per l'integrazione aziendale con le app per la logica
@@ -272,6 +271,9 @@ Oltre al set di caratteri, è possibile immettere un set di delimitatori diverso
 | Replacement Character |Immettere un carattere sostitutivo da usare per sostituire tutti i caratteri separatori nei dati di payload quando si genera il messaggio X12. |
 | Segment Terminator |Per indicare la fine di un segmento EDI, immettere un singolo carattere. |
 | Suffisso |Selezionare il carattere usato con l'identificatore di segmento. Se si designa un suffisso, l'elemento dati del terminatore di segmenti può essere vuoto. Se il carattere di terminazione segmento viene lasciato vuoto, è necessario designare un suffisso. |
+
+> [!TIP]
+> Per fornire i valori dei caratteri speciali, modificare il contratto come JSON e specificare il valore ASCII per il carattere speciale.
 
 ### <a name="validation"></a>Convalida
 

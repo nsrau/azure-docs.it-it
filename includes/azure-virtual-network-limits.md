@@ -6,7 +6,7 @@
 | Siti di rete locale |20 |Contattare il supporto tecnico |
 | Server DNS per rete virtuale |20 |100 |
 | Indirizzi IP privati per rete virtuale |4096 |4096 |
-| Connessioni TCP simultanee per un'istanza del ruolo o della macchina virtuale |500K |500K |
+| Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500K |500K |
 | Gruppi di sicurezza di rete (NGS) |100 |200 |
 | Regole NSG per NSG |200 |400 |
 | Tabelle di route definite dall’utente |100 |200 |
@@ -25,9 +25,9 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Reti virtuali |50 |500 |
 | Subnet per rete virtuale |1.000 |contattare il supporto tecnico |
 | Server DNS per rete virtuale |9 |25 |
-| Indirizzi IP privati per rete virtuale |4096 |4096 |
-| Indirizzi IP privati per interfaccia di rete |50 |contattare il supporto tecnico |
-| Connessioni TCP simultanee per un'istanza del ruolo o della macchina virtuale |500K |500K |
+| Indirizzi IP privati per rete virtuale |4096 |8192 |
+| Indirizzi IP privati per interfaccia di rete |50 |Contattare il supporto tecnico |
+| Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500K |500K |
 | Interfacce di rete (NIC) |300 |10000 |
 | Gruppi di sicurezza di rete (NGS) |100 |400 |
 | Regole NSG per NSG |200 |500 |
@@ -35,10 +35,11 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Le route definite dall’utente per ogni tabella di route |100 |400 |
 | Indirizzi IP pubblici (dinamici) |60 |Contattare il supporto tecnico |
 | Indirizzi IP pubblici (statici) |20 |Contattare il supporto tecnico |
-| Bilanciamento del carico (interno e con connessione Internet) |100 |Contattare il supporto tecnico |
+| Servizi di bilanciamento del carico (interni e con connessione Internet) |100 |Contattare il supporto tecnico |
 | Regole del servizio di bilanciamento del carico per ogni servizio di bilanciamento del carico |150 |150 |
-| IP front-end pubblico per ogni di bilanciamento del carico |10 |30 |
-| IP front-end privato per ogni di bilanciamento del carico |10 |Contattare il supporto tecnico |
+| Regole del servizio di bilanciamento del carico per ogni configurazione IP |299 |299 |
+| IP front-end pubblico per ogni servizio di bilanciamento del carico |10 |30 |
+| IP front-end privato per ogni servizio di bilanciamento del carico |10 |Contattare il supporto tecnico |
 | Peering di reti virtuali per rete virtuale |10 |50 |
 | Certificati radice Point-to-Site per ogni gateway VPN |20 |20 |
 | Configurazioni IP secondarie per rete virtuale |1000 |Contattare il supporto tecnico |

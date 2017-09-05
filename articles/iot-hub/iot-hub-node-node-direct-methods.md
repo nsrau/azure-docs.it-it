@@ -1,6 +1,6 @@
 ---
-title: Metodi diretti dell&quot;Hub IoT di Azure (Node) | Documentazione Microsoft
-description: Come usare metodi diretti dell&quot;Hub IoT di Azure. Usare Azure IoT SDK per Node.js per implementare un&quot;app per dispositivo simulato che include un metodo diretto e un&quot;app di servizio che richiama il metodo diretto.
+title: Metodi diretti dell'Hub IoT di Azure (Node) | Documentazione Microsoft
+description: Come usare metodi diretti dell'Hub IoT di Azure. Usare Azure IoT SDK per Node.js per implementare un'app per dispositivo simulato che include un metodo diretto e un'app di servizio che richiama il metodo diretto.
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2017
+ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c76870c49f5c8e51f521fd4be920d976e4cdbcef
 ms.openlocfilehash: 7100856b02935fba7bbf1427d86859ddb7a2b5f3
+ms.contentlocale: it-it
 ms.lasthandoff: 03/02/2017
-
 
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>Usare i metodi diretti sul dispositivo IoT con Node. js

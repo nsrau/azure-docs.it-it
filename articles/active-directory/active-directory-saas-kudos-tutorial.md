@@ -1,153 +1,277 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Kudos | Documentazione Microsoft'
-description: Informazioni su come utilizzare Kudos con Azure Active Directory per abilitare l&quot;accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Kudos.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
 ms.assetid: 39c47ce6-4944-47ba-8f53-3afa95398034
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/04/2017
+ms.date: 06/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: ea39ca12135fded44a8e70ec87616f79007e0200
-ms.openlocfilehash: 79915c69e2d40529ec5ad96a632e2e5b2ac4dd5e
-ms.lasthandoff: 02/17/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
+ms.openlocfilehash: 353798fcfd4ad7ce017fc2fddf4110715db3ace2
+ms.contentlocale: it-it
+ms.lasthandoff: 06/24/2017
 
 
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Esercitazione: integrazione di Azure Active Directory con Kudos
-In questa esercitazione viene illustrata l'integrazione di Azure e Kudos.  
 
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+Questa esercitazione descrive come integrare Kudos con Azure Active Directory (Azure AD).
 
-* Sottoscrizione di Azure valida
-* Tenant Kudos
+L'integrazione di Kudos con Azure AD offre i vantaggi seguenti:
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a Kudos saranno in grado di eseguire l’accesso Single Sign-On all'applicazione tramite il sito aziendale di Kudos (accesso avviato dal provider di servizi) o seguendo le istruzioni riportate in [Introduzione al pannello di accesso](active-directory-saas-access-panel-introduction.md)
+- È possibile controllare in Azure AD chi può accedere a Kudos
+- È possibile abilitare gli utenti per l'accesso automatico a Kudos (Single Sign-On) con i propri account Azure AD
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-* Abilitazione dell'integrazione dell'applicazione per Kudos
-* Configurazione dell'accesso Single Sign-On (SSO)
-* Configurazione del provisioning utente
-* Assegnazione degli utenti
+## <a name="prerequisites"></a>Prerequisiti
 
-![Scenario](./media/active-directory-saas-kudos-tutorial/IC787799.png "Scenario")
+Per configurare l'integrazione di Azure AD con Kudos, sono necessari gli elementi seguenti:
 
-## <a name="enabling-the-application-integration-for-kudos"></a>Abilitazione dell'integrazione dell'applicazione per Kudos
-In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Kudos.
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Kudos abilitata per l'accesso Single Sign-On
 
-**Per abilitare l'integrazione dell'applicazione per Kudos eseguire la procedura seguente:**
+> [!NOTE]
+> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
-1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
-   
-   ![Active Directory](./media/active-directory-saas-kudos-tutorial/IC700993.png "Active Directory")
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
-   
-   ![Applicazioni](./media/active-directory-saas-kudos-tutorial/IC700994.png "Applicazioni")
-4. Fare clic su **Add** nella parte inferiore della pagina.
-   
-   ![Aggiungere un'applicazione](./media/active-directory-saas-kudos-tutorial/IC749321.png "Aggiungere un'applicazione")
-5. Nella finestra di dialogo **Come procedere** fare clic su **Aggiungere un'applicazione dalla raccolta**.
-   
-   ![Aggiungere un'applicazione dalla raccolta](./media/active-directory-saas-kudos-tutorial/IC749322.png "Aggiungere un'applicazione dalla raccolta")
-6. Nella **casella di ricerca** digitare **Kudos**.
-   
-   ![Raccolta di applicazioni](./media/active-directory-saas-kudos-tutorial/IC787800.png "Raccolta di applicazioni")
-7. Nel riquadro dei risultati selezionare **Kudos** e quindi fare clic su **Completa** per aggiungere l'applicazione.
-   
-   ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
-   
-## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On
+A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Kudos tramite il relativo account in Azure AD utilizzando la federazione basata sul protocollo SAML.  
+- Non usare l'ambiente di produzione a meno che non sia necessario.
+- Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base&64;. Se non si ha familiarità con questa procedura, vedere il video che illustra [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o).
+## <a name="scenario-description"></a>Descrizione dello scenario
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-**Per configurare l'accesso Single Sign-On, seguire questa procedura:**
+1. Aggiunta di Kudos dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-1. Nella pagina di integrazione dell'applicazione **Kudos** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
+## <a name="adding-kudos-from-the-gallery"></a>Aggiunta di Kudos dalla raccolta
+Per configurare l'integrazione di Kudos in Azure AD, è necessario aggiungere Kudos dalla raccolta al proprio elenco di app SaaS gestite.
+
+**Per aggiungere Kudos dalla raccolta, seguire questa procedura:**
+
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+
+    ![Active Directory][1]
+
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+
+    ![Applicazioni][2]
+    
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+
+    ![Applicazioni][3]
+
+4. Nella casella di ricerca digitare **Kudos**.
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_search.png)
+
+5. Nel pannello dei risultati selezionare **Kudos** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_addfromgallery.png)
+
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Kudos usando un utente test di nome "Britta Simon".
+
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente controparte di Kudos che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Kudos.
+
+Per stabilire la relazione di collegamento, in Kudos assegnare il valore di **nome utente** di Azure AD come valore di **Username** (Nome utente).
+
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Kudos, è necessario completare i blocchi predefiniti seguenti:
+
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente test di Kudos](#creating-a-kudos-test-user)**: per avere una controparte di Britta Simon in Kudos collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+
+### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
+
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Kudos.
+
+**Per configurare l'accesso Single Sign-On di Azure AD con Kudos, seguire questa procedura:**
+
+1. Nella pagina di integrazione dell'applicazione **Kudos** del portale di Azure fare clic su **Single Sign-On**.
+
+    ![Configura accesso Single Sign-On][4]
+
+2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+ 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_samlbase.png)
+
+3. Nella sezione **URL e dominio Kudos** seguire questa procedura:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_url.png)
+
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company>.kudosnow.com`
+    
+    > [!NOTE] 
+    > Poiché non è reale, aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Kudos](http://success.kudosnow.com/home). 
+ 
+4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_certificate.png) 
+
+5. Fare clic sul pulsante **Salva** .
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/tutorial_general_400.png)
+
+6. Nella sezione **Configurazione di Kudos** fare clic su **Configura Kudos** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML e l'URL di disconnessione** dalla sezione **Riferimento rapido**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_configure.png) 
+
+7. In un'altra finestra del Web browser accedere al sito aziendale di Kudos come amministratore.
+
+8. Nel menu in alto fare clic su **Impostazioni**.
    
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/IC787802.png "Configurare l'accesso Single Sign-On")
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Kudos** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
+    ![Impostazioni](./media/active-directory-saas-kudos-tutorial/ic787806.png "Impostazioni")
+
+9. Fare clic su **Integrations (Integrazioni) \> SSO**.
+
+10. Nella sezione **SSO** eseguire la procedura seguente:
    
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/IC787803.png "Configurare l'accesso Single Sign-On")
-3. Nella casella di testo **URL di accesso Kudos** della pagina **Configure App URL** (Configura URL app) digitare l'URL usando il modello "**https://company.kudosnow.com**" e quindi fare clic su **Avanti**.
+    ![SSO](./media/active-directory-saas-kudos-tutorial/ic787807.png "SSO")
    
-   ![Configurare l'URL dell'app](./media/active-directory-saas-kudos-tutorial/IC787804.png "Configurare l'URL dell'app")
-4. Nella pagina **Configura accesso Single Sign-On in Kudos** fare clic su **Scarica certificato** e quindi salvare il file del certificato nel computer.
+    a. Nella casella di testo **Sign on URL** (URL di accesso) incollare il valore di **SAML Single Sign-On Service URL** (URL servizio Single Sign-On) copiato dal portale di Azure. 
+
+    b. Aprire il certificato con codifica base 64 nel blocco note, copiarne il contenuto negli appunti e incollarlo nella casella di testo **Certificato X.509**
    
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/IC787805.png "Configurare l'accesso Single Sign-On")
-5. In un'altra finestra del Web browser accedere al sito aziendale di Kudos come amministratore.
-6. Nel menu in alto fare clic su **Impostazioni**.
+    c. In **Logout To URL** (URL di disconnessione) incollare il valore di **Sign-Out URL** (URL di disconnessione) copiato dal portale di Azure.
    
-   ![Impostazioni](./media/active-directory-saas-kudos-tutorial/IC787806.png "Impostazioni")
-7. Fare clic su **Integrations (Integrazioni) \> SSO**.
-8. Nella sezione **SSO** eseguire la procedura seguente:
+    d. Nella casella di testo **URL di Kudos** digitare il nome della società.
    
-   ![SSO](./media/active-directory-saas-kudos-tutorial/IC787807.png "SSO")
-   
-   1. Nella finestra di dialogo **Configura accesso Single Sign-On in Kudos** del portale di Azure classico copiare il valore di **URL servizio Single Sign-On** e incollarlo nella casella di testo **Sign on URL** (URL di accesso).
-   2. Creare un file **con codifica Base&64;** dal certificato scaricato. 
-   
-      >[!TIP]
-      >Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o) 
-      > 
-   3. Aprire il certificato con codifica base&64; nel blocco note, copiarne il contenuto negli appunti e incollarlo nella casella di testo **Certificato X.509**
-   4. Nella finestra di dialogo **Configura accesso Single Sign-On in Kudos** del portale di Azure classico copiare il valore di **URL servizio Single Sign-Out** e incollarlo nella casella di testo **Logout To URL** (URL di disconnessione).
-   5. Nella casella di testo **URL di Kudos** digitare il nome della società.
-   6. Fare clic su **Save**.
-9. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
-   
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/IC787808.png "Configurare l'accesso Single Sign-On")
-   
-## <a name="configure-user-provisioning"></a>Configura provisioning utenti
+    e. Fare clic su **Salva**.
+
+> [!TIP]
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+
+
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+
+![Creare un utente di Azure AD][100]
+
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+
+1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kudos-tutorial/create_aaduser_01.png) 
+
+2. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
+    
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kudos-tutorial/create_aaduser_02.png) 
+
+3. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
+ 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kudos-tutorial/create_aaduser_03.png) 
+
+4. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
+ 
+    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-kudos-tutorial/create_aaduser_04.png) 
+
+    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+
+    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+
+    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
+
+    d. Fare clic su **Crea**.
+ 
+### <a name="creating-a-kudos-test-user"></a>Creazione di un utente test di Kudos
 
 Per consentire agli utenti di Azure AD di accedere a Kudos, è necessario eseguirne il provisioning in Kudos. 
 
-* Nel caso di Kudos, il provisioning è un'attività manuale.
+Nel caso di Kudos, il provisioning è un'attività manuale.
 
-**Per effettuare il provisioning di un account utente, seguire questa procedura:**
+**Per eseguire il provisioning di un account utente, seguire questa procedura:**
 
 1. Accedere al sito aziendale di **Kudos** come amministratore.
+
 2. Nel menu in alto fare clic su **Impostazioni**.
    
-   ![Impostazioni](./media/active-directory-saas-kudos-tutorial/IC787806.png "Impostazioni")
+   ![Impostazioni](./media/active-directory-saas-kudos-tutorial/ic787806.png "Impostazioni")
+
 3. Fare clic su **User Admin**.
+
 4. Fare clic sulla scheda **Users** (Utenti) e quindi su **Add a User** (Aggiungi un utente).
    
-   ![Amministratore utenti](./media/active-directory-saas-kudos-tutorial/IC787809.png "Amministratore utenti")
+   ![Amministratore utenti](./media/active-directory-saas-kudos-tutorial/ic787809.png "Amministratore utenti")
+
 5. Nella sezione **Aggiungi un utente** eseguire la procedura seguente:
    
-   ![Aggiungere un utente](./media/active-directory-saas-kudos-tutorial/IC787810.png "Aggiungere un utente")
+    ![Aggiungere un utente](./media/active-directory-saas-kudos-tutorial/ic787810.png "Aggiungere un utente")
    
-  1. Nelle caselle **First Name**, **Last Name**, **Email** e così via immettere il nome, cognome, indirizzo di posta elettronica e altri dettagli di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
-   2. Fare clic su **Crea utente**.
+    a. Nelle caselle **First Name**, **Last Name**, **Email** e così via immettere il nome, cognome, indirizzo di posta elettronica e altri dettagli di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
+   
+    b. Fare clic su **Create User**.
 
 >[!NOTE]
 >È possibile utilizzare qualsiasi altro strumento di creazione di account utente di Kudos o le API fornite da Kudos per eseguire il provisioning degli account utente di AAD.
->  
 
-## <a name="assign-users"></a>Assegna utenti
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
-**Per assegnare gli utenti a Kudos, eseguire la procedura seguente:**
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Kudos.
 
-1. Nel portale di Azure classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **Kudos** fare clic su **Assegna utenti**.
-   
-   ![Assegnare utenti](./media/active-directory-saas-kudos-tutorial/IC787811.png "Assegnare utenti")
-3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
-   
-   ![Sì](./media/active-directory-saas-kudos-tutorial/IC767830.png "Sì")
+![Assegna utente][200] 
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+**Per assegnare Britta Simon a Kudos, seguire questa procedura:**
+
+1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+
+    ![Assegna utente][201] 
+
+2. Nell'elenco delle applicazioni selezionare **Kudos**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-kudos-tutorial/tutorial_kudos_app.png) 
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Assegna utente][202] 
+
+4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Assegna utente][203]
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+
+6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+
+7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+    
+### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
+
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+
+Quando si fa clic sul riquadro Kudos nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Kudos. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+
+
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-kudos-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-kudos-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-kudos-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-kudos-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-kudos-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-kudos-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-kudos-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-kudos-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-kudos-tutorial/tutorial_general_203.png
 
 

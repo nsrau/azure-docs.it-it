@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory B2C: Usare Application Insights per risolvere i problemi relativi ai criteri personalizzati | Microsoft Docs'
-description: Informazioni su come configurare Application Insights per tenere traccia dell&quot;esecuzione di criteri personalizzati
+title: Application Insights per risolvere i problemi relativi ai criteri personalizzati - Azure AD B2C | Microsoft Docs
+description: Informazioni su come configurare Application Insights per tenere traccia dell'esecuzione di criteri personalizzati
 services: active-directory-b2c
 documentationcenter: 
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
 editor: parakhj
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 07eddeb35c2b88b2de08270d9ff5de317cc09ec7
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ad31e5f4ef3be78d8d2dd6b9c7d83e447d9ef776
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -101,8 +101,8 @@ Le voci possono essere lunghe.  Per visualizzarle meglio è possibile esportarle
 
 Per altre informazioni sullo strumento Analytics, vedere [qui](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
-^[!NOTE]
-La community ha sviluppato un visualizzatore di eventi userjourney per supportare gli sviluppatori di identità.  Non è supportato da Microsoft ed reso disponibile esclusivamente così com'è.  Legge l'istanza di Application Insights e restituisce una visualizzazione strutturata degli eventi userjourney.  Ottenere il codice sorgente e distribuirlo nella soluzione.
+>[!NOTE]
+>La community ha sviluppato un visualizzatore di eventi userjourney per supportare gli sviluppatori di identità.  Non è supportato da Microsoft ed reso disponibile esclusivamente così com'è.  Legge l'istanza di Application Insights e restituisce una visualizzazione strutturata degli eventi userjourney.  Ottenere il codice sorgente e distribuirlo nella soluzione.
 
 [Repository GitHub di esempi di criteri personalizzate non supportati e strumenti correlati](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 

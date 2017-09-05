@@ -2,7 +2,7 @@
 title: Media Encoder Standard a bitrate singolo H.264 con risoluzione 4K preimpostato - Azure | Documentazione Microsoft
 description: "Questo argomento offre una panoramica del set di impostazioni di attività **Codec video H.264 a bitrate singolo con risoluzione 4K**."
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

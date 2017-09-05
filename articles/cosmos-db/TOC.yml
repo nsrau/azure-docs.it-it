@@ -4,9 +4,6 @@
   items:
     - name: Informazioni su Azure Cosmos DB
       href: introduction.md
-    - name: Introduzione per clienti DocumentDB
-      href: >-
-        https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
 - name: Guide introduttive
   expanded: true
   items:
@@ -106,9 +103,6 @@
       href: consistency-levels.md
     - name: Velocità effettiva
       href: request-units.md
-      items:
-        - name: Unità richieste al minuto
-          href: request-units-per-minute.md
     - name: API a più modelli
       items:
         - name: DocumentDB
@@ -138,6 +132,8 @@
               href: documentdb-resources.md
             - name: Query SQL
               href: documentdb-sql-query.md
+            - name: Prestazioni query SQL
+              href: documentdb-sql-query-metrics.md
             - name: Playground SQL
               href: 'https://www.documentdb.com/sql/demo'
             - name: Partizionamento
@@ -195,8 +191,7 @@
                 - name: Stack Overflow
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Video
-                  href: >-
-                    https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
+                  href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Aggiornamenti del servizio
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
                 - name: Portale della community
@@ -223,9 +218,32 @@
               href: gremlin-support.md
         - name: API di tabella
           items:
-            - name: Archiviazione tabelle
-              href: >-
-                https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+            - name: Panoramica dell'archivio tabelle
+              href: table-storage-overview.md
+            - name: Guida alla progettazione dell'archivio tabelle
+              href: table-storage-design-guide.md
+            - name: API REST dell'archivio tabelle
+              href: /rest/api/storageservices/Table-Service-Concepts
+            - name: Esercitazioni
+              items:
+                - name: .NET
+                  href: table-storage-how-to-use-dotnet.md
+                - name: 'F#'
+                  href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                - name: Node.js
+                  href: table-storage-cloud-service-nodejs.md
+                - name: Java
+                  href: table-storage-how-to-use-java.md
+                - name: Node.js
+                  href: table-storage-how-to-use-nodejs.md
+                - name: C++
+                  href: table-storage-how-to-use-c-plus.md
+                - name: PHP
+                  href: table-storage-how-to-use-php.md
+                - name: Python
+                  href: table-storage-how-to-use-python.md
+                - name: Ruby
+                  href: table-storage-how-to-use-ruby.md
         - name: Feed delle modifiche
           href: change-feed.md
         - name: GeoSpatial
@@ -284,8 +302,12 @@
           href: powerbi-visualize.md
         - name: Sfruttare il driver ODBC per la visualizzazione dei dati
           href: odbc-driver.md
-- name: Riferimento
+        - name: Usare Spring Boot Starter con le API di DocumentDB
+          href: documentdb-java-spring-boot-starter-with-cosmos-db.md
+- name: riferimento
   items:
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: API di DocumentDB
       items:
         - name: Java

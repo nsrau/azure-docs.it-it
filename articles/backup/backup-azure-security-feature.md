@@ -79,7 +79,7 @@ Per gli utenti che usano il **server di Backup di Azure**:
 
 Per gli utenti di **Data Protection Manager**:
 
-1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino**** dei dati per recuperare i dati da tutti i punti di recupero precedenti.
+1. Se il server in cui sono stati eseguiti i backup è ancora disponibile, proteggere di nuovo le origini dati eliminate e usare la funzionalità di ripristino **dei dati per recuperare** i dati da tutti i punti di recupero precedenti.
 2. Se questo server non è disponibile, usare [Aggiungi DPM esterno](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) per usare un altro server Data Protection Manager per ottenere questi dati.
 
 ## <a name="prevent-attacks"></a>Prevenire gli attacchi

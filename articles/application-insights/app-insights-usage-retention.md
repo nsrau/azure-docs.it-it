@@ -1,6 +1,6 @@
 ---
 title: Analisi della conservazione degli utenti per applicazioni Web con Azure Application Insights | Microsoft Docs
-description: Quanti utenti tornano all&quot;app?
+description: Quanti utenti tornano all'app?
 services: application-insights
 documentationcenter: 
 author: botatoes
@@ -11,41 +11,37 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 17f6062537714fbef7c8509261ac4875f8a44b6e
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2363e725d44facc5417c0baf3f80c8b55fdca470
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analisi della conservazione degli utenti per applicazioni Web con Application Insights
 
-Il pannello Conservazione in [Azure Application Insights](app-insights-overview.md) consente analizzare il numero di utenti che tornano all'app e la frequenza con cui si eseguono attività specifiche o a si raggiungono determinati obiettivi. Ad esempio, se si esegue un sito di giochi, è possibile confrontare il numero di utenti che ritornano sul sito dopo aver perso una partita con il numero di utenti che ritornano dopo averla vinta. Queste informazioni consentono di migliorare sia l'esperienza per l'utente che la strategia aziendale.
+La funzionalità di conservazione in [Azure Application Insights](app-insights-overview.md) consente di analizzare il numero di utenti che tornano all'app e la frequenza con cui si eseguono attività specifiche o si raggiungono determinati obiettivi. Ad esempio, se si esegue un sito di giochi, è possibile confrontare il numero di utenti che ritornano sul sito dopo aver perso una partita con il numero di utenti che ritornano dopo averla vinta. Queste informazioni consentono di migliorare sia l'esperienza per l'utente che la strategia aziendale.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
-Se nel pannello Conservazione nel portale di Application Insights non vengono ancora visualizzati i dati, leggere le [informazioni su come iniziare a usare gli strumenti d'uso](app-insights-usage-overview.md).
+Se nello strumento Conservazione nel portale di Application Insights non vengono ancora visualizzati i dati, leggere le [informazioni su come iniziare a usare gli strumenti di utilizzo](app-insights-usage-overview.md).
 
-## <a name="the-retention-tool"></a>Strumento di conservazione
+## <a name="the-retention-tool"></a>Strumento Conservazione
 
 ![Strumento Conservazione](./media/app-insights-usage-retention/retention.png)
 
-a. La pagina Panoramica è sempre presente. Per di più, è possibile salvare i report a cui è stato assegnato un nome con diverse impostazioni dei parametri. Salvarli tra i report condivisi per fare in modo che siano visibili ad altri utenti che hanno accesso alla risorsa.
+1. La barra degli strumenti consente agli utenti di creare nuovi report di conservazione, aprire i report di conservazione esistenti, salvare il report di conservazione corrente o salvarlo con un altro nome, ripristinare le modifiche apportate al report salvati, aggiornare i dati del report, condividere un report tramite posta elettronica o un collegamento diretto e accedere alla pagina della documentazione. 
+2. Per impostazione predefinita, il report di conservazione mostra tutti gli utenti che non hanno fatto alcuna operazione, poi sono tornati e non hanno fatto altro per un periodo. È possibile selezionare una diversa combinazione di eventi per restringere l'ambito ad attività specifiche degli utenti.
+3. Aggiungere uno o più filtri alle proprietà. Ad esempio, è possibile concentrarsi sugli utenti di un determinato paese o area. Fare clic su **Aggiorna** sopo aver impostato i filtri. 
+4. Il grafico generale della conservazione mostra un riepilogo degli utenti conservati per il periodo di tempo selezionato. 
+5. Nella griglia viene visualizzato il numero di utenti conservati secondo il generatore di query al numero 2. Ogni riga rappresenta una coorte di utenti che hanno eseguito qualsiasi evento nel periodo di tempo indicato. Ogni cella nella riga mostra il numero di utenti della coorte che sono ritornati almeno una volta nel periodo successivo. Alcuni utenti potrebbero ritornare in periodi diversi. 
+6. Le schede dei dettagli mostrano i primi 5 eventi di avvio e i primi 5 eventi restituiti per consentire agli utenti una migliore comprensione del report di conservazione. 
 
-b. Per impostazione predefinita, il grafico conta tutti gli utenti che hanno usato gli eventi personalizzati o le visualizzazioni di pagine ricevute dall'app. Selezionarne uno o un sottoinsieme per concentrarsi su un'attività utente in particolare. 
+![Passaggio del mouse sullo strumento Conservazione](./media/app-insights-usage-retention/hover.png)
 
-c. Aggiungere uno o più filtri alle proprietà. Ad esempio, è possibile concentrarsi sugli utenti di un determinato paese o regione. Fare clic su **Aggiorna** sopo aver impostato i filtri.
-
-d. **Ripristina impostazioni predefinite** cancella sempre i filtro personalizzati e i filtri degli eventi.
-
-e. Il grafico di riepilogo mostra i totali per il periodo di tempo selezionato.
-
-f. La griglia mostra il numero di utenti che hanno ripetuto le azioni selezionate in un determinato periodo. Ogni riga rappresenta una coorte di utenti che ha eseguito una delle azioni selezionate nel tempo periodo indicato. Ogni cella nella riga mostra il numero di utenti della coorte che sono ritornati almeno una volta nel periodo successivo. Alcuni utenti potrebbero ritornare in periodi diversi.
-
-Tutti gli utenti che hanno usato l'app nell'intervallo di tempo del grafico vengono rappresentati esattamente in una riga del grafico. Ogni utente viene conteggiato nel periodo in cui ha eseguito per la prima volta l'azione selezionata nell'intervallo di tempo del grafico. Pertanto la prima riga tende ad avere un numero maggiore.
-
+Gli utenti possono passare il mouse sulle celle dello strumento Conservazione per accedere al pulsante di analisi e alle descrizioni dei comandi che spiegano il significato di ogni cella. Usando il pulsante di analisi, gli utenti accedono allo strumento di analisi con una query pre-popolata per la generazione di utenti dalla cella. 
 
 ## <a name="use-business-events-to-track-retention"></a>Usare gli eventi aziendali per tenere traccia della conservazione
 
@@ -69,9 +65,13 @@ O nel codice server di ASP.NET:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+- Per abilitare le esperienze di utilizzo, iniziare a inviare [eventi personalizzati](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) o [visualizzazioni pagina](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Se si inviano già eventi personalizzati o visualizzazioni pagina, è possibile esplorare gli strumenti relativi all'uso per scoprire come gli utenti usano il servizio.
+    - [Utenti, sessioni ed eventi](app-insights-usage-segmentation.md)
+    - [Grafici a imbuto](usage-funnels.md)
+    - [Flussi degli utenti](app-insights-usage-flows.md)
+    - [Cartelle di lavoro](app-insights-usage-workbooks.md)
+    - [Aggiungere il contesto utente](app-insights-usage-send-user-context.md)
 
-* [Panoramica sull'uso](app-insights-usage-overview.md)
-* [Utenti e sessioni](app-insights-usage-segmentation.md)
-* [Codifica di eventi personalizzati](app-insights-api-custom-events-metrics.md)
 
 

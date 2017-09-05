@@ -1,6 +1,6 @@
 ---
 title: Analisi di eventi di Azure Service Fabric con OMS | Microsoft Docs
-description: Informazioni sulla visualizzazione e l&quot;analisi di eventi con OMS per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
+description: Informazioni sulla visualizzazione e l'analisi di eventi con OMS per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: d7857821524de3d1dbdac9e8c8d0da89678670db
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -33,11 +32,11 @@ Log Analytics raccoglie i dati dalle risorse gestite, tra cui una tabella di arc
 
 Dopo aver configurato OMS, sarà possibile accedere a un'*area di lavoro OMS* specifica, da dove è possibile eseguire le query sui dati o visualizzarli nei dashboard.
 
-Dopo la ricezione dei dati da Log Analytics, OMS dispone di numerose *soluzioni di gestione*, ovvero soluzioni predefinite per monitorare i dati in ingresso, personalizzati in base a diversi scenari. Sono inclusi una soluzione di *Analisi Service Fabric* e una soluzione *contenitori*, le due soluzioni di diagnostica e monitoraggio più importanti se si usano i cluster di Service Fabric. Ce ne sono anche altre che vale la pena esplorare e OMS consente la creazione di soluzioni personalizzate, di cui è possibile avere maggiori informazioni [qui](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions). Ogni soluzione che si desidera usare per un cluster verrà configurata nella stessa area di lavoro di OMS, insieme a Log Analytics. Le aree di lavoro consentono di avere dashboard e visualizzazioni personalizzate dei dati, oltre alle modifiche ai dati che si desidera raccogliere, elaborare e analizzare.
+Dopo la ricezione dei dati da Log Analytics, OMS dispone di numerose *soluzioni di gestione*, ovvero soluzioni predefinite per monitorare i dati in ingresso, personalizzati in base a diversi scenari. Sono inclusi una soluzione di *Analisi Service Fabric* e una soluzione *contenitori*, le due soluzioni di diagnostica e monitoraggio più importanti se si usano i cluster di Service Fabric. Ce ne sono anche altre che vale la pena esplorare e OMS consente la creazione di soluzioni personalizzate, di cui è possibile avere maggiori informazioni [qui](../operations-management-suite/operations-management-suite-solutions.md). Ogni soluzione che si desidera usare per un cluster verrà configurata nella stessa area di lavoro di OMS, insieme a Log Analytics. Le aree di lavoro consentono di avere dashboard e visualizzazioni personalizzate dei dati, oltre alle modifiche ai dati che si desidera raccogliere, elaborare e analizzare.
 
 ## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>Configurazione di un'area di lavoro di OMS con la soluzione Service Fabric
 
-È consigliabile includere la soluzione Service Fabric nell'area di lavoro OMS, in quanto offre un dashboard utile che mostra i diversi canali di log in ingresso a livello di infrastruttura e applicazione ed è in grado di eseguire query sui registri specifici di Service Fabric. Ecco una soluzione di Service Fabric relativamente semplice, con una singola applicazione distribuita nel cluster:
+È consigliabile includere la soluzione Service Fabric nell'area di lavoro OMS, in quanto offre un dashboard utile che mostra i diversi canali di log in ingresso a livello piattaforma e applicazione ed è in grado di eseguire query sui registri specifici di Service Fabric. Ecco una soluzione di Service Fabric relativamente semplice, con una singola applicazione distribuita nel cluster:
 
 ![Soluzione OMS SF](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -62,9 +61,9 @@ Se si fa clic su **Crea** viene richiesta un'area di lavoro OMS. Fare clic su  *
 
 ## <a name="using-the-oms-agent"></a>Uso dell'agente OMS
 
-È consigliabile usare EventFlow e WAD come soluzioni di aggregazione, in quanto consentono un approccio più modulare alla diagnostica e al monitoraggio. Ad esempio, se si desidera modificare l'output da EventFlow, non è necessaria alcuna modifica per la strumentazione effettiva, solo una semplice modifica al file di configurazione. Se, tuttavia, si decide di investire nell'uso di OMS e si desidera continuare a usarlo per l'analisi di eventi, non essendo l'unica piattaforma usata, ma almeno una delle piattaforme, è consigliabile esplorare la configurazione dell'[agente OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents).
+È consigliabile usare EventFlow e WAD come soluzioni di aggregazione, in quanto consentono un approccio più modulare alla diagnostica e al monitoraggio. Ad esempio, se si desidera modificare l'output da EventFlow, non è necessaria alcuna modifica per la strumentazione effettiva, solo una semplice modifica al file di configurazione. Se, tuttavia, si decide di investire nell'uso di OMS e si desidera continuare a usarlo per l'analisi di eventi, non essendo l'unica piattaforma usata, ma almeno una delle piattaforme, è consigliabile esplorare la configurazione dell'[agente OMS](../log-analytics/log-analytics-windows-agents.md). È anche necessario usare l'agente OMS durante la distribuzione di contenitori nel cluster, come descritto di seguito.
 
-Il processo per eseguire questa operazione è relativamente semplice, poiché è sufficiente aggiungere l'agente come estensione del set di scalabilità di macchine virtuali al modello di Resource Manager, verificando che venga installato su ogni nodo. Un modello di Resource Manager di esempio che consente di distribuire l'area di lavoro OMS con la soluzione Service Fabric, come mostrato sopra, e aggiunge l'agente ai nodi è reperibile [qui](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample).
+Il processo per eseguire questa operazione è relativamente semplice, poiché è sufficiente aggiungere l'agente come estensione del set di scalabilità di macchine virtuali al modello di Resource Manager, verificando che venga installato su ogni nodo. Un esempio di modello di Resource Manager che distribuisce l'area di lavoro di OMS con la soluzione Service Fabric, come mostrato sopra, e aggiunge l'agente ai nodi è reperibile per i cluster che eseguono [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) o [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 I vantaggi sono i seguenti:
 

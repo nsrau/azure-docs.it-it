@@ -1,28 +1,28 @@
 ---
 title: "Usare i server di Server dei criteri di rete esistenti per offrire le funzionalità MFA di Azure | Microsoft Docs"
-description: "L&quot;estensione di Server dei criteri di rete per Multi-Factor Authentication di Azure è una soluzione semplice per aggiungere le funzionalità di verifica in due passaggi basata sul cloud nell&quot;infrastruttura di autenticazione esistente."
+description: "L'estensione di Server dei criteri di rete per Multi-Factor Authentication di Azure è una soluzione semplice per aggiungere le funzionalità di verifica in due passaggi basata sul cloud nell'infrastruttura di autenticazione esistente."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/24/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017,it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 46f5761caf2883d6083245a9a1fe689ea0529212
+ms.reviewer: yossib
+ms.custom: H1Hack27Feb2017; it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 395b0209109a5c1eb3ee8ecdd9651ab82fb213eb
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/04/2017
 
 ---
-# <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication---public-preview"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication - Anteprima pubblica
+# <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
 L'estensione di Server dei criteri di rete (NPS) per Azure MFA aggiunge funzionalità MFA basate su cloud per l'infrastruttura di autenticazione usando i server esistenti. Con l'estensione di Server dei criteri di rete, è possibile aggiungere la verifica con telefonata, SMS o app telefonica al flusso di autenticazione esistente senza dover installare, configurare e gestire nuovi server. 
 
@@ -107,9 +107,8 @@ Se si desidera avviare un nuovo ciclo di sincronizzazione, usare istruzioni pres
 Sono due i fattori che determinano i metodi di autenticazione disponibili con una distribuzione dell'estensione di Server dei criteri di rete:
 
 1. L'algoritmo di crittografia della password usato tra il client RADIUS (VPN, server Netscaler o altri) e i Server dei criteri di rete.
-   - **PAP** supporta tutti i metodi di autenticazione di Azure MFA nel cloud: chiamata telefonica, SMS, notifica dell'app per dispositivi mobili e codice di verifica dell'app per dispositivi mobili.
-   - **CHAPV2** supporta la chiamata telefonica e la notifica dell'app per dispositivi mobili.
-   - **EAP** non è supportato.
+   - **PAP** supporta tutti i metodi di autenticazione di Azure MFA nel cloud: chiamata telefonica, SMS unidirezionale, notifica dell'app per dispositivi mobili e codice di verifica dell'app per dispositivi mobili.
+   - **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili.
 2. I metodi di input che l'applicazione client (VPN, server Netscaler o altra) può gestire. Ad esempio, gli strumenti usati dal client VPN per consentire all'utente di digitare un codice di verifica da un testo o da un'app per dispositivi mobili.
 
 Quando si distribuisce l'estensione di Server dei criteri di rete, usare questi fattori per valutare i metodi disponibili per gli utenti. Se il client RADIUS supporta PAP, ma nel client non esistono campi di input per un codice di verifica, la chiamata telefonica e la notifica dell'app per dispositivi mobili sono le due opzioni supportate.
@@ -121,9 +120,9 @@ Quando si distribuisce l'estensione di Server dei criteri di rete, usare questi 
 Prima di distribuire l'estensione completa di Server dei criteri di rete, è necessario abilitare l'MFA per gli utenti su cui si desidera eseguire la verifica in due passaggi. Per testare l'estensione in modo più immediato mentre viene distribuita, è necessario almeno un account di test completamente registrato per l'MFA.
 
 Seguire questa procedura per avviare un account di test:
-1. [Abilitare un account per l'MFA](multi-factor-authentication-get-started-user-states.md).
-2. Accedere a qualsiasi sito Web in cui venga avviata l'autenticazione di Azure AD, ad esempio https://portal.azure.com.
-3. [Registrarsi alla verifica in due passaggi](./end-user/multi-factor-authentication-end-user-first-time.md).
+1. Accedere a [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con un account di test. 
+2. Seguire le richieste per configurare un metodo di verifica.
+3. Creare un criterio di accesso condizionale o [modificare lo stato dell'utente](multi-factor-authentication-get-started-user-states.md) per richiedere la verifica in due passaggi per l'account di test. 
 
 Gli utenti devono inoltre eseguire la procedura per la registrazione prima di potersi autenticare con l'estensione del server dei criteri di rete.
 
@@ -165,18 +164,20 @@ A meno che non si desideri utilizzare i propri certificati (invece dei certifica
 
 Ripetere questi passaggi per tutti i server dei criteri di rete aggiuntivi che si intende configurare per il bilanciamento del carico.
 
+>[!NOTE]
+>Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome oggetto deve essere **CN=\<TenantID\>,OU=Estensione di Server dei criteri di rete Microsoft**. 
+
 ## <a name="configure-your-nps-extension"></a>Configurare l'estensione di Server dei criteri di rete
 
 In questa sezione sono disponibili considerazioni e suggerimenti sulla progettazione per una corretta distribuzione dell'estensione di Server dei criteri di rete.
 
-### <a name="configurations-limitations"></a>Limitazioni delle configurazioni
+### <a name="configuration-limitations"></a>Limitazioni di configurazione
 
 - L'estensione di Server dei criteri di rete per Azure MFA non include strumenti per la migrazione degli utenti e impostazioni dal Server MFA al cloud. Per questo motivo, è consigliabile usare l'estensione per le distribuzioni nuove piuttosto che per quelle esistenti. Se si usano le estensioni in una distribuzione esistente, gli utenti dovranno eseguire di nuovo la prova per popolare i dettagli della propria MFA nel cloud.  
 - L'estensione di Server dei criteri di rete usa UPN dell'Active Directory locale per identificare l'utente in Azure MFA che deve eseguire l'autenticazione secondaria. L'estensione non può essere configurata per usare un identificatore come ID di accesso alternativo o campo AD personalizzato diverso dall'UPN.  
 - Non tutti i protocolli di crittografia supportano tutti i metodi di verifica.
-   - **PAP** supporta la chiamata telefonica, SMS, la notifica dell'app per dispositivi mobili e il codice di verifica app per dispositivi mobili
-   - **CHAPV2** supporta la chiamata telefonica e la notifica dell'app per dispositivi mobili
-   - **EAP** non è supportato
+   - **PAP** supporta la chiamata telefonica, gli SMS unidirezionali, la notifica dell'app per dispositivi mobili e il codice di verifica app per dispositivi mobili
+   - **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili
 
 ### <a name="control-radius-clients-that-require-mfa"></a>Client RADIUS di controllo che richiedono MFA
 
@@ -225,7 +226,7 @@ Questo errore potrebbe essere dovuto a diverse ragioni. Usare la procedura segue
 1. Riavviare il server di Server dei criteri di rete.
 2. Verificare che il certificato client sia installato come previsto.
 3. Verificare che il certificato sia associato al tenant in Azure AD.
-4. Verificare che https://login.windows.net/ sia accessibile dal server che esegue l'estensione.
+4. Verificare che https://login.microsoftonline.com/ sia accessibile dal server che esegue l'estensione.
 
 -------------------------------------------------------------
 
@@ -242,5 +243,7 @@ Verificare che https://adnotifications.windowsazure.com sia raggiungibile dal se
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Consultare gli articoli su come integrare Azure MFA con [Active Directory](multi-factor-authentication-get-started-server-dirint.md), [l'autenticazione RADIUS](multi-factor-authentication-get-started-server-radius.md) e [l'autenticazione LDAP](multi-factor-authentication-get-started-server-ldap.md).
+- Configurare gli ID alternativi per l'accesso o impostare un elenco di eccezioni per gli indirizzi IP che non devono eseguire la verifica in due passaggi in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](nps-extension-advanced-configuration.md) (Opzioni di configurazione avanzate per l'estensione del server dei criteri di rete per Multi-Factor Authentication).
+
+- [Risolvere i messaggi di errore dall'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)
 

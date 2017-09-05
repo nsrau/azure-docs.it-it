@@ -1,10 +1,10 @@
 ---
-title: Eseguire la migrazione da Servizi mobili a un&quot;app per dispositivi mobili del servizio app
-description: Informazioni su come eseguire facilmente la migrazione dell&quot;applicazione Servizi mobili a un&quot;app per dispositivi mobili del servizio app
+title: Eseguire la migrazione da Servizi mobili a un'app per dispositivi mobili del servizio app
+description: Informazioni su come eseguire facilmente la migrazione dell'applicazione Servizi mobili a un'app per dispositivi mobili del servizio app
 services: app-service\mobile
 documentationcenter: 
-author: adrianhall
-manager: adrianha
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: adrianha
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: d5bceb8dd53850f0f11be05be2d5e5d3fbd01c5d
-ms.lasthandoff: 03/01/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 16cf05f62602e494affed49e466209b68413e53a
+ms.contentlocale: it-it
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
@@ -51,7 +51,7 @@ Per eseguire la migrazione del sito:
 1. Accedere al [portale di Azure classico].
 2. Selezionare un servizio mobile nell'area di cui si vuole eseguire la migrazione.
 3. Fare clic sul pulsante **Esegui la migrazione al servizio app**.
-   
+
    ![Pulsante di migrazione][0]
 4. Leggere il contenuto della finestra di dialogo Esegui la migrazione al servizio app.
 5. Immettere il nome del servizio mobile nell'apposita casella.  Ad esempio, se il nome di dominio è contoso.azure-mobile.net, immettere *contoso* nell'apposita casella.
@@ -89,8 +89,8 @@ C'è una notevole flessibilità nella scelta del piano tariffario per l'applicaz
 
 > [!TIP]
 > Il livello Standard del servizio app include l'accesso a molte funzionalità utili, come ad esempio [slot di staging], backup automatico e scalabilità automatica.  Sono anche disponibili nuove funzionalità interessanti.
-> 
-> 
+>
+>
 
 ### <a name="review-migration-scheduler-jobs"></a>Esaminare i processi dell'utilità di pianificazione di cui è stata eseguita la migrazione
 I processi dell'utilità di pianificazione non saranno visibili fino a circa 30 minuti dopo la migrazione.  L'esecuzione dei processi pianificati continua in background.
@@ -115,8 +115,8 @@ Le impostazioni CORS di cui è stata eseguita la migrazione sono disponibili com
 
 > [!TIP]
 > Uno dei vantaggi dell'uso di un servizio app di Azure è che è possibile eseguire il sito Web e il servizio mobile nello stesso sito.  Per altre informazioni, vedere la sezione [Passaggi successivi](#next-steps).
-> 
-> 
+>
+>
 
 ### <a name="download-publish-profile"></a>Scaricare un nuovo profilo di pubblicazione
 Il profilo di pubblicazione del sito viene modificato durante la migrazione al Servizio app di Azure.  Se si intende pubblicare il sito da Visual Studio, è necessario un nuovo profilo di pubblicazione.  Per scaricare il nuovo profilo di pubblicazione:
@@ -163,8 +163,8 @@ Per visualizzare o modificare le impostazioni app:
 
 > [!TIP]
 > Sono disponibili due impostazioni dell'applicazione con lo stesso valore.  Ad esempio, *ApplicationKey* e *MS\_ApplicationKey*.  Aggiornare entrambe le impostazioni dell'applicazione contemporaneamente.
-> 
-> 
+>
+>
 
 ### <a name="authentication"></a>Autenticazione
 Tutte le impostazioni di autenticazione sono disponibili come impostazioni app nel sito di cui è stata eseguita la migrazione.  Per aggiornare le impostazioni di autenticazione, è necessario modificare le impostazioni app appropriate.  La tabella seguente riporta le impostazioni app appropriate per il provider di autenticazione:
@@ -181,10 +181,10 @@ Nota: l'impostazione **MS\_AadTenants** viene archiviata come elenco delimitato 
 
 > [!WARNING]
 > **Non usare i meccanismi di autenticazione nel menu Impostazioni**
-> 
+>
 > Il servizio app di Azure fornisce un sistema di autenticazione e autorizzazione senza codice a parte nel menu Impostazioni di *Autenticazione/Autorizzazione* e l'opzione *Autenticazione per dispositivi mobili* (deprecata) nel menu Impostazioni.  Queste opzioni non sono compatibili con un servizio mobile di Azure di cui è stata eseguita la migrazione.  È possibile [aggiornare il sito](app-service-mobile-net-upgrading-from-mobile-services.md) per sfruttare i vantaggi dell'autenticazione del servizio app di Azure.
-> 
-> 
+>
+>
 
 ### <a name="easytables"></a>Dati
 La scheda *Dati* in Servizi mobili è stata sostituita da *Tabelle semplici* nel portale di Azure.  Per accedere a Easy Tables:
@@ -250,15 +250,15 @@ L'hub di notifica viene gestito attraverso il [portale di Azure].  Prendere nota
 
 > [!NOTE]
 > Se l'hub di notifica è di tipo "Misto", non è visibile.  Gli hub di notifica di tipo "Misto" utilizzano sia Hub di notifica che le funzionalità legacy del bus di servizio.  [Convertire gli spazi dei nomi di tipo Misto] prima di continuare.  Al termine della conversione, l'hub di notifica viene visualizzato nel [portale di Azure].
-> 
-> 
+>
+>
 
 Per altre informazioni, vedere la documentazione relativa a [Hub di notifica] .
 
 > [!TIP]
 > Le funzionalità di gestione di Hub di notifica nel [portale di Azure] sono ancora in anteprima.  Il [portale di Azure classico] rimane disponibile per la gestione di tutti gli hub di notifica.
-> 
-> 
+>
+>
 
 ### <a name="legacy-push"></a>Impostazioni push legacy
 Se è stato configurato il push nel servizio mobile prima dell'introduzione di Hub di notifica, si sta usando la funzione *push legacy*.  Se si usa il push e nella configurazione non è presente un hub di notifica, è probabile che si stia usando la funzione *push legacy*.  La migrazione di questa funzionalità viene eseguita insieme a tutte le altre.  È tuttavia consigliabile eseguire l'aggiornamento a Hub di notifica subito dopo il completamento della migrazione.
@@ -374,7 +374,7 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Prezzi del servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Prezzi di Servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Scalabilità automatica]: ../app-service-web/web-sites-scale.md
 [servizio app di Azure]: ../app-service/app-service-value-prop-what-is.md

@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/29/2017
+ms.date: 07/27/2017
 ms.author: magoedte
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
@@ -22,9 +22,7 @@ ms.lasthandoff: 06/30/2017
 
 ---
 
-<a id="update-your-automation-account-authentication-with-run-as-accounts" class="xliff"></a>
-
-# Aggiornare l'autenticazione dell'account di Automazione con account RunAs 
+# <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Aggiornare l'autenticazione dell'account di Automazione con account RunAs 
 È possibile aggiornare l'account di Automazione esistente dal portale o con PowerShell se:
 
 * Si crea un account di Automazione ma si sceglie di non creare l'account RunAs.
@@ -32,9 +30,7 @@ ms.lasthandoff: 06/30/2017
 * Si usa già un account di Automazione per gestire le risorse classiche e lo si vuole aggiornare per usare l'account RunAs classico anziché creare un nuovo account ed eseguire la migrazione di runbook e asset nel nuovo account.   
 * Si vuole creare un account RunAs e un account RunAs classico usando un certificato rilasciato dall'autorità di certificazione globale (enterprise).
 
-<a id="prerequisites" class="xliff"></a>
-
-## Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Lo script può essere eseguito solo in Windows 10 e Windows Server 2016 con i moduli di Azure Resource Manager 3.0.0 e versioni successive. Non sono supportate le versioni precedenti di Windows.
 * Azure PowerShell 1.0 e versioni successive. Per informazioni su PowerShell 1.0, vedere [come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
@@ -46,9 +42,7 @@ Per ottenere i valori per i parametri *SubscriptionID*, *ResourceGroup* e *Autom
 2. Nel pannello **Tutte le impostazioni** selezionare **Proprietà** in **Impostazioni account**. 
 3. Prendere nota dei valori nel pannello **Proprietà**.<br><br> ![Pannello "Proprietà" dell'account di Automazione](media/automation-create-runas-account/automation-account-properties.png)  
 
-<a id="required-permissions-to-update-your-automation-account" class="xliff"></a>
-
-### Autorizzazioni necessarie per l'aggiornamento dell'account di Automazione
+### <a name="required-permissions-to-update-your-automation-account"></a>Autorizzazioni necessarie per l'aggiornamento dell'account di Automazione
 Per aggiornare un account di Automazione, è necessario avere le autorizzazioni e i privilegi specifici seguenti, necessari per il completamento di questo argomento.   
  
 * L'account utente di AD deve essere aggiunto a un ruolo con autorizzazioni equivalenti al ruolo Collaboratore per le risorse di Microsoft.Automation, come indicato nell'articolo [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md#contributor-role-permissions).  
@@ -56,9 +50,7 @@ Per aggiornare un account di Automazione, è necessario avere le autorizzazioni 
 
 Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione prima dell'aggiunta al ruolo di amministratore globale/coamministratore della sottoscrizione, viene aggiunto ad Active Directory come guest. In questa situazione si riceve un avviso di tipo "L'utente non è autorizzato a creare..." nel pannello **Aggiungi account di Automazione**. Gli utenti che prima sono stati aggiunti al ruolo di amministratore globale/coamministratore possono essere rimossi dall'istanza di Active Directory della sottoscrizione e aggiunti nuovamente per renderli utenti completi in Active Directory. Per verificare questa situazione dal riquadro **Azure Active Directory** nel portale di Azure selezionare **Utenti e gruppi**, **Tutti gli utenti** e, dopo avere selezionato l'utente specifico, selezionare **Profilo**. Il valore dell'attributo **Tipo utente** nel profilo utente non deve essere **Guest**.
 
-<a id="create-run-as-account-from-the-portal" class="xliff"></a>
-
-## Creare un account RunAs dal portale
+## <a name="create-run-as-account-from-the-portal"></a>Creare un account RunAs dal portale
 La procedura descritta in questa sezione consente di aggiornare un account di Automazione di Azure dal portale di Azure.  Creare gli account RunAs e RunAs classico separatamente; se non è necessario gestire risorse nel portale di Azure classico, è possibile creare solo l'account RunAs di Azure.  
 
 Questo processo crea gli elementi seguenti nell'account di Automazione.
@@ -79,9 +71,7 @@ Questo processo crea gli elementi seguenti nell'account di Automazione.
 3. A seconda del tipo di account necessario, selezionare **Account RunAs di Azure** o **Account RunAs classico di Azure**.  Dopo aver selezionato **Account RunAs di Azure** o **Account RunAs classico di Azure**, viene visualizzato il pannello corrispondente. Rivedere le informazioni generali e fare clic su **Crea** per procedere con la creazione dell'account RunAs.  
 4. Mentre Azure crea l'account RunAs, è possibile tenere traccia dello stato di avanzamento scegliendo **Notifiche** dal menu. Verrà visualizzato un banner per indicare che l'account è in fase di creazione.  Il processo potrebbe richiedere alcuni minuti.  
 
-<a id="create-run-as-account-using-powershell-script" class="xliff"></a>
-
-## Creare un account RunAs usando lo script di PowerShell
+## <a name="create-run-as-account-using-powershell-script"></a>Creare un account RunAs usando lo script di PowerShell
 Questo script di PowerShell include il supporto per le configurazioni seguenti:
 
 * Creare un account RunAs usando un certificato autofirmato.
@@ -166,7 +156,7 @@ A seconda dell'opzione di configurazione selezionata, lo script crea gli element
 
         $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
         $KeyCredential.StartDate = $CurrentDate
-        $KeyCredential.EndDate= [DateTime]$PfxCert.GetExpirationDateString()
+        $KeyCredential.EndDate = Get-Date $PfxCert.GetExpirationDateString()
         $KeyCredential.EndDate = $KeyCredential.EndDate.AddDays(-1)
         $KeyCredential.KeyId = $KeyId
         $KeyCredential.CertValue  = $keyValue
@@ -307,8 +297,6 @@ Al termine dell'esecuzione dello script, tenere presente quanto segue:
 * Se è stato creato un account RunAs classico con un certificato pubblico enterprise, con estensione cer, usare questo certificato. Seguire le istruzioni per [caricare un certificato dell'API di gestione nel portale di Azure classico](../azure-api-management-certs.md) e quindi usare il [codice di esempio per l'autenticazione con le risorse della distribuzione classica di Azure](automation-verify-runas-authentication.md#classic-run-as-authentication) per convalidare la configurazione delle credenziali con tali risorse. 
 * Se *non* è stato creato un account RunAs classico, eseguire l'autenticazione con le risorse di Resource Manager e convalidare la configurazione delle credenziali usando il [codice di esempio per l'autenticazione con le risorse di Service Management](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulle entità servizio, vedere [Oggetti applicazione e oggetti entità servizio](../active-directory/active-directory-application-objects.md).
 * Per altre informazioni sui certificati e i servizi di Azure, vedere [Panoramica sui certificati per i servizi cloud di Azure](../cloud-services/cloud-services-certs-create.md).

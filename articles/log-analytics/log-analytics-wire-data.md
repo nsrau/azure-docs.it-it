@@ -12,99 +12,448 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 07/12/2017
 ms.author: banders
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: b1db5cd0149374842b0201cd6b820436f3822325
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ce8065d777bb315d4f9589d1b24a5152296facfe
+ms.contentlocale: it-it
+ms.lasthandoff: 08/12/2017
 
 ---
-# <a name="wire-data-solution-in-log-analytics"></a>Soluzione Wire Data in Log Analytics
-I dati in transito sono dati consolidati di rete e sulle prestazioni provenienti da computer con agenti OMS, inclusi Operations Manager e gli agenti connessi a Windows. I dati di rete vengono combinati con i dati dei log per poter correlare i dati. Gli agenti OMS installati nei computer dell’infrastruttura IT monitorano i dati di rete inviati verso e da tali computer per i livelli di rete 2 e 3 nel [modello OSI](https://en.wikipedia.org/wiki/OSI_model) , inclusi i diversi protocolli e porte usati.
+
+# <a name="wire-data-20-preview-solution-in-log-analytics"></a>Soluzione Wire Data 2.0 (anteprima) in Log Analytics
+
+![Simbolo di Wire Data](./media/log-analytics-wire-data/wire-data2-symbol.png)
+
+I dati in transito sono dati di rete e sulle prestazioni consolidati provenienti da computer con agenti OMS, tra cui agenti Operations Manager, connessi a Windows e Linux. I dati di rete vengono combinati con altri dati di log per consentire la correlazione dei dati.
+
+Oltre agli agenti OMS, la soluzione Wire Data usa le istanze di Microsoft Dependency Agent installate nell'infrastruttura IT. Le istanze di Dependency Agent monitorano i dati di rete inviati da e verso i computer per i livelli di rete 2-3 del [modello OSI](https://en.wikipedia.org/wiki/OSI_model), che includono le diverse porte e i vari protocolli usati. I dati vengono quindi inviati a Log Analytics usando gli agenti.
 
 > [!NOTE]
-> Attualmente, la soluzione Wire Data 1.0 non può essere aggiunta ad aree di lavoro, ma i clienti che hanno già abilitato la soluzione Wire Data 1.0 possono continuare a usarla. I nuovi clienti, tuttavia, devono usare la soluzione [Wire Data 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WireData2OMS?tab=Overview).
->
->
+> Non è possibile aggiungere la versione precedente della soluzione Wire Data a nuove aree di lavoro. Se è stata abilitata la soluzione Wire Data originale, è possibile continuare a usarla. Per usare Wire Data 2.0, tuttavia, è prima necessario rimuovere la versione originale.
 
-Per impostazione predefinita, OMS raccoglie dati registrati sulle prestazioni di CPU, memoria, dischi e rete dai contatori predefiniti di Windows. La raccolta dei dati di rete e di altro tipo viene eseguita in tempo reale per ogni agente, inclusi subnet e protocolli a livello di applicazione usati dal computer. È possibile aggiungere altri contatori delle prestazioni nella pagina Settings della scheda Logs.
+Per impostazione predefinita, Log Analytics raccoglie i dati registrati sulle prestazioni di CPU, memoria, dischi e rete dai contatori integrati in Windows. La raccolta dei dati di rete e di altro tipo viene eseguita in tempo reale per ogni agente, inclusi subnet e protocolli a livello di applicazione usati dal computer. È possibile aggiungere altri contatori delle prestazioni nella pagina Settings della scheda Logs.
 
 Se si è usato [sFlow](http://www.sflow.org/) o un altro software con il [protocollo NetFlow di Cisco](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), le statistiche e i dati visualizzati dai dati in transito risulteranno familiari.
 
 Alcuni tipi di query di ricerca nei log predefinite includono:
 
-* Agenti che forniscono dati in transito
-* Indirizzo IP degli agenti che forniscono dati in transito
-* Comunicazioni in uscita da parte degli indirizzi IP
-* Numero di byte inviati dai protocolli applicativi
-* Numero di byte inviati da un servizio dell’applicazione
-* Byte ricevuti da protocolli diversi
-* Byte totali inviati e ricevuti dall’IP
-* Indirizzi IP che hanno comunicato con agenti nella subnet 10.0.0.0/8
-* Latenza media per le connessioni misurate in modo affidabile
-* Processi dei computer che hanno avviato o ricevuto traffico di rete
-* Quantità di traffico di rete per un processo
+- Agenti che forniscono dati in transito
+- Indirizzo IP degli agenti che forniscono dati in transito
+- Comunicazioni in uscita da parte degli indirizzi IP
+- Numero di byte inviati dai protocolli applicativi
+- Numero di byte inviati da un servizio dell’applicazione
+- Byte ricevuti da protocolli diversi
+- Byte totali inviati e ricevuti per versione IP
+- Latenza media per le connessioni misurate in modo affidabile
+- Processi dei computer che hanno avviato o ricevuto traffico di rete
+- Quantità di traffico di rete per un processo
 
-Quando si esegue una ricerca usando i dati in transito, è possibile filtrare e raggruppare i dati per visualizzare le informazioni su agenti e protocolli principali. Oppure è possibile esaminare quando determinati computer (indirizzi IP/indirizzi MAC) hanno comunicato tra loro, per quanto tempo e quanti dati sono stati inviati. In pratica, si visualizzano i metadati sul traffico di rete, basati sulla ricerca.
+Quando si esegue una ricerca usando i dati in transito, è possibile filtrare e raggruppare i dati per visualizzare le informazioni su agenti e protocolli principali. In alternativa, è possibile visualizzare quando determinati computer (indirizzi IP/indirizzi MAC) hanno comunicato tra loro, per quanto tempo e quanti dati sono stati inviati, visualizzando essenzialmente metadati relativi al traffico di rete basati sulla ricerca.
 
-Tuttavia, poiché si visualizzano i metadati, non sono necessariamente utili per una risoluzione dei problemi approfondita. I data in transito in OMS non offrono una panoramica completa dei dati di rete, quindi non sono destinati a una risoluzione dei problemi approfondita a livello di pacchetto.
-Il vantaggio di usare l’agente, rispetto ad altri metodi di raccolta, è che non è necessario installare appliance, riconfigurare i commutatori di rete o eseguire complesse configurazioni. I dati in transito si basano semplicemente sull’agente, che viene installato in un computer e monitorerà il proprio traffico di rete. Un altro vantaggio è evidente quando si vuole monitorare i carichi di lavoro in esecuzione nei provider di servizi cloud o che ospitano provider di servizi o Microsoft Azure, dove l’utente non è proprietario del livello infrastruttura.
+La visualizzazione di metadati, tuttavia, non è necessariamente utile per una risoluzione dei problemi approfondita. I dati in transito in Log Analytics non sono un'acquisizione completa dei dati di rete e non sono quindi destinati a una risoluzione dei problemi approfondita a livello di pacchetto. Il vantaggio di usare l'agente, rispetto ad altri metodi di raccolta, è che non è necessario installare appliance, riconfigurare i commutatori di rete o eseguire configurazioni complesse. I dati in transito sono basati semplicemente sull'agente, che viene installato in un computer e monitora il proprio traffico di rete. Un altro vantaggio si riscontra quando si vogliono monitorare carichi di lavoro in esecuzione in provider di servizi cloud, provider di servizi di hosting o Microsoft Azure, in cui l'utente non è proprietario del livello infrastruttura.
 
-Non si ha invece la visibilità completa su ciò che avviene in rete se non si installano gli agenti in tutti i computer dell’infrastruttura di rete.
+## <a name="connected-sources"></a>Origini connesse
 
-## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
+Wire Data ottiene i dati da Microsoft Dependency Agent. Dependency Agent dipende dall'agente OMS per le connessioni a Log Analytics, quindi prima di installare Dependency Agent è necessario che in un server sia installato e configurato l'agente OMS. La tabella seguente descrive le origini connesse supportate dalla soluzione Wire Data.
+
+| **Origine connessa** | **Supportato** | **Descrizione** |
+| --- | --- | --- |
+| Agenti di Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre a [OMS Agent](log-analytics-windows-agents.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
+| Agenti Linux | Sì | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre a [OMS Agent](log-analytics-linux-agents.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems). |
+| Gruppo di gestione di System Center Operations Manager | Sì | Wire Data analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione di System Center Operations Manager](log-analytics-om-agents.md) connesso. <br><br> È necessaria una connessione diretta dal computer agente System Center Operations Manager a Log Analytics. I dati vengono inoltrati dal gruppo di gestione a Log Analytics. |
+| Account di archiviazione di Azure | No | Wire Data raccoglie i dati dai computer agente, quindi non devono essere raccolti dati da Archiviazione di Azure. |
+
+In Windows, Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da Log Analytics per raccogliere e inviare dati. A seconda del contesto, l'agente viene chiamato agente System Center Operations Manager, agente OMS, agente Log Analytics, agente MMA o agente diretto. System Center Operations Manager e Log Analytics offrono versioni leggermente diverse dell'agente MMA. Ognuna di queste versioni può inviare segnalazioni a System Center Operations Manager, Log Analytics o entrambi.
+
+In Linux, l'agente OMS per Linux raccoglie e invia i dati a Log Analytics. È possibile usare Wire Data in server con agenti OMS diretti o in server collegati a Log Analytics tramite gruppi di gestione di System Center Operations Manager.
+
+In questo articolo, il termine _agente OMS_ viene usato per fare riferimento a tutti gli agenti, sia Linux che Windows e sia connessi a un gruppo di gestione di System Center Operations Manager che direttamente a Log Analytics. Il nome della distribuzione specifica dell'agente verrà usato solo se necessario per il contesto.
+
+L'istanza di Dependency Agent non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati in Wire Data vengono sempre trasmessi dall'agente OMS a Log Analytics, direttamente o con il gateway OMS.
+
+![Diagramma degli agenti](./media/log-analytics-wire-data/agents.png)
+
+Per un utente di System Center Operations Manager con un gruppo di gestione connesso a Log Analytics:
+
+- Non è necessaria alcuna configurazione aggiuntiva se gli agenti System Center Operations Manager possono accedere a Internet per connettersi a Log Analytics.
+- È necessario configurare il gateway OMS in modo da usare System Center Operations Manager quando gli agenti System Center Operations Manager non possono connettersi a Log Analytics tramite Internet.
+
+Se si usa l'agente diretto, è necessario configurare l'agente OMS in modo che si connetta a Log Analytics o al gateway OMS. È possibile scaricare il gateway OMS dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+- È necessaria la soluzione [Insight & Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) offerta.
+- Se si usa la versione precedente della soluzione Wire Data, prima di tutto è necessario rimuoverla. Tutti i dati acquisiti tramite la soluzione Wire Data originale, tuttavia, saranno ancora disponibili in Wire Data 2.0 e nella ricerca log.
+- Per installare o disinstallare Dependency Agent sono necessari privilegi di amministratore.
+- Dependency Agent deve essere installato in un computer con un sistema operativo a 64 bit.
+
+### <a name="operating-systems"></a>Sistemi operativi
+
+Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipendenza. Wire Data non supporta architetture a 32 bit per i sistemi operativi.
+
+#### <a name="windows-server"></a>Windows Server
+
+- Windows Server 2016
+- Windows Server 2012 R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1,
+
+#### <a name="windows-desktop"></a>Desktop di Windows
+
+- Windows 10
+- Windows 8.1
+- Windows 8
+- Windows 7
+
+#### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux e Oracle Linux (con il kernel RHEL)
+
+- Sono supportate solo versioni predefinita e SMP del kernel Linux.
+- Le versioni del kernel non standard, ad esempio PAE e Xen, non sono supportate per le distribuzioni Linux. Un sistema con stringa di versione _2.6.16.21-0.8-xen_, ad esempio, non è supportato.
+- I kernel personalizzati, tra cui le ricompilazioni dei kernel standard, non sono supportati.
+- Il kernel CentOSPlus non è supportato.
+- Unbreakable Enterprise Kernel (UEK) di Oracle è illustrato in una sezione successiva di questo articolo.
+
+#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
+
+| **Versione del sistema operativo** | **Versione del kernel** |
+| --- | --- |
+| 7.0 | 3.10.0-123 |
+| 7.1 | 3.10.0-229 |
+| 7,2 | 3.10.0-327 |
+| 7.3 | 3.10.0-514 |
+
+#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
+
+| **Versione del sistema operativo** | **Versione del kernel** |
+| --- | --- |
+| 6.0 | 2.6.32-71 |
+| 6.1 | 2.6.32-131 |
+| 6.2 | 2.6.32-220 |
+| 6.3 | 2.6.32-279 |
+| 6.4 | 2.6.32-358 |
+| 6,5 | 2.6.32-431 |
+| 6.6 | 2.6.32-504 |
+| 6.7 | 2.6.32-573 |
+| 6.8 | 2.6.32-642 |
+
+#### <a name="red-hat-linux-5"></a>Red Hat Linux 5
+
+| **Versione del sistema operativo** | **Versione del kernel** |
+| --- | --- |
+| 5.8 | 2.6.18-308 |
+| 5.9 | 2.6.18-348 |
+| 5.10 | 2.6.18-371 |
+| 5.11 | 2.6.18-398 <br> 2.6.18-400 <br>2.6.18-402 <br>2.6.18-404 <br>2.6.18-406 <br> 2.6.18-407 <br> 2.6.18-408 <br> 2.6.18-409 <br> 2.6.18-410 <br> 2.6.18-411 <br> 2.6.18-412 <br> 2.6.18-416 <br> 2.6.18-417 <br> 2.6.18-419 |
+
+#### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux con Unbreakable Enterprise Kernel
+
+#### <a name="oracle-linux-6"></a>Oracle Linux 6
+
+| **Versione del sistema operativo** | **Versione del kernel** |
+| --- | --- |
+| 6.2 | Oracle 2.6.32-300 (UEK R1) |
+| 6.3 | Oracle 2.6.39-200 (UEK R2) |
+| 6.4 | Oracle 2.6.39-400 (UEK R2) |
+| 6,5 | Oracle 2.6.39-400 (UEK R2 i386) |
+| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
+
+#### <a name="oracle-linux-5"></a>Oracle Linux 5
+
+| **Versione del sistema operativo** | **Versione del kernel** |
+| --- | --- |
+| 5.8 | Oracle 2.6.32-300 (UEK R1) |
+| 5.9 | Oracle 2.6.39-300 (UEK R2) |
+| 5.10 | Oracle 2.6.39-400 (UEK R2) |
+| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+
+#### <a name="suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server
+
+#### <a name="suse-linux-11"></a>SUSE Linux 11
+
+| **Versione del sistema operativo** | **Versione del kernel** |
+| --- | --- |
+| 11 | 2.6.27 |
+| 11 SP1 | 2.6.32 |
+| 11 SP2 | 3.0.13 |
+| 11 SP3 | 3.0.76 |
+| 11 SP4 | 3.0.101 |
+
+#### <a name="suse-linux-10"></a>SUSE Linux 10
+
+| **Versione del sistema operativo** | **Versione del kernel** |
+| --- | --- |
+| 10 SP4 | 2.6.16.60 |
+
+#### <a name="dependency-agent-downloads"></a>Download di Dependency Agent
+
+| **File** | **Sistema operativo** | **Versione** | **SHA-256** |
+| --- | --- | --- | --- |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+
+
+
+## <a name="configuration"></a>Configurazione
+
+Per configurare la soluzione Wire Data per le proprie aree di lavoro, seguire questa procedura.
+
+1. Abilitare la soluzione Log Analytics attività da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
+2. Installare Dependency Agent in ogni computer in cui si vogliono ottenere i dati. Dependency Agent può monitorare le connessioni con i vicini immediati e potrebbe quindi non essere necessario un agente in ogni computer.
+
+### <a name="install-the-dependency-agent-on-windows"></a>Installare Dependency Agent in Windows
+
+Per installare o disinstallare l'agente sono necessari i privilegi di amministratore.
+
+Dependency Agent viene installato nei computer che eseguono Windows con InstallDependencyAgent-Windows.exe. Se si esegue questo file eseguibile senza opzioni, avvia una procedura guidata che consente di completare l'installazione in modo interattivo.
+
+Per installare Dependency Agent in ogni computer che esegue Windows, seguire questa procedura:
+
+1. Installare l'agente OMS seguendo le istruzioni riportate in [Connettere computer Windows al servizio Log Analytics in Azure](log-analytics-windows-agents.md).
+2. Scaricare l'agente Windows usando il collegamento riportato nella sezione precedente e quindi eseguirlo con questo comando: InstallDependencyAgent-Windows.exe
+3. Seguire la procedura guidata per installare l'agente.
+4. Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs.
+
+#### <a name="windows-command-line"></a>Riga di comando di Windows
+
+Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga di comando. Per visualizzare un elenco dei flag di installazione, eseguire il programma di installazione con il flag /? come segue.
+
+InstallDependencyAgent-Windows.exe /?
+
+| **Flag** | **Descrizione** |
+| --- | --- |
+| <code>/?</code> | Ottenere un elenco delle opzioni della riga di comando. |
+| <code>/S</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
+
+Per impostazione predefinita, i file di Dependency Agent per Windows si trovano in C:\Program Files\Microsoft Dependency Agent.
+
+### <a name="install-the-dependency-agent-on-linux"></a>Installare Dependency Agent in Linux
+
+Per installare o configurare l'agente è necessario l'accesso alla radice.
+
+Dependency Agent viene installato nei computer Linux con InstallDependencyAgent-Linux64.bin, uno script della shell con un file binario autoestraente. È possibile eseguire il file con _sh_ oppure aggiungere autorizzazioni di esecuzione al file stesso.
+
+Per installare Dependency Agent in ogni computer Linux, seguire questa procedura:
+
+1. Installare l'agente OMS seguendo le istruzioni per [raccogliere e gestire i dati da computer Linux](log-analytics-agent-linux.md).
+2. Scaricare Dependency Agent per Linux usando il collegamento riportato nella sezione precedente e quindi installarlo come radice con questo comando: sh InstallDependencyAgent-Linux64.bin
+3. Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux, la directory di log è /var/opt/microsoft/dependency-agent/log.
+
+Per visualizzare un elenco dei flag di installazione, eseguire il programma di installazione con il flag `-help` come segue.
+
+```
+InstallDependencyAgent-Linux64.bin -help
+```
+
+| **Flag** | **Descrizione** |
+| --- | --- |
+| <code>-help</code> | Ottenere un elenco delle opzioni della riga di comando. |
+| <code>-s</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
+| <code>--check</code> | Controllare le autorizzazioni e il sistema operativo senza installare l'agente. |
+
+I file relativi a Dependency Agent sono memorizzati nelle directory seguenti.
+
+| **File** | **Posizione** |
+| --- | --- |
+| File core | /opt/microsoft/dependency-agent |
+| File di log | /var/opt/microsoft/dependency-agent/log |
+| File di configurazione | /etc/opt/microsoft/dependency-agent/config |
+| File eseguibili del servizio | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br><br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| File binary di archiviazione | /var/opt/microsoft/dependency-agent/storage |
+
+### <a name="installation-script-examples"></a>Esempi di script di installazione
+
+Per distribuire facilmente Dependency Agent in più server contemporaneamente, è utile usare uno script. È possibile usare gli esempi di script seguenti per scaricare e installare Dependency Agent in Windows o Linux.
+
+#### <a name="powershell-script-for-windows"></a>Script di PowerShell per Windows
+
+```PowerShell
+
+Invoke-WebRequest &quot;https://aka.ms/dependencyagentwindows&quot; -OutFile InstallDependencyAgent-Windows.exe
+
+.\InstallDependencyAgent-Windows.exe /S
+
+```
+
+#### <a name="shell-script-for-linux"></a>Script della shell per Linux
+
+```
+wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
+```
+
+```
+sh InstallDependencyAgent-Linux64.bin -s
+```
+
+### <a name="desired-state-configuration"></a>Configurazione dello stato desiderato
+
+Per distribuire Dependency Agent tramite Desired State Configuration, è possibile usare il modulo xPSDesiredStateConfiguration e un frammento di codice come il seguente:
+
+```
+Import-DscResource -ModuleName xPSDesiredStateConfiguration
+
+$DAPackageLocalPath = &quot;C:\InstallDependencyAgent-Windows.exe&quot;
+
+
+
+Node $NodeName
+
+{
+
+    # Download and install the Dependency Agent
+
+    xRemoteFile DAPackage
+
+    {
+
+        Uri = &quot;https://aka.ms/dependencyagentwindows&quot;
+
+        DestinationPath = $DAPackageLocalPath
+
+        DependsOn = &quot;[Package]OI&quot;
+
+    }
+
+    xPackage DA
+
+    {
+
+        Ensure=&quot;Present&quot;
+
+        Name = &quot;Dependency Agent&quot;
+
+        Path = $DAPackageLocalPath
+
+        Arguments = '/S'
+
+        ProductId = &quot;&quot;
+
+        InstalledCheckRegKey = &quot;HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent&quot;
+
+        InstalledCheckRegValueName = &quot;DisplayName&quot;
+
+        InstalledCheckRegValueData = &quot;Dependency Agent&quot;
+
+    }
+
+}
+
+```
+### <a name="uninstall-the-dependency-agent"></a>Disinstallare Dependency Agent
+
+Per rimuovere Dependency Agent, usare le sezioni seguenti.
+
+#### <a name="uninstall-the-dependency-agent-on-windows"></a>Disinstallare Dependency Agent in Windows
+
+Dependency Agent per Windows può essere disinstallato da un amministratore tramite il Pannello di controllo.
+
+Per disinstallare Dependency Agent, un amministratore può anche eseguire %Programfiles%\Microsoft Dependency Agent\Uninstall.exe.
+
+#### <a name="uninstall-the-dependency-agent-on-linux"></a>Disinstallare Dependency Agent in Linux
+
+Per disinstallare completamente Dependency Agent da Linux, è necessario rimuovere l'agente stesso e il connettore che viene installato automaticamente con l'agente. È possibile disinstallare entrambi con il singolo comando seguente:
+
+```
+rpm -e dependency-agent dependency-agent-connector
+```
+
+## <a name="management-packs"></a>Management Pack
+
+Quando viene attivato Wire Data in un'area di lavoro di Log Analytics, a tutti i server Windows nell'area di lavoro viene inviato un Management Pack di 300 KB. Se si usano agenti System Center Operations Manager in un [gruppo di gestione connesso](log-analytics-om-agents.md), il Management Pack di Dependency Monitor viene distribuito da System Center Operations Manager. Se gli agenti sono connessi direttamente, il Management Pack viene fornito da Log Analytics.
+
+Il Management Pack è denominato Microsoft.IntelligencePacks.ApplicationDependencyMonitor e viene inserito in %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. L'origine dati usata dal Management Pack è %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Resources&lt;IDGeneratoAutomaticamente&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+
+## <a name="using-the-solution"></a>Uso della soluzione
+
+**Installazione e configurazione della soluzione**
+
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
-* La soluzione Wire Data acquisisce i dati dai computer che eseguono Windows Server 2012 R2, Windows 8.1 e versioni successive.
-* Nei computer da cui si desidera acquisire i dati in transito è necessario che sia installato Microsoft .NET Framework 4.0 o versione successiva.
-* Aggiungere la soluzione Wire Data all'area di lavoro di OMS usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
-* Se si desidera visualizzare i dati in transito per una soluzione specifica, è necessario disporre della soluzione già aggiunta all'area di lavoro di OMS.
+- La soluzione Wire Data acquisisce i dati dai computer che eseguono Windows Server 2012 R2, Windows 8.1 e versioni successive.
+- Nei computer da cui si desidera acquisire i dati in transito è necessario che sia installato Microsoft .NET Framework 4.0 o versione successiva.
+- Aggiungere la soluzione Wire Data all'area di lavoro di Log Analytics usando la procedura descritta nell'articolo su come [aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md). Non è richiesta alcuna ulteriore configurazione.
+- Se si vogliono visualizzare i dati in transito per una soluzione specifica, è necessario che la soluzione sia già stata aggiunta all'area di lavoro.
 
-## <a name="wire-data-data-collection-details"></a>Dettagli sulla raccolta dei dati per i dati in transito
-Wire Data raccoglie i metadati sul traffico di rete tramite gli agenti abilitati.
+Dopo l'installazione degli agenti e della soluzione, nell'area di lavoro verrà visualizzato il riquadro Wire Data 2.0.
 
-La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sulla modalità di raccolta dei dati per i dati in transito.
+> [!NOTE]
+> Attualmente, per visualizzare i dati in transito è necessario usare il portale di OMS. Non è possibile usare il portale di Azure a tale scopo.
 
-| Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows (2012 R2/8.1 o versioni successive) |![Sì](./media/log-analytics-wire-data/oms-bullet-green.png) |![Sì](./media/log-analytics-wire-data/oms-bullet-green.png) |![No](./media/log-analytics-wire-data/oms-bullet-red.png) |![No](./media/log-analytics-wire-data/oms-bullet-red.png) |![No](./media/log-analytics-wire-data/oms-bullet-red.png) |Ogni minuto |
+![Riquadro Wire Data](./media/log-analytics-wire-data/wire-data-tile.png)
 
-## <a name="combining-wire-data-with-other-solution-data"></a>Combinazione dei dati in transito con i dati di altre soluzioni
-I dati restituiti dalle query predefinite elencate sopra sono già di per sé interessanti, ma la massima utilità si ottiene combinandoli con le informazioni provenienti da altre soluzioni OMS. Ad esempio, è possibile usare i dati degli eventi di sicurezza raccolti dalla soluzione Security and Audit e combinarli con i dati in transito per cercare tentativi insoliti di accesso alla rete per i processi denominati.  In questo esempio, si useranno gli operatori IN e DISTINCT per aggiungere i punti dati nella query di ricerca.
+## <a name="using-the-wire-data-20-solution"></a>Uso della soluzione Wire Data 2.0
 
-Requisiti: per usare l’esempio seguente, la soluzione Security and Audit deve essere installata. È però possibile usare i dati di altre soluzioni per combinarli con i dati in transito e ottenere così risultati simili.
+Nel portale di OMS fare clic sul riquadro **Wire Data 2.0** per aprire il dashboard di Wire Data. Il dashboard include i pannelli nella tabella seguente. Ogni panello elenca fino a 10 elementi corrispondenti ai criteri del pannello per lo scope e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
 
-### <a name="to-combine-wire-data-with-security-events"></a>Per combinare i dati in transito con gli eventi di sicurezza
-1. Nella pagina Overview (Panoramica) fare clic sul riquadro **WireData** .
-2. Nell'elenco **Query comuni sui dati in transito** fare clic su **Quantità di traffico di rete (in byte) per processo** per visualizzare l'elenco di processi restituiti. 
-    ![query di WireData](./media/log-analytics-wire-data/oms-wiredata-01.png)
-3. Se l’elenco di processi è troppo lungo per poterlo visualizzare facilmente, è possibile sostituire la query di ricerca con la seguente:
+| **Pannello** | **Descrizione** |
+| --- | --- |
+| Agenti che acquisiscono il traffico di rete | Mostra il numero degli agenti che acquisiscono il traffico di rete e un elenco dei primi 10 computer che acquisiscono il traffico. Fare clic sul numero per eseguire una ricerca nei log per <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Fare clic su un computer nell'elenco per eseguire una ricerca nei log che restituisca il numero totale dei byte acquisiti. |
+| Subnet locali | Mostra il numero delle subnet locali individuate dagli agenti.  Fare clic sul numero per eseguire una ricerca nei log per <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> e ottenere un elenco di tutte le subnet con il numero dei byte inviati tramite ognuna. Fare clic su una subnet nell'elenco per eseguire una ricerca nei log che restituisca il numero totale dei byte inviati tramite la subnet. |
+| Protocolli a livello dell'applicazione | Mostra il numero di protocolli a livello di applicazione in uso, in base a quanto individuato dagli agenti. Fare clic sul numero per eseguire una ricerca nei log per <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>. Fare clic su un protocollo per eseguire una ricerca nei log che restituisca il numero totale dei byte inviati usando il protocollo. |
 
-    ```
-    Type WireData | measure count() by ProcessName | where AggregatedValue <40
-    ```
-    L'esempio seguente illustra un processo denominato DancingPigs.exe, che può sembrare sospetto.
-    ![risultati della ricerca di WireData](./media/log-analytics-wire-data/oms-wiredata-02.png)
-4. Usando i dati restituiti nell’elenco, fare clic su un processo denominato. In questo esempio si è fatto clic su DancingPigs.exe. I risultati illustrati sotto descrivono il tipo di traffico di rete, ad esempio comunicazioni in uscita su diversi protocolli.
-    ![risultati di WireData che illustrano un processo denominato](./media/log-analytics-wire-data/oms-wiredata-03.png)
-5. Poiché la soluzione Security and Audit è installata, è possibile analizzare gli eventi di sicurezza che hanno lo stesso valore del campo ProcessName modificando la query di ricerca con gli operatori di query di ricerca IN e DISTINCT. È possibile eseguire questa operazione quando i dati in transito e i log delle altre soluzioni hanno i valori nello stesso formato. Sostituire la query di ricerca con la seguente:
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-    ```
-    Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName}
-    ```    
+![Dashboard di Wire Data](./media/log-analytics-wire-data/wire-data-dash.png)
 
-    ![Risultati di WireData con i dati combinati](./media/log-analytics-wire-data/oms-wiredata-04.png)
-6. Nei risultati sopra si noterà che sono visualizzate le informazioni sull’account. Ora è possibile affinare la query di ricerca per sapere quanto spesso l’account, che visualizza i dati di Security and Audit, è stato usato dal processo con una query come la seguente:        
+È possibile usare il pannello **Agenti che acquisiscono il traffico di rete** per determinare la quantità di larghezza di banda utilizzata dai computer. Questo pannello consente di trovare facilmente il computer _più comunicativo_ nel proprio ambiente. Tali computer potrebbero essere sovraccaricati, presentare un funzionamento anomalo o usare una quantità di risorse di rete superiore alla norma.
 
-    ```
-    Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
-    ```
+![Esempio di ricerca log](./media/log-analytics-wire-data/log-search-example01.png)
 
-    ![Risultati di WireData con i dati dell’account](./media/log-analytics-wire-data/oms-wiredata-05.png)
+Analogamente, è possibile usare il pannello **Subnet locali** per determinare la quantità di traffico di rete sulle subnet. Gli utenti spesso definiscono le subnet per aree critiche per le applicazioni. Questo pannello offre un quadro di tali aree.
+
+![Esempio di ricerca log](./media/log-analytics-wire-data/log-search-example02.png)
+
+Il pannello **Protocolli a livello dell'applicazione** è utile perché è opportuno sapere quali protocolli vengono usati. Se ad esempio si prevede che SSH non venga usato nel proprio ambiente di rete, visualizzando le informazioni disponibili nel pannello è possibile ottenere rapidamente conferma o smentita di tale previsione.
+
+![Esempio di ricerca log](./media/log-analytics-wire-data/log-search-example03.png)
+
+In questo esempio si potrebbero esaminare i dettagli su SSH per scoprire quali computer usano SSH e molti altri dettagli relativi alle comunicazioni.
+
+![Risultati della ricerca su SSH](./media/log-analytics-wire-data/ssh-details.png)
+
+È anche utile sapere se il traffico dei protocolli aumenta o diminuisce nel tempo. L'aumento della quantità di dati trasmessa da un'applicazione, ad esempio, può essere un aspetto di cui è consigliabile essere a conoscenza o che si potrebbe trovare degno di nota.
+
+## <a name="input-data"></a>Dati di input
+
+Wire Data raccoglie i metadati sul traffico di rete tramite gli agenti abilitati. Ogni agente invia dati ogni 15 secondi circa.
+
+## <a name="output-data"></a>Dati di output
+
+Per ogni tipo di dati di input vene creato un record con tipo _WireData_. I record WireData includono le proprietà elencate nella tabella seguente:
+
+| Proprietà | Descrizione |
+|---|---|
+| Computer | Nome del computer in cui sono stati raccolti i dati |
+| TimeGenerated | Ora del record |
+| LocalIP | Indirizzo IP del computer locale |
+| SessionState | Sessione connessa o disconnessa |
+| ReceivedBytes | Quantità di byte ricevuta |
+| ProtocolName | Nome del protocollo di rete usato |
+| IPVersion | Versione IP |
+| Direzione | In ingresso o in uscita |
+| MaliciousIP | Indirizzo IP di un'origine dannosa nota |
+| Severity | Gravità del software dannoso sospetto |
+| RemoteIPCountry | Paese dell'indirizzo IP remoto |
+| ManagementGroupName | Nome del gruppo di gestione di Operations Manager |
+| SourceSystem | Origine in cui sono stati raccolti i dati |
+| SessionStartTime | Data e ora di inizio della sessione |
+| SessionEndTime | Data e ora di fine della sessione |
+| LocalSubnet | Subnet in cui sono stati raccolti i dati |
+| LocalPortNumber | Numero di porta locale |
+| RemoteIP | Indirizzo IP remoto usato dal computer remoto |
+| RemotePortNumber | Numero di porta usato dall'indirizzo IP remoto |
+| SessionID | Valore univoco che identifica la sessione di comunicazione tra due indirizzi IP |
+| SentBytes | Numero di byte inviati |
+| TotalBytes | Numero totale dei byte inviati durante la sessione |
+| ApplicationProtocol | Tipo di protocollo di rete usato   |
+| ProcessID | ID processo Windows |
+| ProcessName | Percorso e nome file del processo |
+| RemoteIPLongitude | Valore di longitudine dell'indirizzo IP |
+| RemoteIPLatitude | Valore di latitudine dell'indirizzo IP |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Ricerche nei log](log-analytics-log-searches.md) per visualizzare i record di ricerca dettagliati su Wire Data.
-* Leggere il post del blog di Dan dal titolo [Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Uso di Wire Data nella ricerca nei log di Operations Management Suite) per altre informazioni sulla frequenza con cui i dati vengono raccolti e su come modificare le proprietà di raccolta per gli agenti di Operations Manager.
+
+- [Ricerche nei log](log-analytics-log-searches.md) per visualizzare i record di ricerca dettagliati su Wire Data.
 

@@ -1,6 +1,6 @@
 ---
 title: Personalizzare una macchina virtuale Windows in Azure | Microsoft Docs
-description: Informazioni su come usare l&quot;estensione script personalizzata e Key Vault per personalizzare le macchine virtuali Windows in Azure
+description: Informazioni su come usare l'estensione script personalizzata e Key Vault per personalizzare le macchine virtuali Windows in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: Human Translation

@@ -1,6 +1,6 @@
 ---
-title: Esempio di script di Azure PowerShell - Connettere un&quot;app Web a un account di archiviazione | Microsoft Docs
-description: Esempio di script di Azure PowerShell - Connettere un&quot;app Web a un account di archiviazione
+title: Esempio di script di Azure PowerShell - Connettere un'app Web a un account di archiviazione | Microsoft Docs
+description: Esempio di script di Azure PowerShell - Connettere un'app Web a un account di archiviazione
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -10,7 +10,7 @@ tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
 ms.service: app-service
 ms.devlang: multiple
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017

@@ -12,60 +12,56 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 06/16/2017
 ms.author: terrylan
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 360073c0ed75552e62e69ce72b225ba35a2a3e09
+ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
+ms.openlocfilehash: 7e9ad8cd8c77c57c37dc208b86b3727a4e1dc7b5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 06/17/2017
 
 
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Abilitare la raccolta dati nel Centro sicurezza di Azure
-Per aiutare i clienti a impedire, rilevare e rispondere alle minacce, il Centro sicurezza di Azure raccoglie ed elabora dati sulle macchine virtuali di Azure, incluse le informazioni di configurazione, i metadati e i registri eventi. La prima volta che si accede al Centro sicurezza, la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. La raccolta dati è consigliata, ma è possibile rifiutare esplicitamente disattivandola nei criteri del Centro sicurezza. Vedere [Disabilitazione della raccolta dati](#disabling-data-collection). Se si disattiva la raccolta dati, il Centro sicurezza consiglierà di attivarla nei criteri di sicurezza per la sottoscrizione in questione.
 
 > [!NOTE]
-> Il documento introduce il servizio usando una distribuzione di esempio. Questa non è una guida dettagliata.
+> A partire dall'inizio di giugno 2017, il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
+>
+>
+
+Il Centro sicurezza raccoglie i dati dalle macchine virtuali per valutarne lo stato della sicurezza, indicare raccomandazioni sulla sicurezza e segnalare le minacce. La prima volta che si accede al Centro sicurezza, è possibile abilitare la raccolta dati viene abilitata in tutte le macchine virtuali della sottoscrizione. Se la raccolta dati non è abilitata, il Centro sicurezza consiglierà di attivarla nei criteri di sicurezza per la sottoscrizione in questione.
+
+Quando la raccolta dati è attivata, il Centro sicurezza effettua il provisioning di Microsoft Monitoring Agent in tutte le macchine virtuali di Azure supportate esistenti e in quelle nuove che vengono create. Microsoft Monitoring Agent esegue l'analisi per diverse configurazioni di sicurezza. Il sistema operativo genera anche gli eventi del registro eventi. Esempi di tali dati sono: tipo e versione del sistema operativo, log del sistema operativo (registri eventi di Windows), processi in esecuzione, nome computer, indirizzi IP, utente connesso e ID tenant. Microsoft Monitoring Agent legge le voci e le configurazioni del log eventi e copia i dati nell'area di lavoro per l'analisi. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
+
+Se si usa la versione gratuita del Centro sicurezza di Azure, è anche possibile disabilitare la raccolta dati dalle macchine virtuali disabilitando la raccolta dati nei criteri di sicurezza. La disabilitazione della raccolta dati consente di limitare le valutazioni relative alla sicurezza per le macchine virtuali. Per ulteriori informazioni, vedere [Disabilitazione della raccolta dati](#disabling-data-collection). Gli snapshot dei dischi delle macchine virtuali e la raccolta di elementi resteranno abilitati anche se la raccolta dati è stata disabilitata. La raccolta dati è richiesta per le sottoscrizioni a livello Standard del Centro sicurezza.
+
+> [!NOTE]
+> Per altre informazioni vedere i [piani tariffari](security-center-pricing.md) gratuito e standard del Centro sicurezza.
 >
 >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
+
+> [!NOTE]
+> Il documento introduce il servizio usando una distribuzione di esempio. Questo argomento non costituisce una guida dettagliata.
+>
+>
+
 1. Nel pannello **Raccomandazioni** selezionare **Abilita la raccolta di dati per le sottoscrizioni**.  Verrà visualizzato il pannello **Attiva la raccolta di dati** .
    ![Pannello Raccomandazioni][2]
 2. Nel pannello **Attiva la raccolta di dati** selezionare la sottoscrizione. Verrà visualizzato il pannello **Criteri di sicurezza** per la sottoscrizione.
 3. Nel pannello **Criteri di sicurezza** selezionare **Sì** in **Raccolta di dati** per raccogliere automaticamente i log. Attivando la raccolta dati verrà eseguito il provisioning dell'estensione di monitoraggio per tutte le VM correnti e nuove supportate nella sottoscrizione.
-
-   ![Pannello Criteri di sicurezza][3]
-
 4. Selezionare **Salva**.
-5. Selezionare **Scegliere un account di archiviazione per area**. Per ciascuna area in cui si dispone di macchine virtuali in esecuzione, è necessario selezionare l'account di archiviazione in cui vengono archiviati i dati raccolti da tali macchine virtuali. Se non si sceglie un account di archiviazione per ogni area, viene creato un account di archiviazione per il gruppo di risorse securitydata e inserito in esso. In questo esempio si sceglie **newstoracct**. È possibile modificare l'account di archiviazione in un secondo momento tornando ai criteri di sicurezza della sottoscrizione e scegliendo un account di archiviazione diverso.
-   ![Scegliere un account di archiviazione][4]
-6. Selezionare **OK**.
-
-> [!NOTE]
-> È consigliabile attivare la raccolta dati e scegliere prima un account di archiviazione a livello di sottoscrizione. I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma la configurazione della raccolta dati e dell'account di archiviazione viene eseguita solo a livello di sottoscrizione.
->
->
-
-## <a name="after-data-collection-is-enabled"></a>Dopo aver abilitato la raccolta dati
-La raccolta dei dati viene abilitata tramite l'agente di monitoraggio di Azure e l'estensione per il monitoraggio della sicurezza di Azure. L'estensione per il monitoraggio della sicurezza di Azure analizza le diverse configurazioni di sicurezza e le invia alle tracce di [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Il sistema operativo crea anche le voci del registro eventi. L'agente di monitoraggio di Azure legge le voci del registro eventi ed ETW le traccia e le copia nell'account di archiviazione per l'analisi. L'agente di monitoraggio copia anche i file di dump di arresto anomalo nell'account di archiviazione. Si tratta dell'account di archiviazione configurato in Criteri di sicurezza.
+5. Selezionare **OK**.
 
 ## <a name="disabling-data-collection"></a>Disabilitazione della raccolta dati
-È possibile disabilitare la raccolta dati in qualsiasi momento. In questo modo gli agenti di monitoraggio installati dal Centro sicurezza verranno rimossi automaticamente. È necessario selezionare una sottoscrizione per disattivare la raccolta dati.
+Se si usa la versione gratuita del Centro sicurezza, è anche possibile disabilitare la raccolta dati dalle macchine virtuali in qualsiasi momento disabilitando la raccolta dati nei criteri di sicurezza. La raccolta dati è richiesta per le sottoscrizioni a livello Standard del Centro sicurezza.
 
-> [!NOTE]
-> I criteri di sicurezza possono essere impostati a livello di sottoscrizione di Azure e a livello di gruppo di risorse, ma è necessario selezionare una sottoscrizione per disattivare la raccolta dei dati.
->
->
-
-1. Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Criteri**. Verrà visualizzato il pannello **Criteri di sicurezza - Definire i criteri per sottoscrizione o gruppo di risorse** .
+1. Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Criteri**. Verrà visualizzato il pannello **Security policy-Define policy per subscription** (Criteri di sicurezza - Definire i criteri per sottoscrizione).
    ![Selezionare il riquadro Criteri][5]
-2. Nel pannello **Criteri di sicurezza - Definire i criteri per sottoscrizione o gruppo di risorse** selezionare la sottoscrizione per la quale disabilitare la raccolta dati.
-   ![Selezionare la sottoscrizione per disabilitare la raccolta dati][6]
+2. Nel pannello **Security policy-Define policy per subscription** (Criteri di sicurezza - Definire i criteri per sottoscrizione) selezionare la sottoscrizione per la quale disabilitare la raccolta dati.
 3. Verrà visualizzato il pannello **Criteri di sicurezza** per la sottoscrizione.  Selezionare **No** in Raccolta di dati.
 4. Fare clic su **Salva** nella barra multifunzione in alto.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo documento illustra come implementare la raccomandazione "Abilita raccolta dati" del Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -75,6 +71,7 @@ Questo documento illustra come implementare la raccomandazione "Abilita raccolta
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
+- [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md): informazioni sulla gestione e la protezione dei dati nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2017
+ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 868c3051f60c27f15bfd99f66e50b65595951a00
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -58,12 +58,21 @@ Service Fabric supporta la specifica di [plug-in di volume Docker](https://docs.
 </ApplicationManifest>
 ```
 
-Nell'esempio precedente, il tag `Source` per `Volume` fa riferimento alla cartella di origine. La cartella di origine potrebbe essere una cartella nella macchina virtuale che ospita i contenitori o un archivio remoto persistente. Il tag `Destination` è il percorso in cui viene eseguito il mapping di `Source` all'interno del contenitore in esecuzione. Quando si usa un plug-in di volume, il nome del plug-in, ovvero tag `Driver`, viene specificato come illustrato nell'esempio precedente.  Se viene specificato un driver di registro Docker, è necessario distribuire gli agenti o i contenitori per gestire i registri nel cluster. 
+Nell'esempio precedente, il tag `Source` per `Volume` fa riferimento alla cartella di origine. La cartella di origine potrebbe essere una cartella nella macchina virtuale che ospita i contenitori o un archivio remoto persistente. Il tag `Destination` è il percorso in cui viene eseguito il mapping di `Source` all'interno del contenitore in esecuzione. 
+
+Quando si specifica un plug-in di un volume, Service Fabric crea automaticamente il volume usando i parametri specificati. Il tag `Source` è il nome del volume e il tag `Driver` specifica il plug-in del driver del volume. Le opzioni possono essere specificate usando il tag `DriverOption`, come illustrato nel frammento di codice seguente:
+
+```xml
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+</Volume>
+```
+
+Se viene specificato un driver di registro Docker, è necessario distribuire gli agenti o i contenitori per gestire i registri nel cluster.  Il tag `DriverOption` può essere usato anche per specificare le opzioni del driver di log.
 
 Vedere gli articoli seguenti per distribuire i contenitori a un cluster Service Fabric:
 
-[Distribuire un contenitore Windows in Service Fabric su Windows Server 2016](service-fabric-deploy-container.md)
 
-[Distribuire un contenitore Docker in Service Fabric su Linux](service-fabric-deploy-container-linux.md)
+[Distribuire un contenitore in Service Fabric](service-fabric-deploy-container.md)
 
 

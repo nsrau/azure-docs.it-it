@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Microsoft Azure IoT Suite | Documentazione Microsoft
-description: Panoramica di come Azure IoT Suite offra soluzioni preconfigurate Internet delle cose per raccogliere, analizzare e archiviare dati, fornire visualizzazioni ed eseguire l&quot;integrazione con altri sistemi.
+description: Panoramica di come Azure IoT Suite offra soluzioni preconfigurate Internet delle cose per raccogliere, analizzare e archiviare dati, fornire visualizzazioni ed eseguire l'integrazione con altri sistemi.
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: bfa8dbbd0b1d943a9eb7a042df0bac25189d9ac9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="overview-of-azure-iot-suite"></a>Panoramica di Azure IoT Suite
@@ -55,7 +54,13 @@ Per una panoramica dell'architettura di una tipica soluzione IoT, vedere [Micros
 
 ## <a name="preconfigured-solutions"></a>soluzioni preconfigurate
 
-IoT Suite include soluzioni preconfigurate che consentono di iniziare rapidamente e di esplorare gli scenari comuni di IoT, come il *monitoraggio remoto*, la *manutenzione predittiva* e *connected factory*. È possibile distribuire queste soluzioni nella sottoscrizione di Azure e quindi eseguire uno scenario IoT end-to-end completo.
+IoT Suite include soluzioni preconfigurate che consentono di iniziare rapidamente e di esplorare gli scenari comuni di IoT, ad esempio:
+
+* Monitoraggio remoto
+* Manutenzione predittiva
+* Connected factory
+
+È possibile distribuire queste soluzioni nella sottoscrizione di Azure e quindi eseguire uno scenario IoT end-to-end completo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

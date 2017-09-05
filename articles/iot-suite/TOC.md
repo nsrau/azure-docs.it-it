@@ -53,7 +53,9 @@
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Domande frequenti](iot-suite-faq.md)
+## [Domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md)
 ## [Percorso di apprendimento per IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 
 
 

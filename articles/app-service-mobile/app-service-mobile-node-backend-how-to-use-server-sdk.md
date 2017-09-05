@@ -750,7 +750,7 @@ L'SDK delle app per dispositivi mobili di Azure usa il [middleware body-parser](
     // Start listening on HTTP
     app.listen(process.env.PORT || 3000);
 
-Il file ha una codifica in base&64; prima della trasmissione,  che aumenterà le dimensioni del caricamento effettivo e di cui è quindi necessario tenere conto.
+Il file ha una codifica in base 64 prima della trasmissione,  che aumenterà le dimensioni del caricamento effettivo e di cui è quindi necessario tenere conto.
 
 ### <a name="howto-customapi-sql"></a>Procedura: Eseguire istruzioni SQL personalizzate
 Con Azure Mobile App SDK è possibile accedere all'intero contesto tramite l'oggetto request, consentendo di eseguire facilmente istruzioni SQL con parametri sul provider di dati definito:

@@ -1,6 +1,6 @@
 ---
-title: Compilare il primo indice di Ricerca di Azure nel portale | Microsoft Docs
-description: "Nel portale di Azure è possibile usare i dati dell&quot;esempio predefinito per generare un indice. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora."
+title: 'Esercitazione: Creare il primo indice di Ricerca di Azure nel portale | Microsoft Docs'
+description: "Nel portale di Azure è possibile usare i dati dell'esempio predefinito per generare un indice. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,17 +13,16 @@ ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 06/26/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: e03d0ff92b0ad6d34314c55d98972997769d09f0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="build-and-query-your-first-azure-search-index-in-the-portal"></a>Compilare il primo indice di Ricerca di Azure ed eseguire query su di esso nel portale
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Esercitazione: Creare il primo indice di Ricerca di Azure nel portale
 
 Nel portale di Azure è possibile iniziare con un set di dati di esempio predefinito per generare rapidamente un indice con la procedura guidata **Importa dati**. Con **Esplora ricerche** è possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy e la ricerca geografica.  
 

@@ -131,9 +131,19 @@
     - name: Connettori
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
+    - name: Istanze di contenitore
+      tocHref: /azure/container-instances/
+      topicHref: /azure/container-instances/
     - name: Servizio contenitore
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/
+      items:
+        - name: DC/OS e Swarm
+          tocHref: /azure/container-service/dcos-swarm/
+          topicHref: /azure/container-service/dcos-swarm/
+        - name: kubernetes
+          tocHref: /azure/container-service/kubernetes/
+          topicHref: /azure/container-service/kubernetes/
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
@@ -155,6 +165,9 @@
     - name: DNS
       tocHref: /azure/dns/
       topicHref: /azure/dns/
+    - name: Griglia di eventi
+      tocHref: /azure/event-grid/
+      topicHref: /azure/event-grid
     - name: Hub eventi
       tocHref: /azure/event-hubs/
       topicHref: /azure/event-hubs/
@@ -285,6 +298,16 @@
     - name: Archiviazione
       tocHref: /azure/storage/
       topicHref: /azure/storage/
+      items:
+        - name: Blobs
+          tocHref: /azure/storage/blobs/
+          topicHref: /azure/storage/blobs/storage-blobs-introduction
+        - name: File
+          tocHref: /azure/storage/files/
+          topicHref: /azure/storage/files/storage-files-introduction
+        - name: Code
+          tocHref: /azure/storage/queues/
+          topicHref: /azure/storage/queues/storage-queues-introduction
     - name: StorSimple
       tocHref: /azure/storsimple/
       topicHref: /azure/storsimple/

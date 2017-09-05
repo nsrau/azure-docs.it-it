@@ -4,13 +4,13 @@
 ## [Disponibilità](configure-availability.md)
 ## [Domande frequenti](faq.md)
 
-# [Attività iniziali](../opensource-links.md)
+# Attività iniziali
 ## [Creare una macchina virtuale Linux con il portale](createportal.md)
 ## [Installare l'interfaccia da riga di comando di Azure](../../../cli-install-nodejs.md)
 ## [Creare chiavi SSH](../mac-create-ssh-keys.md)
 
 # Procedure
-## [Calcolo](../intro-on-azure.md)
+## Calcolo
 ### [Creare una VM personalizzata](create-custom.md)
 ### [Acquisire una VM](capture-image.md)
 ### [Usare Desktop remoto con una VM Linux](remote-desktop.md)
@@ -54,18 +54,17 @@
 ### [Applicazione Web con Visual Studio](web-app-visual-studio.md)
 ### [Cluster RDMA per eseguire applicazioni MPI](rdma-cluster.md)
 ### [Come usare il plug-in slave di Azure con una soluzione di integrazione continua Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md) 
-
-
-## HPC Pack
-### [Cluster Windows RDMA per l'esecuzione di app MPI](hpcpack-cluster.md)
-### [Cluster Windows HPC con script di distribuzione IaaS di HPC Pack](hpcpack-cluster-starccm.md)
-### [Gestire il numero e la disponibilità dei nodi di calcolo](hpcpack-cluster-powershell-script.md)
-### [Aggiungere i nodi su richiesta](hpcpack-cluster-openfoam.md)
-### [Ridimensionare automaticamente le risorse](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [Creare un cluster per i carichi di lavoro Linux](hpcpack-cluster-powershell-script.md)
+#### [Gestire un cluster con nodi Linux](hpcpack-cluster.md)
+#### [Eseguire STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [Eseguire OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [Eseguire NAMD](hpcpack-cluster-namd.md)
 
 ## Risoluzione dei problemi
 ### [Distribuzioni di VM](troubleshoot-deployment-new-vm.md)
 ### [Riavviare o ridimensionare una VM](restart-resize-error-troubleshooting.md)
+### [Collegare un disco rigido virtuale alla VM di risoluzione dei problemi](troubleshoot-recovery-disks-portal.md)
 
 # riferimento
 ## [PowerShell](/powershell/azure/overview)
@@ -79,8 +78,9 @@
 
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilità internazionale](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

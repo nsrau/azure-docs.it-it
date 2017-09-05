@@ -1,11 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: panoramica | Microsoft Docs'
+title: 'Panoramica: Azure AD B2C | Microsoft Docs'
 description: Sviluppo di applicazioni di utenti con Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
-author: saeeda
+author: saeedakhter-msft
 manager: krassk
-editor: parja
+editor: parakhj
 ms.assetid: c465dbde-f800-4f2e-8814-0ff5f5dae610
 ms.service: active-directory-b2c
 ms.workload: identity
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
-ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: f3c2760ec66c0292ebeb53d0acb5f9ee1df388ae
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 44d5d31d49c375c802a67511d1f962df20656559
 ms.contentlocale: it-it
-ms.lasthandoff: 06/05/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure Active Directory B2C permette di concentrarsi sull'app, lasciando ad Azure la gestione di iscrizioni e accessi

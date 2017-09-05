@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 5e53bc714d89bf6204681349e7890e0b8fbc7046
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>Diagnosticare modifiche improvvise nella telemetria dell'app
@@ -61,7 +61,7 @@ Se si sa che una determinata pagina del sito Web ha un problema in un determinat
 
 ## <a name="how-it-works"></a>Funzionamento
 
-La diagnostica intelligente usa un algoritmo di Machine Learning avanzato senza supervisione nell'operazione [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns). Esegue una ricerca di modelli candidati che potrebbero spiegare la modifica dei dati. Analizza l'impatto di ciascun modello candidato sulla metrica e visualizza il modello che ha la migliore correlazione con la modifica.
+La diagnostica intelligente usa un algoritmo di Machine Learning avanzato senza supervisione nell'operazione [DiffPatterns](app-insights-analytics-reference.md). Esegue una ricerca di modelli candidati che potrebbero spiegare la modifica dei dati. Analizza l'impatto di ciascun modello candidato sulla metrica e visualizza il modello che ha la migliore correlazione con la modifica.
 
 ## <a name="no-diagnostic-points"></a>Nessun punto di diagnostica?
 

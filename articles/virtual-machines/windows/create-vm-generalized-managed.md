@@ -1,6 +1,6 @@
 ---
-title: Creare una macchina virtuale da un&quot;immagine di macchina virtuale gestita in Azure | Documentazione Microsoft
-description: Creare una macchina virtuale Windows da un&quot;immagine di macchina virtuale gestita generalizzata usando Azure PowerShell nel modello di distribuzione Resource Manager.
+title: Creare una macchina virtuale da un'immagine di macchina virtuale gestita in Azure | Documentazione Microsoft
+description: Creare una macchina virtuale Windows da un'immagine di macchina virtuale gestita generalizzata usando Azure PowerShell nel modello di distribuzione Resource Manager.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 527f3f33e2b5996c6fa7b7dc874123bba5ab39dd
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4b2593067193fe928cb8ac2b662fc3fd8ba7aedf
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creare una macchina virtuale da un'immagine gestita
@@ -32,10 +31,10 @@ ms.lasthandoff: 05/26/2017
 
 È necessario aver già [creato un'immagine di macchina virtuale gestita](capture-image-resource.md) da usare per creare la nuova macchina virtuale. 
 
-Verificare di avere la versione più recente del modulo di PowerShell AzureRM.Compute. Eseguire il comando seguente per installarlo.
+Verificare di disporre della versione più recente dei moduli di PowerShell AzureRM.Compute e AzureRM.Network. Aprire un prompt dei comandi di PowerShell come Amministratore ed eseguire il comando seguente per installarli.
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute,AzureRM.Network
 ```
 Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/powershell/azure/overview).
 

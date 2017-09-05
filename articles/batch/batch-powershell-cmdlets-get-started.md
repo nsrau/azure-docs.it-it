@@ -1,5 +1,5 @@
 ---
-title: Introduzione a PowerShell per Azure Batch | Documentazione Microsoft
+title: Introduzione a PowerShell per Azure Batch | Microsoft Docs
 description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gestire le risorse Batch.
 services: batch
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 65c9d6c2b7a7c994a262d463d6a32b41c7e5c33a
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 015096a48e5287af6b225f16a38fac328ed28630
+ms.contentlocale: it-it
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
@@ -100,7 +100,7 @@ Usare cmdlet come **New-AzureBatchPool**, **New-AzureBatchJob** e **New-AzureBat
 Quando si usano molti di questi cmdlet, oltre a passare un oggetto BatchContext è necessario passare oggetti contenenti le impostazioni dettagliate delle risorse, come illustrato nell'esempio seguente. Per altri esempi, vedere la Guida dettagliata dei singoli cmdlet.
 
 ### <a name="create-a-batch-pool"></a>Creare un pool di Batch
-Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizio cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo (vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md#pool)). In base alla scelta effettuata, l'immagine dei nodi di calcolo verrà creata con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases) oppure con una delle immagini di VM Linux o Windows supportate disponibili in Azure Marketplace.
+Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizio cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo. Vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md#pool). Se si specifica la configurazione di tipo servizio cloud, le immagini dei nodi di calcolo vengono create con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se si specifica la configurazione di tipo macchina virtuale, è possibile specificare una delle immagini di VM Linux o Windows supportate elencate nel [Marketplace per Macchine virtuali di Azure][vm_marketplace] oppure fornire un'immagine personalizzata preparata dall'utente.
 
 Quando si esegue **New-AzureBatchPool**, passare le impostazioni del sistema operativo in un oggetto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Il cmdlet seguente, ad esempio, crea un nuovo pool di Batch con nodi di calcolo di dimensione Small nella configurazione del servizio cloud, con immagine creata con la versione del sistema operativo più recente della famiglia 3 (Windows Server 2012). In questo caso, il parametro **CloudServiceConfiguration** specifica la variabile *$configuration* come oggetto PSCloudServiceConfiguration. Il parametro **BatchContext** specifica una variabile *$context* definita in precedenza come oggetto BatchAccountContext.
 
@@ -201,7 +201,7 @@ Creare ora il pool e specificare l'oggetto di riferimento pacchetto come argomen
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-Per altre informazioni sui pacchetti dell'applicazione, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
+Per altre informazioni sui pacchetti dell'applicazione, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
 
 > [!IMPORTANT]
 > Per usare i pacchetti dell'applicazione è necessario [collegare un account di archiviazione di Azure](#linked-storage-account-autostorage) all'account Batch.
@@ -238,6 +238,6 @@ Le proprietà del pool saranno ora aggiornate nel servizio Batch. Per distribuir
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per la sintassi dettagliata ed esempi dei cmdlet, vedere le [informazioni di riferimento sui cmdlet per Azure Batch](/powershell/module/azurerm.batch/#batch).
-* Per altre informazioni sulle applicazioni e sui pacchetti dell'applicazione in Batch, vedere [Distribuzione delle applicazioni con i pacchetti dell'applicazione di Azure Batch](batch-application-packages.md).
+* Per altre informazioni sulle applicazioni e sui pacchetti dell'applicazione in Batch, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

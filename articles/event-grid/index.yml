@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Griglia di eventi di Azure
+metadata:
+  title: 'Documentazione di Griglia di eventi di Azure: esercitazioni e informazioni di riferimento sulle API'
+  description: Usare Griglia di eventi di Azure per reagire agli eventi pertinenti nei servizi sia di Azure che non di Azure in tempo quasi reale.
+  services: event-grid
+  author: czeumault
+  manager: carolz
+  ms.service: event-grid
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/10/2017
+  ms.author: carolz
+abstract:
+  description: 'Griglia di eventi di Azure è un servizio di routing di eventi intelligente completamente gestito che consente un uso degli eventi uniforme tramite un modello di pubblicazione-sottoscrizione. Usare Griglia di eventi di Azure per reagire agli eventi pertinenti nei servizi sia di Azure che non di Azure in tempo quasi reale. Informazioni su come usare Griglia di eventi di Azure con le guide introduttive, le esercitazioni e gli esempi.'
+sections:
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: Informazioni su come creare e sottoscrivere eventi personalizzati.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/app-service-api/media/index/cli.svg
+            text: Interfaccia della riga di comando di Azure
+            href: /azure/event-grid/custom-event-quickstart
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: Informazioni su come sviluppare applicazioni che reagiscono agli eventi.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorare le modifiche alle VM con le app per la logica</a>
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API REST
+            html: <p><a href="/rest/api/eventgrid">REST</a></p>
+          - title: Schemi
+            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Schema di sottoscrizione</a></p><p><a href="/azure/event-grid/event-schema">Schema di eventi</a></p>

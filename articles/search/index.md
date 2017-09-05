@@ -2,7 +2,7 @@
 title: Documentazione di Ricerca di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
 description: "Informazioni su come aggiungere solide funzionalità di ricerca, tra cui il monitoraggio delle attività, alle applicazioni mobili o Web. Informazioni di riferimento sulle API e altri documenti."
 services: search
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 7fffe78bebd6799cad544c12c20eb1926975a68f
+ms.contentlocale: it-it
 ms.lasthandoff: 05/03/2017
 
 ---

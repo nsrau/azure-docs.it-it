@@ -1,6 +1,6 @@
 ---
 title: Funzionamento della replica di macchine virtuali di Azure tra aree di Azure in Azure Site Recovery  | Microsoft Docs
-description: Questo articolo fornisce una panoramica dei componenti e dell&quot;architettura usati durante la replica di VM di Azure tra aree di Azure tramite il servizio Azure Site Recovery.
+description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante la replica di VM di Azure tra aree di Azure tramite il servizio Azure Site Recovery.
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/29/2017
+ms.date: 08/31/2017
 ms.author: sujayt
 ms.translationtype: Human Translation
 ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: ec397eaeda963f257d1bd996f1f57189bcde17ca
 ms.contentlocale: it-it
 ms.lasthandoff: 06/15/2017
-
 
 ---
 

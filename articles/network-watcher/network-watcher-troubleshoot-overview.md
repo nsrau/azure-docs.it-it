@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 06/19/2017
 ms.author: gwallace
 ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 9c7ce71674a851d598ef48eb430127c9a6bddb84
+ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
+ms.openlocfilehash: 3ae4701914fb759efe7a890d5906f231c1def2e2
 ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 06/20/2017
 
 ---
 
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
-I gateway di rete virtuale forniscono la connettività tra le risorse locali e altre reti virtuali in Azure. Il monitoraggio di questi gateway e delle rispettive connessioni è essenziale per assicurare che le comunicazioni non siano interrotte. Network Watcher consente di risolvere i problemi dei gateway di rete virtuale e delle connessioni. La funzionalità può essere chiamata da PowerShell, dall'interfaccia della riga di comando o dall'API REST. Quando viene chiamato, Network Watcher esegue la diagnostica dell'integrità del gateway di rete virtuale o della connessione e restituisce i risultati appropriati. Questa richiesta è una transazione a esecuzione prolungata e i risultati vengono restituiti al termine della diagnosi.
+I gateway di rete virtuale forniscono la connettività tra le risorse locali e altre reti virtuali in Azure. Il monitoraggio di questi gateway e delle rispettive connessioni è essenziale per assicurare che le comunicazioni non siano interrotte. Network Watcher consente di risolvere i problemi dei gateway di rete virtuale e delle connessioni. Questo può essere chiamato dal portale, da PowerShell, dall'interfaccia della riga di comando o dall'API REST. Quando viene chiamato, Network Watcher esegue la diagnostica dell'integrità del gateway di rete virtuale o della connessione e restituisce i risultati appropriati. Questa richiesta è una transazione a esecuzione prolungata e i risultati vengono restituiti al termine della diagnosi.
+
+![portal][2]
 
 ## <a name="results"></a>Risultati
 
@@ -79,6 +81,24 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
 | WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
 
+## <a name="supported-gateway-types"></a>Tipi di gateway supportati
+
+L'elenco seguente mostra i gateway e le connessioni supportate con la risoluzione dei problemi di Network Watcher.
+|  |  |
+|---------|---------|
+|**Tipi di gateway**   |         |
+|VPN      | Supportato        |
+|ExpressRoute | Non supportato |
+|Hypernet | Non supportato|
+|**Tipi di VPN** | |
+|Basato su route | Supportato|
+|Basata su criteri | Non supportato|
+|**Tipi di connessione**||
+|IPsec| Supportato|
+|Vnet2Vnet| Supportato|
+|ExpressRoute| Non supportato|
+|Hypernet| Non supportato|
+|VPNClient| Non supportato|
 
 ## <a name="log-files"></a>File di log
 
@@ -194,8 +214,9 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla diagnosi dei gateway VPN e delle connessioni con PowerShell, vedere [Gateway troubleshooting - PowerShell](network-watcher-troubleshoot-manage-powershell.md) (Risoluzione dei problemi del gateway - PowerShell).
+Per informazioni sulla diagnosi dei gateway VPN e delle connessioni con il portale, vedere [Risoluzione dei problemi del gateway - Portale di Azure](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[2]: ./media/network-watcher-troubleshoot-overview/portal.png
 

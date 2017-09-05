@@ -37,11 +37,11 @@ Questo argomento descrive come configurare il servizio app di Azure per usare l'
    > [!NOTE]
    > L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso */.auth/login/microsoftaccount/callback*. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`.   
    > Assicurarsi che sia in uso lo schema HTTPS.
-   > 
-   > 
+   
 7. In "Segreti applicazione" fare clic su **Genera nuova password**. Prendere nota del valore visualizzato. Una volta chiusa la pagina, il valore non verrà più mostrato.
 
-    > [AZURE.IMPORTANT] La password è una credenziale di sicurezza importante. Non condividerla con altri e non distribuirla all'interno di un'applicazione client.
+    > [!IMPORTANT]
+    > La password è una credenziale di sicurezza importante. Non condividerla con altri e non distribuirla all'interno di un'applicazione client.
 
 ## <a name="secrets"> </a>Aggiungere le informazioni dell'account Microsoft all'applicazione del servizio app
 1. Nel [portale di Azure] passare all'applicazione e fare clic su **Impostazioni** > **Autenticazione/Autorizzazione**.

@@ -1,6 +1,6 @@
 ---
-title: Proteggere l&quot;insieme di credenziali delle chiavi | Documentazione Microsoft
-description: Gestire le autorizzazioni di accesso per un insieme di credenziali delle chiavi per controllare insiemi di credenziali, chiavi e segreti. Modello di autenticazione e autorizzazione per l&quot;insieme di credenziali delle chiavi e istruzioni per proteggere l&quot;insieme di credenziali delle chiavi
+title: Proteggere l'insieme di credenziali delle chiavi | Documentazione Microsoft
+description: Gestire le autorizzazioni di accesso per un insieme di credenziali delle chiavi per controllare insiemi di credenziali, chiavi e segreti. Modello di autenticazione e autorizzazione per l'insieme di credenziali delle chiavi e istruzioni per proteggere l'insieme di credenziali delle chiavi
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>Proteggere l'insieme di credenziali delle chiavi
@@ -197,7 +197,7 @@ Il ruolo personalizzato definito può essere assegnato solo alla sottoscrizione 
 
 L'assegnazione di ruoli personalizzati per l'autorizzazione "deploy/action" di sviluppatori/operatori rientra nell'ambito del gruppo di risorse. In questo modo, solo le macchine virtuali create nel gruppo di risorse "ContosoAppRG" otterranno i segreti (certificati SSL e bootstrap). Le macchine virtuali create dal team di sviluppatori/operatori in un altro gruppo di risorse non saranno in grado di ottenere questi segreti, anche se conoscono gli URI dei segreti.
 
-Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere più complessi e in alcuni casi può essere necessario modificare le autorizzazioni per l'insieme di credenziali delle chiavi in base alle esigenze. Ad esempio, in questo caso si presuppone che il team responsabile della sicurezza fornisca i riferimenti a chiavi e segreti (URI e identificazioni personali) richiesti dal team di sviluppatori/operatori per inserire riferimenti nelle proprie applicazioni. Di conseguenza, non è necessario concedere l'accesso al piano dati al team di sviluppatori/operatori. Si noti inoltre che questo esempio riguarda principalmente la sicurezza dell'insieme di credenziali delle chiavi. Considerazioni simili sono necessarie anche per proteggere [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/security/), [ account di archiviazione](../storage/storage-security-guide.md) e altre risorse di Azure.
+Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere più complessi e in alcuni casi può essere necessario modificare le autorizzazioni per l'insieme di credenziali delle chiavi in base alle esigenze. Ad esempio, in questo caso si presuppone che il team responsabile della sicurezza fornisca i riferimenti a chiavi e segreti (URI e identificazioni personali) richiesti dal team di sviluppatori/operatori per inserire riferimenti nelle proprie applicazioni. Di conseguenza, non è necessario concedere l'accesso al piano dati al team di sviluppatori/operatori. Si noti inoltre che questo esempio riguarda principalmente la sicurezza dell'insieme di credenziali delle chiavi. Considerazioni simili sono necessarie anche per proteggere [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/security/), [ account di archiviazione](../storage/common/storage-security-guide.md) e altre risorse di Azure.
 
 > [!NOTE]
 > Nota: questo esempio mostra come l'accesso all'insieme di credenziali delle chiavi verrà bloccato nell'ambiente di produzione. Gli sviluppatori devono quindi avere una sottoscrizione o un gruppo di risorse personale su cui dispongono di autorizzazioni complete per gestire gli insiemi di credenziali delle chiavi, le macchine virtuali e l'account di archiviazione in cui sviluppano l'applicazione.

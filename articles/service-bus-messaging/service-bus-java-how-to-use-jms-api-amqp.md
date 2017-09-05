@@ -1,5 +1,5 @@
 ---
-title: Come usare AMQP 1.0 con l&quot;API del bus di servizio Java | Microsoft Docs
+title: Come usare AMQP 1.0 con l'API del bus di servizio Java | Microsoft Docs
 description: Come usare JMS (Java Message Service ) con il bus di servizio di Azure e il protocollo AMQP (Advanced Message Queuing Protocol) 1.0.
 services: service-bus-messaging
 documentationcenter: java
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: cfd4822820270dbaf44a25f3e0fe749492765df8
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
 ms.contentlocale: it-it
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Come usare l'API JMS (Java Message Service) con il bus di servizio e AMQP 1.0
@@ -313,7 +312,7 @@ Quando si utilizza JMS su AMQP 1.0 con il bus di servizio esistono le seguenti r
 * È consentito solo un oggetto **MessageProducer** o **MessageConsumer** per **sessione**. Se si vuole creare più oggetti **MessageProducers** o **MessageConsumers** in un'applicazione, creare una **sessione** dedicata per ognuno di essi.
 * Le sottoscrizioni a un argomento volatile non sono attualmente supportate.
 * Gli oggetti**MessageSelectors** non sono attualmente supportati.
-* Le destinazioni temporanee, ad esempio **TemporaryQueue**, **TemporaryTopic**, non sono attualmente supportate, così come le API **QueueRequestor** e **TopicRequestor** da cui vengono usate.
+* Le destinazioni temporanee, ad esempio **TemporaryQueue** e **TemporaryTopic**, non sono attualmente supportate, così come le API **QueueRequestor** e **TopicRequestor** da cui vengono usate.
 * Le sessioni transazionali non sono supportate e le transazioni distribuite non sono supportate.
 
 ## <a name="summary"></a>Riepilogo

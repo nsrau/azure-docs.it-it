@@ -1,6 +1,6 @@
 ---
 title: Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud | Documentazione Microsoft
-description: Informazioni per la scelta tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud per l&quot;hosting di applicazioni Web.
+description: Informazioni per la scelta tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud per l'hosting di applicazioni Web.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: 
 author: ggailey777
@@ -11,15 +11,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2d6e1ba60d1f81aa1a9d3afde4ac9b621b01f04d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: ec6f0b10e68e024292384e9b45891ccd905372ff
 ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud
@@ -78,7 +78,7 @@ Di seguito sono riportati alcuni scenari applicativi comuni con indicazioni rigu
 * [Ho un'applicazione line-of-business che deve connettersi alla rete aziendale.](#lob)
 * [Voglio ospitare un'API REST o un servizio Web per client mobili.](#mobile)
 
-### <a id="onprem"></a> Mi serve un front-end Web con funzionalità di elaborazione in background e un back-end di database per eseguire applicazioni aziendali integrate con risorse locali.
+### <a id="onprem"></a>Mi serve un front-end Web con funzionalità di elaborazione in background e un back-end di database per eseguire applicazioni aziendali integrate con risorse locali.
 Azure App Service è un'ottima soluzione per applicazioni aziendali complesse. Consente di sviluppare app scalabili automaticamente su una piattaforma con carico bilanciato, è protetto con Active Directory e si connette alle risorse locali. Semplifica la gestione di tali app tramite un portale e delle API di qualità superiore e consente di ottenere informazioni sul modo in cui i clienti le usano con strumenti di analisi approfondita delle app. La funzionalità [Processi Web][Webjobs] consente di eseguire processi e attività in background nell'ambito del livello Web, mentre la connettività ibrida e le funzionalità di rete virtuale semplificano la connessione alle risorse locali. Azure App Service offre contratti di servizio con garanzia di disponibilità del 99,999% per le app Web e consente di:
 
 * Eseguire le applicazioni in modo affidabile su una piattaforma cloud con funzionalità automatiche di riparazione e di applicazione di patch.

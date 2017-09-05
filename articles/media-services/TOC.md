@@ -25,9 +25,6 @@
 
 # Procedure
 ## Gestisci
-### Account
-#### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](/rest/api/media/mediaservice)
 ### Entità
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
@@ -111,7 +108,6 @@
 ### [Codificatori locali](media-services-live-streaming-with-onprem-encoders.md)
 #### [Portale](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Streaming live con il codificatore cloud](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -169,7 +165,6 @@
 ### [Elaborazione di contenuti multimediali](media-services-scale-media-processing-overview.md)
 #### [Portale](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Endpoint di streaming
 #### [Portale](media-services-portal-scale-streaming-endpoints.md)
 
@@ -195,6 +190,7 @@
 #### [Lettori Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Inserire annunci sul lato client](media-services-inserting-ads-on-client-side.md)
 ### [Licenza per Microsoft Smooth Streaming Client Porting Kit](media-services-sspk.md)
+### [Riprodurre un flusso HLS con crittografia AES in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## Integrare
 ### [Usare Funzioni di Azure con Servizi multimediali](media-services-dotnet-how-to-use-azure-functions.md)
@@ -215,6 +211,7 @@
 ### [Logica di ripetizione dei tentativi](media-services-retry-logic-in-dotnet-sdk.md)
 
 # riferimento
+## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [PowerShell (gestione dei servizi)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
@@ -222,7 +219,8 @@
 
 # Risorse
 ## [Community di Servizi multimediali di Azure](media-services-community.md)
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/media-services/)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Note sulla versione](media-services-release-notes.md)
 ## [Video](https://azure.microsoft.com/resources/videos/index/?services=media-services)

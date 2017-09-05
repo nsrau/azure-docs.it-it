@@ -1,6 +1,6 @@
 # Panoramica
 ## [Informazioni sulle macchine virtuali](../../virtual-machines-windows-about.md)
-## [Dischi e dischi rigidi virtuali](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Dischi e dischi rigidi virtuali](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Reti virtuali](../../../virtual-network/virtual-networks-overview.md)
 ## [Domande frequenti](faq.md)
 ## [Confrontare macchine virtuali, siti Web e servizi cloud](../../../app-service-web/choose-web-site-cloud-service-vm.md)
@@ -81,9 +81,10 @@
 ### [Accedere a un'applicazione](../../virtual-machines-windows-troubleshoot-app-connection.md)
 ### [Problemi della distribuzione classica con la creazione di una nuova VM](troubleshoot-deployment-new-vm.md)
 ### [Problemi della distribuzione classica con il riavvio o il ridimensionamento di una VM esistente](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-## [Reimpostare la password RDP](reset-rdp.md)
+### [Reimpostare la password RDP](reset-rdp.md)
+### [Collegare un disco rigido virtuale alla VM di risoluzione dei problemi](troubleshoot-recovery-disks-portal.md)
 
-# Riferimento
+# riferimento
 ## [PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
 ## [Java](/java/api)
@@ -95,8 +96,9 @@
 ## [REST di archiviazione](/rest/api/storageservices)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
+## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilità internazionale](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

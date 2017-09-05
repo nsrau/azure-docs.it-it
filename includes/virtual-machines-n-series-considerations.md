@@ -1,4 +1,4 @@
-## <a name="general-considerations-for-n-series-vms"></a>Considerazioni generali per le VM serie N
+## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 
 * Per la disponibilità delle VM serie N, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/en-us/regions/services/).
 
@@ -12,7 +12,7 @@
 
 * Potrebbe essere necessario aumentare la quota di core (per area) nella sottoscrizione di Azure e la quota separata di core NC o NV. Per richiedere un aumento della quota, è possibile [aprire una richiesta di assistenza clienti online](../articles/azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito. I limiti predefiniti possono variare in base alla categoria della sottoscrizione.
 
-
+* Un'immagine VM che è possibile distribuire nelle VM serie N è la [macchina virtuale per l'analisi scientifica dei dati di Azure](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md). La macchina virtuale per l'analisi scientifica dei dati preinstalla e configura numerosi strumenti comuni per l'analisi scientifica dei dati e l'apprendimento avanzato. Preinstalla anche i driver GPU NVIDIA Tesla per le istanze NC.
 
 
 

@@ -22,8 +22,7 @@ ms.lasthandoff: 01/05/2017
 
 
 ---
-# Confronto tra Azure Data Lake Store e l'archivio BLOB di Azure
-<a id="comparing-azure-data-lake-store-and-azure-blob-storage" class="xliff"></a>
+# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Confronto tra Azure Data Lake Store e l'archivio BLOB di Azure
 Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data Lake Store e l'archivio BLOB di Azure, insieme ad alcuni aspetti fondamentali dell'elaborazione dei Big Data. L'archivio BLOB di Azure è un archivio di oggetti generico e scalabile, progettato per un'ampia gamma di scenari di archiviazione. Azure Data Lake Store è un repository su vasta scala ottimizzato per carici di lavoro di analisi dei Big Data.
 
 |  | Archivio Azure Data Lake | Archivio BLOB di Azure |
@@ -49,8 +48,7 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 | Disponibilità internazionale |Vedere [qui](https://azure.microsoft.com/regions/#services) |Vedere [qui](https://azure.microsoft.com/regions/#services) |
 | Prezzo |Vedere i [prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/) |Vedere i [prezzi](https://azure.microsoft.com/pricing/details/storage/) |
 
-### Passaggi successivi
-<a id="next-steps" class="xliff"></a>
+### <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)
 * [Introduzione ad Archivio Data Lake](data-lake-store-get-started-portal.md)
 

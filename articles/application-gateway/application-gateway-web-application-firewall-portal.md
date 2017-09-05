@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 224aa0db2feb7a83bec5b4ec46140046d10f012e
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 650f26d19615d27a94f3947aad7b7904b6c1fabc
 ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -28,7 +27,8 @@ ms.lasthandoff: 05/04/2017
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-web-application-firewall-portal.md)
-> * [PowerShell per Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+> * [PowerShell](application-gateway-web-application-firewall-powershell.md)
+> * [Interfaccia della riga di comando di Azure](application-gateway-web-application-firewall-cli.md)
 
 Informazioni su come creare un gateway applicazione con firewall applicazione Web abilitato.
 
@@ -66,7 +66,7 @@ Questo esempio aggiorna un gateway applicazione esistente per supportare il fire
    | **Impostazione** | **Valore** | **Dettagli**
    |---|---|---|
    |**Eseguire l'aggiornamento al livello WAF**| Selezionato | Il livello del gateway applicazione viene impostato al livello WAF.|
-   |**Stato del firewall**| Enabled | Enabled | Questa impostazione abilita il firewall su WAF.|
+   |**Stato del firewall**| Enabled | Questa impostazione abilita il firewall su WAF.|
    |**Modalità firewall** | Prevenzione | Questa impostazione riguarda la modalità di gestione del traffico dannoso da parte del firewall applicazione Web. La modalità **Rilevamento** registra solo gli eventi. La modalità **Prevenzione** registra gli eventi e blocca il traffico dannoso.|
    |**Set di regole**|3.0|Questa impostazione determina il [set di regole di base](application-gateway-web-application-firewall-overview.md#core-rule-sets) usato per proteggere i membri del pool back-end.|
    |**Configurare regole disabilitate**|variabile|Per impedire possibili falsi positivi, questa impostazione consente di disabilitare alcune [regole e gruppi di regole](application-gateway-crs-rulegroups-rules.md).|
@@ -109,18 +109,18 @@ Questo scenario illustrerà come:
 
    ![Pannello con impostazioni di base][2-2]
 
-1. Nel pannello **Impostazioni** che viene visualizzato in **Rete virtuale**, fare clic su **Scegliere una rete virtuale**. Si aprirà il pannello **Scegliere una rete virtuale**.  Fare clic su **Crea nuovo** per aprire il pannello **Crea rete virtuale**.
+1. Nel pannello **Impostazioni** che viene visualizzato in **Rete virtuale**, fare clic su **Scegliere una rete virtuale**. Questo passaggio apre il pannello **Scegli rete virtuale**.  Fare clic su **Crea nuovo** per aprire il pannello **Crea rete virtuale**.
 
    ![scegliere una rete virtuale][2]
 
-1. Nel pannello **Crea rete virtuale** immettere i valori seguenti e quindi fare clic su **OK**. Questa operazione chiuderà i pannelli **Crea rete virtuale** e **Scegliere una rete virtuale**. Il campo **Subnet** nel pannello **Impostazioni** verrà inoltre popolato con la subnet selezionata.
+1. Nel pannello **Crea rete virtuale** immettere i valori seguenti e quindi fare clic su **OK**. Questo passaggio chiude i pannelli **Crea rete virtuale** e **Scegli rete virtuale**. Con questa operazione il campo **Subnet** nel pannello **Impostazioni** viene popolato con la subnet selezionata.
 
    |**Impostazione** | **Valore** | **Dettagli** |
    |---|---|---|
    |**Nome**|AdatumAppGatewayVNET|Nome del gateway applicazione|
    |**Spazio di indirizzi:**|10.0.0.0/16| È lo spazio degli indirizzi per la rete virtuale|
    |**Nome della subnet**|AppGatewaySubnet|Nome della subnet per il gateway applicazione|
-   |**Intervallo di indirizzi subnet**|10.0.0.0/28| Questa subnet consente subnet aggiuntive nella rete virtuale per i membri del pool back-end|
+   |**Intervallo di indirizzi subnet**|10.0.0.0/28 | Questa subnet consente subnet aggiuntive nella rete virtuale per i membri del pool back-end|
 
 1. Nel pannello **Impostazioni** in **Configurazione IP front-end** scegliere **Pubblico** in **Tipo di indirizzo IP**
 
@@ -128,7 +128,7 @@ Questo scenario illustrerà come:
 
    ![scegliere un indirizzo IP pubblico][3]
 
-1. Nel pannello **Crea indirizzo IP pubblico** accettare il valore predefinito e fare clic su **OK**. Questo chiuderà i pannelli **Scegliere un indirizzo IP pubblico** e **Crea indirizzo IP pubblico** e inserirà l'indirizzo IP selezionato nel campo **Indirizzo IP pubblico**.
+1. Nel pannello **Crea indirizzo IP pubblico** accettare il valore predefinito e fare clic su **OK**. Questo passaggio chiude i pannelli **Scegliere un indirizzo IP pubblico** e **Crea indirizzo IP pubblico** e inserisce nel campo **Indirizzo IP pubblico** l'indirizzo IP pubblico selezionato.
 
 1. Nel pannello **Impostazioni** in **Configurazione listener** fare clic su **HTTP** in **Protocollo**. Per usare **HTTPS**è necessario un certificato. Poiché è necessaria la chiave privata del certificato, si devono specificare un file di esportazione con estensione pfx del certificato e la password per il file.
 
@@ -137,7 +137,7 @@ Questo scenario illustrerà come:
    |**Impostazione** | **Valore** | **Dettagli** |
    |---|---|---|
    |**Stato del firewall**| Enabled| Questa impostazione attiva o disattiva il WAF.|
-   |**Modalità firewall** | Prevenzione| Questa impostazione determina le misure che WAF deve adottare contro il traffico dannoso. Se viene scelta l'opzione **Rilevamento** , il traffico sarà solo registrato.  Se viene scelta l'opzione **Prevenzione**, il traffico viene registrato e interrotto con una risposta 403 di accesso non autorizzato.|
+   |**Modalità firewall** | Prevenzione| Questa impostazione determina le misure che WAF adotta contro il traffico dannoso. Se viene scelta l'opzione **Rilevamento** , il traffico sarà solo registrato.  Se viene scelta l'opzione **Prevenzione**, il traffico viene registrato e interrotto con una risposta 403 di accesso non autorizzato.|
 
 
 1. Esaminare la pagina di riepilogo e fare clic su **OK**.  Il gateway applicazione verrà inserito in coda e creato.
@@ -152,6 +152,8 @@ Questi passaggi creano un gateway applicazione di base con le impostazioni prede
 > I gateway applicazione creati con la configurazione di base del web application firewall sono configurati con CRS 3.0 per la protezione.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Successivamente, è possibile imparare a configurare un alias di dominio personalizzato per l'[indirizzo IP pubblico](../dns/dns-custom-domain.md#public-ip-address) tramite DNS di Azure o un altro provider DNS.
 
 Per informazioni su come configurare la registrazione diagnostica, per registrare gli eventi che vengono rilevati o bloccati con il web application firewall, visitare [Registrazione diagnostica per il gateway applicazione](application-gateway-diagnostics.md)
 

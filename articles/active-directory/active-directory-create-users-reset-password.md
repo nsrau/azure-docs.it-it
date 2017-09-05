@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 08/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
-ms.openlocfilehash: 5a14124412ac8e86a4a76d18c6d93a17a4f72b1b
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: asteen
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: deec642a240cb6f088210748b0ef3a3636a88405
 ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a>Reimpostare una password per un utente nel portale di Azure classico
@@ -31,6 +31,9 @@ ms.lasthandoff: 03/01/2017
 >
 
 Azure Active Directory (Azure AD) semplifica il processo di reimpostazione della password di un utente dopo un blocco nel caso abbia dimenticato la password o durante la manutenzione ordinaria di sicurezza. 
+
+> [!IMPORTANT]
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. Per informazioni su come reimpostare una password utente nell'interfaccia di amministrazione di Azure AD, vedere [Reimpostare la password per un utente in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
 
 1. Aprire la directory.
 2. Selezionare la scheda **Utenti** e quindi il nome visualizzato dell'utente che si vuole modificare.

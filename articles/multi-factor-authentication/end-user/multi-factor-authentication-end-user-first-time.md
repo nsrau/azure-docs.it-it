@@ -1,10 +1,10 @@
 ---
-title: Configurare la verifica in due passaggi per l&quot;account aziendale o dell&quot;istituto di istruzione | Documentazione Microsoft
-description: "Quando l&quot;azienda configura Azure Multi-Factor Authentication, verrà chiesto di effettuare l&quot;iscrizione per la verifica in due passaggi. Informazioni su come eseguire la configurazione. "
+title: Configurare la verifica in due passaggi per l'account aziendale o dell'istituto di istruzione | Documentazione Microsoft
+description: "Quando l'azienda configura Azure Multi-Factor Authentication, verrà chiesto di effettuare l'iscrizione per la verifica in due passaggi. Informazioni su come eseguire la configurazione. "
 services: multi-factor-authentication
 keywords: come usare directory di azure, active directory nel cloud, esercitazione di active directory
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: pblachar
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 58ddf3913a5d00ee9a89a1fa112f3d55d9a815ed
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b05672744dadb15f2780af100f3dd41412e55265
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
@@ -36,7 +36,7 @@ Quando il reparto IT richiede all'utente di iniziare a usare la verifica in due 
 
 Per iniziare, selezionare **Set it up now.** (Avvia la configurazione adesso.)
 
-Se all'accesso non viene visualizzata una schermata simile alla seguente, seguire le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) per trovare la pagina delle impostazioni in cui è possibile gestire le opzioni di verifica. 
+Se all'accesso non viene visualizzata una schermata simile alla seguente, seguire le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) per trovare la pagina delle impostazioni in cui è possibile gestire le opzioni di verifica.
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Decidere come verificare gli accessi
 
@@ -49,7 +49,7 @@ La prima domanda posta nel processo di registrazione è relativa alla modalità 
 | [Chiamata telefonica dell'ufficio](#use-your-office-phone-as-the-contact-method) |Invia una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico. |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Usare un'app per dispositivi mobili come metodo di contatto
-L'uso di questo metodo richiede l'installazione di un'app di autenticazione sul telefono o sul tablet. I passaggi in questo articolo sono basati sull'app Microsoft Authenticator, disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+L'uso di questo metodo richiede l'installazione di un'app di autenticazione sul telefono o sul tablet. I passaggi in questo articolo sono basati sull'app Microsoft Authenticator, disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 1. Selezionare **App per dispositivi mobili** dall'elenco a discesa.
 2. Selezionare l'opzione **Ricevi notifiche per la verifica** o **Use verification code** (Usa codice di verifica), quindi selezionare **Configura**.

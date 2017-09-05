@@ -1,6 +1,6 @@
 ---
-title: Linee guida per l&quot;ottimizzazione delle prestazioni di MapReduce in Azure Data Lake Store | Microsoft Docs
-description: Linee guida per l&quot;ottimizzazione delle prestazioni di MapReduce in Azure Data Lake Store
+title: Linee guida per l'ottimizzazione delle prestazioni di MapReduce in Azure Data Lake Store | Microsoft Docs
+description: Linee guida per l'ottimizzazione delle prestazioni di MapReduce in Azure Data Lake Store
 services: data-lake-store
 documentationcenter: 
 author: stewu
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: c145642c06e477dd47e4d8d651262046519b656b
-ms.openlocfilehash: 564141d09bc54fbf4beb36d28bec160a7097f897
+ms.translationtype: Human Translation
+ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
+ms.openlocfilehash: 9528148792f083cb0e48d356e61cf61762ee954f
+ms.contentlocale: it-it
+ms.lasthandoff: 07/06/2017
 
 
 ---
@@ -40,7 +42,7 @@ Vengono ora illustrati i parametri più importanti da configurare per aumentare 
 * **Mapreduce.reduce.memory.mb**: la quantità di memoria da allocare a ciascun riduttore
 * **Mapreduce.job.reduces**: il numero di attività di riduzione per processo
 
-**Mapreduce.map.memory / Mapreduce.reduce.memory**: numero da regolare in base alla quantità di memoria necessaria per le operazioni di mapping e/o riduzione.  È possibile visualizzare i valori predefiniti di mapreduce.map.memory e mapreduce.reduce.memory in Ambari tramite la configurazione Yarn.  In Ambari passare a YARN e visualizzare la scheda Configs (Configurazioni).  La memoria viene visualizzata     
+**Mapreduce.map.memory / Mapreduce.reduce.memory**: numero da regolare in base alla quantità di memoria necessaria per le operazioni di mapping e/o riduzione.  È possibile visualizzare i valori predefiniti di mapreduce.map.memory e mapreduce.reduce.memory in Ambari tramite la configurazione Yarn.  In Ambari passare a YARN e visualizzare la scheda Configs (Configurazioni).  Viene visualizzata la memoria YARN.  
 
 **Mapreduce.job.maps / Mapreduce.job.reduces** Ciò determinerà il numero massimo di mapper o riduttori da creare.  Il numero di suddivisioni determinerà la quantità di mapper creati per il processo MapReduce.  Pertanto, se ci sono meno suddivisioni rispetto ai mapper richiesti, si potrebbero ottenere meno mapper.       
 
@@ -58,10 +60,10 @@ Se si usa un cluster vuoto, la memoria può corrispondere alla memoria totale di
 **Passaggio 4: calcolare il numero di contenitori YARN**. I contenitori YARN indicano la quantità di concorrenza disponibile per il processo.  Prendere il valore della memoria totale di YARN e dividerlo per mapreduce.map.memory.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
-    
-Per disporre della massima concorrenza, è consigliabile usare almeno un numero di mapper e riduttori pari al numero di contenitori YARN.  È possibile sperimentare ulteriormente aumentando il numero di mapper e riduttori e verificare se così facendo si ottengono prestazioni migliori.  Tenere presente comunque che l'aggiunta di mapper comporterà un carico extra. Un numero eccessivo di mapper potrà causare una diminuzione nelle prestazioni.  
 
-Nota: la pianificazione e l'isolamento della CPU sono disattivate per impostazione predefinita, pertanto il numero di contenitori YARN è limitato dalla memoria.
+**Passaggio 5: configurare mapreduce.job.maps/mapreduce.job.reduces** Configurare mapreduce.job.maps/mapreduce.job.reduces come minimo in base al numero di contenitori disponibili.  È possibile sperimentare ulteriormente aumentando il numero di mapper e riduttori e verificare se così facendo si ottengono prestazioni migliori.  Tenere presente comunque che l'aggiunta di mapper comporterà un carico extra. Un numero eccessivo di mapper potrà causare una diminuzione nelle prestazioni.  
+
+La pianificazione e l'isolamento della CPU sono disattivate per impostazione predefinita, pertanto il numero di contenitori YARN è limitato dalla memoria.
 
 ## <a name="example-calculation"></a>Calcolo di esempio
 
@@ -72,16 +74,20 @@ Si supponga di disporre di un cluster costituito da 8 nodi D14 e di voler esegui
 **Passaggio 2: configurare mapreduce.map.memory/mapreduce.reduce.memory**. Nell'esempio riportato si esegue un processo con attività di I/O intensive e si decide che sono sufficienti 3 GB di memoria per le attività di mapping.
 
     mapreduce.map.memory = 3GB
-**Passaggio 3: determinare la memoria totale di YARN** 
+**Passaggio 3: determinare la memoria totale di YARN**
 
     total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Passaggio 4: calcolare il numero dei contenitori YARN**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
+**Passaggio 5: configurare mapreduce.job.maps/mapreduce.job.reduces**
+
+    mapreduce.map.jobs = 256
+
 ## <a name="limitations"></a>Limitazioni
 
-**Limitazione ADLS** 
+**Limitazione ADLS**
 
 In quanto servizio multi-tenant, ADLS imposta dei limiti di larghezza di banda a livello di account.  Se si raggiungono tali limiti, si inizieranno a riscontrare esiti negativi nelle attività. Ciò può essere constatato verificando la presenza di errori di limitazione nei log delle attività.  Se occorre ulteriore larghezza di banda per il processo, contattare Microsoft.   
 
@@ -97,25 +103,20 @@ Per verificare la presenza di limitazioni, è necessario abilitare la registrazi
 
 Per illustrare la modalità di esecuzione di MapReduce su Azure Data Lake Store, di seguito viene riportato un codice di esempio eseguito in un cluster con le seguenti impostazioni:
 
-* D14v2 a&16; nodi
-* Cluster Hadoop con HDI 3.5 in esecuzione
+* D14v2 a 16 nodi
+* Cluster Hadoop con HDI 3.6 in esecuzione
 
 Per iniziare, ecco alcuni comandi di esempio per eseguire MapReduce Teragen, Terasort e Teravalidate.  È possibile modificare questi comandi in base alle risorse.
 
 **Teragen**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 10000000000 adl://example/data/1TB-sort-input
 
 **Terasort**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=2048 -Dmapred.map.memory.mb=3072 -Dmapred.reduce.tasks=512 -Dmapred.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapreduce.job.maps=2048 -Dmapreduce.map.memory.mb=3072 -Dmapreduce.job.reduces=512 -Dmapreduce.reduce.memory.mb=3072 adl://example/data/1TB-sort-input adl://example/data/1TB-sort-output
 
 **Teravalidate**
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=512 -Dmapred.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapreduce.job.maps=512 -Dmapreduce.map.memory.mb=3072 adl://example/data/1TB-sort-output adl://example/data/1TB-sort-validate
 
