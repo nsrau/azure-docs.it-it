@@ -15,22 +15,23 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 26b140fef46a176b21bddbd7588543e71c251ed6
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 92076c7fe1f867919b7e02abf79cf0fb74fb7eb4
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>Creare un avviso di log attività con un modello di Resource Manager
-L'articolo descrive come usare un [modello di Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) per configurare gli avvisi del log attività. Il modello consente di configurare automaticamente gli avvisi relativi alle risorse al momento della loro creazione nell'ambito del processo di distribuzione automatizzata.
+L'articolo descrive come usare un [modello di Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) per configurare gli avvisi del log attività. Tramite i modelli è possibile configurare facilmente numerosi avvisi che vengono attivati in base a condizioni specifiche degli eventi del log attività nell'ambito del processo di distribuzione automatica.
 
-I passaggi di base sono i seguenti:
+I passaggi di base sono:
 
-1.  Creare un modello come file JSON che descrive come creare l'avviso del log attività.
-2.  [Distribuire il modello con un metodo di distribuzione qualsiasi](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+1. Creare un modello come file JSON che descrive come creare l'avviso del log attività.
+
+2. [Distribuire il modello con un metodo di distribuzione qualsiasi](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ## <a name="resource-manager-template-for-an-activity-log-alert"></a>Modello di Resource Manager per un avviso del log attività
-Per creare un avviso del log attività usando un modello di Resource Manager, creare una risorsa di tipo `microsoft.insights/activityLogAlerts` e completare tutte le proprietà correlate. Il modello seguente crea un avviso del log attività.
+Per creare un avviso del log attività usando un modello di Resource Manager, creare una risorsa di tipo `microsoft.insights/activityLogAlerts`. Compilare quindi tutte le proprietà correlate. Il modello seguente crea un avviso del log attività.
 
 ```json
 {
@@ -98,11 +99,11 @@ Per creare un avviso del log attività usando un modello di Resource Manager, cr
 }
 ```
 
-È anche possibile [visitare la raccolta di modelli di avvio rapido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights) per alcuni esempi di modelli di avvisi del log attività.
+Per alcuni esempi di modelli di avvisi del log attività, visitare la [raccolta di modelli di avvio rapido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sugli [Avvisi](monitoring-overview-alerts.md)  
-- Come aggiungere [gruppi di azione usando un modello di Resource Manager](monitoring-create-action-group-with-resource-manager-template.md)
-- [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Altre informazioni sugli avvisi](monitoring-overview-alerts.md).
+- Informazioni su come aggiungere [gruppi di azione usando un modello di Resource Manager](monitoring-create-action-group-with-resource-manager-template.md).
+- Informazioni su come [creare un avviso del log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- Informazioni su come [creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

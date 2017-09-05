@@ -1,6 +1,6 @@
 ---
-title: 'Esempi dell''interfaccia della riga di comando di Azure: Service Fabric | Microsoft Docs'
-description: 'Esempi dell''Interfaccia della riga di comando di Azure: Service Fabric'
+title: Esempi di interfaccia della riga di comando di Azure Service Fabric
+description: Esempi di interfaccia della riga di comando di Azure Service Fabric
 services: service-fabric
 documentationcenter: service-fabric
 author: Thraka
@@ -10,22 +10,23 @@ tags:
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: service-fabric
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 06/26/2017
+ms.date: 08/22/2017
 ms.author: adegeo
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 6604c873fb3f9fde636dcc03a76517f645c52674
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 7489c3d0534a695c6fc39ad95890db7ba2a52f25
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="azure-powershell-samples"></a>Esempi di Azure PowerShell
 
-La tabella seguente include collegamenti a esempi di script dell'[interfaccia della riga di comando di Azure](service-fabric-azure-cli-2-0.md) che gestiscono servizi, applicazioni e cluster di Service Fabric.
+# <a name="azure-service-fabric-cli-samples"></a>Esempi di interfaccia della riga di comando di Azure Service Fabric
+
+La tabella seguente include collegamenti a esempi di script dell'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md) che gestiscono servizi, applicazioni e cluster di Service Fabric.
 
 | | |
 |-|-|

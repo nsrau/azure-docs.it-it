@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 270d79944465176d3df467f7145ff82594302c3d
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 36b96360fabdcc64ffd2356540c580594637d48e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
@@ -54,7 +54,6 @@ Nel caso di un cluster con più tipi di nodo, è necessario sceglierne uno come 
 * Le **dimensioni minime delle macchine virtuali** per il tipo di nodo primario sono determinate dal **livello di durabilità** scelto. Il valore predefinito per il livello di durabilità è Bronze. Per sapere che cos'è il livello di durabilità e su quali valori può essere impostato, scorrere verso il basso.  
 * Il **numero minimo delle macchine virtuali** per il tipo di nodo primario è determinato dal **livello di affidabilità** scelto. Il valore predefinito per il livello di affidabilità è Silver. Per sapere che cos'è il livello di affidabilità e su quali valori può essere impostato, scorrere verso il basso. 
 
- 
 
 * I servizi di sistema di Service Fabric (ad esempio, il servizio Cluster Manager o il servizio Image Store) vengono inseriti nel tipo di nodo primario e quindi l'affidabilità e la durabilità del cluster vengono determinate dal valore del livello di affidabilità e dal valore del livello di durabilità selezionato per il tipo di nodo primario.
 
@@ -73,7 +72,11 @@ Questo privilegio viene espresso con i valori seguenti:
 
 * Gold: i processi dell'infrastruttura possono essere sospesi per una durata di due ore per ogni dominio di aggiornamento. La durata Gold può essere abilitata solo per gli SKU VM con tutti i nodi come D15_V2, G5 e così via.
 * Silver: i processi dell'infrastruttura possono essere sospesi per una durata di 10 minuti per ogni dominio di aggiornamento. È disponibile per tutte le VM standard a core singolo e superiori.
-* Bronze: nessun privilegio. È l'impostazione predefinita ed è consigliabile se nel cluster si eseguono solo carichi di lavoro senza stato.
+* Bronze: nessun privilegio. Questa è la modalità predefinita. Usare solo questo livello di durabilità per i tipi di nodi che eseguono _solo_ carichi di lavoro senza stato. 
+
+> [!WARNING]
+> NodeTypes in esecuzione con durabilità Bronze _senza privilegi_. Ciò significa che i processi di infrastruttura che influiscono sui carichi di lavoro senza stato non verranno interrotti o posticipati. È possibile che tali processi possano ancora influire sui carichi di lavoro, provocando un tempo di inattività o altri problemi. Per qualsiasi tipo di carico di lavoro di produzione, è consigliata almeno l'esecuzione con Silver. 
+> 
 
 È necessario scegliere il livello di durabilità per ogni tipo di nodo. Si può scegliere un livello di durabilità Gold o Silver per un tipo di nodo e il livello Bronze per un altro nello stesso cluster. **È necessario mantenere un conteggio minimo di 5 nodi per qualsiasi tipo di nodo con durabilità Gold o Silver**. 
 
@@ -87,8 +90,6 @@ Questo privilegio viene espresso con i valori seguenti:
 1. Le distribuzioni nel set di scalabilità di macchine virtuali e in altre risorse di Azure correlate possono subire ritardi o timeout oppure essere interamente bloccate da problemi nel cluster o a livello di infrastruttura. 
 2. Le disattivazioni automatizzate dei nodi durante le operazioni sull'infrastruttura di Azure aumentano il numero di [eventi del ciclo di vita della replica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ), ad esempio di scambi di nodi primari.
 
-
-
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Raccomandazioni su quando usare livelli di durabilità Silver o Gold
 
 Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi con stato di cui si prevede di ridurre frequentemente il numero di istanze di VM, quando si preferisce ritardare le operazioni di distribuzione in favore di una semplificazione di tali operazioni di riduzione del numero di istanze. Gli scenari di aumento del numero di istanze di VM non influiscono sulla scelta del livello di durabilità. Solo la riduzione del numero di istanze ha un impatto su tale scelta.
@@ -99,6 +100,12 @@ Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi
 2. Adottare modi più sicuri per eseguire una modifica di uno SKU di VM (aumento/riduzione delle prestazioni): la modifica dello SKU di VM di un set di scalabilità di macchine virtuali è un'operazione intrinsecamente non sicura, pertanto dovrebbe essere evitata, se possibile. Di seguito è illustrato il processo che è possibile seguire per evitare i problemi comuni.
     - **Per i tipi di nodo non primari:** è consigliabile creare un nuovo set di scalabilità di macchine virtuali, modificare il vincolo di posizionamento del servizio per poter includere il nuovo tipo di nodo/set di scalabilità di macchine virtuali e quindi ridurre il numero di istanze del set di scalabilità di macchine virtuali precedente a 0, un nodo alla volta (perché la rimozione dei nodi non influisca sull'affidabilità del cluster).
     - **Per il tipo di nodo primario:** è consigliabile non modificare il relativo SKU di VM. Se lo scopo del nuovo SKU è la capacità, è consigliabile aggiungere altre istanze o, se possibile, creare un nuovo cluster. Se non sono disponibili alternative, apportare modifiche alla definizione del modello del set di scalabilità di macchine virtuali in modo che rifletta il nuovo SKU. Se il cluster include un solo tipo di nodo, verificare che tutte le applicazioni con stato rispondano in modo tempestivo a tutti gli [eventi del ciclo di vita della replica del servizio](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle), ad esempio al blocco della replica in compilazione, e che la durata della ricompilazione della replica del servizio sia inferiore a cinque minuti (per il livello di durabilità Silver). 
+
+
+> [!WARNING]
+> Non è consigliata la modifica delle dimensioni della SKU della macchina virtuale per i set di scalabilità di macchine virtuali in una durabilità che sia almeno Silver. La modifica delle dimensioni della SKU della macchina virtuale è un'operazione dell'infrastruttura sul posto distruttiva per i dati. Senza almeno la capacità di ritardare o monitorare questa modifica, è possibile che l'operazione possa causare una perdita di dati per i servizi con stato o provocare altri problemi operativi non previsti, anche per i carichi di lavoro senza stato. 
+> 
+    
 3. Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con ruolo di gestione abilitato.
 4. Non eliminare istanze di VM casuali. Usare sempre la funzionalità di riduzione delle prestazioni del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM causali può creare squilibri nella distribuzione delle istanze di VM tra domini di aggiornamento e domini di errore. Tale squilibrio potrebbe influire negativamente sulla capacità del sistema di bilanciare correttamente il carico tra istanze dei servizi e repliche dei servizi.
 6. Se si usa la scalabilità automatica, impostare le regole in modo che la riduzione del numero di istanze (ossia la rimozione di istanze di VM) venga eseguita un solo nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/16/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 312cb366924767cd0ad645dc4a435dd549494188
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 72f66081a6409f980ec6bca5188f585489245a36
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: Esercitazione introduttiva per l'API DocumentDB
@@ -58,7 +58,7 @@ Assicurarsi di disporre di quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
     * In alternativa, per questa esercitazione è possibile usare l'[emulatore Azure Cosmos DB](local-emulator.md).
-* [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
+* [Visual Studio Community 2017](http://www.visualstudio.com/).
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passaggio 1: Creare un account di Azure Cosmos DB
 Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS). Se si usa l'emulatore Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Azure Cosmos DB Emulator](local-emulator.md) (Emulatore Azure Cosmos DB) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS).
@@ -66,7 +66,7 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è p
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>Passaggio 2: Configurare la soluzione di Visual Studio
-1. Aprire **Visual Studio 2015** nel computer.
+1. Aprire **Visual Studio 2017** nel computer.
 2. Scegliere **Nuovo** dal menu **File** e quindi selezionare **Progetto**.
 3. Nella finestra di dialogo **Nuovo progetto** selezionare **Modelli** / **Visual C#** / **Applicazione console**, assegnare un nome al progetto e quindi fare clic su **OK**.
    ![Screenshot della finestra Nuovo progetto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
@@ -503,7 +503,7 @@ Congratulazioni. L'eliminazione di un database di Azure Cosmos DB è stata compl
 ## <a id="Run"></a>Passaggio 11: Eseguire l'intera applicazione console C#
 Premere F5 in Visual Studio per compilare l'applicazione in modalità di debug.
 
-Verrà visualizzato l'output dell'app introduttiva. L'output visualizzerà i risultati delle query aggiunte e dovrà corrispondere al testo di esempio riportato di seguito.
+Verrà visualizzato l'output dell'app introduttiva nella finestra della console. L'output visualizzerà i risultati delle query aggiunte e dovrà corrispondere al testo di esempio riportato di seguito.
 
     Created FamilyDB
     Press any key to continue ...
@@ -543,11 +543,11 @@ Per completare la procedura, è sufficiente procedere alla compilazione.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'esercitazione su MVC ASP.NET più complessa, vedere [Creare un'applicazione Web con MVC ASP.NET usando Azure Cosmos DB](documentdb-dotnet-application.md).
+* Per un'esercitazione su MVC ASP.NET più complessa, vedere [Esercitazione su ASP.NET MVC: Sviluppo di applicazioni Web con Azure Cosmos DB](documentdb-dotnet-application.md).
 * Per la scalabilità e i test delle prestazioni con Azure Cosmos DB, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
-* Informazioni su come [monitorare un account Azure Cosmos DB](monitor-accounts.md).
+* Informazioni su come [monitorare le richieste, l'utilizzo e le risorse di archiviazione di Azure Cosmos DB](monitor-accounts.md).
 * Eseguire query sul set di dati di esempio illustrato nella pagina [Query Playground](https://www.documentdb.com/sql/demo).
-* Per altre informazioni sul modello di programmazione, vedere la sezione relativa allo sviluppo nella pagina [Documentazione di Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Per altre informazioni su Azure Cosmos DB, vedere [Introduzione ad Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 [cosmos-db-create-account]: create-documentdb-dotnet.md#create-account

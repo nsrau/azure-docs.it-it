@@ -1,6 +1,6 @@
 ---
 title: Gestire i backup con il controllo degli accessi in base al ruol | Documentazione Microsoft
-description: Usare il controllo degli accessi in base al ruolo per gestire l&quot;accesso alle operazioni di gestione di backup in un insieme di credenziali di Servizi di ripristino.
+description: Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle operazioni di gestione di backup in un insieme di credenziali di Servizi di ripristino.
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 8/22/2017
 ms.author: trinadhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 4bf4814c25f09c4c8637f13753316cd9f200fc42
-ms.openlocfilehash: f7e090916dbe6c6db84c1a110a6627feeb7e20ab
-ms.lasthandoff: 02/23/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: d0b6eb8eea8971eb8f80c6623f9a41a3692241b3
+ms.contentlocale: it-it
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -46,7 +46,7 @@ La tabella seguente riporta le azioni di gestione di Backup e il ruolo Controllo
 | Creare un insieme di credenziali di Servizi di ripristino | Collaboratore per il gruppo di risorse dell'insieme di credenziali |
 | Abilitare il backup di VM di Azure | Operatore di backup per l'insieme di credenziali, collaboratore Macchina virtuale in VM |
 | Backup su richiesta della VM | Operatore di backup |
-| Ripristino della VM | Operatore di backup, collaboratore per il gruppo di risorse i|n cui verranno distribuite la VM e le reti virtuali |
+| Ripristino della VM | Operatore di backup, collaboratore di gruppo di risorse in cui le VM e le reti virtuali verranno distribuite |
 | Ripristinare dischi e singoli file dal backup delle VM | Operatore di backup |
 | Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup |
 | Modificare criteri di backup per il backup di VM di Azure | Collaboratore di backup |

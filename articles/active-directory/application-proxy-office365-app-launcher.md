@@ -11,32 +11,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/17/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 194367028c3c2c571dd8645a794f67a0c3a21d4c
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 9069166259265f5d2b43043b75039e239f397f6c
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Impostare una home page personalizzata per le app pubblicate tramite il proxy applicazione di Azure AD
 
-Questo articolo illustra come configurare le app in modo che indirizzino gli utenti a una home page personalizzata quando gli utenti accedono alle app dal pannello di accesso di Azure Active Directory (Azure AD) e dall'icona di avvio delle app di Office 365.
+In questo articolo viene illustrato come configurare le app per indirizzare gli utenti a una home page personalizzata. Quando si pubblica un'applicazione con Proxy dell'applicazione, si imposta un URL interno ma a volte non è la pagina che gli utenti dovrebbero vedere per prima. Impostare una home page personalizzata in modo che gli utenti passino alla pagina corretta quando accedono alle app dal Pannello di accesso di Azure Active Directory o dall'utilità di avvio di app di Office 365.
 
-Quando gli utenti avviano le app, per impostazione predefinita vengono indirizzati all'URL del dominio radice dell'app pubblicata. La pagina di destinazione viene impostata in genere sull'URL della home page. Ad esempio, per l'applicazione back-end http://ExpenseApp, l'URL viene pubblicato come *https://expenseApp-contoso.msappproxy.net*. Per impostazione predefinita, l'URL della home page è impostato su *https://expenseApp-contoso.msappproxy.net*.
+Quando gli utenti avviano le app, per impostazione predefinita vengono indirizzati all'URL del dominio radice dell'app pubblicata. La pagina di destinazione viene impostata in genere sull'URL della home page. Usare il modulo PowerShell di Azure AD per definire l'URL della home page personalizzata quando si desidera che gli utenti dell'app arrivino ad una pagina specifica all'interno dell'app. 
 
-Tramite il modulo Azure AD PowerShell è possibile definire URL della home page personalizzata per i casi in cui si vuole che gli utenti accedano a una pagina specifica all'interno dell'app, ad esempio *https://expenseApp-contoso.msappproxy.net/login/login.aspx*.
+ad esempio:
+- All'interno della rete aziendale, gli utenti passano a *https://ExpenseApp/login/login.aspx* per registrarsi e accedere all'app.
+- Poiché si dispone di altre risorse come le immagini a cui il Proxy dell'applicazione deve accedere al livello superiore della struttura della cartella, si pubblica l'app con *https://ExpenseApp* come URL interno.
+- L'URL esterno predefinito è *https://ExpenseApp-contoso.msappproxy.net*, che non richiede agli utenti di registrarsi alla pagina.  
+- Impostare *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* come URL della home page per offrire agli utenti un'esperienza senza problemi. 
 
 >[!NOTE]
 >Quando si fornisce agli utenti l'accesso alle app pubblicate, le app vengono visualizzate nel [pannello di accesso di Azure AD](active-directory-saas-access-panel-introduction.md) e nell'[icona di avvio delle app di Office 365](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Prima di impostare l'URL della home page, tenere presente quanto segue:
+Prima di impostare l'URL della home page, tenere presente i requisiti presenti:
 
 * Assicurarsi che il percorso specificato sia un percorso di sottodominio dell'URL del dominio radice.
 
@@ -50,20 +54,23 @@ Prima di impostare l'URL della home page, tenere presente quanto segue:
 2. Passare ad **Azure Active Directory** > **Registrazioni per l'app** e scegliere l'applicazione dall'elenco. 
 3. Selezionare **Proprietà** dalle impostazioni.
 4. Aggiornare il campo **URL della home page** con il nuovo percorso. 
+
+   ![Fornire nuovi URL della home page](./media/application-proxy-office365-app-launcher/homepage.png)
+
 5. Selezionare **Salva**
 
 ## <a name="change-the-home-page-with-powershell"></a>Modificare la home page con PowerShell
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Installare il modulo Azure AD PowerShell
 
-Prima di definire l'URL di una home page personalizzata tramite PowerShell è necessario installare un pacchetto non standard del modulo Azure AD PowerShell. È possibile scaricare il pacchetto da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/1.1.23.0), che usa l'endpoint API Graph. 
+Prima di definire l'URL di una home page personalizzata tramite PowerShell è necessario installare il modulo Azure AD PowerShell. È possibile scaricare il pacchetto da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), che usa l'endpoint API Graph. 
 
 Per installare il pacchetto, seguire questa procedura:
 
 1. Aprire una finestra di PowerShell standard ed eseguire questo comando:
 
     ```
-     Install-Module -Name AzureAD -RequiredVersion 1.1.23.0
+     Install-Module -Name AzureAD
     ```
     Se il comando non viene eseguito come amministratore, usare l'opzione `-scope currentuser`.
 2. Durante l'installazione selezionare **Y** per installare due pacchetti da Nuget.org. Sono necessari entrambi i pacchetti. 
@@ -98,9 +105,9 @@ Ottenere il valore ObjectID dell'app e quindi cercare l'app tramite la relativa 
 
 ### <a name="update-the-home-page-url"></a>Aggiornare l'URL della home page
 
-Nello stesso modulo PowerShell usato per il passaggio 1, procedere come segue:
+Nello stesso modulo PowerShell usato per il passaggio 1, eseguire la procedura seguente:
 
-1. Verificare che l'app sia corretta e sostituire *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* con il valore GUID (ObjectID) copiato nel passaggio precedente.
+1. Verificare che l'app sia corretta e sostituire *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* con il valore ObjectID copiato nel passaggio precedente.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
@@ -108,16 +115,13 @@ Nello stesso modulo PowerShell usato per il passaggio 1, procedere come segue:
 
  Ora che è stata verificata l'app, è possibile aggiornare la home page come indicato di seguito.
 
-2. Creare un oggetto applicazione vuoto per le modifiche da apportare.  
-
- >[!NOTE]
- >Questa è solo una variabile che dovrà contenere i valori da aggiornare, perciò non è stato effettivamente creato nulla.
+2. Creare un oggetto applicazione vuoto per le modifiche da apportare. Questa variabile contiene i valori che si desidera aggiornare. Non viene creato nulla in questo passaggio.
 
     ```
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Impostare l'URL della home page sul valore desiderato. Il valore deve essere un percorso di sottodominio dell'app pubblicata. Se ad esempio si modifica l'URL della home page da *https://sharepoint-iddemo.msappproxy.net/* a *https://sharepoint-iddemo.msappproxy.net/hybrid/*, gli utenti verranno indirizzati direttamente alla home page personalizzata.
+3. Impostare l'URL della home page sul valore desiderato. Il valore deve essere un percorso di sottodominio dell'app pubblicata. Se ad esempio si modifica l'URL della home page da *https://sharepoint-iddemo.msappproxy.net/* a *https://sharepoint-iddemo.msappproxy.net/hybrid/*, gli utenti vengono indirizzati direttamente alla home page personalizzata.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
@@ -134,7 +138,7 @@ Nello stesso modulo PowerShell usato per il passaggio 1, procedere come segue:
     ```
 
 >[!NOTE]
->Le modifiche apportate all'app possono reimpostare l'URL della home page. In questo caso, ripetere il passaggio 2.
+>Le modifiche apportate all'app possono reimpostare l'URL della home page. Se viene reimpostato l'URL della home page, ripetere il passaggio 2.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

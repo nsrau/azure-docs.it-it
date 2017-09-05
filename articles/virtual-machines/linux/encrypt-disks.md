@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/05/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3dc48f5dcb50db81d9f461c41570640839fcce26
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Come crittografare i dischi virtuali in una VM di Linux
@@ -273,15 +273,13 @@ Lo stato dovrebbe ora segnalare sia il disco del sistema operativo che il disco 
 
 
 ## <a name="add-additional-data-disks"></a>Aggiungere ulteriori dischi dati
-Una volta crittografati i dischi dati, in un secondo momento è possibile aggiungere alla VM ulteriori dischi virtuali e anche crittografarli. Quando si esegue il comando `az vm encryption enable`, incrementare la versione di sequenza usando il parametro `--sequence-version`. Questo parametro della versione di sequenza consente di eseguire ripetutamente operazioni sulla stessa VM.
-
-Ad esempio, consente di aggiungere alla VM un secondo disco virtuale, come di seguito:
+Una volta crittografati i dischi dati, in un secondo momento è possibile aggiungere alla VM ulteriori dischi virtuali e anche crittografarli. Ad esempio, consente di aggiungere alla VM un secondo disco virtuale, come di seguito:
 
 ```azurecli
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-Eseguire nuovamente il comando per crittografare i dischi virtuali, questa volta aggiungendo il parametro `--sequence-version` e incrementando il valore della prima esecuzione, come di seguito:
+Eseguire nuovamente il comando per crittografare i dischi virtuali come indicato di seguito:
 
 ```azurecli
 az vm encryption enable \
@@ -291,8 +289,7 @@ az vm encryption enable \
     --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all \
-    --sequence-version 2
+    --volume-type all
 ```
 
 

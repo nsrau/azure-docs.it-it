@@ -4,7 +4,7 @@ description: Crittografare i contenuti con la crittografia di archiviazione tram
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: bc7e49c49e9b1b3cd919e665cd0f012c33f312f6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 17cf10fe1edd46d84806ac4fe09b757c75730356
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Crittografare i contenuti con la crittografia di archiviazione tramite API REST di AMS
+# <a name="encrypting-your-content-with-storage-encryption"></a>Crittografare il contenuto con la crittografia di archiviazione
+
 È consigliabile crittografare i propri contenuti localmente usando la crittografia AES a 256 bit e quindi caricarli nel servizio Archiviazione di Azure, dove verranno archiviati in forma crittografata.
 
 In questo articolo viene illustrata una panoramica della crittografia di archiviazione di AMS e viene specificato come caricare il contenuto crittografato per l'archiviazione:
@@ -33,17 +34,18 @@ In questo articolo viene illustrata una panoramica della crittografia di archivi
 * Collegare la chiave simmetrica all'asset.  
 * Impostare i parametri relativi alla crittografia sulle entità AssetFile.
 
-> [!NOTE]
-> Se si desidera distribuire un asset con memoria crittografata, è necessario configurare i criteri di distribuzione appropriati. Prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Per altre informazioni, vedere l'articolo [Procedura: Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
-> 
-> [!NOTE]
-> Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
-> 
-> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
-> 
-> Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI. Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
-> 
-> 
+## <a name="considerations"></a>Considerazioni 
+
+Se si desidera distribuire un asset con memoria crittografata, è necessario configurare i criteri di distribuzione appropriati. Prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Per altre informazioni, vedere l'articolo [Procedura: Configurare i criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
+
+Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md). 
+
+## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
+
+Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
 
 ## <a name="storage-encryption-overview"></a>Panoramica della crittografia di archiviazione.
 La crittografia di archiviazione di AMS applica la crittografia in modalità **AES-CTR** all'intero file.  La modalità CTR-AES è una crittografia a blocchi in grado di crittografare dati di lunghezza arbitraria senza bisogno di spaziatura interna. Funziona mediante la crittografia di un blocco di contatori con l'algoritmo AES e l'applicazione di XOR sull'output di AES con i dati da crittografare o decrittografare.  Il blocco di contatori usato viene creato copiando il valore di InitializationVector nei byte da 0 a 7 del valore del contatore, mentre i byte da 8 a 15 del valore del contatore vengono impostati su zero. Nel blocco del contatore a 16 byte, i byte da 8 a 15, vale a dire i byte meno significativi, vengono usati come semplice numero intero a 64 bit senza firma che viene aumentato di uno per ogni blocco di dati elaborato successivo e viene mantenuto nell'ordine dei byte di rete. Si noti che quando il numero intero raggiunge il valore massimo 0xFFFFFFFFFFFFFFFF, un incremento azzera i byte da 8 a 15 del contatore del blocco, senza influenzare gli altri 64 bit del contatore, vale a dire i byte da 0 a 7.   Per mantenere la sicurezza della crittografia in modalità AES-CTR, il valore InitializationVector dell'identificatore chiave di ogni chiave simmetrica deve essere univoco per ogni file e i file devono essere di lunghezza inferiore a 2^64 blocchi.  Questo metodo serve a garantire che un valore del contatore non venga mai riutilizzato con una chiave specificata. Per altre informazioni sulla modalità CTR, vedere questa [pagina della wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) tenendo presente che l'articolo della wiki usa il termine "Nonce" anziché "InitializationVector".
