@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2017
+ms.date: 08/25/2017
 ms.author: kgremban
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 6f8ee3449244b12d2c8b5714e6ad893e2f0b10ee
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Scegliere la soluzione Azure Multi-Factor Authentication più adatta alle proprie esigenze
@@ -53,7 +53,7 @@ Successivamente, a seconda di dove si trovano gli utenti, è possibile determina
 | Active Directory locale | |● |
 
 ## <a name="what-features-do-i-need"></a>Quali funzionalità sono necessarie?
-La tabella seguente confronta le funzionalità disponibili nella soluzione Multi-Factor Authentication nel cloud e nella soluzione server Multi-Factor Authentication.
+La tabella seguente confronta le funzionalità disponibili con Multi-Factor Authentication nel cloud e con il server Multi-Factor Authentication.
 
 | Funzionalità | Autenticazione a più fattori nel cloud | Server MFA |
 | --- |:---:|:---:|
@@ -78,12 +78,9 @@ La tabella seguente confronta le funzionalità disponibili nella soluzione Multi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver stabilito se è necessario utilizzare la modalità Multi-Factor Authentication nel cloud o il server MFA locale, sarà possibile iniziare a impostare e utilizzare Azure Multi-Factor Authentication. **Selezionare l'icona che rappresenta lo scenario**
+Ora che si sono apprese le differenze tra Azure Multi-Factor Authentication nel cloud e il server MFA in locale, è possibile configurare e usare Azure Multi-Factor Authentication. **Selezionare l'icona che rappresenta lo scenario**
 
 <center>
 
-
-
-
-[![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Server](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
+[![MFA nel cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Server MFA](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
 

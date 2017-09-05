@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/10/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: f0c6957217c21bdfd76498944e248fc808f2d271
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 10a5871d64524ff8adeb6ee3041b348ef2b1b32e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="prepare-your-development-environment"></a>Preparare l'ambiente di sviluppo
@@ -66,8 +66,8 @@ Le versioni correnti sono:
 * Service Fabric SDK 2.7.198
 * Runtime di Service Fabric 5.7.198
 * Strumenti di Service Fabric per Visual Studio 2015 1.7.50721
-* Visual Studio 2017 Update 2 include Strumenti di Service Fabric per Visual Studio 1.6.20170504
-* Visual Studio 2017 Update 3 Preview 7 (15.3.0 Preview 7.0) include Strumenti di Service Fabric per Visual Studio 1.7.20170721
+* Visual Studio 2017 Update 3 include Strumenti di Service Fabric per Visual Studio 1.7.20170817
+* Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) include Strumenti di Service Fabric per Visual Studio 1.7.20170721
 
 Per un elenco delle versioni supportate, vedere [Service Fabric support](service-fabric-support.md) (Supporto di Service Fabric)
 

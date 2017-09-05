@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
@@ -52,7 +52,7 @@ Tuttavia, il livello di granularità dei report varia a seconda delle edizioni:
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Versione gratuita e di base di Azure Active Directory
 
-La versione gratuita e di base di Azure Active Directory offre un elenco di accessi a rischio rilevati per gli utenti. Il report sugli eventi di rischio include le informazioni seguenti:
+La versione gratuita e di base di Azure Active Directory offre un elenco di accessi a rischio rilevati per gli utenti. Questo report elenca quanto riportato di seguito.
 
 - **Utente**: nome dell'utente usato durante l'operazione di accesso.
 - **IP**: indirizzo IP del dispositivo usato per connettersi ad Azure Active Directory.
@@ -60,7 +60,6 @@ La versione gratuita e di base di Azure Active Directory offre un elenco di acce
 - **Ora di accesso**: ora in cui è stato eseguito l'accesso.
 - **Stato**: stato dell'accesso.
 
-Il report offre la possibilità di scaricare i dati del report.
 
 ![Accessi a rischio](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -74,6 +73,15 @@ In base all'analisi dell'accesso a rischio è possibile inviare feedback ad Azur
 ![Accessi a rischio](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 Per informazioni dettagliate, vedere [Chiusura manuale degli eventi di rischio](active-directory-identityprotection.md#closing-risk-events-manually).
+
+Questo report offre la possibilità di:
+
+- Eseguire ricerche sulle risorse
+- Scaricare i dati del report
+
+
+![Accessi a rischio](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Versione Premium di Azure Active Directory
 

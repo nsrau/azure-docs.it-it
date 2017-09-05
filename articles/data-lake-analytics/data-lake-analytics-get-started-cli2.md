@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: cb5872a93bbff99161cd5f61e6e26bdb0d322587
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: fe2b84aac718ff5eddd4d73b5dc2120362952c1e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure 2.0
@@ -179,7 +179,7 @@ az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-##<a name="retrieve-job-results"></a>Recuperare i risultati di un processo
+## <a name="retrieve-job-results"></a>Recuperare i risultati di un processo
 
 Al termine di un processo, è possibile usare i comandi seguenti per elencare i file di output e scaricare i file:
 
@@ -190,10 +190,30 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
 ```
 
-Ad esempio:
+ad esempio:
 
 ```
 az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
+```
+
+## <a name="pipelines-and-recurrences"></a>Pipeline e ricorrenze
+
+**Ottenere informazioni su pipeline e ricorrenze**
+
+Usare i comandi `az dla job pipeline` per visualizzare le informazioni relative alle pipeline per i processi inviati in precedenza.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+Usare i comandi `az dla job recurrence` per visualizzare le informazioni relative alle ricorrenze per i processi inviati in precedenza.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

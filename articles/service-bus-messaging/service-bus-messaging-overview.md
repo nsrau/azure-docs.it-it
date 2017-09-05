@@ -1,6 +1,6 @@
 ---
 title: Panoramica della messaggistica del bus di servizio di Azure | Microsoft Docs
-description: Descrizione della messaggistica del bus di servizio e dell&quot;inoltro di Azure
+description: Descrizione della messaggistica del bus di servizio e dell'inoltro di Azure
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 05/25/2017
+ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 3a4382979dd6e18c0e94b4a989bb8289882eeb89
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 462fa0a6e86237b8c9d9ba97aa377f8d112a8b8e
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Messaggistica del bus di servizio: recapito flessibile dei dati nel cloud
+
 Il bus di servizio di Microsoft Azure è un servizio di recapito di informazioni affidabile. Lo scopo di questo servizio è semplificare la comunicazione. Quando due o più parti desiderano scambiarsi informazioni, è necessario un meccanismo che semplifichi la comunicazione. Il bus di servizio è un meccanismo di comunicazione negoziato o di terze parti. È simile a un servizio postale nel mondo fisico. I servizi postali semplificano l'invio di diversi tipi di lettere e pacchetti con una serie di garanzie di recapito, in qualsiasi parte del mondo.
 
 Analogamente al servizio postale di recapito della corrispondenza, il bus di servizio offre il recapito flessibile delle informazioni sia per il mittente che per il destinatario. Il servizio di messaggistica garantisce che le informazioni vengano recapitate anche se le due parti non sono mai in linea contemporaneamente o se non sono disponibili nello stesso momento. In questo modo, la messaggistica è simile all'invio di una lettera, mentre la comunicazione non negoziata è simile a una chiamata telefonica del passato, prima dell'introduzione dell'attesa di chiamata e dell'ID chiamate, che la rendono simile alla messaggistica negoziata.
@@ -32,6 +32,7 @@ Il mittente del messaggio può richiedere anche un'ampia gamma di caratteristich
 Il bus di servizio supporta due modelli di messaggistica distinti: *inoltro di Azure* e *messaggistica del bus di servizio*.
 
 ## <a name="azure-relay"></a>Servizio di inoltro di Azure
+
 Il componente [Inoltro WCF](../service-bus-relay/relay-what-is-it.md) del servizio di inoltro di Azure è un servizio centralizzato, ma con carico altamente bilanciato, che supporta un'ampia gamma di protocolli di trasporto e standard dei servizi Web. tra cui SOAP, WS-* e anche REST. Il [servizio di inoltro](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) offre una varietà di opzioni di connettività di inoltro e può facilitare la negoziazione di connessioni peer-to-peer dirette quando possibile. Bus di servizio è ottimizzato per gli sviluppatori .NET che utilizzano Windows Communication Foundation (WCF), in termini di prestazioni e usabilità e fornisce accesso completo al servizio di inoltro mediante interfacce SOAP e REST. In questo modo è possibile l’integrazione con il Bus di servizio per qualsiasi SOAP o ambiente di programmazione REST.
 
 Il servizio di inoltro supporta la messaggistica unidirezionale tradizionale, la messaggistica richiesta-risposta e la messaggistica peer-to-peer. Supporta inoltre la distribuzione degli eventi nell'ambito di Internet per abilitare scenari di pubblicazione/sottoscrizione e le comunicazioni tramite socket bidirezionale per migliorare l'efficienza point-to-point. Nel modello di messaggistica inoltrata, un servizio locale si connette al servizio di inoltro attraverso una porta in uscita e crea un socket bidirezionale per la comunicazione associato a un determinato indirizzo rendezvous. Il client può quindi comunicare con il servizio locale inviando messaggi al servizio di inoltro come destinazione l'indirizzo rendezvous. Il servizio di inoltro eseguirà quindi l’"inoltro" dei messaggi al servizio locale attraverso il socket bidirezionale già in uso. Il client non necessita di una connessione diretta al servizio locale, non deve conoscere la posizione in cui risiede il servizio e il servizio locale non richiede porte in ingresso aperte sul firewall.
@@ -41,18 +42,20 @@ Il servizio di inoltro supporta la messaggistica unidirezionale tradizionale, la
 L'inoltro WCF offre numerosi vantaggi, ma richiede che il server e il client siano online contemporaneamente per inviare e ricevere messaggi. Questo non è ottimale per la comunicazione di tipo HTTP, in cui le richieste potrebbero essere in genere a breve tempo, né per i client che si connettono solo occasionalmente, come browser, applicazioni per dispositivi mobili e così via. La messaggistica negoziata supporta la comunicazione disaccoppiata e presenta dei vantaggi; i client e server possono connettersi quando necessario ed eseguire le operazioni in modo asincrono.
 
 ## <a name="brokered-messaging"></a>Messaggistica negoziata
-A differenza dello schema di inoltro, la messaggistica del bus di servizio o la [messaggistica negoziata](service-bus-queues-topics-subscriptions.md) possono essere considerate asincrone o "disaccoppiate dal punto di vista temporale". Produttori (mittenti) e utenti (ricevitori) non devono essere necessariamente online contemporaneamente. L'infrastruttura di messaggistica archivia in modo affidabile i messaggi in un "broker" (ad esempio una coda) fino a quando l’utente è pronto a riceverli. Questo consente la disconnessione volontaria (ad esempio, per attività di manutenzione) o involontaria (a seguito di un guasto) dei componenti dell'applicazione distribuita senza ripercussioni sull'intero sistema. Inoltre, l'applicazione ricevente deve solo essere in linea durante determinate ore del giorno, ad esempio un sistema di gestione inventario che deve essere eseguito alla fine della giornata lavorativa.
 
-I componenti principali dell'infrastruttura di messaggistica negoziata del bus di servizio sono code, argomenti e sottoscrizioni.  La differenza principale è che gli argomenti supportano funzionalità di pubblicazione/sottoscrizione che possono essere usate per la logica di instradamento e recapito sofisticata basata sul contenuto, incluso l'invio a più destinatari. Questi componenti consentono nuovi scenari di messaggistica asincrona, ad esempio disaccoppiamento temporale, pubblicazione/sottoscrizione e bilanciamento del carico. Per altre informazioni sulle entità di messaggistica, vedere [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md).
+A differenza dello schema dell'inoltro, la messaggistica del bus di servizio con [code, argomenti e sottoscrizioni](service-bus-queues-topics-subscriptions.md) può essere considerata asincrona o disaccoppiata dal punto di vista temporale. Produttori (mittenti) e utenti (ricevitori) non devono essere necessariamente online contemporaneamente. L'infrastruttura di messaggistica archivia in modo affidabile i messaggi in un "broker", ad esempio una coda, fino a quando il consumer non è pronto a riceverli. In questo modo, i componenti dell'applicazione distribuita possono essere disconnessi, volontariamente (ad esempio, per attività di manutenzione) o involontariamente (a causa di un arresto anomalo del componente), senza ripercussioni sull'intero sistema. Inoltre, l'applicazione ricevente deve solo essere in linea durante determinate ore del giorno, ad esempio un sistema di gestione inventario che deve essere eseguito alla fine della giornata lavorativa.
+
+I componenti di base dell'infrastruttura di messaggistica del bus di servizio sono code, argomenti e sottoscrizioni. La differenza principale è che gli argomenti supportano funzionalità di pubblicazione/sottoscrizione che possono essere usate per la logica di instradamento e recapito sofisticata basata sul contenuto, incluso l'invio a più destinatari. Questi componenti consentono nuovi scenari di messaggistica asincrona, ad esempio disaccoppiamento temporale, pubblicazione/sottoscrizione e bilanciamento del carico. Per altre informazioni sulle entità di messaggistica, vedere [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md).
 
 Come per l'infrastruttura di inoltro WCF, la funzionalità di messaggistica negoziata viene resa disponibile per i programmatori di .NET Framework e WCF e anche tramite REST.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti.
 
 * [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
-* [Come usare le code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
+* [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 

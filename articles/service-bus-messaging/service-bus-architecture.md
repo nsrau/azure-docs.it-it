@@ -1,6 +1,6 @@
 ---
-title: Panoramica dell&quot;architettura di elaborazione dei messaggi del bus di servizio di Azure | Documentazione Microsoft
-description: Descrive l&quot;architettura di elaborazione e inoltro dei messaggi del bus di servizio di Azure.
+title: Panoramica dell'architettura di elaborazione dei messaggi del bus di servizio di Azure | Documentazione Microsoft
+description: Descrive l'architettura di elaborazione dei messaggi del bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ced46c64c1c105aa987759e05ab3680bc399f9a0
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="service-bus-architecture"></a>Architettura del bus di servizio
@@ -28,9 +27,9 @@ Questo articolo descrive l'architettura di elaborazione dei messaggi del bus di 
 ## <a name="service-bus-scale-units"></a>Unità di scala del bus di servizio
 Il bus di servizio è organizzato in base a *unità di scala*. Un'unità di scala è un'unità di distribuzione e contiene tutti i componenti necessari per eseguire il servizio. Ogni area distribuisce una o più unità di scala del bus di servizio.
 
-Uno spazio dei nomi del bus di servizio è mappato a un'unità di scala. L'unità di scala gestisce tutti i tipi di entità del bus di servizio, ovvero inoltri ed entità di messaggistica negoziata come code, argomenti e sottoscrizioni. Un’unità di scala del bus di servizio include i seguenti componenti:
+Uno spazio dei nomi del bus di servizio è mappato a un'unità di scala. L'unità di scala gestisce tutti i tipi di entità del bus di servizio (code, argomenti e sottoscrizioni). Un’unità di scala del bus di servizio include i seguenti componenti:
 
-* **Un set di nodi del gateway.** I nodi del gateway autenticano le richieste in ingresso e gestiscono le richieste di inoltro. Ogni nodo del gateway ha un indirizzo IP pubblico.
+* **Un set di nodi del gateway.** I nodi del gateway autenticano le richieste in ingresso. Ogni nodo del gateway ha un indirizzo IP pubblico.
 * **Un set di nodi del broker di messaggistica.** I nodi del broker di messaggistica elaborano le richieste relative alle entità di messaggistica.
 * **Un archivio del gateway.** Questo archivio contiene i dati per ogni entità definita nell'unità di scala. L'archivio del gateway viene implementato in un database SQL Azure.
 * **Più archivi di messaggistica.** Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene anche tutti i dati di sottoscrizione. A meno che non sia abilitato il [partizionamento delle entità di messaggistica](service-bus-partitioning.md), per una coda o un argomento viene eseguito il mapping a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. A eccezione del [livello di messaggistica Premium](service-bus-premium-messaging.md)del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
@@ -43,18 +42,10 @@ Quando un client invia una richiesta al bus di servizio, il servizio di bilancia
 
 ![Elaborazione delle richieste di messaggistica in ingresso](./media/service-bus-architecture/ic690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>Elaborazione delle richieste di inoltro in ingresso
-Quando un client invia una richiesta al servizio di [inoltro di Azure](/azure/service-bus-relay/), Azure Load Balancer instrada la richiesta a uno dei nodi del gateway. Se la richiesta è una richiesta di ascolto, il nodo del gateway crea un nuovo inoltro. Se la richiesta è una richiesta di connessione a un inoltro specifico, il nodo del gateway invia la richiesta di connessione al nodo del gateway che possiede l'inoltro. Il nodo del gateway che possiede l'inoltro invia una richiesta di rendezvous al client di ascolto, chiedendo al listener di creare un canale temporaneo sul nodo del gateway che ha ricevuto la richiesta di connessione.
-
-Quando viene stabilita la connessione di inoltro, i client possono scambiare messaggi tramite il nodo del gateway utilizzato per il rendezvous.
-
-![Elaborazione delle richieste di inoltro Web application firewa in ingresso](./media/service-bus-architecture/ic690645.png)
-
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è stata letta una panoramica dell'architettura del bus di servizio, vedere i collegamenti seguenti per altre informazioni:
 
 * [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
-* [Panoramica del servizio di inoltro di Azure](../service-bus-relay/relay-what-is-it.md)
 * [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Una soluzione di messaggistica accodata che usa le code del bus di servizio](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
