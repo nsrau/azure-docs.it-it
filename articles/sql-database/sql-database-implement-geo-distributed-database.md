@@ -386,7 +386,8 @@ Installare [Maven](https://maven.apache.org/download.cgi) tramite il programma d
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## <a name="next-steps"></a>Passaggi successivi 
+
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere l'articolo relativo a [gruppi di failover e replica geografica attiva](sql-database-geo-replication-overview.md).
 
