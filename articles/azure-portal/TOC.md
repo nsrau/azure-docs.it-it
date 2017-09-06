@@ -6,11 +6,13 @@
 ## [Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md)
 ## [Tasti di scelta rapida](azure-portal-keyboard-shortcuts.md)
 ## [Browser e dispositivi supportati](../azure-preview-portal-supported-browsers-devices.md)
+## [Struttura dei dashboard di Azure](azure-portal-dashboards-structure.md)
 # Guide alle procedure
 ## Distribuire
 ### [Creare modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Eseguire la distribuzione con il modello di Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Creare e condividere dashboard di Azure](azure-portal-dashboards.md)
+### [Creare dashboard di Azure a livello di codice](azure-portal-dashboards-create-programmatically.md)
 ## Gestisci
 ### [Attivare un contrasto elevato o cambiare tema](azure-portal-change-theme-high-contrast.md)
 ### [Usare il portale per gestire le risorse](../azure-resource-manager/resource-group-portal.md)

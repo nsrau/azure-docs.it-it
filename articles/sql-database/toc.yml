@@ -43,11 +43,7 @@
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Proteggere il database SQL
       href: sql-database-security-tutorial.md
-    - name: 4 - Migliorare le prestazioni del database SQL
-      href: sql-database-performance-tutorial.md
-    - name: 5. Implementare un'app multi-tenant
-      href: sql-database-multi-tenant-application.md
-    - name: 6 - Implementare un database con distribuzione geografica
+    - name: '4: Implementare un database con distribuzione geografica'
       href: sql-database-implement-geo-distributed-database.md
 - name: Esempi
   items:

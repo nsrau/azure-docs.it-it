@@ -4,6 +4,8 @@
   items:
     - name: Informazioni su Azure Cosmos DB
       href: introduction.md
+    - name: 20 giorni di suggerimenti
+      href: 20-days-of-tips.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -49,8 +51,12 @@
       items:
         - name: DocumentDB
           href: tutorial-develop-documentdb-dotnet.md
-        - name: MongoDB
+        - name: MongoDB con .NET
           href: tutorial-develop-mongodb.md
+        - name: MongoDB con Angular
+          href: tutorial-develop-mongodb-nodejs.md
+        - name: MongoDB con React
+          href: tutorial-develop-mongodb-react.md
         - name: Tabella
           href: tutorial-develop-table-dotnet.md
         - name: Grafico
@@ -208,7 +214,19 @@
               href: mongodb-mongochef.md
             - name: Uso di RoboMongo
               href: mongodb-robomongo.md
-            - name: Esercitazioni
+            - name: Serie di esercitazioni su Angular
+              items:
+                - name: 'Parte 2: Creare l''app Node'
+                  href: tutorial-develop-mongodb-nodejs-part2.md
+                - name: 'Parte 3: Aggiungere l''interfaccia utente di Angular'
+                  href: tutorial-develop-mongodb-nodejs-part3.md
+                - name: 'Parte 4: Creare Cosmos DB'
+                  href: tutorial-develop-mongodb-nodejs-part4.md
+                - name: 'Parte 5: Connettersi a Cosmos DB'
+                  href: tutorial-develop-mongodb-nodejs-part5.md
+                - name: 'Parte 6: Scrivere nell''app'
+                  href: tutorial-develop-mongodb-nodejs-part6.md
+            - name: Altre esercitazioni
               items:
                 - name: App console Node.js
                   href: mongodb-samples.md
