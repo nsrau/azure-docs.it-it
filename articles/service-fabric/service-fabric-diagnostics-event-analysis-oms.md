@@ -57,7 +57,7 @@ Se si desidera aggiungere un'area di lavoro OMS dopo aver distribuito un cluster
 
 ![Analisi SF OMS in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-Se si fa clic su **Crea** viene richiesta un'area di lavoro OMS. Fare clic su  **	Selezionare un'area di lavoro** e quindi **Crea una nuova area di lavoro**. Compilare le voci necessarie: l'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro OMS devono essere gli stessi. Dopo aver convalidato le voci, l'area di lavoro OMS verrà distribuita in pochi minuti. Mentre viene completata la distribuzione, la creazione del pannello di soluzioni di Service Fabric rimarrà aperto. Assicurarsi che la stessa area di lavoro venga visualizzata nell'*area di lavoro OMS* e fare clic su **Crea** in basso per aggiungere la soluzione Service Fabric all'area di lavoro.
+Se si fa clic su **Crea** viene richiesta un'area di lavoro OMS. Fare clic su **Selezionare un'area di lavoro** e quindi **Crea una nuova area di lavoro**. Compilare le voci necessarie: l'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro OMS devono essere gli stessi. Dopo aver convalidato le voci, l'area di lavoro OMS verrà distribuita in pochi minuti. Mentre viene completata la distribuzione, la creazione del pannello di soluzioni di Service Fabric rimarrà aperto. Assicurarsi che la stessa area di lavoro venga visualizzata nell'*area di lavoro OMS* e fare clic su **Crea** in basso per aggiungere la soluzione Service Fabric all'area di lavoro.
 
 ## <a name="using-the-oms-agent"></a>Uso dell'agente OMS
 
