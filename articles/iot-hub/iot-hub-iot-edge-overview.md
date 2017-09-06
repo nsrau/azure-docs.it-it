@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Azure IoT Edge | Microsoft Docs
-description: Descrive i concetti principali dell&quot;architettura di Azure IoT Edge, come gateway, moduli e broker.
+description: Descrive i concetti principali dell'architettura di Azure IoT Edge, come gateway, moduli e broker.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -11,14 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 09/04/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: ecdd56c91a8fc2011b3d7abe93b9d27c1e1e0bef
 ms.contentlocale: it-it
 ms.lasthandoff: 06/08/2017
-
 
 ---
 # <a name="azure-iot-edge-architectural-concepts"></a>Concetti dell'architettura di Azure IoT Edge
