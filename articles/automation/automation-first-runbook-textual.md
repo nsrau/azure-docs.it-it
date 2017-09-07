@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/26/2017
+ms.date: 08/31/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 739f7c0fe0cca03d80fa8b4bdadbf93b5da72a73
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 7381bacb09d9b530c14b65030db0fc8ab79b0b9a
+ms.contentlocale: it-it
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Il primo runbook del flusso di lavoro PowerShell
@@ -37,7 +37,7 @@ Questa esercitazione illustra la creazione di un [runbook del flusso di lavoro P
 Per completare questa esercitazione, sono necessari gli elementi seguenti:
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure <a href="/pricing/free-account/" target="_blank">[iscriversi per ottenere un account gratuito](https://azure.microsoft.com/free/).
-* [Account di Automazione](automation-sec-configure-azure-runas-account.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure.  Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
+* [Account di Automazione](automation-offering-get-started.md) che conterrà il runbook ed eseguirà l'autenticazione con le risorse di Azure.  Questo account deve avere l'autorizzazione per avviare e arrestare la macchina virtuale.
 * Macchina virtuale di Azure. La macchina virtuale viene arrestata e avviata, quindi non deve essere una macchina virtuale di produzione.
 
 ## <a name="step-1---create-new-runbook"></a>Passaggio 1: Creare nuovo runbook
