@@ -3,7 +3,7 @@ title: Personalizzare la pagina di accesso in Azure Active Directory | Microsoft
 description: Informazioni su come aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure
 services: active-directory
 documentationcenter: 
-author: jeffgilb
+author: curtand
 manager: femila
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: jeffgilb
+ms.date: 09/06/2017
+ms.author: curtand
+ms.reviewer: kexia
 custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: bddf2542eecce8bdeccda6053203bf2c2ba0ffb2
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Avvio rapido: Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso in Azure AD
@@ -52,27 +53,27 @@ Il logo del banner viene visualizzato nella pagina di accesso e nelle pagine del
 ### <a name="username-hint"></a>Suggerimento per il nome utente   
 Descrizione | Vincoli | Raccomandazioni
 ------- | ------- | ----------
-Consente di personalizzare il testo di suggerimento nel campo del nome utente. | Testo Unicode contenente fino a 64 caratteri<br>Solo testo normale | Evitare di impostare questo elemento se si prevede che utenti guest esterni all'organizzazione accedano all'app.
+Consente di personalizzare il testo di suggerimento nel campo relativo al nome utente. | Testo Unicode contenente fino a 64 caratteri<br>Solo testo normale | Si consiglia di non impostare questo elemento se si prevede che utenti guest esterni all'organizzazione accedano all'app.
             
 ### <a name="sign-in-page-text"></a>Testo della pagina di accesso   
 Descrizione | Vincoli | Raccomandazioni
 ------- | ------- | ----------
-Questo testo viene visualizzato nella parte inferiore del modulo di accesso e può essere usato per comunicare informazioni aggiuntive, ad esempio il numero di telefono dell'help desk o una nota legale. | Testo Unicode contenente fino a 256 caratteri<br>Solo testo normale, senza collegamenti o tag HTML   
+Questo testo viene visualizzato nella parte inferiore del modulo di accesso e può essere usato per comunicare informazioni aggiuntive, ad esempio il numero di telefono dell'help desk o una nota legale. | Testo Unicode fino a 256 caratteri<br>Solo testo normale, senza collegamenti o tag HTML   
 
 ### <a name="sign-in-page-image"></a>Immagine della pagina di accesso  
 Descrizione | Vincoli | Raccomandazioni
 ------- | ------- | ----------
-Questa immagine viene visualizzata sullo sfondo della pagina di accesso, è ancorata al centro dell'area visualizzabile e viene ridimensionata e ritagliata per riempire la finestra del browser.    <br>Negli schermi stretti, come quelli dei telefoni cellulari, l'immagine non viene visualizzata.<br>Quando la pagina viene caricata, il codice applica una maschera nera con opacità 0,55 sopra all'immagine. | JPG o PNG<br>Dimensioni immagine: 1920 x 1080 pixel<br>Dimensioni del file: &gt; 300 KB | <br>Usare le immagini nei casi in cui non è necessario richiamare l'attenzione sull'argomento. Il modulo di accesso opaco viene visualizzato sopra la parte centrale dell'immagine e può coprire qualsiasi parte dell'immagine, a seconda delle dimensioni della finestra del browser.<br>Mantenere le dimensioni del file quanto più piccole possibile per garantire tempi di caricamento rapidi. 
+Questa immagine viene visualizzata sullo sfondo della pagina di accesso, è ancorata al centro dell'area visualizzabile e viene ridimensionata e ritagliata per riempire la finestra del browser.    <br>Negli schermi stretti, come quelli dei telefoni cellulari, l'immagine non viene visualizzata.<br>Quando la pagina viene caricata, il codice applica una maschera nera con opacità 0,55 sopra all'immagine. | JPG o PNG<br>Dimensioni immagine: 1920 x 1080 pixel<br>Dimensioni del file: &lt; 300 KB | <br>Usare le immagini nei casi in cui non è necessario richiamare l'attenzione sull'argomento. Il modulo di accesso opaco viene visualizzato sopra la parte centrale dell'immagine e può coprire qualsiasi parte dell'immagine, a seconda delle dimensioni della finestra del browser.<br>Mantenere le dimensioni del file quanto più piccole possibile per garantire tempi di caricamento rapidi. 
 
 ### <a name="background-color"></a>Colore di sfondo
 Descrizione | Vincoli | Raccomandazioni
 ------- | ------- | ----------
-Questo colore viene usato al posto dell'immagine di sfondo in caso di connessioni con larghezza di banda ridotta. | Colore RGB in formato esadecimale (esempio: #FFFFFF) | È consigliabile usare il colore primario del logo del banner o il colore dell'organizzazione.
+Questo colore viene usato al posto dell'immagine di sfondo con le connessioni con larghezza di banda ridotta. | Colore RGB in formato esadecimale (esempio: #FFFFFF) | È consigliabile usare il colore primario del logo del banner o il colore dell'organizzazione.
 
 ### <a name="show-option-to-remain-signed-in"></a>Impostazione Mostra l'opzione per mantenere l'accesso
 Descrizione | Vincoli | Raccomandazioni
 ------- | ------- | ----------
-La pagina di accesso di Azure AD include un'opzione che consente a un utente di restare connesso quando chiude e riapre il browser. Usare questa impostazione per nascondere tale opzione.<br>Impostare il valore su "No" per nascondere l'opzione agli utenti. | &nbsp; | Questa impostazione non influisce sulla durata della sessione.<br>Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dal fatto che gli utenti possano o meno scegliere se restare connessi. Se si configura questa impostazione come nascosta, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con richieste di accesso.
+La pagina di accesso di Azure AD include un'opzione che consente a un utente di rimanere connesso quando chiude e riapre il browser. Usare questa impostazione per nascondere tale opzione.<br>Impostare il valore su "No" per nascondere l'opzione agli utenti. | &nbsp; | Questa impostazione non influisce sulla durata della sessione.<br>Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dal fatto che gli utenti possano o meno scegliere se restare connessi. Se si configura questa impostazione come nascosta, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con una richiesta di accesso.
 
 > [!NOTE]
 > Tutti gli elementi sono facoltativi. Se, ad esempio, si specifica un logo del banner senza immagine di sfondo, la pagina di accesso mostrerà il logo e l'immagine di sfondo per il sito di destinazione, ad esempio Office 365.

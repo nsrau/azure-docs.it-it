@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/06/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7872d5229cdc053bfb9dc8ddba01785b0f8e5a9a
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 39c62461c9659b0cb4422de88686283ba462c53b
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Accesso alle applicazioni self-service e gestione delegata con Azure Active Directory

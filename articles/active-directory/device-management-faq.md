@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 2934b64c693f6505ddb389766374e31a5e6f249b
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
@@ -146,9 +146,9 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 **R:** Per informazioni sulla risoluzione dei problemi, vedere:
 
-- [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD - Windows 10 e Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+- [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD - Windows 10 e Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
 
-- [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD per client di livello inferiore di Windows](active-directory-device-registration-troubleshoot-windows-legacy.md)
+- [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD per client di livello inferiore di Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
 ---
 

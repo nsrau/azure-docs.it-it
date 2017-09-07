@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 26fb0914de571aa0e398f0e2a2f8e439d3d27680
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
@@ -109,11 +109,13 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | &nbsp; | Asia orientale | Asia sudorientale |
 | Australia | Australia orientale | Australia orientale |
 | &nbsp; | Australia sudorientale | Australia sudorientale |
-| Giappone | Giappone orientale | Giappone orientale |
-| &nbsp; | Giappone occidentale | Giappone orientale |
 | India | India centrale | India centrale |
 | &nbsp; | India occidentale | India centrale |
 | &nbsp; | India meridionale | India centrale |
+| Giappone | Giappone orientale | Giappone orientale |
+| &nbsp; | Giappone occidentale | Giappone orientale |
+| Corea | Corea centrale | Corea centrale |
+| &nbsp; | Corea meridionale | Corea centrale |
 
 In alternativa, è possibile indicare esplicitamente l'area del servizio Data Factory da usare per eseguire la copia specificando la proprietà `executionLocation` in `typeProperties` nell'attività di copia. I valori supportati per questa proprietà sono elencati nella colonna **Area usata per lo spostamento dei dati** precedente. Si noti che i dati vengono trasferiti in rete attraverso tale area durante la copia. Ad esempio, per eseguire la copia tra archivi di Azure in Corea è possibile specificare `"executionLocation": "Japan East"` per instradare i dati tramite l'area del Giappone (vedere l'[esempio JSON](#by-using-json-scripts) come riferimento).
 

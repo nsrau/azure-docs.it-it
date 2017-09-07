@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 12bcff92f7d2f877fa90b35fddf88266488c5f78
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 87af5baeeb1b3132a17085db7cbf275ae86da53b
 ms.contentlocale: it-it
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>Eseguire processi Sqoop con Azure PowerShell per Hadoop in HDInsight
@@ -35,7 +34,7 @@ Informazioni su come usare Azure PowerShell per eseguire processi Sqoop in HDIns
 > 
 
 ### <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
+Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
 * **Workstation con Azure PowerShell**.
   
