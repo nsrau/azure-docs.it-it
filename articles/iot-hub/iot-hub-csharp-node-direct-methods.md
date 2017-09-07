@@ -1,6 +1,6 @@
 ---
-title: Usare metodi diretti dell&quot;Hub IoT di Azure (.NET/Node) | Documentazione Microsoft
-description: Come usare metodi diretti dell&quot;Hub IoT di Azure. Si usa Azure IoT SDK per dispositivi per Node.js per implementare un&quot;app per dispositivo simulato che include un metodo diretto e Azure IoT SDK per servizi per .NET per implementare un&quot;app di servizio che richiama il metodo diretto.
+title: Usare metodi diretti dell'Hub IoT di Azure (.NET/Node) | Documentazione Microsoft
+description: Come usare metodi diretti dell'Hub IoT di Azure. Si usa Azure IoT SDK per dispositivi per Node.js per implementare un'app per dispositivo simulato che include un metodo diretto e Azure IoT SDK per servizi per .NET per implementare un'app di servizio che richiama il metodo diretto.
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 08/30/2017
 ms.author: nberdy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e7d7065513f69bac5f759bfd5f4b3965b26bab5d
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 9bf02ff15d973ea2c9f00815558507c66c049159
 ms.contentlocale: it-it
-ms.lasthandoff: 03/14/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="use-direct-methods-netnode"></a>Usare metodi diretti (.NET/Node)
@@ -157,7 +156,7 @@ A questo punto è possibile eseguire le applicazioni.
     ```
     node SimulatedDevice.js
     ```
-   Attendere l'apertura del dispositivo simulato:  ![][7]
+   Attendere l'apertura del dispositivo simulato: ![][7]
 3. Quando il dispositivo è connesso e in attesa di chiamate del metodo, eseguire l'app .NET **CallMethodOnDevice** per richiamare il metodo nell'app per dispositivo simulato. La risposta del dispositivo dovrebbe essere scritta nella console.
    
     ![][8]

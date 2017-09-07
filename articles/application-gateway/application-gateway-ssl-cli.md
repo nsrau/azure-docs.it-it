@@ -1,6 +1,6 @@
 ---
 title: Configurare l'offload SSL - Gateway applicazione di Azure - Interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Questo articolo contiene le istruzioni per creare un gateway applicazione con l'offload SSL usando l'interfaccia della riga di comando di Azure 2.0
+description: Questo articolo contiene istruzioni per creare un gateway applicazione con offload SSL usando l'interfaccia della riga di comando di Azure 2.0.
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: e8c1ba09daef09ef5002e33345905772961c1d93
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 032a514ddab625e4f7c5ef23a1da03a0162f43e3
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Configurare un gateway applicazione per l'offload SSL con l'interfaccia della riga di comando di Azure 2.0
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/04/2017
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-ssl-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-ssl-arm.md)
-> * [PowerShell per Azure classico](application-gateway-ssl.md)
+> * [PowerShell classico per Azure](application-gateway-ssl.md)
 > * [Interfaccia della riga di comando di Azure 2.0](application-gateway-ssl-cli.md)
 
 Il gateway applicazione di Azure può essere configurato per terminare la sessione Secure Sockets Layer (SSL) nel gateway ed evitare costose attività di decrittografia SSL nella Web farm. L'offload SSL semplifica anche la gestione dei certificati nel server front-end.
@@ -36,19 +36,21 @@ Per eseguire i passaggi indicati in questo articolo è necessario [installare l'
 
 ## <a name="required-components"></a>Componenti richiesti
 
-* **Pool di server back-end:** elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici.
-* **Impostazioni del pool di server back-end:** ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-* **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-* **Listener** : ha una porta front-end, un protocollo (Http o Https, queste impostazioni fanno distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
-* **Regola** : associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
+* **Pool di server back-end**: elenco di indirizzi IP dei server back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP o VIP pubblici.
+* **Impostazioni del pool di server back-end**: ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
+* **Porta front-end**: porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
+* **Listener**: ha una porta front-end, un protocollo (HTTP o HTPPS, queste impostazioni fanno distinzione tra maiuscole e minuscole) e il nome del certificato SSL, se si configura l'offload SSL.
+* **Regola**: associa il listener e il pool di server back-end e definisce il pool di server back-end a cui indirizzare il traffico quando raggiunge un listener specifico. È attualmente supportata solo la regola *basic* . La regola *basic* è una distribuzione del carico di tipo round robin.
 
 **Note aggiuntive sulla configurazione**
 
-Per la configurazione dei certificati SSL, il protocollo in **HttpListener** deve essere sostituito con *Https* (distinzione tra maiuscole e minuscole). L'elemento **SslCertificate** viene aggiunto ad **HttpListener** con il valore della variabile configurato per il certificato SSL. La porta front-end deve essere impostata su 443.
+Per la configurazione dei certificati SSL, il protocollo in **HttpListener** deve essere sostituito con *Https* (distinzione tra maiuscole e minuscole). Aggiungere l'elemento **SslCertificate** ad **HttpListener** con il valore della variabile configurato per il certificato SSL. La porta front-end deve essere aggiornata a **443**.
 
-**Per abilitare l'affinità basata sui cookie**: è possibile configurare un gateway applicazione per fare in modo che una richiesta proveniente da una sessione client sia sempre diretta alla stessa macchina virtuale nella Web farm. Questo scenario viene realizzato aggiungendo un cookie di sessione che consente al gateway di indirizzare il traffico in modo appropriato. Per abilitare l'affinità basata sui cookie, impostare **CookieBasedAffinity** su *Enabled* nell'elemento **BackendHttpSettings**.
+**Per abilitare l'affinità basata sui cookie**: è possibile configurare un gateway applicazione per fare in modo che una richiesta proveniente da una sessione client sia sempre diretta alla stessa macchina virtuale nella Web farm. A tale scopo, aggiungere un cookie di sessione che consenta al gateway di indirizzare il traffico in modo appropriato. Per abilitare l'affinità basata sui cookie, impostare **CookieBasedAffinity** su *Enabled* nell'elemento **BackendHttpSettings**.
 
 ## <a name="configure-ssl-offload-on-an-existing-application-gateway"></a>Configurare l'offload SSL in un gateway applicazione
+
+Immettere i comandi seguenti per configurare l'offload SSL per un gateway applicazione esistente:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -107,7 +109,7 @@ az network application-gateway rule create \
 
 ## <a name="create-an-application-gateway-with-ssl-offload"></a>Creare un gateway applicazione con l'offload SSL
 
-L'esempio seguente crea un gateway applicazione con l'offload SSL.  Il certificato e la password del certificato devono essere aggiornati a una chiave privata valida.
+L'esempio seguente crea un gateway applicazione con l'offload SSL. Il certificato e la password del certificato devono essere aggiornati a una chiave privata valida.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -136,9 +138,11 @@ az network application-gateway create \
   --public-ip-address-allocation "dynamic"
 ```
 
-## <a name="get-application-gateway-dns-name"></a>Ottenere il nome DNS del gateway applicazione
+## <a name="get-an-application-gateway-dns-name"></a>Ottenere un nome DNS del gateway applicazione
 
-Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, non descrittivo. Per assicurarsi che gli utenti finali possano raggiungere il gateway applicazione, è possibile usare un record CNAME per fare riferimento all'endpoint pubblico del gateway applicazione. [Configurazione di un nome di dominio personalizzato in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Per creare un alias, recuperare i dettagli del gateway applicazione e il nome DNS e l'IP associati usando l'elemento PublicIPAddress collegato al gateway applicazione. Il nome DNS del gateway applicazione dovrà essere usato per creare un record CNAME che associa le due applicazioni Web a questo nome DNS. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
+Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione.  Il gateway applicazione richiede un nome DNS assegnato in modo dinamico, non descrittivo quando si usa un IP pubblico. Per assicurarsi che gli utenti finali possano raggiungere il gateway applicazione, è possibile usare un record CNAME che faccia riferimento all'endpoint pubblico del gateway applicazione. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato in Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+
+Per configurare un alias, recuperare i dettagli del gateway applicazione e il relativo nome DNS/indirizzo IP usando l'elemento **PublicIPAddress** collegato al gateway applicazione. Usare il nome DNS del gateway applicazione per creare un record CNAME che associ le due applicazioni Web a questo nome DNS. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
 
 
 ```azurecli-interactive
@@ -183,7 +187,7 @@ az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
+Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, vedere [Creare un gateway applicazione con un servizio di bilanciamento del carico interno](application-gateway-ilb.md).
 
 Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
 

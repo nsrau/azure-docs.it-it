@@ -3,7 +3,7 @@ title: "Controllare la connettività con Azure Network Watcher - Interfaccia del
 description: "Questa pagina descrive come eseguire il controllo della connettività con Network Watcher usando l'interfaccia della riga di comando di Azure 2.0"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278
