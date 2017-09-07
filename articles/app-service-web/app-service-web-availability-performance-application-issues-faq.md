@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 5c3e0a7f731fa3f7b34902c93bae8f67a0e8153d
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 80dada771ef336a1da59262ae48e29bf2347406a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: a556cee9d7b665cd7df23c97e7e2c8c2afabbe58
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 6926fe1be44c078482dd5073788e36d7ae77efef
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Usare Azure DevTest Labs per macchine virtuali e ambienti di test PaaS
@@ -113,7 +113,7 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs usate pe
    | Attività | Contenuto dell'esercitazione |
    | --- | --- |
    | [Definire i criteri del lab](devtest-lab-set-lab-policy.md) |Controllare i costi impostando criteri nel lab. |
-   | [Eliminare tutte le VM del lab usando uno script di PowerShell](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Eliminare tutti i lab con una sola operazione al termine del test.|
+   | [Eliminare tutte le VM del lab usando uno script di PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Eliminare tutti i lab con una sola operazione al termine del test.|
 
 1. **Aggiungere una rete virtuale a un lab** 
    
@@ -147,7 +147,7 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs usate pe
    
    | Attività | Contenuto dell'esercitazione |
    | --- | --- |
-   | [Creare un lab usando un modello di Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Creare lab in Azure DevTest Labs usando modelli di Resource Manager. |
+   | [Creare un lab usando un modello di Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Creare lab in Azure DevTest Labs usando modelli di Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

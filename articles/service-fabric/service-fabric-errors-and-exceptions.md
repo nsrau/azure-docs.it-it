@@ -1,6 +1,6 @@
 ---
 title: Eccezioni FabricClient comuni | Documentazione Microsoft
-description: Vengono descritti errori ed eccezioni comuni che possono essere generati dalle API FabricClient durante l&quot;esecuzione di operazioni di gestione di applicazioni e cluster.
+description: Vengono descritti errori ed eccezioni comuni che possono essere generati dalle API FabricClient durante l'esecuzione di operazioni di gestione di applicazioni e cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 491f61afe899c746c193f0d3703d3212f9258e63
-ms.openlocfilehash: 578046d6939b90cb58d457087bb465006630b4c1
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: fec85bcf1ce46374815fddcd21ab2e8f73cbd1df
 ms.contentlocale: it-it
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Errori ed eccezioni comuni quando si usano le API FabricClient

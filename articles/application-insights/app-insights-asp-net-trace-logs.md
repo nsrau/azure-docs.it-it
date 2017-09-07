@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/3/2017
+ms.date: 05/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 93808e617f33a5c78e5c89f4dac4680d44724d1c
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 91ffe6fa182f0d5e4294031787b853c33ea460df
 ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Esplorare i log di traccia .NET in Application Insights
