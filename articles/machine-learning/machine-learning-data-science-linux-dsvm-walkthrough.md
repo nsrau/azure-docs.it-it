@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev;paulsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 80e0b0cb5193d5a0c3782e2e6371b91441780347
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6da9a8e3f9f8ac851c2a8deb861ac1d0b3ec5874
 ms.contentlocale: it-it
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="data-science-on-the-linux-data-science-virtual-machine"></a>Analisi scientifica dei dati in una macchina virtuale Linux per l'analisi scientifica dei dati
@@ -44,7 +44,7 @@ Il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) è u
 >
 >
 
-Se è necessario più spazio di archiviazione, è possibile creare altri dischi e collegarli alla macchina virtuale. Dato che questi dischi usano l'archiviazione di Azure persistente, i relativi dati vengono conservati anche quando il server viene arrestato o sottoposto a un nuovo provisioning in seguito a un ridimensionamento. Per aggiungere un disco e collegarlo alla macchina virtuale, seguire le istruzioni in [Aggiungere un disco a una VM Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questa procedura usa l'interfaccia della riga di comando di Azure, già installata nella DSVM, e può quindi essere eseguita interamente dalla macchina virtuale stessa. Per aumentare lo spazio di archiviazione, è anche possibile usare l'[archiviazione file di Azure](../storage/storage-how-to-use-files-linux.md).
+Se è necessario più spazio di archiviazione, è possibile creare altri dischi e collegarli alla macchina virtuale. Dato che questi dischi usano l'archiviazione di Azure persistente, i relativi dati vengono conservati anche quando il server viene arrestato o sottoposto a un nuovo provisioning in seguito a un ridimensionamento. Per aggiungere un disco e collegarlo alla macchina virtuale, seguire le istruzioni in [Aggiungere un disco a una VM Linux](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questa procedura usa l'interfaccia della riga di comando di Azure, già installata nella DSVM, e può quindi essere eseguita interamente dalla macchina virtuale stessa. Per aumentare lo spazio di archiviazione, è anche possibile usare l'[archiviazione file di Azure](../storage/files/storage-how-to-use-files-linux.md).
 
 Per scaricare i dati, aprire una finestra del terminale ed eseguire questo comando:
 

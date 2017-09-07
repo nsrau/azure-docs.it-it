@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 365dd9477f791432c1a92f1b81eb573dbbc6f874
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 63b005f37ab5e15e8a1b4645446d65f1529f1bbd
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -50,10 +50,10 @@ Dopo la lettura di questo articolo, è possibile inserire commenti nella parte i
 ## <a name="set-up-an-azure-storage-account"></a>Configurare un account di archiviazione di Azure
 
 - Site Recovery replica le macchine locali in Archiviazione di Azure. Le VM di Azure vengono create dalla risorsa di archiviazione dopo il failover.
-- Configurare un [account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account) Standard/Premium in cui inserire i dati replicati in Azure.
-- [Archiviazione Premium](../storage/storage-premium-storage.md) si usa in genere per le macchine virtuali che richiedono un livello di prestazioni di I/O costantemente elevato e bassa latenza per ospitare carichi di lavoro con numerose operazioni di I/O.
+- Configurare un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) Standard/Premium in cui inserire i dati replicati in Azure.
+- [Archiviazione Premium](../storage/common/storage-premium-storage.md) si usa in genere per le macchine virtuali che richiedono un livello di prestazioni di I/O costantemente elevato e bassa latenza per ospitare carichi di lavoro con numerose operazioni di I/O.
 - Se si vuole usare un account Premium per archiviare i dati replicati, sarà necessario anche un account di archiviazione standard per l'archiviazione dei log di replica in cui vengono acquisite le modifiche in corso ai dati locali.
-- A seconda del modello di risorsa da usare per le macchine virtuali di Azure di cui si esegue il failover, l'account deve essere configurato in [modalità Resource Manager](../storage/storage-create-storage-account.md) o in [modalità classica](../storage/storage-create-storage-account-classic-portal.md).
+- A seconda del modello di risorsa da usare per le macchine virtuali di Azure di cui si esegue il failover, l'account deve essere configurato in [modalità Resource Manager](../storage/common/storage-create-storage-account.md) o in [modalità classica](../storage/common/storage-create-storage-account.md).
 - È consigliabile configurare un account di archiviazione prima di iniziare. In caso contrario sarà necessario eseguire l'operazione durante la distribuzione di Site Recovery. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 - Non è possibile spostare gli account di archiviazione usati da Site Recovery tra gruppi di risorse nella stessa sottoscrizione o in diverse sottoscrizioni.
 

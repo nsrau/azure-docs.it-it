@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 933cb8692abea1f66192605208ddd9c0b9057235
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34086044db752f09f1282517b59856091e85c2fc
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replicare macchine virtuali Hyper-V nei cloud VMM in Azure con PowerShell e Azure Resource Manager
@@ -59,7 +58,7 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 ### <a name="azure-prerequisites"></a>Prerequisiti di Azure
 * È necessario un account [Microsoft Azure](https://azure.microsoft.com/) . Se non si ha un account, creare un [account gratuito](https://azure.microsoft.com/free). È anche possibile leggere le informazioni sui [prezzi di Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
 * Se si prova a usare la replica in uno scenario di sottoscrizione di CSP, sarà necessaria una sottoscrizione di CSP. Per altre informazioni sul programma CSP, vedere [Iscriversi al programma CSP (Cloud Solution Provider)](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
-* Per archiviare dati replicati in Azure, è necessario un account di archiviazione di Azure v2 (Resource Manager). Nell'account deve essere abilitata la replica geografica. L'account deve trovarsi nella stessa area geografica in cui si trova il servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione o alla sottoscrizione di CSP. Per altre informazioni sulla configurazione dell'archiviazione di Azure, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md) come riferimento.
+* Per archiviare dati replicati in Azure, è necessario un account di archiviazione di Azure v2 (Resource Manager). Nell'account deve essere abilitata la replica geografica. L'account deve trovarsi nella stessa area geografica in cui si trova il servizio Azure Site Recovery e deve essere associato alla stessa sottoscrizione o alla sottoscrizione di CSP. Per altre informazioni sulla configurazione dell'archiviazione di Azure, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/common/storage-introduction.md) come riferimento.
 * È necessario assicurarsi che le macchine virtuali da proteggere soddisfino i [prerequisiti delle macchine virtuali di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 > [!NOTE]
@@ -104,7 +103,7 @@ Altre informazioni sul mapping di rete sono disponibili negli articoli seguenti:
 * [Come configurare e monitorare le reti virtuali in Azure](https://azure.microsoft.com/documentation/services/virtual-network/)
 
 ### <a name="powershell-prerequisites"></a>Prerequisiti di PowerShell
-Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](/powershell/azure/overview).
+Assicurarsi che Azure PowerShell sia pronto all'uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](/powershell/azure/overview).
 
 Per informazioni sui suggerimenti che facilitano l'uso dei cmdlet, ad esempio i valori dei parametri, sugli input e sugli output che vengono in genere gestiti in Azure PowerShell, vedere [Iniziare a utilizzare i cmdlet di Azure](/powershell/azure/get-started-azureps).
 
@@ -288,7 +287,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ## <a name=monitor></a> Monitorare l'attività
-Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessario attendere l’esecuzione dei processi per il completamento dell'elaborazione.
+Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessario attendere l'esecuzione dei processi per il completamento dell'elaborazione.
 
     Do
     {

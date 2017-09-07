@@ -3,8 +3,8 @@ title: "Configurazione del progetto Azure tramite più configurazioni del serviz
 description: Informazioni su come configurare un progetto di servizio cloud di Azure modificando i file ServiceDefinition.csdef e ServiceConfiguration.cscfg
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7e720b7d1f874f83d7d2ff516704f61b5e39601d
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 24b2530b23211c654072a6edc8a31e53989bf0a8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configurazione del progetto Azure tramite più configurazioni del servizio
@@ -64,9 +65,9 @@ Nella pagina **Impostazioni** è possibile aggiungere le impostazioni di configu
 ### <a name="configuring-a-connection-string-to-a-storage-account"></a>Configurazione di una stringa di connessione in un account di archiviazione
 Una stringa di connessione è un'impostazione di configurazione che fornisce informazioni di connessione e autenticazione per l'emulatore di archiviazione o per un account di archiviazione di Azure. Quando il codice deve accedere ai dati dei servizi di archiviazione di Azure, ovvero i dati BLOB, della coda o della tabella, dal codice in esecuzione in un ruolo, sarà necessario definire una stringa di connessione per l'account di archiviazione.
 
-Una stringa di connessione che punta a un account di archiviazione di Azure deve essere in un formato definito. Per informazioni sulla creazione di stringhe di connessione, vedere [Configurazione delle stringhe di connessione di Archiviazione di Azure](storage/storage-configure-connection-string.md).
+Una stringa di connessione che punta a un account di archiviazione di Azure deve essere in un formato definito. Per informazioni sulla creazione di stringhe di connessione, vedere [Configurazione delle stringhe di connessione di Archiviazione di Azure](storage/common/storage-configure-connection-string.md).
 
-Quando si è pronti a testare il servizio rispetto ai servizi di archiviazione di Azure o a distribuire il servizio cloud in Azure, è possibile modificare il valore di qualsiasi stringa di connessione in modo che punti all'account di archiviazione di Azure. Selezionare (**…**), quindi **Immettere le credenziali dell'account di archiviazione**. Immettere le informazioni sull'account, inclusi il nome e la chiave dell'account. Nella finestra di dialogo **Stringa di connessione a account di archiviazione** è possibile indicare anche se si vogliono usare gli endpoint HTTPS predefiniti (opzione predefinita), gli endpoint HTTP predefiniti o gli endpoint personalizzati. Se si è registrato un nome di dominio personalizzato per il servizio, è possibile scegliere di usare endpoint personalizzati, come descritto in [Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione di Azure](storage/storage-custom-domain-name.md).
+Quando si è pronti a testare il servizio rispetto ai servizi di archiviazione di Azure o a distribuire il servizio cloud in Azure, è possibile modificare il valore di qualsiasi stringa di connessione in modo che punti all'account di archiviazione di Azure. Selezionare (**…**), quindi **Immettere le credenziali dell'account di archiviazione**. Immettere le informazioni sull'account, inclusi il nome e la chiave dell'account. Nella finestra di dialogo **Stringa di connessione a account di archiviazione** è possibile indicare anche se si vogliono usare gli endpoint HTTPS predefiniti (opzione predefinita), gli endpoint HTTP predefiniti o gli endpoint personalizzati. Se si è registrato un nome di dominio personalizzato per il servizio, è possibile scegliere di usare endpoint personalizzati, come descritto in [Configurare un nome di dominio personalizzato per i dati BLOB in un account di archiviazione di Azure](storage/blobs/storage-custom-domain-name.md).
 
 > [!IMPORTANT]
 > È necessario modificare le stringhe di connessione affinché puntino a un account di archiviazione di Azure prima di distribuire il servizio. Se non si esegue questa operazione, il ruolo potrebbe non essere avviato oppure potrebbe non passare per gli stati di inizializzazione, occupato e arresto.
@@ -105,10 +106,5 @@ Per configurare le impostazioni di un intero progetto di servizio cloud di Azure
 | Eventi di compilazione |In questa pagina è possibile impostare gli eventi di pre-compilazione e di post-compilazione. |
 | Sviluppo |In questa pagina è possibile specificare le istruzioni per la configurazione della compilazione e le condizioni in cui sono eseguiti gli eventi di post-compilazione. |
 | Web |In questa pagina è possibile configurare le impostazioni che sono correlate al server Web. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

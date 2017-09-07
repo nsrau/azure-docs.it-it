@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: a0452c4dedc218dff17404c4ecee70d788e49644
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -142,7 +142,7 @@ OPTION (MAXDOP 1);
 La dimensione delle DWU e la classe della risorsa utente insieme determinano la quantità di memoria disponibile per una query dell'utente. Per aumentare la concessione di memoria per una query di caricamento, è possibile aumentare il numero di DWU o aumentare la classe risorsa.
 
 - Per aumentare le DWU, vedere [Ridimensionare le prestazioni](sql-data-warehouse-manage-compute-overview.md#scale-compute)
-- Per cambiare la classe risorsa per una query, vedere [Esempio di modifica della classe di risorse di un utente](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
+- Per cambiare la classe risorsa per una query, vedere [Esempio di modifica della classe di risorse di un utente](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 Ad esempio, sulla DWU 100 un utente nella classe risorsa smallrc può usare 100 MB di memoria per ogni distribuzione. Per informazioni dettagliate, vedere [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
 

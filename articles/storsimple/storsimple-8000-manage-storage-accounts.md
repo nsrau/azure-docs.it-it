@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e94a01c87886b59816c7ea1a4e78825836e6e6e7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -57,7 +56,7 @@ Le attività più comuni relative agli account di archiviazione che possono esse
 Esistono tre tipi di account di archiviazione che è possibile utilizzare con il dispositivo StorSimple.
 
 * **Account di archiviazione generati automaticamente** : come suggerito dal nome, questo tipo di account di archiviazione viene generato automaticamente quando viene inizialmente creato il servizio. Per altre informazioni sulla creazione di questo account di archiviazione, vedere il [Passaggio 1: Creare un nuovo servizio](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) in [Distribuire il dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Account di archiviazione nella sottoscrizione del servizio** : sono gli account di archiviazione di Azure associati alla stessa sottoscrizione del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). 
+* **Account di archiviazione nella sottoscrizione del servizio** : sono gli account di archiviazione di Azure associati alla stessa sottoscrizione del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). 
 * **Account di archiviazione esterni alla sottoscrizione al servizio** : sono gli account di archiviazione di Azure non associati al servizio e probabilmente esistenti prima che il servizio fosse creato.
 
 ## <a name="add-a-storage-account"></a>Aggiungere un account di archiviazione

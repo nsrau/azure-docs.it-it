@@ -10,13 +10,13 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/31/2017
+ms.date: 06/30/2017
 ms.author: sergkanz
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 0c4ddfe4533dc232047f0b1a0af270e7f9372c84
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b31d38fe2f7060597956a1ee9c66f43ce39d7240
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -203,7 +203,7 @@ public async Task Process(BrokeredMessage message)
 ```
 
 ### <a name="azure-storage-queue"></a>Coda di archiviazione di Azure
-L'esempio seguente illustra come tenere traccia delle operazioni della [coda di archiviazione di Azure](../storage/storage-dotnet-how-to-use-queues.md) e correlare i dati di telemetria tra producer, consumer e Archiviazione di Azure. 
+L'esempio seguente illustra come tenere traccia delle operazioni della [coda di archiviazione di Azure](../storage/queues/storage-dotnet-how-to-use-queues.md) e correlare i dati di telemetria tra producer, consumer e Archiviazione di Azure. 
 
 La coda di archiviazione ha un'API HTTP. Tutte le chiamate alla coda vengono tracciate dall'agente di raccolta di dipendenze Application Insights per le richieste HTTP.
 Assicurarsi di avere `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in `applicationInsights.config`. Se non è disponibile, aggiungerlo a livello di programmazione come descritto in [Filtraggio e pre-elaborazione nell’SDK Azure Application Insights](app-insights-api-filtering-sampling.md).
@@ -221,7 +221,7 @@ module.Initialize(TelemetryConfiguration.Active);
 // Do not forget to dispose of the module during application shutdown.
 ```
 
-Inoltre è possibile correlare l'ID operazione di Application Insights con l'ID di richiesta di Archiviazione. Per informazioni su come impostare e ottenere un client di richiesta di Archivazione e un ID di richiesta del server, vedere [Monitoraggio, diagnosi e risoluzione dei problemi dell'archiviazione di Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+Inoltre è possibile correlare l'ID operazione di Application Insights con l'ID di richiesta di Archiviazione. Per informazioni su come impostare e ottenere un client di richiesta di Archivazione e un ID di richiesta del server, vedere [Monitoraggio, diagnosi e risoluzione dei problemi dell'archiviazione di Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### <a name="enqueue"></a>Accodare
 Poiché le code di archiviazione di Azure supportano l'API HTTP, tutte le operazioni con la coda vengono automaticamente registrate da Application Insights. In molti casi, questa strumentazione dovrebbe essere sufficiente. Per correlare le tracce sul lato consumer con le tracce del producer, è necessario passare parte del contesto di correlazione in modo simile a quanto avviene nel protocollo HTTP per la correlazione. 

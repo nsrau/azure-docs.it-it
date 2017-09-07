@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: d3488b1e7857799d8ed7de796610e8d52034bd8f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
 ms.contentlocale: it-it
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Usare lo strumento di diagnostica StorSimple per risolvere i problemi dei dispositivi della serie 8000
@@ -389,7 +388,7 @@ Per usare lo strumento di diagnostica, seguire questa procedura:
 
     Se le latenze di lettura/scrittura segnalate dallo strumento di diagnostica sono elevate:
 
-    1. Configurare Analisi archiviazione per i servizi BLOB e analizzare l'output per ottenere informazioni sulle latenze per l'account di archiviazione di Azure. Per istruzioni dettagliate, vedere come [abilitare e configurare Analisi archiviazione](../storage/storage-enable-and-view-metrics-classic-portal.md). Se anche tali latenze sono elevate, con valori analoghi a quelli restituiti dallo strumento di diagnostica StorSimple, è necessario inviare una richiesta di servizio tramite Archiviazione di Azure.
+    1. Configurare Analisi archiviazione per i servizi BLOB e analizzare l'output per ottenere informazioni sulle latenze per l'account di archiviazione di Azure. Per istruzioni dettagliate, vedere come [abilitare e configurare Analisi archiviazione](../storage/common/storage-enable-and-view-metrics.md). Se anche tali latenze sono elevate, con valori analoghi a quelli restituiti dallo strumento di diagnostica StorSimple, è necessario inviare una richiesta di servizio tramite Archiviazione di Azure.
 
     2. Se le latenze dell'account di archiviazione sono basse, contattare l'amministratore di rete per indagare su eventuali problemi di latenza della rete.
 

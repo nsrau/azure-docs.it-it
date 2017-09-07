@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 7a2ed1c890eb22b3aff9aaadf2b420eeb21dd207
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -49,7 +49,7 @@ Creare un nuovo gruppo di risorse negli Stati Uniti occidentali denominato "MyRG
 `az group create -l westus -n MyRG` <br>
 
 ### <a name="create-a-linux-vm"></a>Creare una macchina virtuale Linux
-Creare una VM Ubuntu nel nuovo gruppo di risorse. L'interfaccia della riga di comando di Azure 2.0 creerà chiavi SSH con cui configurerà la VM. <br>
+Creare una VM Ubuntu nel nuovo gruppo di risorse. L'interfaccia della riga di comando di Azure 2.0 creerà chiavi SSH con cui configurerà la macchina virtuale. <br>
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
@@ -73,4 +73,4 @@ Eseguire `az group delete -n MyRG`
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni sull'archiviazione permanente su Cloud Shell](persisting-shell-storage.md) <br>
 [Informazioni sull'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Informazioni sull'archiviazione file di Azure](../storage/storage-files-introduction.md) <br>
+[Informazioni sull'archiviazione file di Azure](../storage/files/storage-files-introduction.md) <br>

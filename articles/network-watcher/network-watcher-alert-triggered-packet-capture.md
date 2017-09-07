@@ -3,7 +3,7 @@ title: Usare l'acquisizione di pacchetti per eseguire il monitoraggio proattivo 
 description: Questo articolo descrive come creare un'acquisizione di pacchetti attivata da un avviso con Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 8e0b9181bcd43692619726e7215e90116e5b9221
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b813172fc1fc1cc683f463f05370c95bfec10f8d
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
@@ -362,7 +362,7 @@ Dopo i criteri di attivazione dell'avviso, viene creata l'acquisizione di pacche
 
 Se il file di acquisizione è archiviato in locale, è possibile recuperarlo accedendo alla macchina virtuale.
 
-Per istruzioni relative al download di file dagli account di archiviazione di Azure, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/storage-dotnet-how-to-use-blobs.md). Un altro strumento è [Storage Explorer](http://storageexplorer.com/).
+Per istruzioni relative al download di file dagli account di archiviazione di Azure, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento è [Storage Explorer](http://storageexplorer.com/).
 
 Dopo il download dell'acquisizione, è possibile visualizzarla con qualsiasi strumento per la lettura di un file **.cap**. Di seguito i collegamenti a due di questi strumenti:
 

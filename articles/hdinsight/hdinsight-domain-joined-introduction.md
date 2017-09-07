@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 9f6de5b516da110b93a1e0cddf835b2bcec77bb7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 303be1d303df8074283cb1d37c74923cca80ae59
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Introduzione alla sicurezza Hadoop con i cluster HDInsight aggiunti al dominio (anteprima)
@@ -52,7 +51,7 @@ Una procedura consigliata seguita dalla maggior parte delle aziende è limitare 
 Oltre a proteggere i dati e le risorse del cluster HDInsight da utenti non autorizzati, è necessario controllare tutti gli accessi alle risorse del cluster e ai dati per tenere traccia degli accessi non autorizzati o non intenzionali alle risorse. Grazie a questa anteprima, l'amministratore può visualizzare e segnalare tutti gli accessi ai dati e alle risorse del cluster HDInsight. L'amministratore può anche visualizzare e segnalare tutte le modifiche ai criteri di controllo degli accessi eseguite negli endpoint supportati da Apache Ranger. Un cluster HDInsight aggiunto al dominio usa la già nota interfaccia utente di Apache Ranger per effettuare ricerche nei log di controllo. Ranger usa [Apache Solr](http://hortonworks.com/apache/solr/) per l'archiviazione e la ricerca nei log nel back-end.
 
 ### <a name="encryption"></a>Crittografia
-La protezione dei dati è importante per soddisfare i requisiti aziendali in termini di protezione e conformità; oltre a limitare l'accesso ai dati da parte di dipendenti non autorizzati, è fondamentale anche proteggerli mediante crittografia. Entrambi gli archivi di dati per i cluster HDInsight, il BLOB di archiviazione di Azure e Azure Data Lake, supportano la [crittografia dei dati](../storage/storage-service-encryption.md) inattivi trasparente lato server. La protezione dei cluster HDInsight sarà perfettamente compatibile con questa crittografia lato server della funzionalità dei dati inattivi.
+La protezione dei dati è importante per soddisfare i requisiti aziendali in termini di protezione e conformità; oltre a limitare l'accesso ai dati da parte di dipendenti non autorizzati, è fondamentale anche proteggerli mediante crittografia. Entrambi gli archivi di dati per i cluster HDInsight, il BLOB di archiviazione di Azure e Azure Data Lake, supportano la [crittografia dei dati](../storage/common/storage-service-encryption.md) inattivi trasparente lato server. La protezione dei cluster HDInsight sarà perfettamente compatibile con questa crittografia lato server della funzionalità dei dati inattivi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare un cluster HDInsight aggiunto al dominio, vedere [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configurare i cluster HDInsight aggiunti al dominio).

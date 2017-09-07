@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9a2796c66fa49c543e52b654e583ade7625a7f31
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Eseguire STAR-CCM+ con Microsoft HPC Pack in un cluster Linux RDMA in Azure
@@ -119,7 +119,7 @@ Quando tutti i nodi sono attivi e in esecuzione nel cluster, si dovranno configu
 ## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Configurare una condivisione file di Azure per nodi Windows e Linux
 È possibile usare il servizio File di Azure per archiviare script, pacchetti delle applicazioni e file di dati. File di Azure offre funzionalità CIFS su un'archivio BLOB di Azure come archivio permanente. Si noti che questa non è la soluzione più ridimensionabile, ma si tratta della soluzione più semplice e non richiede macchine virtuali dedicate.
 
-Creare una condivisione file di Azure seguendo le istruzioni disponibili nell'articolo [Introduzione ad Archiviazione file di Azure in Windows](../../../storage/storage-dotnet-how-to-use-files.md).
+Creare una condivisione file di Azure seguendo le istruzioni disponibili nell'articolo [Introduzione ad Archiviazione file di Azure in Windows](../../../storage/files/storage-dotnet-how-to-use-files.md).
 
 Mantenere il nome dell'account di archiviazione **saname**, il nome della condivisione file **sharename** e la chiave dell'account di archiviazione **sakey**.
 

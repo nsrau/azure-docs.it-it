@@ -1,6 +1,6 @@
 ---
-title: Montare l&quot;archiviazione file di Azure da una macchina virtuale Windows di Azure | Microsoft Docs
-description: Archiviare i file nel cloud con l&quot;archiviazione file di Azure e montare la condivisione file nel cloud da una macchina virtuale (VM) Azure.
+title: Montare l'archiviazione file di Azure da una macchina virtuale Windows di Azure | Microsoft Docs
+description: Archiviare i file nel cloud con l'archiviazione file di Azure e montare la condivisione file nel cloud da una macchina virtuale (VM) Azure.
 documentationcenter: 
 author: cynthn
 manager: timlt
@@ -13,12 +13,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e5ebc1bf370b655d320f726a2792453218898006
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -76,5 +75,5 @@ In questa sezione si presuppone che la condivisione file a cui si desidera conne
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le condivisioni file possono essere create e gestite anche usando PowerShell. Per altre informazioni, vedere [Introduzione ad Archiviazione file di Azure in Windows](../../storage/storage-dotnet-how-to-use-files.md).
+Le condivisioni file possono essere create e gestite anche usando PowerShell. Per altre informazioni, vedere [Introduzione ad Archiviazione file di Azure in Windows](../../storage/files/storage-dotnet-how-to-use-files.md).
 

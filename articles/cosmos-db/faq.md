@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: e9808af4aa875c5199279825325688afc69e6de6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3c7ab236d0a9efee6ac3fa97ed6de85cacbc9a89
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Domande frequenti su Azure Cosmos DB
@@ -210,7 +210,7 @@ Per esplorare i dati si può usare il portale di Azure. È anche possibile usare
 ### <a name="which-tools-work-with-the-table-api-preview"></a>Quali strumenti è possibile usare con l'API Table (anteprima)? 
 È possibile usare la versione precedente di Azure Explorer (0.8.9).
 
-La nuova API Table (anteprima) è supportata dagli strumenti sufficientemente flessibili da accettare una stringa di connessione nel formato specificato in precedenza. Per un elenco degli strumenti di tabella, vedere la pagina [Strumenti client di Archiviazione di Azure](../storage/storage-explorers.md). 
+La nuova API Table (anteprima) è supportata dagli strumenti sufficientemente flessibili da accettare una stringa di connessione nel formato specificato in precedenza. Per un elenco degli strumenti di tabella, vedere la pagina [Strumenti client di Archiviazione di Azure](../storage/common/storage-explorers.md). 
 
 ### <a name="do-powershell-or-azure-cli-work-with-the-new-table-api-preview"></a>È possibile usare PowerShell o l'interfaccia della riga di comando di Azure con la nuova API Table (anteprima)?
 È prevista l'aggiunta del supporto di PowerShell e dell'interfaccia della riga di comando di Azure per l'API Table (anteprima). 

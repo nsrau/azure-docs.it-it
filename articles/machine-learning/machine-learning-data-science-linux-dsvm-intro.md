@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bc6f293db0d537990d7fb1238fe4a19c704f57a1
 ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati
@@ -62,7 +62,7 @@ Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti c
 Prima di creare una macchina virtuale Linux per l'analisi scientifica dei dati, è necessario avere gli elementi seguenti:
 
 * **Sottoscrizione di Azure**: per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
-* **Account di archiviazione di Azure**: per crearne uno, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). In alternativa, è possibile creare l'account di archiviazione come parte del processo di creazione della VM se non si vuole usare un account esistente.
+* **Account di archiviazione di Azure**: per crearne uno, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account). In alternativa, è possibile creare l'account di archiviazione come parte del processo di creazione della VM se non si vuole usare un account esistente.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Creare la macchina virtuale Linux per l'analisi scientifica dei dati
 Ecco i passaggi necessari per creare un'istanza della macchina virtuale Linux per l'analisi scientifica dei dati:

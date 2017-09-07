@@ -1,6 +1,6 @@
 ---
 title: Flask e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio
-description: Informazioni su come usare Python Tools per Visual Studio per creare un&quot;app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web del servizio app di Azure.
+description: Informazioni su come usare Python Tools per Visual Studio per creare un'app Web Flask che archivia i dati nel servizio di archiviazione tabelle di Azure e per distribuirla in App Web del servizio app di Azure.
 services: app-service\web
 tags: python
 documentationcenter: python
@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 96b27bdd528b0f57b9e0a9959ead23b8f820a82d
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2e1bc8eebd0b67b965cc70ac4b5dfe03c4720ddf
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="flask-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>Flask e archiviazione tabelle di Azure con Python Tools 2.2 per Visual Studio
@@ -67,7 +67,7 @@ In questa sezione verrà creato un progetto di Visual Studio usando un modello d
 Per effettuare operazioni di archiviazione, è necessario un account di archiviazione di Azure. Per creare un account di archiviazione, attenersi alla procedura riportata di seguito
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** > **Account di archiviazione**. Fare clic su **Crea**quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) correlato.
+2. Fare clic sull'icona **Nuovo** nella parte inferiore sinistra del portale, quindi fare clic su **Dati e archiviazione** >  **Account di archiviazione**. Fare clic su **Crea**quindi assegnare un nome univoco all'account di archiviazione e creare un nuovo [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) correlato.
    
       ![Quick Create](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
    
@@ -172,8 +172,8 @@ Usare i collegamenti seguenti per altre informazioni su Python Tools per Visual 
 <!--Link references-->
 [Centro per sviluppatori Python]: /develop/python/
 [servizi cloud di Azure]: ../cloud-services/cloud-services-python-ptvs.md
-[documentazione]: ../storage/storage-python-how-to-use-table-storage.md
-[Come usare il servizio di archiviazione tabelle di Python]: ../storage/storage-python-how-to-use-table-storage.md
+[documentazione]:../cosmos-db/table-storage-how-to-use-python.md
+[Come usare il servizio di archiviazione tabelle di Python]:../cosmos-db/table-storage-how-to-use-python.md
 
 <!--External Link references-->
 [Azure Portal]: https://portal.azure.com

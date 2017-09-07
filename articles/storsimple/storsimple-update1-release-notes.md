@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione dell&quot;aggiornamento 1.2 di StorSimple serie 8000 | Documentazione Microsoft
-description: "Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell&quot;aggiornamento 1.2 per StorSimple serie 8000."
+title: Note sulla versione dell'aggiornamento 1.2 di StorSimple serie 8000 | Documentazione Microsoft
+description: "Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 1.2 per StorSimple serie 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 148f3920b92892781ed09380644b05b5bef7c952
-ms.openlocfilehash: 325c688e4da81fd9e6b73bd350a739ac43a480c0
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 02c393f632c355ea5fbde554adbd8b1169ad8bc8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 1.2 del dispositivo StorSimple serie 8000
@@ -58,7 +58,7 @@ Queste funzionalità sono state rilasciate precedentemente con l'aggiornamento 1
 * **Disponibilità nel portale di Azure Government** – StorSimple è ora disponibile nel portale di Azure Government. Vedere la procedura [Distribuire un dispositivo StorSimple nel portale di Azure Government](storsimple-deployment-walkthrough-gov.md).
 * **Supporto per altri provider di servizi cloud** – Altri provider di servizi cloud supportati sono Amazon S3, Amazon S3 con RRS, HP e OpenStack (beta).
 * **Aggiornamento alle API di archiviazione più recenti** - Con questa versione, StorSimple è stato aggiornato con le API del servizio di archiviazione di Azure più recenti. I dispositivi StorSimple serie 8000 che eseguono le versioni del software del pre-aggiornamento 1 (Release, 0.1, 0.2 e 0.3) utilizzano versioni delle API del servizio di archiviazione di Azure precedenti al 17 luglio 2009. Come indicato nell’ [annuncio sulla rimozione delle versioni del servizio di archiviazione](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)aggiornato, entro il 1 agosto 2016 tali API saranno deprecate. È necessario applicare l'aggiornamento 1 di StorSimple serie 8000 prima del 1 agosto 2016. In caso contrario, i dispositivi StorSimple smetteranno di funzionare correttamente.
-* **Supporto per l'archiviazione con ridondanza della zona (ZRS)** – Con l'aggiornamento alla versione più recente delle API di archiviazione, StorSimple serie 8000 supporta l'archiviazione con ridondanza della zona (ZRS) oltre all'archiviazione con ridondanza locale (LRS) e all'archiviazione con ridondanza geografica (GRS). Fare riferimento a questo [articolo sulle opzioni di ridondanza di archiviazione di Azure](../storage/storage-redundancy.md) per i dettagli sull’archiviazione ZRS.
+* **Supporto per l'archiviazione con ridondanza della zona (ZRS)** – Con l'aggiornamento alla versione più recente delle API di archiviazione, StorSimple serie 8000 supporta l'archiviazione con ridondanza della zona (ZRS) oltre all'archiviazione con ridondanza locale (LRS) e all'archiviazione con ridondanza geografica (GRS). Fare riferimento a questo [articolo sulle opzioni di ridondanza di archiviazione di Azure](../storage/common/storage-redundancy.md) per i dettagli sull’archiviazione ZRS.
 * **Esperienza di distribuzione iniziale e aggiornamento migliorata** - In questa versione sono stati migliorati i processi di installazione e aggiornamento. L'installazione tramite configurazione guidata è stata migliorata per fornire commenti e suggerimenti all'utente qualora la configurazione di rete e le impostazioni del firewall non siano corrette. Per facilitare la risoluzione dei problemi di rete del dispositivo sono stati forniti dei cmdlet diagnostici aggiuntivi. Vedere l’ [articolo sulla risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md) per ulteriori informazioni sui nuovi cmdlet diagnostici per la risoluzione dei problemi.
 
 ## <a name="issues-fixed-in-update-12"></a>Problemi risolti nell'aggiornamento 1.2

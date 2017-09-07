@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
 ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Registrare gli eventi per la diagnostica e il monitoraggio delle soluzioni Batch
@@ -33,7 +33,7 @@ Come per molti servizi di Azure, il servizio Batch genera eventi di log per dete
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Account Azure Batch](batch-account-create-portal.md)
-* [Account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
+* [Account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
   Per salvare in modo permanente i log di diagnostica di Batch, è necessario creare un account di archiviazione di Azure in cui verranno archiviati i log. È possibile specificare questo account di archiviazione quando si [abilita la registrazione diagnostica](#enable-diagnostic-logging) per l'account Batch. L'account di archiviazione specificato quando si abilita la raccolta di log non è lo stesso account di archiviazione collegato a cui si fa riferimento negli articoli relativi ai [pacchetti dell'applicazione](batch-application-packages.md) e alla [persistenza dell'output delle attività](batch-task-output.md).
   

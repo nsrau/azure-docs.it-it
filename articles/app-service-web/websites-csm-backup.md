@@ -1,6 +1,6 @@
 ---
 title: Usare REST per eseguire il backup e il ripristino di app del servizio App
-description: Informazioni su come usare chiamate API RESTful per eseguire il backup e il ripristino di un&quot;app in Servizio app di Azure
+description: Informazioni su come usare chiamate API RESTful per eseguire il backup e il ripristino di un'app in Servizio app di Azure
 services: app-service
 documentationcenter: 
 author: NKing92
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1ad2911f809a17e4a6c0f2fe9087e1d9eb2da39e
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c1b8fc3be3af46279bf35bddbc82acf1827b9eb9
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-rest-to-back-up-and-restore-app-service-apps"></a>Usare REST per eseguire il backup e il ripristino di app del servizio App
@@ -58,7 +58,7 @@ Per eseguire immediatamente il backup di un'app, inviare una richiesta **POST** 
 
 Ecco l'aspetto dell'URL se si usa il sito Web di esempio. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
-È necessario fornire un oggetto JSON nel corpo della richiesta per specificare l'account di archiviazione da usare per archiviare il backup. L'oggetto JSON deve avere una proprietà denominata **storageAccountUrl**, che contiene un [URL di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) che concede dell'accesso in scrittura al contenitore di archiviazione di Azure che contiene il BLOB di backup. Se si vuole eseguire il backup dei database, è necessario fornire anche un elenco contenente i nomi, tipi e le stringhe di connessione dei database di cui eseguire il backup.
+È necessario fornire un oggetto JSON nel corpo della richiesta per specificare l'account di archiviazione da usare per archiviare il backup. L'oggetto JSON deve avere una proprietà denominata **storageAccountUrl**, che contiene un [URL di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) che concede dell'accesso in scrittura al contenitore di archiviazione di Azure che contiene il BLOB di backup. Se si vuole eseguire il backup dei database, è necessario fornire anche un elenco contenente i nomi, tipi e le stringhe di connessione dei database di cui eseguire il backup.
 
 ```
 {

@@ -16,10 +16,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8bacd408e49eb5f6eeb4b8f7eb10feac21830bb0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -167,7 +167,7 @@ Per affinare la query aggiungendo un filtro, scegliere **+Aggiungi**.
 
 Con Azure Log Analytics, è possibile usare in modo diverso i dati di diagnostica dell'app per la logica con altri servizi di Azure, ad esempio: 
 
-* [Archiviare i log di diagnostica di Azure in Archiviazione di Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Archiviare i log di diagnostica di Azure in Archiviazione di Microsoft Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [Trasmettere i log di diagnostica di Azure a Hub eventi di Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../log-analytics/log-analytics-powerbi.md), ad esempio:
@@ -175,7 +175,7 @@ Con Azure Log Analytics, è possibile usare in modo diverso i dati di diagnostic
 * [Trasmettere i dati da Hub eventi ad Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizzare i dati di streaming con Analisi di flusso e creare un dashboard di analisi in tempo reale in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-In base alle opzioni che si vuole configurare, assicurarsi prima di tutto di [creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md) o di [creare un hub eventi di Azure](../event-hubs/event-hubs-create.md). Selezionare quindi le opzioni per la posizione a cui si vogliono inviare i dati di diagnostica:
+In base alle opzioni che si vuole configurare, assicurarsi prima di tutto di [creare un account di archiviazione di Azure](../storage/common/storage-create-storage-account.md) o di [creare un hub eventi di Azure](../event-hubs/event-hubs-create.md). Selezionare quindi le opzioni per la posizione a cui si vogliono inviare i dati di diagnostica:
 
 ![Inviare i dati all'hub di eventi o all'account di archiviazione di Azure](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 

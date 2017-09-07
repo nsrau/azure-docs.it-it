@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 8d7b3b8293120bb7e9f00a90da09f94ca7cba29b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4688fc4bc74a9e0e04487cfbe965006070fd9a7b
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -34,13 +34,13 @@ Prima di eseguire un failover di test, è consigliabile verificare le proprietà
 
 ## <a name="managed-disk-considerations"></a>Considerazioni su Managed Disks
 
-[Managed Disks](../storage/storage-managed-disks-overview.md) semplifica la gestione dei dischi per le VM di Azure grazie alla gestione degli account di archiviazione associati ai dischi delle VM. 
+[Managed Disks](../virtual-machines/windows/managed-disks-overview.md) semplifica la gestione dei dischi per le VM di Azure grazie alla gestione degli account di archiviazione associati ai dischi delle VM. 
 
 - I dischi di Managed Disks vengono creati e collegati alla VM solo in caso di failover in Azure. Abilitando la protezione, i dati delle VM locali vengono replicati negli account di archiviazione.
 - È possibile creare dischi di Managed Disks solo per le VM distribuite tramite il modello di distribuzione Resource Manager.
 - Il failback da Azure a un ambiente Hyper-V locale non è al momento supportato per i computer con Managed Disks. Impostare **Usa il servizio Managed Disks** su **Sì** solo se si sta eseguendo esclusivamente una migrazione (failover in Azure senza failback)
 - Quando questa impostazione è abilitata, possono essere selezionati solo i set di disponibilità in gruppi di risorse con l'impostazione **Usa il servizio Managed Disks** abilitata. Le VM con Managed Disks devono trovarsi nei set di disponibilità con l'opzione **Usa il servizio Managed Disks** impostata su **Sì**. Se l'impostazione non è abilitata per le VM, possono essere selezionati solo i set di disponibilità nei gruppi di risorse senza Managed Disks. [Altre informazioni](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
-- - Se l'account di archiviazione usato per la replica è stato crittografato con Crittografia del servizio di archiviazione, la creazione dei dischi di Managed Disks durante il failover non riuscirà. In questo caso, non abilitare l'uso del servizio Managed Disks oppure disabilitare la protezione per la VM e riabilitarla per usare un account di archiviazione senza la crittografia abilitata. [Altre informazioni](../storage/storage-managed-disks-overview.md#managed-disks-and-encryption).
+- - Se l'account di archiviazione usato per la replica è stato crittografato con Crittografia del servizio di archiviazione, la creazione dei dischi di Managed Disks durante il failover non riuscirà. In questo caso, non abilitare l'uso del servizio Managed Disks oppure disabilitare la protezione per la VM e riabilitarla per usare un account di archiviazione senza la crittografia abilitata. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md#managed-disks-and-encryption).
 
  
 ## <a name="network-considerations"></a>Considerazioni sulla rete
@@ -66,9 +66,9 @@ Prima di eseguire un failover di test, è consigliabile verificare le proprietà
     ![Abilitare la replica](./media/vmm-to-azure-walkthrough-test-failover/test-failover2.png)
 3. In **Calcolo e rete** è possibile:
     - Modificare il nome della VM di Azure. Il nome deve soddisfare i [requisiti di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Specificare un [gruppo di risorse](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md) successivo al failover
+    - Specificare un [gruppo di risorse] successivo al failover.
     - Specificare le dimensioni di destinazione per la VM di Azure
-    - Selezionare un [set di disponibilità](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Selezionare un [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md).
     - Specificare se usare [Managed Disks](#managed-disk-considerations). Selezionare **Sì** per collegare i dischi di Managed Disks al computer nella migrazione in Azure.
     - Visualizzare o modificare le impostazioni di rete, inclusi la rete/subnet in cui si troverà la VM di Azure dopo il failover e l'indirizzo IP che verrà assegnato a essa.
 

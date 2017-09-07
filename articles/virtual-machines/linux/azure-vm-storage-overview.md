@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
 ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Archiviazione delle macchine virtuali Linux e Azure
@@ -26,15 +26,15 @@ Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazion
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Sono ora disponibili macchine virtuali di Azure con [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), che consentono di creare macchine virtuali senza dover creare o gestire da sé gli [account di archiviazione di Azure](../../storage/storage-introduction.md). È sufficiente specificare se si desidera l'Archiviazione Premium o Standard e le dimensioni del disco. Azure penserà a creare i dischi della macchina virtuale. Le macchine virtuali con Managed Disks hanno diverse funzionalità importanti, tra cui:
+Sono ora disponibili macchine virtuali di Azure con [Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), che consentono di creare macchine virtuali senza dover creare o gestire da sé gli [account di archiviazione di Azure](../../storage/common/storage-introduction.md). È sufficiente specificare se si desidera l'Archiviazione Premium o Standard e le dimensioni del disco. Azure penserà a creare i dischi della macchina virtuale. Le macchine virtuali con Managed Disks hanno diverse funzionalità importanti, tra cui:
 
 - Supporto per la scalabilità automatica. Azure crea i dischi e gestisce l'archiviazione sottostante per supportare fino a 10.000 dischi per sottoscrizione.
 - Maggiore affidabilità con i set di disponibilità. Azure assicura che i dischi di macchine virtuali siano isolati automaticamente tra loro all'interno dei set di disponibilità.
 - Maggiore controllo degli accessi. Managed Disks espone varie operazioni controllate dal [Controllo degli accessi in base al ruolo di Azure](../../active-directory/role-based-access-control-what-is.md).
 
-Il prezzo di Managed Disks è diverso da quello dei dischi non gestiti. Per le relative informazioni, vedere [Prezzi e fatturazione di Managed Disks](../../storage/storage-managed-disks-overview.md#pricing-and-billing).
+Il prezzo di Managed Disks è diverso da quello dei dischi non gestiti. Per le relative informazioni, vedere [Prezzi e fatturazione di Managed Disks](../windows/managed-disks-overview.md#pricing-and-billing).
 
-È possibile convertire le macchine virtuali esistenti che usano i dischi non gestiti per usare quelli gestiti tramite [az vm convert](/cli/azure/vm#convert). Per altre informazioni, vedere [come convertire una macchina virtuale Linux da dischi non gestiti ad Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Non è possibile convertire un disco non gestito in un disco gestito se il disco non gestito si trova in un account di archiviazione che è stato, anche in passato, crittografato con la [Crittografia del servizio di archiviazione di Azure (SSE)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La procedura seguente illustra come convertire dischi non gestiti che sono, o sono stati, in un account di archiviazione crittografato:
+È possibile convertire le macchine virtuali esistenti che usano i dischi non gestiti per usare quelli gestiti tramite [az vm convert](/cli/azure/vm#convert). Per altre informazioni, vedere [come convertire una macchina virtuale Linux da dischi non gestiti ad Azure Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Non è possibile convertire un disco non gestito in un disco gestito se il disco non gestito si trova in un account di archiviazione che è stato, anche in passato, crittografato con la [Crittografia del servizio di archiviazione di Azure (SSE)](../../storage/common/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La procedura seguente illustra come convertire dischi non gestiti che sono, o sono stati, in un account di archiviazione crittografato:
 
 - Copiare il disco rigido virtuale con [az storage blob copy start](/cli/azure/storage/blob/copy#start) in un account di archiviazione che non è mai stato abilitato per la crittografia del servizio di archiviazione di Azure.
 - Creare una macchina virtuale che usi dischi gestiti e specificare il file del disco rigido virtuale durante la creazione con [az vm create](/cli/azure/vm#create) o
@@ -92,7 +92,7 @@ Funzionalità di Archiviazione Premium:
 * Dischi di Archiviazione Premium: Archiviazione Premium di Azure supporta dischi VM che possono essere collegati a VM di Azure della serie DS, DSv2 o GS.
 * BLOB di pagine Premium: Archiviazione Premium supporta i BLOB di pagine di Azure, che vengono usati per conservare dischi persistenti per Macchine virtuali di Azure.
 * Archiviazione con ridondanza locale Premium: un account di Archiviazione Premium supporta solo l'opzione di replica di archiviazione con ridondanza locale e mantiene tre copie dei dati in una singola area.
-* [Archiviazione Premium](../../storage/storage-premium-storage.md)
+* [Archiviazione Premium](../../storage/common/storage-premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>VM supportate da Archiviazione Premium
 Archiviazione Premium supporta Macchine virtuali di Azure (VM) delle serie DS, DSv2, GS e Fs. Con le VM supportate da Archiviazione Premium è possibile usare dischi sia di Archiviazione Standard che di Archiviazione Premium. Non è tuttavia possibile usare i dischi di Archiviazione Premium con le macchine virtuali di serie non compatibili con Archiviazione Premium.
@@ -115,7 +115,7 @@ L'archiviazione file di Azure offre condivisioni file nel cloud usando il protoc
 
 Il servizio di archiviazione file è basato sulla stessa tecnologia dei servizi BLOB, tabelle e archiviazione code e può quindi sfruttare le funzionalità di disponibilità, durabilità, scalabilità e ridondanza geografica integrate nella piattaforma di archiviazione di Azure. Per informazioni sugli obiettivi di prestazioni e sui limiti di Archiviazione file, vedere Obiettivi di scalabilità e prestazioni per Archiviazione di Azure.
 
-* [Come usare Archiviazione file di Azure con Linux](../../storage/storage-how-to-use-files-linux.md)
+* [Come usare Archiviazione file di Azure con Linux](../../storage/files/storage-how-to-use-files-linux.md)
 
 ## <a name="hot-storage"></a>Archiviazione ad accesso frequente
 Il livello di archiviazione ad accesso frequente di Azure è ottimizzato per l'archiviazione di dati a cui si accede di frequente.  L'Archiviazione ad accesso frequente è il tipo di archiviazione predefinito per gli archivi BLOB.
@@ -155,7 +155,7 @@ L'archiviazione con ridondanza geografica e accesso in lettura(RA-GRS) massimizz
 
 Per un approfondimento sulla ridondanza dell'Archiviazione di Azure, vedere:
 
-* [Replica di Archiviazione di Azure](../../storage/storage-redundancy.md)
+* [Replica di Archiviazione di Azure](../../storage/common/storage-redundancy.md)
 
 ## <a name="scalability"></a>Scalabilità
 Archiviazione di Azure è estremamente scalabile, per consentire l'archiviazione e l'elaborazione di centinaia di terabyte di dati per supportare gli scenari di Big Data necessari per applicazioni scientifiche, di analisi finanziaria e multimediali. In alternativa, è possibile archiviare piccole quantità di dati necessarie per un piccolo sito Web aziendale. Qualsiasi siano le esigenze, il cliente paga solo per i dati archiviati. In Archiviazione di Azure sono al momento archiviate decine di migliaia di miliardi di oggetti univoci dei clienti e sono gestiti in media milioni di richieste al secondo.
@@ -197,7 +197,7 @@ Questa sezione descrive come proteggere i dati durante il trasferimento da e ver
 ## <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 Si discuterà di Crittografia del servizio di archiviazione (SSE) e come è possibile abilitarla per un account di archiviazione, determinando la crittografia automatica dei BLOB in blocchi, BLOB di pagine e BLOB aggiunti al momento della scrittura nell'Archiviazione di Azure. Verrà illustrato anche come è possibile usare Crittografia dischi di Azure e si esamineranno differenze di base e casi relativi a Crittografia dischi rispetto a SSE e alla crittografia lato client. Si esaminerà brevemente la conformità FIPS per i computer del Governo degli Stati Uniti.
 
-* [Guida alla sicurezza di Archiviazione di Azure](../../storage/storage-security-guide.md)
+* [Guida alla sicurezza di Archiviazione di Azure](../../storage/common/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>Disco temporaneo
 Ogni VM contiene un disco temporaneo. Il disco temporaneo offre archiviazione a breve termine per applicazioni e processi ed è destinato solo all'archiviazione di dati come file di paging o di scambio. I dati presenti nel disco temporaneo potrebbero andare persi durante un [evento di manutenzione](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) o la [ridistribuzione di una VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Durante un riavvio standard della VM, i dati nell'unità temporanea vengono mantenuti.

@@ -1,10 +1,10 @@
 ---
 title: Aggiungere spazio di archiviazione di Azure mediante Servizi connessi in Visual Studio | Documentazione Microsoft
-description: Aggiungere archiviazione di Azure all&quot;applicazione usando la finestra di dialogo Aggiungi servizi connessi di Visual Studio
+description: Aggiungere archiviazione di Azure all'applicazione usando la finestra di dialogo Aggiungi servizi connessi di Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
 ms.service: storage
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 614f212bb9afb71bb432bec3df7201807083b7f5
-ms.lasthandoff: 03/27/2017
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2fc396c93c3156054277d592eb2772fd29eed832
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Aggiunta dell’archiviazione di Azure tramite Servizi connessi di Visual Studio
@@ -69,7 +69,7 @@ Una volta terminata la finestra di dialogo, Visual Studio aggiunge riferimenti e
 - Progetti ASP.NET - [Risultati – Progetti ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126).
 - Progetti ASP.NET 5 - [Risultati – Progetti ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
 - Progetti del servizio cloud (ruoli Web e ruoli di lavoro) [Risultati - Progetti del servizio cloud](http://go.microsoft.com/fwlink/p/?LinkId=516965).
-- Progetti di tipo processo Web - [Risultati - Progetti di tipo processo Web](storage/vs-storage-webjobs-what-happened.md).
+- Progetti di tipo processo Web - [Risultati - Progetti di tipo processo Web](visual-studio/vs-storage-webjobs-what-happened.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Forum MSDN: Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 72b0c11f8bea24fc8777e3e0d7712577fab8ef97
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 619a004b9aff99be68988e1f7be3ccad400a8a0e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -147,6 +146,6 @@ Altre informazioni su:
 - Riesaminare l'interfaccia di Monitoraggio di Azure in [Introduzione a Monitoraggio di Azure](monitoring-get-started.md)
 - Configurare le [estensioni di Diagnostica di Azure](../azure-diagnostics.md), per diagnosticare problemi nell'applicazione di servizio cloud, macchina virtuale, set di scalabilità di macchine virtuali o Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , utili per la diagnosi di problemi nell'app Web del servizio app.
-- [Risoluzione dei problemi di Archiviazione di Azure](../storage/storage-e2e-troubleshooting.md) , utile per l'uso di BLOB, tabelle o code di archiviazione.
+- [Risoluzione dei problemi di Archiviazione di Azure](../storage/common/storage-e2e-troubleshooting.md) , utile per l'uso di BLOB, tabelle o code di archiviazione.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
 

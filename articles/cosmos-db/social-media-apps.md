@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: c77357b2cefc8081728cb20d08b00656ba60bea6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 43025adeaf954fedfbcee32e636fb30935f2126b
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
@@ -106,7 +106,7 @@ Per la creazione di feed è sufficiente creare documenti che possano contenere u
 
 Si potrebbe avere un flusso delle notizie "più recenti", con i post ordinati per data di creazione, un flusso delle notizie "più interessanti", con i post più popolari delle ultime 24 ore, e perfino un flusso personalizzato per ogni utente, in base ai follower oppure agli interessi, ma rimarrebbe comunque un elenco di post. Dopo aver compilato gli elenchi, le prestazioni di lettura rimangono invariate. Dopo l'acquisizione di uno di questi elenchi, viene inviata una singola query a Cosmos DB usando l'[operatore IN](documentdb-sql-query.md#WhereClause) per ottenere più pagine di post alla volta.
 
-I flussi di feed possono essere creati usando i processi in background dei [servizi app di Azure](https://azure.microsoft.com/services/app-service/), ovvero [Processi Web](../app-service-web/web-sites-create-web-jobs.md). Dopo che un post è stato creato, l'elaborazione in background può essere attivata tramite le [code](https://azure.microsoft.com/services/storage/) di [Archiviazione di Azure](../storage/storage-dotnet-how-to-use-queues.md), mentre i Processi Web possono essere attivati tramite [Azure Webjobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md), implementando la propagazione dei post all'interno dei flussi in base a una logica personalizzata. 
+I flussi di feed possono essere creati usando i processi in background dei [servizi app di Azure](https://azure.microsoft.com/services/app-service/), ovvero [Processi Web](../app-service-web/web-sites-create-web-jobs.md). Dopo che un post è stato creato, l'elaborazione in background può essere attivata tramite le [code](https://azure.microsoft.com/services/storage/) di [Archiviazione di Azure](../storage/queues/storage-dotnet-how-to-use-queues.md), mentre i Processi Web possono essere attivati tramite [Azure Webjobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md), implementando la propagazione dei post all'interno dei flussi in base a una logica personalizzata. 
 
 Con questa stessa tecnica è possibile elaborare punteggi e Mi piace relativi ai post in modo posticipato, per creare un ambiente coerente.
 

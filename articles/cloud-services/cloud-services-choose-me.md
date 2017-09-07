@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 26e2becf7810950fd5734fd70c1fed225149ec4d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 72ec71814d3c56d1f1df947329eaf66b7dc8f1cf
 ms.contentlocale: it-it
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Perché scegliere Servizi cloud
@@ -43,7 +42,7 @@ Distribuisce e ospita automaticamente l'app tramite IIS.
 * **Ruolo di lavoro**  
 Non usa IIS ed esegue l'app autonomamente.
 
-Ad esempio, un'applicazione semplice può usare un solo ruolo Web che serve un sito Web. Un'applicazione più complessa può usare un ruolo Web per la gestione delle richieste in arrivo dagli utenti, quindi passare tali richieste a un ruolo di lavoro per l'elaborazione. Per questa comunicazione è possibile che venga usato il [bus di servizio](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o il [servizio di accodamento di Azure](../storage/storage-introduction.md).
+Ad esempio, un'applicazione semplice può usare un solo ruolo Web che serve un sito Web. Un'applicazione più complessa può usare un ruolo Web per la gestione delle richieste in arrivo dagli utenti, quindi passare tali richieste a un ruolo di lavoro per l'elaborazione. Per questa comunicazione è possibile che venga usato il [bus di servizio](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o il [servizio di accodamento di Azure](../storage/common/storage-introduction.md).
 
 Come illustrato nella figura precedente, tutte le VM in una singola applicazione vengono eseguite nello stesso servizio cloud. Gli utenti accedono all'applicazione attraverso un indirizzo IP pubblico che esegue automaticamente il bilanciamento del carico delle richieste nelle VM dell'applicazione. La piattaforma [scala e distribuisce](cloud-services-how-to-scale.md) le VM in un'applicazione di Servizi cloud, in modo da evitare un singolo punto di errore hardware.
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 51065a48c2f797b0ab764bf1b57425bd0696e2bd
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 581daaaa5cc0cf8be782f834c6bdb3f27ee413fb
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-vms-to-azure-with-powershell-in-the-classic-portal"></a>Replicare le macchine virtuali Hyper-V in Azure con PowerShell nel portale classico
@@ -50,7 +49,7 @@ Assicurarsi che siano rispettati i prerequisiti seguenti:
 
 ### <a name="azure-prerequisites"></a>Prerequisiti di Azure
 * È necessario un account [Microsoft Azure](https://azure.microsoft.com/) . È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. Nell'account deve essere abilitata la replica geografica. Dovrà trovarsi nella stessa area dell'insieme di credenziali di Azure Site Recovery ed essere associato alla stessa sottoscrizione. [Altre informazioni sull'Archiviazione di Azure](../storage/storage-introduction.md).
+* Per archiviare i dati replicati, sarà necessario un account di archiviazione di Azure. Nell'account deve essere abilitata la replica geografica. Dovrà trovarsi nella stessa area dell'insieme di credenziali di Azure Site Recovery ed essere associato alla stessa sottoscrizione. [Altre informazioni sull'Archiviazione di Azure](../storage/common/storage-introduction.md).
 * È necessario assicurarsi che le macchine virtuali da proteggere soddisfino i [prerequisiti delle macchine virtuali di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ### <a name="vmm-prerequisites"></a>Prerequisiti di VMM
@@ -78,7 +77,7 @@ Per distribuire il mapping di rete sarà necessario quanto segue:
 * Una rete di Azure a cui le macchine virtuali replicate possono connettersi dopo il failover. Questa rete viene selezionata al momento del failover. La rete deve trovarsi nella stessa area della sottoscrizione di Azure Site Recovery.
 
 ### <a name="powershell-prerequisites"></a>Prerequisiti di PowerShell
-Assicurarsi che Azure PowerShell sia pronto all’uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](/powershell/azure/overview).
+Assicurarsi che Azure PowerShell sia pronto all'uso. Se già si utilizza PowerShell, è necessario eseguire l'aggiornamento alla versione 0.8.10 o successiva. Per informazioni sulla configurazione di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs). Dopo avere impostato e configurato PowerShell, è possibile vedere tutti i cmdlet disponibili per il servizio [qui](/powershell/azure/overview).
 
 Per i suggerimenti che facilitano l’utilizzo dei cmdlet, ad esempio come i valori dei parametri, gli input e gli output vengono in genere gestiti in Azure PowerShell, vedere [Introduzione ai cmdlet di Azure](/powershell/azure/get-started-azureps).
 
@@ -385,7 +384,7 @@ Per verificare il completamento dell'operazione, attenersi alla procedura descri
 
 
 ## <a name=monitor></a> Monitorare l'attività
-Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessario attendere l’esecuzione dei processi per il completamento dell'elaborazione.
+Utilizzare i comandi seguenti per monitorare l'attività. Si noti che è necessario attendere l'esecuzione dei processi per il completamento dell'elaborazione.
 
     Do
     {

@@ -1,6 +1,6 @@
 ---
-title: Caricare un&quot;immagine Linux personalizzata con l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Creare e caricare un disco rigido virtuale (VHD) in Azure con un&quot;immagine Linux personalizzata usando il modello di distribuzione Resource Manager e l&quot;interfaccia della riga di comando di Azure 1.0.
+title: Caricare un'immagine Linux personalizzata con l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Creare e caricare un disco rigido virtuale (VHD) in Azure con un'immagine Linux personalizzata usando il modello di distribuzione Resource Manager e l'interfaccia della riga di comando di Azure 1.0.
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99d18aa55ea7bd7abcb50ba32c8f6a5f130ec031
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Caricare e creare una VM Linux da un'immagine disco personalizzata usando l'interfaccia della riga di comando di Azure 1.0
@@ -139,7 +139,7 @@ azure group create myResourceGroup --location "WestUS"
 ```
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
-Le VM vengono archiviate come BLOB di pagine all'interno di un account di archiviazione. Ulteriori informazioni sull' [archiviazione BLOB di Azure sono disponibili qui](../../storage/storage-introduction.md#blob-storage). Creare un account di archiviazione per l'immagine disco personalizzata e le VM. Le VM create a partire dall'immagine disco personalizzata devono trovarsi nello stesso account di archiviazione dell'immagine.
+Le VM vengono archiviate come BLOB di pagine all'interno di un account di archiviazione. Ulteriori informazioni sull' [archiviazione BLOB di Azure sono disponibili qui](../../storage/common/storage-introduction.md#blob-storage). Creare un account di archiviazione per l'immagine disco personalizzata e le VM. Le VM create a partire dall'immagine disco personalizzata devono trovarsi nello stesso account di archiviazione dell'immagine.
 
 Nell'esempio seguente viene creato un account di archiviazione denominato `mystorageaccount` nel gruppo di risorse creato in precedenza:
 
@@ -149,7 +149,7 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 ```
 
 ## <a name="list-storage-account-keys"></a>Ottenere chiavi degli account di archiviazione
-Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono utilizzate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../../storage/storage-create-storage-account.md#manage-your-storage-account). Le chiavi di accesso possono essere visualizzate tramite il comando `azure storage account keys list` .
+Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono utilizzate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Le chiavi di accesso possono essere visualizzate tramite il comando `azure storage account keys list` .
 
 Visualizzare le chiavi di accesso per l'account di archiviazione creato:
 

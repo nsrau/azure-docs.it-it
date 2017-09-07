@@ -1,6 +1,6 @@
 ---
 title: Usare PowerShell per eseguire il backup e il ripristino di app del servizio app
-description: Informazioni su come usare PowerShell per eseguire il backup e il ripristino di un&quot;app nel servizio app di Azure
+description: Informazioni su come usare PowerShell per eseguire il backup e il ripristino di un'app nel servizio app di Azure
 services: app-service
 documentationcenter: 
 author: NKing92
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0d1c323155aae90e8a92d7a3b92b5ca1482e1ef5
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34a7e1d025c301ca056753d964bb3c5f4f1a62d8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>Usare PowerShell per eseguire il backup e il ripristino di app del servizio app
@@ -33,7 +33,7 @@ Informazioni su come usare Azure PowerShell per eseguire il backup e il ripristi
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare PowerShell per gestire i backup delle app, è necessario quanto segue:
 
-* **URL di firma di accesso condiviso** che consente l'accesso in lettura e scrittura a un contenitore di archiviazione di Azure. Per una spiegazione degli URL di firma di accesso condiviso, vedere [Conoscere il modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) . Vedere [Uso di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md) per esempi sulla gestione di Archiviazione di Azure tramite PowerShell.
+* **URL di firma di accesso condiviso** che consente l'accesso in lettura e scrittura a un contenitore di archiviazione di Azure. Per una spiegazione degli URL di firma di accesso condiviso, vedere [Conoscere il modello di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) . Vedere [Uso di Azure PowerShell con Archiviazione di Azure](../storage/common/storage-powershell-guide-full.md) per esempi sulla gestione di Archiviazione di Azure tramite PowerShell.
 * **stringa di connessione del database** se si vuole eseguire il backup di un database insieme all'app Web.
 
 ### <a name="how-to-generate-a-sas-url-to-use-with-the-web-app-backup-cmdlets"></a>Come generare un URL di firma di accesso condiviso da usare con i cmdlet di backup dell'app Web

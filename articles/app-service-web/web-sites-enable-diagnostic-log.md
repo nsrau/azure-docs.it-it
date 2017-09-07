@@ -1,6 +1,6 @@
 ---
 title: Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
-description: Informazioni su come abilitare la registrazione diagnostica e aggiungere strumentazione all&quot;applicazione e su come accedere alle informazioni registrate da Azure.
+description: Informazioni su come abilitare la registrazione diagnostica e aggiungere strumentazione all'applicazione e su come accedere alle informazioni registrate da Azure.
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 9993d6f6ef46366d00f5c44812380b3f1e07d9ef
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7b125aeb9c0ee1dcbb199da98b0ce079820ea85c
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
@@ -71,7 +71,7 @@ La scheda [Configura](https://manage.windowsazure.com) dell'app Web del **portal
 * **Periodo di conservazione**: per impostazione predefinita, i log non vengono eliminati automaticamente dall'**archiviazione BLOB**. Selezionare **imposta mantenimento** e immettere il numero di giorni per cui conservare i log, se si desidera eliminarli automaticamente.
 
 > [!NOTE]
-> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, seguire questa procedura:
+> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, seguire questa procedura:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione o alla tabella. Salvare l’impostazione.

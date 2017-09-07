@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: b7e17b83afb7306b74b8769f31188642b54566ca
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -37,9 +37,9 @@ Nella figura viene mostrata la finestra di dialogo della voce di menu del backup
 
 Sebbene questa scelta sia semplice e diretta, è opportuno presentare alcune considerazioni. Come accennato in precedenza, una macchina virtuale di Azure presenta una limitazione nel numero di dischi di dati che è possibile collegare. Potrebbe non essere disponibile spazio per archiviare i file di backup di SAP HANA nei file system della macchina virtuale, a seconda delle dimensioni del database e dei requisiti di velocità effettiva del disco, che potrebbe comportare che il RAID software usi lo striping su più dischi di dati. Più avanti in questo articolo vengono fornite varie opzioni per lo spostamento di questi file di backup e per la gestione delle limitazioni relative alle dimensioni dei file e delle prestazioni durante la gestione di terabyte di dati.
 
-Un'altra opzione, che offre più libertà in relazione alla capacità totale, è l'Archiviazione BLOB di Azure. Mentre un singolo BLOB è limitato a 1 TB, la capacità totale di un singolo contenitore di BLOB è attualmente pari a 500 TB. In aggiunta, questa opzione offre ai clienti la possibilità di selezionare la cosiddetta archiviazione BLOB ad &quot;accesso sporadico&quot;, che presenta vantaggi sui costi. Vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico](../../../storage/storage-blob-storage-tiers.md) per altre informazioni sull'archiviazione BLOB ad accesso sporadico.
+Un'altra opzione, che offre più libertà in relazione alla capacità totale, è l'Archiviazione BLOB di Azure. Mentre un singolo BLOB è limitato a 1 TB, la capacità totale di un singolo contenitore di BLOB è attualmente pari a 500 TB. In aggiunta, questa opzione offre ai clienti la possibilità di selezionare la cosiddetta archiviazione BLOB ad &quot;accesso sporadico&quot;, che presenta vantaggi sui costi. Vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico](../../../storage/blobs/storage-blob-storage-tiers.md) per altre informazioni sull'archiviazione BLOB ad accesso sporadico.
 
-Per una maggiore sicurezza, usare un account di archiviazione con replica geografica per archiviare i backup di SAP HANA. Per dettagli sulla replica dell'account di archiviazione, vedere [Replica di Archiviazione di Azure](../../../storage/storage-redundancy.md).
+Per una maggiore sicurezza, usare un account di archiviazione con replica geografica per archiviare i backup di SAP HANA. Per dettagli sulla replica dell'account di archiviazione, vedere [Replica di Archiviazione di Azure](../../../storage/common/storage-redundancy.md).
 
 È possibile posizionare dischi rigidi virtuali dedicati per i backup di SAP HANA in un account di archiviazione di backup apposito con replica geografica. È anche possibile copiare i dischi rigidi virtuali che mantengono i backup di SAP HANA in un account di archiviazione con replica geografica o in un account di archiviazione in un'area diversa.
 
@@ -51,7 +51,7 @@ Una soluzione alternativa consiste innanzitutto nel copiare i file di backup di 
 
 ## <a name="azure-blobxfer-utility-details"></a>Dettagli sull'utilità di blobxfer di Azure
 
-Per archiviare le directory e i file in archiviazione di Azure, è possibile usare PowerShell, l'interfaccia della riga di comando o sviluppare uno strumento usando uno degli [SDK di Azure](https://azure.microsoft.com/downloads/). È anche disponibile un'utilità pronta all'uso, AzCopy, che consente di copiare i dati nell'archiviazione di Azure, ma è dedicata esclusivamente a Windows (vedere [Trasferire dati con l'utilità della riga di comando AzCopy](../../../storage/storage-use-azcopy.md)).
+Per archiviare le directory e i file in archiviazione di Azure, è possibile usare PowerShell, l'interfaccia della riga di comando o sviluppare uno strumento usando uno degli [SDK di Azure](https://azure.microsoft.com/downloads/). È anche disponibile un'utilità pronta all'uso, AzCopy, che consente di copiare i dati nell'archiviazione di Azure, ma è dedicata esclusivamente a Windows (vedere [Trasferire dati con l'utilità della riga di comando AzCopy](../../../storage/common/storage-use-azcopy.md)).
 
 Blobxfer è stato pertanto usato per la copia dei file di backup di SAP HANA. Si tratta di una risorsa open source, usata da molti clienti negli ambienti di produzione e disponibile su [GitHub](https://github.com/Azure/blobxfer). Questo strumento consente di copiare i dati direttamente nell'archiviazione BLOB di Azure o nella condivisione file di Azure. Offre anche una gamma di funzionalità utili, ad esempio hash md5 o parallelismo automatico durante la copia di una directory con più file.
 
@@ -71,7 +71,7 @@ Ripetere lo stesso RAID software di backup con striping in cinque dischi di dati
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copiare i file di backup di SAP HANA in Archiviazione BLOB di Azure
 
-A partire da dicembre 2016, l'opzione migliore per archiviare rapidamente i file di backup di SAP HANA è Archiviazione BLOB di Azure. Un contenitore di BLOB singolo ha un limite di 500 TB, sufficiente per la maggior parte dei sistemi SAP HANA in esecuzione in una macchina virtuale GS5 in Azure, per mantenere un numero di backup di SAP HANA sufficiente. I clienti possono scegliere tra Archiviazione BLOB &quot;ad accesso frequente&quot; e &quot;ad accesso sporadico&quot; (vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico](../../../storage/storage-blob-storage-tiers.md)).
+A partire da dicembre 2016, l'opzione migliore per archiviare rapidamente i file di backup di SAP HANA è Archiviazione BLOB di Azure. Un contenitore di BLOB singolo ha un limite di 500 TB, sufficiente per la maggior parte dei sistemi SAP HANA in esecuzione in una macchina virtuale GS5 in Azure, per mantenere un numero di backup di SAP HANA sufficiente. I clienti possono scegliere tra Archiviazione BLOB &quot;ad accesso frequente&quot; e &quot;ad accesso sporadico&quot; (vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Con lo strumento blobxfer, è semplice copiare i file di backup di SAP HANA direttamente nell'Archiviazione BLOB di Azure.
 
@@ -139,7 +139,7 @@ Funziona, ma le prestazioni non sono state buone per il test di backup di 230 GB
 
 ## <a name="copy-sap-hana-backup-files-to-azure-file-service"></a>Copiare i file di backup di SAP HANA nel Servizio file di Azure
 
-È possibile montare una condivisione di file di Azure all'interno di una macchina virtuale Linux di Azure. L'articolo [Come usare l'archiviazione file di Azure con Linux](../../../storage/storage-how-to-use-files-linux.md) descrive l'uso in dettaglio. Tenere presente che esiste attualmente un limite di quota di 5 TB di una condivisione di file di Azure e un limite di dimensione del file di 1 TB per ogni file. Per altre informazioni sui limiti di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../../storage/storage-scalability-targets.md).
+È possibile montare una condivisione di file di Azure all'interno di una macchina virtuale Linux di Azure. L'articolo [Come usare l'archiviazione file di Azure con Linux](../../../storage/files/storage-how-to-use-files-linux.md) descrive l'uso in dettaglio. Tenere presente che esiste attualmente un limite di quota di 5 TB di una condivisione di file di Azure e un limite di dimensione del file di 1 TB per ogni file. Per altre informazioni sui limiti di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../../../storage/common/storage-scalability-targets.md).
 
 I test hanno dimostrato, tuttavia, che il backup di SAP HANA non funziona direttamente con questo tipo di montaggio CIFS. Nella [Nota SAP 1820529](https://launchpad.support.sap.com/#/notes/1820529) si dichiara anche che il CIFS non è consigliato.
 

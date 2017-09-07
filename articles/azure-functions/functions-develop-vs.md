@@ -4,7 +4,7 @@ description: Informazioni su come sviluppare e testare Funzioni di Azure usando 
 services: functions
 documentationcenter: .net
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: functions
 ms.workload: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: glenga, donnam
+ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 1b1f6374d2d84984dc1b0905d46ab1f9adfd79dc
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1e0568bc58e8879cabe409cf8e9b5866f922e7c9
 ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
@@ -44,7 +44,7 @@ Per creare e distribuire funzioni, è necessario disporre anche di quanto segue:
 
 * Una sottoscrizione di Azure attiva. Se non si possiede una sottoscrizione di Azure, sono disponibili [account gratuiti](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Un account dell'Archiviazione di Azure. Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account).  
+* Un account dell'Archiviazione di Azure. Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
 ## <a name="create-an-azure-functions-project"></a>Creare un progetto di Funzioni di Azure 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]

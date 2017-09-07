@@ -1,6 +1,6 @@
 ---
 title: Risorse di documentazione di Processi Web di Azure
-description: Risorse consigliate per informazioni sull&quot;uso di Processi Web di Azure e Azure WebJobs SDK.
+description: Risorse consigliate per informazioni sull'uso di Processi Web di Azure e Azure WebJobs SDK.
 services: app-service
 documentationcenter: .net
 author: ggailey777
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 9023ca104fcab29bc0b16ecd3a6584848e2d453e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 05062d7396bdbb3e589d2ab5f0443d1dca54342a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Risorse di documentazione di Processi Web di Azure
@@ -83,7 +82,7 @@ Vedere anche le sezioni seguenti su [Distribuzione di Processi Web](#deploy) e d
 * [Come ottenere informazioni sull'autore del BLOB](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Hosting di codice interattivo nel cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Aggiunta di traccia a Azure WebJobs](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md)
+* [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 * Video
   * [Strumenti di Processi Web e debug remoto](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 

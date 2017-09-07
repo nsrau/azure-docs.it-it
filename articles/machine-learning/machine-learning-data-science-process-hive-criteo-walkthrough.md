@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 8af9c566a267e6e9d332805c5b3e82503c092d22
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8e6143bca819c9a0484221f8b4feb319aaaa73f5
 ms.contentlocale: it-it
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
@@ -64,7 +63,7 @@ Questa procedura dettagliata illustra due problemi di stima di esempio:
 
 Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creazione di soluzioni di analisi predittiva con i cluster HDInsight, sono necessari tre passaggi:
 
-1. [Creare un account di archiviazione](../storage/storage-create-storage-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
+1. [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
 2. [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](machine-learning-data-science-customize-hadoop-cluster.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza il cluster HDInsight, occorre completare due importanti passaggi descritti in questo argomento.
    
    * È necessario collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione viene usato per accedere ai dati che possono essere elaborati all'interno del cluster.
@@ -78,7 +77,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creaz
 
 Fare clic su **Continue to Download** (Continuare per il download) per leggere altre informazioni sul set di dati e sulla relativa disponibilità.
 
-I dati si trovano in una posizione di [archiviazione BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md) pubblico: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure. 
+I dati si trovano in una posizione di [archiviazione BLOB di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md) pubblico: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure. 
 
 1. I dati in questo archivio BLOB pubblico sono costituiti da tre sottocartelle di dati non compressi.
    

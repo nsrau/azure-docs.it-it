@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: fe67a94a2b56fbc72035582f7ee1625b12b21ead
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1a30cadaab7e053184f0be133f1da5bfddc1fd91
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -36,8 +36,8 @@ Assicurarsi di aver letto i [prerequisiti](hyper-v-site-walkthrough-prerequisite
 
 - Ottenere un [account Microsoft Azure](http://azure.microsoft.com/).
 - È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Controllare le aree supportare per Site Recovery nella sezione relativa alla disponibilità a livello geografico della pagina di [dettagli sui prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-- Leggere le informazioni sui [prezzi di Site Recovery](site-recovery-faq.md#pricing) e ottenere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Consultare le informazioni sulla disponibilità a livello geografico e sulle aree supportate nella pagina relativa ai [dettagli sui prezzi per Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Leggere le informazioni sui [prezzi di Site Recovery](site-recovery-faq.md#pricing) e ottenere i [dettagli dei prezzi](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 
 ## <a name="set-up-an-azure-network"></a>Configurare una rete di Azure
@@ -52,10 +52,10 @@ Assicurarsi di aver letto i [prerequisiti](hyper-v-site-walkthrough-prerequisite
 ## <a name="set-up-an-azure-storage-account"></a>Configurare un account di archiviazione di Azure
 
 - Site Recovery replica le macchine locali in Archiviazione di Azure. Le VM di Azure vengono create dalla risorsa di archiviazione dopo il failover.
-- Configurare un [account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account) Standard/Premium in cui inserire i dati replicati in Azure.
-- [Archiviazione Premium](../storage/storage-premium-storage.md) si usa in genere per le macchine virtuali che richiedono un livello di prestazioni di I/O costantemente elevato e bassa latenza per ospitare carichi di lavoro con numerose operazioni di I/O.
+- Configurare un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) Standard/Premium in cui inserire i dati replicati in Azure.
+- [Archiviazione Premium](../storage/common/storage-premium-storage.md) si usa in genere per le macchine virtuali che richiedono un livello di prestazioni di I/O costantemente elevato e bassa latenza per ospitare carichi di lavoro con numerose operazioni di I/O.
 - Se si vuole usare un account Premium per archiviare i dati replicati, sarà necessario anche un account di archiviazione standard per l'archiviazione dei log di replica in cui vengono acquisite le modifiche in corso ai dati locali.
-- A seconda del modello di risorsa da usare per le macchine virtuali di Azure di cui si esegue il failover, l'account deve essere configurato in [modalità Resource Manager](../storage/storage-create-storage-account.md) o in [modalità classica](../storage/storage-create-storage-account-classic-portal.md).
+- A seconda del modello di risorsa da usare per le macchine virtuali di Azure di cui si esegue il failover, l'account deve essere configurato in [modalità Resource Manager](../storage/common/storage-create-storage-account.md) o in [modalità classica](../storage/common/storage-create-storage-account.md).
 - È consigliabile configurare un account di archiviazione prima di iniziare. In caso contrario sarà necessario eseguire l'operazione durante la distribuzione di Site Recovery. L'account deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 - Non è possibile spostare gli account di archiviazione usati da Site Recovery tra gruppi di risorse nella stessa sottoscrizione o in diverse sottoscrizioni.
 

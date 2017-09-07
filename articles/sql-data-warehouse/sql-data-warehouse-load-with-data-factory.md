@@ -1,5 +1,4 @@
 ---
-
 title: "Caricare i dati in Azure SQL Data Warehouse – Data factory | Documentazione Microsoft"
 description: Questa esercitazione carica i dati in Azure SQL Data Warehouse tramite Data factory di Azure e usa un database SQL Server come origine dati.
 services: sql-data-warehouse
@@ -16,13 +15,11 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6474104846eefa1aa7e137e7914b7a7f1ee8a83a
-ms.openlocfilehash: aad76a633b127d23d59dae995d7a503023c5eac7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
 ms.contentlocale: it-it
-ms.lasthandoff: 02/09/2017
-
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -38,7 +35,7 @@ ms.lasthandoff: 02/09/2017
 
 - È necessario un **SQL Data Warehouse** online. Se non si dispone di un data warehouse, vedere l'articolo relativo alla [creazione di un'istanza di Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md).
 
-- È necessario un **account di archiviazione di Azure**. Se non si dispone di un account di archiviazione, vedere l'articolo relativo alla [creazione di un account di archiviazione](../storage/storage-create-storage-account.md). Per le migliori prestazioni, posizionare l'account di archiviazione e il data warehouse nella stessa area si Azure.
+- È necessario un **account di archiviazione di Azure**. Se non si dispone di un account di archiviazione, vedere l'articolo relativo alla [creazione di un account di archiviazione](../storage/common/storage-create-storage-account.md). Per le migliori prestazioni, posizionare l'account di archiviazione e il data warehouse nella stessa area si Azure.
 
 ## <a name="configure-a-data-factory"></a>Configurare una data factory
 1. Accedere al [Portale di Azure][].
