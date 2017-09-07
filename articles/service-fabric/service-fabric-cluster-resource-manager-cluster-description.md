@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 369389f7f8ce56435dcbb9d9264c2db48a294d55
+ms.sourcegitcommit: 79b215eed38959efd630e21633d235cbc857abd8
+ms.openlocfilehash: dde9d9b8be1faede7d2e9e45597070e6ce51ac02
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -36,7 +36,7 @@ Cluster Resource Manager supporta diverse funzionalità che descrivono un cluste
 ## <a name="fault-domains"></a>Domini di errore
 Un dominio di errore è un'area di errore coordinato. Un singolo computer è un dominio di errore, in quanto il computer si può arrestare da solo per vari motivi, da interruzioni dell'alimentazione a errori delle unità o firmware NIC non valido. I computer connessi allo stesso commutatore Ethernet si trovano nello stesso dominio di errore, analogamente ai computer che condividono una singola fonte di alimentazione o si trovano nella stessa posizione. Poiché è naturale che gli errori hardware si sovrappongano, i domini di errore sono intrinsecamente gerarchici e sono rappresentati come URI in Service Fabric.
 
-È importante che i domini di errore siano impostati correttamente poiché Service Fabric usa queste informazioni per posizionare in modo sicuro i servizi. Service Fabric non posiziona i servizi in modo che la perdita di un dominio di errore (a causa dell'errore di qualche componente) causi l'interruzione di un servizio. Service Fabric, nell'ambiente di Azure, usa le informazioni del dominio di errore fornite dall'ambiente per configurare in modo corretto i nodi nel cluster per conto dell'utente. Nella versione autonoma di Service Fabric, i domini di errore vengono definiti al momento della configurazione del cluster. 
+È importante che i domini di errore siano impostati correttamente poiché Service Fabric usa queste informazioni per posizionare in modo sicuro i servizi. Service Fabric non posiziona i servizi in modo che la perdita di un dominio di errore (a causa dell'errore di qualche componente) causi l'interruzione di un servizio. Service Fabric, nell'ambiente di Azure, usa le informazioni del dominio di errore fornite dall'ambiente per configurare in modo corretto i nodi nel cluster per conto dell'utente. Nella versione autonoma di Service Fabric, i domini di errore vengono definiti al momento della configurazione del cluster 
 
 > [!WARNING]
 > È importante che le informazioni sul dominio di errore fornite a Service Fabric siano accurate. Si supponga, ad esempio, che i nodi del cluster di Service Fabric siano in esecuzione all'interno di dieci macchine virtuali, a loro volta in esecuzione su cinque host fisici. In questo caso, anche se sono presenti dieci macchine virtuali, sono presenti solo cinque domini di errore diversi (livello superiore). La condivisione dello stesso host fisico comporta per le macchine virtuali anche la condivisione dello stesso dominio di errore radice, poiché sulle macchine virtuali si verifica un errore coordinato se sul relativo host fisico si verifica un errore,  

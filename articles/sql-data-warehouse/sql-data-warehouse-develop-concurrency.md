@@ -16,8 +16,8 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1ab2a8253684c62be650eed2ea5f69c62188a22
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
 ms.contentlocale: it-it
 ms.lasthandoff: 08/24/2017
 
@@ -152,7 +152,7 @@ Lo stesso calcolo si applica alle classi di risorse statiche.
 ## <a name="concurrency-slot-consumption"></a>Utilizzo di slot di concorrenza  
 SQL Data Warehouse concede più memoria alle query in esecuzione nelle classi di risorse più grandi. La memoria è una risorsa fissa.  Maggiore sarà la quantità di memoria allocata per ogni query, quindi, minore sarà il numero di richieste simultanee che è possibile eseguire. La tabella seguente riprende tutti i concetti descritti finora in un'unica rappresentazione che mostra il numero di slot di concorrenza disponibili per DWU e gli slot usati da ogni classe di risorse.  
 
-### <a name="allocation-and-consumption-of-concurrency-slots"></a>Allocazione e consumo di slot di concorrenza  
+### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>Allocazione e consumo degli slot di concorrenza per le classi di risorse dinamiche  
 | DWU | Numero massimo di query simultanee | Numero di slot di concorrenza allocati | Slot utilizzati da smallrc | Slot utilizzati da mediumrc | Slot utilizzati da largerc | Slot utilizzati da xlargerc |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -168,7 +168,7 @@ SQL Data Warehouse concede più memoria alle query in esecuzione nelle classi di
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Allocazione e consumo degli slot di concorrenza per le classi di risorse statiche
+### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>Allocazione e consumo degli slot di concorrenza per le classi di risorse statiche  
 | DWU | Numero massimo di query simultanee | Numero di slot di concorrenza allocati |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8c142c5e89c5e4eb45bddd0943a6a130cc876f5a
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
 ms.contentlocale: it-it
 ms.lasthandoff: 08/24/2017
 
@@ -99,11 +99,11 @@ Di seguito sono indicati i nomi di dominio completi usati dal gateway.
 
 ### <a name="general"></a>Generale
 
-**D**: È necessario un gateway per le origini dati nel cloud, ad esempio SQL Azure? <br/>
+**D**: È necessario un gateway per le origini dati nel cloud, ad esempio il database SQL di Azure? <br/>
 **R**: No. Il gateway si connette solo alle origini dati locali.
 
 **D**: Il gateway deve essere installato nello stesso computer dell'origine dati? <br/>
-**R**: No. Il gateway si connette all'origine dati tramite le informazioni di connessione fornite. In questo senso il gateway può essere paragonato a un'applicazione client. Il gateway deve solo potersi connettere al nome del server specificato.
+**R**: No. Il gateway si connette all'origine dati tramite le informazioni di connessione fornite. In questo senso il gateway può essere paragonato a un'applicazione client. Il gateway deve solo potersi connettere al nome del server specificato, in genere nella stessa rete.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -130,7 +130,7 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 **R**: Visualizzare le porte e gli host usati dal gateway.
 
 **D**: Come viene chiamato il servizio Windows effettivo?<br/>
-**R**: Nei servizi il gateway è denominato servizio Power BI Gateway Enterprise.
+**R**: Nei servizi, il gateway è denominato servizio Gateway dati locale.
 
 **D**: Il servizio gateway di Windows può essere eseguito con un account Azure Active Directory? <br/>
 **R**: No. Il servizio Windows deve disporre di un account Windows valido. Per impostazione predefinita, il sevizio viene eseguito con il SID servizio NT SERVICE\PBIEgwService.
@@ -151,7 +151,7 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 È anche possibile usare gli strumenti per il tracciamento delle query di cui è dotata l'origine dati. Ad esempio, è possibile usare Eventi estesi o SQL Profiler per SQL Server e Analysis Services.
 
 **D**: Dove si trovano i log del gateway? <br/>
-**R**: Vedere la sezione Strumenti più avanti in questo argomento.
+**R**: Vedere la sezione Registri più avanti in questo argomento.
 
 ### <a name="update"></a>Aggiornare alla versione più recente
 

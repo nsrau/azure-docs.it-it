@@ -4,7 +4,7 @@ description: Servizi multimediali di Microsoft Azure consente di distribuire con
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/25/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4996df4623a706e51ab00538c17590ebf2d71fc4
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: ae1b36c26e688e74eb8fcc1a4cdbd3be0c014c08
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Uso della crittografia dinamica AES-128 e del servizio di distribuzione delle chiavi
@@ -58,7 +58,7 @@ Di seguito sono indicati i passaggi generali da eseguire quando si esegue la cri
 
 6. [Creare un localizzatore OnDemand](media-services-protect-with-aes128.md#create_locator) per ottenere un URL di streaming.
 
-L’argomento inoltre indica [come un'applicazione client può richiedere una chiave dal servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md#client_request).
+L'argomento inoltre indica [come un'applicazione client può richiedere una chiave dal servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md#client_request).
 
 Si noterà un [esempio](media-services-protect-with-aes128.md#example) .NET completo alla fine dell'argomento.
 
@@ -97,7 +97,7 @@ Servizi multimediali supporta più modalità di autenticazione degli utenti che 
 Per informazioni dettagliate, vedere l'argomento [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-dotnet-configure-content-key-auth-policy.md).
 
 ## <a id="configure_asset_delivery_policy"></a>Configurare i criteri di distribuzione dell'asset
-Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella configurazione dei criteri di distribuzione dell’asset:
+Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella configurazione dei criteri di distribuzione dell'asset:
 
 * URL di acquisizione della chiave. 
 * Vettore di inizializzazione (IV) da utilizzare per la crittografia envelope. AES 128 richiede che venga fornito lo stesso IV per la crittografia e la decrittografia. 
@@ -136,7 +136,7 @@ Ottenere un token di test basato sulla restrizione Token usata per i criteri di 
 Nel passaggio precedente, è stato realizzato l'URL che punta a un file manifesto. Il client deve estrarre le informazioni necessarie dai file manifesto del flusso per effettuare una richiesta al servizio di distribuzione delle chiavi.
 
 ### <a name="manifest-files"></a>File manifesto
-Il client deve estrarre il valore URL (che contiene anche l’ID della chiave simmetrica (kid)) dal file manifesto. Il client tenterà quindi di ottenere la chiave di crittografia dal servizio di distribuzione delle chiavi. Inoltre, il client deve estrarre il valore IV e utilizzarlo per decrittografare il flusso. Il frammento di codice seguente illustra l’elemento <Protection> del manifesto Smooth Streaming.
+Il client deve estrarre il valore URL (che contiene anche l'ID della chiave simmetrica (kid)) dal file manifesto. Il client tenterà quindi di ottenere la chiave di crittografia dal servizio di distribuzione delle chiavi. Inoltre, il client deve estrarre il valore IV e utilizzarlo per decrittografare il flusso. Il frammento di codice seguente illustra l'elemento <Protection> del manifesto Smooth Streaming.
 
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
@@ -177,7 +177,11 @@ Se si apre uno dei file del segmento nell'editor di testo (ad esempio, http://te
     Fragments(video=0,format=m3u8-aapl)
     #EXT-X-ENDLIST
 
+>[!NOTE] 
+>Se si prevede di eseguire un flusso HLS crittografato con AES in Safari, vedere [questo blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+
 ### <a name="request-the-key-from-the-key-delivery-service"></a>Richiedere la chiave dal servizio di distribuzione delle chiavi
+
 Il codice seguente indica come inviare una richiesta al servizio di distribuzione delle chiavi di Servizi multimediali utilizzando un Uri di distribuzione della chiave (che è stato estratto dal manifesto) e un token (in questo argomento non viene discusso come ottenere token Web semplici da un servizio Secure Token).
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
@@ -220,7 +224,9 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
         return key;
     }
 
-## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
+## <a name="protect-your-content-with-aes-128-using-net"></a>Proteggere i contenuti con AES-128 tramite .NET
+
+### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
 1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 2. Aggiungere i seguenti elementi alla sezione **appSettings** definita nel file app.config:
@@ -228,7 +234,7 @@ Il codice seguente indica come inviare una richiesta al servizio di distribuzion
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
 
-## <a id="example"></a>Esempio
+### <a id="example"></a>Esempio
 
 Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
  

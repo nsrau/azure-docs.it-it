@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
+ms.contentlocale: it-it
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Gestire le risorse del bus di servizio di Azure con PowerShell
@@ -29,7 +29,7 @@ Microsoft Azure PowerShell è un ambiente di scripting che può essere usato per
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessario disporre di quanto segue:
+Prima di iniziare, verificare di disporre dei prerequisiti seguenti:
 
 * Una sottoscrizione di Azure. Per altre informazioni su come ottenere una sottoscrizione, vedere le [opzioni di acquisto][purchase options], le [offerte per i membri][member offers] oppure l'[account gratuito][free account].
 * Un computer con Azure PowerShell. Per le istruzioni vedere [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps) (Introduzione ai cmdlet di Azure PowerShell).

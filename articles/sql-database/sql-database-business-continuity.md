@@ -14,14 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/15/2017
+ms.date: 08/25/2017
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 88ca437b84298d0c008076f78e0699d36c1a23c2
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 4963598837b71e812ad3750aad9d20c8460111d9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
@@ -92,7 +91,7 @@ Usare la replica geografica attiva e i gruppi con failover automatico (in antepr
 In questo scenario, ecco sono le opzioni di ripristino.
 
 ### <a name="perform-a-point-in-time-restore"></a>Eseguire un ripristino temporizzato
-È possibile usare i backup automatici per ripristinare una copia del database a un punto valido nel tempo, purché rientri nel periodo di memorizzazione del database. Dopo il ripristino del database, è possibile sostituire il database originale con il database ripristinato o copiare i dati necessari dai dati ripristinati nel database originale. Se il database usa la replica geografica attiva, è consigliabile copiare i dati necessari dalla copia ripristinata nel database originale. Se il database originale viene sostituito con il database ripristinato, è necessario riconfigurare e risincronizzare la replica geografica attiva (cosa che può richiedere molto tempo per un database di grandi dimensioni).
+È possibile usare i backup automatici per ripristinare una copia del database a un punto valido nel tempo, purché rientri nel periodo di memorizzazione del database. Dopo il ripristino del database, è possibile sostituire il database originale con il database ripristinato o copiare i dati necessari dai dati ripristinati nel database originale. Se il database usa la replica geografica attiva, è consigliabile copiare i dati necessari dalla copia ripristinata nel database originale. Se il database originale viene sostituito con il database ripristinato, è necessario riconfigurare e risincronizzare la replica geografica attiva (cosa che può richiedere molto tempo per un database di grandi dimensioni). Quando si ripristina un database all'ultimo punto disponibile il ripristino geo-secondario in qualsiasi punto nel tempo non è attualmente supportato.
 
 Per altre informazioni e per i passaggi dettagliati per il ripristino di un database in un punto nel tempo tramite il portale di Azure o PowerShell, vedere [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore). Non è possibile eseguire il ripristino tramite Transact-SQL.
 
@@ -138,7 +137,7 @@ Se si usa la replica geografica attiva e i gruppi con failover automatico (in an
 > 
 
 ### <a name="perform-a-geo-restore"></a>Eseguire un ripristino geografico
-Se si usano backup automatici con la replica dell'archiviazione con ridondanza geografica come meccanismo di ripristino, [avviare il ripristino del database tramite ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore). In genere il ripristino avviene entro 12 ore, con perdita di dati fino a 1 ora dall'ultima acquisizione e replica del backup differenziale orario. Fino a quando non viene completato il ripristino, il database non è in grado di registrare tutte le transazioni o rispondere a tutte le query.
+Se si usano backup automatici con la replica dell'archiviazione con ridondanza geografica come meccanismo di ripristino, [avviare il ripristino del database tramite ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore). In genere il ripristino avviene entro 12 ore, con perdita di dati fino a 1 ora dall'ultima acquisizione e replica del backup differenziale orario. Fino a quando non viene completato il ripristino, il database non è in grado di registrare tutte le transazioni o rispondere a tutte le query. Quando si ripristina un database all'ultimo punto disponibile il ripristino geo-secondario in qualsiasi punto nel tempo non è attualmente supportato.
 
 > [!NOTE]
 > Se il data center ritorna online prima che l'applicazione venga spostata sul database ripristinato, è possibile annullare il ripristino.  

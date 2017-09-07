@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: cd498198e0f206ddca2e3396813b2f2093ec3731
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 3be0d7a202ff53f5532fd7169a50a04cfaf88832
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
@@ -104,13 +104,13 @@ Oltre alle dipendenze funzionali per un ambiente del servizio app, esistono alcu
 
 -   Processi Web
 -   Funzioni
--   LogStream
+-   Streaming dei log
 -   Kudu
 -   Estensioni
 -   Esplora processi
 -   Console
 
-Quando si usa un ambiente del servizio app con bilanciamento del carico interno, il sito di Gestione controllo servizi non è accessibile dall'esterno della rete virtuale. Quando l'app è ospitata in un ambiente del servizio app con bilanciamento del carico interno, le funzionalità che non riescono a raggiungere il sito di Gestione controllo servizi sono disattivate nel portale di Azure.
+Quando si usa un ambiente del servizio app con bilanciamento del carico interno, il sito di Gestione controllo servizi non è accessibile dall'esterno della rete virtuale. Quando l'app è ospitata in un ambiente del servizio app con bilanciamento del carico interno, non sarà possibile usare alcune funzionalità dal portale.  
 
 Molte delle funzionalità che dipendono dal sito di Gestione controllo servizi sono anche disponibili direttamente nella console di Kudu. È possibile connettersi direttamente anziché tramite il portale. Se l'app è ospitata in un ambiente del servizio app con bilanciamento del carico interno, usare le credenziali di pubblicazione per accedere. L'URL per accedere al sito di Gestione controllo servizi di un'app ospitata in un ambiente del servizio app ILB ha il formato seguente: 
 
@@ -120,9 +120,13 @@ Molte delle funzionalità che dipendono dal sito di Gestione controllo servizi s
 
 Se l'ambiente del servizio app con bilanciamento del carico interno è il nome di dominio *contoso.net* e il nome dell'app è *testapp*, l'app viene raggiunta in *testapp.contoso.net*. Il sito di Gestione controllo servizi abbinato viene raggiunto in *testapp.scm.contoso.net*.
 
+## <a name="functions-and-web-jobs"></a>Funzioni e processi Web ##
+
+Le funzioni e i processi Web dipendono dal sito di Gestione controllo servizi, ma il relativo uso nel portale è supportato, anche se le app sono presenti in un ambiente del servizio app con bilanciamento del carico interno, purché il browser possa raggiungere il sito di Gestione controllo servizi.  Se si usa un certificato autofirmato con l'ambiente del servizio app con bilanciamento del carico interno, è necessario impostare il browser in modo da considerare attendibile il certificato.  A tale scopo, per IE ed Edge, è necessario che il certificato si trovi nell'archivio Attendibilità del computer.  Se si usa Chrome, ciò implica che il certificato sia stato accettato nel browser in precedenza, presumibilmente accedendo direttamente al sito di Gestione controllo servizi.  La soluzione migliore consiste nell'usare un certificato commerciale incluso nella catena di certificati del browser.  
+
 ## <a name="ase-ip-addresses"></a>Indirizzi IP dell'ambiente del servizio app ##
 
-Un ambiente del servizio app ha più indirizzi IP di cui tenere conto. Sono:
+Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. Sono:
 
 - **Indirizzo IP in ingresso pubblico**: usato per il traffico di app in un ambiente del servizio app esterno e per il traffico di gestione sia per un ambiente del servizio app esterno che con bilanciamento del carico interno.
 - **IP pubblico in uscita**: usato come indirizzo IP di origine per le connessioni in uscita dall'ambiente del servizio app che lasciano la rete virtuale e non vengono indirizzate su una VPN.
@@ -187,8 +191,7 @@ Se si apportano queste due modifiche, il traffico destinato a Internet, provenie
 > [!IMPORTANT]
 > Le route definite in una route definita dall'utente devono essere sufficientemente specifiche per avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute. Nell'esempio precedente viene usato l'intervallo di indirizzi ampio 0.0.0.0/0. Può essere accidentalmente sostituito dagli annunci di route che usano intervalli di indirizzi più specifici.
 >
-
-Gli ambienti del servizio app non sono supportati con le configurazioni di ExpressRoute con annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato. Le configurazioni di ExpressRoute con peering pubblico configurato riceveranno gli annunci di route da Microsoft. Gli annunci contengono un ampio set di intervalli di indirizzi IP di Microsoft Azure. In caso di annuncio incrociato di questi intervalli di indirizzi nel percorso di peering privato, tutti i pacchetti di rete in uscita dalla subnet dell'ambiente del servizio app verranno sottoposti a tunneling forzato verso un'infrastruttura di rete locale del cliente. Questo flusso di rete non è attualmente supportato con ambienti del servizio app. Una soluzione a questo problema consiste nell'interrompere l'annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato.
+> Gli ambienti del servizio app non sono supportati con le configurazioni di ExpressRoute con annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato. Le configurazioni di ExpressRoute con peering pubblico configurato riceveranno gli annunci di route da Microsoft. Gli annunci contengono un ampio set di intervalli di indirizzi IP di Microsoft Azure. In caso di annuncio incrociato di questi intervalli di indirizzi nel percorso di peering privato, tutti i pacchetti di rete in uscita dalla subnet dell'ambiente del servizio app verranno sottoposti a tunneling forzato verso un'infrastruttura di rete locale del cliente. Questo flusso di rete non è attualmente supportato con ambienti del servizio app. Una soluzione a questo problema consiste nell'interrompere l'annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato.
 
 Per creare una route definita dall'utente, seguire questi passaggi:
 

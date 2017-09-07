@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: ab463eac7eba2b0abf2da7b2ae56b6e2c05baefb
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: da1247070ade11f78b505524f5e970e18eb16d10
 ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Correggere un errore Hive di memoria insufficiente in Azure HDInsight
 
 Informazioni su come risolvere un errore Hive di memoria insufficiente durante l'elaborazione tabelle di grandi dimensioni configurando le impostazioni di memoria Hive.
 
-## <a name="scenario-run-a-hive-query-against-large-tables"></a>Scenario: eseguire una query Hive su tabelle di grandi dimensioni
+## <a name="run-hive-query-against-large-tables"></a>Eseguire una query Hive su tabelle di grandi dimensioni
 
 Un cliente ha eseguito una query Hive:
 
@@ -124,10 +123,6 @@ Poiché una macchina D12 ha una memoria di 28 GB, si è deciso di usare una dime
 
 Con le nuove impostazioni, la query è stata eseguita in meno di dieci minuti.
 
-## <a name="conclusion-oom-errors-and-container-size"></a>Conclusione: errori di memoria insufficiente e dimensioni dei contenitori
-
-Un errore di memoria insufficiente non indica necessariamente che le dimensioni del contenitore sono troppo piccole. Al contrario, è necessario configurare le impostazioni della memoria in modo che le dimensioni dell'heap aumentino e raggiungano almeno l'80% delle dimensioni della memoria del contenitore.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per l'ottimizzazione delle query Hive, vedere [Ottimizzare le query Hive per Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Un errore di memoria insufficiente non indica necessariamente che le dimensioni del contenitore sono troppo piccole. Al contrario, è necessario configurare le impostazioni della memoria in modo che le dimensioni dell'heap aumentino e raggiungano almeno l'80% delle dimensioni della memoria del contenitore. Per l'ottimizzazione delle query Hive, vedere [Ottimizzare le query Hive per Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md).
