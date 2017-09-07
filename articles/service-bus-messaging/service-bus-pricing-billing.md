@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 5161b555db96886f556a4fe96eab4415d8ccf047
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-pricing-and-billing"></a>Informazioni sul prezzo e la fatturazione del Bus di servizio
-Il bus di servizio è disponibile nei livelli Basic, Standard e [Premium](service-bus-premium-messaging.md). È possibile scegliere un livello di servizio per ogni spazio dei nomi del bus di servizio creato e questa selezione del livello si applica a tutte le entità create all'interno dello spazio dei nomi.
+Il bus di servizio è disponibile nei livelli Standard e [Premium](service-bus-premium-messaging.md). È possibile scegliere un livello di servizio per ogni spazio dei nomi del bus di servizio creato e questa selezione del livello si applica a tutte le entità create all'interno dello spazio dei nomi.
 
 > [!NOTE]
 > Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere la [pagina dei prezzi del bus di servizio di Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Domande frequenti sul bus di servizio](service-bus-faq.md#pricing).
@@ -32,7 +31,7 @@ Il bus di servizio è disponibile nei livelli Basic, Standard e [Premium](servic
 
 I bus di servizio usano i due misuratori seguenti per le code e gli argomenti/sottoscrizioni:
 
-1. **Operazioni di messaggistica**: definite come chiamate API sugli endpoint di servizio di code o argomenti/sottoscrizioni. Questo misuratore sostituirà i messaggi inviati o ricevuti come unità primaria dell'utilizzo fatturabile per code e argomenti/sottoscrizioni.
+1. **Operazioni di messaggistica**: definite come chiamate API sugli endpoint di servizio di code o argomenti/sottoscrizioni. Questo misuratore sostituirà i messaggi inviati o ricevuti come unità primaria dell'uso fatturabile per code e argomenti/sottoscrizioni.
 2. **Connessioni negoziate**: definite come numero massimo di connessioni permanenti aperte su code, argomenti o sottoscrizioni durante un periodo di campionamento di un'ora. Questo misuratore verrà applicato solo nel livello Standard, in cui è possibile aprire connessioni aggiuntive (prima le connessioni erano limitate a 100 per ogni coda, argomento o sottoscrizione) per una tariffa nominale per ogni connessione.
 
 Il livello **Standard** introduce prezzi progressivi per le operazioni eseguite con code e argomenti/sottoscrizioni, che generano sconti basati sul volume che arrivano fino all'80% nei livelli di utilizzo più elevati. È inoltre disponibile un addebito di base al livello Standard di 10 USD al mese, che consente di eseguire operazioni fino a 12,5 milioni di dollari al mese senza alcun costo aggiuntivo.
@@ -41,7 +40,7 @@ Il livello **Premium** fornisce l'isolamento delle risorse a livello di CPU e me
 
 Si noti che il costo di base del livello Standard viene addebitato una sola volta al mese per ogni sottoscrizione di Azure. Ciò significa che, dopo avere creato uno spazio dei nomi del bus di servizio di livello Standard, è possibile creare tutti gli spazi dei nomi di livello Standard desiderati nella stessa sottoscrizione di Azure senza incorrere in altri addebiti di base.
 
-La tabella [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/) riepiloga le differenze funzionali tra i livelli Basic, Standard e Premium.
+La tabella [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/) riepiloga le differenze funzionali tra i livelli Standard e Premium.
 
 ## <a name="messaging-operations"></a>Operazioni di messaggistica
 Nell'ambito del nuovo modello di determinazione prezzi, la fatturazione per code e argomenti/sottoscrizioni sta cambiando. Queste entità sono in transizione dalla fatturazione per ogni messaggio alla fatturazione per ogni operazione. Per "operazione" si intende qualsiasi chiamata API effettuata da un endpoint di servizio di una coda o di un argomento o sottoscrizione. Sono incluse operazioni di stato della sessione, di invio/ricezione e di gestione.
@@ -57,7 +56,7 @@ Per i dettagli sui costi, vedere i prezzi elencati nella pagina [Prezzi di Bus d
 ## <a name="brokered-connections"></a>Connessioni negoziate
 Le *connessioni negoziate* sono ideali per i modelli d'uso dei clienti che prevedono un numero elevato di mittenti/destinatari "connessi in modo permanente" a code, argomenti o sottoscrizioni. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
 
-Per le quote di connessione e altri limiti di servizio, vedere l'articolo sulle [quote di Bus di servizio](service-bus-quotas.md).
+Per le quote di connessione e altri limiti di servizio, vedere l'articolo sulle [quote di Bus di servizio](service-bus-quotas.md). Per altre informazioni sulle connessioni negoziate, vedere la sezione [Domande frequenti](#faq) più avanti in questo articolo.
 
 Il livello Standard rimuove il limite di connessioni negoziate per spazio dei nomi e calcola l'utilizzo delle connessioni negoziate aggregate nella sottoscrizione di Azure. Per altre informazioni, vedere la tabella [Connessioni negoziate](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -73,13 +72,11 @@ Il livello Standard rimuove il limite di connessioni negoziate per spazio dei no
 >
 >
 
-| Livello Premium |
-| --- |
-| Le connessioni negoziate non vengono addebitate nel livello Premium. |
+### <a name="premium-tier"></a>Livello Premium
 
-Per altre informazioni sulle connessioni negoziate, vedere la sezione [Domande frequenti](#faq) più avanti in questo argomento.
+Le connessioni negoziate non vengono addebitate nel livello Premium.
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 
 ### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>Quali sono le connessioni negoziate e come viene effettuato l'addebito?
 Una connessione negoziata è definita in uno dei seguenti modi:
@@ -95,7 +92,7 @@ Ad esempio:
 2. 10.000 dispositivi ricevono messaggi da una coda del Bus di servizio tramite HTTP, specificando un timeout diverso da zero. Se tutti i dispositivi si connettono per 12 ore al giorno, si vedranno applicati i costi di connessione seguenti (oltre a eventuali altri costi del bus di servizio): 10.000 connessioni di ricezione HTTP * 12 ore al giorno * 31 giorni/744 = 5.000 connessioni negoziate.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>I costi delle connessioni negoziate si applicano a code e argomenti/sottoscrizioni?
-Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. La ricezione di eventi con HTTP utilizzando un timeout maggiore di zero, talvolta denominato "polling prolungato" genera costi di connessione negoziata. Le connessioni AMQP generano costi di connessione negoziata indipendentemente dal fatto che le connessioni vengano utilizzate per inviare o ricevere. Si noti che sono consentite 100 connessioni negoziate gratuitamente in uno spazio dei nomi Basic. Questo è il numero massimo di connessioni negoziate consentite per la sottoscrizione di Azure. Le prime 1.000 connessioni negoziate tra tutti gli spazi dei nomi Standard in una sottoscrizione di Azure sono incluse senza alcun costo aggiuntivo (oltre ai costi di base). Poiché queste quote sono sufficienti per coprire molti scenari di messaggistica service to service, i costi della connessione negoziata sono in genere rilevanti solo se si prevede di utilizzare il polling prolungato di AMQP o HTTP con un numero elevato di client; ad esempio, per ottenere un flusso di eventi più efficiente o abilitare la comunicazione bidirezionale con molti dispositivi o istanze di applicazione.
+Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. La ricezione di eventi con HTTP utilizzando un timeout maggiore di zero, talvolta denominato "polling prolungato" genera costi di connessione negoziata. Le connessioni AMQP generano costi di connessione negoziata indipendentemente dal fatto che le connessioni vengano utilizzate per inviare o ricevere. Le prime 1.000 connessioni negoziate tra tutti gli spazi dei nomi Standard in una sottoscrizione di Azure sono incluse senza alcun costo aggiuntivo (oltre ai costi di base). Poiché queste quote sono sufficienti per coprire molti scenari di messaggistica service to service, i costi della connessione negoziata sono in genere rilevanti solo se si prevede di utilizzare il polling prolungato di AMQP o HTTP con un numero elevato di client; ad esempio, per ottenere un flusso di eventi più efficiente o abilitare la comunicazione bidirezionale con molti dispositivi o istanze di applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sui prezzi del bus di servizio, vedere la [pagina dei prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).

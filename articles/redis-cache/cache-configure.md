@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 07/13/2017
+ms.date: 08/22/2017
 ms.author: sdanie
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c1de192c405f2e93483527569c65d368cac40a9b
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Come configurare Cache Redis di Azure
@@ -146,7 +146,7 @@ Le impostazioni **Criterio maxmemory**, **maxmemory-reserved** e **maxfragmentat
 
 Per altre informazioni sui criteri `maxmemory`, vedere [Eviction policies](http://redis.io/topics/lru-cache#eviction-policies) (Criteri di rimozione).
 
-L'impostazione **maxmemory-reserved** consente di configurare la quantità di memoria in MB riservata per le operazioni non appartenenti alla cache, ad esempio la replica durante il failover. L’impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere più alto per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
+L'impostazione **maxmemory-reserved** consente di configurare la quantità di memoria in MB riservata per le operazioni non appartenenti alla cache, ad esempio la replica durante il failover. L'impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere più alto per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
 L'impostazione **maxfragmentationmemory-reserved** consente di configurare la quantità di memoria in MB riservata per la frammentazione della memoria. L'impostazione di questo valore consente un'esperienza un server Redis più coerente quando la cache è piena o prossima al riempimento e anche il rapporto di frammentazione è elevato. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
@@ -224,29 +224,13 @@ Per modificare la dimensione del cluster, usare il dispositivo di scorrimento op
 
 
 ### <a name="redis-data-persistence"></a>Persistenza dei dati Redis:
-Fare clic su **Persistenza dati Redis** per abilitare, disabilitare o configurare la persistenza dei dati per la cache premium.
+Fare clic su **Persistenza dati Redis** per abilitare, disabilitare o configurare la persistenza dei dati per la cache premium. Cache Redis di Azure offre la persistenza dei dati Redis tramite la [persistenza RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) o la [persistenza AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
-![Persistenza dei dati Redis:](./media/cache-configure/redis-cache-persistence-settings.png)
+Per altre informazioni, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
 
-Per abilitare la persistenza Redis, fare clic su **Abilitata** per consentire il backup RDB (database Redis). Per disabilitare la persistenza Redis, fare clic su **Disabilitata**.
-
-Per configurare l'intervallo di backup, selezionare una delle seguenti voci di **Frequenza di backup** dall'elenco a discesa. 
-
-- **15 minuti**
-- **30 minuti**
-- **60 minuti**
-- **6 ore**
-- **12 ore**
-- **24 ore**
-
-Il conto alla rovescia per l'intervallo di backup inizia dopo il corretto completamento dell'operazione di backup precedente e, al termine, viene avviato un nuovo backup.
-
-Fare clic su **Account di archiviazione** per selezionare l'account di archiviazione da usare e scegliere la **Chiave primaria** o la **Chiave secondaria** da usare dall'elenco a discesa **Chiave di archiviazione**. È necessario scegliere un account di archiviazione nella stessa area della cache ed è consigliato un account **Archiviazione Premium** , poiché archiviazione premium ha una velocità effettiva maggiore. Ogni volta che la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario scegliere nuovamente la chiave desiderata dall'elenco a discesa **Chiave di archiviazione**.
-
-Fare clic su **OK** per salvare la configurazione della persistenza.
 
 > [!IMPORTANT]
-> La persistenza dei dati Redis è disponibile solo per le cache Premium. Per altre informazioni, vedere [Come configurare la persistenza dei dati per una Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
+> La persistenza dei dati Redis è disponibile solo per le cache Premium. 
 > 
 > 
 

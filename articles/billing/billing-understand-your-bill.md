@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 547b035646ccb80d1001591ae59e6a0871d1ed2c
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendere la fattura per Microsoft Azure
@@ -31,8 +31,11 @@ Per una spiegazione dettagliata dei termini e delle descrizioni nella fattura e 
 
 Per informazioni sui report di gestione dei costi, vedere [Gestione dei costi del Portale di Azure](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 
-
 ## <a name="charges"></a>Come posso assicurarmi che gli addebiti nella fattura siano corretti?
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
+</div>
+
 Se nella fattura è presente un addebito su cui si vogliono ricevere altre informazioni, sono disponibili due opzioni.
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Opzione 1: Rivedere la fattura e confrontare l'utilizzo e i costi con il file dei dettagli di utilizzo in formato CSV
@@ -72,7 +75,7 @@ Per informazioni su ogni colonna del CSV, vedere [Informazioni sui dettagli di u
 
 ### <a name="option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>Opzione 2: Rivedere la fattura e confrontarla con l'utilizzo e i costi riportati nel portale di Azure
 
-Il Portale di Azure consente anche di verificare gli addebiti. Il portale di Azure offre grafici di gestione dei costi per una rapida panoramica dell'utilizzo e degli addebiti nella fattura.
+È anche possibile usare il portale di Azure per verificare gli addebiti. Il portale di Azure offre grafici di gestione dei costi per una rapida panoramica dell'utilizzo e degli addebiti nella fattura.
 
 Per continuare con l'esempio precedente, vedere la [pagina Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selezionare la sottoscrizione e quindi scegliere **Analisi dei costi**. È quindi possibile specificare l'intervallo di tempo e visualizzare i costi di utilizzo per il servizio Utilità di pianificazione di Azure.
 

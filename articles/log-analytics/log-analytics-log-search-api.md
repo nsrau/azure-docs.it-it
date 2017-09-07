@@ -1,6 +1,6 @@
 ---
-title: API REST di ricerca nei log di Log Analytics | Documentazione Microsoft
-description: Questa guida contiene un&quot;esercitazione di base che descrive come usare l&quot;API REST di ricerca di Log Analytics in Operations Management Suite (OMS) e offre esempi che indicano come usare i comandi.
+title: API REST di ricerca nei log di Log Analytics | Microsoft Docs
+description: Questa guida contiene un'esercitazione di base che descrive come usare l'API REST di ricerca di Log Analytics in Operations Management Suite (OMS) e offre esempi che indicano come usare i comandi.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 08/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: a0d26b594ddbdcc7f1e414ebe2a2e936751a3c02
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 78afb2f065dde4a3e7a3ab787c939b3c52b72cc6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API REST di Log Analytics per la ricerca nei log
 Questa guida fornisce un'esercitazione di base, inclusi alcuni esempi, per l'uso dell'API REST di Log Analytics per la ricerca. Log Analytics fa parte di Operations Management Suite (OMS).
+
+> [!NOTE]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), è necessario continuare a usare il linguaggio di query legacy con l'API di ricerca log, come descritto in questo articolo.  Verrà rilasciata una nuova API per le aree di lavoro aggiornate e la documentazione verrà a quel punto aggiornata. 
 
 > [!NOTE]
 > In precedenza Log Analytics era chiamato Operational Insights e questo è il motivo per cui questo nome viene usato nel provider di risorse.
@@ -60,7 +62,7 @@ L'API REST di ricerca di Log Analytics è RESTful e accessibile tramite l'API Az
     armclient login
     ```
 
-    Se l’accesso viene effettuato correttamente, vengono elencate tutte le sottoscrizioni associate all'account specificato.
+    Se l'accesso viene effettuato correttamente, vengono elencate tutte le sottoscrizioni associate all'account specificato.
 
     ```
     PS C:\Users\SampleUserName> armclient login
@@ -107,7 +109,7 @@ L'API REST di ricerca di Log Analytics è RESTful e accessibile tramite l'API Az
     ```
 
 ## <a name="log-analytics-search-rest-api-reference-examples"></a>Esempi di riferimento per l'API REST di ricerca di Log Analytics
-I codici di esempio seguenti mostrano come usare l’API di ricerca.
+I codici di esempio seguenti mostrano come usare l'API di ricerca.
 
 ### <a name="search---actionread"></a>Ricerca - Azione/Lettura
 **Url di esempio:**
@@ -141,7 +143,7 @@ La tabella seguente descrive le proprietà disponibili.
 | pre |Antepone la stringa specificata ai campi corrispondenti. |
 | post |Appone la stringa specificata ai campi corrispondenti. |
 | query |La query di ricerca usata per raccogliere e restituire i risultati. |
-| start |L’inizio dell'intervallo di tempo da cui si desidera trovare risultati. |
+| start |L'inizio dell'intervallo di tempo da cui si desidera trovare risultati. |
 | end |La fine dell'intervallo di tempo da cui si desidera trovare risultati. |
 
 **Risposta:**

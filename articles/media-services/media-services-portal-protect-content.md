@@ -4,7 +4,7 @@ description: Questo articolo illustra come usare il portale di Azure per configu
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/25/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 4256201f2fd505ed86734e900496eb7364c9a575
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 67b3fa9936daebeafb7e87fe3a7b0c7e0105b3b3
 ms.contentlocale: it-it
-ms.lasthandoff: 01/11/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configurazione dei criteri di protezione del contenuto tramite il portale di Azure
@@ -124,6 +124,9 @@ Per abilitare la crittografia FairPlay, è necessario indicare il certificato de
 ![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
 Dopo aver selezionato la crittografia, fare clic su **Applica**.
+
+>[!NOTE] 
+>Se si prevede di eseguire un flusso HLS crittografato con AES in Safari, vedere [questo blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Analizzare i percorsi di apprendimento di Servizi multimediali.

@@ -3,8 +3,8 @@ title: Esplorazione e gestione delle risorse di archiviazione con Esplora server
 description: Esplorazione e gestione delle risorse di archiviazione con Esplora server
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.service: storage
@@ -12,12 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d35c9903fd68199f9decdf099a7e162fe664e4d5
-
+ms.date: 8/24/2017
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 43ab501c69c0c1e3271dbfcf08e5342a3507ab82
+ms.contentlocale: it-it
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="browsing-and-managing-storage-resources-with-server-explorer"></a>Esplorazione e gestione delle risorse di archiviazione con Esplora server
@@ -42,11 +43,12 @@ Per visualizzare le risorse in un account di archiviazione, espandere il nodo de
 * Tables
 
 ## <a name="work-with-blob-resources"></a>Usare le risorse BLOB
-Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione selezionato. I contenitori BLOB contengono file BLOB che possono essere organizzati in cartelle e sottocartelle. Per altre informazioni, vedere [Come utilizzare l'archiviazione BLOB da .NET](storage/storage-dotnet-how-to-use-blobs.md) .
+Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione selezionato. I contenitori BLOB contengono file BLOB che possono essere organizzati in cartelle e sottocartelle. Per altre informazioni, vedere [Come utilizzare l'archiviazione BLOB da .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md) .
 
 ### <a name="to-create-a-blob-container"></a>Per creare un contenitore BLOB
 1. Aprire il menu di scelta rapida per il nodo **BLOB** e quindi scegliere **Crea contenitore BLOB**.
-2. Immettere il nome del nuovo contenitore nella finestra di dialogo **Crea contenitore BLOB** e quindi scegliere **OK**.
+2. Immettere il nome del nuovo contenitore nella finestra di dialogo **Crea contenitore BLOB**.  
+3. Premere **Invio** sulla tastiera, oppure fare clic o toccare all'esterno del campo nome per salvare il contenitore BLOB.
    
    > [!NOTE]
    > Il nome del contenitore BLOB deve iniziare con un numero (0-9) o una lettera minuscola (a-z).
@@ -57,7 +59,7 @@ Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione 
 * Aprire il menu di scelta rapida per il contenitore BLOB da rimuovere e quindi scegliere **Elimina**.
 
 ### <a name="to-display-a-list-of-the-items-contained-in-a-blob-container"></a>Per visualizzare un elenco degli elementi contenuti in un contenitore BLOB
-* Aprire il menu di scelta rapida per un nome di contenitore BLOB nell'elenco e quindi scegliere **Visualizza contenitore BLOB**.
+* Aprire il menu di scelta rapida per un nome di contenitore BLOB nell'elenco, quindi scegliere **Apri**.
   
     Il contenuto di un contenitore BLOB viene visualizzato in una scheda nota come la visualizzazione del contenitore BLOB.
   
@@ -78,7 +80,7 @@ Il nodo BLOB visualizza un elenco di contenitori per l'account di archiviazione 
   * Salvare un BLOB nel computer locale
 
 ### <a name="to-create-a-folder-or-subfolder-in-a-blob-container"></a>Per creare una cartella o una sottocartella in un contenitore BLOB
-1. Scegliere il contenitore BLOB in Esplora Server. Nella finestra del contenitore scegliere il pulsante **Carica BLOB** .
+1. Scegliere il contenitore BLOB in Cloud Explorer. Nella finestra del contenitore scegliere il pulsante **Carica BLOB** .
    
     ![Caricamento di un file in una cartella BLOB](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766037.png)
 2. Nella finestra di dialogo **Carica nuovo file** scegliere il pulsante **Sfoglia** per specificare il file da caricare e quindi immettere un nome di cartella nella casella **Cartella (facoltativa)**.
@@ -109,7 +111,7 @@ Ad esempio, se si immette il prefisso `hello` nella casella di testo del filtro 
 > 
 
 ### <a name="to-download-blob-data"></a>Per scaricare i dati BLOB
-* In **Esplora server** aprire il menu di scelta rapida per uno o più BLOB e quindi scegliere **Apri** oppure scegliere il nome del BLOB e quindi scegliere il pulsante **Apri** oppure fare doppio clic sul nome del BLOB.
+* In **Cloud Explorer** aprire il menu di scelta rapida per uno o più BLOB e quindi scegliere **Apri** oppure scegliere il nome del BLOB e quindi scegliere il pulsante **Apri** oppure fare doppio clic sul nome del BLOB.
   
     Lo stato di avanzamento di un download di BLOB viene visualizzato nella finestra **Log attività di Azure** .
   
@@ -142,7 +144,7 @@ In Esplora server è possibile visualizzare le code in un account di archiviazio
 
 * Aggiornare la visualizzazione della coda
 * Inviare un messaggio alla coda
-* Rimuovere dalla coda il messaggio di livello superiore.
+* Rimuovere dalla coda il messaggio di livello superiore
 * Cancellare l'intera coda
 
 La figura seguente mostra una coda contenente due messaggi.
@@ -160,11 +162,11 @@ Per altre informazioni sulle code dei servizi di archiviazione, vedere [Procedur
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali.
 
 ### <a name="to-create-a-table"></a>Per creare una tabella
-1. In Esplora server selezionare il nodo **Tabelle** dell'account di archiviazione e quindi scegliere **Crea tabella**.
+1. In Cloud Explorer selezionare il nodo **Tabelle** dell'account di archiviazione, quindi scegliere **Crea tabella**.
 2. Nella finestra di dialogo **Crea tabella** immettere un nome per la tabella.
 
 ### <a name="to-view-table-data"></a>Per visualizzare i dati in una tabella
-1. In Esplora Server aprire il nodo **Azure** e quindi aprire il nodo **Archiviazione**.
+1. In Cloud Explorer aprire il nodo **Azure**, quindi aprire il nodo **Archiviazione**.
 2. Aprire il nodo dell'account di archiviazione che interessa e quindi aprire il nodo **Tabelle** per visualizzare un elenco di tabelle per l'account di archiviazione.
 3. Aprire il menu di scelta rapida per una tabella e quindi scegliere **Visualizza tabella**.
    
@@ -185,7 +187,7 @@ La tabella è organizzata in entità (mostrate nelle righe) e proprietà (mostra
    * Se si immette un valore DateTime, è necessario applicare un formato appropriato alle impostazioni di area geografica e lingua del computer (ad esempio, MM/GG/AAAA HH:MM:SS [AM|PM] per l'inglese, Stati Uniti).
 
 ### <a name="to-add-entities"></a>Per aggiungere le entità
-1. In **Progettazione tabelle** scegliere il pulsante **Aggiungi entità** nell'angolo in alto a destra della visualizzazione tabella.
+1. In **Progettazione tabelle**, selezionare il pulsante **Aggiungi entità**.
    
     ![Aggiungi entità](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC655336.png)
 2. Nella finestra di dialogo **Aggiungi entità** immettere i valori delle proprietà **PartitionKey** e **RowKey**.
@@ -198,7 +200,7 @@ La tabella è organizzata in entità (mostrate nelle righe) e proprietà (mostra
 Se si usa il generatore di query, è possibile personalizzare il set di entità visualizzato in una tabella.
 
 1. Per aprire il generatore di query, visualizzare prima una tabella.
-2. Scegliere il pulsante più a destra nella barra degli strumenti della visualizzazione tabella.
+2. Scegliere il pulsante Generatore di query nella barra degli strumenti della visualizzazione tabella.
    
     Viene visualizzata la finestra di dialogo **Generatore di query** . La figura seguente mostra una query compilata nel generatore di query.
    
@@ -271,10 +273,5 @@ Sono disponibili due modi per aggiungere gli account di archiviazione usando Esp
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui servizi di archiviazione di Azure, vedere [Uso dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -14,23 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/16/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 823508c0bd9e379361dd26f70b3960259a8d4292
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Creare cluster basati su Linux in HDInsight tramite .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso di HDInsight da un'applicazione .NET Framework. Questo articolo descrive come creare un cluster HDInsight basato su Linux tramite .NET SDK.
+
+Informazioni su come creare un cluster Hadoop in cluster di Azure HDInsight con .NET SDK.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento creano un cluster con un nodo di lavoro. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14GB di RAM.
+> I passaggi descritti in questo documento creano un cluster con un nodo di lavoro. Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
 >
 > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -39,14 +40,14 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso di HDIns
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Un account di archiviazione di Azure**. Vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account).
+* **Un account di archiviazione di Azure**. Vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * **Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017**.
 
 ## <a name="create-clusters"></a>Creare i cluster
 
 1. Aprire Visual Studio 2017.
 2. Creare una nuova applicazione console in Visual C#.
-3. Dal menu **Strumenti** fare clic su **Gestione pacchetti NuGet**, quindi su **Console di Gestione pacchetti**.
+3. Nel menu **Strumenti** fare clic su **Gestione pacchetti NuGet**, quindi su **Console di Gestione pacchetti**.
 4. Eseguire il comando seguente nella console per installare i pacchetti:
 
     ```powershell
@@ -192,7 +193,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso di HDIns
     ```
 
 6. Sostituire i valori dei membri di classe.
-7. Premere **F5** per eseguire l'applicazione. Verrà aperta una finestra della console in cui è visualizzato lo stato dell'applicazione. Verrà richiesto di immettere le credenziali dell'account Azure. Possono essere necessari alcuni minuti per creare un cluster HDInsight, in genere circa 15.
+7. Premere **F5** per eseguire l'applicazione. Verrà aperta una finestra della console in cui è visualizzato lo stato dell'applicazione. Verrà richiesto di immettere le credenziali dell'account di Azure. Possono essere necessari alcuni minuti per creare un cluster HDInsight, in genere circa 15.
 
 ## <a name="use-bootstrap"></a>Usare Bootstrap
 

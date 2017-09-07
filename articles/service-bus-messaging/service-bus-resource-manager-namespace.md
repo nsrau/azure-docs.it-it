@@ -14,17 +14,17 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: efd0ec90a1c0775661069faa323e56914dd4e032
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
 ms.contentlocale: it-it
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio tramite il modello di Azure Resource Manager
 
-Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio di tipo **Messaging** con SKU Standard/Basic. L'articolo definisce anche i parametri specificati per eseguire la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+Questo articolo illustra come usare un modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio di tipo **Messaggistica** con SKU Standard/Basic. L'articolo definisce anche i parametri specificati per eseguire la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
 Per altre informazioni sulla creazione di modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -43,7 +43,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi del bus di ser
 > 
 
 ## <a name="what-will-you-deploy"></a>Distribuzione
-Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con uno SKU [Basic, Standard o Premium](https://azure.microsoft.com/pricing/details/service-bus/).
+Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con uno SKU [Standard o Premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
@@ -73,7 +73,6 @@ Nome dello [SKU](https://azure.microsoft.com/pricing/details/service-bus/) del b
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
-        "Basic", 
         "Standard",
         "Premium" 
     ], 
@@ -84,7 +83,7 @@ Nome dello [SKU](https://azure.microsoft.com/pricing/details/service-bus/) del b
 
 ```
 
-Il modello definisce i valori consentiti per il parametro (Basic, Standard o Premium) e assegna un valore predefinito (Standard) nel caso in cui non venga specificato alcun valore.
+Il modello definisce i valori consentiti per il parametro, Standard o Premium, e assegna un valore predefinito, Standard, nel caso in cui non venga specificato alcun valore.
 
 Per altre informazioni sui prezzi del bus di servizio, vedere [Service Bus pricing and billing][Service Bus pricing and billing] (Prezzi e fatturazione del bus di servizio).
 

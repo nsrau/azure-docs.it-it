@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 67dee77dd4e46d097358d86626a859b7dc7982e7
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: bbe2e0bafe48b39f12c5a8a46511e9275926d4b6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Introduzione ad App Web di Azure in Linux
@@ -27,77 +27,60 @@ ms.lasthandoff: 08/24/2017
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 ## <a name="overview"></a>Panoramica
-I clienti possono usare App Web in Linux per ospitare app Web in modo nativo in Linux per stack di applicazioni supportate. La sezione seguente elenca gli stack di applicazioni attualmente supportati. 
+[App Web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) è una piattaforma di calcolo completamente gestita, ottimizzata per l'hosting di siti Web e applicazioni Web. I clienti possono usare App Web in Linux per ospitare app Web in modo nativo in Linux per stack di applicazioni supportate. Le sezioni seguenti elencano gli stack di applicazioni attualmente supportati. 
 
-## <a name="features"></a>Funzionalità
-App Web in Linux supporta attualmente gli stack di applicazioni seguenti:
+### <a name="languages"></a>Lingue
 
-* Node.js
-    * 4.4
-    * 4.5
-    * 6.2
-    * 6.6
-    * 6.9
-    * 6.10
-    * 6.11
-    * 8.0
-    * 8.1
-* PHP
-    * 5.6
-    * 7.0
-* .Net Core
-    * 1.0
-    * 1.1
-* Ruby
-    * 2.3
+|Node.js|PHP|.NET Core|Ruby|
+|:------------------:|:---:|:---------:|:----:|
+|4.4, 4.5|5.6|1.0-1.1|2.3|
+|6.2, 6.6, 6.9-6.11|7.0|||
+|8.0-8.1||||
 
-I clienti possono distribuire le applicazioni tramite:
+### <a name="deployments"></a>Deployments
 
 * FTP
 * Repository Git locale
 * GitHub
 * Bitbucket
 
-Per il ridimensionamento delle applicazioni:
+### <a name="devops"></a>DevOps
 
-* I clienti possono aumentare e ridurre le prestazioni delle app Web modificando il livello nel piano di servizio app
-* I clienti possono scalare orizzontalmente le applicazioni ed eseguire più istanze di un'app entro i confini dello SKU
+* Ambienti di staging
+* [Registro contenitori di Azure](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) e DockerHub CI/CD
 
-Per Kudu, alcune delle funzionalità di base:
+### <a name="console-publishing-and-debugging"></a>Console, pubblicazione e debug
 
 * Ambienti
 * Deployments
 * Console di base
 * SSH
 
-Per DevOps:
+### <a name="scaling"></a>Ridimensionamento
 
-* Ambienti di staging
-* ACR e implementazione continua/distribuzione continua di DockerHub
+* I clienti possono aumentare e ridurre le prestazioni delle app Web modificando il livello nel [piano di servizio app](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 ## <a name="limitations"></a>Limitazioni
-Il portale di Azure mostra solo le funzionalità che possono essere usate attualmente per App Web in Linux e nasconde le altre. Man mano che verranno abilitate nuove funzionalità, queste diventeranno visibili nel portale.
+Il portale di Azure mostra solo le funzionalità che possono essere usate attualmente per App Web in Linux. Man mano che verranno abilitate nuove funzionalità, queste diventeranno visibili sul portale.
 
 Alcune funzionalità, quali l'integrazione delle reti virtuali, l'autenticazione di Azure Active Directory o di terze parti o le estensioni del sito Kudu, non sono ancora disponibili. Man mano che queste funzionalità dinvetano disponibili, la documentazione verrà aggiornata e le modifiche pubblicate nei blog.
 
 Questa anteprima pubblica è attualmente disponibile solo nelle aree seguenti:
 
-* Stati Uniti occidentali
-* Stati Uniti Orientali
-* Europa occidentale
-* Europa settentrionale
-* Stati Uniti centro-meridionali
-* Stati Uniti centro-settentrionali
-* Asia sudorientale
-* Asia orientale
-* Australia orientale
-* Giappone orientale
-* Brasile meridionale
-* India meridionale
+|Americhe|Asia/Pacifico|Europa|
+|:----------------:|:--------------:|:------------:|
+|Brasile meridionale|Australia orientale|Europa settentrionale|
+|Stati Uniti Orientali|Asia orientale|Europa occidentale|
+|Stati Uniti centro-settentrionali|Giappone orientale||
+|Stati Uniti centro-meridionali|India meridionale||
+|Stati Uniti occidentali|Asia sudorientale||
 
-App Web in Linux è supportato solo nei piani di servizio app dedicati e non ha un livello Gratuito o Condiviso. I piani di servizio app per le app Web normali e di Linux si escludono a vicenda, quindi non è possibile creare un'app Web di Linux in un piano di servizio app non Linux.
+Per verificare la disponibilità delle aree aggiuntive, controllare il [Dashboard dello stato di Azure](https://azure.microsoft.com/status).
 
-Le app Web in Linux devono essere create in un gruppo di risorse che non contiene app Web non Linux nella stessa area.
+App Web in Linux è supportato solo nei piani di servizio app [Basic, Standard e Premium](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/). Di seguito sono riportate altre importanti limitazioni per App Web in Linux:
+
+* In Linux, non è possibile creare App Web in un piano di servizio app che ospita già App Web non Linux.
+* Durante la creazione di App Web in Linux in un gruppo di risorse contenente App Web non Linux, è necessario creare un piano di servizio app in un'area diversa rispetto al piano di servizio app esistente.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi ##
 
@@ -113,7 +96,6 @@ Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Re
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È possibile pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Creazione di app Web in App Web di Azure in Linux](app-service-linux-how-to-create-web-app.md)
 * [Come usare un'immagine Docker personalizzata per App Web di Azure in Linux](app-service-linux-using-custom-docker-image.md)
 * [Uso della configurazione PM2 per Node.js in App Web su Linux](app-service-linux-using-nodejs-pm2.md)
 * [Uso di .NET Core in App Web del Servizio app di Azure in Linux](app-service-linux-using-dotnetcore.md)
@@ -126,3 +108,4 @@ Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png
 [2]: ./media/app-service-linux-intro/logging.png
+

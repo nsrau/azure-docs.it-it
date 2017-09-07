@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
@@ -308,8 +308,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |---------------|-----------------|--------------|--------------|  
 |key|Stringa. Espressione consentita. Specifica l'ambito di concorrenza. Può essere condivisa da più criteri.|Sì|N/D|  
 |numero max|Un intero. Specifica un numero massimo di richieste autorizzate ad accedere al criterio.|Sì|N/D|  
-|timeout|Un intero. Espressione consentita. Specifica il numero di secondi che una richiesta deve attendere per accedere a un ambito prima che si verifichi "403 numero eccessivo di richieste"|No|Infinity|  
-|lunghezza massima della coda|Un intero. Espressione consentita. Specifica la lunghezza massima della coda. Le richieste in entrata che provano ad accedere a questo criterio verranno interrotta con "403 numero eccessivo di richieste" immediatamente quando la coda è esaurita.|No|Infinity|  
+|timeout|Un intero. Espressione consentita. Specifica il numero di secondi che una richiesta deve attendere per accedere a un ambito prima che si verifichi "429 numero eccessivo di richieste"|No|Infinity|  
+|lunghezza massima della coda|Un intero. Espressione consentita. Specifica la lunghezza massima della coda. Le richieste in entrata che provano ad accedere a questo criterio verranno interrotta con "429 numero eccessivo di richieste" immediatamente quando la coda è esaurita.|No|Infinity|  
   
 ###  <a name="ChooseUsage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  

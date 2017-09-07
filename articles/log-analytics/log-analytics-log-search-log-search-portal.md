@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/23/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 04e1c7a70db712dbc54e8846e9453d932016a043
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Creare ricerche log in Azure Log Analytics tramite il portale per la ricerca log
@@ -27,9 +27,9 @@ ms.lasthandoff: 07/28/2017
 >
 > Se l'area di lavoro non è stata aggiornata al nuovo linguaggio di query, è consigliabile consultare [Trovare dati tramite ricerche nei log in Log Analytics](log-analytics-log-searches.md) per informazioni sulla versione corrente del portale per la ricerca log.
 
-Questo articolo include un'esercitazione che descrive come creare ricerche log e analizzare i dati archiviati nell'area di lavoro di Log Analytics tramite il portale per la ricerca log.  L'esercitazione include l'esecuzione di alcune semplici query per restituire diversi tipi di dati e l'analisi dei risultati.  È incentrata sulle funzionalità del portale per la ricerca log per la modifica della query, anziché sulla modifica diretta.  Per informazioni dettagliate su come modificare direttamente la query, vedere [Informazioni di riferimento sul linguaggio di query](https://docs.loganalytics.io/queryLanguage/query_language.html).
+Questo articolo include un'esercitazione che descrive come creare ricerche log e analizzare i dati archiviati nell'area di lavoro di Log Analytics tramite il portale per la ricerca log.  L'esercitazione include l'esecuzione di alcune semplici query per restituire diversi tipi di dati e l'analisi dei risultati.  È incentrata sulle funzionalità del portale per la ricerca log per la modifica della query, anziché sulla modifica diretta.  Per informazioni dettagliate su come modificare direttamente la query, vedere [Informazioni di riferimento sul linguaggio di query](https://go.microsoft.com/fwlink/?linkid=856079).
 
-Per creare ricerche nel portale Advanced Analytics anziché nel portale per la ricerca log, vedere [Getting Started with the Analytics Portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) (Introduzione al portale di Analytics).  Entrambi i portali utilizzano lo stesso linguaggio di query per accedere agli stessi dati nell'area di lavoro di Log Analytics.
+Per creare ricerche nel portale Advanced Analytics anziché nel portale per la ricerca log, vedere [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Introduzione al portale di Analytics).  Entrambi i portali utilizzano lo stesso linguaggio di query per accedere agli stessi dati nell'area di lavoro di Log Analytics.
 
 ## <a name="prerequisites"></a>Prerequisiti
 In questa esercitazione si presuppone che sia già disponibile un'area di lavoro di Log Analytics con almeno un'origine connessa che genera dati analizzabili tramite le query.  
@@ -99,12 +99,12 @@ L'opzione **Filtra** è disponibile solo per le proprietà con il nome in blu.  
 
 ![Menu di filtro](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-È possibile raggruppare i risultati in base a una singola proprietà selezionando l'opzione **Raggruppa per** nel menu del record.  Verrà aggiunto un operatore [summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) alla query, che visualizza i risultati in un grafico.  È possibile effettuare il raggruppamento in base a una o più proprietà, ma in questo caso occorre modificare direttamente la query.  Selezionare il menu del record accanto alla proprietà **Computer** e scegliere **Raggruppa per 'Computer'**.  
+È possibile raggruppare i risultati in base a una singola proprietà selezionando l'opzione **Raggruppa per** nel menu del record.  Verrà aggiunto un operatore [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) alla query, che visualizza i risultati in un grafico.  È possibile effettuare il raggruppamento in base a una o più proprietà, ma in questo caso occorre modificare direttamente la query.  Selezionare il menu del record accanto alla proprietà **Computer** e scegliere **Raggruppa per 'Computer'**.  
 
 ![Raggruppare in base alla proprietà Computer](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 
 ## <a name="work-with-results"></a>Usare i risultati
-Il portale per la ricerca log offre un'ampia gamma di funzionalità per l'utilizzo dei risultati di una query.  È possibile ordinare, filtrare e raggruppare i risultati per analizzare i dati senza modificare la query effettiva.
+Il portale per la ricerca log offre un'ampia gamma di funzionalità per l'utilizzo dei risultati di una query.  È possibile ordinare, filtrare e raggruppare i risultati per analizzare i dati senza modificare la query effettiva.  I risultati di una query non sono ordinati per impostazione predefinita.
 
 Per visualizzare i dati in formato di tabella e avere così a disposizione ulteriori opzioni di filtro e ordinamento, fare clic su **Tabella**.  
 
@@ -145,7 +145,7 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 
 ![Utilizzo del processore](media/log-analytics-log-search-log-search-portal/log-search-portal-12.png)
 
-I dati vengono così limitati a un particolare contatore, ma sono ancora presentati in una forma non particolarmente utile.  È possibile visualizzare i dati in un grafico a linee, ma è prima necessario raggrupparli in base a Computer e TimeGenerated.  Per effettuare il raggruppamento in base a più campi, è necessario modificare direttamente la query, quindi modificarla come indicato di seguito.  Questa query usa la funzione [avg](https://docs.loganalytics.io/queryLanguage/query_language_avg_aggfunction.html) sulla proprietà **CounterValue** per calcolare il valore medio ogni ora.
+I dati vengono così limitati a un particolare contatore, ma sono ancora presentati in una forma non particolarmente utile.  È possibile visualizzare i dati in un grafico a linee, ma è prima necessario raggrupparli in base a Computer e TimeGenerated.  Per effettuare il raggruppamento in base a più campi, è necessario modificare direttamente la query, quindi modificarla come indicato di seguito.  Questa query usa la funzione [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) sulla proprietà **CounterValue** per calcolare il valore medio ogni ora.
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
@@ -153,7 +153,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Grafico dei dati sulle prestazioni](media/log-analytics-log-search-log-search-portal/log-search-portal-13.png)
 
-Ora che i dati sono raggruppati in modo adeguato, è possibile visualizzarli in un grafico aggiungendo l'operatore [render](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html).  
+Ora che i dati sono raggruppati in modo adeguato, è possibile visualizzarli in un grafico aggiungendo l'operatore [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
 
 ```
 Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
@@ -163,6 +163,6 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sul linguaggio di query di Log Analytics sono disponibili in [Getting Started with the Analytics Portal](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) (Introduzione al portale di Analytics).
-- Eseguire un'esercitazione con il [portale Advanced Analytics](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html) che consente di eseguire le stesse query e accedere agli stessi dati del portale per la ricerca log.
+- Altre informazioni sul linguaggio di query di Log Analytics sono disponibili in [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856079) (Introduzione al portale di Analytics).
+- Eseguire un'esercitazione con il [portale Advanced Analytics](https://go.microsoft.com/fwlink/?linkid=856587) che consente di eseguire le stesse query e accedere agli stessi dati del portale per la ricerca log.
 

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 08/25/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: fe6a28afbee573351186e361126ddca7db764311
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e138f80e808968ab4bf5c11cfd5fd46fe4a1bcce
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
@@ -110,7 +110,7 @@ Di seguito sono elencati i servizi che attualmente abilitano lo spostamento in u
 * Service Fabric
 * Archiviazione
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
-* Analisi dei flussi
+* Analisi di flusso: i processi di analisi di flusso non possono essere spostati durante l'esecuzione.
 * Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
 * Gestione traffico
 * Macchine virtuali

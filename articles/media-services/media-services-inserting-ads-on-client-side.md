@@ -4,7 +4,7 @@ description: Questo argomento illustra come inserire annunci sul lato client.
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
 ms.service: media-services
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: aaa0e2757875d8f9ac6a19f218bfb19bf9870b0d
-ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
+ms.contentlocale: it-it
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
@@ -30,7 +31,7 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 > 
 > 
 
-## <a name="a-idinsertadsintomediaainserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>Inserimento di annunci nei file multimediali
+## <a id="insert_ads_into_media"></a>Inserimento di annunci nei file multimediali
 Servizi multimediali di Azure offre il supporto per l'inserimento di annunci tramite la piattaforma Windows Media Platform, ovvero i player framework. Player Framework con supporto per gli annunci sono disponibili per i dispositivi Windows 8, Silverlight, Windows Phone 8 e iOS. Ogni player framework contiene codice di esempio che illustra come implementare un'applicazione di tipo lettore. È possibile inserire tre tipi diversi di annunci nei file multimediali.
 
 * **Lineari** : annunci con frequenza massima che interrompono il video principale.
@@ -791,10 +792,5 @@ L'esempio seguente illustra come pianificare un annuncio midroll sovrapposto.
 
 ## <a name="see-also"></a>Vedere anche
 [Sviluppo di applicazioni di lettore video](media-services-develop-video-players.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

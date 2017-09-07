@@ -4,7 +4,7 @@ description: Gestire App Web in Linux tramite interfaccia della riga di comando 
 keywords: servizio app di Azure, app Web, interfaccia della riga di comando, domande frequenti, linux, oss
 services: app-service
 documentationCenter: 
-authors: ahmedelnably
+author: ahmedelnably
 manager: erikre
 editor: 
 ms.assetid: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: e0c913ef50db3572940928d9f739e26994c96981
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 04aceecf0cb4cad5c838b7254bf7079a36bbd0d8
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -48,6 +48,14 @@ Per creare un'app Web e configurarla per l'esecuzione di un contenitore Docker p
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
+```
+ 
+## <a name="activate-the-docker-container-logging"></a>Attivare la registrazione del contenitore Docker
+
+Per attivare la registrazione del contenitore Docker è possibile usare il comando seguente:
+
+```azurecli-interactive
+az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
  
 ## <a name="change-the-custom-docker-container-for-an-existing-web-app-on-linux-app"></a>Modificare il contenitore Docker personalizzato per un'App Web esistente in App di Linux
@@ -103,7 +111,6 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Definizione di App Web di Azure in Linux](app-service-linux-intro.md)
 * [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (anteprima)](../cloud-shell/overview.md)
-* [Creazione di app Web in App Web di Azure in Linux](app-service-linux-how-to-create-web-app.md)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](./web-sites-staged-publishing.md)
 * [Distribuzione continua con App Web di Azure in Linux](./app-service-linux-ci-cd.md)
 
