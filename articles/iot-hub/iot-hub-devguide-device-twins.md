@@ -1,6 +1,6 @@
 ---
-title: Informazioni sui dispositivi gemelli nell&quot;hub IoT di Azure | Documentazione Microsoft
-description: Guida per gli sviluppatori - Usare dispositivi gemelli per sincronizzare stato e dati di configurazione tra l&quot;hub IoT e i dispositivi
+title: Informazioni sui dispositivi gemelli nell'hub IoT di Azure | Documentazione Microsoft
+description: Guida per gli sviluppatori - Usare dispositivi gemelli per sincronizzare stato e dati di configurazione tra l'hub IoT e i dispositivi
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 9c1d1ba1ad70fee3db6dc6c2170b171e06f804d9
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
@@ -174,7 +173,7 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
     $content-encoding | utf-8 |
     deviceId | ID del dispositivo |
     hubName | Nome dell'hub IoT |
-    operationTimestamp | Timestamp ISO8601 dell'operazione |
+    operationTimestamp | Timestamp [ISO8601] dell'operazione |
     iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" o "updateTwin" |
 

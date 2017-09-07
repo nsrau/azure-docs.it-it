@@ -1,9 +1,9 @@
 ---
-title: Individuare l&quot;hop successivo con Azure Network Watcher - Interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
-description: "Questo articolo descrive come individuare il tipo di hop successivo e l&quot;indirizzo IP tramite la funzionalità Hop successivo dell&quot;interfaccia della riga di comando di Azure."
+title: Individuare l'hop successivo con Azure Network Watcher - Interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
+description: "Questo articolo descrive come individuare il tipo di hop successivo e l'indirizzo IP tramite la funzionalità Hop successivo dell'interfaccia della riga di comando di Azure."
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 0700c274-3e0d-4dca-acfa-3ceac8990613
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: ff88e945060ae033717ceb29db1352e112f05a3f
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 

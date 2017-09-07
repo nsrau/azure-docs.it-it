@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: f51cacb33251d479f48a39014cc2db60a23358d5
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 1458217a31c4781b28877c030a665f5b22819e13
 ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -81,6 +81,13 @@ Quando si usa un'immagine Docker esistente compilata da un altro utente, potrebb
 
 ![Configurare l'impostazione app PORT per l'immagine Docker personalizzata][6]
 
+## <a name="how-to-set-the-startup-time-for-your-docker-image"></a>Procedura: impostare l'ora di avvio per l'immagine Docker ##
+
+Per impostazione predefinita, se il contenitore non viene avviato prima di 230 secondi, la piattaforma riavvierà il contenitore. Se l'immagine Docker personalizzata viene avviata in più di 230 secondi, è possibile usare l'impostazione di app `WEBSITES_CONTAINER_START_TIME_LIMIT`; il valore di questa impostazione è espresso in secondi e in questo modo la piattaforma potrà mantenere il contenitore in esecuzione prima del riavvio. Il valore predefinito è 230 secondi e il valore massimo consentito è 600 secondi.
+
+## <a name="how-to-unmount-the-platform-provided-storage"></a>Procedura: effettuare lo smontaggio della risorsa di archiviazione fornita dalla piattaforma ##
+
+Per impostazione predefinita, la piattaforma esegue il montaggio di una condivisione di archiviazione permanente nella directory `\home\`. Se l'immagine del contenitore non necessita di una condivisione persistente, è possibile disabilitare il montaggio di tale archiviazione specificando l'impostazione di app `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su `false`. Sarà comunque possibile accedere a tale risorsa di archiviazione dal sito scm e tutti i log Docker, se abilitati, verranno scritti nei file di log generati dalla piattaforma.
 
 ## <a name="how-to-switch-back-to-using-a-built-in-image"></a>Procedura: Usare di nuovo un'immagine predefinita ##
 
@@ -109,8 +116,7 @@ Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Re
 Fare clic sui collegamenti seguenti per iniziare a usare App Web in Linux.   
 
 * [Introduzione ad App Web di Azure in Linux](./app-service-linux-intro.md)
-* [Creazione di app Web in App Web di Azure in Linux](./app-service-linux-how-to-create-web-app.md)
-* [Uso della configurazione PM2 per Node.js in App Web in Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Uso della configurazione PM2 per Node.js in App Web su Linux](./app-service-linux-using-nodejs-pm2.md)
 * [Domande frequenti su App Web del Servizio app di Azure su Linux](app-service-linux-faq.md)
 
 Pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).

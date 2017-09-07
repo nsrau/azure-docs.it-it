@@ -3,7 +3,7 @@ title: Introduzione alla verifica del flusso IP in Azure Network Watcher | Micro
 description: "Questa pagina fornisce una panoramica della funzionalità di verifica del flusso IP di Network Watcher"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: d352fb2d-4b4f-4ac4-9c2e-1cfccf0e7e03
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: bf015f8f646ecce6821379affd4d041329967fc8
+ms.contentlocale: it-it
 ms.lasthandoff: 03/04/2017
 
 ---
