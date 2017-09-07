@@ -1,6 +1,6 @@
 ---
-title: Spostamento dei dati da e verso l&quot;archiviazione BLOB di Azure utilizzando Python | Documentazione Microsoft
-description: Spostamento dei dati da e verso l&quot;archiviazione BLOB di Azure utilizzando Python.
+title: Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python | Documentazione Microsoft
+description: Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Python.
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
-ms.openlocfilehash: fb34986d947175ae4b4212e5bd0a1e90836ed170
-ms.lasthandoff: 12/07/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0eea1ff8e4f4c1d108445e1a1250b6fa8ff48910
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Spostamento dei dati da e verso l'archivio BLOB di Azure tramite Python
@@ -30,7 +30,7 @@ Questo argomento descrive come elencare, caricare e scaricare BLOB usando l'API 
 * Elencare i BLOB in un contenitore
 * Eliminare un BLOB
 
-Per ulteriori informazioni sull'utilizzo dell’API di Python, vedere [Come utilizzare il servizio di archiviazione BLOB da Python](../storage/storage-python-how-to-use-blob-storage.md).
+Per ulteriori informazioni sull'utilizzo dell’API di Python, vedere [Come utilizzare il servizio di archiviazione BLOB da Python](../storage/blobs/storage-python-how-to-use-blob-storage.md).
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -38,7 +38,7 @@ Per ulteriori informazioni sull'utilizzo dell’API di Python, vedere [Come util
 > Se si utilizza una macchina virtuale che è stata impostata con gli script forniti da [Macchine virtuali della scienza dei dati in Azure](machine-learning-data-science-virtual-machines.md), allora AzCopy è già installata nella macchina virtuale.
 > 
 > [!NOTE]
-> Per un'introduzione completa all'archiviazione BLOB di Azure, vedere [Introduzione all'archivio BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Per un'introduzione completa all'archiviazione BLOB di Azure, vedere [Introduzione all'archivio BLOB di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
@@ -46,7 +46,7 @@ Per ulteriori informazioni sull'utilizzo dell’API di Python, vedere [Come util
 In questo documento si presuppone di avere una sottoscrizione di Azure, un account di archiviazione e chiavi di archiviazione corrispondenti per quell'account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure.
 
 * Per configurare una sottoscrizione di Azure, vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
-* Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+* Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
 
 ## <a name="upload-data-to-blob"></a>Caricamento di dati BLOB
 Aggiungere lo snippet seguente vicino all'inizio di ogni codice Python in cui si desidera accedere all'archiviazione di Azure a livello di programmazione:

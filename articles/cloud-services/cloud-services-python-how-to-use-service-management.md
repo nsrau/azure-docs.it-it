@@ -1,5 +1,5 @@
 ---
-title: "Come usare l&quot;API di gestione dei servizi (Python) - Guida alle funzionalità"
+title: "Come usare l'API di gestione dei servizi (Python) - Guida alle funzionalità"
 description: "Informazioni su come eseguire attività comuni di gestione dei servizi a livello di codice da Python."
 services: cloud-services
 documentationcenter: python
@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ee96a30d10f882da936f554152fab8a9c6897807
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-service-management-from-python"></a>Come usare la gestione dei servizi da Python
@@ -172,7 +171,7 @@ Per eliminare una distribuzione, usare il metodo **delete\_deployment**. L'esemp
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="CreateStorageService"> </a>Procedura: Creare un servizio di archiviazione
-Un [servizio di archiviazione](../storage/storage-create-storage-account.md) offre l'accesso ai [BLOB](../storage/storage-python-how-to-use-blob-storage.md), alle [tabelle](../storage/storage-python-how-to-use-table-storage.md) e alle [code](../storage/storage-python-how-to-use-queue-storage.md) di Azure. Per creare un servizio di archiviazione, è necessario assegnare al servizio un nome di lunghezza compresa tra 3 e 24 caratteri minuscoli e univoco in Azure, nonché una descrizione, un'etichetta fino a 100 caratteri con codifica in Base64 automatica e una località. Nell'esempio seguente viene illustrato come creare un servizio di archiviazione specificando una località.
+Un [servizio di archiviazione](../storage/common/storage-create-storage-account.md) offre l'accesso ai [BLOB](../storage/blobs/storage-python-how-to-use-blob-storage.md), alle [tabelle](../cosmos-db/table-storage-how-to-use-python.md) e alle [code](../storage/queues/storage-python-how-to-use-queue-storage.md) di Azure. Per creare un servizio di archiviazione, è necessario assegnare al servizio un nome di lunghezza compresa tra 3 e 24 caratteri minuscoli e univoco in Azure, nonché una descrizione, un'etichetta fino a 100 caratteri con codifica in Base64 automatica e una località. Nell'esempio seguente viene illustrato come creare un servizio di archiviazione specificando una località.
 
     from azure import *
     from azure.servicemanagement import *

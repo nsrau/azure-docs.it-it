@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 058601f416ee9ae50d90149764c3991cc1f2923b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0f8a95f96ce4c816dfb9132923faa9a9bf20c205
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Gestire Azure Data Lake Analytics tramite .NET SDK di Azure
@@ -223,7 +223,7 @@ if (adlaClient.Account.Exists(rg, adla))
 Analisi Data Lake supporta attualmente le seguenti origini dati:
 
 * [Archivio Data Lake di Azure](../data-lake-store/data-lake-store-overview.md)
-* [Account di archiviazione di Azure](../storage/storage-introduction.md)
+* [Account di archiviazione di Azure](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Collegare un account di archiviazione di Azure
 

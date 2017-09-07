@@ -84,7 +84,7 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
     ```apache
     yarn top
     ```
-    Gli ID sono elencati nella colonna **APPLICATIONID**, di cui è necessario scaricare i log****.
+    Gli ID sono elencati nella colonna **APPLICATIONID**, di cui è necessario scaricare i log **APPLICATIONID**.
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root

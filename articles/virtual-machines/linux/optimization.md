@@ -1,6 +1,6 @@
 ---
 title: Ottimizzare una macchina virtuale Linux su Azure | Microsoft Docs
-description: Suggerimenti sull&quot;ottimizzazione per assicurare di configurare la VM Linux per prestazioni ottimali su Azure
+description: Suggerimenti sull'ottimizzazione per assicurare di configurare la VM Linux per prestazioni ottimali su Azure
 keywords: linux macchina virtuale,macchina virtuale linux,macchina virtuale ubuntu
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: cdc3aad210418463368cc8b93459f2075bc413c2
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: eb79d574fd4dddfb986660cc338bc8748f2082c2
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Ottimizzare la VM Linux su Azure
@@ -33,7 +33,7 @@ Questo argomento presuppone che sia disponibile una sottoscrizione di Azure atti
 Dopo la creazione, alla macchina virtuale Linux in Azure sono associati due dischi. **/dev/sda** è il disco del sistema operativo mentre **/dev/sdb** è il disco temporaneo.  Usare il disco principale del sistema operativo (**/dev/sda**) esclusivamente per il sistema operativo, perché è ottimizzato per tempi di avvio della macchina virtuale ridotti e non offre prestazioni ideali per i carichi di lavoro. È consigliabile collegare uno o più dischi alla VM per ottenere l'archiviazione persistente e ottimizzata per i dati. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Aggiunta di dischi per risultati a livello di dimensioni e prestazioni
-In base alle dimensioni della VM, è possibile collegare fino a 16 dischi aggiuntivi su una macchina virtuale di Serie A, 32 dischi su una di Serie D e 64 dischi su una di Serie G, fino a un massimo di 1 TB di dimensioni per ogni VM. Aggiungere altri dischi in base alle necessità specificate dai requisiti per spazio e IOps. Ogni disco ha un obiettivo a livello di prestazioni pari a 500 IOps per l'Archiviazione Standard e 5000 IOps per disco per l'Archiviazione Premium.  Per altre informazioni sui dischi di Archiviazione Premium vedere [Archiviazione Premium: archiviazione a prestazioni elevate per macchine virtuali di Azure](../../storage/storage-premium-storage.md)
+In base alle dimensioni della VM, è possibile collegare fino a 16 dischi aggiuntivi su una macchina virtuale di Serie A, 32 dischi su una di Serie D e 64 dischi su una di Serie G, fino a un massimo di 1 TB di dimensioni per ogni VM. Aggiungere altri dischi in base alle necessità specificate dai requisiti per spazio e IOps. Ogni disco ha un obiettivo a livello di prestazioni pari a 500 IOps per l'Archiviazione Standard e 5000 IOps per disco per l'Archiviazione Premium.  Per altre informazioni sui dischi di Archiviazione Premium vedere [Archiviazione Premium: archiviazione a prestazioni elevate per macchine virtuali di Azure](../../storage/common/storage-premium-storage.md)
 
 Per ottenere i valori IOps più elevati nei dischi di Archiviazione Premium in cui le impostazioni della cache sono state impostate su **ReadOnly** o **None**, è necessario disabilitare le **barriere** durante il montaggio del file system in Linux. Non sono necessarie barriere perché le scritture relative ai dischi supportati da Archiviazione Premium assicurano la durabilità per queste impostazioni della cache.
 
@@ -42,7 +42,7 @@ Per ottenere i valori IOps più elevati nei dischi di Archiviazione Premium in c
 * Se si usa **XFS**, disabilitare le barriere tramite l'opzione di montaggio `nobarrier`. Per abilitarle usare l'opzione `barrier`.
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considerazioni sull'account di archiviazione non gestito
-L'azione predefinita quando si crea una macchina virtuale con l'interfaccia della riga di comando 2.0 di Azure consiste nell'uso di Azure Managed Disks.  Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione.  I dischi non gestiti richiedono un account di archiviazione e presentano alcune considerazioni aggiuntive sulle prestazioni.  Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks).  Nella sezione seguente vengono descritte le considerazioni sulle prestazioni applicabili solo quando si usano dischi non gestiti.  Anche in questo caso la soluzione di archiviazione predefinita e consigliata consiste nell'usare dischi gestiti.
+L'azione predefinita quando si crea una macchina virtuale con l'interfaccia della riga di comando 2.0 di Azure consiste nell'uso di Azure Managed Disks.  Questi dischi vengono gestiti dalla piattaforma Azure e non richiedono alcuna pianificazione o alcuna posizione per l'archiviazione.  I dischi non gestiti richiedono un account di archiviazione e presentano alcune considerazioni aggiuntive sulle prestazioni.  Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).  Nella sezione seguente vengono descritte le considerazioni sulle prestazioni applicabili solo quando si usano dischi non gestiti.  Anche in questo caso la soluzione di archiviazione predefinita e consigliata consiste nell'usare dischi gestiti.
 
 Quando si crea una macchina virtuale con dischi non gestiti è consigliabile assicurarsi di collegare dischi da account di archiviazione che si trovano nella stessa area della macchina virtuale, per garantire la prossimità e ridurre al minimo la latenza di rete.  Ogni account di archiviazione Standard ha capacitò pari ad almeno 20.000 IOps e a dimensioni di 500 TB.  Ciò consente di ottenere circa 40 dischi a uso elevato, inclusi il disco del sistema operativo ed eventuali dischi dati creati. Per gli account di archiviazione Premium non sono previsti limiti massimi per IOps ma è previsto un limite di 32 TB per le dimensioni. 
 
@@ -132,7 +132,7 @@ Come per tutte le considerazioni sull'ottimizzazione, sarà necessario eseguire 
 
 Ecco alcuni collegamenti utili a risorse aggiuntive: 
 
-* [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../storage/storage-premium-storage.md)
+* [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../storage/common/storage-premium-storage.md)
 * [Guida dell'utente dell'agente Linux di Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ottimizzazione delle prestazioni di MySQL in macchine virtuali Linux di Azure](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configurare RAID software in Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

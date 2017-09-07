@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: fa33a031a9e05f3079f1ed68d2ac0902b3070fa6
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9ae1629462d375c1061d9c7b25975c789ee661c9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-analytics-data-security"></a>Sicurezza dei dati di Log Analytics
@@ -157,7 +156,7 @@ Se un agente non riesce a comunicare con il servizio per un qualsiasi motivo, i 
 Come descritto sopra, i dati provenienti dagli agenti vengono inviati tramite SSL ai data center di Microsoft Azure. Facoltativamente, è possibile usare ExpressRoute per proteggere ulteriormente i dati. ExpressRoute è un modo per connettersi direttamente ad Azure da una rete WAN esistente, ad esempio una rete VPN MPLS (multi-protocol label switching), fornita da un provider di servizi di rete. Per altre informazioni, vedere [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Il servizio Log Analytics riceve ed elabora i dati
-Per garantire che i dati in arrivo provengano da un'origine attendibile, il servizio Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. I dati non elaborati vengono quindi archiviati come BLOB in [Archiviazione di Microsoft Azure](../storage/storage-introduction.md) senza essere crittografati. Tuttavia, ogni BLOB del servizio di archiviazione di Azure ha un set univoco di chiavi accessibile solo all'utente specifico. Il tipo dei dati archiviati dipende dai tipi di soluzioni importati e usati per raccogliere i dati. Successivamente, il servizio Log Analytics elabora i dati non elaborati per il BLOB del servizio di archiviazione di Azure.
+Per garantire che i dati in arrivo provengano da un'origine attendibile, il servizio Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. I dati non elaborati vengono quindi archiviati come BLOB in [Archiviazione di Microsoft Azure](../storage/common/storage-introduction.md) senza essere crittografati. Tuttavia, ogni BLOB del servizio di archiviazione di Azure ha un set univoco di chiavi accessibile solo all'utente specifico. Il tipo dei dati archiviati dipende dai tipi di soluzioni importati e usati per raccogliere i dati. Successivamente, il servizio Log Analytics elabora i dati non elaborati per il BLOB del servizio di archiviazione di Azure.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Usare Log Analytics per accedere ai dati
 È possibile accedere a Log Analytics nel portale di OMS usando l'account aziendale o l'account Microsoft configurato prima. Tutto il traffico tra il portale di OMS e Log Analytics in OMS viene inviato tramite un canale HTTPS sicuro. Quando si usa il portale di OMS, viene generato un ID di sessione nel client utente (browser Web) e i dati vengono archiviati in una cache locale fino al termine della sessione. Dopodiché, la cache viene svuotata. I cookie sul lato client, che non contengono informazioni personali, non vengono rimossi automaticamente. I cookie di sessione sono protetti e contrassegnati HTTPOnly. Dopo un periodo di inattività prestabilito, la sessione del portale OMS termina.

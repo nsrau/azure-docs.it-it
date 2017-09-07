@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/31/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 08c4df6a4d7fd3d80f047192125afc9f5831999a
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -106,9 +106,9 @@ Per abilitare SSH e I2C è possibile trovare più documenti di riferimento su [r
 
 ### <a name="connect-the-sensor-to-pi"></a>Connettere il sensore a Pi
 
-Usare i cavi ponticello e la basetta sperimentale per connettere un LED e un sensore BME280 a Pi, come indicato di seguito. In assenza di un sensore [ignorare questa sezione](#connect-pi-to-the-network).
+Usare i cavi ponticello e la basetta sperimentale per connettere un LED e un sensore BME280 a Pi, come indicato di seguito. In assenza di un sensore, [ignorare questa sezione](#connect-pi-to-the-network).
 
-![La connessione di Raspberry Pi e del sensore](media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
+![La connessione di Raspberry Pi e del sensore](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 Il sensore BME280 può raccogliere i dati relativi a temperatura e umidità. Il LED sarà intermittente se viene stabilita una comunicazione tra il dispositivo e il cloud. 
 
@@ -116,27 +116,27 @@ Per i pin dei sensori usare i collegamenti seguenti:
 
 | Inizio (sensore e LED)     | Fine (scheda)            | Colore del cavo   |
 | -----------------------  | ---------------------- | ------------: |
-| LED VDD (Pin 5G)         | GPIO 4 (Pin 7)         | Cavo bianco   |
-| LED GND (Pin 6G)         | GND (Pin 6)            | Cavo nero   |
-| VDD (Pin 18F)            | 3,3 V PWR (Pin 17)      | Cavo bianco   |
-| GND (Pin 20F)            | GND (Pin 20)           | Cavo nero   |
-| SCK (Pin 21F)            | SPI0 SCLK (Pin 23)     | Cavo arancione  |
-| SDO (Pin 22F)            | SPI0 MISO (Pin 21)     | Cavo giallo  |
-| SDI (Pin 23F)            | SPI0 MOSI (Pin 19)     | Cavo verde   |
-| CS (Pin 24F)             | SPI0 CS (Pin 24)       | Cavo blu    |
+| VDD (Pin 5G)             | 3,3 V PWR (Pin 1)       | Cavo bianco   |
+| GND (Pin 7G)             | GND (Pin 6)            | Cavo marrone   |
+| SDI (Pin 10G)            | I2C1 SDA (Pin 3)       | Cavo rosso     |
+| SCK (Pin 8G)             | I2C1 SCL (Pin 5)       | Cavo arancione  |
+| LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | Cavo bianco   |
+| LED GND (Pin 17F)        | GND (Pin 20)           | Cavo nero   |
 
 Fare clic per visualizzare i [mapping Pin di Raspberry Pi 2 e 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) come riferimento.
 
 Dopo aver correttamente collegato BME280 a Raspberry Pi, dovrebbe apparire come mostrato nell'immagine di seguito.
 
-![Pi e BME280 connessi](media/iot-hub-raspberry-pi-kit-c-get-started/4_connected-pi.jpg)
+![Pi e BME280 connessi](media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
 
 ### <a name="connect-pi-to-the-network"></a>Connettere Pi alla rete
 
 Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet per connettere Pi alla rete cablata oppure seguire le [istruzioni riportate nella Guida di Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/wifi/) per connettere Pi alla rete wireless. Dopo aver connesso Pi alla rete, è necessario annotarne [l'indirizzo IP](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Connesso alla rete cablata](media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
+![Connesso alla rete cablata](media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
+> [!NOTE]
+> Verificare che Pi sia connesso alla stessa rete del computer. Se il computer è connesso a una rete wireless mentre il dispositivo Pi è connesso a una rete cablata, ad esempio, l'indirizzo IP potrebbe non essere incluso nell'output di devdisco.
 
 ## <a name="run-a-sample-application-on-pi"></a>Eseguire un'applicazione di esempio in Pi
 
@@ -144,14 +144,14 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 
 Per connettersi a Raspberry Pi, usare uno dei client SSH seguenti dal computer host.
    
-   **Utenti di Windows**
+   **Utenti Windows**
    1. Scaricare e installare [PuTTY](http://www.putty.org/) per Windows. 
    1. Copiare l'indirizzo IP di Pi nella sezione del nome host (o indirizzo IP) e selezionare SSH come tipo di connessione.
    
    
    **Utenti di Mac e Ubuntu**
    
-   Usare il client SSH incorporato in Ubuntu o macOS. Potrebbe essere necessario eseguire `ssh pi@<ip address of pi>` per connettere Pi tramite SSH.
+   Usare il client SSH predefinito in Ubuntu o macOS. Per connettere Pi tramite SSH potrebbe essere necessario eseguire `ssh pi@<ip address of pi>`.
    > [!NOTE] 
    Il nome utente predefinito è `pi` e la password è `raspberry`.
 
@@ -208,7 +208,7 @@ Per connettersi a Raspberry Pi, usare uno dei client SSH seguenti dal computer h
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata eseguita un'applicazione di esempio per raccogliere i dati del sensore da inviare all'hub IoT. Per visualizzare i messaggi inviati da Raspberry Pi all'hub IoT o per inviare messaggi a Raspberry Pi in un'interfaccia della riga di comando, vedere l'[esercitazione per la gestione dei messaggi tra i dispositivi e il cloud con iothub-explorer](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+È stata eseguita un'applicazione di esempio per raccogliere i dati del sensore da inviare all'hub IoT. Per visualizzare i messaggi inviati da Raspberry Pi all'hub IoT o per inviare messaggi a Raspberry Pi in un'interfaccia della riga di comando, vedere l'[esercitazione sulla gestione della messaggistica tra cloud e dispositivo con iothub-explorer](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

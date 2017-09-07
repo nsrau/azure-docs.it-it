@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: c8592ea38d62213327549583a1e931ea682ee56e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
 ms.contentlocale: it-it
-ms.lasthandoff: 06/05/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
@@ -143,7 +142,7 @@ Se si ha un'applicazione che viene usata a livello globale, è possibile creare 
 Le registrazioni dal back-end dell'app sono utili quando è necessario autenticare i client prima di creare la registrazione. Sono utili anche quando ci sono tag che devono essere creati o modificati dal back-end dell'app in base alla logica dell'applicazione. Per altre informazioni, vedere le pagine [Registrazione dal back-end dell'app] e [Guida alla registrazione del back-end 2].
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>Qual è il modello di sicurezza del recapito di notifiche push?
-Hub di notifica di Azure usa un modello di sicurezza basato sulla [firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md). È possibile usare i token di firma di accesso condiviso a livello di spazio dei nomi radice o a livello di hub di notifica granulare. I token di firma di accesso condiviso possono essere impostati in modo da seguire regole di autorizzazione diverse, ad esempio per inviare le autorizzazioni di messaggi o per ascoltare le autorizzazioni di notifica. Per altre informazioni, vedere il documento sul [modello di sicurezza di Hub di notifica].
+Hub di notifica di Azure usa un modello di sicurezza basato sulla [firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md). È possibile usare i token di firma di accesso condiviso a livello di spazio dei nomi radice o a livello di hub di notifica granulare. I token di firma di accesso condiviso possono essere impostati in modo da seguire regole di autorizzazione diverse, ad esempio per inviare le autorizzazioni di messaggi o per ascoltare le autorizzazioni di notifica. Per altre informazioni, vedere il documento sul [modello di sicurezza di Hub di notifica].
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>Come si gestisce un payload sensibile nelle notifiche push?
 Tutte le notifiche vengono recapitate ai dispositivi di destinazione dal PNS della piattaforma. Quando una notifica viene inviata a Hub di notifica di Azure, viene elaborata e passata al rispettivo PNS.

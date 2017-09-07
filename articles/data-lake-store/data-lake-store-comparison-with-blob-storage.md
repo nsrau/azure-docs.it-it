@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
-ms.openlocfilehash: 10926263ee2657dc96fb1873733d349cf0956e92
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 29f074f1ced5a3f4305d961a98f45e4a3b7792ef
 ms.contentlocale: it-it
-ms.lasthandoff: 01/05/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Confronto tra Azure Data Lake Store e l'archivio BLOB di Azure
@@ -34,16 +33,16 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 | API |API REST su HTTPS |API REST su HTTP/HTTPS |
 | API lato server |[API REST compatibile con WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST dell'archivio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Client del file system Hadoop |Sì |Sì |
-| Operazioni sui dati: autenticazione |Basata sulle [identità di Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Basata su segreti condivisi: [chiavi di accesso dell'account](../storage/storage-create-storage-account.md#manage-your-storage-account) e [chiavi di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md). |
+| Operazioni sui dati: autenticazione |Basata sulle [identità di Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Basata su segreti condivisi: [chiavi di accesso dell'account](../storage/common/storage-create-storage-account.md#manage-your-storage-account) e [chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operazioni sui dati: protocollo di autenticazione |OAuth 2.0. Le chiamate devono contenere un token JSON Web (JWT) valido rilasciato da Azure Active Directory. |Hash-based Message Authentication Code (HMAC). Le chiamate devono contenere un hash SHA-256 con codifica Base64 su una parte della richiesta HTTP. |
-| Operazioni sui dati: autorizzazione |Elenchi di controllo di accesso (ACL) POSIX.  Gli elenchi di controllo di accesso basati sulle identità di Azure Active Directory possono essere impostati a livello di file e di cartelle. |Per l'autorizzazione a livello di account: usare [Chiavi di accesso dell'account](../storage/storage-create-storage-account.md#manage-your-storage-account)<br>Per l'autorizzazione relativa all'account, al contenitore o al BLOB: usare [Chiavi di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) |
+| Operazioni sui dati: autorizzazione |Elenchi di controllo di accesso (ACL) POSIX.  Gli elenchi di controllo di accesso basati sulle identità di Azure Active Directory possono essere impostati a livello di file e di cartelle. |Per l'autorizzazione a livello di account: usare [Chiavi di accesso dell'account](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Per l'autorizzazione relativa all'account, al contenitore o al BLOB: usare [Chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operazioni sui dati: controllo |Disponibile. Per altre informazioni, fare clic [qui](data-lake-store-diagnostic-logs.md) . |Disponibile |
 | Crittografia dei dati inattivi |Trasparente, lato server <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente nell'insieme di credenziali delle chiavi di Azure</li></ul> |<ul><li>Trasparente, lato server</li> <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente nell'insieme di credenziali delle chiavi di Azure (presto disponibile)</li></ul><li>Crittografia lato client</li></ul> |
 | Operazioni di gestione, come la creazione di account |[Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) (RBAC) fornito da Azure per la gestione degli account. |[Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) (RBAC) fornito da Azure per la gestione degli account. |
 | SDK per sviluppatori |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
 | Prestazioni del carico di lavoro di analisi |Prestazioni ottimizzate per carichi di lavoro di analisi parallela. IOPS e velocità effettiva elevata. |Non è ottimizzato per carichi di lavoro di analisi. |
 | Limiti di dimensioni |Nessun limite di dimensioni per l'account, i file o il numero di file |Limiti specifici documentati [qui](../azure-subscription-service-limits.md#storage-limits) |
-| Ridondanza geografica |Archiviazione con ridondanza locale (più copie di dati in un'area di Azure). |Archiviazione con ridondanza locale, archiviazione con ridondanza geografica, archiviazione con ridondanza geografica e accesso in lettura. Per altre informazioni, fare clic [qui](../storage/storage-redundancy.md) . |
+| Ridondanza geografica |Archiviazione con ridondanza locale (più copie di dati in un'area di Azure). |Archiviazione con ridondanza locale, archiviazione con ridondanza geografica, archiviazione con ridondanza geografica e accesso in lettura. Per altre informazioni, fare clic [qui](../storage/common/storage-redundancy.md) . |
 | Stato del servizio |Disponibile a livello generale |Disponibile a livello generale |
 | Disponibilità internazionale |Vedere [qui](https://azure.microsoft.com/regions/#services) |Vedere [qui](https://azure.microsoft.com/regions/#services) |
 | Prezzo |Vedere i [prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/) |Vedere i [prezzi](https://azure.microsoft.com/pricing/details/storage/) |

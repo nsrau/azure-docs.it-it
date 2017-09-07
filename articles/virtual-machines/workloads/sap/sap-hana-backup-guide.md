@@ -13,12 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3952c6be537e28f7f2cde8f33750b1894fde8e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -73,7 +72,7 @@ _No, attualmente è possibile eseguire solo backup di dati e log sul lato primar
 
 ### <a name="why-sap-hana-backup"></a>Perché eseguire il backup di SAP HANA?
 
-Archiviazione di Azure offre disponibilità e affidabilità pronte all'uso (vedere [Introduzione ad Archiviazione di Microsoft Azure](../../../storage/storage-introduction.md) per altre informazioni sull'archiviazione di Azure).
+Archiviazione di Azure offre disponibilità e affidabilità pronte all'uso (vedere [Introduzione ad Archiviazione di Microsoft Azure](../../../storage/common/storage-introduction.md) per altre informazioni sull'archiviazione di Azure).
 
 Il requisito minimo per il &quot;backup&quot; è affidarsi ai contratti di servizio Azure, mantenendo i file di dati e log di SAP HANA nei dischi rigidi virtuali di Azure collegati alla macchina virtuale del server di SAP HANA. Questo approccio copre gli errori della macchina virtuale, ma non i possibili danni ai file di dati e log di SAP HANA o gli errori logici, ad esempio l'eliminazione accidentale di dati o file. I backup sono necessari anche per motivi legali o di conformità. In breve, è sempre necessario eseguire backup di SAP HANA.
 
@@ -171,7 +170,7 @@ In Microsoft Azure è possibile eseguire la crittografia tramite la funzionalit�
 
 Il servizio di Backup di Azure può gestire macchine virtuali e dischi crittografati (vedere [Come eseguire il backup e il ripristino delle macchine virtuali crittografate con il Backup di Azure](../../../backup/backup-azure-vms-encryption.md)).
 
-Un'altra opzione è quella di gestire la macchina virtuale di SAP HANA e i relativi dischi senza crittografia e di archiviare i file di backup di SAP HANA in un account di archiviazione per cui sia stata abilitata la crittografia (vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../../../storage/storage-service-encryption.md)).
+Un'altra opzione è quella di gestire la macchina virtuale di SAP HANA e i relativi dischi senza crittografia e di archiviare i file di backup di SAP HANA in un account di archiviazione per cui sia stata abilitata la crittografia (vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../../../storage/common/storage-service-encryption.md)).
 
 ## <a name="test-setup"></a>Impostazione del test
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 071c9c55d412514172106109eacc048722ab173e
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e0e7144c38c36f1583e0bcb7dfffba26e9a8bdad
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -165,7 +165,7 @@ Tornare all'account di archiviazione facendo clic su **Archiviazione** > **Accou
 
 Per convalidare la risoluzione del DNS, eseguire `nslookup`.
 
-Per altre informazioni sul mapping di un dominio personalizzato a un endpoint di archiviazione BLOB, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../storage/storage-custom-domain-name.md?toc=%dns%2ftoc.json).
+Per altre informazioni sul mapping di un dominio personalizzato a un endpoint di archiviazione BLOB, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json).
 
 ## <a name="azure-cdn"></a>Rete CDN di Azure
 

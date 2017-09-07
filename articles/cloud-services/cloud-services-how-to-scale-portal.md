@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: e746decaea19477e52aba3ce714d8dd10140602e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e9683d4c5779450fd67fa42ab13095c7f201b4cd
 ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -39,7 +39,7 @@ Prima di configurare la scalabilità per l'applicazione, tenere presente quanto 
 
     Le istanze del ruolo più ampie usano più core. È possibile ridimensionare il numero di istanze di un'applicazione solo entro i limiti di core previsti dalla sottoscrizione. Si supponga, ad esempio, che la sottoscrizione abbia un limite di 20 core. Se si esegue un'applicazione con due servizi cloud di medie dimensioni (per un totale di 4 core), l'aumento di altre distribuzioni del servizio cloud nella sottoscrizione è limitata ai 16 core rimanenti. Per altre informazioni sulle dimensioni, vedere [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md).
 
-* È possibile eseguire la scalabilità in base a una soglia di messaggi in coda. Per altre informazioni sull'uso delle code, vedere l'articolo relativo all' [uso del servizio di archiviazione code](../storage/storage-dotnet-how-to-use-queues.md).
+* È possibile eseguire la scalabilità in base a una soglia di messaggi in coda. Per altre informazioni sull'uso delle code, vedere l'articolo relativo all' [uso del servizio di archiviazione code](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 * È anche possibile ridimensionare altre risorse associate alla sottoscrizione.
 

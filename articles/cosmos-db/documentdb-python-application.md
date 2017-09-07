@@ -17,10 +17,10 @@ ms.date: 08/09/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a2bc8beb764f90c038a511ddcfe8c5b3d04913a7
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: ed5284b5a265840c43dbc9890082a7c038d22975
 ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Creare un'applicazione Web Python Flask con Azure Cosmos DB
@@ -38,7 +38,7 @@ In questa esercitazione del database vengono trattati i seguenti argomenti:
 
 1. Creazione e provisioning di un account Cosmos DB.
 2. Creazione di un'applicazione Python Flask.
-3. Connessione a Cosmos DB e uso dall'applicazione Web.
+3. Connettersi e usare Azure Cosmos DB dall'applicazione Web.
 4. Distribuzione dell'applicazione Web in Azure.
 
 Seguendo questa esercitazione, si creerà una semplice applicazione di voto che consente di votare per un sondaggio.
@@ -68,7 +68,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
 * [Compilatore Microsoft Visual C++ per Python 2.7](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
 ## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Passaggio 1: Creare un account del database di Azure Cosmos DB
-Creare prima di tutto un account Cosmos DB. Se si ha già un account o si usa l'emulatore Azure Cosmos DB per questa esercitazione, è possibile andare al [Passaggio 2: Creare una nuova applicazione Web Python Flask](#step-2:-create-a-new-python-flask-web-application).
+Creare prima di tutto un account Cosmos DB. Se si ha già un account o si usa l'emulatore Azure Cosmos DB per questa esercitazione, è possibile andare al [Passaggio 2: Creare una nuova applicazione Web Python Flask](#step-2-create-a-new-python-flask-web-application).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

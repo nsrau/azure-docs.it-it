@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5631484bd2106ab5abff79dd3cbbf539c62bb164
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
@@ -56,7 +56,7 @@ Il [portale di Microsoft Azure](https://portal.azure.com) è una posizione centr
 Il [bus di servizio](../service-bus/index.md) offre comunicazione abilitata per il cloud con messaggistica aziendale, nonché comunicazione inoltrata per la connessione delle soluzioni locali con il cloud. Alcune esercitazioni sull'hub IoT usano le [code](../service-bus-messaging/service-bus-messaging-overview.md) del bus di servizio.
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
-[Archiviazione di Azure](../storage/storage-introduction.md) è una soluzione di archiviazione cloud. Include il servizio Archiviazione BLOB che è possibile usare per archiviare dati oggetto non strutturati. Alcune esercitazioni su Hub IoT usano l'archivio BLOB.
+[Archiviazione di Azure](../storage/common/storage-introduction.md) è una soluzione di archiviazione cloud. Include il servizio Archiviazione BLOB che è possibile usare per archiviare dati oggetto non strutturati. Alcune esercitazioni su Hub IoT usano l'archivio BLOB.
 
 ## <a name="back-end-app"></a>App back-end
 Nell'ambito di [Hub IoT](#iot-hub), un'app back-end è un'app che connette a uno degli endpoint per il servizio in un hub IoT. Un'app back-end, ad esempio, può recuperare messaggi [da dispositivo a cloud](#device-to-cloud) o gestire il [registro delle identità](#identity-registry). Un'app back-end in genere viene eseguita nel cloud, ma in molte esercitazioni le app back-end sono app console in esecuzione nel computer di sviluppo locale.

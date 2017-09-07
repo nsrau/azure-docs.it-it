@@ -1,6 +1,6 @@
 ---
-title: Proteggere l&quot;accesso alle app per la logica di Azure | Documentazione Microsoft
-description: Aggiungere la sicurezza per la protezione dell&quot;accesso ai trigger, agli input e output, ai parametri di azione e ai servizi utilizzati con i flussi di lavoro nelle app per la logica di Azure.
+title: Proteggere l'accesso alle app per la logica di Azure | Documentazione Microsoft
+description: Aggiungere la sicurezza per la protezione dell'accesso ai trigger, agli input e output, ai parametri di azione e ai servizi utilizzati con i flussi di lavoro nelle app per la logica di Azure.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
 ms.contentlocale: it-it
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -39,7 +38,7 @@ Quando si lavora con un'app per la logica che viene attivata con una richiesta H
 
 ### <a name="shared-access-signature"></a>Firma di accesso condiviso
 
-Ogni endpoint di richiesta per un'app per la logica include una [firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) come parte dell'URL. Ogni URL contiene parametri di query `sp`, `sv` e `sig`. Le autorizzazioni vengono specificate da `sp` e corrispondono ai metodi HTTP consentiti, `sv` è la versione usata per generare e `sig` è il parametro usato per autenticare l'accesso al trigger. La firma viene generata attraverso l'algoritmo SHA256 con una chiave privata in tutti i percorsi e le proprietà dell'URL. La chiave privata non viene mai esposta né pubblicata, inoltre continua a essere crittografata e archiviata nell'ambito dell'app per la logica. L'app per la logica autorizza solo i trigger che contengono una firma valida creata con la chiave privata.
+Ogni endpoint di richiesta per un'app per la logica include una [firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) come parte dell'URL. Ogni URL contiene parametri di query `sp`, `sv` e `sig`. Le autorizzazioni vengono specificate da `sp` e corrispondono ai metodi HTTP consentiti, `sv` è la versione usata per generare e `sig` è il parametro usato per autenticare l'accesso al trigger. La firma viene generata attraverso l'algoritmo SHA256 con una chiave privata in tutti i percorsi e le proprietà dell'URL. La chiave privata non viene mai esposta né pubblicata, inoltre continua a essere crittografata e archiviata nell'ambito dell'app per la logica. L'app per la logica autorizza solo i trigger che contengono una firma valida creata con la chiave privata.
 
 #### <a name="regenerate-access-keys"></a>Per rigenerare le chiavi di accesso
 

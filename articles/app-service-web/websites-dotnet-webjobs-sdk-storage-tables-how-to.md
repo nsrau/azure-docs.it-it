@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>Come usare il servizio di archiviazione tabelle di Azure con WebJobs SDK
@@ -139,7 +139,7 @@ Il seguente esempio di codice usa un oggetto `CloudTable` per aggiungere una sin
             tableBinding.Execute(insertOperation);
         }
 
-Per altre informazioni su come usare l'oggetto `CloudTable` , vedere l'argomento relativo [all'uso dell'archiviazione tabelle da .NET](../storage/storage-dotnet-how-to-use-tables.md). 
+Per altre informazioni su come usare l'oggetto `CloudTable` , vedere l'argomento relativo [all'uso dell'archiviazione tabelle da .NET](../cosmos-db/table-storage-how-to-use-dotnet.md). 
 
 ## <a id="queues"></a>Argomenti correlati trattati nell'articolo delle procedure sulle code
 Per informazioni su come gestire l'elaborazione di tabelle attivata da un messaggio di coda o per scenari di WebJobs SDK non specifici dell'elaborazione di tabelle, vedere [Come usare il servizio di archiviazione code di Azure con WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 

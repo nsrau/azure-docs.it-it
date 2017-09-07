@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 2b277f1fb96f347cc60d1395fafb7e2707883a77
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7411fa6aba04ffd34f3f4bd03e706ca75afc9c8
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-5-prepare-azure-resources-for-physical-server-replication-to-azure"></a>Passaggio 5: Preparare le risorse di Azure per la replica di server fisici in Azure
@@ -54,9 +53,9 @@ Assicurarsi di aver letto i [prerequisiti](physical-walkthrough-prerequisites.md
 ## <a name="set-up-an-azure-storage-account"></a>Configurare un account di archiviazione di Azure
 
 - Site Recovery replica i server locali in Archiviazione di Azure. Le macchine virtuali di Azure vengono create dalla risorsa di archiviazione dopo che si verifica il failover.
-- Configurare un [account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account) per i dati replicati.
+- Configurare un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) per i dati replicati.
 - Site Recovery nel portale di Azure può usare gli account di archiviazione configurati in Gestione risorse o in modalità classica.
-- L'account di archiviazione può essere Standard o [Premium](../storage/storage-premium-storage.md).
+- L'account di archiviazione può essere Standard o [Premium](../storage/common/storage-premium-storage.md).
 - Se si configura un account Premium, sarà necessario anche un altro account Standard per i dati di log.
 
 

@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio di una macchina virtuale Linux con un&quot;estensione VM | Documentazione Microsoft
-description: Informazioni su come usare l&quot;estensione di diagnostica Linux per monitorare le prestazioni e i dati di diagnostica di una VM Linux in Azure.
+title: Monitoraggio di una macchina virtuale Linux con un'estensione VM | Documentazione Microsoft
+description: Informazioni su come usare l'estensione di diagnostica Linux per monitorare le prestazioni e i dati di diagnostica di una VM Linux in Azure.
 services: virtual-machines-linux
 author: NingKuang
 manager: timlt
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5bc983ef1ffaac5d6de7bbc2cdf51838d8051aac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Uso dell'estensione di diagnostica Linux per monitorare le prestazioni e i dati di diagnostica di una macchina virtuale Linux
@@ -152,7 +152,7 @@ Passaggio 2. Eseguire **azure vm extension set vm_name LinuxDiagnostic Microsoft
 
 ## <a name="review-your-data"></a>Esaminare i dati
 
-I dati delle prestazioni e della diagnostica vengono archiviati in una tabella di archiviazione di Azure. Per informazioni su come accedere ai dati nella tabella di archiviazione usando gli script dell'interfaccia della riga di comando di Azure, vedere [Come usare l'archivio tabelle di Azure da Ruby](../../../storage/storage-ruby-how-to-use-table-storage.md) .
+I dati delle prestazioni e della diagnostica vengono archiviati in una tabella di archiviazione di Azure. Per informazioni su come accedere ai dati nella tabella di archiviazione usando gli script dell'interfaccia della riga di comando di Azure, vedere [Come usare l'archivio tabelle di Azure da Ruby](../../../cosmos-db/table-storage-how-to-use-ruby.md) .
 
 È anche possibile usare gli strumenti dell'interfaccia utente seguenti per accedere ai dati:
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: d04d33fede00fbc083d71bc486b726bd7f86c6d0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f90bada3572c0ed40b07d76ec02c1b499bbd1428
 ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Gestire Azure Data Lake Analytics mediante l’interfaccia della riga di comando (CLI) di Azure
@@ -86,7 +85,7 @@ Ottenere i dettagli di un account specifico di Data Lake Analytics
 Analisi Data Lake supporta attualmente le seguenti origini dati:
 
 * [Archivio Data Lake di Azure](../data-lake-store/data-lake-store-overview.md)
-* [Archiviazione di Azure](../storage/storage-introduction.md)
+* [Archiviazione di Azure](../storage/common/storage-introduction.md)
 
 Quando si crea un account di Analytics, è necessario impostare un account di archiviazione di Azure Data Lake come account di archiviazione predefinito. L'account di archiviazione ADL predefinito viene usato per archiviare i metadati dei processi e i log di controllo dei processi. Dopo aver creato un account di Analytics, è possibile aggiungere altri account di archiviazione di Data Lake e/o account di archiviazione di Azure. 
 

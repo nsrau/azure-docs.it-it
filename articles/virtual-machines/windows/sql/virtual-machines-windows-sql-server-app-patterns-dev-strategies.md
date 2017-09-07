@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a716de21e21148a082f49f0f416b14ca0eaa8192
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure
@@ -51,7 +51,7 @@ I livelli di applicazione rappresentano i raggruppamenti logici della funzionali
 
 Prima di iniziare a leggere questo articolo occorre conoscere i concetti fondamentali di SQL Server e di Azure. Per altre informazioni, vedere la [documentazione online di SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md) e [Azure.com](https://azure.microsoft.com/).
 
-Questo articolo descrive diversi modelli di applicazione che possono essere idonei alle applicazioni semplici nonché alle applicazioni aziendali altamente complesse. Prima di descrivere nel dettaglio ogni modello, è consigliabile acquisire familiarità con i servizi di archiviazione dei dati disponibili in Azure, ad esempio [Archiviazione di Azure](../../../storage/storage-introduction.md), [Database SQL di Azure](../../../sql-database/sql-database-technical-overview.md) e [SQL Server in una macchina virtuale di Azure](virtual-machines-windows-sql-server-iaas-overview.md). Per prendere le migliori decisioni in termini di progettazione delle applicazioni, è necessario comprendere chiaramente quale servizio di archiviazione dei dati usare e quando usarlo.
+Questo articolo descrive diversi modelli di applicazione che possono essere idonei alle applicazioni semplici nonché alle applicazioni aziendali altamente complesse. Prima di descrivere nel dettaglio ogni modello, è consigliabile acquisire familiarità con i servizi di archiviazione dei dati disponibili in Azure, ad esempio [Archiviazione di Azure](../../../storage/common/storage-introduction.md), [Database SQL di Azure](../../../sql-database/sql-database-technical-overview.md) e [SQL Server in una macchina virtuale di Azure](virtual-machines-windows-sql-server-iaas-overview.md). Per prendere le migliori decisioni in termini di progettazione delle applicazioni, è necessario comprendere chiaramente quale servizio di archiviazione dei dati usare e quando usarlo.
 
 ### <a name="choose-sql-server-in-an-azure-virtual-machine-when"></a>È consigliabile scegliere SQL Server in una macchina virtuale di Azure nelle condizioni seguenti:
 * È necessario controllare SQL Server e Windows, ad esempio la versione, determinati aggiornamenti rapidi e la configurazione delle prestazioni di SQL Server.
@@ -192,7 +192,7 @@ Come osservato nel diagramma, il servizio di bilanciamento del carico di Azure d
 
 ![Modelli dell'applicazione con Servizi cloud](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Un altro approccio all'implementazione di questo modello di applicazione consiste nell'usare un ruolo Web consolidato che contenga componenti del livello presentazione e del livello business, come illustrato nel diagramma seguente. Questo modello di applicazione è utile per le applicazioni che richiedono un design con stato. Poiché Azure fornisce nodi di calcolo senza stato su ruoli Web e di lavoro, si consiglia di implementare una logica per memorizzare lo stato della sessione mediante una delle tecnologie seguenti: [Cache di Azure](https://azure.microsoft.com/documentation/services/redis-cache/), [Archiviazione tabelle di Azure](../../../storage/storage-dotnet-how-to-use-tables.md) o [Database SQL di Azure](../../../sql-database/sql-database-technical-overview.md).
+Un altro approccio all'implementazione di questo modello di applicazione consiste nell'usare un ruolo Web consolidato che contenga componenti del livello presentazione e del livello business, come illustrato nel diagramma seguente. Questo modello di applicazione è utile per le applicazioni che richiedono un design con stato. Poiché Azure fornisce nodi di calcolo senza stato su ruoli Web e di lavoro, si consiglia di implementare una logica per memorizzare lo stato della sessione mediante una delle tecnologie seguenti: [Cache di Azure](https://azure.microsoft.com/documentation/services/redis-cache/), [Archiviazione tabelle di Azure](../../../cosmos-db/table-storage-how-to-use-dotnet.md) o [Database SQL di Azure](../../../sql-database/sql-database-technical-overview.md).
 
 ![Modelli dell'applicazione con Servizi cloud](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

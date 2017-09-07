@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 6953166f21194f3cbcef3f260b3e7a50d5bf5460
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7e5da1c32484b0b94d2ad32ead6bb7c28f9744aa
 ms.contentlocale: it-it
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
@@ -54,7 +54,7 @@ Un’esposizione precedente a quanto riportato di seguito è utile quando si sce
 
 
 - PowerShell
-    - [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md) : fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
+    - [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/common/storage-powershell-guide-full.md) : fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
 
 ## <a name="code-samples"></a>Esempi di codice
 
@@ -195,10 +195,10 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 
 ## <a name="related-links"></a>Collegamenti correlati
 
-- [Uso di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md)
+- [Uso di Azure PowerShell con Archiviazione di Azure](../storage/common/storage-powershell-guide-full.md)
 - [Cmdlet di Archiviazione di Azure](http://msdn.microsoft.com/library/dn806401.aspx)
-- [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/storage-powershell-guide-full.md) : fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
-- [Come usare l'archiviazione BLOB da .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+- [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/common/storage-powershell-guide-full.md) : fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
+- [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREARE CREDENZIALI (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREARE LA SESSIONE DI EVENTI (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)

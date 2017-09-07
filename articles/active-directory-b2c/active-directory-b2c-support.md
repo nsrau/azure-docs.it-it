@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 578e0384750e8993865b1749baaed460d3ebc2bb
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: ad02321c99c57d0f83f7eacb354e47d8c6d4d14f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Inviare richieste di supporto
 È possibile inviare richieste di supporto per Azure Active Directory (AD) B2C nel portale di Azure seguendo questa procedura:
 
 1. [Seguire questa procedura per passare al pannello delle funzionalità B2C nel portale di Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Passare dal tenant B2C in un altro tenant a cui è associata una sottoscrizione di Azure. In genere, questa è il tenant di dipendente o il tenant predefinito creato automaticamente quando è stata eseguita l'iscrizione per una sottoscrizione di Azure. Per altre informazioni, vedere la [relazione tra una sottoscrizione di Azure e Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad).
+2. Passare dal tenant B2C in un altro tenant a cui è associata una sottoscrizione di Azure. In genere, questa è il tenant di dipendente o il tenant predefinito creato automaticamente quando è stata eseguita l'iscrizione per una sottoscrizione di Azure. Per altre informazioni, vedere la [relazione tra una sottoscrizione di Azure e Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
    
     ![Supporto - Cambio di tenant](./media/active-directory-b2c-support/support-switch-dir.png)
 3. Dopo avere cambiato tenant, fare clic su **Guida e supporto**.

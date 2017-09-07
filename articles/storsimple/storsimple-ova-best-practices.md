@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 56e8f5cf3886c740853a40781c42b3e36144134b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
@@ -146,7 +145,7 @@ Usare le raccomandazioni seguenti per gli account di archiviazione associati all
   
   * È consigliabile crearlo nell'area più vicina all'ufficio remoto o alla succursale in cui viene distribuito l'array virtuale StorSimple per ridurre al minimo le latenze.
   * Tenere presente che non è possibile spostare un account di archiviazione tra aree diverse. Non è inoltre possibile spostare un servizio tra sottoscrizioni.
-  * Usare un account di archiviazione che implementa la ridondanza tra i data center. L'archiviazione con ridondanza geografica, l'archiviazione con ridondanza della zona e l'archiviazione con ridondanza locale sono tutte supportate per l'uso con l'array virtuale. Per altre informazioni sui diversi tipi di account di archiviazione, vedere [Replica di Archiviazione di Azure](../storage/storage-redundancy.md).
+  * Usare un account di archiviazione che implementa la ridondanza tra i data center. L'archiviazione con ridondanza geografica, l'archiviazione con ridondanza della zona e l'archiviazione con ridondanza locale sono tutte supportate per l'uso con l'array virtuale. Per altre informazioni sui diversi tipi di account di archiviazione, vedere [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
 
 ### <a name="shares-and-volumes"></a>Condivisioni e volumi
 Per l'array virtuale StorSimple è possibile effettuare il provisioning di condivisioni quando è configurato come un file server e di volumi quando è configurato come server iSCSI. Le procedure consigliate per la creazione di condivisioni e volumi sono correlate alle dimensioni e al tipo configurato.

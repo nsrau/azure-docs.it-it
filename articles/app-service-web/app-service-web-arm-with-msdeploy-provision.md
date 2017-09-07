@@ -1,6 +1,6 @@
 ---
-title: Distribuire un&quot;app Web usando MSDeploy con il nome host personalizzato e il certificato SSL
-description: Usare un modello di Gestione risorse di Azure per distribuire un&quot;app Web usando MSDeploy e configurando il nome host personalizzato e un certificato SSL
+title: Distribuire un'app Web usando MSDeploy con il nome host personalizzato e il certificato SSL
+description: Usare un modello di Gestione risorse di Azure per distribuire un'app Web usando MSDeploy e configurando il nome host personalizzato e un certificato SSL
 services: app-service\web
 manager: erikre
 documentationcenter: 
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 071be50ff7f72ecd711b2c3036f39b70df01a6ba
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a0e944d0d74ecb72a919538d54db330cbbdeef64
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>Distribuire un'app Web con MSDeploy, il nome host personalizzato e il certificato SSL
@@ -123,7 +122,7 @@ Si noterà ora che la risorsa MSDeploy include una proprietà **packageUri** def
 
     "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-Questo **packageUri** include l'URI dell'account di archiviazione che punta all'account di archiviazione in cui si caricherà il file zip del pacchetto. Gestione risorse di Azure userà le [firme di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md) per effettuare il pull del pacchetto in locale verso il basso dall'account di archiviazione quando si distribuisce il modello. Questo processo verrà automatizzato con uno script PowerShell che caricherà il pacchetto e chiamerà l'API Gestione di Azure per creare le chiavi necessarie e passarle nel modello come parametri (*_artifactsLocation* e *_artifactsLocationSasToken*). Sarà necessario definire i parametri per la cartella e il nome file in cui il pacchetto viene caricato nel contenitore di archiviazione.
+Questo **packageUri** include l'URI dell'account di archiviazione che punta all'account di archiviazione in cui si caricherà il file zip del pacchetto. Gestione risorse di Azure userà le [firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) per effettuare il pull del pacchetto in locale verso il basso dall'account di archiviazione quando si distribuisce il modello. Questo processo verrà automatizzato con uno script PowerShell che caricherà il pacchetto e chiamerà l'API Gestione di Azure per creare le chiavi necessarie e passarle nel modello come parametri (*_artifactsLocation* e *_artifactsLocationSasToken*). Sarà necessario definire i parametri per la cartella e il nome file in cui il pacchetto viene caricato nel contenitore di archiviazione.
 
 Ora è necessario aggiungere un'altra risorsa annidata per configurare le associazioni nome host per sfruttare un dominio personalizzato. Sarà prima di tutto necessario assicurarsi di essere proprietari del nome host e configurarlo in modo che Azure ne verifichi il proprietario. Vedere [Configurare un nome di dominio personalizzato nel servizio app di Azure](app-service-web-tutorial-custom-domain.md). A questo punto è possibile aggiungere il codice seguente al modello nella sezione della risorsa Microsoft.Web/sites:
 

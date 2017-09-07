@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 24855004f8ea15f2d4f40ba35e6f708929143879
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a9de327c20463469bc91d9720aa17333a36f919e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>Rendere persistenti i dati di attività e processi in Archiviazione di Azure con la libreria Batch File Conventions per .NET 
@@ -69,10 +68,10 @@ Per rendere persistenti i dati di output in Archiviazione di Azure usando la lib
 
 Per rendere persistenti i dati di output di processi e attività con la libreria File Conventions, creare un contenitore in Archiviazione di Azure e quindi salvare l'output nel contenitore. Usare la [libreria client di Archiviazione di Azure per .NET](https://www.nuget.org/packages/WindowsAzure.Storage) nel codice dell'attività per caricare l'output dell'attività nel contenitore. 
 
-Per altre informazioni sull'uso di contenitori e BLOB in Archiviazione di Azure, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/storage-dotnet-how-to-use-blobs.md).
+Per altre informazioni sull'uso di contenitori e BLOB in Archiviazione di Azure, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Tutti gli output di processi e attività resi persistenti con la libreria File Conventions vengono archiviati nello stesso contenitore. Se un numero elevato di attività tenta di rendere persistenti i file nello stesso momento, potrebbero essere applicate [limitazioni dell'archiviazione](../storage/storage-performance-checklist.md#blobs).
+> Tutti gli output di processi e attività resi persistenti con la libreria File Conventions vengono archiviati nello stesso contenitore. Se un numero elevato di attività tenta di rendere persistenti i file nello stesso momento, potrebbero essere applicate [limitazioni dell'archiviazione](../storage/common/storage-performance-checklist.md#blobs).
 > 
 > 
 

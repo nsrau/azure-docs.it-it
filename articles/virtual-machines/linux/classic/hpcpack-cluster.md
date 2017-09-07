@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure
@@ -186,7 +186,7 @@ Sono disponibili varie opzioni per spostare dati tra i nodi Linux e il nodo head
 ### <a name="azure-file-storage"></a>Archiviazione file di Azure
 Il servizio [File di Azure](https://azure.microsoft.com/services/storage/files/) espone condivisioni di file usando il protocollo SMB 2.1 standard. Le VM e i servizi cloud di Azure possono condividere i dati dei file tra componenti delle applicazioni tramite le condivisioni montate e le applicazioni locali possono accedere ai dati dei file in una condivisione tramite l'API della risorsa di archiviazione File. 
 
-Per la procedura dettagliata per creare una condivisione file di Azure e per montarla nel nodo head, vedere [Introduzione all'archivio file di Azure in Windows](../../../storage/storage-file-how-to-use-files-windows.md). Per montare la condivisione file di Azure nei nodi Linux, vedere [Come usare l'archiviazione file di Azure con Linux](../../../storage/storage-how-to-use-files-linux.md). Per configurare connessioni persistenti, vedere la pagina relativa alle [connessioni persistenti a file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Per la procedura dettagliata per creare una condivisione file di Azure e per montarla nel nodo head, vedere [Introduzione all'archivio file di Azure in Windows](../../../storage/files/storage-how-to-use-files-windows.md). Per montare la condivisione file di Azure nei nodi Linux, vedere [Come usare l'archiviazione file di Azure con Linux](../../../storage/files/storage-how-to-use-files-linux.md). Per configurare connessioni persistenti, vedere la pagina relativa alle [connessioni persistenti a file di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 Nell'esempio seguente creare una condivisione file di Azure in un account di archiviazione. Per il montaggio della condivisione nel nodo head, aprire un prompt dei comandi e immettere i comandi seguenti:
 

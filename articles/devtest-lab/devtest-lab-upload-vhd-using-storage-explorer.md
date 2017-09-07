@@ -1,6 +1,6 @@
 ---
 title: Caricare un file VHD in Azure DevTest Labs usando Esplora archivi di Microsoft Azure | Microsoft Docs
-description: Caricare un file VHD nell&quot;account di archiviazione del lab usando Esplora archivi di Microsoft Azure
+description: Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
-ms.openlocfilehash: 0506cf13223f0555abf841143a8fe8a77cd19b70
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 502e2536fb0fd2e9dfc4c7b85a6fb4e18202f38f
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.openlocfilehash: 0506cf13223f0555abf841143a8fe8a77cd19b70
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-In Azure DevTest Labs è possibile usare i file VHD per creare immagini personalizzate da usare per il provisioning di macchine virtuali. In questo articolo viene illustrato come usare [Esplora archivi di Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare un file VHD nell'account di archiviazione di un lab. Dopo avere caricato il file VHD, vedere la [sezione Passaggi successivi](#next-steps) per un elenco di articoli che illustrano come creare un'immagine personalizzata dal file VHD caricato. Per altre informazioni sui dischi e sui dischi rigidi virtuali in Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../storage/storage-about-disks-and-vhds-linux.md)
+In Azure DevTest Labs è possibile usare i file VHD per creare immagini personalizzate da usare per il provisioning di macchine virtuali. In questo articolo viene illustrato come usare [Esplora archivi di Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare un file VHD nell'account di archiviazione di un lab. Dopo avere caricato il file VHD, vedere la [sezione Passaggi successivi](#next-steps) per un elenco di articoli che illustrano come creare un'immagine personalizzata dal file VHD caricato. Per altre informazioni sui dischi e sui dischi rigidi virtuali in Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../virtual-machines/linux/about-disks-and-vhds.md)
 
 ## <a name="step-by-step-instructions"></a>Istruzioni dettagliate
 
@@ -43,13 +44,13 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
     
     1. Nel pannello del lab selezionare **Configurazione**. 
     
-    1. Nel pannello **Configuration** (Configurazione) del lab selezionare **Custom images (VHDs)** (Immagini personalizzate (VHD)).
+    1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate (dischi rigidi virtuali)**.
     
-    1. Nel pannello **Custom images** (Immagini personalizzate) selezionare **+Add** (+Aggiungi). 
+    1. Nel pannello **Immagini personalizzate** selezionare **+Aggiungi**. 
     
-    1. Nel pannello **Custom image** (Immagine personalizzata) selezionare **VHD**.
+    1. Nel pannello **Immagine personalizzata** selezionare **VHD**.
     
-    1. Nel pannello **VHD** selezionare l'opzione **Upload a VHD using PowerShell** (Carica un file VHD con PowerShell).
+    1. Nel pannello **VHD** selezionare l'opzione **Carica un file VHD con PowerShell**.
     
         ![Carica un file VHD con PowerShell][0]
     
@@ -137,9 +138,4 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
 [8]: ./media/devtest-lab-upload-vhd-using-storage-explorer/select-file.png
 [9]: ./media/devtest-lab-upload-vhd-using-storage-explorer/upload-file.png
 [10]: ./media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

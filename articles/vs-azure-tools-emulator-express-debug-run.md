@@ -1,10 +1,10 @@
 ---
-title: Uso dell&quot;emulatore Express per l&quot;esecuzione e il debug di un servizio cloud di Azure in un computer locale | Documentazione Microsoft
-description: Uso di Emulator Express per l&quot;esecuzione e il debug di un servizio cloud in un computer locale
+title: Uso dell'emulatore Express per l'esecuzione e il debug di un servizio cloud di Azure in un computer locale | Documentazione Microsoft
+description: Uso di Emulator Express per l'esecuzione e il debug di un servizio cloud in un computer locale
 services: visual-studio-online
 documentationcenter: n/a
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 73108f98-a552-4817-b7a1-551367b71906
 ms.service: visual-studio-online
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 882b0b78f94e220e8a94ee3b614c575b509a8170
-ms.lasthandoff: 03/27/2017
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fe31dcb78c6713d93bf87e92ac12341d8692f679
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="using-emulator-express-to-run-and-debug-an-azure-cloud-service-on-a-local-machine"></a>Uso dell'emulatore Express per l'esecuzione e il debug di un servizio cloud di Azure in un computer locale
-Con l'emulatore Express, è possibile testare ed eseguire il debug di un servizio cloud senza eseguire Visual Studio come amministratore. È possibile configurare le impostazioni del progetto per usare l'emulatore Express o l'emulatore completo, in base ai requisiti del servizio cloud. Per altre informazioni sull'emulatore completo, vedere [Eseguire un'applicazione Azure nell'emulatore di calcolo](storage/storage-use-emulator.md).
+Con l'emulatore Express, è possibile testare ed eseguire il debug di un servizio cloud senza eseguire Visual Studio come amministratore. È possibile configurare le impostazioni del progetto per usare l'emulatore Express o l'emulatore completo, in base ai requisiti del servizio cloud. Per altre informazioni sull'emulatore completo, vedere [Eseguire un'applicazione Azure nell'emulatore di calcolo](storage/common/storage-use-emulator.md).
 
 ## <a name="using-emulator-express-in-visual-studio"></a>Uso dell'emulatore Express in Visual Studio
 Quando si crea un progetto di Azure in Azure SDK 2.3 o versione successiva, l'emulatore Express è selezionato automaticamente. Per i progetti esistenti creati con una versione precedente dell'SDK di Azure, attenersi alla procedura seguente per selezionare l'emulatore Express:

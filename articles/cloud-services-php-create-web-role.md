@@ -14,11 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 89092e75d10ece044be61ceba0baf16c9e1599be
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 214fdcfe20f3fa4ebcbe41308404f8b7e7d15310
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>Come creare ruoli Web e di lavoro PHP
@@ -179,7 +179,7 @@ Per configurare un ruolo di lavoro per l'uso di un runtime PHP fornito dall'uten
 6. Pubblicare l'applicazione come descritto nella sezione [Pubblicare l'applicazione](#publish-your-application) più avanti.
 
 ## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Eseguire l'applicazione negli emulatori di calcolo e archiviazione
-Gli emulatori di Azure forniscono un ambiente locale in cui è possibile testare l'applicazione Azure prima di distribuirla nel cloud. Vi sono alcune differenze tra gli emulatori e l'ambiente Azure. Per una migliore comprensione, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage/storage-use-emulator.md).
+Gli emulatori di Azure forniscono un ambiente locale in cui è possibile testare l'applicazione Azure prima di distribuirla nel cloud. Vi sono alcune differenze tra gli emulatori e l'ambiente Azure. Per una migliore comprensione, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage/common/storage-use-emulator.md).
 
 Si noti che per usare l'emulatore di calcolo è necessario aver installato PHP in locale. L'emulatore di calcolo userà l'installazione locale di PHP per eseguire l'applicazione.
 

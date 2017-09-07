@@ -1,6 +1,6 @@
 ---
-title: Gestire le credenziali dell&quot;account di archiviazione per l&quot;array virtuale StorSimple | Documentazione Microsoft
-description: Spiega come usare la pagina Configura Gestione dispositivi di StorSimple per aggiungere, modificare, eliminare o ruotare le chiavi di sicurezza per le credenziali dell&quot;account di archiviazione associate all&quot;array virtuale StorSimple.
+title: Gestire le credenziali dell'account di archiviazione per l'array virtuale StorSimple | Documentazione Microsoft
+description: Spiega come usare la pagina Configura Gestione dispositivi di StorSimple per aggiungere, modificare, eliminare o ruotare le chiavi di sicurezza per le credenziali dell'account di archiviazione associate all'array virtuale StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 4b5c86314bde2acb7d5723909f89691bf7ed8b98
-ms.openlocfilehash: 6bb07bc1e3ab439352b444016167541eca54f788
-ms.lasthandoff: 03/01/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a4ce2d329d0e1399cffaf886adf2b95e34b9cd7b
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire le credenziali dell'account di archiviazione per l'array virtuale StorSimple
@@ -51,7 +52,7 @@ Le attività più comuni relative alle credenziali dell'account di archiviazione
 Esistono tre tipi di credenziali dell'account di archiviazione che è possibile usare con il dispositivo StorSimple.
 
 * **Credenziali dell'account di archiviazione generate automaticamente**: come il nome suggerisce, questo tipo di credenziale viene generato automaticamente alla creazione del servizio. Per altre informazioni sulla creazione della credenziale dell'account di archiviazione, vedere [Creare un nuovo servizio](storsimple-virtual-array-manage-service.md#create-a-service).
-* **Credenziali dell'account di archiviazione nella sottoscrizione del servizio**: le credenziali dell'account di archiviazione di Azure associate alla stessa sottoscrizione del servizio. Per altre informazioni su come vengono create queste credenziali dell'account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md).
+* **Credenziali dell'account di archiviazione nella sottoscrizione del servizio**: le credenziali dell'account di archiviazione di Azure associate alla stessa sottoscrizione del servizio. Per altre informazioni su come vengono create queste credenziali dell'account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
 * **Credenziali dell'account di archiviazione esterne alla sottoscrizione del servizio**: le credenziali dell'account di archiviazione di Azure non associate al servizio e probabilmente esistenti prima che il servizio fosse creato.
 
 ## <a name="add-a-storage-account-credential"></a>Aggiungere una credenziale dell'account di archiviazione
@@ -109,7 +110,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 4. Nel pannello **Proprietà** delle credenziali dell'account di archiviazione eseguire le operazioni seguenti:
    
    1. Se necessario, è possibile modificare la selezione **Abilita SSL**.
-   2. È possibile rigenerare le chiavi di accesso delle credenziali dell'account di archiviazione. Per altre informazioni, vedere l'articolo [Rigenerazione delle chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#manage-your-storage-access-keys). Indicare la nuova chiave della credenziale dell'account di archiviazione. Per un account di archiviazione di Azure si tratta della chiave di accesso primaria.
+   2. È possibile rigenerare le chiavi di accesso delle credenziali dell'account di archiviazione. Per altre informazioni, vedere l'articolo [Rigenerazione delle chiavi di accesso alle risorse di archiviazione](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys). Indicare la nuova chiave della credenziale dell'account di archiviazione. Per un account di archiviazione di Azure si tratta della chiave di accesso primaria.
    3. Fare clic su **Salva** nella parte superiore del pannello **Proprietà** per salvare le impostazioni. Le impostazioni vengono aggiornate nel pannello **Credenziali dell'account di archiviazione**.
       
       ![Modificare una credenziale dell'account di archiviazione](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

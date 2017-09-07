@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
-ms.openlocfilehash: cfb4b3e629a2c02c360cbba3c151ee1553dc2e7e
-ms.lasthandoff: 01/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fe4f74f2e0602d13eedb6ca186480291a9a5724f
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenari per l'analisi avanzata in Azure Machine Learning
@@ -36,7 +36,7 @@ Ciascuna delle sezioni seguenti presenta uno scenario di esempio. Per ogni scena
 > **Per tutti gli scenari seguenti, è necessario:**
 > <br/>
 > 
-> * [Creare un account di archiviazione](../storage/storage-create-storage-account.md)
+> * [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md)
 >   <br/>
 > * [Creare un'area di lavoro di Machine Learning di Azure](machine-learning-create-workspace.md)
 > 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 76cd54cd234dfe43e8f0d61f0b66f0ed0c09e8b7
 ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>Eseguire il provisioning di una macchina virtuale per l'analisi scientifica dei dati di Microsoft
@@ -60,7 +60,7 @@ Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti c
 Prima di creare una macchina virtuale per l'analisi scientifica dei dati di Microsoft, è necessario quanto segue:
 
 * **Sottoscrizione di Azure**: per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Account di archiviazione di Azure**: per crearne uno, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account). In alternativa, se non si vuole usare un account esistente è possibile creare l'account di archiviazione come parte del processo di creazione della VM.
+* **Account di archiviazione di Azure**: per crearne uno, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account). In alternativa, se non si vuole usare un account esistente è possibile creare l'account di archiviazione come parte del processo di creazione della VM.
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft
 Di seguito sono riportati i passaggi necessari per creare un'istanza della macchina virtuale per l'analisi scientifica dei dati di Microsoft:

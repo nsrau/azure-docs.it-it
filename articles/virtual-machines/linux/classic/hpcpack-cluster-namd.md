@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 46d71ebd493004bc1ac1b7634722d2abe8b67343
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e31845f3d7aa08357b0e8a1b3b77d97302442ac3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure
@@ -87,7 +87,7 @@ Per generare con facilità una coppia di chiavi RSA, che contiene una chiave pub
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>Configurare una condivisione di file per i nodi Linux
-Configurare ora una condivisione di file SMB e montare la cartella condivisa in tutti i nodi Linux per consentire ai nodi Linux di accedere ai file NAMD con un percorso comune. Di seguito vengono descritti i passaggi per montare una cartella condivisa nel nodo head. Per le distribuzioni che attualmente non supportano il servizio File di Azure, come ad esempio CentOS 6.6, si consiglia di eseguire una condivisione. Se i nodi Linux supportano la condivisione di file di Azure, vedere [Come usare Archiviazione file di Azure con Linux](../../../storage/storage-how-to-use-files-linux.md). Per altre opzioni di condivisione dei file con HPC Pack, vedere [Introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](hpcpack-cluster.md).
+Configurare ora una condivisione di file SMB e montare la cartella condivisa in tutti i nodi Linux per consentire ai nodi Linux di accedere ai file NAMD con un percorso comune. Di seguito vengono descritti i passaggi per montare una cartella condivisa nel nodo head. Per le distribuzioni che attualmente non supportano il servizio File di Azure, come ad esempio CentOS 6.6, si consiglia di eseguire una condivisione. Se i nodi Linux supportano la condivisione di file di Azure, vedere [Come usare Archiviazione file di Azure con Linux](../../../storage/files/storage-how-to-use-files-linux.md). Per altre opzioni di condivisione dei file con HPC Pack, vedere [Introduzione ai nodi di calcolo Linux in un cluster HPC Pack in Azure](hpcpack-cluster.md).
 
 1. Creare una cartella sul nodo head e condividerla con tutti gli utenti, configurando privilegi di lettura/scrittura. In questo esempio \\\\CentOS66HN\Namd è il nome della cartella, dove CentOS66HN è il nome host del nodo head.
 2. Creare una sottocartella denominata namd2 nella cartella condivisa. All'interno di namd2, creare un'altra sottocartella namdsample.

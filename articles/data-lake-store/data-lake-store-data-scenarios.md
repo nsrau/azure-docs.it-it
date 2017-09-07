@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f173111fb827a1f25fad857596fef13447bcca38
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2a2801e5c506dcc8aa9ca2ecd275b52c72d5fbbf
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Uso di Archivio Data Lake di Azure per requisiti Big Data
@@ -89,7 +89,7 @@ Grandi quantità di dati possono essere archiviati in cluster Hadoop esistenti, 
 L'uso dei metodi descritti in precedenza per il caricamento di set di dati di più terabyte può talvolta risultare lento e costoso. In questi casi, è possibile usare le opzioni seguenti.
 
 * **Uso di Azure ExpressRoute**. Azure ExpressRoute consente di creare connessioni private tra i data center di Azure e l'infrastruttura locale. Ciò offre un'opzione affidabile per il trasferimento di grandi quantità di dati. Per altre informazioni, vedere la [Documentazione su ExpressRoute](../expressroute/expressroute-introduction.md).
-* **Caricamento "offline" dei dati**. Se l'uso di Azure ExpressRoute non è possibile per qualsiasi motivo, si può usare il [servizio Importazione/Esportazione di Azure](../storage/storage-import-export-service.md) per inviare le unità disco rigido coi dati a un data center di Azure. I dati vengono caricati prima di tutto in BLOB di archiviazione di Azure. È quindi possibile usare [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) o lo [strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) per copiare i dati dai BLOB di archiviazione di Azure a Data Lake Store.
+* **Caricamento "offline" dei dati**. Se l'uso di Azure ExpressRoute non è possibile per qualsiasi motivo, si può usare il [servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-service.md) per inviare le unità disco rigido coi dati a un data center di Azure. I dati vengono caricati prima di tutto in BLOB di archiviazione di Azure. È quindi possibile usare [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) o lo [strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) per copiare i dati dai BLOB di archiviazione di Azure a Data Lake Store.
 
   > [!NOTE]
   > Durante l'uso del servizio di Importazione/Esportazione, le dimensioni dei file nei dischi inviati al data center di Azure non devono superare i 195 GB.

@@ -1,6 +1,6 @@
 ---
-title: Spostamento dei dati da e verso l&quot;archiviazione BLOB utilizzando Esplora archivi Azure | Documentazione Microsoft
-description: Spostamento dei dati da e verso l&quot;archiviazione BLOB di Azure utilizzando Storage Explorer di Azure
+title: Spostamento dei dati da e verso l'archiviazione BLOB utilizzando Esplora archivi Azure | Documentazione Microsoft
+description: Spostamento dei dati da e verso l'archiviazione BLOB di Azure utilizzando Storage Explorer di Azure
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
-ms.openlocfilehash: a258404e659bd6d6e7e0f468a5f3ce5e184be2a3
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0943bfcf51a1196e3e4ae7b2145708aa26d52190
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Spostamento dei dati da e verso l'archiviazione BLOB di Azure usando Storage Explorer di Azure
@@ -30,7 +30,7 @@ Esplora archivi di Azure è uno strumento gratuito di Microsoft che consente di 
 > Se si utilizza una macchina virtuale che è stata impostata con gli script forniti da [Macchine virtuali della scienza dei dati in Azure](machine-learning-data-science-virtual-machines.md), allora Esplora archivi di Azure è già installato nella macchina virtuale.
 > 
 > [!NOTE]
-> Per un'introduzione completa all'archiviazione BLOB di Azure, vedere [Introduzione all'archivio BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).   
+> Per un'introduzione completa all'archiviazione BLOB di Azure, vedere [Introduzione all'archivio BLOB di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md) e [Servizio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).   
 > 
 > 
 
@@ -38,7 +38,7 @@ Esplora archivi di Azure è uno strumento gratuito di Microsoft che consente di 
 In questo documento si presuppone di avere una sottoscrizione di Azure, un account di archiviazione e chiavi di archiviazione corrispondenti per quell'account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave del proprio account di archiviazione di Azure. 
 
 * Per configurare una sottoscrizione di Azure, vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
-* Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md). Annotare la chiave di accesso dell'account di archiviazione in quanto servirà per la connessione all'account con lo strumento Esplora archivi di Azure.
+* Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull’account e la chiave, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). Annotare la chiave di accesso dell'account di archiviazione in quanto servirà per la connessione all'account con lo strumento Esplora archivi di Azure.
 * Lo strumento Esplora archivi di Azure può essere scaricato da [Esplora archivi di Microsoft Azure](http://storageexplorer.com/). Durante l'installazione accettare le impostazioni predefinite.
 
 <a id="explorer"></a>

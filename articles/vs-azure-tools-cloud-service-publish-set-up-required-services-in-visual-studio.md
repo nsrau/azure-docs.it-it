@@ -1,10 +1,10 @@
 ---
-title: Preparare la pubblicazione o la distribuzione di un&quot;applicazione di Azure da Visual Studio | Documentazione Microsoft
-description: Informazioni sulle procedure per la configurazione di servizi cloud e dell&quot;account di archiviazione e per la configurazione dell&quot;applicazione Azure.
+title: Preparare la pubblicazione o la distribuzione di un'applicazione di Azure da Visual Studio | Documentazione Microsoft
+description: Informazioni sulle procedure per la configurazione di servizi cloud e dell'account di archiviazione e per la configurazione dell'applicazione Azure.
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 5d747a7c34b340c6f98dabb2c3ff4d3340e74e4a
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 967501fa8ac4b2471a62afabc18a12a71776eaac
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Preparare la pubblicazione o la distribuzione di un'applicazione di Azure da Visual Studio
@@ -116,16 +117,11 @@ Dopo la creazione dell'account di archiviazione, saranno visualizzati gli URL ch
        * **Specifica endpoint personalizzati** per ciascuno dei tre servizi. È quindi possibile digitare questi endpoint nel campo per il servizio specifico.
 
          > [!NOTE]
-         > Se si creano endpoint personalizzati, sarà possibile creare una stringa di connessione più complessa. Quando si usa questo formato stringa, è possibile specificare endpoint del servizio di archiviazione che includono un nome di dominio personalizzato registrato per l'account di archiviazione con il servizio BLOB. È anche possibile concedere l'accesso solo alle risorse BLOB in un singolo contenitore, tramite una firma di accesso condiviso. Per altre informazioni sulla creazione di endpoint personalizzati, vedere [Configurare le stringhe di connessione di archiviazione di Azure](storage/storage-configure-connection-string.md).
+         > Se si creano endpoint personalizzati, sarà possibile creare una stringa di connessione più complessa. Quando si usa questo formato stringa, è possibile specificare endpoint del servizio di archiviazione che includono un nome di dominio personalizzato registrato per l'account di archiviazione con il servizio BLOB. È anche possibile concedere l'accesso solo alle risorse BLOB in un singolo contenitore, tramite una firma di accesso condiviso. Per altre informazioni sulla creazione di endpoint personalizzati, vedere [Configurare le stringhe di connessione di archiviazione di Azure](storage/common/storage-configure-connection-string.md).
          >
          >
 11. Per salvare queste modifiche della stringa di connessione, scegliere **OK**, quindi scegliere il pulsante **Salva**. Dopo avere salvato queste modifiche, è possibile ottenere il valore di questa stringa di connessione nel codice tramite [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Quando si pubblica l'applicazione in Azure, scegliere la configurazione del servizio che contiene l'account di archiviazione di Azure per la stringa di connessione. Dopo la pubblicazione, verificare che l'applicazione funzioni come previsto rispetto ai servizi di archiviazione Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sulla pubblicazione di app in Azure da Visual Studio, vedere [Pubblicazione di un servizio Cloud con gli strumenti di Azure](vs-azure-tools-publishing-a-cloud-service.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
