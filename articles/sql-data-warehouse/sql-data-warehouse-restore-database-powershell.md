@@ -1,6 +1,6 @@
 ---
-title: Ripristinare un&quot;istanza di Azure SQL Data Warehouse (PowerShell) | Documentazione Microsoft
-description: "Attività di PowerShell per il ripristino di un&quot;istanza di Azure SQL Data Warehouse."
+title: Ripristinare un'istanza di Azure SQL Data Warehouse (PowerShell) | Documentazione Microsoft
+description: "Attività di PowerShell per il ripristino di un'istanza di Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: Lakshmi1812
@@ -20,7 +20,6 @@ ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0b6f4fa657a16196ba8f42c2137dc3c245d25a07
 ms.contentlocale: it-it
 ms.lasthandoff: 12/08/2016
-
 
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Ripristinare un'istanza di Azure SQL Data Warehouse (PowerShell)
@@ -64,7 +63,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 # List the last 10 database restore points
-((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
+((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName)).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
 Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName

@@ -1,4 +1,3 @@
- 
 ---
 title: Informazioni su come usare il connettore MQ nelle app per la logica di Azure | Microsoft Docs
 description: Connettersi a un server MQ locale o in Azure dal flusso di lavoro delle app per la logica per visualizzare, ricevere e inviare messaggi a WebSphere MQ
