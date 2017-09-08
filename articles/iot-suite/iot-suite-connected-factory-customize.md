@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 86a4d6d3ab4d29fba8f554265958ffa079b69ec2
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 90a6172dbd887ecda5a9f5d9082a4e136092bc10
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizzare la modalità di visualizzazione dei dati dai server OPC UA da parte della soluzione di fabbrica connessa
 
 ## <a name="introduction"></a>Introduzione
 
-La soluzione di fabbrica connessa aggrega e visualizza dati dai server OPC UA connessi alla soluzione. È possibile individuare e inviare comandi ai server OPC UA nella soluzione. Per altre informazioni su OPC UA, vedere le [Domande frequenti][lnk-faq].
+La soluzione di fabbrica connessa aggrega e visualizza dati dai server OPC UA connessi alla soluzione. È possibile individuare e inviare comandi ai server OPC UA nella soluzione. Per altre informazioni su OPC UA, vedere le [domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md).
 
 Gli esempi di dati aggregati nella soluzione includono i valori OEE (Overall Equipment Efficiency) e gli indicatori KPI visualizzabili nel dashboard a livello di fabbrica, linea e stazione. Lo screenshot seguente mostra i valori OEE e gli indicatori KPI per la stazione **Assemblaggio** nella **Linea di produzione 1** di uno stabilimento a **Monaco**:
 
@@ -175,6 +175,7 @@ Altre informazioni sulla soluzione preconfigurata di fabbrica connessa sono disp
 * [Procedura dettagliata per la soluzione preconfigurata di connected factory][lnk-rm-walkthrough]
 * [Distribuire un gateway per fabbrica connessa][lnk-connect-cf]
 * [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions]
+* [Domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md)
 * [Domande frequenti][lnk-faq]
 
 

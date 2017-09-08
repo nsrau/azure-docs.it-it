@@ -1,27 +1,28 @@
 ---
-title: 'Azure Active Directory B2C: configurazione di token, sessione e accesso Single Sign-On | Documentazione Microsoft'
+title: 'Configurazione di token, sessione e accesso Single Sign-On: Azure AD B2C | Microsoft Docs'
 description: Configurazione di token, sessione e accesso Single Sign-On in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: parakhj
+manager: krassk
+editor: parakhj
 ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
-ms.author: swkrish
+ms.date: 08/16/2017
+ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 256c93e5c343cba022599f8e13c5b7616bfa8b58
 ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Configurazione di token, sessione e accesso Single Sign-On
+
 Questa funzionalità offre un controllo dettagliato, in base ai [singoli criteri](active-directory-b2c-reference-policies.md), per gli elementi seguenti:
 
 1. Durate dei token di sicurezza emessi da Azure Active Directory (Azure AD) B2C.
@@ -29,21 +30,22 @@ Questa funzionalità offre un controllo dettagliato, in base ai [singoli criteri
 3. Formati di attestazioni importanti nei token di sicurezza emessi da Azure AD B2C.
 4. Comportamento dell'accesso Single Sign-On (SSO) in più app e criteri nel tenant di B2C.
 
-È possibile usare questa funzionalità nel tenant di B2C come indicato di seguito:
+Per i criteri predefiniti, è possibile usare questa funzionalità nella directory Azure AD B2C come segue:
 
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
-2. Fare clic su **Criteri di accesso**. *Nota: è possibile usare questa funzionalità per qualsiasi tipo di criterio, non solo per i **criteri di accesso***.
-3. Fare clic su un criterio per aprirlo. Ad esempio, fare clic su **B2C_1_SiIn**.
-4. Fare clic su **Modifica** nella parte superiore del pannello.
+1. Seguire questa procedura per [passare al menu delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
+2. Fare clic su **Criteri di iscrizione o di accesso**. *Nota: è possibile usare questa funzionalità per qualsiasi tipo di criterio, non solo per i **criteri di iscrizione o di accesso***.
+3. Fare clic su un criterio per aprirlo. Ad esempio, fare clic su **B2C_1_SiUpIn**.
+4. Fare clic su **Modifica** nella parte superiore del menu.
 5. Fare clic su **Token, session & single sign-on config** (Configurazione di token, sessione e accesso Single Sign-On).
 6. Apportare le modifiche necessarie. Per informazioni sulle proprietà disponibili, vedere le sezioni successive.
 7. Fare clic su **OK**.
-8. Fare clic su **Salva** nella parte superiore del pannello.
+8. Fare clic su **Salva** nella parte superiore del menu.
 
 ## <a name="token-lifetimes-configuration"></a>Configurazione delle durate dei token
+
 Azure AD B2C supporta il [protocollo di autorizzazione OAuth 2.0](active-directory-b2c-reference-protocols.md) per abilitare l'accesso sicuro alle risorse protette. Per implementare questo supporto, Azure AD B2C emette diversi [token di sicurezza](active-directory-b2c-reference-tokens.md). Queste sono le proprietà che è possibile usare per gestire le durate dei token di sicurezza emessi da Azure AD B2C:
 
-* **Durate dei token di accesso e ID (minuti)**: durata del token di connessione OAuth 2.0 usato per ottenere l'accesso a una risorsa protetta. Azure AD B2C emette attualmente solo token ID. Questo valore verrà applicato anche ai token di accesso, quando verrà aggiunto il supporto per questo tipo di token.
+* **Durate dei token di accesso e ID (minuti)**: durata del token di connessione OAuth 2.0 usato per ottenere l'accesso a una risorsa protetta.
   * Impostazione predefinita: 60 minuti.
   * Valore minimo (inclusivo): 5 minuti.
   * Valore massimo (inclusivo): 1440 minuti.
@@ -67,6 +69,7 @@ Ecco un paio di casi di utilizzo in cui è possibile abilitare l'uso di queste p
     > 
 
 ## <a name="token-compatibility-settings"></a>Impostazioni di compatibilità dei token
+
 Sono state apportate modifiche alla formattazione di attestazioni importanti nei token di sicurezza emessi da Azure AD B2C, allo scopo di migliorare il supporto del protocollo Standard e l'interoperabilità con librerie di identità di terze parti. Tuttavia, per evitare di interferire con le app esistenti, sono state create le proprietà seguenti per consentire ai clienti di dare il consenso esplicito in base alle esigenze:
 
 * **Attestazione dell'autorità di certificazione (iss)**: identifica il tenant Azure AD B2C che ha emesso il token.
@@ -80,6 +83,7 @@ Sono state apportate modifiche alla formattazione di attestazioni importanti nei
   * **acr**: viene fornito solo per compatibilità con le versioni precedenti ed è consigliabile passare a `tfp` non appena possibile.
 
 ## <a name="session-behavior"></a>Comportamento della sessione
+
 Azure AD B2C supporta il [protocollo di autenticazione OpenID Connect](active-directory-b2c-reference-oidc.md) per abilitare l'accesso sicuro alle applicazioni Web. Ecco le proprietà che è possibile usare per gestire le sessioni delle applicazioni Web:
 
 * **Durata della sessione dell'app Web (minuti)**: durata del cookie della sessione di Azure AD B2C archiviato nel browser dell'utente dopo un'autenticazione corretta.

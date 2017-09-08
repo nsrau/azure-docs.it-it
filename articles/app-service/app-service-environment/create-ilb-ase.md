@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 58c5b984c677bf9119db52d5721d5687c00a83fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e7f85aaf2d940f114248d5925a1e97fe0f6bda6c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
@@ -182,12 +182,15 @@ Per caricare i propri certificati e testare l'accesso:
 
     ![Indirizzo IP del servizio ILB][5]
 
-### <a name="functions-and-the-ilb-ase"></a>Funzioni e ambiente del servizio app ILB
+## <a name="web-jobs-functions-and-the-ilb-ase"></a>Funzioni, processi Web e ambiente del servizio app ILB ##
 
-Quando si usa Funzioni di Azure in un ambiente del servizio app ILB, è possibile che venga visualizzato il messaggio di errore: "Non è possibile recuperare le funzioni in questo momento. Riprovare più tardi". Questo errore si verifica perché l'interfaccia utente di Funzioni di Azure si basa sul sito di gestione controllo servizi su HTTPS. Se si usa un certificato HTTP per l'ambiente del servizio app che non dispone di un certificato radice presente nel browser, è possibile riscontrare questa situazione. Inoltre, i browser Internet Explorer\Edge non condividono l'impostazione *accept-invalid-cert* (accetta-cert-non valido) tra le schede. È quindi possibile eseguire una delle seguenti due operazioni:
+In un ambiente del servizio app ILB sono supportati sia i processi Web che Funzioni, ma per poterli usare dal portale è necessario avere l'accesso di rete al sito SCM.  Il browser deve quindi trovarsi in un host incluso nella rete virtuale o connesso a essa.  
 
-- Aggiungere il certificato all'archivio certificati attendibili. 
-- Usare Chrome. È tuttavia necessario prima accedere al sito di gestione controllo servizi e accettare il certificato non attendibile. Passare quindi al portale.
+Quando si usa Funzioni di Azure in un ambiente del servizio app ILB, è possibile che venga visualizzato il messaggio di errore: "Non è possibile recuperare le funzioni in questo momento. Riprovare più tardi". Questo errore si verifica perché l'interfaccia utente di Funzioni usa il sito SCM tramite HTTPS e il certificato radice non è incluso nella catena di certificati del browser. I processi Web presentano un problema simile. Per evitarlo, è possibile eseguire una di queste operazioni:
+
+- Aggiungere il certificato all'archivio certificati attendibili. Questa operazione sblocca Microsoft Edge e Internet Explorer.
+- Usare Chrome e prima di tutto accedere al sito SCM, accettare il certificato non attendibile e quindi passare al portale.
+- Usare un certificato commerciale incluso nella catena di certificati del browser.  Questa è l'opzione migliore.  
 
 ## <a name="dns-configuration"></a>Configurazione del DNS ##
 

@@ -6,13 +6,13 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: seanli1988
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/23/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: ffeca6670521fe2b43c4ac47cac26fd2ad30f968
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 20a1f31ce42abb924504c4008f85420fc49aec89
 ms.contentlocale: it-it
 ms.lasthandoff: 08/24/2017
 
@@ -71,7 +71,7 @@ Per connettersi al server MySQL di Azure con lo strumento dell'interfaccia utent
 6.   Verrà visualizzata una nuova scheda SQL con un editor vuoto in cui è possibile digitare le query.
 
     > [!NOTE]
-    > SSL viene applicato per impostazione predefinita nel server e richiede una configurazione aggiuntiva per la corretta connessione. Vedere [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Configurare la connettività SSL nell'applicazione per connettersi in modo sicuro al database di Azure per MySQL).  Se si vuole disabilitare SSL per questa guida introduttiva, visitare il portale di Azure e fare clic sulla pagina Sicurezza connessione per disabilitare l'interruttore Imponi connessione SSL.
+    > Per impostazione predefinita, in Database di Azure per il server MySQL è necessaria e viene applicata la sicurezza della connessione SSL. Non sono in genere necessarie configurazioni aggiuntive con certificati SSL per la connessione di MySQL Workbench al server. Per altre informazioni su SSL, vedere [Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL](./howto-configure-ssl.md).  Se è necessario disabilitare SSL, visitare il portale di Azure e fare clic sulla pagina Sicurezza connessione per disabilitare l'interruttore Imponi connessione SSL.
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Creare una tabella e inserire, leggere, aggiornare ed eliminare dati
 1. Copiare e incollare il codice SQL di esempio in una scheda SQL vuota per illustrare alcuni dati di esempio.
@@ -108,7 +108,7 @@ Per connettersi al server MySQL di Azure con lo strumento dell'interfaccia utent
     ![Scheda SQL in MySQL Workbench per l'esecuzione del codice SQL di esempio](media/connect-workbench/3-workbench-sql-tab.png)
 
 2. Per eseguire l'esempio di codice SQL, fare clic sull'icona saetta nella barra degli strumenti della scheda **File SQL**.
-3. Si notino i tre risultati a schede nella sezione **Set dei risultati** nella parte centrale della pagina. 
+3. Si notino i tre risultati a schede nella sezione **Griglia risultati** nella parte centrale della pagina. 
 4. Si noti l'elenco **Output** nella parte inferiore della pagina. Viene visualizzato lo stato di ogni comando. 
 
 A questo punto è stata stabilita la connessione al database di Azure per MySQL tramite MySQL Workbench ed è stata eseguita una query sui dati con il linguaggio SQL.

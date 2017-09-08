@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
-ms.openlocfilehash: a0414648dc6cecf4a502f7efa75adbcb1456a8b4
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-relay-exceptions"></a>Eccezioni del servizio di inoltro di Azure
@@ -77,7 +76,8 @@ Per l'inoltro è possibile ricevere eccezioni di timeout alla prima apertura di 
 Esempio:
 
 ```
-'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10. The time allotted to this operation may have been a portion of a longer timeout.
+'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.
+The time allotted to this operation may have been a portion of a longer timeout.
 ```
 
 ### <a name="common-causes"></a>Cause comuni
@@ -88,7 +88,7 @@ Questo errore può essere dovuto a due cause comuni:
     Il valore di timeout dell'operazione potrebbe essere troppo ridotto per la condizione operativa. Il valore predefinito per il timeout dell'operazione dell'SDK client è 60 secondi. Verificare se il valore nel codice è impostato su un valore troppo piccolo. Si noti che l'uso della CPU e la condizione della rete possono incidere sul tempo necessario per completare un'operazione. È consigliabile non impostare il timeout dell'operazione su un valore molto basso.
 *   **Errore temporaneo del servizio**
 
-    In alcuni casi per l'inoltro potrebbero verificarsi ritardi nell'elaborazione delle richieste. Questo può accadere, ad esempio, durante i periodi di traffico elevato. In questi casi, ritentare l'operazione dopo un ritardo fino a quando l'operazione non ha esito positivo. Se la stessa operazione ha ancora esito negativo dopo diversi tentativi, visitare il [sito sullo stato dei servizi Azure](https://azure.microsoft.com/status/) per verificare se esistono casi noti di interruzioni del servizio.
+    In alcuni casi per il servizio di inoltro potrebbero verificarsi ritardi nell'elaborazione delle richieste. Questo può accadere, ad esempio, durante i periodi di traffico elevato. In questi casi, ritentare l'operazione dopo un ritardo fino a quando l'operazione non ha esito positivo. Se la stessa operazione ha ancora esito negativo dopo diversi tentativi, visitare il [sito sullo stato dei servizi Azure](https://azure.microsoft.com/status/) per verificare se esistono casi noti di interruzioni del servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Domande frequenti sul servizio di inoltro di Azure](relay-faq.md)

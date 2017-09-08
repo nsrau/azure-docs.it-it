@@ -4,7 +4,7 @@ description: Panoramica del supporto OpenAPI in Funzioni di Azure
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: c144e22654629f600b8f630363239efc82ac79d7
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e9499d036c8c5ef5a56a70f7e7ecf9afbff4e6b0
 ms.contentlocale: it-it
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Supporto per metadati OpenAPI 2.0 in Funzioni di Azure (anteprima)
@@ -33,9 +32,9 @@ I [metadati OpenAPI](http://swagger.io/) consentono a una funzione che ospita un
 >È consigliabile iniziare con l'[esercitazione introduttiva](./functions-api-definition-getting-started.md) e tornare successivamente a questo documento per approfondire le funzionalità specifiche.
 
 ## <a name="enable"></a>Abilitare il supporto per la definizione OpenAPI
-È possibile configurare tutte le impostazioni OpenAPI nella pagina **Definizione API (anteprima)** delle impostazioni dell'app per le funzioni.
+È possibile configurare tutte le impostazioni OpenAPI nella pagina **Definizione API** in **Funzionalità della piattaforma** per l'app per le funzioni.
 
-Per abilitare la generazione di una definizione di OpenAPI ospitata e una definizione di avvio rapido, impostare **Origine della definizione dell'API** su **Funzione**. L'**URL esterno** consente alla funzione di usare una definizione OpenAPI ospitata altrove.
+Per abilitare la generazione di una definizione OpenAPI ospitata e una definizione di avvio rapido, impostare **Origine della definizione dell'API** su **Funzione (anteprima)**. L'**URL esterno** consente alla funzione di usare una definizione OpenAPI ospitata altrove.
 
 ## <a name="generate-definition"></a>Generare una struttura Swagger dai metadati della funzione
 Per iniziare a scrivere la prima definizione OpenAPI può essere utile usare un modello. La funzione del modello di definizione crea una definizione OpenAPI di tipo sparse usando tutti i metadati contenuti nel file function.json per ognuna delle funzioni trigger HTTP. Le altre informazioni relative all'API, ad esempio i modelli di richiesta e risposta, devono essere inserite nella [specifica OpenAPI](http://swagger.io/specification/).

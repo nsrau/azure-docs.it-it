@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 09066927641054acb8c53a3585e111df87893e50
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
@@ -126,7 +126,7 @@ Il timestamp predefinito degli eventi dell'archiviazione BLOB in Analisi di flus
 Gli input in formato CSV *richiedono* una riga di intestazione per definire i campi per il set di dati. Inoltre, tutti i campi delle righe di intestazione devono essere univoci.
 
 > [!NOTE]
-> Analisi di flusso non supporta l'aggiunta di contenuto a un BLOB esistente. Analisi di flusso visualizza un oggetto BLOB una sola volta e le eventuali modifiche inserite nel BLOB dopo la lettura dei dati non vengono elaborate. È quindi consigliabile caricare tutti i dati in una sola volta e non aggiungere altri eventi alla risorsa di archiviazione BLOB.
+> Analisi di flusso di Azure non supporta l'aggiunta di contenuto a un file di BLOB esistente. Analisi di flusso di Azure visualizza ogni file una sola volta e tutte le modifiche apportate al file dopo che il processo ha letto i dati non vengono elaborate. La procedura consigliata consiste nel caricare simultaneamente tutti i dati per un file di BLOB e quindi aggiungere gli altri eventi più nuovi in un nuovo file di BLOB diverso.
 > 
 
 ### <a name="configure-blob-storage-as-a-data-stream-input"></a>Configurare l'archiviazione BLOB come input del flusso dei dati
@@ -165,7 +165,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Sono state apprese le opzioni di connessione dei dati in Azure per i processi di Analisi di flusso. Per altre informazioni su Analisi di flusso, vedere:

@@ -12,19 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
-ms.author: saeedakhter-msft
+ms.date: 08/04/2017
+ms.author: saeda
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad31e5f4ef3be78d8d2dd6b9c7d83e447d9ef776
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: raccolta di log
 
 Questo articolo illustra i passaggi per la raccolta di log da Azure AD B2C in modo che sia possibile diagnosticare con criteri personalizzati.
+
+>[!NOTE]
+>I log attività dettagliati descritti qui attualmente sono progettati **SOLO** per facilitare lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione.  I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo.  Se usato in fase di produzione, lo sviluppatore si assume la responsabilità delle informazioni personali raccolte nel log di App Insights di cui è proprietario.  Questi log dettagliati vengono raccolti solo quando il criterio è in **MODALITÀ DI SVILUPPO**.
+
 
 ## <a name="use-application-insights"></a>Usare Application Insights
 
@@ -60,7 +64,7 @@ Azure Active Directory B2C supporta una funzionalità per l'invio di dati ad App
   * `DeveloperMode="true"` indica ad Application Insights di accelerare la telemetria nella pipeline di elaborazione, valida per lo sviluppo, ma vincolata a volumi elevati.
   * `ClientEnabled="true"` invia lo script di Application Insights lato client per tenere traccia della visualizzazione della pagina e degli errori del client (non necessari).
   * `ServerEnabled="true"` invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights.
-  Il codice XML finale avrà un aspetto simile al seguente:
+Esempio:
 
   ```XML
   <TrustFrameworkPolicy
@@ -85,7 +89,7 @@ Azure Active Directory B2C supporta una funzionalità per l'invio di dati ad App
 ### <a name="see-the-logs-in-application-insights"></a>Visualizza i log in Application Insights
 
 >[!NOTE]
-> I log di Application Insights possono essere visualizzati dopo un breve ritardo (meno di 5 minuti).
+> I log di Application Insights possono essere visualizzati dopo un breve ritardo (meno di cinque minuti).
 
 1. Aprire la risorsa di Application Insights creata nel [portale di Azure](https://portal.azure.com).
 1. Nel menu **Panoramica** fare clic su **Analytics**.
@@ -102,11 +106,16 @@ Le voci possono essere lunghe.  Per visualizzarle meglio è possibile esportarle
 Per altre informazioni sullo strumento Analytics, vedere [qui](https://docs.microsoft.com/azure/application-insights/app-insights-analytics).
 
 >[!NOTE]
->La community ha sviluppato un visualizzatore di eventi userjourney per supportare gli sviluppatori di identità.  Non è supportato da Microsoft ed reso disponibile esclusivamente così com'è.  Legge l'istanza di Application Insights e restituisce una visualizzazione strutturata degli eventi userjourney.  Ottenere il codice sorgente e distribuirlo nella soluzione.
+>La community ha sviluppato un visualizzatore di percorsi utente per supportare gli sviluppatori di identità.  Non è supportato da Microsoft ed reso disponibile esclusivamente così com'è.  Legge l'istanza di Application Insights e restituisce una visualizzazione strutturata degli eventi di percorso utente.  Ottenere il codice sorgente e distribuirlo nella soluzione.
+
+>[!NOTE]
+>I log attività dettagliati descritti qui attualmente sono progettati **SOLO** per facilitare lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione.  I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo.  Se usato in fase di produzione, lo sviluppatore si assume la responsabilità delle informazioni personali raccolte nel log di App Insights di cui è proprietario.  Questi log dettagliati vengono raccolti solo quando il criterio è in **MODALITÀ DI SVILUPPO**.
 
 [Repository GitHub di esempi di criteri personalizzate non supportati e strumenti correlati](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 
+## <a name="next-steps"></a>Passaggi successivi
 
+Esplorare i dati in Application Insights per capire il funzionamento di B2C sottostante del framework dell'esperienza di gestione delle identità per distribuire le proprie esperienze di gestione delle identità.
 

@@ -12,17 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2017
+ms.date: 8/24/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: c1bcfa2d93a77a655092dca250d2a3e2c86b944d
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 09c433ccf54c84ee2ae40c3ba3ccd84e7462124c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="august-guest-os"></a>Sistema operativo Guest di agosto
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4034658] |Aggiornamenti di Windows 10 |5.10 |8 agosto 2017 |
+| Rel 17-07 | [4034679] |Solo sicurezza di Windows |2.65 |8 agosto 2017 |
+| Rel 17-07 | [4034672] |Solo sicurezza di Windows |4.45 |8 agosto 2017 |
+| Rel 17-07 | [4034666] |Solo sicurezza di Windows |3.52 |8 agosto 2017 |
+| Rel 17-07 | [4034733] |Internet Explorer |2.65, 3.52, 4.45, 5.10 |8 agosto 2017 |
+| Rel 17-07 | [4034664], [4034665], [4034681] |Rollup mensili di Windows |2.65, 3.52, 4.45 |8 agosto 2017 |
+| Rel 17-07 | [4034668], [4034660], [4034658], [4034674] |Nuovo rilascio di CVE-2017-0071, nuovo rilascio di CVE-2017-0228 |5.10 |8 agosto 2017 |
+| Rel 17-07 | [4025341] |Rollup del mese di luglio non correlato alla sicurezza |2.65 |8 agosto 2017 |
+| Rel 17-07 | [4025331] |Rollup del mese di luglio non correlato alla sicurezza |3.52 |8 agosto 2017 |
+| Rel 17-07 | [4025336] |Rollup del mese di luglio non correlato alla sicurezza |4.45 |8 agosto 2017 |
 
 ## <a name="july-guest-os"></a>Sistema operativo guest di luglio
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -509,6 +523,23 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3007054] |L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
+
+
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034679]: http://support.microsoft.com/kb/4034679
+[4034672]: http://support.microsoft.com/kb/4034672
+[4034666]: http://support.microsoft.com/kb/4034666
+[4034733]: http://support.microsoft.com/kb/4034733
+[4034664]: http://support.microsoft.com/kb/4034664
+[4034665]: http://support.microsoft.com/kb/4034665
+[4034681]: http://support.microsoft.com/kb/4034681
+[4034668]: http://support.microsoft.com/kb/4034668
+[4034660]: http://support.microsoft.com/kb/4034660
+[4034658]: http://support.microsoft.com/kb/4034658
+[4034674]: http://support.microsoft.com/kb/4034674
+[4025341]: http://support.microsoft.com/kb/4025341
+[4025331]: http://support.microsoft.com/kb/4025331
+[4025336]: http://support.microsoft.com/kb/4025336
 
 [4025339]: http://support.microsoft.com/kb/4025337
 [4025337]: http://support.microsoft.com/kb/4025333

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 750540d0866e69ce043133e9c668c8a2e09b9d1c
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrazione di Data Lake Store con altri servizi di Azure
@@ -64,6 +63,9 @@ Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, 
 
 ## <a name="use-data-lake-store-with-sql-data-warehouse"></a>Uso di Data Lake Store con SQL Data Warehouse
 È possibile usare PolyBase per caricare dati da Azure Data Lake Store in SQL Data Warehouse. Per altre informazioni, vedere [Usare Data Lake Store con SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+
+## <a name="use-data-lake-store-with-azure-event-hubs"></a>Usare Data Lake Store con Hub eventi di Azure
+È possibile usare Azure Data Lake Store per archiviare e acquisire i dati ricevuti da Hub eventi di Azure. Per altre informazioni, vedere [Usare Data Lake Store con Hub eventi di Azure](data-lake-store-archive-eventhub-capture.md).
 
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica di Data Lake Store di Azure](data-lake-store-overview.md)

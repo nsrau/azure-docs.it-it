@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 08/28/2017
 ms.author: raprasa
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 130f0eb259621737d6dbdb151e363915fb334ce1
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 89dc30c5475786d89554f5ec9e10e555267e6d78
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup online automatico e ripristino con Azure Cosmos DB
@@ -58,7 +58,7 @@ Se si vuole mantenere gli snapshot, è possibile usare l'opzione di esportazione
 Se si elimina involontariamente il database o la raccolta, è possibile [creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dall'ultimo backup automatico. Se è necessario ripristinare il database a causa di un problema di danneggiamento dei dati, vedere [Gestione del danneggiamento dei dati](#handling-data-corruption) perché è necessario eseguire passaggi aggiuntivi per evitare che i dati danneggiati penetrino nei backup. Per il ripristino di uno snapshot specifico del backup, Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.
 
 ## <a name="handling-data-corruption"></a>Gestione del danneggiamento dei dati
-Azure Cosmos DB conserva gli ultimi due backup di ogni partizione del sistema. Questo modello è ideale quando un contenitore (raccolta di documenti, grafo, tabella) o un database viene eliminato involontariamente perché consente di ripristinare una delle versioni più recenti. Se tuttavia gli utenti causano un problema di danneggiamento dei dati, Azure Cosmos DB potrebbe non rilevare il danneggiamento dei dati che potrebbe quindi penetrare nei backup. Non appena il danneggiamento viene rilevato, è consigliabile eliminare il contenitore danneggiato (raccolta/grafo/tabella) in modo che i backup siano protetti e non vengano sovrascritti con i dati danneggiati. Poiché il backup più recente potrebbe risalire a quattro ore prima, l'utente può usare il [feed delle modifiche](change-feed.md) per acquisire e archiviare le ultime quattro ore di dati prima di eliminare il contenitore.
+Azure Cosmos DB conserva gli ultimi due backup di ogni partizione del sistema. Questo modello è ideale quando un contenitore (raccolta di documenti, grafo, tabella) o un database viene eliminato involontariamente perché consente di ripristinare una delle versioni più recenti. Se tuttavia gli utenti causano un problema di danneggiamento dei dati, Azure Cosmos DB potrebbe non rilevare il danneggiamento dei dati che potrebbe quindi penetrare nei backup. Non appena il danneggiamento viene rilevato, l'utente deve eliminare il contenitore danneggiato (raccolta/grafo/tabella) in modo che i backup siano protetti e non vengano sovrascritti con i dati danneggiati. Poiché il backup più recente potrebbe risalire a quattro ore prima, l'utente può usare il [feed delle modifiche](change-feed.md) per acquisire e archiviare le ultime quattro ore di dati prima di eliminare il contenitore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

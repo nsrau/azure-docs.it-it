@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
 ms.contentlocale: it-it
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
@@ -78,9 +78,9 @@ Dopo avere abilitato le impostazioni di diagnostica, è possibile tornare al pan
 
 3. Fare clic sul collegamento **Scarica** di una voce di log per scaricare il log.
 
-### <a name="use-the-azure-data-lake-storage-account-that-contains-log-data"></a>Usare l'account di archiviazione di Azure Data Lake che contiene i dati del log
+### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Usare l'account di archiviazione di Azure contenente i dati di log
 
-1. Aprire il pannello dell'account di archiviazione di Azure Data Lake associato a Data Lake Analytics per la registrazione e quindi fare clic su __BLOB__. Il pannello **Servizio BLOB** elenca due contenitori.
+1. Aprire il pannello dell'account di archiviazione di Azure associato a Data Lake Analytics per la registrazione e quindi fare clic su __BLOB__. Il pannello **Servizio BLOB** elenca due contenitori.
 
     ![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
 

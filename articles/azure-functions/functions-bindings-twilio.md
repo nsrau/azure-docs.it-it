@@ -1,10 +1,10 @@
 ---
-title: Associazione di Twilio in Funzioni di Azure | Documentazione Microsoft
-description: Informazioni su come usare le associazioni di Twilio in Funzioni di Azure.
+title: Binding di Twilio in Funzioni di Azure | Documentazione Microsoft
+description: Informazioni su come usare i binding di Twilio in Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
@@ -17,33 +17,35 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 9355aae6e3fbf70aae08cc829d7addd2decc44fd
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e8c5e8f2dfedae26486e1c8afbe0cec3f3228e86
 ms.contentlocale: it-it
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>Inviare messaggi SMS da Funzioni di Azure usando il binding di output di Twilio
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e usare le associazioni di Twilio in Funzioni di Azure. 
+Questo articolo illustra come configurare e usare i binding di Twilio in Funzioni di Azure. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Funzioni di Azure supporta le associazioni output di Twilio per consentire alle funzioni di inviare messaggi SMS con poche righe di codice e un account di [Twilio](https://www.twilio.com/). 
+Funzioni di Azure supporta i binding di output di Twilio per consentire alle funzioni di inviare messaggi SMS con poche righe di codice e un account di [Twilio](https://www.twilio.com/). 
 
 ## <a name="functionjson-for-the-twilio-output-binding"></a>File function.json per il binding di output di Twilio
 Il file function.json specifica le proprietà seguenti:
 
-* `name` : nome della variabile usato nel codice della funzione per il messaggio SMS di Twilio.
-* `type` : deve essere impostato su *"twilioSms"*.
-* `accountSid` : questo valore deve essere impostato sul nome di un'impostazione dell'app che contiene il SID account di Twilio.
-* `authToken` : questo valore deve essere impostato sul nome di un'impostazione dell'app che contiene il token di autenticazione di Twilio.
-* `to` : questo valore viene impostato sul numero di telefono a cui viene inviato il messaggio SMS.
-* `from` : questo valore viene impostato sul numero di telefono da cui viene inviato il messaggio SMS.
-* `direction` : deve essere impostato su *"out"*.
-* `body` : questo valore può essere usato per codificare il messaggio SMS se non occorre impostarlo dinamicamente nel codice per la funzione. 
+|Proprietà  |Descrizione  |
+|---------|---------|
+|**nome**| Nome della variabile usato nel codice della funzione per il messaggio SMS di Twilio. |
+|**type**| deve essere impostato su `twilioSms`.|
+|**accountSid**| Questo valore deve essere impostato sul nome di un'impostazione app che contiene il SID dell'account Twilio.|
+|**authToken**| Questo valore deve essere impostato sul nome di un'impostazione app che contiene il token di autenticazione di Twilio.|
+|**to**| Questo valore è impostato sul numero di telefono a cui viene inviato il messaggio SMS.|
+|**from**| Questo valore è impostato sul numero di telefono da cui viene inviato il messaggio SMS.|
+|**direction**| deve essere impostato su `out`.|
+|**body**| Questo valore può essere usato per impostare come hardcoded il messaggio SMS se non è necessario impostarlo dinamicamente nel codice per la funzione. |
 
 Function.json di esempio:
 
@@ -61,7 +63,7 @@ Function.json di esempio:
 ```
 
 
-## <a name="example-c-queue-trigger-with-twilio-output-binding"></a>Esempio di trigger della coda C# con l'associazione output di Twilio
+## <a name="example-c-queue-trigger-with-twilio-output-binding"></a>Esempio di trigger della coda C# con il binding di output di Twilio
 #### <a name="synchronous"></a>Sincrono
 Questo esempio di codice sincrono per un trigger della coda di Archiviazione di Azure usa un parametro out per inviare un messaggio di testo a un cliente che ha effettuato un ordine.
 
@@ -128,7 +130,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<SMSMessage> mes
 }
 ```
 
-## <a name="example-nodejs-queue-trigger-with-twilio-output-binding"></a>Esempio di trigger della coda Node.js con l'associazione output di Twilio
+## <a name="example-nodejs-queue-trigger-with-twilio-output-binding"></a>Esempio di trigger della coda Node.js con il binding di output di Twilio
 Questo esempio di Node.js invia un messaggio di testo a un cliente che ha effettuato un ordine.
 
 ```javascript
