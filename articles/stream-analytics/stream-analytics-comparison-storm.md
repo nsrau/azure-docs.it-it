@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4c0c7c185943eb292d816e2047de930245a3e1e1
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Scegliere una piattaforma di analisi di flusso: confronto tra Apache Storm e Analisi di flusso di Azure
@@ -231,29 +231,12 @@ Sono disponibili log dettagliati. Gli utenti possono accedere ai log in Visual S
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>Supporto per funzioni definite dall'utente (UDF)</strong>
-                </p>
-            </td>
-            <td width="204" valign="top">
-                <p>
-Le query supportano UDF JavaScript. Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">Integrazione UDF di JavaScript</a>.
-                </p>
-            </td>
-            <td width="246" valign="top">
-                <p>
-Le funzioni UDF possono essere scritte in C#, in Java o in un altro linguaggio.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="174" valign="top">
-                <p>
                     <strong>Estensibilità tramite codice personalizzato?</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-No. Non è previsto alcun supporto per il codice estendibile in Analisi di flusso.
+Supporto parziale con UDF JavaScript. Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">Integrazione UDF di JavaScript</a>.
                 </p>
             </td>
             <td width="246" valign="top">

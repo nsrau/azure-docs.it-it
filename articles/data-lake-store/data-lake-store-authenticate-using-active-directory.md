@@ -1,6 +1,6 @@
 ---
 title: 'Autenticazione da servizio a servizio: Data Lake Store con Azure Active Directory | Documentazione Microsoft'
-description: Informazioni su come ottenere l&quot;autenticazione da servizio a servizio con Data Lake Store tramite Azure Active Directory
+description: Informazioni su come ottenere l'autenticazione da servizio a servizio con Data Lake Store tramite Azure Active Directory
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 1d712ef6987a4af2014bedb54378f288bcf535a8
-ms.lasthandoff: 04/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 69a860f89601fce7614d77f1bcd839b6ca540b88
+ms.contentlocale: it-it
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticazione da servizio a servizio con Data Lake Store tramite Azure Active Directory
@@ -28,14 +28,14 @@ ms.lasthandoff: 04/22/2017
 > 
 > 
 
-Azure Data Lake Store usa Azure Active Directory per l'autenticazione. Prima di creare un'applicazione che funziona con Azure Data Lake Store o Azure Data Lake Analytics, per prima cosa è necessario stabilire come si desidera eseguire l'autenticazione dell'applicazione con Azure Active Directory (Azure AD). Le opzioni disponibili sono due:
+Azure Data Lake Store usa Azure Active Directory per l'autenticazione. Prima di creare un'applicazione che funzioni con Azure Data Lake Store o Azure Data Lake Analytics, è necessario stabilire come autenticare l'applicazione con Azure Active Directory (Azure AD). Le opzioni disponibili sono due:
 
 * Autenticazione dell'utente finale 
 * Autenticazione da servizio a servizio (questo articolo) 
 
 Entrambe queste opzioni comportano che l'applicazione venga fornita con un token OAuth 2.0, che viene associato a ogni richiesta effettuata ad Azure Data Lake Store o Azure Data Lake Analytics.
 
-Questo articolo illustra come creare un'**applicazione Web di Azure AD per l'autenticazione da servizio a servizio**. Per istruzioni sulla configurazione dell'applicazione Azure AD per l'autenticazione dell'utente finale, vedere [End-user authentication with Data Lake Store using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticazione dell'utente finale con Data Lake Store tramite Azure Active Directory).
+Questo articolo illustra come creare un'**applicazione Web di Azure AD per l'autenticazione da servizio a servizio**. Per istruzioni sulla configurazione dell'applicazione Azure AD per l'autenticazione dell'utente finale, vedere [Autenticazione dell'utente finale con Data Lake Store tramite Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -44,11 +44,11 @@ Questo articolo illustra come creare un'**applicazione Web di Azure AD per l'aut
 
 Creare e configurare un'applicazione Web di Azure AD per l'autenticazione da servizio a servizio con Azure Data Lake Store tramite Azure Active Directory. Per istruzioni, vedere [Creare un'applicazione Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
-Mentre si seguono le istruzioni nel collegamento riportato sopra, assicurarsi di selezionare **App Web/API** come tipo di applicazione, come illustrato nella schermata seguente.
+Mentre si seguono le istruzioni nel collegamento, assicurarsi di selezionare **App Web/API** come tipo di applicazione, come illustrato nello screenshot.
 
 ![Creare un'app Web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Creare un'app Web")
 
-## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Passaggio 2: ottenere l'ID applicazione, la chiave di autenticazione e l'ID del tenant
+## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Passaggio 2: Ottenere l'ID applicazione, la chiave di autenticazione e l'ID tenant
 Quando si esegue l'accesso a livello di codice, è necessario l'ID dell'applicazione. Se l'applicazione viene eseguita con le proprie credenziali, è necessaria anche una chiave di autenticazione.
 
 * Per istruzioni su come recuperare l'ID applicazione e la chiave di autenticazione, definita anche segreto client, per l'applicazione, vedere [Ottenere l'ID applicazione e la chiave di autenticazione](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).

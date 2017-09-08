@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
 ms.contentlocale: it-it
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accesso ai log di diagnostica per Archivio Data Lake di Azure
-Informazioni su come abilitare la registrazione diagnostica per l'account di Archivio Data Lake e su come visualizzare i log raccolti per l'account.
+Informazioni su come abilitare la registrazione diagnostica per l'account Data Lake Store e visualizzare i log raccolti per l'account.
 
 Le organizzazioni possono abilitare la registrazione diagnostica per il loro account di Archivio Data Lake di Azure per raccogliere gli audit trial di accesso ai dati che forniscono varie informazioni, come l’elenco di utenti che hanno avuto accesso ai dati, la frequenza di accesso ai dati, la quantità di dati archiviati nell’account, ecc.
 
@@ -42,7 +41,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il loro acc
    
     ![Abilitare la funzionalità di registrazione diagnostica](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
    
-   * Impostare lo **Stato** su **Attivo** per abilitare la registrazione diagnostica.
+   * Per **Nome** immettere un valore per la configurazione del log di diagnostica.
    * È possibile scegliere di archiviare/elaborare i dati in modi diversi.
      
         * Selezionare l'opzione per **archiviare in un account di archiviazione** per archiviare i log in un account di archiviazione di Azure. Utilizzare questa opzione se si desidera archiviare i dati che saranno elaborati in batch in un secondo momento. Se si seleziona questa opzione è necessario fornire un account di archiviazione di Azure in cui salvare i log.
@@ -71,7 +70,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Store.
    
    * I log delle richieste acquisiscono tutte le richieste API fatte nell’account di Archivio Data Lake.
    * I log di controllo sono simili a quelli delle richieste ma forniscono una suddivisione più dettagliata delle operazioni eseguite nell'account di Archivio Data Lake. Ad esempio, una singola chiamata API di caricamento nei log delle richieste potrebbe risultare in molteplici operazioni di "Aggiungi" nei log di controllo.
-3. Fare clic sul link **Scarica** di ogni voce di log per scaricare i log.
+3. Per scaricare i log, fare clic sul collegamento **Scarica** per ogni voce di log.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Dall'account di Archiviazione di Azure che contiene i dati di log
 1. Aprire il pannello Account di Archiviazione di Azure associato a Data Lake Store per la registrazione e quindi fare clic su BLOB. Il pannello **Servizio BLOB** elenca due contenitori.
@@ -86,7 +85,7 @@ Esistono due modi per visualizzare i dati di log dell'account Data Lake Store.
    
     Ad esempio, il percorso completo a un log di controllo potrebbe essere `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    Analogamente, il percorso completo a un log della richiesta potrebbe essere `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    Analogamente, il percorso completo di un log richieste potrebbe essere `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## <a name="understand-the-structure-of-the-log-data"></a>Informazioni sulla struttura dei dati del log
 I log di controllo e delle richieste sono in formato JSON. In questa sezione, viene esaminata la struttura di JSON per i log delle richieste e di controllo.

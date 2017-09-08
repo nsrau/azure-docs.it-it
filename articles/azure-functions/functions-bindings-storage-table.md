@@ -1,10 +1,10 @@
 ---
-title: Associazioni della tabella di archiviazione di Funzioni di Azure | Documentazione Microsoft
-description: Informazioni su come usare le associazioni di Archiviazione di Azure in Funzioni di Azure.
+title: Binding della tabella di archiviazione di Funzioni di Azure | Microsoft Docs
+description: Informazioni su come usare i binding di Archiviazione di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
@@ -16,19 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: bb01be3ee044f60376e0c9c2de7b3dd34f3b7aca
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 486b7c31c914ba7bb2d75e3f83ccf346a09104e8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/29/2017
 
 ---
-# <a name="azure-functions-storage-table-bindings"></a>Associazioni della tabella di archiviazione di Funzioni di Azure
+# <a name="azure-functions-storage-table-bindings"></a>Binding della tabella di archiviazione di Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e scrivere il codice delle associazioni delle tabelle di Archiviazione di Azure in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per le tabelle di Archiviazione di Azure.
+Questo articolo illustra come configurare e scrivere il codice dei binding delle tabelle di Archiviazione di Azure in Funzioni di Azure. Funzioni di Azure supporta i bindingi di input e output per le tabelle di Archiviazione di Azure.
 
-L'associazione delle tabelle di archiviazione supporta gli scenari seguenti:
+Il binding delle tabelle di archiviazione supporta gli scenari seguenti:
 
 * **Leggere una singola riga in una funzione C# o Node.js**: impostare `partitionKey` e `rowKey`. Le proprietà `filter` e `take` non vengono usate in questo scenario.
 * **Leggere più righe in una funzione C#**: il runtime di Funzioni specifica un oggetto `IQueryable<T>` associato alla tabella. Il tipo `T` deve derivare da `TableEntity` o implementare `ITableEntity`. Le proprietà `partitionKey`, `rowKey`, `filter` e `take` non vengono usate in questo scenario. È possibile usare l'oggetto `IQueryable` per qualsiasi operazione di filtro necessaria. 
@@ -39,8 +39,8 @@ L'associazione delle tabelle di archiviazione supporta gli scenari seguenti:
 
 <a name="input"></a>
 
-## <a name="storage-table-input-binding"></a>Associazione di input della tabella di archiviazione
-L'associazione di input nella tabella di archiviazione di Azure consente di usare una tabella di archiviazione nella funzione. 
+## <a name="storage-table-input-binding"></a>Binding di input della tabella di archiviazione
+Il binding di input nella tabella di archiviazione di Azure consente di usare una tabella di archiviazione nella funzione. 
 
 L'input della tabella di archiviazione in una funzione usa gli oggetti JSON seguenti nella matrice `bindings` di function.json:
 
@@ -67,7 +67,7 @@ Tenere presente quanto segue:
 
 ## <a name="input-usage"></a>Uso dell'input
 Nelle funzioni C# l'associazione all'entità, o alle entità, della tabella di input viene eseguita usando un parametro denominato nella firma funzione, ad esempio `<T> <name>`.
-`T` è il tipo di dati in cui si vogliono deserializzare i dati e `paramName` è il nome specificato nell'[associazione di input](#input). Nelle funzioni Node.js si accede all'entità (o alle entità) della tabella di input usando `context.bindings.<name>`.
+`T` è il tipo di dati in cui si vogliono deserializzare i dati e `paramName` è il nome specificato nel [binding di input](#input). Nelle funzioni Node.js si accede all'entità (o alle entità) della tabella di input usando `context.bindings.<name>`.
 
 I dati di input possono essere deserializzati in funzioni Node.js o C#. Gli oggetti deserializzati hanno le proprietà `RowKey` e `PartitionKey`.
 
@@ -110,7 +110,7 @@ Vedere l'esempio specifico del linguaggio che legge una singola entità di tabel
 
 * [C#](#inputcsharp)
 * [F#](#inputfsharp)
-* [Node.JS](#inputnodejs)
+* [Node.js](#inputnodejs)
 
 <a name="inputcsharp"></a>
 
@@ -159,8 +159,8 @@ module.exports = function (context, myQueueItem) {
 
 <a name="output"></a>
 
-## <a name="storage-table-output-binding"></a>Associazione di output della tabella di archiviazione
-L'associazione di output della tabella di Archiviazione di Azure consente di scrivere entità in una tabella di archiviazione della funzione. 
+## <a name="storage-table-output-binding"></a>Binding di output della tabella di archiviazione
+Il binding di output della tabella di Archiviazione di Azure consente di scrivere entità in una tabella di archiviazione della funzione. 
 
 L'output della tabella di archiviazione per una funzione usa gli oggetti JSON seguenti nella matrice `bindings` di function.json:
 
@@ -184,7 +184,7 @@ Tenere presente quanto segue:
 <a name="outputusage"></a>
 
 ## <a name="output-usage"></a>Uso dell'output
-Nelle funzioni C# è possibile eseguire l'associazione all'output della tabella usando il parametro denominato `out` nella firma funzione, ad esempio `out <T> <name>`, dove `T` è il tipo di dati in cui si vuole serializzare i dati e `paramName` è il nome specificato nell'[associazione di output](#output). Nelle funzioni Node.js si accede all'output della tabella usando `context.bindings.<name>`.
+Nelle funzioni C# è possibile eseguire il binding all'output della tabella usando il parametro denominato `out` nella firma funzione, ad esempio `out <T> <name>`, dove `T` è il tipo di dati in cui si vuole serializzare i dati e `paramName` è il nome specificato nel [binding di output](#output). Nelle funzioni Node.js si accede all'output della tabella usando `context.bindings.<name>`.
 
 È possibile serializzare gli oggetti nelle funzioni Node.js o C#. Nelle funzioni C# è anche possibile definire associazioni con i seguenti tipi:
 

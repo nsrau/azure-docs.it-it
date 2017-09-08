@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 08/28/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 36b4cd0674e0f9cec6fb2b00e809c71ee38a80c0
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 9d4ab890c35eebb2e59a9f4fa96843c854636272
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse
@@ -62,7 +62,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-L'esempio viene sospeso per 20 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {id} non esiste nella directory".
+L'esempio viene sospeso per 20 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {ID} non esiste nella directory".
 
 Lo script seguente consente di specificare un ambito diverso dalla sottoscrizione predefinita e ritenta l'assegnazione del ruolo, se si verifica un errore:
 
@@ -117,7 +117,7 @@ Param (
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -127,7 +127,7 @@ Alcuni elementi da considerare per lo script:
 * Per concedere l'accesso all'identità alla sottoscrizione predefinita, non è necessario specificare i parametri ResourceGroup o SubscriptionId.
 * Specificare il parametro ResourceGroup solo quando si vuole limitare l'ambito dell'assegnazione di ruolo a un gruppo di risorse.
 *  In questo esempio viene aggiunta l'entità servizio al ruolo Collaboratore. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md).
-* Lo script viene sospeso per 15 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {id} non esiste nella directory".
+* Lo script viene sospeso per 15 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {ID} non esiste nella directory".
 * Se è necessario concedere l'accesso all'entità servizio a più sottoscrizioni o gruppi di risorse, eseguire il cmdlet `New-AzureRMRoleAssignment` con ambiti diversi.
 
 
@@ -136,7 +136,7 @@ A questo punto è necessario accedere come applicazione per eseguire operazioni.
 
 ```powershell   
 $creds = Get-Credential
-Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-id}
+Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId {tenant-ID}
 ```
 
 Poiché l'ID tenant non è sensibile, è possibile incorporarlo direttamente nello script. Se è necessario recuperare l'ID tenant, usare:
@@ -159,7 +159,7 @@ Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-L'esempio viene sospeso per 20 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {id} non esiste nella directory".
+L'esempio viene sospeso per 20 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {ID} non esiste nella directory".
 
 Lo script seguente consente di specificare un ambito diverso dalla sottoscrizione predefinita e ritenta l'assegnazione di ruolo, se si verifica un errore. È necessario che sia installato Azure PowerShell 2.0 su Windows 10 o Windows Server 2016.
 
@@ -212,7 +212,7 @@ Param (
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
 ```
@@ -222,7 +222,7 @@ Alcuni elementi da considerare per lo script:
 * Per concedere l'accesso all'identità alla sottoscrizione predefinita, non è necessario specificare i parametri ResourceGroup o SubscriptionId.
 * Specificare il parametro ResourceGroup solo quando si vuole limitare l'ambito dell'assegnazione di ruolo a un gruppo di risorse.
 * In questo esempio viene aggiunta l'entità servizio al ruolo Collaboratore. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md).
-* Lo script viene sospeso per 15 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {id} non esiste nella directory".
+* Lo script viene sospeso per 15 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {ID} non esiste nella directory".
 * Se è necessario concedere l'accesso all'entità servizio a più sottoscrizioni o gruppi di risorse, eseguire il cmdlet `New-AzureRMRoleAssignment` con ambiti diversi.
 
 Se **non si dispone di Windows 10 o Windows Server 2016 Technical Preview**, è necessario scaricare il [generatore di certificato autofirmato](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) da Microsoft Script Center. Estrarre i contenuti e importare il cmdlet necessario.
@@ -292,20 +292,14 @@ Param (
  Login-AzureRmAccount
  Import-Module AzureRM.Resources
  Set-AzureRmContext -SubscriptionId $SubscriptionId
-
- $KeyId = (New-Guid).Guid
+ 
  $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
 
  $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($CertPath, $CertPassword)
  $KeyValue = [System.Convert]::ToBase64String($PFXCert.GetRawCertData())
 
- $KeyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
- $KeyCredential.StartDate = $PFXCert.NotBefore
- $KeyCredential.EndDate= $PFXCert.NotAfter
- $KeyCredential.KeyId = $KeyId
- $KeyCredential.CertValue = $KeyValue
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -KeyCredentials $keyCredential
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName
+ New-AzureRmADSpCredential -ObjectId $ServicePrincipal.Id -CertValue $KeyValue -StartDate $PFXCert.NotBefore -EndDate $PFXCert.NotAfter
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -315,7 +309,7 @@ Param (
     # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
     Sleep 15
     New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
     $Retries++;
  }
  
@@ -326,7 +320,7 @@ Alcuni elementi da considerare per lo script:
 
 * L'ambito di accesso è limitato alla sottoscrizione.
 * In questo esempio viene aggiunta l'entità servizio al ruolo Collaboratore. Per gli altri ruoli, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../active-directory/role-based-access-built-in-roles.md).
-* Lo script viene sospeso per 15 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {id} non esiste nella directory".
+* Lo script viene sospeso per 15 secondi per consentire la propagazione della nuova entità servizio in Azure Active Directory. Se la durata dell'attesa dello script non è sufficiente, viene visualizzato un errore simile al seguente: "PrincipalNotFound: L'entità {ID} non esiste nella directory".
 * Se è necessario concedere l'accesso all'entità servizio a più sottoscrizioni o gruppi di risorse, eseguire il cmdlet `New-AzureRMRoleAssignment` con ambiti diversi.
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornire il certificato tramite uno script di PowerShell automatizzato
@@ -398,7 +392,7 @@ Salvare il profilo per usare il token di accesso corrente in una sessione succes
 Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
 ```
    
-Aprire il profilo ed esaminare il relativo contenuto. Si noti che contiene un token di accesso. Anziché effettuare di nuovo l'accesso manuale, è sufficiente caricare il profilo.
+Aprire il profilo ed esaminare il relativo contenuto. Si noti che contiene un token di accesso. Invece di effettuare di nuovo l'accesso manuale, caricare il profilo.
    
 ```powershell
 Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json

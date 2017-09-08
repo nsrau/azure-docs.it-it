@@ -1,43 +1,44 @@
 ---
-title: 'Azure Active Directory B2C: Riferimento token | Documentazione Microsoft'
+title: Informazioni di riferimento sui token - Azure AD B2C | Microsoft Docs
 description: Tipi di token rilasciati in Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
-editor: 
+author: parakhj
+manager: krassk
+editor: parakhj
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
-ms.author: dastrock
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 39cfbc1c6dea138fe2f1eb3190770606f3895d40
+ms.date: 08/16/2017
+ms.author: parakhj
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 7f98637264d1acb209d0379e4800e542fc91955b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: informazioni di riferimento sui token
+
 Azure Active Directory B2C (Azure AD B2C) rilascia tipi diversi di token di sicurezza durante l'elaborazione di ogni [flusso di autenticazione](active-directory-b2c-apps.md). Questo documento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
 
 ## <a name="types-of-tokens"></a>Tipi di token
 Azure AD B2C supporta il [protocollo di autorizzazione OAuth 2.0](active-directory-b2c-reference-protocols.md), che usa sia token di accesso che token di aggiornamento. L'endpoint supporta inoltre l'autenticazione e l'accesso tramite [OpenID Connect](active-directory-b2c-reference-protocols.md), che introduce un terzo tipo di token: il token ID. Ognuno di questi token viene rappresentato come token di connessione.
 
-Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. Per "portatore" si intende qualsiasi parte che possa presentare il token. Per poter ricevere un token di connessione, Azure AD deve prima autenticare una parte. Se non vengono adottate le misure necessarie per proteggere il token durante la trasmissione e l'archiviazione, potrebbe essere intercettato e usato da parti non autorizzate. Alcuni token di sicurezza hanno un meccanismo predefinito che ne impedisce l'uso da parti non autorizzate, ma i token di connessione non presentano questo meccanismo. Devono essere trasportati usando un canale protetto, ad esempio il protocollo Transport Layer Security (HTTPS).
+Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. Per "portatore" si intende qualsiasi parte che possa presentare il token. Per poter ricevere un token di connessione, Azure AD B2C deve prima autenticare una parte. Se non vengono adottate le misure necessarie per proteggere il token durante la trasmissione e l'archiviazione, potrebbe essere intercettato e usato da parti non autorizzate. Alcuni token di sicurezza hanno un meccanismo predefinito che ne impedisce l'uso da parti non autorizzate, ma i token di connessione non presentano questo meccanismo. Devono essere trasportati usando un canale protetto, ad esempio il protocollo Transport Layer Security (HTTPS).
 
 Se un token di connessione viene trasmesso al di fuori di un canale protetto, un utente malintenzionato potrebbe usare un attacco man-in-the-middle per acquisire il token e usarlo per l'accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando i token di connessione vengono archiviati o memorizzati nella cache per un uso futuro. Assicurarsi sempre che l'app trasmetta e archivi i token di connessione in modo sicuro.
 
 Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-Molti dei token rilasciati da Azure AD B2C vengono implementati come token Web JSON (JWT). Un token JWT è un modo compatto e indipendente dall'URL di trasferimento delle informazioni tra due parti. I token JWT contengono informazioni note come attestazioni. Si tratta di asserzioni di informazioni relative alla connessione e all'oggetto del token. Le attestazioni nei token JWT sono oggetti JSON codificati e serializzati per la trasmissione. I token JWT rilasciati da Azure AD B2C sono firmati, ma non crittografati, è quindi possibile esaminarne facilmente i contenuti per il debug. Sono disponibili diversi strumenti adatti a questo scopo, ad esempio [calebb.net](http://calebb.net). Per altre informazioni sui token JWT, vedere le [specifiche dei token JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Molti dei token rilasciati da Azure AD B2C vengono implementati come token Web JSON (JWT). Un token JWT è un modo compatto e indipendente dall'URL di trasferimento delle informazioni tra due parti. I token JWT contengono informazioni note come attestazioni. Si tratta di asserzioni di informazioni relative alla connessione e all'oggetto del token. Le attestazioni nei token JWT sono oggetti JSON codificati e serializzati per la trasmissione. I token JWT rilasciati da Azure AD B2C sono firmati, ma non crittografati, è quindi possibile esaminarne facilmente i contenuti per il debug. Sono disponibili vari strumenti adatti a questo scopo, ad esempio [jwt.ms](https://jwt.ms). Per altre informazioni sui token JWT, vedere le [specifiche dei token JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>Token ID
-I token ID sono un tipo di token di sicurezza che l'app riceve dagli endpoint `authorize` e `token` di Azure AD B2C. Vengono rappresentati come token [JWT](#types-of-tokens)e contengono attestazioni che è possibile usare per l'identificazione degli utenti nell'app. Quando vengono acquisiti dall'endpoint `authorize` , i token ID vengono spesso usati per l'accesso degli utenti alle applicazioni Web. Quando vengono acquisiti dall'endpoint `token` , i token ID possono essere inviati in richieste HTTP durante la comunicazione tra due componenti della stessa applicazione o dello stesso servizio. Le attestazioni nei token ID possono essere usate in base alle esigenze. Vengono comunemente usate per visualizzare informazioni sull'account o per prendere decisioni relative al controllo di accesso in un'app.  
+
+I token ID sono un tipo di token di sicurezza che l'app riceve dagli endpoint `/authorize` e `/token` di Azure AD B2C. Vengono rappresentati come token [JWT](#types-of-tokens)e contengono attestazioni che è possibile usare per l'identificazione degli utenti nell'app. Quando i token ID vengono acquisiti dall'endpoint `/authorize`, viene usato il [flusso implicito](active-directory-b2c-reference-spa.md), a cui spesso si ricorre per consentire l'accesso degli utenti alle applicazioni Web basate su JavaScript. Quando invece vengono acquisiti dall'endpoint `/token`, viene usato il [flusso di codice riservato](active-directory-b2c-reference-oidc.md), che mantiene il token nascosto al browser. In questo modo, il token può essere inviato in totale sicurezza in richieste HTTP per la comunicazione tra due componenti della stessa applicazione o dello stesso servizio. Le attestazioni nei token ID possono essere usate in base alle esigenze. Vengono comunemente usate per visualizzare informazioni sull'account o per prendere decisioni relative al controllo di accesso in un'app.  
 
 Attualmente i token ID sono firmati, ma non crittografati. Quando l'API o l'app riceve un token ID, deve [convalidare la firma](#token-validation) per dimostrare l'autenticità del token. Per dimostrarne la validità, l'API o l'app deve anche convalidare alcune delle attestazioni del token. A seconda dei requisiti dello scenario, le attestazioni convalidate da un'app possono variare, ma l'app deve eseguire alcune [operazioni comuni di convalida delle attestazioni](#token-validation) in ogni scenario.
 
@@ -60,14 +61,16 @@ CQhoFA
 ```
 
 ### <a name="access-tokens"></a>Token di accesso
-Un token di accesso è anche un tipo di token di sicurezza che l'app riceve dagli endpoint `authorize` e `token` di Azure AD B2C. I token di accesso vengono rappresentati come token [JWT](#types-of-tokens) e contengono attestazioni che è possibile usare per l'identificazione delle autorizzazioni concesse alle API. Attualmente i token di accesso sono firmati, ma non crittografati. Per fornire l'accesso alle API e ai server delle risorse, è necessario usare i token di accesso. Altre informazioni su come [usare i token di accesso](active-directory-b2c-access-tokens.md). 
+
+Un token di accesso è anche un tipo di token di sicurezza che l'app riceve dagli endpoint `/authorize` e `/token` di Azure AD B2C. I token di accesso vengono rappresentati come token [JWT](#types-of-tokens) e contengono attestazioni che è possibile usare per l'identificazione delle autorizzazioni concesse alle API. Attualmente i token di accesso sono firmati, ma non crittografati. Per fornire l'accesso alle API e ai server delle risorse, è necessario usare i token di accesso. Altre informazioni su come [usare i token di accesso](active-directory-b2c-access-tokens.md). 
 
 Quando l'API riceve un token di accesso, deve [convalidare la firma](#token-validation) per dimostrare l'autenticità del token. Per dimostrarne la validità, l'API deve anche convalidare alcune attestazioni del token. A seconda dei requisiti dello scenario, le attestazioni convalidate da un'app possono variare, ma l'app deve eseguire alcune [operazioni comuni di convalida delle attestazioni](#token-validation) in ogni scenario.
 
 ### <a name="claims-in-id-and-access-tokens"></a>Attestazioni nei token di accesso e ID
+
 Azure AD B2C consente un controllo con granularità fine sul contenuto dei token. È possibile configurare [criteri](active-directory-b2c-reference-policies.md) per inviare un set di dati utente specifici in attestazioni necessarie per il funzionamento dell'app. Le attestazioni possono includere proprietà standard, ad esempio le proprietà `displayName` e `emailAddress` relative all'utente. Possono includere anche [attributi utente personalizzati](active-directory-b2c-reference-custom-attr.md) che è possibile definire nella directory B2C. Ogni token ID e di accesso ricevuto contiene un determinato set di attestazioni relative alla sicurezza. Le applicazioni possono usare queste attestazioni per autenticare in modo sicuro gli utenti e le richieste.
 
-Si noti che le attestazioni nei token ID non vengono restituite in un ordine particolare. Si noti anche che possono essere introdotte nuove attestazioni nei token ID in qualsiasi momento. L'introduzione delle nuove attestazioni non deve interrompere il funzionamento dell'app. Di seguito è riportato un elenco delle attestazioni previste in ogni token ID e di accesso rilasciato da Azure AD B2C. Eventuali attestazioni aggiuntive sono determinate dai criteri. A scopo di esercitazione, provare a verificare le attestazioni nel token ID di esempio incollandole in [calebb.net](http://calebb.net). Per informazioni più dettagliate, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
+Si noti che le attestazioni nei token ID non vengono restituite in un ordine particolare. Si noti anche che possono essere introdotte nuove attestazioni nei token ID in qualsiasi momento. L'introduzione delle nuove attestazioni non deve interrompere il funzionamento dell'app. Di seguito è riportato un elenco delle attestazioni previste in ogni token ID e di accesso rilasciato da Azure AD B2C. Eventuali attestazioni aggiuntive sono determinate dai criteri. A scopo di esercitazione, provare a verificare le attestazioni nel token ID di esempio incollandole in [jwt.ms](https://jwt.ms). Per informazioni più dettagliate, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
 | Nome | Attestazione | Valore di esempio | Descrizione |
 | --- | --- | --- | --- |

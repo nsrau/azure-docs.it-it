@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: kgremban
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 5784222608b01509fc4ff84b1a8792cbcfea89e6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uso di app in grado di riconoscere attestazioni nel proxy di applicazione
@@ -39,7 +39,7 @@ Assicurarsi che il servizio token di sicurezza cui viene reindirizzata l'app in 
 
 ### <a name="option-1-custom-domains"></a>Opzione 1: domini personalizzati
 
-Se tutti gli URL interni per le applicazioni sono nomi di dominio completi (FQDN), è possibile configurare [domini personalizzati](active-directory-application-proxy-custom-domains.md) per le applicazioni. Usare i domini personalizzati per creare URL esterni identici agli URL interni. Con questa configurazione, i reindirizzamenti creati dal servizio token di sicurezza funzionano allo stesso modo, indipendente dal fatto che gli utenti siano locali o remoti. 
+Se tutti gli URL interni per le applicazioni sono nomi di dominio completi (FQDN), è possibile configurare [domini personalizzati](active-directory-application-proxy-custom-domains.md) per le applicazioni. Usare i domini personalizzati per creare URL esterni identici agli URL interni. Se gli URL esterni corrispondono agli URL interni, i reindirizzamenti del servizio token di sicurezza funzionano indipendentemente dal fatto che gli utenti siano in locale o in remoto. 
 
 ### <a name="option-2-ws-federation"></a>Opzione 2: WS-Federation
 

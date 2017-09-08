@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: usare l''API Graph | Microsoft Docs'
+title: Utilizzo dell'API Graph - Azure AD B2C | Microsoft Docs
 description: "Come chiamare l'API Graph per un tenant di B2C usando l'identità di un'applicazione per automatizzare il processo."
 services: active-directory-b2c
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c838fcad21875c4f813159ad78d4c87129a40a86
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
 ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C: usare l'API Graph
@@ -38,7 +38,7 @@ Prima di creare applicazioni o utenti oppure di interagire con Azure AD, saranno
 Dopo aver creato un tenant B2C, è necessario registrare l'applicazione tramite il [Portale di Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Per usare l'API Graph con il tenant B2C, sarà necessario registrare un'applicazione dedicata usando il pannello generico *Registrazioni per l'app* nel portale di Azure, **NON** il pannello *Applicazioni* di Azure AD B2C. Non è possibile usare nuovamente le applicazioni B2C già esistenti che sono state registrate nel pannello *Applicazioni* di Azure AD B2C.
+> Per usare l'API Graph con il tenant B2C, sarà necessario registrare un'applicazione dedicata usando il menu generico *Registrazioni per l'app* nel portale di Azure, **NON** il menu *Applicazioni* di Azure AD B2C. Non è possibile usare nuovamente le applicazioni B2C esistenti che sono state registrate nel menu *Applicazioni* di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere il tenant di Azure AD B2C selezionando l'account nell'angolo superiore destro della pagina.
@@ -47,16 +47,16 @@ Dopo aver creato un tenant B2C, è necessario registrare l'applicazione tramite 
     1. Selezionare **App Web/API** come Tipo di applicazione.    
     2. Fornire **qualsiasi URI di reindirizzamento** (ad esempio https://B2CGraphAPI) in quanto non è rilevante per questo esempio.  
 5. L'applicazione verrà mostrata nell'elenco delle applicazioni, fare clic su di essa per ottenere l'**ID applicazione** (noto anche come ID Client). Copiarlo in quanto sarà necessario in una sezione successiva.
-6. Nel pannello delle Impostazioni, fare clic su **Chiavi** e aggiungere una nuova chiave (nota anche come segreto client). Copiare anche questa per usarla in una sezione successiva.
+6. Nel menu Impostazioni fare clic su **Chiavi** e aggiungere una nuova chiave (nota anche come segreto client). Copiare anche questa per usarla in una sezione successiva.
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>Configurare le autorizzazioni creare, leggere e aggiornare per l'applicazione
 A questo punto è necessario configurare l'applicazione per ottenere tutte le autorizzazioni necessarie per creare, leggere, aggiornare ed eliminare gli utenti.
 
-1. Continuando nel pannello Registrazioni per l'app del portale di Azure, selezionare l'applicazione.
-2. Nel pannello delle Impostazioni fare clic su **Autorizzazioni necessarie**.
-3. Nel pannello delle Autorizzazioni necessarie, fare clic su **Windows Azure Active Directory**.
-4. Nel Pannello Abilita accesso selezionare l'autorizzazione **Legge e scrive i dati della directory** da **Autorizzazioni dell'applicazione** e fare clic su **Salva**.
-5. Infine, nel pannello delle Autorizzazioni necessarie fare clic sul pulsante **Concedi autorizzazioni**.
+1. Continuando nel menu Registrazioni dell'app del portale di Azure, selezionare l'applicazione.
+2. Nel menu Impostazioni fare clic su **Autorizzazioni necessarie**.
+3. Nel menu Autorizzazioni necessarie fare clic su **Windows Azure Active Directory**.
+4. Nel menu Abilita accesso selezionare l'autorizzazione **Leggi e scrivi i dati della directory** da **Autorizzazioni dell'applicazione** e fare clic su **Salva**.
+5. Infine, nel menu Autorizzazioni necessarie fare clic sul pulsante **Concedi autorizzazioni**.
 
 A questo punto è disponibile un'applicazione con le autorizzazioni per creare, leggere e aggiornare gli utenti dal tenant B2C.
 

@@ -1,6 +1,6 @@
 ---
 title: Impostare come scaduti i dati in Cosmos DB usando la durata (TTL) | Microsoft Docs
-description: "Con l&quot;impostazione TTL, Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato."
+description: "Con l'impostazione TTL, Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato."
 services: cosmos-db
 documentationcenter: 
 keywords: Durata (TTL)
@@ -13,14 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/29/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 6f1c43ca0113dc7579b0fc3743d3314c16ce78a4
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: c407152f54a6e7eb25a580491bd27ad291410d86
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
@@ -54,7 +53,7 @@ La logica precedente può essere illustrata in questa matrice:
 | TTL = n nel documento |Non viene eseguito l'override a livello di documento. L'impostazione TTL a livello di documento non viene interpretata dal sistema. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo -1 e non scadono. |Il documento con TTL = n scade dopo l'intervallo di tempo n, espresso in secondi. Gli altri documenti ereditano l'intervallo n dalla raccolta. |
 
 ## <a name="configuring-ttl"></a>Configurazione di TTL
-Per impostazione predefinita, la durata è disabilitata in tutte le raccolte di Cosmos DB e in tutti i documenti.
+Per impostazione predefinita, la durata è disabilitata in tutte le raccolte di Cosmos DB e in tutti i documenti. la durata (TTL) può essere impostata a livello di codice o nel portale di Azure, nella sezione **Impostazioni** per la raccolta. 
 
 ## <a name="enabling-ttl"></a>Abilitazione di TTL
 Per abilitare la durata (TTL) in una raccolta o nei documenti all'interno di una raccolta, è necessario impostare la proprietà DefaultTTL della raccolta su -1 o su un numero positivo diverso da zero. Quando DefaultTTL = -1, per impostazione predefinita tutti i documenti nella raccolta hanno durata infinita. Il servizio Cosmos DB deve tuttavia monitorare i documenti per cui viene eseguito l'override di questa impostazione predefinita nella raccolta.

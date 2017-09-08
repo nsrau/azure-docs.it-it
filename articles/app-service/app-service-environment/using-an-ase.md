@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: fc20979575b204cdd8dda5291552af0adbde180f
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 279951d40b7780120d0b94e183f06e00ccece016
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app #
@@ -133,9 +133,15 @@ Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bil
 
 ## <a name="pricing"></a>Prezzi ##
 
-Con ASEv2, un nuovo SKU di prezzi denominato **Isolato** viene usato solo con ASEv2. Tutti i piani di servizio app ospitati in ASEv2 fanno parte dello SKU di prezzi Isolato. Oltre al prezzo per i piani di servizio app, è disponibile una tariffa fissa solo per l'ambiente del servizio app. Questo prezzo non varia a seconda della dimensione dell'ambiente del servizio app. 
+Lo SKU di prezzi chiamato **Isolato** è stato creato solo per l'uso con ASEv2. Tutti i piani di servizio app ospitati in ASEv2 fanno parte dello SKU di prezzi Isolato. I costi del piano di servizio app Isolato possono variare in base all'area. 
 
-Le altre potenziali tariffe sono relative alla modifica della proporzione di ridimensionamento dei front-end o alle dimensioni dei front-end. È possibile modificare la proporzione di ridimensionamento per aggiungere i front-end più velocemente. Tuttavia, tutti i core aggiuntivi che non vengono automaticamente aggiunti al sistema hanno un costo. Analogamente, se si seleziona una dimensione maggiore per i front-end, si pagherà un costo per i core che non vengono allocati automaticamente. Se ad esempio si imposta la proporzione di ridimensionamento su 10, verrà aggiunto un front-end ogni 10 istanze nei piani di servizio app. La tariffa fissa copre una proporzione di ridimensionamento pari a un front-end ogni 15 istanze. Con una proporzione di ridimensionamento di 10, il costo verrà addebitato al terzo front-end aggiunto per le 10 istanze del piano di servizio app. Non è necessario pagare quando si raggiungono le 15 istanze, perché il front-end è stato aggiunto automaticamente.
+Oltre al prezzo dei piani di servizio app, è disponibile una tariffa fissa solo per l'ambiente del servizio app. Questa tariffa fissa non cambia in base alle dimensioni dell'ambiente del servizio app e si applica all'infrastruttura dell'ambiente del servizio app a un rapporto di ridimensionamento predefinito di un front-end aggiuntivo per ogni 15 istanze del piano di servizio app.  
+
+Se il rapporto predefinito di un front-end per ogni 15 istanze del piano di servizio app non è sufficientemente veloce, è possibile modificarlo in base ai front-end aggiunti o alle dimensioni dei front-end.  Quando si modificano il rapporto o le dimensioni, si paga per i core front-end che non verrebbero aggiunti per impostazione predefinita.  
+
+Se ad esempio si imposta la proporzione di ridimensionamento su 10, verrà aggiunto un front-end ogni 10 istanze nei piani di servizio app. La tariffa fissa copre una proporzione di ridimensionamento pari a un front-end ogni 15 istanze. Con una proporzione di ridimensionamento di 10, il costo verrà addebitato al terzo front-end aggiunto per le 10 istanze del piano di servizio app. Non è necessario pagare quando si raggiungono le 15 istanze, perché il front-end è stato aggiunto automaticamente.
+
+Se si modificano le dimensioni dei front-end in base a due core, ma non si modifica il rapporto, si paga per i core aggiuntivi.  Poiché viene creato un ambiente del servizio app con due front-end, anche al di sotto della soglia di ridimensionamento automatica si paga per due core aggiuntivi se le dimensioni sono state aumentate a due core front-end.
 
 Per altre informazioni, vedere [Prezzi del Servizio app di Azure][Pricing].
 

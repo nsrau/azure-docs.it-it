@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 08/29/2017
 ms.author: maquaran
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 40c796bc5af1220c46950a6fac062ffdd243e59f
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 239b590a1e3a83fe0205dd8169697db745d7f75e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche di DocumentDB .NET: download e note sulla versione
@@ -48,6 +48,10 @@ ms.lasthandoff: 08/15/2017
 
 ## <a name="release-notes"></a>Note sulla versione
 
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Correzione di un problema relativo al calcolo della stima del lavoro rimanente quando il feed di modifiche è vuoto o non ci sono lavori in sospeso.
+* Compatibile con [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 1.13.2 e versioni successive.
+
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Aggiungere un metodo per ottenere una stima di quanto resta da elaborare nel feed delle modifiche.
 * Compatibile con [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) 1.13.2 e versioni successive.
@@ -67,6 +71,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Versione | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |29 agosto 2017 |--- |
 | [1.1.0](#1.1.0) |13 agosto 2017 |--- |
 | [1.0.0](#1.0.0) |07 luglio 2017 |--- |
 

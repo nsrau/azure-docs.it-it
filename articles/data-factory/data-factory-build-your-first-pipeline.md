@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: b01a03fa362f8a9677e625945a2864c77d49f1bb
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 08e2988d455cca21726162d9fb128e91fd51f463
 ms.contentlocale: it-it
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per trasformare i dati usando il cluster Hadoop
@@ -81,7 +81,7 @@ Delle righe di esempio riportate sopra, la prima (con 2016-01-01) viene scritta 
 Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 1. **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione di Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) per informazioni su come ottenere un account di valutazione gratuito.
-2. **Archiviazione di Azure** : in questa esercitazione si usa un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account) . Dopo aver creato l'account di archiviazione, annotare il **nome dell'account** e la **chiave di accesso**. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+2. **Archiviazione di Azure**: in questa esercitazione si usa un account di archiviazione di Azure per utilizzo generico per archiviare i dati. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere l'articolo [Creare un account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). Dopo aver creato l'account di archiviazione, annotare il **nome dell'account** e la **chiave di accesso**. Vedere [Visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 3. Scaricare e leggere il file di query Hive (**HQL**) disponibile all'indirizzo: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Questa query trasforma i dati di input per generare i dati di output. 
 4. Scaricare e leggere il file di input di esempio (**input.log**) disponibile all'indirizzo: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Creare un contenitore BLOB denominato **adfgetstarted** nell'Archiviazione BLOB di Azure. 

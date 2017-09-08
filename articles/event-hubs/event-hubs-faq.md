@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e0e33882acc90130ef93cd66c3d57bb90f78ccee
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e208e970de58505553802a4ed27d7f9da4070866
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -33,7 +32,7 @@ Il piano Standard di Hub eventi di Azure offre funzionalità superiori a quelle 
 * Periodo di conservazione degli eventi più lungo
 * Connessioni negoziate aggiuntive, con sovrapprezzo per un numero di connessioni superiore a quello incluso
 * Più di un singolo gruppo di consumer
-* [Acquisire](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+* [Acquisire](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
 
 Per informazioni dettagliate sui piani tariffari, incluso il livello Dedicato di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -59,7 +58,7 @@ Esiste una quota predefinita di 20 unità elaborate per ogni spazio dei nomi. È
 Sì, purché tutti gli hub eventi si trovino nello stesso spazio dei nomi.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Qual è il periodo di conservazione massimo per gli eventi?
-Il livello Standard di Hub eventi supporta attualmente un periodo di conservazione massimo di 7 giorni. Si noti che gli hub eventi non sono intesi come archivi dati permanenti. Sono previsti periodi di conservazione maggiori di 24 ore per scenari in cui è opportuno riprodurre un flusso di eventi negli stessi sistemi, ad esempio, per la formazione o per verificare un nuovo modello di machine learning sui dati esistenti. Se è necessario conservare i messaggi per più di 7 giorni, abilitando l'[acquisizione hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview) nell'hub eventi verrà effettuato il pull dei dati dall'hub alla risorsa di archiviazione scelta. L'abilitazione dell'acquisizione prevede un costo in base alle unità elaborate acquistate.
+Il livello Standard di Hub eventi supporta attualmente un periodo di conservazione massimo di 7 giorni. Si noti che gli hub eventi non sono intesi come archivi dati permanenti. Sono previsti periodi di conservazione maggiori di 24 ore per scenari in cui è opportuno riprodurre un flusso di eventi negli stessi sistemi, ad esempio, per la formazione o per verificare un nuovo modello di machine learning sui dati esistenti. Se è necessario conservare i messaggi per più di 7 giorni, abilitando la funzionalità [Acquisizione di Hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) nell'hub eventi viene effettuato il pull dei dati dall'hub all'account di archiviazione o all'account del servizio Azure Data Lake scelto. L'abilitazione dell'acquisizione prevede un costo in base alle unità elaborate acquistate.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Dove sono disponibili gli hub eventi di Azure?
 Hub eventi di Azure è disponibile in tutte le aree di Azure supportate. Per un elenco, visitare la pagina [Aree di Azure](https://azure.microsoft.com/regions/).  

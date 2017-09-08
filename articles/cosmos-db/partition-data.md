@@ -1,4 +1,4 @@
-﻿---
+---
 title: Partizionamento e aumento del numero di istanze in Azure Cosmos DB | Microsoft Docs
 description: Informazioni sul funzionamento del partizionamento in Azure Cosmos DB, sulla configurazione del partizionamento e delle chiavi di partizione e su come scegliere la chiave di partizione corretta per l'applicazione.
 services: cosmos-db
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/29/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: e2d2847276e553d7511241ff323c3e00aad8e5c9
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 9f341438fc0bf239f47ae87db70b067862652786
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -33,7 +33,7 @@ Il partizionamento e le chiavi di partizione sono illustrati anche in questo vid
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partizionamento in Azure Cosmos DB
-In Azure Cosmos DB è possibile archiviare dati ed eseguire query senza schema con tempi di risposta nell'ordine di millisecondi su qualsiasi scala. Cosmos DB offre contenitori per l'archiviazione di dati denominati **raccolte (per i documenti), grafi o tabelle**. I contenitori sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni è determinato da Cosmos DB in base allo spazio di archiviazione e alla velocità effettiva con provisioning del contenitore. Ogni partizione in Cosmos DB ha una quantità fissa di archiviazione supportata da unità SSD associata e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure Cosmos DB e non è necessario scrivere codice complesso o gestire le partizioni. I contenitori di Cosmos DB sono illimitati in termini di risorse di archiviazione e di velocità effettiva.
+In Azure Cosmos DB è possibile archiviare dati ed eseguire query senza schema con tempi di risposta nell'ordine di millisecondi su qualsiasi scala. Cosmos DB offre contenitori per l'archiviazione di dati denominati **raccolte (per i documenti), grafici o tabelle**. I contenitori sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni è determinato da Cosmos DB in base allo spazio di archiviazione e alla velocità effettiva con provisioning del contenitore. Ogni partizione in Cosmos DB ha una quantità fissa di archiviazione supportata da unità SSD associata e viene replicata per la disponibilità elevata. Le partizioni vengono completamente gestite da Azure Cosmos DB e non è necessario scrivere codice complesso o gestire le partizioni. I contenitori di Cosmos DB sono illimitati in termini di risorse di archiviazione e di velocità effettiva. 
 
 ![orizzontale](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -65,7 +65,7 @@ Cosmos DB usa il partizionamento basato su hash. Quando si scrive un elemento, C
 I contenitori di Azure Cosmos DB possono essere creati come "fissi" o "illimitati". I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Alcune API consentono di omettere la chiave di partizione per i contenitori a dimensione fissa. Per creare un contenitore illimitato è necessario specificare una velocità effettiva minima di 2500 UR/s.
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Partizionamento e velocità effettiva con provisioning
-Cosmos DB è progettato per prestazioni prevedibili. Quando si crea un contenitore, la velocità effettiva viene riservata in termini di **[unità richiesta](request-units.md) (UR) al secondo, con un potenziale add-on per UR al minuto**. A ogni richiesta viene assegnato un addebito delle unità richiesta proporzionato alla quantità di risorse di sistema, come CPU, memoria e I/O usati dall'operazione. La lettura di un documento di 1 KB con coerenza di sessione usa un'unità richiesta. Un'operazione di lettura corrisponde a 1 RU indipendentemente dal numero di elementi archiviati o dal numero di richieste simultanee in esecuzione contemporaneamente. Elementi di dimensioni maggiori richiedono più unità richiesta a seconda delle dimensioni. Se si conoscono le dimensioni delle entità e il numero di letture che è necessario supportare per l'applicazione, è possibile eseguire il provisioning della quantità esatta di velocità effettiva necessaria per le esigenze di lettura dell'applicazione. 
+Cosmos DB è progettato per prestazioni prevedibili. Quando si crea un contenitore, la velocità effettiva viene riservata in termini di **[unità richiesta](request-units.md) (UR) al secondo**. A ogni richiesta viene assegnato un addebito delle unità richiesta proporzionato alla quantità di risorse di sistema, come CPU, memoria e I/O usati dall'operazione. La lettura di un documento di 1 KB con coerenza di sessione usa un'unità richiesta. Un'operazione di lettura corrisponde a 1 RU indipendentemente dal numero di elementi archiviati o dal numero di richieste simultanee in esecuzione contemporaneamente. Elementi di dimensioni maggiori richiedono più unità richiesta a seconda delle dimensioni. Se si conoscono le dimensioni delle entità e il numero di letture che è necessario supportare per l'applicazione, è possibile eseguire il provisioning della quantità esatta di velocità effettiva necessaria per le esigenze di lettura dell'applicazione. 
 
 > [!NOTE]
 > Per ottenere la velocità effettiva totale del contenitore è necessario scegliere una chiave di partizione che consenta di distribuire in modo uniforme le richieste tra alcuni valori distinti della chiave di partizione.
