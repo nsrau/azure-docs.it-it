@@ -3,7 +3,7 @@ title: Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Ne
 description: Questa pagina illustra come usare strumenti open source per visualizzare i log dei flussi dei gruppi di sicurezza di rete.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 20f60ccd9108a7473705c2368f28d3152d0dd614
+ms.contentlocale: it-it
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -97,59 +98,64 @@ Per altre istruzioni sull'installazione di Elasticsearch, vedere la pagina [Inst
 1. Aggiungere il contenuto seguente al file:
 
   ```
-    input {
-      azureblob
-        {
-            storage_account_name => "mystorageaccount"
-            storage_access_key => "storageaccesskey"
-            container => "nsgflowlogContainerName"
-            codec => "json"
-        }
-      }
-
-      filter {
-        split { field => "[records]" }
-        split { field => "[records][properties][flows]"}
-        split { field => "[records][properties][flows][flows]"}
-        split { field => "[records][properties][flows][flows][flowTuples]"}
-
-     mutate{
-      split => { "[records][resourceId]" => "/"}
-      add_field => {"Subscription" => "%{[records][resourceId][2]}"
-                    "ResourceGroup" => "%{[records][resourceId][4]}"
-                    "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
-      convert => {"Subscription" => "string"}
-      convert => {"ResourceGroup" => "string"}
-      convert => {"NetworkSecurityGroup" => "string"}
-      split => { "[records][properties][flows][flows][flowTuples]" => ","}
-      add_field => {
-                  "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
-                  "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
-                  "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
-                  "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
-                  "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
-                  "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
-                  "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
-                  "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-                   }
-      convert => {"unixtimestamp" => "integer"}
-      convert => {"srcPort" => "integer"}
-      convert => {"destPort" => "integer"}        
+input {
+   azureblob
+     {
+         storage_account_name => "mystorageaccount"
+         storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
+         container => "insights-logs-networksecuritygroupflowevent"
+         codec => "json"
+         # Refer https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-read-nsg-flow-logs
+         # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
+         file_head_bytes => 21
+         file_tail_bytes => 9
+         # Enable / tweak these settings when event is too big for codec to handle.
+         # break_json_down_policy => "with_head_tail"
+         # break_json_batch_count => 2
      }
+   }
 
-     date{
-       match => ["unixtimestamp" , "UNIX"]
-     }
-    }
+   filter {
+     split { field => "[records]" }
+     split { field => "[records][properties][flows]"}
+     split { field => "[records][properties][flows][flows]"}
+     split { field => "[records][properties][flows][flows][flowTuples]"}
 
-    output {
-      stdout { codec => rubydebug }
-      elasticsearch {
-        hosts => "localhost"
-        index => "nsg-flow-logs"
-      }
-    }  
+  mutate{
+   split => { "[records][resourceId]" => "/"}
+   add_field => {"Subscription" => "%{[records][resourceId][2]}"
+                 "ResourceGroup" => "%{[records][resourceId][4]}"
+                 "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
+   convert => {"Subscription" => "string"}
+   convert => {"ResourceGroup" => "string"}
+   convert => {"NetworkSecurityGroup" => "string"}
+   split => { "[records][properties][flows][flows][flowTuples]" => ","}
+   add_field => {
+               "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
+               "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
+               "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
+               "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
+               "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
+               "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
+               "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
+               "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                }
+   convert => {"unixtimestamp" => "integer"}
+   convert => {"srcPort" => "integer"}
+   convert => {"destPort" => "integer"}        
+  }
 
+  date{
+    match => ["unixtimestamp" , "UNIX"]
+  }
+ }
+output {
+  stdout { codec => rubydebug }
+  elasticsearch {
+    hosts => "localhost"
+    index => "nsg-flow-logs"
+  }
+}  
   ```
 
 Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)

@@ -5,7 +5,7 @@ L'app Web fornisce uno spazio host per il codice e un URL per visualizzare l'app
 Nel comando seguente sostituire *\<nome_app>* con un nome univoco (i caratteri validi sono `a-z`, `0-9` e `-`). Se `<app_name>` non è univoco, verrà visualizzato il messaggio di errore "Il sito Web con il nome <nome_app> specificato esiste già". L'URL predefinito dell'app Web è `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
 Al termine della creazione dell'app Web, l'interfaccia della riga di comando di Azure visualizza informazioni simili all'esempio seguente:
