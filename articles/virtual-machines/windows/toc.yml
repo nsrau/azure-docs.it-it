@@ -120,6 +120,8 @@
           href: connect-logon.md
         - name: Usare licenze AHUB
           href: hybrid-use-benefit-licensing.md
+        - name: Usare diritti di hosting multi-tenant per Windows 10
+          href: windows-desktop-multitenant-hosting-deployment.md
     - name: Proteggere le macchine virtuali
       items:
         - name: Crittografare il contenuto
