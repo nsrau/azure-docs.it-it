@@ -4,7 +4,7 @@ description: Informazioni sulla destinazione di opzioni di output dei dati di An
 keywords: trasformazione dei dati, risultati dell'analisi, opzioni di archiviazione dati
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: fdecfe8b63d56983846f1601971ed680d624118d
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 91ee74f01b2e84244245dbe43408589f04af6338
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Output di Analisi di flusso: opzioni per archiviazione, analisi
@@ -32,7 +31,7 @@ Per poter abilitare un'ampia gamma di modelli dell'applicazione, Analisi di flus
 Analisi di flusso supporta [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Questa archiviazione consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative. Inoltre, Analisi di flusso deve essere autorizzato ad accedere ad Archivio Data Lake. I dettagli sull'autorizzazione e su come iscriversi per Data Lake Store (se necessario) sono forniti nell'[articolo relativo agli output di Data Lake](stream-analytics-data-lake-output.md).
 
 ### <a name="authorize-an-azure-data-lake-store"></a>Autorizzare un Archivio Azure Data Lake
-Quando Archivio Data Lake è selezionato come output nel portale di gestione di Azure, viene richiesto di autorizzare una connessione a un Archivio Data Lake esistente.  
+Se nel portale di Azure è selezionato Data Lake Store come output, viene richiesto di autorizzare una connessione a un Data Lake Store esistente.  
 
 ![Autorizzare Archivio Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
@@ -57,7 +56,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione nec
 <td>Nome dell'account di archiviazione Data Lake a cui si sta inviando l'output. Verrà visualizzato un elenco a discesa degli account di Archivio Data Lake ai quali ha accesso l'utente connesso al portale.</td>
 </tr>
 <tr>
-<td>Schema prefisso percorso [<I>facoltativo</I>]</td>
+<td>Schema prefisso percorso</td>
 <td>Percorso del file usato per scrivere i file nell'account di Archivio Data Lake specificato. <BR>{date}, {time}<BR>Esempio 1: folder1/logs/{date}/{time}<BR>Esempio 2: folder1/logs/{date}</td>
 </tr>
 <tr>
@@ -110,7 +109,7 @@ Se la password dell'account di Archivio Data Lake è stata modificata dopo la cr
 > 
 
 ## <a name="blob-storage"></a>Archiviazione BLOB
-L'archiviazione BLOB offre una soluzione conveniente e scalabile per archiviare grandi quantità di dati non strutturati nel cloud.  Per un'introduzione all'archivio BLOB di Azure e al relativo utilizzo, vedere la documentazione in [Come usare i BLOB](../storage/storage-dotnet-how-to-use-blobs.md).
+L'archiviazione BLOB offre una soluzione conveniente e scalabile per archiviare grandi quantità di dati non strutturati nel cloud.  Per un'introduzione all'archivio BLOB di Azure e al relativo utilizzo, vedere la documentazione in [Come usare i BLOB](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output del BLOB.
 
@@ -162,7 +161,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 </tr>
 <tr>
 <td>Format</td>
-<td>Applicabile solo per la serializzazione JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON.</td>
+<td>Applicabile solo per la serializzazione JSON. Separato da righe specifica che l'output verrà formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output verrà formattato come array di oggetti JSON. Questa matrice verrà chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON separato da righe, perché non richiede alcuna gestione speciale durante la scrittura del file di output.</td>
 </tr>
 </tbody>
 </table>
@@ -189,7 +188,7 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 [Power BI](https://powerbi.microsoft.com/) può essere usato come output per un processo di Analisi di flusso per offrire un'esperienza di visualizzazione avanzata dei risultati di analisi. Questa funzionalità può essere usata per i dashboard operativi, la generazione di report e la creazione di report basati sulle metriche.
 
 ### <a name="authorize-a-power-bi-account"></a>Autorizzare un account Power BI
-1. Quando Power BI è selezionato come output nel portale di gestione di Azure, verrà richiesto di autorizzare un utente di Power BI esistente oppure di creare un nuovo account di Power BI.  
+1. Se nel portale di Azure è selezionato Power BI come output, verrà richiesto di autorizzare un utente Power BI esistente oppure di creare un nuovo account Power BI.  
    
    ![Autorizzare l'utente di Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. Creare un nuovo account se non è ancora presente, quindi scegliere Autorizza ora.  Viene presentata una schermata simile a quella seguente:  
@@ -255,7 +254,7 @@ Per risolvere questo problema, arrestare il processo in esecuzione e passare all
   ![Rinnovo di autorizzazione di Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Archiviazione tabelle
-[Archiviazione tabelle di Azure](../storage/storage-introduction.md) offre un archivio a disponibilità elevata e altamente scalabile, per consentire la scalabilità automatica di un'applicazione in base alle richieste degli utenti. L'archivio tabelle è l'archivio di chiavi/attributi NoSQL di Microsoft che è possibile sfruttare per i dati strutturati con meno vincoli allo schema. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente.
+[Archiviazione tabelle di Azure](../storage/common/storage-introduction.md) offre un archivio a disponibilità elevata e altamente scalabile, per consentire la scalabilità automatica di un'applicazione in base alle richieste degli utenti. L'archivio tabelle è l'archivio di chiavi/attributi NoSQL di Microsoft che è possibile sfruttare per i dati strutturati con meno vincoli allo schema. Archivio tabelle di Azure consente di archiviare i dati per il salvataggio permanente e il recupero efficiente.
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output di tabelle.
 
@@ -319,7 +318,7 @@ L'elenco seguente illustra i nomi delle proprietà e la relativa descrizione per
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 È stato presentato Analisi di flusso, un servizio gestito per l'analisi di flusso su dati provenienti da Internet delle cose. Per altre informazioni su questo servizio, vedere:

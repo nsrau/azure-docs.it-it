@@ -11,83 +11,158 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: db7d8b6b2cbe1604fc1b02cc36780ddd83a4d350
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
 ms.contentlocale: it-it
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Documentazione tecnica sull'accesso condizionale di Azure Active Directory
 
-## <a name="services-enabled-with-conditional-access"></a>Servizi abilitati con l'accesso condizionale
+Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), è possibile ottimizzare come gli utenti autorizzati possono accedere alle risorse.  
+Questo argomento contiene informazioni sul supporto per gli elementi seguenti di un criterio di accesso condizionale: 
 
-Le regole di accesso condizionale sono supportate in diversi tipi di applicazioni di Azure AD, inclusi i seguenti:
+- Assegnazioni di app cloud
 
-
-* Applicazioni registrate con il proxy di applicazione di Azure
-* App remote di Azure
-* Applicazioni line-of-business e multi-tenant sviluppate registrate con Azure AD
-* Dynamics CRM
-* Applicazioni federate dalla raccolta di applicazioni di Azure AD
-* Microsoft Office 365 Yammer
-* Microsoft Office 365 Exchange Online
-* Microsoft Office 365 SharePoint Online (include OneDrive for Business)
-* Microsoft Power BI 
-* Applicazioni con accesso Single Sign-On basato su password dalla raccolta di applicazioni di Azure AD
-* Visual Studio Team Services
-* Microsoft Teams
+- Condizioni per le app client
 
 
 
+## <a name="cloud-apps-assignments"></a>Assegnazioni di app cloud
+
+Quando si configura un criterio di accesso condizionale, è necessario [selezionare le app cloud a cui il criterio si applica](active-directory-conditional-access-azure-portal.md#who). 
+
+![Controllo](./media/active-directory-conditional-access-technical-reference/09.png)
+
+
+### <a name="microsoft-cloud-apps"></a>App cloud Microsoft
+
+È possibile assegnare un criterio di accesso condizionale alle app cloud seguenti di Microsoft:
+
+- App remote di Azure
+
+- Dynamics CRM
+
+- Microsoft Office 365 Yammer
+
+- Microsoft Office 365 Exchange Online
+
+- Microsoft Office 365 SharePoint Online (include OneDrive for Business)
+
+- Microsoft Power BI 
+
+- Visual Studio Team Services
+
+- Microsoft Teams
+
+
+### <a name="other-apps"></a>Altre app 
+
+Oltre che alle app cloud Microsoft, è possibile assegnare un criterio di accesso condizionale ai tipi seguenti di app cloud:
+
+- Applicazioni connesse ad Azure Active Directory (Azure AD)
+
+- Applicazioni software come un servizio (SaaS) federate preintegrate
+
+- Applicazioni che usano password Single Sign-On (SSO)
+
+- Applicazioni line-of-business
+
+- Applicazioni che usano proxy di applicazione Azure AD. 
+
+
+## <a name="client-apps-conditions"></a>Condizioni per le app client 
+
+Quando si configura un criterio di accesso condizionale, è possibile impostare una [condizione per le app client](active-directory-conditional-access-azure-portal.md#client-apps). La condizione per le app client consente di concedere o bloccare l'accesso quando viene eseguito un tentativo di accesso da questi tipi di app client:
+
+- Browser
+- App per dispositivi mobili e app desktop
+
+![Controllo](./media/active-directory-conditional-access-technical-reference/03.png)
+
+
+### <a name="supported-browsers"></a>Browser supportati 
+
+Se si seleziona *Browser* nel criterio di accesso condizionale per concedere l'accesso alle risorse, l'accesso viene concesso solo quando il tentativo di accesso viene effettuato con un browser supportato. Quando viene effettuato un tentativo di accesso con un browser non supportato, il tentativo viene bloccato.
+
+![Browser supportati](./media/active-directory-conditional-access-technical-reference/05.png)
+
+Nel criterio di accesso condizionale sono supportati i browser seguenti: 
+
+
+| OS                     | Browser                 | Supporto     |
+| :--                    | :--                      | :-:         |
+| Windows 10                 | Internet Explorer, Edge                 | ![Controllo][1] |
+| Windows 10                 | Chrome                   | Preview     |
+| Windows 8/8.1            | IE, Chrome               | ![Controllo][1] |
+| Windows 7                  | IE, Chrome               | ![Controllo][1] |
+| iOS                    | Safari                   | ![Controllo][1] |
+| Android                | Chrome                   | ![Controllo][1] |
+| Windows Phone          | Internet Explorer, Edge                 | ![Controllo][1] |
+| Windows Server 2016    | Internet Explorer, Edge                 | ![Controllo][1] |
+| Windows Server 2016    | Chrome                   | Presto disponibile |
+| Windows Server 2012 R2 | IE, Chrome               | ![Controllo][1] |
+| Windows Server 2008 R2 | IE, Chrome               | ![Controllo][1] |
+| Mac OS                 | Safari                   | ![Controllo][1] |
+| Mac OS                 | Chrome                   | Presto disponibile |
+
+> [!NOTE]
+> Per il supporto di Chrome, è necessario utilizzare Windows 10 Creators Update e installare l'estensione disponibile [qui](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+
+### <a name="supported-mobile-apps-and-desktop-clients"></a>App per dispositivi mobili e client desktop supportati
+
+Se si seleziona **App per dispositivi mobili e client desktop** nel criterio di accesso condizionale per concedere l'accesso alle risorse, l'accesso viene concesso solo quando il tentativo di accesso viene effettuato con app per dispositivi mobili o client desktop supportati. Quando viene effettuato un tentativo di accesso con un'app per dispositivi mobili o un client desktop non supportato, il tentativo viene bloccato.
+
+![Controllo](./media/active-directory-conditional-access-technical-reference/06.png)
+
+Le app per dispositivi mobili e i client desktop seguenti supportano l'accesso condizionale per Office 365 e altre applicazioni di servizio connesse ad Azure AD:
+
+
+| App client| Servizio di destinazione| Piattaforma |
+| :-- | --- | --- |
+| MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati.| Qualsiasi servizio app Mie app| Android e iOS|
+| App Azure Remote| Servizio app Azure Remote| Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
+| Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS e Android|
+| Microsoft Team Services consente di controllare tutti i servizi che supportano i team Microsoft e tutte le app client: Windows Desktop, MAC OS X, iOS, Android, WP e web client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS/Android e MAC OSX|
+| App Mail/Calendar/People, Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)| Office 365 Exchange Online| Windows 10|
+| Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| App Outlook Mobile| Office 365 Exchange Online| iOS|
+| Outlook 2016 (Office per Mac OS)| Office 365 Exchange Online| Mac OS X|
+| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), supporto per i gruppi di Office pianificato per il futuro, supporto per l'app SharePoint pianificato per il futuro| Office 365 SharePoint Online| Windows 10|
+| App di Office 2016, Office 2013 (con autenticazione moderna), client sincronizzazione OneDrive (vedere le [note](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| App Office per dispositivi mobili| Office 365 SharePoint Online| iOS, Android|
+| Office 2016 per macOS (Word, Excel, PowerPoint, solo OneNote). OneDrive per il supporto Business pianificato in futuro| Office 365 SharePoint Online| Mac OS X|
+| App Office Yammer| Office 365 Yammer| Windows 10, iOS, Android|
+| App PowerBI. L'app Power BI per Android non supporta attualmente l'accesso condizionale basato su dispositivo.| Servizio PowerBI| Windows 10, Windows 8.1, Windows 7 e iOS|
+| App Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS e Android|
 
 
 
 
 
 
-## <a name="enable-access-rules"></a>Abilitare le regole di accesso
-Ogni regola può essere abilitata o disabilitata sulla base delle singole applicazioni. Quando le regole sono impostate su **ON** , verranno abilitate e applicate per gli utenti che accedono all'applicazione. Quando sono impostate su **OFF** , non verranno usate e non avranno alcun impatto sull'esperienza di accesso degli utenti.
-
-## <a name="applying-rules-to-specific-users"></a>Applicazione di regole a utenti specifici
-Le regole possono essere applicate a specifici set di utenti in base al gruppo di sicurezza impostando **Applica a**. L'opzione **Applica a** può essere impostata su **Tutti gli utenti** o su **Gruppi**. Se è impostata su **Tutti gli utenti**, le regole verranno applicate a qualsiasi utente autorizzato ad accedere all'applicazione. L'opzione **Gruppi** consente di selezionare specifici gruppi di sicurezza e distribuzione. Le regole verranno applicate solo a questi gruppi.
-
-Quando si distribuisce una regola, tale regola viene in genere applicata inizialmente a un set limitato di utenti appartenenti a gruppi pilota. Una volta completata, la regola può essere applicata a **Tutti gli utenti**. In questo modo la regola verrà applicata a tutti gli utenti dell'organizzazione.
-
-È anche possibile escludere gruppi selezionati dai criteri usando l'opzione **Escludi** . I membri di questi gruppi saranno esentati, anche se appartengono a un gruppo incluso.
-
-## <a name="at-work-networks"></a>Reti di tipo "ufficio"
-Le regole di accesso condizionale che utilizzano una rete di tipo "ufficio" si basano su intervalli di indirizzi IP attendibili configurati in Azure AD oppure utilizzano l'attestazione "rete aziendale". Queste regole includono:
-
-* Richiedi autenticazione a più fattori quando non al lavoro
-* Blocca l'accesso quando non al lavoro
-
-Opzioni per specificare le reti di tipo "ufficio"
-
-1. Configurare gli intervalli IP attendibili nella [pagina di configurazione dell'autenticazione Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-whats-next.md). I criteri di accesso condizionale useranno gli intervalli configurati in ogni richiesta di autenticazione e in ogni emissione di token per valutare le regole. 
-2. Configurare l'utilizzo dell'attestazione "rete aziendale" con AD FS; questa opzione può essere utilizzata con la directory federata. Per altre informazioni sulle attestazioni "rete aziendale", vedere [Indirizzi IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 
 
-## <a name="rules-based-on-application-sensitivity"></a>Regole basate sulla sensibilità dell'applicazione
-Le regole vengono configurate per le singole applicazioni, consentendo la protezione di servizi ad alto valore, senza alcun impatto sull'accesso ad altri servizi. Le regole di accesso condizionale possono essere configurate nella scheda **Configura** dell'applicazione. 
 
-Le regole attualmente disponibili sono le seguenti:
 
-* **Richiedi autenticazione a più fattori**
-  
-  * Tutti gli utenti a cui viene applicato questo criterio devono effettuare almeno una volta l'autenticazione a più fattori.
-* **Richiedi autenticazione a più fattori quando non al lavoro**
-  
-  * Se viene applicato questo criterio, tutti gli utenti devono aver effettuato almeno una volta l'autenticazione a più fattori in caso di accesso al servizio da una posizione remota non lavorativa. Se si spostano da una posizione in sede a una posizione remota, dovranno effettuare l'autenticazione a più fattori all'accesso al servizio.
-* **Blocca l'accesso quando non al lavoro** 
-  
-  * Quando gli utenti si spostano dalla posizione in sede a una posizione remota, verranno bloccati se viene applicato il criterio "Blocca l'accesso quando non al lavoro".  Nella posizione in sede, saranno nuovamente autorizzati ad accedere.
 
-## <a name="related-topics"></a>Argomenti correlati
-* [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access.md)
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+
+
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Per una panoramica dell'accesso condizionale, vedere [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+- Se si è pronti per configurare i criteri di accesso condizionale nell'ambiente in uso, vedere [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md)
+
+
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-technical-reference/01.png
+
 
 

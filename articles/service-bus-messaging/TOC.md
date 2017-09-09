@@ -52,7 +52,13 @@
 
 ## Gestire
 ### [Librerie di gestione del bus di servizio](service-bus-management-libraries.md)
-### [Uso dei modelli di Azure Resource Manager](service-bus-resource-manager-overview.md)
+### [Usare i modelli di Azure Resource Manager](service-bus-resource-manager-overview.md)
+#### [Creare uno spazio dei nomi](service-bus-resource-manager-namespace.md)
+#### [Creare uno spazio dei nomi e una coda](service-bus-resource-manager-namespace-queue.md)
+#### [Creare uno spazio dei nomi con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
+#### [Creare una regola di autorizzazione per lo spazio dei nomi e la coda](service-bus-resource-manager-namespace-auth-rule.md)
+#### [Creare uno spazio dei nomi con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [Uso di PowerShell per il provisioning delle entità](service-bus-manage-with-ps.md)
 
 # Riferimenti

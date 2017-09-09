@@ -132,6 +132,7 @@
 ## Gestire i dispositivi
 ### [Introduzione](device-management-introduction.md)
 ### [Uso del portale di Azure](device-management-azure-portal.md)
+### [Pianificare l'aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Domande frequenti](device-management-faq.md)
 ### Attività
 #### [Configurare i dispositivi Windows 10 registrati in Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
@@ -142,15 +143,6 @@
 ### Risoluzione dei problemi
 #### [Dispositivi Windows 10 e Windows Server 2016 aggiunti ad Azure AD ibridi](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Dispositivi Windows legacy aggiunti ad Azure AD ibridi](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-### [Aggiunta ad Azure AD](active-directory-azureadjoin-overview.md)
-#### [Pianificare](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Configurare la registrazione dei dispositivi](active-directory-azureadjoin-setup.md)
-#### [Registrare nuovi dispositivi](active-directory-azureadjoin-user-frx.md)
-#### [Distribuire](active-directory-azureadjoin-devices-group-policy.md)
-#### [Informazioni sull'integrazione con Windows 10](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Usare dispositivi Windows 10](active-directory-azureadjoin-windows10-devices.md)
-#### [Aggiungere il dispositivo](active-directory-azureadjoin-personal-device.md)
-#### [Aggiungere un dispositivo Windows 10](active-directory-azureadjoin-user-upgrade.md)
 
 ## Gestire le app
 ### [Panoramica](active-directory-enable-sso-scenario.md)
@@ -299,6 +291,8 @@
 ### [Accesso condizionale](active-directory-conditional-access-azure-portal.md)
 #### [Introduzione](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Procedure consigliate](active-directory-conditional-access-best-practices.md)
+#### [Connettività VPN](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [Gestione di app per dispositivi mobili](active-directory-conditional-access-mam.md)
 #### [Riferimento tecnico](active-directory-conditional-access-technical-reference.md)
 #### [Informazioni sui criteri dei dispositivi](active-directory-conditional-access-device-policies.md)
 #### [Configurare l'accesso alle app connesse](active-directory-conditional-access-policy-connected-applications.md)
@@ -306,7 +300,6 @@
 #### [Domande frequenti](active-directory-conditional-faqs.md)
 #### [Portale classico](active-directory-conditional-access.md)
 ##### [Introduzione](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [Autenticazione senza password](active-directory-azureadjoin-passport.md)

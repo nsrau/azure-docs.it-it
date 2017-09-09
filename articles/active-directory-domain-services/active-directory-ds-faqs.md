@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7f3212350b1158cd51a34ee1b20a456a73d41672
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 193e59c610d5c5b553469cf2ea2ecc150236ac27
+ms.contentlocale: it-it
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Servizi di dominio Azure Active Directory: domande frequenti
@@ -32,19 +32,22 @@ Fare riferimento alla [Guida per la risoluzione dei problemi](active-directory-d
 No. È possibile creare solo un singolo dominio gestito da Servizi di dominio Azure AD per una singola directory di Azure AD.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>È possibile abilitare Active Directory Domain Services in una rete virtuale di Azure Resource Manager?
-No. È possibile abilitare Azure AD Domain Services soltanto in una rete virtuale di Azure classica. È possibile connettere la rete virtuale classica a una rete virtuale di Resource Manager tramite peering per usare il dominio gestito in una rete virtuale di Resource Manager.
+Sì. Azure AD Domain Services può essere abilitato in una rete virtuale di Azure Resource Manager. Questa funzionalità è attualmente disponibile in anteprima.
 
-#### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-can-i-enable-azure-ad-domain-services-for-this-directory"></a>È possibile abilitare Azure AD Domain Services in una directory di Azure AD federata? ADFS viene usato per autenticare gli utenti per l'accesso a Office 365. È possibile abilitare Azure AD Domain Services per questa directory?
+#### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>È possibile eseguire la migrazione del dominio gestito esistente da una rete virtuale classica a una rete virtuale di Resource Manager?
+No, per il momento. In futuro verrà distribuito un meccanismo per eseguire la migrazione del dominio gestito esistente da una rete virtuale classica a una rete virtuale di Resource Manager. Verranno pubblicati aggiornamenti.
+
+#### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>È possibile abilitare Azure AD Domain Services in una directory di Azure AD federata? Si usa AD FS per autenticare gli utenti per l'accesso a Office 365 e non si sincronizzano gli hash delle password con Azure AD. È possibile abilitare Azure AD Domain Services per questa directory?
 No. Azure AD Domain Services richiede l'accesso agli hash delle password degli account utente per autenticare gli utenti tramite NTLM o Kerberos. In una directory federata gli hash delle password non vengono memorizzati nella directory di Azure AD. Azure AD Domain Services, di conseguenza, non funziona con questi tipi di directory di Azure AD.
 
 #### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>È possibile rendere disponibile Servizi di dominio Azure AD in più reti virtuali all'interno della sottoscrizione?
-Il servizio stesso non supporta direttamente questo scenario. Servizi di dominio Azure AD è disponibile in una sola rete virtuale alla volta. È comunque possibile configurare la connettività tra più reti virtuali per esporre Servizi di dominio Azure AD ad altre reti virtuali. Questo articolo descrive come [connettere più reti virtuali in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Il servizio stesso non supporta direttamente questo scenario. Il dominio gestito è disponibile in una sola rete virtuale alla volta. È comunque possibile configurare la connettività tra più reti virtuali per esporre Servizi di dominio Azure AD ad altre reti virtuali. Vedere come [connettere più reti virtuali in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>È possibile abilitare Servizi di dominio Azure AD con PowerShell?
 PowerShell e la distribuzione automatizzata di Servizi di dominio Azure AD non sono attualmente disponibili.
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Servizi di dominio Azure AD è disponibile nel nuovo portale di Azure?
-No. È possibile configurare Servizi di dominio Azure AD solo nel [portale di Azure classico](https://manage.windowsazure.com). Microsoft prevede di estendere il supporto per il [portale di Azure](https://portal.azure.com) in futuro.
+Sì. È possibile configurare Azure AD Domain Services usando il [portale di Azure](https://portal.azure.com). Si prevede di interrompere il supporto del [portale di Azure classico](https://manage.windowsazure.com) in futuro.
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>È possibile aggiungere controller di dominio a un dominio gestito di Servizi di dominio Azure Active Directory?
 No. Il dominio fornito da Servizi di dominio Azure Active Directory è un dominio gestito. Non è necessario eseguire il provisioning, configurare o gestire in altro modo i controller di dominio per questo dominio. Queste attività di gestione vengono fornite come servizio da Microsoft. Non sarà quindi possibile aggiungere altri controller di dominio, di lettura-scrittura o sola lettura, per il dominio gestito.
