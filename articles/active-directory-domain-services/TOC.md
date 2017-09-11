@@ -13,12 +13,6 @@
 ### [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ### [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-dns.md)
 ### [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
-## Portale di Azure classico (deprecato)
-### [Attività 1: Creare il gruppo di amministratori](active-directory-ds-getting-started-create-group.md)
-### [Attività 2: Creare o selezionare una rete virtuale](active-directory-ds-getting-started-vnet.md)
-### [Attività 3: Abilitare Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
-### [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-update-dns.md)
-### [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
 
 # Procedure
 ## Aggiungere un dominio gestito
