@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8df8cdfd0b265b11e6a11f0a5eb7ad8f0e669ca2
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ad2c6d585eef5450f7f0912ffa4753fe80d86b37
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gestire in blocco le identità dei dispositivi dell'hub IoT
@@ -72,7 +71,7 @@ while(true)
 
 ## <a name="export-devices"></a>Esportare dispositivi
 
-Usare il metodo **ExportDevicesAsync** per esportare un intero registro delle identità di un hub IoT in un contenitore BLOB di [Archiviazione di Azure](../storage/index.md) con una [firma di accesso condiviso](../storage/storage-security-guide.md#data-plane-security).
+Usare il metodo **ExportDevicesAsync** per esportare un intero registro delle identità di un hub IoT in un contenitore BLOB di [Archiviazione di Azure](../storage/index.md) con una [firma di accesso condiviso](../storage/common/storage-security-guide.md#data-plane-security).
 
 Questo metodo consente di creare backup affidabili delle informazioni sui dispositivi in un contenitore BLOB che si controlla.
 
@@ -372,7 +371,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Recuperare l'URI di firma di accesso condiviso del contenitore
 
-Il codice di esempio seguente illustra come generare un [URI di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-2.md) con autorizzazioni di lettura, scrittura ed eliminazione per un contenitore BLOB:
+Il codice di esempio seguente illustra come generare un [URI di firma di accesso condiviso](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) con autorizzazioni di lettura, scrittura ed eliminazione per un contenitore BLOB:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)

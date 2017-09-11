@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 08/21/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 0850e3d4d4b36a2358da9410390c67c630561e60
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -63,7 +63,7 @@ Negli esempi seguenti sostituire i nomi dei parametri di esempio con i valori de
     ```
 
     > [!NOTE]
-    > Quando si espande un disco gestito, si esegue il mapping delle dimensioni aggiornate per le dimensioni del disco gestito più vicino. Per consultare una tabella delle dimensioni e dei livelli dei dischi disponibili, vedere [Panoramica di Azure Managed Disks - Prezzi e fatturazione](../../storage/storage-managed-disks-overview.md#pricing-and-billing).
+    > Quando si espande un disco gestito, si esegue il mapping delle dimensioni aggiornate per le dimensioni del disco gestito più vicino. Per consultare una tabella delle dimensioni e dei livelli dei dischi disponibili, vedere [Panoramica di Azure Managed Disks - Prezzi e fatturazione](../windows/managed-disks-overview.md#pricing-and-billing).
 
 3. Avviare la macchina virtuale con [az vm start](/cli/azure/vm#start). L'esempio seguente avvia la VM denominata *myVM* nel gruppo di risorse *myResourceGroup*:
 

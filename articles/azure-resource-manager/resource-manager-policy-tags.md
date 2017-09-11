@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 08/24/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 469bd8d637337e5900ea84c6bfaf88064695fb7e
 ms.contentlocale: it-it
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="apply-resource-policies-for-tags"></a>Applicare criteri delle risorse per i tag
 
 Questo argomento fornisce regole di criterio comuni che è possibile applicare per garantire l'uso coerente dei tag delle risorse.
 
-Applicando un criterio di tag a un gruppo di risorse o a una sottoscrizione con risorse esistenti non si applica retroattivamente il criterio a tali risorse. Per applicare i criteri a queste risorse, avviare l'aggiornamento delle risorse esistenti, come illustrato in [Attivare aggiornamenti delle risorse esistenti](#trigger-updates-to-existing-resources).
+Applicando un criterio di tag a un gruppo di risorse o a una sottoscrizione con risorse esistenti non si applica retroattivamente il criterio a tali risorse. Per applicare i criteri a queste risorse, avviare l'aggiornamento delle risorse esistenti. Questo articolo include un esempio di PowerShell per l'attivazione di un aggiornamento.
 
 ## <a name="ensure-all-resources-in-a-resource-group-have-a-tagvalue"></a>Assicurarsi che tutte le risorse di un gruppo di risorse abbiano un tag/valore
 

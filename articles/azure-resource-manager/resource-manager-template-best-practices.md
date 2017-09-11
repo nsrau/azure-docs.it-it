@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 8a9d7c7f3f8aefa5312e5e3313dbd581d6df900a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Procedure consigliate per la creazione di modelli di Azure Resource Manager
@@ -394,7 +394,7 @@ Per altre informazioni, vedere [Uso di modelli collegati con Azure Resource Mana
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per indicazioni sull'architettura della soluzione per le macchine virtuali, vedere [Run a Windows VM in Azure](../guidance/guidance-compute-single-vm.md) (Eseguire una macchina virtuale Windows in Azure) e [Run a Linux VM in Azure](../guidance/guidance-compute-single-vm-linux.md) (Eseguire una macchina virtuale Linux in Azure).
-* Per indicazioni sulla configurazione di un account di archiviazione, vedere l'[elenco di controllo di prestazioni e scalabilità per Archiviazione di Azure](../storage/storage-performance-checklist.md).
+* Per indicazioni sulla configurazione di un account di archiviazione, vedere l'[elenco di controllo di prestazioni e scalabilità per Archiviazione di Azure](../storage/common/storage-performance-checklist.md).
 * Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Scaffold Azure enterprise: governance prescrittiva per le sottoscrizioni](resource-manager-subscription-governance.md).
 
 

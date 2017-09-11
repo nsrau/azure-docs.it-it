@@ -16,10 +16,10 @@ ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
@@ -32,7 +32,7 @@ In questo articolo vengono illustrati i passaggi per configurare i report per Ba
 4. La frequenza di aggiornamento pianificato per il report è 24 ore in Power BI. È anche possibile eseguire un aggiornamento ad hoc dei report in Power BI, nel qual caso i dati più aggiornati nell'account di archiviazione del cliente vengono usati per il rendering dei report. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-1. Creare un [account di archiviazione di Azure](../storage/storage-create-storage-account.md#create-a-storage-account) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
+1. Creare un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
 2. [Creare un account di Power BI](https://powerbi.microsoft.com/landing/signin/) per visualizzare, personalizzare e creare report personalizzati usando il portale di Power BI.
 3. Registrare il provider di risorse **Microsoft.Insights** se non è stato già registrato, con la sottoscrizione dell'account di archiviazione e con la sottoscrizione dell'insieme di credenziali di Servizi di ripristino per consentire il trasferimento dei dati dei report nell'account. A tale scopo, è necessario passare al portale di Azure > Sottoscrizione > Provider di risorse e selezionare questo provider per registrarlo. 
 
@@ -82,7 +82,7 @@ Dopo aver configurato l'account di archiviazione per i report usando l'insieme d
 4. Immettere il nome dell'account di archiviazione configurato nel passaggio 5 riportato sopra e fare clic sul pulsante **Avanti**.
 
     ![Immettere il nome dell'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Immettere la chiave per l'account di archiviazione. È possibile [visualizzare e copiare le chiavi di accesso agli account di archiviazione](../storage/storage-create-storage-account.md#manage-your-storage-account) passando al proprio account di archiviazione nel portale di Azure. 
+5. Immettere la chiave per l'account di archiviazione. È possibile [visualizzare e copiare le chiavi di accesso agli account di archiviazione](../storage/common/storage-create-storage-account.md#manage-your-storage-account) passando al proprio account di archiviazione nel portale di Azure. 
 
      ![Immettere l'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

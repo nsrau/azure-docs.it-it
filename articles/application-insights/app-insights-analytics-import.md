@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-analytics"></a>Importazione di dati in Analytics
@@ -134,7 +134,7 @@ Per importare i dati, caricarli in Archiviazione di Azure, creare una chiave di 
 
 È possibile eseguire manualmente il processo seguente o configurare un sistema automatizzato per eseguire questa operazione a intervalli regolari. È necessario seguire questi passaggi per ogni blocco di dati da importare.
 
-1. Caricare dati nell'[Archiviazione BLOB di Azure](../storage/storage-dotnet-how-to-use-blobs.md). 
+1. Caricare dati nell'[Archiviazione BLOB di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
 
  * I BLOB possono essere di qualsiasi dimensione, fino a 1 GB non compressi. I BLOB di centinaia di MB sono ideali dal punto di vista delle prestazioni.
  * È possibile comprimerli con Gzip per migliorare i tempi di caricamento e la latenza per i dati che devono essere disponibili per la query. Usare l'estensione del nome file `.gz`.
@@ -142,7 +142,7 @@ Per importare i dati, caricarli in Archiviazione di Azure, creare una chiave di 
  * Quando si inviano dati a frequenza elevata, a intervalli di pochi secondi, è consigliabile usare più account di archiviazione per non incidere sulle prestazioni.
 
  
-2. [Creare una chiave di firma di accesso condiviso per il BLOB](../storage/storage-dotnet-shared-access-signature-part-2.md). La chiave deve avere un periodo di scadenza di un giorno e fornire l'accesso in lettura.
+2. [Creare una chiave di firma di accesso condiviso per il BLOB](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). La chiave deve avere un periodo di scadenza di un giorno e fornire l'accesso in lettura.
 3. Eseguire una chiamata REST per notificare ad Application Insights che i dati sono in attesa.
 
  * Endpoint: `https://dc.services.visualstudio.com/v2/track`

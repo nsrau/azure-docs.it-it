@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2017
+ms.date: 8/24/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: acb22517cb1ce3fe166ae149d4d5bfb867b5ab99
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
@@ -38,6 +38,9 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="august-24-2017"></a>**24 agosto 2017**
+È stato rilasciato il sistema operativo guest di agosto.
 
 ###### <a name="august-3-2017"></a>**3 agosto 2017**
 È stato rilasciato il sistema operativo guest di luglio.
@@ -84,9 +87,10 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.10_201708-01 |24 agosto 2017 |Dopo la versione 5.12 |Da definire |
 | WA-GUEST-OS-5.9_201707-01 |3 agosto 2017 |Post 5.11 |Da definire |
 | WA-GUEST-OS-5.8_201706-01 |7 luglio 2017 |Post 5.10 |Da definire |
-| WA-GUEST-OS-5.7_201705-01 |5 giugno 2017 |Post 5.9 |Da definire |
+|~~WA-GUEST-OS-5.7_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
 |~~WA-GUEST-OS-5.4_201612-01~~ |10 gennaio 2017 |5 giugno 2017|Da definire |
@@ -105,9 +109,10 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.45_201708-01 |24 agosto 2017 |Dopo la versione 4.47 |Da definire |
 | WA-GUEST-OS-4.44_201707-01 |3 agosto 2017 |Post 4.46 |Da definire |
 | WA-GUEST-OS-4.43_201706-01 |7 luglio 2017 |Post 4.45 |Da definire |
-| WA-GUEST-OS-4.42_201705-01 |5 giugno 2017 |Post 4.44 |Da definire |
+|~~WA-GUEST-OS-4.42_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
 |~~WA-GUEST-OS-4.39_201612-01~~ |10 gennaio 2017 |5 giugno 2017 |Da definire |
@@ -130,9 +135,10 @@ Supporta .NET 4.0, 4.5, 4.5.1 e 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.52_201708-01 |24 agosto 2017 |Dopo la versione 3.54 |Da definire |
 | WA-GUEST-OS-3.51_201707-01 |3 agosto 2017 |Post 3.53 |Da definire |
 | WA-GUEST-OS-3.50_201706-01 |7 luglio 2017 |Post 3.52 |Da definire |
-| WA-GUEST-OS-3.49_201705-01 |5 giugno 2017 |Post 3.51 |Da definire |
+|~~WA-GUEST-OS-3.49_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
 |~~WA-GUEST-OS-3.46_201612-01~~ |10 gennaio 2017 |5 giugno 2017 |Da definire |
@@ -155,9 +161,10 @@ Supporta .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.65_201708-01 |24 agosto 2017 |Dopo la versione 2.67 |Da definire |
 | WA-GUEST-OS-2.64_201707-01 |3 agosto 2017 |Post 2.66 |Da definire |
 | WA-GUEST-OS-2.63_201706-01 |7 luglio 2017 |Post 2.65 |Da definire |
-| WA-GUEST-OS-2.62_201705-01 |5 giugno 2017 |Post 2.64 |Da definire |
+|~~WA-GUEST-OS-2.62_201705-01~~ |5 giugno 2017 |24 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 maggio 2017 |3 agosto 2017 |Da definire |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 aprile 2017 |7 luglio 2017 |Da definire |
 |~~WA-GUEST-OS-2.59_201701-01~~ |10 gennaio 2017 |5 giugno 2017 |Da definire |

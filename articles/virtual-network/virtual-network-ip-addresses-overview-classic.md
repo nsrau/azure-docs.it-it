@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: c9eb4bad1c0069b3f8ed2df30ef72b2c530ffab3
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione (modello di distribuzione classica) in Azure
@@ -34,7 +33,7 @@ Gli indirizzi IP privati vengono usati per la comunicazione all'interno di una r
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md).  Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare Resource Manager per la maggior parte delle distribuzioni più recenti. Informazioni sugli indirizzi IP in Resource Manager sono disponibili nell'articolo sugli [indirizzi IP](virtual-network-ip-addresses-overview-arm.md).
 
 ## <a name="public-ip-addresses"></a>Indirizzi IP pubblici
-Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), i [database SQL](../sql-database/sql-database-technical-overview.md) e [Archiviazione di Azure](../storage/storage-introduction.md).
+Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), i [database SQL](../sql-database/sql-database-technical-overview.md) e [Archiviazione di Azure](../storage/common/storage-introduction.md).
 
 Un indirizzo IP pubblico è associato ai seguenti tipi di risorse:
 

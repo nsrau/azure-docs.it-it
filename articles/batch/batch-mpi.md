@@ -15,10 +15,10 @@ ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 9adaf46743bad039e2a5680a7d6dca767d964459
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 77d12d6d48b22dfb3e7f09f273dffc11401bb15f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -199,7 +199,7 @@ Per informazioni dettagliate su queste e altre variabili di ambiente dei nodi di
 ## <a name="resource-files"></a>File di risorse
 Sono disponibili due set di file di risorse da prendere in considerazione per le attività a istanze multiple: **file di risorse comuni**, scaricati da *tutte* le attività, sia da quella primaria che dalle sottoattività, e **file di risorse** specifici per la stessa attività a istanze multiple, scaricati *solo dall'attività primaria*.
 
-È possibile specificare uno o più **file di risorse comuni** nelle impostazioni per istanze multiple relative a un'attività. Questi file di risorse comuni vengono scaricati da [Archiviazione di Azure](../storage/storage-introduction.md) dall'attività primaria e da tutte le sottoattività nella **directory condivisa dell'attività** di ogni nodo. È possibile accedere alla directory condivisa dell'attività dalle righe del comando applicazione e del comando di coordinamento usando la variabile di ambiente `AZ_BATCH_TASK_SHARED_DIR` . Il percorso `AZ_BATCH_TASK_SHARED_DIR` è identico in ogni nodo allocato all'attività a istanze multiple ed è quindi possibile condividere un singolo comando di coordinamento tra l'attività primaria e tutte le sottoattività. Il servizio Batch non "condivide" la directory nel senso di consentire un accesso remoto, ma è possibile usarla come punto di montaggio o condivisione, come indicato in precedenza nel suggerimento sulle variabili di ambiente.
+È possibile specificare uno o più **file di risorse comuni** nelle impostazioni per istanze multiple relative a un'attività. Questi file di risorse comuni vengono scaricati da [Archiviazione di Azure](../storage/common/storage-introduction.md) dall'attività primaria e da tutte le sottoattività nella **directory condivisa dell'attività** di ogni nodo. È possibile accedere alla directory condivisa dell'attività dalle righe del comando applicazione e del comando di coordinamento usando la variabile di ambiente `AZ_BATCH_TASK_SHARED_DIR` . Il percorso `AZ_BATCH_TASK_SHARED_DIR` è identico in ogni nodo allocato all'attività a istanze multiple ed è quindi possibile condividere un singolo comando di coordinamento tra l'attività primaria e tutte le sottoattività. Il servizio Batch non "condivide" la directory nel senso di consentire un accesso remoto, ma è possibile usarla come punto di montaggio o condivisione, come indicato in precedenza nel suggerimento sulle variabili di ambiente.
 
 I file di risorse specificati per l'attività a istanze multiple stessa vengono scaricati nella directory di lavoro dell'attività, `AZ_BATCH_TASK_WORKING_DIR`, per impostazione predefinita. Come accennato, a differenza dei file di risorse comuni, solo l'attività primaria scarica i file di risorse specificati per l'attività a istanze multiple stessa.
 

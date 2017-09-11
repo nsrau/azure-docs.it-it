@@ -104,7 +104,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
 
     **Video**
 
-   * Codificatore: MainConcept h.&264;
+   * Codificatore: MainConcept h. 264
    * Fotogrammi al secondo: 30
    * Velocità in bit media: 5000 kbit al secondo (può essere regolato in base alle limitazioni di rete)
    * Profilo: principale

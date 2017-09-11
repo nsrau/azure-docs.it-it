@@ -9,17 +9,17 @@ editor:
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 392ed1b7ac5f543b322024f4b771c73bf865e970
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
@@ -39,7 +39,7 @@ Le risorse di Microsoft Azure vengono distribuite tra più aree geografiche in t
 
 Il servizio Managed Disks gestisce in background le operazioni di creazione e gestione dell'account di archiviazione di Azure ed elimina la necessità di preoccuparsi dei limiti di scalabilità dell'account di archiviazione. È sufficiente specificare le dimensioni del disco e il livello di prestazioni, Standard o Premium, e Azure si occuperà della creazione e della gestione del disco. Anche se si aggiungono dischi o si ridimensiona la macchina virtuale, non è necessario preoccuparsi dello spazio di archiviazione usato. Se si creano nuove macchine virtuali, [usare l'interfaccia della riga di comando di Azure 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o il portale di Azure per creare macchine virtuali con dischi dati e del sistema operativo gestiti. Se si dispone di macchine virtuali con dischi non gestiti, è possibile [convertire le macchine virtuali per eseguire il backup con Managed Disks](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-È anche possibile gestire le immagini personalizzate in un unico account di archiviazione per ogni area di Azure e usarle per creare centinaia di macchine virtuali nella stessa sottoscrizione. Per altre informazioni sul servizio Managed Disks, vedere [Azure Managed Disks Overview](../../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks).
+È anche possibile gestire le immagini personalizzate in un unico account di archiviazione per ogni area di Azure e usarle per creare centinaia di macchine virtuali nella stessa sottoscrizione. Per altre informazioni sul servizio Managed Disks, vedere [Azure Managed Disks Overview](../windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).
 
 ## <a name="azure-virtual-machines--instances"></a>Macchine virtuali di Azure e istanze
 Microsoft Azure supporta l'esecuzione di numerose distribuzioni comuni di Linux fornite e gestite da diversi partner.  In Azure Marketplace sono disponibili distribuzioni come Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD e altre ancora. Microsoft collabora attivamente con diverse community Linux per aggiungere altre versioni all'elenco delle [distribuzioni Linux approvate per Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -60,7 +60,7 @@ Ecco alcune linee guida fondamentali per la selezione delle dimensioni di una VM
 
 Nota: le VM serie DS e GS hanno accesso all'archiviazione Premium, l'archiviazione a bassa latenza e alte prestazioni basata su unità SSD per carichi di lavoro con uso intensivo di I/O. L'archiviazione Premium è disponibile solo in determinate aree geografiche. Per informazioni dettagliate, vedere:
 
-* [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../storage/storage-premium-storage.md)
+* [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../storage/common/storage-premium-storage.md)
 
 ## <a name="automation"></a>Automazione
 Per ottenere le impostazioni cultura DevOps corrette, l'intera infrastruttura deve essere contenuta nel codice.  Quando l'intera infrastruttura è presente nel codice, può essere facilmente ricreata (server Phoenix).  Azure funziona con gli strumenti di automazione principali, come Ansible, Chef, SaltStack e Puppet.  Azure dispone di strumenti di automazione propri:
@@ -120,7 +120,7 @@ La VM è ora in esecuzione in Azure ed è possibile eseguire l'accesso.  L'uso d
 
 ## <a name="related-azure-components"></a>Componenti di Azure correlati
 ## <a name="storage"></a>Archiviazione
-* [Introduzione ad Archiviazione di Microsoft Azure](../../storage/storage-introduction.md)
+* [Introduzione ad Archiviazione di Microsoft Azure](../../storage/common/storage-introduction.md)
 * [Aggiungere un disco a una VM Linux tramite l'interfaccia della riga di comando di Azure](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Come collegare un disco dati a una macchina virtuale Linux nel portale di Azure](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -1,6 +1,6 @@
 ---
-title: Introduzione ai dispositivi gemelli dell&quot;hub IoT di Azure (Node) | Documentazione Microsoft
-description: Come usare i dispositivi gemelli dell&quot;hub IoT di Azure per aggiungere tag e quindi usare una query dell&quot;hub IoT. Usare Azure IoT SDK per Node.js per implementare l&quot;app per dispositivo simulato e un&quot;app di servizio che aggiunge i tag ed esegue la query dell&quot;hub IoT.
+title: Introduzione ai dispositivi gemelli dell'hub IoT di Azure (Node) | Documentazione Microsoft
+description: Come usare i dispositivi gemelli dell'hub IoT di Azure per aggiungere tag e quindi usare una query dell'hub IoT. Usare Azure IoT SDK per Node.js per implementare l'app per dispositivo simulato e un'app di servizio che aggiunge i tag ed esegue la query dell'hub IoT.
 services: iot-hub
 documentationcenter: node
 author: fsautomata
@@ -12,14 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 08/25/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 527aed57517f04d1b0fdcad5feac5488123b89c7
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 633c9fd4f8a1d017d93148f8c2e860ccba14238c
 ms.contentlocale: it-it
-ms.lasthandoff: 12/07/2016
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="get-started-with-device-twins-node"></a>Introduzione ai dispositivi gemelli (Node)
@@ -45,7 +44,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>Creare l'app di servizio
-In questa sezione si crea a un'app console Node.js che aggiunge i metadati della posizione al dispositivo gemello associato a **myDeviceId**. Viene quindi effettua una query dei dispositivi gemelli archiviati nell'hub IoT selezionando i dispositivi situati negli Stati Uniti e quindi quelli che segnalano una rete cellulare.
+In questa sezione si crea a un'app console Node.js che aggiunge i metadati della posizione al dispositivo gemello associato a **myDeviceId**. Viene quindi effettuata una query dei dispositivi gemelli archiviati nell'hub IoT selezionando i dispositivi situati negli Stati Uniti e quindi quelli che segnalano una rete cellulare.
 
 1. Creare una nuova cartella vuota denominata **addtagsandqueryapp**. Nella cartella **addtagsandqueryapp** creare un nuovo file package.json immettendo il comando seguente al prompt dei comandi. Accettare tutte le impostazioni predefinite:
    

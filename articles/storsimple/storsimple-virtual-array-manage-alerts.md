@@ -1,6 +1,6 @@
 ---
-title: Visualizzare e gestire gli avvisi dell&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
-description: "Vengono descritte le condizioni di avviso dell&quot;array virtuale StorSimple e la loro gravità. Viene inoltre illustrato come usare il servizio StorSimple Manager per gestire gli avvisi."
+title: Visualizzare e gestire gli avvisi dell'array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
+description: "Vengono descritte le condizioni di avviso dell'array virtuale StorSimple e la loro gravità. Viene inoltre illustrato come usare il servizio StorSimple Manager per gestire gli avvisi."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,10 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b870974efdde2ebdf339013ca86b772b665151a4
-ms.openlocfilehash: 8cfdad48524c24b3ad69c01ae0330e90ce197b3a
-ms.lasthandoff: 03/01/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire gli avvisi per l'array virtuale StorSimple
@@ -151,8 +152,8 @@ Nelle tabelle seguenti sono elencati alcuni avvisi di StorSimple che potrebbero 
 
 | Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
-| Si stanno verificando ritardi imprevisti nel trasferimento dei dati. |Trasferimento dati lento. |Gli errori di limitazione si verificano quando si superano gli obiettivi di scalabilità di un servizio di archiviazione. In questo modo il servizio di archiviazione assicura che nessun client o tenant possa usare il servizio a spese di altri. Per altre informazioni sulla risoluzione dei problemi relativi all'account di archiviazione di Azure, vedere [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md). |
-| Lo spazio su disco riservato in locale in <*nome dispositivo*> è quasi esaurito. |Tempo di risposta lento. |Il&10;% delle dimensioni totali di cui è stato eseguito il provisioning per <*nome dispositivo*> è riservato nel dispositivo locale e al momento lo spazio riservato è quasi esaurito. Il carico di lavoro in <*nome dispositivo*> sta generando un'elevata varianza o è possibile che di recente sia stata eseguita la migrazione di una grande quantità di dati causando una riduzione delle prestazioni. Questo può comportare una riduzione delle prestazioni. Per risolvere questo problema, provare a eseguire una delle azioni seguenti:<ul><li>Aumentare la larghezza di banda cloud sul dispositivo.</li><li>Ridurre o spostare i carichi di lavoro in un altro volume o condivisione.</li></ul> |
+| Si stanno verificando ritardi imprevisti nel trasferimento dei dati. |Trasferimento dati lento. |Gli errori di limitazione si verificano quando si superano gli obiettivi di scalabilità di un servizio di archiviazione. In questo modo il servizio di archiviazione assicura che nessun client o tenant possa usare il servizio a spese di altri. Per altre informazioni sulla risoluzione dei problemi relativi all'account di archiviazione di Azure, vedere [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
+| Lo spazio su disco riservato in locale in <*nome dispositivo*> è quasi esaurito. |Tempo di risposta lento. |Il 10% delle dimensioni totali di cui è stato eseguito il provisioning per <*nome dispositivo*> è riservato nel dispositivo locale e al momento lo spazio riservato è quasi esaurito. Il carico di lavoro in <*nome dispositivo*> sta generando un'elevata varianza o è possibile che di recente sia stata eseguita la migrazione di una grande quantità di dati causando una riduzione delle prestazioni. Questo può comportare una riduzione delle prestazioni. Per risolvere questo problema, provare a eseguire una delle azioni seguenti:<ul><li>Aumentare la larghezza di banda cloud sul dispositivo.</li><li>Ridurre o spostare i carichi di lavoro in un altro volume o condivisione.</li></ul> |
 
 ### <a name="security-alerts"></a>Avvisi di sicurezza
 

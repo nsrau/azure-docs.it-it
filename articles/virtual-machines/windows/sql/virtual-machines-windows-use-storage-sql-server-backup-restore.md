@@ -1,5 +1,5 @@
 ---
-title: Come usare l&quot;archiviazione di Azure per il backup e il ripristino di SQL Server | Documentazione Microsoft
+title: Come usare l'archiviazione di Azure per il backup e il ripristino di SQL Server | Documentazione Microsoft
 description: Informazioni su come eseguire il backup di SQL Server in Archiviazione di Azure. Vengono illustrati i vantaggi del backup dei database SQL in Archiviazione di Azure.
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 3cfeed9d10cba8e51e8609fe2a0a2a3228681850
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usare Archiviazione di Azure per il backup e il ripristino di SQL Server
@@ -31,7 +32,7 @@ Questo argomento illustra i motivi per cui è possibile scegliere di usare Archi
 ## <a name="benefits-of-using-the-azure-blob-service-for-sql-server-backups"></a>Vantaggi dell'uso del servizio BLOB di Azure per i backup di SQL Server
 Quando si eseguono backup di SQL Server, è necessario affrontare diverse problematiche, inclusi la gestione dell'archiviazione, i rischi correlati agli errori di archiviazione, l'accesso all'archiviazione fuori sede e la configurazione dell'hardware. Grazie all'uso del servizio di archiviazione BLOB di Azure per i backup di SQL Server, molti di questi problemi vengono risolti. Prendere in considerazione i vantaggi seguenti:
 
-* **Semplicità d'uso**: l'archiviazione dei backup nel servizio BLOB di Azure è un'opzione di archiviazione fuori sede pratica, flessibile e di facile accesso. La creazione di un sistema di archiviazione fuori sede per i backup di SQL Server è estremamente semplice ed è realizzabile modificando gli script e i processi esistenti in modo da usare la sintassi **BACKUP TO URL** . L'archiviazione fuori sede dovrebbe in genere essere ubicata a una certa distanza dal luogo fisico in cui si trova il database di produzione, al fine di evitare che nell'impatto di una situazione di emergenza possano trovarsi coinvolti sia la sede remota che quella in cui si trova il database di produzione. Scegliendo di eseguire la [replica geografica dei BLOB di Azure](../../../storage/storage-redundancy.md), si otterrà un livello aggiuntivo di protezione nel caso in cui si verifichi un'emergenza che potrebbe interessare l'intera area.
+* **Semplicità d'uso**: l'archiviazione dei backup nel servizio BLOB di Azure è un'opzione di archiviazione fuori sede pratica, flessibile e di facile accesso. La creazione di un sistema di archiviazione fuori sede per i backup di SQL Server è estremamente semplice ed è realizzabile modificando gli script e i processi esistenti in modo da usare la sintassi **BACKUP TO URL** . L'archiviazione fuori sede dovrebbe in genere essere ubicata a una certa distanza dal luogo fisico in cui si trova il database di produzione, al fine di evitare che nell'impatto di una situazione di emergenza possano trovarsi coinvolti sia la sede remota che quella in cui si trova il database di produzione. Scegliendo di eseguire la [replica geografica dei BLOB di Azure](../../../storage/common/storage-redundancy.md), si otterrà un livello aggiuntivo di protezione nel caso in cui si verifichi un'emergenza che potrebbe interessare l'intera area.
 * **Archivio di backup**: per l'archiviazione dei backup, il servizio di archiviazione BLOB di Azure offre un'alternativa ottimale alle opzioni più diffuse, ad esempio le soluzioni a nastro. L'archiviazione su nastro può richiedere il trasporto fisico alla struttura fuori sede e l'adozione di determinate misure per la protezione dei supporti. L'archiviazione dei backup nell'archiviazione BLOB di Azure rappresenta un'opzione di archiviazione istantanea, estremamente disponibile e durevole.
 * **Hardware gestito**: con i servizi di Azure non viene addebitato alcun sovraccarico per la gestione dell'hardware. I servizi di Azure consentono di gestire l'hardware con l'aggiunta della replica geografica per la ridondanza e la protezione dagli errori hardware.
 * **Archiviazione illimitata**: abilitando un backup diretto sui BLOB di Azure, si ottiene l'accesso a uno spazio di archiviazione teoricamente illimitato. L'esecuzione di backup su una macchina virtuale di Azure presenta invece dei limiti correlati alle dimensioni della macchina stessa. Il numero di dischi che è possibile collegare a una macchina virtuale di Azure per i backup è limitato. Tale limite è di 16 dischi per un'istanza molto grande e un numero di dischi inferiore per istanze più piccole.
@@ -76,10 +77,5 @@ Quando si eseguono backup nel servizio di archiviazione BLOB di Azure, vengono u
 Se si verificano problemi, consultare l'argomento [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL](https://msdn.microsoft.com/library/jj919149.aspx).
 
 Per una descrizione delle altre opzioni di backup e ripristino, vedere [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

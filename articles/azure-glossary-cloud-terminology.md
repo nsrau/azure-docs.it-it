@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 8fd682db20b99d2cff9fd7fa45cb662d932fefea
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
@@ -31,7 +31,7 @@ Il glossario di Microsoft Azure è un breve dizionario di terminologia cloud per
 
 ## <a name="account"></a>account
 Account usato per accedere alla sottoscrizione di Azure e gestirla. Viene spesso definito account Azure anche se un account può essere un account Microsoft aziendale, dell'istituto di istruzione o personale esistente oppure un nome utente e una password di Office 365. È anche possibile creare un account per gestire una sottoscrizione di Azure quando ci si iscrive alla [versione di valutazione gratuita](https://azure.microsoft.com).  
-Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [Account che si possono usare per l'accesso](active-directory/active-directory-how-subscriptions-associated-directory.md#accounts-that-you-can-use-to-sign-in).
+Vedere [Iscriversi a una sottoscrizione di Azure con il proprio account di Office 365](billing/billing-use-existing-office-365-account-azure-subscription.md) e [Account che si possono usare per l'accesso](active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>App per le API
 Nome alternativo per [app del servizio app](#app-service-app).
@@ -119,11 +119,11 @@ Contratto di servizio che definisce gli impegni di Microsoft in merito a tempi d
 Vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>firma di accesso condiviso
-Firma che consente di concedere accesso limitato a una risorsa, senza esporre la chiave dell'account. Ad esempio, [Archiviazione di Azure usa firme di accesso condiviso](storage/storage-dotnet-shared-access-signature-part-1.md) per concedere l'accesso client a oggetti come i BLOB. L'[hub IoT usa firme di accesso condiviso](iot-hub/iot-hub-devguide-security.md#security-tokens) per concedere ai dispositivi l'autorizzazione necessaria per inviare dati di telemetria.
+Firma che consente di concedere accesso limitato a una risorsa, senza esporre la chiave dell'account. Ad esempio, [Archiviazione di Azure usa firme di accesso condiviso](storage/common/storage-dotnet-shared-access-signature-part-1.md) per concedere l'accesso client a oggetti come i BLOB. L'[hub IoT usa firme di accesso condiviso](iot-hub/iot-hub-devguide-security.md#security-tokens) per concedere ai dispositivi l'autorizzazione necessaria per inviare dati di telemetria.
 
 ## <a name="storage-account"></a>account di archiviazione
 Account che consente di accedere a servizi BLOB, di accodamento, tabelle e file in Archiviazione di Azure. Il nome dell'account di archiviazione definisce uno spazio dei nomi univoco per gli oggetti dati di Archiviazione di Azure.  
-Vedere [Informazioni sugli account di archiviazione di Azure](storage/storage-create-storage-account.md)
+Vedere [Informazioni sugli account di archiviazione di Azure](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>sottoscrizione
 Contratto tra il cliente e Microsoft che consente di ricevere i servizi di Azure. Le tariffe della sottoscrizione e i relativi termini dipendono dall'offerta scelta per la sottoscrizione.

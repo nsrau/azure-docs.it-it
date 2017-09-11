@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Backup di SQL Data Warehouse
@@ -35,15 +35,15 @@ SQL Data Warehouse protegge i dati archiviandoli in Archiviazione Premium di Azu
 
 Per altre informazioni su:
 
-* Archiviazione Premium di Azure, vedere [Introduzione ad Archiviazione Premium di Azure](../storage/storage-premium-storage.md).
-* Archiviazione con ridondanza locale, vedere [Replica di Archiviazione di Azure](../storage/storage-redundancy.md#locally-redundant-storage).
+* Archiviazione Premium di Azure, vedere [Introduzione ad Archiviazione Premium di Azure](../storage/common/storage-premium-storage.md).
+* Archiviazione con ridondanza locale, vedere [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md#locally-redundant-storage).
 
 ## <a name="azure-storage-blob-snapshots"></a>Snapshot dei BLOB di Archiviazione di Azure
 Come vantaggio dell'uso di Archiviazione Premium di Azure, SQL Data Warehouse usa gli snapshot dei BLOB di Archiviazione di Azure per eseguire il backup del data warehouse in locale. È possibile ripristinare un data warehouse a un punto di ripristino di uno snapshot. Gli snapshot vengono eseguiti come minimo ogni quattro-otto ore e sono disponibili per sette giorni.  
 
 Per altre informazioni su:
 
-* Snapshot BLOB di Azure, vedere [Creare uno snapshot BLOB](../storage/storage-blob-snapshots.md).
+* Snapshot BLOB di Azure, vedere [Creare uno snapshot BLOB](../storage/blobs/storage-blob-snapshots.md).
 
 ## <a name="geo-redundant-backups"></a>Backup con ridondanza geografica
 Ogni 24 ore SQL Data Warehouse archivia il data warehouse completo nella risorsa di archiviazione standard. Il data warehouse completo viene creato in base all'ora dell'ultimo snapshot. La risorsa di archiviazione standard appartiene a un account di archiviazione con ridondanza geografica con accesso in lettura (RA-GRS). La funzionalità Archiviazione con ridondanza geografica e accesso in lettura di Archiviazione di Azure replica i file di backup in un [data center associato](../best-practices-availability-paired-regions.md). La replica geografica assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere agli snapshot nell'area primaria. 
@@ -62,8 +62,8 @@ Questa funzionalità è attivata per impostazione predefinita. Se non si desider
 
 Per altre informazioni su:
 
-* Archiviazione con ridondanza geografica, vedere [Replica di Archiviazione di Azure](../storage/storage-redundancy.md).
-* Archiviazione con ridondanza geografica e accesso in lettura, vedere [Archiviazione con ridondanza geografica e accesso in lettura](../storage/storage-redundancy.md#read-access-geo-redundant-storage).
+* Archiviazione con ridondanza geografica, vedere [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
+* Archiviazione con ridondanza geografica e accesso in lettura, vedere [Archiviazione con ridondanza geografica e accesso in lettura](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage).
 
 ## <a name="data-warehouse-backup-schedule-and-retention-period"></a>Pianificazione dei backup del data warehouse e periodo di conservazione
 SQL Data Warehouse crea snapshot nei data warehouse online ogni quattro-otto ore e mantiene ogni snapshot per sette giorni. È possibile ripristinare il database online a uno dei punti di ripristino degli ultimi sette giorni. 

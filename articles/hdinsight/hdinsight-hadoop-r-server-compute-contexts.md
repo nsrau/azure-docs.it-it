@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 09b65ccd77f6e0898f07c4262940e517a8f913fa
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 47f4441612be4f363ba82cc22b09786a6f3bfdc3
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opzioni del contesto di calcolo per R Server su HDInsight (anteprima)
@@ -30,7 +29,7 @@ Microsoft R Server in Azure HDInsight controlla l'esecuzione delle chiamate, imp
 Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al cluster ed eseguire gli script R. Con un nodo perimetrale è possibile eseguire le funzioni distribuite parallelizzate di ScaleR nei core del server del nodo perimetrale. È anche possibile eseguire tali funzioni tra i nodi del cluster usando contesti di calcolo Hadoop MapReduce o Spark di ScaleR.
 
 ## <a name="microsoft-r-server-on-azure-hdinsight"></a>Microsoft R Server in Azure HDInsight
-[Microsoft R Server in Azure HDInsight](hdinsight-hadoop-r-server-overview.md) fornisce le funzionalità più recenti per l'analisi basata su R. Può usare i dati archiviati in un contenitore HDFS nell'account di archiviazione [BLOB di Azure](../storage/storage-introduction.md "Archiviazione BLOB di Azure"), in un Data Lake Store o nel file system locale di Linux. Poiché R Server si basa su R open source, le applicazioni basate su R compilate dall'utente possono applicare gli oltre 8000 pacchetti R open source. Possono anche usare le routine di [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), il pacchetto di analisi dei Big Data di Microsoft incluso in R Server.  
+[Microsoft R Server in Azure HDInsight](hdinsight-hadoop-r-server-overview.md) fornisce le funzionalità più recenti per l'analisi basata su R. Può usare i dati archiviati in un contenitore HDFS nell'account di archiviazione [BLOB di Azure](../storage/common/storage-introduction.md "Archiviazione BLOB di Azure"), in un Data Lake Store o nel file system locale di Linux. Poiché R Server si basa su R open source, le applicazioni basate su R compilate dall'utente possono applicare gli oltre 8000 pacchetti R open source. Possono anche usare le routine di [RevoScaleR](https://msdn.microsoft.com/microsoft-r/scaler/scaler), il pacchetto di analisi dei Big Data di Microsoft incluso in R Server.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contesti di calcolo per un nodo perimetrale
 In generale, uno script R eseguito in R Server nel nodo perimetrale viene eseguito all'interno dell'interprete R in tale nodo. L'eccezione è costituita dai passaggi che chiamano una funzione ScaleR. Le chiamate ScaleR vengono eseguite in un ambiente di calcolo determinato dall'impostazione del contesto di calcolo di ScaleR.  Quando si esegue lo script R da un nodo perimetrale, i valori possibili del contesto di calcolo sono:

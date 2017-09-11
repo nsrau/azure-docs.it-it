@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c8d4733e57eb760dbb8e8ca96f6ba55671d1742f
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/21/2017
 > I livelli di prestazioni S1, S2 e S3 descritti in questo articolo sono in fase di ritiro e non sono più disponibili per i nuovi account API DocumentDB.
 >
 
-Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e descrive come, il 1° agosto 2017, verrà eseguita la migrazione delle raccolte che usano questi livelli di prestazioni a raccolte a partizione singola. Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
+Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e descrive come, a fine 2017, verrà eseguita la migrazione delle raccolte che usano questi livelli di prestazioni a raccolte a partizione singola. Alla fine della lettura, si avranno le risposte alle domande seguenti:
 
 - [Perché i livelli di prestazioni S1, S2 e S3 sono in fase di ritiro?](#why-retired)
 - [Che differenze ci sono tra le raccolte a partizione singola e partizionate e i livelli di prestazioni S1, S2 e S3?](#compare)
@@ -36,7 +36,7 @@ Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e de
 - [Dopo la migrazione, come cambierà una raccolta esistente?](#collection-change)
 - [Dopo la migrazione a raccolte a partizione singola, come cambierà la fatturazione?](#billing-change)
 - [Come bisogna comportarsi se sono necessari più di 10 GB di spazio di archiviazione?](#more-storage-needed)
-- [È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima del 1° agosto 2017?](#change-before)
+- [È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima della migrazione pianificata?](#change-before)
 - [Come è possibile sapere quando sarà stata eseguita la migrazione di una raccolta?](#when-migrated)
 - [Come è possibile seguire autonomamente la migrazione dai livelli di prestazioni S1, S2 e S3 alle raccolte a partizione singola?](#migrate-diy)
 - [Quali sono le conseguenze per i clienti EA?](#ea-customer)
@@ -66,7 +66,7 @@ Per i clienti EA, è consigliabile fare riferimento a [Quali sono le conseguenze
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>Cosa bisogna fare per garantire l'accesso ininterrotto ai dati?
 
-Niente, perché Cosmos DB gestisce automaticamente la migrazione. Per chi usa una raccolta S1, S2 o S3, il 31 luglio 2017 verrà eseguita la migrazione a una raccolta a partizione singola. 
+Niente, perché Cosmos DB gestisce automaticamente la migrazione. Per chi usa una raccolta S1, S2 o S3, a fine 2017 verrà eseguita la migrazione a una raccolta a partizione singola. 
 
 <a name="collection-change"></a>
 
@@ -98,15 +98,15 @@ Se si ha una raccolta con livello di prestazioni S1, S2 o S3 o una raccolta a pa
 
 <a name="change-before"></a>
 
-## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima del 1° agosto 2017?
+## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-the-planned-migration"></a>È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima della migrazione pianificata?
 
-Solo gli account già esistenti con livelli di prestazioni S1, S2 e S3 potranno cambiare livelli tramite il portale o a livello di programmazione. Dal 1° agosto 2017 i livelli di prestazioni S1, S2 e S3 non saranno più disponibili. Se si passa da S1, S3 o S3 a una raccolta a partizione singola non è possibile tornare ai livelli di prestazioni S1, S2 o S3.
+Solo gli account già esistenti con livelli di prestazioni S1, S2 e S3 potranno cambiare livelli tramite il portale o a livello di programmazione. Se si passa da S1, S3 o S3 a una raccolta a partizione singola non è possibile tornare ai livelli di prestazioni S1, S2 o S3.
 
 <a name="when-migrated"></a>
 
 ## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Come è possibile sapere quando sarà stata eseguita la migrazione di una raccolta?
 
-La migrazione verrà eseguita il 31 luglio 2017. Se l'utente ha una raccolta che usa i livelli di prestazioni S1, S2 o S3, verrà contattato per posta elettronica dal team di Cosmos DB prima della migrazione. Al termine della migrazione, il 1° agosto 2017, sul Portale di Azure verrà mostrato che la raccolta usa il piano tariffario Standard.
+La migrazione verrà a fine 2017. Se l'utente ha una raccolta che usa i livelli di prestazioni S1, S2 o S3, verrà contattato per posta elettronica dal team di Cosmos DB prima della migrazione. Al termine della migrazione, sul portale di Azure verrà mostrato che la raccolta usa il piano tariffario Standard.
 
 ![Come verificare che è stata eseguita la migrazione della raccolta al piano tariffario Standard](./media/performance-levels/portal-standard-pricing-applied.png)
 
@@ -114,7 +114,7 @@ La migrazione verrà eseguita il 31 luglio 2017. Se l'utente ha una raccolta che
 
 ## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>Come è possibile eseguire autonomamente la migrazione dai livelli di prestazioni S1, S2, S3 a raccolte a partizione singola?
 
-È possibile eseguire la migrazione dai livelli di prestazioni S1, S2 e S3 a raccolte a partizione singola tramite il Portale di Azure o a livello di programmazione. È possibile farlo autonomamente prima del 1° agosto per poter beneficiare delle opzioni di flessibilità della velocità effettiva disponibili con le raccolte a partizione singola; in alternativa la migrazione verrà eseguita da Microsoft il 31 luglio 2017.
+È possibile eseguire la migrazione dai livelli di prestazioni S1, S2 e S3 a raccolte a partizione singola tramite il Portale di Azure o a livello di programmazione. È possibile farlo autonomamente prima della migrazione pianificata per poter beneficiare delle opzioni di flessibilità della velocità effettiva, disponibili con le raccolte a partizione singola; in alternativa, la migrazione verrà eseguita da Microsoft a fine 2017.
 
 **Per eseguire la migrazione delle raccolte a partizione singola tramite il Portale di Azure**
 

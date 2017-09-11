@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio delle operazioni dell&quot;hub IoT di Azure | Microsoft Docs
-description: Come usare il monitoraggio delle operazioni dell&quot;hub IoT di Azure per monitorare lo stato delle operazioni nell&quot;hub IoT in tempo reale.
+title: Monitoraggio delle operazioni dell'hub IoT di Azure | Microsoft Docs
+description: Come usare il monitoraggio delle operazioni dell'hub IoT di Azure per monitorare lo stato delle operazioni nell'hub IoT in tempo reale.
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2017
+ms.date: 08/25/2017
 ms.author: nberdy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 22ca1b635f3c5d4d349e883d9953b0c126fc715a
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: b6de5c5df5f9401a41be152bfa06eb994594e83d
 ms.contentlocale: it-it
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitoraggio delle operazioni dell'hub IoT

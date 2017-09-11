@@ -16,15 +16,15 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c8f0da306c5adcf67e5e6dce10c180d08766f733
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6790db207fc7ec8a4b1546ef07c97ef30abe9513
 ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
 ## <a name="overview"></a>Overview
-[Archiviazione Premium di Azure](../../../storage/storage-premium-storage.md) è la risorsa di archiviazione di nuova generazione che fornisce bassa latenza e I/O ad alta velocità. Funziona al meglio per i carichi di lavoro con numerose operazioni di I/O, ad esempio SQL Server in [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/)IaaS.
+[Archiviazione Premium di Azure](../../../storage/common/storage-premium-storage.md) è la risorsa di archiviazione di nuova generazione che fornisce bassa latenza e I/O ad alta velocità. Funziona al meglio per i carichi di lavoro con numerose operazioni di I/O, ad esempio SQL Server in [macchine virtuali](https://azure.microsoft.com/services/virtual-machines/)IaaS.
 
 > [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
@@ -144,7 +144,7 @@ Una volta eseguito il mapping dei dischi rigidi virtuali ai dischi fisici nei po
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>Larghezza di banda di archiviazione della VM e velocità effettiva di archiviazione del VHD
 Le prestazioni dell’archiviazione dipendono dalle dimensioni della macchina virtuale DS* specificate e della dimensioni del disco rigido virtuale. Le macchine virtuali hanno quote diverse per il numero di dischi rigidi virtuali che possono essere collegati e la larghezza di banda massima che supporteranno (MB/s). Per i numeri di larghezza di banda specifici, vedere [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Input/output al secondo maggiori si ottengono con dimensioni del disco maggiori. Tenere conto di questa considerazione quando si decide il percorso di migrazione. Per i dettagliate [vedere la tabella per i tipi di disco e input/output al secondo](../../../storage/storage-premium-storage.md#scalability-and-performance-targets).
+Input/output al secondo maggiori si ottengono con dimensioni del disco maggiori. Tenere conto di questa considerazione quando si decide il percorso di migrazione. Per i dettagliate [vedere la tabella per i tipi di disco e input/output al secondo](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets).
 
 Infine, tenere presente che le macchine virtuali supporteranno larghezza di banda massime diverse per tutti i dischi collegati. Con un carico elevato si potrebbe saturare la larghezza di banda su disco massima disponibile per le dimensioni del ruolo di macchina virtuale. Ad esempio, Standard_DS14 supporterà fino a 512 MB/s. Pertanto, con tre dischi P30 si potrebbe saturare la larghezza di banda del disco della macchina virtuale. In questo esempio, tuttavia, il limite di velocità effettiva potrebbe essere superato a seconda della combinazione di I/O di lettura e scrittura.
 
@@ -1097,7 +1097,7 @@ Per aggiungere l'indirizzo IP, vedere l’ [Appendice](#appendix-migrating-a-mul
     ![Appendix15][25]
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Archiviazione Premium di Azure](../../../storage/storage-premium-storage.md)
+* [Archiviazione Premium di Azure](../../../storage/common/storage-premium-storage.md)
 * [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

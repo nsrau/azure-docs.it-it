@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 75685a21ce4a212638016be62640badd4870454a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6612ee61f5c50e743241b92030660cea7ae7094d
 ms.contentlocale: it-it
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="apply-resource-policies-to-storage-accounts"></a>Applicare i criteri delle risorse agli account di archiviazione
@@ -27,7 +26,7 @@ Questo argomento indica diversi [criteri delle risorse](resource-manager-policy.
 
 ## <a name="define-permitted-storage-account-types"></a>Definire i tipi di account di archiviazione consentiti
 
-I criteri seguenti consentono di limitare i [tipi di account di archiviazione](../storage/storage-redundancy.md) che è possibile distribuire:
+I criteri seguenti consentono di limitare i [tipi di account di archiviazione](../storage/common/storage-redundancy.md) che è possibile distribuire:
 
 ```json
 {
@@ -58,7 +57,7 @@ Una regola di criterio simile con un parametro per accettare gli SKU consentiti 
 
 ## <a name="define-permitted-access-tier"></a>Definire il livello di accesso consentito
 
-I criteri seguenti specificano il tipo di [livello di accesso](../storage/storage-blob-storage-tiers.md) che è possibile definire per gli account di archiviazione:
+I criteri seguenti specificano il tipo di [livello di accesso](../storage/blobs/storage-blob-storage-tiers.md) che è possibile definire per gli account di archiviazione:
 
 ```json
 {
@@ -88,7 +87,7 @@ I criteri seguenti specificano il tipo di [livello di accesso](../storage/storag
 
 ## <a name="ensure-encryption-is-enabled"></a>Verificare che la crittografia sia abilitata
 
-I criteri seguenti richiedono l'abilitazione della [crittografia del servizio di archiviazione](../storage/storage-service-encryption.md) per tutti gli account di archiviazione:
+I criteri seguenti richiedono l'abilitazione della [crittografia del servizio di archiviazione](../storage/common/storage-service-encryption.md) per tutti gli account di archiviazione:
 
 ```json
 {

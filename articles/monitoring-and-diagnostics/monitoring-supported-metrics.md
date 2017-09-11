@@ -1,7 +1,7 @@
 ---
 title: 'Metriche di Monitoraggio di Azure: metriche supportate per tipo di risorsa | Microsoft Docs'
 description: Elenco delle metriche disponibili per ogni tipo di risorsa con il monitoraggio di Azure.
-author: johnkemnetz
+author: anirudhcavale
 manager: orenr
 editor: 
 services: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/05/2017
-ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: b034251438c65dd13d9ca0bb116699532e3960ef
+ms.date: 8/31/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 83a32dba7b74a303b7fd2167b5fc41212087f8ca
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
@@ -74,6 +74,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |ShortParsingIdleThreads|Thread: thread inattivi per analisi dei thread brevi|Numero|Media|Numero dei thread inattivi nel pool dei thread per l'analisi dei thread brevi.|
 |ShortParsingJobQueueLength|Thread: lunghezza coda processi di analisi dei thread brevi|Numero|Media|Numero dei processi nella coda del pool dei thread per l'analisi dei thread brevi.|
 |memory_thrashing_metric|Thrashing di memoria|Percentuale|Media|Thrashing di memoria medio.|
+|mashup_engine_qpu_metric|QPU Motore M|Numero|Media|Utilizzo QPU da parte dei processi motore mashup|
+|mashup_engine_memory_metric|Memoria Motore M|Byte|Media|Utilizzo della memoria da parte dei processi del motore mashup|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -84,6 +86,14 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |UnauthorizedRequests|Richieste del gateway non autorizzate|Numero|Totale|Numero di richieste del gateway non autorizzate|
 |FailedRequests|Richieste gateway non riuscite|Numero|Totale|Numero di errori nelle richieste gateway|
 |OtherRequests|Altre richieste del gateway|Numero|Totale|Numero di altre richieste del gateway|
+|Durata|Durata complessiva delle richieste del gateway|Millisecondi|Media, Massima|Durata complessiva delle richieste del gateway in millisecondi|
+|Capacità|Capacità (anteprima)|Percentuale|Media, Massima|Metrica di utilizzo per il servizio ApiManagement|
+
+## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|TotalJob|Processi totali|Numero|Totale|Numero totale di processi|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -284,6 +294,30 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |cacheRead9|Lettura da cache (partizione 9)|Byte al secondo|Massima||
 |percentProcessorTime9|CPU (partizione 9)|Percentuale|Massima||
 
+## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|CPU percentuale|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
+|Rete in ingresso|Rete in ingresso|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
+|Rete in uscita|Rete in uscita|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
+|Byte letti da disco/sec|Lettura disco|Byte al secondo|Media|Numero medio di byte letti dal disco durante il periodo di monitoraggio|
+|Byte scritti su disco/sec|Scrittura disco|Byte al secondo|Media|Numero medio di byte scritti sul disco durante il periodo di monitoraggio|
+|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Numero di IOPS letti dal disco|
+|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Numero di IOPS scritti sul disco|
+
+## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|CPU percentuale|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
+|Rete in ingresso|Rete in ingresso|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
+|Rete in uscita|Rete in uscita|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
+|Byte letti da disco/sec|Lettura disco|Byte al secondo|Media|Numero medio di byte letti dal disco durante il periodo di monitoraggio|
+|Byte scritti su disco/sec|Scrittura disco|Byte al secondo|Media|Numero medio di byte scritti sul disco durante il periodo di monitoraggio|
+|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Numero di IOPS letti dal disco|
+|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Numero di IOPS scritti sul disco|
+
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
@@ -374,6 +408,16 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |JobAUEndedFailure|Tempo di aggiornamenti automatici non riusciti|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi non riusciti|
 |JobAUEndedCancelled|Tempo di aggiornamenti automatici annullati|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi annullati.|
 
+## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|TotalStorage|Spazio di archiviazione totale|Byte|Massima|Quantità totale di dati archiviati nell'account|
+|DataWritten|Dati scritti|Byte|Totale|Quantità totale di dati scritti nell'account|
+|DataRead|Dati letti|Byte|Totale|Quantità totale di dati letti dall'account|
+|WriteRequests|Richieste di scrittura|Numero|Totale|Numero di richieste di scrittura dati all'account|
+|ReadRequests|Richieste di lettura|Numero|Totale|Numero di richieste di lettura dati all'account|
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
@@ -428,6 +472,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |d2c.endpoints.latency.serviceBusTopics|Latenza messaggi per gli endpoint dell'argomento del bus di servizio|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint dell'argomento del bus di servizio, in millisecondi|
 |d2c.endpoints.egress.builtIn.events|Messaggi recapitati all'endpoint predefinito (messaggi/eventi)|Numero|Totale|Numero di volte in cui i messaggi sono stati scritti nell'endpoint predefinito (messaggi/eventi)|
 |d2c.endpoints.latency.builtIn.events|Latenza dei messaggi per l'endpoint predefinito (messaggi/eventi)|Millisecondi|Media|La latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio nell'endpoint predefinito (messaggi/eventi), in millisecondi |
+|d2c.endpoints.egress.storage|Messaggi recapitati agli endpoint di archiviazione|Numero|Totale|Numero di volte in cui i messaggi sono stati scritti negli endpoint di archiviazione|
+|d2c.endpoints.latency.storage|Latenza dei messaggi per gli endpoint di archiviazione|Millisecondi|Media|Latenza media tra l'ingresso del messaggio nell'hub IoT e l'ingresso del messaggio in un endpoint di archiviazione, in millisecondi|
+|d2c.endpoints.egress.storage.bytes|Dati scritti nell'archivio|Byte|Totale|Quantità di dati, in byte, scritti negli endpoint di archiviazione|
+|d2c.endpoints.egress.storage.blobs|BLOB scritti nell'archivio|Numero|Totale|Numero di BLOB scritti negli endpoint di archiviazione|
 |d2c.twin.read.success|Letture dei dispositivi gemelli completate dai dispositivi|Numero|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal dispositivo completate.|
 |d2c.twin.read.failure|Letture dei dispositivi gemelli non riuscite per i dispositivi|Numero|Totale|Numero di tutte le letture dei dispositivi gemelli avviate dal dispositivo non riuscite.|
 |d2c.twin.read.size|Dimensioni delle risposte di letture dei dispositivi gemelli dai dispositivi|Byte|Media|Numero medio, minimo e massimo di letture dei dispositivi gemelli avviate dal dispositivo completate.|
@@ -519,14 +567,14 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|Velocità effettiva|Velocità effettiva|Byte al secondo|Media||
+|Velocità effettiva|Velocità effettiva|Byte al secondo|Media|Numero di byte al secondo distribuiti dal gateway applicazione|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|BytesIn|BytesIn|Numero|Totale||
-|BytesOut|BytesOut|Numero|Totale||
+|BytesIn|BytesIn|Numero|Totale|Byte in ingresso in Azure|
+|BytesOut|BytesOut|Numero|Totale|Byte in uscita da Azure|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -594,52 +642,6 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |notificationhub.pushes|Tutte le notifiche in uscita|Numero|Totale|Tutte le notifiche in uscita dell'hub di notifica|
 |incoming.all.requests|Tutte le richieste in ingresso|Numero|Totale|Totale richieste in ingresso per un hub di notifica|
 |incoming.all.failedrequests|Tutte le richieste in ingresso non riuscite|Numero|Totale|Totale richieste in ingresso non riuscite per un hub di notifica|
-
-## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
-|---|---|---|---|---|
-|qpu_metric|QPU|Numero|Media|QPU. Intervallo 0-100 per S1, 0-200 per S2 e 0-400 per S4|
-|memory_metric|Memoria|Byte|Media|Memoria. Intervallo 0-25 GB per S1, 0-50 GB per S2 e 0-100 GB per S4|
-|TotalConnectionRequests|Numero totale di richieste di connessione|Numero|Media|Numero totale delle richieste di connessione in arrivo.|
-|SuccessfullConnectionsPerSec|Connessioni riuscite al secondo|Conteggio al secondo|Media|Numero delle connessioni completate correttamente al secondo.|
-|TotalConnectionFailures|Numero totale di errori di connessione|Numero|Media|Numero totale dei tentativi di connessione non riusciti.|
-|CurrentUserSessions|Sessioni utente correnti|Numero|Media|Numero corrente di sessioni utente attive.|
-|QueryPoolBusyThreads|Thread occupati pool di query|Numero|Media|Numero dei thread occupati nel pool dei thread di query.|
-|CommandPoolJobQueueLength|Lunghezza coda processi nel pool di comandi|Numero|Media|Numero dei processi nella coda del pool dei thread dei comandi.|
-|ProcessingPoolJobQueueLength|Lunghezza coda processi nel pool di elaborazione|Numero|Media|Numero dei processi non di I/O nella coda del pool dei thread di elaborazione.|
-|CurrentConnections|Connessione: connessioni correnti|Numero|Media|Numero corrente delle connessioni client stabilite.|
-|CleanerCurrentPrice|Memoria: prezzo corrente pulitura memoria|Numero|Media|Prezzo corrente della memoria, in €/byte/tempo, moltiplicato per 1000.|
-|CleanerMemoryShrinkable|Memoria: pulitura memoria compattabile|Byte|Media|Quantità di memoria, in byte, soggetta a compattazione da parte della pulitura della memoria in background.|
-|CleanerMemoryNonshrinkable|Memoria: pulitura memoria non compattabile|Byte|Media|Quantità di memoria, in byte, non soggetta a compattazione da parte della pulitura della memoria in background.|
-|MemoryUsage|Memoria: utilizzo memoria|Byte|Media|Utilizzo della memoria del processo server utilizzato per il calcolo del prezzo di una memoria più pulita. Equivale al contatore Process\PrivateBytes più le dimensioni dei dati con mapping in memoria, ignorando la memoria con mapping o allocazione eseguita dal motore di analisi in memoria xVelocity (VertiPaq) in eccesso rispetto al limite di memoria del motore xVelocity.|
-|MemoryLimitHard|Memoria: limite memoria assoluto|Byte|Media|Limite assoluto della memoria, dal file di configurazione.|
-|MemoryLimitHigh|Memoria: limite memoria massimo|Byte|Media|Limite superiore della memoria, dal file di configurazione.|
-|MemoryLimitLow|Memoria: limite memoria minimo|Byte|Media|Limite inferiore della memoria, dal file di configurazione.|
-|MemoryLimitVertiPaq|Memoria: limite memoria VertiPaq|Byte|Media|Limite in memoria dal file di configurazione.|
-|Quota|Memoria: quota|Byte|Media|Quota di memoria corrente, in byte. Le quote di memoria sono note anche come concessioni di memoria o prenotazioni di memoria.|
-|QuotaBlocked|Memoria: Richieste di quota bloccate|Numero|Media|Numero corrente di richieste di quota bloccate fino a quando non vengono liberate altre quote di memoria.|
-|VertiPaqNonpaged|Memoria: VertiPaq non di paging|Byte|Media|Byte di memoria bloccata nel working set per l'uso da parte del motore in memoria.|
-|VertiPaqPaged|Memoria: VertiPaq di paging|Byte|Media|Byte di memoria di paging in uso per i dati in memoria.|
-|RowsReadPerSec|Elaborazione: righe lette al secondo|Conteggio al secondo|Media|Velocità di lettura delle righe da tutti i database relazionali.|
-|RowsConvertedPerSec|Elaborazione: righe convertite al secondo|Conteggio al secondo|Media|Velocità di conversione delle righe durante l'elaborazione.|
-|RowsWrittenPerSec|Elaborazione: righe scritte al secondo|Conteggio al secondo|Media|Velocità di scrittura delle righe durante l'elaborazione.|
-|CommandPoolBusyThreads|Thread: thread occupati nel pool di comandi|Numero|Media|Numero dei thread occupati nel pool dei thread dei comandi.|
-|CommandPoolIdleThreads|Thread: Thread inattivi pool di comandi|Numero|Media|Numero dei thread inattivi nel pool dei thread dei comandi.|
-|LongParsingBusyThreads|Thread: thread occupati per analisi dei thread lunghi|Numero|Media|Numero dei thread occupati nel pool dei thread per l'analisi dei thread lunghi.|
-|LongParsingIdleThreads|Thread: Thread inattivi per analisi dei thread lunghi|Numero|Media|Numero dei thread inattivi nel pool dei thread per l'analisi dei thread lunghi.|
-|LongParsingJobQueueLength|Thread: lunghezza coda processi di analisi dei thread lunghi|Numero|Media|Numero dei processi nella coda del pool dei thread per l'analisi dei thread lunghi.|
-|ProcessingPoolBusyIOJobThreads|Thread: thread di processi di I/O occupati nel pool di elaborazione|Numero|Media|Numero di thread che eseguono processi di I/O nel pool dei thread di elaborazione.|
-|ProcessingPoolBusyNonIOThreads|Thread: Thread non di I/O occupati nel pool di elaborazione|Numero|Media|Numero dei thread che eseguono processi non di I/O nel pool dei thread di elaborazione.|
-|ProcessingPoolIOJobQueueLength|Thread: lunghezza coda processi di I/O nel pool di elaborazione|Numero|Media|Numero di processi di I/O nella coda del pool dei thread di elaborazione.|
-|ProcessingPoolIdleIOJobThreads|Thread: thread di processi di I/O inattivi nel pool di elaborazione|Numero|Media|Numero di thread inattivi per i processi di I/O nel pool dei thread di elaborazione.|
-|ProcessingPoolIdleNonIOThreads|Thread: thread non di I/O inattivi nel pool di elaborazione|Numero|Media|Numero di thread inattivi nel pool dei thread di elaborazione dedicato a processi non di I/O.|
-|QueryPoolIdleThreads|Thread: thread inattivi nel pool di query|Numero|Media|Numero di thread inattivi per i processi di I/O nel pool dei thread di elaborazione.|
-|QueryPoolJobQueueLength|Thread: lunghezza coda processi nel pool di query|Numero|Media|Numero dei processi nella coda del pool dei thread di query.|
-|ShortParsingBusyThreads|Thread: thread occupati per analisi dei thread brevi|Numero|Media|Numero dei thread occupati nel pool dei thread per l'analisi dei thread brevi.|
-|ShortParsingIdleThreads|Thread: thread inattivi per analisi dei thread brevi|Numero|Media|Numero dei thread inattivi nel pool dei thread per l'analisi dei thread brevi.|
-|ShortParsingJobQueueLength|Thread: lunghezza coda processi di analisi dei thread brevi|Numero|Media|Numero dei processi nella coda del pool dei thread per l'analisi dei thread brevi.|
-|memory_thrashing_metric|Thrashing di memoria|Percentuale|Media|Thrashing di memoria medio.|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
@@ -794,6 +796,41 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |AverageResponseTime|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|
 |FunctionExecutionUnits|Unità di esecuzione della funzione|Numero|Media|Unità di esecuzione della funzione|
 |FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Numero|Media|Conteggio delle esecuzioni della funzione|
+
+## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|Requests|Requests|Numero|Totale|Requests|
+|BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|
+|BytesSent|Dati in uscita|Byte|Totale|Dati in uscita|
+|Http101|Http 101|Numero|Totale|Http 101|
+|Http2xx|Http 2xx|Numero|Totale|Http 2xx|
+|Http3xx|Http 3xx|Numero|Totale|Http 3xx|
+|Http401|Http 401|Numero|Totale|Http 401|
+|Http403|Http 403|Numero|Totale|Http 403|
+|Http404|Http 404|Numero|Totale|Http 404|
+|Http406|Http 406|Numero|Totale|Http 406|
+|Http4xx|Http 4xx|Numero|Totale|Http 4xx|
+|Http5xx|Errori server HTTP|Numero|Totale|Errori server HTTP|
+|AverageResponseTime|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|
+|CpuPercentage|Percentuale CPU|Percentuale|Media|Percentuale CPU|
+|MemoryPercentage|Percentuale memoria|Percentuale|Media|Percentuale memoria|
+|DiskQueueLength|Lunghezza coda disco|Numero|Totale|Lunghezza coda disco|
+|HttpQueueLength|Lunghezza coda HTTP|Numero|Totale|Lunghezza coda HTTP|
+|ActiveRequests|Richieste attive|Numero|Totale|Richieste attive|
+|TotalFrontEnds|Front end totali|Numero|Media|Front end totali|
+|SmallAppServicePlanInstances|Ruoli di lavoro piano di servizio app Small|Numero|Media|Ruoli di lavoro piano di servizio app Small|
+|MediumAppServicePlanInstances|Ruoli di lavoro piano di servizio app Medium|Numero|Media|Ruoli di lavoro piano di servizio app Medium|
+|LargeAppServicePlanInstances|Ruoli di lavoro piano di servizio app Large|Numero|Media|Ruoli di lavoro piano di servizio app Large|
+
+## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
+|---|---|---|---|---|
+|WorkersTotal|Ruoli di lavoro totali|Numero|Media|Ruoli di lavoro totali|
+|WorkersAvailable|Ruoli di lavoro disponibili|Numero|Media|Ruoli di lavoro disponibili|
+|WorkersUsed|Ruoli di lavoro usati|Numero|Media|Ruoli di lavoro usati|
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Metriche in Azure Monitor](monitoring-overview-metrics.md)

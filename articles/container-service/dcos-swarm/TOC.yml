@@ -27,6 +27,8 @@
       href: container-service-security.md
 - name: Guide alle procedure
   items:
+    - name: Creare un cluster del servizio contenitore di Azure
+      href: container-service-create-acs-cluster-cli.md
     - name: Connettersi con un cluster del servizio contenitore di Azure
       href: container-service-connect.md
     - name: Ridimensionare un cluster del servizio contenitore di Azure
@@ -65,12 +67,14 @@
           href: container-service-docker-swarm.md
         - name: Integrazione continua e distribuzione continua con Docker Swarm e VSTS
           href: container-service-docker-swarm-setup-ci-cd.md
+        - name: Integrazione continua e distribuzione continua con Docker Swarm (motore del servizio contenitore di Azure) e VSTS
+          href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure 2.0
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: Risorse
   items:
     - name: Roadmap per Azure

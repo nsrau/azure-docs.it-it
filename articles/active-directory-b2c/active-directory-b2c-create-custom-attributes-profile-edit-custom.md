@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/29/2017
+ms.date: 08/04/2017
 ms.author: joroja
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6334c8e04f89159d28b94e104fcdcca667bb71b8
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 67c9f6eca18e2dd77e00b8bc8c7bcc546ea3936e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Creazione e uso di attributi personalizzati in un criterio personalizzato di modifica del profilo.
+# <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Creazione e utilizzo di attributi personalizzati in criteri personalizzati di modifica del profilo
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In questo articolo si creerà un attributo personalizzato nella directory di Azure AD B2C e si userà il nuovo attributo come attestazione personalizzata nel percorso utente di modifica del profilo.
+In questo articolo si crea un attributo personalizzato nella directory di Azure AD B2C e si usa il nuovo attributo come attestazione personalizzata nel percorso utente di modifica del profilo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,18 +39,15 @@ La directory di Azure Active Directory (Azure AD) B2C viene fornita con un set p
 
 Con Azure AD B2C è possibile estendere il set di attributi archiviati in ogni account utente. Questi attributi possono anche essere scritti e letti usando l' [API Graph di Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
->[!NOTE]
->Gli attributi personalizzati o le proprietà di estensione sono funzionalità della directory di Azure AD B2C.  Le proprietà di estensione estendono lo schema degli oggetti utente nella directory.  Per usare un attributo personalizzato come attestazione personalizzata in un criterio, definirlo nel criterio in `ClaimsSchema`.
+Le proprietà di estensione estendono lo schema degli oggetti utente nella directory.  I termini proprietà di estensione, attributo personalizzato e attestazione personalizzata fanno riferimento allo stesso concetto nel contesto di questo articolo e il nome varia a seconda del contesto (applicazione, oggetto, criteri).
+
+Le proprietà di estensione possono essere registrate solo su un oggetto applicazione anche se possono contenere dati per un utente. La proprietà è collegata all'applicazione. All'oggetto applicazione deve essere concesso l'accesso in scrittura per registrare una proprietà di estensione. In un oggetto possono essere scritte 100 proprietà di estensione per TUTTI i tipi e TUTTE le applicazioni. Le proprietà di estensione vengono aggiunte al tipo di directory di destinazione e diventano immediatamente accessibili nel tenant della directory di Azure AD B2C.
+Se l'applicazione viene eliminata, vengono rimosse anche le proprietà di estensione insieme a tutti i dati contenuti per tutti gli utenti. Se una proprietà di estensione viene eliminata dall'applicazione, viene rimossa dagli oggetti della directory di destinazione e i valori vengono eliminati.
+
+Le proprietà di estensione esistono solo nel contesto di un'applicazione registrata nel tenant. L'ID oggetto dell'applicazione deve essere incluso nell'elemento TechnicalProfile che usa l'applicazione.
 
 >[!NOTE]
->Le proprietà di estensione possono essere registrate solo su un oggetto applicazione anche se possono contenere dati per un utente. La proprietà è collegata all'applicazione. All'oggetto applicazione deve essere concesso l'accesso in scrittura per registrare una proprietà di estensione. In un oggetto possono essere scritte 100 proprietà di estensione per TUTTI i tipi e TUTTE le applicazioni. Le proprietà di estensione vengono aggiunte al tipo di directory di destinazione e diventano immediatamente accessibili nel tenant della directory di Azure AD B2C.
-Se l'applicazione viene eliminata, vengono rimosse anche le proprietà di estensione insieme a tutti i dati contenuti per tutti gli utenti. Se una proprietà di estensione viene eliminata dall'applicazione, viene rimossa nell'oggetto della directory di destinazione e vengono rimossi anche eventuali dati in essa contenuti.
-
->[!NOTE]
->Le proprietà di estensione esistono solo nel contesto di un'applicazione registrata nel tenant. L'ID oggetto dell'applicazione deve essere incluso nell'elemento TechnicalProfile che usa l'applicazione
-
->[!NOTE]
->La directory di Azure AD B2C include in genere un'app Web denominata `b2c-extensions-app`.  Questa applicazione viene usata principalmente dai criteri B2C predefiniti per le attestazioni personalizzate create tramite il portale di Azure.  L'uso di questa applicazione per registrare estensioni per i criteri personalizzati B2C è consigliata solo agli utenti esperti.  Le istruzioni per questa operazione sono comprese nella sezione `NEXT STEPS` in questo articolo.
+>La directory di Azure AD B2C include in genere un'app Web denominata `b2c-extensions-app`.  Questa applicazione viene usata principalmente dai criteri B2C predefiniti per le attestazioni personalizzate create tramite il portale di Azure.  L'uso di questa applicazione per registrare estensioni per i criteri personalizzati B2C è consigliata solo agli utenti esperti.  Le istruzioni per questa operazione sono comprese nella sezione Passaggi successivi di questo articolo.
 
 
 ## <a name="creating-a-new-application-to-store-the-extension-properties"></a>Creazione di una nuova applicazione per archiviare le proprietà di estensione
@@ -62,7 +59,7 @@ Se l'applicazione viene eliminata, vengono rimosse anche le proprietà di estens
   * Specificare un nome per l'applicazione web: **WebApp-GraphAPI-DirectoryExtensions**
   * Tipo di applicazione: app Web/API
   * URL di accesso: https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
-1. Selezionare **Create**. Il completamento dell'operazione viene visualizzato nella sezione **notifiche**
+1. Selezionare **Crea. Il completamento dell'operazione viene visualizzato nella sezione **notifiche**
 1. Selezionare l'applicazione web appena creata: **WebApp-GraphAPI-DirectoryExtensions**
 1. Selezionare Impostazioni: **Autorizzazioni necessarie**
 1. Selezionare l'API **Windows Active Directory**
@@ -74,9 +71,7 @@ Se l'applicazione viene eliminata, vengono rimosse anche le proprietà di estens
 
 
 
-## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>Modifica del criterio personalizzato per l'aggiunta di `ApplicationObjectId`
-
-Per ogni TechnicalProfile che leggerà o scriverà attributi di estensione è necessario aggiungere un elemento `<Metadata>` con le voci ApplicationObjectId (ID oggetto) e ClientId (ID applicazione) ottenute nei passaggi precedenti.
+## <a name="modifying-your-custom-policy-to-add-the-applicationobjectid"></a>Modifica dei criteri personalizzati per l'aggiunta di ApplicationObjectId
 
 ```xml
     <ClaimsProviders>
@@ -102,20 +97,16 @@ Per ogni TechnicalProfile che leggerà o scriverà attributi di estensione è ne
 ```
 
 >[!NOTE]
-><TechnicalProfile Id="AAD-Common"> è "common" perché i relativi elementi vengono riutilizzati in tutti i TechnicalProfile di Azure Active Directory usando l'elemento:
-
-```
-      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-```
+><TechnicalProfile Id="AAD-Common"> viene definito "common" perché i relativi elementi vengono inclusi e riusati in tutti i TechnicalProfile di Azure Active Directory usando l'elemento: `<IncludeTechnicalProfile ReferenceId="AAD-Common" />`
 
 >[!NOTE]
->Quando TechnicalProfile scrive per la prima volta nella proprietà di estensione appena creata, potrebbe verificarsi un errore una sola volta, perché la proprietà verrà creata se non viene trovata.  .*  
+>Quando TechnicalProfile scrive per la prima volta nella proprietà di estensione appena creata, può verificarsi un errore occasionale.  La proprietà di estensione viene creata la prima volta che viene usata.  
 
 ## <a name="using-the-new-extension-property--custom-attribute-in-a-user-journey"></a>Uso della nuova proprietà di estensione o del nuovo attributo personalizzato in un percorso utente
 
 
 1. Aprire il file Relying Party che descrive il percorso utente di modifica del criterio.  Se si è appena iniziato, può essere consigliabile scaricare la versione del file RP-PolicyEdit già configurata direttamente dalla sezione dei criteri personalizzati di Azure B2C nel portale di Azure.  In alternativa, aprire il file XML dalla cartella di archiviazione.
-2. Aggiungere un'attestazione personalizzata `loyaltyId`.  Includendo l'attestazione personalizzata nell'elemento `<RelyingParty>`, l'attestazione verrà passata come parametro agli elementi TechnicalProfile UserJourney e inclusa nel token per l'applicazione.
+2. Aggiungere un'attestazione personalizzata `loyaltyId`.  Includendo l'attestazione personalizzata nell'elemento `<RelyingParty>`, l'attestazione viene passata come parametro agli elementi UserJourney TechnicalProfile e inclusa nel token per l'applicazione.
 ```xml
 <RelyingParty>
    <DefaultUserJourney ReferenceId="ProfileEdit" />
@@ -133,7 +124,7 @@ Per ogni TechnicalProfile che leggerà o scriverà attributi di estensione è ne
    </TechnicalProfile>
  </RelyingParty>
  ```
-3. Aggiungere una definizione di attestazione al file dei criteri di estensione `TrustFrameworkExtensions.xml` all'interno dell'elemento ``<ClaimsSchema>`` come illustrato di seguito.
+3. Aggiungere una definizione di attestazione al file dei criteri di estensione `TrustFrameworkExtensions.xml` all'interno dell'elemento `<ClaimsSchema>`, come illustrato di seguito.
 ```xml
 <ClaimsSchema>
         <ClaimType Id="extension_loyaltyId">
@@ -145,15 +136,9 @@ Per ogni TechnicalProfile che leggerà o scriverà attributi di estensione è ne
 </ClaimsSchema>
 ```
 4. Aggiungere la stessa definizione di attestazione al file dei criteri di base `TrustFrameworkBase.xml`.  
-
->[!NOTE]
 >L'aggiunta di una definizione `ClaimType` al file di base e delle estensioni non è generalmente necessaria. Dato che i passaggi successivi aggiungeranno tuttavia extension_loyaltyId agli elementi TechnicalProfile nel file di base, la convalida dei criteri rifiuterà il caricamento del file di base in assenza della definizione.
-
->[!NOTE]
 >Può essere utile tenere traccia dell'esecuzione del percorso utente denominato "ProfileEdit" nel file TrustFrameworkBase.xml.  Cercare il percorso utente con lo stesso nome nell'editor e osservare che il passaggio di orchestrazione 5 richiama TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  Cercare ed esaminare questo elemento TechnicalProfile per acquisire familiarità con il flusso.
-
 5. Aggiungere loyaltyId come attestazione di input e output nell'elemento TechnicalProfile "SelfAsserted-ProfileUpdate"
-
 ```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
           <DisplayName>User ID signup</DisplayName>
@@ -189,7 +174,6 @@ Per ogni TechnicalProfile che leggerà o scriverà attributi di estensione è ne
         </TechnicalProfile>
 ```
 6. Aggiungere l'attestazione nell'elemento TechnicalProfile "AAD-UserWriteProfileUsingObjectId" per rendere persistente il valore dell'attestazione nella proprietà di estensione per l'utente corrente nella directory.
-
 ```xml
 <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
           <Metadata>
@@ -214,8 +198,7 @@ Per ogni TechnicalProfile che leggerà o scriverà attributi di estensione è ne
           <IncludeTechnicalProfile ReferenceId="AAD-Common" />
         </TechnicalProfile>
 ```
-7. Aggiungere l'attestazione nell'elemento TechnicalProfile "AAD-UserReadUsingObjectId" per leggere il valore dell'attributo di estensione ogni volta che l'utente esegue l'accesso.
-NOTA: finora gli elementi TechnicalProfile sono stati modificati solo nel flusso degli account locali.  Per inserire il nuovo attributo nel flusso di un account di social networking/federato è necessario modificare un set diverso di elementi TechnicalProfile. Vedere i passaggi successivi.
+7. Aggiungere l'attestazione nell'elemento TechnicalProfile "AAD-UserReadUsingObjectId" per leggere il valore dell'attributo di estensione ogni volta che l'utente esegue l'accesso. Fino ad ora gli elementi TechnicalProfile sono stati modificati solo nel flusso degli account locali.  Per inserire il nuovo attributo nel flusso di un account di social networking/federato è necessario modificare un set diverso di elementi TechnicalProfile. Vedere i passaggi successivi.
 
 ```xml
 <!-- The following technical profile is used to read data after user authenticates. -->
@@ -243,15 +226,14 @@ NOTA: finora gli elementi TechnicalProfile sono stati modificati solo nel flusso
 
 
 >[!IMPORTANT]
->L'elemento IncludeTechnicalProfile indicato in precedenza aggiunge tutti gli elementi di AAD-Common a questo TechnicalProfile.
+>L'elemento IncludeTechnicalProfile aggiunge tutti gli elementi di AAD-Common a questo TechnicalProfile.
 
 ## <a name="test-the-custom-policy-using-run-now"></a>Testare i criteri personalizzati tramite "Esegui adesso"
+1. Aprire il pannello **Azure AD B2C** e passare a **Framework dell'esperienza di gestione delle identità > Criteri personalizzati**.
+1. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
+1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-     1. Open the **Azure AD B2C Blade** and navigate to **Identity Experience Framework > Custom policies**.
-     2. Select the custom policy that you uploaded, and click the **Run now** button.
-     3. You should be able to sign up using an email address.
-
-Il token ID inviato all'applicazione includerà la nuova proprietà di estensione come attestazione personalizzata preceduta da extension_loyaltyId. Vedere l'esempio.
+Il token ID inviato all'applicazione include la nuova proprietà di estensione come attestazione personalizzata, preceduta da extension_loyaltyId. Vedere l'esempio.
 
 ```
 {
@@ -272,18 +254,19 @@ Il token ID inviato all'applicazione includerà la nuova proprietà di estension
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>Aggiungere la nuova attestazione ai flussi per gli accessi con account di social networking modificando gli elementi TechnicalProfile elencati di seguito. Questi due elementi TechnicalProfile vengono usati per gli accessi con account di social networking/federati per scrivere e leggere i dati utente usando alternativeSecurityId come localizzatore dell'oggetto utente.
+Aggiungere la nuova attestazione ai flussi per gli accessi con account di social networking modificando gli elementi TechnicalProfile elencati. Questi due elementi TechnicalProfile vengono usati per gli accessi con account di social networking/federati per scrivere e leggere i dati utente usando alternativeSecurityId come localizzatore dell'oggetto utente.
 ```
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
 ```
-### <a name="using-the-same-extension-attributes-between-built-in-and-custom-policies"></a>Tramite gli stessi attributi di estensione tra i criteri predefiniti e personalizzati
-Quando si aggiungono gli attributi dell'estensione (noti anche come attributi personalizzati) tramite l'esperienza del portale, tali attributi vengono registrati tramite la **b2c-extensions-app** che esiste in ogni tenant b2c.  Per usare questi attributi di estensione nei criteri personalizzati:
+
+È possibile usare gli stessi attributi di estensione tra i criteri predefiniti e personalizzati.
+Quando si aggiungono attributi di estensione (noti anche come attributi personalizzati) tramite il portale, gli attributi vengono registrati usando la **b2c-extensions-app presente in ogni tenant b2c.  Per usare questi attributi di estensione nei criteri personalizzati:
 1. All'interno del tenant b2c in portal.azure.com, passare a **Azure Active Directory** e selezionare **Registrazioni dell'app**
 2. Trovare **b2c-extensions-app** e selezionarlo
 3. Nella riga "Essentials" registrare l'**ID applicazione** e l'**ID oggetto**
-4. Includerli nei metadati del profilo tecnico comuni di AAD nel modo seguente:
+4. Includerli nei metadati del profilo tecnico AAD-Common come indicato di seguito:
 
 ```xml
     <ClaimsProviders>
@@ -299,7 +282,7 @@ Quando si aggiungono gli attributi dell'estensione (noti anche come attributi pe
               </Metadata>
 ```
 
-5. Per mantenere la coerenza con l'esperienza del portale, creare questi attributi tramite l'interfaccia utente del portale *prima* di usarli nei criteri personalizzati.  Quando si crea un attributo "ActivationStatus" nel portale, è necessario farvi riferimento, come indicato di seguito:
+Per mantenere la coerenza con l'esperienza del portale, creare questi attributi tramite l'interfaccia utente del portale *prima* di usarli nei criteri personalizzati.  Quando si crea un attributo "ActivationStatus" nel portale, è necessario farvi riferimento, come indicato di seguito:
 
 ```
 extension_ActivationStatus in the custom policy

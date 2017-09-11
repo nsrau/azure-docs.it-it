@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 6d4379248cff45b601e32e8554f86bb7a1846570
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-security-services-and-technologies"></a>Servizi e tecnologie per la sicurezza di Azure
@@ -36,12 +36,12 @@ Di seguito è disponibile un primo elenco. L'elenco verrà modificato e accresci
 * [Lab di sviluppo/test Azure](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Sicurezza di Archiviazione di Azure
-* [Crittografia del servizio di archiviazione di Azure](../storage/storage-service-encryption.md)
+* [Crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md)
 * [Archiviazione ibrida crittografata con StorSimple](https://azure.microsoft.com/documentation/services/storsimple/)
-* [Crittografia lato client di Azure](../storage/storage-client-side-encryption.md)
-* [Firme di accesso condiviso di Archiviazione di Azure](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Chiavi dell'account di archiviazione di Azure](../storage/storage-create-storage-account.md)
-* [Condivisioni file di Azure con crittografia SMB 3.0](../storage/storage-dotnet-how-to-use-files.md)
+* [Crittografia lato client di Azure](../storage/common/storage-client-side-encryption.md)
+* [Firme di accesso condiviso di Archiviazione di Azure](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Chiavi dell'account di archiviazione di Azure](../storage/common/storage-create-storage-account.md)
+* [Condivisioni file di Azure con crittografia SMB 3.0](../storage/files/storage-dotnet-how-to-use-files.md)
 * [Analisi archiviazione di Azure](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Sicurezza del database di Azure

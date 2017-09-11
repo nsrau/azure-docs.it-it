@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installazione dei processi di database elastici (panoramica)
@@ -95,7 +94,7 @@ I parametri forniti in questa chiamata di esempio possono essere modificati per 
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fornisce l'obiettivo del livello di servizio per un'edizione Standard. Questo parametro viene impostato su S0. Sono accettati i valori dei parametri S0/S1/S2/S3 che fanno si che il Database SQL di Azure utilizzi il rispettivo SLO. Per ulteriori informazioni sugli SLO del database SQL, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornisce l'obiettivo del livello di servizio per un'edizione Standard. Questo parametro viene impostato su S0. Sono accettati i valori dei parametri S0/S1/S2/S3/S4/S6/S9/S12 che fanno sì che il Database SQL di Azure usi il rispettivo SLO. Per ulteriori informazioni sugli SLO del database SQL, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>

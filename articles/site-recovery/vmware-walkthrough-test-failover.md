@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 4be4cb8285d2e0e8b8520c289ef7668164c9fe50
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f1a6df56a2bb0094d972d2e659057cc124156b88
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-12-run-a-test-failover-to-azure-for-vmware-vms"></a>Passaggio 12: Eseguire un failover di test in Azure per le VM VMware
@@ -35,7 +34,7 @@ Prima di eseguire un failover di test, è consigliabile verificare le proprietà
 
 ## <a name="managed-disk-considerations"></a>Considerazioni su Managed Disks
 
-[Managed Disks](../storage/storage-managed-disks-overview.md) semplifica la gestione dei dischi per le VM di Azure grazie alla gestione degli account di archiviazione associati ai dischi delle VM. 
+[Managed Disks](../virtual-machines/windows/managed-disks-overview.md) semplifica la gestione dei dischi per le VM di Azure grazie alla gestione degli account di archiviazione associati ai dischi delle VM. 
 
 - Abilitando la protezione per una VM, i dati della VM vengono replicati in un account di archiviazione. I dischi di Managed Disks vengono creati e collegati alla VM solo in caso di failover.
 - È possibile creare dischi di Managed Disks solo per le VM distribuite tramite il modello di Resource Manager.  
@@ -70,9 +69,9 @@ Prima di eseguire un failover di test, è consigliabile verificare le proprietà
 2. Nel riquadro **Elemento replicato** è possibile vedere un riepilogo relativo a informazioni sulla VM, stato integrità e ultimi punti di recupero disponibili. Fare clic su **Proprietà** per visualizzare altri dettagli.
 3. In **Calcolo e rete** è possibile:
     - Modificare il nome della VM di Azure. Il nome deve soddisfare i [requisiti di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-    - Specificare un [gruppo di risorse](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md) successivo al failover.
-    - Specificare le dimensioni di destinazione per la VM di Azure.
-    - Selezionare un [set di disponibilità](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+    - Specificare un [gruppo di risorse] successivo al failover.
+    - Specificare le dimensioni di destinazione per la VM di Azure
+    - Selezionare un [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md).
     - Specificare se usare [Managed Disks](#managed-disk-considerations). Selezionare **Sì** per collegare i dischi di Managed Disks al computer nella migrazione in Azure.
     - Visualizzare o modificare le impostazioni di rete, inclusi la rete/subnet in cui si troverà la VM di Azure dopo il failover e l'indirizzo IP che verrà assegnato a essa.
 4. In **Dischi** è possibile vedere le informazioni sul sistema operativo e sui dischi dati della VM.
@@ -87,7 +86,7 @@ Dopo aver completato la configurazione, eseguire un failover di test per verific
 - Ottenere una rapida panoramica video prima di iniziare:
 
 
-     >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video4-Recovery-Plan-DR-Drill-and-Failover/player]
 
 
 Eseguire quindi un failover:

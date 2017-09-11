@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 47a9736fd6498d15305fb2296446c61e709ad0b8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e55009c72b977ee4a30f6c71043bde483849f78f
 ms.contentlocale: it-it
-ms.lasthandoff: 03/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemi comuni che comportano il riciclo dei ruoli
@@ -52,7 +52,7 @@ Per assicurarsi che l'impostazione `DiagnosticsConnectionString` sia corretta, p
 
 * L'impostazione `DiagnosticsConnectionString` punti a un account di archiviazione valido in Azure.  
   Per impostazione predefinita, questa impostazione punta all'account di archiviazione emulato, pertanto è necessario modificarla in modo esplicito prima di distribuire il pacchetto dell'applicazione. Se non si modifica questa impostazione, viene generata un'eccezione quando l'istanza del ruolo tenta di avviare il monitoraggio di diagnostica. Ciò potrebbe comportare il riciclo illimitato dell'istanza del ruolo.
-* La stringa di connessione viene specificata nel [formato](../storage/storage-configure-connection-string.md)seguente. Il protocollo deve essere specificato come HTTPS. Sostituire *MyAccountName* con il nome dell'account di archiviazione e *MyAccountKey* con la chiave di accesso dell'account:    
+* La stringa di connessione viene specificata nel [formato](../storage/common/storage-configure-connection-string.md)seguente. Il protocollo deve essere specificato come HTTPS. Sostituire *MyAccountName* con il nome dell'account di archiviazione e *MyAccountKey* con la chiave di accesso dell'account:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 

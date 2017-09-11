@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: piotrci
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: f4d9a08551d616ff98bc8734cbeec01d6e0d04ca
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 780f94f9863f73834ab72e9daf4362bea28242e9
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
@@ -283,7 +283,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
  deviceCategory | nome di una categoria di dispositivo valido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Qualsiasi valore stringa. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Qualsiasi valore stringa. | (device.deviceModel -eq "iPad Air")
- deviceOwnership | Personale, Azienda | (device.deviceOwnership -eq "Company")
+ deviceOwnership | Personale, Azienda, Sconosciuto | (device.deviceOwnership -eq "Company")
  domainName | Qualsiasi valore stringa. | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Nome del profilo di registrazione dispositivi Apple | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)

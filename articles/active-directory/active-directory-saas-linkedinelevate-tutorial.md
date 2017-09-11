@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con LinkedIn Elevate| Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e LinkedIn Elevate.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e LinkedIn Elevate.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5949ae254233aa32384aab50b188fdd6527787a0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5336543e06d60be555722a615568b12048c2aa2f
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Esercitazione: Integrazione di Azure Active Directory con LinkedIn Elevate
@@ -138,15 +137,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | --- | --- |    
     | department| user.department |
 
-    ![Creazione di un utente test di Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
+      ![Creazione di un utente test di Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+      a. Fare clic su Aggiungi attributo per aprire la pagina dei dettagli dell'attributo e aggiungere l'attributo department come mostrato di seguito.
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+      ![Creazione di un utente test di Azure AD](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
 
-       b. Click on **Ok** to save the attribute.
+      b. Fare clic su **Ok** per salvare l'attributo.
 
-    c. Modificare il nome dell'attributo **emailaddress** in **email**.
+      c. Modificare il nome dell'attributo **emailaddress** in **email**.
 
 
 10. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
@@ -258,3 +257,4 @@ Quando si fa clic sul riquadro LinkedIn Elevate nel Pannello di accesso, viene v
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
+

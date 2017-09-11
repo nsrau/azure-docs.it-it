@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 20572ecbde79bc2722f3a25f297c92d8e722a3e8
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: c97f05caec4c302c847e2297d136c6614e82fd93
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
@@ -69,9 +69,9 @@ L'implementazione corrente di Azure Active Directory consente di configurare i r
 
 - **Autenticazione a più fattori**: è possibile richiedere l'autenticazione avanzata tramite l'autenticazione a più fattori. I provider possono usare Azure Multi-Factor Authentication o un provider di autenticazione a più fattori locale, in combinazione con Active Directory Federation Services (AD FS). L'uso dell'autenticazione a più fattori assicura la protezione delle risorse nel caso in cui un utente non autorizzato abbia avuto l'accesso alle credenziali di un utente valido.
 
-- **Dispositivo conforme**: è possibile impostare criteri di accesso condizionale a livello di dispositivo. È possibile impostare un criterio per consentire l'accesso alle risorse dell'organizzazione soltanto ai computer conformi o registrati nella gestione di dispositivi mobili. Ad esempio, è possibile usare Intune per verificare la conformità dei dispositivi e quindi segnalarla a Azure AD affinché ne tenga conto durante l'accesso alle applicazioni. Per istruzioni dettagliate su come usare Intune per proteggere le applicazioni e i dati, vedere [Proteggere le applicazioni e i dati con Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune). È inoltre possibile usare Intune per applicare la protezione dei dati per i dispositivi smarriti o rubati. Per altre informazioni, vedere [Proteggere i dati con la cancellazione completa o selettiva tramite Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
+- **Dispositivo conforme**: è possibile configurare criteri di accesso condizionale basati sul dispositivo. Lo scopo di un criterio di accesso condizionale basato sul dispositivo è di concedere l'accesso alle risorse configurate solo da dispositivi considerati attendibili. Richiedere un dispositivo conforme è una delle opzioni disponibili per definire un dispositivo attendibile. Per informazioni dettagliate, vedere [Configurare i criteri di accesso condizionale basati sul dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-- **Dispositivo aggiunto a un dominio**: è possibile richiedere che il dispositivo usato per connettersi ad Azure Active Directory sia un dispositivo aggiunto ad Active Directory (AD) locale. Questo criterio si applica ai computer desktop, portatili o tablet aziendali Windows. 
+- **Dispositivo aggiunto a un dominio**: richiedere un dispositivo aggiunto a un dominio è un'altra opzione disponibile per configurare un criterio di accesso condizionale basato sul dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Per informazioni dettagliate, vedere [Configurare i criteri di accesso condizionale basati sul dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
 Se si dispone di più controlli selezionati, è possibile inoltre configurare se tutti gli elementi sono richiesti quando viene elaborato il criterio.
 
@@ -80,11 +80,11 @@ Se si dispone di più controlli selezionati, è possibile inoltre configurare se
 ### <a name="session-controls"></a>Controlli di sessione
 I controlli di sessione consentono di limitare l'esperienza in un'app cloud. Questi controlli sono imposti dalle app cloud e si basano sulle informazioni aggiuntive relative alla sessione fornite da Azure AD all'app.
 
-![Controllo](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
+![Controllo](./media/active-directory-conditional-access-azure-portal/31.png)
 
 #### <a name="use-app-enforced-restrictions"></a>Usa restrizioni imposte dalle app
 È possibile usare questo controllo per chiedere ad Azure AD di passare le informazioni sul dispositivo all'app cloud, che in questo modo può sapere se l'utente proviene da un dispositivo conforme o da un dispositivo aggiunto a un dominio. Questo controllo è attualmente supportato solo con SharePoint come app cloud. SharePoint usa le informazioni sul dispositivo per offrire agli utenti un'esperienza completa o limitata, a seconda dello stato del dispositivo.
-Per altre informazioni su come richiedere l'accesso limitato con SharePoint, vedere [qui](https://aka.ms/spolimitedaccessdocs).
+Per altre informazioni su come richiedere l'accesso limitato con SharePoint, vedere [Controllare l'accesso da dispositivi non gestiti](https://aka.ms/spolimitedaccessdocs).
 
 ## <a name="condition-statement"></a>Istruzione della condizione
 
@@ -95,22 +95,29 @@ La sezione precedente ha illustrato le opzioni supportate per bloccare o limitar
 ![Controllo](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
-- **Chi**: in molti casi è necessario applicare i controlli a uno specifico set di utenti. In un'istruzione della condizione è possibile definire questo set selezionando gli utenti e gruppi a cui si applica il criterio. Se necessario, è anche possibile escludere in modo esplicito un set di utenti dal criterio esentandoli.  
-Selezionando utenti e gruppi, si definisce l'ambito degli utenti a cui si applica il criterio.    
+### <a name="who"></a>Chi?
 
-    ![Controllo](./media/active-directory-conditional-access-azure-portal/08.png)
+Quando si configura un criterio di accesso condizionale, è necessario selezionare gli utenti o i gruppi a cui il criterio si applica. In molti casi è necessario applicare i controlli a uno specifico set di utenti. In un'istruzione della condizione è possibile definire questo set selezionando gli utenti e gruppi necessari a cui si applica il criterio. Se necessario, è anche possibile escludere in modo esplicito un set di utenti dal criterio esentandoli.  
+
+![Controllo](./media/active-directory-conditional-access-azure-portal/08.png)
 
 
 
-- **Che cosa**: di solito nel proprio ambiente vengono eseguite alcune app che, dal punto di vista della protezione, richiedono più attenzione di altre, ad esempio, app che hanno accesso a dati sensibili.
+### <a name="what"></a>Cosa?
+
+Quando si configura un criterio di accesso condizionale, è necessario selezionare le app cloud a cui il criterio si applica.
+Di solito nel proprio ambiente sono presenti alcune app che, dal punto di vista della protezione, richiedono più attenzione di altre, ad esempio, app che hanno accesso a dati sensibili.
 Selezionando le app per cloud, si definisce l'ambito delle app per cloud a cui si applica il criterio. Se necessario, è anche possibile escludere in modo esplicito un set di app dal criterio.
 
-    ![Controllo](./media/active-directory-conditional-access-azure-portal/09.png)
+![Controllo](./media/active-directory-conditional-access-azure-portal/09.png)
 
+Per un elenco completo delle app cloud che è possibile usare nel criterio di accesso condizionale, vedere [Documentazione tecnica sull'accesso condizionale di Azure Active Directory](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments).
 
-- **Come**: purché l'accesso alle app avvenga in condizioni controllabili, non è necessario imporre altri controlli sull'accesso degli utenti alle app per cloud. Le cose tuttavia cambiano se l'accesso alle app per cloud viene eseguito, ad esempio, da reti non considerate attendibili o da dispositivi non conformi. In un'istruzione della condizione è possibile definire alcune condizioni di accesso con requisiti aggiuntivi per l'esecuzione dell'accesso alle app.
+### <a name="how"></a>Come?
 
-    ![Condizioni](./media/active-directory-conditional-access-azure-portal/21.png)
+Purché l'accesso alle app avvenga in condizioni controllabili, non è necessario imporre altri controlli sull'accesso degli utenti alle app per cloud. Le cose tuttavia cambiano se l'accesso alle app per cloud viene eseguito, ad esempio, da reti non considerate attendibili o da dispositivi non conformi. In un'istruzione della condizione è possibile definire alcune condizioni di accesso con requisiti aggiuntivi per l'esecuzione dell'accesso alle app.
+
+![Condizioni](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 ## <a name="conditions"></a>Condizioni
@@ -168,12 +175,16 @@ Gli **IP attendibili MFA** sono una funzionalità di Multi-Factor Authentication
 ![Condizioni](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-### <a name="client-app"></a>App client
+### <a name="client-apps"></a>App client
 
 L'app client può essere, a livello generale, l'app (Web browser, app per dispositivi mobili, client desktop) usata per la connessione ad Azure Active Directory oppure è possibile selezionare in modo specifico Exchange Active Sync.  
 L'autenticazione legacy fa riferimento ai client che usano l'autenticazione di base, ad esempio i client Office meno recenti che non usano la moderna autenticazione. L'accesso condizionale non è attualmente supportato con l'autenticazione legacy.
 
 ![Condizioni](./media/active-directory-conditional-access-azure-portal/04.png)
+
+
+Per un elenco completo delle app client che è possibile usare nel criterio di accesso condizionale, vedere [Documentazione tecnica sull'accesso condizionale di Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-conditions).
+
 
 
 ## <a name="common-scenarios"></a>Scenari comuni
@@ -201,6 +212,6 @@ Molti clienti Intune usano l'accesso condizionale per assicurarsi che solo i dis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare un criterio di accesso condizionale, vedere [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introduzione all'accesso condizionale in Azure Active Directory).
+- Per informazioni su come configurare un criterio di accesso condizionale, vedere [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introduzione all'accesso condizionale in Azure Active Directory).
 
-Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

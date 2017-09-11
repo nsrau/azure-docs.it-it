@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 7be5e5095b8aa6f2ae3d8c0b636883c4ff7ced63
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf955b52010869a4e753c441e17bdd32fd2e63d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiare i dati da e in Archiviazione BLOB di Azure mediante Azure Data Factory
@@ -168,7 +167,7 @@ In questa sezione viene descritto il comportamento derivante dell'operazione di 
 Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di Azure. In questa procedura dettagliata gli archivi dati sia di origine che di destinazione sono di tipo archivio BLOB di Azure. La pipeline in questa procedura dettagliata copia i dati da una cartella a un'altra cartella nello stesso contenitore BLOB. Questa procedura dettagliata è volutamente semplice perché illustra le impostazioni o le proprietà quando si usa l'archivio BLOB come origine o come sink. 
 
 ### <a name="prerequisites"></a>Prerequisiti
-1. Creare un **account di archiviazione di Azure** per utilizzo generico, se necessario. In questa procedura dettagliata si usa l'archivio BLOB come archivio dati sia di **origine** che di **destinazione**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
+1. Creare un **account di archiviazione di Azure** per utilizzo generico, se necessario. In questa procedura dettagliata si usa l'archivio BLOB come archivio dati sia di **origine** che di **destinazione**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
 2. Creare un contenitore BLOB denominato **adfblobconnector** nell'account di archiviazione. 
 4. Creare una cartella denominata **input** nel contenitore **adfblobconnector**.
 5. Creare un file denominato **emp.txt** con il contenuto seguente e caricarlo nella cartella **input** usando strumenti come [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
@@ -263,8 +262,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
 ### <a name="monitor-the-pipeline-copy-task"></a>Monitorare la pipeline (attività di copia)
 
 1. Fare clic sul collegamento `Click here to monitor copy pipeline` nella pagina **Distribuzione**. 
-2. L'**applicazione Monitoraggio e gestione** verrà visualizzata in una scheda separata. 
-    ![App Monitoraggio e gestione](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. L'**applicazione Monitoraggio e gestione** verrà visualizzata in una scheda separata.  ![App Monitoraggio e gestione](media/data-factory-azure-blob-connector/monitor-manage-app.png)
 3. Impostare l'ora di **inizio** nella parte superiore su `04/19/2017` e l'ora di **fine** su `04/27/2017` e quindi fare clic su **Applica**. 
 4. Verranno visualizzate cinque finestre attività nell'elenco **ACTIVITY WINDOWS** (FINESTRE ATTIVITÀ). Gli orari indicati da **WindowStart** (Inizio finestra) devono coprire tutti i giorni dagli orari di inizio della pipeline a quelli di fine. 
 5. Fare clic sul pulsante **Refresh** (Aggiorna) di **ACTIVITY WINDOWS** (FINESTRE ATTIVITÀ) alcune volte finché lo stato di tutte le finestre attività non risulta impostato su Ready (Pronto). 

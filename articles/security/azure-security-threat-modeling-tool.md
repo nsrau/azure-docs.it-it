@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 381922a7e83a65a855dc906a22c354380914f31e
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6e26b0af2a16a872c8e02b736e24019b47ed5780
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
-# <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool 
+# <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
 
 Microsoft Threat Modeling Tool è un elemento principale di Microsoft Security Development Lifecycle (SDL). Consente ai progettisti di software di identificare e ridurre tempestivamente i potenziali problemi di sicurezza, quando sono relativamente semplici e convenienti da risolvere. Di conseguenza, riduce notevolmente i costi totali di sviluppo. Inoltre, lo strumento è progettato pensando agli esperti non relativi alla sicurezza, poiché semplifica la modellazione delle minacce per tutti gli sviluppatori fornendo istruzioni chiare sulla creazione e sull'analisi dei modelli di rischio. 
 
@@ -43,10 +43,24 @@ Ecco alcune funzionalità degli strumenti e innovazioni, solo per citarne alcune
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+La tabella seguente contiene collegamenti importanti per iniziare a usare Threat Modeling Tool:
+
+| Passaggio  | Descrizione                                                                                   |
+| ----- | --------------------------------------------------------------------------------------------- |
+| **1** | [Scaricare Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
+| **2** | [Vedere la Guida introduttiva](./azure-security-threat-modeling-tool-getting-started.md)    |
+| **3** | [Acquisire familiarità con le funzionalità](./azure-security-threat-modeling-tool-feature-overview.md)   |
+| **4** | [Informazioni sulle categorie di minacce generate](./azure-security-threat-modeling-tool-threats.md)   |
+| **5** | [Trovare soluzioni di prevenzione per le minacce generate](./azure-security-threat-modeling-tool-mitigations.md) |
+
+## <a name="resources"></a>Risorse
+
 Di seguito sono illustrati alcuni articoli più datati ancora rilevanti per la modellazione delle minacce:
+
 * [Articolo sull'importanza della modellazione delle minacce](https://msdn.microsoft.com/magazine/dd347831.aspx)
 * [Training pubblicato da Trustworthy Computing](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Controllare quello che hanno fatto alcuni esperti di Threat Modeling Tool:
+
 * [Gestione delle minacce](https://simoneonsecurity.com/threatsmanagersetup-v1-5-10/)
 * [Blog sulla protezione di Simone Curzi](https://simoneonsecurity.com/)

@@ -1183,7 +1183,7 @@ Elabora tutti i valori in un attributo multivalore, o nell'output di un'espressi
 * condition: qualsiasi funzione in grado di elaborare un elemento nell'attributo
 
 **Esempi:**  
-`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
 Restituisce tutti i valori dell'attributo multivalore otherPhone dopo che sono stati rimossi i trattini (-).
 
 - - -

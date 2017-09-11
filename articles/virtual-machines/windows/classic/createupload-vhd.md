@@ -1,6 +1,6 @@
 ---
-title: Creare e caricare un&quot;immagine di VM con Powershell | Microsoft Docs
-description: Informazioni su come creare e caricare un&quot;immagine Windows Server generalizzata (VHD) utilizzando il modello di distribuzione classica e Azure Powershell.
+title: Creare e caricare un'immagine di VM con Powershell | Microsoft Docs
+description: Informazioni su come creare e caricare un'immagine Windows Server generalizzata (VHD) utilizzando il modello di distribuzione classica e Azure Powershell.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,16 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 1d2b51f2a8a03a94b7ce92af54f89128bcfc9471
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bc75c8cdd98b0ea0fbff6483c0e3c9d4468d3941
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Creazione e caricamento di un disco rigido virtuale con Windows Server in Azure
-Questo articolo illustra come caricare la propria immagine VM generalizzata come un disco rigido virtuale (VHD) in modo da usarlo per la creazione di macchine virtuali. Per informazioni dettagliate sui dischi e sui dischi rigidi virtuali in Microsoft Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Questo articolo illustra come caricare la propria immagine VM generalizzata come un disco rigido virtuale (VHD) in modo da usarlo per la creazione di macchine virtuali. Per informazioni dettagliate sui dischi e sui dischi rigidi virtuali in Microsoft Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. È anche possibile [caricare](../upload-generalized-managed.md) una macchina virtuale usando il modello di Resource Manager.

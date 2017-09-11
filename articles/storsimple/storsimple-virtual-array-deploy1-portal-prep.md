@@ -1,6 +1,6 @@
 ---
-title: Preparazione del portale per l&quot;array virtuale StorSimple | Documentazione Microsoft
-description: La prima esercitazione per la distribuzione dell&quot;array virtuale StorSimple include la preparazione del portale di Azure
+title: Preparazione del portale per l'array virtuale StorSimple | Documentazione Microsoft
+description: La prima esercitazione per la distribuzione dell'array virtuale StorSimple include la preparazione del portale di Azure
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a5bc3a72eccc48ec26ef5f029d780175d66080c0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
@@ -144,7 +144,7 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
 
 Si tratta di un passaggio facoltativo che è necessario eseguire solo se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio.
 
-Se è necessario creare un account di archiviazione di Azure in un'area diversa, vedere [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) per istruzioni dettagliate.
+Se è necessario creare un account di archiviazione di Azure in un'area diversa, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per istruzioni dettagliate.
 
 Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/), nella pagina del servizio Gestione dispositivi StorSimple, per aggiungere un account di archiviazione di Microsoft Azure esistente.
 

@@ -14,16 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b568cbdb30b5cef23355c0bfe895a8a6d9818341
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0b22dcdfc0432533b286e70d130bfe2ee2db92b2
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal-update-2"></a>Distribuire un dispositivo StorSimple locale nel portale di Azure Government (aggiornamento 2)
 [!INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Benvenuti nella distribuzione del dispositivo Microsoft Azure StorSimple. Queste esercitazioni per la distribuzione si applicano a dispositivi StorSimple serie 8000 in cui viene eseguito l'aggiornamento 2 del software nel portale di Azure per enti pubblici. Questa serie di esercitazioni include un elenco di controllo della configurazione, un elenco di prerequisiti di configurazione e i passaggi di configurazione dettagliati per il dispositivo StorSimple.
 
 Le informazioni contenute in queste esercitazioni prevedono che siano state esaminate le precauzioni di sicurezza e che il dispositivo StorSimple sia stato disimballato, installato e cablato. Se occorre eseguire tali attività, iniziare con la revisione di [precauzioni di sicurezza](storsimple-safety.md). Seguire le istruzioni specifiche per il dispositivo per disimballare, montare su rack e cablare il dispositivo.
@@ -54,7 +55,7 @@ Effettuare i seguenti passaggi necessari per configurare il dispositivo StorSimp
 | [Passaggio 4: Completare l'installazione minima del dispositivo](#step-4-complete-minimum-device-setup) </br>Facoltativo: aggiornare il dispositivo StorSimple. |Utilizzare il servizio di gestione per completare l'installazione del dispositivo e abilitarlo per fornire l'archiviazione. |
 | [Passaggio 5: Creare un contenitore di volumi](#step-5-create-a-volume-container) |Creare un contenitore di volumi di provisioning. Un contenitore di volumi include le impostazioni relative ad account di archiviazione, larghezza di banda e crittografia per tutti i volumi in esso contenuti. |
 | [Passaggio 6: Creare un volume](#step-6-create-a-volume) |Eseguire il provisioning di volumi di archiviazione nel dispositivo StorSimple per i server. |
-| [Passaggio 7: Montare, inizializzare e formattare un volume](#step-7-mount-initialize-and-format-a-volume) </br> Facoltativo: Configurare MPIO. |Connettere i server all'archiviazione iSCSI fornita dal dispositivo. Facoltativamente, è possibile configurare MPIO per assicurarsi che i server possano tollerare errori di collegamento, rete e interfaccia. |
+| [Passaggio 7: Montare, inizializzare e formattare un volume](#step-7-mount-initialize-and-format-a-volume) </br>Facoltativo: Configurare MPIO. |Connettere i server all'archiviazione iSCSI fornita dal dispositivo. Facoltativamente, è possibile configurare MPIO per assicurarsi che i server possano tollerare errori di collegamento, rete e interfaccia. |
 | [Passaggio 8: Eseguire un backup](#step-8-take-a-backup) |Impostare criteri di backup per proteggere i dati |
 |  | |
 | **ALTRE PROCEDURE** |Potrebbe essere necessario fare riferimento a queste procedure quando si distribuisce la soluzione. |
@@ -176,7 +177,7 @@ Eseguire i passaggi seguenti nel portale per enti pubblici per creare un backup 
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurare un nuovo account di archiviazione per il servizio
 Si tratta di un passaggio che è necessario eseguire solo se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio. Per creare un contenitore di volumi di StorSimple, è necessario un account di archiviazione di Microsoft Azure.
 
-Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/storage-create-storage-account.md) per istruzioni dettagliate.
+Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md) per istruzioni dettagliate.
 
 Eseguire i passaggi seguenti nel portale di gestione, nella pagina del **servizio StorSimple Manager** .
 
@@ -226,10 +227,5 @@ Per istruzioni sull'installazione di MPIO per un dispositivo StorSimple su un ho
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare un [dispositivo virtuale](storsimple-virtual-device-u2.md).
 * Utilizzare il [servizio StorSimple Manager](storsimple-manager-service-administration.md) per gestire il dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

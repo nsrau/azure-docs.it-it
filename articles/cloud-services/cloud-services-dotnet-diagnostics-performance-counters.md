@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
-ms.openlocfilehash: b4357150d0be21672d0b8e212c4ea1a7bec99412
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>Creare e usare contatori di prestazioni in un'applicazione Azure
@@ -244,7 +243,7 @@ Per creare un semplice contatore delle prestazioni personalizzato denominato "\M
 I dati dei contatori delle prestazioni personalizzati verranno ora raccolti dal monitoraggio di diagnostica di Azure.
 
 ## <a name="step-3-query-performance-counter-data"></a>Passaggio 3: Eseguire query sui dati dei contatori delle prestazioni
-Dopo che l'applicazione è stata distribuita ed è in esecuzione, il monitoraggio diagnostica inizierà a raccogliere i dati dei contatori delle prestazioni e a salvarli in modo permanente nell'archiviazione di Azure. Usare strumenti come Esplora server in Visual Studio, [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) o [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) di Cerebrata per visualizzare i dati dei contatori delle prestazioni nella tabella WADPerformanceCountersTable. A livello di codice è anche possibile eseguire una query sul servizio tabelle usando [C#](../storage/storage-dotnet-how-to-use-tables.md), [Java](../storage/storage-java-how-to-use-table-storage.md), [Node.js](../storage/storage-nodejs-how-to-use-table-storage.md), [Python](../storage/storage-python-how-to-use-table-storage.md), [Ruby](../storage/storage-ruby-how-to-use-table-storage.md) o [PHP](../storage/storage-php-how-to-use-table-storage.md).
+Dopo che l'applicazione è stata distribuita ed è in esecuzione, il monitoraggio diagnostica inizierà a raccogliere i dati dei contatori delle prestazioni e a salvarli in modo permanente nell'archiviazione di Azure. Usare strumenti come Esplora server in Visual Studio, [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) o [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) di Cerebrata per visualizzare i dati dei contatori delle prestazioni nella tabella WADPerformanceCountersTable. A livello di codice è anche possibile eseguire una query sul servizio tabelle usando [C#](../cosmos-db/table-storage-how-to-use-dotnet.md), [Java](../cosmos-db/table-storage-how-to-use-java.md), [Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md), [Python](../cosmos-db/table-storage-how-to-use-python.md), [Ruby](../cosmos-db/table-storage-how-to-use-ruby.md) o [PHP](../cosmos-db/table-storage-how-to-use-php.md).
 
 Nell'esempio C# seguente viene illustrato come eseguire una query di base sulla tabella WADPerformanceCountersTable e come salvare i dati di diagnostica in un file CSV. Dopo aver salvato i contatori delle prestazioni in un file CSV, è possibile usare le funzionalità grafiche di Microsoft Excel o altri strumenti per visualizzare i dati. Ricordarsi di aggiungere un riferimento a Microsoft.WindowsAzure.Storage.dll, che è stato incluso in Azure SDK per .NET a partire dalla versione di ottobre 2012. L'assembly viene installato nella directory %Programmi%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\.
 

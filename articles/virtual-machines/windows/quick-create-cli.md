@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 01321cb74cce35fc01824d2c6c67211caab33258
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 5939af4cf071664415d57ccbaee3413d61aa69e9
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm#create). 
+Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm#az_vm_create). 
 
 L'esempio seguente crea una macchina virtuale denominata *myVM*. Questo esempio usa *azureuser* come nome utente amministrativo e *myPassword12* come password. Aggiornare i valori in modo che siano appropriati all'ambiente. Questi valori sono necessari quando si crea una connessione con la macchina virtuale.
 

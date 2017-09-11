@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: a0cb529836b14df71e83616f4f625a002c535b7b
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
@@ -56,6 +56,34 @@ Di seguito sono elencati i percorsi di alcuni log ed elementi importanti. Nella 
 | **Percorso dell'utilità di raccolta dei log** | C:\WindowsAzure\Packages |
 | **File di log MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
+## <a name="metric-data-doesnt-show-in-azure-portal"></a>I dati relativi alle metriche non sono visualizzati nel portale di Azure
+Diagnostica di Microsoft Azure fornisce una serie di dati relativi alle metriche che possono essere visualizzati nel portale di Azure. Se si verificano problemi con la visualizzare di questi dati nel portale, controllare l'account di account di archiviazione -> tabella WADMetrics\* per vedere se i record delle metriche corrispondenti sono presenti. In questo caso, il PartitionKey della tabella è l'ID risorsa della macchina virtuale o il set di scalabilità di macchine virtuali e il RowKey è il nome della metrica, ovvero il nome del contatore delle prestazioni.
+
+Se l'ID risorsa non è corretto, controllare Configurazione di diagnostica -> Metriche -> IDRisorsa per vedere se l'ID risorsa è impostato correttamente.
+
+Se non sono presenti dati per la metrica specifica, controllare Configurazione di diagnostica -> PerformanceCounter per verificare se la metrica (contatore prestazioni) è inclusa. Per impostazione predefinita sono attivati i contatori seguenti.
+- \Processor(_Total)\% Processor Time
+- \Memory\Available Bytes
+- \ASP.NET Applications(__Total__)\Requests/Sec
+- \ASP.NET Applications(__Total__)\Errors Total/Sec
+- \ASP.NET\Requests Queued
+- \ASP.NET\Requests Rejected
+- \Processor(w3wp)\% Processor Time
+- \Process(w3wp)\Private Bytes
+- \Process(WaIISHost)\% Processor Time
+- \Process(WaIISHost)\Private Bytes
+- \Process(WaWorkerHost)\% Processor Time
+- \Process(WaWorkerHost)\Private Bytes
+- \Memory\Page Faults/sec
+- \.NET CLR Memory(_Global_)\% Time in GC
+- \LogicalDisk(C:)\Disk Write Bytes/sec
+- \LogicalDisk(C:)\Disk Read Bytes/sec
+- \LogicalDisk(D:)\Disk Write Bytes/sec
+- \LogicalDisk(D:)\Disk Read Bytes/sec
+
+Se la configurazione è impostata correttamente, ma non è ancora possibile visualizzare i dati delle metriche, seguire le istruzioni riportate di seguito per ulteriori indagini.
+
+
 ## <a name="azure-diagnostics-is-not-starting"></a>Mancato avvio di Diagnostica Azure
 Per informazioni sui motivi del mancato avvio della diagnostica, controllare i file **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** dal percorso dei file di log indicato in precedenza. 
 
@@ -79,7 +107,7 @@ La causa più comune della mancanza di tutti i dati degli eventi è la definizio
 
 Soluzione: correggere la configurazione della diagnostica e reinstallare Diagnostica.
 
-Se l'account di archiviazione è configurato correttamente, connettersi tramite desktop remoto al computer e assicurarsi che DiagnosticsPlugin.exe e MonAgentCore.exe siano in esecuzione. Se non sono in esecuzione, seguire le istruzioni in [Mancato avvio di Diagnostica Azure](#azure-diagnostics-is-not-starting). Se i processi sono in esecuzione, passare a [I dati vengono acquisiti in locale](#is-data-getting-captured-locally) e seguire le istruzioni rimanenti della guida.
+Se l'account di archiviazione è configurato correttamente, connettersi tramite desktop remoto al computer e assicurarsi che DiagnosticsPlugin.exe e MonAgentCore.exe siano in esecuzione. Se non sono in esecuzione, seguire le istruzioni in [Mancato avvio di Diagnostica di Azure](#azure-diagnostics-is-not-starting). Se i processi sono in esecuzione, passare a [I dati vengono acquisiti in locale](#is-data-getting-captured-locally) e seguire le istruzioni rimanenti della guida.
 
 ### <a name="part-of-the-data-is-missing"></a>Alcuni dati sono mancanti
 Alcuni dati sono presenti ma una parte dei dati è mancante. Ciò significa che la pipeline di raccolta dati/trasferimento è impostata correttamente. Attenersi alle istruzioni delle sezioni riportate di seguito per circoscrivere il problema:
@@ -87,7 +115,7 @@ Alcuni dati sono presenti ma una parte dei dati è mancante. Ciò significa che 
 La configurazione della diagnostica include la parte che indica il tipo di dati specifico da raccogliere. [Rivedere la configurazione](#how-to-check-diagnostics-extension-configuration) per assicurarsi di non cercare dati che non sono stati configurati per la raccolta.
 #### <a name="is-the-host-generating-data"></a>L'host genera i dati:
 - **Contatori delle prestazioni**: aprire perfmon e controllare il contatore.
-- **Log di traccia**: connettersi tramite desktop remoto alla macchina virtuale e aggiungere TextWriterTraceListener al file di configurazione dell'app.  Vedere http://msdn.microsoft.com/en-us/library/sk36c28t.aspx per impostare il listener di testo.  Verificare che l'elemento `<trace>` includa `<trace autoflush="true">`.<br />
+- **Log di traccia**: connettersi tramite desktop remoto alla macchina virtuale e aggiungere TextWriterTraceListener al file di configurazione dell'app.  Vedere http://msdn.microsoft.com/library/sk36c28t.aspx per impostare il listener di testo.  Verificare che l'elemento `<trace>` includa `<trace autoflush="true">`.<br />
 Se i log di traccia non vengono generati, seguire le istruzioni in [Altre informazioni sui log di traccia mancanti](#more-about-trace-logs-missing).
 - **Tracce ETW**: connettersi tramite desktop remoto alla macchina virtuale e installare PerfView.  In PerfView eseguire File -> User Command -> Listen etwprovder1,etwprovider2 (File -> Comando utente -> Attesa etwprovder1,etwprovider2) e così via.  Si noti che nel comando di attesa viene fatta distinzione tra maiuscole e minuscole e non possono essere presenti spazi nell'elenco dei provider ETW separato da virgole.  Se il comando non viene eseguito è possibile fare clic sul pulsante 'Log' nella parte inferiore destra dello strumento Perfview per visualizzare i tentativi di esecuzione e i risultati.  Presupponendo che l'input sia corretto, viene visualizzata una nuova finestra e dopo pochi secondi saranno visibili le tracce ETW.
 - **Log eventi**: connettersi tramite desktop remoto alla macchina virtuale. Aprire `Event Viewer` e assicurarsi che gli eventi siano presenti.
@@ -103,7 +131,7 @@ Se è stato verificato che i dati vengono acquisiti in locale e i dati non sono 
 - Infine, è possibile controllare gli errori segnalati dall'agente di monitoraggio. L'agente di monitoraggio scrive i log in `maeventtable.tsf` nell'[archivio locale dei dati di diagnostica](#log-artifacts-path). Seguire le istruzioni nella sezione [Estrazione dei log locali](#local-log-extraction) per aprire il file e verificare se sono presenti `errors` che indicano errori di lettura dei file locali o di scrittura nell'archiviazione.
 
 ### <a name="capturing--archiving-logs"></a>Acquisizione e archiviazione dei log
-Sono stati eseguiti i passaggi descritti ma non è ancora stata individuata la causa del problema e si sta considerando la possibilità di rivolgersi al supporto tecnico. Il supporto tecnico potrebbe innanzitutto richiedere di raccogliere i registri del computer. È possibile risparmiare tempo eseguendo questa operazione autonomamente. Eseguire l'utilità `CollectGuestLogs.exe` nel [percorso di Raccolta di log](#log-artifacts-path). Verrà generato un file con estensione zip con tutti i log di Azure rilevanti nella stessa cartella.
+Sono stati eseguiti i passaggi descritti ma non è ancora stata individuata la causa del problema e si sta considerando la possibilità di rivolgersi al supporto tecnico. Il supporto tecnico potrebbe innanzitutto richiedere di raccogliere i registri del computer. È possibile risparmiare tempo eseguendo questa operazione autonomamente. Eseguire l'utilità `CollectGuestLogs.exe` nel [percorso di Raccolta di log](#log-artifacts-path). Viene generato un file con estensione zip con tutti i log di Azure rilevanti nella stessa cartella.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Tabelle dei dati di diagnostica non trovate
 Le tabelle nell'archiviazione di Azure contenenti gli eventi ETW vengono denominate usando il codice seguente:
@@ -122,13 +150,13 @@ Le tabelle nell'archiviazione di Azure contenenti gli eventi ETW vengono denomin
 Di seguito è fornito un esempio:
 
 ```XML
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
+        <EtwEventSourceProviderConfiguration provider="prov1">
+          <Event id="1" />
+          <Event id="2" eventDestination="dest1" />
           <DefaultEvents />
         </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
+        <EtwEventSourceProviderConfiguration provider="prov2">
+          <DefaultEvents eventDestination="dest2" />
         </EtwEventSourceProviderConfiguration>
 ```
 ```JSON
@@ -244,3 +272,4 @@ Il portale delle macchine virtuali visualizza determinati contatori delle presta
 - Se si usano caratteri jolly (\*) nei nomi dei contatori delle prestazioni, il portale non sarà in grado di correlare il contatore configurato e il contatore raccolto.
 
 **Prevenzione**: modificare la lingua del computer impostando l'inglese per gli account di sistema. Pannello di controllo -> Area geografica -> Opzioni di amministrazione -> Impostazioni copia -> deselezionare "Schermata iniziale e account di sistema" in modo che la lingua personalizzata non venga applicata all'account di sistema. Assicurarsi anche di non usare caratteri jolly per consentire al portale di rappresentare l'esperienza di utilizzo principale.
+

@@ -1,35 +1,61 @@
+---
+title: Configurazione guidata di JS SPA per Azure AD v2 - Configurazione | Microsoft Docs
+description: Come le applicazioni SPA di Javascript possono chiamare un'API che richiede token di accesso dall'endpoint di Azure Active Directory v2
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 06/01/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: adff529bfdc40006666cc643d49a302d7f1d09ad
+ms.contentlocale: it-it
 
-### <a name="create-an-application-express"></a>Creare un'applicazione (Rapida)
-È ora necessario registrare l'applicazione nel portale di registrazione delle applicazioni Microsoft:
+---
+## <a name="register-your-application"></a>Registrare l'applicazione
+
+È possibile creare un'applicazione in più modi. Selezionarne uno:
+
+### <a name="option-1-register-your-application-express-mode"></a>Opzione 1: Registrare l'applicazione (modalità Rapida)
+È ora necessario registrare l'applicazione nel *portale di registrazione delle applicazioni Microsoft*:
 
 1.  Registrare l'applicazione tramite il [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=singlePageApp&appTech=javascriptSpa&step=configure)
 2.  Immettere un nome per l'applicazione e l'indirizzo di posta elettronica
 3.  Assicurarsi che l'opzione per l'*installazione guidata* sia selezionata
 4.  Seguire le istruzioni per ottenere l'ID dell'applicazione e incollarlo nel codice
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Aggiungere le informazioni di registrazione dell'applicazione alla soluzione (Avanzata)
+### <a name="option-2-register-your-application-advanced-mode"></a>Opzione 2: Registrare l'applicazione (modalità avanzata)
 
 1. Passare al [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app) per registrare un'applicazione
 2. Immettere un nome per l'applicazione e l'indirizzo di posta elettronica 
 3. Assicurarsi che l'opzione per l'*installazione guidata* sia deselezionata
 4.  Fare clic su `Add Platform`, quindi selezionare `Web`
-5. Aggiungere un URL di reindirizzamento all'applicazione. L'URL di reindirizzamento è l'URL per la pagina `index.html` basata su server Web
+5. Aggiungere l'elemento `Redirect URL` corrispondente all'URL dell'applicazione basato sul server Web. Per le istruzioni per impostare/ottenere l'URL di reindirizzamento in Visual Studio e Python, vedere le sezioni seguenti.
 6. Fare clic su *Save*
 
-> #### <a name="visual-studio-instructions-for-obtaining-redirect-url-using-ssl"></a>Istruzioni di Visual Studio per ottenere l'URL di reindirizzamento tramite SSL
-> Se si usa Visual Studio, configurare il progetto in modo da usare SSL e quindi impiegare l'URL SSL per configurare le informazioni di registrazione dell'applicazione procedendo come segue:
-> 1.    In Esplora soluzioni selezionare il progetto e controllare la finestra `Properties` (se non viene visualizzata una finestra delle proprietà, premere F4)
-> 2.    Modificare `SSL Enabled` in `True`
-> 3.    Copiare il valore da `SSL URL` negli Appunti:<br/> ![Proprietà del progetto](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 4.    Selezionare il menu `Project` e quindi selezionare `{Project} Properties...` (dove {Project} è il nome del progetto)
-> 5.    Aprire la scheda `Web`
-> 6.    Incollare il valore di `SSL URL` nel campo `Project Url`
-> 7.    Tornare al portale di registrazione dell'applicazione e incollare il valore in `Redirect URL` come URL di reindirizzamento, quindi fare clic su *Salva*
+> #### <a name="visual-studio-instructions-for-obtaining-redirect-url"></a>Istruzioni di Visual Studio per ottenere l'URL di reindirizzamento
+> Seguire le istruzioni per ottenere l'URL di reindirizzamento:
+> 1.    In *Esplora soluzioni* selezionare il progetto e controllare la finestra `Properties`. Se non viene visualizzata una finestra delle proprietà, premere `F4`.
+> 2.    Copiare il valore da `URL` negli Appunti:<br/> ![Proprietà del progetto](media/active-directory-singlepageapp-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3.    Tornare al *portale di registrazione delle applicazioni*, incollare il valore come `Redirect URL` e fare clic su "Salva"
+
+<p/>
+
+> #### <a name="setting-redirect-url-for-python"></a>Configurazione dell'URL di reindirizzamento per Python
+> Per Python è possibile configurare la porta del server Web tramite la riga di comando. Questa configurazione guidata usa la porta 8080 come riferimento, ma è possibile usare qualsiasi altra porta disponibile. In ogni caso, seguire le istruzioni riportate di seguito per configurare un URL di reindirizzamento nelle informazioni di registrazione dell'applicazione:<br/>
+> - Tornare al *portale di registrazione delle applicazioni* e impostare `http://localhost:8080/` come `Redirect URL` o usare `http://localhost:[port]/` se si usa una porta TCP personalizzata (dove *[port]* è il numero di porta TCP personalizzata) e fare clic su "Salva"
 
 
-#### <a name="configure-your-javascript-spa-application"></a>Configurare l'applicazione JavaScript SPA
+#### <a name="configure-your-javascript-spa"></a>Configurare JavaScript SPA
 
-1.  Creare un file denominato `msalconfig.js` contenente le informazioni di registrazione dell'applicazione. Se si usa Visual Studio, selezionare il progetto (cartella radice del progetto), fare clic con il pulsante destro del mouse e selezionare: `Add` > `New Item` > `JavaScript File`. Assegnare il nome `msalconfig.js`
+1.  Creare un file denominato `msalconfig.js` contenente le informazioni di registrazione dell'applicazione. Se si usa Visual Studio, selezionare il progetto (cartella radice del progetto), fare clic con il pulsante destro del mouse e scegliere `Add` > `New Item` > `JavaScript File`. Assegnare il nome `msalconfig.js`
 2.  Aggiungere il codice seguente al file `msalconfig.js`:
 
 ```javascript
@@ -43,3 +69,4 @@ var msalconfig = {
 Sostituire <code>Enter_the_Application_Id_here</code> con l'ID applicazione appena registrato
 </li>
 </ol>
+

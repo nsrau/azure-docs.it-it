@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/25/2017
+ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 70922ec4813d32580acdd20bf43521fcc2d24081
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4e2de9c4d1c0f92970911e132fffaacbd01d9ad0
 ms.contentlocale: it-it
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -36,7 +35,7 @@ I criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di
 - Quali sono i requisiti tecnici di interoperabilità "in transito" per i membri?
 - Quali sono le regole operative di "runtime" che devono essere applicate per lo scambio di informazioni di identità digitali?
 
-Per rispondere a tutte queste domande, i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità sfruttano il costrutto del framework attendibilità. Esaminiamo ora questo costrutto e il suo contributo in questo senso.
+Per rispondere a tutte queste domande, i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità usano il costrutto del framework attendibilità. Esaminiamo ora questo costrutto e il suo contributo in questo senso.
 
 ## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Nozioni fondamentali sul framework attendibilità e sulla gestione della federazione
 
@@ -114,7 +113,7 @@ In termini di implementazione, la specifica di framework attendibilità è costi
 > [!NOTE]
 > Sono definiti "attestazioni" tutti i possibili tipi di informazioni di identità che possono essere scambiati come "attestazioni": attestazioni sulle credenziali di autenticazione di un utente finale, controllo delle identità, dispositivo di comunicazione, posizione fisica, attributi di identificazione personale e così via.  
 >
-> Si usa il termine "attestazioni" anziché "attributi" perché nel caso delle transazioni online non sono elementi che possono essere verificati direttamente dalla relying party. Si tratta piuttosto di asserzioni o attestazioni su fatti verso cui la relying party deve sviluppare una fiducia sufficiente a garantire la transazione richiesta dell'utente finale.  
+> Si usa il termine "attestazioni" anziché "attributi" perché nelle transazioni online questi elementi dati non possono essere verificati direttamente dalla relying party. Si tratta piuttosto di asserzioni o attestazioni su fatti verso cui la relying party deve sviluppare una fiducia sufficiente a garantire la transazione richiesta dell'utente finale.  
 >
 > Si usa il termine "attestazioni" anche perché i criteri personalizzati di Azure AD B2C basati sul Framework dell'esperienza di gestione delle identità sono progettati per semplificare lo scambio di tutti i tipi di informazioni di identità digitale in modo coerente, indipendentemente dal fatto che il protocollo sottostante sia definito per l'autenticazione utente o il recupero di attributi.  Si usa analogamente il termine "provider di attestazioni" per fare riferimento ai provider di identità, i provider di attributi e i verificatori di attributi, quando non si intende distinguerli in base alle funzioni specifiche.   
 

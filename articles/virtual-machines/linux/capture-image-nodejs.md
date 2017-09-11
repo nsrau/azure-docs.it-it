@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: baaa7589de4d809270f66335e33b79b4fdb5e6a5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Acquisire una VM Linux in esecuzione su Azure
-Seguire i passaggi descritti in questo articolo per generalizzare e acquisire la macchina virtuale Linux di Azure (VM) nel modello di distribuzione Azure Resource Manager. Quando si generalizza la macchina virtuale, si rimuovono le informazioni sull'account personale e si prepara la macchina virtuale da usare come immagine. Si acquisisce quindi l'immagine di un disco rigido virtuale generalizzato (VHD) per il sistema operativo, i dischi rigidi virtuali per i dischi dati collegati, e un [modello di Resource Manager](../../azure-resource-manager/resource-group-overview.md) per nuove distribuzioni di macchine virtuali. Questo articolo descrive come acquisire un'immagine di macchina virtuale con l'interfaccia della riga di comando di Azure 1.0 tramite i dischi non gestiti. È anche possibile [acquisire una macchina virtuale tramite Azure Managed Disks con l'interfaccia della riga di comando di Azure 2.0 ](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La funzionalità Managed Disks viene gestita dalla piattaforma Azure e non richiede alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni, vedere [Azure Managed Disks Overview](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica di Azure Managed Disks). 
+Seguire i passaggi descritti in questo articolo per generalizzare e acquisire la macchina virtuale Linux di Azure (VM) nel modello di distribuzione Azure Resource Manager. Quando si generalizza la macchina virtuale, si rimuovono le informazioni sull'account personale e si prepara la macchina virtuale da usare come immagine. Si acquisisce quindi l'immagine di un disco rigido virtuale generalizzato (VHD) per il sistema operativo, i dischi rigidi virtuali per i dischi dati collegati, e un [modello di Resource Manager](../../azure-resource-manager/resource-group-overview.md) per nuove distribuzioni di macchine virtuali. Questo articolo descrive come acquisire un'immagine di macchina virtuale con l'interfaccia della riga di comando di Azure 1.0 tramite i dischi non gestiti. È anche possibile [acquisire una macchina virtuale tramite Azure Managed Disks con l'interfaccia della riga di comando di Azure 2.0 ](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). La funzionalità Managed Disks viene gestita dalla piattaforma Azure e non richiede alcuna pianificazione o alcuna posizione per l'archiviazione. Per altre informazioni, vedere [Azure Managed Disks Overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Panoramica di Azure Managed Disks). 
 
 Per creare macchine virtuali usando l'immagine, configurare le risorse di rete per ogni nuova macchina virtuale e usare il modello (un file JavaScript Object Notation o JSON) per distribuirlo dalle immagini del disco rigido virtuale acquisite. In questo modo è possibile replicare una macchina virtuale con la configurazione corrente del software, simile al modo in cui si usano le immagini in Azure Marketplace.
 

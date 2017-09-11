@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 02bf921222917a50af8e28e62514e167901743b8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aef9c15636ccaecce07d4fa218a40ed26ebad9df
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Soluzioni di Archiviazione di Azure per R Server su HDInsight
@@ -37,9 +37,9 @@ Quando si crea un cluster Hadoop in HDInsight, si specifica un account di **Arch
 - [Usare l'Archiviazione di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md)
 - [Usare Data Lake Store con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md). 
 
-Per altre informazioni sulle soluzioni di Archiviazione di Azure, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/storage-introduction.md). 
+Per altre informazioni sulle soluzioni di Archiviazione di Azure, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/common/storage-introduction.md). 
 
-Per visualizzare del materiale sussidiario sulla selezione dell'opzione di archiviazione più appropriata per uno scenario specifico, vedere [Quando usare BLOB di Azure, File di Azure o Dischi dati di Azure](../storage/storage-decide-blobs-files-disks.md) 
+Per visualizzare del materiale sussidiario sulla selezione dell'opzione di archiviazione più appropriata per uno scenario specifico, vedere [Quando usare BLOB di Azure, File di Azure o Dischi dati di Azure](../storage/common/storage-decide-blobs-files-disks.md) 
 
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Usare gli account di archiviazione BLOB di Azure con R Server
@@ -188,8 +188,8 @@ I comandi seguenti sono usati per configurare l'account di archiviazione di Data
 
 Un vantaggio importante di File di Azure riguarda la possibilità di montare e usare le condivisioni file in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux. Ad esempio, può essere usato da un altro cluster HDInsight disponibile all'utente o a un membro del team, da una macchina virtuale di Azure o anche da un sistema locale. Per altre informazioni, vedere:
 
-- [Come usare Archiviazione file di Azure con Linux](../storage/storage-how-to-use-files-linux.md)
-- [Come usare Archiviazione file di Azure su Windows](../storage/storage-dotnet-how-to-use-files.md)
+- [Come usare Archiviazione file di Azure con Linux](../storage/files/storage-how-to-use-files-linux.md)
+- [Come usare Archiviazione file di Azure su Windows](../storage/files/storage-dotnet-how-to-use-files.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

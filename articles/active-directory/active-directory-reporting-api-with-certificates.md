@@ -1,6 +1,6 @@
 ---
-title: Ottenere dati con l&quot;API di creazione report di Azure AD con certificati | Microsoft Docs
-description: Spiega come usare l&quot;API di creazione report di Azure AD con le credenziali del certificato per ottenere i dati provenienti da directory senza intervento dell&quot;utente.
+title: Ottenere dati con l'API di creazione report di Azure AD con certificati | Microsoft Docs
+description: Spiega come usare l'API di creazione report di Azure AD con le credenziali del certificato per ottenere i dati provenienti da directory senza intervento dell'utente.
 services: active-directory
 documentationcenter: 
 author: ramical
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
+ms.contentlocale: it-it
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Ottenere dati con l'API di creazione report di Azure AD con certificati
@@ -26,10 +26,10 @@ Questo articolo spiega come usare l'API di creazione report di Azure AD con le c
 
 ## <a name="use-the-azure-ad-reporting-api"></a>Usare l'API di creazione report di Azure AD 
 L'API di creazione report di Azure AD richiede il completamento dei passaggi seguenti:
- *    Installare i componenti prerequisiti
- *    Impostare il certificato nell'app
- *    Ottenere un token di accesso
- *    Usare il token di accesso per chiamare l'API Graph
+ *  Installare i componenti prerequisiti
+ *  Impostare il certificato nell'app
+ *  Ottenere un token di accesso
+ *  Usare il token di accesso per chiamare l'API Graph
 
 Per informazioni sul codice sorgente, vedere [Sfruttare il modulo dell'API di creazione report](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils). 
 

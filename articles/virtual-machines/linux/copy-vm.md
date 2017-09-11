@@ -1,6 +1,6 @@
 --- 
-title: Copiare una macchina virtuale Linux usando l&quot;interfaccia della riga di comando di Azure 2.0 |Microsoft Docs
-description: Informazioni su come creare una copia della VM Linux di Azure usando l&quot;interfaccia della riga di comando di Azure 2.0 e i dischi gestiti.
+title: Copiare una macchina virtuale Linux usando l'interfaccia della riga di comando di Azure 2.0 |Microsoft Docs
+description: Informazioni su come creare una copia della VM Linux di Azure usando l'interfaccia della riga di comando di Azure 2.0 e i dischi gestiti.
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 006123a4ab7d1c0208a7e5f33b6f05f9374511fc
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7983061a933370803669480296d7625106e1360c
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---                    
                
@@ -53,7 +53,7 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 
 Per copiare una macchina virtuale, si crea una copia del disco rigido virtuale sottostante. Questo processo crea un disco rigido virtuale specializzato come disco gestito che contiene la stessa configurazione e le stesse impostazioni della VM di origine.
 
-Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overview](../../storage/storage-managed-disks-overview.md) (Panoramica di Azure Managed Disks). 
+Per altre informazioni su Azure Managed Disks, vedere [Azure Managed Disks overview](../windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks). 
 
 1.  Elencare ogni VM e il nome del relativo disco del sistema operativo con [az vm list](/cli/azure/vm#list). L'esempio seguente elenca tutte le VM del gruppo di risorse denominato **myResourceGroup**:
     

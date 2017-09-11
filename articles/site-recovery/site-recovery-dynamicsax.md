@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: cf568d20f60709dbb64774bcbcc1b4aa6c43d8d3
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 03127c8f4841b67436c4819628319705af0b2cd5
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="replicate-a-multi-tier-dynamics-ax-application-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione Dynamics AX multilivello usando Azure Site Recovery
@@ -31,7 +30,7 @@ Microsoft Dynamics AX è una delle soluzioni ERP più diffuse tra le aziende per
 
 Attualmente Microsoft Dynamics AX non include funzionalità di ripristino di emergenza predefinite. Microsoft Dynamics AX include molti componenti server come Application Object Server (AOS), Active Directory, il server di database SQL, SharePoint Server, Reporting Server e così via. La gestione manuale del ripristino di emergenza di ognuno di questi componenti non solo è costosa, ma è anche soggetta a errori.
 
-Questo articolo descrive dettagliatamente come creare una soluzione di ripristino di emergenza per l'applicazione Dynamics AX usando [Azure Site Recovery](site-recovery-overview.md). Vengono anche descritti i failover pianificati/non pianificati/di test tramite piano di ripristino con un solo clic, le configurazioni supportate e i prerequisiti.
+Questo articolo descrive dettagliatamente come creare una soluzione di ripristino di emergenza per l'applicazione Dynamics AX usando [Azure Site Recovery](site-recovery-overview.md). Vengono anche descritti i failover pianificati/non pianificati/di test tramite il piano di ripristino con un solo clic, le configurazioni supportate e i prerequisiti.
 La soluzione di ripristino di emergenza basata su Azure Site Recovery è completamente testata, certificata e consigliata da Microsoft Dynamics AX.
 
 
@@ -49,7 +48,7 @@ Per l'implementazione del ripristino di emergenza per l'applicazione Dynamics AX
 
 ## <a name="site-recovery-support"></a>Supporto di Site Recovery
 
-Ai fini di questo articolo sono state usate macchine virtuali VMware con Dynamics AX 2012 R3 su Windows Server 2012 R2 Enterprise. Poiché la replica di Site Recovery è indipendente dall'applicazione, i consigli inclusi in questo articolo saranno validi anche per gli scenari seguenti.
+Ai fini di questo articolo sono state usate macchine virtuali VMware con Dynamics AX 2012R3 su Windows Server 2012 R2 Enterprise. Poiché la replica di Site Recovery è indipendente dall'applicazione, i consigli inclusi in questo articolo saranno validi anche per gli scenari seguenti.
 
 ### <a name="source-and-target"></a>Origine e destinazione
 
@@ -59,7 +58,7 @@ Ai fini di questo articolo sono state usate macchine virtuali VMware con Dynamic
 **VMware** | Sì | Sì
 **Server fisico** | Sì | Sì
 
-## <a name="enable-dr-of-dynamics-ax-application-using-asr"></a>Abilitare il ripristino di emergenza dell'applicazione Dynamics AX con Azure Site Recovery
+## <a name="enable-dr-of-dynamics-ax-application-using-azure-site-recovery"></a>Abilitare il ripristino di emergenza dell'applicazione Dynamics AX con Azure Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteggere l'applicazione Dynamics AX
 Ogni componente di Dynamics AX deve essere protetto per consentire la replica e il ripristino completi dell'applicazione. Questa sezione descrive queste operazioni:
 
@@ -103,7 +102,7 @@ Lo snapshot seguente mostra lo stato di protezione delle VM del componente Dynam
 ### <a name="4-configure-networking"></a>4. Configurare le impostazioni di rete
 Configurare le impostazioni di calcolo e di rete delle VM
 
-Per le VM AOS e client AX, configurare le impostazioni di rete in Azure Site Recovery in modo che le reti delle VM siano collegate alla rete di ripristino di emergenza corretta dopo il failover. Assicurarsi che la rete di ripristino di emergenza per questi livelli possa essere instradata al livello SQL.
+Per le macchine virtuali AOS e il client AX, configurare le impostazioni di rete in Azure Site Recovery in modo che le reti delle macchine virtuali siano collegate alla rete di ripristino di emergenza corretta dopo il failover. Assicurarsi che la rete di ripristino di emergenza per questi livelli possa essere instradata al livello SQL.
 
 È possibile selezionare la VM negli elementi replicati per configurare le impostazioni di rete come mostrato nello snapshot seguente.
 
@@ -139,14 +138,14 @@ Per le VM AOS e client AX, configurare le impostazioni di rete in Azure Site Rec
 
 Fare riferimento alla guida complementare [Soluzione di ripristino di emergenza di SQL Server](site-recovery-sql.md) per informazioni sui passaggi di ripristino specifici per SQL server.
 
-*2. Gruppo di failover 1: eseguire il failover delle VM AOS*
+*2. Gruppo di failover 1: eseguire il failover delle macchine virtuali AOS*
 
 Assicurarsi che il punto di recupero selezionato sia quanto più vicino al ripristino temporizzato del database, ma che non sia in anticipo.
 
 *3. Script: aggiungere il bilanciamento del carico (solo E-A)*. Aggiungere uno script (tramite l'automazione di Azure) dopo la visualizzazione del gruppo di VM AOS per aggiungere il bilanciamento del carico. A questo scopo, è possibile usare uno script. Fare riferimento all'articolo [How to add load balancer for multi-tier application DR](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/) (Come aggiungere il bilanciamento del carico per il ripristino di emergenza di applicazioni multilivello)
 
-*4. Gruppo di failover 2: eseguire il failover delle VM client AX.*
-Eseguire il failover delle VM di livello Web come parte del piano di ripristino.
+*4. Gruppo di failover 2: eseguire il failover delle macchine virtuali client AX.*
+Eseguire il failover delle macchine virtuali di livello Web come parte del piano di ripristino.
 
 
 ### <a name="doing-a-test-failover"></a>Esecuzione di un failover di test

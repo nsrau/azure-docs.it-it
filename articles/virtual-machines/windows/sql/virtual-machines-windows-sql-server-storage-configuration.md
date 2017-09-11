@@ -1,6 +1,6 @@
 ---
-title: Configurazione dell&quot;archiviazione per le VM di SQL Server | Documentazione Microsoft
-description: "Questo argomento descrive come viene configurata l&quot;archiviazione da Azure per le VM di SQL Server durante il provisioning (modello di distribuzione di Resource Manager). Viene inoltre spiegato come è possibile configurare l&quot;archiviazione per le VM di SQL Server esistenti."
+title: Configurazione dell'archiviazione per le VM di SQL Server | Documentazione Microsoft
+description: "Questo argomento descrive come viene configurata l'archiviazione da Azure per le VM di SQL Server durante il provisioning (modello di distribuzione di Resource Manager). Viene inoltre spiegato come è possibile configurare l'archiviazione per le VM di SQL Server esistenti."
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 3fe2a44d7e05538bdc3341110a517e7e9bdf3e7d
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
@@ -32,7 +33,7 @@ Per usare le impostazioni di configurazione automatica dell'archiviazione, la ma
 
 * Provisioning eseguito con un' [immagine della raccolta di SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
 * Uso del [modello di distribuzione Azure Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
-* Uso dell' [archiviazione Premium](../../../storage/storage-premium-storage.md).
+* Uso dell' [archiviazione Premium](../../../storage/common/storage-premium-storage.md).
 
 ## <a name="new-vms"></a>Nuove VM
 Le sezioni seguenti descrivono come configurare l'archiviazione per le nuove macchine virtuali di SQL Server.
@@ -104,7 +105,7 @@ In questa sezione sono disponibili informazioni di riferimento sulle modifiche d
 
 * Se sono stati selezionati meno di due TB di spazio di archiviazione per la VM, Azure non crea un pool di archiviazione.
 * Se sono stati selezionati almeno due TB di spazio di archiviazione per la VM, Azure configura un pool di archiviazione. La sezione successiva di questo argomento fornisce i dettagli della configurazione del pool di archiviazione.
-* Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 di [archiviazione Premium](../../../storage/storage-premium-storage.md) . Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
+* Per la configurazione automatica dell'archiviazione vengono sempre usati dischi dati P30 di [archiviazione Premium](../../../storage/common/storage-premium-storage.md) . Esiste quindi una corrispondenza 1:1 tra il numero selezionato di terabyte e il numero di dischi dati collegati alla VM.
 
 Per informazioni sui prezzi, vedere la pagina [Prezzi di archiviazione](https://azure.microsoft.com/pricing/details/storage) nella scheda **Archiviazione su disco** .
 
@@ -143,9 +144,4 @@ La tabella seguente descrive le tre opzioni disponibili per il tipo di carico di
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altri argomenti relativi all'esecuzione di SQL Server nelle macchine virtuali di Azure, vedere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

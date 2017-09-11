@@ -1,6 +1,6 @@
 ---
-title: "Distribuire un&quot;app nei set di scalabilità di macchine virtuali"
-description: "Usare le estensioni per distribuire un&quot;app nel set di scalabilità della macchina virtuale di Azure."
+title: "Distribuire un'app nei set di scalabilità di macchine virtuali"
+description: "Usare le estensioni per distribuire un'app nel set di scalabilità della macchina virtuale di Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: thraka
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: e6a5e3a378a5661c09f770a202c10d270f324447
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -47,7 +47,7 @@ Seguire anche questa procedura:
 
 4. Creare un [set di scalabilità della macchina virtuale][vmss-create] con l'URI dell'immagine acquisito nel passaggio precedente.
 
-Per altre informazioni sui dischi, vedere [Panoramica di Managed Disks](../storage/storage-managed-disks-overview.md) e [Usare dischi dati collegati](virtual-machine-scale-sets-attached-disks.md).
+Per altre informazioni sui dischi, vedere [Panoramica di Managed Disks](../virtual-machines/windows/managed-disks-overview.md) e [Usare dischi dati collegati](virtual-machine-scale-sets-attached-disks.md).
 
 ## <a name="install-when-the-scale-set-is-provisioned"></a>Installare quando viene eseguito il provisioning del set di scalabilità
 

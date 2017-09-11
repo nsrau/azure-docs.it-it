@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/18/2017
+ms.date: 08/24/2017
 ms.author: fimguy
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 313145f4d8e5faa91fb3504cb0fd0ba87ca2e379
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
@@ -39,7 +39,7 @@ Collegamenti correlati:
 * [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
 
-## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+## <a name="116040-aadconnect-pending-release"></a>1.1.604.0 (versione in sospeso di AADConnect)
 
 
 ### <a name="fixed-issues"></a>Problemi risolti:
@@ -69,12 +69,12 @@ Collegamenti correlati:
       - o
       - altcommonname
 
-  * Se l’opzione **Consenti rilascio di attestati personalizzati per aziende/unità organizzative** è abilitata, ma il file di certificazione richiesto è vuoto, si verifica una KeyNotFoundException.
+  * Se l'opzione **Allow custom certifiers for Organization/Organizational Units** (Consenti rilascio di attestati personalizzati per aziende/unità organizzative) è abilitata, ma il file di certificazione richiesto è vuoto, si verifica una KeyNotFoundException.
 
 ### <a name="enhancements"></a>Miglioramenti:
 
 * Generic SQL:
-  * **Scenario:** reimplementata la funzionalità "*"
+  * **Scenario: riprogettato. Implementata la funzionalità:** "*"
   * **Descrizione della soluzione:** modificato l'approccio per la [gestione degli attributi di riferimento multivalore](active-directory-aadconnectsync-connector-genericsql.md).
 
 
@@ -100,7 +100,7 @@ Data di rilascio: marzo 2017
 
 * Generic SQL:</br>
   **Sintomi dello scenario:** è un limite noto del connettore SQL quando si consente il riferimento a un solo tipo di oggetto e si richiede un riferimento incrociato con i membri. </br>
-  **Descrizione della soluzione:** nella fase di elaborazione per i riferimenti in cui si sceglie l'opzione "*", TUTTI i tipi di oggetto saranno restituiti al motore di sincronizzazione.
+  **Descrizione della soluzione:** nella fase di elaborazione per i riferimenti in cui si sceglie l'opzione "*", TUTTE le combinazioni di tipi di oggetto saranno restituite al motore di sincronizzazione.
 
 >[!Important]
 - In questo modo vengono creati molti segnaposti

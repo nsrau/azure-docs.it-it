@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5574a234076797852b32631b90bb563441bbc6e7
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 00f2ecbf0d8542741bd78dcfe2692e6627b1f3cd
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
@@ -214,6 +214,9 @@ Il traffico di rete nelle reti virtuali di Azure può essere controllato usando 
 
 * i **gruppi di sicurezza di rete** (NSG) consentono di filtrare il traffico di rete in ingresso e in uscita. Per altre informazioni, vedere il documento [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 
+    > [!WARNING]
+    > HDInsight non supporta la limitazione del traffico in uscita.
+
 * Le **route definite dall'utente** definiscono il flusso del traffico tra le risorse nella rete. Per altre informazioni, vedere il documento [Route definite dall'utente e inoltro IP](../virtual-network/virtual-networks-udr-overview.md).
 
 * Le **appliance virtuali di rete** replicano le funzionalità di dispositivi come i firewall e i router. Per altre informazioni, vedere il documento relativo alle [Appliance di rete](https://azure.microsoft.com/solutions/network-appliances).
@@ -228,7 +231,7 @@ Se si intende usare **gruppi di sicurezza di rete** o **route definite dall'uten
 
 1. Identificare l'area di Azure che si intende usare per HDInsight.
 
-2. Identificare gli indirizzi IP richiesti da HDInsight. Gli indirizzi IP che dovrebbero essere concessi sono specifici all'area in cui risiedono il cluster HDInsight e la rete virtuale. Per un elenco di indirizzi IP per area, vedere la sezione [Indirizzi IP richiesti da HDInsight](#hdinsight-ip).
+2. Identificare gli indirizzi IP richiesti da HDInsight. Per altre informazioni, vedere la sezione [Indirizzi IP richiesti da HDInsight](#hdinsight-ip).
 
 3. Creare o modificare i gruppi di sicurezza di rete o le route definite dall'utente per la subnet in cui si intende installare HDInsight.
 
@@ -247,11 +250,14 @@ Il tunneling forzato è una configurazione di routing definita dall'utente in cu
 
 ## <a id="hdinsight-ip"></a> Indirizzi IP richiesti
 
-I servizi di gestione e integrità di Azure devono poter comunicare con HDInsight. Se si usano gruppi di sicurezza di rete o route definite dall'utente, consentire il traffico dagli indirizzi IP in modo che tali servizi possano raggiungere HDInsight.
+> [!IMPORTANT]
+> I servizi di gestione e integrità di Azure devono poter comunicare con HDInsight. Se si usano gruppi di sicurezza di rete o route definite dall'utente, consentire il traffico dagli indirizzi IP in modo che tali servizi possano raggiungere HDInsight.
+>
+> Se non si usano gruppi di sicurezza di rete o route definite dall'utente per controllare il traffico, è possibile ignorare questa sezione.
 
-Esistono due set di indirizzi IP:
+Se si usano gruppi di sicurezza di rete o route definite dall'utente, è necessario consentire il traffico dai servizi di gestione e integrità di Azure per raggiungere HDInsight. Usare la procedura seguente per trovare gli indirizzi IP che devono essere consentiti:
 
-* Un set di quattro IP __globali__ da consentire:
+1. È sempre necessario consentire il traffico dagli indirizzi IP seguenti:
 
     | Indirizzo IP | Porta consentita | Direzione |
     | ---- | ----- | ----- |
@@ -260,10 +266,10 @@ Esistono due set di indirizzi IP:
     | 168.61.48.131 | 443 | In ingresso |
     | 138.91.141.162 | 443 | In ingresso |
 
-* Indirizzi IP __per area__ da consentire:
+2. Se il cluster HDInsight si trova in una delle seguenti aree, è necessario consentire il traffico proveniente dagli indirizzi IP elencati per l'area:
 
     > [!IMPORTANT]
-    > Se si usa un'area di Azure non inclusa nell'elenco, usare solo i quattro IP globali riportati sopra.
+    > Se si usa un'area di Azure non inclusa nell'elenco, usare solo i quattro IP riportati nel passaggio 1.
 
     | Paese | Region | Indirizzi IP consentiti | Porta consentita | Direzione |
     | ---- | ---- | ---- | ---- | ----- |
@@ -294,11 +300,7 @@ Esistono due set di indirizzi IP:
 
     Per informazioni sugli indirizzi IP da usare per Azure per enti pubblici, vedere il documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Intelligence e Analisi di Azure per enti pubblici).
 
-> [!WARNING]
-> HDInsight non supporta la limitazione del traffico in uscita, solo del traffico in ingresso.
-
-> [!IMPORTANT]
-> Se si usa un server DNS personalizzato con la rete virtuale, è anche necessario consentire l'accesso da __168.63.129.16__. Questo è l'indirizzo del sistema di risoluzione ricorsiva di Azure. Per altre informazioni, vedere il documento [Risoluzione dei nomi per macchine virtuali e istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+3. Se si usa un server DNS personalizzato con la rete virtuale, è anche necessario consentire l'accesso da __168.63.129.16__. Questo è l'indirizzo del sistema di risoluzione ricorsiva di Azure. Per altre informazioni, vedere il documento [Risoluzione dei nomi per macchine virtuali e istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Per altre informazioni, vedere la sezione [Controllo del traffico di rete](#networktraffic).
 

@@ -4,7 +4,7 @@ description: Informazioni sui prerequisiti generali per l'uso di Servizi multime
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/16/2017
+ms.date: 08/23/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ca5e537bd4347e17190ff4f66cc4d42a36870936
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 15828bc74937a036871b26493498232ec7cf6f06
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET
@@ -66,7 +66,7 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
     Se si usa l'[autenticazione utente](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication), il file di configurazione avrà probabilmente i valori per il dominio tenant di Azure AD e l'endpoint dell'API di REST AMS.
     
     >[!Important]
-    >Gli esempi nella documentazione di Servizi multimediali di Azure usano un tipo di utente (interattivo) di autenticazione per la connessione all'API di AMS. Questo metodo di autenticazione funzionerà in modo efficace per le app native di gestione o monitoraggio: app per dispositivi mobili, app di Windows e app console. Questo metodo di autenticazione non è adatto per il tipo applicazioni come API delle applicazioni, servizi Web e server.  Per altre informazioni, vedere [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+    >La maggior parte dei codici di esempio di Servizi multimediali di Azure usa un tipo di utente (interattivo) di autenticazione per la connessione all'API di AMS. Questo metodo di autenticazione funzionerà in modo efficace per le app native di gestione o monitoraggio: app per dispositivi mobili, app di Windows e app console. Questo metodo di autenticazione non è adatto per il tipo applicazioni come API delle applicazioni, servizi Web e server.  Per altre informazioni, vedere [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...

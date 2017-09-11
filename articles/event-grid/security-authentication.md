@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b6e1c7587c0b47d04862b4850741aaa3b7d191a8
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ccef224ef1c2919a3e5469c1bbe0980c6963705b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -38,6 +38,28 @@ Quando si registra l'endpoint del webhook con Griglia di eventi, viene inviata u
 * L'evento contiene un valore di intestazione "Event-Type: Validation".
 * Il corpo dell'evento ha lo stesso schema degli altri eventi di Griglia di eventi.
 * I dati dell'evento includono una proprietà "ValidationCode" con una stringa generata in modo casuale, ad esempio "ValidationCode: acb13…".
+
+Un esempio di SubscriptionValidationEvent è mostrato di seguito.
+```json
+[{
+  "Id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+  "Topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "Subject": "",
+  "Data": {
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+  },
+  "EventType": "Microsoft.EventGrid/SubscriptionValidationEvent",
+  "EventTime": "2017-08-06T22:09:30.740323Z"
+}]
+```
+
+Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida, ad esempio "validation_response: acb13…", di cui un esempio viene mostrato di seguito.
+
+```json
+{
+  "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+}
+```
 
 Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida, ad esempio "ValidationResponse: acb13…".
 
@@ -176,7 +198,7 @@ Le seguenti sono definizioni del ruolo di Griglia di eventi che consentono agli 
   ] 
 }
 ```
- 
+
 **EventGridContributorRole.json**: consente tutte le azioni di Griglia di eventi.  
 ```json
 { 

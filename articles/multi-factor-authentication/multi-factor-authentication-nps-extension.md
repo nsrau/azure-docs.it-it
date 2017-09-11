@@ -11,20 +11,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 395b0209109a5c1eb3ee8ecdd9651ab82fb213eb
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b9061283952ae6b14431f5e88295eefac173ae01
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
-L'estensione di Server dei criteri di rete (NPS) per Azure MFA aggiunge funzionalità MFA basate su cloud per l'infrastruttura di autenticazione usando i server esistenti. Con l'estensione di Server dei criteri di rete, è possibile aggiungere la verifica con telefonata, SMS o app telefonica al flusso di autenticazione esistente senza dover installare, configurare e gestire nuovi server. 
+L'estensione di Server dei criteri di rete (NPS) per Azure MFA aggiunge funzionalità MFA basate su cloud per l'infrastruttura di autenticazione usando i server esistenti. Con l'estensione di Server dei criteri di rete, è possibile aggiungere la verifica con telefonata, messaggio di testo o app telefonica al flusso di autenticazione esistente senza dover installare, configurare e gestire nuovi server. 
 
 Questa estensione è stata creata per le organizzazioni che vogliono proteggere le connessioni VPN senza distribuire Azure MFA Server. L'estensione del server dei criteri di rete funge da adattatore tra RADIUS e Azure MFA basato su cloud per fornire un secondo fattore di autenticazione per utenti federati o sincronizzati.
 
@@ -43,7 +43,7 @@ Il diagramma seguente illustra questo flusso di richiesta di autenticazione ad a
 
 L'estensione di Server dei criteri di rete gestisce automaticamente la ridondanza, pertanto non è necessaria una configurazione speciale.
 
-È possibile creare il tutti i Server dei criteri di rete necessari abilitati per Azure Multi-Factor Authentication. Se si installano più server, è consigliabile usare un certificato client di differenza per ciascuno. La creazione di un certificato per ogni server significa che è possibile aggiornare singolarmente ogni certificato senza doversi preoccupare dei tempi di inattività in tutti i server.
+È possibile creare un qualsiasi numero di Server dei criteri di rete abilitati per Azure MFA. Se si installano più server, è consigliabile usare un certificato client di differenza per ciascuno. La creazione di un certificato per ogni server significa che è possibile aggiornare singolarmente ogni certificato senza doversi preoccupare dei tempi di inattività in tutti i server.
 
 I server VPN indirizzano le richieste di autenticazione, quindi è necessario essere a conoscenza dei nuovi Server dei criteri di rete abilitati per Azure MFA.
 
@@ -67,9 +67,9 @@ Queste librerie vengono installate automaticamente con l'estensione.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Per gli utenti che usano l'estensione di Server dei criteri di rete è necessaria la sincronizzazione con Azure Active Directory grazie ad Azure AD Connect e l'abilitazione per MFA.
+Gli utenti che usano l'estensione di Server dei criteri di rete devono essere sincronizzati con Azure Active Directory tramite Azure AD Connect ed essere registrati a MFA.
 
-Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [Portale di Azure](https://portal.azure.com). Accedere come amministratore, selezionare l'icona di **Azure Active Directory** sulla sinistra, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare. Questo GUID verrà usato come ID tenant quando si installa l'estensione di Server dei criteri di rete.
+Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [Portale di Azure](https://portal.azure.com). Accedere come amministratore, selezionare l'icona di **Azure Active Directory** sulla sinistra, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare. Questo GUID verrà usato come ID tenant quando si installerà l'estensione di Server dei criteri di rete.
 
 ![L'ID directory si trova nelle proprietà di Azure Active Directory](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
 
@@ -173,8 +173,8 @@ In questa sezione sono disponibili considerazioni e suggerimenti sulla progettaz
 
 ### <a name="configuration-limitations"></a>Limitazioni di configurazione
 
-- L'estensione di Server dei criteri di rete per Azure MFA non include strumenti per la migrazione degli utenti e impostazioni dal Server MFA al cloud. Per questo motivo, è consigliabile usare l'estensione per le distribuzioni nuove piuttosto che per quelle esistenti. Se si usano le estensioni in una distribuzione esistente, gli utenti dovranno eseguire di nuovo la prova per popolare i dettagli della propria MFA nel cloud.  
-- L'estensione di Server dei criteri di rete usa UPN dell'Active Directory locale per identificare l'utente in Azure MFA che deve eseguire l'autenticazione secondaria. L'estensione non può essere configurata per usare un identificatore come ID di accesso alternativo o campo AD personalizzato diverso dall'UPN.  
+- L'estensione di Server dei criteri di rete per Azure MFA non include strumenti per la migrazione degli utenti e impostazioni dal Server MFA al cloud. Per questo motivo, è consigliabile usare l'estensione per le distribuzioni nuove piuttosto che per quelle esistenti. Se si usano le estensioni in una distribuzione esistente, gli utenti dovranno ripetere il processo di registrazione per popolare i dettagli di Azure MFA nel cloud.  
+- L'estensione di Server dei criteri di rete usa UPN dell'Active Directory locale per identificare l'utente in Azure MFA che deve eseguire l'autenticazione secondaria. L'estensione può essere configurata per usare un identificatore differente come ID di accesso alternativo o campo Active Directory personalizzato diverso dall'UPN. Per altre informazioni, vedere [Opzioni di configurazione avanzate per l'estensione NPS per Multi-Factor Authentication](multi-factor-authentication-advanced-vpn-configurations.md).
 - Non tutti i protocolli di crittografia supportano tutti i metodi di verifica.
    - **PAP** supporta la chiamata telefonica, gli SMS unidirezionali, la notifica dell'app per dispositivi mobili e il codice di verifica app per dispositivi mobili
    - **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili
@@ -244,6 +244,8 @@ Verificare che https://adnotifications.windowsazure.com sia raggiungibile dal se
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Configurare gli ID alternativi per l'accesso o impostare un elenco di eccezioni per gli indirizzi IP che non devono eseguire la verifica in due passaggi in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](nps-extension-advanced-configuration.md) (Opzioni di configurazione avanzate per l'estensione del server dei criteri di rete per Multi-Factor Authentication).
+
+- Informazioni su come integrare [Gateway Desktop remoto](nps-extension-remote-desktop-gateway.md) e [server VPN](nps-extension-vpn.md) usando l'estensione NPS
 
 - [Risolvere i messaggi di errore dall'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication](multi-factor-authentication-nps-errors.md)
 

@@ -4,7 +4,7 @@ description: Informazioni su come monitorare Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b01ffb52f75fd23901f4bb245396f649e14c0389
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 3ab6123b6acfdec57f1ca71b404c9e1123d1ff6d
+ms.contentlocale: it-it
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -34,14 +35,12 @@ La scheda **Monitoraggio** per ogni funzione consente di esaminare ogni esecuzio
 
 La selezione di un'esecuzione consente di verificare la durata, i dati di input, gli errori e i file di log associati. Ciò risulta utile per il debug e per l'ottimizzazione delle prestazioni delle funzioni.
 
-
 > [!IMPORTANT]
-> Quando si usa il [piano di hosting a consumo](functions-overview.md#pricing) per Funzioni di Azure, il riquadro **Monitoraggio** nel pannello di panoramica dell'app per le funzioni non mostrerà alcun dato. La piattaforma, infatti, ridimensiona e gestisce automaticamente le istanze di calcolo, quindi queste metriche non sono significative per un piano a consumo. Per monitorare l'utilizzo delle app per le funzioni, è necessario usare invece le indicazioni disponibili in questo articolo.
+> Quando si usa il [piano di hosting a consumo](functions-overview.md#pricing) per Funzioni di Azure, il riquadro **Monitoraggio** nell'app per le funzioni non mostra alcun dato. Ciò avviene perché la piattaforma ridimensiona e gestisce automaticamente le istanze di calcolo. Queste metriche non sono quindi significative per un piano a consumo. Per monitorare l'utilizzo delle app per le funzioni, è necessario usare invece le indicazioni disponibili in questo articolo.
 > 
 > Lo screenshot seguente mostra un esempio:
 > 
-> ![Monitoraggio nel pannello principale delle risorse](./media/functions-monitoring/app-service-overview-monitoring.png)
-
+> ![Monitoraggio della funzione](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
 ## <a name="real-time-monitoring"></a>Monitoraggio in tempo reale
@@ -50,7 +49,7 @@ Il monitoraggio in tempo reale è disponibile selezionando il **flusso eventi li
 
 ![Opzione flusso eventi live per la scheda Monitoraggio](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
-Il flusso eventi live verrà visualizzato come grafico in una nuova scheda del browser, come illustrato di seguito. 
+Il flusso di eventi live viene visualizzato in un grafico in una nuova scheda nel browser, come nell'esempio seguente: 
 
 ![Esempio di flusso eventi live](./media/functions-monitoring/live-event-stream.png)
 
@@ -68,24 +67,19 @@ Il flusso eventi live produrrà un grafico delle statistiche seguenti per la fun
 Queste statistiche sono in tempo reale, ma la creazione effettiva dei grafici relativi ai dati dell'esecuzione potrebbe comportare circa 10 secondi di latenza.
 
 
-
-
-
-
 ## <a name="monitoring-log-files-from-a-command-line"></a>Monitoraggio dei file di log da una riga di comando
 
+È possibile trasmettere in streaming i file di log a una sessione della riga di comando su una workstation locale usando l'interfaccia della riga di comando di Azure 1.0 o PowerShell.
 
-È possibile trasmettere i file di log a una sessione della riga di comando su una workstation locale usando l'interfaccia della riga di comando di Azure o PowerShell.
+### <a name="monitoring-function-app-log-files-with-the-azure-cli-10"></a>Monitoraggio dei file di log dell'app per le funzioni con l'interfaccia della riga di comando di Azure 1.0
 
-### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>Monitoraggio dei file di log dell'app per le funzioni con l'interfaccia della riga di comando di Azure
+Per iniziare, [installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md)
 
-Per iniziare, [installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
-
-Accedere all'account di Azure usando il comando seguente o una delle altre opzioni illustrate in [Accedere ad Azure dall'interfaccia della riga di comando di Azure](../xplat-cli-connect.md).
+Accedere all'account di Azure usando il comando seguente o una delle altre opzioni illustrate in [Accedere ad Azure dall'interfaccia della riga di comando di Azure 1.0](../xplat-cli-connect.md).
 
     azure login
 
-Usare il comando seguente per abilitare la modalità Gestione dei servizi dell'interfaccia della riga di comando di Azure:
+Usare il comando seguente per abilitare l'interfaccia della riga di comando di Azure 1.0 nella modalità Gestione dei servizi classica:
 
     azure config mode asm
 
@@ -94,7 +88,7 @@ Se sono presenti più sottoscrizioni, usare i comandi seguenti per elencare le s
     azure account list
     azure account set <subscriptionNameOrId>
 
-Il comando seguente consentirà di trasmettere i file di log dell'app per le funzioni alla riga di comando:
+Il comando seguente trasmette in streaming i file di log dell'app per le funzioni alla riga di comando:
 
     azure site log tail -v <function app name>
 

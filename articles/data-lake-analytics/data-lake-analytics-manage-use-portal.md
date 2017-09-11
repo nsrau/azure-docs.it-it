@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 43bb5a1aa246004346765d1be4aea236ca17abd2
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
@@ -146,6 +146,24 @@ Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppat
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **Visualizza tutti i processi**. Viene visualizzato un elenco di tutti i processi attivi e completati di recente nell'account.
 3. Facoltativamente, fare clic su **Filtra** per trovare i processi in base ai valori di **Intervallo di tempo**, **Nome processo** e **Autore**. 
+
+### <a name="monitoring-pipeline-jobs"></a>Monitoraggio dei processi della pipeline
+I processi che fanno parte di una pipeline funzionano insieme, in genere in sequenza, per realizzare uno scenario specifico. È ad esempio possibile avere una pipeline che esegue la pulizia, estrae, trasforma, e aggrega l'utilizzo per Customer Insights. I processi della pipeline vengono identificati mediante la proprietà "Pipeline" al momento dell'invio del processo. Per i processi pianificati usando ADF V2 questa proprietà viene popolata automaticamente. 
+
+Per visualizzare un elenco di processi U-SQL che fanno parte delle pipeline: 
+
+1. Nel portale di Azure accedere agli account di Data Lake Analytics.
+2. Fare clic su **Informazioni dettagliate sul processo**. Verrà aperta per impostazione predefinita la scheda "Tutti i processi", che mostra un elenco di processi in esecuzione, in coda e terminati.
+3. Fare clic sulla scheda **Processi della pipeline**. Verrà visualizzato un elenco di processi della pipeline, con statistiche aggregate per ogni pipeline.
+
+### <a name="monitoring-recurring-jobs"></a>Monitoraggio dei processi ricorrenti
+Un processo ricorrente è un processo che ha la stessa logica di business, ma usa dati di input diversi ogni volta che viene eseguito. Idealmente, i processi ricorrenti devono avere sempre esito positivo e un tempo di esecuzione relativamente stabile. Il monitoraggio di questi comportamenti aiuta ad assicurarsi che il processo sia integro. I processi ricorrenti vengono identificati mediante la proprietà "Recurrence". Per i processi pianificati usando ADF V2 questa proprietà viene popolata automaticamente.
+
+Per visualizzare un elenco di processi U-SQL ricorrenti: 
+
+1. Nel portale di Azure accedere agli account di Data Lake Analytics.
+2. Fare clic su **Informazioni dettagliate sul processo**. Verrà aperta per impostazione predefinita la scheda "Tutti i processi", che mostra un elenco di processi in esecuzione, in coda e terminati.
+3. Fare clic sulla scheda **Processi ricorrenti**. Verrà visualizzato un elenco di processi ricorrenti, con statistiche aggregate per ogni processo.
 
 ## <a name="manage-policies"></a>Gestire i criteri
 

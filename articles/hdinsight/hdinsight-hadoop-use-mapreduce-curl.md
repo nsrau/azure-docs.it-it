@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: df22c7315cc55df0e7963bc03a215ab09589b25b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8238bb829df95dcb8c99c0b7fff53c627a56f47c
 ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Esecuzione di processi MapReduce con Hadoop in HDInsight tramite REST
@@ -97,7 +97,7 @@ Informazioni su come usare l'API REST WebHCat per l'esecuzione di processi MapRe
 
 4. Dopo che lo stato del processo risulta essere `SUCCEEDED`, è possibile recuperare i risultati del processo dall'archivio BLOB di Azure. Il parametro `statusdir` passato con la query contiene il percorso del file di output. In questo esempio la località è `/example/curl`. Questo indirizzo archivia l'output del processo nella risorsa di archiviazione predefinita dei cluster in `/example/curl`.
 
-È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Per altre informazioni sull'uso dei BLOB dalla riga di comando di Azure, vedere il documento [Uso dell'Interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure](../storage/storage-azure-cli.md#create-and-manage-blobs).
+È possibile elencare e scaricare questi file usando l' [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Per altre informazioni sull'uso dei BLOB dalla riga di comando di Azure, vedere il documento [Uso dell'Interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure](../storage/common/storage-azure-cli.md#create-and-manage-blobs).
 
 ## <a id="nextsteps"></a>Passaggi successivi
 

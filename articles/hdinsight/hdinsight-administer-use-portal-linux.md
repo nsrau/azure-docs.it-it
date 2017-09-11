@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 72c02eac9d627ad642d3e66492c314a2276e9c0a
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 736e1a52f55560dfded7a21eaeb1cbac7602f8d6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop in HDInsight tramite il portale di Azure
@@ -156,11 +156,14 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
     È possibile aggiungere o rimuovere facilmente nodi nel cluster HBase mentre è in esecuzione. I server a livello di area vengono bilanciati automaticamente entro pochi minuti dal completamento dell'operazione di ridimensionamento. È tuttavia possibile anche bilanciare manualmente i server a livello di area accedendo al nodo head del cluster ed eseguendo i comandi seguenti da una finestra del prompt dei comandi:
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 
-    Per altre informazioni sull'uso della shell HBase, vedere []
+    Per altre informazioni sull'uso della shell HBase, vedere [Iniziare a usare un esempio di Apache HBase in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+
 * Storm
 
     È possibile aggiungere o rimuovere facilmente nodi dati dal cluster Storm mentre è in esecuzione. Tuttavia, dopo il completamento dell'operazione di ridimensionamento, è necessario bilanciare nuovamente la topologia.
@@ -178,10 +181,12 @@ Questa sezione descrive l'impatto della modifica del numero di nodi dati per ogn
 
     Di seguito viene fornito un esempio d'uso del comando CLI per ribilanciare la topologia di Storm:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 **Per ridimensionare i cluster**
 
@@ -207,6 +212,14 @@ Questo processo può essere programmato in molti modi:
 
 Per informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Per eliminare un cluster dal portale, vedere [Eliminare cluster](#delete-clusters)
 
+## <a name="move-cluster"></a>Spostare il cluster
+
+È possibile spostare un cluster HDInsight in un altro gruppo di risorse di Azure o in un'altra sottoscrizione.  Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
+
+## <a name="upgrade-clusters"></a>Aggiornare i cluster
+
+Vedere [Eseguire l'aggiornamento del cluster HDInsight a una versione più recente](./hdinsight-upgrade-cluster.md).
+
 ## <a name="change-passwords"></a>Modificare le password
 Per un cluster HDInsight possono esistere due account utente. L'account utente del cluster HDInsight (anche noto come account utente HTTP) e l'account utente SSH vengono creati durante il processo di creazione. È possibile usare l'interfaccia utente Web di Ambari per modificare il nome utente e la password dell'account utente del cluster e azioni script per modificare l'account utente SSH.
 
@@ -229,16 +242,16 @@ Ambari modifica la password in tutti i nodi del cluster.
 ### <a name="change-the-ssh-user-password"></a>Modificare la password utente SSH
 1. Usando un editor di testo, salvare il testo seguente come file denominato **changepassword.sh**.
 
-   > [!IMPORTANT]
-   > È necessario usare un editor che prevede LF come terminazione di riga. Se l'editor usa CRLF, lo script non funziona.
-   >
-   >
+    > [!IMPORTANT]
+    > È necessario usare un editor che prevede LF come terminazione di riga. Se l'editor usa CRLF, lo script non funziona.
 
-        #! /bin/bash
-        USER=$1
-        PASS=$2
+    ```bash
+    #! /bin/bash
+    USER=$1
+    PASS=$2
+    usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+    ```
 
-        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. Caricare il file in un percorso di archiviazione a cui è possibile accedere da HDInsight con un indirizzo HTTP o HTTPS, ad esempio in un archivio di file pubblico come OneDrive o l'archiviazione BLOB di Azure. Salvare l'URI (indirizzo HTTP o HTTPS) nel file, perché sarà necessario nel passaggio successivo.
 3. Nel portale di Azure fare clic su **Cluster HDInsight**.
 4. Fare clic sul cluster HDInsight.
@@ -282,8 +295,15 @@ In modalità Azure Resource Manager ogni cluster HDInsight viene creato con un g
 
 Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
 
-## <a name="find-the-default-storage-account"></a>Trovare l'account di archiviazione predefinito
-Ogni cluster HDInsight ha un account di archiviazione predefinito. L'account di archiviazione predefinito e le relative chiavi per un cluster vengono visualizzati in **Account di archiviazione**. Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
+## <a name="find-the-storage-accounts"></a>Trovare gli account di archiviazione
+
+Per archiviare i dati i cluster HDInsight usano un account di Archiviazione di Azure oppure Azure Data Lake Store. Ogni cluster HDInsight può avere un account di archiviazione predefinito e un numero di account di archiviazione collegati. Per elencare gli account di archiviazione, aprire innanzitutto il cluster dal portale e quindi fare clic su **Account di archiviazione**:
+
+![Account di archiviazione del cluster HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
+
+Nella schermata precedente c'è una colonna __Predefinito__ che indica se l'account è l'account di archiviazione predefinito.
+
+Per elencare gli account di Data Lake Store, fare clic su **Accesso a Data Lake Store** nella schermata precedente.
 
 ## <a name="run-hive-queries"></a>Eseguire query Hive
 Non è possibile eseguire il processo Hive direttamente dal portale di Azure, ma è possibile usare la vista Hive nell'interfaccia utente Web di Ambari.
@@ -294,6 +314,7 @@ Non è possibile eseguire il processo Hive direttamente dal portale di Azure, ma
 2. Aprire Hive View (vista Hive) come illustrato nella schermata seguente:  
 
     ![Vista Hive di HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
+
 3. Scegliere **Query** dal menu in alto.
 4. Immettere una query Hive in **Editor query** e quindi fare clic su **Esegui**.
 
@@ -316,8 +337,6 @@ La sezione **Utilizzo** del pannello relativo al cluster HDInsight contiene info
 
 > [!IMPORTANT]
 > Per monitorare i servizi forniti dal cluster HDInsight, è necessario utilizzare  Ambari Web o l'API REST di Ambari. Per altre informazioni sull'uso di Ambari, vedere [Gestire i cluster HDInsight tramite Ambari](hdinsight-hadoop-manage-ambari.md)
->
->
 
 ## <a name="connect-to-a-cluster"></a>Connettersi a un cluster
 

@@ -1,6 +1,6 @@
 ---
-title: Caricare un file VHD in Azure DevTest Labs usando PowerShell | Documentazione Microsoft
-description: Caricare un file VHD nell&quot;account di archiviazione del lab usando PowerShell
+title: Caricare un file VHD in Azure DevTest Labs usando PowerShell | Microsoft Docs
+description: Caricare un file VHD nell'account di archiviazione del lab usando PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
-ms.openlocfilehash: 379544e6592e933e510308bb0ae7193542c099f2
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3c43ef77b8fa10cd6dbd726968264f32f7a3dd0f
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.openlocfilehash: 379544e6592e933e510308bb0ae7193542c099f2
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-In Azure DevTest Labs è possibile usare i file VHD per creare immagini personalizzate da utilizzare per il provisioning di macchine virtuali. La procedura seguente illustra come usare PowerShell per caricare un file VHD nell'account di archiviazione di un lab. Dopo avere caricato il file VHD, vedere la [sezione Passaggi successivi](#next-steps) per un elenco di articoli che illustrano come creare un'immagine personalizzata dal file VHD caricato. Per altre informazioni sui dischi e sui dischi rigidi virtuali in Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../storage/storage-about-disks-and-vhds-linux.md)
+In Azure DevTest Labs è possibile usare i file VHD per creare immagini personalizzate da utilizzare per il provisioning di macchine virtuali. La procedura seguente illustra come usare PowerShell per caricare un file VHD nell'account di archiviazione di un lab. Dopo avere caricato il file VHD, vedere la [sezione Passaggi successivi](#next-steps) per un elenco di articoli che illustrano come creare un'immagine personalizzata dal file VHD caricato. Per altre informazioni sui dischi e sui dischi rigidi virtuali in Azure, vedere [Informazioni sui dischi e sui dischi rigidi virtuali per le macchine virtuali](../virtual-machines/linux/about-disks-and-vhds.md)
 
 ## <a name="step-by-step-instructions"></a>Istruzioni dettagliate
 
@@ -39,17 +40,17 @@ La procedura seguente illustra come caricare un file VHD in Azure DevTest Labs u
 
 1. Nel pannello del lab selezionare **Configurazione**. 
 
-1. Nel pannello **Configuration** (Configurazione) del lab selezionare **Custom images (VHDs)** (Immagini personalizzate (VHD)).
+1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate (dischi rigidi virtuali)**.
 
-1. Nel pannello **Custom images** (Immagini personalizzate) selezionare **+Add** (+Aggiungi). 
+1. Nel pannello **Immagini personalizzate** selezionare **+Aggiungi**. 
 
-1. Nel pannello **Custom image** (Immagine personalizzata) selezionare **VHD**.
+1. Nel pannello **Immagine personalizzata** selezionare **VHD**.
 
-1. Nel pannello **VHD** selezionare l'opzione **Upload a VHD using PowerShell** (Carica un file VHD con PowerShell).
+1. Nel pannello **VHD** selezionare l'opzione **Carica un file VHD con PowerShell**.
 
     ![Carica un file VHD con PowerShell](./media/devtest-lab-upload-vhd-using-powershell/upload-image-using-psh.png)
 
-1. Nel pannello **Upload an image using PowerShell** (Carica un'immagine con PowerShell) copiare in un editor di testo lo script di PowerShell generato.
+1. Nel pannello **Carica un'immagine con PowerShell** copiare in un editor di testo lo script di PowerShell generato.
 
 1. Modificare il parametro **LocalFilePath** del cmdlet **Add-AzureVhd** in modo che punti al percorso del file VHD che si vuole caricare.
 
@@ -63,9 +64,4 @@ La procedura seguente illustra come caricare un file VHD in Azure DevTest Labs u
 
 - [Creare un'immagine personalizzata in Azure DevTest Labs da un file VHD usando il portale di Azure](devtest-lab-create-template.md)
 - [Creare un'immagine personalizzata in Azure DevTest Labs da un file VHD usando PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

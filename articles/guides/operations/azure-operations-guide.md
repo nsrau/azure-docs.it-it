@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3440c350d50e3344f0b220ca3d8de6369bc824a4
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4475baf3632c9e6870ff90244b773993a66b768c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -374,7 +374,7 @@ Infine, come nella gestione di qualsiasi computer, è necessario garantire la si
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
-Archiviazione di Azure è un servizio gestito da Microsoft che offre risorse di archiviazione ridondanti, scalabili e durevoli. È possibile aggiungere un account di archiviazione di Azure come risorsa a qualsiasi gruppo di risorse tramite qualsiasi metodo di distribuzione di risorse. Azure include quattro tipi di archiviazione: BLOB, file, tabelle e code. Quando si distribuisce un account di archiviazione, sono disponibili due tipi di account, uno per utilizzo generico e l'altro per l'archiviazione BLOB. Un account di archiviazione per utilizzo generico consente di accedere a tutti i quattro tipi di archiviazione. Un account di archiviazione BLOB è simile a un account per utilizzo generico, ma contiene BLOB specializzati che prevedono i livelli di accesso frequente e sporadico. Per altre informazioni sull'archiviazione BLOB, vedere [Archiviazione BLOB di Azure](../../storage/storage-blob-storage-tiers.md).
+Archiviazione di Azure è un servizio gestito da Microsoft che offre risorse di archiviazione ridondanti, scalabili e durevoli. È possibile aggiungere un account di archiviazione di Azure come risorsa a qualsiasi gruppo di risorse tramite qualsiasi metodo di distribuzione di risorse. Azure include quattro tipi di archiviazione: BLOB, file, tabelle e code. Quando si distribuisce un account di archiviazione, sono disponibili due tipi di account, uno per utilizzo generico e l'altro per l'archiviazione BLOB. Un account di archiviazione per utilizzo generico consente di accedere a tutti i quattro tipi di archiviazione. Un account di archiviazione BLOB è simile a un account per utilizzo generico, ma contiene BLOB specializzati che prevedono i livelli di accesso frequente e sporadico. Per altre informazioni sull'archiviazione BLOB, vedere [Archiviazione BLOB di Azure](../../storage/blobs/storage-blob-storage-tiers.md).
 
 Gli account di archiviazione di Azure possono essere configurati con diversi livelli di ridondanza:
 
@@ -400,7 +400,7 @@ Archiviazione di Azure supporta tre tipi di BLOB:
 
 -   **BLOB di accodamento**, costituiti da blocchi come i BLOB in blocchi, ma ottimizzati per le operazioni di accodamento. Questi vengono spesso usati per la registrazione di informazioni da una o più origini nello stesso BLOB. È ad esempio possibile scrivere nello stesso BLOB di accodamento tutte le informazioni di registrazione traccia per un'applicazione in esecuzione in più VM. Le dimensioni di un BLOB di accodamento singolo possono arrivare fino a un massimo di 195 GB.
 
-Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../../storage/storage-dotnet-how-to-use-blobs.md) .
+Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) .
 
 **Archiviazione file**
 
@@ -408,7 +408,7 @@ L'archiviazione file di Azure offre condivisioni file nel cloud tramite il proto
 
 Poiché una condivisione di Archiviazione file è una condivisione file SMB standard, le applicazioni in esecuzione in Azure possono accedere ai dati nella condivisione tramite le API di I/O del file system. Gli sviluppatori possono quindi usare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. I professionisti IT possono usare i cmdlet di PowerShell per creare, montare e gestire condivisioni di Archiviazione file nell'ambito delle attività di amministrazione delle applicazioni di Azure.
 
-Per altre informazioni, vedere [Introduzione ad Archiviazione file di Azure in Windows](../../storage/storage-file-how-to-use-files-windows.md) o [Come usare l'archiviazione file di Azure con Linux](../../storage/storage-how-to-use-files-linux.md).
+Per altre informazioni, vedere [Introduzione ad Archiviazione file di Azure in Windows](../../storage/files/storage-how-to-use-files-windows.md) o [Come usare l'archiviazione file di Azure con Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 **Archiviazione tabelle**
 
@@ -416,13 +416,13 @@ Il servizio di archiviazione tabelle di Azure archivia dati NoSQL non strutturat
 
 È possibile usare l'archiviazione tabelle per archiviare set di dati flessibili, ad esempio i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi e altri tipi di metadati richiesti dal servizio. In una tabella è possibile archiviare qualsiasi numero di entità. Un account di archiviazione può contenere un numero qualsiasi di tabelle, fino al raggiungimento del limite di capacità dell'account stesso.
 
-Per altre informazioni, vedere [Introduzione all'archiviazione tabelle di Azure](../../storage/storage-dotnet-how-to-use-tables.md).
+Per altre informazioni, vedere [Introduzione all'archiviazione tabelle di Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md).
 
 **Archiviazione code**
 
 L'archivio code di Azure fornisce la messaggistica cloud tra i componenti dell'applicazione. Durante la progettazione di applicazioni scalabili, i componenti dell'applicazione vengono spesso separati, perché sia possibile ridimensionarli in modo indipendente. L'archivio code fornisce la messaggistica asincrona per la comunicazione tra i componenti dell'applicazione, che possono essere eseguiti nel cloud, in un desktop, in un server locale o in un dispositivo mobile. Supporta inoltre la gestione di attività asincrone e la creazione di flussi di lavoro dei processi.
 
-Per altre informazioni, vedere [Introduzione all'archiviazione code di Azure](../../storage/storage-dotnet-how-to-use-queues.md).
+Per altre informazioni, vedere [Introduzione all'archiviazione code di Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 ### <a name="deploying-a-storage-account"></a>Distribuzione di un account di archiviazione
 
@@ -430,19 +430,19 @@ Per la distribuzione di un account di archiviazione sono disponibili diverse opz
 
 **Portale**
 
-Per la distribuzione di un account di archiviazione tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire un nuovo account di archiviazione in un gruppo di risorse nuovo o esistente. Dopo aver creato l'account di archiviazione, è possibile creare un contenitore BLOB o una condivisione file tramite il portale. È possibile creare entità di archiviazione di tabelle e code a livello di codice. Per altre informazioni, vedere [Creare un account di archiviazione](../../storage/storage-create-storage-account.md#create-a-storage-account).
+Per la distribuzione di un account di archiviazione tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire un nuovo account di archiviazione in un gruppo di risorse nuovo o esistente. Dopo aver creato l'account di archiviazione, è possibile creare un contenitore BLOB o una condivisione file tramite il portale. È possibile creare entità di archiviazione di tabelle e code a livello di codice. Per altre informazioni, vedere [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 Oltre agli account di archiviazione, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello, compresi eventuali account di archiviazione. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-La distribuzione di un account di archiviazione di Azure tramite PowerShell consente di automatizzare completamente la distribuzione dell'account stesso. Per altre informazioni, vedere [Uso di Azure PowerShell con Archiviazione di Azure](../../storage/storage-powershell-guide-full.md).
+La distribuzione di un account di archiviazione di Azure tramite PowerShell consente di automatizzare completamente la distribuzione dell'account stesso. Per altre informazioni, vedere [Uso di Azure PowerShell con Archiviazione di Azure](../../storage/common/storage-powershell-guide-full.md).
 
 Oltre a distribuire singole risorse di Azure, è possibile usare il modulo Azure PowerShell per distribuire un modello di Azure Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Interfaccia della riga di comando (CLI)**
 
-Come il modulo PowerShell, l'interfaccia della riga di comando di Azure consente l'automazione della distribuzione e può essere usata all'interno di sistemi Windows, OS X e Linux. È possibile usare il comando **storage account create** dell'interfaccia della riga di comando di Azure per creare un account di archiviazione. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](../../storage/storage-azure-cli.md).
+Come il modulo PowerShell, l'interfaccia della riga di comando di Azure consente l'automazione della distribuzione e può essere usata all'interno di sistemi Windows, OS X e Linux. È possibile usare il comando **storage account create** dell'interfaccia della riga di comando di Azure per creare un account di archiviazione. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con Archiviazione di Azure](../../storage/common/storage-azure-cli.md).
 
 Analogamente, è possibile usare l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../resource-group-template-deploy-cli.md).
 
@@ -456,7 +456,7 @@ Quando si distribuisce una macchina virtuale, è necessario creare anche un acco
 
 **Strumenti di archiviazione**
 
-È possibile accedere agli account di archiviazione di Azure tramite molti strumenti diversi di esplorazione dell'archiviazione, ad esempio Visual Studio Cloud Explorer. Questi strumenti consentono di esplorare gli account e i dati di archiviazione. Per altre informazioni e per un elenco di strumenti di esplorazione dell'archiviazione disponibili, vedere [Strumento client di Archiviazione di Azure](../../storage/storage-explorers.md).
+È possibile accedere agli account di archiviazione di Azure tramite molti strumenti diversi di esplorazione dell'archiviazione, ad esempio Visual Studio Cloud Explorer. Questi strumenti consentono di esplorare gli account e i dati di archiviazione. Per altre informazioni e per un elenco di strumenti di esplorazione dell'archiviazione disponibili, vedere [Strumento client di Archiviazione di Azure](../../storage/common/storage-explorers.md).
 
 **API di archiviazione**
 
@@ -468,7 +468,7 @@ Per ogni account di archiviazione esistono due chiavi di autenticazione: una chi
 
 **Firme di accesso condiviso**
 
-Se si deve concedere agli utenti un accesso controllato alle risorse di archiviazione, è possibile creare una firma di accesso condiviso. Una firma di accesso condiviso è un token che può essere accodato a un URL per consentire l'accesso delegato a una risorsa di archiviazione. Chi possiede il token può accedere alla risorsa a cui questo fa riferimento con le autorizzazioni specificate all'interno di esso per il periodo di validità del token stesso. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](../../storage/storage-dotnet-shared-access-signature-part-1.md).
+Se si deve concedere agli utenti un accesso controllato alle risorse di archiviazione, è possibile creare una firma di accesso condiviso. Una firma di accesso condiviso è un token che può essere accodato a un URL per consentire l'accesso delegato a una risorsa di archiviazione. Chi possiede il token può accedere alla risorsa a cui questo fa riferimento con le autorizzazioni specificate all'interno di esso per il periodo di validità del token stesso. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ## <a name="azure-virtual-network"></a>Rete virtuale di Azure
 

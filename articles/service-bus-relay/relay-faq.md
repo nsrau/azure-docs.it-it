@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: cc44d59100104253447e474a49254d8b6bd68d8c
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
@@ -37,10 +36,10 @@ Uno [spazio dei nomi](relay-create-namespace-portal.md) è un contenitore di amb
 Il servizio in precedenza chiamato inoltro del bus di servizio ora si chiama inoltro WCF. È possibile continuare a usarlo come un tempo. La funzionalità Connessioni ibride è una versione aggiornata di un servizio trasferito da Servizi BizTalk di Azure. Verrà fornito ancora il supporto per l'inoltro WCF e per Connessioni ibride.
 
 ## <a name="pricing"></a>Prezzi
-Questa sezione contiene le risposte ad alcune domande frequenti sulla struttura dei prezzi del servizio di inoltro. Per informazioni generali sui prezzi di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
+Questa sezione contiene le risposte ad alcune domande frequenti sulla struttura dei prezzi del servizio di inoltro. Per informazioni generali sui prezzi di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Come vengono addebitati i costi di Connessioni ibride e Inoltro WCF?
-Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Pricing overview]. Oltre ai prezzi indicati in questa pagina, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
+Per informazioni complete sui prezzi di inoltro, vedere la tabella relativa alle [connessioni ibride e agli inoltri WCF][Pricing overview] nella pagina dei dettagli dei prezzi del bus di servizio. Oltre ai prezzi indicati in questa pagina, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Come viene fatturato l'uso di Connessioni ibride?
 Ecco tre scenari di fatturazione di esempio per Connessioni ibride:
@@ -71,11 +70,11 @@ In alcuni casi, a un singolo inoltro possono essere connessi più listener. Un i
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Come viene calcolata la misurazione dei messaggi per gli inoltri WCF?
 **Questo vale solo per gli inoltri WCF. I messaggi non implicano un costo per Connessioni ibride.**
 
-In generale i messaggi fatturabili per gli inoltri vengono calcolati con lo stesso metodo usato per le entità con broker, come code, argomenti e sottoscrizioni, descritti in precedenza. Esistono tuttavia alcune differenze significative.
+In generale, i messaggi fatturabili per gli inoltri vengono calcolati con lo stesso metodo usato per le entità con broker, come code, argomenti e sottoscrizioni, descritti in precedenza. Esistono tuttavia alcune differenze significative.
 
-L'invio di un messaggio a un inoltro del bus di servizio viene considerato come invio "diretto" al listener di inoltro che riceve il messaggio. *Non* viene gestito come invio all'inoltro del bus di servizio, seguito da un recapito al listener di inoltro. Una chiamata al servizio di tipo richiesta-risposta di dimensioni fino a 64 KB per un listener di inoltro genera due messaggi fatturabili, uno per la richiesta e uno per la risposta, presupponendo che anche la risposta sia pari a 64 KB o a un valore inferiore. Questo comportamento è diverso dall'uso di una coda per la mediazione tra un client e un servizio. Se si usa una coda per la mediazione tra un client e un servizio, lo stesso modello di richiesta-risposta richiede l'invio di una richiesta alla coda, seguita da un'operazione di rimozione dalla coda/recapito dalla coda al servizio. Questa operazione è seguita dall'invio di una risposta a un'altra coda e da un'operazione di rimozione dalla coda o recapito da tale coda al client. Presupponendo sempre le stesse dimensioni (fino a 64 KB), il modello di accodamento mediato comporterà quattro messaggi fatturabili. Verrà addebitato per due volte il numero di messaggi per implementare lo stesso modello completato usando l'inoltro. L'uso delle code per applicare questo modello presenta ovviamente alcuni vantaggi, tra cui durabilità e livellamento del carico. Questi vantaggi possono giustificare costi aggiuntivi.
+L'invio di un messaggio a un inoltro del bus di servizio viene considerato come invio "diretto" al listener di inoltro che riceve il messaggio. Non viene gestito come operazione di invio all'inoltro del bus di servizio, seguito da un recapito al listener di inoltro. Una chiamata al servizio di tipo richiesta-risposta di dimensioni fino a 64 KB per un listener di inoltro genera due messaggi fatturabili, uno per la richiesta e uno per la risposta, presupponendo che anche la risposta sia pari a 64 KB o a un valore inferiore. Questo comportamento è diverso dall'uso di una coda per la mediazione tra un client e un servizio. Se si usa una coda per la mediazione tra un client e un servizio, lo stesso modello di richiesta-risposta richiede l'invio di una richiesta alla coda, seguita da un'operazione di rimozione dalla coda/recapito dalla coda al servizio. Questa operazione è seguita dall'invio di una risposta a un'altra coda e da un'operazione di rimozione dalla coda o recapito da tale coda al client. Presupponendo sempre le stesse dimensioni (fino a 64 KB), il modello di accodamento mediato comporterà 4 messaggi fatturabili. Verrà addebitato per due volte il numero di messaggi per implementare lo stesso modello completato usando l'inoltro. L'uso delle code per applicare questo modello presenta ovviamente alcuni vantaggi, tra cui durabilità e livellamento del carico. Questi vantaggi possono giustificare costi aggiuntivi.
 
-Gli inoltri aperti con il binding Windows Communication Foundation (WCF) netTCPRelay considerano i messaggi non come singoli messaggi, ma come un flusso di dati che attraversa il sistema. Quando si usa questo binding, solo il mittente e il listener hanno visibilità sulla struttura dei singoli messaggi inviati/ricevuti. Per gli inoltri che usano il binding netTCPRelay, tutti i dati vengono considerati come un flusso per il calcolo dei messaggi fatturabili. In questo caso, il bus di servizio calcola la quantità totale di dati inviati o ricevuti mediante ciascun inoltro ogni 5 minuti. Quindi divide la quantità totale di dati per 64 KB per determinare il numero di messaggi fatturabili per questo inoltro durante questo periodo di tempo.
+Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non come singoli messaggi, ma come flusso di dati che attraversa il sistema. Quando si usa questo binding, solo il mittente e il listener hanno visibilità sulla struttura dei singoli messaggi inviati/ricevuti. Per gli inoltri che usano il binding **netTCPRelay**, tutti i dati vengono considerati come flusso per il calcolo dei messaggi fatturabili. In questo caso, il bus di servizio calcola la quantità totale di dati inviati o ricevuti mediante ciascun inoltro ogni 5 minuti. Quindi divide la quantità totale di dati per 64 KB per determinare il numero di messaggi fatturabili per questo inoltro durante questo periodo di tempo.
 
 ## <a name="quotas"></a>Quote
 | Nome della quota | Scope | Tipo | Comportamento in caso di superamento | Valore |
@@ -88,12 +87,12 @@ Gli inoltri aperti con il binding Windows Communication Foundation (WCF) netTCPR
 | Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |A livello di sistema |statico |- |Illimitato |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Per il servizio di inoltro sono previste quote di utilizzo?
-Per impostazione predefinita, per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. In alcuni casi le esigenze del cliente possono superare questi limiti. È possibile contattare il servizio clienti in qualsiasi momento per comunicare esigenze specifiche e consentire un adeguamento appropriato di tali limiti. Per il bus di servizio, le quote di utilizzo aggregate sono le seguenti:
+Per impostazione predefinita per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. In alcuni casi le esigenze del cliente possono superare questi limiti. È possibile contattare il servizio clienti in qualsiasi momento per comunicare esigenze specifiche e consentire un adeguamento appropriato di tali limiti. Per il bus di servizio, le quote di utilizzo aggregate sono le seguenti:
 
 * 5 miliardi di messaggi
 * 2 milioni di ore di inoltro
 
-Anche se si riserva il diritto di disabilitare l'account di un cliente che abbia superato le quote di utilizzo previste in un mese, Microsoft invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi di contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili per gli addebiti delle eccedenze.
+Anche se si riserva il diritto di disabilitare un account che superi le quote di utilizzo previste in un mese, Microsoft invierà una notifica tramite posta elettronica ed effettuerà diversi tentativi di contattare il cliente prima di intraprendere qualsiasi azione. I clienti che superano tali quote saranno comunque responsabili degli addebiti delle eccedenze.
 
 ### <a name="naming-restrictions"></a>Limitazioni relative all'assegnazione dei nomi
 Lo spazio dei nomi dell'inoltro deve avere una lunghezza compresa tra 6 e 50 caratteri.

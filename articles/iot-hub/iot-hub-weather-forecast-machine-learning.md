@@ -1,6 +1,6 @@
 ---
 title: Previsioni meteo usando Azure Machine Learning con i dati dell'hub IoT | Microsoft Docs
-description: "Usare Azure Machine Learning per stimare la probabilità di pioggia in base ai dati di umidità che l'hub IoT riceve da un sensore."
+description: "Usare Azure Machine Learning per stimare la probabilità di pioggia in base ai dati di temperatura e umidità che l'hub IoT riceve da un sensore."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/25/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 872930fd127729e0f444942ad1ee6fa11465ceb9
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
 ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsioni meteo usando i dati sensore dell'hub IoT in Azure Machine Learning
@@ -55,18 +55,18 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Distribuire il modello di previsioni meteo come servizio Web
 
 1. Andare alla [pagina del modello di previsioni meteo](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
-1. Fare clic su **Open in Studio** (Apri in Studio) in Microsoft Azure Machine Learning Studio.
+1. Fare clic su **Apri in Studio** in Microsoft Azure Machine Learning Studio.
    ![Aprire la pagina del modello di previsioni meteo in Cortana Intelligence Gallery](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. Fare clic su **RUN** (Esegui) per convalidare i passaggi nel modello. Il completamento di questo passaggio può richiedere fino a 2 minuti.
    ![Aprire il modello di previsioni meteo in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. Fare clic su **SET UP WEB SERVICE** (Imposta servizio Web) > **Predictive Web Service** (Servizio Web predittivo).
    ![Distribuire il modello di previsioni meteo in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
-1. Nel diagramma, trascinare il modulo **Web service input** (Input servizio Web) accanto al modulo **Score Model** (Modello di punteggio).
+1. Nel diagramma trascinare il modulo **Web service input** (Input servizio Web) accanto al modulo **Score Model** (Modello di punteggio).
 1. Collegare il modulo **Web service input** (Input servizio Web) al modulo **Score Model** (Modello di punteggio).
    ![Collegare due moduli in Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
 1. Fare clic su **RUN** (Esegui) per convalidare i passaggi nel modello.
 1. Fare clic su **DEPLOY WEB SERVICE** (Distribuisci servizio Web) per distribuire il modello come servizio Web.
-1. Nel dashboard del modello, scaricare **Excel 2010 or earlier workbook** (Cartella di lavoro di Excel 2010 o versioni precedenti) per **REQUEST/RESPONSE** (Richiesta/risposta).
+1. Nel dashboard del modello scaricare **Excel 2010 or earlier workbook** (Cartella di lavoro di Excel 2010 o versioni precedenti) per **REQUEST/RESPONSE** (Richiesta/risposta).
 
    > [!Note]
    > Verificare di scaricare la cartella **Excel 2010 or earlier workbook** anche se nel computer è in esecuzione una versione di Excel successiva.
@@ -81,7 +81,7 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 
 ### <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
 
-1. Nel [portale di Azure](https://ms.portal.azure.com/), fare clic su **Nuovo** > **Internet delle cose** > **Processo di Analisi di flusso**.
+1. Nel [portale di Azure](https://ms.portal.azure.com/) fare clic su **Nuovo** > **Internet delle cose** > **Processo di Analisi di flusso**.
 1. Immettere le seguenti informazioni per il processo.
 
    **Nome processo**: il nome del processo. Il nome deve essere univoco a livello globale.
@@ -184,13 +184,13 @@ Eseguire l'applicazione client per avviare la raccolta e l'invio dei dati di tem
 1. Aprire Azure Storage Explorer.
 1. Accedere all'account Azure.
 1. Selezionare la propria sottoscrizione.
-1. Fare clic sulla sottoscrizione di Azure > **Account di archiviazione** > account di archiviazione in uso > **contenitori BLOB** > contenitore BLOB in uso.
-1. Aprire il file .csv per visualizzare il risultato. L'ultima colonna registra la probabilità di pioggia.
+1. Fare clic sulla sottoscrizione in uso > **Account di archiviazione** > account di archiviazione in uso > **contenitori BLOB** > contenitore BLOB in uso.
+1. Aprire il file con estensione csv per visualizzare il risultato. L'ultima colonna registra la probabilità di pioggia.
 
    ![Ottenere i risultati delle previsioni meteo con Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
 
 ## <a name="summary"></a>Riepilogo
 
-Azure Machine Learning è stato usato per stimare la probabilità di pioggia in base ai dati di umidità e temperatura ricevuti dall'hub IoT.
+Azure Machine Learning è stato usato per stimare la probabilità di pioggia in base ai dati di temperatura e umidità ricevuti dall'hub IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

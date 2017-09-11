@@ -1,6 +1,6 @@
 ---
-title: Gestione dei dispositivi con l&quot;hub IoT di Azure | Documentazione Microsoft
-description: 'Panoramica della gestione dei dispositivi nell&quot;hub IoT di Azure: modelli di gestione del ciclo di vita dei dispositivi aziendali, ad esempio riavvio, ripristino delle impostazioni predefinite, aggiornamento del firmware, configurazione, dispositivi gemelli, query e processi.'
+title: Gestione dei dispositivi con l'hub IoT di Azure | Documentazione Microsoft
+description: 'Panoramica della gestione dei dispositivi nell''hub IoT di Azure: modelli di gestione del ciclo di vita dei dispositivi aziendali, ad esempio riavvio, ripristino delle impostazioni predefinite, aggiornamento del firmware, configurazione, dispositivi gemelli, query e processi.'
 services: iot-hub
 documentationcenter: 
 author: bzurcher
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: briz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 7ae476dbaf51ae90cc3c5948b0ec8901d7a536da
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Panoramica della gestione dei dispositivi con l'hub IoT
@@ -90,7 +89,7 @@ L'hub IoT supporta il set seguente di modelli di gestione dei dispositivi.  Le [
     ![Grafico del modello di creazione di report sull'avanzamento e sullo stato della gestione dei dispositivi][img-report_progress_pattern]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Le funzionalità, i modelli e le librerie di codice forniti dall'hub IoT per la gestione dei dispositivi consentono di creare applicazioni IoT che soddisfano i requisiti dell'operatore IoT enterprise in ogni fase del ciclo di vita dei dispositivi.
+Le funzionalità, i modelli e le librerie di codice forniti dall'hub IoT per la gestione dei dispositivi consentono di creare applicazioni IoT che soddisfano i requisiti degli operatori IoT aziendali in ogni fase del ciclo di vita dei dispositivi.
 
 Per altre informazioni sulle funzionalità di gestione dei dispositivi nell'hub IoT, vedere l'esercitazione [Get started with device management][lnk-get-started] (Introduzione alla gestione dei dispositivi).
 

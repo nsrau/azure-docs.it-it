@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: yossib
 ms.assetid: 57208068-1e55-45b6-840f-fdcd13723074
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2017
+ms.date: 08/25/2017
 ms.author: kgremban
+ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f2481c18f12d74a90938ffb0353dd000fe73f440
-ms.lasthandoff: 04/03/2017
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 7fc6ad052e4e873be6a3e7009e9739e4a1c9ce03
+ms.contentlocale: it-it
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurare il server Azure Multi-Factor Authentication per l'uso con AD FS in Windows Server
@@ -34,11 +35,11 @@ Quando si installa il server Multi-Factor Authentication sono disponibili le opz
 
 Prima di iniziare, tenere presente le seguenti informazioni:
 
-* Non è necessario installare il server Azure Multi-Factor Authentication nel server AD FS. È tuttavia necessario installare l'adapter Multi-Factor Authentication per AD FS in un computer Windows Server 2012 R2 o Windows Server 2016 che esegue AD FS. È possibile installare il server in un computer diverso, se si tratta di una versione supportata, e installare separatamente l'adapter AD FS nel server federativo AD FS. Vedere le procedure seguenti per informazioni su come installare l'adapter separatamente.
+* Non è necessario installare il server Azure Multi-Factor Authentication nel server AD FS. È tuttavia necessario installare l'adapter Multi-Factor Authentication per AD FS in un computer Windows Server 2012 R2 o Windows Server 2016 che esegue AD FS. È possibile installare il server in un computer diverso se si installa separatamente la scheda AD FS nel server federativo AD FS. Vedere le procedure seguenti per informazioni su come installare l'adapter separatamente.
 * Se l'organizzazione usa metodi di autenticazione tramite app per dispositivi mobili o SMS, le stringhe definite in Impostazioni società contengono un segnaposto <$*nome_applicazione*$>. Nel server MFA 7.1 è possibile specificare il nome di un'applicazione per sostituire questo segnaposto. Nella versione 7.0 e in quelle precedenti questo segnaposto non viene sostituito automaticamente quando si usa l'adapter AD FS. In tali versioni è necessario rimuovere il segnaposto dalle stringhe appropriate per la protezione di AD FS.
 * L'account usato per accedere deve avere diritti utente per la creazione di gruppi di sicurezza nel servizio Active Directory.
-* L'installazione guidata della scheda ADFS di Multi-Factor Authentication crea un gruppo di sicurezza denominato PhoneFactor Admins nell'istanza di Active Directory e aggiunge l'account del servizio ADFS del servizio federativo a questo gruppo. Verificare nel controller di dominio che il gruppo PhoneFactor Admins sia stato effettivamente creato e che l'account del servizio AD FS sia un membro di questo gruppo. Se necessario, aggiungere l'account del servizio AD FS manualmente al gruppo PhoneFactor Admins nel controller di dominio.
-* Per informazioni sull'installazione dell'SDK del servizio Web con il portale utenti, vedere [Distribuzione del portale utenti per il server Azure Multi-Factor Authentication](multi-factor-authentication-get-started-portal.md)
+* L'installazione guidata della scheda ADFS di Multi-Factor Authentication crea un gruppo di sicurezza denominato PhoneFactor Admins nell'istanza di Active Directory e aggiunge l'account del servizio ADFS del servizio federativo a questo gruppo. Verificare che il gruppo PhoneFactor Admins sia stato creato nel controller di dominio e che l'account del servizio AD FS sia un membro di questo gruppo. Se necessario, aggiungere l'account del servizio AD FS manualmente al gruppo PhoneFactor Admins nel controller di dominio.
+* Per informazioni sull'installazione dell'SDK del servizio Web con il portale utenti, vedere l'articolo relativo alla [distribuzione del portale utenti per il server Azure Multi-Factor Authentication](multi-factor-authentication-get-started-portal.md).
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Installare il server Azure Multi-Factor Authentication in locale nel server AD FS
 1. Scaricare e installare il server Azure Multi-Factor Authentication nel server ADFS. Per informazioni sull'installazione, vedere [Introduzione al server Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md).
@@ -80,7 +81,7 @@ Per modificare il file MultiFactorAuthenticationAdfsAdapter.config, seguire ques
 
 1. Impostare il nodo **UseWebServiceSdk** su **true**.  
 2. Impostare il valore di **WebServiceSdkUrl** sull'URL dell'SDK del servizio Web Multi-Factor Authentication. Ad esempio: *https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, dove *certificatename* è il nome del certificato.  
-3. Modificare lo script Register-MultiFactorAuthenticationAdfsAdapter.ps1 aggiungendo*-ConfigurationFilePath &lt;percorso&gt;* alla fine del comando `Register-AdfsAuthenticationProvider`, dove *&lt;percorso&gt;* è il percorso completo del file MultiFactorAuthenticationAdfsAdapter.config.
+3. Modificare lo script Register-MultiFactorAuthenticationAdfsAdapter.ps1 aggiungendo alla fine del comando `Register-AdfsAuthenticationProvider` `-ConfigurationFilePath &lt;path&gt;`, dove *&lt;path&gt;* è il percorso completo del file MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configurare l'SDK del servizio Web con un nome utente e una password
 Per configurare l'SDK del servizio Web è possibile procedere in due modi: usando un nome utente e una password oppure un certificato client. Per la prima opzione, seguire questa procedura. Per la seconda opzione, vedere più avanti.  

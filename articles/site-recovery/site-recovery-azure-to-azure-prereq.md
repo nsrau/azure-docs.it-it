@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2796a77984fb811b2ea563a45652bb6312b3dd26
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fb5b8c9ac96ac44d0112919664a177f33ef392da
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -46,7 +46,7 @@ Questo articolo riepiloga i prerequisiti necessari per avviare la replica di Sit
 **Account di Azure** | Account [Microsoft Azure](http://azure.microsoft.com/) .<br/><br/> È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 **Servizio Site Recovery** | Per altre informazioni sui prezzi di Site Recovery, vedere [Prezzi di Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/). È consigliabile creare un insieme di credenziali di Servizi di ripristino nell'area di Azure di destinazione da usare come percorso di ripristino di emergenza. Ad esempio, se le VM di origine sono in esecuzione negli Stati Uniti orientali e si vuole eseguire la replica nell'area Stati Uniti centrali, è consigliabile creare l'insieme di credenziali negli Stati Uniti centrali.|
 **Capacità di Azure** | Per l'area di Azure di destinazione da usare come percorso di ripristino di emergenza, è necessario avere una sottoscrizione con capacità sufficiente per le macchine virtuali, gli account di archiviazione e i componenti di rete. È possibile contattare il supporto tecnico per aumentare la capacità.
-**Indicazioni per l'archiviazione** | Assicurarsi di seguire le [linee guida per l'archiviazione](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) per le macchine virtuali di Azure di origine per evitare problemi di prestazioni. Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di rispettare gli [obiettivi di scalabilità per i dischi delle macchine virtuali](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+**Indicazioni per l'archiviazione** | Assicurarsi di seguire le [linee guida per l'archiviazione](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) per le macchine virtuali di Azure di origine per evitare problemi di prestazioni. Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di rispettare gli [obiettivi di scalabilità per i dischi delle macchine virtuali](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
 **Indicazioni per la rete** | È necessario aggiungere all'elenco elementi consentiti la connettività in uscita dalla VM di Azure per URL o intervalli di indirizzi IP specifici. Per altre informazioni, vedere l'articolo [Networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md) (Indicazioni sulla rete per la replica di macchine virtuali di Azure).
 **Macchina virtuale di Azure** | Assicurarsi che nella VM Windows o Linux siano presenti tutti i certificati radice più recenti. Se i certificati radice più recenti non sono presenti, non è possibile registrare la VM in Site Recovery a causa di vincoli di sicurezza.
 

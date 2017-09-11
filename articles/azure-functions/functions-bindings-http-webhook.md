@@ -1,10 +1,10 @@
 ---
-title: Associazioni HTTP e webhook in Funzioni di Azure | Microsoft Docs
-description: Informazioni su come usare trigger e associazioni HTTP e webhookin Funzioni di Azure.
+title: Binding HTTP e webhook in Funzioni di Azure | Microsoft Docs
+description: Informazioni su come usare trigger e binding HTTP e webhookin Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: funzioni di Azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, HTTP, API, REST
@@ -14,24 +14,24 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 08/26/2017
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f31c0eec6b570c4d9f798185f8f0f8c49a7e400d
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: cac0f437cee86aa933763e5133ac1a0e892ffb52
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
-# <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
+# <a name="azure-functions-http-and-webhook-bindings"></a>Binding HTTP e webhook in Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e usare trigger e associazioni HTTP in Funzioni di Azure.
+Questo articolo illustra come configurare e usare trigger e binding HTTP in Funzioni di Azure.
 In questo modo è possibile usare Funzioni di Azure per compilare API senza server e rispondere ai webhook.
 
-Funzioni di Azure fornisce le associazioni seguenti:
+Funzioni di Azure fornisce i binding seguenti:
 - Un [trigger HTTP](#httptrigger) consente di richiamare una funzione con una richiesta HTTP e può essere personalizzato per rispondere ai [webhook](#hooktrigger).
-- Un'[associazione di output HTTP](#output) consente di rispondere alla richiesta.
+- Un [binding di output HTTP](#output) consente di rispondere alla richiesta.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -40,14 +40,14 @@ Funzioni di Azure fornisce le associazioni seguenti:
 <a name="httptrigger"></a>
 
 ## <a name="http-trigger"></a>Trigger HTTP
-Il trigger HTTP eseguirà la funzione in risposta a una richiesta HTTP. È possibile personalizzarlo per rispondere a un particolare URL o set di metodi HTTP. Un trigger HTTP può essere configurato anche per rispondere ai webhook. 
+Il trigger HTTP esegue la funzione in risposta a una richiesta HTTP. È possibile personalizzarlo per rispondere a un particolare URL o set di metodi HTTP. Un trigger HTTP può essere configurato anche per rispondere ai webhook. 
 
 Se si usa il portale di Funzioni, è anche possibile iniziare subito a usare un modello predefinito. Selezionare **Nuova funzione** e scegliere "API e webhook" dal menu a discesa **Scenario**. Selezionare uno dei modelli e fare clic su **Crea**.
 
-Per impostazione predefinita, un trigger HTTP risponderà alla richiesta con un codice di stato HTTP 200 OK e un corpo vuoto. Per modificare la risposta, configurare un'[associazione di output HTTP](#output)
+Per impostazione predefinita, un trigger HTTP risponde alla richiesta con un codice di stato HTTP 200 OK e un corpo vuoto. Per modificare la risposta, configurare un [binding di output HTTP](#output)
 
 ### <a name="configuring-an-http-trigger"></a>Configurazione di un trigger HTTP
-Un trigger HTTP viene definito includendo un oggetto JSON simile al seguente nella matrice `bindings` di function.json:
+Un trigger HTTP è definito da un oggetto JSON nella matrice `bindings` di function.json, come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -59,37 +59,31 @@ Un trigger HTTP viene definito includendo un oggetto JSON simile al seguente nel
     "route": "values/{id}"
 },
 ```
-L'associazione supporta le proprietà seguenti:
+Il binding supporta le proprietà seguenti:
 
-* **name**: obbligatoria. Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Vedere [Uso di un trigger HTTP dal codice](#httptriggerusage).
-* **type**: obbligatoria. Deve essere impostata su "httpTrigger".
-* **direction**: obbligatoria. Deve essere impostata su "in".
-* _authLevel_: determina le eventuali chiavi che devono essere presenti nella richiesta per richiamare la funzione. Vedere [Uso delle chiavi](#keys) più avanti. Il valore può essere uno dei seguenti:
-    * _anonymous_: nessuna chiave API obbligatoria.
-    * _function_: è obbligatoria una chiave API specifica della funzione. Questo è il valore predefinito se non ne viene specificato nessuno.
-    * _admin_: la chiave master è obbligatoria.
-* **methods**: matrice dei metodi HTTP a cui la funzione risponderà. Se non viene specificata, la funzione risponderà a tutti i metodi HTTP. Vedere [Personalizzazione dell'endpoint HTTP](#url).
-* **route**: definisce il modello di route, controllando a quali URL delle richieste la funzione risponderà. Il valore predefinito, se non ne viene specificato nessuno, è `<functionname>`. Vedere [Personalizzazione dell'endpoint HTTP](#url).
-* **webHookType**: configura il trigger HTTP perché funga da ricevitore webhook per il provider specificato. Se viene scelto questo valore, la proprietà _methods_ non deve essere impostata. Vedere [Risposta ai webhook](#hooktrigger). Il valore può essere uno dei seguenti:
-    * _genericJson_: endpoint di webhook per utilizzo generico senza logica per un provider specifico.
-    * _github_: la funzione risponderà ai webhook GitHub. Se viene scelto questo valore, la proprietà _authLevel_ non deve essere impostata.
-    * _slack_: la funzione risponderà ai webhook Slack. Se viene scelto questo valore, la proprietà _authLevel_ non deve essere impostata.
+|Proprietà  |Descrizione  |
+|---------|---------|
+| **nome** | Obbligatoria. Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Vedere [Uso di un trigger HTTP dal codice](#httptriggerusage). |
+| **type** | Obbligatoria. Deve essere impostata su `httpTrigger`. |
+| **direction** | Obbligatoria. Deve essere impostata su `in`. |
+| **authLevel** | Determina le eventuali chiavi che devono essere presenti nella richiesta per richiamare la funzione. Il valore può essere uno dei seguenti: <ul><li><code>anonymous</code>&mdash;Non è richiesta nessuna chiave API.</li><li><code>function</code>&mdash;È richiesta una chiave API specifica della funzione. Questo è il valore predefinito se non ne viene specificato nessuno.</li><li><code>admin</code>&mdash;È richiesta la chiave master.</li></ul> Per altre informazioni, vedere [Uso delle chiavi](#keys). |
+| **methods** | Matrice di metodi HTTP a cui la funzione risponde. Se non viene specificata, la funzione risponde a tutti i metodi HTTP. Vedere [Personalizzazione dell'endpoint HTTP](#url). |
+| **route** | Definisce il modello di route, controllando a quali URL di richiesta risponde la funzione. Il valore predefinito, se non ne viene specificato nessuno, è `<functionname>`. Per altre informazioni, vedere [Personalizzazione dell'endpoint HTTP](#url). |
+| **webHookType** | Configura il trigger HTTP perché funga da ricevitore webhook per il provider specificato. Non usare la proprietà _methods_ quando si usa questa impostazione. Il valore può essere uno dei seguenti:<ul><li><code>genericJson</code>&mdash;Endpoint di webhook per uso generico senza logica per un provider specifico.</li><li><code>github</code>&mdash;La funzione risponde ai webhook GitHub. Non usare la proprietà _authLevel_ quando si usa questo valore.</li><li><code>slack</code>&mdash;La funzione risponde ai webhook Slack. Non usare la proprietà _authLevel_ quando si usa questo valore.</li></ul> Per altre informazioni, vedere [Risposta ai webhook](#hooktrigger). |
 
 <a name="httptriggerusage"></a>
 ### <a name="working-with-an-http-trigger-from-code"></a>Uso di un trigger HTTP dal codice
-Per le funzioni C# e F#, è possibile dichiarare `HttpRequestMessage` o un tipo personalizzato come tipo dell'input del trigger. Se si sceglie `HttpRequestMessage`, si otterrà l'accesso completo all'oggetto richiesta. Per un tipo personalizzato (ad esempio, POCO), Funzioni cercherà di analizzare il corpo della richiesta come JSON per popolare le proprietà dell'oggetto.
+Per le funzioni C# e F#, è possibile dichiarare il tipo di input del trigger come `HttpRequestMessage` o un tipo .NET personalizzato. Se si sceglie `HttpRequestMessage`, si ottiene accesso completo all'oggetto richiesta. Per un tipo .NET personalizzato, Funzioni cerca di analizzare il corpo della richiesta JSON per impostare le proprietà dell'oggetto. 
 
-Per le funzioni Node.js, il runtime di Funzioni fornisce il corpo della richiesta invece dell'oggetto richiesta.
-
-Vedere [Esempi di trigger HTTP](#httptriggersample) per gli utilizzi di esempio.
+Per le funzioni Node.js, il runtime di Funzioni fornisce il corpo della richiesta invece dell'oggetto richiesta. Per altre informazioni, vedere [Esempi di trigger HTTP](#httptriggersample).
 
 
 <a name="output"></a>
-## <a name="http-response-output-binding"></a>Associazione di output della risposta HTTP
-Usare l'associazione di output HTTP per rispondere al mittente della richiesta HTTP. Questa associazione richiede un trigger HTTP e consente di personalizzare la risposta associata alla richiesta del trigger. Se non viene specificata un'associazione di output HTTP, un trigger HTTP restituirà HTTP 200 OK con un corpo vuoto. 
+## <a name="http-response-output-binding"></a>Binding di output della risposta HTTP
+Usare il binding di output HTTP per rispondere al mittente della richiesta HTTP. Questo binding richiede un trigger HTTP e consente di personalizzare la risposta associata alla richiesta del trigger. Se non viene specificato un binding di output HTTP, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto. 
 
-### <a name="configuring-an-http-output-binding"></a>Configurazione di un'associazione di output HTTP
-L'associazione di output HTTP viene definita includendo un oggetto JSON simile al seguente nella matrice `bindings` di function.json:
+### <a name="configuring-an-http-output-binding"></a>Configurazione di un binding di output HTTP
+Un binding di output HTTP è definito da un oggetto JSON nella matrice `bindings` di function.json, come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -98,27 +92,31 @@ L'associazione di output HTTP viene definita includendo un oggetto JSON simile a
     "direction": "out"
 }
 ```
-L'associazione contiene le proprietà seguenti:
+Il binding supporta le proprietà obbligatorie seguenti:
 
-* **name**: obbligatoria. Nome della variabile usato nel codice della funzione per la risposta. Vedere [Uso di un'associazione di output HTTP dal codice](#outputusage).
-* **type**: obbligatoria. Deve essere impostata su "http".
-* **direction**: obbligatoria. Deve essere impostata su "out".
+|Proprietà  |Descrizione  |
+|---------|---------|
+|**nome** | Nome della variabile usato nel codice della funzione per la risposta. Vedere [Uso di un binding di output HTTP dal codice](#outputusage). |
+| **type** |Il valore deve essere impostato su `http`. |
+| **direction** | Il valore deve essere impostato su `out`. |
 
 <a name="outputusage"></a>
-### <a name="working-with-an-http-output-binding-from-code"></a>Uso di un'associazione di output HTTP dal codice
-È possibile usare il parametro di output (ad esempio, "res") per rispondere al chiamante HTTP o webhook. In alternativa, è possibile usare il modello standard `Request.CreateResponse()` (C#) o `context.res` (Node.JS) per restituire la risposta. Per esempi di come usare il secondo metodo, vedere [Esempi di trigger HTTP](#httptriggersample) ed [Esempi di trigger webhook](#hooktriggersample).
+### <a name="working-with-an-http-output-binding-from-code"></a>Uso di un binding di output HTTP dal codice
+È possibile usare il parametro di output per rispondere al chiamante HTTP o webhook. È anche possibile usare modelli di risposta standard del linguaggio. Per esempi di risposte, vedere [Esempi di trigger HTTP](#httptriggersample) ed [Esempi di webhook](#hooktriggersample).
 
 
 <a name="hooktrigger"></a>
 ## <a name="responding-to-webhooks"></a>Risposta ai webhook
-Un trigger HTTP con la proprietà _webHookType_ verrà configurato per rispondere ai [webhook](https://en.wikipedia.org/wiki/Webhook). La configurazione di base usa l'impostazione "genericJson", che limita le richieste solo a quelle che usano HTTP POST e con il tipo di contenuto `application/json`.
+Un trigger HTTP con la proprietà _webHookType_ è configurato per rispondere ai [webhook](https://en.wikipedia.org/wiki/Webhook). La configurazione di base usa l'impostazione "genericJson", che limita le richieste solo a quelle che usano HTTP POST e con il tipo di contenuto `application/json`.
 
-Il trigger può anche essere personalizzato per un provider di webhook specifico (ad esempio, [GitHub](https://developer.github.com/webhooks/) e [Slack](https://api.slack.com/outgoing-webhooks)). Se viene specificato un provider, il runtime di Funzioni può eseguire automaticamente la logica di convalida del provider.  
+Il trigger può anche essere personalizzato per un provider di webhook specifico, ad esempio, [GitHub](https://developer.github.com/webhooks/) o [Slack](https://api.slack.com/outgoing-webhooks). Se viene specificato un provider, il runtime di Funzioni può gestire automaticamente la logica di convalida del provider.  
 
 ### <a name="configuring-github-as-a-webhook-provider"></a>Configurazione di GitHub come provider di webhook
-Per rispondere ai webhook GitHub, creare prima di tutto la funzione con un trigger HTTP e impostare la proprietà _webHookType_ su "github". Copiare quindi l'[URL](#url) e la [chiave API](#keys) nella pagina **Add webhook** (Aggiungi webhook) del repository GitHub. Per altre informazioni, vedere la documentazione [Creating Webhooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) (Creazione di webhook) di GitHub.
+Per rispondere ai webhook GitHub, creare prima di tutto la funzione con un trigger HTTP e impostare la proprietà **webHookType** su `github`. Copiare quindi l'[URL](#url) e la [chiave API](#keys) nella pagina **Aggiungi webhook** del repository GitHub. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+
+Per un esempio, vedere [Creare una funzione attivata da un webhook GitHub](functions-create-github-webhook-triggered-function.md).
 
 ### <a name="configuring-slack-as-a-webhook-provider"></a>Configurazione di Slack come provider di webhook
 Il webhook Slack genera automaticamente un token invece di consentire di specificarlo, quindi è necessario configurare una chiave specifica della funzione con il token da Slack. Vedere [Uso delle chiavi](#keys).
@@ -129,77 +127,77 @@ Per impostazione predefinita, quando si crea una funzione per un trigger HTTP o 
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
-È possibile personalizzare questa route tramite la proprietà `route` facoltativa nell'associazione di input del trigger HTTP. Ad esempio, il file *function.json* seguente definisce una proprietà `route` per un trigger HTTP:
+È possibile personalizzare questa route tramite la proprietà `route` facoltativa nel binding di input del trigger HTTP. Ad esempio, il file *function.json* seguente definisce una proprietà `route` per un trigger HTTP:
 
 ```json
+{
+    "bindings": [
     {
-      "bindings": [
-        {
-          "type": "httpTrigger",
-          "name": "req",
-          "direction": "in",
-          "methods": [ "get" ],
-          "route": "products/{category:alpha}/{id:int?}"
-        },
-        {
-          "type": "http",
-          "name": "res",
-          "direction": "out"
-        }
-      ]
+        "type": "httpTrigger",
+        "name": "req",
+        "direction": "in",
+        "methods": [ "get" ],
+        "route": "products/{category:alpha}/{id:int?}"
+    },
+    {
+        "type": "http",
+        "name": "res",
+        "direction": "out"
     }
+    ]
+}
 ```
 
 Con questa configurazione, la funzione può ora essere indirizzata con la route seguente invece che con quella originale.
 
     http://<yourapp>.azurewebsites.net/api/products/electronics/357
 
-In questo modo il codice della funzione può supportare due parametri nell'indirizzo: "category" e "id". I parametri sono compatibili con qualsiasi [vincolo di route dell'API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints). Il codice di funzione C# seguente usa entrambi i parametri.
+In questo modo il codice della funzione può supportare due parametri nell'indirizzo, _category_ e _id_. I parametri sono compatibili con qualsiasi [vincolo di route dell'API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints). Il codice di funzione C# seguente usa entrambi i parametri.
 
 ```csharp
-    public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
-                                                    TraceWriter log)
-    {
-        if (id == null)
-           return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
-        else
-           return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
-    }
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+                                                TraceWriter log)
+{
+    if (id == null)
+        return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
+    else
+        return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
+}
 ```
 
 Di seguito è mostrato il codice di funzione Node.js per usare gli stessi parametri di route.
 
 ```javascript
-    module.exports = function (context, req) {
+module.exports = function (context, req) {
 
-        var category = context.bindingData.category;
-        var id = context.bindingData.id;
+    var category = context.bindingData.category;
+    var id = context.bindingData.id;
 
-        if (!id) {
-            context.res = {
-                // status: 200, /* Defaults to 200 */
-                body: "All " + category + " items were requested."
-            };
-        }
-        else {
-            context.res = {
-                // status: 200, /* Defaults to 200 */
-                body: category + " item with id = " + id + " was requested."
-            };
-        }
+    if (!id) {
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "All " + category + " items were requested."
+        };
+    }
+    else {
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: category + " item with id = " + id + " was requested."
+        };
+    }
 
-        context.done();
-    } 
+    context.done();
+} 
 ```
 
 Per impostazione predefinita, tutte le route di funzione sono precedute da *api*. È inoltre possibile personalizzare o rimuovere il prefisso con la proprietà `http.routePrefix` nel file *host.json*. Nell'esempio seguente viene rimosso il prefisso della route *api* usando una stringa vuota per il prefisso nel file *host.json*.
 
 ```json
-    {
-      "http": {
-        "routePrefix": ""
-      }
+{
+    "http": {
+    "routePrefix": ""
     }
+}
 ```
 
 Per informazioni dettagliate su come aggiornare il file *host.json* per la funzione, vedere [Come aggiornare i file nelle app per le funzioni](functions-reference.md#fileupdate). 
@@ -209,7 +207,7 @@ Per informazioni su altre proprietà che è possibile configurare nel file *host
 
 <a name="keys"></a>
 ## <a name="working-with-keys"></a>Uso delle chiavi
-Gli elementi HttpTrigger possono sfruttare le chiavi per una maggiore sicurezza. Un elemento HttpTrigger standard può usarle come chiave API, imponendo la presenza della chiave nella richiesta. I webhook possono usare le chiavi per autorizzare le richieste in svariati modi, a seconda di ciò che il provider supporta.
+I trigger HTTP consentono di usare le chiavi per una maggiore sicurezza. Un trigger HTTP standard può usare queste chiavi come chiave API, richiedendone la presenza nella richiesta. I webhook possono usare le chiavi per autorizzare le richieste in svariati modi, a seconda di ciò che il provider supporta.
 
 Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crittografate inattive. Per visualizzare le chiavi, crearne di nuove o aggiornare le chiavi con nuovi valori, passare a una delle funzioni nel portale e selezionare "Gestisci". 
 
@@ -217,32 +215,28 @@ Esistono due tipi di chiavi:
 - **Chiavi host**: queste chiavi vengono condivise da tutte le funzioni nell'app per le funzioni. Quando vengono usate come chiave API, consentono l'accesso a tutte le funzioni nell'app per le funzioni.
 - **Chiavi di funzione**: queste chiavi si applicano solo alle funzioni specifiche sotto le quali vengono definite. Quando vengono usate come chiave API, consentono l'accesso solo a tale funzione.
 
-Ogni chiave viene denominata per riferimento ed esiste una chiave predefinita (denominata "default") a livello di funzione e di host. La **chiave master** è una chiave host predefinita denominata "_master" che viene definita per ogni app per le funzioni e non può essere revocata. Fornisce l'accesso amministrativo alle API di runtime. Per usare `"authLevel": "admin"` nel file JSON di associazione, nella richiesta dovrà essere presentata questa chiave. Qualsiasi altra chiave restituirà un errore di autorizzazione.
+Ogni chiave viene denominata per riferimento ed esiste una chiave predefinita (denominata "default") a livello di funzione e di host. La **chiave master** è una chiave host predefinita denominata "_master", definita per ogni app per le funzioni. Questa chiave non può essere revocata. Fornisce l'accesso amministrativo alle API di runtime. Per usare `"authLevel": "admin"` nel file JSON di binding è necessario presentare questa chiave nella richiesta. Qualsiasi altra chiave provoca un errore di autorizzazione.
 
-> [!NOTE]
-> Date le autorizzazioni elevate concesse dalla chiave master, è consigliabile non condividere questa chiave con terze parti o distribuirla in applicazioni client native. Prestare attenzione quando si sceglie il livello di autorizzazione di amministratore.
-> 
-> 
+> [!IMPORTANT]  
+> Date le autorizzazioni elevate concesse dalla chiave master, è consigliabile non condividere questa chiave con terze parti o distribuirla in applicazioni client native. Fare attenzione quando si sceglie il livello di autorizzazione di amministratore.
 
 ### <a name="api-key-authorization"></a>Autorizzazione della chiave API
-Per impostazione predefinita, un elemento HttpTrigger richiede una chiave API nella richiesta HTTP. La richiesta HTTP in genere è quindi simile alla seguente:
+Per impostazione predefinita, un trigger HTTP richiede una chiave API nella richiesta HTTP. La richiesta HTTP è quindi in genere simile alla seguente:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
 La chiave può essere inclusa in una variabile della stringa di query denominata `code`, come sopra, oppure in un'intestazione HTTP `x-functions-key`. Il valore della chiave può essere una chiave di funzione definita per la funzione o una chiave host.
 
-È possibile scegliere di consentire le richieste senza chiavi o specificare che deve essere usata la chiave master modificando la proprietà `authLevel` nel file JSON dell'associazione. Vedere [Trigger HTTP](#httptrigger).
+È possibile consentire le richieste anonime, che non richiedono chiavi. È anche possibile richiedere l'uso della chiave master. Per modificare il livello di autorizzazione predefinito, usare la proprietà `authLevel` nel file JSON di binding. Per altre informazioni, vedere [Trigger HTTP](#httptrigger).
 
 ### <a name="keys-and-webhooks"></a>Chiavi e webhook
-L'autorizzazione webhook viene gestita dal componente ricevitore dei webhook, che fa parte di HttpTrigger, e il meccanismo varia in base al tipo di webhook. Ogni meccanismo tuttavia si basa su una chiave. Per impostazione predefinita, verrà usata la chiave di funzione denominata "default". Per usare un'altra chiave, sarà necessario configurare il provider di webhook per inviare il nome della chiave con la richiesta in uno dei modi seguenti:
+L'autorizzazione webhook viene gestita dal componente ricevitore dei webhook, che fa parte del trigger HTTP, e il meccanismo varia in base al tipo di webhook. Ogni meccanismo tuttavia si basa su una chiave. Per impostazione predefinita, viene usata la chiave di funzione denominata "default". Per usare una chiave diversa, configurare il provider di webhook per inviare il nome della chiave con la richiesta in uno dei modi seguenti:
 
-- **Stringa di query**: il provider passa il nome della chiave nel parametro della stringa di query `clientid` (ad esempio, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
+- **Stringa di query**: il provider passa il nome della chiave nel parametro della stringa di query `clientid`, ad esempio `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Intestazione della richiesta**: il provider passa il nome della chiave nell'intestazione `x-functions-clientid`.
 
 > [!NOTE]
-> Le chiavi di funzione hanno la precedenza sulle chiavi host. Se due chiavi sono definite con lo stesso nome, verrà usata la chiave di funzione.
-> 
-> 
+> Le chiavi di funzione hanno la precedenza sulle chiavi host. Se sono definite due chiavi con lo stesso nome, viene usata sempre la chiave di funzione.
 
 
 <a name="httptriggersample"></a>
@@ -292,7 +286,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 ```
 
-È anche possibile eseguire l'associazione a un POCO invece di `HttpRequestMessage`. POCO sarà idratato dal corpo della richiesta e analizzato come JSON. Analogamente, un tipo può essere passato all'associazione dell'output di risposta HTTP e verrà restituito come corpo della risposta, con un codice di stato 200.
+È anche possibile eseguire il binding a un oggetto .NET al posto di **HttpRequestMessage**. Questo oggetto viene creato dal corpo della richiesta e analizzato come JSON. Analogamente, un tipo può essere passato al binding di output della risposta HTTP e restituito come corpo della risposta, con un codice di stato 200.
+
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
@@ -332,7 +327,7 @@ let Run(req: HttpRequestMessage) =
     } |> Async.StartAsTask
 ```
 
-È necessario un file `project.json` che usa NuGet per fare riferimento agli assembly `FSharp.Interop.Dynamic` e `Dynamitey` come segue:
+È necessario un file `project.json` che usa NuGet per fare riferimento agli assembly `FSharp.Interop.Dynamic` e `Dynamitey`, come illustrato di seguito:
 
 ```json
 {
@@ -347,7 +342,7 @@ let Run(req: HttpRequestMessage) =
 }
 ```
 
-Verrà usato NuGet per recuperare le dipendenze e verrà creato un riferimento alle dipendenze nello script.
+Viene usato NuGet per recuperare le dipendenze e farvi riferimento nello script.
 
 <a name="httptriggernodejs"></a>
 ### <a name="http-trigger-sample-in-nodejs"></a>Esempio di trigger HTTP in Node.JS
@@ -370,9 +365,7 @@ module.exports = function(context, req) {
     context.done();
 };
 ```
-
-
-
+     
 <a name="hooktriggersample"></a>
 ## <a name="webhook-samples"></a>Esempi di webhook
 Si supponga che il trigger webhook seguente sia presente nella matrice `bindings` di function.json:

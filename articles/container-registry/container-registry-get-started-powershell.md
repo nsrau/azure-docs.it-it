@@ -8,17 +8,16 @@ manager: balans
 editor: dlepow
 ms.service: container-registry
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: cristyg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 2fb060749c203a445196530bb7711d50d83c2923
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1e5d5ea5b1ec121fe008abc48178b1d58f540ce1
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +32,7 @@ Usare i comandi in [Azure PowerShell](https://docs.microsoft.com/en-us/powershel
 ## <a name="prerequisites"></a>Prerequisiti
 * **Azure PowerShell**: per installare e iniziare a usare Azure PowerShell, vedere le [istruzioni di installazione](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps). Accedere alla sottoscrizione di Azure usando `Login-AzureRMAccount`. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azurep) (Introduzione ad Azure PowerShell).
 * **Gruppo di risorse**: creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups) prima di creare un registro di contenitori o usare un gruppo di risorse esistente. Verificare che il gruppo di risorse si trovi in una posizione in cui il servizio Container Registry è [disponibile](https://azure.microsoft.com/regions/services/). Per creare un gruppo di risorse con Azure PowerShell, vedere la [documentazione di riferimento su PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps#create-a-resource-group).
-* **Account di archiviazione** (facoltativo): creare un [account di archiviazione](../storage/storage-introduction.md) di Azure standard per eseguire il backup del registro di contenitori nella stessa posizione. Se non si specifica un account di archiviazione durante la creazione di un registro con `New-AzureRMContainerRegistry`, l'account viene creato automaticamente. Per creare un account di archiviazione con PowerShell, vedere la [documentazione di riferimento su PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount). Archiviazione Premium non è attualmente supportata.
+* **Account di archiviazione** (facoltativo): creare un [account di archiviazione](../storage/common/storage-introduction.md) di Azure standard per eseguire il backup del registro di contenitori nella stessa posizione. Se non si specifica un account di archiviazione durante la creazione di un registro con `New-AzureRMContainerRegistry`, l'account viene creato automaticamente. Per creare un account di archiviazione con PowerShell, vedere la [documentazione di riferimento su PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount). Archiviazione Premium non è attualmente supportata.
 * **Entità servizio** (facoltativo): quando si crea un registro con PowerShell, per impostazione predefinita il registro non è configurato per l'accesso. A seconda delle esigenze, è possibile assegnare a un registro un'entità servizio Azure Active Directory esistente oppure crearne e assegnarne una nuova. In alternativa è possibile abilitare l'account di utente amministratore del registro. Vedere le sezioni più avanti in questo articolo. Per altre informazioni sull'accesso al registro, vedere [Authenticate with the container registry](container-registry-authentication.md) (Eseguire l'autenticazione al registro di contenitori).
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori

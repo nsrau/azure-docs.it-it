@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f7ba456a0d23560ee70f14ecb61c0d016e24e7e1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 94f8e3330fb2d6547811315fcfdb8ced338e0247
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertire una macchina virtuale Linux da dischi non gestiti a dischi gestiti
 
-Se sono presenti macchine virtuali Linux che usano dischi non gestiti, è possibile convertire le macchine virtuali in modo che usino dischi gestiti mediante il servizio [Azure Managed Disks](../../storage/storage-managed-disks-overview.md). Questo processo consente di convertire sia il disco del sistema operativo che eventuali dischi dati collegati.
+Se sono presenti macchine virtuali Linux che usano dischi non gestiti, è possibile convertire le macchine virtuali in modo che usino dischi gestiti mediante il servizio [Azure Managed Disks](../windows/managed-disks-overview.md). Questo processo consente di convertire sia il disco del sistema operativo che eventuali dischi dati collegati.
 
 Questo articolo illustra come convertire le macchine virtuali usando l'interfaccia della riga di comando di Azure. Se è necessario installarla o aggiornarla, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
 
@@ -98,5 +98,5 @@ Tutte le macchine virtuali nel set di disponibilità devono essere deallocate pr
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle opzioni di archiviazione, vedere [Panoramica di Azure Managed Disks](../../storage/storage-managed-disks-overview.md).
+Per altre informazioni sulle opzioni di archiviazione, vedere [Panoramica di Azure Managed Disks](../windows/managed-disks-overview.md).
 

@@ -3,7 +3,7 @@ title: Eseguire il rilevamento di intrusioni di rete con Azure Network Watcher e
 description: Questo articolo descrive come usare Azure Network Watcher e strumenti open source per eseguire il rilevamento di intrusioni di rete
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
 ms.openlocfilehash: 82d5e525859ebe03b152c63e4debbae469049c12
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
 
 ---

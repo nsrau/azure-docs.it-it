@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f44119d651767881cfd999808925b0066a5e502b
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>Gestire la scadenza di BLOB del servizio di archiviazione di Azure nella rete CDN di Azure
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 > 
 > 
 
-Il [servizio BLOB](../storage/storage-introduction.md#blob-storage) di [Archiviazione di Azure](../storage/storage-introduction.md) è una delle diverse origini basate su Azure integrate nella rete CDN di Azure.  Qualsiasi contenuto BLOB accessibile pubblicamente può essere memorizzato nella cache della rete CDN di Azure fino allo scadere della relativa durata (TTL).  La durata (TTL) è determinata dall' [*Cache-Control* ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) nella risposta HTTP di Archiviazione di Azure.
+Il [servizio BLOB](../storage/common/storage-introduction.md#blob-storage) di [Archiviazione di Azure](../storage/common/storage-introduction.md) è una delle diverse origini basate su Azure integrate nella rete CDN di Azure.  Qualsiasi contenuto BLOB accessibile pubblicamente può essere memorizzato nella cache della rete CDN di Azure fino allo scadere della relativa durata (TTL).  La durata (TTL) è determinata dall' [*Cache-Control* ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) nella risposta HTTP di Archiviazione di Azure.
 
 > [!TIP]
 > È possibile scegliere di non impostare alcuna durata (TTL) per un BLOB.  In tal caso, la rete CDN di Azure applica automaticamente una durata (TTL) predefinita di sette giorni.
@@ -64,7 +64,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 
 ## <a name="azure-storage-client-library-for-net"></a>Libreria client di archiviazione di Azure per .NET
-Per impostare la durata (TTL) di un BLOB con .NET, usare la [libreria client di archiviazione di Azure per .NET](../storage/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
+Per impostare la durata (TTL) di un BLOB con .NET, usare la [libreria client di archiviazione di Azure per .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
 
 ```csharp
 class Program

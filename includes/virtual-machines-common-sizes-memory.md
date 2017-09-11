@@ -51,9 +51,9 @@ ACU: 160-180
 
 | Dimensione            | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M64s  | 64   | 1024        | 2048           | 32             | 80.000 / 800 (6348)       | 40.000/1.000                            | 8 / 16000          |
 | Standard_M64ms  | 64   | 1792        | 2048           | 32             | 80.000 / 800 (6348)       | 40.000/1.000                            | 8 / 16000          |
 | Standard_M128s** | 128  | 2048        | 4096           | 64             | 160.000 / 1.600 (12.696) | 80.000/2.000                            | 8 / 25000          |
-
 
 
 * Le macchine virtuali Serie M integrano la tecnologia Intel® Hyper-Threading

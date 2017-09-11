@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 98c5bacd0a040d3a2d83bfe088b11d0f15449ed9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -40,9 +40,11 @@ Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://port
 
     ![Output installazione del cluster][cluster-setup-basics]
 
-4. Compilare il modulo **Configurazione cluster**.  Per **Numero di tipi di nodo** immettere "1" e impostare [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) su "Bronze".
+4. Compilare il modulo **Configurazione cluster**.  Per **Numero di tipi di nodo** immettere "1".
 
-5. Selezionare **Configurare il tipo di ogni nodo** e compilare il modulo **Configurazione del tipo di nodo**. I tipi di nodo definiscono le dimensioni della VM, il numero di VM, gli endpoint personalizzati e altre impostazioni per le VM di quel tipo. Ogni tipo di nodo definito viene configurato come set di scalabilità di macchine virtuali, che viene usato per distribuire e gestire macchine virtuali come set. Ogni tipo di nodo può essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse.  Il primo tipo di nodo o nodo primario ospita i servizi di sistema di Service Fabric e deve avere almeno cinque VM.
+5. Selezionare **Tipo di nodo 1 (primario)** e compilare il modulo **Configurazione del tipo di nodo**.  Immettere un nome per il tipo di nodo e impostare [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) su "Bronze".  Selezionare una dimensione di VM.
+
+    I tipi di nodo definiscono le dimensioni della VM, il numero di VM, gli endpoint personalizzati e altre impostazioni per le VM di quel tipo. Ogni tipo di nodo definito viene configurato come set di scalabilità di macchine virtuali, che viene usato per distribuire e gestire macchine virtuali come set. Ogni tipo di nodo può essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse.  Il primo tipo di nodo o nodo primario ospita i servizi di sistema di Service Fabric e deve avere almeno cinque VM.
 
     La [pianificazione della capacità](service-fabric-cluster-capacity.md) è un passaggio importante per qualsiasi distribuzione di produzione.  Per questa Guida introduttiva, tuttavia, non vengono eseguite applicazioni, quindi selezionare una VM con dimensioni *DS1_v2 Standard*.  Selezionare "Silver" per il [Livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) e specificare una capacità pari a 5 per il set di scalabilità di macchine virtuali.  
 
@@ -84,20 +86,20 @@ Il dashboard del cluster offre una panoramica del cluster, incluso un riepilogo 
 Verificare che il cluster sia in esecuzione connettendosi tramite PowerShell.  Il modulo ServiceFabric di PowerShell viene installato con [Service Fabric SDK](service-fabric-get-started.md).  Il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) stabilisce una connessione al cluster.   
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
 ```
 Per altri esempi di connessione a un cluster, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md). Dopo la connessione al cluster, usare il cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per visualizzare un elenco dei nodi presenti nel cluster e informazioni di stato per ogni nodo. **HealthState** deve essere *OK* per ogni nodo.
 
 ```powershell
-PS C:\> Get-ServiceFabricNode |Format-Table
+PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
 
-NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
--------------------- --------     --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
-                     _nodetype1_2 10.0.0.6        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_1 10.0.0.5        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_0 10.0.0.4        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_4 10.0.0.8        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- --------     --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+                     _nodetype1_2 10.0.0.6        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_1 10.0.0.5        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_0 10.0.0.4        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_4 10.0.0.8        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_3 10.0.0.7        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
 ```
 
 ### <a name="remove-the-cluster"></a>Rimuovere il cluster
@@ -106,65 +108,58 @@ Un cluster di Service Fabric è costituito da altre risorse di Azure oltre alla 
 Eliminare un gruppo di risorse nel portale di Azure:
 1. Passare al cluster Service Fabric da eliminare.
 2. Fare clic sul nome del **Gruppo di risorse** nella pagina delle informazioni di base del cluster.
-3. Nella pagina **Informazioni di base** del gruppo di risorse fare clic su **Elimina** e seguire le istruzioni visualizzate nella pagina per completare l'eliminazione del gruppo di risorse.
+3. Nella pagina **Informazioni di base** del gruppo di risorse fare clic su **Elimina gruppo di risorse** e seguire le istruzioni visualizzate nella pagina per completare l'eliminazione del gruppo.
     ![Eliminare il gruppo di risorse][cluster-delete]
 
 
 ## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>Usare Azure Powershell per distribuire un cluster sicuro
+1. Scaricare il [modulo Azure PowerShell versione 4.0 o successiva](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) sul computer.
 
-
-1) Scaricare il [modulo Azure PowerShell versione 4.0 o successiva](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) sul computer.
-
-2) Aprire una finestra di Windows PowerShell ed eseguire questo comando. 
+2. Aprire una finestra di Windows PowerShell ed eseguire questo comando. 
     
-```powershell
+    ```powershell
 
-Get-Command -Module AzureRM.ServiceFabric 
-```
+    Get-Command -Module AzureRM.ServiceFabric 
+    ```
 
-L'output visualizzato dovrebbe essere simile al seguente.
+    L'output visualizzato dovrebbe essere simile al seguente.
 
-![Elenco PS][ps-list]
+    ![Elenco PS][ps-list]
 
-3) Accedere ad Azure e selezionare la sottoscrizione in cui si vuole creare il cluster.
+3. Accedere ad Azure e selezionare la sottoscrizione in cui si vuole creare il cluster.
 
-```powershell
+    ```powershell
 
-Login-AzureRmAccount
+    Login-AzureRmAccount
 
-Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    ```
 
-```
+4. Eseguire questo comando per creare un cluster sicuro. Non dimenticare di personalizzare i parametri. 
 
-4) Eseguire questo comando per creare un cluster sicuro. Non dimenticare di personalizzare i parametri. 
+    ```powershell
+    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+    $RDPuser="vmadmin"
+    $RGname="mycluster" # this is also the name of your cluster
+    $clusterloc="SouthCentralUS"
+    $subname="$RGname.$clusterloc.cloudapp.azure.com"
+    $certfolder="c:\mycertificates\"
+    $clustersize=1 # can take values 1, 3-99
 
+    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    ```
 
-````powershell
+    Il completamento del comando può richiedere da 10 a 30 minuti. Al termine, l'output visualizzato dovrebbe essere simile al seguente. L'output conterrà informazioni sul certificato, sull'insieme di credenziali delle chiavi in cui è stato caricato e sulla cartella locale in cui viene copiato. 
 
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-$RDPuser="vmadmin"
-$RGname="mycluster" # this is also the name of your cluster
-$clusterloc="SouthCentralUS"
-$subname="$RGname.$clusterloc.cloudapp.azure.com"
-$certfolder="c:\mycertificates\"
-$clustersize=1 # can take values 1, 3-99
+    ![Output PS][ps-out]
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+5. Copiare l'intero output e salvarlo in un file di testo, perché sarà necessario farvi riferimento. Prendere nota delle informazioni seguenti dell'output. 
 
-````
-
-Il completamento del comando può richiedere da 10 a 30 minuti. Al termine, l'output visualizzato dovrebbe essere simile al seguente. L'output conterrà informazioni sul certificato, sull'insieme di credenziali delle chiavi in cui è stato caricato e sulla cartella locale in cui viene copiato. 
-
-![Output PS][ps-out]
-
-5) Copiare l'intero output e salvarlo in un file di testo, perché sarà necessario farvi riferimento. Prendere nota delle informazioni seguenti dell'output.
- 
-
-- **CertificateSavedLocalPath**: c:\mycertificates\mycluster20170504141137.pfx
-- **CertificateThumbprint**: C4C1E541AD512B8065280292A8BA6079C3F26F10
-- **ManagementEndpoint**: https://mycluster.southcentralus.cloudapp.azure.com:19080
-- **ClientConnectionEndpointPort**: 19000
+    - **CertificateSavedLocalPath**: c:\mycertificates\mycluster20170504141137.pfx
+    - **CertificateThumbprint**: C4C1E541AD512B8065280292A8BA6079C3F26F10
+    - **ManagementEndpoint**: https://mycluster.southcentralus.cloudapp.azure.com:19080
+    - **ClientConnectionEndpointPort**: 19000
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>Installare il certificato nel computer locale
   

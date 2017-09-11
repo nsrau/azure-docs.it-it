@@ -6,8 +6,8 @@
 ## [Applicazioni gestite](managed-application-overview.md)
 
 # Introduzione
-## [Esportare il modello](resource-manager-export-template.md)
 ## [Creare e distribuire il modello](resource-manager-create-first-template.md)
+## [Estensione di Visual Studio Code per i modelli](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Esempi
@@ -20,8 +20,8 @@
 
 # Procedure
 ## Creare modelli
-### [Procedure consigliate per i modelli](resource-manager-template-best-practices.md)
 ### [Sezioni di modelli](resource-group-authoring-templates.md)
+### [Procedure consigliate per i modelli](resource-manager-template-best-practices.md)
 ### [Eseguire il collegamento ad altri modelli](resource-group-linked-templates.md)
 ### [Definire la dipendenza tra risorse](resource-group-define-dependencies.md)
 ### [Creare più istanze](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [Condividere lo stato tra modelli collegati](best-practices-resource-manager-state.md)
 ### [Schemi per la progettazione di modelli](best-practices-resource-manager-design-templates.md)
 
+
 ## Distribuire
 ### PowerShell
 #### [Distribuire un modello](resource-group-template-deploy.md)
@@ -42,7 +43,9 @@
 #### [Distribuire un modello](resource-group-template-deploy-cli.md)
 #### [Distribuire un modello privato con token SAS](resource-manager-cli-sas-token.md)
 #### [Esportare il modello e ridistribuirlo](resource-manager-export-template-cli.md)
-### [Portale](resource-group-template-deploy-portal.md)
+### di Microsoft Azure
+#### [Distribuire le risorse](resource-group-template-deploy-portal.md)
+#### [Esportare il modello](resource-manager-export-template.md)
 ### [API REST](resource-group-template-deploy-rest.md)
 ### [Distribuzione in più gruppi di risorse](resource-manager-cross-resource-group-deployment.md)
 ### [Integrazione continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

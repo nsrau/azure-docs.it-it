@@ -1,105 +1,109 @@
 <!--
 Used in:
-sql-database-elastic-pool.md   
-sql-database-resource-limits.md
-sql-database-service-tiers.md  
+sql-database-elastic-pool.md 
 -->
+
  
 ### <a name="basic-elastic-pool-limits"></a>Limiti del pool elastico Basic
 
-| Dimensioni pool (eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
+| eDTU per pool | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
-| Spazio di archiviazione dati massimo per pool* | 5 GB | 10 GB | 20 GB | 29 GB | 39 GB | 78 GB | 117 GB | 156 GB |
-| Spazio di archiviazione OLTP in memoria massimo per pool | N/D  | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
+| Risorse di archiviazione incluse per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Opzioni per lo spazio di archiviazione massimo per pool (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Spazio di archiviazione OLTP in memoria massimo per pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
 | Numero massimo di database per pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Numero massimo di ruoli di lavoro simultanei (richieste) per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Numero massimo di accessi simultanei per pool | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Numero massimo di sessioni simultanee per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Numero minimo di eDTU per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Numero massimo di eDTU per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
-| Spazio di archiviazione dati massimo per database | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 2 GB | 
+| Opzioni per il numero minimo di eDTU per database | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Opzioni per il numero massimo di eDTU per database | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Spazio di archiviazione massimo per database (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 
 ||||||||
 
 ### <a name="standard-elastic-pool-limits"></a>Limiti del pool elastico Standard
 
-| Dimensioni pool (eDTU)  | **50** | **100** | **200**** | **300**** | **400**** | **800****| 
+| eDTU per pool | **50** | **100** | **200** | **300** | **400** | **800**| 
 |:---|---:|---:|---:| ---: | ---: | ---: | 
-| Spazio di archiviazione dati massimo per pool* | 50 GB| 100 GB| 200 GB | 300 GB| 400 GB | 800 GB | 
-| Spazio di archiviazione OLTP in memoria massimo per pool | N/D  | N/D | N/D | N/D | N/D | N/D | 
+| Risorse di archiviazione incluse per pool (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
+| Opzioni per lo spazio di archiviazione massimo per pool (GB)* | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
+| Spazio di archiviazione OLTP in memoria massimo per pool (GB) | N/D | N/D | N/D | N/D | N/D | N/D | 
 | Numero massimo di database per pool | 100 | 200 | 500 | 500 | 500 | 500 | 
-| Numero massimo di ruoli di lavoro simultanei (richieste) per pool | 100 | 200 | 400 | 600 |  800 | 1600 |
-| Numero massimo di accessi simultanei per pool | 100 | 200 | 400 | 600 |  800 | 1600 |
+| Numero massimo di ruoli di lavoro simultanei (richieste) per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
+| Numero massimo di accessi simultanei per pool | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Numero massimo di sessioni simultanee per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Numero minimo di eDTU per database** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Numero massimo di eDTU per database** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
-| Spazio di archiviazione dati massimo per database | 50 GB | 100 GB | 200 GB | 250 GB | 250 GB | 250 GB |
+| Opzioni per il numero minimo di eDTU per database** | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Opzioni per il numero massimo di eDTU per database** | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
+| Spazio di archiviazione massimo per database (GB)* | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
 ### <a name="standard-elastic-pool-limits-continued"></a>Limiti del pool elastico Standard (continua) 
 
-| Dimensioni pool (eDTU)  |  **1200**** | **1600**** | **2000**** | **2500**** | **3000**** |
+| eDTU per pool | **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Spazio di archiviazione dati massimo per pool* | 1,2 TB | 1,6 TB | 2 TB | 2,4 TB | 2,9 TB | 
-| Spazio di archiviazione OLTP in memoria massimo per pool | N/D  | N/D | N/D | N/D | N/D | 
+| Risorse di archiviazione incluse per pool (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
+| Opzioni per lo spazio di archiviazione massimo per pool (GB)* | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
+| Spazio di archiviazione OLTP in memoria massimo per pool (GB) | N/D | N/D | N/D | N/D | N/D | 
 | Numero massimo di database per pool | 500 | 500 | 500 | 500 | 500 | 
-| Numero massimo di ruoli di lavoro simultanei (richieste) per pool |  2400 | 3200 | 4000 | 5000 | 6000 |
-| Numero massimo di accessi simultanei per pool |  2400 | 3200 | 4000 | 5000 | 6000 |
+| Numero massimo di ruoli di lavoro simultanei (richieste) per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
+| Numero massimo di accessi simultanei per pool | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Numero massimo di sessioni simultanee per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Numero minimo di eDTU per database** | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Numero massimo di eDTU per database** | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
-| Spazio di archiviazione dati massimo per database | 250 GB | 250 GB | 250 GB | 250 GB | 250 GB | 
+| Opzioni per il numero minimo di eDTU per database** | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Opzioni per il numero massimo di eDTU per database** | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
+| Opzioni per lo spazio di archiviazione massimo per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
 ### <a name="premium-elastic-pool-limits"></a>Limiti del pool elastico Premium
 
-| Dimensioni pool (eDTU)  | **125** | **250** | **500** | **1000** | **1500*****| 
+| eDTU per pool | **125** | **250** | **500** | **1000** | **1500**| 
 |:---|---:|---:|---:| ---: | ---: | 
-| Spazio di archiviazione dati massimo per pool* | 250 GB | 500 GB | 750 GB | 1 TB | 1,5 TB | 
-| Spazio di archiviazione OLTP in memoria massimo per pool | 1 GB| 2 GB| 4 GB| 10 GB| 12 GB| 
-| Numero massimo di database per pool | 50 | 100 | 100 | 100 | 100 |  
-| Numero massimo di ruoli di lavoro simultanei per pool (richieste) | 200 | 400 | 800 | 1600 |  2400 | 
-| Numero massimo di accessi simultanei per pool | 200 | 400 | 800 | 1600 |  2400 |
+| Risorse di archiviazione incluse per pool (GB) | 250 | 500 | 750 | 1024 | 1536 | 
+| Opzioni per lo spazio di archiviazione massimo per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 1536 |
+| Spazio di archiviazione OLTP in memoria massimo per pool (GB) | 1 | 2 | 4 | 10 | 12 | 
+| Numero massimo di database per pool | 50 | 100 | 100 | 100 | 100 | 
+| Numero massimo di ruoli di lavoro simultanei per pool (richieste) | 200 | 400 | 800 | 1600 | 2400 | 
+| Numero massimo di accessi simultanei per pool | 200 | 400 | 800 | 1600 | 2400 |
 | Numero massimo di sessioni simultanee per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Numero minimo di eDTU per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000 | 
-| Numero massimo di eDTU per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000 |
-| Spazio di archiviazione dati massimo per database | 250 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
+| Numero minimo di eDTU per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
+| Numero massimo di eDTU per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
+| Spazio di archiviazione massimo per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
 ### <a name="premium-elastic-pool-limits-continued"></a>Limiti del pool elastico Premium (continua) 
 
-| Dimensioni pool (eDTU) | **2000***** | **2500***** | **3000***** | **3500***** | **4000*****|
+| eDTU per pool | **2000** | **2500** | **3000** | **3500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: | 
-| Spazio di archiviazione dati massimo per pool* | 2 TB | 2,5 TB | 3 TB | 3,5 TB | 4 TB |
-| Spazio di archiviazione OLTP in memoria massimo per pool | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
+| Risorse di archiviazione incluse per pool (GB) | 2048 | 2560 | 3072 | 3548 | 4096 |
+| Opzioni per lo spazio di archiviazione massimo per pool (GB)* | 2048 | 2560 | 3072 | 3548 | 4096|
+| Spazio di archiviazione OLTP in memoria massimo per pool (GB) | 16 | 20 | 24 | 28 | 32 |
 | Numero massimo di database per pool | 100 | 100 | 100 | 100 | 100 | 
-| Numero massimo di ruoli di lavoro simultanei (richieste) per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
-| Numero massimo di accessi simultanei per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
+| Numero massimo di ruoli di lavoro simultanei (richieste) per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
+| Numero massimo di accessi simultanei per pool | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Numero massimo di sessioni simultanee per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
-| Numero minimo di eDTU per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 |  0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
-| Numero massimo di eDTU per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
-| Spazio di archiviazione dati massimo per database | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB | 
+| Opzioni per il numero minimo di eDTU per database | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Opzioni per il numero massimo di eDTU per database | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
+| Spazio di archiviazione massimo per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
 ### <a name="premium-rs-elastic-pool-limits"></a>Limiti del pool elastico Premium RS
 
-| Dimensioni pool (eDTU)  | **125** | **250** | **500** | **1000** |
+| eDTU per pool | **125** | **250** | **500** | **1000** |
 |:---|---:|---:|---:| ---: | ---: | 
-| Spazio di archiviazione dati massimo per pool* | 250 GB| 500 GB | 750 GB | 750 GB |
-| Spazio di archiviazione OLTP in memoria massimo per pool | 1 GB | 2 GB | 4 GB | 10 GB |
+| Risorse di archiviazione incluse per pool (GB) | 250 | 500 | 750 | 750 |
+| Opzioni per lo spazio di archiviazione massimo per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
+| Spazio di archiviazione OLTP in memoria massimo per pool (GB) | 1 | 2 | 4 | 10 |
 | Numero massimo di database per pool | 50 | 100 | 100 | 100 |
 | Numero massimo di ruoli di lavoro simultanei (richieste) per pool | 200 | 400 | 800 | 1600 |
 | Numero massimo di accessi simultanei per pool | 200 | 400 | 800 | 1600 |
 | Numero massimo di sessioni simultanee per pool | 30000 | 30000 | 30000 | 30000 |
-| Numero minimo di eDTU per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Numero massimo di eDTU per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Spazio di archiviazione dati massimo per database | 250 GB | 500 GB | 500 GB | 500 GB | 
+| Opzioni per il numero minimo di eDTU per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
+| Opzioni per il numero massimo di eDTU per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
+| Spazio di archiviazione massimo per database (GB)* | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
 > [!IMPORTANT]
->\* Poiché i database in pool condividono lo spazio di archiviazione del pool, lo spazio di archiviazione dei dati è limitato allo spazio di archiviazione del pool rimanente o allo spazio di archiviazione massimo per database. 
+> \* Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per informazioni dettagliate, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per informazioni dettagliate, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 >
+> \* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia, Europa occidentale, Germania centrale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. 
 >
->\*\* I numeri massimi e minimi di eDTU per database uguali o superiori a 200 sono disponibili in anteprima pubblica.
->
->\*\*\* Lo spazio di archiviazione dati massimo predefinito per ogni pool Premium con 500 o più eDTU è 750 GB. Per ottenere dimensioni di archiviazione dati massime per pool Premium superiori per 1000 o più eDTU, è necessario selezionare esplicitamente tali dimensioni usando il portale di Azure, [PowerShell](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-powershell), l'[interfaccia della riga di comando di Azure](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-azure-cli) o l'[API REST](../articles/sql-database/sql-database-elastic-pool.md#manage-sql-database-elastic-pools-using-the-rest-api). I pool Premium con spazio di archiviazione superiore a 1 TB sono attualmente in anteprima pubblica nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia, Europa occidentale, Germania centrale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Per tutte le altre aree, lo spazio di archiviazione massimo per pool è attualmente limitato a 750 GB.
+>\*\* I numeri massimi e minimi di eDTU per database uguali o superiori a 200 nei pool **Standard** sono disponibili in anteprima.
 >

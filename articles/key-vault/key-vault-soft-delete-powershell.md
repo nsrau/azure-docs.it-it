@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/21/2017
 ms.author: bruceper
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 1775902aa7ec820c3b6c34eda60961eecd27f014
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8cf0674f7eb139e50da4a3c22a8d8376a86b0dcc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Come usare l'eliminazione temporanea di Key Vault con PowerShell
@@ -29,10 +29,9 @@ La funzionalità di eliminazione temporanea di Azure Key Vault consente il recup
 - Azure PowerShell 4.0.0 o versione successiva - Se non è già installato, installare Azure PowerShell e associarlo alla sottoscrizione di Azure. A questo proposito, vedere [Come installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
 >[!NOTE]
-> È possibile che nell'ambiente venga caricata una versione obsoleta del file di formattazione dell'output dell'insieme di credenziali delle chiavi di PowerShell. In questo caso, è possibile scegliere una delle soluzioni seguenti:
-> 
-> - Eseguire l'aggiornamento alla [versione 4.4.0 o successiva di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.2.0) per risolvere il problema.
+> È **possibile** che nell'ambiente venga caricata una versione obsoleta del file di formattazione dell'output di PowerShell per Azure Key Vault, anziché la versione corretta. È prevista una versione aggiornata di PowerShell contenente la correzione necessaria per la formattazione dell'output, al cui rilascio questo argomento verrà aggiornato. Di seguito è indicata la soluzione alternativa corrente, qualora si riscontri questo problema di formattazione:
 > - Usare la query seguente se non viene visualizzata la proprietà abilitata per l'eliminazione temporanea descritta in questo argomento: `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+
 
 Per informazioni sui comandi di PowerShell relativi a Key Vault, vedere [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0) (Documentazione su PowerShell per Azure Key Vault).
 

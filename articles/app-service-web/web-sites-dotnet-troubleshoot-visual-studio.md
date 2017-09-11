@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi di un&quot;app Web nel servizio app di Azure tramite Visual Studio
-description: Informazioni su come risolvere problemi relativi a un&quot;app Web di Azure usando gli strumenti di registrazione, traccia e debug remoto inclusi in Visual Studio 2013.
+title: Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
+description: Informazioni su come risolvere problemi relativi a un'app Web di Azure usando gli strumenti di registrazione, traccia e debug remoto inclusi in Visual Studio 2013.
 services: app-service
 documentationcenter: .net
 author: tdykstra
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: rachelap
-translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: d22c9e2026c3efc63c5a3baa7ad4505aa269e31d
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: abfd9a4c1b346377d7f1fc30455a1487b113537d
+ms.contentlocale: it-it
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
@@ -466,7 +466,7 @@ Gli account di archiviazione offrono più spazio e un periodo più lungo di cons
     Questa impostazione specifica il data center di Azure che ospiterà l'account di archiviazione. Per questa esercitazione è possibile selezionare qualsiasi area senza riscontrare differenze evidenti, ma per un'app Web di produzione è consigliabile che il server Web e l'account di archiviazione siano nella stessa area geografica per poter ridurre al minimo la latenza e il costo per l'uscita dei dati. L'app Web (che si creerà più avanti) deve essere eseguita il più vicino possibile ai browser che accedono all'app Web per poter da ridurre al minimo la latenza.
 3. Nell'elenco a discesa **Replica** scegliere **Localmente ridondante**.
    
-    Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato è replicato in un data center secondario per permettere il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage/storage-create-storage-account.md).
+    Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato è replicato in un data center secondario per permettere il failover in tale posizione in caso di errore grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage/common/storage-create-storage-account.md).
 4. Fare clic su **Crea**.
 
     ![Nuovo account di archiviazione](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    

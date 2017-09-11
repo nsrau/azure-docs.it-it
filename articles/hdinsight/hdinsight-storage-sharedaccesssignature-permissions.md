@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 470d4a57adf161b41a0b41061bec3840ddbf7f27
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
 ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
@@ -77,7 +77,7 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
 
 È consigliabile usare sempre i criteri di accesso archiviati. Con i criteri archiviati, è possibile revocare le firme o estendere la scadenza in base alle esigenze. I passaggi illustrati in questo documento permettono di usare i criteri di accesso archiviati per generare firme di accesso condiviso.
 
-Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni sul modello di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Per altre informazioni sulle firme di accesso condiviso, vedere [Informazioni sul modello di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ### <a name="create-a-stored-policy-and-sas-using-c"></a>Creare un criterio archiviato e una firma di accesso condiviso con C\#
 

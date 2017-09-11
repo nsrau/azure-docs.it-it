@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: shlo
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 66d3b5532e602ef3ef160740c0f6752ebbdff7a2
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: da7110614e684656da3ef9830780606e1576684d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
@@ -99,7 +99,7 @@ In questo tipo di configurazione, l'ambiente informatico è completamente gestit
 > 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Servizio collegato Azure HDInsight su richiesta
-Il servizio Data factory di Azure può creare automaticamente un cluster HDInsight su richiesta basato su Windows o Linux per elaborare i dati. La creazione del cluster avviene nella stessa area dell'account di archiviazione (proprietà linkedServiceName in JSON) associato al cluster.
+Il servizio Data factory di Azure può creare automaticamente un cluster HDInsight su richiesta basato su Windows o Linux per elaborare i dati. La creazione del cluster avviene nella stessa area dell'account di archiviazione (proprietà linkedServiceName in JSON) associato al cluster. L'account di archiviazione deve essere un account di archiviazione di Azure standard per utilizzo generico. 
 
 Tenere presente i seguenti punti **importanti** sul servizio collegato HDInsight su richiesta:
 

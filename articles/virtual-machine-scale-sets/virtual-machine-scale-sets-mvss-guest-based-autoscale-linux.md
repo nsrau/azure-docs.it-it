@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 5de81da3c6b77f1a80876d68def66792b6a21bb9
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -31,7 +31,7 @@ In Azure esistono due tipi di metriche raccolte da macchine virtuali e set di sc
 
 Il modello di set di scalabilità a validità minima è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), mentre il modello per la distribuzione del set di scalabilità Linux con scalabilità automatica basata su guest è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Viene ora esaminato il diff usato per creare questo modello, `git diff minimum-viable-scale-set existing-vnet`, passo per passo:
 
-Per prima cosa, si aggiungono i parametri per `storageAccountName` e `storageAccountSasToken`. L'agente di diagnostica archivierà i dati di metrica in una [tabella](../storage/storage-dotnet-how-to-use-tables.md) in questo account di archiviazione. A partire dalla versione 3.0 dell'agente di diagnostica Linux, non è più supportato l'uso di una chiave di accesso di archiviazione. È necessario usare invece un [token di firma di accesso condiviso](../storage/storage-dotnet-shared-access-signature-part-1.md).
+Per prima cosa, si aggiungono i parametri per `storageAccountName` e `storageAccountSasToken`. L'agente di diagnostica archivierà i dati di metrica in una [tabella](../cosmos-db/table-storage-how-to-use-dotnet.md) in questo account di archiviazione. A partire dalla versione 3.0 dell'agente di diagnostica Linux, non è più supportato l'uso di una chiave di accesso di archiviazione. È necessario usare invece un [token di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },

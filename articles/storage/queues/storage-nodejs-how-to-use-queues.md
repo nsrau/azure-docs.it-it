@@ -346,5 +346,5 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 
 
 [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)   
-[Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/ [Build and deploy a Node.js web app to Azure using Web Matrix (Creazione e distribuzione di un'app Web Node.js in Azure con WebMatrix)]: https://www.microsoft.com/web/webmatrix/   
+[Blog del team di Archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/ [Creazione e distribuzione di un'app Web Node.js in Azure con WebMatrix]: https://www.microsoft.com/web/webmatrix/   
 

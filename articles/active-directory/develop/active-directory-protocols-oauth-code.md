@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 1b00624e5e52a0dbc6e73201f59af905185325ea
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory
@@ -329,15 +329,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
-| Parametro | Descrizione |
-| --- | --- |
-| access_token |Nuovo token di accesso che è stato richiesto. |
-| expires_in |Durata residua del token, in secondi. Un valore tipico è 3600 (un'ora). |
-| expires_on |Data e ora in cui scadrà il token. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. |
-| refresh_token |Nuovo refresh_token OAuth 2.0 che può essere usato per richiedere nuovi token di accesso alla scadenza del token di questa risposta. |
-| resource |Identifica la risorsa protetta a cui il token di accesso consente di accedere. |
-| scope |Autorizzazioni di rappresentazione concesse all'applicazione client nativa. L'autorizzazione predefinita è **user_impersonation**. Il proprietario della risorsa di destinazione può registrare valori alternativi in Azure AD. |
-| token_type |Tipo di token. L'unico valore supportato è **bearer**. |
 
 ### Risposta con esito positivo
 Una risposta token con esito positivo ha un aspetto simile al seguente:
@@ -352,6 +343,15 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
+| Parametro | Descrizione |
+| --- | --- |
+| token_type |Tipo di token. L'unico valore supportato è **bearer**. |
+| expires_in |Durata residua del token, in secondi. Un valore tipico è 3600 (un'ora). |
+| expires_on |Data e ora in cui scadrà il token. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. |
+| resource |Identifica la risorsa protetta a cui il token di accesso consente di accedere. |
+| scope |Autorizzazioni di rappresentazione concesse all'applicazione client nativa. L'autorizzazione predefinita è **user_impersonation**. Il proprietario della risorsa di destinazione può registrare valori alternativi in Azure AD. |
+| access_token |Nuovo token di accesso che è stato richiesto. |
+| refresh_token |Nuovo refresh_token OAuth 2.0 che può essere usato per richiedere nuovi token di accesso alla scadenza del token di questa risposta. |
 
 ### Risposta di errore
 Una risposta di errore di esempio può avere un aspetto simile al seguente:

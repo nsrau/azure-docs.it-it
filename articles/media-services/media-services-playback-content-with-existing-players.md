@@ -63,7 +63,7 @@ Usare il [lettore multimediale di Azure](http://amsplayer.azurewebsites.net/azur
 Per testare gli URL HLS è inoltre possibile usare:
 
 * **Safari** in un dispositivo iOS o
-* **Lettore HLS&3;ivx** in un dispositivo Windows.
+* **Lettore HLS 3ivx** in un dispositivo Windows.
 
 ## <a name="developing-video-players"></a>Sviluppo di lettori video
 Per informazioni su come sviluppare i propri lettori, vedere [Sviluppo di lettori di contenuti video](media-services-develop-video-players.md)

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: c187819e9392908c8979556f80e8c94739eb14d5
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: b829ebd90034031721dfe2e97427e624306da1e9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Usare Azure DevTest Labs per sviluppatori
@@ -99,7 +98,7 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs che poss
    | Attività | Contenuto dell'esercitazione |
    | --- | --- |
    | [Definire i criteri del lab](devtest-lab-set-lab-policy.md) |Controllare i costi impostando criteri nel lab. |
-   | [Eliminare tutte le VM del lab usando uno script di PowerShell](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Eliminare tutti i lab con una sola operazione al termine dello sviluppo.|
+   | [Eliminare tutte le VM del lab usando uno script di PowerShell](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Eliminare tutti i lab con una sola operazione al termine dello sviluppo.|
 
 1. **Aggiungere una rete virtuale a una VM** 
    
@@ -133,7 +132,7 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs che poss
    
    | Attività | Contenuto dell'esercitazione |
    | --- | --- |
-   | [Creare un lab usando un modello di Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Creare lab in Azure DevTest Labs usando modelli di Resource Manager. |
+   | [Creare un lab usando un modello di Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Creare lab in Azure DevTest Labs usando modelli di Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

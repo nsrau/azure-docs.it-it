@@ -18,10 +18,10 @@ ms.date: 08/02/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: cdac6362f0d51b3144024efd28af09eb6d97515f
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: aa1c4ea379c10dff246e2f924a345f9fa444aa64
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -34,10 +34,10 @@ Registro contenitori di Azure è un registro privato basato su Azure per le imma
 L'interfaccia della riga di comando di Azure include i comandi per la creazione e la gestione dei contenitori in Istanze di contenitore di Azure. Se si specifica un'immagine privata nel comando `create`, è anche possibile specificare la password del registro dell'immagine necessaria per l'autenticazione con il registro contenitori.
 
 ```azurecli-interactive
-az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --image-registry-password myRegistryPassword --resource-group myresourcegroup
+az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword --resource-group myresourcegroup
 ```
 
-Il comando `create` consente anche di specificare `image-registry-login-server` e `image-registry-username`. Il server di accesso di Registro contenitori di Azure è tuttavia sempre *nomeregistro*.azurecr.io e il nome utente predefinito è *nomeregistro*, quindi questi valori vengono dedotti dal nome dell'immagine, se non specificati in modo esplicito.
+Il comando `create` consente anche di specificare `registry-login-server` e `registry-username`. Il server di accesso di Registro contenitori di Azure è tuttavia sempre *nomeregistro*.azurecr.io e il nome utente predefinito è *nomeregistro*, quindi questi valori vengono dedotti dal nome dell'immagine, se non specificati in modo esplicito.
 
 ## <a name="using-an-azure-resource-manager-template"></a>Uso di un modello di Azure Resource Manager
 
@@ -91,3 +91,4 @@ Informazioni su come creare contenitori, effettuarne il push in un registro cont
 [acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
 
 [aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
+

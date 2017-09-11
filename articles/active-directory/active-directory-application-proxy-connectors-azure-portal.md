@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: a65216e79b7e89da1c9ccd6d002cb7ab6b18190f
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
 ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -78,11 +78,11 @@ I gruppi di connettori permettono di installare connettori dedicati per le reti 
 
 Per le applicazioni installate in IaaS per l'accesso al cloud, i gruppi di connettori offrono un servizio comune per proteggere l'accesso a tutte le app. I gruppi di connettori non creano dipendenza aggiuntiva dalla rete aziendale o non frammentano l'esperienza delle app. I connettori possono essere installati in ogni data center nel cloud e gestire solo le applicazioni che si trovano nella rete. È possibile installare più connettori per ottenere una disponibilità elevata.
 
-In questo caso, l'organizzazione ha diverse macchine virtuali connesse alla rete virtuale IaaS ospitata. Per permettere ai dipendenti di usare le applicazioni, tali reti private sono connesse alla rete aziendale tramite VPN da sito a sito. Questa soluzione offre un'esperienza ottimale ai dipendenti a livello locale. Potrebbe tuttavia non essere l'ideale per i dipendenti che lavorano in remoto, perché richiede un'infrastruttura locale aggiuntiva, come illustra il diagramma seguente:
+Considerare come esempio un'organizzazione con diverse macchine virtuali connesse alla rete virtuale IaaS ospitata. Per permettere ai dipendenti di usare le applicazioni, tali reti private sono connesse alla rete aziendale tramite VPN da sito a sito. Questa soluzione offre un'esperienza ottimale ai dipendenti a livello locale. Può tuttavia non essere ideale per i dipendenti che lavorano in remoto, poiché richiede un'infrastruttura locale aggiuntiva per instradare l'accesso, come illustra il diagramma seguente:
 
 ![Rete IaaS di Azure AD](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
-Questo può diventare un problema perché molte organizzazioni usano più fornitori cloud, dal momento che le applicazioni si trovano in diversi data center. Con i gruppi di connettori del proxy di applicazione di Azure AD, è possibile abilitare un servizio comune per proteggere l'accesso a tutte le applicazioni senza creare una dipendenza aggiuntiva nella rete aziendale:
+Con i gruppi di connettori del proxy di applicazione di Azure AD, è possibile abilitare un servizio comune per proteggere l'accesso a tutte le applicazioni senza creare una dipendenza aggiuntiva nella rete aziendale:
 
 ![Più fornitori cloud IaaS per Azure AD](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 

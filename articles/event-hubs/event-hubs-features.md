@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/17/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: d790eec30b669469a0837ccdc14b771d1953829b
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -54,7 +54,7 @@ Non è necessario creare nomi di autore prima di procedere, ma devono corrispond
 
 ## <a name="capture"></a>Acquisizione
 
-[Acquisizione dell'hub eventi](event-hubs-capture-overview.md) consente di acquisire il flusso di dati nell'hub eventi e di archiviarlo automaticamente in un account di archiviazione Blob di propria scelta. È possibile abilitare la funzione di acquisizione dal portale di Azure e specificare una dimensione minima e l'intervallo di tempo per eseguire l'acquisizione. Acquisizione di Hub eventi consente di specificare l'account di archiviazione BLOB di Azure e il contenitore che vengono usati per salvare i dati acquisiti. I dati acquisiti vengono scritti nel formato di Apache Avro.
+[Acquisizione di Hub eventi](event-hubs-capture-overview.md) consente di acquisire automaticamente i dati in streaming in Hub eventi e salvarli, a propria scelta, in un account di archiviazione BLOB o un account del servizio Azure Data Lake. È possibile abilitare la funzione di acquisizione dal portale di Azure e specificare una dimensione minima e l'intervallo di tempo per eseguire l'acquisizione. Acquisizione di Hub eventi consente di specificare un account di Archiviazione BLOB di Azure e un contenitore oppure un account del servizio Azure Data Lake da usare per archiviare i dati acquisiti. I dati acquisiti vengono scritti nel formato di Apache Avro.
 
 ## <a name="partitions"></a>Partitions
 

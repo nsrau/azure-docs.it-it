@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: carlasab
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8403b5454b387fa7062d188b18cdd595bf24aecd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 68767534298783083a441aa295611914d0df9db0
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Eseguire la migrazione di un database di SQL Server a SQL Server in una macchina virtuale di Azure
@@ -60,7 +60,7 @@ Nella tabella seguente sono elencati tutti i principali metodi di migrazione e v
 | [Esecuzione di un backup nell’URL e ripristino nella macchina virtuale di Azure dall'URL](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 o versione successiva |SQL Server 2012 SP1 CU2 o versione successiva |< 12.8 TB per SQL Server 2016, in caso contrario < 1 TB | Questo è un altro metodo per spostare il file di backup nella macchina virtuale usando l'archiviazione di Azure. |
 | [Scollegamento e successiva copia dei dati e dei file di log sull’archivio BLOB di Azure, quindi collegamento a SQL Server nella macchina virtuale di Azure dall'URL](#detach-and-attach-from-url) |SQL Server 2005 o versione successiva |SQL Server 2014 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Usare questo metodo quando si prevede di [archiviare i file tramite il servizio di archiviazione BLOB di Azure](https://msdn.microsoft.com/library/dn385720.aspx) e di collegarli a SQL Server in esecuzione su una macchina virtuale di Azure, in particolare con database di grandi dimensioni. |
 | [Conversione della macchina locale a dischi rigidi virtuali Hyper-V, caricamento sull'archivio BLOB di Azure e successiva distribuzione di una nuova macchina virtuale tramite il disco rigido virtuale caricato](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 o versione successiva |SQL Server 2005 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Usare per la [propria licenza di SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md), per la migrazione di un database che verrà eseguito su una versione precedente di SQL Server o per la migrazione combinata dei database di sistema e utente nell'ambito della migrazione di database dipendenti da altri database utente e/o di sistema. |
-| [Spedizione del disco rigido tramite il servizio di Importazione/Esportazione di Windows](#ship-hard-drive) |SQL Server 2005 o versione successiva |SQL Server 2005 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Usare il [servizio di importazione/esportazione di Windows](../../../storage/storage-import-export-service.md) quando il metodo della copia manuale è troppo lento, ad esempio con database di grandi dimensioni |
+| [Spedizione del disco rigido tramite il servizio di Importazione/Esportazione di Windows](#ship-hard-drive) |SQL Server 2005 o versione successiva |SQL Server 2005 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Usare il [servizio di importazione/esportazione di Windows](../../../storage/common/storage-import-export-service.md) quando il metodo della copia manuale è troppo lento, ad esempio con database di grandi dimensioni |
 | [Uso della procedura guidata per l'aggiunta della replica di Azure](../classic/sql-onprem-availability.md) |SQL Server 2012 o versione successiva |SQL Server 2012 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Riduce al minimo il tempo di inattività; da usare quando si ha una distribuzione locale di AlwaysOn |
 | [Uso della replica transazionale di SQL Server](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 o versione successiva |SQL Server 2005 o versione successiva |[Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |Da usare quando è necessario ridurre al minimo il tempo di inattività e si ha una distribuzione locale di AlwaysOn |
 
@@ -73,13 +73,13 @@ Eseguire il backup del database con la compressione, copiare il backup nella mac
 4. Copiare i file di backup sulla macchina virtuale utilizzando il desktop remoto, Esplora risorse o il comando di copia da un prompt dei comandi.
 
 ## <a name="backup-to-url-and-restore"></a>Backup nell’URL e ripristino
-Invece di eseguire il backup in un file locale è possibile usare il [backup nell'URL](https://msdn.microsoft.com/library/dn435916.aspx) e quindi eseguire il ripristino dall'URL alla macchina virtuale. Con SQL Server 2016, i set di backup con striping sono supportati, sono consigliati per le prestazioni e necessari per superare i limiti di dimensione per BLOB. Per i database di dimensioni molto grandi è consigliabile usare il [servizio di importazione/esportazione di Windows](../../../storage/storage-import-export-service.md) .
+Invece di eseguire il backup in un file locale è possibile usare il [backup nell'URL](https://msdn.microsoft.com/library/dn435916.aspx) e quindi eseguire il ripristino dall'URL alla macchina virtuale. Con SQL Server 2016, i set di backup con striping sono supportati, sono consigliati per le prestazioni e necessari per superare i limiti di dimensione per BLOB. Per i database di dimensioni molto grandi è consigliabile usare il [servizio di importazione/esportazione di Windows](../../../storage/common/storage-import-export-service.md) .
 
 ## <a name="detach-and-attach-from-url"></a>Rimuovere e allegare dall'URL
 Rimuovere il database e i file di log e trasferirli nell'[archivio BLOB di Azure](https://msdn.microsoft.com/library/dn385720.aspx). Allegare il database dall'URL nella macchina virtuale di Azure. Usare questa opzione se si desidera che i file del database fisico risiedano nell'archivio BLOB. Ciò può risultare utile per i database di dimensioni molto grandi. Per eseguire la migrazione di un database utente tramite il metodo manuale, attenersi ai passaggi generali seguenti:
 
 1. Scollegare i file del database dall'istanza del database locale.
-2. Copiare i file del database scollegati nell'archivio BLOB di Azure usando l' [utilità della riga di comando AZCopy](../../../storage/storage-use-azcopy.md).
+2. Copiare i file del database scollegati nell'archivio BLOB di Azure usando l' [utilità della riga di comando AZCopy](../../../storage/common/storage-use-azcopy.md).
 3. Collegare i file del database dall'URL di Azure all'istanza di SQL Server nella macchina virtuale di Azure.
 
 ## <a name="convert-to-vm-and-upload-to-url-and-deploy-as-new-vm"></a>Conversione alla macchina virtuale, caricamento nell’URL e distribuzione come nuova macchina virtuale
@@ -93,7 +93,7 @@ Utilizzare questo metodo per eseguire la migrazione di tutti i database di siste
 > Per eseguire la migrazione di un'intera applicazione, è consigliabile usare [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md).
 
 ## <a name="ship-hard-drive"></a>Spedizione del disco rigido
-Usare il [metodo del servizio di importazione/esportazione di Windows](../../../storage/storage-import-export-service.md) per trasferire grandi quantità di dati di file sull'archivio BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è possibile. Con questo servizio, è possibile inviare uno o più dischi rigidi contenenti tali dati a un datacenter di Azure, dove i dati verranno caricati sull'account di archiviazione.
+Usare il [metodo del servizio di importazione/esportazione di Windows](../../../storage/common/storage-import-export-service.md) per trasferire grandi quantità di dati di file sull'archivio BLOB di Azure in situazioni in cui il caricamento in rete è eccessivamente costoso o non è possibile. Con questo servizio, è possibile inviare uno o più dischi rigidi contenenti tali dati a un datacenter di Azure, dove i dati verranno caricati sull'account di archiviazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'esecuzione di SQL Server in Macchine virtuali di Azure, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).

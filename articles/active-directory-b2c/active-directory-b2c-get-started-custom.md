@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
+ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
 ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
-ms.openlocfilehash: 3c4c7e78b25bd4210a8909e5582e8a31764f17c2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
 ms.contentlocale: it-it
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introduzione ai criteri personalizzati
@@ -84,8 +84,8 @@ Azure AD B2C richiede di registrare due applicazioni aggiuntive che vengono usat
    * Per **URL di accesso** usare `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, dove `yourtenant` è il nome del dominio del tenant di Azure AD B2C.
 5. Selezionare **Crea**.
 6. Dopo avere completato la creazione, selezionare l'applicazione appena creata **IdentityExperienceFramework**.<br>
-   a. Selezionare **Proprietà**.<br>
-   b. Copiare l'ID dell'applicazione e salvarlo per un uso successivo.
+   * Selezionare **Proprietà**.<br>
+   * Copiare l'ID dell'applicazione e salvarlo per un uso successivo.
 
 ### <a name="create-the-proxyidentityexperienceframework-application"></a>Creare l'applicazione ProxyIdentityExperienceFramework
 
@@ -96,8 +96,8 @@ Azure AD B2C richiede di registrare due applicazioni aggiuntive che vengono usat
    * Per **URI di reindirizzamento** usare `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, dove `yourtenant` è il tenant di Azure AD B2C.
 1. Selezionare **Crea**.
 1. Dopo avere completato la creazione, selezionare l'applicazione **ProxyIdentityExperienceFramework**.<br>
-   a. Selezionare **Proprietà**. <br>
-   b. Copiare l'ID dell'applicazione e salvarlo per un uso successivo.
+   * Selezionare **Proprietà**. <br>
+   * Copiare l'ID dell'applicazione e salvarlo per un uso successivo.
 1. Selezionare **Autorizzazioni necessarie**.
 1. Selezionare **Aggiungi**.
 1. Fare clic su **Selezionare un'API**.
@@ -118,10 +118,10 @@ Ogni pacchetto Starter contiene:
 
 * Il [file base](active-directory-b2c-overview-custom.md#policy-files) dei criteri. Alcune modifiche sono necessarie per la base.
 * Il [file di estensione](active-directory-b2c-overview-custom.md#policy-files) dei criteri.  Questo file è quello in cui viene eseguita la maggior parte delle modifiche di configurazione.
-* [File di relying party](active-directory-b2c-overview-custom.md#policy-files). Si tratta di file specifici delle attività, richiamati dall'applicazione.
+* I [file relying party](active-directory-b2c-overview-custom.md#policy-files) sono file specifici delle attività chiamati dall'applicazione.
 
 >[!NOTE]
->Se l'editor XML supporta la convalida, è possibile convalidare i file rispetto al file dello schema XML TrustFrameworkPolicy_0.3.0.0.xsd che si trova nella directory radice del pacchetto Starter. La convalida dello schema XML identifica gli errori prima del caricamento.
+>Se l'editor XML supporta la convalida, convalidare i file rispetto allo schema XML TrustFrameworkPolicy_0.3.0.0.xsd che si trova nella directory radice del pacchetto Starter. La convalida dello schema XML identifica gli errori prima del caricamento.
 
  Di seguito sono riportati i requisiti iniziali:
 
@@ -144,7 +144,7 @@ Ogni pacchetto Starter contiene:
     PublicPolicyUri="http://yourtenant.onmicrosoft.com">
     ```
    >[!NOTE]
-   >`PolicyId` è il nome dei criteri che verrà visualizzato nel portale e il nome con cui gli altri file dei criteri faranno riferimento a questo.
+   >`PolicyId` è il nome dei criteri visualizzato nel portale e il nome con cui gli altri file dei criteri fanno riferimento ad esso.
 
 5. Salvare il file.
 6. Aprire TrustFrameworkExtensions.xml. Apportare le stesse due modifiche sostituendo `yourtenant.onmicrosoft.com` con il tenant di Azure AD B2C. Eseguire la stessa sostituzione nell'elemento `<TenantId>`, effettuando così in totale di tre modifiche. Salvare il file.
@@ -167,7 +167,7 @@ Aggiungere gli ID applicazione al file di estensione (`TrustFrameworkExtensions.
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e aprire il pannello **Azure AD B2C**.
 2. Fare clic su **Framework dell'esperienza di gestione delle identità**.
-3. Selezionare **Carica il criterio** per caricare i file dei criteri.
+3. Selezionare **Carica criteri**.
 
     >[!WARNING]
     >I file dei criteri personalizzati devono essere caricati nell'ordine seguente:

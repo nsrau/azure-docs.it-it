@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 08/25/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: be44db002fc2491be9fc4428c6429ef8b4036147
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: df6e4bba9290c6129c9cba1440bb0c903aacc3c8
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
@@ -34,7 +33,16 @@ Il database SQL prevede queste opzioni per il ripristino del database mediante [
 > Non è possibile sovrascrivere un database esistente durante il ripristino.
 >
 
-I [backup automatici del database](sql-database-automated-backups.md) possono anche essere usati per creare una [copia del database](sql-database-copy.md) in qualsiasi server logico di qualsiasi area. 
+Un database ripristinato comporta un costo di archiviazione aggiuntivo nei segeunti casi: 
+- Ripristino di P11 – P15 in S4 S12 o P1 – P6 se le dimensioni massime del database sono maggiori di 500 GB.
+- Ripristino di P1–P6 o PRS1–PRS6 in S4-S12 se le dimensioni massime del database sono maggiori di 250 GB.
+
+Viene addebitato un costo aggiuntivo perché la dimensione massima del database ripristinato è superiore alla dimensione di archiviazione inclusa per il livello di prestazioni; vengono applicati costi aggiuntivi per l'archiviazione aggiuntiva di cui viene eseguito il provisioning che supera la dimensione inclusa.  Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se la quantità effettiva di spazio usato è inferiore alla quantità inclusa di risorse di archiviazione, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino alla quantità inclusa. Per altre informazioni sulle dimensioni di archiviazione del database e la modifica delle dimensioni massime del database, vedere [limiti delle risorse per il database singolo](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+
+> [!NOTE]
+> [I backup di database automatici](sql-database-automated-backups.md) vengono usati quando si crea un [copia del database](sql-database-copy.md). 
+>
+
 
 ## <a name="recovery-time"></a>Tempo di ripristino
 Il tempo di ripristino di un database tramite i backup automatici del database dipende da numerosi fattori: 
@@ -96,7 +104,7 @@ Per ripristinare un database eliminato durante il [periodo di conservazione](sql
 ![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
 ## <a name="geo-restore"></a>Ripristino geografico
-Il ripristino geografico consente di ripristinare un database SQL presente su un server in qualsiasi area di Azure usando gli ultimi backup completi e differenziali con replica geografica. il ripristino geografico usa un backup con ridondanza geografica come origine e può essere usato per ripristinare un database anche se il database o il data center è inaccessibile a causa di un'interruzione del servizio. 
+Il ripristino geografico consente di ripristinare un database SQL presente su un server in qualsiasi area di Azure usando gli ultimi backup completi e differenziali con replica geografica. Il ripristino geografico usa un backup con ridondanza geografica come origine e può essere usato per ripristinare un database anche se il database o il data center è inaccessibile a causa di un'interruzione del servizio. 
 
 Il ripristino geografico è l'opzione di ripristino predefinita quando il database non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se si verifica un evento imprevisto su larga scala che determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un database dai backup con replica geografica in un server in un'altra area. Esiste un ritardo tra il momento in cui un backup differenziale viene creato e quando ne viene eseguita la replica geografica in un BLOB di Azure in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati. La figura seguente mostra il ripristino del database dall'ultimo backup disponibile in un'altra area.
 
@@ -106,7 +114,7 @@ Il ripristino geografico è l'opzione di ripristino predefinita quando il databa
 > Per uno script di PowerShell di esempio che illustra come eseguire un ripristino geografico, vedere [Ripristinare un database SQL tramite PowerShell](scripts/sql-database-restore-database-powershell.md).
 > 
 
-Per informazioni dettagliate sull'uso del ripristino geografico in caso di un'interruzione del servizio, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
+Il ripristino temporizzato in un database di replica geografica secondaria non è attualmente supportato. Il ripristino temporizzato può essere eseguito solo in un database primario. Per informazioni dettagliate sull'uso del ripristino geografico in caso di un'interruzione del servizio, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
 > Il ripristino da backup è la più semplice delle soluzioni di ripristino di emergenza disponibili nel database SQL con il massimo valore per RPO e tempo di recupero stimato. Per soluzioni che usano i database Basic, il ripristino geografico è spesso una soluzione ragionevole di ripristino di emergenza con un ERT di 12 ore. Per soluzioni che usano i database Standard o Premium di dimensioni maggiori, che richiedono tempi di ripristino inferiori, è consigliabile usare la [replica geografica attiva](sql-database-geo-replication-overview.md). La replica geografica attiva offre un obiettivo del punto di ripristino e un tempo di recupero stimato decisamente inferiori perché richiede solo l'avvio di un failover in un database secondario con replica continua. Per altre informazioni sulle opzioni di continuità aziendale, vedere [Overview of business continuity](sql-database-business-continuity.md) (Panoramica sulla continuità aziendale).

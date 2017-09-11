@@ -4,7 +4,7 @@ description: "Informazioni sulla scalabilità di Funzioni di Azure per soddisfar
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
@@ -15,14 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 5131a432a5de26ed1fc82005446d101d3094ef8b
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-functions-consumption-and-app-service-plans"></a>Piani a consumo e piani di servizio app di Funzioni di Azure 
@@ -61,9 +60,10 @@ Nel piano di servizio app, le app per le funzioni vengono eseguite in macchine v
 
 Prendere in considerazione un piano di servizio app nei casi seguenti:
 - Sono presenti macchine virtuali sottoutilizzate, che eseguono già altre istanze del servizio app.
-- Si prevede che le app per le funzioni vengano eseguite in modo continuo o quasi continuo.
+- Si prevede che le app per le funzioni vengano eseguite in modo continuo o quasi continuo. In questo caso, un piano di servizio app può essere più conveniente.
 - Sono necessarie altre opzioni per CPU o memoria, rispetto alle opzioni disponibili nel piano a consumo.
 - È necessario un tempo di esecuzione superiore al tempo di esecuzione massimo consentito nel piano a consumo.
+- Sono necessarie funzionalità disponibili solo in un piano di servizio app, ad esempio il supporto per Ambiente del servizio app, la connettività di rete virtuale/VPN e dimensioni maggiori delle macchine virtuali. 
 
 Una macchina virtuale separa il costo per tempo di esecuzione e dimensioni della memoria. Non si pagherà quindi più del costo dell'istanza di macchina virtuale allocata. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
@@ -81,7 +81,7 @@ L'opzione Sempre online è disponibile solo nel piano di servizio app. In un pia
 
 In un piano a consumo o un piano di servizio app è necessario che un'app per le funzioni abbia un account di archiviazione di Azure che supporta l'archivio BLOB, code e tabelle. Funzioni di Azure usa internamente Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione non supportano code e tabelle, ad esempio gli account di archiviazione solo BLOB (tra cui Archiviazione Premium) e gli account di archiviazione di uso generico con replica archiviazione con ridondanza della zona. Tali account vengono filtrati dal pannello **Account di archiviazione** quando si crea un'app per le funzioni.
 
-Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi di archiviazione di Azure](../storage/storage-introduction.md#introducing-the-azure-storage-services).
+Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi di archiviazione di Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Funzionamento del piano a consumo
 
@@ -91,7 +91,7 @@ Quando si usa un piano di hosting a consumo, i file di codice delle funzioni ven
 
 > [!NOTE]
 > Quando si usa un trigger di tipo BLOB in un piano a consumo, può verificarsi un ritardo massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo iniziale, prendere in considerazione una delle opzioni seguenti:
-> - Usare un piano di servizio app con l'opzione Sempre online abilitata.
+> - Usare un piano di servizio app con l'opzione Always On abilitata.
 > - Usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio della coda che contiene il nome del BLOB. Per un esempio, vedere il [trigger della coda con binding di input del BLOB](functions-bindings-storage-blob.md#input-sample).
 
 ### <a name="runtime-scaling"></a>Ridimensionamento in fase di runtime

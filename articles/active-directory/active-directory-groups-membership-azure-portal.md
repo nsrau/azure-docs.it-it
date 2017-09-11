@@ -1,5 +1,4 @@
 ---
-
 title: Gestire i gruppi appartenenti a un gruppo in Azure Active Directory | Microsoft Docs
 description: I gruppi possono contenere altri gruppi in Azure Active Directory. Di seguito viene illustrato come gestire queste appartenenze.
 services: active-directory
@@ -13,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: b6227d86bf5d52316334a0b7ecf975aadf2ba635
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Gestire i gruppi a cui appartiene il proprio gruppo nel tenant di Azure Active Directory
 I gruppi possono contenere altri gruppi in Azure Active Directory. Di seguito viene illustrato come gestire queste appartenenze.
 
-## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Come è possibile trovare i gruppi di cui il gruppo dell'utente è un membro?
+## <a name="how-do-i-find-the-groups-of-which-my-group-is-a-member"></a>Come è possibile trovare i gruppi di cui il gruppo dell'utente è un membro?
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
 

@@ -21,6 +21,8 @@
           href: container-instances-tutorial-deploy-app.md
 - name: Concetti
   items:
+    - name: Aree e disponibilità
+      href: container-instances-region-availability.md
     - name: Relazione con agenti di orchestrazione
       href: container-instances-orchestrator-relationship.md
     - name: Gruppi di contenitori

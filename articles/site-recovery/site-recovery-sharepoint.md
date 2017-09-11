@@ -1,6 +1,6 @@
 ---
-title: Eseguire la replica di un&quot;applicazione di SharePoint multilivello con Azure Site Recovery | Microsoft Docs
-description: "Questo articolo descrive come eseguire la replica di un&quot;applicazione di SharePoint multilivello usando le funzionalità di Azure Site Recovery."
+title: Eseguire la replica di un'applicazione di SharePoint multilivello con Azure Site Recovery | Microsoft Docs
+description: "Questo articolo descrive come eseguire la replica di un'applicazione di SharePoint multilivello usando le funzionalità di Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/31/2017
 ms.author: sutalasi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 75f00cd18f49d72288d65058a4d8d9c5ace19927
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione di SharePoint multilivello per il ripristino di emergenza con Azure Site Recovery

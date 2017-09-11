@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 8ac757a84a932c434b508aa33c343c866a40bf02
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -500,7 +500,7 @@ Al momento di decidere le dimensioni della macchina virtuale, è necessario cons
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Aggiungere un disco dati alla VM
 
-Le macchine virtuali possono disporre di uno o più [dischi dati](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) archiviati in dischi rigidi virtuali.
+Le macchine virtuali possono disporre di uno o più [dischi dati](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) archiviati in dischi rigidi virtuali.
 
 1. Per aggiungere un disco dati alla macchina virtuale, aggiungere questa funzione dopo le variabili nel file con estensione py: 
 

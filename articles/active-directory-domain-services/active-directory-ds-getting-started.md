@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Introduzione | Microsoft Docs'
-description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure (Anteprima)
+description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure (anteprima)
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 128e70e4abc68ed8c9589dd08a9aec3a52fa49be
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: d2d570bc2bab3bfd28282cd95b0a1be65e96743d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure (Anteprima)
 Questo articolo illustra come abilitare Azure Active Directory Domain Services (Azure AD DS) tramite il portale di Azure.
-
 
 Per avviare la procedura guidata **Abilita Azure AD Domain Services**, seguire questa procedura:
 
@@ -64,13 +63,15 @@ Nella pagina **Informazioni di base** della procedura guidata è possibile speci
 
    * Esiste un servizio cloud con lo stesso nome della rete virtuale.
 
-3. Selezionare la **Sottoscrizione** di Azure in cui si vuole creare il dominio gestito.
+3. Scegliere il **tipo di rete virtuale**. Per impostazione predefinita, viene selezionato il tipo di rete virtuale **Resource Manager**. È consigliabile usare questo tipo di rete virtuale per tutti i nuovi domini gestiti creati.
 
-4. Selezionare il **Gruppo di risorse** a cui deve appartenere il dominio gestito. Quando si seleziona il gruppo di risorse, è possibile scegliere tra le opzioni **Crea nuovo** e **Usa esistente**.
+4. Selezionare la **Sottoscrizione** di Azure in cui si vuole creare il dominio gestito.
 
-5. Scegliere la **Località** di Azure in cui deve essere creato il dominio gestito. Nella pagina **Rete** della procedura guidata vengono visualizzate solo le reti virtuali appartenenti alla località selezionata.
+5. Selezionare il **Gruppo di risorse** a cui deve appartenere il dominio gestito. Quando si seleziona il gruppo di risorse, è possibile scegliere tra le opzioni **Crea nuovo** e **Usa esistente**.
 
-6. Al termine, fare clic su **OK** per passare alla pagina **Rete** della procedura guidata.
+6. Scegliere la **Località** di Azure in cui deve essere creato il dominio gestito. Nella pagina **Rete** della procedura guidata vengono visualizzate solo le reti virtuali appartenenti alla località selezionata.
+
+7. Al termine, fare clic su **OK** per passare alla pagina **Rete** della procedura guidata.
 
 
 ## <a name="next-step"></a>Passaggio successivo

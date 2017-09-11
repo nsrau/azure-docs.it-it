@@ -1,6 +1,6 @@
 ---
 title: Concetti per sviluppatori di Data Catalog | Microsoft Docs
-description: Introduzione ai concetti chiave nel modello concettuale del Catalogo dati di Azure, come esposto tramite l&quot;API REST del Catalogo.
+description: Introduzione ai concetti chiave nel modello concettuale del Catalogo dati di Azure, come esposto tramite l'API REST del Catalogo.
 services: data-catalog
 documentationcenter: 
 author: spelluru
@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/03/2017
+ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 361ad3a669370419e1080d3e4b3fc646f7a0a958
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: f48eb610b47820e6d7438520a00a5e6dfe879e01
 ms.contentlocale: it-it
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori del Catalogo dati di Azure

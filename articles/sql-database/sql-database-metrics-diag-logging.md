@@ -1,6 +1,6 @@
 ---
 title: Metriche del database SQL di Azure e registrazione diagnostica | Microsoft Docs
-description: "Informazioni sulla configurazione del database SQL di Azure per archiviare le statistiche sull&quot;utilizzo delle risorse, la connettività e l&quot;esecuzione delle query."
+description: "Informazioni sulla configurazione del database SQL di Azure per archiviare le statistiche sull'utilizzo delle risorse, la connettività e l'esecuzione delle query."
 services: sql-database
 documentationcenter: 
 author: vvasic
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: vvasic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 71c286061e214898a7f10fa8dfd6c6d86af8db39
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bf41aa530c68ea0e94a09d1dab63237c6f42bce7
 ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica 
@@ -223,7 +222,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="download-metrics-and-logs-from-azure-storage"></a>Scaricare le metriche e i log da Archiviazione di Azure
 
-Vedere [Scaricare le metriche e i log di diagnostica da Archiviazione di Azure](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
+Vedere [Scaricare le metriche e i log di diagnostica da Archiviazione di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
 
 ## <a name="1-minute-metrics"></a>metriche 1 minuto
 
@@ -240,5 +239,5 @@ Vedere [Scaricare le metriche e i log di diagnostica da Archiviazione di Azure](
 - Per informazioni sugli hub eventi, leggere gli articoli seguenti:
    - [Cosa sono gli hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md)?
    - [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-- Vedere [Scaricare le metriche e i log di diagnostica da Archiviazione di Azure](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
+- Vedere [Scaricare le metriche e i log di diagnostica da Archiviazione di Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
 

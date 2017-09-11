@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 475c878e34a83d06cffca5e114ccd920c7956256
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 565091e24a8c0009793e2e2365fb95013cad5028
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
@@ -46,7 +46,7 @@ In questa procedura dettagliata si eseguiranno i passaggi seguenti:
 Prima di iniziare questa procedura dettagliata, sono necessari i prerequisiti seguenti:
 
 * **Sottoscrizione di Azure**.  Se non è disponibile una sottoscrizione, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere l'articolo [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) .
-* **Account di archiviazione di Azure**. In questa esercitazione l'archiviazione BLOB viene usata come archivio dati di **destinazione/sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
+* **Account di archiviazione di Azure**. In questa esercitazione l'archiviazione BLOB viene usata come archivio dati di **destinazione/sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
 * **SQL Server**. Usare un database di SQL Server locale come archivio dati di **origine** in questa esercitazione. 
 
 ## <a name="create-data-factory"></a>Creare un'istanza di Data Factory

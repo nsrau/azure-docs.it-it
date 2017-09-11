@@ -15,10 +15,10 @@ ms.custom: tables
 ms.date: 07/14/2017
 ms.author: rortloff;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: efb5361496a2199a960564f6213f509b693e3cfa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 437a4f628a343312984d1fa2981df7fa01459e26
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -130,11 +130,11 @@ WHERE d.FiscalYear = 2004
 ```
 `DimDate` e `DimSalesTerritory` sono state ricreate come tabelle round robin. Di conseguenza, la query ha mostrato il piano di query seguente, che prevede più operazioni di spostamento di trasmissione: 
  
-![Piano di query di tabelle round robin](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "Piano di query di tabelle round robin") 
+![Piano di query round robin](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 `DimDate` e `DimSalesTerritory` sono state ricreate come tabelle replicate e su di esse è stata eseguita una query. Il piano di query risultante è molto più breve e non include spostamenti di trasmissione.
 
-![Piano di query di tabelle replicate](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "Piano di query di tabelle replicate") 
+![Piano di query di tabelle replicate](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considerazioni sulle prestazioni per la modifica di tabelle replicate
