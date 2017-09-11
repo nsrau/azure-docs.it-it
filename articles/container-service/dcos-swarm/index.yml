@@ -59,4 +59,4 @@ sections:
           - title: Riga di comando
             html: <p><a href="/cli/azure/acs">Interfaccia della riga di comando di Azure</a></p>
           - title: REST
-            html: <p><a href="/rest/api/compute/containerservices">API REST</a></p>
+            html: <p><a href="/rest/api/container-services">API REST</a></p>
