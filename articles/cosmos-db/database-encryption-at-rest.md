@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Crittografia di database inattivi: Azure Cosmos DB | Microsoft Docs'
 description: Informazioni sulla crittografia predefinita per tutti i dati offerta da Azure Cosmos DB.
 services: cosmos-db
