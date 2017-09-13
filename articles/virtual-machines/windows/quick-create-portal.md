@@ -17,10 +17,10 @@ ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -48,11 +48,11 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
     ![Screenshot che mostra le dimensioni delle VM](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. Nel pannello delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
+5. In **Impostazioni** mantenere le impostazioni predefinite e fare clic su **OK**. 
 
 6. Nella pagina del riepilogo fare clic su **OK** per avviare la distribuzione della macchina virtuale.
 
-7. La macchina virtuale verrà aggiunta al dashboard del portale di Azure. Una volta completata la distribuzione verrà automaticamente aperto il pannello di riepilogo della macchina virtuale.
+7. La macchina virtuale verrà aggiunta al dashboard del portale di Azure. Una volta completata la distribuzione verrà automaticamente aperto il riepilogo della macchina virtuale.
 
 
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
@@ -94,13 +94,13 @@ Un gruppo di sicurezza di rete (NSG) consente il traffico in ingresso e in uscit
 
 ## <a name="view-the-iis-welcome-page"></a>Visualizzare la pagina iniziale di IIS
 
-Con IIS installato e la porta 80 aperta per la macchina virtuale, è ora possibile accedere al server Web da Internet. Aprire un Web browser e immettere l'indirizzo IP pubblico della VM. L'indirizzo IP pubblico è indicato nel pannello della macchina virtuale nel portale di Azure.
+Con IIS installato e la porta 80 aperta per la macchina virtuale, è ora possibile accedere al server Web da Internet. Aprire un Web browser e immettere l'indirizzo IP pubblico della VM. L'indirizzo IP pubblico è indicato in *Macchine virtuali* nel portale di Azure.
 
 ![Sito IIS predefinito](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non serve più, eliminare il gruppo di risorse e tutte le risorse correlate. A tale scopo selezionare il gruppo di risorse nel pannello della macchina virtuale e fare clic su **Elimina**.
+Quando non serve più, eliminare il gruppo di risorse e tutte le risorse correlate. A tale scopo selezionare il gruppo di risorse per la macchina virtuale e fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,6 +14,7 @@ Per creare uno spazio dei nomi:
 8. Fare clic su **Crea**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 ### <a name="obtain-the-management-credentials"></a>Ottenere le credenziali di gestione
+Con la creazione di un nuovo spazio dei nomi verrà generata automaticamente una regola di firma di accesso condiviso iniziale con una coppia di chiavi primaria e secondaria associata che concede il controllo completo di tutti gli aspetti dello spazio dei nomi. Vedere [Autenticazione e autorizzazione del bus di servizio](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) per informazioni su come creare altre regole con diritti più limitati per mittenti e destinatari normali. Per copiare la regola iniziale seguire questa procedura: 
 
 1. Nell'elenco degli spazi dei nomi fare clic sul nome dello spazio dei nomi appena creato.
 2. Nel pannello dello spazio dei nomi fare clic su **Criteri di accesso condivisi**.

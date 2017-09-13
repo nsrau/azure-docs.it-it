@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="service-bus-architecture"></a>Architettura del bus di servizio
@@ -35,7 +35,7 @@ Uno spazio dei nomi del bus di servizio è mappato a un'unità di scala. L'unit�
 * **Più archivi di messaggistica.** Gli archivi di messaggistica contengono i messaggi di tutte le code, gli argomenti e le sottoscrizioni definiti nell'unità di scala. Contiene anche tutti i dati di sottoscrizione. A meno che non sia abilitato il [partizionamento delle entità di messaggistica](service-bus-partitioning.md), per una coda o un argomento viene eseguito il mapping a un archivio di messaggistica. Le sottoscrizioni vengono archiviate nello stesso archivio di messaggistica del relativo argomento padre. A eccezione del [livello di messaggistica Premium](service-bus-premium-messaging.md)del bus di servizio, gli archivi di messaggistica vengono implementati nei database SQL Azure.
 
 ## <a name="containers"></a>Contenitori
-A ciascuna entità di messaggistica viene assegnato un contenitore specifico. Un contenitore è un costrutto logico che utilizza esattamente un archivio di messaggistica per archiviare tutti i dati pertinenti per questo contenitore. Ciascun contenitore viene assegnato a un nodo del broker di messaggistica. In genere, esistono più contenitori che nodi del broker di messaggistica. Pertanto, ogni nodo del broker di messaggistica carica più contenitori. La distribuzione dei contenitori in un nodo del broker di messaggistica è organizzata in modo che tutti i nodi del broker di messaggistica vengano caricati in modo uniforme. Se il modello di caricamento viene modificato (ad esempio, uno dei contenitori diventa troppo occupato) o se un nodo del broker di messaggistica diventa temporaneamente non disponibile, i contenitori vengono ridistribuiti tra i nodi dei broker di messaggistica.
+A ciascuna entità di messaggistica viene assegnato un contenitore specifico. Un contenitore è un costrutto logico che usa un archivio di messaggistica per archiviare tutti i dati pertinenti per questo contenitore. Ciascun contenitore viene assegnato a un nodo del broker di messaggistica. In genere, esistono più contenitori che nodi del broker di messaggistica. Pertanto, ogni nodo del broker di messaggistica carica più contenitori. La distribuzione dei contenitori in un nodo del broker di messaggistica è organizzata in modo che tutti i nodi del broker di messaggistica vengano caricati in modo uniforme. Se il modello di caricamento viene modificato (ad esempio, uno dei contenitori diventa troppo occupato) o se un nodo del broker di messaggistica diventa temporaneamente non disponibile, i contenitori vengono ridistribuiti tra i nodi dei broker di messaggistica.
 
 ## <a name="processing-of-incoming-messaging-requests"></a>Elaborazione delle richieste di messaggistica in ingresso
 Quando un client invia una richiesta al bus di servizio, il servizio di bilanciamento del carico di Azure instrada la richiesta ai nodi del gateway. Il nodo del gateway autorizza la richiesta. Se la richiesta riguarda un'entità di messaggistica (coda, argomento, sottoscrizione), il nodo del gateway ricerca l'entità nell'archivio del gateway e determina in quale archivio di messaggistica si trova l'entità. Cerca quindi il nodo del broker di messaggistica che sta attualmente utilizzando questo contenitore e invia la richiesta a quel nodo del broker di messaggistica. Il nodo del broker di messaggistica elabora la richiesta e aggiorna lo stato dell'entità nell'archivio del contenitore. Il nodo del broker di messaggistica invia quindi la risposta al nodo del gateway, che invia una risposta appropriata al client che ha emesso la richiesta originale.

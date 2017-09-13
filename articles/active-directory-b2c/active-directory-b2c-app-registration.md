@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: registrare l'applicazione
@@ -31,6 +31,8 @@ Per compilare un'applicazione che accetta l'iscrizione e l'accesso dell'utente, 
 
 Le applicazioni create dal pannello Azure AD B2C nel portale di Azure devono essere gestite dalla stessa posizione. Le applicazioni B2C, se vengono modificate usando PowerShell o un altro portale, non sono più supportate e non funzionano con Azure AD B2C. Per altri dettagli, vedere la sezione [App con errori](#faulted-apps). 
 
+Questo articolo usa esempi utili per le operazioni preliminari con gli esempi. Per altre informazioni sugli esempi, vedere gli articoli successivi.
+
 ## <a name="navigate-to-b2c-settings"></a>Passare alle impostazioni di B2C
 
 Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di B2C. 
@@ -39,13 +41,13 @@ Accedere al [portale di Azure](https://portal.azure.com/) come amministratore gl
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Scegliere i passaggi successivi in base al tipo di applicazione da registrare:
+## <a name="choose-next-steps-based-on-your-application-type"></a>Scegliere i passaggi successivi in base al tipo di applicazione
 
 * [Registrare un'applicazione Web](#register-a-web-app)
 * [Registrare un'API Web](#register-a-web-api).
 * [Registrare un'applicazione per dispositivi mobili o nativa](#register-a-mobile-or-native-app)
  
-## <a name="register-a-web-app"></a>Registrare un'app Web
+### <a name="register-a-web-app"></a>Registrare un'app Web
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -59,7 +61,7 @@ Se l'applicazione Web chiama un'API Web protetta da Azure AD B2C, seguire questa
 
 [Andare a **Passaggi successivi**](#next-steps)
 
-## <a name="register-a-web-api"></a>Registrare un'API Web
+### <a name="register-a-web-api"></a>Registrare un'API Web
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -67,7 +69,7 @@ Fare clic su **Ambiti pubblicati** per aggiungere altri ambiti in base alla nece
 
 [Andare a **Passaggi successivi**](#next-steps)
 
-## <a name="register-a-mobile-or-native-app"></a>Registrare un'app per dispositivi mobili o nativa
+### <a name="register-a-mobile-or-native-app"></a>Registrare un'app per dispositivi mobili o nativa
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 

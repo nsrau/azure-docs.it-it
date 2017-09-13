@@ -13,20 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
-<a id="what-are-virtual-machine-scale-sets-in-azure" class="xliff"></a>
-
-# Informazioni sui set di scalabilità di macchine virtuali in Azure
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Informazioni sui set di scalabilità di macchine virtuali in Azure
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di VM identiche. Dato che tutte le VM hanno la stessa configurazione, i set di scalabilità sono progettati per supportare l'effettiva scalabilità automatica, senza che sia necessario il provisioning preventivo delle VM. Ciò semplifica la creazione di servizi su larga scala destinati a carichi di lavoro Big Compute, Big Data e in contenitori.
 
 Per le applicazioni che richiedono la scalabilità (aumento e riduzione di istanze e capacità) delle risorse di calcolo, le operazioni di ridimensionamento vengono bilanciate in modo implicito tra domini di errore e domini di aggiornamento. Per un'introduzione aggiuntiva ai set di scalabilità, vedere l'[annuncio nel blog di Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -36,9 +33,7 @@ Per altre informazioni sui set di scalabilità, guardare questi video:
 * [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) (Mark Russinovich illustra i set di scalabilità di Azure)  
 * [Set di scalabilità di macchine virtuali con Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-<a id="creating-and-managing-scale-sets" class="xliff"></a>
-
-## Creazione e gestione dei set di scalabilità
+## <a name="creating-and-managing-scale-sets"></a>Creazione e gestione dei set di scalabilità
 È possibile creare un set di scalabilità nel [portale di Azure](https://portal.azure.com) selezionando **Nuovo** e digitando **scalabilità** nella barra di ricerca. Nei risultati verrà visualizzato **Set di scalabilità di macchine virtuali**. A questo punto è possibile compilare i campi obbligatori per personalizzare e distribuire il set di scalabilità. Nel portale sono disponibili anche opzioni per impostare regole di base di scalabilità automatica in base all'utilizzo della CPU.
 
 I set di scalabilità possono essere definiti e distribuiti con modelli JSON e [API REST](https://msdn.microsoft.com/library/mt589023.aspx), esattamente come le singole VM di Azure Resource Manager. È quindi possibile usare qualsiasi metodo di distribuzione Azure Resource Manager standard. Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
@@ -47,9 +42,7 @@ Un set di modelli di esempio per i set di scalabilità di macchine virtuali è d
 
 Per gli esempi di modelli di avvio rapido, un pulsante "Distribuisci in Azure" nel file Leggimi di ogni modello consente di accedere alla funzionalità di distribuzione del portale. Per distribuire il set di scalabilità, fare clic sul pulsante e quindi immettere tutti i parametri richiesti nel portale. 
 
-<a id="scaling-a-scale-set-out-and-in" class="xliff"></a>
-
-## Aumento e riduzione delle istanze di un set di scalabilità
+## <a name="scaling-a-scale-set-out-and-in"></a>Aumento e riduzione delle istanze di un set di scalabilità
 È possibile modificare la capacità di un set di scalabilità nel portale di Azure facendo clic sulla sezione **Ridimensionamento** in **Impostazioni**. 
 
 Per modificare la capacità del set di scalabilità dalla riga di comando, usare il comando **scale** nell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-cli). Per impostare un set di scalabilità su una capacità di 10 VM, ad esempio, usare questo comando:
@@ -70,9 +63,7 @@ Per aumentare o ridurre il numero di macchine virtuali in un set di scalabilità
 
 Se si ridistribuisce un modello di Azure Resource Manager per modificare la capacità, è possibile definire un modello molto più piccolo che include solo il pacchetto di proprietà **SKU** con la capacità aggiornata. Per un esempio, vedere [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-<a id="autoscale" class="xliff"></a>
-
-## Autoscale
+## <a name="autoscale"></a>Autoscale
 
 Un set di scalabilità può essere facoltativamente configurato con impostazioni di scalabilità automatica quando viene creato nel portale di Azure. Il numero di VM può quindi essere aumentato o ridotto in base all'utilizzo medio della CPU. 
 
@@ -93,18 +84,14 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 
 Un elenco delle metriche valide su cui basare la scalabilità è disponibile in [Metriche supportate con il monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md), sotto il titolo "Microsoft.Compute/virtualMachineScaleSets". Sono disponibili anche opzioni di scalabilità automatica più avanzate, che includono la scalabilità automatica in base alla pianificazione e l'uso di webhook per l'integrazione con sistemi di avvisi.
 
-<a id="monitoring-your-scale-set" class="xliff"></a>
-
-## Monitoraggio del set di scalabilità
+## <a name="monitoring-your-scale-set"></a>Monitoraggio del set di scalabilità
 Il [portale di Azure](https://portal.azure.com) visualizza un elenco dei set di scalabilità e le relative proprietà. Il portale supporta anche operazioni di gestione, che possono essere eseguite sia sui set di scalabilità che sulle singole VM all'interno di un set, e offre un grafico dell'utilizzo delle risorse personalizzabile. 
 
 Se è necessario visualizzare o modificare la definizione JSON sottostante di una risorsa di Azure, è possibile usare anche [Esplora risorse di Azure](https://resources.azure.com). I set di scalabilità sono una risorsa del provider di risorse di Azure Microsoft.Compute e possono essere visualizzati da questo sito espandendo i collegamenti seguenti:
 
 **Sottoscrizioni** > **sottoscrizione dell'utente** > **Gruppi di risorse** > **Provider** > **Microsoft.Compute** > **virtualMachineScaleSets** > **set di scalabilità dell'utente** > e così via
 
-<a id="scale-set-scenarios" class="xliff"></a>
-
-## Scenari dei set di scalabilità
+## <a name="scale-set-scenarios"></a>Scenari dei set di scalabilità
 Questa sezione contiene un elenco di alcuni scenari tipici dei set di scalabilità. Questi scenari vengono usati anche da alcuni servizi di Azure di livello superiore, come Batch, Service Fabric e Servizio contenitore.
 
 * **Connessione a istanze del set di scalabilità con RDP o SSH**: un set di scalabilità viene creato in una rete virtuale e alle singole VM del set non vengono allocati indirizzi IP pubblici per impostazione predefinita. Questo criterio evita le spese e il sovraccarico di gestione associati all'allocazione di indirizzi IP pubblici distinti a tutti i nodi della griglia di calcolo. Se sono necessarie connessioni esterne dirette alle VM del set di scalabilità è possibile configurare un set di scalabilità per l'assegnazione automatica di indirizzi IP pubblici a nuove VM. In alternativa è possibile connettersi a queste VM da altre risorse della rete virtuale alle quali è possibile allocare indirizzi IP pubblici, ad esempio servizi di bilanciamento del carico e macchine virtuali autonome. 
@@ -134,20 +121,16 @@ Questa sezione contiene un elenco di alcuni scenari tipici dei set di scalabilit
   
    In [questo esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) di questo approccio, [Servizio contenitore di Azure](https://azure.microsoft.com/services/container-service/) distribuisce un cluster basato su set di scalabilità con un agente di orchestrazione contenitore.
 
-<a id="scale-set-performance-and-scale-guidance" class="xliff"></a>
-
-## Indicazioni sulla scalabilità e le prestazioni dei set di scalabilità
-* In un set di scalabilità sono supportate fino a 1.000 VM. Se si creano e si caricano immagini di VM personalizzate, il limite è 100. Per le considerazioni da tenere presenti per usare set di scalabilità di grandi dimensioni, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md).
+## <a name="scale-set-performance-and-scale-guidance"></a>Indicazioni sulla scalabilità e le prestazioni dei set di scalabilità
+* In un set di scalabilità sono supportate fino a 1.000 VM. Se si creano e si caricano immagini di VM personalizzate, il limite è 300. Per le considerazioni da tenere presenti per usare set di scalabilità di grandi dimensioni, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md).
 * Non è necessario creare in precedenza account di archiviazione di Azure per usare i set di scalabilità. I set di scalabilità supportano Azure Managed Disks, che evita i problemi di prestazioni associati al numero di dischi per account di archiviazione. Per altre informazioni, vedere [Set di scalabilità di macchine virtuali di Azure e dischi gestiti](virtual-machine-scale-sets-managed-disks.md).
 * Per tempi di provisioning delle VM più rapidi e prevedibili e prestazioni di I/O migliori, valutare la possibilità di usare Archiviazione Premium di Azure invece di Archiviazione di Azure.
 * Il numero di VM che è possibile creare è limitato dalla quota di core nell'area in cui si esegue la distribuzione. Potrebbe essere necessario contattare l'assistenza clienti per richiedere l'aumento del limite della quota di calcolo anche se l'attuale limite di core da usare con Servizi cloud di Azure è elevato. Per informazioni sulla quota, eseguire il comando `azure vm list-usage` dell'interfaccia della riga di comando di Azure. In alternativa, eseguire il comando `Get-AzureRmVMUsage` di PowerShell.
 
-<a id="frequently-asked-questions-for-scale-sets" class="xliff"></a>
-
-## Domande frequenti sui set di scalabilità
+## <a name="frequently-asked-questions-for-scale-sets"></a>Domande frequenti sui set di scalabilità
 **D.** Quante VM si possono includere in un set di scalabilità?
 
-**R.** Un set di scalabilità può includere da 0 a 1.000 VM basate su immagini della piattaforma oppure da 0 a 100 VM basate su immagini personalizzate. 
+**R.** Un set di scalabilità può includere da 0 a 1.000 VM basate su immagini della piattaforma oppure da 0 a 300 VM basate su immagini personalizzate. 
 
 **D.** I dischi dati sono supportati nei set di scalabilità?
 

@@ -37,6 +37,7 @@
 ### [App che usano le code](service-bus-create-queues.md)
 ### [App che usano argomenti/sottoscrizioni](service-bus-create-topics-subscriptions.md)
 ### [Autenticazione e autorizzazione](service-bus-authentication-and-authorization.md)
+#### [Eseguire la migrazione da Servizio di controllo di accesso a firma di accesso condiviso](service-bus-migrate-acs-sas.md)
 #### [Autenticazione con firme di accesso condiviso](service-bus-sas.md)
 ### [Code e argomenti partizionati](service-bus-partitioning.md)
 ### [Code di messaggi non recapitabili](service-bus-dead-letter-queues.md)

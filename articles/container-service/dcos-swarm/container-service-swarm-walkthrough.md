@@ -76,7 +76,7 @@ Nel corso di questa guida introduttiva è necessario l'indirizzo IP sia del mast
 
 
 ```bash
-az network public-ip list --resource-group myResourceGroup --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+az network public-ip list --resource-group myResourceGroup --query "[*].{Name:name,IPAddress:ipAddress}" -o table
 ```
 
 Output:

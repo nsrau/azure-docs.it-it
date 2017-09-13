@@ -5,9 +5,9 @@ Creare un hub IoT per connettere l'app per dispositivo simulato. La procedura se
 1. Nell'indice fare clic su **Nuovo** > **Internet delle cose** > **Hub IoT**.
    
     ![Indice del portale di Azure][1]
-1. Nel pannello **Hub IoT** scegliere la configurazione per l'hub IoT.
+1. Nella finestra **Hub IoT** scegliere la configurazione per l'hub IoT.
    
-    ![Pannello Hub IoT][2]
+    ![Finestra Hub IoT][2]
    
    1. Nella casella **Nome** immettere un nome per l'hub IoT. Se il **Nome** è valido e disponibile, appare un segno di spunta verde nella casella **Nome**.
     [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
@@ -17,18 +17,16 @@ Creare un hub IoT per connettere l'app per dispositivo simulato. La procedura se
    1. In **Percorso**selezionare il percorso per ospitare l'hub IoT. Per questa esercitazione, scegliere la località più vicina.
 1. Dopo aver scelto le opzioni di configurazione dell'hub IoT, fare clic su **Crea**.  La creazione dell'hub IoT da parte di Azure può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nella Schermata iniziale o nel pannello Notifiche.
    
-    ![Stato del nuovo hub IoT][3]
-1. Dopo avere creato l'hub IoT, fare clic sul nuovo riquadro per l'hub IoT nel portale di Azure per aprire il pannello del nuovo hub IoT. Annotare il **Nome host**, quindi fare clic su **Criteri di accesso condiviso**.
+1. Dopo avere creato l'hub IoT, fare clic sul nuovo riquadro dell'hub IoT nel portale di Azure per aprire la finestra delle proprietà. Annotare il **Nome host**, quindi fare clic su **Criteri di accesso condiviso**.
    
-    ![Pannello del nuovo hub IoT][4]
-1. Nel pannello **Criteri di accesso condivisi** fare clic sul criterio **iothubowner**, quindi copiare e annotare la stringa di connessione dell'hub IoT nel pannello **iothubowner**. Per altre informazioni, vedere [Controllo di accesso][lnk-access-control] nella "Guida per gli sviluppatori dell'hub IoT".
+    ![Finestra del nuovo hub IoT][4]
+1. In **Criteri di accesso condivisi** fare clic sul criterio **iothubowner**, quindi copiare e annotare la stringa di connessione dell'hub IoT nella finestra **iothubowner**. Per altre informazioni, vedere [Controllo di accesso][lnk-access-control] nella "Guida per gli sviluppatori dell'hub IoT".
    
-    ![Pannello Criteri di accesso condivisi][5]
+    ![Criteri di accesso condivisi][5]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
-[3]: ./media/iot-hub-get-started-create-hub/create-iot-hub3.png
 [4]: ./media/iot-hub-get-started-create-hub/create-iot-hub4.png
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 

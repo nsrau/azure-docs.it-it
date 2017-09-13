@@ -24,6 +24,8 @@ Il servizio contenitore di Azure è un servizio di Azure supportato dal Contratt
 
 Il [motore ACS](http://github.com/Azure/acs-engine) è un progetto open source che consente agli utenti esperti di personalizzare la configurazione dei cluster a ogni livello. Essendo possibile modificare la configurazione sia dell'infrastruttura che del software, non è previsto nessun Contratto di servizio per il motore ACS. Il supporto viene gestito tramite il progetto open source in GitHub invece che tramite i canali Microsoft ufficiali. 
 
+Per dettagli aggiuntivi, vedere i [Criteri di supporto per i contenitori](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
+
 ## <a name="cluster-management"></a>Gestione dei cluster
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>Come si creano le chiavi SSH per il cluster?

@@ -4,6 +4,8 @@
 
 # Guide introduttive
 ## [Creare un'applicazione .NET](service-fabric-quickstart-dotnet.md)
+## [Distribuire un'applicazione contenitore Windows](service-fabric-quickstart-containers.md)
+## [Distribuire un'applicazione contenitore Linux](service-fabric-quickstart-containers-linux.md)
 
 # Esercitazioni
 ## Distribuire un'app .NET
@@ -122,7 +124,7 @@
 ### [Diagnostica in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Contatori delle prestazioni per la comunicazione remota con Reliable Services](service-fabric-reliable-serviceremoting-diagnostics.md)
 
-# Guide pratiche
+# Guide alle procedure
 ## Configurazione dell'ambiente di sviluppo
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)

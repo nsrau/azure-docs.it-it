@@ -13,6 +13,7 @@
 # Procedure
 ## Pianificare e progettare
 ### [Autenticazione e protezione](relay-authentication-and-authorization.md)
+#### [Eseguire la migrazione da Servizio di controllo di accesso a firma di accesso condiviso](relay-migrate-acs-sas.md)
 ### [Protocollo per connessioni ibride](relay-hybrid-connections-protocol.md)
 ## Sviluppare
 ### [API disponibili](relay-api-overview.md)

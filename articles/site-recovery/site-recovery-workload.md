@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
 ms.contentlocale: it-it
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
@@ -31,7 +31,7 @@ Le organizzazioni necessitano di una strategia per la continuità aziendale e il
 
 Site Recovery è un servizio di Azure che contribuisce all'attuazione della strategia BCDR. Tramite Site Recovery è possibile distribuire la replica compatibile con le applicazioni nel cloud o in un sito secondario. Sia che si tratti di app basate su Windows o su Linux in esecuzione in server fisici, in VMware o Hyper-V, è possibile usare Site Recovery per orchestrare la replica, eseguire il test del piano di ripristino di emergenza test ed eseguire failover e failback.
 
-Site Recovery si integra con numerose applicazioni Microsoft, tra cui SharePoint, Exchange, Dynamics, SQL Server e Active Directory. Microsoft collabora strettamente con fornitori leader, tra cui Oracle, SAP, IBM e Red Hat. È possibile personalizzare le soluzioni di replica in base alle app.
+Site Recovery si integra con numerose applicazioni Microsoft, tra cui SharePoint, Exchange, Dynamics, SQL Server e Active Directory. Microsoft collabora strettamente con fornitori leader, tra cui Oracle, SAP e Red Hat. È possibile personalizzare le soluzioni di replica in base alle app.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Perché usare Site Recovery per la protezione della replica?
 Site Recovery contribuisce alla protezione e al ripristino a livello di applicazione come segue:

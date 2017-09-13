@@ -152,7 +152,7 @@ Facendo clic su **Manage** è possibile aprire il portale di gestione del serviz
 Le identità del servizio di controllo di accesso sono set di credenziali che consentono ad applicazioni o client di eseguire l'autenticazione direttamente con il servizio di controllo di accesso e di ricevere un token.
 
 > [!IMPORTANT]
-> Il servizio BizTalk usa **Owner** come identità predefinita del servizio e il valore **Password**. Se si usa il valore della chiave simmetrica anziché il valore della password, potrebbe verificarsi un errore simile al seguente.<br/><br/>*Non è stato possibile connettersi all'account di gestione del servizio di controllo di accesso con le credenziali specificate*
+> Il servizio BizTalk usa **Owner** come identità predefinita del servizio e il valore **Password**. Se si usa il valore della chiave simmetrica anziché il valore della password, potrebbe verificarsi un errore simile al seguente.<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
 > 
 > 
 
