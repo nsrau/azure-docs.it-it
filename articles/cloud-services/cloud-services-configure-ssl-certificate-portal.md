@@ -1,6 +1,6 @@
 ---
 title: Configurare SSL per un servizio cloud | Documentazione Microsoft
-description: Informazioni su come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l&quot;applicazione. Questi esempi utilizzano il portale di Azure.
+description: Informazioni su come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -20,7 +20,6 @@ ms.openlocfilehash: e5c8c3b098772c0586712305a577b24a6f0d924c
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurazione di SSL per un'applicazione in Azure
 > [!div class="op_single_selector"]
@@ -37,8 +36,6 @@ La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per protegge
 In questa attività viene usata una distribuzione di produzione. Alla fine di questo argomento vengono fornite informazioni sull'uso di una distribuzione di gestione temporanea.
 
 Leggere [questo articolo](cloud-services-how-to-create-deploy-portal.md) se non è stato ancora creato un servizio cloud.
-
-[!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## <a name="step-1-get-an-ssl-certificate"></a>Passaggio 1: Ottenere un certificato SSL
 Per configurare SSL per un'applicazione, è necessario prima ottenere un certificato SSL che sia stato firmato da un'Autorità di certificazione (CA), ovvero un ente di terze parti attendibile che rilascia certificati per questo scopo. Se non se ne dispone già, è necessario ottenerne uno da un rivenditore di certificati SSL.

@@ -3,7 +3,7 @@ title: Automatizzare il controllo del gruppo di sicurezza di rete con la visuali
 description: "Questa pagina fornisce istruzioni sulle modalità di configurazione del controllo di un gruppo di sicurezza di rete"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d60b1d44844c449e0f66dc0107a25531569d097b
 ms.openlocfilehash: a91da330e677c85f16f6f4e506613576b6507d7c
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 

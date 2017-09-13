@@ -31,7 +31,9 @@ Questa guida di avvio rapido mostra come creare un account, un database di docum
 ## <a name="prerequisites"></a>Prerequisiti
 
 Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Creare un account di database

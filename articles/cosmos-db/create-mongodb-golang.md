@@ -27,7 +27,10 @@ In altri termini, l'applicazione Golang rileva solo la connessione a un database
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare. 
+
+  [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 - [Go](https://golang.org/dl/) e una conoscenza di base del linguaggio [Go](https://golang.org/).
 - Un IDE. [Gogland](https://www.jetbrains.com/go/) di Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) di Microsoft o [Atom](https://atom.io/). In questa esercitazione si usa Gogland.
 
