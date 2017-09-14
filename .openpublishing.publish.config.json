@@ -35,7 +35,8 @@
   "need_preview_pull_request": false,
   "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs.it-it",
   "git_repository_branch_open_to_public_contributors": "live",
-  "enable_incremental_build": true,  "dependent_repositories": [
+  "enable_incremental_build": true,
+  "dependent_repositories": [
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft.it-it",
