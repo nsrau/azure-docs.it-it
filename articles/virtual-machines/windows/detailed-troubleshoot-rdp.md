@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/25/2017
+ms.date: 09/06/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7a9d994e10ec79437d6ccf60531cb12b86f34151
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 81713fae3f856cad6251e43eecfd7b1e82858aed
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto con le macchine virtuali Windows in Azure
@@ -50,6 +50,8 @@ Prima di procedere alla risoluzione dei problemi dettagliata
 
 * Controllare lo stato della macchina virtuale nel portale di Azure per verificare l'eventuale presenza di errori evidenti.
 * Seguire i [passaggi di correzione rapida per gli errori RDP comuni riportati nella guida alla risoluzione dei problemi di base](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* Per le immagini personalizzate, assicurarsi che il disco rigido virtuale sia preparato correttamente prima di caricarlo. Per altre informazioni, vedere [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md).
+
 
 Provare a riconnettersi alla VM tramite Desktop remoto dopo aver eseguito questi passaggi.
 

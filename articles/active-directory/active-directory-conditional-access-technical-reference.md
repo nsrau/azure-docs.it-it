@@ -1,5 +1,5 @@
 ---
-title: Documentazione tecnica sull'accesso condizionale in Azure Active Directory | Documentazione Microsoft
+title: Documentazione tecnica sull'accesso condizionale in Azure Active Directory | Microsoft Docs
 description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
 services: active-directory.
 documentationcenter: 
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f3d8bdbfc29ca1008006837512c0e6ae8cb8f6fe
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Documentazione tecnica sull'accesso condizionale di Azure Active Directory
@@ -28,7 +28,11 @@ Questo argomento contiene informazioni sul supporto per gli elementi seguenti di
 
 - Assegnazioni di app cloud
 
-- Condizioni per le app client
+- Condizione per le piattaforme del dispositivo 
+
+- Condizione per le app client
+
+- Requisito per le app client approvate 
 
 
 
@@ -75,7 +79,27 @@ Oltre che alle app cloud Microsoft, è possibile assegnare un criterio di access
 - Applicazioni che usano proxy di applicazione Azure AD. 
 
 
-## <a name="client-apps-conditions"></a>Condizioni per le app client 
+## <a name="device-platforms-condition"></a>Condizione per le piattaforme del dispositivo
+
+Nei criteri di accesso condizionale è possibile configurare la condizione per le piattaforme del dispositivo in modo da associare i criteri al sistema operativo in esecuzione su un client.
+
+![Controllo](./media/active-directory-conditional-access-technical-reference/41.png)
+
+L'accesso condizionale di Azure AD supporta le piattaforme seguenti per i dispositivi:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- macOS (anteprima)
+
+
+
+## <a name="client-apps-condition"></a>Condizione per le app client 
 
 Quando si configura un criterio di accesso condizionale, è possibile impostare una [condizione per le app client](active-directory-conditional-access-azure-portal.md#client-apps). La condizione per le app client consente di concedere o bloccare l'accesso quando viene eseguito un tentativo di accesso da questi tipi di app client:
 
@@ -83,7 +107,6 @@ Quando si configura un criterio di accesso condizionale, è possibile impostare 
 - App per dispositivi mobili e app desktop
 
 ![Controllo](./media/active-directory-conditional-access-technical-reference/03.png)
-
 
 ### <a name="supported-browsers"></a>Browser supportati 
 
@@ -124,11 +147,11 @@ Le app per dispositivi mobili e i client desktop seguenti supportano l'accesso c
 
 
 | App client| Servizio di destinazione| Piattaforma |
-| :-- | --- | --- |
+| --- | --- | --- |
 | MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati.| Qualsiasi servizio app Mie app| Android e iOS|
 | App Azure Remote| Servizio app Azure Remote| Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
 | Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS e Android|
-| Microsoft Team Services consente di controllare tutti i servizi che supportano i team Microsoft e tutte le app client: Windows Desktop, MAC OS X, iOS, Android, WP e web client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS/Android e MAC OSX|
+| Microsoft Team Services consente di controllare tutti i servizi che supportano Microsoft Teams e tutte le app client: Windows Desktop, iOS, Android, WP e Web Client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS e Android|
 | App Mail/Calendar/People, Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)| Office 365 Exchange Online| Windows 10|
 | Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | App Outlook Mobile| Office 365 Exchange Online| iOS|
@@ -143,15 +166,46 @@ Le app per dispositivi mobili e i client desktop seguenti supportano l'accesso c
 
 
 
+## <a name="approved-client-app-requirement"></a>Requisito per le app client approvate 
+
+Quando si configurano i criteri di accesso condizionale, è possibile selezionare il requisito per concedere l'accesso solo se è stato eseguito un tentativo di connessione da un'app client approvata. 
+
+![Controllo](./media/active-directory-conditional-access-technical-reference/21.png)
+
+Le app client approvate per questa impostazione includono:
+
+- Microsoft Excel
+
+- Microsoft OneDrive
+
+- Microsoft Outlook
+
+- Microsoft OneNote
+
+- Microsoft PowerPoint
+
+- Microsoft SharePoint
+
+- Microsoft Skype for Business
+
+- Microsoft Teams
+
+- Microsoft Visio
+
+- Microsoft Word
 
 
+**Osservazioni:**
 
+- Queste app supportano la gestione di applicazioni mobili (MAM) di Microsoft Intune.
 
+- Questo requisito:
 
+    - Supporta solo IOS e Android come [condizione per le piattaforme del dispositivo](#device-platforms-condition) selezionata 
 
-
-
-
+    - Non supporta **Browser** come [condizione per le app client](#supported-browsers) selezionata 
+    
+    - Sostituisce **App per dispositivi mobili e client desktop** come [condizione per le app client](#supported-mobile-apps-and-desktop-clients) se è selezionata  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

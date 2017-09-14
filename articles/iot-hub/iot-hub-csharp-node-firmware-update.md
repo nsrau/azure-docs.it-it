@@ -1,6 +1,6 @@
 ---
-title: Aggiornamento firmware del dispositivo con l&quot;hub IoT di Azure (.NET/Node) | Documentazione Microsoft
-description: Come usare la gestione dei dispositivi nell&quot;hub IoT di Azure per avviare un aggiornamento del firmware del dispositivo. Usare Azure IoT SDK per dispositivi per Node.js per implementare un&quot;app per dispositivo simulato e Azure IoT SDK per servizi per .NET per implementare un&quot;app di servizio che attiva l&quot;aggiornamento del firmware.
+title: Aggiornamento firmware del dispositivo con l'hub IoT di Azure (.NET/Node) | Documentazione Microsoft
+description: Come usare la gestione dei dispositivi nell'hub IoT di Azure per avviare un aggiornamento del firmware del dispositivo. Usare Azure IoT SDK per dispositivi per Node.js per implementare un'app per dispositivo simulato e Azure IoT SDK per servizi per .NET per implementare un'app di servizio che attiva l'aggiornamento del firmware.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2017
+ms.date: 08/30/2017
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c2192328a152e955d182c4a07b391c98a5960964
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 16603cc7f2d8743037da22466312f228f4319716
+ms.contentlocale: it-it
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>Usare la gestione dei dispositivi per avviare un aggiornamento del firmware del dispositivo (.NET/Node)
@@ -121,7 +121,7 @@ A questo punto è possibile eseguire le app.
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. In Visual Studio, fare clic con il pulsante destro del mouse sul progetto **TriggerFWUpdate**. Eseguire l'app console C# quindi scegliere **Debug** e **Avvia nuova istanza**.
+2. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **TriggerFWUpdate**, selezionare **Debug** e **Avvia nuova istanza**.
 
 3. Nella console viene visualizzata la risposta del dispositivo al metodo diretto.
 

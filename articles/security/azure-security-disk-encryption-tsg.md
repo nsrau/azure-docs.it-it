@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 83821ed2f7db1c7dea88a1b4424d405959a206db
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: f2b9aad02a1ae3d5117ffd59b448eabe65a936fc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
@@ -41,7 +41,7 @@ Per la crittografia del disco del sistema operativo Linux, prima di affrontare l
 
 ## <a name="unable-to-encrypt"></a>Impossibile eseguire la crittografia
 
-In alcuni casi, la crittografia del disco Linux sembra bloccata nella fase "OS disk encryption started" e SSH è disabilitato. Il processo di crittografia in un'immagine di galleria della raccolta può richiedere da 3 a 16 ore. Se vengono aggiunti dischi dati di dimensioni da più TB, il processo può richiedere giorni. 
+In alcuni casi, la crittografia del disco Linux sembra bloccata nella fase "OS disk encryption started" e SSH è disabilitato. Il processo di crittografia in un'immagine di galleria della raccolta può richiedere da 3 a 16 ore. Se vengono aggiunti dischi dati di dimensioni da più TB, il processo può richiedere giorni.
 
 La sequenza di crittografia del disco del sistema operativo Linux smonta temporaneamente l'unità del sistema operativo, per poi eseguire la crittografia blocco per blocco dell'intero disco del sistema operativo e riportarlo allo stato crittografato. A differenza di Crittografia dischi di Azure in Windows, la crittografia dei dischi Linux non consente di usare contemporaneamente la VM mentre è in corso la crittografia. Le caratteristiche delle prestazioni della macchina virtuale possono determinare una differenza significativa nel tempo necessario per completare la crittografia. Tali caratteristiche includono le dimensioni del disco e l'archiviazione standard o premium (SSD) dell'account di archiviazione.
 
@@ -85,15 +85,15 @@ In fase di esecuzione, Crittografia dischi di Azure per Linux usa il sistema di 
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Risoluzione dei problemi di Server Core di Windows Server 2016
 
-In un Server Core di Windows Server 2016, la componente **bdehdcfg** non è disponibile per impostazione predefinita. Questa componente è necessaria per la Crittografia dischi di Azure. Aggiungere la componente **bdehdcfg** attenendosi alla procedura seguente:
+In Server Core di Windows Server 2016, la componente bdehdcfg non è disponibile per impostazione predefinita. Questa componente è necessaria per la Crittografia dischi di Azure. Viene usato per dividere il volume di sistema dal volume del sistema operativo, operazione che viene eseguita solo una volta per la durata della macchina virtuale. Questi file binari non sono necessari durante le operazioni di crittografia successive.
 
-   1. Copiare i seguenti quattro file da una macchina virtuale del data center di Windows Server 2016 nella cartella **c:\windows\system32** dell'immagine di Server Core:
+Per risolvere questo problema, copiare i 4 file seguenti da una macchina virtuale Windows Server 2016 Data Center nello stesso percorso in Server Core:
 
    ```
-   bdehdcfg.exe
-   bdehdcfglib.dll
-   bdehdcfglib.dll.mui
-   bdehdcfg.exe.mui
+   \windows\system32\bdehdcfg.exe
+   \windows\system32\bdehdcfglib.dll
+   \windows\system32\en-US\bdehdcfglib.dll.mui
+   \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
    2. Immettere il comando seguente:
@@ -102,8 +102,8 @@ In un Server Core di Windows Server 2016, la componente **bdehdcfg** non è disp
    bdehdcfg.exe -target default
    ```
 
-   3. Questo comando crea una partizione di sistema da 550 MB. Riavviare il sistema. 
-   
+   3. Questo comando crea una partizione di sistema da 550 MB. Riavviare il sistema.
+
    4. Usare DiskPart per verificare i volumi, quindi procedere.  
 
 ad esempio:

@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 7783d0fc30b4b7d098a89595771993b33fb0aa97
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e460e734973622fb0d5745adfc4c1aa0178dd22e
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="password-writeback-overview"></a>Panoramica del writeback delle password
 
 Il writeback delle password consente di configurare Azure AD per scrivere le password nuovamente in Active Directory locale. Evita di dover configurare e gestire una complessa soluzione di reimpostazione della password self-service locale e offre agli utenti un modo pratico e basato sul cloud per reimpostare le password locali ovunque essi si trovino. Il writeback delle password è un componente di [Azure Active Directory Connect](./connect/active-directory-aadconnect.md) che può essere abilitato e usato dagli attuali sottoscrittori di [Edizioni di Azure Active Directory](active-directory-editions.md) Premium.
 
-Il writeback delle password offre le funzionalità seguenti
+Il writeback delle password offre le funzionalità seguenti:
 
 * **Nessun ritardo nei feedback**: il writeback delle password è un'operazione sincrona. Gli utenti vengono informati immediatamente se la password non soddisfa i criteri o non può essere reimpostata o modificata per qualsiasi motivo.
 * **Supporta la reimpostazione delle password per gli utenti che usano AD FS o altre tecnologia federate**: con il writeback delle password gli account utente federati potranno gestire le proprie password AD locali dal cloud, purché siano sincronizzati nel tenant di Azure AD.

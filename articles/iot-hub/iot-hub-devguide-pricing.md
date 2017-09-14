@@ -1,6 +1,6 @@
 ---
-title: Informazioni sui prezzi dell&quot;hub IoT di Azure | Microsoft Docs
-description: Guida per sviluppatori - Informazioni sulle misurazioni e sui prezzi nell&quot;hub IoT ed esempi reali.
+title: Informazioni sui prezzi dell'hub IoT di Azure | Microsoft Docs
+description: Guida per sviluppatori - Informazioni sulle misurazioni e sui prezzi nell'hub IoT ed esempi reali.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 08/29/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3470473e1b2aa107c32643a66092b68bfafd1a37
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 05006a78cc7d82bc048ec5706465f7140eb40e94
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 05/31/2017
 | Caricamenti di file | Il trasferimento di file in Archiviazione di Azure non viene misurato dall'hub IoT. I messaggi di avvio e di completamento del trasferimento di file vengono addebitati come messaggi misurati in incrementi di 4 KB. Ad esempio, il trasferimento di un file di 10 MB viene addebitato come due messaggi, oltre al costo di Archiviazione di Azure. |
 | Metodi diretti | Le richieste di metodo completate vengono addebitate in blocchi di 4 KB, le risposte con corpi non vuoti vengono addebitate in blocchi di 4 KB, come messaggi aggiuntivi. Le richieste ai dispositivi disconnessi vengono addebitate come messaggi in blocchi di 4 KB. Ad esempio, un metodo con un corpo di 6 KB che produce una risposta senza corpo dal dispositivo viene addebitato come due messaggi. Un metodo con un corpo di 6 KB che produce una risposta di 1 KB dal dispositivo viene addebitato come due messaggi per la richiesta e un messaggio aggiuntivo per la risposta. |
 | Letture del dispositivo gemello | Le letture del dispositivo gemello dal dispositivo e dal back-end della soluzione vengono addebitate come messaggi in blocchi di 512 byte. Ad esempio, la lettura di un messaggio di 6 KB del dispositivo gemello viene addebitata come 12 messaggi. |
-| Aggiornamenti del dispositivo gemello (tag e proprietà) | Gli aggiornamenti del dispositivo gemello dal dispositivo e il dispositivo vengono addebitati come messaggi in blocchi di 512 byte. Ad esempio, la lettura di un messaggio di 6 KB del dispositivo gemello viene addebitata come 12 messaggi. |
+| Aggiornamenti del dispositivo gemello (tag e proprietà) | Gli aggiornamenti del dispositivo gemello dal dispositivo e dal back-end della soluzione vengono addebitati come messaggi in blocchi di 512 byte. Ad esempio, la lettura di un messaggio di 6 KB del dispositivo gemello viene addebitata come 12 messaggi. |
 | Query del dispositivo gemello | Le query vengono addebitate come messaggi in base alle dimensioni del risultato in blocchi di 512 byte. |
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | Nessun addebito. |
 | Operazioni dei processi per ogni dispositivo | Le operazioni dei processi, ad esempio gli aggiornamenti del dispositivo gemello e i metodi, vengono addebitati come messaggi normali. Ad esempio, un processo che provoca 1000 chiamate del metodo con richieste di 1 KB e risposte con corpo vuoto viene addebitato come 1000 messaggi. |
@@ -55,10 +54,10 @@ Il dispositivo usa 1 messaggio * 60 minuti * 24 ore = 1440 messaggi al giorno pe
 
 Un dispositivo invia un messaggio da dispositivo a cloud di 100 KB ogni ora. Aggiorna anche il relativo dispositivo gemello con payload di 1 KB ogni 4 ore. Il back-end della soluzione legge una volta al giorno il dispositivo gemello di 14 KB e lo aggiorna con payload di 512 byte per modificare le configurazioni.
 
-Il dispositivo usa 25 messaggi, ovvero 100 KB/4 KB, * 24 ore per messaggi dal dispositivo al cloud, più 1 messaggio * 6 volte al giorno per gli aggiornamenti del dispositivo gemello, per un totale di 156 messaggi al giorno.
+Il dispositivo usa 25 messaggi, ovvero 100 KB/4 KB, * 24 ore per messaggi dal dispositivo al cloud, più 2 messaggi (1 KB/0,5 KB) * 6 volte al giorno per gli aggiornamenti del dispositivo gemello, per un totale di 612 messaggi al giorno.
 Il back-end della soluzione usa 28 messaggi (14 KB/0,5 KB) per leggere il dispositivo gemello più 1 messaggio per aggiornarlo, per un totale di 29 messaggi.
 
-In totale il dispositivo e il back-end della soluzione usano 185 messaggi al giorno.
+In totale il dispositivo e il back-end della soluzione usano 641 messaggi al giorno.
 
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 147019a9650df2d421d4d930aa2932904d5174ab
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: d38fc766d5226be7161433555da9622e006c80e9
 ms.contentlocale: it-it
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 
 # <a name="step-2-before-you-start"></a>Passaggio 2: Prima di iniziare
 
-Dopo aver esaminato l'[architettura](azure-to-azure-walkthrough-architecture.md) per la replica delle macchine virtuali di Azure tra le aree di Azure con [Azure Site Recovery](site-recovery-overview.md), consultare questo articolo per verificare i prerequisiti. 
+Dopo aver esaminato l'[architettura](azure-to-azure-walkthrough-architecture.md) per la replica delle macchine virtuali di Azure tra le aree di Azure con [Azure Site Recovery](site-recovery-overview.md), consultare questo articolo per verificare i prerequisiti.
 
 - Al termine della lettura, l'utente avrà una migliore comprensione di cosa è necessario per far funzionare la distribuzione e avrà terminato i passaggi dei prerequisiti.
 - È possibile inserire commenti alla fine di questo articolo oppure porre domande nel [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -37,19 +37,17 @@ Dopo aver esaminato l'[architettura](azure-to-azure-walkthrough-architecture.md)
 
 ## <a name="support-recommendations"></a>Consigli per il supporto
 
-Vedere la tabella riportata di seguito.
+Vedere la tabella riportata di seguito. Ottenere un elenco completo dei requisiti di supporto dalla [matrice di supporto](site-recovery-support-matrix-azure-to-azure.md).
 
 **Componente** | **Requisito**
 --- | ---
 **Insieme di credenziali dei servizi di ripristino** | È consigliabile creare un insieme di credenziali di servizi di ripristino nell'area di Azure di destinazione da usare come percorso di ripristino di emergenza. Ad esempio, se si desidera replicare le macchine virtuali di origine dagli Stati Uniti orientali agli Stati Uniti centrali, creare l'insieme di credenziali negli Stati Uniti centrali.
 **Sottoscrizione di Azure** | È necessario che la sottoscrizione di Azure sia abilitata per la creazione di macchine virtuali nella località di destinazione da usare come area per il ripristino di emergenza. Contattare il supporto tecnico per abilitare la quota necessaria.
 **Capacità dell'area di destinazione** | Nell'area di destinazione di Azure, la sottoscrizione deve avere una capacità sufficiente per le macchine virtuali, gli account di archiviazione e i componenti di rete.
-**Archiviazione** | Usare le [informazioni aggiuntive sull'archiviazione](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) per le macchine virtuali di Azure di origine onde evitare problemi con le prestazioni.<br/><br/> Gli account di archiviazione devono trovarsi nella stessa area dell'insieme di credenziali.<br/><br/> In India centrale e India meridionale non è possibile eseguire la replica in account Premium.<br/><br/> Se si distribuisce la replica con le impostazioni predefinite, Site Recovery crea gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano le impostazioni, seguire gli [obiettivi di scalabilità per i dischi della macchina virtuale](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
-**Rete** | È necessario consentire la connettività in uscita dalle macchine virtuali di Azure per determinati intervalli di URL/IP.<br/><br/> Gli account di rete devono trovarsi nella stessa area dell'insieme di credenziali. 
+**Archiviazione** | Usare le [informazioni aggiuntive sull'archiviazione](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) per le macchine virtuali di Azure di origine onde evitare problemi con le prestazioni.<br/><br/> Gli account di archiviazione devono trovarsi nella stessa area dell'insieme di credenziali.<br/><br/> In India centrale e India meridionale non è possibile eseguire la replica in account Premium.<br/><br/> Se si distribuisce la replica con le impostazioni predefinite, Site Recovery crea gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano le impostazioni, seguire gli [obiettivi di scalabilità per i dischi della macchina virtuale](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+**Rete** | È necessario consentire la connettività in uscita dalle macchine virtuali di Azure per determinati intervalli di URL/IP.<br/><br/> Gli account di rete devono trovarsi nella stessa area dell'insieme di credenziali.
 **Macchina virtuale di Azure** | Assicurarsi che tutti i certificati radice più recenti siano nella macchina virtuale Windows/Linux di Azure. In caso contrario, non sarà possibile registrare la macchina virtuale in Site Recovery a causa dei vincoli di sicurezza.
 **Account utente Azure** | L'account utente di Azure deve avere determinate [autorizzazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) per abilitare la replica di una macchina virtuale di Azure.
-
-Ottenere un elenco completo dei requisiti di supporto dalla [matrice di supporto](site-recovery-support-matrix-azure-to-azure.md)
 
 
 ## <a name="set-permissions-on-the-account"></a>Impostare le autorizzazioni per l'account

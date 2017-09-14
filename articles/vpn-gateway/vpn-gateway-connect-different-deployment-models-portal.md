@@ -1,5 +1,5 @@
 ---
-title: 'Connettere le reti virtuali classiche alle reti virtuali di Azure Resource Manager: portale| Documentazione Microsoft'
+title: 'Connettere le reti virtuali classiche alle reti virtuali di Azure Resource Manager: portale| Microsoft Docs'
 description: Informazioni su come creare una connessione VPN tra le reti virtuali classiche e le reti virtuali di Resource Manager usando il gateway VPN e il portale
 services: vpn-gateway
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1b7b67ec28986b7c20b3e990e3565265f74c28e6
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ad5700f1a85567a3e7f4ef80b778183929cb0d68
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
@@ -36,7 +36,7 @@ La connessione di una rete virtuale classica a una rete virtuale di Resource Man
 
 Se le reti virtuali si trovano nella stessa area, è consigliabile considerare invece la possibilità di connetterle tramite peering reti virtuali. Peering reti virtuali non usa un gateway VPN. Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md). 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="before"></a>Prima di iniziare
 
 * Questa procedura presuppone che entrambe le reti virtuali siano già state create. Se si usa questo articolo come esercizio e non si dispone di reti virtuali, nei passaggi sono presenti dei collegamenti che consentono di crearli.
 * Verificare che gli intervalli di indirizzi per le reti virtuali non si sovrappongano tra loro o con gli intervalli di altre connessioni a cui i gateway potrebbero essere connessi.
@@ -82,7 +82,7 @@ La tabella seguente illustra un esempio di come sono definiti le reti virtuali e
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |
 
-## <a name="classicvnet"></a>1. Configurare la rete virtuale classica
+## <a name="classicvnet"></a>Sezione 1: Configurare le impostazioni di una rete virtuale classica
 
 In questa sezione vengono creati il gateway di rete locale (sito locale) e il gateway di rete virtuale per la rete virtuale classica. Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale classica, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
 
@@ -97,7 +97,7 @@ Se si dispone già di una rete virtuale con un gateway VPN, verificare che il ga
 
 Gli screenshot sono forniti come esempio. Sostituire i valori con i valori personalizzati o usare i valori dell'[Esempio](#values).
 
-### <a name="part-1---configure-the-local-site"></a>Parte 1: Configurare il sito locale
+### 1. <a name="local"></a>Configurare il sito locale
 
 Aprire il [portale di Azure](https://ms.portal.azure.com) e accedere con l'account Azure.
 
@@ -112,7 +112,7 @@ Aprire il [portale di Azure](https://ms.portal.azure.com) e accedere con l'accou
 7. Per **Spazio indirizzi client** usare i valori per gli spazi di indirizzi IP di rete virtuale per la rete virtuale di Resource Manager. Questa impostazione viene usata per specificare gli spazi indirizzi per il routing alla rete virtuale di Resource Manager.
 8. Fare clic su **OK** per salvare i valori e tornare al pannello **Nuova connessione VPN**.
 
-### <a name="part-2---create-the-virtual-network-gateway"></a>Parte 2: Creare il gateway di rete virtuale
+### <a name="classicgw"></a>2. Creare il gateway di rete virtuale
 
 1. Nel pannello **Nuova connessione VPN** selezionare la casella di controllo **Crea gateway immediatamente** e fare clic su **Configurazione gateway facoltativa** per aprire il pannello **Configurazione gateway**. 
 
@@ -123,7 +123,7 @@ Aprire il [portale di Azure](https://ms.portal.azure.com) e accedere con l'accou
 5. Verificare che **Tipo di routing** sia **Dinamico**, quindi fare clic su **OK** per tornare al pannello **Nuova connessione VPN**.
 6. Nel pannello **Nuova connessione VPN** fare clic su **OK** per iniziare a creare il gateway VPN. Per completare la creazione di un gateway VPN possono essere necessari fino a 45 minuti.
 
-### <a name="ip"></a>Parte 3: Copiare l'indirizzo IP pubblico del gateway di rete virtuale
+### <a name="ip"></a>3. Copiare l'indirizzo IP pubblico del gateway di rete virtuale
 
 Dopo aver creato il gateway di rete virtuale è possibile visualizzare l'indirizzo IP del gateway. 
 
@@ -132,13 +132,13 @@ Dopo aver creato il gateway di rete virtuale è possibile visualizzare l'indiriz
 3. Scrivere o copiare l'indirizzo IP. Sarà necessario nei passaggi successivi quando si useranno le impostazioni di configurazione del gateway di rete locale di Resource Manager. È anche possibile visualizzare lo stato delle connessioni gateway. Si noti che il sito di rete locale creato viene elencato come "Connessione". Lo stato verrà modificato dopo aver creato le connessioni.
 4. Chiudere il pannello dopo aver copiato l'indirizzo IP del gateway.
 
-## <a name="rmvnet"></a>2. Configurare le impostazioni della rete virtuale di Resource Manager
+## <a name="rmvnet"></a>Sezione 2: Configurare le impostazioni della rete virtuale di Resource Manager
 
 In questa sezione vengono creati il gateway di rete virtuale e il gateway di rete locale per la rete virtuale di Resource Manager. Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale di Resource Manager, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
 
 Gli screenshot sono forniti come esempio. Sostituire i valori con i valori personalizzati o usare i valori dell'[Esempio](#values).
 
-### <a name="part-1---create-a-gateway-subnet"></a>Parte 1 - Creare una subnet del gateway
+### <a name="1-create-a-gateway-subnet"></a>1. Creare una subnet del gateway
 
 Prima di creare un gateway di rete virtuale è necessario creare una subnet del gateway. Creare una subnet del gateway con conteggio CIDR /28 o superiore, ad esempio /27, /26 e così via.
 
@@ -146,11 +146,11 @@ Prima di creare un gateway di rete virtuale è necessario creare una subnet del 
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### <a name="part-2---create-a-virtual-network-gateway"></a>Parte 2 - Creare un gateway di rete virtuale
+### <a name="creategw"></a>2. Creare un gateway di rete virtuale
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>Parte 3: Creare un gateway di rete locale
+### <a name="createlng"></a>3. Creare un gateway di rete locale
 
 Il gateway di rete locale specifica l'intervallo di indirizzi e l'indirizzo IP pubblico associati alla rete virtuale classica e al relativo gateway di rete virtuale.
 
@@ -163,7 +163,7 @@ Se si eseguono questi passaggi come esercizio, fare riferimento alle impostazion
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
-## <a name="modifylng"></a>3. Modificare le impostazioni del sito locale della rete virtuale classica
+## <a name="modifylng"></a>Sezione 3: Modificare le impostazioni del sito locale della rete virtuale classica
 
 In questa sezione si sostituisce l'indirizzo IP segnaposto usato nella specifica delle impostazioni del sito locale con l'indirizzo IP del gateway VPN di Resource Manager. Questa sezione usa i cmdlet PowerShell versione classica (SM).
 
@@ -183,7 +183,7 @@ In questa sezione si sostituisce l'indirizzo IP segnaposto usato nella specifica
     ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Indirizzo IP del gateway")
 7. Fare clic su **OK** per aggiornare l'indirizzo IP.
 
-## <a name="RMtoclassic"></a>4. Creare una connessione da Resource Manager alla rete classica
+## <a name="RMtoclassic"></a>Sezione 4: Creare una connessione da Resource Manager alla rete classica
 
 In questa procedura si configura la connessione dalla rete virtuale di Resource Manager alla rete virtuale classica tramite il portale di Azure.
 
@@ -198,7 +198,7 @@ In questa procedura si configura la connessione dalla rete virtuale di Resource 
 9. Creare una **chiave condivisa**. Questa chiave viene usata anche nella connessione creata dalla rete virtuale classica alla rete virtuale di Resource Manager. È possibile generare la chiave o crearne una. Per questo esempio è stato usato "abc123", ma è possibile e consigliabile usare un elemento più complesso.
 10. Fare clic su **OK** per creare la connessione.
 
-##<a name="classictoRM"></a>5. Creare una connessione dalla rete classica a Resource Manager
+##<a name="classictoRM"></a>Sezione 5: Creare una connessione dalla rete classica a Resource Manager
 
 In questa procedura si configura la connessione dalla rete virtuale classica alla rete virtuale di Resource Manager. Per questa procedura è necessario PowerShell. Non è possibile creare questa connessione nel portale. Assicurarsi di aver scaricato e installato sia i cmdlet di PowerShell classici di Gestione dei servizi (SM) che di Resource Manager (RM).
 
@@ -256,7 +256,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ```
 
-##<a name="verify"></a>6. Verificare le connessioni
+##<a name="verify"></a>Sezione 6: Verificare le connessioni
 
 È possibile verificare le connessioni usando il portale di Azure o PowerShell. Durante la verifica potrebbe essere necessario attendere un minuto o due per la creazione della connessione. Quando una connessione ha esito positivo, lo stato di connettività passa da "Connessione" a "Connesso".
 
@@ -270,5 +270,5 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 
 ## <a name="faq"></a>Domande frequenti sulle connessioni da rete virtuale a rete virtuale
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 

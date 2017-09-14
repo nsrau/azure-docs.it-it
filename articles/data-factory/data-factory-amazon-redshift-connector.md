@@ -12,19 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/06/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: e3079b55036a514b31249e5930f40ab4346f437a
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 2e7b6a7c33e1f86133383f116df2fc2256133012
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Spostare i dati da Amazon Redshift usando Azure Data Factory
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da Amazon Redshift. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia. 
 
 È possibile copiare dati da Amazon Redshift a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente lo spostamento di dati da Amazon Redshift ad altri archivi dati, non da altri archivi dati ad Amazon Redshift.
+
+> [!TIP]
+> Per ottenere prestazioni ottimali quando si copiano grandi quantità di dati da Redshift, è possibile usare lo strumento UNLOAD Redshift predefinito tramite Amazon S3. Per informazioni dettagliate, vedere la sezione [Usare UNLOAD per copiare i dati da Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Se si spostano i dati in un archivio dati locale, installare il [gateway di gestione dati](data-factory-data-management-gateway.md) su un computer locale. Quindi concedere al gateway di gestione dati (usa l'indirizzo IP della macchina) l'accesso al cluster Amazon Redshift. Vedere [Autorizzare l'accesso al cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) per le istruzioni.
@@ -48,6 +51,7 @@ Quando si usa la procedura guidata, le definizioni JSON per queste entità di da
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà JSON che vengono usate per definire entità di data factory specifiche di Amazon Redshift: 
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
+
 La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato Amazon Redshift.
 
 | Proprietà | Descrizione | Obbligatorio |
@@ -60,6 +64,7 @@ La tabella seguente fornisce la descrizione degli elementi JSON specifici del se
 | password |La password per l'account utente. |Sì |
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
+
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati. Offre informazioni sul percorso dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che comprende il set di dati Amazon Redshift) presenta le proprietà seguenti
@@ -69,15 +74,63 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati. Offre inf
 | tableName |Nome della tabella nel database Amazon Redshift a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
+
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, fare riferimento all'articolo [Creazione di pipeline](data-factory-create-pipelines.md). Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e criteri.
 
 Le proprietà disponibili nella sezione **typeProperties** dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
-Quando l'origine dell'attività di copia è di tipo **RelationalSource** (che include Amazon Redshift), nella sezione typeProperties sono disponibili le proprietà seguenti:
+Quando l'origine di un'attività di copia è di tipo **AmazonRedshiftSource**, nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
-| --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: selezionare * da MyTable. |No (se **tableName** di **set di dati** è specificato) |
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
+| query | Usare la query personalizzata per leggere i dati. |No (se **tableName** di **set di dati** è specificato) |
+| redshiftUnloadSettings | Gruppo di proprietà quando si usa lo strumento UNLOAD di Amazon Redshift. | No |
+| s3LinkedServiceName | Fa riferimento a un'istanza di Amazon S3 da usare come archivio provvisorio specificando un nome di servizio collegato ADF di tipo AwsAccessKey. | Obbligatoria con "redshiftUnloadSettings" |
+| bucketName | Indicare il bucket S3 per archiviare i dati provvisori. Se la proprietà non viene specificata, l'attività di copia genera automaticamente un bucket. | Obbligatoria con "redshiftUnloadSettings" |
+
+In alternativa, è anche possibile usare il tipo **RelationalSource** (che include Amazon Redshift) con la proprietà seguente nella sezione typeProperties. Si noti che questo tipo di origine non supporta lo strumento UNLOAD Redshift.
+
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
+| query |Usare la query personalizzata per leggere i dati. | No (se **tableName** di **set di dati** è specificato) |
+
+## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Usare UNLOAD per copiare i dati da Amazon Redshift
+
+[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) è un meccanismo fornito da Amazon Redshift, che consente di scaricare i risultati di una query in uno o più file in Amazon Simple Storage Service (Amazon S3). Si tratta del metodo consigliato da Amazon per la copia di set di dati di grandi dimensioni da Redshift.
+
+**Esempio: Copiare dati da Amazon Redshift ad Azure SQL Data Warehouse usando UNLOAD, la copia a fasi e PolyBase**
+
+Per questo caso d'uso di esempio, l'attività di copia scarica prima i dati da Amazon Redshift in Amazon S3 come configurato in "redshiftUnloadSettings", quindi copia i dati da Amazon S3 nell'archivio BLOB di Azure, come specificato in "stagingSettings", e infine usa PolyBase per caricare i dati in SQL Data Warehouse. Tutto il formato provvisorio viene gestito correttamente dall'attività di copia.
+
+![Flusso di lavoro di copia da Redshift a SQL Data Warehouse](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+
+```json
+{
+    "name": "CopyFromRedshiftToSQLDW",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "AmazonRedshiftSource",
+            "query": "select * from MyTable",
+            "redshiftUnloadSettings": {
+                "s3LinkedServiceName":"MyAmazonS3StorageLinkedService",
+                "bucketName": "bucketForUnload"
+            }
+        },
+        "sink": {
+            "type": "SqlDWSink",
+            "allowPolyBase": true
+        },
+        "enableStaging": true,
+        "stagingSettings": {
+            "linkedServiceName": "MyAzureStorageLinkedService",
+            "path": "adfstagingcopydata"
+        },
+        "cloudDataMovementUnits": 32
+        .....
+    }
+}
+```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob"></a>Esempio JSON: Copiare dati da Amazon Redshift al BLOB di Azure
 Questo esempio illustra come copiare dati da un database Amazon Redshift a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati **direttamente** in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.  
@@ -221,14 +274,19 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
                 "type": "Copy",
                 "typeProperties": {
                     "source": {
-                        "type": "RelationalSource",
-                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+                        "type": "AmazonRedshiftSource",
+                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)",
+                        "redshiftUnloadSettings": {
+                            "s3LinkedServiceName":"myS3Storage",
+                            "bucketName": "bucketForUnload"
+                        }
                     },
                     "sink": {
                         "type": "BlobSink",
                         "writeBatchSize": 0,
                         "writeBatchTimeout": "00:00:00"
-                    }
+                    },
+                    "cloudDataMovementUnits": 32
                 },
                 "inputs": [
                     {

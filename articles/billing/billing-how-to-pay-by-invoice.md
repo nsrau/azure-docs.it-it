@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: edbeba95898a41e645b61aeaaec1fd897afadd61
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 9742187d2739b2d2d3b2073646dd6d7002898009
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Inviare una richiesta per pagare una sottoscrizione di Azure tramite fattura
@@ -35,8 +35,11 @@ ms.lasthandoff: 07/21/2017
 1. Accedere al [portale di Azure](https://portal.azure.com/). Selezionare **Guida e supporto** > **Nuova richiesta di supporto**.
 
     ![pulsante di guida e supporto tecnico](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
+
 1. Selezionare **Fatturazione** come tipo di problema, selezionare la sottoscrizione che si intende pagare con fattura, selezionare un piano di supporto e quindi fare clic su **Avanti**.
-1. Nel pannello **Problema** selezionare **Pay by Invoice** (Pagamento tramite fattura) nella casella **Tipo di problema**.
+
+1. Selezionare l'opzione di pagamento**** con fattura nella casella **Tipo di problema**.
+
 1. Immettere le informazioni seguenti nella casella **Dettagli** e quindi selezionare **Avanti**.
 
     * Nome della società

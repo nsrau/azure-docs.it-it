@@ -16,15 +16,26 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: af8a7bbc4bf007dfa5bef7ceb9cf940ad752239a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>Risolvere i problemi di iscrizione per Azure
 Se non si riesce a iscriversi ad Azure, usare i suggerimenti in questo articolo per risolvere i problemi più comuni. In caso di problemi con la carta di credito durante l'iscrizione, vedere [La carta di credito o di debito viene rifiutata quando si tenta di eseguire l'iscrizione ad Azure](billing-credit-card-fails-during-azure-sign-up.md). Se si ha un account Azure, ma non è possibile accedere, vedere [Non è possibile accedere per gestire la sottoscrizione di Azure](billing-cannot-login-subscription.md).
+
+## <a name="error-we-cannot-proceed-with-signup-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Errore "Non è possibile procedere con l'iscrizione a causa di un problema con l'account. Contattare il supporto tecnico." 
+
+Per risolvere il problema, seguire questa procedura:
+
+1. Accedere al [Centro account di Azure](https://account.azure.com) usando le credenziali di amministratore account. 
+2. Fare clic sul **profilo** e quindi su **Modifica dettagli**.
+3. Assicurarsi che tutti i campi relativi all'indirizzo siano completati e validi. 
+4. Quando si esegue l'iscrizione per la sottoscrizione di Azure, assicurarsi che l'indirizzo di fatturazione immesso durante la registrazione della carta di credito corrisponda ai dati bancari.
+
+Se l'errore persiste, provare a effettuare l'iscrizione usando un browser diverso.
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>L'indicatore di stato si blocca nella sezione "Verifica dell'identità mediante smart card"
 

@@ -1,6 +1,6 @@
 ---
 title: Reimpostare l'accesso a una macchina virtuale Linux di Azure | Microsoft Docs
-description: Come gestire gli utenti e ripristinare l'accesso in VM Linux mediante l'estensione VMAccess e l'interfaccia della riga di comando di Azure 2.0
+description: Come gestire gli utenti amministrativi e ripristinare l'accesso nelle macchine virtuali Linux usando l'estensione VMAccess e l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 587c73278a9a92776276a811c5c4c8d3db773de3
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
-# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gestire utenti, SSH e dischi di controllo o di ripristino in VM Linux mediante l'estensione VMAccess con l'interfaccia della riga di comando di Azure 2.0
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Informazioni su come gestire utenti amministrativi, SSH e dischi di controllo o di ripristino in macchine virtuali Linux usando l'estensione VMAccess con l'interfaccia della riga di comando di Azure 2.0
 Il disco della VM Linux genera errori. In qualche modo la password radice della VM Linux è stata reimpostata o la chiave privata SSH è stata eliminata accidentalmente. In passato, quando nel data center si verificava questa situazione, era necessario accedere all'unità e quindi aprire il KVM per raggiungere la console del server. L'estensione VMAccess di Azure può essere concepita come il commutatore tastiera, video e mouse che consente di accedere alla console per reimpostare l'accesso a Linux o eseguire la manutenzione a livello di disco.
 
-Questo articolo illustra come usare l'estensione VMAccess di Azure per controllare o ripristinare un disco, reimpostare l'accesso utente, gestire gli account utente o reimpostare la configurazione dei dischi SSH in Linux. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Questo articolo illustra come usare l'estensione VMAccess di Azure per controllare o ripristinare un disco, reimpostare l'accesso utente, gestire gli account di utenti amministrativi o reimpostare la configurazione dei dischi SSH in Linux. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Modi di usare l'estensione VMAccess
@@ -67,8 +67,8 @@ az vm user reset-ssh \
   --name myVM
 ```
 
-## <a name="create-a-user"></a>Creare un utente
-L'esempio seguente crea un utente denominato `myNewUser` usando una chiave SSH per l'autenticazione nella VM denominata `myVM`:
+## <a name="create-an-administrativesudo-user"></a>Creare un utente amministrativo/sudo
+L'esempio seguente crea un utente denominato `myNewUser` con autorizzazioni **sudo**. L'account usa una chiave SSH per l'autenticazione nella macchina virtuale denominata `myVM`. Questo metodo è progettato per ottenere di nuovo l'accesso a una macchina virtuale nel caso in cui le credenziali attuali siano state perse o dimenticate. Come procedura consigliata gli account con autorizzazioni **sudo** devono presentare limitazioni.
 
 ```azurecli
 az vm user update \
@@ -77,6 +77,8 @@ az vm user update \
   --username myNewUser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
+
+
 
 ## <a name="delete-a-user"></a>Eliminare un utente
 L'esempio seguente elimina un utente denominato `myNewUser` nella VM denominata `myVM`:
@@ -158,9 +160,9 @@ az vm extension set \
   --protected-settings reset_sshd.json
 ```
 
-### <a name="manage-users"></a>Gestire gli utenti
+### <a name="manage-administrative-users"></a>Gestire gli utenti amministrativi
 
-Per creare un utente che esegua l'autenticazione con una chiave SSH, creare un file denominato `create_new_user.json` e aggiungere impostazioni nel formato seguente. Usare valori personalizzati per i parametri `username` e `ssh_key`:
+Per creare un utente con autorizzazioni **sudo** che esegua l'autenticazione con una chiave SSH, creare un file denominato `create_new_user.json` e aggiungere impostazioni nel formato seguente. Usare valori personalizzati per i parametri `username` e `ssh_key`. Questo metodo è progettato per ottenere di nuovo l'accesso a una macchina virtuale nel caso in cui le credenziali attuali siano state perse o dimenticate. Come procedura consigliata gli account con autorizzazioni **sudo** devono presentare limitazioni.
 
 ```json
 {

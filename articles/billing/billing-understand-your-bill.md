@@ -16,14 +16,17 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
 ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendere la fattura per Microsoft Azure
 Per comprendere la fattura di Azure, confrontare la fattura con il file dei dettagli di utilizzo giornaliero e con i report di gestione dei costi nel portale di Azure.
+
+>[!NOTE]
+>Questo articolo non si applica ai clienti con contratto Enterprise Agreement (EA). Se si ha un contratto Enterprise Agreement (EA), [è possibile trovare la documentazione per la fatturazione in Enterprise Portal](https://ea.azure.com/helpdocs/understandingYourInvoice).  
 
 Per ottenere la fattura in formato PDF e una copia del download del file dei dettagli di utilizzo giornaliero in formato CSV, vedere [Ottenere la fattura e i dati di utilizzo giornaliero di Azure](billing-download-azure-invoice-daily-usage-date.md). 
 
@@ -48,7 +51,7 @@ Gli addebiti relativi all'utilizzo vengono visualizzati a livello di contatore. 
  | --- | --- |
 |Ciclo di fatturazione | Periodo di fatturazione |
  |Nome |Categoria misuratore |
- |Type |Sottocategoria contatore |
+ |Tipo |Sottocategoria contatore |
  |Risorsa |Nome misuratore |
  |Region |Area misuratore |
  |Consumato |Quantità consumata |

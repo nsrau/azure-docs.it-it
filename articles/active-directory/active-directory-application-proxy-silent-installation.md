@@ -11,35 +11,38 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 9e28c89d8f64f0ae3d4150017ca544e606075c45
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: cf3058832ba656a1a18aea194bf4e5ce4e800e76
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
-# <a name="silently-install-the-azure-ad-application-proxy-connector"></a>Installazione automatica del connettore proxy di applicazione di Azure AD
-Può essere necessario inviare uno script di installazione a più server Windows o ai server Windows che non hanno l'interfaccia utente abilitata. In questo argomento viene illustrato come creare uno script di Windows PowerShell che consente l'installazione automatica e la registrazione del connettore proxy di applicazione di Azure AD.
+# <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creare uno script di installazione automatica per il connettore del proxy di applicazione di Azure AD
+
+Questo argomento descrive come creare uno script di Windows PowerShell che consente l'installazione automatica e la registrazione per il connettore del proxy di applicazione di Azure AD.
 
 Questa funzionalità è utile quando si vuole:
 
-* Installare il connettore in computer senza alcun livello di interfaccia utente o quando non è possibile usare il protocollo RDP del computer.
+* Installare il connettore in istanze di Windows Server che non hanno un'interfaccia utente abilitata o che non sono accessibili con Desktop remoto.
 * Installare e registrare più connettori in una sola volta.
 * Integrare l'installazione e la registrazione del connettore come parte di un'altra procedura.
 * Creare un'immagine server standard che contiene i bit del connettore, ma che non è registrata.
 
-Il proxy dell’applicazione funziona mediante l'installazione di un servizio di Windows Server slim chiamato connettore all'interno della rete. Per il corretto funzionamento del connettore del proxy di applicazione, è necessario registrarlo nella directory di Azure AD con un account di amministratore globale e una password. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup. Tuttavia, è possibile usare Windows PowerShell per creare un oggetto credenziale in modo da immettere le informazioni di registrazione. Oppure è possibile creare un token personale e usarlo per immettere le informazioni di registrazione.
+Per il corretto funzionamento del [connettore del proxy di applicazione](application-proxy-understand-connectors.md), è necessario registrarlo nella directory di Azure AD usando un nome utente e una password di amministratore globale. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup, ma in alternativa è possibile usare PowerShell per automatizzare il processo.
+
+Per l'installazione automatica sono previsti due passaggi. In primo luogo, installare il connettore. In secondo luogo, registrare il connettore in Azure AD. 
 
 ## <a name="install-the-connector"></a>Installare il connettore
-Per installare i file MSI del connettore senza registrare il connettore, procedere come segue:
+Per installare il connettore senza registrazione, seguire questa procedura:
 
 1. Aprire un prompt dei comandi.
-2. Eseguire il comando seguente in cui il parametro /q significa installazione non interattiva. Durante l'installazione non viene richiesto di accettare il contratto di licenza con l'utente finale.
+2. Eseguire il comando seguente, dove il parametro /q significa che l'installazione non è interattiva. Durante un'installazione di questo tipo non viene chiesto di accettare il contratto di licenza con l'utente finale.
    
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
@@ -50,18 +53,18 @@ Esistono due metodi da usare per registrare il connettore:
 * Registrare il connettore con un token creato offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registrare il connettore con un oggetto credenziali di Windows PowerShell
-1. Creare l'oggetto credenziali di Windows PowerShell eseguendo questo comando. Sostituire *\<username\>* e *\<password\>* con il nome utente e la password per la directory:
+1. Creare un oggetto credenziali di Windows PowerShell `$cred` che contiene un nome utente e una password di amministratore per la directory. Eseguire il comando seguente sostituendo *\<username\>* e *\<password\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
-2. Passare a **C:\Programmi\Microsoft AAD App Proxy Connector** ed eseguire lo script usando l'oggetto credenziali di PowerShell creato. Sostituire *$cred* con il nome dell'oggetto credenziali di PowerShell creato:
+2. Passare a **C:\Programmi\Microsoft AAD App Proxy Connector** ed eseguire lo script seguente usando l'oggetto `$cred` creato:
    
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
 ### <a name="register-the-connector-using-a-token-created-offline"></a>Registrare il connettore con un token creato offline
-1. Creare un token offline con la classe AuthenticationContext, utilizzando i valori nel frammento di codice:
+1. Creare un token offline usando la classe AuthenticationContext con i valori in questo frammento di codice:
 
         using System;
         using System.Diagnostics;

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7fd0ace35cfe0286c874e4a75b733053aa945d39
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 54a4a37d581f023610cd61835bdc76814fbd46e0
 ms.contentlocale: it-it
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -93,7 +93,7 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Impostare il nome utente e la password necessari per l'account amministratore della VM con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Impostare il nome utente e la password necessari per l'account amministratore della macchina virtuale con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential). Usare queste credenziali per connettersi alla macchina virtuale in una procedura aggiuntiva:
 
 ```powershell
 $cred = Get-Credential
@@ -153,7 +153,7 @@ Usare il comando seguente per creare una sessione Desktop remoto con *myFrontend
 mstsc /v:<publicIpAddress>
 ``` 
 
-Dopo avere eseguito l'accesso a *myFrontendVM*, è possibile usare una singola riga di codice di PowerShell per installare IIS e abilitare la regola del firewall locale per consentire il traffico Web. Aprire un prompt di PowerShell ed eseguire questo comando:
+Dopo avere eseguito l'accesso a *myFrontendVM*, è possibile usare una singola riga di codice di PowerShell per installare IIS e abilitare la regola del firewall locale per consentire il traffico Web. Aprire un prompt PowerShell nella macchina virtuale dalla sessione RDP ed eseguire il comando seguente:
 
 Usare [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) per eseguire l'estensione di script personalizzata che installa il server Web IIS:
 

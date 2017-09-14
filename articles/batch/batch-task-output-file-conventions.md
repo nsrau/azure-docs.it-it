@@ -77,7 +77,7 @@ Per altre informazioni sull'uso di contenitori e BLOB in Archiviazione di Azure,
 
 ### <a name="create-storage-container"></a>Creare un contenitore di archiviazione
 
-Per rendere persistente l'output delle attività in Archiviazione di Azure, creare innanzitutto un contenitore chiamando [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Questo metodo di estensione accetta un oggetto [CloudStorageAccount] [ net_cloudstorageaccount] come parametro. Crea un contenitore denominato in base allo standard File Conventions, in modo che il relativo contenuto sia individuabile dal portale di Azure e dai metodi di recupero descritti più avanti in questo articolo.
+Per rendere persistente l'output delle attività in Archiviazione di Azure, creare innanzitutto un contenitore chiamando [CloudJob][net_cloudjob].[PrepareOutputStorageAsync][net_prepareoutputasync]. Questo metodo di estensione accetta un oggetto [CloudStorageAccount][net_cloudstorageaccount] come parametro. Crea un contenitore denominato in base allo standard File Conventions, in modo che il relativo contenuto sia individuabile dal portale di Azure e dai metodi di recupero descritti più avanti in questo articolo.
 
 In genere si inserisce il codice per creare un contenitore nell'applicazione client, ovvero l'applicazione che crea i pool, i processi e le attività.
 

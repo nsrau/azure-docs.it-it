@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 09/06/2017
 ms.author: fimguy
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 313145f4d8e5faa91fb3504cb0fd0ba87ca2e379
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
@@ -39,7 +39,7 @@ Collegamenti correlati:
 * [connettore Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
 
-## <a name="116040-aadconnect-pending-release"></a>1.1.604.0 (versione in sospeso di AADConnect)
+## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
 
 ### <a name="fixed-issues"></a>Problemi risolti:

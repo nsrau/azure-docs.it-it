@@ -16,21 +16,23 @@ ms.workload: na
 ms.date: 08/10/2017
 ms.author: tonguyen
 experimental_id: a2b2579c-cd2e-41
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: b172fc1726d2a01ee68aebf8ec03cc1567012ca6
 ms.contentlocale: it-it
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>Evitare costi imprevisti con la gestione dei costi e alla fatturazione di Azure
 
-Quando si effettua l'iscrizione ad Azure, è consigliabile eseguire alcune operazioni per conoscere meglio la spesa sostenuta. Nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), quando si seleziona la sottoscrizione, è possibile visualizzare la scomposizione dei costi e la velocità attuali, nonché [scaricare le fatture precedenti e i file dei dati dettagliati di uso](billing-download-azure-invoice-daily-usage-date.md). Se si desidera raggruppare i costi per le risorse usate per diversi progetti o team, esaminare i [tag delle risorse](../azure-resource-manager/resource-group-using-tags.md). Se l'organizzazione dispone di un sistema di creazione report, vedere le [API per la fatturazione](billing-usage-rate-card-overview.md). 
+Quando si effettua l'iscrizione ad Azure, è consigliabile eseguire alcune operazioni per conoscere meglio la spesa sostenuta. Nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), quando si seleziona la sottoscrizione, è possibile visualizzare la scomposizione dei costi e la velocità attuali, nonché [scaricare le fatture precedenti e i file dei dati dettagliati relativi all'uso](billing-download-azure-invoice-daily-usage-date.md) per la maggior parte dei tipi di offerta. Se si desidera raggruppare i costi per le risorse usate per diversi progetti o team, esaminare i [tag delle risorse](../azure-resource-manager/resource-group-using-tags.md). Se l'organizzazione dispone di un sistema di creazione report, vedere le [API per la fatturazione](billing-usage-rate-card-overview.md). 
 
 Per altre informazioni sui dati di utilizzo giornalieri, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
-Molte funzionalità descritte in questo articolo non si applicano ai clienti che hanno una sottoscrizione con Cloud Solution Provider (CSP), Azure Sponsorship o con contratto Enterprise Agreement (EA). Al contrario, l'utente può usare diversi set di strumenti per la gestione dei costi. Vedere [Risorse aggiuntive per EA, CSP e Sponsorship](#other-offers).
+Molte funzionalità descritte in questo articolo non si applicano ai clienti che hanno una sottoscrizione effettuata tramite Cloud Solution Provider (CSP) o Azure Sponsorship. Al contrario, l'utente può usare diversi set di strumenti per la gestione dei costi. Vedere [Risorse aggiuntive per EA, CSP e Sponsorship](#other-offers).
+
+Se la sottoscrizione è di tipo Enterprise Agreement (EA), è ora disponibile l'anteprima pubblica per visualizzare i costi nel portale di Azure. Ci sono [alcuni aspetti da conoscere](#EA), in quanto alcune delle funzionalità descritte in questo articolo potrebbero non essere pertinenti al proprio caso.   
 
 Se la sottoscrizione è una versione di valutazione gratuita, di [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO) o BizSpark, consultare la sezione sui [limiti di spesa](#spending-limit) per evitare che la sottoscrizione venga disabilitata all'improvviso. 
 
@@ -48,7 +50,7 @@ Per altre informazioni, vedere le [domande frequenti sui prezzi](https://azure.m
 
 Per visualizzare i costi è necessario l'[accesso alle informazioni di fatturazione a livello di sottoscrizione](billing-manage-access.md), ma solo l'amministratore dell'account può accedere al [Centro account](https://account.windowsazure.com/Home/Index), modificare le informazioni di fatturazione e gestire le sottoscrizioni. L'amministratore dell'account è la persona che ha completato il processo di iscrizione. Per altre informazioni, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](billing-add-change-azure-subscription-administrator.md).
 
-Per verificare se si è l'amministratore dell'account, passare al [pannello Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ed esaminare l'elenco delle sottoscrizioni a cui si ha accesso. Se in **Ruolo personale** è riportato *Amministratore dell'account*, non sussistono problemi. Se il ruolo indicato è diverso, ad esempio *Proprietario*, non si hanno privilegi completi.
+Per verificare se si è l'amministratore account, passare alla [pagina delle sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ed esaminare l'elenco delle sottoscrizioni a cui si ha accesso. Se in **Ruolo personale** è riportato *Amministratore dell'account*, non sussistono problemi. Se il ruolo indicato è diverso, ad esempio *Proprietario*, non si hanno privilegi completi.
 
 ![Screenshot del ruolo dell'utente nella visualizzazione Sottoscrizioni nel portale di Azure](./media/billing-getting-started/sub-blade-view.PNG)
 
@@ -91,7 +93,7 @@ Quando si aggiunge un servizio nel portale di Azure, in genere una visualizzazio
 
 ![Esempio: il costo stimato di una VM Windows A1 è 66,96 USD al mese](./media/billing-getting-started/vm-size-cost.PNG)
 
-### <a name="tags"></a>Aggiungere tag alle risorse per raggruppare i dati di fatturazione
+### <a name="tags"></a> Raggruppare i dati di fatturazione aggiungendo tag alle risorse 
 
 È possibile usare tag per raggruppare i dati di fatturazione per i servizi supportati. Se si eseguono più VM per diversi team, ad esempio, è possibile usare i tag per classificare i costi per centro di costo (risorse umane, marketing, finanza) o ambiente (produzione, pre-produzione, testing). 
 
@@ -117,11 +119,11 @@ Per informazioni su altre funzionalità per la riduzione dei costi per gli ambie
 
 Quando i servizi sono in esecuzione, controllare regolarmente a quanto ammonta il relativo costo. È possibile visualizzare la spesa corrente e la velocità nel portale di Azure. 
 
-1. Accedere al [pannello Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Accedere alla [pagina delle sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 2. Selezionare la sottoscrizione da visualizzare. Potrebbe essere selezionabile una sola sottoscrizione.
 
-3. Nel pannello popup verranno visualizzate la velocità e la scomposizione dei costi. Questa funzionalità potrebbe non essere supportata per l'offerta specifica. In questo caso, nella parte superiore verrà visualizzato un avviso. Dopo l'aggiunta di un servizio, prima che i dati vengano inseriti è necessario attendere 24 ore.
+3. Nella pagina popup verranno visualizzati il dettaglio dei costi e la velocità. Questa funzionalità potrebbe non essere supportata per l'offerta specifica. In questo caso, nella parte superiore verrà visualizzato un avviso. Dopo l'aggiunta di un servizio, prima che i dati vengano inseriti è necessario attendere 24 ore.  
     
     ![Screenshot della velocità e della scomposizione nel portale di Azure](./media/billing-getting-started/burn-rate.PNG)
 
@@ -141,9 +143,21 @@ Quando i servizi sono in esecuzione, controllare regolarmente a quanto ammonta i
 
 È consigliabile confrontare tali costi con le stime visualizzate al momento della selezione dei servizi. In caso di differenza significativa tra i costi e le stime, ricontrollare il piano tariffario selezionato per le risorse (VM A1 o A0, ad esempio). 
 
-#### <a name="view-costs-for-all-your-subscriptions-in-the-billing-blade"></a>Visualizzare i costi per tutte le sottoscrizioni nel pannello Fatturazione
+#### <a name="EA"></a> Anteprima delle visualizzazioni dei costi per i contratti Enterprise Agreement nel portale di Azure 
 
-Se si gestiscono più sottoscrizioni come amministratore dell'account, è possibile visualizzare l'importo delle fatture e la scomposizione dell'aggregazione per tutte le sottoscrizioni nel [pannello Fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). 
+Le visualizzazioni dei costi aziendali sono attualmente disponibili in versione di anteprima pubblica. Elementi da considerare:
+- I costi di sottoscrizione sono basati sull'utilizzo e non tengono conto di importi prepagati, eccedenze, quantità incluse, rettifiche e imposte. I costi effettivi vengono calcolati a livello di registrazione. 
+- Gli importi visualizzati nel portale di Azure potrebbero subire un ritardo rispetto ai valori in Enterprise Portal.  
+- Se i costi non vengono visualizzati, la causa potrebbe essere una delle seguenti:
+    - Si è un proprietario di un account e l'amministratore delle registrazioni ha disabilitato l'impostazione di visualizzazione dei costi per i proprietari degli account.  Contattare l'amministratore delle registrazioni per ottenere l'accesso ai costi. 
+    - Si è un amministratore di reparto e l'amministratore delle registrazioni ha disabilitato l'impostazione di visualizzazione dei costi per gli amministratori di reparto.  Contattare l'amministratore delle registrazioni per ottenere l'accesso. 
+    - Azure è stato acquistato tramite un partner di canale, il quale non ha rilasciato informazioni sui prezzi.  
+- Quando in Enterprise Portal vengono aggiornate le impostazioni relative all'accesso ai costi, si verifica un ritardo di qualche minuto prima che le modifiche siano visibili anche nel portale di Azure.
+- Limite di spesa, avvisi di fatturazione e linee guida per la fatturazione non riguardano le sottoscrizioni EA.
+
+#### <a name="view-costs-for-all-your-subscriptions-in-the-billing-page"></a>Visualizzare i costi per tutte le sottoscrizioni nella pagina Fatturazione
+
+Se si gestiscono più sottoscrizioni come amministratore account, è possibile visualizzare l'importo complessivo delle fatture e il dettaglio per le singole sottoscrizioni nella [pagina Fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade). Le visualizzazioni aggregate per le sottoscrizioni EA non sono attualmente disponibili nella pagina Fatturazione del portale di Azure.  
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
@@ -161,7 +175,7 @@ Per altre informazioni, vedere [Advisor Cost recommendations](../advisor/advisor
 
 ### <a name="invoice-and-usage"></a> Ottenere la fattura e i dati dettagliati di utilizzo dopo il primo periodo di fatturazione
 
-Dopo il primo periodo di fatturazione, è possibile scaricare la fattura in formato PDF (Portable Document Format) e i dettagli di utilizzo in formato CSV (Comma-Separated Values). È anche possibile fornire il consenso esplicito all'invio della fattura tramite posta elettronica. Questi file consentono di comprendere quanto viene effettivamente addebitato al netto di imposte, sconti e crediti. Se alla sottoscrizione non è collegato un metodo di pagamento, questi file potrebbero non essere disponibili. Per altre informazioni, vedere [Come ottenere la fattura e i dati di utilizzo giornalieri di Azure](billing-download-azure-invoice-daily-usage-date.md) e [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
+Dopo il primo periodo di fatturazione, è possibile scaricare la fattura in formato PDF (Portable Document Format) e i dettagli di utilizzo in formato CSV (Comma-Separated Values). È anche possibile fornire il consenso esplicito all'invio della fattura tramite posta elettronica. Questi file consentono di comprendere quanto viene effettivamente addebitato al netto di imposte, sconti e crediti. Se alla sottoscrizione non è collegato un metodo di pagamento, questi file potrebbero non essere disponibili. Se si ha una sottoscrizione EA, l'amministratore delle registrazioni riceve la fattura tramite posta elettronica, in quanto non è disponibile nel portale di Azure. Per altre informazioni, vedere [Come ottenere la fattura e i dati di utilizzo giornalieri di Azure](billing-download-azure-invoice-daily-usage-date.md) e [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md).
 
 ![Screenshot di una fattura in formato PDF](./media/billing-getting-started/invoice.png)
 

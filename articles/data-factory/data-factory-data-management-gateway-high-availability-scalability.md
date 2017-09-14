@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: fe78e2ef31695d443123664a83e9f753ccfc0be8
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
@@ -101,7 +101,7 @@ Questa sezione presuppone che siano stati letti i due articoli seguenti o che si
         ![Gateway di gestione dati: installazione completata](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > Se si sta effettuando il provisioning del gateway in una VM di Azure, è possibile usare [questo modello di Azure Resource Manager in GitHub](https://github.com/xiaoyingLJ/vms-with-multiple-data-management-gateway). Questo script crea un gateway di rete logico, configura le VM con il software di Gateway di gestione dati installato e le registra con il gateway logico. 
+        > Se si sta effettuando il provisioning del gateway in una macchina virtuale di Azure, è possibile usare [questo modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). Questo script crea un gateway di rete logico, configura le VM con il software di Gateway di gestione dati installato e le registra con il gateway logico. 
 6. Nel portale di Azure avviare la pagina **Gateway**: 
     1. Nella home page della data factory nel portale fare clic su **Servizi collegati**.
     

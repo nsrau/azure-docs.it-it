@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: c28604e3b7058f830c69eedc5d7f25d65e2448a8
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-disk-encryption-faq"></a>Domande frequenti su Crittografia dischi di Azure
@@ -112,6 +112,16 @@ Questo articolo fornisce le risposte alle domande frequenti (FAQ) su Crittografi
 
 **R:** Sì, è possibile eseguire un aggiornamento o applicare patch a una VM Red Hat Linux. Per altre informazioni, vedere [Applying updates to an encrypted Azure IaaS Red Hat VM by using the yum update](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/) (Applicazione di aggiornamenti a una VM Red Hat IaaS di Azure mediante l'aggiornamento Yum).
 
+**D:** Qual è il flusso di lavoro di crittografia dischi di Azure consigliato per Linux?
+
+**R:** Di seguito è riportato il flusso di lavoro consigliato per ottenere risultati ottimali in Linux:
+* Iniziare dall'immagine della raccolta non modificata corrispondente alla distribuzione e alla versione del sistema operativo desiderate
+* Eseguire il backup di tutte le unità montate che verranno crittografate.  Questo permetterà il ripristino in caso di errore, ad esempio se la macchina virtuale viene riavviata prima del completamento della crittografia.
+* Eseguire la crittografia (può richiedere più ore o addirittura giorni a seconda delle caratteristiche della macchina virtuale e delle dimensioni di qualsiasi disco dati collegato)
+* Personalizzare e aggiungere il software all'immagine in base alle esigenze.
+
+Se questo flusso di lavoro non è possibile, l'uso della [crittografia del servizio di archiviazione](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) a livello di account di archiviazione della piattaforma può essere un'alternativa alla crittografia completa del disco tramite dm-crypt.
+
 **D:** Quali risorse sono disponibili per porre domande o inviare commenti?
 
 **R:** È possibile porre domande o fornire commenti e suggerimenti sul [forum di Crittografia dischi di Azure disponibile](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
@@ -121,5 +131,5 @@ In questo documento sono state fornite le risposte alle domande più frequenti r
 
 - [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [Crittografare una macchina virtuale di Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
-- [Crittografia in Azure per dati inattivi](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Crittografia dei dati inattivi in Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
 

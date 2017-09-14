@@ -1,6 +1,6 @@
 ---   
 title: Panoramica dei criteri SSL per il gateway applicazione di Azure | Microsoft Docs
-description: Informazioni su come il gateway applicazione di Azure consente di configurare i criteri SSL
+description: Informazioni sul modo in cui il gateway applicazione di Azure consente di configurare criteri SSL
 services: application gateway
 documentationcenter: na
 author: amsriva
@@ -15,23 +15,23 @@ ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 938591bc2422f3137492e86fc60f7d5529596424
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/06/2017
 
 ---
    
 
 # <a name="application-gateway-ssl-policy-overview"></a>Panoramica dei criteri SSL per il gateway applicazione
 
-Il gateway applicazione consente di centralizzare la gestione dei certificati SSL e ridurre il carico di crittografia e decrittografia di una server farm back-end. Questa gestione centralizzata di SSL permette anche di specificare criteri SSL centrali adatti ai requisiti di sicurezza dell'organizzazione. In questo modo è possibile rispettare sia i requisiti di conformità che le linee guida e le procedure consigliate per la sicurezza.
+È possibile usare il gateway applicazione di Azure per centralizzare la gestione dei certificati SSL e ridurre il sovraccarico di crittografia e decrittografia da una server farm back-end. Questa gestione centralizzata dei certificati SSL permette anche di specificare criteri SSL centrali adatti ai requisiti di sicurezza dell'organizzazione. In questo modo, è possibile soddisfare i requisiti di conformità, nonché le linee guida e le procedure consigliate per la sicurezza.
 
-I criteri SSL includono il controllo sia della versione del protocollo e dei pacchetti di crittografia che dell'ordine in cui i pacchetti di crittografia vengono usati durante un handshake SSL. Per consentire ai clienti di controllare i criteri SSL, il gateway applicazione offre due meccanismi: i criteri predefiniti e quelli personalizzati.
+I criteri SSL includono il controllo della versione del protocollo SSL e dei pacchetti di crittografia, insieme all'ordine in cui usare i pacchetti di crittografia durante un handshake SSL. Il gateway applicazione offre due meccanismi per il controllo dei criteri SSL. È possibile usare criteri predefiniti o personalizzati.
 
 ## <a name="predefined-ssl-policy"></a>Criteri SSL predefiniti
 
-Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile configurare il gateway con uno qualsiasi di questi criteri per ottenere il livello di sicurezza appropriato. I nomi dei criteri sono contrassegnati con l'anno e il mese in cui sono stati configurati. Ogni criterio offre versioni del protocollo SSL e pacchetti di crittografia diversi. Per garantire una sicurezza SSL ottimale, è consigliabile usare i criteri SSL più recenti. Il gateway applicazione consente attualmente agli utenti di scegliere uno dei criteri predefiniti seguenti.
+Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile configurare il gateway con uno qualsiasi di questi criteri per ottenere il livello di sicurezza appropriato. I nomi dei criteri sono contrassegnati con l'anno e il mese in cui sono stati configurati. Ogni criterio offre versioni del protocollo SSL e pacchetti di crittografia diversi. Per garantire una sicurezza SSL ottimale, è consigliabile usare i criteri SSL più recenti.
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
@@ -47,7 +47,7 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
 |Proprietà  |Valore  |
 |   ---      |  ---       |
 |Nome     | AppGwSslPolicy20170401        |
-|MinProtocolVersion     | TLSv1_0        |
+|MinProtocolVersion     | TLSv1_1        |
 |Default| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
@@ -55,26 +55,25 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
 
 |Proprietà  |Valore  |
 |---|---|
-|Nome     | AppGwSslPolicy20170401        |
+|Nome     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
 |Default| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
 
 ## <a name="custom-ssl-policy"></a>Criteri SSL personalizzati
 
-Se è necessario configurare un criterio SSL predefinito per i propri requisiti, si devono definire criteri SSL personalizzati. In questo caso si ha il controllo completo sulla versione minima del protocollo SSL da supportare nonché sui pacchetti di crittografia supportati e sul relativo ordine di priorità.
+Se è necessario configurare un criterio SSL predefinito per i propri requisiti, definire criteri SSL personalizzati. I criteri SSL personalizzati forniscono il controllo completo sulla versione minima del protocollo SSL supportata, nonché i pacchetti di crittografia supportati e il rispettivo ordine di priorità.
  
-Versioni del protocollo SSL:
+### <a name="ssl-protocol-versions"></a>Versioni del protocollo SSL
 
-* Per impostazione predefinita, SSL 2.0 e 3.0 sono disabilitati per tutti i gateway applicazione. Queste versioni del protocollo non sono configurabili.
-* La definizione di criteri SSL personalizzati offre la possibilità di selezionare uno qualsiasi dei tre protocolli seguenti come versione minima del protocollo SSL per il gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
-* Se non è definito alcun criterio SSL, sono abilitati tutti e tre (TLSv1_0, TLSv1_1 e TLSv1_2).
+* Per impostazione predefinita, i protocolli SSL 2.0 e 3.0 sono disabilitati per tutti i gateway applicazione. Queste versioni del protocollo non sono configurabili.
+* La definizione di criteri SSL personalizzati offre la possibilità di selezionare uno qualsiasi di questi tre protocolli come versione minima del protocollo SSL per il gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
+* Se non sono definiti criteri SSL, sono abilitati tutti e tre i protocolli (TLSv1_0, TLSv1_1 e TLSv1_2).
 
-Pacchetto di crittografia:
+### <a name="cipher-suites"></a>Pacchetti di crittografia
 
-Il gateway applicazione supporta i pacchetti di crittografia seguenti, selezionabili per i propri criteri personalizzati. L'ordinamento dei pacchetti di crittografia determina l'ordine di priorità durante la negoziazione SSL.
+Il gateway applicazione supporta i pacchetti di crittografia seguenti, tra i quali è possibile scegliere i criteri personalizzati. L'ordinamento dei pacchetti di crittografia determina l'ordine di priorità durante la negoziazione SSL.
 
-Pacchetti di crittografia disponibili:
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -107,5 +106,5 @@ Pacchetti di crittografia disponibili:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare i criteri SSL in un gateway applicazione](application-gateway-configure-ssl-policy-powershell.md)
+Per informazioni su come configurare criteri SSL, vedere [Configurare criteri SSL nel gateway applicazione](application-gateway-configure-ssl-policy-powershell.md).
 

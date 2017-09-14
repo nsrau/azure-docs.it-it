@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 862e9551f1e129b7bba06651fbae94e337c92dcb
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestire Azure Data Lake Analytics tramite Azure PowerShell
@@ -329,86 +329,9 @@ $d = [DateTime]::Now.AddDays(-7)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-### <a name="common-scenarios-for-listing-jobs"></a>Scenari comuni per elencare i processi
+### <a name="analyzing-job-history"></a>Analisi della cronologia processo
 
-
-```
-# List jobs submitted in the last five days and that successfully completed.
-$d = (Get-Date).AddDays(-5)
-Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
-
-# List all failed jobs submitted by "joe@contoso.com" within the past seven days.
-Get-AdlJob -Account $adla `
-    -Submitter "joe@contoso.com" `
-    -SubmittedAfter (Get-Date).AddDays(-7) `
-    -Result Failed
-```
-
-## <a name="filtering-a-list-of-jobs"></a>Filtrare un elenco di processi
-
-Dopo aver creato un elenco dei processi nella sessione corrente di PowerShell. È possibile utilizzare i cmdlet normali di PowerShell per filtrare l'elenco.
-
-Filtrare un elenco di processi per i processi inviati nelle ultime 24 ore
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.EndTime -ge $lowerdate }
-```
-
-Filtrare un elenco di processi per i processi terminati nelle ultime 24 ore
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
-```
-
-Filtrare un elenco di processi per i processi con esecuzione avviata. Un processo potrebbe non riuscire in fase di compilazione, e pertanto non essere mai avviato. Esaminiamo i processi non riusciti, in cui l’esecuzione è stata avviata ma non è riuscita.
-
-```powershell
-$jobs | Where-Object { $_.StartTime -ne $null }
-```
-
-### <a name="analyzing-a-list-of-jobs"></a>Analizzare un elenco di processi
-
-Utilizzare il cmdlet `Group-Object` per analizzare un elenco di processi.
-
-```
-# Count the number of jobs by Submitter
-$jobs | Group-Object Submitter | Select -Property Count,Name
-
-# Count the number of jobs by Result
-$jobs | Group-Object Result | Select -Property Count,Name
-
-# Count the number of jobs by State
-$jobs | Group-Object State | Select -Property Count,Name
-
-#  Count the number of jobs by DegreeOfParallelism
-$jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
-```
-Quando si esegue un'analisi, può essere utile aggiungere proprietà agli oggetti di processo per rendere più semplice il filtraggio e il raggruppamento. Il frammento di codice seguente mostra come annotare un JobInfo con proprietà calcolate.
-
-```
-function annotate_job( $j )
-{
-    $dic1 = @{
-        Label='AUHours';
-        Expression={ ($_.DegreeOfParallelism * ($_.EndTime-$_.StartTime).TotalHours)}}
-    $dic2 = @{
-        Label='DurationSeconds';
-        Expression={ ($_.EndTime-$_.StartTime).TotalSeconds}}
-    $dic3 = @{
-        Label='DidRun';
-        Expression={ ($_.StartTime -ne $null)}}
-
-    $j2 = $j | select *, $dic1, $dic2, $dic3
-    $j2
-}
-
-$jobs = Get-AdlJob -Account $adla -Top 10
-$jobs = $jobs | %{ annotate_job( $_ ) }
-```
+L'uso di Azure PowerShell per analizzare la cronologia dei processi eseguiti in Data Lake Analytics è una tecnica potente. In questo modo, è possibile ottenere informazioni dettagliate sull'utilizzo e sui costi. Per altre informazioni, vedere il [repository di esempio di analisi della cronologia processo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="get-information-about-pipelines-and-recurrences"></a>Ottenere informazioni sulle pipeline e l'intervallo di esecuzione
 

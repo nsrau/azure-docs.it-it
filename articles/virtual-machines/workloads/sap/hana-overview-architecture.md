@@ -1,5 +1,5 @@
 ---
-title: Panoramica e architettura di SAP HANA in Azure (istanze di grandi dimensioni) | Documentazione Microsoft
+title: Panoramica e architettura di SAP HANA in Azure (istanze di grandi dimensioni) | Microsoft Docs
 description: Panoramica dell'architettura della distribuzione di SAP HANA in Azure (istanze di grandi dimensioni).
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: bcdcbd9e781dc9686f4be18e16bf046de6981a9d
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA (istanze Large) in Azure
@@ -32,7 +32,7 @@ L'isolamento dei clienti nello stamp dell'infrastruttura viene eseguito nei tena
 - Rete: isolamento dei clienti nello stack dell'infrastruttura tramite rete virtuali per ogni tenant assegnato al cliente. Un tenant viene assegnato a un singolo cliente. Un cliente può avere più tenant. L'isolamento rete dei tenant impedisce la comunicazione di rete tra i tenant a livello di stamp dell'infrastruttura, anche se i tenant appartengono allo stesso cliente.
 - Componenti di archiviazione: isolamento tramite macchine virtuali di archiviazione a cui sono assegnati volumi di archiviazione. I volumi di archiviazione possono essere assegnati a una sola macchina virtuale di archiviazione. Una macchina virtuale di archiviazione viene assegnata esclusivamente a un solo tenant nello stack dell'infrastruttura con certificazione SAP HANA TDI. Di conseguenza, i volumi di archiviazione assegnati a una macchina virtuale di archiviazione sono accessibili in un solo tenant specifico e correlato e non sono visibili tra i diversi tenant distribuiti.
 - Server o host: un'unità server o host non viene condivisa tra clienti o tenant. Un server o un host distribuito a un cliente è un'unità di calcolo bare metal atomica assegnata a un solo tenant. **Non** vengono usati partizionamenti hardware o software con i quali un cliente potrebbe ritrovarsi a condividere un host o un server con un altro cliente. I volumi di archiviazione assegnati alla macchina virtuale di archiviazione del tenant specifico vengono montati in tale server. A un tenant può essere assegnata in modo esclusivo una o più unità server di SKU diversi.
-- In uno stamp dell'infrastruttura SAP HANA in Azure (istanza Large) più tenant diversi vengono distribuiti e isolati l'uno dall'altro tramite i concetti tenant a livello di rete, archiviazione e calcolo. 
+- In uno stamp dell'infrastruttura SAP HANA in Azure (istanza Large) più tenant diversi vengono distribuiti e isolati l'uno dall'altro tramite i concetti tenant a livello di rete, archiviazione ed elaborazione. 
 
 
 Queste unità server bare metal sono supportate solo per l'esecuzione di SAP HANA. Il livello dell'applicazione SAP o il livello del middleware del carico di lavoro è in esecuzione in Macchine virtuali di Microsoft Azure. Gli stamp dell'infrastruttura che eseguono le unità SAP HANA in Azure (istanza Large) sono connessi ai backbone di rete di Azure in modo che venga fornita connettività a bassa latenza tra le unità SAP HANA in Azure (istanza Large) e Macchine virtuali di Azure.
@@ -189,6 +189,18 @@ Di seguito sono riportati alcuni esempi dell'esecuzione di più istanze di SAP H
 
 
 Questo serve a rendere l'idea. Esistono certamente altre varianti. 
+
+### <a name="using-sap-hana-data-tiering-and-extension-nodes"></a>Uso di nodi di estensione e suddivisione in livelli dei dati di SAP HANA
+SAP supporta un modello di suddivisione in livelli dei dati per SAP BW di diverse versioni di SAP NetWeaver e SAP BW/4HANA. I dettagli relativi al modello di suddivisione in livelli dei dati sono disponibili in questo documento e nel blog a cui viene fatto riferimento in questo documento di SAP: [SAP BW/4HANA AND SAP BW ON HANA WITH SAP HANA EXTENSION NODES](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#) (SAP BW/4HANA E SAP BW SU HANA CON NODI DI ESTENSIONE SAP HANA).
+Con le istanze Large di HANA è possibile usare la configurazione option-1 dei nodi di estensione SAP HANA, come descritto in dettaglio in questi documenti di domande frequenti e del blog di SAP. Le configurazioni option-2 possono essere impostate con le SKU delle istanze Large di HANA seguenti: S72m, S192, S192m, S384 e S384m.  
+Esaminando la documentazione, il vantaggio potrebbe non essere immediatamente visibile. Osservando invece le linee guida del dimensionamento di SAP, è possibile individuare un vantaggio usando i nodi di estensione option-1 e option-2 di SAP HANA. Ecco un esempio:
+
+- Le linee guida del dimensionamento di SAP HANA richiedono in genere il doppio del volume di dati per la memoria. In questo modo, quando si esegue l'istanza di SAP HANA con hot data, solo il 50% o meno della memoria è occupata dai dati. Idealmente, il resto della memoria viene mantenuto per il funzionamento di SAP HANA.
+- Questo significa che in un'unità S192 di istanza Large di HANA con 2 TB di memoria che esegue un database SAP BW, il volume di dati è di 1 TB.
+- Se si usa un nodo di estensione aggiuntivo di tipo option-1 di SAP HANA, anche una SKU S192 di istanza Large di HANA conferirebbe una capacità aggiuntiva di 2 TB per il volume di dati. Nella configurazione option-2, addirittura 4 TB aggiuntivi per il volume di warm data. Rispetto al nodo di tipo hot, è possibile usare la capacità di memoria completa del nodo di estensione warm per l'archiviazione dei dati per option-1 e il doppio della memoria per il volume dei dati nella configurazione del nodo di estensione option-2 di SAP HANA.
+- Il risultato: una capacità di 3 TB per i dati e un rapporto hot/warm di 1:2 nella configurazione del nodo di estensione option-1 e una capacità di 5 TB per i dati e un rapporto hot/warm di 1:4 nella configurazione del nodo di estensione option-2.
+
+Tuttavia, maggiore sarà il volume di dati rispetto alla memoria, maggiori saranno le probabilità che i dati warm desiderati si trovino in un'archiviazione su disco.
 
 
 ## <a name="operations-model-and-responsibilities"></a>Responsabilità e modello operativo
