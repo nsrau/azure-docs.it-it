@@ -1,6 +1,6 @@
 ---
 title: Output e messaggi dei runbook in Automazione di Azure | Documentazione Microsoft
-description: Viene descritto come creare e recuperare l&quot;output e i messaggi di errore da runbook in automazione di Azure.
+description: Viene descritto come creare e recuperare l'output e i messaggi di errore da runbook in automazione di Azure.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 505834d7354fb920e7ebd931e3bb31d837a79077
 ms.openlocfilehash: 6f01f97e38aa271034741c8a5e2f8057ab61fcd7
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
@@ -187,6 +188,11 @@ Nell'esempio seguente viene avviato un runbook figlio e si attende il suo comple
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+    
+    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+    
 
 ### <a name="graphical-authoring"></a>Creazione grafica
 Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma di traccia a livello di attività.  Sono disponibili due livelli di traccia: base e dettagliato.  Nella traccia di base sono indicate l'ora di inizio e di fine di ogni attività del runbook, oltre a informazioni relative a eventuali ulteriori tentativi di esecuzione dell'attività, ad esempio il numero di tentativi e l'ora di inizio dell'attività.  Nella traccia dettagliata sono indicate le informazioni della traccia di base e i dati di input e output di ogni attività.  Si noti che attualmente i record di traccia vengono scritti usando il flusso dettagliato. Per questa ragione è necessario abilitare la registrazione dettagliata quando si abilita la traccia.  Per i runbook grafici con la traccia abilitata non è necessario registrare record di stato perché la traccia di base svolge la stessa funzione e offre maggiori informazioni.
@@ -220,10 +226,5 @@ Per altre informazioni sulla configurazione dell'integrazione con Log Analytics 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per maggiori informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere come tenere traccia del processo di un runbook in [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md)
 * Per informazioni come progettare e usare i runbook figlio, vedere [Runbook figlio in Automazione di Azure](automation-child-runbooks.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

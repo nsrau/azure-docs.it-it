@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c49f185db5a035f70a711bf309b973182d94a2b0
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 5c42b3e519781fa25fe92b286fa65898a7aac173
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox
@@ -40,7 +40,7 @@ Prima di iniziare questa esercitazione, è necessario avere:
 
 - [Java Developer Kit (JDK) versione 1.8 o successiva](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). JDK è richiesto da Azure Toolkit for IntelliJ.
 
-- [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) con i plug-in [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) e [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md). Gli strumenti HDInsight per IntelliJ sono disponibili nell'ambito di Azure Toolkit for IntelliJ. 
+- [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) con i plug-in [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) e [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md). Gli strumenti HDInsight per IntelliJ sono disponibili come parte di Azure Toolkit for IntelliJ. 
 
   Per installare i plug-in, seguire questa procedura:
 
@@ -55,7 +55,7 @@ Prima di iniziare questa esercitazione, è necessario avere:
 
 In questa sezione verrà creato un progetto Scala di esempio usando IntelliJ IDEA. Nella sezione successiva, IntelliJ IDEA verrà collegato a Hortonworks Sandbox (emulatore) prima di inviare il progetto.
 
-1. Aprire IntelliJ IDEA dalla workstation. Nella finestra di dialogo **New Project** (Nuovo progetto) seguire questa procedura:
+1. Aprire IntelliJ IDEA dalla workstation. Nella finestra di dialogo **Nuovo progetto**, seguire questa procedura:
 
    a. Selezionare **HDInsight** > **Spark on HDInsight (Scala)** (Spark in HDInsight - Scala).
 
@@ -68,7 +68,7 @@ In questa sezione verrà creato un progetto Scala di esempio usando IntelliJ IDE
 
 2. Selezionare **Avanti**.
 
-3. Nella finestra di dialogo **New Project** (Nuovo progetto) successiva seguire questa procedura:
+3. Nella finestra di dialogo **Nuovo progetto** successiva, seguire questa procedura:
 
     ![Proprietà della creazione del progetto IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 

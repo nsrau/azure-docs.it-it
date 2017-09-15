@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 073/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 146c9f5c751443608f8f405be949398f9f721053
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8616eb51b177a9447a7c466c9d934b9139afedf
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Sostituire un'unità disco del dispositivo StorSimple serie 8000
@@ -103,8 +103,8 @@ Dopo aver rimosso un'unità guasta nel dispositivo StorSimple, seguire questa pr
     **Figura 6** Scorrimento del supporto dell'unità nello chassis
 3. Con il supporto dell'unità inserito, chiudere il punto di manipolazione del supporto dell'unità continuando a spingere il supporto dell'unità nello chassis, fino a quando il punto di manipolazione del supporto dell'unità non si chiude a scatto in una posizione bloccata.
 4. Utilizzare la chiave di blocco fornita da Microsoft (cacciavite Torx a prova di manomissione) per fissare in posizione il punto di manipolazione del supporto girando la vite di blocco di un quarto in senso orario.
-5. Verificare che la sostituzione sia riuscita e che l'unità sia operativa. Accedere al portale di Azure e passare a **Impostazioni** > **Integrità hardware**. In **Componenti condivisi** o **Componenti condivisi EBOD** , lo stato dell'unità deve essere verde, ovvero integro.
-<!---Loc Comment: It seems it should say "Device settings > Hardware health" instead of "Settings > Hardware health"---->
+5. Verificare che la sostituzione sia riuscita e che l'unità sia operativa. Accedere al portale di Azure e passare a **Impostazioni periferica** > **Integrità hardware**. In **Componenti condivisi** o **Componenti condivisi EBOD** , lo stato dell'unità deve essere verde, ovvero integro.
+
    
    > [!NOTE]
    > Potrebbero essere necessarie diverse ore affinché lo stato del disco diventi verde dopo la sostituzione.

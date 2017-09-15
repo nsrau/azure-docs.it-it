@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 95379ed04c47a1e62822ae44b9a1f13b234c6282
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
 
-In questo argomento viene illustrato come iniziare a creare le Funzioni di Azure che usano i Servizi multimediali. La funzione di Azure definita in questo argomento consente di monitorare un contenitore di account di archiviazione denominato **input** per i nuovi file MP4. Una volta rilasciato un file nel contenitore di archiviazione, il trigger BLOB eseguirà la funzione.
+In questo argomento viene illustrato come iniziare a creare le Funzioni di Azure che usano i Servizi multimediali. La funzione di Azure definita in questo argomento consente di monitorare un contenitore di account di archiviazione denominato **input** per i nuovi file MP4. Una volta rilasciato un file nel contenitore di archiviazione, il trigger BLOB eseguirà la funzione. Per le funzioni di Azure, vedere [Panoramica](../azure-functions/functions-overview.md) e altri argomenti della sezione **Funzioni di Azure**.
 
 Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i Servizi multimediali di Azure, estrarre [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) (Funzioni di Azure di Servizi multimediali). Questo repository contiene esempi che usano Servizi multimediali per visualizzare i flussi di lavoro correlati all'inserimento di contenuto direttamente dall'archiviazione BLOB, alla codifica e alla scrittura del contenuto nell'archiviazione BLOB. Include inoltre esempi su come monitorare le notifiche dei processi tramite i webhook e le code di Azure. È inoltre possibile sviluppare le funzioni in base agli esempi nel repository [Funzioni di Azure dei Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Per distribuire le funzioni, premere il pulsante **Distribuisci in Azure**.
 
@@ -31,9 +31,6 @@ Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i S
 
 - Per poter creare la prima funzione, è necessario avere un account Azure attivo. Se non si possiede già un account Azure, [sono disponibili account gratuiti](https://azure.microsoft.com/free/).
 - Se si intende creare le Funzioni di Azure per eseguire azioni sull'account dei Servizi multimediali di Azure o ascoltare gli eventi inviati dai Servizi multimediali, è necessario creare un account AMS, come descritto [qui](media-services-portal-create-account.md).
-- Comprensione della [modalità d'uso delle funzioni di Azure](../azure-functions/functions-overview.md). Inoltre, esaminare:
-    - [Associazioni HTTP e webhook in Funzioni di Azure](../azure-functions/functions-triggers-bindings.md)
-    - [Come configurare le impostazioni dell'app per le funzioni di Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
     
 ## <a name="considerations"></a>Considerazioni
 
@@ -83,10 +80,9 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
 4. Fare clic su **Crea**. 
 
-
 ## <a name="files"></a>File
 
-La funzione di Azure è associata al file del codice e ad altri file descritti in questa sezione. Per impostazione predefinita, una funzione è associata ai file **function.json** e **run.csx** (C#). Sarà necessario aggiungere un file **project.json**. La parte successiva di questa sezione illustra le definizioni per questi file.
+La funzione di Azure è associata al file del codice e ad altri file descritti in questa sezione. Quando si usa il portale di Azure per creare una funzione, **function.json** e **run.csx** vengono creati automaticamente. Sarà necessario aggiungere o caricare un file **project.json**. Il resto di questa sezione fornisce una breve spiegazione di ogni file e mostra le relative definizioni.
 
 ![input](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
@@ -97,7 +93,7 @@ Il file function.json definisce le associazioni di funzione e altre impostazioni
 >[!NOTE]
 >Impostare la proprietà **disattivato** su **vero** per impedire l'esecuzione della funzione. 
 
-Di seguito è riportato un esempio di file **function.json**.
+Sostituire il contenuto del file .json della funzione esistente con il codice seguente:
 
 ```
 {
@@ -117,6 +113,8 @@ Di seguito è riportato un esempio di file **function.json**.
 ### <a name="projectjson"></a>project.json
 
 Il file project.json contiene dipendenze. Di seguito è riportato un esempio del file **project.json** che include i pacchetti di Servizi multimediali di Azure .NET da Nuget. Si noti che i numeri di versione cambieranno con gli aggiornamenti più recenti per i pacchetti, pertanto è consigliabile confermare le versioni più recenti. 
+
+Aggiungere la seguente definizione .json. 
 
 ```
 {
@@ -145,7 +143,7 @@ L'esempio viene definito in questa sezione illustra
 
 Nello scenario reale, è probabile che l'utente desideri tenere traccia dello stato dei processi e quindi pubblicare l'asset codificato. Per altre informazioni, vedere [Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET](media-services-dotnet-check-job-progress-with-webhooks.md). Per altri esempi, vedere [Funzioni di Azure dei Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Al termine dell'operazione di definizione della funzione fare clic su **Salva ed esegui**.
+Sostituire il contenuto del file run.csx esistente con il codice seguente. Al termine dell'operazione di definizione della funzione fare clic su **Salva ed esegui**.
 
 ```
 #r "Microsoft.WindowsAzure.Storage"
@@ -342,6 +340,11 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 Per testare la funzione, è necessario caricare un file MP4 nel contenitore **input** dell'account di archiviazione specificato nella stringa di connessione.  
 
+1. Selezionare l'account di archiviazione specificato nella variabile di ambiente **StorageConnection**.
+2. Fare clic su **Blob**.
+3. Fare clic su **+ Contenitore**. Denominare il contenitore **input**.
+4. Premere **Upload** e passare al file MP4 che si desidera caricare.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Servizi multimediali. 
@@ -349,9 +352,6 @@ A questo punto, si è pronti per iniziare a sviluppare un'applicazione di Serviz
 Per altri dettagli ed esempi o soluzioni complete di uso di Funzioni di Azure e delle App per la logica con Servizi multimediali di Azure per creare flussi di lavoro di creazione di contenuto personalizzato, vedere l'[Esempio di integrazione delle funzioni di Servizi multimediali .NET su GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 Vedere anche [Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET](media-services-dotnet-check-job-progress-with-webhooks.md). 
-
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

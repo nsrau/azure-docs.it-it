@@ -15,18 +15,20 @@ ms.workload: na
 ms.date: 08/09/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 28fb41499c919e5006f1be7daa97610c2a0583af
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: b4b9d5d272bdb172f1d40db379a519a4f617550a
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticazione e autorizzazione del bus di servizio
 
-Le applicazioni possono eseguire l'autenticazione al bus di servizio di Azure usando l'autenticazione con firma di accesso condiviso (SAS). L'autenticazione della firma di accesso condiviso consente alle applicazioni di eseguire l'autenticazione al bus di servizio tramite una chiave di accesso configurata nello spazio dei nomi o nell'entità a cui sono associati diritti specifici. È quindi possibile usare questa chiave per generare un token di firma di accesso condiviso che i client possono usare per eseguire l'autenticazione al bus di servizio.
+Le applicazioni accedono alle funzioni del bus di servizio di Azure usando l'autenticazione con token per la firma di accesso condiviso (SAS). Con la firma di accesso condiviso, le applicazioni presentano un token al bus di servizio che è stato firmato con una chiave simmetrica nota sia all'emittente del token che al bus di servizio ("condivisa"); tale chiave è direttamente associata a una regola che concede diritti di accesso specifici, ad esempio l'autorizzazione alla ricezione/all'ascolto o all'invio di messaggi. Le regole relative alla firma di accesso condiviso sono configurate nello spazio dei nomi o direttamente sull'entità, ad esempio una coda o un argomento, consentendo il controllo di accesso granulare.
+
+I token della firma di accesso condiviso possono essere generati direttamente da un client del bus di servizio o da un token intermedio che emette endpoint con cui il client interagisce. Ad esempio, un sistema può richiedere al client di chiamare un endpoint del servizio Web protetto mediante autorizzazione di Active Directory per dimostrare i diritti di accesso di identità e di sistema; il servizio Web restituirà quindi il token del bus di servizio appropriato. Questo token di firma di accesso condiviso può essere facilmente generato usando il provider di token del bus di servizio incluso nel SDK. 
 
 > [!IMPORTANT]
-> È consigliabile utilizzare SAS invece di Azure AD Access Control (anche noto come Servizio di controllo di accesso o ACS), perché quest'ultimo verrà deprecato. La firma di accesso condiviso offre uno schema di autenticazione per il bus di servizio semplice, flessibile e di facile utilizzo. Le applicazioni possono usare la firma di accesso condiviso in scenari in cui non è necessario gestire la nozione di "utente" autorizzato. Per altre informazioni, vedere [questo post di blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> Se si usa il controllo di accesso di Azure Active Directory (anche noto come servizio di controllo di accesso o ACS) in combinazione con il bus di servizio, si noti che il supporto per questo metodo è ora limitato ed è necessario eseguire la migrazione dell'applicazione per l'uso di SAS. Per altre informazioni, vedere [questo post di blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
 
 ## <a name="shared-access-signature-authentication"></a>Autenticazione della firma di accesso condiviso
 

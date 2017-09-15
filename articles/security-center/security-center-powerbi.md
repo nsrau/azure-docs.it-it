@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 09/13/2017
 ms.author: yurid
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
 ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
 ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Ottenere informazioni dettagliate sui dati del Centro sicurezza di Azure con Power BI
@@ -32,7 +31,7 @@ Il [dashboard di Power BI](http://aka.ms/azure-security-center-power-bi) nel Cen
 
 1. Nel dashboard del **Centro sicurezza di Azure** fare clic sul pulsante **Power BI**.
 
-    ![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-1-newUI-2017.png)
+    ![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig13.png)
 2. Sul lato destro verrà visualizzato il pannello **Power BI**, come illustrato nella schermata seguente:
 
     ![Connetti a Centro sicurezza di Azure con Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new11-2017.png)

@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: c3801573808709f29cb1e563ac803f225a28cafc
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: bc4e1b04e8f90e5713468ce38f6f05174affb261
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Esecuzione di processi MapReduce con Hadoop in HDInsight mediante PowerShell
@@ -41,7 +40,7 @@ Questo documento fornisce un esempio di come usare Azure PowerShell per eseguire
 
 ## <a id="powershell"></a>Eseguire un processo MapReduce con Azure PowerShell
 
-Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remota processi MapReduce in HDInsight. Questo risultato si ottiene internamente usando chiamate REST a [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (chiamato in precedenza Templeton) in esecuzione nel cluster HDInsight.
+Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remota processi MapReduce in HDInsight. PowerShell effettua internamente chiamate REST a [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (chiamato in precedenza Templeton) in esecuzione nel cluster HDInsight.
 
 Durante l'esecuzione di processi MapReduce in un cluster HDInsight remoto, vengono usati i seguenti cmdlet.
 
@@ -49,7 +48,7 @@ Durante l'esecuzione di processi MapReduce in un cluster HDInsight remoto, vengo
 
 * **New-AzureRmHDInsightMapReduceJobDefinition**: crea una nuova *definizione di processo* usando le informazioni MapReduce specificate.
 
-* **Start-AzureRmHDInsightJob**: invia la definizione del processo a HDInsight, avvia il processo e restituisce un oggetto *job* che può essere usato per verificare lo stato del processo.
+* **Start-AzureRmHDInsightJob**: invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo*.
 
 * **Wait-AzureRmHDInsightJob**: usa l'oggetto job per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.
 
@@ -65,7 +64,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
 
         .\mapreducejob.ps1
 
-    Quando si esegue lo script viene chiesto il nome del cluster HDInsight e il nome dell'account Admin/HTTPS e la password per il cluster. Potrebbe anche essere richiesta l'autenticazione alla sottoscrizione di Azure.
+    Quando si esegue lo script viene chiesto il nome del cluster HDInsight e l'account di accesso del cluster. Potrebbe anche essere richiesta l'autenticazione alla sottoscrizione di Azure.
 
 3. Al termine del processo, viene visualizzato un output simile al testo seguente:
 
@@ -95,7 +94,7 @@ Per vedere le parole e i numeri generati dal processo, aprire il file **output.t
 
 ## <a id="troubleshooting"></a>Risoluzione dei problemi
 
-Se al termine del processo non vengono restituite informazioni, potrebbe essersi verificato un errore durante l'elaborazione. Per visualizzare informazioni relative all'errore per questo processo, aggiungere il seguente comando alla fine del file **mapreducejob.ps1** , salvare il file, quindi eseguirlo nuovamente.
+Se al termine del processo non viene restituita alcuna informazione, visualizzare gli errori relativi al processo. Per visualizzare informazioni relative all'errore per questo processo, aggiungere il seguente comando alla fine del file **mapreducejob.ps1** , salvare il file, quindi eseguirlo nuovamente.
 
 ```powershell
 # Print the output of the WordCount job.
@@ -107,7 +106,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-Questo cmdlet restituisce le informazioni scritte in STDERR nel server durante l'esecuzione del processo, che possono essere utili per determinare la causa del problema.
+Questo cmdlet restituisce le informazioni scritte in STDERR durante l'esecuzione del processo.
 
 ## <a id="summary"></a>Riepilogo
 

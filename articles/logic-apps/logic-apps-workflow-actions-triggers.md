@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: bfde83e1142bf57e02ee458d477a0a70e78c4ad6
 ms.contentlocale: it-it
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -148,13 +148,13 @@ I trigger HTTP eseguono il polling di un endpoint specificato e controllano la r
 |retryPolicy|No|Oggetto che consente di personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx.|Oggetto|  
 |authentication|No|Rappresenta il metodo con cui autenticare la richiesta. Per informazioni dettagliate su questo oggetto, vedere [Autenticazione in uscita dell'Utilità di pianificazione](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication). Oltre all'utilità di pianificazione, esiste un'altra proprietà supportata: `authority`. Per impostazione predefinita, questo valore è `https://login.windows.net` quando non viene specificato, ma è possibile usare un gruppo di destinatari diverso, ad esempio `https://login.windows\-ppe.net`|Oggetto|  
   
-Con il trigger HTTP, l'API HTTP deve essere conforme a un modello specifico per poter interagire correttamente con l'app per la logica. Sono necessari i campi seguenti:  
+Con il trigger HTTP, l'API HTTP deve essere conforme a un modello specifico per poter interagire correttamente con l'app per la logica. Essa riconosce le proprietà seguenti:  
   
-|Response|Descrizione|  
-|------------|---------------|  
-|Codice di stato|Il codice di stato 200 \(OK\) attiva un'esecuzione. Nessun altro codice di stato attiva un'esecuzione.|  
-|Intestazione Retry\-after|Numero di secondi prima che l'app per la logica esegua di nuovo il polling dell'endpoint.|  
-|Intestazione Location|URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale.|  
+|Response|Obbligatorio|Descrizione|  
+|------------|------------|---------------|  
+|Codice di stato|Sì|Il codice di stato 200 \(OK\) attiva un'esecuzione. Nessun altro codice di stato attiva un'esecuzione.|  
+|Intestazione Retry\-after|No|Numero di secondi prima che l'app per la logica esegua di nuovo il polling dell'endpoint.|  
+|Intestazione Location|No|URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale.|  
   
 Di seguito sono riportati alcuni esempi di comportamenti diversi a seconda del tipo di richiesta:  
   

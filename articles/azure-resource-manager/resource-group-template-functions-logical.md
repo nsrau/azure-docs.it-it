@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 313601ad99cdc12c4b50f5469959d37a9fa70d35
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: d16264abf64ef88dfb24948fc04e33de619f4e3f
 ms.contentlocale: it-it
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funzioni logiche nei modelli di Azure Resource Manager
@@ -47,9 +47,9 @@ Controlla se i valori di entrambi i parametri sono true.
 
 Restituisce **True** se entrambi i valori sono true. In caso contrario, restituisce **False**.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
-L'esempio seguente mostra come usare le funzioni logiche.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) seguente mostra come usare le funzioni logiche.
 
 ```json
 {
@@ -81,6 +81,17 @@ L'output dell'esempio precedente è:
 | orExampleOutput | Booleano | True  |
 | notExampleOutput | Booleano | False |
 
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
 
 ## <a name="bool"></a>bool
 `bool(arg1)`
@@ -98,7 +109,7 @@ Valore booleano del valore convertito.
 
 ### <a name="examples"></a>esempi
 
-L'esempio seguente illustra come usare il parametro bool con un numero intero o una stringa.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) seguente illustra come usare il parametro bool con un numero intero o una stringa.
 
 ```json
 {
@@ -126,7 +137,7 @@ L'esempio seguente illustra come usare il parametro bool con un numero intero o 
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
@@ -134,6 +145,18 @@ L'output dell'esempio precedente con i valori predefiniti è:
 | falseString | Booleano | False |
 | trueInt | Booleano | True  |
 | falseInt | Booleano | False |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+```
 
 ## <a name="if"></a>if
 `if(condition, trueValue, falseValue)`
@@ -198,9 +221,9 @@ Restituisce il secondo parametro, quando il primo parametro è **True**. In caso
 }
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
-L'esempio seguente illustra come usare la funzione `if`.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) seguente illustra come usare la funzione `if`.
 
 ```json
 {
@@ -228,6 +251,17 @@ L'output dell'esempio precedente è:
 | yesOutput | String | sì |
 | noOutput | String | no |
 
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+```
 
 ## <a name="not"></a>not
 `not(arg1)`
@@ -240,14 +274,13 @@ Converte il valore booleano nel valore opposto.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Valore da convertire. |
 
-
 ### <a name="return-value"></a>Valore restituito
 
 Restituisce **True** quando il parametro è **False**. Restituisce **False** quando il parametro è **True**.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
-L'esempio seguente mostra come usare le funzioni logiche.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) seguente mostra come usare le funzioni logiche.
 
 ```json
 {
@@ -279,7 +312,19 @@ L'output dell'esempio precedente è:
 | orExampleOutput | Booleano | True  |
 | notExampleOutput | Booleano | False |
 
-L'esempio seguente usa **not** con [equals](resource-group-template-functions-comparison.md#equals).
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
+
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) seguente usa **not** con [equals](resource-group-template-functions-comparison.md#equals).
 
 ```json
 {
@@ -301,6 +346,17 @@ L'output dell'esempio precedente è:
 | ---- | ---- | ----- |
 | checkNotEquals | Booleano | True  |
 
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+```
 
 ## <a name="or"></a>oppure
 `or(arg1, arg2)`
@@ -318,9 +374,9 @@ Controlla se il valore di uno dei due parametri è true.
 
 Restituisce **True** se uno dei due valori è true. In caso contrario, restituisce **False**.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>esempi
 
-L'esempio seguente mostra come usare le funzioni logiche.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) seguente mostra come usare le funzioni logiche.
 
 ```json
 {
@@ -352,6 +408,17 @@ L'output dell'esempio precedente è:
 | orExampleOutput | Booleano | True  |
 | notExampleOutput | Booleano | False |
 
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).

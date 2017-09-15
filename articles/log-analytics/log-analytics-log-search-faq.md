@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -68,7 +68,7 @@ Prima dell'aggiornamento, selezionando un valore in un grafico verrà restituito
 ## <a name="log-search-api"></a>API di ricerca nei log
 
 ### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>Domanda: L'API di ricerca log viene aggiornata dopo l'aggiornamento?
-L'[API di ricerca log](log-analytics-log-search-api.md) non è ancora stata aggiornata al nuovo linguaggio di ricerca.  Continuare a usare il linguaggio di query legacy con questa API, anche dopo l'aggiornamento dell'area di lavoro.  La documentazione aggiornata verrà resa disponibile per l'API di ricerca log una volta aggiornata.
+L'[API di ricerca log](log-analytics-log-search-api.md) legacy non funzionerà più quando si aggiorna l'area di lavoro.  Vedere [API REST di Azure Log Analytics](https://dev.loganalytics.io/) per informazioni dettagliate sulla nuova API.
 
 
 ## <a name="portals"></a>Portali

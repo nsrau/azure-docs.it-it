@@ -3,7 +3,7 @@ title: Gestire utenti e dispositivi come amministratore - Azure MFA | Documentaz
 description: Viene descritto come modificare le impostazioni utente (ad esempio, come imporre agli utenti di ripetere il processo di registrazione).
 documentationcenter: 
 services: multi-factor-authentication
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: Human Translation

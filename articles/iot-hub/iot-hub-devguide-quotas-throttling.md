@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: dfe06ee6b8fadfe6d34397661c974181f870239e
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 3f4f19eba5ed1a7b3176be4d3505998f97667200
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
@@ -38,16 +38,16 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Limitazione | Hub gratuiti e S1 | Hub S2 | Hub S3 | 
 | -------- | ------- | ------- | ------- |
 | Operazioni del registro delle identità (creazione, recupero, elenco, aggiornamento, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
-| Connessioni del dispositivo | Al massimo 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
-| Inoltri dal dispositivo al cloud | Al massimo 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
+| Connessioni del dispositivo | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
+| Inoltri dal dispositivo al cloud | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
 | Inoltri dal cloud al dispositivo | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Ricezioni dal cloud al dispositivo <br/> (solo quando il dispositivo usa HTTP)| 16,67/sec/unità (1000/min/unità) | 16,67/sec/unità (1000/min/unità) | 833,33/sec/unità (50000/min/unità) |
 | Caricamento di file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifice caricamento file/sec/unità (5000/min/unità) |
 | Metodi diretti | 20/sec/unità | 60/sec/unità | 3000/sec/unità | 
-| Letture del dispositivo gemello | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
-| Aggiornamenti dei dispositivi gemelli | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
+| Letture del dispositivo gemello | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
+| Aggiornamenti dei dispositivi gemelli | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
-| Velocità effettiva delle operazioni dei processi per dispositivo | 10/sec | Al massimo 10/sec o 1/sec/unità | 50/sec/unità |
+| Velocità effettiva delle operazioni dei processi per dispositivo | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 
 È importante chiarire che la limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT. La limitazione delle *connessioni del dispositivo* non determina il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene eseguito il provisioning per l'hub IoT.
 

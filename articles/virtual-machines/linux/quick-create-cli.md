@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a7cba5b2c43704d92e36d6f808efaa9fc73fdf36
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: b3359b4e175ca4c3a96b49ab55c224589dea9190
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#create). 
+Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). 
 
 L'esempio seguente crea una macchina virtuale denominata *myVM* e le chiavi SSH, se non esistono già in un percorso predefinito. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.  
 
@@ -108,7 +108,7 @@ Dopo l'installazione di NGINX e l'apertura della porta 80 nella macchina virtual
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. Chiudere la sessione SSH per la macchina virtuale, quindi eliminare le risorse come segue:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 494ade55f21c19d9c68d5cc52756528401d9bb77
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: adcf9ddc0044da9bce1ab584d54cec66055ee0ad
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
@@ -94,29 +94,54 @@ Per determinare quali tipi di risorse dispongono di un'operazione list, usare le
 
 Specificare la risorsa usando la [funzione resourceId](#resourceid) o il formato `{providerNamespace}/{resourceType}/{resourceName}`.
 
-
 ### <a name="example"></a>Esempio
 
-L'esempio seguente mostra come restituire le chiavi primaria e secondaria da un account di archiviazione nella sezione outputs.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) seguente mostra come restituire le chiavi primaria e secondaria da un account di archiviazione nella sezione outputs.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storageAccountId": {
-            "type": "string"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "storageKeysOutput": {
-            "value": "[listKeys(parameters('storageAccountId'), '2016-01-01')]",
-            "type" : "object"
-        }
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "storageAccountName": { 
+          "type": "string"
+      }
+  },
+  "resources": [
+    {
+      "name": "[parameters('storageAccountName')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-12-01",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+      }
+    }
+  ],
+  "outputs": {
+      "referenceOutput": {
+          "type": "object",
+          "value": "[listKeys(parameters('storageAccountName'), '2016-12-01')]"
+      }
     }
 }
 ``` 
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
+```
 
 <a id="providers" />
 
@@ -148,23 +173,31 @@ L'ordine della matrice dei valori restituiti non è garantito.
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente mostra come usare la funzione provider:
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json) seguente mostra come usare la funzione provider:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "providerNamespace": {
+            "type": "string"
+        },
+        "resourceType": {
+            "type": "string"
+        }
+    },
     "resources": [],
     "outputs": {
         "providerOutput": {
-            "value": "[providers('Microsoft.Web', 'sites')]",
+            "value": "[providers(parameters('providerNamespace'), parameters('resourceType'))]",
             "type" : "object"
         }
     }
 }
 ```
 
-L'esempio precedente restituisce un oggetto nel formato seguente:
+Per il provider di risorse **Microsoft** e il tipo di risorsa **siti**, l'esempio precedente restituisce un oggetto nel formato seguente:
 
 ```json
 {
@@ -184,6 +217,18 @@ L'esempio precedente restituisce un oggetto nel formato seguente:
     ...
   ]
 }
+```
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json --parameters providerNamespace=Microsoft.Web resourceType=sites
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
 ```
 
 <a id="reference" />
@@ -229,7 +274,7 @@ In genere, la funzione **reference** viene usata per restituire un valore specif
 
 ### <a name="example"></a>Esempio
 
-Per distribuire e far riferimento alla risorsa nello stesso modello, usare:
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) seguente distribuisce una risorsa e fa riferimento a tale risorsa.
 
 ```json
 {
@@ -282,7 +327,19 @@ L'esempio precedente restituisce un oggetto nel formato seguente:
 }
 ```
 
-L'esempio seguente fa riferimento a un account di archiviazione non distribuito in questo modello. L'account di archiviazione esiste già nello stesso gruppo di risorse.
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json --parameters storageAccountName=<your-storage-account>
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
+```
+
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) seguente fa riferimento a un account di archiviazione non distribuito in questo modello. L'account di archiviazione esiste già nello stesso gruppo di risorse.
 
 ```json
 {
@@ -301,6 +358,18 @@ L'esempio seguente fa riferimento a un account di archiviazione non distribuito 
         }
     }
 }
+```
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageAccountName=<your-storage-account>
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
 ```
 
 <a id="resourcegroup" />
@@ -345,7 +414,7 @@ Un utilizzo comune della funzione resourceGroup consiste nel creare risorse nell
 
 ### <a name="example"></a>Esempio
 
-Il modello seguente restituisce le proprietà del gruppo di risorse.
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) seguente restituisce le proprietà del gruppo di risorse.
 
 ```json
 {
@@ -353,7 +422,7 @@ Il modello seguente restituisce le proprietà del gruppo di risorse.
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
-        "subscriptionOutput": {
+        "resourceGroupOutput": {
             "value": "[resourceGroup()]",
             "type" : "object"
         }
@@ -372,6 +441,18 @@ L'esempio precedente restituisce un oggetto nel formato seguente:
     "provisioningState": "Succeeded"
   }
 }
+```
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
 ```
 
 <a id="resourceid" />
@@ -474,7 +555,7 @@ Spesso è necessario usare questa funzione quando si usa un account di archiviaz
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente restituisce l'ID della risorsa per un account di archiviazione nel gruppo di risorse:
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) seguente restituisce l'ID della risorsa per un account di archiviazione nel gruppo di risorse:
 
 ```json
 {
@@ -491,7 +572,7 @@ L'esempio seguente restituisce l'ID della risorsa per un account di archiviazion
             "type" : "string"
         },
         "differentSubOutput": {
-            "value": "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
+            "value": "[resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]",
             "type" : "string"
         },
         "nestedResourceOutput": {
@@ -502,14 +583,26 @@ L'esempio seguente restituisce l'ID della risorsa per un account di archiviazion
 }
 ```
 
-L'output dell'esempio precedente con i valori predefiniti è:
+L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Tipo | Valore |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{id-sott-corrente}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/{id-sott-differente}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{id-sott-corrente}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
+```
 
 <a id="subscription" />
 
@@ -533,7 +626,7 @@ La funzione restituisce il formato seguente:
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente mostra la funzione subscription chiamata nella sezione outputs. 
+Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) seguente mostra la funzione subscription chiamata nella sezione outputs. 
 
 ```json
 {
@@ -547,6 +640,18 @@ L'esempio seguente mostra la funzione subscription chiamata nella sezione output
         }
     }
 }
+```
+
+Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json
+```
+
+Per distribuire questo modello di esempio con PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

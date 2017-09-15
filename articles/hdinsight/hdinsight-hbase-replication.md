@@ -1,6 +1,6 @@
 ---
 title: Configurare la replica di cluster HBase nelle reti virtuali - Azure | Microsoft Docs
-description: "Informazioni su come configurare la replica di HBase per bilanciamento del carico, disponibilità elevata, migrazione/aggiornamento senza tempi di inattività da una versione di HDInsight a un&quot;altra, e ripristino di emergenza."
+description: "Informazioni su come configurare la replica di HBase per bilanciamento del carico, disponibilità elevata, migrazione/aggiornamento senza tempi di inattività da una versione di HDInsight a un'altra, e ripristino di emergenza."
 services: hdinsight,virtual-network
 documentationcenter: 
 author: mumian
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 7a6a473b6db745563b3667da1013a8e78db8593c
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: c885dae8a13c789ccb3c22532e6a2cea2c920752
 ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-hbase-cluster-replication-within-virtual-networks"></a>Configurare la replica di cluster HBase nelle reti virtuali

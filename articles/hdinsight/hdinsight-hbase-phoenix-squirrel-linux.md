@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/26/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 13d17083bbe26fa9745ce4c5fef9f56859243c2e
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 342e29b009f51f7d1e9c3134a69cab6e30726bcd
 ms.contentlocale: it-it
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Usare Apache Phoenix con cluster HBase basati su Linux in HDinsight
@@ -35,7 +34,7 @@ Informazioni su come usare [Apache Phoenix](http://phoenix.apache.org/) in HDIns
 [SQLLine](http://sqlline.sourceforge.net/) è un'utilità della riga di comando per eseguire SQL.
 
 ### <a name="prerequisites"></a>Prerequisiti
-Per usare SQLLine sono necessari:
+Per usare SQLLine sono necessari gli elementi seguenti:
 
 * **Un cluster HBase in HDInsight**. Per informazioni sul provisioning di un cluster HBase, vedere l'[introduzione all'uso di Apache HBase in HDInsight][hdinsight-hbase-get-started].
 * **Connessione al cluster HBase tramite il file RDP (Remote Desktop Protocol)**. Per istruzioni vedere [Gestire i cluster Hadoop in HDInsight con il portale di Azure][hdinsight-manage-portal].
@@ -45,7 +44,7 @@ Quando ci si connette a un cluster HBase, è necessario connettersi a uno dei Zo
 **Per scoprire il nome host del Zookeeper**
 
 1. Aprire Ambari passando a **https://<ClusterName>.azurehdinsight.net**.
-2. Immettere il nome utente e la password HTTP (cluster) per effettuare l’accesso.
+2. Immettere il nome utente e la password HTTP (cluster) per effettuare l'accesso.
 3. Nel menu a sinistra fare clic su **ZooKeeper** . Vengono elencate tre voci **ZooKeeper Server**.
 4. Fare clic su una delle voci **ZooKeeper Server** dell'elenco. Nel riquadro Riepilogo trovare il **Nome host**. Il formato è simile a *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 

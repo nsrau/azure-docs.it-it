@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 01/25/2017
+ms.date: 09/06/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 6f8d220a64e04b7dfa021aacf68dadf0d55393bf
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: c58aec1ea9bc79b335a115007500d77f8e752850
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Caricare dati da Azure Data Lake Store a SQL Data Warehouse
 Questo documento illustra tutti i passaggi necessari per caricare i dati da Azure Data Lake Store (ADLS) a SQL Data Warehouse usando PolyBase.
 Anche se è possibile eseguire query ad hoc sui dati archiviati in ADLS usando le tabelle esterne, è consigliabile importare i dati in SQL Data Warehouse.
-Tempo stimato: 10 minuti se si hanno i prerequisiti necessari.
+
 In questa esercitazione si apprenderà come:
 
 1. Creare oggetti di database esterno da caricare da Azure Data Lake Store.
@@ -89,8 +89,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Creare un'origine dati esterna.
-Usare questo comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] per archiviare il percorso e il tipo di dati.
-È possibile trovare l'URI ADL nel portale di Azure e in www.portal.azure.com.
+Usare questo comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] per archiviare il percorso e il tipo di dati. Per trovare l'URI ADL nel portale di Azure, individuare l'archivio Azure Data Lake Store, quindi esaminare il pannello Essentials.
 
 ```sql
 -- C: Create an external data source
@@ -214,7 +213,7 @@ L'esempio seguente è un buon punto di partenza per la creazione delle statistic
 ## <a name="achievement-unlocked"></a>Obiettivo raggiunto
 I dati sono stati caricati correttamente in Azure SQL Data Warehouse. Ottimo lavoro.
 
-##<a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 Il caricamento dei dati è il primo passaggio per lo sviluppo di una soluzione di data warehouse con SQL Data Warehouse. Vedere le risorse di sviluppo in [Tabelle](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) e [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 

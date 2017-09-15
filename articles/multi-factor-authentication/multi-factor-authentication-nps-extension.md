@@ -3,7 +3,7 @@ title: "Usare i server di Server dei criteri di rete esistenti per offrire le fu
 description: "L'estensione di Server dei criteri di rete per Multi-Factor Authentication di Azure è una soluzione semplice per aggiungere le funzionalità di verifica in due passaggi basata sul cloud nell'infrastruttura di autenticazione esistente."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 09/05/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -84,7 +84,7 @@ mysql-cimprov | 1.0.1 | Monitoraggio delle prestazioni del server MySQL per OMI.
 docker-cimprov | 1.0.0 | Provider Docker per OMI. Installato se viene rilevato Docker.
 
 ### <a name="compatibility-with-system-center-operations-manager"></a>Compatibilità con System Center Operations Manager
-L'agente OMS per Linux condivide file binari dell'agente con l'agente System Center Operations Manager. Se si installa l'agente OMS per Linux in un sistema attualmente gestito da Operations Manager, i pacchetti OMI e SCX nel computer vengono aggiornati a una versione più recente. In questa versione gli agenti OMS e System Center 2016 - Operations Manager/Operations Manager 2012 R2 per Linux sono compatibili. 
+L'agente OMS per Linux condivide file binari dell'agente con l'agente System Center Operations Manager. Se si installa l'agente di OMS per Linux in un sistema attualmente gestito da Operations Manager, i pacchetti OMI e SCX nel computer vengono aggiornati a una versione più recente. In questa versione gli agenti OMS e System Center 2016 - Operations Manager/Operations Manager 2012 R2 per Linux sono compatibili. 
 
 > [!NOTE]
 > System Center 2012 SP1 e le versioni precedenti non sono attualmente compatibili o supportati con l'agente OMS per Linux.<br>
@@ -265,7 +265,7 @@ I pacchetti dell'agente possono essere disinstallati eseguendo il file SH con l'
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Viene visualizzato un errore 404 o 500 nel file di log subito dopo l'onboarding
 Si tratta di un problema noto che si verifica durante il primo caricamento dei dati di Linux in un'area di lavoro di OMS. Questo non influisce sui dati inviati o sull'esperienza d'uso del servizio.
 
-### <a name="issue--you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: Non vengono visualizzati dati nel portale di OMS
+### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>Problema: Non vengono visualizzati dati nel portale di OMS
 
 #### <a name="probable-causes"></a>Possibili cause
 
@@ -281,4 +281,5 @@ Si tratta di un problema noto che si verifica durante il primo caricamento dei d
 
     >[!NOTE]
     >Il problema è stato risolto nell'agente versione 1.1.0-28 e versioni successive.
-> 
+
+

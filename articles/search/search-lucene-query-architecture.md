@@ -1,6 +1,6 @@
 ---
 title: Architettura del motore di ricerca full-text (Lucene) in Ricerca di Azure | Documentazione Microsoft
-description: Spiegazione dell&quot;elaborazione delle query di Lucene e dei concetti del recupero del documento per una ricerca full-text in relazione a Ricerca di Azure.
+description: Spiegazione dell'elaborazione delle query di Lucene e dei concetti del recupero del documento per una ricerca full-text in relazione a Ricerca di Azure.
 services: search
 manager: jhubbard
 author: yahnoosh
@@ -12,11 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
 ms.contentlocale: it-it
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 
@@ -101,7 +101,7 @@ Il parser della query ristruttura le sottoquery in un *albero della query* (una 
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>Parser supportati: Lucene semplice e completa 
 
- La Ricerca di Azure espone due diversi linguaggi di query, `simple` (impostazione predefinita) e `full`. Impostando il parametro `queryType` con la richiesta di ricerca, si indica al parser della query quale linguaggio di query si sceglie in modo che sappia come interpretare gli operatori e la sintassi. Il [linguaggio semplice della query](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) è intuitivo e potente, spesso adatto ad interpretare l'input dell'utente così come si presenta, senza elaborazione dal lato client. Supporta operatori di query familiari dai motori di ricerca Web. Il [Linguaggio di query Lucene Full](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che si ottiene impostando `queryType=full`, estende il linguaggio di query semplice di impostazione predefinita aggiungendo il supporto per più operatori e tipi di query quali carattere jolly, fuzzy, regex e query con ambito campo. Ad esempio, un'espressione regolare inviata nella sintassi di query semplice verrebbe interpretata come una stringa di query e non come un'espressione. La richiesta di esempio in questo articolo usa il linguaggio di query Lucene Full.
+ La Ricerca di Azure espone due diversi linguaggi di query, `simple` (impostazione predefinita) e `full`. Impostando il parametro `queryType` con la richiesta di ricerca, si indica al parser della query quale linguaggio di query si sceglie in modo che sappia come interpretare gli operatori e la sintassi. Il [linguaggio semplice della query](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) è intuitivo e potente, spesso adatto a interpretare l'input dell'utente così come si presenta, senza elaborazione dal lato client. Supporta operatori di query familiari dai motori di ricerca Web. Il [Linguaggio di query Lucene Full](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che si ottiene impostando `queryType=full`, estende il linguaggio di query semplice di impostazione predefinita aggiungendo il supporto per più operatori e tipi di query quali carattere jolly, fuzzy, regex e query con ambito campo. Ad esempio, un'espressione regolare inviata nella sintassi di query semplice verrebbe interpretata come una stringa di query e non come un'espressione. La richiesta di esempio in questo articolo usa il linguaggio di query Lucene Full.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Impatto di searchMode sul parser 
 
@@ -391,11 +391,11 @@ In questo articolo è stata illustrata la ricerca full-text nel contesto di Rice
 
 ## <a name="see-also"></a>Vedere anche
 
-[Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti)
+[Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 
-[Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+[Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintassi di query completa Lucene)
+[Full Lucene query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintassi di query completa Lucene) 
 
 [Gestire i risultati della ricerca](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 

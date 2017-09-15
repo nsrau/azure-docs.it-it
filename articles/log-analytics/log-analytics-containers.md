@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 08/30/2017
 ms.author: magoedte;banders
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b2e03531ee401f4552198e5dd50fbfe1d970f0e5
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: cd21a08de9dbf795b9a295de22e55a24fa9535ef
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Soluzione Monitoraggio contenitori in Log Analytics
@@ -40,7 +40,7 @@ Il diagramma seguente mostra le relazioni tra vari host del contenitore e agenti
 
 ![Diagramma dei contenitori](./media/log-analytics-containers/containers-diagram.png)
 
-## <a name="system-requirements"></a>Requisiti di sistema
+## <a name="system-requirements-and-supported-platforms"></a>Requisiti di sistema e piattaforme supportate
 
 Prima di iniziare, esaminare i dettagli seguenti per verificare che i prerequisiti siano soddisfatti.
 
@@ -76,6 +76,7 @@ La tabella seguente descrive il supporto del monitoraggio dell'orchestrazione di
 - Red Hat OpenShift Container Platform (OCP) 3.4 e 3.5
 - ACS Mesosphere DC/OS da 1.7.3 a 1.8.8
 - ACS Kubernetes da 1.4.5 a 1.6
+    - Gli eventi Kubernetes, l'inventario di Kubernetes e i processi contenitore sono supportati solo con la versione 1.4.1-45 e successive dell'agente di OMS per Linux
 - ACS Docker Swarm
 
 ### <a name="supported-windows-operating-system"></a>Sistema operativo Windows supportato
@@ -93,34 +94,33 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
 1. Aggiungere la soluzione Monitoraggio contenitori all'area di lavoro OMS da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
 
-2. Installare e usare Docker con un agente OMS.  In base al sistema operativo, è possibile scegliere uno dei metodi seguenti:
+2. Installare e usare Docker con un agente OMS. In base al sistema operativo e all'agente di orchestrazione Docker, è possibile usare i metodi seguenti per configurare l'agente.
+  - Per gli host autonomi:
+    - Nei sistemi operativi Linux supportati installare ed eseguire Docker, quindi installare e configurare l'[agente OMS per Linux](log-analytics-agent-linux.md).  
+    - Non è possibile eseguire l'agente OMS per Linux in CoreOS. È invece necessario eseguire una versione di tale agente inserita in contenitori. Vedere la sezione [Per tutti gli host del contenitore Linux inclusi CoreOS](#for-all-linux-container-hosts-including-coreos) o [Per tutti gli host del contenitore Linux Azure per enti pubblici incluso CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) se si usano contenitori nel cloud di Azure per enti pubblici.
+    - In Windows Server 2016 e Windows 10, installare il motore e il client Docker, quindi connettere un agente per raccogliere informazioni da inviare a Log Analytics. Se si dispone di un ambiente Windows, consultare [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) (installare e configurare gli host contenitore di Windows).
+  - Per l'orchestrazione di multi-host Docker:
+    - Se si opera in un ambiente Red Hat OpenShift, vedere [Configurare un agente OMS per Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
+    - Se si dispone di un cluster Kubernetes tramite il servizio contenitore di Azure, consultare [Configure an OMS agent for Kubernetes](#configure-an-oms-agent-for-kubernetes) (Configurare un agente OMS per Kubernetes).
+    - Se si ha un cluster DC/OS del servizio contenitore di Azure, vedere [Monitorare un cluster DC/OS del servizio contenitore di Azure con Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
+    - Se è presente un ambiente in modalità Docker Swarm, per altre informazioni vedere [Configurare un agente OMS per Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
+    - Se si usano contenitori con Service Fabric, vedere [Panoramica di Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 
-  * Nei sistemi operativi Linux supportati installare ed eseguire Docker, quindi installare e configurare l'[agente OMS per Linux](log-analytics-agent-linux.md).  
-  * Non è possibile eseguire l'agente OMS per Linux in CoreOS. È invece necessario eseguire una versione di tale agente inserita in contenitori. Vedere la sezione [Per tutti gli host del contenitore Linux inclusi CoreOS](#for-all-linux-container-hosts-including-coreos) o [Per tutti gli host del contenitore Linux Azure per enti pubblici incluso CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) se si usano contenitori nel cloud di Azure per enti pubblici.
-  * In Windows Server 2016 e Windows 10, installare il motore e il client Docker, quindi connettere un agente per raccogliere informazioni da inviare a Log Analytics.  
-
-### <a name="container-services"></a>Servizi contenitore
-
-- Se si opera in un ambiente Red Hat OpenShift, vedere [Configurare un agente OMS per Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
-- Se si ha un cluster Kubernetes che usa il servizio contenitore di Azure, vedere [Monitorare un cluster del servizio contenitore di Azure con Microsoft Operations Management Suite (OMS)](../container-service/kubernetes/container-service-kubernetes-oms.md).
-- Se si ha un cluster DC/OS del servizio contenitore di Azure, vedere [Monitorare un cluster DC/OS del servizio contenitore di Azure con Operations Management Suite](../container-service/dcos-swarm/container-service-monitoring-oms.md).
-- Se è presente un ambiente in modalità Docker Swarm, per altre informazioni vedere [Configurare un agente OMS per Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
-- Se si usano contenitori con Service Fabric, vedere [Panoramica di Azure Service Fabric](../service-fabric/service-fabric-overview.md).
-- Consultare l'articolo sul [motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
+Consultare l'articolo sul [motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
 
 > [!IMPORTANT]
 > Docker deve essere in esecuzione **prima** di installare l'[agente OMS per Linux](log-analytics-agent-linux.md) negli host di contenitori. Se l'agente era già stato installato prima di installare Docker, è necessario reinstallare l'agente di OMS per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
 
 
-## <a name="linux-container-hosts"></a>Host del contenitore Linux
+### <a name="install-and-configure-linux-container-hosts"></a>Installare e configurare gli host del contenitore Linux
 
 Dopo aver installato Docker, usare le impostazioni seguenti per l'host di contenitori per configurare l'agente per l'uso con Docker. Saranno necessari l'ID e la chiave dell'area di lavoro OMS, che è possibile identificare nel portale di Azure. Nell'area di lavoro fare clic su **Avvio rapido** > **Computer** per visualizzare **ID area di lavoro** e **Chiave primaria**.  Copiare e incollare entrambi i valori nell'editor predefinito.
 
-### <a name="for-all-linux-container-hosts-except-coreos"></a>Per tutti gli host del contenitore Linux, ad eccezione di CoreOS
+**Per tutti gli host del contenitore Linux, ad eccezione di CoreOS:**
 
 - Per altre informazioni e procedure su come installare l'agente OMS per Linux, vedere [Connettere i computer Linux a Operations Management Suite (OMS)](log-analytics-agent-linux.md).
 
-### <a name="for-all-linux-container-hosts-including-coreos"></a>Per tutti gli host del contenitore Linux inclusi CoreOS
+**Per tutti gli host del contenitore Linux, incluso CoreOS:**
 
 Avviare il contenitore OMS da monitorare. Modificare e usare l'esempio seguente:
 
@@ -128,7 +128,7 @@ Avviare il contenitore OMS da monitorare. Modificare e usare l'esempio seguente:
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-### <a name="for-all-azure-government-linux-container-hosts-including-coreos"></a>Per tutti gli host del contenitore Linux Azure per enti pubblici incluso CoreOS
+**Per tutti gli host del contenitore Linux Azure per enti pubblici, incluso CoreOS:**
 
 Avviare il contenitore OMS da monitorare. Modificare e usare l'esempio seguente:
 
@@ -136,10 +136,11 @@ Avviare il contenitore OMS da monitorare. Modificare e usare l'esempio seguente:
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
 ```
 
-### <a name="switching-from-using-an-installed-linux-agent-to-one-in-a-container"></a>Passaggio dall'uso di un agente Linux installato a un agente in un contenitore
+**Passaggio dall'uso di un agente Linux installato a un agente in un contenitore**
+
 Se in precedenza veniva usato l'agente installato direttamente e si vuole usare invece un agente in esecuzione in un contenitore, prima è necessario rimuovere l'agente OMS per Linux. Vedere [Disinstallazione dell'agente OMS per Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) per comprendere come disinstallare correttamente l'agente.  
 
-### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configurare un agente OMS per Docker Swarm
+#### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configurare un agente OMS per Docker Swarm
 
 È possibile eseguire l'agente OMS come servizio globale in Docker Swarm. Usare le informazioni seguenti per creare un servizio agente OMS. È necessario inserire l'ID e la chiave primaria dell'area di lavoro OMS.
 
@@ -149,7 +150,36 @@ Se in precedenza veniva usato l'agente installato direttamente e si vuole usare 
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
     ```
 
-### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Configurare un agente OMS per Red Hat OpenShift
+##### <a name="secure-secrets-for-docker-swarm"></a>Proteggere i segreti per Docker Swarm
+
+Per Docker Swarm, una volta creato il segreto per l'ID area di lavoro e la chiave primaria, usare le informazioni seguenti per creare i segreti.
+
+1. Eseguire quanto segue sul nodo principale.
+
+    ```
+    echo "WSID" | docker secret create WSID -
+    echo "KEY" | docker secret create KEY -
+    ```
+
+2. Verificare che i segreti siano stati creati correttamente.
+
+    ```
+    keiko@swarmm-master-13957614-0:/run# sudo docker secret ls
+    ```
+
+    ```
+    ID                          NAME                CREATED             UPDATED
+    j2fj153zxy91j8zbcitnjxjiv   WSID                43 minutes ago      43 minutes ago
+    l9rh3n987g9c45zffuxdxetd9   KEY                 38 minutes ago      38 minutes ago
+    ```
+
+3. Eseguire il comando seguente per impostare i segreti per l'agente OMS nel contenitore.
+
+    ```
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    ```
+
+#### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Configurare un agente OMS per Red Hat OpenShift
 Esistono tre modi per aggiungere l'agente OMS a Red Hat OpenShift e avviare la raccolta dei dati di monitoraggio del contenitore.
 
 * [Installare l'agente OMS per Linux](log-analytics-agent-linux.md) direttamente in ogni nodo OpenShift  
@@ -259,40 +289,7 @@ Se si vuole usare i segreti per proteggere l'ID e la chiave primaria dell'area d
      WSID:   37 bytes  
     ```
 
-### <a name="secure-your-secret-information-for-docker-swarm-and-kubernetes"></a>Proteggere le informazioni segrete per Docker Swarm e Kubernetes
-
-È possibile proteggere l'ID segreto dell'area di lavoro OMS e le chiavi primarie segrete per i servizi contenitore Docker Swarm e Kubernetes.
-
-#### <a name="secure-secrets-for-docker-swarm"></a>Proteggere i segreti per Docker Swarm
-
-In Docker Swarm, una volta creato il segreto per l'ID area di lavoro e la chiave primaria è possibile creare il servizio Docker per OMSagent. Usare le informazioni seguenti per creare i segreti.
-
-1. Eseguire quanto segue sul nodo principale.
-
-    ```
-    echo "WSID" | docker secret create WSID -
-    echo "KEY" | docker secret create KEY -
-    ```
-
-2. Verificare che i segreti siano stati creati correttamente.
-
-    ```
-    keiko@swarmm-master-13957614-0:/run# sudo docker secret ls
-    ```
-
-    ```
-    ID                          NAME                CREATED             UPDATED
-    j2fj153zxy91j8zbcitnjxjiv   WSID                43 minutes ago      43 minutes ago
-    l9rh3n987g9c45zffuxdxetd9   KEY                 38 minutes ago      38 minutes ago
-    ```
-
-3. Eseguire il comando seguente per impostare i segreti per l'agente OMS nel contenitore.
-
-    ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
-    ```
-
-#### <a name="secure-secrets-for-kubernetes-with-yaml-files"></a>Proteggere i segreti per Kubernetes con file yaml
+#### <a name="configure-an-oms-agent-for-kubernetes"></a>Configurare un agente OMS per Kubernetes
 
 Per Kubernetes è possibile usare uno script per generare il file yaml dei segreti per l'ID area di lavoro e la chiave primaria. Nella pagina [OMS Docker/Kubernetes di GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) sono disponibili file usabili con o senza informazioni segrete.
 
@@ -301,7 +298,7 @@ Per Kubernetes è possibile usare uno script per generare il file yaml dei segre
 
 È possibile scegliere di creare DaemonSet dell'agente OMS con o senza segreti.
 
-##### <a name="default-omsagent-daemonset-yaml-file-without-secrets"></a>File DaemonSet con estensione yaml predefinito dell'agente OMS senza segreti
+**File DaemonSet con estensione yaml predefinito dell'agente OMS senza segreti**
 
 - Per il file DaemonSet con estensione yaml predefinito dell'agente OMS, sostituire `<WSID>` e `<KEY>` a WSID e KEY. Copiare il file nel nodo principale ed eseguire le operazioni seguenti:
 
@@ -309,7 +306,7 @@ Per Kubernetes è possibile usare uno script per generare il file yaml dei segre
     sudo kubectl create -f omsagent.yaml
     ```
 
-##### <a name="default-omsagent-daemonset-yaml-file-with-secrets"></a>File DaemonSet con estensione yaml predefinito dell'agente OMS con segreti
+**File DaemonSet con estensione yaml predefinito dell'agente OMS con segreti**
 
 1. Per usare il DaemonSet dell'agente OMS con informazioni segrete, in primo luogo creare i segreti.
     1. Copiare lo script e il file modello dei segreti e assicurarsi che siano nella stessa directory.
@@ -391,13 +388,15 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-## <a name="windows-container-hosts"></a>Host del contenitore Windows
+### <a name="install-and-configure-windows-container-hosts"></a>Installare e configurare gli host del contenitore Windows
 
-### <a name="preparation-before-installing-windows-agents"></a>Preparazione prima dell'installazione degli agenti di Windows
+Usare le informazioni contenute nella sezione Installare e configurare gli host del contenitore Windows.
+
+#### <a name="preparation-before-installing-windows-agents"></a>Preparazione prima dell'installazione degli agenti di Windows
 
 Prima di installare gli agenti nei computer che eseguono Windows, è necessario configurare il servizio Docker. La configurazione consente all'agente di Windows o all'estensione macchina virtuale Log Analytics di usare il socket TCP di Docker in modo che gli agenti possano accedere in remoto al daemon Docker e acquisire i dati per il monitoraggio.
 
-#### <a name="to-start-docker-and-verify-its-configuration"></a>Per avviare Docker e verificare la configurazione
+##### <a name="to-start-docker-and-verify-its-configuration"></a>Per avviare Docker e verificare la configurazione
 
 Per configurare pipe TCP e named pipe per Windows Server, procedere come segue:
 
@@ -423,7 +422,7 @@ Per configurare pipe TCP e named pipe per Windows Server, procedere come segue:
 Per altre informazioni sulla configurazione del daemon Docker usata con contenitori Windows, vedere [Motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 
-### <a name="install-windows-agents"></a>Installare gli agenti Windows
+#### <a name="install-windows-agents"></a>Installare gli agenti Windows
 
 Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare Microsoft Monitoring Agent (MMA) nei computer Windows che sono host del contenitore. Per i computer che eseguono Windows nell'ambiente locale, vedere [Collegare i computer di Windows a Log Analytics](log-analytics-windows-agents.md). Per le macchine virtuali eseguite in Azure, collegarle a Log Analytics usando l'[estensione macchina virtuale](log-analytics-azure-vm-extension.md).
 

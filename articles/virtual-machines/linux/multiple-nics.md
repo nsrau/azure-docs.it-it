@@ -1,6 +1,6 @@
 ---
 title: "Creare una VM Linux in Azure con più schede di interfaccia di rete | Documentazione Microsoft"
-description: "Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate usando l&quot;interfaccia della riga di comando di Azure 2.0 o i modelli di Resource Manager."
+description: "Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate usando l'interfaccia della riga di comando di Azure 2.0 o i modelli di Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 8a2931e462079c101c91497d459d7d3126234244
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: ff3e3121102eedaa1f439e517570d0a97cf07c22
 ms.contentlocale: it-it
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
@@ -118,6 +117,7 @@ az network nic create \
 
 Per aggiungere una scheda di interfaccia di rete a una VM esistente, deallocare prima di tutto la VM con [az vm deallocate](/cli/azure/vm#deallocate). L'esempio seguente dealloca la VM denominata *myVM*:
 
+
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
@@ -180,5 +180,75 @@ Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../
 
 È possibile consultare un esempio completo di [creazione di più schede di rete utilizzando i modelli di Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
+## <a name="configure-guest-os-for-multiple-nics"></a>Configurare il sistema operativo guest per più schede di rete
+
+Durante la creazione di più schede di rete per una macchina virtuale basata su un sistema operativo Linux guest è necessario creare regole aggiuntive di routine che consentano di inviare e ricevere traffico appartenente a una specifica scheda di rete. In caso contrario il traffico appartenente alla scheda eth1 non potrà essere elaborato correttamente, a causa dei route predefiniti.  
+
+
+### <a name="solution"></a>Soluzione
+
+Aggiungere innanzitutto due tabelle di routing al file /etc/iproute2/rt_tables
+
+```bash
+echo "200 eth0-rt" >> /etc/iproute2/rt_tables
+echo "201 eth1-rt" >> /etc/iproute2/rt_tables
+```
+
+Per applicare e rendere permanente la modifica durante l'attivazione dello stack di rete, è necessario modificare i file */etc/sysconfig/network-scipts/ifcfg-eth0* e */etc/sysconfig/network-scipts/ifcfg-eth1*.
+Modificare la riga *"NM_CONTROLLED = yes"* in *"NM_CONTROLLED = no"*.
+Senza questo passaggio, le regole/il routing aggiuntivi non avranno effetto.
+ 
+Il passaggio successivo consiste nell'estendere le tabelle di routing. Per rendere più visibili i passaggi seguenti, si supponga di disporre del setup seguente
+
+*Routing*
+
+```bash
+default via 10.0.1.1 dev eth0 proto static metric 100
+10.0.1.0/24 dev eth0 proto kernel scope link src 10.0.1.4 metric 100
+10.0.1.0/24 dev eth1 proto kernel scope link src 10.0.1.5 metric 101
+168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
+169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
+```
+    
+*Interfacce*
+
+```bash
+lo: inet 127.0.0.1/8 scope host lo
+eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
+eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
+```
+    
+    
+Con queste informazioni è possibile creare i seguenti file aggiuntivi come radice
+
+*   /etc/sysconfig/network-scripts/rule-eth0
+*   /etc/sysconfig/network-scripts/route-eth0
+*   /etc/sysconfig/network-scripts/rule-eth1
+*   /etc/sysconfig/network-scripts/route-eth1
+
+Il contenuto di ogni file è il seguente
+```bash
+cat /etc/sysconfig/network-scripts/rule-eth0
+from 10.0.1.4/32 table eth0-rt
+to 10.0.1.4/32 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/route-eth0
+10.0.1.0/24 dev eth0 table eth0-rt
+default via 10.0.1.1 dev eth0 table eth0-rt
+
+cat /etc/sysconfig/network-scripts/rule-eth1
+from 10.0.1.5/32 table eth1-rt
+to 10.0.1.5/32 table eth1-rt
+
+cat /etc/sysconfig/network-scripts/route-eth1
+10.0.1.0/24 dev eth1 table eth1-rt
+default via 10.0.1.1 dev eth1 table eth1-rt
+```
+
+Dopo avere creato e popolato i file è necessario riavviare il servizio di rete.`systemctl restart network`
+
+La connessione dall'esterno verso la scheda eth0 o eth1 è ora possibile
+
 ## <a name="next-steps"></a>Passaggi successivi
 Quando si cerca di creare una macchina virtuale con più schede di rete, consultare [Dimensioni per le macchine virtuali di Linux](sizes.md). Prestare attenzione al numero massimo di schede di rete supportato per ogni dimensione della macchina virtuale. 
+

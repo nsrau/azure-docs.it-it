@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 181ed544ae4697753490642fea8eef636322a114
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Abilitare la riprotezione da Azure a un sito locale
@@ -226,4 +226,36 @@ Il failback arresterà la macchina virtuale in Azure e avvierà la macchina virt
 * Se si sta tentando di eseguire il failback a un vCenter alternativo, assicurarsi che il nuovo vCenter e il server di destinazione master vengano rilevati. Come sintomo tipico, gli archivi dati non sono accessibili o visibili nella finestra di dialogo **Riproteggi**.
 
 * Non è possibile eseguire il failback da Azure a un sito locale di un server Windows Server 2008 R2 SP1 protetto come server locale fisico.
+
+### <a name="common-error-codes"></a>Codici errore comuni
+
+#### <a name="error-code-95226"></a>Codice di errore 95226
+
+*La riprotezione non è riuscita perché la macchina virtuale di Azure non è in grado di raggiungere il server di configurazione locale.*
+
+Ciò si verifica quando 
+1. La macchina virtuale di Azure non ha potuto raggiungere il server di configurazione locale e di conseguenza è stato impossibile individuarla e registrarla nel server di configurazione. 
+2. Il servizio dell'applicazione InMage Scout nella macchina virtuale di Azure che deve essere in esecuzione per comunicare al server di configurazione locale potrebbe non eseguire il failover post.
+
+Per risolvere il problema
+1. È necessario assicurarsi che la rete della macchina virtuale di Azure sia configurata in modo che la macchina virtuale possa comunicare con il server di configurazione locale. A tale scopo, configurare una VPN da sito a sito nel data center locale o configurare una connessione ExpressRoute con peering privato sulla rete virtuale della macchina virtuale di Azure. 
+2. Se si dispone già di una rete configurata in modo che la macchina virtuale di Azure possa comunicare con il server di configurazione locale, accedere alla macchina virtuale e verificare l'opzione 'InMage Scout Application Service'. Se si osserva che InMage Scout Application Service non è in esecuzione, avviare manualmente il servizio e verificare che il tipo di avvio sia impostato su Automatico.
+
+### <a name="error-code-78052"></a>Codice di errore 78052
+La riprotezione ha esito negativo e viene visualizzato il messaggio di errore: *Non è stato possibile completare l'abilitazione della protezione per la macchina virtuale*.
+
+Questa situazione può verificarsi per due motivi
+1. La macchina virtuale da riproteggere è Windows Server 2016. Attualmente questo sistema operativo non è supportato per il failback, ma sarà presto supportato.
+2. Esiste già una macchina virtuale con lo stesso nome nel server di destinazione master.
+
+Per risolvere questo problema è possibile selezionare un server di destinazione master diverso in un host diverso, per cui la riprotezione creerà la macchina in un host diverso, in cui i nomi non sono in conflitto. È anche possibile usare vMotion nel server di destinazione master in modo da reindirizzarlo verso un host diverso, in cui non si verificherà il conflitto di nomi.
+
+### <a name="error-code-78093"></a>Codice di errore 78093
+
+*La macchina virtuale non è in esecuzione, è bloccata o non è accessibile.*
+
+Per la riprotezione di una macchina virtuale su cui è stato eseguito il failover di nuovo in locale, è necessario che la macchina virtuale di Azure sia in esecuzione, in modo che il servizio di mobilità sia registrato con il server di configurazione locale e possa avviare la replica mediante la comunicazione con il server di processo. Se il computer si trova su una rete non corretta o non è in esecuzione (bloccato o in arresto), il server di configurazione non riesce a raggiungere il servizio di mobilità nella macchina virtuale per avviare la riprotezione. È possibile riavviare la macchina virtuale in modo che questa riesca a riavviare la comunicazione locale. Riavviare il processo di riprotezione dopo l'avvio della macchina virtuale di Azure
+
+
+
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: f4324a59b5fa4c2e1ab5b1d7fc7e5fe986ea80f8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ea45fe72a499daa363dc9e43f82c94af38bf6e85
 ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
@@ -68,8 +67,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare al pannello **Impostazioni** del database o del server SQL che si vuole controllare. Nel pannello **Impostazioni** selezionare **Controllo e rilevamento minacce**.
 
-    <a id="auditing-screenshot"></a>
-    ![Riquadro di spostamento][1]
+    <a id="auditing-screenshot"></a> ![Riquadro di spostamento][1]
 3. Se si preferisce configurare criteri di controllo del server, che verranno applicati a tutti i database nuovi ed esistenti nel server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nel pannello relativo al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server.
 
     ![Riquadro di spostamento][2]
@@ -82,8 +80,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
    >[!TIP] 
    >Per sfruttare al massimo i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati. 
 
-    <a id="storage-screenshot"></a>
-    ![Riquadro di spostamento][4]
+    <a id="storage-screenshot"></a> ![Riquadro di spostamento][4]
 6. Per personalizzare gli eventi controllati, è possibile usare PowerShell o l'API REST. Per altre informazioni, vedere la sezione [Automazione (API REST/PowerShell)](#subheading-7).
 7. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altri dettagli, vedere l'[introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 8. Fare clic su **Salva**.
@@ -148,17 +145,16 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 <!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">Controllo dei database con replica geografica</a>
-Se si usano database con replica geografica, è possibile configurare il controllo nel database primario, nel database secondario o in entrambi, a seconda del tipo di controllo.
+Quando si usano dei database di replica geografica, è possibile impostare il controllo nel database secondario sia tramite l'abilitazione del controllo sul **server secondario**,sia tramite l'abilitazione del controllo nel database primario (in questo caso, il database secondario database disporrà di un criterio di controllo identico a quello del database primario).
 
-Seguire le istruzioni di seguito, tenendo presente che il controllo BLOB può essere attivato o disattivato solo dalle impostazioni di controllo del database primario:
+* A livello di server (**consigliato**): attivare il controllo sia sull **server primario** che sul **server secondario** - i database primari e secondari saranno controllati in modo indipendente in base ai rispettivi criteri a livello di server.
 
-* **Database primario**. Attivare il controllo BLOB nel server o nel database stesso, come descritto nella sezione [Configurare il controllo per il database](#subheading-2).
-* **Database secondario**. Attivare il controllo BLOB nel database primario, come descritto nella sezione [Configurare il controllo per il database](#subheading-2). 
+* A livello di database: il controllo a livello di database per i database secondari può essere configurato solo mediante le impostazioni di controllo del database primario.
    * Il controllo BLOB deve essere abilitato nello *stesso database primario* e non nel server.
    * Dopo che il controllo BLOB è stato abilitato nel database primario, verrà abilitato anche nel database secondario.
 
      >[!IMPORTANT]
-     >Per impostazione predefinita, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. È possibile evitare questo problema abilitando il controllo BLOB nel server secondario e configurando una risorsa di archiviazione locale nelle impostazioni di archiviazione del server secondario. In questo modo verrà ignorato il percorso di archiviazione per il database secondario e di conseguenza ogni database salverà i propri log di controllo in una risorsa di archiviazione locale.  
+     >In caso di controllo a livello di database, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. A meno che non sia necessario un controllo a livello di database, è consigliabile abilitare il controllo solo a livello di server nel server primario e secondario e lasciare il controllo a livello di database disabilitato per tutti i database.
 <br>
 
 ### <a id="subheading-6">Rigenerazione delle chiavi di archiviazione</a>
@@ -184,7 +180,6 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
    * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
 
    Per un esempio di script, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -218,11 +213,10 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
 [103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
 

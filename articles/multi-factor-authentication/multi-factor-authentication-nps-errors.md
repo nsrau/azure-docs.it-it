@@ -3,7 +3,7 @@ title: Risolvere i codici di errore per l'estensione NPS MFA di Azure | Microsof
 description: Informazioni su come risolvere i problemi con l'estensione NPS per Multi-Factor Authentication di Azure con soluzioni specifiche per messaggi di errore comuni
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT

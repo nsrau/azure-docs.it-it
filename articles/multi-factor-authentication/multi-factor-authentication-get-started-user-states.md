@@ -3,7 +3,7 @@ title: Stati utente in Microsoft Azure Multi-Factor Authentication
 description: Informazioni sugli stati utente in Azure MFA.
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT
