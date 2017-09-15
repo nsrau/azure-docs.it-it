@@ -261,10 +261,6 @@
           href: sql-database-long-term-backup-retention-configure.md
         - name: 'Eseguire la replica geografica: portale'
           href: sql-database-geo-replication-portal.md
-        - name: 'Eseguire la replica geografica: T-SQL - Configurazione'
-          href: sql-database-geo-replication-transact-sql.md
-        - name: 'Eseguire la replica geografica: T-SQL - Failover'
-          href: sql-database-geo-replication-failover-transact-sql.md
         - name: Ripristinare una singola tabella
           href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
     - name: Caricare e spostare dati
@@ -299,8 +295,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Automazione di Azure
           href: sql-database-manage-automation.md
-        - name: Azure RemoteApp
-          href: sql-database-ssms-remoteapp.md
     - name: Scalabilità orizzontale
       items:
         - name: Creare un'app partizionata

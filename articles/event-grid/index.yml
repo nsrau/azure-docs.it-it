@@ -41,6 +41,8 @@ sections:
         style: cards
         className: cardsD
         items:
+          - title: Riga di comando
+            html: <p><a href="/cli/azure/eventgrid">Interfaccia della riga di comando di Azure</a></p>
           - title: API REST
             html: <p><a href="/rest/api/eventgrid">REST</a></p>
           - title: Schemi
