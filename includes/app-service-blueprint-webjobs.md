@@ -10,7 +10,7 @@
 * [Come distribuire Processi Web di Azure mediante Visual Studio](../articles/app-service-web/websites-dotnet-deploy-webjobs.md)
 * [Come distribuire Processi Web mediante il portale di gestione di Azure](../articles/app-service-web/web-sites-create-web-jobs.md)
 * [Finestra di dialogo Aggiungi processo Web Azure](../articles/app-service-web/websites-dotnet-deploy-webjobs.md#configure)
-* [Creare un processo Web pianificato nel portale di gestione di Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduled)
+* [Creare un processo Web pianificato nel portale di gestione di Azure](../articles/app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Pianificazione dei processi Web di Azure con espressioni cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Visualizzare il dashboard di WebJobs SDK](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
 * [Come scrivere i log mediante WebJobs SDK e visualizzarli nel dashboard](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)

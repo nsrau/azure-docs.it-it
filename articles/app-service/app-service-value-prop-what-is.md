@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: a773e43b28b144dd8341b276eee3fa504d4f1080
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 94869072a38be61819213fbf4f919764fe1849c0
+ms.contentlocale: it-it
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="what-is-azure-app-service"></a>Informazioni sul servizio app di Azure
@@ -37,7 +37,7 @@ Il video di 4 minuti disponibile di seguito spiega brevemente la relazione tra i
 Ecco alcune caratteristiche e funzionalità chiave del servizio app:
 
 * **Più linguaggi e framework** : il servizio app offre un supporto ottimale per ASP.NET, Node.js, Java, PHP e Python. È anche possibile eseguire [Windows PowerShell e altri script o eseguibili](../app-service-web/web-sites-create-web-jobs.md) nelle VM del servizio app.
-* **Ottimizzazione della metodologia DevOps**: è possibile configurare [l'integrazione e la distribuzione continua](../app-service-web/app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket, alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](../app-service-web/web-sites-staged-publishing.md), eseguire [test A/B](../app-service-web/app-service-web-test-in-production-get-start.md) e gestire le app nel servizio app con [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando multipiattaforma](../cli-install-nodejs.md).
+* **Ottimizzazione della metodologia DevOps**: è possibile configurare [l'integrazione e la distribuzione continua](../app-service-web/app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket, alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](../app-service-web/web-sites-staged-publishing.md), e gestire le app nel servizio app con [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando multipiattaforma](../cli-install-nodejs.md).
 * **Scalabilità globale con disponibilità elevata**: è possibile [aumentare le prestazioni](../app-service-web/web-sites-scale.md) o il [numero di istanze](../monitoring-and-diagnostics/insights-how-to-scale.md) manualmente o automaticamente. Le app possono essere ospitate ovunque nell'infrastruttura globale di data center Microsoft e il [contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) per il servizio app assicura disponibilità elevata.
 * **Connessioni a piattaforme SaaS e dati locali**: è possibile scegliere tra oltre 50 [connettori](../connectors/apis-list.md) per sistemi aziendali (come SAP, Siebel e Oracle), servizi SaaS (come Salesforce e Office 365) e servizi Internet (come Facebook e Twitter), nonché accedere ai dati locali con [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali di Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 * **Sicurezza e conformità** : il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/).

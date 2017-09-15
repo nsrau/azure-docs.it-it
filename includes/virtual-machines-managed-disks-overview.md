@@ -79,7 +79,7 @@ Gli [snapshot incrementali](../articles/virtual-machines/windows/incremental-sna
 Per altre informazioni su come creare snapshot con Managed Disks, vedere le risorse seguenti:
 
 * [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Linux](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Creare una copia del disco rigido virtuale archiviato come disco gestito usando gli snapshot in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 ## <a name="images"></a>Immagini
