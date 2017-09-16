@@ -1,9 +1,9 @@
 ---
 title: Visualizzare la topologia con Network Watcher di Azure - Interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Questo articolo descrive come usare l&quot;interfaccia della riga di comando di Azure per eseguire una query relativa alla topologia di rete.
+description: Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per eseguire una query relativa alla topologia di rete.
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 5cd279d7-3ab0-4813-aaa4-6a648bf74e7b
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 5be8e103f9a1f32117a4ed3be73bff021db1186d
