@@ -5,6 +5,7 @@
 ## Esercitazione sui runbook
 ### [Creare un runbook grafico](automation-first-runbook-graphical.md)
 ### [Creare un runbook PowerShell](automation-first-runbook-textual-powershell.md)
+### [Il primo runbook Python](automation-first-runbook-textual-python2.md)
 ### [Creare un runbook del flusso di lavoro di PowerShell](automation-first-runbook-textual.md)
 # Procedure
 ## Autenticazione e sicurezza
@@ -37,7 +38,10 @@
 ### [Passare un oggetto JSON a un runbook di Automazione di Azure](automation-pass-json-string.md)
 ## ruolo di lavoro ibrido per runbook
 ### [Distribuire il ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md)
+### [Ruolo di lavoro ibrido per runbook Windows di Automazione di Azure](automation-windows-hrw-install.md)
+### [Ruolo di lavoro ibrido per runbook Linux di Automazione di Azure](automation-linux-hrw-install.md)
 ### [Eseguire runbook nel ruolo di lavoro](automation-hrw-run-runbooks.md)
+### [Rimuovere ruoli di lavoro ibridi di Automazione di Azure](automation-remove-hrw.md)
 ## Distribuire la gestione della configurazione (DSC)
 ### [Panoramica su DSC (Desired State Configuration)](automation-dsc-overview.md)
 ### [Attività iniziali](automation-dsc-getting-started.md)

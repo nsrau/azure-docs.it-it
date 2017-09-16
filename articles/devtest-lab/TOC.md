@@ -28,6 +28,7 @@
 ### [Configurare criteri e pianificazioni](devtest-lab-set-lab-policy.md)
 ### [Configurare la gestione dei costi](devtest-lab-configure-cost-management.md)
 ### [Configurare immagini del Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Aggiungere tag a un lab](devtest-lab-add-tag.md)
 
 ## [Selezionare un'immagine o una formula personalizzata](devtest-lab-comparing-vm-base-image-types.md)
 

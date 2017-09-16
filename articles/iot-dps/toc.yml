@@ -33,6 +33,8 @@
   items:
     - name: Gestire le registrazioni dei dispositivi
       href: how-to-manage-enrollments.md
+    - name: Usare il modulo di protezione hardware con SDK
+      href: use-hsm-with-sdk.md
 - name: riferimento
   items:
     - name: REST
