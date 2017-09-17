@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c163c715eb1438a0d6b0ab53cbb43816ca8dbbb4
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 7e0867a0db2bbad1e490721e8bb2f59677950c18
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -62,7 +62,7 @@ Per la creazione di una macchina virtuale sono disponibili diverse opzioni, ad e
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Dopo la creazione della macchina virtuale, l'interfaccia della riga di comando di Azure restituisce informazioni sulla VM. Prendere nota dell'indirizzo `publicIpAddress`, che può essere usato per accedere alla macchina virtuale. 
+La creazione della macchina virtuale può richiedere alcuni minuti. Dopo la creazione della macchina virtuale, l'interfaccia della riga di comando di Azure restituisce informazioni sulla VM. Prendere nota dell'indirizzo `publicIpAddress`, che può essere usato per accedere alla macchina virtuale. 
 
 ```azurecli-interactive 
 {
@@ -79,13 +79,13 @@ Dopo la creazione della macchina virtuale, l'interfaccia della riga di comando d
 
 ## <a name="connect-to-vm"></a>Connettersi alla macchina virtuale
 
-È ora possibile connettersi alla VM usando SSH. Sostituire l'indirizzo IP di esempio con l'indirizzo `publicIpAddress` annotato nel passaggio precedente.
+È ora possibile connettersi alla macchina virtuale con SSH in Azure Cloud Shell o dal computer locale. Sostituire l'indirizzo IP di esempio con l'indirizzo `publicIpAddress` annotato nel passaggio precedente.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-Al termine, chiudere la sessione SSH. 
+Dopo aver eseguito l'accesso alla macchina virtuale, sarà possibile installare e configurare le applicazioni. Al termine si chiude la sessione SSH come di consueto:
 
 ```bash
 exit
@@ -208,7 +208,11 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Ridimensionare una VM
 
-Dopo la distribuzione di una VM, è possibile ridimensionarla per aumentare o ridurre l'allocazione delle risorse.
+Dopo la distribuzione di una VM, è possibile ridimensionarla per aumentare o ridurre l'allocazione delle risorse. È possibile visualizzare la dimensione attuale di una macchina virtuale con [az vm show](/cli/azure/vm#show):
+
+```azurecli-interactive
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 Prima di ridimensionare una macchina virtuale, verificare se le dimensioni desiderate sono disponibili nel cluster di Azure corrente. Il comando [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) restituisce l'elenco di dimensioni. 
 
@@ -300,7 +304,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>Eliminare un gruppo di risorse
 
-Se si elimina un gruppo di risorse, vengono eliminate anche tutte le risorse in esso contenute.
+Se si elimina un gruppo di risorse, vengono eliminate anche tutte le risorse in esso contenute, ad esempio la macchina virtuale, la rete virtuale e il disco. Il parametro `--no-wait` restituisce il controllo al prompt senza attendere il completamento dell'operazione. Il parametro `--yes` conferma che si desidera eliminare le risorse senza un prompt aggiuntivo a tale scopo.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes

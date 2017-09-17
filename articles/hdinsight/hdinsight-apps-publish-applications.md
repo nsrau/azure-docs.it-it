@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6aa66cac35bc317fc87003e6c3d824544c53de88
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 0ccaee16a19b4338099a93f994553caaa6aa57e3
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>Pubblicare applicazioni HDInsight in Azure Marketplace
 Un'applicazione HDInsight è un'applicazione che gli utenti possono installare in un cluster HDInsight basato su Linux. Queste applicazioni possono essere sviluppate da Microsoft, da fornitori di software indipendenti (ISV) o dall'utente. In questo articolo si apprenderà come pubblicare un'applicazione HDInsight in Azure Marketplace.  Per informazioni generali sulla pubblicazione in Azure Marketplace, vedere [Pubblicare un'offerta in Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
 
-Le applicazioni HDInsight usano il modello *Bring Your Own License (BYOL)* , in cui il provider dell'applicazione è responsabile di concedere in licenza l'applicazione agli utenti finali e agli utenti finali vengono addebitate da Azure solo le risorse create, ad esempio il cluster HDInsight e le VM o i nodi. Attualmente la fatturazione per l'applicazione in sé non viene effettuata con Azure.
+Le applicazioni HDInsight usano il modello *Bring Your Own License (BYOL)*, in cui il provider dell'applicazione è responsabile di concedere in licenza l'applicazione agli utenti finali e a questi ultimi vengono addebitate da Azure solo le risorse create, ad esempio il cluster HDInsight e le VM o i nodi. Attualmente la fatturazione per l'applicazione in sé non viene effettuata con Azure.
 
 Altro articolo correlato all'applicazione HDInsight:
 
@@ -64,7 +63,7 @@ La pubblicazione di applicazioni in Azure Marketplace richiede due passaggi.  Pr
 ## <a name="application-install-script"></a>Script di installazione dell'applicazione
 Ogni volta che un'applicazione viene installata in un cluster, esistente o nuovo, viene creato un nodo perimetrale e lo script di installazione dell'applicazione viene eseguito su di esso.
   > [!IMPORTANT]
-  > Il nome dello script di installazione dell'applicazione deve essere univoco per un determinato cluster con il formato seguente.
+  > Il nome dello script di installazione dell'applicazione deve essere univoco per un determinato cluster con il formato seguente:
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -74,7 +73,7 @@ Ogni volta che un'applicazione viene installata in un cluster, esistente o nuovo
   > 2. Un "-" per migliorare la leggibilità.
   > 3. Una funzione stringa univoca con il nome dell'applicazione come parametro.
   > 
-  > Ad esempio, la stringa indicata sopra alla fine diventerà: hue-install-v0-4wkahss55hlas nell'elenco di azioni script persistenti. Per un payload JSON di esempio, vedere [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+  > L'esempio precedente alla fine diventerà: hue-install-v0-4wkahss55hlas nell'elenco di azioni script persistenti. Per un payload JSON di esempio, vedere [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
   > 
 Lo script di installazione deve avere le caratteristiche seguenti:
 1. Assicurarsi che lo script sia idempotente. Le chiamate multiple alo script devono produrre lo stesso risultato.
@@ -105,7 +104,7 @@ Seguire questa procedura per pubblicare un'applicazione HDInsight:
 6. Immettere il nome di una topologia, quindi fare clic sul segno più.
 7. Immettere una nuova versione, quindi fare clic sul segno più.
 8. Caricare il file ZIP preparato in [Inserire l'applicazione in un pacchetto](#package-application).  
-9. Fare clic su **Request Certification**(Richiedi certificazione). Il team di certificazione Microsoft esaminerà i file e certificherà la topologia.
+9. Fare clic su **Request Certification**(Richiedi certificazione). Il team di certificazione Microsoft esamina i file e certifica la topologia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Installare applicazioni HDInsight](hdinsight-apps-install-applications.md): informazioni su come installare un'applicazione HDInsight nei cluster.

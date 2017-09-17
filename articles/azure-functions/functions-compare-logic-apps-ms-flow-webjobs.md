@@ -17,32 +17,32 @@ ms.date: 08/03/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 43e01efaa16ff54d1f526076224979b7b9688e80
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Scegliere tra Flow, App per la logica, Funzioni e Processi Web
-Questo articolo mette a confronto i servizi seguenti, disponibili in Microsoft Cloud, ognuno dei quali consente di risolvere i problemi di integrazione e automazione dei processi aziendali:
+Questo articolo mette a confronto i servizi seguenti, disponibili in Microsoft Cloud, ognuno dei quali consente di risolvere i problemi di integrazione e automatizzare i processi aziendali:
 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/)
 * [Funzioni di Azure](https://azure.microsoft.com/services/functions/)
 * [Processi Web del servizio app di Azure](../app-service-web/web-sites-create-web-jobs.md)
 
-Tutti questi servizi risultano utili quando si "mettono insieme" sistemi diversi. Possono definire input, azioni, condizioni e output e ognuno può essere eseguito in base a una pianificazione o un trigger. Tuttavia, ogni servizio offre un valore aggiunto univoco e il confronto non è finalizzato a stabilire qual è il servizio migliore, ma qual è il servizio più adatto per una determinata situazione. Una combinazione di questi servizi è spesso il modo migliore per creare rapidamente una soluzione di integrazione scalabile e con funzionalità complete.
+Tutti questi servizi risultano utili quando si "mettono insieme" sistemi diversi. Possono definire input, azioni, condizioni e output e ognuno può essere eseguito in base a una pianificazione o un trigger. Tuttavia, ogni servizio offre vantaggi esclusivi e il confronto non è finalizzato a stabilire qual è il servizio migliore, ma qual è il servizio più adatto per una determinata situazione. Una combinazione di questi servizi è spesso il modo migliore per creare rapidamente una soluzione di integrazione scalabile e con funzionalità complete.
 
 <a name="flow"></a>
 
 ## <a name="flow-vs-logic-apps"></a>Flow rispetto ad App per la logica
-Microsoft Flow e App per la logica di Azure possono essere esaminati insieme, essendo entrambi servizi di integrazione di tipo *configuration first* , un aspetto che facilita la creazione di processi e flussi di lavoro e l'integrazione con diverse applicazioni aziendali e SaaS. 
+Microsoft Flow e App per la logica di Azure possono essere affrontati insieme, perché entrambi sono servizi di integrazione *configuration-first*. Semplificano la creazione di processi e flussi di lavoro e l'integrazione con varie applicazioni SaaS e aziendali. 
 
 * Flow si basa sulle app per la logica
 * Hanno la stessa funzionalità di progettazione flussi di lavoro
 * [connettori](../connectors/apis-list.md) che funzionano in un servizio possono funzionare anche nell'altro
 
-Flow consente a qualsiasi impiegato di eseguire semplici integrazioni, ad esempio ricevere SMS per i messaggi di posta elettronica importanti, senza ricorrere a sviluppatori o professionisti IT. D'altra parte, App per la logica consente di abilitare integrazioni avanzate o cruciali, come i processi B2B, in cui sono richieste procedure di sicurezza e la metodologia DevOps a livello di organizzazione. È normale che la complessità di un flusso di lavoro aziendale aumenti nel tempo. Di conseguenza, è possibile iniziare con un flusso e quindi convertirlo in un'app per la logica in base alle esigenze.
+Flow consente a qualsiasi impiegato di eseguire semplici integrazioni, ad esempio ricevere SMS per i messaggi di posta elettronica importanti, senza ricorrere a sviluppatori o professionisti IT. D'altra parte, App per la logica consente di abilitare integrazioni avanzate o cruciali, come i processi B2B, in cui sono necessarie procedure di sicurezza e la metodologia DevOps a livello di organizzazione. È normale che la complessità di un flusso di lavoro aziendale aumenti nel tempo. Di conseguenza, è possibile iniziare con un flusso e quindi convertirlo in un'app per la logica in base alle esigenze.
 
 La tabella seguente consente di determinare se per una data integrazione è più appropriato usare Flow o App per la logica.
 
@@ -92,16 +92,20 @@ La tabella seguente riepiloga le differenze tra Funzioni e Processi Web:
 | Python |sperimentale |supportato |
 | JavaScript |supportato |supportato |
 
-L'uso di Funzioni o di Processi Web dipende in definitiva dalle operazioni che già si svolgono con il servizio app. Se è disponibile un'app del servizio app per cui si vogliono eseguire frammenti di codice e avere la possibilità di gestirli insieme nello stesso ambiente DevOps, è consigliabile usare Processi Web. Se si vogliono eseguire frammenti di codice per altri servizi di Azure o anche per app di terze parti oppure si vogliono gestire i frammenti di codice di integrazione separatamente dalle app del servizio app o ancora si vogliono chiamare i frammenti di codice da un'app per la logica, è consigliabile sfruttare tutti i miglioramenti disponibili in Funzioni.  
+L'uso di Funzioni o di Processi Web dipende in definitiva dalle operazioni che già si svolgono con il servizio app. Se è disponibile un'app del servizio app per cui si vogliono eseguire frammenti di codice e avere la possibilità di gestirli insieme nello stesso ambiente DevOps, usare Processi Web. Usare Funzioni negli scenari seguenti.
+
+* Eseguire frammenti di codice per altri servizi di Azure o applicazioni di terze parti.
+* Gestire separatamente il codice di integrazione delle app del servizio app.
+* Chiamare i frammenti di codice da un'app per la logica. 
 
 <a name="together"></a>
 
 ## <a name="flow-logic-apps-and-functions-together"></a>Flow, App per la logica e Funzioni insieme
 Come accennato in precedenza, il servizio ottimale dipende dalla situazione specifica dell'utente. 
 
-* Per la semplice ottimizzazione aziendale, usare Flow.
+* Per la semplice ottimizzazione aziendale usare Flow.
 * Se lo scenario di integrazione è troppo avanzato per Flow o sono necessarie le funzionalità di DevOps e la conformità ai requisiti di sicurezza, usare App per la logica.
-* Se un passaggio nello scenario di integrazione richiede codice specializzato o di trasformazione altamente personalizzato, scrivere un'app per le funzioni e quindi attivare una funzione come azione nell'app per la logica.
+* Se un passaggio nello scenario di integrazione richiede codice specializzato o di trasformazione altamente personalizzato, scrivere una funzione e quindi attivarla come azione nell'app per la logica.
 
 È possibile chiamare un'app per la logica in un flusso. Si può anche chiamare una funzione in un'app per la logica e un'app per la logica in una funzione. L'integrazione tra Flow, App per la logica e Funzioni continua a migliorare nel tempo. È possibile creare un elemento in un servizio e usarlo in altri servizi. Qualsiasi investimento effettuato in queste tre tecnologie risulterà comunque proficuo.
 

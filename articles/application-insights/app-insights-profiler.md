@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: ad9174c47e1af8d5dba080ec82f2a56fbbf78782
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profilatura delle app Web di Azure attive con Application Insights
@@ -25,7 +25,7 @@ ms.lasthandoff: 06/29/2017
 
 Determinare il tempo impiegato in ogni metodo nell'applicazione Web attiva usando lo strumento di profilatura di [Azure Application Insights](app-insights-overview.md). Consente di visualizzare profili dettagliati delle richieste attive che sono state servite dall'app ed evidenzia il 'percorso ricorrente' che usa più tempo. Seleziona automaticamente esempi con tempi di risposta diversi. Il profiler usa varie tecniche per ridurre il sovraccarico.
 
-Il profiler è valido attualmente solo per le applicazioni Web ASP.NET in esecuzione nel Servizio app di Azure, in almeno il piano tariffario Basic. 
+Il profiler è valido attualmente solo per le applicazioni Web ASP.NET in esecuzione nel Servizio app di Azure, in almeno il piano tariffario Basic.
 
 <a id="installation"></a>
 ## <a name="enable-the-profiler"></a>Abilitare il profiler

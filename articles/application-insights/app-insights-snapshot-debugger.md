@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
@@ -175,7 +175,7 @@ Lo snapshot scaricato contiene tutti file di simboli trovati nel server applicaz
 
 ## <a name="how-snapshots-work"></a>Funzionamento degli snapshot
 
-All'avvio dell'applicazione viene creato un processo di caricamento degli snapshot separato che monitora le richieste di snapshot nell'applicazione. Quando viene richiesto uno snapshot, viene creata una copia shadow del processo in esecuzione in circa 10-20 minuti. Il processo shadow viene quindi analizzato e viene creato uno snapshot mentre il processo principale rimane in esecuzione e continua a gestire il traffico verso gli utenti. Lo snapshot viene quindi caricato in Application Insights insieme agli eventuali file di simboli pertinenti (con estensione pdb) che sono necessari per visualizzare lo snapshot.
+All'avvio dell'applicazione viene creato un processo di caricamento degli snapshot separato che monitora le richieste di snapshot nell'applicazione. Quando viene richiesto uno snapshot, viene creata una copia shadow del processo in esecuzione in circa 10-20 millisecondi. Il processo shadow viene quindi analizzato e viene creato uno snapshot mentre il processo principale rimane in esecuzione e continua a gestire il traffico verso gli utenti. Lo snapshot viene quindi caricato in Application Insights insieme agli eventuali file di simboli pertinenti (con estensione pdb) che sono necessari per visualizzare lo snapshot.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
