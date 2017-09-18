@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 003a548ef2da2921a699df1aa9f7aee366d341ab
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Pianificare e trasmettere processi (Java)
@@ -349,7 +349,7 @@ In questa sezione si crea un'app console Java che gestisce le proprietà desider
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    Questa app di esempio usa la variabile **protocol** quando crea un'istanza di un oggetto **DeviceClient**. Attualmente per usare le funzionalità del dispositivo gemello è necessario usare il protocollo MQTT.
+    Questa app di esempio usa la variabile **protocol** quando crea un'istanza di un oggetto **DeviceClient**.
 
 1. Per stampare le notifiche del dispositivo gemello nella console, aggiungere la classe annidata seguente alla classe **App**:
 

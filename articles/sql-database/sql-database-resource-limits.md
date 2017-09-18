@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 3b89ff2c47e0a06587f92e23e6b32bf7bb750a1d
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 66fa69b746ce2404e3083a9c3872300a9efee874
 ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limiti delle risorse del database SQL di Azure
@@ -146,5 +146,6 @@ In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione 
 - Per informazioni sui livelli di servizio, vedere [Livelli di servizio](sql-database-service-tiers.md).
 - Per informazioni sui database singoli, vedere la sezione relativa alle [risorse dei singoli database](sql-database-resource-limits.md).
 - Per informazioni sui pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
-- Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](/azure/azure-subscription-service-limits.md).
+- Per informazioni sui limiti generici di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 - Per informazioni su DTU ed eDTU, vedere [DTU ed eDTU](sql-database-what-is-a-dtu.md).
+

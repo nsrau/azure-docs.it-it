@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 448636e87db126defc804a613bb61ff19a086ad9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 36d34261325ba3ab120fd6bcf0f3816f84e15182
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,7 +44,7 @@ Questo script usa i comandi seguenti per creare un disco gestito da un disco rig
 
 | Comando | Note |
 |---|---|
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Crea un disco gestito usando l'URI del disco rigido virtuale in un account di archiviazione nella stessa sottoscrizione |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Crea un disco gestito usando l'URI del disco rigido virtuale in un account di archiviazione nella stessa sottoscrizione |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

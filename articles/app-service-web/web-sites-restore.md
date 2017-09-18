@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 61396e8a3521c25eaf49c66a4948e520377d342a
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6bbbe61469363bc3a44adce8ceb632a7eb620a3e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="restore-an-app-in-azure"></a>Ripristinare un'app in Azure
@@ -80,8 +80,8 @@ Scorrere verso il basso per trovare l'operazione di ripristino desiderata e fare
 
 Nel pannello dei dettagli verranno visualizzate le informazioni disponibili correlate all'operazione di ripristino.
 
-## <a name="next-steps"></a>Passaggi successivi
-È possibile eseguire il backup e il ripristino delle applicazioni del servizio app usando l'API REST (vedere [Usare REST per eseguire il backup e il ripristino di app del servizio App](websites-csm-backup.md)).
+<!-- ## Next Steps
+You can backup and restore App Service apps using REST API. -->
 
 
 <!-- IMAGES -->

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 2611698d70a1a5963abaa55c8e9510469c7aa097
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 2141ea4fd25dfc69ada02c54c4f6b6b717b8e7db
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -53,8 +53,8 @@ Questo script usa i comandi seguenti per ottenere le proprietà di un disco gest
 
 | Comando | Note |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | Ottiene le proprietà del disco gestito usando il nome del disco e il nome del gruppo di risorse. La proprietà Id viene usata per collegare un disco gestito a una nuova VM |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crea una VM utilizzando un disco del sistema operativo gestito |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Ottiene le proprietà del disco gestito usando il nome del disco e il nome del gruppo di risorse. La proprietà Id viene usata per collegare un disco gestito a una nuova VM |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crea una VM utilizzando un disco del sistema operativo gestito |
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).

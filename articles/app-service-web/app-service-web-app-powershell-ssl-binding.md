@@ -1,6 +1,6 @@
 ---
 title: Binding di certificati SSL con PowerShell
-description: Informazioni su come associare certificati SSL a un&quot;app Web con PowerShell.
+description: Informazioni su come associare certificati SSL a un'app Web con PowerShell.
 services: app-service\web
 documentationcenter: 
 author: ahmedelnably
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e0302c4e4e63383a2b19bd6f02f3be8d83f5ff98
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: e57e4b55555b04f6109e16322aa05ff0e41bb16c
+ms.contentlocale: it-it
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-ssl-certificate-binding-using-powershell"></a>Binding di certificati SSL del servizio App di Azure con PowerShell
 Con il rilascio di Microsoft Azure PowerShell versione 1.1.0 è stato aggiunto un nuovo cmdlet che consente all'utente di associare i certificati SSL nuovi o esistenti a un'app Web esistente.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-Per informazioni su come usare cmdlet di Azure PowerShell basati su Azure Resource Manager per gestire le app Web, vedere [Uso di comandi di PowerShell basati su Azure Resource Manager per la gestione di app Web di Azure](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## <a name="uploading-and-binding-a-new-ssl-certificate"></a>Caricamento e binding di un nuovo certificato SSL
 Scenario: l'utente vuole associare un certificato SSL a una delle proprie app Web.
@@ -68,13 +67,7 @@ Si noti che se il binding SSL rimosso era l'ultimo binding che usava quel certif
     Remove-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -Name www.contoso.com -DeleteCertificate $false
 
 ### <a name="references"></a>Riferimenti
-* [Uso di comandi di PowerShell basati su Azure Resource Manager per la gestione di app Web di Azure](app-service-web-app-azure-resource-manager-powershell.md)
 * [Introduzione all'ambiente del servizio app](app-service-app-service-environment-intro.md)
-* [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 

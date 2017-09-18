@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 15c1d3cb6eac8fc14837277c4a4275dea91701cd
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a76770c7a2101675f7cbf953ce9c3b1750656477
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Come usare l'archiviazione di accodamento da Node.js
@@ -340,9 +340,8 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Creare un'app Web Node.js in Servizio app di Azure](../../app-service-web/app-service-web-get-started-nodejs.md)   
-[App Web Node.js con il servizio tabelle di Azure](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)
-  
+[Creare un'app Web Node.js in Servizio app di Azure](../../app-service-web/app-service-web-get-started-nodejs.md)
+   
 
 
 [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)   

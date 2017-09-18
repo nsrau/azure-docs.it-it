@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 2866d9717a0a7f107764008541a0ba71d5001c9e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
 ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
@@ -120,7 +120,7 @@ Se si intende seguire questo approccio, la parametrizzazione deve essere eseguit
 
 __Il modello completo e funzionante viene mostrato alla fine di questo documento.__
 
-Dopo aver creato il modello, è possibile distribuirlo usando le [API REST](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/group/deployment#create) oppure la [pagina per la distribuzione di modelli del portale](https://portal.azure.com/#create/Microsoft.Template).
+Dopo aver creato il modello, è possibile distribuirlo usando le [API REST](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) oppure la [pagina per la distribuzione di modelli del portale](https://portal.azure.com/#create/Microsoft.Template).
 
 Ecco due versioni della rappresentazione JSON del dashboard di esempio. La prima è la versione esportata dal portale e già associata a una risorsa. La seconda è la versione modello che può essere associata a livello di codice a qualsiasi macchina virtuale e distribuita con Azure Resource Manager.
 

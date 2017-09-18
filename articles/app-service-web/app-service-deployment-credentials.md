@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
 ms.contentlocale: it-it
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
@@ -47,7 +46,7 @@ Per configurare le credenziali a livello di utente:
 1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > **&lt;qualsiasi_app>** > **Credenziali per la distribuzione**.
 
     > [!NOTE]
-    > È necessario disporre di almeno un'app nel portale prima di poter accedere al pannello delle credenziali per la distribuzione. Tuttavia, con l'[interfaccia della riga di comando di Azure](app-service-web-app-azure-resource-manager-xplat-cli.md) è possibile configurare le credenziali a livello di utente senza un'app esistente.
+    > È necessario disporre di almeno un'app nel portale prima di poter accedere al pannello delle credenziali per la distribuzione. Tuttavia, con l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/deployment/user#set) è possibile configurare le credenziali a livello di utente senza un'app esistente.
 
 2. Configurare il nome utente e la password e quindi fare clic su **Salva**.
 

@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 04/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 40c3fa6fa6c07d59e4bf55531e116ba50aa92b91
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c7868dda1e00882a944ac61d838c8b8987d5e740
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>Creare un'app per le funzioni in un piano di servizio app
@@ -47,10 +47,10 @@ Ogni comando della tabella include collegamenti alla documentazione specifica de
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | Creare un account di Archiviazione di Azure. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#create) | Consente di creare un piano di servizio app. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#delete) | Crea un'app per le funzioni di Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Creare un account di Archiviazione di Azure. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | Consente di creare un piano di servizio app. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Crea un'app per le funzioni di Azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

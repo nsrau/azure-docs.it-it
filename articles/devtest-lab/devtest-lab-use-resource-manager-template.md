@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 12cdb61667f77215c894800d5c439235e767a26b
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 0807ab367b91be5acd261f2b58ca2112b2c9e380
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -66,7 +65,7 @@ Dopo aver salvato il modello di Resource Manager, è necessario aggiornare la se
 Dopo aver salvato un modello di Resource Manager e averlo personalizzato per le proprie esigenze, è possibile usarlo per automatizzare la creazione delle macchine virtuali. [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) descrive come usare Azure PowerShell con i modelli di Resource Manager per distribuire le risorse in Azure. [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) descrive come usare l'interfaccia della riga di comando di Azure con i modelli di Resource Manager per distribuire le risorse in Azure.
 
 > [!NOTE]
-> Solo un utente con autorizzazioni di proprietario lab può creare macchine virtuali da un modello di Resource Manager usando Azure PowerShell. Se si desidera automatizzare la creazione di VM usando un modello di Resource Manager e si dispone solo delle autorizzazioni utente, è possibile usare il comando [**az lab vm create** nell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/lab/vm#create).
+> Solo un utente con autorizzazioni di proprietario lab può creare macchine virtuali da un modello di Resource Manager usando Azure PowerShell. Se si desidera automatizzare la creazione di VM usando un modello di Resource Manager e si dispone solo delle autorizzazioni utente, è possibile usare il comando [**az lab vm create** nell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
 
 ### <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Creare un ambiente con più VM con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md).

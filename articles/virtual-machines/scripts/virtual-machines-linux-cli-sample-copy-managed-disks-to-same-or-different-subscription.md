@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: dcf92babf84872ffbbba81127952f8422104c723
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 9447e7c78849bb7a25d141c454550ce708b781b6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,8 +44,8 @@ Questo script usa i comandi seguenti per creare un nuovo disco gestito nella sot
 
 | Comando | Note |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | Ottiene tutte le proprietà di uno snapshot tramite le proprietà del nome e del gruppo di risorse del disco gestito. La proprietà ID viene usata per copiare il disco gestito in una sottoscrizione diversa.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Consente di copiare un disco gestito creando un nuovo disco gestito in una sottoscrizione diversa tramite l'ID e il nome del disco gestito padre.  |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Ottiene tutte le proprietà di uno snapshot tramite le proprietà del nome e del gruppo di risorse del disco gestito. La proprietà ID viene usata per copiare il disco gestito in una sottoscrizione diversa.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Consente di copiare un disco gestito creando un nuovo disco gestito in una sottoscrizione diversa tramite l'ID e il nome del disco gestito padre.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

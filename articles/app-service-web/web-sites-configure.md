@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 443f49c720b47734f330db9bd6790e6a55ac5f9b
 ms.contentlocale: it-it
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
@@ -49,7 +48,7 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 <a name="platform"></a>
 **Piattaforma**. Scegliere se eseguire l'app Web in un ambiente a 32 bit o a 64 bit. L'ambiente a 64 bit richiede la modalità Basic o Standard. Le modalità Gratuito e Condiviso vengono eseguite sempre in un ambiente a 32 bit.
 
-**Web Socket**. Impostare **ATTIVATO** per abilitare il protocollo WebSocket, ad esempio se l'app Web usa [ASP.NET SignalR] o [socket.io].
+**Web Socket**. Impostare **ATTIVATO** per abilitare il protocollo WebSocket, ad esempio se l'app Web usa [ASP.NET SignalR] o [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
 **Always On**. Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. In modalità Basic o Standard è possibile abilitare **Always On** affinché l'app rimanga sempre caricata. Se nell'app vengono eseguiti processi Web continui o processi Web attivati mediante un'espressione CRON è necessario abilitare **Always On**, altrimenti l'esecuzione dei processi Web potrebbe non avvenire in modo affidabile.
@@ -171,7 +170,6 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 [Informazioni di base sul monitoraggio di App Web nel servizio app di Azure]: ./web-sites-monitor.md
 [modalità pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Scalare un'app Web nel servizio app di Azure]: ./web-sites-scale.md
-[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Prova il servizio app]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->

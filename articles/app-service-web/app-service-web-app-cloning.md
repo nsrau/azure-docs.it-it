@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 3b82f352f89a7857bfb42be6cee136f245fbd5fa
+ms.contentlocale: it-it
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonazione di app del servizio app di Azure con PowerShell
@@ -27,8 +27,6 @@ Con il rilascio di Microsoft Azure PowerShell versione 1.1.0 è stata aggiunta u
 La clonazione di app è attualmente supportata solo per i piani di servizio app Premium. La nuova funzionalità usa le stesse limitazioni della funzionalità di backup di App Web. Vedere [Eseguire il backup di un'app Web nel servizio app di Azure](web-sites-backup.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-Per informazioni su come usare cmdlet di Azure PowerShell basati su Azure Resource Manager per gestire le app Web, vedere [Uso di comandi di PowerShell basati su Azure Resource Manager per la gestione di app Web di Azure](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## <a name="cloning-an-existing-app"></a>Clonazione di un'app esistente
 Scenario: l'utente vuole clonare il contenuto di un'app Web esistente nell'area South Central US in una nuova app Web nell'aera North Central US. Questa operazione può essere eseguita con la versione Azure Resource Manager del cmdlet di PowerShell per creare una nuova app Web con l'opzione -SourceWebApp.
@@ -107,11 +105,10 @@ Questa funzionalità è attualmente in anteprima e sono allo studio nuove funzio
 * Il contenuto di database non viene clonato.
 
 ### <a name="references"></a>Riferimenti
-* [Uso di comandi di PowerShell basati su Azure Resource Manager per la gestione di app Web di Azure](app-service-web-app-azure-resource-manager-powershell.md)
 * [Clonazione di app Web con il portale di Azure](app-service-web-app-cloning-portal.md)
 * [Eseguire il backup di un'app Web nel servizio app di Azure](web-sites-backup.md)
 * [Supporto di Azure Resource Manager per la versione di anteprima di Gestione traffico di Azure](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introduzione all'ambiente del servizio app](app-service-app-service-environment-intro.md)
-* [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
+* [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 

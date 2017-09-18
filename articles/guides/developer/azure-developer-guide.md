@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -158,7 +158,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
     >**Uso consigliato**: quando si distribuisce un'app Web in un'immagine Docker in Linux.
 
-    >**Come iniziare**: [usare un'immagine Docker personalizzata per il servizio app in Linux](../../app-service-web/app-service-linux-using-custom-docker-image.md).
+    >**Come iniziare**: [usare un'immagine Docker personalizzata per il servizio app in Linux](../../app-service/containers/quickstart-custom-docker-image.md).
 
 ### <a name="authentication"></a>Autenticazione
 
@@ -168,7 +168,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
     >**Uso consigliato**: quando si vuole offrire un'esperienza SSO, usare dati basati su Graph o autenticare utenti in base al dominio.
 
-    >**Come iniziare**: per altre informazioni, vedere la [guida per gli sviluppatori di Azure Active Directory](../../active-directory/active-directory-developers-guide.md).
+    >**Come iniziare**: per altre informazioni, vedere la [guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/active-directory-developers-guide.md).
 
 -   **Autenticazione del servizio app**: quando si sceglie di ospitare l'app nel servizio app, si ottiene anche il supporto dell'autenticazione predefinita per Azure AD, insieme ai provider di identità basati su social network, ad esempio Facebook, Google, Microsoft e Twitter.
 

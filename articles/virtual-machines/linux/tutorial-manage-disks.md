@@ -17,10 +17,10 @@ ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 882446ba32252490e27056c7c5c9a8f755e26ee6
 ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -104,7 +104,7 @@ I dischi dati possono essere creati e collegati al momento della creazione della
 
 ### <a name="attach-disk-at-vm-creation"></a>Collegare un disco al momento della creazione della macchina virtuale
 
-Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group#create). 
+Creare un gruppo di risorse con il comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create). 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
@@ -235,7 +235,7 @@ Quando si crea uno snapshot del disco, viene creata una copia temporizzata di so
 
 ### <a name="create-snapshot"></a>Creare uno snapshot
 
-Prima di creare uno snapshot del disco della macchina virtuale, è necessario conoscere l'ID o il nome del disco. Usare il comando [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) per ottenere l'ID del disco. In questo esempio l'ID del disco viene archiviato in una variabile in modo da poter essere usato in un passaggio successivo.
+Prima di creare uno snapshot del disco della macchina virtuale, è necessario conoscere l'ID o il nome del disco. Usare il comando [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) per ottenere l'ID del disco. In questo esempio l'ID del disco viene archiviato in una variabile in modo da poter essere usato in un passaggio successivo.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -273,13 +273,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 È necessario ricollegare tutti i dischi dati alla macchina virtuale.
 
-Innanzitutto usare il comando [az disk list](https://docs.microsoft.com/cli/azure/disk#list) per trovare il nome del disco dati. L'esempio inserisce il nome del disco in una variabile denominata *datadisk*, che viene usata nel passaggio successivo.
+Innanzitutto usare il comando [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list) per trovare il nome del disco dati. L'esempio inserisce il nome del disco in una variabile denominata *datadisk*, che viene usata nel passaggio successivo.
 
 ```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-Usare il comando [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) per collegare il disco.
+Usare il comando [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) per collegare il disco.
 
 ```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk

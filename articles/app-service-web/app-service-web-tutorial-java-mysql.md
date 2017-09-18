@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 5a6e4431ef25c66e1863a679f0db1363a83f4769
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 96f7bda79fd83bffa4ca1d64275a784004547c6d
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -322,7 +322,7 @@ az webapp config appsettings set \
 ### <a name="get-ftp-deployment-credentials"></a>Ottenere le credenziali di distribuzione FTP 
 È possibile distribuire l'applicazione nel Servizio app di Azure attraverso varie soluzioni, tra cui FTP, Git locale, GitHub, Visual Studio Team Services e BitBucket. In questo esempio viene usato FTP per distribuire in Servizio app di Azure il file WAR compilato prima sul computer locale.
 
-Per determinare quali credenziali passare in un comando FTP per l'app Web, usare il comando [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#list-publishing-profiles): 
+Per determinare quali credenziali passare in un comando FTP per l'app Web, usare il comando [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles): 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles \ 

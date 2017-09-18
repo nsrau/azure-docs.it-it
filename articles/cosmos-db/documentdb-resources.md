@@ -17,8 +17,8 @@ ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: a8037dfbd799209e453b84374f28b881864d3799
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 7326dce288996f0690be3b66882b8b4c21a35348
 ms.contentlocale: it-it
 ms.lasthandoff: 09/07/2017
 
@@ -97,7 +97,7 @@ Tutte le risorse quali account di database, database, raccolte, utenti, autorizz
         </tr>
         <tr>
             <td valign="top"><p>id</p></td>
-            <td valign="top"><p>Generata dal sistema</p></td>
+            <td valign="top"><p>È possibile usare il</p></td>
             <td valign="top"><p>Nome univoco della risorsa (con lo stesso valore della chiave di partizione) definito dall'utente. Se l'utente non specifica un ID, quest'ultimo verrà generato dal sistema.</p></td>
         </tr>
     </tbody>

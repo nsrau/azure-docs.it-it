@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 93ada731fe70cf7d294537241f8104c0b89940ed
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: a5753df2ff6874d9574e268953792cac9765cc54
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
@@ -50,8 +50,6 @@ L'elenco seguente offre una descrizione degli endpoint:
   * *Ricezione di richieste di metodi diretti*. Un dispositivo usa questo endpoint per ascoltare le richieste di [metodi diretti][lnk-methods].
 
     Questi endpoint vengono esposti con i protocolli [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 e [AMQP 1.0][lnk-amqp]. AMQP è disponibile anche su [WebSocket][lnk-websockets] sulla porta 443.
-
-    Gli endpoint di dispositivi gemelli e metodi sono disponibili solo quando si usa il protocollo [MQTT v3.1.1][lnk-mqtt].
 
 * **Endpoint di servizio**. Ogni hub IoT espone un set di endpoint per il back-end della soluzione per comunicare con i dispositivi. Con una eccezione, questi endpoint sono esposti solo tramite il protocollo [AMQP][lnk-amqp]. Tramite il protocollo HTTP viene esposto l'endpoint di chiamata del metodo.
   

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: 035150d5a1da49f89d0058692b016596d8881d9c
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f9f7449fbfc6a1f2fe96e19dd2b13845e602946d
 ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
@@ -55,7 +55,6 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Griglia di eventi di Azure](#azure-event-grid-limits)
 * [Cache Redis di Azure](#azure-redis-cache-limits)
-* [Azure RemoteApp](#azure-remoteapp-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [Servizi BizTalk](#biztalk-services-limits)
@@ -251,9 +250,6 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 
 ### <a name="azure-event-grid-limits"></a>Limiti relativi a Griglia di eventi di Azure
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
-
-### <a name="azure-remoteapp-limits"></a>Limiti relativi a RemoteApp di Azure
-[!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Limiti relativi al sistema StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

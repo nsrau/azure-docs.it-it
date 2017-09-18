@@ -4,7 +4,7 @@ description: Informazioni sul client Multi-Factor Authentication e sui diversi m
 keywords: 
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: c47ca818bd77291338de6e90e5dd27465475e868
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 525ca7733d509b6831e6c5ab7a6f3a5ce5250156
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
@@ -66,7 +66,6 @@ La tabella seguente indica un elenco delle funzionalità disponibili nelle varie
 | Memorizzazione di MFA per dispositivi attendibili |● |● |● |
 | SDK MFA | | |● (richiede un provider Multi-Factor Authentication e una sottoscrizione completa di Azure) |
 | MFA per applicazioni locali | | |● |
-| Criteri di accesso condizionale | | | ● |
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
 Se si desidera avere a disposizione tutte le funzionalità di Azure Multi-Factor Authentication, ci sono varie opzioni:

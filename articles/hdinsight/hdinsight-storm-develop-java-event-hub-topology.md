@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 07/13/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 2e8ebbdab2be7bed224a67facec798820615bb22
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: db278f2ecd025257a969e3a9f05f5269a659999d
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>Elaborare eventi dell'hub eventi di Azure con Storm in HDInsight (Java)
@@ -68,7 +68,7 @@ Il file `POM.xml` contiene informazioni di configurazione per questo progetto Ma
 
 #### <a name="event-hub-components"></a>Componenti di Hub eventi
 
-Il componente che legge e scrive in Hub di eventi di Azure si trova nel [repository HDInsight](https://github.com/hdinsight/mvn-rep). Le sezioni seguenti nel file `POM.xml` caricano i componenti da questo repository
+Il componente che legge e scrive in Hub di eventi di Azure si trova nel [repository HDInsight](https://github.com/hdinsight/mvn-repo). Le sezioni seguenti nel file `POM.xml` caricano i componenti da questo repository
 
 ```xml
 <repositories>

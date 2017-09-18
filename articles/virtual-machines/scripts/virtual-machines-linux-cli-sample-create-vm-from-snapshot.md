@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 960a44e0df2c46cea464d9277f22f449b62e7d06
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: be282f79445c505ece7c6115df7a29c20a6a5f02
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -50,9 +50,9 @@ Questo script usa i comandi seguenti per creare un disco gestito, una macchina v
 
 | Comando | Note |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#show) | Ottiene lo snapshot usando il nome dello snapshot e il nome del gruppo di risorse. La proprietà Id dell'oggetto restituito viene usata per creare un disco gestito.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk#create) | Crea dischi gestiti da uno snapshot usando l'ID dello snapshot, il nome del disco, il tipo di archiviazione e la dimensione  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | Crea una VM utilizzando un disco del sistema operativo gestito |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Ottiene lo snapshot usando il nome dello snapshot e il nome del gruppo di risorse. La proprietà Id dell'oggetto restituito viene usata per creare un disco gestito.  |
+| [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Crea dischi gestiti da uno snapshot usando l'ID dello snapshot, il nome del disco, il tipo di archiviazione e la dimensione  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crea una VM utilizzando un disco del sistema operativo gestito |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

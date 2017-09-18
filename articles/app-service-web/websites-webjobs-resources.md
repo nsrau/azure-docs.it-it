@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 05062d7396bdbb3e589d2ab5f0443d1dca54342a
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 5050b442540632086eda80bd7fecaf2beb8ddb50
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Risorse di documentazione di Processi Web di Azure
@@ -69,7 +69,7 @@ Vedere anche le sezioni seguenti su [Distribuzione di Processi Web](#deploy) e d
 
 ## <a name="schedule"></a>Pianificazione di Processi Web
 * [Finestra di dialogo Aggiungi processo Web Azure](websites-dotnet-deploy-webjobs.md#configure)
-* [Creare un processo Web pianificato nel portale di Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Creare un processo Web pianificato nel portale di Azure](web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [Associazione di un processo Web a un processo di pianificazione](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Pianificazione dei processi Web di Azure con espressioni cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Pianificazione delle singole funzioni di Processi Web tramite WebJobs SDK TimerTrigger](websites-dotnet-webjobs-sdk.md#schedule)

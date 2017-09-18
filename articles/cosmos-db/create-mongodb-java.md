@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 1683afd842294b3b45ae4d0e53bbecdccadc1ed5
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: ab6b783c0454aaa424c17ead4e588d962693cb1a
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app console API MongoDB con Java e il portale di Azure
@@ -34,7 +34,8 @@ Questa guida di avvio rapido mostra come creare un account, un database di docum
    * JDK 1.7+ (eseguire `apt-get install default-jdk` se JDK non è disponibile)
    * Maven (eseguire `apt-get install maven` se Maven non è disponibile)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -44,7 +45,7 @@ Questa guida di avvio rapido mostra come creare un account, un database di docum
 
 Assegnare un nome al nuovo database, **db**, e alla nuova raccolta, **coll**.
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)] [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 

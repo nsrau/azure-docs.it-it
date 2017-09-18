@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 5ed888cbb422766cf2094f5980dfd1c599bd431c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ff71194d701fd5de6ffe616c03f7214275f3bc62
 ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>Agile Software Development con il servizio app di Azure
@@ -264,7 +264,9 @@ Dato che gli ambienti di sviluppo e di testing sono stati appositamente concepit
     Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## <a name="summary"></a>Riepilogo
-Agile Software Development è uno strumento indispensabile per molte aziende che desiderano adottare Azure come piattaforma dell'applicazione. In questa esercitazione si è appreso a creare ed eliminare repliche esatte o molto simili dell'ambiente di produzione con facilità, anche per applicazioni complesse. Si è appreso anche a sfruttare questa possibilità per creare un processo di sviluppo in grado di compilare e testare ogni singolo commit in Azure. Questa esercitazione dovrebbe avere illustrato come usare nel modo migliore il servizio app di Azure e Gestione risorse di Azure App integrandoli per creare una soluzione di sviluppo che fornisce le metodologie Agile. Successivamente, è possibile compilare questo scenario eseguendo le tecniche avanzate di DevOps, ad esempio [test in produzione](app-service-web-test-in-production-get-start.md). Per uno scenario comune di test in produzione, vedere [Distribuzione Flighting (test beta) nel servizio di Azure App](app-service-web-test-in-production-controlled-test-flight.md).
+Agile Software Development è uno strumento indispensabile per molte aziende che desiderano adottare Azure come piattaforma dell'applicazione. In questa esercitazione si è appreso a creare ed eliminare repliche esatte o molto simili dell'ambiente di produzione con facilità, anche per applicazioni complesse. Si è appreso anche a sfruttare questa possibilità per creare un processo di sviluppo in grado di compilare e testare ogni singolo commit in Azure. Questa esercitazione dovrebbe avere illustrato come usare nel modo migliore il servizio app di Azure e Gestione risorse di Azure App integrandoli per creare una soluzione di sviluppo che fornisce le metodologie Agile. 
+
+<!-- Next, you can build on this scenario by performing advanced DevOps techniques such as testing in production. For a common testing-in-production scenario, see [Flighting deployment (beta testing) in Azure App Service](app-service-web-test-in-production-controlled-test-flight.md). -->
 
 ## <a name="more-resources"></a>Altre risorse
 * [Distribuire un'applicazione complessa in modo prevedibile in Azure](app-service-deploy-complex-application-predictably.md)

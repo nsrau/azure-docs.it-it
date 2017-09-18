@@ -1,5 +1,5 @@
 ---
-title: Connettersi a un&quot;istanza di SQL Server locale da un&quot;app Web di Azure App Service mediante Connessioni ibride
+title: Connettersi a un'istanza di SQL Server locale da un'app Web di Azure App Service mediante Connessioni ibride
 description: Creare un sito Web in Microsoft Azure e connetterlo a un database di SQL Server locale
 services: app-service\web
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: c940f490908a3b934c108b214b5ef2af44698059
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4aaa4d2b739ef39754d7286bef3721a1b814d2a3
+ms.contentlocale: it-it
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="connect-to-on-premises-sql-server-from-a-web-app-in-azure-app-service-using-hybrid-connections"></a>Connettersi a un'istanza di SQL Server locale da un'app Web di Azure App Service mediante Connessioni ibride
@@ -94,7 +94,7 @@ Per abilitare TCP/IP, si userà Gestione configurazione SQL Server, installato a
 ### <a name="create-a-sql-server-database-on-premises"></a>Creare un database SQL Server locale
 L'applicazione Web Visual Studio richiede un database di appartenenza al quale Azure può effettuare l'accesso. Ciò richiede un database SQL Server o SQL Server Express (non il database LocalDB usato dal modello MVC per impostazione predefinita), quindi il database di appartenenza verrà creato nel prossimo passaggio.
 
-1. In SQL Server Management Studio connettersi all'istanza di SQL Server appena installata (se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro sinistro, fare clic su **Connetti** e quindi fare clic su **Motore di database**).  ![Connetti al server][SSMSConnectToServer]
+1. In SQL Server Management Studio connettersi all'istanza di SQL Server appena installata (se la finestra di dialogo **Connetti al server** non viene visualizzata automaticamente, passare a **Esplora oggetti** nel riquadro sinistro, fare clic su **Connetti** e quindi fare clic su **Motore di database**). ![Connetti al server][SSMSConnectToServer]
    
     In **Tipo server** scegliere **Motore di database**. In **Nome server** è possibile usare **localhost** o il nome del computer. Scegliere **Autenticazione di SQL Server**, quindi accedere con il nome utente e la password creati in precedenza.
 2. Per creare un nuovo database usando SQL Server Management Studio, fare clic con il pulsante destro del mouse su **Database** in Esplora oggetti, quindi fare clic su **Nuovo database**.
@@ -276,7 +276,7 @@ Quindi, l'applicazione Web verrà usata per vedere la relativa connessione ibrid
 
 [Creazione di un cloud ibrido reale con portabilità continua delle applicazioni (video Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Accesso alle risorse locali usando connessioni ibride nel Servizio app di Azure](web-sites-hybrid-connection-get-started.md)
+<!-- [Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md) -->
 
 [Panoramica dell'identità ASP.NET](http://www.asp.net/identity)
 

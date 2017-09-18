@@ -2,7 +2,7 @@
 title: 'Metriche di Monitoraggio di Azure: metriche supportate per tipo di risorsa | Microsoft Docs'
 description: Elenco delle metriche disponibili per ogni tipo di risorsa con il monitoraggio di Azure.
 author: anirudhcavale
-manager: orenr
+manager: ashwink
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 9/6/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 83a32dba7b74a303b7fd2167b5fc41212087f8ca
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6f40f0cdb998bda9d936ecf87089e85713ed9e1b
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
@@ -295,18 +295,6 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |percentProcessorTime9|CPU (partizione 9)|Percentuale|Massima||
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
-|---|---|---|---|---|
-|CPU percentuale|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
-|Rete in ingresso|Rete in ingresso|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
-|Rete in uscita|Rete in uscita|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
-|Byte letti da disco/sec|Lettura disco|Byte al secondo|Media|Numero medio di byte letti dal disco durante il periodo di monitoraggio|
-|Byte scritti su disco/sec|Scrittura disco|Byte al secondo|Media|Numero medio di byte scritti sul disco durante il periodo di monitoraggio|
-|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Numero di IOPS letti dal disco|
-|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Numero di IOPS scritti sul disco|
-
-## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|

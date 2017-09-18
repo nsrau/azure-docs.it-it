@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: df4ca5b1270ada849e231ad9608a5b1d2edda8be
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 9630656a00a8a80c8ffd8fb59113dc1c8c523651
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -46,11 +46,11 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, l'App Web 
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | Crea un'App Web di Azure. |
-| [az webapp log config](https://docs.microsoft.com/cli/azure/webapp/log#config) | Configura i log che devono essere mantenuti da un'App Web di Azure. |
-| [az webapp log download](https://docs.microsoft.com/cli/azure/webapp/log#download) | Scarica i log dell'App Web di Azure sul computer locale. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Crea un'App Web di Azure. |
+| [az webapp log config](https://docs.microsoft.com/cli/azure/webapp/log#az_webapp_log_config) | Configura i log che devono essere mantenuti da un'App Web di Azure. |
+| [az webapp log download](https://docs.microsoft.com/cli/azure/webapp/log#az_webapp_log_download) | Scarica i log dell'App Web di Azure sul computer locale. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

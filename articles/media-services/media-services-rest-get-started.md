@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 731c32970941c6a3963dcb48bf03ee0f53e0c7af
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: b5a852619300c0acad1ea21738921eaf1d2f59b4
 ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introduzione alla distribuzione di contenuti su richiesta usando REST
@@ -54,7 +54,7 @@ Questa guida introduttiva illustra come effettuare le seguenti attività.
 >[!NOTE]
 >È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
 
-Per altre informazioni sulle entità di REST AMS usate in questo argomento, vedere [Informazioni generali sull'API REST di Servizi multimediali](/rest/api/media/services/azure-media-services-rest-api-reference). Vedere anche [Concetti relativi ai Servizi multimediali di Azure](media-services-concepts.md).
+Per altre informazioni sulle entità di REST AMS usate in questo argomento, vedere [Informazioni generali sull'API REST di Servizi multimediali](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Vedere anche [Concetti relativi ai Servizi multimediali di Azure](media-services-concepts.md).
 
 >[!NOTE]
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).

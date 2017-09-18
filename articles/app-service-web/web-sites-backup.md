@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 891359514e776e169bf05df7b84d2b99306f98bf
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a79f05792fdda3c9895c0893678e4a4d5fb23d54
 ms.contentlocale: it-it
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
@@ -159,7 +159,7 @@ Il backup del database per l'app viene archiviato nella radice del file con este
 <a name="nextsteps"></a>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni sul ripristino di un'app da un backup, vedere [Ripristinare un'app nel Servizio app di Azure](web-sites-restore.md). È anche possibile eseguire il backup e il ripristino delle applicazioni del servizio app usando l'API REST (vedere [Usare REST per eseguire il backup e il ripristino di app del servizio app](websites-csm-backup.md)).
+Per informazioni sul ripristino di un'app da un backup, vedere [Ripristinare un'app nel Servizio app di Azure](web-sites-restore.md). 
 
 
 <!-- IMAGES -->

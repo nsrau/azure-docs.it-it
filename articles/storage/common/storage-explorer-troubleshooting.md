@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
-
-## <a name="introduction"></a>Introduzione
 
 Microsoft Azure Storage Explorer (anteprima) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux. L'app può connettersi ad account di archiviazione ospitati in Azure, Sovereign Clouds e Azure Stack.
 
@@ -32,7 +30,7 @@ In questa guida sono riepilogate le soluzioni per gli errori comuni riscontrati 
 
 ## <a name="sign-in-issues"></a>Problemi relativi all'accesso
 
-Sono supportati solo account AAD (Azure Active Directory). Se si usa un account ADFS, è probabile che l'accesso a Storage Explorer non funzioni. Prima di continuare, provare a riavviare l'applicazione per vedere se i problemi si risolvono.
+Prima di continuare, provare a riavviare l'applicazione per vedere se i problemi si risolvono.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Errore: certificato autofirmato nella catena di certificati
 
@@ -152,7 +150,7 @@ Se si dispone di strumenti di rete, ad esempio Fiddler per Windows, è possibile
 
 - Controllare il numero della porta usato dallo strumento di rete.
 
-- Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Se questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete effettuate da Storage Explorer agli endpoint di gestione e del servizio. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint BLOB in un browser. Si riceverà una risposta simile alla seguente, che suggerisce che la risorsa è disponibile, anche se non è possibile accedervi.
+- Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Se questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete fatte da Storage Explorer agli endpoint del servizio e alla gestione. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint BLOB in un browser. Si riceverà una risposta simile alla seguente, che suggerisce che la risorsa è disponibile, anche se non è possibile accedervi.
 
 ![esempio di codice](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 

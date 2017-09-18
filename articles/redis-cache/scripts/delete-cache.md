@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: f959823b3a7c5b0262f693ecad1e6efc4eec4f35
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 11d228cc633fee8c6a2984e2eb23690a43d4c0fc
 ms.contentlocale: it-it
-ms.lasthandoff: 04/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -41,11 +41,11 @@ Questo script usa i comandi seguenti per eliminare un'istanza della cache Redis 
 
 | Comando | Note |
 |---|---|
-| [eliminazione di redis az](https://docs.microsoft.com/cli/azure/redis#delete) | Eliminare un'istanza della cache Redis. |
+| [eliminazione di redis az](https://docs.microsoft.com/cli/azure/redis#az_redis_delete) | Eliminare un'istanza della cache Redis. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Altri esempi di script dell'interfaccia della riga di comando della cache Redis di Azure sono disponibili nella [documentazione della cache Redis di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando della Cache Redis di Azure sono disponibili nella [documentazione della Cache Redis di Azure](../cli-samples.md).

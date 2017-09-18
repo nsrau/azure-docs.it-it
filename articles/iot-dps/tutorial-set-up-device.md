@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: c0ef886a8c51f43cba875d532835acb194e994d9
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
 ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -37,7 +37,7 @@ Prima di procedere, creare l'istanza del servizio Device Provisioning e un hub I
 
 ## <a name="select-a-hardware-security-module"></a>Selezionare un modulo di protezione hardware
 
-L'[SDK client del servizio Device Provisioning](https://github.com/Azure/azure-iot-device-auth/tree/master/dps_client) offre il supporto per due tipi di moduli di protezione hardware (HSM): 
+L'[SDK client del servizio Device Provisioning](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) offre il supporto per due tipi di moduli di protezione hardware (HSM): 
 
 - [TPM (Trusted Platform Module)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - Il modulo TPM è uno standard stabilito per la maggior parte delle piattaforme per dispositivi basati su Windows, nonché per alcuni dispositivi basati su Linux/Ubuntu. In qualità di produttore di dispositivi, è possibile scegliere questo modulo se nei dispositivi è installato uno di questi sistemi operativi e se si sta cercando uno standard stabilito per i moduli di protezione hardware. Con i chip TPM è possibile registrare solo ogni dispositivo individualmente nel servizio Device Provisioning. Ai fini dello sviluppo è possibile usare il simulatore TPM nel computer di sviluppo Windows o Linux.
@@ -79,8 +79,8 @@ L'SDK client del servizio Device Provisioning non offre supporto predefinito per
 ### <a name="develop-your-custom-repository"></a>Sviluppare il repository personalizzato
 
 1. Sviluppare un repository GitHub per accedere al modulo di protezione hardware. Questo progetto richiede che si produca una raccolta statica ad uso dell'SDK del servizio Device Provisioning.
-1. La raccolta deve implementare le funzioni definite nel file di intestazione seguente: a. Per il modulo TPM personalizzato, implementare le funzioni definite in `\azure-iot-device-auth\dps_client\adapters\custom_hsm_tpm_impl.h`.
-    b. Per il modulo X.509 personalizzato, implementare le funzioni definite in `\azure-iot-device-auth\dps_client\adapters\custom_hsm_x509_impl.h`. 
+1. La raccolta deve implementare le funzioni definite nel file di intestazione seguente: a. Per il modulo TPM personalizzato, implementare le funzioni definite in `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h`.
+    b. Per il modulo X.509 personalizzato, implementare le funzioni definite in `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h`. 
 1. Il repository del modulo di protezione hardware deve inoltre contenere un file `CMakeLists.txt` nella directory radice per il repository che deve essere creato.
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>Integrare con il client del servizio Device Provisioning
@@ -98,7 +98,7 @@ Dopo la creazione della raccolta è possibile passare all'SDK per C IoThub e ins
     - Il processo di compilazione clona il repository personalizzato e compila la raccolta.
     - L'SDK tenterà di collegarsi al modulo di protezione hardware personalizzato definito nel comando cmake.
 
-1. Eseguire l'esempio `\azure-iot-device-auth\dps_client\samples\dps_client_sample\dps_client_sample.c` per verificare se il modulo di protezione hardware è stato implementato correttamente.
+1. Eseguire l'esempio `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c` per verificare se il modulo di protezione hardware è stato implementato correttamente.
 
 <a id="extractsecurity"></a>
 ## <a name="extract-the-security-artifacts"></a>Estrarre gli elementi di sicurezza
