@@ -43,5 +43,7 @@ sections:
         style: cards
         className: cardsD
         items:
-          - title: Interfaccia della riga di comando di Azure
+          - title: Riga di comando
             html: <p><a href="/cli/azure/container">Interfaccia della riga di comando di Azure 2.0</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/container-instances">Informazioni di riferimento sulle API REST</a></p>

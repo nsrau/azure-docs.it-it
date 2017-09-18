@@ -4,7 +4,7 @@
       href: storage-blobs-introduction.md
     - name: 'Scegliere BLOB, file o dischi dati'
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-- name: Introduzione
+- name: Attività iniziali
   items:
     - name: Creare un account di archiviazione
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -28,6 +28,10 @@
           href: storage-ios-how-to-use-blob-storage.md
         - name: Xamarin
           href: storage-xamarin-blob-storage.md
+        - name: PowerShell
+          href: storage-how-to-use-blobs-powershell.md
+        - name: Interfaccia della riga di comando di Azure 2.0
+          href: storage-how-to-use-blobs-cli.md
 - name: Procedure
   items:
     - name: Pianificare e progettare

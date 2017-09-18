@@ -41,6 +41,8 @@
   items:
     - name: Interfaccia della riga di comando di Azure 2.0
       href: /cli/azure/container
+    - name: REST
+      href: /rest/api/container-instances
 - name: Risorse
   items:
     - name: Roadmap per Azure
