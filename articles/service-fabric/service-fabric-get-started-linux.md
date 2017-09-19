@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/23/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 4f51030446d2d2a5a11018b1fce7d7e9193f3dfc
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 8d902ba9e2077b4b70762c76cfb3ebf12752fb11
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
@@ -116,11 +116,9 @@ sudo apt-get install servicefabricsdkcommon
 
 ## <a name="set-up-the-service-fabric-cli"></a>Configurare l'interfaccia della riga di comando di Service Fabric
 
-L'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md) include comandi per l'interazione con entità di Service Fabric, come cluster e applicazioni. È basato su python, quindi occorre assicurarsi che python e pip siano installati prima di continuare con il comando seguente:
+L'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md) include comandi per l'interazione con entità di Service Fabric, come cluster e applicazioni.
+Seguire le istruzioni contenute in [Interfaccia della riga di comando di Service Fabric](service-fabric-cli.md) per installare l'interfaccia della riga di comando.
 
-```bash
-pip install sfctl
-```
 
 ## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>Installare e configurare i generatori per contenitori ed eseguibili guest
 Service Fabric offre gli strumenti di scaffolding che consentono di creare applicazioni Service Fabric dal terminale tramite il generatore di modelli Yeoman. Seguire questa procedura per assicurarsi che nella macchina virtuale sia disponibile il generatore di modelli Yeoman di Service Fabric.

@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
 ms.contentlocale: it-it
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Creare un cluster Apache Spark in Azure HDInsight
 
-Questo articolo illustra la creazione di un cluster Apache Spark in Azure HDInsight. Per informazioni su Spark in HDInsight, vedere [Panoramica: Apache Spark in Azure HDInsight](hdinsight-apache-spark-overview.md).
+Questo articolo illustra come creare un cluster Apache Spark in Azure HDInsight e quindi eseguire una query Spark SQL su una tabella Hive. Per informazioni su Spark in HDInsight, vedere [Panoramica: Apache Spark in Azure HDInsight](hdinsight-apache-spark-overview.md).
 
    ![Diagramma che descrive i passaggi per la creazione di un cluster Apache Spark in Azure HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Guida introduttiva di Spark con Apache Spark in HDInsight. Passaggi illustrati: creare un cluster; eseguire una query interattiva Spark")
 
@@ -58,16 +58,22 @@ In questa sezione viene creato un cluster HDInsight Spark usando un [modello di 
 
 3. Selezionare **Accetto le condizioni riportate sopra**, selezionare **Aggiungi al dashboard** e quindi fare clic su **Acquista**. È possibile visualizzare un nuovo riquadro denominato Invio della distribuzione per Distribuzione modello. La creazione del cluster richiede circa 20 minuti.
 
-Se si verifica un problema con la creazione di cluster HDInsight, è possibile che non si abbiano le autorizzazioni necessarie per questa operazione. Per altre informazioni, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Se si verifica un problema con la creazione di cluster HDInsight, è possibile che non si abbiano le autorizzazioni necessarie per questa operazione. Per altre informazioni, vedere [Requisiti di controllo di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 > [!NOTE]
 > Questo articolo crea un cluster Spark che usa [BLOB del servizio di archiviazione di Azure come risorsa di archiviazione del cluster](hdinsight-hadoop-use-blob-storage.md). È anche possibile creare un cluster Spark che usa [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) come risorsa di archiviazione predefinita. Per istruzioni, vedere [Creare un cluster HDInsight con Archivio Data Lake](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 >
 >
 
-## <a name="run-a-hive-query-using-spark-sql"></a>Eseguire una query Hive usando Spark SQL
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>Eseguire istruzioni Spark SQL su una tabella Hive
 
-Quando si usa un server Jupyter Notebook configurato per il cluster HDInsight Spark, si ottiene un elemento `sqlContext` predefinito che può essere usato per eseguire query Hive con Spark SQL. Questa sezione illustra come avviare un Jupyter Notebook e quindi eseguire una query Hive di base.
+SQL (Structured Query Language) è il linguaggio più diffuso e più usato per l'esecuzione di query e la definizione dei dati. I fondatori di Spark volevano sfruttare questa esperienza e mettere a disposizione il noto linguaggio di query sui dati a un gruppo più ampio di analisti che vogliono lavorare con i dati che si trovano in Hadoop Distributed File System (HDFS). A questo scopo, è nato Spark SQL. Funziona come un'estensione di Apache Spark per l'elaborazione di dati strutturati, usando la nota sintassi SQL.
+
+Spark SQL supporta sia SQL che HiveQL come linguaggi di query. Le sue funzionalità includono il binding in Python, Scala e Java. Con esso è possibile eseguire query su dati archiviati in numerose posizioni, come database esterni, file di dati strutturati (ad esempio JSON) e tabelle Hive.
+
+### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>Esecuzione di Spark SQL in un cluster HDInsight
+
+Quando si usa un server Jupyter Notebook configurato per il cluster HDInsight Spark, si ottiene un elemento `sqlContext` predefinito che può essere usato per eseguire query Hive con Spark SQL. Questa sezione illustra come avviare un notebook Jupyter e quindi eseguire una query Spark SQL di base in una tabella Hive esistente (**hivesampletable**) disponibile in tutti i cluster HDInsight.
 
 1. Aprire il [portale di Azure](https://portal.azure.com/).
 
@@ -87,15 +93,15 @@ Quando si usa un server Jupyter Notebook configurato per il cluster HDInsight Sp
    >
 3. Creare un notebook. Fare clic su **Nuovo** e quindi su **PySpark**.
 
-   ![Creare un'istanza di Jupyter Notebook per eseguire la query interattiva Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Creare un'istanza di Jupyter Notebook per eseguire la query interattiva Spark SQL")
+   ![Creare un'istanza di Jupyter Notebook per eseguire la query interattiva Spark SQL](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Creare un'istanza di Jupyter Notebook per eseguire la query interattiva Spark SQL")
 
    Un nuovo notebook verrà creato e aperto con il nome Untitled (Untitled.pynb).
 
 4. Fare clic sul nome del notebook nella parte superiore e, se si vuole, immettere un nome descrittivo.
 
-    ![Specificare un nome per l'istanza di Jupyter Notebook dalla quale eseguire la query interattiva Spark](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Specificare un nome per l'istanza di Jupyter Notebook dalla quale eseguire la query interattiva Spark")
+    ![Specificare un nome per il notebook Jupyter da cui eseguire la query Spark interattiva](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Specificare un nome per il notebook Jupyter da cui eseguire la query Spark interattiva")
 
-5.  Incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO** per eseguire il codice. Nel codice seguente, `%%sql` (denominato "magic SQL") indica a Jupyter Notebook di usare l'elemento `sqlContext` predefinito per eseguire la query Hive. La query recupera le prime 10 righe di una tabella Hive (**hivesampletable**) disponibile in tutti i cluster HDInsight per impostazione predefinita.
+5.  Incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO** per eseguire il codice. Nel codice seguente `%%sql` (denominato magic sql) indica al notebook Jupyter di usare l'elemento `sqlContext` predefinito per eseguire la query Hive. La query recupera le prime 10 righe di una tabella Hive (**hivesampletable**) disponibile in tutti i cluster HDInsight per impostazione predefinita.
 
         %%sql
         SELECT * FROM hivesampletable LIMIT 10
@@ -117,7 +123,7 @@ Quando si usa un server Jupyter Notebook configurato per il cluster HDInsight Sp
 
 8. Se si intende completare i passaggi successivi in un secondo momento, assicurarsi di eliminare il cluster HDInsight creato in questo articolo. 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-step"></a>Passaggio successivo 
 

@@ -1,4 +1,4 @@
-Creare credenziali di distribuzione con il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
+In Cloud Shell creare credenziali di distribuzione con il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user#set).
 
 Un utente della distribuzione è necessario per la distribuzione con FTP e l'istanza Git locale in un'app Web. Nome utente e password sono a livello di account. _Sono quindi diversi dalle credenziali della sottoscrizione di Azure._
 

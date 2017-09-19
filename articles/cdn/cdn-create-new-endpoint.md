@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
-ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
+ms.contentlocale: it-it
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="getting-started-with-azure-cdn"></a>Introduzione alla rete CDN di Azure
@@ -32,8 +33,13 @@ Questo argomento descrive in dettaglio l'abilitazione della rete CDN di Azure cr
 Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo contiene uno o più endpoint della rete CDN.  Si consiglia di usare più profili per organizzare gli endpoint della rete CDN tramite il dominio internet, l’applicazione web o altri criteri.
 
 > [!NOTE]
-> Per impostazione predefinita, ogni sottoscrizione di Azure è limitata a otto profili della rete CDN. Ogni profilo della rete CDN è limitato a dieci endpoint della rete CDN.
-> 
+> Una sottoscrizione di Azure ha limiti predefiniti per le risorse seguenti:
+> - Numero di profili CDN che possono essere creati
+> - Numero di endpoint che possono essere creati in un profilo CDN 
+> - Numero di domini personalizzati di cui è possibile eseguire il mapping a un endpoint
+>
+> Per informazioni sui limiti delle sottoscrizioni CDN, vedere [Limiti relativi alla rete CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+>
 > I prezzi della rete CDN vengono applicati a livello di profilo della rete CDN. Se si vuole usare una combinazione di piani tariffari della rete CDN di Azure, è necessario avere più profili CDN.
 > 
 > 
@@ -55,11 +61,11 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
     Viene visualizzato il pannello **Aggiungi un endpoint** .
    
     ![Pannello Aggiungi endpoint][cdn-add-endpoint]
-3. Immettere un **Nome** per questo endpoint della rete CDN.  Questo nome verrà usato per accedere alle risorse memorizzate nella cache nel dominio `<endpointname>.azureedge.net`.
+3. Immettere un **Nome** per questo endpoint della rete CDN.  Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio `<endpointname>.azureedge.net`.
 4. Nell'elenco a discesa **Tipo origine** selezionare il tipo di origine.  Selezionare **Archiviazione** per un account di archiviazione di Azure, **Servizio Cloud** per un servizio cloud di Azure, **App Web** per un'app Web di Azure oppure **Origine personalizzata** per qualsiasi altra origine di server Web accessibile pubblicamente, ospitata in Azure o altrove.
    
     ![Tipo di origine della rete CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. Nell'elenco a discesa **Nome host origine** selezionare o digitare il dominio di origine.  Nell’elenco a discesa compariranno tutte le origini disponibili del tipo specificato nel passaggio 4.  Se è stato selezionato l’elemento *Origine personalizzata* come **Tipo di origine**, si digiterà nel dominio di origine personalizzato.
+5. Nell'elenco a discesa **Nome host origine** selezionare o digitare il dominio di origine.  Nell'elenco a discesa compaiono tutte le origini disponibili del tipo specificato nel passaggio 4.  Se è stato selezionato l’elemento *Origine personalizzata* come **Tipo di origine**, si digiterà nel dominio di origine personalizzato.
 6. Nella casella di testo **Percorso origine** inserire il percorso per le risorse che si desidera memorizzare nella cache oppure lasciare vuoto per consentire la memorizzazione nella cache di qualsiasi risorsa nel dominio specificato nel passaggio 5.
 7. Nell’ **Intestazione dell’host di origine**, inserire l'intestazione dell’host che si desidera che la rete CDN invii con ogni richiesta di immettere, o lasciare il valore predefinito.
    
@@ -70,14 +76,16 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
 8. Per **Protocollo** e **Porta dell'origine** specificare i protocolli e le porte usate per accedere alle risorse in corrispondenza dell'origine.  È necessario selezionare almeno un protocollo (HTTP o HTTPS).
    
    > [!NOTE]
-   > **Porta dell'origine** interessa solo la porta usata dall'endpoint per recuperare informazioni dall'origine.  L'endpoint stesso sarà disponibile solo per i client finali sulle porte HTTP e HTTPS (80 e 443), indipendentemente dalla **Porta dell'origine**.  
+   > **Porta dell'origine** interessa solo la porta usata dall'endpoint per recuperare informazioni dall'origine.  L'endpoint stesso è disponibile solo per i client finali sulle porte HTTP e HTTPS (80 e 443), indipendentemente dalla **porta dell'origine**.  
    > 
    > **Rete CDN di Azure da Akamai** non consentono l'intera gamma di porte TCP per le origini.  Per un elenco delle porte di origine non consentite, vedere l'articolo relativo ai [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx)(Porte di origine consentite in Rete CDN di Azure da Akamai).  
    > 
    > L'accesso al contenuto della rete CDN tramite HTTPS presenta i vincoli seguenti:
    > 
    > * È necessario usare il certificato SSL fornito dalla rete CDN. I certificati di terze parti non sono supportati.
-   > * È necessario usare il dominio fornito dalla rete CDN,`<endpointname>.azureedge.net`, per accedere al contenuto HTTPS. Il supporto HTTPS non è disponibile per i nomi di dominio personalizzati (CNAME) perché la rete CDN attualmente non supporta i certificati personalizzati.
+   > * Il supporto di HTTPS per i domini personalizzati della rete CDN di Azure è disponibile solo con i prodotti **rete CDN di Azure fornita da Verizon** (Standard e Premium). Non è supportata nella **rete CDN di Azure fornita da Akamai**. Per altre informazioni, vedere [Abilitare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md).
+
+Usare il dominio fornito dalla rete CDN, `<endpointname>.azureedge.net`, per accedere al contenuto HTTPS. Il supporto HTTPS non è disponibile per i nomi di dominio personalizzati (CNAME) perché la rete CDN attualmente non supporta i certificati personalizzati.
    > 
    > 
 9. Per creare il nuovo endpoint, fare clic sul pulsante **Aggiungi** .
@@ -103,9 +111,4 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

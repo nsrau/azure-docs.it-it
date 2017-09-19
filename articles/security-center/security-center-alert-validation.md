@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
 ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Convalida degli avvisi nel Centro sicurezza di Azure
@@ -35,12 +35,15 @@ Dopo aver installato l'agente del Centro sicurezza nel computer, seguire questa 
 3. Aprire il prompt dei comandi ed eseguire il file con un argomento (un semplice nome di argomento fittizio), ad esempio: *ASC_AlertTest_662jfi039N.exe -foo*
 4. Attendere da 5 a 10 minuti e aprire gli avvisi del Centro sicurezza. Dovrebbe essere visualizzato un avviso simile al seguente:
 
-    ![Convalida degli avvisi](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![Convalida degli avvisi](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 Esaminando questo avviso, verificare che il campo Arguments Auditing Enabled (Controllo argomenti abilitato) sia impostato su "vero". Se l'impostazione visualizzata è "falso", è necessario abilitare il controllo degli argomenti della riga di comando. È possibile abilitare questa opzione con la riga di comando seguente:
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> Per una dimostrazione di questa funzionalità, guardare il video [Alert Validation in Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) (Convalida degli avvisi nel Centro sicurezza di Azure). 
 
 ## <a name="see-also"></a>Vedere anche
 Questo articolo ha presentato il processo di convalida degli avvisi. Dopo aver acquisito familiarità con tale convalida, vedere gli articoli seguenti:

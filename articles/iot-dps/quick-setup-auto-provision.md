@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 519ea43bfaa9d61de6ff962d838c197eb9e4edc0
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -63,7 +63,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 2. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Linked IoT hubs** (Hub IoT collegati). Fare clic sul pulsante **+ Aggiungi** in alto. 
 
-3. Nel pannello **Add link to IoT hub** (Aggiungi collegamento a hub IoT) del portale, selezionare la sottoscrizione corrente oppure immettere il nome e la stringa di connessione di un'altra sottoscrizione. Selezionare *IoT hub* (Hub IoT) in **Resource type** (Tipo di risorsa) e quindi selezionare il nome dell'hub dall'elenco a discesa. Al termine, fare clic su **Salva**. 
+3. Nel pannello **Add link to IoT hub** (Aggiungi collegamento a hub IoT) del portale selezionare la sottoscrizione corrente oppure immettere il nome e la stringa di connessione di un'altra sottoscrizione. Selezionare il nome dell'hub dall'elenco a discesa. Al termine, fare clic su **Salva**. 
 
     ![Collegare il nome dell'hub all'istanza del servizio Device Provisioning nel pannello del portale](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 

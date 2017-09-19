@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -59,7 +59,7 @@ Un indicizzatore effettua il pull dei dati da un' **origine dati** che contiene 
 
 * [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md), usata per estrarre il testo da PDF, documenti di Office, HTML o XML
+* [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md) per i tipi di contenuti selezionati
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 
 Le origini dati vengono configurate e gestite indipendentemente dagli indicizzatori che le usano. Ciò significa che un'origine dati può essere usata da più indicizzatori per caricare più di un indice alla volta.
@@ -72,7 +72,7 @@ Dopo aver acquisito queste informazioni di base, il passaggio successivo prevede
 
 * [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md), usata per estrarre il testo da PDF, documenti di Office, HTML o XML
+* [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 * [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-csv-blobs.md)
 * [Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-json-blobs.md)

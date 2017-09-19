@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/14/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 880a186a3d9a23b013294b0121e8265270d160cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 41d96958ee999e4d0b304dfd9296f51d53eb3277
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -36,12 +36,12 @@ Il diagramma seguente offre un confronto tra Kafka in HDInsight prima dei dischi
 
 1. Seguire i passaggi riportati in [Creare un cluster HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md) per comprendere le operazioni principali per creare un cluster tramite il portale. Non completare il processo di creazione del portale.
 
-2. Nel pannello __Dimensioni del cluster__ usare il campo dei __dischi per nodo del ruolo di lavoro__ per configurare il numero di dischi.
+2. Nella sezione __Dimensioni del cluster__ usare il campo __Disks per worker node__ (Dischi per nodo del ruolo di lavoro) per configurare il numero di dischi.
 
     > [!NOTE]
     > Il tipo di disco gestito può essere __Standard__ (HDD) o __Premium__ (SSD). I dischi Premium sono usati con le macchine virtuali serie DS e GS. Tutti gli altri tipi di macchine virtuali usano dischi Standard.
 
-    ![Immagine del pannello Dimensioni del cluster con i dischi per nodo del ruolo di lavoro evidenziati](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
+    ![Immagine della sezione Dimensioni del cluster con i dischi per nodo del ruolo di lavoro evidenziati](./media/hdinsight-apache-kafka-scalability/set-managed-disks-portal.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Configurare i dischi gestiti: modello di Resource Manager
 

@@ -16,7 +16,7 @@
     Impostazione|Valore consigliato|Descrizione
     ---|---|---
     ID|*Valore univoco*|Nome univoco che identifica l'account Azure Cosmos DB. Poiché alI'ID fornito viene aggiunto *documents.azure.com* per creare l'URI, usare un ID univoco ma facilmente identificabile. L'ID può contenere solo lettere minuscole, numeri e il segno meno (-) e deve avere una lunghezza compresa tra 3 e 50 caratteri.
-    API|SQL (DocumentDB)|La programmazione in base all'[API di DocumentDB](../articles/documentdb/documentdb-introduction.md) verrà eseguita più avanti in questo articolo.|
+    API|SQL (DocumentDB)|La programmazione in base all'[API di DocumentDB](../articles/cosmos-db/documentdb-introduction.md) verrà eseguita più avanti in questo articolo.|
     Sottoscrizione|*Sottoscrizione in uso*|Sottoscrizione di Azure da usare per l'account Azure Cosmos DB. 
     Gruppo di risorse|*Stesso valore di ID*|Nome del nuovo gruppo di risorse per l'account. Per semplicità si può usare lo stesso nome usato come ID. 
     Località|*Area più vicina ai propri utenti*|Posizione geografica in cui ospitare l'account Azure Cosmos DB. Scegliere la posizione più vicina agli utenti, per offrire loro l'accesso più rapido possibile ai dati.
@@ -27,5 +27,5 @@
 
 6.  Quando la finestra Notifiche indica che la distribuzione è stata completata, chiudere la finestra di notifica e aprire il nuovo account dal riquadro **Tutte le risorse** nel Dashboard. 
 
-    ![Account DocumentDB nel riquadro Tutte le risorse](./media/cosmos-db-create-dbaccount/all-resources.png)
+    ![Account Azure Cosmos DB nel riquadro Tutte le risorse](./media/cosmos-db-create-dbaccount/all-resources.png)
  

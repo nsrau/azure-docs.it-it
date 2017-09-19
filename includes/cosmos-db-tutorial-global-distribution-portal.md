@@ -3,7 +3,7 @@ In questo video di Azure Friday, con Scott Hanselman e Karthik Raman, Principal 
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-Per informazioni sul funzionamento della replica di database globale in Cosmos DB, vedere [Distribuire i dati a livello globale con Azure Cosmos DB](../articles/documentdb/documentdb-distribute-data-globally.md).
+Per informazioni sul funzionamento della replica di database globale in Azure Cosmos DB, vedere [Distribuire i dati a livello globale con Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
 
 ## <a id="addregion"></a>Aggiungere aree di database globali tramite il portale di Azure
 Azure Cosmos DB è disponibile in tutte le [aree di Azure][azureregions] del mondo. Dopo aver selezionato il livello di coerenza predefinito per l'account di database, è possibile associare una o più aree, a seconda del livello di coerenza predefinito e delle esigenze di distribuzione globale scelti.
@@ -11,7 +11,7 @@ Azure Cosmos DB è disponibile in tutte le [aree di Azure][azureregions] del mon
 1. Nella barra a sinistra del [portale di Azure](https://portal.azure.com/) fare clic su **Azure Cosmos DB**.
 2. Nel pannello **Azure Cosmos DB** selezionare l'account di database da modificare.
 3. Nel pannello dell'account fare clic su **Replica i dati a livello globale** dal menu.
-4. Nel pannello **Replica i dati a livello globale** selezionare le aree da aggiungere o rimuovere facendo clic su di esse nella mappa e quindi scegliere **Salva**. L'aggiunta di aree ha un costo. Per altre informazioni, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/documentdb/) o l'articolo [Distribuire i dati a livello globale con DocumentDB](../articles/documentdb/documentdb-distribute-data-globally.md).
+4. Nel pannello **Replica i dati a livello globale** selezionare le aree da aggiungere o rimuovere facendo clic su di esse nella mappa e quindi scegliere **Salva**. L'aggiunta di aree ha un costo. Per altre informazioni, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) o l'articolo [Distribuire i dati a livello globale con Azure Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
    
     ![Fare clic sulle aree nella mappa per aggiungerle o rimuoverle][1]
     

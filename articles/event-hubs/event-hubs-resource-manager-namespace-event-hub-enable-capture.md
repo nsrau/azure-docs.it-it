@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 19bbb51868e767aa1d15f4574628b7fd36607207
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -195,7 +195,7 @@ Formato di nome usato dalla funzionalità di acquisizione di Hub eventi per scri
         "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
       }
     }
-  }
+  
 ```
 
 ### <a name="apiversion"></a>apiVersion
@@ -205,7 +205,7 @@ Versione API del modello.
 ```json
  "apiVersion":{  
     "type":"string",
-    "defaultValue":"2015-08-01",
+    "defaultValue":"2017-04-01",
     "metadata":{  
         "description":"ApiVersion used by the template"
     }
@@ -270,7 +270,7 @@ Nome di Azure Data Lake Store per gli eventi acquisiti.
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-Percorso della cartella di destinazione per gli eventi acquisiti.
+Percorso della cartella di destinazione per gli eventi acquisiti. Si tratta della cartella in Data Lake Store a cui verrà eseguito il push degli eventi dall'acquisizione. Per l'impostazione delle autorizzazioni per questa cartella, vedere l'articolo [Usare Azure Data Lake Store per acquisire dati da Hub eventi](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)
 
 ```json
 "dataLakeFolderPath": {
@@ -296,38 +296,50 @@ Crea uno spazio dei nomi di tipo **EventHubs** con un hub eventi e abilita anche
             "name":"Standard",
             "tier":"Standard"
          },
-         "resources":[  
-            {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
-               "type":"EventHubs",
-               "dependsOn":[  
-                  "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
-               ],
-               "properties":{  
-                  "path":"[parameters('eventHubName')]",
-                  "MessageRetentionInDays":"[parameters('messageRetentionInDays')]",
-                  "PartitionCount":"[parameters('partitionCount')]",
-                  "CaptureDescription":{
-                        "enabled":"[parameters('captureEnabled')]",
-                        "encoding":"[parameters('captureEncodingFormat')]",
-                        "intervalInSeconds":"[parameters('captureTime')]",
-                        "sizeLimitInBytes":"[parameters('captureSize')]",
-                        "destination":{
-                            "name":"EventHubCapture.AzureBlockBlob",
-                            "properties":{
-                                "StorageAccountResourceId":"[parameters('destinationStorageAccountResourceId')]",
-                                "BlobContainer":"[parameters('blobContainerName')]"
-                            }
-                        } 
-                  }
-
-               }
-
+         "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('eventHubNamespaceName')]",
+      "type": "Microsoft.EventHub/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "isAutoInflateEnabled": "true",
+        "maximumThroughputUnits": "7"
+      },
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('eventHubName')]",
+          "type": "EventHubs",
+          "dependsOn": [
+            "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
+          ],
+          "properties": {
+            "messageRetentionInDays": "[parameters('messageRetentionInDays')]",
+            "partitionCount": "[parameters('partitionCount')]",
+            "captureDescription": {
+              "enabled": "true",
+              "encoding": "[parameters('captureEncodingFormat')]",
+              "intervalInSeconds": "[parameters('captureTime')]",
+              "sizeLimitInBytes": "[parameters('captureSize')]",
+              "destination": {
+                "name": "EventHubArchive.AzureBlockBlob",
+                "properties": {
+                  "storageAccountResourceId": "[parameters('destinationStorageAccountResourceId')]",
+                  "blobContainer": "[parameters('blobContainerName')]",
+                  "archiveNameFormat": "[parameters('captureNameFormat')]"
+                }
+              }
             }
-         ]
-      }
-   ]
+          }
+
+        }
+      ]
+    }
+  ]
 ```
 
 ## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Risorse da distribuire per usare Azure Data Lake Store come destinazione
@@ -337,7 +349,7 @@ Crea uno spazio dei nomi di tipo **EventHubs** con un hub eventi e abilita anche
 ```json
  "resources": [
         {
-            "apiVersion": "2015-08-01",
+            "apiVersion": "2017-04-01",
             "name": "[parameters('namespaceName')]",
             "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
@@ -347,7 +359,7 @@ Crea uno spazio dei nomi di tipo **EventHubs** con un hub eventi e abilita anche
             },
             "resources": [
                 {
-                    "apiVersion": "2015-08-01",
+                    "apiVersion": "2017-04-01",
                     "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
@@ -355,18 +367,18 @@ Crea uno spazio dei nomi di tipo **EventHubs** con un hub eventi e abilita anche
                     ],
                     "properties": {
                         "path": "[parameters('eventHubName')]",
-                        "ArchiveDescription": {
+                        "captureDescription": {
                             "enabled": "true",
                             "encoding": "[parameters('archiveEncodingFormat')]",
-                            "intervalInSeconds": "[parameters('archiveTime')]",
-                            "sizeLimitInBytes": "[parameters('archiveSize')]",
+                            "intervalInSeconds": "[parameters('captureTime')]",
+                            "sizeLimitInBytes": "[parameters('captureSize')]",
                             "destination": {
                                 "name": "EventHubArchive.AzureDataLake",
                                 "properties": {
                                     "DataLakeSubscriptionId": "[parameters('subscriptionId')]",
                                     "DataLakeAccountName": "[parameters('dataLakeAccountName')]",
                                     "DataLakeFolderPath": "[parameters('dataLakeFolderPath')]",
-                                    "ArchiveNameFormat": "[parameters('archiveNameFormat')]"
+                                    "ArchiveNameFormat": "[parameters('captureNameFormat')]"
                                 }
                             }
                         }

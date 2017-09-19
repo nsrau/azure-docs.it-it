@@ -1,5 +1,4 @@
 
-<!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
 
 - Le VM di serie A e Av2 possono essere distribuite su una vasta gamma di tipi di hardware e processori. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
 
@@ -8,6 +7,29 @@
 - Serie Dv2, una versione successiva della serie D originale, dotata di una CPU più potente. La CPU della serie Dv2 è circa il 35% più rapida rispetto alla CPU della serie D. È basata sul processore Intel Xeon® E5-2673 v3 a 2,4 GHz (Haswell) e grazie alla tecnologia Intel Turbo Boost 2.0 può funzionare fino a 3,1 GHz. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
 - Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria. Per informazioni sulle dimensioni di macchine virtuali ottimali per applicazioni di produzione, vedere (Dimensioni per le macchine virtuali)[virtual-machines-size-specs.md] e per informazioni sui prezzi delle VM, vedere [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
+
+## <a name="b-series-preview"></a>Serie B (anteprima)
+
+> [!NOTE] 
+> Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le condizioni d'uso. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa anteprima sarà limitata alle aree seguenti:
+> - Stati Uniti occidentali 2
+> - Stati Uniti orientali
+> - Europa occidentale
+> - Asia Pacifico sud-orientale
+
+Le VM della serie B che prevedono burst sono ideali per carichi di lavoro che non necessitano in modo continuativo delle prestazioni complete della CPU, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre a questi clienti la possibilità di acquistare dimensioni per la VM con prestazioni baseline in relazione al prezzo, che consentono all'istanza della VM di accumulare crediti quando la VM utilizza meno prestazioni di quelle base. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline della VM, usando fino al 100% della CPU quando l'applicazione richiede prestazioni superiori per la CPU.
+
+
+| Dimensione             | vCPU  | Memoria: GiB | Unità SSD locale: GiB | Prestazioni di base di un core | Crediti accumulati/Ora | Crediti massimi accumulati | Valore massimo per dischi di dati | Prestazioni massime del disco locale: IOPS/MBps | Prestazioni massime del disco rimosso dalla cache: IOPS/MBps | Schede di interfaccia di rete max |          
+|---------------|-------------|----------------|----------------------------|-----------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
+| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 6                  | 144            | 2                                      | 400 / 10                                  | 320 / 10                                  | 2  |
+| Standard_B1ms | 1           | 2              | 4                          | 20%                   | 12                 | 288            | 2                                      | 800 / 10                                  | 640 / 10                                  | 2  |
+| Standard_B2s  | 2           | 4              | 8                          | 40%                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
+| Standard_B2ms | 2           | 8              | 16                         | 60%                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
+| Standard_B4ms | 4           | 16             | 32                         | 90%                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
+| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+
 
 ## <a name="dsv3-series"></a>Serie Dsv3
 
@@ -22,6 +44,8 @@ Le dimensioni della serie Dsv3 sono basate sul processore Intel Xeon® E5-2673 v
 | Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6.400/96                                | 2/moderata                                   |
 | Standard_D8s_v3  | 8      | 32          | 64             | 16             | 16,000 / 128 (200)                                                    | 12.800/192                              | 4/alta                                       |
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25.600/384                              | 8/alta                                       |
+| Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51.200/768                              | 8/estremamente alta                                       |
+| Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8/estremamente alta                                       |
 
 
 ## <a name="dv3-series"></a>Serie Dv3
@@ -39,6 +63,8 @@ L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtu
 | Standard_D4_v3  | 4         | 16          | 100            | 8              | 6000/93/46                                               | 2/moderata                 |
 | Standard_D8_v3  | 8         | 32          | 200            | 16             | 12000/187/93                                             | 4/alta                     |
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8/alta                     |
+| Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8/estremamente alta                     |
+| Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8/estremamente alta                     |
 
 
 ## <a name="dsv2-series"></a>Serie DSv2

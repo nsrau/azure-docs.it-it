@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 6eadfb0c3f91c1f2c7783d70604b45d5dc9912a3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -47,7 +47,8 @@ La procedura descritta in questa sezione consente di creare un account di Automa
 2. Fare clic su **New**.<br><br> ![Selezionare l'opzione Nuovo nel portale di Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Cercare **Automazione** e quindi nei risultati della ricerca selezionare **Automation & Control***.<br><br> ![Cercare e selezionare Automazione nel Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 3. Nel pannello Account di automazione fare clic su **Aggiungi**.<br><br>![Aggiungi account di Automazione](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-   
+
+
    > [!NOTE]
    > Se nel pannello **Aggiungi account di Automazione** viene visualizzato l'avviso seguente, l'account non è membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.<br><br>![Aggiungi account di Automazione, avviso](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
@@ -72,6 +73,7 @@ Quando la creazione dell'account di Automazione viene completata, vengono create
 | --- | --- |
 | Runbook AzureAutomationTutorial |Runbook grafico di esempio che illustra come eseguire l'autenticazione con l'account RunAs e ottiene tutte le risorse di Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Runbook di PowerShell di esempio che illustra come eseguire l'autenticazione con l'account RunAs e ottiene tutte le risorse di Resource Manager. |
+| Runbook AzureAutomationTutorialPython2 |Runbook di Python di esempio che illustra come eseguire l'autenticazione usando l'account RunAs e quindi elenca i gruppi di risorse presenti nella sottoscrizione specificata. |
 | AzureRunAsCertificate |Asset di certificato creato automaticamente durante la creazione dell'account di Automazione oppure usando lo script di PowerShell riportato più avanti per un account esistente.  Consente di eseguire l'autenticazione con Azure per poter gestire le risorse di Azure Resource Manager con i runbook.  La durata di questo certificato è di un anno. |
 | AzureRunAsConnection |Asset di connessione creato automaticamente durante la creazione dell'account di Automazione oppure usando lo script di PowerShell riportato più avanti per un account esistente. |
 
@@ -89,3 +91,5 @@ La tabella seguente offre un riepilogo delle risorse per l'account RunAs classic
 * Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
 * Per iniziare a usare i runbook PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md).
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md).
+* Per iniziare a usare i runbook di Python2, vedere [My first Python2 runbook](automation-first-runbook-textual-python2.md) (Primo runbook di Python2).
+

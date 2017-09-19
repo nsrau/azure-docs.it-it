@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introduzione ad Apache Kafka in HDInsight (anteprima)
@@ -40,9 +40,9 @@ Kafka fornisce le funzionalità seguenti:
 
 * Tolleranza di errore: le partizioni possono essere replicate tra i nodi per assicurare la tolleranza di errore.
 
-* Integrazione con Azure Managed Disks: i dischi gestiti assicurano maggiore scalabilità e velocità effettiva per i dischi usati dalle macchine virtuali nel cluster HDInsight.
+* Integrazione con Azure Managed Disks: il servizio Managed Disks offre scalabilità e velocità effettiva maggiori per i dischi usati dalle macchine virtuali nel cluster HDInsight.
 
-    I dischi gestiti sono abilitati per impostazione predefinita per Kafka in HDInsight e il numero di dischi usati per ogni nodo può essere configurato durante la creazione di HDInsight. Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
+    Il servizio Managed Disks è abilitato per impostazione predefinita per Kafka in HDInsight. Il numero di dischi usati per ogni nodo può essere configurato durante la creazione di HDInsight. Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     Per informazioni sulla configurazione di dischi gestiti con Kafka in HDInsight, vedere [Configurare l'archiviazione e la scalabilità per Apache Kafka in HDInsight](hdinsight-apache-kafka-scalability.md).
 
@@ -55,6 +55,15 @@ Kafka fornisce le funzionalità seguenti:
 * **Aggregazione**: usando l'elaborazione dei flussi, è possibile aggregare informazioni da flussi diversi per combinare e centralizzare le informazioni in dati operativi.
 
 * **Trasformazione**: usando l'elaborazione dei flussi, è possibile combinare e arricchire dati da più argomenti di input in uno o più argomenti di output.
+
+## <a name="architecture"></a>Architettura
+
+![Configurazione del cluster Kafka](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+Questo diagramma mostra una configurazione tipica di Kafka che usa gruppi di consumer, partizionamento e replica per offrire la lettura parallela degli eventi con tolleranza di errore. Apache ZooKeeper è pensato per transazioni simultanee, resilienti e a bassa latenza, perché gestisce lo stato del cluster Kafka. Kafka archivia i record in *argomenti*. I record vengono prodotti da *producer* e usati da *consumer*. I producer recuperano i record da *broker* di Kafka. Ogni nodo del ruolo di lavoro nel cluster HDInsight è un broker Kafka. Viene creata una partizione per ogni consumer, per consentire l'elaborazione parallela dei dati di streaming. Viene usata la replica per distribuire le partizioni tra i nodi e garantire protezione in caso di interruzioni dei nodi (broker). Una partizione indicata da *(L)* rappresenta l'elemento leader per la partizione specifica. Il traffico dei producer viene indirizzato al leader di ogni nodo, usando lo stato gestito da ZooKeeper.
+
+> [!IMPORTANT]
+> Kafka non è a conoscenza dell'hardware sottostante (rack) nel data center di Azure. Per garantire che le partizioni siano bilanciate correttamente nell'hardware sottostante, vedere [Configurare la disponibilità elevata dei dati (Kafka)](hdinsight-apache-kafka-high-availability.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
