@@ -3,7 +3,7 @@ title: Domande frequenti sul gateway applicazione di Azure | Microsoft Docs
 description: Questa pagina offre risposte alle domande frequenti sul gateway applicazione di Azure
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 595d611aac4f57b7ab5b7ab4e46edf1eff796185

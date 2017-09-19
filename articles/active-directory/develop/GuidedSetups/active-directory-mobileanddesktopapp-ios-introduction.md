@@ -1,5 +1,5 @@
 ---
-title: 'Introduzione a iOS con Azure AD v2: Introduzione | Microsoft Docs'
+title: iOS per Azure AD v2 - Introduzione | Microsoft Docs
 description: "Informazioni sulle modalità per le applicazioni iOS (Swift) per chiamare un'API che richiede token di accesso dall'endpoint di Azure Active Directory v2"
 services: active-directory
 documentationcenter: dev-center-name

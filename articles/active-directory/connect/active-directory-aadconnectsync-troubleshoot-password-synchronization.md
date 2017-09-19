@@ -270,7 +270,7 @@ I valori possibili per la colonna dello stato sono i seguenti:
 | TargetNotExportedToDirectory |L'oggetto nello spazio connettore di Azure AD non è stato ancora esportato. |
 | MigratedCheckDetailsForMoreInfo |La voce di log è stata creata prima della compilazione 1.0.9125.0 e viene visualizzata nello stato precedente. |
 | Errore |Il servizio ha restituito un errore sconosciuto. |
-| Sconosciuto |Si è verificato un errore durante il tentativo di elaborare un batch degli hash delle password.  |
+| Sconosciuto |Si è verificato un errore durante il tentativo di elaborare un batch di hash delle password.  |
 | MissingAttribute |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non sono disponibili. |
 | RetryRequestedByTarget |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non erano disponibili in precedenza. Viene effettuato un tentativo di risincronizzare l'hash della password dell'utente. |
 

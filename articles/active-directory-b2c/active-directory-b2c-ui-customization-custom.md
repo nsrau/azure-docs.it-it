@@ -1,5 +1,5 @@
 ---
-title: Personalizzare un'interfaccia utente tramite criteri personalizzati-Azure Active Directory B2C | Microsoft Docs
+title: Personalizzare un'interfaccia utente tramite criteri personalizzati - Azure AD B2C | Microsoft Docs
 description: Informazioni sulla personalizzazione di un'interfaccia utente con l'uso di criteri personalizzati in Azure AD B2C.
 services: active-directory-b2c
 documentationcenter: 

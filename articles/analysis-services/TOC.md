@@ -16,6 +16,7 @@
 ## [Gestire un server](analysis-services-manage.md)
 ## [Gestire gli utenti di database](analysis-services-database-users.md)
 ## [Gestire gli amministratori di server](analysis-services-server-admins.md)
+## [Monitorare le metriche del server](analysis-services-monitor.md)
 ## [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md)
 ## [Ottenere le librerie client](analysis-services-data-providers.md)
 ## [Backup e ripristino](analysis-services-backup.md)

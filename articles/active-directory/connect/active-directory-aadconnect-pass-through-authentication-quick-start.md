@@ -127,7 +127,7 @@ Se si prevede di distribuire l'autenticazione pass-through in un ambiente di pro
 ![Interfaccia di amministrazione di Azure Active Directory - Pannello Scarica agente](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->È inoltre possibile scaricare l'agente di autenticazione da [qui](https://aka.ms/getauthagent). Assicurarsi di rivedere e accettare i [Termini del servizio](https://aka.ms/authagenteula) _dell'agente di autenticazione prima di installarlo_ .
+>È inoltre possibile scaricare l'agente di autenticazione da [qui](https://aka.ms/getauthagent). Assicurarsi di leggere e accettare le [Condizioni d'uso](https://aka.ms/authagenteula) dell'agente di autenticazione _prima_ di installarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) (Limitazioni correnti): questa funzionalità è attualmente in anteprima. Informazioni su quali scenari sono supportati e quali non lo sono.

@@ -24,7 +24,7 @@ ms.lasthandoff: 08/24/2017
 
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
-Patch Orchestration Application è un'applicazione Service Fabric di Azure che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric in Azure senza tempi di inattività.
+Patch Orchestration Application è un'applicazione Azure Service Fabric che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric in Azure senza tempi di inattività.
 
 Patch Orchestration Application offre quanto segue:
 

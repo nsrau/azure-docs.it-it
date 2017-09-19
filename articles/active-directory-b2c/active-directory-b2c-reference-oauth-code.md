@@ -1,6 +1,6 @@
 ---
 title: Flusso del codice di autorizzazione - Azure AD B2C | Microsoft Docs
-description: Informazioni su come creare applicazioni Web tramite Azure AD B2C e il protocollo di autenticazione OpenID Connect.
+description: Informazioni su come compilare app Web tramite Azure AD B2C e il protocollo di autenticazione OpenID Connect.
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft

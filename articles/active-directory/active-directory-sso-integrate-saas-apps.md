@@ -75,7 +75,7 @@ Per le applicazioni SaaS disponibili nella raccolta delle app, Azure AD offre va
 
 Se l'app non è presente nella raccolta, è possibile [aggiungerla alla raccolta delle app di Azure AD come applicazione personalizzata](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+La libreria di Azure.com include molti altri dettagli su tutti questi aspetti, a partire da [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 Vedere anche [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md).
 

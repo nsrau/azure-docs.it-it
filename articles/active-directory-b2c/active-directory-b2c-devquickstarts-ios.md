@@ -1,5 +1,5 @@
 ---
-title: Acquisire un token mediante un'applicazione iOS - Azure AD B2C | Microsoft Docs
+title: Acquisizione di un token mediante un'applicazione iOS - Azure AD B2C | Microsoft Docs
 description: "Questo articolo spiega come creare un'app per iOS che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e l'autenticazione degli utenti."
 services: active-directory-b2c
 documentationcenter: ios

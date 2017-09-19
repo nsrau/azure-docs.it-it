@@ -23,7 +23,7 @@ ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
-Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale. Per ulteriori informazioni sul gateway, vedere [Gateway dati locale](analysis-services-gateway.md).
+Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale. Per altre informazioni sul gateway, vedere [Gateway dati locale](analysis-services-gateway.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 **Requisiti minimi:**
@@ -46,7 +46,7 @@ Quando uno o più server Azure Analysis Services nella stessa area si connettono
 * Non installare il gateway in un computer connesso alla rete in modalità wireless. È infatti possibile che si verifichi un calo delle prestazioni.
 
 
-## <a name="download"></a>Download
+## <a name="download"></a>Scaricare
  [Scaricare il gateway](https://aka.ms/azureasgateway)
 
 ## <a name="install"></a>Installare
@@ -59,40 +59,40 @@ Quando uno o più server Azure Analysis Services nella stessa area si connettono
 
 3. Selezionare **Gateway dati locale (scelta consigliata)**. Azure Analysis Services non supporta la modalità personale.
 
-   ![Scegliere il tipo di gateway](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
+   ![Scelta del tipo di gateway](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
 
-4. Immettere un account per accedere ad Azure. L'account deve essere nella Microsift Azure Active Directory del tenant. Questo account viene utilizzato per l'amministratore del gateway. 
+4. Immettere un account per accedere ad Azure. L'account deve essere nella Microsoft Azure Active Directory del tenant. Questo account viene usato per l'amministratore del gateway. 
 
-   ![Immettere un account per accedere ad Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![Immissione di un account per accedere ad Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > Se si accede con un account di dominio, esso verrà mappato all'account aziendale in Azure AD. L'account aziendale verrà usato come l'amministratore del gateway.
+   > Se si accede con un account di dominio, questo verrà mappato all'account aziendale in Azure AD. L'account aziendale verrà usato come amministratore del gateway.
 
 ## <a name="register"></a>Registrare
-Per creare una risorsa per il gateway in Azure, è necessario registrare l'istanza locale installata con il servizio Cloud Gateway. 
+Per creare una risorsa per il gateway in Azure, è necessario registrare l'istanza locale installata con il servizio cloud gateway. 
 
-1.  Selezionare l'opzione che **consente di registrare un nuovo gateway in questo computer**.
+1.  Selezionare l'opzione **Consente di registrare un nuovo gateway in questo computer**.
 
     ![Registra](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
-2. Digitare un nome e la chiave di ripristino per il gateway. Per impostazione predefinita, il gateway utilizza l'area predefinita della sottoscrizione. Se è necessario selezionare un'area diversa, selezionare **Modifica area**.
+2. Digitare un nome e la chiave di ripristino per il gateway. Per impostazione predefinita, il gateway usa l'area predefinita della sottoscrizione. Se è necessario selezionare un'area diversa, selezionare **Cambia area**.
 
    ![Registra](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Creare una risorsa per il gateway di Azure
-Dopo aver installato e registrato il gateway, è necessario creare una risorsa per il gateway nella sottoscrizione di Azure. Accedere ad Azure con lo stesso account utilizzato quando si registra il gateway.
+Dopo aver installato e registrato il gateway, è necessario creare una risorsa per il gateway nella sottoscrizione di Azure. Accedere ad Azure con lo stesso account usato durante la registrazione del gateway.
 
-1. Nel portale di Azure, fare clic su **Creare un nuovo servizio** > **Integrazione Enterprise**  > **Gateway dati locale** > **Crea**.
+1. Nel portale di Azure fare clic su **Crea un nuovo servizio** > **Integrazione aziendale**  > **Gateway dati locale** > **Crea**.
 
-   ![Creare una risorsa per il gateway](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
+   ![Creazione di una risorsa per il gateway](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
-2. In **Crea gateway di connessione**, immettere queste impostazioni:
+2. In **Crea gateway di connessione** immettere queste impostazioni:
 
     * **Nome**: inserire un nome per la risorsa del gateway. 
 
     * **Sottoscrizione**: selezionare la sottoscrizione di Azure da associare alla risorsa del gateway. 
-    La presente sottoscrizione deve essere la medesima in cui si trovano i server.
+    Questa sottoscrizione deve corrispondere a quella in cui si trovano i server.
    
       La sottoscrizione predefinita si basa sull'account di Azure usato per accedere.
 
@@ -106,18 +106,18 @@ Dopo aver installato e registrato il gateway, è necessario creare una risorsa p
 
 ## <a name="connect-servers"></a>Connettere i server alla risorsa per il gateway
 
-1. Nella panoramica del server Azure Analysis Services, fare clic su **Gateway dati locale**.
+1. Nella panoramica del server Azure Analysis Services fare clic su **Gateway dati locale**.
 
-   ![Connettere il server al gateway](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
+   ![Connessione del server al gateway](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. In **Selezionare un Gateway dati locale per la connessione**, selezionare la risorsa per il gateway e quindi fare clic su **Connetti gateway selezionato**.
+2. In **Selezionare un gateway dati locale da connettere** selezionare la risorsa per il gateway e quindi fare clic su **Connetti gateway selezionato**.
 
-   ![Connettere il server alla risorsa per il gateway](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
+   ![Connessione del server alla risorsa per il gateway](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
-    > Se il gateway non viene visualizzato nell'elenco, probabilmente il server non si trova nella stessa area specificata durante la registrazione del gateway. 
+    > Se il gateway non viene visualizzato nell'elenco, probabilmente il server non si trova nell'area specificata durante la registrazione del gateway. 
 
-È tutto. Se è necessario aprire le porte o eseguire qualsiasi risoluzione dei problemi, assicurarsi di eseguire il check oud del [gateway dati locale](analysis-services-gateway.md).
+È tutto. Per aprire porte o risolvere qualsiasi problema, assicurarsi di consultare [Gateway dati locale](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire Analysis Services](analysis-services-manage.md)   

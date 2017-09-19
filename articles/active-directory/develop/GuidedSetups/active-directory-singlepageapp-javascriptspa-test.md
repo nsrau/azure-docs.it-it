@@ -1,5 +1,5 @@
 ---
-title: 'Configurazione guidata di app a singola pagina JavaScript con Azure AD v2: test | Microsoft Docs'
+title: Configurazione guidata di JS SPA per Azure AD v2 - Test | Microsoft Docs
 description: Come le applicazioni SPA di Javascript possono chiamare un'API che richiede token di accesso dall'endpoint di Azure Active Directory v2
 services: active-directory
 documentationcenter: dev-center-name
@@ -23,21 +23,21 @@ ms.lasthandoff: 08/19/2017
 ## <a name="test-your-code"></a>Testare il codice
 
 > ### <a name="testing-with-visual-studio"></a>Test con Visual Studio
-> Se si utilizza Visual Studio, premere `F5` per eseguire il progetto: verrà aperto il browser e l'utente verrà indirizzato a *http://localhost:{porta}*, in cui verrà visualizzato il pulsante *Call Microsoft Graph API*.
+> Se si usa Visual Studio, premere `F5` per eseguire il progetto: verrà aperto il browser e l'utente verrà indirizzato a *http://localhost:{port}*, in cui verrà visualizzato il pulsante *Call Microsoft Graph API* (Chiama API Microsoft Graph).
 
 <p/><!-- -->
 
 > ### <a name="testing-with-python-or-another-web-server"></a>Test con Python o un altro server Web
-> Se non si utilizza Visual Studio, assicurarsi che il server Web sia avviato e configurato per essere in ascolto di una porta TCP in base alla cartella contenente il file *index.html*. Per Python, è possibile avviare l'ascolto sulla porta mediante l'esecuzione di nel prompt dei comandi/ terminale, dalla cartella dell'app:
+> Se non si usa Visual Studio, assicurarsi che il server Web sia avviato e configurato per ascoltare una porta TCP in base alla cartella contenente il file *index.html*. Per Python, è possibile avviare l'ascolto della porta mediante l'esecuzione di nel prompt dei comandi/terminale dalla cartella dell'app:
 > 
 > ```bash
 > python -m http.server 8080
 > ```
->  Aprire quindi il browser e digitare*http://localhost:8080* o *http://localhost:{porta}* in cui *porta* corrisponde alla porta su cui il server Web è in ascolto. È necessario visualizzare i contenuti della pagina index.html con il pulsante *Call Microsoft Graph API*.
+>  Aprire quindi il browser e digitare *http://localhost:8080* o *http://localhost:{port}* in cui *port* corrisponde alla porta che il server Web sta ascoltando. È necessario visualizzare i contenuti della pagina index.html con il pulsante *Call Microsoft Graph API* (Chiama API Microsoft Graph).
 
 ## <a name="test-your-application"></a>Testare l'applicazione
 
-Dopo che il browser ha caricato *index.html*, fare clic sul pulsante *Call Microsoft Graph API*. Se questa è la prima volta, il browser reindirizza all'endpoint v2 di Microsoft Azure Active Directory, a cui viene chiesto di accedere.
+Dopo che il browser ha caricato *index.html*, fare clic sul pulsante *Call Microsoft Graph API* (Chiama API Microsoft Graph). Se è la prima volta, il browser reindirizza l'utente all'endpoint v2 di Microsoft Azure Active Directory, da cui viene chiesto di accedere.
  
 ![Schermata di esempio](media/active-directory-singlepageapp-javascriptspa-test/javascriptspascreenshot1.png)
 

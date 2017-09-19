@@ -43,6 +43,6 @@ Per le domande frequenti, fare clic [qui](https://docs.microsoft.com/en-us/azure
    * [Utilizzo delle informazioni di riferimento sull'API di creazione report sull'attività di accesso](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si desidera vedere tutti gli endpoint disponibili dell'API Graph di Azure AD,utilizzare questo link: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
+Se si desidera vedere tutti gli endpoint disponibili dell'API Graph di Azure AD, usare questo link: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
 
 

@@ -165,11 +165,11 @@ Lo scaffolding Yeoman include uno script Gradle per compilare l'applicazione e s
 $ gradle
 ```
 
-Si ottiene un pacchetto dell'applicazione di Service Fabric che può essere distribuito tramite l'interfaccia della riga di comando di Service Fabric.
+Questa operazione genera un pacchetto dell'applicazione Service Fabric che può essere distribuito tramite l'interfaccia della riga di comando di Service Fabric.
 
-### <a name="deploy-with-service-fabric-cli"></a>Distribuzione con l'interfaccia della riga di comando di Service Fabric
+### <a name="deploy-with-service-fabric-cli"></a>Distribuire con l'interfaccia della riga di comando di Service Fabric
 
-Lo script install.sh contiene i comandi dello script install.sh contiene i comandi dell'interfaccia della riga di comando di Service Fabric necessari per distribuire il pacchetto dell'applicazione. Eseguire lo script install.sh per distribuire l'applicazione.
+Lo script install.sh contiene i comandi dell'interfaccia della riga di comando di Service Fabric necessari per distribuire il pacchetto dell'applicazione. Eseguire lo script install.sh per distribuire l'applicazione.
 
 ```bash
 $ ./install.sh

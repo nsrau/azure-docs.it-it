@@ -1,5 +1,5 @@
 ---
-title: Impostazione guidata di JS SPA per Azure AD v2 - Impostazione| Microsoft Docs
+title: Installazione guidata di JS SPA per Azure AD v2 - Installazione| Microsoft Docs
 description: Come le applicazioni SPA di Javascript possono chiamare un'API che richiede token di accesso dall'endpoint di Azure Active Directory v2
 services: active-directory
 documentationcenter: dev-center-name
@@ -27,7 +27,7 @@ ms.contentlocale: it-it
 > oppure
 > - [Scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) per un server Web locale, ad esempio Python
 >
-> E quindi passare direttamente al [passaggio di configurazione](#create-an-application-express) per configurare il codice di esempio prima di eseguirlo.
+> E quindi passare direttamente al [passaggio di configurazione](#create-an-application-express) per configurare l'esempio di codice prima di eseguirlo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per eseguire l'installazione guidata, è necessario un server Web locale, ad esempio [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core) o l'integrazione di IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/). 
@@ -45,9 +45,9 @@ Le istruzioni di questa guida sono basate su Python e Visual Studio 2017, ma è 
 
 <p/><!-- -->
 
-> ### <a name="option-2-python-other-web-servers"></a>Opzione 2: Python / altri server Web
+> ### <a name="option-2-python-other-web-servers"></a>Opzione 2: Python/altri server Web
 > Verificare di avere installato [Python](https://www.python.org/downloads/), quindi attenersi ai passaggi riportati di seguito:
-> - Creare una cartella host dell'applicazione.
+> - Creare una cartella per ospitare l'applicazione.
 
 
 ## <a name="create-your-single-page-applications-ui"></a>Creare l'interfaccia utente dell'applicazione a singola pagina
