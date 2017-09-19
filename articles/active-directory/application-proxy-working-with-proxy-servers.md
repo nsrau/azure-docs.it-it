@@ -155,7 +155,7 @@ Per iniziare la risoluzione dei problemi, procedere come segue:
    ![Servizio connettore proxy applicazione di Azure AD in services.msc](./media/application-proxy-working-with-proxy-servers/services-local.png)
 
 2. Eseguire Message Analyzer come amministratore.
-3. Selezionare l'opzione per l'avvio della**** traccia locale.
+3. Selezionare l'opzione per l'avvio della **traccia locale**.
 
    ![Avviare l'acquisizione di rete](./media/application-proxy-working-with-proxy-servers/start-local-trace.png)
 
