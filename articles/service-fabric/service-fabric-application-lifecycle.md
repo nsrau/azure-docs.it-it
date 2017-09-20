@@ -1,5 +1,5 @@
 ---
-title: Ciclo di vita di un&quot;applicazione in Service Fabric | Documentazione Microsoft
+title: Ciclo di vita di un'applicazione in Service Fabric | Documentazione Microsoft
 description: Vengono descritte le operazioni di sviluppo, distribuzione, test, aggiornamento, manutenzione e rimozione per le applicazioni di Infrastruttura di servizi.
 services: service-fabric
 documentationcenter: .net
@@ -20,10 +20,11 @@ ms.openlocfilehash: a33d25f3806090307f6fb14dbb821264f2e4f28b
 ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo di vita dell'applicazione Service Fabric
 Analogamente ad altre piattaforme, un'applicazione su Service Fabric di Azure in genere passa attraverso le fasi seguenti: progettazione, sviluppo, test, distribuzione, aggiornamento, manutenzione e rimozione. Service Fabric di Azure offre un supporto di prima categoria per l'intero ciclo di vita delle applicazioni cloud, dallo sviluppo alla distribuzione, alla gestione giornaliera, alla manutenzione e infine alla rimozione delle autorizzazioni. Il modello di servizio abilita diversi ruoli per la partecipazione indipendente al ciclo di vita delle applicazioni. Questo articolo offre una panoramica delle interfacce API e del modo in cui vengono utilizzate dai diversi ruoli nelle fasi del ciclo di vita di un'applicazione di Service Fabric.
+
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 Il video di Microsoft Virtual Academy seguente illustra come gestire il ciclo di vita dell'applicazione:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
