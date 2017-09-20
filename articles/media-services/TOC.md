@@ -183,7 +183,7 @@
 ### [Distribuire tramite download](media-services-deliver-asset-download.md)
 ### [Scenario di streaming con failover](media-services-implement-failover.md)
 
-## Riproduzione
+## Utilizzo
 ### [Riprodurre contenuti multimediali con i lettori esistenti](media-services-playback-content-with-existing-players.md)
 ### [Riprodurre contenuti multimediali con Media Player](media-services-develop-video-players.md)
 ### Altre opzioni di riproduzione

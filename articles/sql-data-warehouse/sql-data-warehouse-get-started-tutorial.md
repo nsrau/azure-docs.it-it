@@ -142,7 +142,6 @@ Poiché l'accesso è stato eseguito come amministratore del server, si è autori
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. L'esecuzione di query nel *database di SQL Data Warehouse* consente ora di creare un utente di database basato sull'account di accesso creato per accedere al database ed eseguirvi operazioni.

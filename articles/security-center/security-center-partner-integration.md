@@ -12,7 +12,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
 ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
@@ -71,7 +71,7 @@ Il contenuto visualizzato quando si apre Soluzioni di sicurezza può variare in 
 
 La sezione **Soluzioni connesse** visualizza tutte le soluzioni di sicurezza attualmente connesse con il Centro sicurezza. 
 
-![Soluzioni connesse](./media/security-center-partner-integration/security-center-partner-integration-fig10.png)
+![Soluzioni connesse](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 Le informazioni visualizzate in ogni riquadro possono variare in base alla soluzione. Alcune informazioni disponibili in ogni riquadro possono includere:
 
@@ -106,7 +106,7 @@ Gli avvisi di Azure AD Identity Protection attraversano la pipe di rilevamento d
 
 È possibile aggiungere computer Azure e non Azure per l'integrazione con il Centro sicurezza.  L'aggiunta di computer non Azure consente di aggiungere un computer locale oppure un'appliance che supporta il formato CEF. 
 
-![Origini dati](./media/security-center-partner-integration/security-center-partner-integration-fig11.png)
+![Origini dati](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 
 ## <a name="see-also"></a>Vedere anche

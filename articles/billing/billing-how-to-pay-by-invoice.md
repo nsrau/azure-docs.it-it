@@ -38,7 +38,7 @@ ms.lasthandoff: 08/31/2017
 
 1. Selezionare **Fatturazione** come tipo di problema, selezionare la sottoscrizione che si intende pagare con fattura, selezionare un piano di supporto e quindi fare clic su **Avanti**.
 
-1. Selezionare l'opzione di pagamento**** con fattura nella casella **Tipo di problema**.
+1. Selezionare **l'opzione di pagamento** con fattura nella casella **Tipo di problema**.
 
 1. Immettere le informazioni seguenti nella casella **Dettagli** e quindi selezionare **Avanti**.
 

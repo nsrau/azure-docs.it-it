@@ -145,8 +145,6 @@ Per gestire le connessioni ibride è possibile:
 Dopo aver copiato i file, usare l'Editor Criteri di gruppo per cambiare i criteri.
 
 ## <a name="next"></a>Avanti
-<!-- [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)  
-[Connect to on-premises SQL Server from Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)    -->
 [Panoramica delle connessioni ibride](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Vedere anche

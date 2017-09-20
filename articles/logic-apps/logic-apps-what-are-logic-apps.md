@@ -20,11 +20,8 @@ ms.openlocfilehash: 64af585f81d39daaa5373d7cf080404ee5f1b037
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
-<a id="what-are-logic-apps" class="xliff"></a>
-
-# Cosa sono le app per la logica?
+# <a name="what-are-logic-apps"></a>Cosa sono le app per la logica?
 Le app per la logica consentono di semplificare e implementare flussi di lavoro e integrazioni scalabili nel cloud. Offrono una finestra di progettazione visiva per modellare e automatizzare il processo come una serie di passaggi definita flusso di lavoro.  Nel cloud e in locale sono disponibili [numerosi connettori](../connectors/apis-list.md) per una rapida integrazione in servizi e protocolli.  Un'app per la logica viene avviata con un trigger (corrispondente ad esempio all'aggiunta di un account a Dynamics CRM) e dopo l'attivazione può avviare molte combinazioni di azioni, conversioni e logica condizionale.
 
 Ecco alcuni vantaggi dell'uso delle app per la logica:  
@@ -48,9 +45,7 @@ Come indicato, le app per la logica consentono di automatizzare i processi azien
 
 Tutti questi scenari possono essere configurati tramite la finestra di progettazione visiva e senza scrivere una singola riga di codice. È possibile iniziare subito a [creare la propria app per la logica][create].  Dopo che è stata scritta, un'app per la logica può essere [distribuita e riconfigurata rapidamente](../logic-apps/logic-apps-create-deploy-template.md) in più ambienti e aree.
 
-<a id="why-logic-apps" class="xliff"></a>
-
-## Perché usare le app per la logica?
+## <a name="why-logic-apps"></a>Perché usare le app per la logica?
 Le app per la logica introducono velocità e scalabilità nell'ambito dell'integrazione aziendale.  La facilità d'uso della finestra di progettazione, l'ampia gamma di trigger e azioni disponibili e gli avanzati strumenti di gestione semplificano la centralizzazione delle API.  Con il passaggio delle aziende alla digitalizzazione, le app per la logica consentono di connettere tra loro sistemi legacy e all'avanguardia.
 
 L'[account di integrazione aziendale][biztalk] consente anche di passare a scenari di integrazione avanzati con funzionalità di [messaggistica XML][xml], [gestione dei partner commerciali][tpm] e altro ancora.
@@ -61,9 +56,7 @@ L'[account di integrazione aziendale][biztalk] consente anche di passare a scena
 * **Estendibilità integrata** : se il connettore necessario non è disponibile, le app per la logica sono progettate per interagire con API e codice personalizzati. È possibile creare facilmente una propria app per le API da usare come connettore personalizzato oppure chiamare una [funzione di Azure](https://functions.azure.com) per eseguire frammenti di codice su richiesta. 
 * **Straordinaria potenza di integrazione reale** : è possibile iniziare facilmente e svilupparsi secondo le necessità. Le app per la logica possono sfruttare facilmente la potenza di BizTalk, la soluzione di integrazione leader del settore offerta da Microsoft, che consente ai professionisti dell'integrazione di creare le soluzioni necessarie. Altre informazioni su [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
 
-<a id="logic-app-concepts" class="xliff"></a>
-
-## Concetti delle app per la logica
+## <a name="logic-app-concepts"></a>Concetti delle app per la logica
 Di seguito sono riportate alcune informazioni fondamentali per comprendere appieno l'esperienza delle app per la logica. 
 
 * **Flusso di lavoro** : le app per la logica consentono di modellare graficamente i processi aziendali come una serie di passaggi, o flusso di lavoro.
@@ -72,16 +65,14 @@ Di seguito sono riportate alcune informazioni fondamentali per comprendere appie
 * **Azioni** : ogni passaggio dopo il trigger in un flusso di lavoro viene chiamato azione. Ogni azione viene in genere mappata a un'operazione sul connettore gestito o app per le API personalizzate.
 * **Enterprise Integration Pack** : per scenari di integrazione più avanzati, le app per la logica includono funzionalità di BizTalk. BizTalk è la piattaforma di integrazione leader del settore di Microsoft. Enterprise Integration Pack consente di includere facilmente la convalida, la trasformazione e molto altro nei flussi di lavoro dell'app per la logica.
 
-<a id="getting-started" class="xliff"></a>
-
-## Introduzione
+## <a name="getting-started"></a>Introduzione
 * Per iniziare a usare le app per la logica, seguire l'esercitazione [Creare una nuova app per la logica][create].  
 * [Visualizzare esempi e scenari comuni](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Le app per la logica consentono di automatizzare i processi aziendali](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Informazioni su come integrare i sistemi correnti con le app per la logica](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: logic-apps-enterprise-integration-accounts.md
-[appservice]: ../app-service/app-service-value-prop-what-is.md
+[appservice]: ../app-service/app-service-web-overview.md
 [create]: logic-apps-create-a-logic-app.md
 [managedapis]: ../connectors/apis-list.md
 [tpm]: logic-apps-enterprise-integration-accounts.md

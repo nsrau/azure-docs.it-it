@@ -30,12 +30,12 @@ Questa guida di avvio rapido mostra come creare un account, un database di docum
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Prima di poter eseguire questo esempio, è necessario soddisfare i prerequisiti seguenti:
-   * JDK 1.7+ (eseguire `apt-get install default-jdk` se JDK non è disponibile)
-   * Maven (eseguire `apt-get install maven` se Maven non è disponibile)
+Prima di poter eseguire questo esempio, è necessario soddisfare i prerequisiti seguenti:
+* JDK 1.7+ (eseguire `apt-get install default-jdk` se JDK non è disponibile)
+* Maven (eseguire `apt-get install maven` se Maven non è disponibile)
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
