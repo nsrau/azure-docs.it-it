@@ -86,8 +86,8 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |UnauthorizedRequests|Richieste del gateway non autorizzate|Numero|Totale|Numero di richieste del gateway non autorizzate|
 |FailedRequests|Richieste gateway non riuscite|Numero|Totale|Numero di errori nelle richieste gateway|
 |OtherRequests|Altre richieste del gateway|Numero|Totale|Numero di altre richieste del gateway|
-|Durata|Durata complessiva delle richieste del gateway|Millisecondi|Media, Massima|Durata complessiva delle richieste del gateway in millisecondi|
-|Capacità|Capacità (anteprima)|Percentuale|Media, Massima|Metrica di utilizzo per il servizio ApiManagement|
+|Duration|Durata complessiva delle richieste del gateway|Millisecondi|Media, Massima|Durata complessiva delle richieste del gateway in millisecondi|
+|Capacity|Capacità (anteprima)|Percentuale|Media, Massima|Metrica di utilizzo per il servizio ApiManagement|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -298,13 +298,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|CPU percentuale|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
-|Rete in ingresso|Rete in ingresso|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
-|Rete in uscita|Rete in uscita|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
-|Byte letti da disco/sec|Lettura disco|Byte al secondo|Media|Numero medio di byte letti dal disco durante il periodo di monitoraggio|
-|Byte scritti su disco/sec|Scrittura disco|Byte al secondo|Media|Numero medio di byte scritti sul disco durante il periodo di monitoraggio|
-|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Numero di IOPS letti dal disco|
-|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Numero di IOPS scritti sul disco|
+|Percentage CPU|CPU percentuale|Percentuale|Media|Percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
+|Network In|Rete in ingresso|Byte|Totale|Numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
+|Network Out|Rete in uscita|Byte|Totale|Numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
+|Disk Read Bytes/Sec|Lettura disco|Byte al secondo|Media|Numero medio di byte letti dal disco durante il periodo di monitoraggio|
+|Disk Write Bytes/Sec|Scrittura disco|Byte al secondo|Media|Numero medio di byte scritti sul disco durante il periodo di monitoraggio|
+|Disk Read Operations/Sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Numero di IOPS letti dal disco|
+|Disk Write Operations/Sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Numero di IOPS scritti sul disco|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
@@ -318,43 +318,43 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |ClientErrors|Errori client|Numero|Totale|Numero di chiamate con errore sul lato client (codice di risposta HTTP 4xx).|
 |DataIn|Dati in entrata|Byte|Totale|Dimensione in byte dei dati in entrata.|
 |DataOut|Dati in uscita|Byte|Totale|Dimensione in byte dei dati in uscita.|
-|Latency|Latency|Millisecondi|Media|Latenza in millisecondi.|
+|Latency|Latenza|Millisecondi|Media|Latenza in millisecondi.|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|CPU percentuale|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
-|Rete in ingresso|Rete in ingresso|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
-|Rete in uscita|Rete in uscita|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
-|Byte letti da disco|Byte letti da disco|Byte|Totale|Il numero totale di byte letti dal disco durante il periodo di monitoraggio|
-|Byte scritti su disco|Byte scritti su disco|Byte|Totale|Il numero totale di byte scritti sul disco durante il periodo di monitoraggio|
-|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|
-|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|
+|Percentage CPU|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
+|Network In|Rete in ingresso|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
+|Network Out|Rete in uscita|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
+|Disk Read Bytes|Byte letti da disco|Byte|Totale|Il numero totale di byte letti dal disco durante il periodo di monitoraggio|
+|Disk Write Bytes|Byte scritti su disco|Byte|Totale|Il numero totale di byte scritti sul disco durante il periodo di monitoraggio|
+|Disk Read Operations/Sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|
+|Disk Write Operations/Sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|CPU percentuale|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
-|Rete in ingresso|Rete in ingresso|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
-|Rete in uscita|Rete in uscita|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
-|Byte letti da disco|Byte letti da disco|Byte|Totale|Il numero totale di byte letti dal disco durante il periodo di monitoraggio|
-|Byte scritti su disco|Byte scritti su disco|Byte|Totale|Il numero totale di byte scritti sul disco durante il periodo di monitoraggio|
-|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|
-|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|
+|Percentage CPU|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
+|Network In|Rete in ingresso|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
+|Network Out|Rete in uscita|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
+|Disk Read Bytes|Byte letti da disco|Byte|Totale|Il numero totale di byte letti dal disco durante il periodo di monitoraggio|
+|Disk Write Bytes|Byte scritti su disco|Byte|Totale|Il numero totale di byte scritti sul disco durante il periodo di monitoraggio|
+|Disk Read Operations/Sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|
+|Disk Write Operations/Sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|CPU percentuale|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
-|Rete in ingresso|Rete in ingresso|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
-|Rete in uscita|Rete in uscita|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
-|Byte letti da disco|Byte letti da disco|Byte|Totale|Il numero totale di byte letti dal disco durante il periodo di monitoraggio|
-|Byte scritti su disco|Byte scritti su disco|Byte|Totale|Il numero totale di byte scritti sul disco durante il periodo di monitoraggio|
-|Operazioni lettura disco/sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|
-|Operazioni scrittura disco/sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|
+|Percentage CPU|CPU percentuale|Percentuale|Media|La percentuale di unità di calcolo allocate attualmente usate dalle macchine virtuali|
+|Network In|Rete in ingresso|Byte|Totale|Il numero di byte ricevuti su tutte le interfacce di rete dalle macchine virtuali (traffico in ingresso)|
+|Network Out|Rete in uscita|Byte|Totale|Il numero di byte inviati su tutte le interfacce di rete dalle macchine virtuali (traffico in uscita)|
+|Disk Read Bytes|Byte letti da disco|Byte|Totale|Il numero totale di byte letti dal disco durante il periodo di monitoraggio|
+|Disk Write Bytes|Byte scritti su disco|Byte|Totale|Il numero totale di byte scritti sul disco durante il periodo di monitoraggio|
+|Disk Read Operations/Sec|Operazioni lettura disco/sec|Conteggio al secondo|Media|Il numero di IOPS letti dal disco|
+|Disk Write Operations/Sec|Operazioni scrittura disco/sec|Conteggio al secondo|Media|Il numero di IOPS scritti sul disco|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -394,7 +394,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |JobEndedCancelled|Processi annullati|Numero|Totale|Numero di processi annullati|
 |JobAUEndedSuccess|Tempo di aggiornamenti automatici con esito positivo|Secondi|Totale|Tempo totale di aggiornamenti automatici per i processi completati|
 |JobAUEndedFailure|Tempo di aggiornamenti automatici non riusciti|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi non riusciti|
-|JobAUEndedCancelled|Tempo di aggiornamenti automatici annullati|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi annullati.|
+|JobAUEndedCancelled|Tempo di aggiornamenti automatici annullati|Secondi|Totale|Tempo totale di aggiornamenti automatici per processi annullati|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -555,7 +555,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|Velocità effettiva|Velocità effettiva|Byte al secondo|Media|Numero di byte al secondo distribuiti dal gateway applicazione|
+|Throughput|Velocità effettiva|Byte al secondo|Media|Numero di byte al secondo distribuiti dal gateway applicazione|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
@@ -712,7 +712,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |LateInputEvents|Ultimi eventi di input|Conteggio|Totale|Ultimi eventi di input|
 |OutputEvents|Eventi di output|Conteggio|Totale|Eventi di output|
 |ConversionErrors|Errori di conversione dati|Conteggio|Totale|Errori di conversione dati|
-|Errori|Errori di runtime|Conteggio|Totale|Errori di runtime|
+|Errors|Errori di runtime|Conteggio|Totale|Errori di runtime|
 |DroppedOrAdjustedEvents|Eventi non in ordine|Conteggio|Totale|Eventi non in ordine|
 |AMLCalloutRequests|Richieste di funzioni|Conteggio|Totale|Richieste di funzioni|
 |AMLCalloutFailedRequests|Richieste di funzioni non riuscite|Conteggio|Totale|Richieste di funzioni non riuscite|
@@ -734,7 +734,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
 |CpuTime|Tempo CPU|Secondi|Totale|Tempo CPU|
-|Requests|Requests|Numero|Totale|Requests|
+|Requests|Richieste|Numero|Totale|Richieste|
 |BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|
 |BytesSent|Dati in uscita|Byte|Totale|Dati in uscita|
 |Http101|Http 101|Numero|Totale|Http 101|
@@ -767,7 +767,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
 |CpuTime|Tempo CPU|Secondi|Totale|Tempo CPU|
-|Requests|Requests|Numero|Totale|Requests|
+|Requests|Richieste|Numero|Totale|Richieste|
 |BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|
 |BytesSent|Dati in uscita|Byte|Totale|Dati in uscita|
 |Http101|Http 101|Numero|Totale|Http 101|
@@ -789,7 +789,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
-|Requests|Requests|Numero|Totale|Requests|
+|Requests|Richieste|Numero|Totale|Richieste|
 |BytesReceived|Dati in entrata|Byte|Totale|Dati in entrata|
 |BytesSent|Dati in uscita|Byte|Totale|Dati in uscita|
 |Http101|Http 101|Numero|Totale|Http 101|
@@ -821,7 +821,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |WorkersUsed|Ruoli di lavoro usati|Numero|Media|Ruoli di lavoro usati|
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Metriche in Azure Monitor](monitoring-overview-metrics.md)
+* [Metriche in Monitoraggio di Azure](monitoring-overview-metrics.md)
 * [Create alerts on metrics](insights-receive-alert-notifications.md)
 * [Esportazione delle metriche nell'archiviazione, nell'hub eventi o in Log Analytics](monitoring-overview-of-diagnostic-logs.md)
 
