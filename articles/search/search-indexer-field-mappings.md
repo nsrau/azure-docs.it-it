@@ -1,6 +1,6 @@
 ---
 title: Mapping dei campi negli indicizzatori di Ricerca di Azure
-description: Configurare i mapping dei campi dell&quot;indicizzatore di Ricerca di Azure per rilevare le differenze nei nomi dei campi e nelle rappresentazioni dei dati
+description: Configurare i mapping dei campi dell'indicizzatore di Ricerca di Azure per rilevare le differenze nei nomi dei campi e nelle rappresentazioni dei dati
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -12,11 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 08/30/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 57e91f070d9a42882a56e708f12b1ce238ed9191
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
+ms.contentlocale: it-it
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -81,30 +83,46 @@ Queste funzioni sono attualmente supportate:
 
 <a name="base64EncodeFunction"></a>
 
-### <a name="base64encode"></a>base64Encode
+## <a name="base64encode"></a>base64Encode
 Esegue la codifica Base64 *sicura per gli URL* della stringa di input. Si presuppone che l'input sia con codifica UTF-8.
 
-#### <a name="sample-use-case"></a>Caso d'uso di esempio
-Nella chiave del documento di Ricerca di Azure possono essere visualizzati solo caratteri sicuri per gli URL, ad esempio perché i clienti devono poter fare riferimento al documento usando l'API di ricerca. Se i dati contengono caratteri non sicuri per gli URL e si vuole usarli per popolare un campo chiave nell'indice di ricerca, usare questa funzione.   
+### <a name="sample-use-case---document-key-lookup"></a>Caso d'uso di esempio - Ricerca della chiave del documento
+La chiave del documento di Ricerca di Azure può includere solo caratteri sicuri per gli URL, ad esempio perché i clienti devono poter fare riferimento al documento usando l'[API di ricerca](https://docs.microsoft.com/rest/api/searchservice/lookup-document). Se i dati contengono caratteri non sicuri per gli URL e si vuole usarli per popolare un campo chiave nell'indice di ricerca, usare questa funzione. Dopo aver codificato la chiave, è possibile usare la decodifica Base64 per recuperare il valore originale. Per informazioni, vedere la sezione [Dettagli della codifica e della decodifica Base64](#base64details).
 
 #### <a name="example"></a>Esempio
 ```JSON
 
 "fieldMappings" : [
   {
-    "sourceFieldName" : "Path",
-    "targetFieldName" : "UrlSafePath",
+    "sourceFieldName" : "SourceKey",
+    "targetFieldName" : "IndexKey",
     "mappingFunction" : { "name" : "base64Encode" }
   }]
 ```
 
+### <a name="sample-use-case---retrieve-original-key"></a>Caso d'uso di esempio - Recuperare la chiave originale
+È presente un indicizzatore di BLOB che indicizza BLOB con i metadati del percorso BLOB come chiave del documento. Dopo aver recuperato la chiave del documento codificato, si vuole decodificare il percorso e scaricare il BLOB.
+
+#### <a name="example"></a>Esempio
+```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "SourceKey",
+    "targetFieldName" : "IndexKey",
+    "mappingFunction" : { "name" : "base64Encode", "parameters" : { "useHttpServerUtilityUrlTokenEncode" : false } }
+  }]
+```
+
+Se non è necessario cercare documenti in base alle chiavi né decodificare il contenuto codificato, è sufficiente escludere `parameters` per la funzione di mapping, in modo che il valore predefinito di `useHttpServerUtilityUrlTokenEncode` sia `true`. In caso contrario, vedere la sezione [Dettagli della codifica e della decodifica Base64](#base64details) per determinare le impostazioni da usare.
+
 <a name="base64DecodeFunction"></a>
 
-### <a name="base64decode"></a>base64Decode
+## <a name="base64decode"></a>base64Decode
 Esegue la decodifica Base64 della stringa di input. Si presuppone che l'input sia una stringa con codifica Base64 *sicura per gli URL* .
 
-#### <a name="sample-use-case"></a>Caso d'uso di esempio
-I valori di metadati personalizzati BLOB devono essere codificati in ASCII. È possibile usare la codifica Base64 per rappresentare le stringhe Unicode arbitrarie nei metadati personalizzati BLOB. Tuttavia, per rendere significativa la ricerca, è possibile usare questa funzione per riconvertire i dati codificati in stringhe "normali" durante il popolamento dell'indice di ricerca.  
+### <a name="sample-use-case"></a>Caso d'uso di esempio
+I valori di metadati personalizzati BLOB devono essere codificati in ASCII. È possibile usare la codifica Base64 per rappresentare stringhe UTF-8 arbitrarie nei metadati personalizzati dei BLOB. Tuttavia, per rendere significativa la ricerca, è possibile usare questa funzione per riconvertire i dati codificati in stringhe "normali" durante il popolamento dell'indice di ricerca.
 
 #### <a name="example"></a>Esempio
 ```JSON
@@ -113,25 +131,45 @@ I valori di metadati personalizzati BLOB devono essere codificati in ASCII. È p
   {
     "sourceFieldName" : "Base64EncodedMetadata",
     "targetFieldName" : "SearchableMetadata",
-    "mappingFunction" : { "name" : "base64Decode" }
+    "mappingFunction" : { "name" : "base64Decode", "parameters" : { "useHttpServerUtilityUrlTokenDecode" : false } }
   }]
 ```
 
+Se non si specifica alcun valore `parameters`, il valore predefinito di `useHttpServerUtilityUrlTokenDecode` è `true`. Vedere la sezione [Dettagli della codifica e della decodifica Base64](#base64details) per determinare le impostazioni da usare.
+
+<a name="base64details"></a>
+
+### <a name="details-of-base64-encoding-and-decoding"></a>Dettagli della codifica e della decodifica Base64
+Ricerca di Azure supporta due codifiche Base64: la codifica con token URL HttpServerUtility e la codifica sicura per gli URL senza spaziatura interna. È necessario usare la stessa codifica delle funzioni di mapping se si vuole codificare la chiave di un documento per la ricerca, codificare un valore da decodificare tramite l'indicizzatore o decodificare un campo codificato dall'indicizzatore.
+
+Se si usa .NET Framework, è possibile impostare `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` su `true` rispettivamente per la codifica e la decodifica. `base64Encode` si comporta quindi come [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx), mentre `base64Decode` si comporta come [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+
+Se non si usa .NET Framework, è necessario impostare `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` su `false`. A seconda della libreria usata, le funzioni dell'utilità di codifica e decodifica Base64 possono essere diverse rispetto a Ricerca di Azure.
+
+La tabella seguente confronta diverse codifiche Base64 della stringa `00>00?00`. Per determinare l'eventuale elaborazione aggiuntiva necessaria per le funzioni Base64, applicare la funzione di codifica della libreria nella stringa `00>00?00` e confrontare l'output con l'output previsto `MDA-MDA_MDA`.
+
+| Codifica | Output della codifica Base64 | Elaborazione aggiuntiva dopo la codifica della libreria | Elaborazione aggiuntiva prima della codifica della libreria |
+| --- | --- | --- | --- |
+| Base64 con spaziatura interna | `MDA+MDA/MDA=` | Usare caratteri sicuri per gli URL e rimuovere la spaziatura interna | Usare caratteri Base64 standard e aggiungere spaziatura interna |
+| Base64 senza spaziatura interna | `MDA+MDA/MDA` | Usare caratteri sicuri per gli URL | Usare caratteri Base64 standard |
+| Base64 sicura per gli URL con spaziatura interna | `MDA-MDA_MDA=` | Rimuovere la spaziatura interna | Aggiungere spaziatura interna |
+| Base64 sicura per gli URL senza spaziatura interna | `MDA-MDA_MDA` | Nessuno | Nessuno |
+
 <a name="extractTokenAtPositionFunction"></a>
 
-### <a name="extracttokenatposition"></a>extractTokenAtPosition
+## <a name="extracttokenatposition"></a>extractTokenAtPosition
 Divide un campo stringa usando il delimitatore specificato e sceglie il token nella posizione specificata della divisione risultante.
 
 Ad esempio, se l'input è `Jane Doe`, `delimiter` è `" "` (spazio) e `position` è 0, il risultato è `Jane`; se `position` è 1, il risultato è `Doe`. Se la posizione fa riferimento a un token che non esiste, viene restituito un errore.
 
-#### <a name="sample-use-case"></a>Caso d'uso di esempio
+### <a name="sample-use-case"></a>Caso d'uso di esempio
 L'origine dati contiene un campo `PersonName` e si vuole indicizzarla come due campi separati, `FirstName` e `LastName`. È possibile usare questa funzione per dividere l'input usando il carattere spazio come delimitatore.
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 * `delimiter`: stringa da usare come separatore quando si divide la stringa di input.
 * `position`: posizione in base zero di tipo integer del token da scegliere dopo la divisione della stringa di input.    
 
-#### <a name="example"></a>Esempio
+### <a name="example"></a>Esempio
 ```JSON
 
 "fieldMappings" : [
@@ -149,15 +187,15 @@ L'origine dati contiene un campo `PersonName` e si vuole indicizzarla come due c
 
 <a name="jsonArrayToStringCollectionFunction"></a>
 
-### <a name="jsonarraytostringcollection"></a>jsonArrayToStringCollection
+## <a name="jsonarraytostringcollection"></a>jsonArrayToStringCollection
 Trasforma una stringa formattata come matrice di stringhe JSON in una matrice di stringhe che può essere usata per popolare un campo `Collection(Edm.String)` nell'indice.
 
 Ad esempio, se la stringa di input è `["red", "white", "blue"]`, il campo di destinazione di tipo `Collection(Edm.String)` viene popolato con i tre valori `red`, `white` e `blue`. Per i valori di input che non possono essere analizzati come matrici di stringhe JSON, viene restituito un errore.
 
-#### <a name="sample-use-case"></a>Caso d'uso di esempio
+### <a name="sample-use-case"></a>Caso d'uso di esempio
 Il database SQL di Azure non ha un tipo di dati predefinito che esegue normalmente il mapping ai campi `Collection(Edm.String)` in Ricerca di Azure. Per popolare i campi della raccolta di stringhe, formattare i dati di origine come matrice di stringhe JSON e usare questa funzione.
 
-#### <a name="example"></a>Esempio
+### <a name="example"></a>Esempio
 ```JSON
 
 "fieldMappings" : [
@@ -165,11 +203,7 @@ Il database SQL di Azure non ha un tipo di dati predefinito che esegue normalmen
 ]
 ```
 
+
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
