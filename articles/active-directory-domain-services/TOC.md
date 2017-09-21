@@ -6,17 +6,16 @@
 ## [Funzionamento della sincronizzazione](active-directory-ds-synchronization.md)
 ## [Software di terze parti compatibile](active-directory-ds-compatible-software.md)
 
-# Introduzione
-## Portale di Azure (anteprima)
-### [Attività 1: Configurare le impostazioni di base](active-directory-ds-getting-started.md)
-### [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
-### [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
-### [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-dns.md)
-### [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
+# Attività iniziali
+## [Attività 1: Configurare le impostazioni di base](active-directory-ds-getting-started.md)
+## [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
+## [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
+## [Attività 4: Aggiornare le impostazioni DNS per la rete virtuale](active-directory-ds-getting-started-dns.md)
+## [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
 
 # Procedure
 ## Aggiungere un dominio gestito
-### [Aggiungere una VM Windows Server](active-directory-ds-admin-guide-join-windows-vm.md)
+### [Aggiungere una VM Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Aggiungere una VM Windows tramite PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Aggiungere una VM Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Amministrare un dominio gestito

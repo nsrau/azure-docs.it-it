@@ -143,6 +143,8 @@
               href: agent-user-guide.md
             - name: Aggiornamento dell'agente
               href: update-agent.md
+        - name: Manutenzione pianificata
+          href: maintenance-notifications.md
         - name: Eventi pianificati
           href: scheduled-events.md
         - name: Monitorare i metadati

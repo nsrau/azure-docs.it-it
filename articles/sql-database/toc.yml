@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: Continuità aziendale
       items:
-        - name: 'Configurare l''insieme di credenziali: backup'
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: 'Eseguire la replica geografica: portale'
-          href: sql-database-geo-replication-portal.md
-        - name: Ripristinare una singola tabella
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: Caricare e spostare dati
-      items:
         - name: Caricare dati con BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Caricare dati con ADF
