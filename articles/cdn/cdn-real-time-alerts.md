@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
-ms.openlocfilehash: 6e66eb076ac7220823a848b5047f147d4101cd55
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
+ms.contentlocale: it-it
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Avvisi in tempo reale nella rete CDN di Microsoft Azure
@@ -32,12 +33,12 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
 * Connessioni
 
 ## <a name="creating-a-real-time-alert"></a>Creazione di un avviso in tempo reale
-1. Nel [portale di Azure](https://portal.azure.com)passare al profilo della rete CDN.
+1. Nel [portale di Azure](https://portal.azure.com) passare al profilo CDN.
    
-    ![Pannello del profilo di rete CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
-2. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci** .
+    ![Profilo di rete CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
+1. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci** .
    
-    ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
+    ![Pulsante di gestione del profilo della rete CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
     Si aprirà il portale di gestione della rete CDN.
 3. Passare il puntatore sulla scheda **Analytics** (Analisi) e quindi sul riquadro a comparsa **Real-Time Stats** (Statistiche in tempo reale).  Fare clic su **Real-Time Alerts**(Avvisi in tempo reale).
@@ -66,19 +67,19 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
    
    * Per **Metric**(Metrica), selezionare il tipo di condizione che si vuole monitorare.  **Bandwidth Mbps** (Mbps larghezza di banda) è la quantità di larghezza di banda utilizzata, misurata in megabit al secondo.  **Total Connections** (Connessioni totali) è il numero di connessioni HTTP simultanee ai server perimetrali.  Per informazioni sulle definizioni dei vari stati della cache e dei codici di stato, vedere [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) (Codici di stato della cache della rete CDN di Azure) e [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx) (Codici di stato HTTP della rete CDN di Azure).
    * **Operator** (Operatore) è l'operatore matematico che stabilisce la relazione tra la metrica e il valore trigger.
-   * **Trigger Value** (Valore trigger) è il valore soglia da soddisfare perché venga inviata una notifica.
+   * **Trigger Value** (Valore trigger) è il valore soglia da raggiungere perché venga inviata una notifica.
      
-     Nell'esempio seguente l'espressione creata indica che si vuole ricevere una notifica quando il numero di codici di stato 404 è maggiore di 25.
+     Nell'esempio seguente l'espressione creata indica che viene inviata una notifica quando il numero di codici di stato 404 è maggiore di 25.
      
      ![Espressione di esempio di avviso in tempo reale](./media/cdn-real-time-alerts/cdn-expression.png)
 9. Per **Interval**(Intervallo), immettere la frequenza con cui l'espressione deve essere valutata.
 10. Nell'elenco a discesa **Notify on** (Notifica per) selezionare per cosa si vuole ricevere una notifica quando l'espressione è true.
     
-    * **Condition Start** (Inizio condizione) indica che verrà inviata una notifica la prima volta che viene rilevata la condizione specificata.
-    * **Condition End** (Fine condizione) indica che verrà inviata una notifica quando la condizione specificata non viene più rilevata. Questa notifica può essere attivata solo dopo che il sistema di monitoraggio della rete ha rilevato che si è verificata la condizione specificata.
-    * **Continuous** (Continuo) indica che verrà inviata una notifica ogni volta che il sistema di monitoraggio della rete rileva la condizione specificata. Tenere presente che il sistema di monitoraggio della rete cerca la condizione specificata solo una volta per ogni intervallo.
-    * **Condition Start and End** (Inizio e fine condizione) indica che verrà inviata una notifica la prima volta che viene rilevata la condizione specificata e ancora una volta quando la condizione non viene più rilevata.
-11. Per ricevere le notifiche tramite posta elettronica, selezionare la casella di controllo **Notify by Email** (Notifica tramite posta elettronica).  
+    * **Condition Start** (Inizio condizione) indica che viene inviata una notifica la prima volta che viene rilevata la condizione specificata.
+    * **Condition End** (Fine condizione) indica che viene inviata una notifica quando la condizione specificata non viene più rilevata. Questa notifica può essere attivata solo dopo che il sistema di monitoraggio della rete ha rilevato che si è verificata la condizione specificata.
+    * **Continuous** (Continuo) indica che viene inviata una notifica ogni volta che il sistema di monitoraggio della rete rileva la condizione specificata. Tenere presente che il sistema di monitoraggio della rete cerca la condizione specificata solo una volta per ogni intervallo.
+    * **Condition Start and End** (Inizio e fine condizione) indica che viene inviata una notifica la prima volta che viene rilevata la condizione specificata e ancora una volta quando la condizione non viene più rilevata.
+1. Per ricevere le notifiche tramite posta elettronica, selezionare la casella di controllo **Notify by Email** (Notifica tramite posta elettronica).  
     
     ![Form per la notifica tramite posta elettronica](./media/cdn-real-time-alerts/cdn-notify-email.png)
     
@@ -92,7 +93,7 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
     
     ![Form per la notifica tramite HTTP Post](./media/cdn-real-time-alerts/cdn-notify-http.png)
     
-    Nel campo **Url** immettere l'URL in cui deve essere pubblicato il messaggio HTTP. Nella casella di testo **Headers** (Intestazioni) immettere le intestazioni HTTP da inviare nella richiesta.  Per **Body** (Corpo), è possibile personalizzare il messaggio usando l'elenco **Available keywords** (Parole chiave disponibili) per inserire in modo dinamico i dati dell'avviso quando il messaggio viene inviato.  L'impostazione predefinita per **Headers** (Intestazioni) e **Body** (Corpo) è un payload XML simile all'esempio seguente.
+    Nel campo **Url** immettere l'URL in cui deve essere pubblicato il messaggio HTTP. Nella casella di testo **Headers** (Intestazioni) immettere le intestazioni HTTP da inviare nella richiesta.  Per **Body** (Corpo), è possibile personalizzare il messaggio usando l'elenco **Available keywords** (Parole chiave disponibili) per inserire in modo dinamico i dati dell'avviso quando il messaggio viene inviato.  L'impostazione predefinita per **Headers** (Intestazioni) e **Body** (Corpo) è un payload XML simile all'esempio seguente:
     
     ```
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
@@ -110,10 +111,5 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
 * Vedere [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * Per un'analisi più approfondita, vedere [Report HTTP avanzati nella rete CDN di Microsoft Azure](cdn-advanced-http-reports.md)
 * Vedere [Analizzare i modelli di utilizzo della rete CDN di Azure](cdn-analyze-usage-patterns.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

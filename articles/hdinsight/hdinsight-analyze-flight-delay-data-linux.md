@@ -17,10 +17,10 @@ ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: d0bd690edcf7dba85cbc316e254d4617bf0ebcb4
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f333354311b16c00a0d43a691f139f5f80383d1a
 ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analizzare i dati sui ritardi dei voli con Hive in HDInsight basato su Linux
@@ -267,7 +267,7 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Creare un 
 
     Questo comando restituisce un elenco di database, compreso il database in cui è stata creata in precedenza la tabella delays.
 
-2. Usare il comando seguente per esportare dati dalla tabella hivesampletable alla tabella mobiledata:
+2. Usare il comando seguente per esportare i dati dalla tabella hivesampletable alla tabella delays:
 
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
@@ -275,13 +275,13 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Creare un 
 
     Sqoop si connette al database contenente la tabella delays ed esporta i dati dalla directory `/tutorials/flightdelays/output` nella tabella delays.
 
-3. Al termine dell'esecuzione del comando usare le informazioni seguenti per connettersi al database tramite TSQL:
+3. Al termine dell'esecuzione del comando sqoop, usare l' utilità Transact-SQL per connettersi al database:
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Usare le istruzioni seguenti per verificare che i dati siano stati esportati nella tabella mobiledata :
+    Usare le istruzioni seguenti per verificare che i dati siano stati esportati nella tabella delays:
 
     ```
     SELECT * FROM delays
@@ -290,7 +290,7 @@ Se non si dispone già di un database SQL, vedere le informazioni in [Creare un 
 
     Dovrebbe essere visualizzato un elenco di dati della tabella. Digitare `exit` per uscire dall'utilità tsql.
 
-## <a id="nextsteps"></a> Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su come usare i dati in HDInsight, vedere gli articoli seguenti:
 

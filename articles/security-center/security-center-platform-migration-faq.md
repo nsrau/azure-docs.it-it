@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 09/14/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 2ffbaca614d667db565197f3c13b1658fffc2a7c
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
 ms.contentlocale: it-it
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="security-center-platform-migration-faq"></a>Domande frequenti sulla migrazione della piattaforma del Centro sicurezza
@@ -70,25 +70,59 @@ Per altre informazioni sui prezzi, vedere [Prezzi di Centro sicurezza](https://a
 
 Per il ripristino, rimuovere Microsoft Monitoring Agent dalle VM connesse all'area di lavoro eliminata. Il Centro sicurezza reinstalla l'agente e crea nuove aree di lavoro predefinite.
 
+### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Come usare l'area di lavoro di Log Analytics esistente
+
+È possibile selezionare un'area di lavoro di Log Analytics esistente per archiviare i dati raccolti dal Centro sicurezza. Per usare l'area di lavoro di Log Analytics esistente:
+
+- L'area di lavoro deve essere associata alla sottoscrizione di Azure selezionata.
+- È necessario avere almeno le autorizzazioni di lettura per accedere all'area di lavoro.
+
+Per selezionare l'area di lavoro di Log Analytics esistente:
+
+1. In **Security policy – Data Collection** (Criteri di sicurezza - Raccolta dati) selezionare **Use another workspace** (Usare un'altra area di lavoro).
+
+   ![Usare un'altra area di lavoro][5]
+
+2. Nel menu a discesa selezionare un'area di lavoro dove archiviare i dati raccolti.
+
+   > [!NOTE]
+   > Nel menu a discesa vengono visualizzati solo le aree di lavoro a cui si ha accesso e che si trovano nella sottoscrizione di Azure.
+   >
+   >
+
+3. Selezionare **Salva**.
+4. Dopo aver selezionato **Salva**, verrà richiesto se si desidera riconfigurare le macchine virtuali monitorate.
+
+   - Selezionare **No** se si desidera che le nuove impostazioni dell'area di lavoro si **applichino solo alle nuove macchine virtuali**. Le nuove impostazioni dell'area di lavoro si applicano solo alle nuove installazioni dell'agente, ovvero alle macchine virtuali da poco rilevate che non hanno installato Microsoft Monitoring Agent.
+   - Selezionare **Sì** se si desidera che le nuove impostazioni dell'area di lavoro si **applichino a tutte le macchine virtuali**. In aggiunta, ogni macchina virtuale connessa a un'area di lavoro creata dal Centro sicurezza viene ricollegata alla nuova area di lavoro di destinazione.
+
+   > [!NOTE]
+   > Se si seleziona Sì, non è necessario eliminare le aree di lavoro create dal Centro sicurezza fino a quando tutte le macchine virtuali vengono ricollegate alla nuova area di lavoro di destinazione. Questa operazione non riesce se un'area di lavoro viene eliminata troppo presto.
+   >
+   >
+
+   - Selezionare **Annulla** per annullare l'operazione.
+
+      ![Riconfigurare le macchine virtuali monitorate][6]
+
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Cosa accade se Microsoft Monitoring Agent è già stato installato come estensione nella VM?
 Il Centro sicurezza non esegue l'override delle connessioni esistenti alle aree di lavoro degli utenti. Il Centro sicurezza archivia i dati di sicurezza dalla VM nell'area di lavoro già connessa.
 
 ### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>Cosa accade se Microsoft Monitoring Agent è installato nella macchina virtuale ma non come estensione?
-Se Microsoft Monitoring Agent è installato direttamente nella VM, non come estensione di Azure, il Centro sicurezza non installerà Microsoft Monitoring Agent e il monitoraggio della sicurezza sarà limitato.
+Se Microsoft Monitoring Agent è installato direttamente sulla macchina virtuale, non come estensione di Azure, il Centro sicurezza non lo installerà e il monitoraggio della sicurezza sarà limitato.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Qual è l'impatto della rimozione delle estensioni?
 Se si rimuove l'estensione Microsoft Monitoring, il Centro sicurezza non potrà raccogliere i dati di sicurezza dalla VM e alcune raccomandazioni e alcuni avvisi di sicurezza non saranno disponibili. Entro 24 ore il Centro sicurezza determina che nella VM non è presente l'estensione e la reinstalla.
 
 ### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Come si interrompono l'installazione automatica dell'agente e la creazione automatica dell'area di lavoro?
-È possibile disattivare la raccolta di dati per le sottoscrizioni nei criteri di sicurezza, ma questa opzione non è consigliata. La disattivazione della raccolta di dati limita le raccomandazioni e gli avvisi del Centro sicurezza. La raccolta di dati è obbligatoria per le sottoscrizioni con piano tariffario Standard. Per disabilitare la raccolta di dati:
+È possibile disattivare il provisioning automatico per le sottoscrizioni nei criteri di sicurezza, ma questa opzione non è consigliata. La disattivazione del provisioning automatico limita le raccomandazioni e gli avvisi del Centro sicurezza. Il provisioning automatico è obbligatorio per le sottoscrizioni con piano tariffario Standard. Per disabilitare il provisioning automatico:
 
 1. Se la sottoscrizione è configurata per il livello Standard, aprire i criteri di sicurezza per tale sottoscrizione e selezionare il livello **Gratuito**.
 
    ![Piano tariffario ][1]
 
-2. Disattivare quindi la raccolta di dati selezionando **Off** nel pannello **Criteri di sicurezza - Raccolta dati**.
-
-   ![Raccolta dei dati][2]
+2. Disattivare quindi il provisioning automatico selezionando **Disattivato** nel pannello **Security policy – Data collection** (Criteri di sicurezza - Raccolta dati).
+   ![Raccolta di dati][2]
 
 ### <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Come si rimuovono le estensioni di OMS installate dal Centro sicurezza?
 È possibile rimuovere manualmente Microsoft Monitoring Agent. Questa operazione non è consigliata perché limita le raccomandazioni e gli avvisi del Centro sicurezza.
@@ -118,7 +152,7 @@ Se in una VM è già installato Microsoft Monitoring Agent come estensione di Az
 
 Una soluzione del Centro sicurezza viene installata nell'area di lavoro, se non è già presente, e la soluzione viene applicata solo alle VM rilevanti. Quando viene aggiunta, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics. Il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md), una funzionalità di OMS, consente di applicare un ambito alle soluzioni.
 
-Se Microsoft Monitoring Agent è installato direttamente nella VM, non come estensione di Azure, il Centro sicurezza non installerà Microsoft Monitoring Agent e il monitoraggio della sicurezza sarà limitato.
+Se Microsoft Monitoring Agent è installato direttamente sulla macchina virtuale, non come estensione di Azure, il Centro sicurezza non lo installerà e il monitoraggio della sicurezza sarà limitato.
 
 ### <a name="what-should-i-do-if-i-suspect-that-the-data-platform-migration-broke-the-connection-between-one-of-my-vms-and-my-workspace"></a>Che cosa si deve fare se si sospetta che la migrazione della piattaforma di dati abbia interrotto la connessione tra una delle VM e l'area di lavoro?
 Questo problema non si dovrebbe verificare. Nel caso in cui si verifichi, [creare una richiesta di supporto tecnico di Azure](../azure-supportability/how-to-create-azure-support-request.md) e includere i dettagli seguenti:
@@ -159,4 +193,6 @@ Per altre informazioni sulla migrazione della piattaforma del Centro sicurezza, 
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
+[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
+[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
 

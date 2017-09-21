@@ -1,6 +1,6 @@
 ---
 title: Usare Log Analytics con un'app multi-tenant del database SQL | Microsoft Docs
-description: Configurare e usare Log Analytics (OMS) con l'app SaaS Wingtip di esempio del database SQL di Azure
+description: Configurare e usare Log Analytics (OMS) con un'app SaaS multi-tenant del database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: billgib; sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 26f6f519ecb3abf6343dc2776aa141dff99ced15
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f9428871eab19f56e439ba529a9dcfde833d4fbf
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="setup-and-use-log-analytics-oms-with-the-wingtip-saas-app"></a>Configurare e usare Log Analytics (OMS) con l'app SaaS Wingtip
+# <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configurare e usare Log Analytics (OMS) con un'app SaaS multi-tenant del database SQL di Azure
 
-Questa esercitazione illustra come configurare e usare *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* per il monitoraggio di database e pool elastici. Si basa sull'[esercitazione sul monitoraggio e la gestione delle prestazioni](sql-database-saas-tutorial-performance-monitoring.md) e mostra come usare *Log Analytics* per estendere le funzionalità di monitoraggio e avviso disponibili nel portale di Azure. Log Analytics è una soluzione particolarmente adatta alla gestione del monitoraggio e degli avvisi su larga scala, perché supporta centinaia di pool e centinaia di migliaia di database. Si tratta inoltre di una soluzione di monitoraggio singola che supporta l'integrazione del monitoraggio di applicazioni e servizi di Azure diversi tra più sottoscrizioni di Azure.
+Questa esercitazione illustra come configurare e usare *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* per il monitoraggio di database e pool elastici. Questa esercitazione si basa sull'[esercitazione sul monitoraggio e la gestione delle prestazioni](sql-database-saas-tutorial-performance-monitoring.md) e mostra come usare *Log Analytics* per estendere le funzionalità di monitoraggio e avviso disponibili nel portale di Azure. Log Analytics è una soluzione adatta alla gestione del monitoraggio e degli avvisi su larga scala, perché supporta centinaia di pool e centinaia di migliaia di database. Si tratta inoltre di una soluzione di monitoraggio singola che supporta l'integrazione del monitoraggio di applicazioni e servizi di Azure diversi tra più sottoscrizioni di Azure.
 
 In questa esercitazione si apprenderà come:
 
@@ -48,14 +48,14 @@ Per scenari con volumi elevati, è possibile usare Log Analytics. Si tratta di u
 
 Le aree di lavoro e le soluzioni di analisi di Log Analytics possono essere aperte sia nel portale di Azure che in OMS. Il portale di Azure è il punto di accesso più recente, ma potrebbe trovarsi dietro il portale OMS in alcune aree.
 
-### <a name="start-the-load-generator-to-create-data-to-analyze"></a>Avviare il generatore di carico per creare i dati da analizzare
+### <a name="create-data-by-starting-the-load-generator"></a>Creare dati avviando il generatore di carico 
 
 1. Aprire **Demo-PerformanceMonitoringAndManagement.ps1** in **PowerShell ISE**. Mantenere lo script aperto perché potrebbe essere necessario eseguire vari scenari di generazione del carico durante l'esercitazione.
 1. Se sono disponibili meno di cinque tenant, effettuare il provisioning di un batch di tenant per ottenere un contesto di monitoraggio più interessante:
    1. Impostare **$DemoScenario = 1,** **Effettuare il provisioning di un batch di tenant**
    1. Premere **F5** per eseguire lo script.
 
-1. Impostare**$DemoScenario** = 2, **Generare un carico di intensità normale (circa 40 DTU)**.
+1. Impostare **$DemoScenario** = 2, **Generare un carico di intensità normale (circa 40 DTU)**.
 1. Premere **F5** per eseguire lo script.
 
 ## <a name="get-the-wingtip-application-scripts"></a>Ottenere gli script dell'applicazione Wingtip
@@ -64,12 +64,12 @@ Gli script di Wingtip Tickets e il codice sorgente dell'applicazione sono dispon
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Installazione e configurazione di Log Analytics e della soluzione Analisi SQL di Azure
 
-Log Analytics è un servizio separato che deve essere configurato. Log Analytics raccoglie dati di log, dati di telemetria e metriche in un'area di lavoro di Log Analytics. Un'area di lavoro è una risorsa, analogamente ad altre risorse in Azure, e deve essere creata. Anche se l'area di lavoro non deve essere necessariamente creata nello stesso gruppo di risorse delle applicazioni da monitorare, questa è in genere la scelta più sensata. Nel caso dell'app SaaS Wingtip questo permette di eliminare facilmente l'area di lavoro con l'applicazione, eliminando semplicemente il gruppo di risorse.
+Log Analytics è un servizio separato che deve essere configurato. Log Analytics raccoglie dati di log, dati di telemetria e metriche in un'area di lavoro di Log Analytics. Un'area di lavoro è una risorsa, analogamente ad altre risorse in Azure, e deve essere creata. Anche se l'area di lavoro non deve essere necessariamente creata nello stesso gruppo di risorse delle applicazioni da monitorare, questa è in genere la scelta più sensata. Per l'app SaaS Wingtip, ciò permette di eliminare facilmente l'area di lavoro con l'applicazione, eliminando semplicemente il gruppo di risorse.
 
 1. Aprire ...\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\*Demo-LogAnalytics.ps1* in **PowerShell ISE**.
 1. Premere **F5** per eseguire lo script.
 
-A questo punto dovrebbe essere possibile aprire Log Analytics nel portale di Azure (o nel portale OMS). Saranno necessari alcuni minuti per raccogliere i dati di telemetria e visualizzarli nell'area di lavoro di Log Analytics. L'esperienza diventerà più interessante raccogliendo una maggiore quantità di dati dal sistema, quindi si consiglia di lasciare in esecuzione il generatore di carico per un po' di tempo.
+A questo punto, dovrebbe essere possibile aprire Log Analytics nel portale di Azure (o nel portale OMS). Sono necessari alcuni minuti per raccogliere i dati di telemetria e visualizzarli nell'area di lavoro di Log Analytics. L'esperienza diventa più interessante raccogliendo una maggiore quantità di dati dal sistema, quindi si consiglia di lasciare in esecuzione il generatore di carico per un po' di tempo.
 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Usare Log Analytics e la soluzione Analisi SQL per monitorare i pool e i database

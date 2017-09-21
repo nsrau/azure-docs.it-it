@@ -1,6 +1,6 @@
 ---
-title: Migrazione di macchine virtuali in Azure Resource Manager tramite l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
-description: Questo articolo illustra la migrazione supportata dalla piattaforma di risorse dal modello classico al modello di Azure Resource Manager tramite l&quot;interfaccia della riga di comando di Azure
+title: Migrazione di macchine virtuali in Azure Resource Manager tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Questo articolo illustra la migrazione supportata dalla piattaforma di risorse dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: a63d758570b09b37b8e51c639267f729521d9ae0
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: fe0446b986ff73cce66a961c1c8aa1b01ef493a3
+ms.contentlocale: it-it
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure
-Questi passaggi mostrano come usare i comandi dell'interfaccia della riga di comando di Azure per eseguire la migrazione dalle risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager. L'articolo richiede l' [interfaccia della riga di comando di Azure](../../cli-install-nodejs.md).
+Questi passaggi mostrano come usare i comandi dell'interfaccia della riga di comando di Azure per eseguire la migrazione dalle risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager. Ai fini dell'articolo, è necessario usare l'[interfaccia della riga di comando di Azure 1.0](../../cli-install-nodejs.md). Poiché l'interfaccia della riga di comando di Azure 2.0 è disponibile solo per le risorse di Azure Resource Manager, non può essere usata per la migrazione.
 
 > [!NOTE]
 > Tutte le operazioni descritte di seguito sono idempotenti. Se vengono rilevati errori diversi da una funzionalità non supportata o un errore di configurazione, è consigliabile provare a ripetere l'operazione di preparazione, interruzione o commit. La piattaforma proverà di nuovo a eseguire l'azione.

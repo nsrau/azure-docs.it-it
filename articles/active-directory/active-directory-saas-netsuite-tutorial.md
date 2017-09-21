@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f2184f426c0e60ea2b6ce029b80d3d63821794d1
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Esercitazione: Integrazione di Azure Active Directory con NetSuite
@@ -38,7 +37,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con Netsuite, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD.
-- Sottoscrizione di Netsuite abilitata per l'accesso Single Sign-On
+- Sottoscrizione di Netsuite abilitata per il Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -115,7 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di risposta** digitare un URL usando il modello seguente: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
-    > Poiché il valore non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto di Netsuite](http://www.netsuite.com/portal/services/support.shtml).
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta effettivo. Per ottenere i valori, contattare il [team di supporto di Netsuite](http://www.netsuite.com/portal/services/support.shtml).
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
@@ -161,7 +160,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
 
-13. Nel campo **Nome attributo** immettere `account`. Per il campo **Valore attributo** digitare l'ID account Netsuite. Questo valore è costante e cambia in base all'account. Per istruzioni su come individuare l'ID dell'account, vedere di seguito:
+13. Nel campo **Nome attributo** immettere `account`. Nel campo **Valore attributo** immettere l'ID dell'account NetSuite. Questo valore è costante e cambia con l'account. Per istruzioni su come individuare l'ID dell'account, vedere di seguito:
 
       ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
 
@@ -298,7 +297,7 @@ Per testare le impostazioni dell'accesso Single Sign-On, aprire il pannello di a
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Configurare il provisioning utenti](active-directory-saas-netsuite-provisioning-tutorial.md)
+* [Configura provisioning utenti](active-directory-saas-netsuite-provisioning-tutorial.md)
 
 <!--Image references-->
 

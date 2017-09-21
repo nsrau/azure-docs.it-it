@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/12/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: db5966c920eb29742b2ee0fbd9386319eaaf1c77
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
 ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi
@@ -44,7 +44,7 @@ Per aggiungere un utente come amministratore per una sottoscrizione nel portale 
 Solo un proprietario può essere aggiunto come coamministratore. Gli altri utenti con ruoli come collaboratore e lettore non possono essere aggiunti come coamministratori.
 
 1. Se non è già stato fatto, aggiungere un utente come proprietario seguendo le istruzioni illustrate in precedenza.
-1. **Fare clic con il pulsante destro del mouse** sull'utente proprietario appena aggiunto e quindi scegliere **Aggiungi come coamministratore**. 
+2. **Fare clic con il pulsante destro del mouse** sull'utente proprietario appena aggiunto e quindi scegliere **Aggiungi come coamministratore**. Se l'opzione **Aggiungi come coamministratore** non è visibile, aggiornare la pagina o provare a usare un altro browser Internet. 
 
      ![Schermata per l'aggiunta di un coamministratore](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 

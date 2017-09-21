@@ -1,10 +1,10 @@
 ---
-title: 'Introduzione a SaaS Wingtip: app multi-tenant di database SQL di Azure | Microsoft Docs'
-description: Uso dell'app SaaS Wingtip, un'applicazione multi-tenant di esempio che usa il database SQL di Azure
+title: Esempio di app multi-tenant di database SQL di Azure - SaaS Wingtip | Microsoft Docs
+description: Uso dell'esempio SaaS Wingtip, un'applicazione multi-tenant di esempio basata sul database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 6d4a5df599137e95ca5458fae74b8daa565b0338
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 68a9d97a881f3a7628a08b66091c3feb4c4dbbfe
 ms.contentlocale: it-it
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="introduction-to-the-wingtip-saas-application"></a>Introduzione all'applicazione SaaS Wingtip
+# <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Introduzione a un esempio di app SaaS multi-tenant di database SQL
 
 L'applicazione *SaaS Wingtip* è un'app multi-tenant di esempio che dimostra i vantaggi peculiari del database SQL. L'app usa un database per ogni tenant, il modello di applicazione SaaS, per soddisfare le richieste di più tenant. L'app è progettata per presentare le funzionalità del database SQL di Azure che supportano gli scenari SaaS, inclusi diversi modelli di progettazione e gestione SaaS. Per iniziare, è sufficiente distribuire l'app SaaS Wingtip, operazione che richiede meno di cinque minuti.
 
@@ -60,8 +59,8 @@ Mentre si eseguono le esercitazioni e si utilizza l'app, è importante concentra
 I contenuti eseguibili (script, DLL) possono venire bloccati da Windows quando i file ZIP vengono scaricati da un'origine esterna ed estratti. Quando si estraggono gli script da un file ZIP, ***seguire questa procedura per sbloccare il file ZIP prima di estrarlo***. In questo modo sarà possibile eseguire gli script.
 
 1. Passare al [repository GitHub SaaS Wingtip](https://github.com/Microsoft/WingtipSaaS).
-1. Fare clic su **Clone or download** (Clona o scarica).
-1. Fare clic su **Download ZIP** (Scarica ZIP) e salvare il file.
+1. Fare clic su **Clona o scarica**.
+1. Fare clic su **Scarica ZIP** e salvare il file.
 1. Fare clic con il pulsante destro del mouse sul file **WingtipSaaS-master.zip** e scegliere **Proprietà**.
 1. Nella scheda **Generale** selezionare **Annulla blocco**.
 1. Fare clic su **OK**.

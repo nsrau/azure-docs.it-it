@@ -3,7 +3,7 @@ title: "Controllare la connettività con Azure Network Watcher - PowerShell | Mi
 description: "Questa pagina descrive come testare la connettività con Network Watcher usando PowerShell"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6cc61144b9e2f776c9039022d32300fd06b67bbd
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -69,7 +69,7 @@ AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Controllare la connettività a una macchina virtuale
 
-Questo esempio controlla la connettività a una macchina virtuale di destinazione sulla porta 80.
+Questo esempio controlla la connettività a una macchina virtuale di destinazione sulla porta 80. Questo esempio presuppone che Network Watcher sia abilitato nell'area che contiene la macchina virtuale di origine.  
 
 ### <a name="example"></a>Esempio
 
@@ -80,11 +80,11 @@ $destVMName = "Database0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-
 $VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 $VM2 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $destVMName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location} 
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
 ```
@@ -164,7 +164,7 @@ Hops             : [
 
 ## <a name="validate-routing-issues"></a>Problemi relativi alla convalida del routing
 
-L'esempio verifica la connettività tra una macchina virtuale e un endpoint remoto.
+L'esempio verifica la connettività tra una macchina virtuale e un endpoint remoto. Questo esempio presuppone che Network Watcher sia abilitato nell'area che contiene la macchina virtuale di origine.  
 
 ### <a name="example"></a>Esempio
 
@@ -173,11 +173,10 @@ $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
-
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-
 $VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
 ```
@@ -229,7 +228,7 @@ Hops             : [
 
 ## <a name="check-website-latency"></a>Controllare la latenza del sito Web
 
-L'esempio seguente controlla la connettività a un sito Web.
+L'esempio seguente controlla la connettività a un sito Web. Questo esempio presuppone che Network Watcher sia abilitato nell'area che contiene la macchina virtuale di origine.  
 
 ### <a name="example"></a>Esempio
 
@@ -238,11 +237,11 @@ $rgName = "ContosoRG"
 $sourceVMName = "MultiTierApp0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
+$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location } 
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
-$VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress http://bing.com/
 ```
@@ -282,7 +281,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>Controllare la connettività a un endpoint di archiviazione
 
-L'esempio seguente testa la connettività da una macchina virtuale a un account di archiviazione BLOB.
+L'esempio seguente testa la connettività da una macchina virtuale a un account di archiviazione BLOB. Questo esempio presuppone che Network Watcher sia abilitato nell'area che contiene la macchina virtuale di origine.  
 
 ### <a name="example"></a>Esempio
 
@@ -292,10 +291,10 @@ $sourceVMName = "MultiTierApp0"
 
 $RG = Get-AzureRMResourceGroup -Name $rgName
 
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $RG.Location }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
-
 $VM1 = Get-AzureRMVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
+
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location }
+$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 
 Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.windows.net/ 
 ```

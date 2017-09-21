@@ -13,23 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/11/2017
+ms.date: 09/08/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 2b8d519e11f70eda164bd8f6e131a3989f242ab0
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 1f54bb04023ad61f4eae51389c6a902a029e9399
 ms.contentlocale: it-it
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Linux
-Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile adattare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo della CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure. Si apprenderà come:
+Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Usare cloud-init per creare un'app per la scalabilità
 > * Creare un set di scalabilità di macchine virtuali
 > * Aumentare o diminuire il numero di istanze in un set di scalabilità
+> * Creare regole di scalabilità automatica
 > * Visualizzare le informazioni di connessione per le istanze del set di scalabilità
 > * Usare dischi di dati in un set di scalabilità
 
@@ -39,11 +40,11 @@ Un set di scalabilità di macchine virtuali consente di distribuire e gestire un
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="scale-set-overview"></a>Informazioni generali sui set di scalabilità
-Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. I set di scalabilità usano gli stessi componenti descritti nell'esercitazione precedente [Creare macchine virtuali a disponibilità elevata](tutorial-availability-sets.md). Le macchine virtuali di un set di scalabilità vengono create in un set di disponibilità e distribuite in domini logici di errore e di aggiornamento.
+Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. Le macchine virtuali di un set di scalabilità vengono distribuite in domini logici di errore e di aggiornamento in uno o più *gruppi di posizionamento*. Si tratta di gruppi di VM configurate in modo simile, analoghi ai [set di disponibilità](tutorial-availability-sets.md).
 
 Le macchine virtuali vengono create in base alle esigenze in un set di scalabilità. È possibile definire regole di scalabilità automatica per controllare le modalità e i tempi di aggiunta e rimozione delle VM dal set di scalabilità. Queste regole possono essere attivate in base a determinate metriche, ad esempio il carico della CPU, l'utilizzo della memoria o il traffico di rete.
 
-I set di scalabilità supportano fino a 1000 macchine virtuali quando si usa un'immagine della piattaforma Azure. Per i carichi di lavoro di produzione, è opportuno [creare un'immagine di macchina virtuale personalizzata](tutorial-custom-images.md). È possibile creare fino a 100 macchine virtuali in un set di scalabilità quando si usa un'immagine personalizzata.
+I set di scalabilità supportano fino a 1.000 VM quando si usa un'immagine della piattaforma Azure. Per i carichi di lavoro con requisiti significativi di installazione o personalizzazione di VM, si consiglia di [creare un'immagine di VM personalizzata](tutorial-custom-images.md). È possibile creare fino a 300 macchine virtuali in un set di scalabilità quando si usa un'immagine personalizzata.
 
 
 ## <a name="create-an-app-to-scale"></a>Creare un'app per la scalabilità
@@ -113,7 +114,7 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
-  --generate-ssh-keys      
+  --generate-ssh-keys
 ```
 
 La creazione e la configurazione di tutte le macchine virtuali e risorse del set di scalabilità richiedono alcuni minuti. Sono presenti attività in background la cui esecuzione continua dopo che l'interfaccia della riga di comando di Azure è tornata al prompt. Potrebbe trascorrere ancora qualche minuto prima che sia possibile accedere all'app.
@@ -197,7 +198,79 @@ az vmss scale \
     --new-capacity 5
 ```
 
-Le regole di scalabilità automatica consentono di definire come aumentare o ridurre il numero di macchine virtuali del set di scalabilità in base alla domanda, ad esempio il traffico di rete o l'utilizzo della CPU. Non è attualmente possibile impostare queste regole nell'interfaccia della riga di comando di Azure 2.0. Usare il [Portale di Azure](https://portal.azure.com) per configurare la scalabilità automatica.
+
+### <a name="configure-autoscale-rules"></a>Configurare le regole di scalabilità automatica
+Invece di ridimensionare manualmente il numero di istanze del set di scalabilità, è possibile definire regole di scalabilità automatica. Queste regole monitorano le istanze nel set di scalabilità e rispondono di conseguenza in base alle metriche e alle soglie definite. L'esempio seguente aumenta il numero di istanze di uno quando il carico della CPU medio è maggiore del 60% per un periodo di 5 minuti. Se il carico della CPU medio scende poi sotto il 30% per un periodo di 5 minuti, le istanze vengono ridotte di una. L'ID della sottoscrizione viene usato per creare gli URI delle risorse per i diversi componenti del set di scalabilità. Per creare queste regole con [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#create), copiare e incollare il profilo del comando di scalabilità automatica seguente:
+
+```azurecli-interactive 
+sub=$(az account show --query id -o tsv)
+
+az monitor autoscale-settings create \
+    --resource-group myResourceGroupScaleSet \
+    --name autoscale \
+    --parameters '{"autoscale_setting_resource_name": "autoscale",
+      "enabled": true,
+      "location": "East US",
+      "notifications": [],
+      "profiles": [
+        {
+          "name": "Auto created scale condition",
+          "capacity": {
+            "minimum": "2",
+            "maximum": "10",
+            "default": "2"
+          },
+          "rules": [
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan",
+                "threshold": 70
+              },
+              "scaleAction": {
+                "direction": "Increase",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            },
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "LessThan",
+                "threshold": 30
+              },
+              "scaleAction": {
+                "direction": "Decrease",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            }
+          ]
+        }
+      ],
+      "tags": {},
+      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+    }'
+```
+
+Per usare di nuovo il profilo di scalabilità automatica, è possibile creare un file JSON (JavaScript Object Notation) e passarlo al comando `az monitor autoscale-settings create` con il parametro `--parameters @autoscale.json`. Per altre informazioni di progettazione sull'uso della scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica](/azure/architecture/best-practices/auto-scaling).
+
 
 ### <a name="get-connection-info"></a>Ottenere informazioni sulla connessione
 Per ottenere informazioni sulla connessione delle macchine virtuali nel set di scalabilità, usare [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). Questo comando restituisce l'indirizzo IP pubblico e la porta per ogni macchina virtuale che consente la connessione con SSH:
@@ -258,6 +331,7 @@ In questa esercitazione è stato creato un set di scalabilità di macchine virtu
 > * Usare cloud-init per creare un'app per la scalabilità
 > * Creare un set di scalabilità di macchine virtuali
 > * Aumentare o diminuire il numero di istanze in un set di scalabilità
+> * Creare regole di scalabilità automatica
 > * Visualizzare le informazioni di connessione per le istanze del set di scalabilità
 > * Usare dischi di dati in un set di scalabilità
 
@@ -265,3 +339,4 @@ Passare all'esercitazione successiva per maggiori informazioni sui concetti di b
 
 > [!div class="nextstepaction"]
 > [Bilanciare il carico delle macchine virtuali](tutorial-load-balancer.md)
+

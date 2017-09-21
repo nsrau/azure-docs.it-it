@@ -15,12 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d42df0cbfa20741d4848dbefabb9028128b42ae1
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 79f7ccabb3900acfba7216823cecc7fc7bddd4b3
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importare un file BACPAC in un nuovo database SQL di Azure
@@ -38,7 +37,7 @@ Quando è necessario importare un database da un archivio o eseguire la migrazio
 
 Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per creare un database SQL di Azure a partire da un file BACPAC archiviato nell'archiviazione BLOB di Azure. L'importazione tramite il portale di Azure supporta solo l'importazione di un file BACPAC dall'archiviazione BLOB di Azure.
 
-Per importare un database tramite il portale di Azure, aprire la pagina per il database e fare clic su **Importa** sulla barra degli strumenti. Specificare l'account di archiviazione e il contenitore e quindi selezionare il file BACPAC che si vuole importare. Selezionare la dimensione del nuovo database (in genere lo stesso dell'origine) e specificare le credenziali di SQL Server di destinazione.  
+Per importare un database tramite il portale di Azure, aprire la pagina per il server a cui associare il database e fare clic su **Importa** sulla barra degli strumenti. Specificare l'account di archiviazione e il contenitore e quindi selezionare il file BACPAC che si vuole importare. Selezionare la dimensione del nuovo database (in genere lo stesso dell'origine) e specificare le credenziali di SQL Server di destinazione.  
 
    ![Importazione di database](./media/sql-database-import/import.png)
 
@@ -63,8 +62,6 @@ Vedere il comando SQLPackage seguente per uno script di esempio che illustra com
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
-
-   ![importazione sqlpackage](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
 > [!IMPORTANT]
 > Il server logico del database SQL di Azure è in ascolto sulla porta 1433. Se si sta tentando di connettersi a un server logico del database SQL di Azure dall'interno di un firewall aziendale, questa porta deve essere aperta.

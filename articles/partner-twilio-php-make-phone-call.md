@@ -1,6 +1,6 @@
 ---
 title: Come effettuare una chiamata telefonica da Twilio (PHP) | Microsoft Docs
-description: Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi per un&quot;applicazione PHP.
+description: Informazioni su come effettuare una chiamata telefonica e inviare un SMS con il servizio API Twilio API in Azure. Esempi per un'applicazione PHP.
 documentationcenter: php
 services: 
 author: devinrader
@@ -14,11 +14,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: f35450ace02727ddf392dbbe857b934a45ee022a
-ms.lasthandoff: 03/07/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: eeecec0d879b60e90d1a3bf2043e68a41d7145a8
+ms.contentlocale: it-it
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Come effettuare una chiamata tramite Twilio in un'applicazione PHP in Azure
@@ -30,7 +30,8 @@ Per usare il codice in questo argomento è necessario eseguire le operazioni seg
 
 1. Ottenere un account Twilio e un token di autenticazione dalla [console di Twilio][twilio_console]. Per informazioni sui prezzi di Twilio, vedere la pagina [http://www.twilio.com/pricing][twilio_pricing]. Per effettuare l'iscrizione e ottenere un account di valutazione gratuito, vedere la pagina [https://www.twilio.com/try-twilio][try_twilio].
 2. Ottenere la [libreria Twilio per PHP](https://github.com/twilio/twilio-php) o installarla come pacchetto PEAR. Per altre informazioni, vedere il [file leggimi](https://github.com/twilio/twilio-php/blob/master/README.md).
-3. Installare Azure SDK per PHP. Per informazioni generali sull'SDK e istruzioni per installarlo, vedere [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) (Configurare Azure SDK per PHP).
+3. Installare Azure SDK per PHP. 
+<!-- For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP](app-service-web/web-sites-php-mysql-deploy-use-git.md) -->
 
 ## <a name="create-a-web-form-for-making-a-call"></a>Creare un modulo Web per effettuare una chiamata
 Il codice HTML seguente mostra come creare una pagina Web (**callform.html**) che consente di recuperare i dati utente per l'effettuazione di una chiamata:
@@ -106,10 +107,7 @@ Oltre a eseguire la chiamata, **makecall.php** visualizza alcuni metadati della 
 ![Risposta a chiamata di Azure tramite Twilio e PHP][twilio_php_response]
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
-Il passaggio successivo consiste nel distribuire l'applicazione in Siti Web di Azure. Gli articoli seguenti contengono informazioni sulla creazione di un sito Web e sulla distribuzione del codice con Git, FTP o WebMatrix, sebbene non tutte le informazioni incluse in ogni articolo siano rilevanti:
-
-* [Creare un sito Web di Azure PHP-MySQL e distribuirlo tramite Git](app-service-web/web-sites-php-mysql-deploy-use-git.md)
-* [Creare un sito Web di Azure PHP-MySQL e distribuirlo tramite FTP](app-service-web/web-sites-php-mysql-deploy-use-ftp.md)
+Il passaggio successivo consiste nel [distribuire l'applicazione in App Web di Azure con Git](app-service-web/app-service-web-get-started-php.md), ma non tutte le informazioni contenute in questa pagina sono rilevanti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo di Twilio con PHP in Azure. Prima di eseguire la distribuzione in Azure in produzione, può essere necessario aggiungere ulteriori funzionalità per la gestione degli errori o per altri scopi. Ad esempio:
@@ -142,7 +140,5 @@ Per altre informazioni su Twilio, vedere [https://www.twilio.com/docs][twilio_do
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 [twilio_php]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPCallForm.jpg
 [twilio_php_response]: ./media/partner-twilio-php-make-phone-call/WA_TwilioPHPMakeCall.jpg
-[website-git]: ./web-sites/web-sites-php-mysql-deploy-use-git.md
-[website-ftp]: ./web-sites/web-sites-php-mysql-deploy-use-ftp.md
 [twilio_php_github]: https://github.com/twilio/twilio-php
 

@@ -1,11 +1,11 @@
 ---
 title: "Eseguire query di analisi ad-hoc su più database SQL di Azure | Microsoft Docs"
-description: "Eseguire query di analisi ad-hoc su più database SQL nell'app multi-tenant SaaS Wingtip."
+description: "Eseguire query di analisi ad hoc su più database SQL in un esempio di app multi-tenant."
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -16,17 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c287fe5d6b333c749b0580b5253e7e46ac27232b
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: a27a65627fecf35b59122110250a40c6fe8077b5
 ms.contentlocale: it-it
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="run-ad-hoc-analytics-queries-across-all-wingtip-saas-tenants"></a>Eseguire query di analisi ad-hoc su tutti i tenant SaaS Wingtip
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Eseguire query di analisi ad hoc su più database SQL di Azure
 
-In questa esercitazione verranno eseguite query distribuite sull'intero set di database tenant per consentire analisi ad hoc. Viene usata la funzionalità di query elastica per abilitare le query distribuite, che richiede la distribuzione di un database di analisi aggiuntivo nel server di catalogo. Queste query consentono di estrarre informazioni approfondite nascoste nei dati operativi quotidiani dell'app SaaS Wingtip.
+In questa esercitazione verranno eseguite query distribuite sull'intero set di database multi-tenant per consentire analisi ad hoc. Viene usata la funzionalità di query elastica per abilitare le query distribuite, che richiede la distribuzione di un database di analisi aggiuntivo nel server di catalogo. Queste query consentono di estrarre informazioni approfondite nascoste nei dati operativi quotidiani dell'app SaaS Wingtip.
 
 
 In questa esercitazione si apprenderà:
@@ -48,11 +47,11 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 
 ## <a name="ad-hoc-analytics-pattern"></a>Modello di analisi ad hoc
 
-Una delle grandi opportunità offerte dalle applicazioni SaaS è la possibilità di usare enormi quantità di dati dei tenant archiviati in modo centralizzato nel cloud. Usare questi dati per ottenere informazioni approfondite sul funzionamento e l'utilizzo delle applicazioni, sui tenant, i relativi utenti e le loro preferenze, i loro comportamenti e così via. Queste informazioni possono essere utili come base per progettare sviluppi futuri, miglioramenti dell'usabilità e altri investimenti per app e servizi.
+Una delle grandi opportunità offerte dalle applicazioni SaaS è la possibilità di usare enormi quantità di dati dei tenant archiviati in modo centralizzato nel cloud. Questi dati possono essere usati per ottenere informazioni dettagliate sul funzionamento e l'uso dell'applicazione. Queste informazioni possono essere utili come base per progettare sviluppi futuri, miglioramenti dell'usabilità e altri investimenti per app e servizi.
 
 L'accesso a questi dati è semplice quando sono raccolti in un singolo database multi-tenant, ma non è altrettanto semplice in una distribuzione su larga scala potenzialmente in migliaia di database. Uno degli approcci possibili prevede l'uso di una [query elastica](sql-database-elastic-query-overview.md), che consente di eseguire query su un set di database distribuiti con uno schema comune. La query elastica usa un singolo database *principale* in cui sono definite le tabelle esterne speculari alle tabelle o alle viste nei database (tenant) distribuiti. Le query inviate a questo database principale vengono compilate per produrre un piano di query distribuito, con il push di parti della query ai database tenant all'occorrenza. La query elastica usa la mappa partizioni nel database del catalogo per fornire la posizione dei database tenant. La configurazione e l'esecuzione di query sono semplici con il linguaggio [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) standard e sono supportate query ad hoc da strumenti come Power BI ed Excel.
 
-Grazie alla distribuzione delle query tra i database tenant, la query elastica offre informazioni dettagliate immediate sui dati di produzione attivi. Tuttavia, dato che la query elastica esegue il pull dei dati potenzialmente da molti database, la latenza delle query può talvolta essere superiore a quella di query equivalenti inviate a un singolo database multi-tenant. Occorre prestare attenzione quando si progettano le query per ridurre al minimo i dati restituiti. La query elastica è spesso la soluzione ideale per eseguire query su piccole quantità di dati in tempo reale, in alternativa alla creazione di query analitiche o report usati di frequente e complessi. Se le query non offrono prestazioni adeguate, esaminare il [piano di esecuzione](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) per scoprire quale parte della query è stata inviata al database remoto e quanti dati vengono restituiti. Per ottenere un servizio migliore per le query che richiedono un'elaborazione analitica complessa, in alcuni casi è consigliabile estrarre i dati tenant in un database dedicato o in un data warehouse ottimizzato per le query analitiche. Questo modello è spiegato nell'[esercitazione sull'analisi dei tenant](sql-database-saas-tutorial-tenant-analytics.md). 
+Grazie alla distribuzione delle query tra i database tenant, la query elastica offre informazioni dettagliate immediate sui dati di produzione attivi. Tuttavia, dato che la query elastica esegue il pull dei dati potenzialmente da molti database, la latenza delle query può talvolta essere superiore a quella di query equivalenti inviate a un singolo database multi-tenant. Assicurarsi di progettare query che riducano al minimo i dati restituiti. La query elastica è spesso la soluzione ideale per eseguire query su piccole quantità di dati in tempo reale, in alternativa alla creazione di query analitiche o report usati di frequente e complessi. Se le query non offrono prestazioni adeguate, esaminare il [piano di esecuzione](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) per scoprire quale parte della query è stata inviata al database remoto e quanti dati vengono restituiti. Per ottenere un servizio migliore per le query che richiedono un'elaborazione analitica complessa, in alcuni casi è consigliabile estrarre i dati tenant in un database dedicato o in un data warehouse ottimizzato per le query analitiche. Questo modello è spiegato nell'[esercitazione sull'analisi dei tenant](sql-database-saas-tutorial-tenant-analytics.md). 
 
 ## <a name="get-the-wingtip-application-scripts"></a>Ottenere gli script dell'applicazione Wingtip
 
@@ -64,13 +63,13 @@ Per eseguire query su un set di dati più interessante, creare i dati di vendita
 
 1. In *PowerShell ISE* aprire lo script \\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* e impostare i valori seguenti:
    * **$DemoScenario** = 1, **Acquistare biglietti per gli eventi in tutte le sedi**.
-2. Premere **F5** per eseguire lo script e generare i dati di vendita dei biglietti. Durante l'esecuzione dello script, è possibile continuare la procedura in questa esercitazione. I dati sui biglietti vengono recuperati nella sezione *Eseguire query distribuite ad hoc*, quindi attendere che il generatore di biglietti completi le operazioni se è ancora in esecuzione quando si arriva a tale esercizio.
+2. Premere **F5** per eseguire lo script e generare i dati di vendita dei biglietti. Durante l'esecuzione dello script, è possibile continuare la procedura in questa esercitazione. I dati sui biglietti vengono recuperati nella sezione *Eseguire query distribuite ad hoc*, quindi attendere che il generatore di biglietti completi le operazioni.
 
 ## <a name="explore-the-global-views"></a>Esplorare le viste globali
 
 L'applicazione SaaS Wingtip è compilata in base a un modello che usa un database per ogni tenant. Lo schema del database tenant è quindi definito dal punto di vista di un tenant singolo. Le informazioni specifiche sul tenant sono presenti in una sola tabella *Venue*, che contiene sempre una singola riga ed è implementata come heap, senza una chiave primaria. Non è necessario che le altre tabelle nello schema siano correlate alla tabella *Venue*, perché nell'uso normale l'appartenenza dei dati ai tenant non è mai dubbia.
 
-Quando si eseguono query su tutti i database, tuttavia, è importante che la query elastica possa trattare i dati come se facessero parte di un singolo database logico partizionato dal tenant. A tale scopo, viene aggiunto un set di viste 'globali' al database tenant che proiettano un ID tenant in ogni tabella sottoposta a query a livello globale. Ad esempio, la vista *VenueEvents* aggiunge un *VenueId* calcolato alle colonne proiettate dalla tabella *Events*. Tramite la definizione della tabella esterna nel database principale su *VenueEvents* (invece della tabella sottostante *Events*), la query elastica può eseguire il push dei join in base a *VenueId*, in modo che possano essere eseguiti in parallelo su ogni database remoto, anziché sul database principale. Questo riduce drasticamente la quantità di dati restituita, con conseguente miglioramento sostanziale delle prestazioni per molte query. Queste viste globali sono state già create in tutti i database tenant e in *basetenantdb*.
+Quando si eseguono query su tutti i database, tuttavia, è importante che la query elastica possa trattare i dati come se facessero parte di un singolo database logico partizionato dal tenant. Per simulare questo modello, viene aggiunto un set di viste "globali" al database tenant che proiettano un ID tenant in ogni tabella sottoposta a query a livello globale. Ad esempio, la vista *VenueEvents* aggiunge un *VenueId* calcolato alle colonne proiettate dalla tabella *Events*. Tramite la definizione della tabella esterna nel database principale su *VenueEvents* (invece della tabella sottostante *Events*), la query elastica può eseguire il push dei join in base a *VenueId*, in modo che possano essere eseguiti in parallelo su ogni database remoto, anziché sul database principale. Questo riduce drasticamente la quantità di dati restituita, con conseguente miglioramento sostanziale delle prestazioni per molte query. Queste viste globali sono state già create in tutti i database tenant e in *basetenantdb*.
 
 1. Aprire SSMS e [connettersi al server tenants1-&lt;USER&gt;](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Espandere **Database**, fare clic con il pulsante destro del mouse su **contosoconcerthall** e selezionare **Nuova query**.
@@ -105,7 +104,7 @@ Creare uno script per qualsiasi altra vista *Venue* per scoprire come viene aggi
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Distribuire il database usato per le query distribuite ad hoc
 
-Questo esercizio permette di distribuire il database *adhocanalytics*, ovvero il database principale che conterrà lo schema usato per l'esecuzione di query su tutti i database tenant. Il database viene distribuito nel server di catalogo esistente, vale a dire il server usato per tutti i database correlati alla gestione nell'app di esempio.
+Questo esercizio permette di distribuire il database *adhocanalytics*, ovvero il database principale che contiene lo schema usato per l'esecuzione di query su tutti i database tenant. Il database viene distribuito nel server di catalogo esistente, vale a dire il server usato per tutti i database correlati alla gestione nell'app di esempio.
 
 1. Aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* in *PowerShell ISE* e impostare i valori seguenti:
    * **$DemoScenario** = 2, **Distribuire un database di analisi ad hoc**.
@@ -118,7 +117,7 @@ Nella prossima sezione si aggiungerà lo schema al database in modo da poterlo u
 
 Questo esercizio aggiunge lo schema (definizioni dell'origine dati esterna e della tabella esterna) al database di analisi ad hoc che consente l'esecuzione di query su tutti i database tenant.
 
-1. Aprire SQL Server Management Studio e connettersi al database di analisi ad hoc creato nel passaggio precedente. Il nome del database è adhocanalytics.
+1. Aprire SQL Server Management Studio e connettersi al database di analisi ad hoc creato nel passaggio precedente. Il nome del database è *adhocanalytics*.
 2. Aprire ...\Learning Modules\Operational Analytics\Adhoc Analytics\ *Initialize-AdhocAnalyticsDB.sql* in SSMS.
 3. Esaminare lo script SQL e tenere presente quanto segue:
 

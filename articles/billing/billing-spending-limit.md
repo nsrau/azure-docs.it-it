@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 0c9825f11733127a547e06e159172a08cef736eb
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 311a1af35b7fecb5f0d4fac7f38af705c945d714
 ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendere il limite di spesa di Azure e la relativa rimozione
@@ -69,7 +69,11 @@ Il limite di spesa può impedire all'utente di distribuire o usare determinati s
 
 ### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>Come si attiva il limite di spesa dopo averlo rimosso?
 
-Il limite di spesa viene attivato solo automaticamente. Purtroppo non è possibile attivarlo dopo averlo rimosso. Assicurarsi di selezionare l'opzione **Rimuovi il limite di spesa per il periodo di fatturazione corrente** se si è preoccupati per il fatto che il limite non venga riattivato.
+Questa funzionalità è disponibile solo quando il limite di spesa è stato rimosso per un periodo illimitato. Modificarlo in modo da attivarlo automaticamente all'inizio del periodo di fatturazione successivo.
+
+1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions).
+1. Fare clic sul banner giallo per modificare l'opzione relativa al limite di spesa.
+1. Scegliere **Attiva limite di spesa per il prossimo periodo di fatturazione \<data di inizio del periodo di fatturazione\>**.
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Come si imposta un limite di spesa personalizzato?
 

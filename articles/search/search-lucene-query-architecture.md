@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
 ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -238,7 +238,13 @@ Si supponga anche che l'indice contenga i seguenti quattro documenti:
 
 Comprendere il recupero è utile per conoscere alcune nozioni di base sull'indicizzazione. L'unità di archiviazione è un indice invertito, uno per ogni campo ricercabile. In un indice invertito è presente un elenco ordinato di tutti i termini derivanti da tutti i documenti. Ogni termine esegue il mapping nell'elenco di termini in cui si verifica, come si evince nell'esempio seguente.
 
-Per produrre i termini in un indice inverso, il motore di ricerca esegue l'analisi lessicale sul contenuto dei documenti, analogamente a quanto accade durante l'elaborazione delle query. Gli input del testo vengono passati a un analizzatore, in lettere minuscole, prive di punteggiatura e così via, a seconda della configurazione dell'analizzatore. È comune, ma non obbligatorio, usare gli stessi analizzatori per la ricerca e le operazioni di indicizzazione in modo che i termini di query assomiglino di più ai termini contenuti nell'indice.
+Per produrre i termini in un indice inverso, il motore di ricerca esegue l'analisi lessicale del contenuto dei documenti, analogamente a quanto accade durante l'elaborazione delle query:
+
+1. Gli *input di testo* vengono passati a un analizzatore, in lettere minuscole, prive di punteggiatura e così via, a seconda della configurazione dell'analizzatore. 
+2. I *token* costituiscono l'output dell'analisi del testo.
+3. I *termini* vengono aggiunti all'indice.
+
+È comune, ma non obbligatorio, usare gli stessi analizzatori per la ricerca e le operazioni di indicizzazione in modo che i termini di query assomiglino di più ai termini contenuti nell'indice.
 
 > [!Note]
 > Ricerca di Azure consente di specificare diversi analizzatori per l'indicizzazione e la ricerca tramite parametri di campo aggiuntivi `indexAnalyzer` e `searchAnalyzer`. Se non è specificato, l'analizzatore impostato con la proprietà `analyzer` viene usato per l'indicizzazione e la ricerca.  

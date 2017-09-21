@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 9/14/2017
 ms.author: negat
 ms.custom: na
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: cc5a0ba5474827cedc5b6a42651c206d5f2540b7
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -329,7 +329,7 @@ Non sono attualmente supportati i file con estensione cer. Per usare i file con 
 
 
 
-## <a name="compliance"></a>Conformità
+## <a name="compliance-and-security"></a>Conformità e sicurezza
 
 ### <a name="are-virtual-machine-scale-sets-pci-compliant"></a>I set di scalabilità di macchine virtuali sono compatibili con PCI?
 
@@ -339,9 +339,9 @@ Dal punto di vista della conformità, i set di scalabilità di macchine virtuali
 
 Per altre informazioni, vedere il [Centro protezione Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>L'[identità del servizio gestito di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funziona con i set di scalabilità di macchine virtuali?
 
-
-
+Sì. È possibile visualizzare alcuni modelli MSI di esempio nei modelli di avvio rapido di Azure. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Estensioni
@@ -510,7 +510,7 @@ Sì. È possibile applicare un gruppo di sicurezza di rete direttamente a un set
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Come si esegue lo scambio di indirizzi VIP per i set di scalabilità di macchine virtuali che si trovano nella stessa sottoscrizione e nella stessa area?
 
-Se si hanno due set di scalabilità di macchine virtuali con front-end di Azure Load Balancer, che sono nella stessa sottoscrizione e area, è possibile deallocare gli indirizzi IP pubblici da uno e assegnarli all'altro. Per un esempio, vedere [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Scambio di indirizzi VIP: distribuzione di tipo "blu-verde" in Azure Resource Manager). Ciò implica un ritardo anche se le risorse vengono deallocate/allocate a livello di rete. Un'opzione più rapida consiste nell'usare il Gateway applicazione di Azure con due pool di back-end e una regola di routing. In alternativa, è possibile ospitare l'applicazione con [Servizio app di Azure](https://azure.microsoft.com/en-us/services/app-service/) che offre il supporto per commutare rapidamente gli slot di gestione temporanea in slot di produzione.
+Se si hanno due set di scalabilità di macchine virtuali con front-end di Azure Load Balancer, che sono nella stessa sottoscrizione e area, è possibile deallocare gli indirizzi IP pubblici da uno e assegnarli all'altro. Per un esempio, vedere [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) (Scambio di indirizzi VIP: distribuzione di tipo "blu-verde" in Azure Resource Manager). Ciò implica un ritardo anche se le risorse vengono deallocate/allocate a livello di rete. Un'opzione più rapida consiste nell'usare il Gateway applicazione di Azure con due pool di back-end e una regola di routing. In alternativa, è possibile ospitare l'applicazione con [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) che offre il supporto per commutare rapidamente gli slot di gestione temporanea in slot di produzione.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Come è possibile specificare un intervallo di indirizzi IP privati per l'allocazione di indirizzi IP privati statici?
 

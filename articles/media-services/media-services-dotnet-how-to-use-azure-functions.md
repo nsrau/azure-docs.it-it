@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
 ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
@@ -32,10 +32,6 @@ Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i S
 - Per poter creare la prima funzione, è necessario avere un account Azure attivo. Se non si possiede già un account Azure, [sono disponibili account gratuiti](https://azure.microsoft.com/free/).
 - Se si intende creare le Funzioni di Azure per eseguire azioni sull'account dei Servizi multimediali di Azure o ascoltare gli eventi inviati dai Servizi multimediali, è necessario creare un account AMS, come descritto [qui](media-services-portal-create-account.md).
     
-## <a name="considerations"></a>Considerazioni
-
--  Le funzioni di Azure in esecuzione con piano a consumo hanno un timeout di 5 minuti.
-
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
 1. Passare al [portale di Azure](http://portal.azure.com) e accedere con il proprio account Azure.
@@ -47,10 +43,6 @@ Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i S
 ## <a name="configure-function-app-settings"></a>Configurare le impostazioni dell'app per le funzioni
 
 Quando si sviluppano le funzioni di Servizi multimediali, è utile aggiungere variabili di ambiente che verranno usati nelle funzioni. Per configurare le impostazioni dell'app, fare clic sul collegamento Configurare le impostazioni dell'app. Per altre informazioni, vedere [Come configurare le impostazioni dell'app per le funzioni di Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md). 
-
-Ad esempio:
-
-![Impostazioni](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
 Per la funzione definita in questo articolo si presuppongono le seguenti variabili di ambiente nelle impostazioni dell'app:
 
@@ -344,6 +336,9 @@ Per testare la funzione, è necessario caricare un file MP4 nel contenitore **in
 2. Fare clic su **Blob**.
 3. Fare clic su **+ Contenitore**. Denominare il contenitore **input**.
 4. Premere **Upload** e passare al file MP4 che si desidera caricare.
+
+>[!NOTE]
+> Quando si usa un trigger di tipo BLOB in un piano a consumo, è possibile che si verifichi un ritardo di un massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per altre informazioni, vedere [Trigger e associazioni di archiviazione BLOB](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -18,17 +18,17 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 5c352fd29c32b381d754b491ec46b3b250bd66ae
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Caricare dati per processi Hadoop in HDInsight
 
 Azure HDInsight include un file system HDFS (Hadoop Distributed File System) completo su Archiviazione di Microsoft Azure e Azure Data Lake Store. Archiviazione di Azure e Data Lake Store sono stati progettati come estensione Hadoop Distributed File System per offrire un'esperienza lineare ai clienti. Abilitano il set completo di componenti nell'ecosistema Hadoop, con possibilità di agire direttamente sui dati gestiti da Hadoop stesso. Archiviazione di Azure e Data Lake Store sono file system distinti, ottimizzati per l'archiviazione di dati e per l'esecuzione di calcoli su di essi. Per informazioni sui vantaggi dell'uso di Archiviazione di Microsoft Azure, vedere [Usare Archiviazione di Microsoft Azure con HDInsight][hdinsight-storage] e [Usare Data Lake Store con HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-##<a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, tenere presenti i requisiti seguenti:
 
@@ -159,7 +159,7 @@ La riga di comando di Hadoop è utile solo per archiviare i dati nel BLOB di arc
 Per usare il comando Hadoop, è innanzitutto necessario connettersi nel nodo head mediante uno dei metodi seguenti:
 
 * **HDInsight basato su Windows**: [connettersi tramite Desktop remoto](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight basato su Linux**: connettersi tramite SSH ([comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md) r [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **HDInsight basato su Linux**: connettersi tramite [SSH o PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Dopo essersi connessi, è possibile usare la sintassi seguente per caricare un file nell'archiviazione.
 

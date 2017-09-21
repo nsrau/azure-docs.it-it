@@ -1,11 +1,11 @@
 ---
-title: Regole del firewall per il database SQL di Azure | Microsoft Docs
+title: Regole del firewall per il database SQL di Azure | Documentazione Microsoft
 description: Informazioni su come configurare un firewall del database SQL con regole del firewall a livello di server e a livello di database per la gestione dell'accesso.
 keywords: firewall del database
 services: sql-database
 documentationcenter: 
 author: BYHAM
-manager: jhubbard
+manager: craigg
 editor: cgronlun
 tags: 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 04/10/2017
+ms.date: 09/12/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 71c7eaf2272245bd681387947812f7d5c0f58094
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 6ba04cd62aff587e56308bb332e31b2da75398cb
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Regole firewall a livello di server e di database per il database SQL di Azure 
@@ -67,7 +67,7 @@ Per consentire alle applicazioni da Azure di stabilire la connessione al server 
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Creazione e gestione di regole del firewall
-La prima impostazione del firewall a livello di server può essere creata usando il [Portale di Azure](https://portal.azure.com/) o a livello di programmazione tramite [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx), [l'interfaccia della riga di comando di Azure](/cli/azure/sql/server/firewall-rule#create), o l'[API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Le regole del firewall a livello di server successive possono essere create e gestite utilizzando questi metodi e tramite Transact-SQL. 
+La prima impostazione del firewall a livello di server può essere creata usando il [Portale di Azure](https://portal.azure.com/) o a livello di programmazione tramite [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l'interfaccia della riga di comando di Azure](/cli/azure/sql/server/firewall-rule#create), o l'[API REST](https://docs.microsoft.com/rest/api/sql/firewallrules). Le regole del firewall a livello di server successive possono essere create e gestite utilizzando questi metodi e tramite Transact-SQL. 
 
 > [!IMPORTANT]
 > Le regole del firewall a livello di database possono essere create e gestite solo con Transact-SQL. 
@@ -79,7 +79,7 @@ Per migliorare le prestazioni, le regole del firewall a livello di server vengon
 > È possibile usare il [servizio di controllo del database SQL](sql-database-auditing.md) per controllare le modifiche del firewall a livello di server e di database.
 >
 
-### <a name="azure-portal"></a>Portale di Azure
+## <a name="manage-firewall-rules-using-the-azure-portal"></a>Gestire le regole del firewall con il portale di Azure
 
 Per impostare una regola del firewall a livello di server nel portale di Azure, è possibile passare alla pagina di Panoramica per il database SQL di Azure o alla pagina di Panoramica per il server logico del Database di Azure.
 
@@ -101,15 +101,11 @@ Per impostare una regola del firewall a livello di server nel portale di Azure, 
 
 Si apre la pagina di panoramica per il server che visualizza il nome completo del server, ad esempio **mynewserver20170403.database.windows.net**, e offre altre opzioni di configurazione.
 
-1. Per impostare una regola a livello di server dalla pagina di panoramica del server, fare clic su **Firewall** nel menu a sinistra sotto le Impostazioni come illustrato nell'immagine seguente: 
-
-     ![panoramica del server logico](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+1. Per impostare una regola a livello di server dalla pagina di panoramica del server, fare clic su **Firewall** nel menu a sinistra sotto Impostazioni: 
 
 2. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP del computer attualmente in uso e quindi fare clic su **Salva**. Una regola del firewall a livello di server viene creata per l'indirizzo IP corrente.
 
-     ![Impostare la regola del firewall del server](./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png)
-
-### <a name="transact-sql"></a>Transact-SQL
+## <a name="manage-firewall-rules-using-transact-sql"></a>Gestire le regole del firewall con Transact-SQL
 | Vista del catalogo o una Stored Procedure | Level | Descrizione |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Visualizza le regole del firewall a livello di server correnti |
@@ -139,13 +135,13 @@ Per eliminare una regola del firewall a livello di server, eseguire la stored pr
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
 
-### <a name="azure-powershell"></a>Azure PowerShell
+## <a name="manage-firewall-rules-using-azure-powershell"></a>Gestire le regole del firewall con Azure PowerShell
 | Cmdlet | Level | Descrizione |
 | --- | --- | --- |
-| [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx) |Server |Restituisce le regole del firewall a livello di server correnti |
-| [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx) |Server |Crea una nuova regola del firewall a livello di server |
-| [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx) |Server |Aggiorna le proprietà di una regola del firewall a livello di server esistente |
-| [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) |Server |Rimuove regole del firewall a livello di server |
+| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Restituisce le regole del firewall a livello di server correnti |
+| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Server |Crea una nuova regola del firewall a livello di server |
+| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Server |Aggiorna le proprietà di una regola del firewall a livello di server esistente |
+| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Server |Rimuove regole del firewall a livello di server |
 
 
 Nell'esempio seguente si imposta una regola del firewall a livello di server con PowerShell:
@@ -160,7 +156,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 > Per esempi di PowerShell nel contesto di una Guida introduttiva, vedere [Creare un singolo database SQL di Azure usando PowerShell](sql-database-get-started-powershell.md) e [Creare un singolo database SQL e configurare una regola del firewall usando PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
 >
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+## <a name="manage-firewall-rules-using-azure-cli"></a>Gestire le regole del firewall con l'interfaccia della riga di comando di Azure
 | Cmdlet | Level | Descrizione |
 | --- | --- | --- |
 | [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | Consente di creare una regola del firewall per consentire l'accesso a tutti i database SQL presenti sul server dall'intervallo di indirizzi IP immesso.|
@@ -180,13 +176,12 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 > Per un esempio di interfaccia della riga di comando di Azure nel contesto di una Guida introduttiva, vedere [Creare un singolo database SQL di Azure usando l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md) e [Creare un singolo database SQL e configurare una regola del firewall tramite l'interfaccia della riga di comando di Azure](scripts/sql-database-create-and-configure-database-cli.md)
 >
 
-### <a name="rest-api"></a>API REST
+## <a name="manage-firewall-rules-using-rest-api"></a>Gestire le regole del firewall con l'API REST
 | API | Level | Descrizione |
 | --- | --- | --- |
-| [Elencare le regole del firewall](https://msdn.microsoft.com/library/azure/dn505715.aspx) |Server |Visualizza le regole del firewall a livello di server correnti |
-| [Creare la regola del firewall](https://msdn.microsoft.com/library/azure/dn505712.aspx) |Server |Crea o aggiorna regole del firewall a livello di server |
-| [Impostare la regola del firewall](https://msdn.microsoft.com/library/azure/dn505707.aspx) |Server |Aggiorna le proprietà di una regola del firewall a livello di server esistente |
-| [Eliminare la regola del firewall](https://msdn.microsoft.com/library/azure/dn505706.aspx) |Server |Rimuove regole del firewall a livello di server |
+| [Elencare le regole del firewall](https://docs.microsoft.com/rest/api/sql/FirewallRules/ListByServer) |Server |Visualizza le regole del firewall a livello di server correnti |
+| [Creare o aggiornare la regola del firewall](https://docs.microsoft.com/rest/api/sql/FirewallRules/CreateOrUpdate) |Server |Crea o aggiorna regole del firewall a livello di server |
+| [Eliminare la regola del firewall](https://docs.microsoft.com/rest/api/sql/FirewallRules/Delete) |Server |Rimuove regole del firewall a livello di server |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Regola del firewall a livello di server contro una regola del firewall a livello di database
 D: Gli utenti di un database devono essere completamente isolati da un altro database?   

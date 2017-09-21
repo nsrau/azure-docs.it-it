@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 1a706b8c17cc493532ac3f63e9f0e897bed90fdb
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
 ms.contentlocale: it-it
 ms.lasthandoff: 09/07/2017
 
@@ -64,8 +64,6 @@ var azure = require('azure-storage');
 
 ## <a name="set-up-an-azure-storage-connection"></a>Configurare una connessione di archiviazione di Azure
 Il modulo di Azure leggerà le variabili di ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY` o `AZURE_STORAGE_CONNECTION_STRING` per ottenere le informazioni necessarie per la connessione all'account di archiviazione di Azure. Se queste variabili di ambiente non sono impostate, sarà necessario specificare le informazioni relative all'account quando si chiama **createBlobService**.
-
-Per un esempio di impostazione delle variabili di ambiente nel [portale di Azure](https://portal.azure.com) per un'app Web di Azure, vedere [App Web Node.js con il servizio tabelle di Azure](../../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## <a name="create-a-container"></a>Creare un contenitore
 L'oggetto **BlobService** consente di lavorare con contenitori e BLOB. Il codice seguente consente di creare un oggetto **BlobService** . Aggiungere il codice seguente nella parte superiore di **server.js**:
@@ -423,10 +421,9 @@ Per altre informazioni, vedere le risorse seguenti:
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
-[App Web Node.js con il servizio tabelle di Azure](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
-[Build and deploy a Node.js web app to Azure using Web Matrix (Creazione e distribuzione di un'app Web Node.js in Azure con WebMatrix)]: https://www.microsoft.com/web/webmatrix/  
-[Uso dell'API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
-[Portale di Azure]: https://portal.azure.com  
+[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Azure portal]: https://portal.azure.com  
 [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Blog del team di archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
 [Azure Storage SDK per riferimento all'API del nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html  

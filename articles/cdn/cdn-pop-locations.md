@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 7c13931aa6d17036e59674cdd917e3ca221ac57f
+ms.translationtype: HT
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 44028b2ef268cb2deff273f755d2f5aeab5bdc17
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-cdn-pop-locations"></a>Località POP della rete CDN di Azure
@@ -34,16 +33,16 @@ Questo argomento elenca le località POP correnti per la **rete CDN di Azure for
 
 | Region | Verizon | Akamai |
 | --- | --- | --- |
-| America del Nord |Atlanta, GA<br />Philadelphia, PA<br />New York, NY<br />Miami, FL<br />Washington DC<br />Boston, MA<br />Denver, CO<br />Chicago, IL<br />Dallas, TX<br />Los Angeles, CA<br />San Jose, CA<br />Seattle, WA |**&#x2713;**\* |
-| America del Sud |São Paulo, Brasile<br />Rio de Janeiro, Brasile<br />Quito, Ecuador<br />Barranquilla, Colombia<br />Medellin, Colombia<br/>Buenos Aires, Argentina |**&#x2713;**\* |
-| Europa del Nord e dell'Est |Copenhagen, Danimarca<br />Helsinki, Finlandia<br />Londra, Regno Unito<br />Stoccolma, Svezia<br />Varsavia, Polonia |**&#x2713;**\* |
-| Europa occidentale |Amsterdam, Paesi Bassi<br />Francoforte, Germania<br />Parigi, Francia<br />Vienna, Austria |**&#x2713;**\* |
-| Europa meridionale |Madrid, Spagna<br />Milano, Italia |**&#x2713;**\* |
-| Asia orientale |Tokyo, Giappone<br />Osaka, Giappone<br />Batam, Indonesia<br />Giacarta, Indonesia<br />Hong Kong<br />Kaohsiung, Taiwan<br />Seoul, Corea del Sud<br />Singapore |**&#x2713;**\* |
-| Asia meridionale e centrale |Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India |**&#x2713;**\* |
-| Medio Oriente/Asia occidentale |Muscat, Oman <br /> Fujirah, Emirati Arabi Uniti |**&#x2713;**\* |
-| Africa | |**&#x2713;**\* |
-| Australia e Nuova Zelanda |Melbourne, Australia<br />Sydney, Australia |**&#x2713;**\* |
+| America del Nord | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />New York, NY<br />Philadelphia, PA<br />San Jose, CA<br />Seattle, WA<br />Washington DC | Canada<br />Messico<br />Stati Uniti |
+| America del Sud | Buenos Aires, Argentina<br />Rio de Janeiro, Brasile<br />São Paulo, Brasile<br />Valparaíso, Cile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Perù | Argentina<br />Brasile<br />Cile<br />Colombia<br />Ecuador<br />Perù<br />Uruguay |
+| Europa settentrionale e orientale | Copenhagen, Danimarca<br />Helsinki, Finlandia<br />Varsavia, Polonia<br />Stoccolma, Svezia | Bulgaria<br />Danimarca<br />Finlandia<br />Norvegia<br />Polonia<br />Svezia<br /> |
+| Europa occidentale | Vienna, Austria<br />Parigi, Francia<br />Francoforte, Germania<br />Amsterdam, Paesi Bassi<br />Londra, Regno Unito | Austria<br />Belgio<br />Francia<br />Germania<br />Irlanda<br />Paesi Bassi<br />Svizzera<br />Regno Unito |
+| Europa meridionale | Milano, Italia<br />Madrid, Spagna | Grecia<br />Italia<br />Portogallo<br />Spagna |
+| Asia orientale | Hong Kong - R.A.S.<br />Batam, Indonesia<br />Giacarta, Indonesia<br />Osaka, Giappone<br />Tokyo, Giappone<br />Singapore<br />Seoul, Corea del Sud<br />Kaohsiung, Taiwan | Hong Kong - R.A.S.<br />Indonesia<br />Giappone<br />Macao<br />Malaysia<br />Filippine<br />Singapore<br />Corea del Sud<br />Taiwan<br />Thailandia |
+| Asia meridionale e centrale | Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />Nuova Delhi, India | India<br />Sri Lanka |
+| Medio Oriente/Asia occidentale | Muscat, Oman<br />Fujirah, Emirati Arabi Uniti | Israele<br />Kuwait<br />Qatar<br />Turchia<br />Emirati Arabi Uniti |
+| Africa | | Egitto<br />Sud Africa |
+| Australia e Nuova Zelanda | Melbourne, Australia<br />Sydney, Australia<br />Auckland, Nuova Zelanda | Australia<br />Nuova Zelanda |
 
 ## <a name="see-also"></a>Vedere anche
 * [API dei nodi periferici della rete CDN di Azure per ottenere gli indirizzi IP da inserire nell'elenco elementi consentiti](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)

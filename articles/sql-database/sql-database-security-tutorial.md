@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
 ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteggere il database SQL di Azure
@@ -188,7 +188,7 @@ Il controllo del database SQL di Azure tiene traccia degli eventi che si verific
 5. Fare clic su **Salva**.
 
 > [!IMPORTANT]
-> Se si vuole personalizzare gli eventi controllati, è possibile farlo tramite l'API di PowerShell o REST: per altre informazioni, vedere la sezione [Automazione (API di PowerShell/REST)](sql-database-auditing.md#subheading-7).
+> Se si vogliono personalizzare gli eventi controllati, è possibile farlo tramite PowerShell o l'API REST. Vedere [Introduzione al controllo del database SQL](sql-database-auditing.md) per altri dettagli.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Abilitare il rilevamento delle minacce per il database SQL

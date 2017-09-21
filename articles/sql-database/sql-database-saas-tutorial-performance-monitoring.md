@@ -1,6 +1,6 @@
 ---
 title: "Monitorare le prestazioni di più database SQL di Azure in un'app SaaS multi-tenant | Microsoft Docs"
-description: Monitorare e gestire le prestazioni di database e pool nell'app SaaS Wingtip del database SQL di Azure
+description: Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 42f727aa40e744916b1a8adf634c10d55880bef0
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
 ms.contentlocale: it-it
-ms.lasthandoff: 07/27/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="monitor-performance-of-the-wingtip-saas-application"></a>Monitorare le prestazioni dell'applicazione SaaS Wingtip
+# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
 In questa esercitazione vengono illustrati diversi scenari di gestione delle prestazioni chiave usati nelle applicazioni SaaS. Usando un generatore di carico per simulare l'attività in tutti i database tenant, vengono illustrate le funzionalità di monitoraggio e avviso predefinite del database SQL e dei pool elastici.
 
@@ -134,7 +134,7 @@ Impostare un avviso per il pool da attivare quando l'utilizzo è \>75%, come ind
 1. Specificare un nome, ad esempio **DTU elevate**.
 1. Impostare i valori seguenti:
    * **Metrica = Percentuale eDTU**
-   * **Condizione = maggiore di** .
+   * **Condizione = maggiore di **.
    * **Soglia = 75**.
    * **Periodo = Negli ultimi 30 minuti**.
 1. Aggiungere un indirizzo e-mail alla casella *Indirizzi di posta elettronica aggiuntivi dell'amministratore* e fare clic su **OK**.

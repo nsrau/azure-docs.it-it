@@ -1,5 +1,5 @@
 ---
-title: Prezzi del Centro sicurezza | Microsoft Docs
+title: Prezzi del Centro sicurezza di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni sui prezzi del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
@@ -12,83 +12,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 367b8f38cb9fcf3dc36db83641cb1696710608ef
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: cd4001a3280c83875f30b04d5d38caec26f4f0b1
 ms.contentlocale: it-it
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-security-center-pricing"></a>Prezzi del Centro sicurezza di Azure
-Il Centro sicurezza PC di Azure impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
+Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione a minacce e il rilevamento intelligente che consente di tenere il passo con gli attacchi informatici in rapida evoluzione.
 
 ## <a name="pricing-tiers"></a>Piani tariffari
 Il Centro sicurezza è disponibile in due livelli:
 
-* Il **livello gratuito** è attivato automaticamente per tutte le sottoscrizioni di Azure. Il livello gratuito permette di conoscere lo stato di protezione delle risorse di Azure, i criteri di sicurezza di base, i consigli sulla sicurezza e l'aspetto di integrazione con i prodotti e i servizi dei partner.
-* Il **livello standard** aggiunge funzionalità avanzate per il rilevamento delle minacce, tra cui business intelligence, analisi del comportamento, rilevamento delle anomalie, eventi imprevisti per la sicurezza e report di valutazione delle minacce. Il livello Standard è gratuito per i primi 60 giorni.
+- Il livello **Gratuito** viene abilitato automaticamente in tutte le sottoscrizioni di Azure e offre criteri di sicurezza, valutazione continua della sicurezza e raccomandazioni sulla sicurezza utili per proteggere le risorse di Azure
+- Il livello **Standard** estende le funzionalità del livello Gratuito ai carichi di lavoro in esecuzione in cloud privati e pubblici, offrendo la gestione unificata della sicurezza e la protezione dalle minacce nei carichi di lavoro cloud ibridi. Il livello Standard aggiunge anche la funzionalità di rilevamento avanzato delle minacce, che usa analisi comportamentali e apprendimento automatico per identificare attacchi ed exploit zero-day, i controlli di accesso e dell'applicazione per ridurre l'esposizione agli attacchi di rete e malware e molto altro. Il livello Standard è gratuito per i primi 60 giorni.
 
 Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
 
 ## <a name="try-standard-free-for-60-days"></a>Prova gratuita del livello Standard per 60 giorni
 Il livello Standard è gratuito per i primi 60 giorni. Al termine dei 60 giorni, se si sceglie di continuare a usare il servizio, l'uso verrà addebitato automaticamente.
 
+È possibile aggiornare tutta la sottoscrizione di Azure al piano Standard, che viene ereditata da tutte le risorse all'interno della sottoscrizione oppure definire un criterio univoco per l'aggiornamento a un solo gruppo specifico di risorse.
+
 Per ottenere il livello Standard:
 
-1. Selezionare il riquadro **Criteri** nel pannello **Centro sicurezza**.
+1. Selezionare **Criteri di sicurezza** nel menu principale **Centro sicurezza**.
 2. Selezionare la sottoscrizione che si desidera aggiornare al livello Standard.
 3. Nel pannello **Security policy** (Criteri di sicurezza) selezionare **Pricing tier** (Piano tariffario).
-4. Nel pannello **Scegliere un piano tariffario** selezionare **Standard**.
-5. Fare clic su **Seleziona**.
+4. Selezionare **Standard** per eseguire l'aggiornamento.
+5. Fare clic su **Salva**.
 
-
-## <a name="why-upgrade-to-standard"></a>Perché eseguire l'aggiornamento al livello standard?
-Il livello standard del Centro sicurezza fornisce tutte le funzionalità del livello gratuito, con in più il rilevamento avanzato. Il rilevamento avanzato delle minacce consente di identificare le minacce attive dirette alle risorse di Azure, fornendo le informazioni necessarie per rispondervi rapidamente.
-
-Il Centro sicurezza si avvale di analisi della sicurezza avanzate, che vanno ben oltre gli approcci basati sulle firme. Le ultime innovazioni sul piano delle tecnologie per i Big Data e l'apprendimento automatico vengono usate per valutare gli eventi in tutta l'infrastruttura cloud, rilevando minacce impossibili da identificare con approcci manuali e prevedendo l'evoluzione degli attacchi.
-
-Il livello standard fornisce le analisi di sicurezza seguenti:
-
-* **Intelligence per le minacce**: vengono cercate le minacce note usando un'intelligence globale sulle minacce dei prodotti e servizi Microsoft, della Microsoft Digital Crimes Unit, del Microsoft Security Response Center e dei feed esterni
-* **Analisi del comportamento**: vengono applicati schemi noti per individuare comportamenti dannosi
-* **Rilevamento di anomalie**: viene usata la profilatura statistica per creare una baseline cronologica. Questa funzione segnala le deviazioni dalle baseline definite che corrispondono a vettori di potenziali attacchi
-
-Nel pannello **Avvisi di sicurezza** illustrato di seguito il Centro sicurezza ha rilevato un **evento imprevisto** per la sicurezza. Con la definizione di evento imprevisto per la sicurezza si intende un'aggregazione di tutti gli avvisi relativi a una risorsa corrispondenti a modelli kill chain. Selezionando l'evento imprevisto per la sicurezza, compaiono altri dettagli sull'evento imprevisto, insieme a un elenco degli avvisi correlati. Selezionando l'avviso è possibile avere altre sull'evento imprevisto in questione.
-
-![Evento imprevisto della sicurezza][2]
-
-L'avviso sulla **comunicazione di rete** qui di seguito fornisce dettagli sull'evento imprevisto. Le informazioni includono una descrizione completa del problema, la gravità, lo stato (che in questo caso viene ignorato, su decisione dell'utente), la risorsa attaccata e le contromisure. È inoltre disponibile un elenco di collegamenti ai report di Microsoft con informazioni sulle minacce, utili per risolvere i problemi di sicurezza e per attuare contromisure di protezione.
-
-![Dettagli dell'avviso di sicurezza][3]
-
-## <a name="enable-data-collection"></a>Abilitare la raccolta di dati
-Per abilitare l'analisi del comportamento delle macchine virtuali, occorre attivare la raccolta dei dati.
-
-Per controllare che sia abilitata la raccolta dei dati:
-
-1. Selezionare il riquadro **Criterio**. Si apre il pannello **Criteri di sicurezza**, con elencate le sottoscrizioni Azure.
-2. Selezionare una sottoscrizione.
-3. Se la **Raccolta dei dati** è disattivata, attivarla e salvare la modifica.
+![Evento imprevisto della sicurezza][1]
 
 > [!NOTE]
-> Se si usa la versione gratuita del Centro sicurezza di Azure, è possibile disabilitare la raccolta dati dalle macchine virtuali nei criteri di sicurezza. La raccolta dati è richiesta per le sottoscrizioni a livello Standard.
+> Per abilitare tutte le funzionalità del Centro sicurezza, è necessario applicare il piano tariffario Standard alla sottoscrizione o al gruppo di risorse contenente le macchine virtuali applicabili. La configurazione dei prezzi per un'area di lavoro non abilita solo l'accesso JIT alla macchina virtuale, i controlli dell'applicazione adattivi e i rilevamenti di rete per le risorse di Azure.
 >
 >
 
-Per altre informazioni, vedere [Abilitare la raccolta dati nel Centro sicurezza di Azure](security-center-enable-data-collection.md).
+## <a name="why-upgrade-to-standard"></a>Perché eseguire l'aggiornamento al livello standard?
+Il Centro sicurezza offre maggiore sicurezza e protezione dalle minacce per i carichi di lavoro di cloud ibridi, tra cui:
+
+- **Sicurezza ibrida**: per ottenere una visualizzazione unificata della sicurezza in tutti i carichi di lavoro locali e cloud; applicare i criteri di sicurezza e la valutazione continua della sicurezza dei carichi di lavoro cloud ibridi per garantire la conformità con gli standard di sicurezza; raccogliere, eseguire ricerche e analizzare i dati di sicurezza da diverse origini, inclusi firewall e altre soluzioni partner.
+- **Rilevamento avanzato delle minacce**, che usa le analisi avanzate e Microsoft Intelligent Security Graph per prevenire attacchi informatici in continua evoluzione.  Sfrutta i vantaggi delle analisi comportamentali predefinite e di apprendimento automatico per identificare gli attacchi e gli exploit zero-day. Monitora le reti, i computer e i servizi cloud per rilevare attacchi imminenti e attività post violazione. Semplifica l'investigazione con strumenti interattivi e intelligence per le minacce contestuale.
+- **Controlli di accesso e dell'applicazione**, che blocca malware e altre applicazioni indesiderate applicando i consigli per l'inserimento nell'elenco elementi consentiti adattati ai carichi di lavoro specifici e basati su tecnologia per l'apprendimento automatico. Riduce la superficie di attacco alla rete con l'accesso JIT (Just-In-Time) controllato alle porte di gestione nelle macchine virtuali di Azure per ridurre drasticamente l'esposizione ad attacchi di forza bruta e altri attacchi di rete.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
-* In questo documento sono stati presentati i prezzi del Centro sicurezza. Per altre informazioni sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
-* Per saperne di più sulle funzionalità di rilevamento avanzate del Centro sicurezza, vedere [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md).
-* Per informazioni su come i dati vengono gestiti e protetti nel Centro sicurezza, vedere [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md).
-* In caso di domande sull'uso del Centro sicurezza, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
-* Se si hanno ancora domande sull'uso del Centro sicurezza o di Azure, visitare i [forum di Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
+In questo articolo sono stati presentati i prezzi del Centro sicurezza. Per altre informazioni sulla sicurezza e la protezione avanzate dalle minacce del livello Standard, vedere:
+
+- [Rilevamento delle minacce avanzato](security-center-threat-report.md)
+- [Accesso JIT alla macchina virtuale](security-center-just-in-time.md)
 
 <!--Image references-->
-[1]: ./media/security-center-pricing/standard.png
-[2]: ./media/security-center-pricing/incident.png
-[3]: ./media/security-center-pricing/network-alert.png
+[1]: ./media/security-center-pricing/get-standard.png
 

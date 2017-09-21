@@ -15,13 +15,12 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 34c8e18e918221f0287b1078df750d8016e2529a
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 565f840e0ac7ec1a68361ac1613da5d42459c979
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Usare lo streaming strutturato Spark con Kafka (anteprima) in HDInsight
 
 Informazioni su come usare lo streaming strutturato Spark per leggere i dati da Apache Kafka in Azure HDInsight.
@@ -92,7 +91,7 @@ Dopo avere create le risorse, verrà visualizzata una pagina di riepilogo.
 
 ## <a name="get-the-kafka-brokers"></a>Recupero dei broker Kafka
 
-Il codice in questo esempio consente di connettersi agli host dei broker Kafka nel cluster Kafka. Per trovare l'indirizzo degli host dei broker Kafka, usare l'esempio seguente di PowerShell o Bash:
+Il codice in questo esempio consente di connettersi agli host dei broker Kafka nel cluster Kafka. Per trovare l'indirizzo dei due host broker Kafka, usare l'esempio di PowerShell o Bash seguente:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
