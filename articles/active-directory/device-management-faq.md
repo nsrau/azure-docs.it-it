@@ -11,17 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
 ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
+
+
+
+**D: Come si registra un dispositivo macOS?**
+
+**R:** Per registrare un dispositivo macOS:
+
+1.  [Creare i criteri di conformità del dispositivo](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [Definire i criteri di accesso condizionale per i dispositivi macOS](active-directory-conditional-access-azure-portal.md) 
+
+**Osservazioni:**
+
+- Gli utenti che vengono inclusi nei criteri di accesso condizionale necessitano di una [versione di Office supportata per macOS](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) per accedere alle risorse. 
+
+- Durante il primo tentativo di accesso, agli utenti viene richiesto di registrare il dispositivo tramite il portale aziendale.
+
+---
 
 **D: Di recente è stato registrato un dispositivo. Perché non viene visualizzato nelle informazioni dell'utente all'interno del portale di Azure?**
 
@@ -136,20 +153,10 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 ---
 
-**D: Dove reperire le istruzioni per la configurazione della registrazione automatica del dispositivo?**
+**D: Dove reperire le istruzioni per la configurazione di dispositivi aggiunti all'entità ibrida di Azure AD?**
 
-**R:**Per altre informazioni, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
+**R:** Per informazioni dettagliate, vedere [Configurare dispositivi aggiunti all'entità ibrida di Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
 
----
-
-**D: Dove è possibile trovare informazioni sulla risoluzione dei problemi legati alla registrazione automatica del dispositivo?**
-
-**R:** Per informazioni sulla risoluzione dei problemi, vedere:
-
-- [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD - Windows 10 e Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
-
-- [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD per client di livello inferiore di Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
- 
 ---
 
 

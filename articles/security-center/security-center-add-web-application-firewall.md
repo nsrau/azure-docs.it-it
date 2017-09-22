@@ -1,6 +1,6 @@
 ---
 title: Aggiungere un Web application firewall al Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo argomento illustra come implementare le raccomandazioni **Aggiungi un web application firewall** e **Finalizza la protezione dell&quot;applicazione** del Centro sicurezza di Azure.
+description: Questo argomento illustra come implementare le raccomandazioni **Aggiungi un web application firewall** e **Finalizza la protezione dell'applicazione** del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d04a07237029953d8a9b20704d85e852ce45d867
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Aggiungere un Web application firewall al Centro sicurezza di Azure
@@ -27,7 +26,7 @@ ms.lasthandoff: 05/10/2017
 
 Viene visualizzata una raccomandazione WAF per qualsiasi IP pubblico (IP a livello di istanza o IP con carico bilanciato) cui è associato un gruppo di sicurezza di rete con porte Web in ingresso aperte (80, 443).
 
-Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentire la protezione da attacchi contro le applicazioni Web nelle macchine virtuali e nell'Ambiente del servizio app. Un Ambiente del servizio app è un'opzione del piano di servizio [Premium](https://azure.microsoft.com/pricing/details/app-service/) del Servizio app di Azure che offre un ambiente completamente isolato e dedicato per eseguire in modo sicuro tutte le app del servizio. Per altre informazioni sull'ambiente del servizio app, vedere [Documentazione relativa agli ambienti del servizio app](../app-service/app-service-app-service-environments-readme.md).
+Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentire la protezione da attacchi contro le applicazioni Web nelle macchine virtuali e nell'Ambiente del servizio app. Un Ambiente del servizio app è un'opzione del piano di servizio [Premium](https://azure.microsoft.com/pricing/details/app-service/) del Servizio app di Azure che offre un ambiente completamente isolato e dedicato per eseguire in modo sicuro tutte le app del servizio. Per altre informazioni sull'ambiente del servizio app, vedere [Documentazione relativa agli ambienti del servizio app](../app-service/environment/intro.md).
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questo argomento non costituisce una guida dettagliata.
@@ -70,7 +69,7 @@ I log generati dal WAF sono ora completamente integrati. Il Centro sicurezza pu�
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento è stato illustrato come implementare la raccomandazione "Aggiungere un Web application firewall". Per altre informazioni sulla configurazione di un Web application firewall, vedere gli argomenti seguenti:
 
-* [Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
+* [Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 

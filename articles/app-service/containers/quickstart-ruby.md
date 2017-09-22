@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: cfowler
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 007f9232e2c09f128ea39f9a2e3c78ab92ad5f69
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7b3620d3674ea3783af72af37f80db0ea357d325
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-ruby-app-with-web-apps-on-linux"></a>Creare un'app Ruby con le App Web in Linux
 
-Le [app Web di Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. In questa guida introduttiva viene illustrato come creare un'applicazione Ruby on Rails di base e quindi distribuirla in App Web di Azure in Linux.
+Le [app Web di Azure](../app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. In questa guida introduttiva viene illustrato come creare un'applicazione Ruby on Rails di base e quindi distribuirla in App Web di Azure in Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 

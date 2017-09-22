@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: b75d190724da284324b0337e95a50a64902e19d8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
 ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-named-authentication-credentials"></a>Configurare credenziali per l'autenticazione denominate
@@ -77,7 +77,7 @@ La procedura riportata di seguito presuppone che la finestra di dialogo **Nuova 
    d. Selezionare la sottoscrizione di Azure, incollare il percorso completo del file con estensione cer appena creato e scegliere **Carica**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica di App Web](https://docs.microsoft.com/azure/app-service-web/)
-* [Distribuire l'app nel Servizio app di Azure](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy?toc=%2fazure%2fapp-service-api%2ftoc.json) 
-* [Distribuzione di processi Web usando Visual Studio](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs)
+* [Panoramica di App Web](https://docs.microsoft.com/azure/app-service/)
+* [Distribuire l'app nel Servizio app di Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
+* [Distribuzione di processi Web usando Visual Studio](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
 * [Creare e distribuire un servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

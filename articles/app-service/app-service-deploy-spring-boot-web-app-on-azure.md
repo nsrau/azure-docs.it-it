@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -52,7 +52,7 @@ I passaggi seguenti illustrano i passaggi necessari per creare una semplice appl
    cd /users/robert/SpringBoot
    ```
 
-1. Clonare il progetto di esempio [Introduzione a Spring Boot ] nella directory appena creata, ad esempio:
+1. Clonare il progetto di esempio [Introduzione a Spring Boot] nella directory appena creata, ad esempio:
    ```
    git clone https://github.com/spring-guides/gs-spring-boot.git
    ```
@@ -215,18 +215,18 @@ Per altre informazioni sulla configurazione delle impostazioni aggiuntive per l'
 [servizio app di Azure]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
-[portale di Azure]: https://portal.azure.com/
-[Configurare app Web in Servizio app di Azure]: /azure/app-service-web/web-sites-configure
-[Distribuire l'app nel servizio app di Azure usando FTP/S]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
-[account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/
+[Portale di Azure]: https://portal.azure.com/
+[Configurare app Web nel servizio app di Azure]: /azure/app-service/web-sites-configure
+[Distribuire l'app nel servizio app di Azure usando FTP/S]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
+[Account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
-[strumenti Java per Visual Studio Team Services]: https://java.visualstudio.com/
+[Strumenti Java per Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[vantaggi per i sottoscrittori di MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[Vantaggi per gli abbonati MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Introduzione a Spring Boot ]: https://github.com/spring-guides/gs-spring-boot
-[Spring Framework]: https://spring.io/
+[Introduzione a Spring Boot]: https://github.com/spring-guides/gs-spring-boot
+[Framework di Spring]: https://spring.io/
 
 <!-- IMG List -->
 

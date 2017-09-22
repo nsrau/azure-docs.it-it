@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a76770c7a2101675f7cbf953ce9c3b1750656477
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: aec5eb551ef438015d4f6a3d1578d0fa890d737e
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Come usare l'archiviazione di accodamento da Node.js
@@ -34,7 +34,7 @@ In questa guida viene illustrato come eseguire scenari comuni del Servizio di ac
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Creazione di un'applicazione Node.js
-Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure](../../app-service-web/app-service-web-get-started-nodejs.md), [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) con Windows PowerShell, o [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](https://www.microsoft.com/web/webmatrix/).
+Creare un'applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure](../../app-service/app-service-web-get-started-nodejs.md), [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) con Windows PowerShell, o [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione
 Per usare l'archiviazione di Azure, è necessario scaricare Azure Storage SDK per Node.js, che comprende un set di pratiche librerie che comunicano con i servizi di archiviazione REST.
@@ -340,7 +340,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
-[Creare un'app Web Node.js in Servizio app di Azure](../../app-service-web/app-service-web-get-started-nodejs.md)
+[Creare un'app Web Node.js in Servizio app di Azure](../../app-service/app-service-web-get-started-nodejs.md)
    
 
 

@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 879854c4afc6fa5ac31f8e18dad0164e77f190cd
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
 ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Aggiornare il servizio mobile Node.js di Azure esistente al servizio app
@@ -156,16 +156,16 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
-[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[Web Job]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[prezzi del servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[Prezzi del servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[concetti dell'autenticazione]: ../app-service/app-service-authentication-overview.md
+[Concetti relativi all'autenticazione]: ../app-service/app-service-authentication-overview.md
 [guida introduttiva all'autenticazione]: app-service-mobile-auth.md
 
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

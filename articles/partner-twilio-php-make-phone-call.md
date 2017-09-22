@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: eeecec0d879b60e90d1a3bf2043e68a41d7145a8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 9866a196b3be10548d7a431430e570b41c190fc0
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Come effettuare una chiamata tramite Twilio in un'applicazione PHP in Azure
@@ -107,7 +107,7 @@ Oltre a eseguire la chiamata, **makecall.php** visualizza alcuni metadati della 
 ![Risposta a chiamata di Azure tramite Twilio e PHP][twilio_php_response]
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
-Il passaggio successivo consiste nel [distribuire l'applicazione in App Web di Azure con Git](app-service-web/app-service-web-get-started-php.md), ma non tutte le informazioni contenute in questa pagina sono rilevanti. 
+Il passaggio successivo consiste nel [distribuire l'applicazione in App Web di Azure con Git](app-service/app-service-web-get-started-php.md), ma non tutte le informazioni contenute in questa pagina sono rilevanti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo di Twilio con PHP in Azure. Prima di eseguire la distribuzione in Azure in produzione, può essere necessario aggiungere ulteriori funzionalità per la gestione degli errori o per altri scopi. Ad esempio:

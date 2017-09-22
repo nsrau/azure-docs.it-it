@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: ddfb10a9688842e4a23b72b4362d75b20d320262
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 78cf118dfb9759e1cdbdc023ccad65238853122e
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Creare un'applicazione Web Java con Azure Cosmos DB e l'API di DocumentDB
@@ -725,7 +725,7 @@ Con Siti Web di Azure la procedura di distribuzione di applicazioni Java è molt
    * Nella casella Web project immettere azure-documentdb-java-sample.
    * Nella casella Destination scegliere una destinazione in cui salvare il file WAR.
    * Fare clic su **Fine**.
-3. A questo punto è sufficiente caricare il file nella directory **webapps** di Siti Web di Azure. Per istruzioni sul caricamento del file, vedere [Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure](../app-service-web/web-sites-java-add-app.md).
+3. A questo punto è sufficiente caricare il file nella directory **webapps** di Siti Web di Azure. Per istruzioni sul caricamento del file, vedere [Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure](../app-service/web-sites-java-add-app.md).
    
     Dopo aver caricato il file con estensione war nella directory webapps, l'ambiente di runtime identificherà il file aggiunto e lo caricherà automaticamente.
 4. Per visualizzare il prodotto finito, passare a http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ e iniziare ad aggiungere le attività.

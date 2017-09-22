@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8cc23d5c284123c7c04dda4b71fdb6275d32bf8d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e8b22dad84e89be6051041e60ca9d72ec4aa3c56
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Come usare l'archiviazione tabelle di Azure da Node.js
@@ -30,8 +30,7 @@ Questo argomento illustra come eseguire scenari comuni usando il servizio tabell
 
 Negli esempi di codice illustrati in questo argomento si suppone che sia già stata ottenuta un'applicazione Node.js. Per informazioni su come creare un'applicazione Node.js in Azure, vedere uno qualsiasi degli argomenti seguenti:
 
-* [Creare un'app Web Node.js nel servizio app di Azure](../app-service-web/app-service-web-get-started-nodejs.md)
-* [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+* [Creare un'app Web Node.js nel servizio app di Azure](../app-service/app-service-web-get-started-nodejs.md)
 * [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (usando Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -451,4 +450,4 @@ Per altre informazioni, vedere le risorse seguenti:
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Azure Storage SDK per Node](https://github.com/Azure/azure-storage-node) su GitHub.
 * [Centro per sviluppatori di Node.js](/develop/nodejs/)
-* [Creare e distribuire un'applicazione Node.js in un sito Web di Azure](../app-service-web/app-service-web-get-started-nodejs.md)
+* [Creare e distribuire un'applicazione Node.js in un sito Web di Azure](../app-service/app-service-web-get-started-nodejs.md)

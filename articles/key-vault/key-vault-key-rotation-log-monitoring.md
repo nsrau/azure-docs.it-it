@@ -1,6 +1,6 @@
 ---
-title: Configurare l&quot;insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end | Documentazione Microsoft
-description: Usare questa procedura per configurare la rotazione delle chiavi e i log di controllo dell&quot;insieme di credenziali delle chiavi.
+title: Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end | Documentazione Microsoft
+description: Usare questa procedura per configurare la rotazione delle chiavi e i log di controllo dell'insieme di credenziali delle chiavi.
 services: key-vault
 documentationcenter: 
 author: swgriffith
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 38c342802ed687985ac6f84f5a590a1a0dcc6c6a
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
+ms.contentlocale: it-it
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end
@@ -406,7 +406,7 @@ Aggiungere poi un file denominato project.json con il contenuto seguente:
 ```
 Dopo aver fatto clic su **Salva** , Funzioni di Azure scaricherà i file binari necessari.
 
-Passare alla scheda **Integra** e assegnare al parametro timer un nome significativo da usare all'interno della funzione. Nel codice precedente è previsto che il timer si chiami *myTimer*. Specificare un'[espressione CRON](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) come segue: 0 \* \* \* \* \* per il timer che attiverà l'esecuzione della funzione una volta al minuto.
+Passare alla scheda **Integra** e assegnare al parametro timer un nome significativo da usare all'interno della funzione. Nel codice precedente è previsto che il timer si chiami *myTimer*. Specificare un'[espressione CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) come segue: 0 \* \* \* \* \* per il timer che attiverà l'esecuzione della funzione una volta al minuto.
 
 Nella stessa scheda **Integra** aggiungere un input di tipo **Archiviazione BLOB di Azure**. Questo punterà al file sync.txt che contiene il timestamp dell'ultimo evento esaminato dalla funzione. L'input sarà disponibile all'interno della funzione in base al nome del parametro. Nel codice precedente, l'input Archiviazione BLOB di Azure prevede che il nome del parametro sia *inputBlob*. Scegliere l'account di archiviazione in cui risiederà il file sync.txt. Può essere lo stesso account di archiviazione o un account diverso. Nel campo del percorso specificare il percorso in cui si trova il file, nel formato {nome-contenitore}/path/to/sync.txt.
 

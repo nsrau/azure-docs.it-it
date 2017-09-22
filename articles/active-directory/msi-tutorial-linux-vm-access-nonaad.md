@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: c5daf4622c8b6c4f572062d5db9b567413daaec0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -38,10 +38,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
-<<<<<<< INTESTAZIONE Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). =======
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4
-
-Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Linux in un nuovo gruppo di risorse
 
@@ -50,9 +47,8 @@ Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anc
 1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
 3. Immettere le informazioni relative alla macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH** o **Password**. Le credenziali create consentiranno di effettuare l'accesso alla macchina virtuale.
-<<<<<<< INTESTAZIONE =======
 
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4 ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Dall'elenco a discesa **Sottoscrizione** selezionare una sottoscrizione per la macchina virtuale.
 5. Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
@@ -111,7 +107,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH.  Se si 
     La richiesta CURL per il token di accesso è mostrata di seguito.  
     
     ```bash
-    curl http://localhost:50432/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
+    curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
     ```
     La risposta include il token di accesso necessario per accedere a Gestione risorse. 
     

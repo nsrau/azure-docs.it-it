@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 1221f4f50b8b9c4b9f9f88be4d04a65375c36062
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Ottimizzazione dello streaming multimediale tramite la rete per la distribuzione dei contenuti di Azure 
@@ -61,7 +61,7 @@ Se la rete CDN di Azure fornita da Akamai rileva che l'asset è un manifesto o u
 I tempi negativi e brevi di memorizzazione nella cache sono utili per l'offload di origine quando molti utenti richiedono un frammento che non esiste ancora. Ne è un esempio uno streaming live in cui i pacchetti non sono disponibili dall'origine in quel momento. Un intervallo di memorizzazione nella cache più lungo consente anche l'offload delle richieste dall'origine poiché il contenuto video in genere non viene modificato.
  
 
-|    | Generale<br> Web<br>di contenuti | Generale<br> diagramma<br> streaming | Video on Demand <br>diagramma<br> streaming  
+|   | Distribuzione Web generale | Streaming multimediale generale | Streaming multimediale di video on demand  
 --- | --- | --- | ---
 Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |365 giorni | 365 giorni   
 Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | None | 1 secondo | 1 secondo

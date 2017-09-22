@@ -1,6 +1,6 @@
 ---
-title: Creare record DNS personalizzati per un&quot;app Web | Documentazione Microsoft
-description: Come creare record DNS di un dominio personalizzato per un&quot;app Web usando DNS di Azure.
+title: Creare record DNS personalizzati per un'app Web | Documentazione Microsoft
+description: Come creare record DNS di un dominio personalizzato per un'app Web usando DNS di Azure.
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b054a41ecd69ee1c802d8403fe4b25128f016e3c
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 02f7f42b56419ad9e7ff829462bc4508f066369c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -57,7 +57,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 Aggiungere al set di record "@" creato in precedenza il valore IPv4 usando la variabile $rs assegnata. Il valore di IPv4 assegnato sarà l'indirizzo IP per l'app Web.
 
-Per trovare l'indirizzo IP per un'app Web, seguire i passaggi in [Configurare un nome di dominio personalizzato nel servizio app di Azure](../app-service-web/app-service-web-tutorial-custom-domain.md).
+Per trovare l'indirizzo IP per un'app Web, seguire i passaggi in [Configurare un nome di dominio personalizzato nel servizio app di Azure](../app-service/app-service-web-tutorial-custom-domain.md).
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"

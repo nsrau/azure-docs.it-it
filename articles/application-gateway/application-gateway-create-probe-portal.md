@@ -3,7 +3,7 @@ title: Creare un probe personalizzato - Gateway applicazione di Azure - Portale 
 description: Informazioni su come creare un probe personalizzato per un gateway applicazione usando il portale
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 65e9bba4ce9ac41ae2a9a8c3fa7f661165fc1403
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creare un probe personalizzato per un gateway applicazione con il portale

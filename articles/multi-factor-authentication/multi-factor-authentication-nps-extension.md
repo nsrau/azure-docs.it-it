@@ -3,7 +3,7 @@ title: "Usare i server di Server dei criteri di rete esistenti per offrire le fu
 description: "L'estensione di Server dei criteri di rete per Multi-Factor Authentication di Azure è una soluzione semplice per aggiungere le funzionalità di verifica in due passaggi basata sul cloud nell'infrastruttura di autenticazione esistente."
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b9061283952ae6b14431f5e88295eefac173ae01
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
@@ -62,8 +62,11 @@ Windows Server 2008 R2 SP1 o versione successiva.
 ### <a name="libraries"></a>Librerie
 
 Queste librerie vengono installate automaticamente con l'estensione.
+
 -   [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
 -   [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+
+Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene installato, se non è già presente, tramite uno script di configurazione eseguito come parte del processo di installazione. Non è necessario installare il modulo in anticipo, se non è già installato.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
@@ -158,8 +161,8 @@ A meno che non si desideri utilizzare i propri certificati (invece dei certifica
 
    `.\AzureMfaNpsExtnConfigSetup.ps1`
 
-4. Prompt di PowerShell per l'ID tenant. Usare il GUID dell'ID directory copiato dal portale di Azure nella sezione relativa ai prerequisiti.
-5. Accedere ad Azure AD come amministratore.
+4. Accedere ad Azure AD come amministratore.
+5. Prompt di PowerShell per l'ID tenant. Usare il GUID dell'ID directory copiato dal portale di Azure nella sezione relativa ai prerequisiti.
 6. Al termine dello script, PowerShell mostra un messaggio di conferma.  
 
 Ripetere questi passaggi per tutti i server dei criteri di rete aggiuntivi che si intende configurare per il bilanciamento del carico.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3ffaf1d9102d189468d047b2a0cf11e73e944620
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d4e44134e94d835ab4ff15ded61ce0a899a4334
 ms.contentlocale: it-it
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js
@@ -262,7 +262,7 @@ Il comportamento predefinito di lettura ed eliminazione del messaggio nell'ambit
 Se il parametro `isPeekLock` è impostato su **true**, l'operazione di ricezione viene suddivisa in due fasi, in modo da consentire il supporto di applicazioni che non possono tollerare messaggi mancanti. Quando il bus di servizio riceve una richiesta, individua il messaggio successivo da usare, lo blocca per impedirne la ricezione da parte di altri consumer e quindi lo restituisce all'applicazione.
 Dopo aver elaborato il messaggio, o averlo archiviato in modo affidabile per una successiva elaborazione, l'applicazione esegue la seconda fase del processo di ricezione chiamando il metodo **deleteMessage** e specificando il messaggio da eliminare come parametro. Il metodo **deleteMessage** contrassegna il messaggio come usato e lo rimuove dalla sottoscrizione.
 
-L'esempio seguente illustra come è possibile ricevere ed elaborare messaggi con `receiveSubscriptionMessage`. L'esempio prima di tutto riceve ed elimina un messaggio dalla sottoscrizione "LowMessages" e quindi riceve un messaggio dalla sottoscrizione "HighMessages" con il parametro `isPeekLock` impostato su true. Elimina infine il messaggio usando `deleteMessage`:
+L'esempio seguente illustra come ricevere ed elaborare messaggi tramite `receiveSubscriptionMessage`. L'esempio prima di tutto riceve ed elimina un messaggio dalla sottoscrizione "LowMessages" e quindi riceve un messaggio dalla sottoscrizione "HighMessages" con il parametro `isPeekLock` impostato su true. Elimina infine il messaggio usando `deleteMessage`:
 
 ```javascript
 serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
@@ -327,7 +327,7 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Creare un'app Web Node.js nel servizio app di Azure]: ../app-service-web/app-service-web-get-started-nodejs.md
+[Creare e distribuire un'applicazione Node.js in un sito Web Azure]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 

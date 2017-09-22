@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e79ca131bddc9e65dd24da109b9e8a08606f7bc6
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 264bd9ecb413d2685dca351d7f4090efcadf4988
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/20/2017
 
 --- 
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Strumento di valutazione delle soluzioni Cortana Intelligence
@@ -99,7 +99,7 @@ L'autenticazione di Azure Active Directory (AAD) deve essere abilitata per tutte
 | AAD con SQL Database e SQL Data Warehouse | [Usare l'autenticazione di Azure Active Directory per l'autenticazione di un database SQL o di SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
 | Configurare e gestire AAD | [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL oppure con SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
 | Autenticazione delle app Web di Azure | [Autenticazione e autorizzazione nel servizio app di Azure](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| Configurare le app Web con AAD | [Come configurare un'applicazione del servizio app per l'uso dell'account di accesso di Azure Active Directory](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication)|
+| Configurare le app Web con AAD | [Come configurare un'applicazione del servizio app per l'uso dell'account di accesso di Azure Active Directory](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>I set di dati accessibili agli utenti finali devono supportare il controllo degli accessi in base al ruolo
 Durante l'esecuzione dello strumento di valutazione, verrà richiesto di specificare le risorse di pubblicazione o creazione di report. Si presuppone che queste risorse siano destinate all'accesso degli utenti finali e non degli sviluppatori. Tali risorse dovranno essere configurate con il controllo degli accessi in base al ruolo (RBAC) per garantire che gli utenti finali possano accedere solo ai dati per i quali dispongono di autorizzazioni.

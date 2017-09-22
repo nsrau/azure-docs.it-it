@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1032c4e7d378016e36c92efa9478be72e9a557c4
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 9520e4c2680e1dd0158a35b4ee65496a42a02563
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
@@ -179,9 +179,9 @@ Sì. Tutte le macchine virtuali e le istanze del ruolo dei servizi cloud distrib
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>È possibile usare le app Web del servizio app di Azure con una rete virtuale?
 Sì. È possibile distribuire le app Web all'interno di una rete virtuale tramite un ambiente del servizio app. Tutte le app Web possono connettersi in modo sicuro e accedere alle risorse in una rete virtuale di Azure, se è stata configurata una connessione da punto a sito per la rete virtuale. Per altre informazioni, vedere gli articoli seguenti:
 
-* [Creare app Web in un ambiente del servizio app](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [Integrare un'app in una rete virtuale di Azure](../app-service-web/web-sites-integrate-with-vnet.md)
-* [Utilizzo dell’integrazione della rete virtuale e delle connessioni ibride con app Web](../app-service-web/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [Creare app Web in un ambiente del servizio app](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Integrare un'app in una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md)
+* [Utilizzo dell’integrazione della rete virtuale e delle connessioni ibride con app Web](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>È possibile distribuire i servizi cloud con ruolo di lavoro e Web (PaaS) in una rete virtuale?
 Sì. Facoltativamente, è possibile distribuire istanze del ruolo dei servizi cloud all'interno di reti virtuali. A tale scopo, specificare il nome della rete virtuale e i mapping dei ruoli e delle subnet nella sezione di configurazione della rete della configurazione del servizio. Non è necessario aggiornare i file binari.

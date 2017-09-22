@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cca4d126a5c5f012af6afb9a31d0aedc0f7eb155
-ms.openlocfilehash: edb9aaf6dae11c9b8a171b22bc8a17003f80d86b
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7df2371f64f0d8a9fabc0df37c17d4dfbc47cd7e
 ms.contentlocale: it-it
-ms.lasthandoff: 12/16/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurazione di SSL per un'applicazione in Azure
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/16/2016
 La crittografia SSL (Secure Socket Layer) è il metodo più diffuso per proteggere i dati inviati tramite Internet. In questa attività comune viene illustrato come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato SSL al fine di proteggere l'applicazione.
 
 > [!NOTE]
-> Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service-web/web-sites-configure-ssl-certificate.md).
+> Le procedure in questa attività si applicano a Servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service/app-service-web-tutorial-custom-ssl.md).
 > 
 > 
 

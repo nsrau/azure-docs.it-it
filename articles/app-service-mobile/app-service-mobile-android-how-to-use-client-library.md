@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 4b15d024ca6d5bbafe83d321a64021aecd78c4a8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 443893ed038e293b27f7781818ffcee9dcc5fc38
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Come usare Azure Mobile Apps SDK per Android
@@ -1290,7 +1290,7 @@ Questo codice deve essere eseguito prima di creare un riferimento al client per 
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[Aggiungere l'autenticazione all'app Android]: app-service-mobile-android-get-started-users.md
+[Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
 [1]: http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html
 [2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: http://go.microsoft.com/fwlink/p/?LinkId=290801
@@ -1312,7 +1312,7 @@ Questo codice deve essere eseguito prima di creare un riferimento al client per 
 [19]: http://www.odata.org/documentation/odata-version-3-0/
 [20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
 

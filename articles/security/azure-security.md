@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b0749847af81521e0ffe6b5f1e115fff558df5cd
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
 ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -111,7 +111,7 @@ Il Centro sicurezza di Azure facilita anche le operazioni di sicurezza offrendo 
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle applicazioni e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="web-application-vulnerability-scanning"></a>Analisi delle vulnerabilità delle applicazioni Web
-Uno dei modi più semplici per iniziare a testare le vulnerabilità di un'[app del servizio app](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is) consiste nell'usare l'[integrazione con Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) per eseguire sull'app un'analisi delle vulnerabilità con un solo clic. È possibile visualizzare i risultati del test in un report di facile comprensione e imparare a risolvere ogni vulnerabilità con istruzioni dettagliate.
+Uno dei modi più semplici per iniziare a testare le vulnerabilità di un'[app del servizio app](https://docs.microsoft.com/azure/app-service/app-service-web-overview) consiste nell'usare l'[integrazione con Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) per eseguire sull'app un'analisi delle vulnerabilità con un solo clic. È possibile visualizzare i risultati del test in un report di facile comprensione e imparare a risolvere ogni vulnerabilità con istruzioni dettagliate.
 
 ### <a name="penetration-testing"></a>Test di penetrazione
 Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo o fornitore di strumenti di scansione, è necessario seguire il [processo di approvazione dei test di penetrazione di Azure](https://security-forms.azure.com/penetration-testing/terms) e ottenere l'approvazione preventiva per eseguire i test di penetrazione desiderati.
@@ -123,10 +123,10 @@ Il Web application firewall (WAF) del [gateway applicazione di Azure](https://az
 La funzionalità di [autenticazione/autorizzazione del servizio app](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) consente all'applicazione di eseguire la procedura di accesso degli utenti in modo che non sia necessario modificare il codice nel back-end dell'app. Fornisce un modo semplice per proteggere l'applicazione e utilizzare dati per-utente.
 
 ### <a name="layered-security-architecture"></a>Architettura di sicurezza su più livelli
-Dato che gli [ambienti del servizio app](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-intro) forniscono un ambiente di runtime isolato distribuito in una [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), gli sviluppatori possono creare un'architettura di sicurezza su più livelli offrendo livelli diversi di accesso alla rete per ogni livello applicazione. Un'esigenza comune è quella di nascondere i back-end delle API all'accesso a Internet generale e consentire alle API di essere chiamate solo dalle app Web upstream. I [gruppi di sicurezza di rete (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) possono essere usati nelle subnet delle reti virtuali di Azure contenenti ambienti del servizio app per limitare l'accesso pubblico alle applicazioni API.
+Dato che gli [ambienti del servizio app](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) forniscono un ambiente di runtime isolato distribuito in una [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), gli sviluppatori possono creare un'architettura di sicurezza su più livelli offrendo livelli diversi di accesso alla rete per ogni livello applicazione. Un'esigenza comune è quella di nascondere i back-end delle API all'accesso a Internet generale e consentire alle API di essere chiamate solo dalle app Web upstream. I [gruppi di sicurezza di rete (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) possono essere usati nelle subnet delle reti virtuali di Azure contenenti ambienti del servizio app per limitare l'accesso pubblico alle applicazioni API.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Diagnostica del server Web e diagnostica applicazioni
-App Web del servizio app offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, logicamente separate in [diagnostica server Web](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log) e [diagnostica applicazioni](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Il server Web include due importanti progressi per la diagnosi e la risoluzione dei problemi di siti e applicazioni.
+App Web del servizio app offre funzionalità diagnostiche per la registrazione di informazioni sia dal server Web sia dall'applicazione Web, logicamente separate in [diagnostica server Web](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) e [diagnostica applicazioni](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Il server Web include due importanti progressi per la diagnosi e la risoluzione dei problemi di siti e applicazioni.
 
 La prima nuova funzionalità è rappresentata dalle informazioni sullo stato in tempo reale per pool di applicazioni, processi di lavoro, siti, domini applicazione e richieste in esecuzione. Il secondo nuovo vantaggio risiede negli eventi di traccia dettagliati che tengono traccia di una richiesta nell'intero processo di richiesta e risposta.
 
@@ -142,7 +142,7 @@ Per abilitare la raccolta di tali eventi di traccia, è possibile configurare II
 -   Registrazione del server Web: informazioni sulle transazioni HTTP che usano il formato di file di log esteso W3C. Questo è utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP
 
 #### <a name="application-diagnostics"></a>Diagnostica applicazioni
-[Diagnostica applicazioni](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log) consente di acquisire le informazioni generate da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. In Diagnostica applicazioni esistono due tipi principali di eventi: quelli relativi alle prestazioni delle applicazioni e quelli relativi a operazioni non riuscite ed errori. Le operazioni non riuscite e gli errori possono essere ulteriormente suddivisi in problemi di connettività, di sicurezza e di errore. Questi ultimi sono in genere correlati a un problema con il codice dell'applicazione.
+[Diagnostica applicazioni](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) consente di acquisire le informazioni generate da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. In Diagnostica applicazioni esistono due tipi principali di eventi: quelli relativi alle prestazioni delle applicazioni e quelli relativi a operazioni non riuscite ed errori. Le operazioni non riuscite e gli errori possono essere ulteriormente suddivisi in problemi di connettività, di sicurezza e di errore. Questi ultimi sono in genere correlati a un problema con il codice dell'applicazione.
 
 In Diagnostica applicazioni è possibile visualizzare gli eventi raggruppandoli nei modi seguenti:
 

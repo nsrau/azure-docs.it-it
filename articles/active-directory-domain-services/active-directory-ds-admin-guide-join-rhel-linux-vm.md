@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 69f1850bfed90392e9a4695e2443ffaa6bfc746d
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 435d01f14978ea72b088691747175c56f31b8bc3
+ms.contentlocale: it-it
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale di Red Hat Enterprise Linux 7 a un dominio gestito
@@ -148,7 +148,7 @@ Di seguito è riportato un esempio dell'output di questi comandi:
 ![Verificare l'aggiunta a un dominio](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-verify-domain-join.png)
 
 ## <a name="troubleshooting-domain-join"></a>Risoluzione dei problemi di aggiunta al dominio
-Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join) .
+Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) .
 
 ## <a name="related-content"></a>Contenuti correlati
 * [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)

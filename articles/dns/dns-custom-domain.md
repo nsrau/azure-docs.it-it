@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e0e7144c38c36f1583e0bcb7dfffba26e9a8bdad
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -136,9 +136,9 @@ Al termine del processo, eseguire **nslookup** per verificare il funzionamento d
 
 ![Figura 1](./media/dns-custom-domain/finalnslookup.png)
 
-Per altre informazioni sul mapping di un dominio personalizzato al servizio app, vedere [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+Per altre informazioni sul mapping di un dominio personalizzato al servizio app, vedere [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-Se è necessario acquistare un dominio personalizzato, vedere [Acquistare un nome di dominio personalizzato per app Web Azure](../app-service-web/custom-dns-web-site-buydomains-web-app.md) per altre informazioni sui domini del servizio app.
+Se è necessario acquistare un dominio personalizzato, vedere [Acquistare un nome di dominio personalizzato per app Web Azure](../app-service/custom-dns-web-site-buydomains-web-app.md) per altre informazioni sui domini del servizio app.
 
 ## <a name="blob-storage"></a>Archivio BLOB
 

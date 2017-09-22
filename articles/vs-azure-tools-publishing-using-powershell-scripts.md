@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d5e9a300dcea137bf0d3db2da2dfb5c2e6a152af
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ba36ad0f46ce681b61acc576448fd36441b43f72
 ms.contentlocale: it-it
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Uso degli script di Windows PowerShell per la pubblicazione in ambienti di sviluppo e test
@@ -38,7 +38,7 @@ Non è necessario Azure SDK per generare script per i progetti web. Questa funzi
 Sono disponibili altri strumenti e risorse per l'utilizzo di PowerShell in Visual Studio per lo sviluppo in Azure. Vedere [PowerShell Tools per Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012).
 
 ## <a name="generating-the-publish-scripts"></a>Come generare script di pubblicazione
-È possibile generare gli script di pubblicazione per una macchina virtuale che ospita il sito Web quando si crea un nuovo progetto seguendo [queste istruzioni](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). È possibile anche [generare script di pubblicazione per le app Web del Servizio app di Azure](app-service-web/app-service-web-get-started-dotnet.md).
+È possibile generare gli script di pubblicazione per una macchina virtuale che ospita il sito Web quando si crea un nuovo progetto seguendo [queste istruzioni](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). È possibile anche [generare script di pubblicazione per le app Web del Servizio app di Azure](app-service/app-service-web-get-started-dotnet.md).
 
 ## <a name="scripts-that-visual-studio-generates"></a>Script generati da Visual Studio
 Visual Studio genera una cartella a livello di soluzione denominata **PublishScripts** che contiene due file di Windows PowerShell, uno script di pubblicazione per la macchina virtuale o sito Web e un modulo che contiene funzioni che è possibile utilizzare negli script. Visual Studio genera inoltre un file in formato JSON che specifica i dettagli del progetto in distribuzione.
@@ -141,7 +141,7 @@ Quando si crea una macchina virtuale, il file di configurazione JSON è simile a
 
 È possibile modificare la configurazione JSON per modificare l'operazione eseguita quando si eseguono gli script di pubblicazione. Le sezioni `cloudService` e `virtualMachine` sono necessarie, ma è possibile eliminare la sezione `databases` se non è necessario. Le proprietà che sono vuote nel file di configurazione predefinito generato da Visual Studio sono facoltative; quelle che dispongono di valori nel file di configurazione predefinite sono necessarie.
 
-Se si dispone di un sito Web che dispone di più ambienti di distribuzione (noti come slot) anziché di un unico sito di produzione in Azure, è possibile includere il nome dello slot nel nome del sito Web nel file di configurazione JSON. Ad esempio, se si dispone di un sito Web denominato **mysite** e uno slot denominato **test**, l'URI è mysite test.cloudapp.net, ma il nome corretto da usare nel file di configurazione è mysite(test). È possibile eseguire questo solo se il sito Web e gli slot sono già presenti nella sottoscrizione. Se non sono presenti, creare il sito Web eseguendo lo script senza specificare lo slot, quindi creare lo slot nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885)e successivamente eseguire lo script con il nome del sito Web modificato. Per altre informazioni sugli slot di distribuzione per le app Web, vedere [Configurare ambienti di gestione temporanea per le app Web del Servizio app di Azure](app-service-web/web-sites-staged-publishing.md).
+Se si dispone di un sito Web che dispone di più ambienti di distribuzione (noti come slot) anziché di un unico sito di produzione in Azure, è possibile includere il nome dello slot nel nome del sito Web nel file di configurazione JSON. Ad esempio, se si dispone di un sito Web denominato **mysite** e uno slot denominato **test**, l'URI è mysite test.cloudapp.net, ma il nome corretto da usare nel file di configurazione è mysite(test). È possibile eseguire questo solo se il sito Web e gli slot sono già presenti nella sottoscrizione. Se non sono presenti, creare il sito Web eseguendo lo script senza specificare lo slot, quindi creare lo slot nel [portale di Azure classico](http://go.microsoft.com/fwlink/?LinkID=213885)e successivamente eseguire lo script con il nome del sito Web modificato. Per altre informazioni sugli slot di distribuzione per le app Web, vedere [Configurare ambienti di gestione temporanea per le app Web del Servizio app di Azure](app-service/web-sites-staged-publishing.md).
 
 ## <a name="how-to-run-the-publish-scripts"></a>Come eseguire gli script di pubblicazione
 Se non è stato eseguito prima uno script Windows PowerShell, è innanzitutto necessario impostare i criteri di esecuzione per consentire l'esecuzione di script. Questa è una funzionalità di sicurezza per impedire agli utenti di eseguire script di Windows PowerShell se sono vulnerabili a malware o virus che comportano l'esecuzione di script.

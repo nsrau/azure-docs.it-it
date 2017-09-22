@@ -16,15 +16,15 @@ ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7757ecf442314d294432266750502e384e39bde0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 36cf3c0bb4a28a4ccfd5fc94b72fba023516a9ce
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilare un'app Web Python Docker e PostgreSQL in Azure
 
-Le app Web di Azure offrono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa esercitazione illustra come creare un'app Web Python Docker di base in Azure. Questa app verrà connessa a un database PostgreSQL. Al termine, si avrà un'applicazione Python Flask in esecuzione in un contenitore Docker nelle [app Web del servizio app di Azure](../../app-service-web/app-service-web-overview.md).
+Le app Web di Azure offrono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa esercitazione illustra come creare un'app Web Python Docker di base in Azure. Questa app verrà connessa a un database PostgreSQL. Al termine, si avrà un'applicazione Python Flask in esecuzione in un contenitore Docker nelle [app Web del servizio app di Azure](../app-service-web-overview.md).
 
 ![App Docker Python Flask nel Servizio app di Azure](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -111,7 +111,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Passare a http://127.0.0.1:5000 in un browser. Fare clic su **Registra!** e creare un utente test.
+Andare a `http://127.0.0.1:5000` in un browser. Fare clic su **Registra!** e creare un utente test.
 
 ![Applicazione Python Flask in esecuzione in locale](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -554,5 +554,5 @@ Per impostazione predefinita, il portale visualizza la pagina **Panoramica** del
 Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app Web.
 
 > [!div class="nextstepaction"] 
-> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../app-service-web-tutorial-custom-domain.md)
 

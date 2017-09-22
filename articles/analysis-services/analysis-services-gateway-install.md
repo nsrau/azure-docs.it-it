@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 09/20/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 6ef296fb98478be9240f0231c8ad39cd2a0af995
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: d614352a62dc7aca012e9b144473604ae9829af9
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
@@ -57,11 +57,7 @@ Quando uno o più server Azure Analysis Services nella stessa area si connettono
 
    ![Percorso di installazione e condizioni di licenza](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Selezionare **Gateway dati locale (scelta consigliata)**. Azure Analysis Services non supporta la modalità personale.
-
-   ![Scelta del tipo di gateway](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
-
-4. Immettere un account per accedere ad Azure. L'account deve essere nella Microsoft Azure Active Directory del tenant. Questo account viene usato per l'amministratore del gateway. 
+3. Immettere un account per accedere ad Azure. L'account deve essere nella Microsoft Azure Active Directory del tenant. Questo account viene usato per l'amministratore del gateway. 
 
    ![Immissione di un account per accedere ad Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
@@ -83,7 +79,7 @@ Per creare una risorsa per il gateway in Azure, è necessario registrare l'istan
 ## <a name="create-resource"></a>Creare una risorsa per il gateway di Azure
 Dopo aver installato e registrato il gateway, è necessario creare una risorsa per il gateway nella sottoscrizione di Azure. Accedere ad Azure con lo stesso account usato durante la registrazione del gateway.
 
-1. Nel portale di Azure fare clic su **Crea un nuovo servizio** > **Integrazione aziendale**  > **Gateway dati locale** > **Crea**.
+1. Nel portale di Azure fare clic su **Crea un nuovo servizio** > **Integrazione aziendale ** > **Gateway dati locale** > **Crea**.
 
    ![Creazione di una risorsa per il gateway](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 

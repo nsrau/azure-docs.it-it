@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: a07496a2d5eb52dd3c4092105e45b70b6e9f69cd
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bce7a5c9d65f124edfcd86bb882537632ecf73df
 ms.contentlocale: it-it
-ms.lasthandoff: 12/08/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="optimizing-your-azure-code"></a>Ottimizzare il codice Azure
@@ -466,5 +466,5 @@ public class BlogsController : Controller
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'ottimizzazione e la risoluzione dei problemi delle app Azure, vedere [Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
+Per altre informazioni sull'ottimizzazione e la risoluzione dei problemi delle app Azure, vedere [Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio](app-service/web-sites-dotnet-troubleshoot-visual-studio.md).
 

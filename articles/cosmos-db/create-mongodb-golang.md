@@ -9,11 +9,11 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: a7da42f4b84b77ad0a82004a56f7712c31567449
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: cb123107178f5e7c0207524c19331a6fa4658739
 ms.contentlocale: it-it
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 06/29/2017
 
 Azure Cosmos DB è il servizio di database multimodello distribuito a livello globale di Microsoft. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave/valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB.
 
-Questa guida introduttiva illustra come usare un'app [MongoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) esistente scritta in [Golang](https://golang.org/) e connetterla al database Azure Cosmos DB, che supporta connessioni client MongoDB.
+Questa guida introduttiva illustra come usare un'app [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) esistente scritta in [Golang](https://golang.org/) e connetterla al database Azure Cosmos DB, che supporta connessioni client MongoDB.
 
 In altri termini, l'applicazione Golang rileva solo la connessione a un database con API MongoDB. Il fatto che i dati siano archiviati in Azure Cosmos DB è trasparente per l'applicazione.
 

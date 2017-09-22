@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 3fd0c02f7867ab121fe89f9369e59bade6e4b828
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7c301a314ee946bb9199650bb7f674b8dce7c141
 ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -35,7 +35,7 @@ Questo script consente di copiare uno snapshot di un disco gestito nella stessa 
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli[principale](../../../cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh "Copia snapshot")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh "Copy snapshot")]
 
 
 ## <a name="script-explanation"></a>Spiegazione dello script
@@ -53,5 +53,5 @@ Questo script usa i comandi seguenti per creare uno snapshot nella sottoscrizion
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Altri esempi di script dell'interfaccia della riga di comando di dischi gestiti e della macchina virtuale aggiuntiva sono reperibili nella [documentazione della macchina virtuale Linux di Azure](../../app-service-web/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Altri esempi di script dell'interfaccia della riga di comando di dischi gestiti e della macchina virtuale aggiuntiva sono reperibili nella [documentazione della macchina virtuale Linux di Azure](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

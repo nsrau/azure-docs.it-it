@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 5f4cc3e97ba7adde2aaac471951a3130d79910f6
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Come usare il client gestito per App per dispositivi mobili di Azure
@@ -628,7 +628,7 @@ Sono supportati due flussi di autenticazione: flusso *gestito dal client* e flus
 > [!NOTE]
 > Nelle app di produzione è consigliabile usare un flusso gestito dal client.
 
-Per configurare l'autenticazione, è necessario registrare l'app con uno o più provider di identità.  Il provider di identità genera un ID client e un segreto client per l'app.  Questi valori vengono quindi impostati nel back-end per abilitare l'autenticazione/l'autorizzazione del Servizio app di Azure.  Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili].
+Per configurare l'autenticazione, è necessario registrare l'app con uno o più provider di identità.  Il provider di identità genera un ID client e un segreto client per l'app.  Questi valori vengono quindi impostati nel back-end per abilitare l'autenticazione/l'autorizzazione del Servizio app di Azure.  Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app di Windows].
 
 Questo articolo descrive gli argomenti seguenti:
 
@@ -1093,11 +1093,11 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Aggiungere l'autenticazione all'app di Servizi mobili]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronizzazione di dati offline nelle App per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
+[Aggiungere l'autenticazione all'app Xamarin.Forms]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [Aggiungere notifiche push all'app]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[Come configurare l'applicazione del servizio app per usare l'account di accesso Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Come configurare l'applicazione del servizio app per usare l'account di accesso Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Come configurare il servizio app per l'account di accesso di Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx

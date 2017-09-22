@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 298679883416a871016563aa789522413ff4c019
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
+ms.contentlocale: it-it
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introducing-microsoft-azure"></a>Introduzione a Microsoft Azure
@@ -102,7 +103,7 @@ Quando si crea un'istanza, sono disponibili due ruoli, entrambi basati su Window
 I servizi cloud sono ideali per supportare un livello avanzato di scalabilità orizzontale quando occorre esercitare un controllo maggiore sulla piattaforma rispetto a quello fornito da Applicazioni Web di Azure ma non sul sistema operativo sottostante.
 
 #### <a name="choosing-a-compute-model"></a>Scelta di un modello di calcolo
-La [pagina di confronto tra Applicazioni Web , Servizi cloud e Macchine virtuali di Azure](app-service-web/choose-web-site-cloud-service-vm.md) fornisce informazioni più dettagliate su come scegliere un modello di calcolo.
+La [pagina di confronto tra Applicazioni Web , Servizi cloud e Macchine virtuali di Azure](app-service/choose-web-site-cloud-service-vm.md) fornisce informazioni più dettagliate su come scegliere un modello di calcolo.
 
 ## <a name="data-management"></a>Gestione dati
 Alle applicazioni servono i dati e ad applicazioni diverse servono tipi di dati diversi. Per questo motivo, in Azure sono disponibili diversi modi per archiviare e gestire i dati. Azure fornisce numerose opzioni di archiviazione, ma sono tutte progettate per un'archiviazione prolungata nel tempo.  Con una qualsiasi di queste opzioni sono sempre presenti tre copie dei dati sincronizzati con il data center Azure; sei copie nel caso in cui si consenta ad Azure di usare la ridondanza geografica per eseguire il backup in un altro data center ubicato a una distanza di almeno 480 chilometri.     
@@ -537,9 +538,4 @@ SendGrid è un'applicazione di Azure Store che consente di inviare e-mail. Offre
 Dopo avere acquisito una panoramica generale, sarà possibile iniziare a scrivere la prima applicazione Azure. Scegliere la lingua, [scaricare l'SDK appropriato](/downloads/) e installarlo. Il cloud computing è la nuova piattaforma predefinita. Ora è possibile iniziare.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
