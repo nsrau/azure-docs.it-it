@@ -1,6 +1,6 @@
 ---
 title: Parametri di input dei runbook| Documentazione Microsoft
-description: "I parametri di input dei runbook ne aumentano la flessibilità perché consentono di passare dati a un runbook al momento dell&quot;avvio. Questo articolo descrive vari scenari in cui i parametri di input vengono usati nei runbook."
+description: "I parametri di input dei runbook ne aumentano la flessibilità perché consentono di passare dati a un runbook al momento dell'avvio. Questo articolo descrive vari scenari in cui i parametri di input vengono usati nei runbook."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 6486f3963b18edee8490446cad1f6f2697db699b
+ms.contentlocale: it-it
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
+
 I parametri di input dei runbook ne aumentano la flessibilità perché consentono di passare dati a un runbook al momento dell'avvio. I parametri consentono di eseguire azioni runbook mirate per ambienti e scenari specifici. Questo articolo illustra vari scenari in cui i parametri di input vengono usati nei runbook.
 
 ## <a name="configure-input-parameters"></a>Configurare i parametri di input
-È possibile configurare i parametri di input nei runbook grafici e in quelli di PowerShell e del flusso di lavoro PowerShell. Un runbook può avere più parametri con tipi di dati diversi oppure non avere parametri. I parametri di input possono essere obbligatori o facoltativi ed è possibile assegnare un valore predefinito per i parametri facoltativi. È possibile assegnare valori ai parametri di input per un runbook quando viene avviato tramite uno dei metodi disponibili. Questi metodi includono l'avvio di un runbook dal portale o da un servizio Web. È inoltre possibile avviare un runbook come figlio, definito inline in un altro runbook.
+
+È possibile configurare i parametri di input nei runbook grafici e in quelli di PowerShell, di Python e del flusso di lavoro PowerShell. Un runbook può avere più parametri con tipi di dati diversi oppure non avere parametri. I parametri di input possono essere obbligatori o facoltativi ed è possibile assegnare un valore predefinito per i parametri facoltativi. È possibile assegnare valori ai parametri di input per un runbook quando viene avviato tramite uno dei metodi disponibili. Questi metodi includono l'avvio di un runbook dal portale o da un servizio Web. È inoltre possibile avviare un runbook come figlio, definito inline in un altro runbook.
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>Configurare i parametri di input nei runbook di PowerShell e nei runbook del flusso di lavoro PowerShell
+
 I [runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md) e i runbook di PowerShell in Automazione di Azure supportano parametri di input definiti tramite gli attributi seguenti.  
 
 | **Proprietà** | **Descrizione** |
@@ -40,7 +44,7 @@ Windows PowerShell supporta più attributi dei parametri di input di quelli elen
 
 Una definizione di parametri nei runbook del flusso di lavoro PowerShell ha il formato generale seguente, in cui più parametri sono separati da virgole.
 
-   ```
+   ```powershell
      Param
      (
          [Parameter (Mandatory= $true/$false)]
@@ -73,6 +77,7 @@ Se il runbook include un parametro di input di tipo object, per passare un valor
 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Configurare i parametri di input in runbook grafici
+
 Per [configurare un runbook grafico](automation-first-runbook-graphical.md) con parametri di input, verrà creato un runbook grafico che restituisce informazioni dettagliate su macchine virtuali, che si tratti di una singola macchina virtuale o di tutte le macchine virtuali all'interno di un gruppo di risorse. La configurazione di un runbook è costituita da due attività principali, come descritto di seguito.
 
 [**Autenticare runbook con account RunAs di Azure**](automation-sec-configure-azure-runas-account.md) per l'autenticazione con Azure.
@@ -112,14 +117,26 @@ Per [configurare un runbook grafico](automation-first-runbook-graphical.md) con 
      * Valore predefinito personalizzato: \< nome del gruppo di risorse che contiene le macchine virtuali>.
 5. Dopo aver aggiunto i parametri, fare clic su **OK**.  Ora è possibile visualizzarli nel pannello **Input e output**. Fare nuovamente clic su **OK**, quindi su **Salva** e **pubblicare** il runbook.
 
+## <a name="configure-input-parameters-in-python-runbooks"></a>Configurare i parametri di input in runbook di Python
+
+A differenza dei runbook grafici, di PowerShell e del flusso di lavoro di PowerShell, i runbook di Python non accettano parametri denominati.
+Tutti i parametri di input vengono analizzati come matrice di valori di argomento.
+Accedere alla matrice importando il `sys` modulo nelle script Python e quindi usando la matrice `sys.argv`.
+È importante notare che il primo elemento della matrice, `sys.argv[0]`, è il nome dello script, pertanto il primo parametro di input effettivo è `sys.argv[1]`.
+
+Per un esempio su come usare i parametri di input in un runbook di Python, vedere [Il primo runbook Python in Automazione di Azure](automation-first-runbook-textual-python2.md).
+
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Assegnare valori ai parametri di input nei runbook
+
 È possibile passare valori ai parametri di input nei runbook negli scenari illustrati di seguito.
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Avviare un runbook e assegnare parametri
+
 Ci sono diversi modi per avviare un runbook: dal portale di Azure, con un webhook, con i cmdlet di PowerShell, con l'API REST o con l'SDK. Di seguito vengono illustrati vari metodi per avviare un runbook e assegnare parametri.
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>Avviare un runbook pubblicato usando il portale di Azure e assegnare parametri
-Quando si [avvia il runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), viene aperto il pannello **Avvia runbook** ed è possibile configurare i valori per i parametri appena creati.
+
+Quando si [avvia il runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), viene aperto il pannello **Avvia runbook** ed è possibile immettere i valori per i parametri appena creati.
 
 ![Attività iniziali con il portale](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
@@ -133,6 +150,7 @@ Nell'etichetta sotto la casella di input è possibile visualizzare gli attributi
 > 
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>Avviare un runbook pubblicato usando i cmdlet di PowerShell e assegnare parametri
+
 * **Cmdlet di Azure Resource Manager:** è possibile avviare un runbook di Automazione creato in un gruppo di risorse usando [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
   
   **Esempio:**
@@ -158,6 +176,7 @@ Nell'etichetta sotto la casella di input è possibile visualizzare gli attributi
 > 
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>Avviare un runbook usando un SDK e assegnare parametri
+
 * **Metodo di Azure Resource Manager:** è possibile avviare un runbook usando l'SDK di un linguaggio di programmazione. Di seguito è riportato un frammento di codice C# per l'avvio di un runbook nell'account di automazione. È possibile visualizzare tutto il codice nel [repository GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
   ```
@@ -267,10 +286,5 @@ Quando si esegue un runbook con un webhook, insieme ai parametri di input defini
 * Per informazioni dettagliate sulle diverse modalità di avvio dei runbook, vedere [Avvio di un Runbook in Automazione di Azure](automation-starting-a-runbook.md).
 * Per modificare un runbook testuale, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md).
 * Per modificare un runbook grafico, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

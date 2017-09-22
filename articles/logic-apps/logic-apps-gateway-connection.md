@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4744405b2c294be564dedee308b4cba95cfcc3c6
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Accedere alle origini dati in locale dalle app per la logica con il gateway dati locale
@@ -141,7 +141,7 @@ Dopo aver creato una connessione al gateway per l'app per la logica, è possibil
 
      ![Passare all'app per la logica, selezionare "Connessioni API"](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * In alternativa, dal menu principale di Azure a sinistra, passare ad **Altri servizi** > **Web e servizi mobili** > **Connessioni API** per tutte le connessioni API, comprese le connessioni del gateway, che sono associate alla sottoscrizione di Azure. 
+   * In alternativa, dal menu principale di Azure a sinistra, passare ad **Altri servizi** > **Web e dispositivi mobili** > **Connessioni API** per tutte le connessioni API, comprese le connessioni del gateway, che sono associate alla sottoscrizione di Azure. 
 
    * In alternativa, dal menu principale di Azure a sinistra, passare a **Tutte le risorse** per tutte le connessioni API, comprese le connessioni del gateway, che sono associate alla sottoscrizione di Azure.
 

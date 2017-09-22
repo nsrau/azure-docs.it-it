@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 3a8a661f65923476c89763580a98ea240642db99
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5d905d410e70c5b635a3f6221e7e0c0bda7ad140
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="logic-app-limits-and-configuration"></a>Limiti e configurazione delle app per la logica
@@ -113,7 +113,7 @@ Di seguito sono riportati i limiti per una singola definizione di app per la log
 
 ### <a name="integration-account-limits"></a>Limiti dell'account di integrazione
 
-Di seguito sono riportati i limiti per gli elementi aggiunti all'account di integrazione
+Di seguito sono riportati i limiti per gli elementi che è possibile aggiungere a un account di integrazione.
 
 |Nome|Limite|Note|
 |----|----|----|
@@ -123,6 +123,21 @@ Di seguito sono riportati i limiti per gli elementi aggiunti all'account di inte
 |L'endpoint di runtime richiama le chiamate per cinque minuti |45,000|Se necessario, è possibile distribuire il carico di lavoro tra più account|
 |L'endpoint di runtime tiene traccia delle chiamate per 5 minuti |45,000|Se necessario, è possibile distribuire il carico di lavoro tra più account|
 |L'endpoint di runtime blocca le chiamate simultanee |~1,000|Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze|
+
+Di seguito sono riportati i limiti sul numero di elementi che è possibile aggiungere a un account di integrazione.
+
+Piano tariffario Gratuito
+
+|Nome|Limite|Note|
+|----|----|----|
+|Contratti|10||
+|Altri tipi di elementi|25|I tipi includono partner, schemi, certificati e mappe. Ogni tipo può avere fino al numero massimo di elementi.|
+
+Piano tariffario Standard
+
+|Nome|Limite|Note|
+|----|----|----|
+|Qualsiasi tipo di elemento|500|I tipi includono argomenti, partner, schemi, certificati e mappe. Ogni tipo può avere fino al numero massimo di elementi.|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Dimensioni dei messaggi per i protocolli B2B (AS2, X12, EDIFACT)
 

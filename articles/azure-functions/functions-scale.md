@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 8778dcfdb5859d212a2a3eb28a5ed297b5f07460
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: b2f506a90c6b55624c8fe0392511b8098f058812
 ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Confronto di piani di hosting per Funzioni di Azure
@@ -56,7 +56,7 @@ Il piano a consumo è l'impostazione predefinita e offre i vantaggi seguenti:
 
 ## <a name="app-service-plan"></a>Piano di servizio app
 
-Nel piano di servizio app, le app per le funzioni vengono eseguite in macchine virtuali dedicate in SKU Basic, Standard e Premium, analogamente alle app Web. Le macchine virtuali dedicate vengono allocate alle app del servizio app, ovvero l'host di funzioni è sempre in esecuzione.
+Nel piano di servizio app le app per le funzioni vengono eseguite in macchine virtuali dedicate in SKU Basic, Standard, Premium e Isolati, analogamente alle app Web. Le macchine virtuali dedicate vengono allocate alle app del servizio app, ovvero l'host di funzioni è sempre in esecuzione.
 
 Prendere in considerazione un piano di servizio app nei casi seguenti:
 - Sono presenti macchine virtuali sottoutilizzate, che eseguono già altre istanze del servizio app.
@@ -108,5 +108,5 @@ La fatturazione per il piano a consumo viene illustrata in modo dettagliato nell
 * **Utilizzo delle risorse in gigabyte al secondo (GB-s)**. Calcolato come combinazione di dimensioni di memoria e tempo di esecuzione per tutte le funzioni in un'app per le funzioni. 
 * **Esecuzioni**. Conteggiate ogni volta che una funzione viene eseguita in risposta a un evento attivato da un binding.
 
-[pagina relativa ai prezzi per Funzioni di Azure]: https://azure.microsoft.com/pricing/details/functions
+[Pagina dei prezzi di Funzioni di Azure]: https://azure.microsoft.com/pricing/details/functions
 

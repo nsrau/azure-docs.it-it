@@ -1,5 +1,5 @@
 ---
-title: Creare il primo contenitore di Istanze di contenitore di Azure | Azure Docs
+title: Avvio rapido - Creare il primo contenitore di 	Istanze di contenitore di Azure
 description: Distribuire e iniziare a usare Istanze di contenitore di Azure
 services: container-instances
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/12/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ad053391e6b3927ab11faaf4d9e70b610e86f3c3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 012a48410bb08cb54f42a4f87e952f67ad18c112
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creare il primo contenitore in Istanze di contenitore di Azure
 
-Istanze di contenitore di Azure semplifica la creazione e la gestione dei contenitori in Azure. In questa guida introduttiva si creerà un contenitore in Azure e lo si esporrà a Internet con un indirizzo IP pubblico. Per completare questa operazione, è sufficiente un solo comando. In pochi secondi, nel browser verrà visualizzato quanto segue:
+Istanze di contenitore di Azure semplifica la creazione e gestione di contenitori Docker in Azure, senza dover eseguire il provisioning di macchine virtuali o di adottare un servizio di livello superiore. In questo avvio rapido si crea un contenitore in Azure e lo si espone a Internet con un indirizzo IP pubblico. Per completare questa operazione, è sufficiente un solo comando. In pochi secondi, nel browser verrà visualizzato quanto segue:
 
 ![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-app-browser]
 
@@ -35,17 +35,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.12 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo avvio rapido è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.12 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Le istanze di contenitore di Azure sono risorse di Azure e devono essere inserite in un gruppo di risorse di Azure, una raccolta logica in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create).
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroup --location eastus
 Per creare un contenitore, specificare un nome, un'immagine Docker e un gruppo di risorse di Azure. È facoltativamente possibile esporre il contenitore a Internet con un indirizzo IP pubblico. In questo caso, verrà usato un contenitore che ospita un'app Web molto semplice scritta in [Node.js](http://nodejs.org).
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public 
+az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
 In pochi secondi, verrà visualizzata una risposta alla richiesta. Il contenitore inizialmente presenterà lo stato **Creating**, ma verrà avviato entro alcuni secondi. È possibile controllare lo stato usando il comando `show`:
@@ -81,7 +81,7 @@ Nella parte inferiore dell'output verranno visualizzati lo stato del provisionin
 ...
 ```
 
-Dopo che lo stato del contenitore è diventato **Succeeded**, è possibile raggiungerlo nel browser usando l'indirizzo IP fornito. 
+Dopo che lo stato del contenitore è diventato **Completato**, è possibile raggiungerlo nel browser usando l'indirizzo IP fornito.
 
 ![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-app-browser]
 

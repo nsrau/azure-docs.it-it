@@ -16,10 +16,10 @@ ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 77e788a32097edbcb1cd4faaa45f35812eabd94a
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: fda1111877e5eb35fe246891fa7ff71ce6b5c20d
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
@@ -45,7 +45,7 @@ I metodi diretti vengono implementati nel dispositivo. Per creare correttamente 
 
 I metodi diretti sono sincroni e possono solo avere esito positivo o negativo dopo il periodo di timeout. Il valore predefinito è 30 secondi, ma il valore massimo impostabile è 3600 secondi. Risultano utili negli scenari interattivi in cui si vuole che il dispositivo agisca esclusivamente se è online e riceve comandi, ad esempio nel caso dell'accensione di una luce da un telefono. In questi scenari l'esito positivo o negativo deve essere immediato, in modo che il servizio cloud possa agire in base al risultato il prima possibile. Il dispositivo può restituire un corpo del messaggio come risultato del metodo, ma non è necessario che il metodo esegua questa operazione. Nelle chiamate ai metodi non esiste alcuna garanzia di ordinamento o semantica di concorrenza.
 
-I metodi diretti supportano solo HTTP lato cloud e solo MQTT lato dispositivo.
+I metodi diretti supportano solo HTTP lato cloud e solo MQTT o AMQP lato dispositivo.
 
 Il payload per le richieste e le risposte del metodo è un documento JSON con dimensioni massime di 8 KB.
 

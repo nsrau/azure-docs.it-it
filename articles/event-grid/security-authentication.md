@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: ccef224ef1c2919a3e5469c1bbe0980c6963705b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 9bc82e628df5e380db84e22e1f5fd25f75929fdc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 

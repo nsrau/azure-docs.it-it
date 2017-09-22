@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 00fec675bed0137473f7e3c5ddfe9c3c0e8344c6
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 293042a6ccfc39bd1cca181d058a25211904740e
+ms.contentlocale: it-it
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Rendere operativi i modelli di apprendimento automatico compilati con Spark
@@ -47,7 +47,7 @@ Al fine di modificare il notebook di Jupyter per Spark 1.6 per l'uso di un clust
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Configurazione: percorsi di archiviazione, librerie e contesto Spark preimpostato
 Spark può eseguire operazioni di lettura e scrittura in un BLOB del servizio di archiviazione di Azure (WASB). I dati esistenti archiviati in WASB possono essere elaborati con Spark e i relativi risultati possono essere memorizzati nuovamente in BLOB di Archiviazione di Azure.
 
-Per salvare file o modelli in WASB, è necessario specificare correttamente il percorso. È possibile fare riferimento al contenitore predefinito collegato al cluster Spark usando un percorso che inizia con: *"wasb//"*. L'esempio di codice seguente specifica il percorso dei dati da leggere e il percorso della directory di archiviazione del modello in cui viene salvato l'output del modello. 
+Per salvare file o modelli in WASB, è necessario specificare correttamente il percorso. È possibile fare riferimento al contenitore predefinito collegato al cluster Spark usando un percorso che inizia con: *"wasb///"*. L'esempio di codice seguente specifica il percorso dei dati da leggere e il percorso della directory di archiviazione del modello in cui viene salvato l'output del modello. 
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Impostare percorsi di directory per i percorsi di archiviazione in WASB
 I modelli vengono salvati in: "wasb:///user/remoteuser/NYCTaxi/Models". Se questo percorso non è impostato correttamente, i modelli non vengono caricati per l'assegnazione dei punteggi.

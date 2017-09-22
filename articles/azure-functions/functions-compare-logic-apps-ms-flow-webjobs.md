@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2017
+ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 43e01efaa16ff54d1f526076224979b7b9688e80
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: d8edabe1198f37513fc292e0bffc5c83e7e566e7
 ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Scegliere tra Flow, App per la logica, Funzioni e Processi Web
@@ -83,7 +83,7 @@ La tabella seguente riepiloga le differenze tra Funzioni e Processi Web:
 | Tipo di esecuzione |Attivata, pianificata (da trigger timer) |Attivata, continua, pianificata |
 | Eventi di attivazione |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Hub eventi di Azure](functions-bindings-event-hubs.md), [HTTP/webhook (GitHub, Slack)](functions-bindings-http-webhook.md), [App per dispositivi mobili del Servizio app di Azure](functions-bindings-mobile-apps.md), [Hub di notifica di Azure](functions-bindings-notification-hubs.md), [Bus di servizio di Azure](functions-bindings-service-bus.md), [Archiviazione di Azure](functions-bindings-storage.md) |[Archiviazione di Azure](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), [Bus di servizio di Azure](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
 | Sviluppo nel browser |supportato | non supportato |
-| Windows Scripting |sperimentale |supportato |
+| Scripting Windows (.cmd, .bat) |sperimentale |supportato |
 | PowerShell |sperimentale |supportato |
 | C# |supportato |supportato |
 | F# |supportato |non supportato |

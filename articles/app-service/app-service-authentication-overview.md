@@ -14,10 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
-ms.openlocfilehash: e89ba5613c615c41af93e8f63b3703da8395095c
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ea1666007b88cdf45017b0bd91e100dc1218fb2b
+ms.contentlocale: it-it
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
@@ -30,7 +31,6 @@ Se si vuole iniziare subito, vedere una delle esercitazioni seguenti:
 
 * [Aggiungere l'autenticazione all'app iOS][iOS] (o [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms] o [Cordova])
 * [Autenticazione utente per le app per le API nel servizio app di Azure][apia-user]
-* [Introduzione a Servizio app di Azure: parte 2][web-getstarted]
 
 ## <a name="how-authentication-works-in-app-service"></a>Funzionamento dell'autenticazione nel servizio app
 Per eseguire l'autenticazione con uno dei provider di identità, è prima necessario configurare il provider di identità per l'applicazione. Il provider di identità fornirà quindi gli ID e i segreti da includere nel servizio app. Questo completa la relazione di trust e consente al servizio app di convalidare le asserzioni utente dal provider di identità, ad esempio i token di autenticazione.
@@ -75,7 +75,7 @@ Per gestire uno scenario da servizio a servizio con l'autenticazione del servizi
 
 L'autenticazione dell'account del servizio da un'app per la logica del servizio app a un'app per le API è un caso speciale ed è illustrata nell'articolo [Uso dell'API personalizzata ospitata nel servizio app con App per la logica](../logic-apps/logic-apps-custom-hosted-api.md).
 
-## <a name="a-nameauthorizationahow-authorization-works-in-app-service"></a><a name="authorization"></a>Funzionamento dell'autorizzazione nel servizio app
+## <a name="authorization"></a>Funzionamento dell'autorizzazione nel servizio app
 Si ha il controllo completo sulle richieste che possono accedere all'applicazione. Autenticazione servizio app/L'autorizzazione può essere configurata con uno qualsiasi dei comportamenti seguenti:
 
 * Consentire solo alle richieste autenticate di raggiungere l'applicazione.
@@ -119,7 +119,7 @@ Per usare un sistema di gestione delle identità diverso da quelli qui forniti, 
 ### <a name="web-applications"></a>Applicazioni Web
 Le esercitazioni seguenti illustrano come aggiungere l'autenticazione a un'applicazione Web:
 
-* [Introduzione a Servizio app di Azure: parte 2][web-getstarted]
+* [Introduzione a Servizio app di Azure - Parte 2][web-getstarted]
 
 ### <a name="mobile-applications"></a>Applicazioni per dispositivi mobili
 Le esercitazioni seguenti illustrano come aggiungere l'autenticazione ai client per dispositivi mobili usando il flusso verso il server:
@@ -159,8 +159,6 @@ Le esercitazioni seguenti illustrano come proteggere le app per le API:
 [apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
 [apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
 
-[web-getstarted]: ../app-service-web/app-service-web-get-started-2.md#authenticate-your-users
-
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
 [Xamarin.iOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
@@ -180,9 +178,4 @@ Le esercitazioni seguenti illustrano come proteggere le app per le API:
 [ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
 [ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
 [ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

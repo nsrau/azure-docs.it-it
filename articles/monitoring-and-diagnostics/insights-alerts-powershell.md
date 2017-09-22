@@ -1,6 +1,6 @@
 ---
 title: Creare avvisi per i servizi di Azure - PowerShell | Microsoft Docs
-description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l&quot;automazione quando vengono soddisfatte le condizioni specificate.
+description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni specificate.
 author: rboucher
 manager: carmonm
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 50127242cdf156771d0610e58cf2fc41281adae7
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
+ms.contentlocale: it-it
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Creare avvisi sulle metriche in Monitoraggio di Azure per i servizi di Azure: PowerShell
@@ -97,7 +97,7 @@ Per altre informazioni è sempre possibile digitare ```Get-Help``` e quindi il c
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 
      ```
-     Un elenco completo delle opzioni disponibili per Get-AzureRmMetricDefinition è visualizzabile eseguendo Get-MetricDefinitions.
+     Un elenco completo delle opzioni disponibili per Get-AzureRmMetricDefinition è visualizzabile eseguendo `Get-Help Get-AzureRmMetricDefinition -Detailed`.
 5. L'esempio seguente imposta un avviso relativo a una risorsa del sito Web. L'avviso viene attivato ogni volta che si riceve il traffico costantemente per 5 minuti e di nuovo quando non si riceve traffico per 5 minuti.
 
     ```PowerShell

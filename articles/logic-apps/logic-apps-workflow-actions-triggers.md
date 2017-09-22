@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: bfde83e1142bf57e02ee458d477a0a70e78c4ad6
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: cc41bdb12cf11e60489e104af2df4dd0720dd91b
 ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -160,11 +160,11 @@ Di seguito sono riportati alcuni esempi di comportamenti diversi a seconda del t
   
 |Codice della risposta|Retry\-After|Comportamento|  
 |-----------------|----------------|------------|  
-|200|\(nessuna\)|Trigger non valido. Retry\-After è obbligatorio, altrimenti il motore non esegue mai il polling per la richiesta successiva.|  
-|202|60|Non attiva il flusso di lavoro. Verrà eseguito un altro tentativo entro un minuto.|  
+|200|\(nessuna\)|Esegue il flusso di lavoro e il controllo di più contenuti dopo la ricorrenza definita.|  
 |200|10|Esegue il flusso di lavoro e verifica di nuovo la disponibilità di altri contenuti entro 10 secondi.|  
-|400|\(nessuna\)|Richiesta non valida, non esegue il flusso di lavoro. Se non è definito alcun **criterio per i tentativi**, vengono usati i criteri predefiniti. Dopo che è stato raggiunto il numero di tentativi, il trigger non è più valido.|  
-|500|\(nessuna\)|Errore del server, non esegue il flusso di lavoro.  Se non è definito alcun **criterio per i tentativi**, vengono usati i criteri predefiniti. Dopo che è stato raggiunto il numero di tentativi, il trigger non è più valido.|  
+|202|60|Non attiva il flusso di lavoro. Il successivo tentativo viene eseguito dopo un minuto in base alla ricorrenza definita. Se la ricorrenza definita è inferiore a un minuto, intestazione retry-after ha la precedenza. In caso contrario viene seguita la ricorrenza definita.|  
+|400|\(nessuna\)|Richiesta non valida, non esegue il flusso di lavoro. Se non è definito alcun **criterio per i tentativi**, vengono usati i criteri predefiniti. Una volta raggiunto il numero di tentativi, il trigger cercherà nuovamente contenuti seguendo la ricorrenza definita.|  
+|500|\(nessuna\)|Errore del server, non esegue il flusso di lavoro.  Se non è definito alcun **criterio per i tentativi**, vengono usati i criteri predefiniti. Una volta raggiunto il numero di tentativi, il trigger cercherà nuovamente contenuti seguendo la ricorrenza definita.|  
   
 Gli output di un trigger HTTP sono simili a questo esempio:  
   

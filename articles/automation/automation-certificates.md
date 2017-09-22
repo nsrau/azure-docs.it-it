@@ -1,6 +1,6 @@
 ---
 title: Asset di tipo certificato in Automazione di Azure | Documentazione Microsoft
-description: I certificati possono essere archiviati in modo sicuro in Automazione di Azure, in modo che i Runbook o le configurazioni DSC possano accedervi per eseguire l&quot;autenticazione rispetto a risorse di Azure e di terze parti.  Questo articolo illustra nel dettaglio i certificati e spiega come usarli nella creazione testuale e grafica.
+description: I certificati possono essere archiviati in modo sicuro in Automazione di Azure, in modo che i runbook o le configurazioni DSC possano accedervi per eseguire l'autenticazione rispetto a risorse di Azure e di terze parti.  Questo articolo illustra nel dettaglio i certificati e spiega come usarli nella creazione testuale e grafica.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2016
+ms.date: 09/14/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 89e5486f3302098f3a1d49e4390ec5b21617d778
-ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
+ms.translationtype: HT
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 7082f0c4b1a4cf0f67da5254b4ebb019c7299683
+ms.contentlocale: it-it
+ms.lasthandoff: 09/14/2017
 
 ---
 
 # <a name="certificate-assets-in-azure-automation"></a>Asset di tipo certificato in Automazione di Azure
 
-I certificati possono essere archiviati in modo sicuro in Automazione di Azure, in modo che vi possano accedere i runbook o le configurazioni DSC che usano l'attività **Get-AzureRmAutomationRmCertificate** per le risorse di Azure Resource Manager. Ciò permette di creare runbook e configurazioni DSC che usano certificati per l'autenticazione o di aggiungerli a risorse di Azure o di terze parti.
+I certificati possono essere archiviati in modo sicuro in Automazione di Azure, in modo che vi possano accedere i runbook o le configurazioni DSC che usano l'attività **Get-AzureRmAutomationCertificate** per le risorse di Azure Resource Manager. Ciò permette di creare runbook e configurazioni DSC che usano certificati per l'autenticazione o di aggiungerli a risorse di Azure o di terze parti.
 
 > [!NOTE] 
 > Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata usando il certificato master e viene quindi usata per crittografare l'asset.
@@ -34,11 +36,23 @@ I cmdlet della tabella seguente vengono usati per creare e gestire asset di cert
 
 |Cmdlet|Descrizione|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|Recupera le informazioni su un certificato da usare in un runbook o in una configurazione DSC. È possibile recuperare solo il certificato stesso dall'attività Get-AutomationCertificate.|
-|[New-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603604.aspx)|Crea un nuovo certificato in Automazione di Azure.|
-[Remove-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603529.aspx)|Rimuove un certificato da Automazione di Azure.|Crea un nuovo certificato in Automazione di Azure.
-|[Set-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603760.aspx)|Imposta le proprietà per un certificato esistente, inclusi il caricamento del file del certificato e l'impostazione della password per un file con estensione pfx.|
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|Recupera le informazioni su un certificato da usare in un runbook o in una configurazione DSC. È possibile recuperare solo il certificato stesso dall'attività Get-AutomationCertificate.|
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|Crea un nuovo certificato in Automazione di Azure.|
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|Rimuove un certificato da Automazione di Azure.|Crea un nuovo certificato in Automazione di Azure.
+|[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Imposta le proprietà per un certificato esistente, inclusi il caricamento del file del certificato e l'impostazione della password per un file con estensione pfx.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carica un certificato di servizio per il servizio cloud specificato.|
+
+
+## <a name="python2-functions"></a>Funzioni Python2
+
+La funzione nella tabella seguente viene usata per accedere ai certificati in un runbook Python2.
+
+| Funzione | Descrizione |
+|:---|:---|
+| automationassets.get_automation_certificate | Recupera informazioni su un asset certificato. |
+
+> [!NOTE]
+> È necessario importare il modulo **automationassets** all'inizio del runbook Python per poter accedere alle funzioni dell'asset.
 
 
 ## <a name="creating-a-new-certificate"></a>Creazione di un nuovo certificato
@@ -91,13 +105,16 @@ La figura seguente mostra un esempio dell'uso di un certificato in un runbook gr
 
 ![Esempio di creazione grafica ](media/automation-certificates/graphical-runbook-add-certificate.png)
 
+### <a name="python2-sample"></a>Esempio Python2
+L'esempio seguente illustra come accedere ai certificati nei runbook Python2.
+
+    # get a reference to the Azure Automation certificate
+    cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+    
+    # returns the binary cert content  
+    print cert 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per ulteriori informazioni sull'utilizzo di collegamenti per controllare il flusso logico delle attività per le quali è progettato il runbook, vedere [Collegamenti nella creazione grafica](automation-graphical-authoring-intro.md#links-and-workflow). 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

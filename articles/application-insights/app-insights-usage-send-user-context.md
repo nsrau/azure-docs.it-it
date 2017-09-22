@@ -1,25 +1,10 @@
----
-title: Invio del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights | Microsoft Docs
-description: Tenere traccia degli spostamenti degli utenti nel servizio dopo aver assegnato a ognuno una stringa ID univoca e persistente in Application Insights.
-services: application-insights
-documentationcenter: 
-author: abgreg
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: csharp
-ms.topic: article
-ms.date: 08/02/2017
-ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 7d0da5fb0b2c59764b36becd826d8c4cc6efc4ad
-ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+titolo: Invio degli ID del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights | Descrizione Microsoft Docs: Tenere traccia degli spostamenti degli utenti nel servizio assegnando loro una stringa ID univoca e persistente in Application Insights.
+services: application-insights documentationcenter: '' author: abgreg manager: carmonm
+
+ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: csharp ms.topic: article ms.date: 08/02/2017 ms.author: bwren
 
 ---
-#  <a name="sending-user-context-to-enable-usage-experiences-in-azure-application-insights"></a>Invio del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights
+#  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Invio degli ID del contesto utente per abilitare esperienze di utilizzo in Azure Application Insights
 
 ## <a name="tracking-users"></a>Monitorare gli utenti
 
@@ -30,7 +15,7 @@ Application Insights consente di monitorare e tenere traccia degli utenti tramit
 * Coorte
 * [Cartelle di lavoro](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-Per tenere traccia delle operazioni eseguite da un utente nel corso del tempo, Application Insights deve usare un ID per ogni utente o sessione. Includere questi ID in ogni evento o visualizzazione pagina personalizzati.
+Per tenere traccia delle operazioni eseguite da un utente nel corso del tempo, Application Insights deve usare un ID per ogni utente o sessione. Includere gli ID seguenti in ogni evento o visualizzazione pagina personalizzati.
 - Utenti, grafici a imbuto, conservazione e coorti: includere l'ID utente.
 - Sessioni: includere l'ID di sessione.
 
@@ -47,13 +32,11 @@ L'ID deve essere un GUID o un'altra stringa abbastanza complessa da identificare
 
 Se l'ID contiene informazioni personali sull'utente, non è un valore appropriato da inviare ad Application Insights come ID utente. È possibile inviare un ID di questo tipo come [ID utente autenticato](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), ma non soddisfa il requisito dell'ID utente per gli scenari di utilizzo.
 
-## <a name="aspnet-apps-set-user-context-in-an-itelemetryinitializer"></a>App ASP.NET: impostare il contesto utente in un ITelemetryInitializer
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>App ASP.NET: Impostare il contesto utente in un ITelemetryInitializer
 
 Creare un inizializzatore di telemetria, come descritto in dettaglio [qui](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) e impostare Context.User.Id e Context.Session.Id.
 
 Questo esempio imposta l'ID utente su un identificatore che scade al termine della sessione. Se possibile, usare un ID utente che persiste tra le sessioni.
-
-*C#*
 
 ```C#
 
@@ -98,4 +81,3 @@ Questo esempio imposta l'ID utente su un identificatore che scade al termine del
     * [Grafici a imbuto](usage-funnels.md)
     * [Conservazione](app-insights-usage-retention.md)
     * [Cartelle di lavoro](app-insights-usage-workbooks.md)
-

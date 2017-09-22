@@ -1,6 +1,6 @@
 ---
-title: Usare l&quot;insieme di credenziali delle chiavi di Azure da un&quot;applicazione Web | Microsoft Docs
-description: "In questa esercitazione si apprenderà a usare l&quot;insieme di credenziali chiave di Azure da un&quot;applicazione Web."
+title: Usare l'insieme di credenziali delle chiavi di Azure da un'applicazione Web | Microsoft Docs
+description: "In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web."
 services: key-vault
 documentationcenter: 
 author: adhurwit
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: adhurwit
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: d095bcfe37baefa90cf79bb48bff3f703ce1dad7
+ms.translationtype: HT
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: f306784adcb807b399fbfbedf08bffdd2998ed02
 ms.contentlocale: it-it
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Usare l'insieme di credenziali chiave di Azure da un'applicazione Web
@@ -38,7 +37,8 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Un'applicazione Web. Verranno mostrati i passaggi per un'applicazione ASP.NET MVC distribuita in Azure come app Web.
 
 > [!NOTE]
-> Per questa esercitazione è essenziale aver completato i passaggi elencati in [Introduzione all'insieme di credenziali chiave di Azure](key-vault-get-started.md) in modo da disporre dell'URI di un segreto e dell'ID client e del segreto client per un'applicazione Web.
+>* Questo esempio dipende da una modalità meno recente di eseguire il provisioning manuale delle identità AAD. Attualmente esiste una nuova funzionalità in anteprima, denominata Managed Service Identity (MSI), che consente di eseguire automaticamente il provisioning di identità AAD. Per altri dettagli, fare riferimento al [collegamento](https://docs.microsoft.com/azure/active-directory/msi-overview) seguente. 
+>* Per questa esercitazione è essenziale aver completato i passaggi elencati in [Introduzione all'insieme di credenziali chiave di Azure](key-vault-get-started.md) in modo da disporre dell'URI di un segreto e dell'ID client e del segreto client per un'applicazione Web.
 > 
 > 
 

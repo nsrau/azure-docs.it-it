@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
 ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profilatura delle app Web di Azure attive con Application Insights
@@ -65,11 +65,17 @@ Quando si [abilita Application Insights per i servizi app di Azure in fase di es
 Esiste una [versione di anteprima del profiler per le risorse di calcolo di Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 
-## <a name="limits"></a>Limiti
+## <a name="limitations"></a>Limitazioni
 
 La conservazione predefinita dei dati è di 5 giorni. Massimo 10 GB inseriti al giorno.
 
 Non è previsto alcun addebito per il servizio profiler. L'app Web deve essere ospitata almeno al livello di base dei servizi app.
+
+## <a name="overhead-and-sampling-algorithm"></a>Overhead e algoritmo di campionamento
+
+Il profiler viene eseguito in modo casuale per 2 minuti ogni ora in ogni macchina virtuale che ospita l'applicazione con il profiler abilitato per acquisire le tracce. Quando il profiler è in esecuzione, aggiunge al server tra il 5 e il 15% di overhead della CPU.
+Maggiore è il numero di server disponibili per ospitare l'applicazione, minore l'impatto del profiler sulle prestazioni complessive dell'applicazione. Questo accade perché l'algoritmo di campionamento fa sì che il profiler venga eseguito in qualsiasi momento solo sul 5% dei server e un maggior numero di server sarà disponibile per elaborare le richieste Web di scartare i server con overhead dal profiler.
+
 
 ## <a name="viewing-profiler-data"></a>Visualizzazione dei dati del profiler
 
@@ -191,6 +197,21 @@ Quando sono presenti thread in parallelo nelle analisi, è necessario determinar
 ### <a name="error-report-in-the-profiling-viewer"></a>Report di errori nel visualizzatore di profilatura
 
 Archiviare un ticket di supporto dal portale. Includere l'ID di correlazione dal messaggio di errore.
+
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Errore di distribuzione Directory non vuota 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+Se si intende ridistribuire l'app Web a una risorsa di Servizi app con il profiler abilitato, può essere visualizzato un errore simile al seguente: Directory non vuota 'D:\\home\\site\\wwwroot\\App_Data\\jobs'. Questo errore viene generato se si esegue Distribuzione Web da script o nella pipeline di distribuzione di Visual Studio Team Services.
+Per risolvere questo problema aggiungere i seguenti parametri di distribuzione all'attività di Distribuzione Web:
+
+```
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+```
+
+Ciò elimina la cartella usata da App Insights Profiler e sblocca il processo di ridistribuzione. Non ha impatto sull'istanza del profiler attualmente in esecuzione.
+
 
 ## <a name="manual-installation"></a>Installazione manuale
 
