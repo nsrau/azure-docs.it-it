@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Absorb LMS | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Absorb LMS | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Absorb LMS.
 services: active-directory
 documentationCenter: na
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 3c68c3ac7d6be593476d419f8c015931b206eead
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f5f20fee648cf26b4db49b9a8f5f5e5bcecd453e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Esercitazione: Integrazione di Azure Active Directory con Absorb LMS
@@ -124,7 +124,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
-7. Nella sezione **Absorb LMS Configuration** (Configurazione Absorb LMS) fare clic su **Configure Absorb LMS** (Configura Absorb LMS) per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML e l'URL di disconnessione** dalla sezione **Riferimento rapido**.
+7. Nella sezione **Absorb LMS Configuration** (Configurazione Absorb LMS) fare clic su **Configure Absorb LMS** (Configura Absorb LMS) per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione** dalla **sezione Riferimento rapido**.
 
     ![Configurazione di Absorb LMS](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
 
@@ -146,15 +146,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-absorblms-tutorial/4.png)
 
-    a. Selezionare la **modalità** appropriata.
+    a. Selezionare **Identity Provider Initiated** (Avviato dal provider di identità).
 
-    b. Aprire il certificato scaricato dal portale di Azure nel blocco note, rimuovere i tag **---BEGIN CERTIFICATE---** e **---END CERTIFICATE---** e quindi incollare il contenuto rimanente nella casella di testo **Key** (Chiave).
+    b. Aprire il certificato scaricato dal portale di Azure nel Blocco note, rimuovere i tag **---BEGIN CERTIFICATE---** e **---END CERTIFICATE---** e quindi incollare il contenuto rimanente nella casella di testo **Key** (Chiave).
     
     c. Nel campo **Id Property** (Proprietà ID), selezionare l'attributo appropriato configurato come identificatore utente in Azure AD. Se, ad esempio, in Azure AD è stato selezionato userprinciplename, qui è necessario selezionare Username.
 
-    d. Nel campo **Login URL** (URL di accesso), incollare il valore dell'**URL servizio Single Sign-On SAML** copiato in precedenza dalla finestra **Configura accesso** del portale di Azure.
+    d. Nell'**URL di accesso** incollare l'**URL di accesso utente** dalla pagina **Proprietà** dell'applicazione del portale di Azure.
 
-    e. Nel campo **Logout URL** (URL di disconnessione) incollare l'**URL di disconnessione** copiato in precedenza dalla finestra **Configura accesso** del portale di Azure.
+    e. Nel campo **URL disconnessione** incollare il valore di **URL di disconnessione** copiato dalla finestra **Configura accesso** del portale di Azure.
 
 13. Abilitare **Only Allow SSO Login** (Consenti solo accesso SSO).
 
@@ -276,6 +276,7 @@ Quando si fa clic sul riquadro Absorb LMS nel pannello di accesso, si accederà 
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+
 
 
 <!--Image references-->

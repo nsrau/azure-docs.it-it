@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 2f74637fe9887a9a1afbb32647d3fa98b9f88761
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: bb058b11d211c4c41ff8f8c3849a4630886c78d5
 ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
@@ -31,9 +31,13 @@ ms.lasthandoff: 09/05/2017
 È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente.
 
 ## <a name="backup"></a>Backup
+
+## <a name="error-the-specified-disk-configuration-is-not-supported"></a>Errore: la configurazione di disco specificata non è supportata
+
+Attualmente Backup di Azure non supporta dischi con dimensioni maggiori di 1023 GB. Assicurarsi che le dimensioni dei dischi siano inferiori al limite dividendo i dischi. Per dividere i dischi, è necessario copiare i dati dai dischi di dimensioni maggiori di 1023 GB in nuovi dischi creati con dimensioni minori di 1023 GB.
+
 | Dettagli errore | Soluzione alternativa |
 | --- | --- |
-| La configurazione del disco specificata non è supportata. Seguire le indicazioni disponibili all'indirizzo http://go.microsoft.com/fwlink/?LinkId=808978 per risolvere i problemi segnalati dagli avvisi o contattare il supporto Microsoft per assistenza.| Attualmente Backup di Azure non supporta dischi con dimensioni maggiori di 1023 GB. Assicurarsi che le dimensioni dei dischi siano inferiori al limite dividendo i dischi. Per dividere i dischi, è necessario copiare i dati dai dischi di dimensioni maggiori di 1023 GB in nuovi dischi creati con dimensioni minori di 1023 GB. |
 | Impossibile eseguire l'operazione perché la VM non esiste più. Arrestare la protezione della macchina virtuale senza eliminare i dati del backup. Per altre informazioni visitare la pagina Web http://go.microsoft.com/fwlink/?LinkId=808124 |Questo si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale per il backup. Per correggere l'errore:  <ol><li> Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse [nome del servizio cloud],<br>OPPURE</li><li> Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. [Altre informazioni](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale. Assicurarsi che la VM abbia accesso alla rete. Per la corretta creazione dello snapshot, aggiungere all'elenco elementi consentiti gli intervalli IP del data center di Azure oppure configurare un server proxy per l'accesso di rete. Per altri dettagli, vedere http://go.microsoft.com/fwlink/?LinkId=800034. Se si usa già il server proxy, assicurarsi che le impostazioni del server proxy siano configurate correttamente. | Questo errore viene generato quando si nega la connettività Internet in uscita nella macchina virtuale. La connettività Internet è necessaria per consentire all'estensione snapshot della VM di creare uno snapshot dei dischi sottostanti della macchina virtuale. [Altre informazioni](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine) su come risolvere gli errori degli snapshot dovuti all'accesso di rete bloccato. |
 | L'agente di macchine virtuali non riesce a comunicare con il servizio Backup di Azure. Verificare la connettività di rete della macchina virtuale e che l'agente di macchine virtuali sia in esecuzione con la versione più recente. Per altre informazioni, vedere http://go.microsoft.com/fwlink/?LinkId=800034. |Questo errore viene generato se si verifica un problema con l'agente di VM o se l'accesso di rete all'infrastruttura di Azure è bloccato in qualche modo. Vedere [altre informazioni](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sul debug dei problemi di snapshot della VM.<br> Se l'agente VM non causa alcun problema, riavviare la VM. Talvolta, uno stato della macchina virtuale non corretto genera problemi che vengono corretti riavviando la macchina virtuale. |

@@ -1,5 +1,5 @@
 ---
-title: Gruppi dedicati in Azure Active Directory | Documentazione Microsoft
+title: Gruppi dedicati in Azure Active Directory | Microsoft Docs
 description: Panoramica del funzionamento dei gruppi dedicati in Azure Active Directory e della loro creazione.
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 992f4563064d7a292cf4fdd90a9a3c84cdec91c0
 ms.contentlocale: it-it
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="dedicated-groups-in-azure-active-directory"></a>Gruppi dedicati in Azure Active Directory
@@ -36,7 +36,7 @@ In Azure Active Directory (Azure AD), la funzionalità gruppi dedicati crea e po
 
 **Per abilitare i gruppi dedicati**
 
-1. Nel [portale di Azure classico](https://manage.windowsazure.com)selezionare **Active Directory**e aprire la directory dell'organizzazione.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Active Directory** e quindi aprire la directory dell'organizzazione.
 2. Selezionare la scheda **Gruppi** e aprire il gruppo da modificare.
 3. Selezionare la scheda **Configura** e impostare **Abilita gruppi dedicati** su **Sì**.
 

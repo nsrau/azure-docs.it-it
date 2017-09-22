@@ -1,5 +1,5 @@
 ---
-title: Come configurare dispositivi aggiunti ad Azure Active Directory | Microsoft Docs
+title: Configurare dispositivi aggiunti ad Azure Active Directory | Microsoft Docs
 description: Informazioni su come configurare dispositivi aggiunti ad Azure Active Directory.
 services: active-directory
 documentationcenter: 
@@ -16,37 +16,49 @@ ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 303660fa53919ec22a032931aab729fd36676b82
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: f548833cca27debb67cb155be0791299470f28dd
 ms.contentlocale: it-it
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="how-to-configure-azure-active-directory-joined-devices"></a>Come configurare dispositivi aggiunti ad Azure Active Directory
+# <a name="set-up-azure-active-directory-joined-devices"></a>Configurare dispositivi aggiunti ad Azure Active Directory
 
-Tramite la gestione dei dispositivi in Azure Active Directory (Azure AD) è possibile garantire che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard di sicurezza e conformità. Per altre informazioni, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](device-management-introduction.md).
+La gestione dei dispositivi in Azure Active Directory (Azure AD) aiuta a garantire che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard di sicurezza e conformità. Per altre informazioni, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](device-management-introduction.md).
 
-Per controllare i dispositivi Windows 10 aziendali con Azure AD, è necessario configurarne l'aggiunta ad Azure AD. Questo argomento illustra i passaggi necessari. 
+Con i [dispositivi aggiunti ad Azure AD](device-management-introduction.md#azure-ad-joined-devices) è possibile trasferire i dispositivi Windows 10 che appartengono alla propria organizzazione sotto il controllo di Azure AD. Questi dispositivi non devono risultare già [aggiunti a una AD locale](device-management-introduction.md#hybrid-azure-ad-joined-devices).
 
+Questo argomento include le istruzioni per registrare i dispositivi Windows 10 con Azure AD. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per aggiungere un dispositivo Windows 10, il servizio di registrazione dispositivo deve essere configurato per consentire la registrazione dei dispositivi. Oltre ad avere l'autorizzazione per l'aggiunta di dispositivi nel tenant di Azure AD, è necessario che i dispositivi registrati siano meno del numero massimo configurato. Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](device-management-azure-portal.md#configure-device-settings).
+Prima di iniziare, è necessario verificare di:
+
+- Disporre delle autorizzazioni necessarie per aggiungere dispositivi ad Azure AD.
+
+    ![Connesso](./media/device-management-azuread-joined-devices-setup/21.png)
+
+- Non avere ancora superato il numero massimo di dispositivi per utente. 
+
+    ![Connesso](./media/device-management-azuread-joined-devices-setup/22.png)
+
+
+Per altre informazioni, vedere [Configurare le impostazioni dei dispositivi](device-management-azure-portal.md#configure-device-settings).
 
 
 
 ## <a name="what-you-should-know"></a>Informazioni utili
 
 
-- Windows aggiunge il dispositivo nella directory dell'organizzazione in Azure AD.
+- Windows registra il dispositivo nella directory dell'organizzazione in Azure AD.
 
-- Potrebbe venire richiesta l'autenticazione a più fattori. Questa richiesta può essere configurata da un amministratore IT.
+- Potrebbe essere richiesto di superare l'autenticazione a più fattori. Tale richiesta può essere impostata dall'amministratore IT.
 
-- Azure AD controlla se il dispositivo richiede la registrazione per la gestione di dispositivi mobili e, se necessario, la esegue.
+- Azure AD controlla se un dispositivo richiede la registrazione per la gestione dei dispositivi mobili. Se necessario, registra il dispositivo.
 
-- Se si è un utente gestito, Windows visualizza il desktop tramite l'accesso automatico.
+- Windows reindirizza gli utenti gestiti al desktop tramite l'accesso automatico.
 
-- Nel caso di un utente federato, è necessario accedere usando le credenziali.
+- Gli utenti federati vengono reindirizzati a una pagina di accesso di Windows in cui immettere le credenziali.
 
 
 ## <a name="joining-a-device"></a>Aggiunta di un dispositivo
@@ -123,8 +135,9 @@ Per altre informazioni, vedere [Individuare i dispositivi](device-management-azu
 Per altre informazioni, vedere: 
 
 - [Introduzione alla gestione dei dispositivi in Azure Active Directory](device-management-introduction.md)
+
 - [Gestione dei dispositivi tramite il portale di Azure](device-management-azure-portal.md)
-- 
+
 
 
 

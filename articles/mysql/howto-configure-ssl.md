@@ -8,12 +8,12 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 09/15/2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 77e1b6266a2cf47949fa06358ec003f6b6b38065
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 38e68712699b3e89a10c3d44d8ec313f531fcbdc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL
@@ -35,8 +35,8 @@ mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4d
 ```
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Passaggio 3: applicazione delle connessioni SSL in Azure 
-### <a name="using-azure-portal"></a>Uso del portale di Azure
-Usando il portale di Azure, passare all'istanza di Database di Azure per il server MySQL e fare clic su **Sicurezza delle connessioni**. Usare l'interruttore per abilitare o disabilitare l'impostazione **Imponi connessione SSL**. Fare quindi clic su **Salva**. Microsoft consiglia di abilitare sempre l'impostazione **Imponi connessione SSL** per maggiore sicurezza.
+### <a name="using-the-azure-portal"></a>Uso del portale di Azure
+Tramite il portale di Azure passare all'istanza di Database di Azure per il server MySQL e fare clic su **Sicurezza delle connessioni**. Usare l'interruttore per abilitare o disabilitare l'impostazione **Imponi connessione SSL**, quindi fare clic su **Salva**. È consigliabile abilitare sempre l'impostazione **Imponi connessione SSL** per ottenere un livello di sicurezza avanzato.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
@@ -45,12 +45,12 @@ Usando il portale di Azure, passare all'istanza di Database di Azure per il serv
 az mysql server update --resource-group myresource --name mysqlserver4demo --ssl-enforcement Enabled
 ```
 
-## <a name="step-4-verify-ssl-connection"></a>Passaggio 4: verificare la connessione SSL
+## <a name="step-4-verify-the-ssl-connection"></a>Passaggio 4: verificare la connessione SSL
 Eseguire il comando mysql **status** per verificare di essere connessi al server MySQL tramite SSL:
 ```dos
 mysql> status
 ```
-Verificare che la connessione sia crittografata esaminando l'output. Dovrebbe mostrare: **SSL: Cipher in use is AES256-SHA** 
+Verificare che la connessione sia crittografata analizzando l'output, che dovrebbe essere il seguente: **SSL: Cipher in use is AES256-SHA** (SSL: la crittografia in uso è AES256-SHA) 
 
 ## <a name="sample-code"></a>Codice di esempio
 ### <a name="php"></a>PHP

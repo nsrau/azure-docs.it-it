@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2e0347854b5d30c955a50a01d6f7ba08e24f94b6
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 5f1ce4c76aadc5fdfe53b15f0d82da5ce6b43346
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
 
 Una connessione del gateway VPN consente di stabilire una connettività cross-premise sicura tra la rete virtuale in Azure e l'infrastruttura IT locale.
 
-Questo articolo descrive come convalidare la velocità effettiva della rete dalle risorse locali a una macchina virtuale di Azure. Fornisce inoltre informazioni aggiuntive sulla risoluzione dei problemi.
+Questo articolo descrive come convalidare la velocità effettiva della rete dalle risorse locali a una macchina virtuale (VM) di Azure. Fornisce inoltre informazioni aggiuntive sulla risoluzione dei problemi.
 
 >[!NOTE]
 >Questo articolo ha lo scopo di semplificare la diagnosi e la risoluzione dei problemi comuni. Se non si riesce a risolvere il problema tramite le informazioni seguenti, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

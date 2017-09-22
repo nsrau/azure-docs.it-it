@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui diversi tipi di token e di attestazione supportati da Azure AD | Documentazione Microsoft
+title: Informazioni sui diversi tipi di token e di attestazione supportati da Azure AD | Microsoft Docs
 description: Una guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JSON Web Tokens (JWT) emessi da Azure Active Directory (AAD)
 documentationcenter: na
 author: dstrockis
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Riferimento al token di Azure AD
@@ -30,7 +30,7 @@ Azure AD supporta il [protocollo di autorizzazione OAuth 2.0](active-directory-p
 
 Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. In questo senso, per "portatore" si intende qualsiasi parte che sia in grado di presentare il token. Per ricevere un token di connessione è richiesta l'autenticazione con Azure AD ed è necessario seguire una procedura per proteggere il token onde evitare l'intercettazione da parte di soggetti non autorizzati. Dal momento che i token di connessione non hanno meccanismi integrati per prevenire l'uso non autorizzato, devono essere trasportati su un canale protetto, ad esempio Transport Layer Security (HTTPS). Se un token di connessione viene trasmesso senza essere protetto, un utente malintenzionato potrebbe usare un attacco "man in the middle" per acquisire il token e ottenere accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando un token di connessione viene archiviato o memorizzato nella cache per un uso futuro. Assicurarsi sempre che l'app trasmetta e archivi i token di connessione in modo sicuro. Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [sezione 5 della specifica RFC 6750](http://tools.ietf.org/html/rfc6750).
 
-Molti dei token rilasciati da Azure AD vengono implementati come token JSON Web o JWT.  Un token JWT è un modo compatto e indipendente dall'URL di trasferimento delle informazioni tra due parti.  Le informazioni contenute nei token JWT sono note come "attestazioni" o asserzioni di informazioni sulla connessione e sull'oggetto del token.  Le attestazioni nei token JWT sono oggetti JSON codificati e serializzati per la trasmissione.  Dato che i token JWT rilasciati da Azure AD sono firmati, ma non crittografati, è possibile esaminarne facilmente i contenuti per il debug.  Sono disponibili diversi strumenti per questa operazione, ad esempio [jwt.calebb.net](http://jwt.calebb.net). Per altre informazioni sui token JWT, fare riferimento alla [specifica di JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Molti dei token rilasciati da Azure AD vengono implementati come token JSON Web o JWT.  Un token JWT è un modo compatto e indipendente dall'URL di trasferimento delle informazioni tra due parti.  Le informazioni contenute nei token JWT sono note come "attestazioni" o asserzioni di informazioni sulla connessione e sull'oggetto del token.  Le attestazioni nei token JWT sono oggetti JSON codificati e serializzati per la trasmissione.  Dato che i token JWT rilasciati da Azure AD sono firmati, ma non crittografati, è possibile esaminarne facilmente i contenuti per il debug.  Sono disponibili diversi strumenti per questa operazione, ad esempio [jwt.ms](https://jwt.ms/). Per altre informazioni sui token JWT, fare riferimento alla [specifica di JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## <a name="idtokens"></a>Token ID
 I token ID sono un tipo di token di sicurezza di accesso che l'app riceve quando esegue l'autenticazione usando [OpenID Connect](active-directory-protocols-openid-connect-code.md).  Vengono rappresentati come [JWT](#types-of-tokens) e contengono attestazioni che è possibile usare per l'accesso dell'utente all'app.  È possibile usare le attestazioni in un token ID in base alle proprie esigenze. In genere, vengono usate per la visualizzazione di informazioni sull'account o per prendere decisioni relative al controllo di accesso in un'app.
@@ -45,7 +45,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 ```
 
 > [!TIP]
-> A scopo di esercitazione, provare a verificare le attestazioni nel token ID di esempio incollandole in [calebb.net](http://jwt.calebb.net).
+> A scopo di esercitazione, provare a verificare le attestazioni nel token ID di esempio incollandole in [jwt.ms](https://jwt.ms/).
 > 
 > 
 

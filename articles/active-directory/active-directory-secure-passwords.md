@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: de9d41cfb157c71f324f5662c1c037ff515e7108
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Approccio multilivello alla sicurezza delle password di Azure AD
@@ -51,7 +51,7 @@ Per informazioni sulla gestione delle password in base alla ricerca corrente, ve
 
 ### <a name="dynamically-banned-passwords"></a>Password vietate in modo dinamico
 
-Azure AD e il sistema di account Microsoft salvaguardano la protezione delle password vietando in modo dinamico le password usate comunemente. Il team di Azure AD Identity Protection analizza periodicamente gli elenchi delle password vietate, impedendo agli utenti di selezionare le password usate comunemente. Questo servizio è disponibile in Azure AD e per i clienti del servizio account Microsoft.
+Azure AD e il sistema di account Microsoft salvaguardano la protezione delle password vietando in modo dinamico le password usate comunemente. Il team di Azure AD Identity Protection analizza periodicamente gli elenchi delle password vietate, impedendo così agli utenti di selezionare le password usate comunemente. Questo servizio è disponibile in Azure AD e per i clienti del servizio account Microsoft.
 
 Quando si creano password, è importante che gli amministratori invitino gli utenti a scegliere passphrase che includano una combinazione univoca di lettere, numeri, caratteri o parole. Questo approccio contribuisce a rendere quasi impossibile il rischio di compromissione delle password degli utenti e allo stesso tempo le rende più facili da ricordare.
 

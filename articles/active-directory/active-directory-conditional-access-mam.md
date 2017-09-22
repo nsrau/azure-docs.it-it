@@ -1,6 +1,6 @@
 ---
-title: Accesso condizionale con gestione delle app mobili in Azure Active Directory | Microsoft Docs
-description: Informazioni su come funziona l'accesso condizionale con gestione delle app mobili in Azure Active Directory.
+title: Accesso condizionale basato su app di Azure Active Directory | Microsoft Docs
+description: Informazioni su come funziona l'accesso condizionale basato su app di Azure Active Directory.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
@@ -13,66 +13,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: c6bc39dc151c80ffe1306464da60a029e54cc6b1
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 48c9f55e2296b88acc697ab818f13787695643a5
 ms.contentlocale: it-it
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 
 ---
-# <a name="conditional-access-with-mobile-app-management-in-azure-active-directory"></a>Accesso condizionale con gestione delle app mobili in Azure Active Directory  
+# <a name="azure-active-directory-app-based-conditional-access"></a>Accesso condizionale basato su app di Azure Active Directory  
 
-L'accesso condizionale basato su app di Azure Active Directory (Azure AD) nel portale di Azure, combinato con i criteri di protezione delle app di Intune, consente di limitare l'accesso alle app cloud solo alle app per dispositivi mobili che supportano la protezione delle app di Intune, ad esempio limitare l'accesso a Exchange Online solo all'app Outlook. Questo supporto permette ai dispositivi non registrati per la gestione tramite Intune MDM di proteggere comunque i dati aziendali.   
+I dipendenti usano dispositivi mobili sia per le attività personali che per quelle aziendali. È importante assicurarsi che i dipendenti siano produttivi e al contempo evitare la perdita di dati. Con l'accesso condizionale basato su app di Azure Active Directory (Azure AD) è possibile fare in modo che l'accesso alle app cloud sia limitato solo alle app client in grado di proteggere i dati aziendali.  
 
-L'accesso condizionale con gestione delle app mobili può essere combinato con altri criteri, ad esempio i criteri di accesso condizionale basati su dispositivo, per offrire flessibilità nella protezione dei dati per i dispositivi personali e aziendali. 
+L'argomento descrive come configurare l'accesso condizionale basato su app di Azure AD.
+
+## <a name="overview"></a>Panoramica
+
+Con l'[accesso condizionale di Azure AD](active-directory-conditional-access-azure-portal.md) è possibile regolare la modalità di accesso alle risorse da parte degli utenti autorizzati. Si può, ad esempio, fare in modo che solo i dispositivi attendibili accedano alle app cloud.
+
+È possibile usare i [criteri di protezione app di Intune](https://docs.microsoft.com/intune/app-protection-policy) per proteggere i dati aziendali. I criteri di protezione app di Intune non richiedono una soluzione di gestione dei dispositivi mobili (MDM), che consente di proteggere i dati aziendali con o senza la registrazione dei dispositivi in una soluzione di gestione di dispositivi.
+
+L'accesso condizionale basato su app di Azure Active Directory consente di fare in modo che l'accesso alle app cloud sia limitato solo alle app client che supportano i criteri di protezione app di Intune. È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook.
+
+Nella terminologia relativa all'accesso condizionale queste app client sono note come **app client approvate**.  
+
+
+![Accesso condizionale](./media/active-directory-conditional-access-mam/05.png)
+
+
+Per un elenco di app client approvate, vedere [Requisito per le app client approvate](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
+È possibile combinare i criteri di accesso condizionale basato su app con altri criteri, ad esempio i [criteri di accesso condizionale basato su dispositivi](active-directory-conditional-access-policy-connected-applications.md), per offrire flessibilità nel modo di proteggere i dati sia nei dispositivi personali che in quelli aziendali.
+
+ 
+
 
 ##<a name="before-you-begin"></a>Prima di iniziare
 
 Questo argomento presuppone che l'utente abbia familiarità con:
 
+- La guida tecnica per il [requisito delle app client approvate](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
 - I concetti di base relativi all'[accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - La procedura per [configurare i criteri di accesso condizionale](active-directory-conditional-access-azure-portal-get-started.md).
 
-
-Può inoltre essere opportuno esaminare le [procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md).  
-
-
+- La [migrazione dei criteri di accesso condizionale](active-directory-conditional-access-best-practices.md#policy-migration).
+ 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1.  Prima di creare criteri di accesso condizionale basati su app, è necessario disporre di una sottoscrizione Premium per Enterprise Mobility + Security o Azure Active Directory e gli utenti devono avere una licenza per EMS o Azure AD. 
-2.  Prima di creare nuovi criteri di accesso condizionale con gestione delle app mobili, è necessario esaminare gli scenari e le considerazioni sulla migrazione
-
-## <a name="supported-platforms"></a>Piattaforme supportate
-
--   iOS
-
--   Android
-
-## <a name="approved-client-applications"></a>Applicazioni client approvate 
-
-- Microsoft Outlook
-
-- Microsoft SharePoint
-
-- Microsoft OneDrive
-
-- Microsoft Teams
-
-- Microsoft Word
-
-- Microsoft Excel
-
-- Microsoft PowerPoint
+Per creare i criteri di accesso condizionale basato su app, è necessario disporre di una sottoscrizione Premium per Enterprise Mobility + Security o Azure Active Directory e gli utenti devono avere una licenza per EMS o Azure AD. 
 
 
 ## <a name="exchange-online-policy"></a>Criteri per Exchange Online 
 
-Questo scenario prevede la definizione di criteri di accesso condizionale con gestione delle app mobili per l'accesso a Exchange Online con app approvate.
+Questo scenario è costituito dai criteri di accesso condizionale basato su app per l'accesso a Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
@@ -246,9 +246,9 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 Per altre informazioni, vedere [Proteggere app e dati con Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
 
-## <a name="mobile-application-management-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Criteri con gestione di applicazioni mobili o dispositivi conformi per Exchange Online e SharePoint Online
+## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Criteri di accesso basato su dispositivi conformi o basato su app per Exchange Online e SharePoint Online
 
-Questo scenario prevede la definizione di criteri di accesso condizionale con gestione delle app per mobili o dispositivi conformi per l'accesso a Exchange Online con app approvate.
+Questo scenario è costituito dai criteri di accesso condizionale basato su dispositivi conformi o basato su app per l'accesso a Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
@@ -338,9 +338,10 @@ Per altre informazioni, vedere [Proteggere app e dati con Microsoft Intune](http
 
 
 
-## <a name="mobile-application-management-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Criteri con gestione di applicazioni mobili e dispositivi conformi per Exchange Online e SharePoint Online
+## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Criteri di accesso basato su dispositivi conformi e basato su app per Exchange Online e SharePoint Online
 
-Questo scenario prevede la definizione di criteri di accesso condizionale con gestione delle app mobili e dispositivi conformi per l'accesso a Exchange Online con app approvate.
+Questo scenario è costituito dai criteri di accesso condizionale basato su dispositivi conformi e basato su app per l'accesso a Exchange Online.
+
 
 ### <a name="scenario-playbook"></a>Istruzioni dello scenario
 
@@ -436,87 +437,6 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 Per altre informazioni, vedere [Proteggere app e dati con Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
 
-
-## <a name="migration-considerations"></a>Considerazioni sulla migrazione
-
-Se nel portale di Azure classico sono configurati dei criteri, è opportuno eseguirne la migrazione nel portale di Azure per i motivi seguenti:
-
-
-- Un utente per cui sono configurati criteri nel portale di Azure classico e nel portale di Azure deve soddisfare i requisiti per entrambi i criteri 
-
-- Se non si esegue la migrazione dei criteri esistenti, non si potranno implementare i criteri che concedono l'accesso
-
-
-## <a name="migration-from-the-azure-classic-portal"></a>Migrazione dal portale di Azure classico
-
-In questo scenario: 
-
-- Nel [portale di Azure classico](https://manage.windowsazure.com) sono configurati:
-
-    - SharePoint Online
-
-    ![Accesso condizionale](./media/active-directory-conditional-access-mam/14.png)
-
-    - Criteri di accesso condizionale basato su dispositivo
-
-    ![Accesso condizionale](./media/active-directory-conditional-access-mam/15.png)
-
-- Si vuole eseguire la configurazione di criteri di accesso condizionale con gestione di applicazioni mobili nel portale di Azure 
- 
-
-### <a name="configuration"></a>Configurazione 
-
-- Esaminare i criteri di accesso condizionale basato su dispositivo
-
-- Eseguirne la migrazione nel portale di Azure 
-
-- Aggiungere criteri di accesso condizionale con gestione di applicazioni mobili
-
-
-## <a name="migrating-from-intune"></a>Migrazione da Intune 
-
-In questo scenario:
-
-- In [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ) sono configurati criteri di accesso condizionale con gestione di applicazioni mobili per Exchange Online o SharePoint Online
-
-    ![Accesso condizionale](./media/active-directory-conditional-access-mam/15.png)
-
-- Si vuole eseguire la migrazione in modo da usare l'accesso condizionale con gestione di applicazioni mobili nel portale di Azure
-
-
-### <a name="configuration"></a>Configurazione 
- 
-- Esaminare i criteri di accesso condizionale basato su dispositivo
-
-- Eseguirne la migrazione nel portale di Azure 
-
-- Esaminare i criteri di accesso condizionale con gestione di applicazioni mobili configurati per Exchange Online o SharePoint Online in Intune
-
-- Aggiungere il controllo per **richiedere applicazioni approvate** oltre al controllo basato su dispositivo 
- 
-
-## <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migrazione dal portale di Azure classico e Intune
-
-In questo scenario:
-
-- Sono configurati i criteri seguenti:
-
-    - **Portale di Azure classico:** criteri di accesso condizionale basato su dispositivo 
-
-    - **Intune:** criteri di accesso condizionale con gestione di applicazioni mobili 
-    
-- Si vuole eseguire la migrazione di entrambi i criteri in modo da usare l'accesso condizionale con gestione di applicazioni mobili nel portale di Azure
-
-
-### <a name="configuration"></a>Configurazione
-
-- Esaminare i criteri di accesso condizionale basato su dispositivo
-
-- Eseguirne la migrazione nel portale di Azure 
-
-- Esaminare i criteri di accesso condizionale con gestione di applicazioni mobili configurati per Exchange Online o SharePoint Online in Intune
-
-- Aggiungere il controllo per **richiedere applicazioni approvate** oltre a quello basato su dispositivo 
 
 
 

@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 531d645bab8c80caba96bc5292354b5490a53804
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
@@ -42,7 +42,7 @@ Consultare i riferimenti ai cmdlet di PowerShell per il [modello di distribuzion
 
 Controllare i seguenti problemi prima di aggiornare gli insiemi di credenziali di Backup agli insiemi di credenziali di Servizio di ripristino.
 
-- **Versione minima dell'agente**: per aggiornare l'insieme di credenziali, assicurarsi che l'agente Servizi di ripristino di Microsoft Azure (MARS) abbia almeno la versione 2.0.9070.0. Se l'agente MARS ha una versione antecedente a 2.0.9070.0, aggiornare l'agente prima di avviare il processo di aggiornamento.
+- **Versione minima dell'agente**: per aggiornare l'insieme di credenziali, assicurarsi che l'agente Servizi di ripristino di Microsoft Azure (MARS) sia almeno la versione 2.0.9083.0. Se l'agente MARS è di una versione antecedente a 2.0.9083.0, aggiornare l'agente prima di avviare il processo di aggiornamento.
 - **Modello di fatturazione basato su istanza**: gli insiemi di credenziali del servizio di ripristino supportano solo il modello di fatturazione basato su istanza. Se si dispone di un insieme di credenziali di Backup che usa il modello di fatturazione basato sull'archiviazione precedente, è possibile convertire il modello di fatturazione durante l'aggiornamento.
 - **Nessuna operazione di configurazione del backup in corso**: durante l'aggiornamento, l'accesso al piano di gestione è limitato. Completare tutte le azioni del piano di gestione e quindi avviare l'aggiornamento.
 
@@ -84,7 +84,7 @@ Lo script di PowerShell richiede di immettere le credenziali. Immettere le crede
 ### <a name="pre-requisites-checking"></a>Verifica dei prerequisiti
 Dopo averne immesso le credenziali, Azure verifica che l'ambiente soddisfi i prerequisiti seguenti:
 
-- **Versione minima dell'agente**: l'aggiornamento degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino richiede almeno la versione 2.0.9070 per l'agente MARS. Se si dispone di elementi registrati in un insieme di credenziali di Backup con un agente precedente alla versione 2.0.9070, il controllo dei prerequisiti ha esito negativo. Se il controllo dei prerequisiti non riesce, aggiornare l'agente e provare ad aggiornare nuovamente l'insieme di credenziali. È possibile scaricare la versione più recente dell'agente da [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versione minima dell'agente**: l'aggiornamento degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino richiede almeno la versione 2.0.9083.0 per l'agente MARS. Se si dispone di elementi registrati in un insieme di credenziali di Backup con un agente precedente alla versione 2.0.9083.0, il controllo dei prerequisiti ha esito negativo. Se il controllo dei prerequisiti non riesce, aggiornare l'agente e provare ad aggiornare nuovamente l'insieme di credenziali. È possibile scaricare la versione più recente dell'agente da [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Processi di configurazione in corso**: se durante la verifica un utente esegue la configurazione di un processo per un insieme di credenziali di Backup impostato per l'aggiornamento o registra un elemento, il controllo dei prerequisiti ha esito negativo. Completare la configurazione o terminare la registrazione dell'elemento e quindi avviare il processo di aggiornamento dell'insieme di credenziali.
 - **Modello di fatturazione basato sull'archiviazione**: gli insiemi di credenziali del servizio di ripristino supportano il modello di fatturazione basato su istanza. Se si esegue l'aggiornamento dell'insieme di credenziali in un insieme di credenziali di Backup che usa il modello di fatturazione basato sull'archiviazione, viene chiesto di aggiornare il modello di fatturazione con l'insieme di credenziali. Altrimenti, è possibile aggiornare prima il modello di fatturazione e quindi eseguire l'aggiornamento dell'insieme di credenziali.
 - Identificare un gruppo di risorse per l'insieme di credenziali di Servizi di ripristino. Per poter sfruttare le funzionalità di distribuzione di Resource Manager, è necessario inserire un insieme di credenziali di Servizi di ripristino in un gruppo di risorse. Se non si sa quale gruppo di risorse usare, specificare un nome in modo che il processo di aggiornamento crei il gruppo di risorse per l'utente. Il processo di aggiornamento associa anche l'insieme di credenziali con il nuovo gruppo di risorse.
@@ -147,8 +147,8 @@ No. Non è possibile visualizzare o gestire l'insieme di credenziali classico in
 Se è necessario usare l'archivio di backup del computer per la conservazione a lungo termine, l'utente non sarà in grado di aggiornare l'insieme di credenziali. Il supporto per l'aggiornamento di questo tipo di insieme di credenziali verrà aggiunto nelle versioni future.
 Se non è più necessario archiviare i backup di questo computer, annullare la registrazione del computer dall'insieme di credenziali e provare a eseguire di nuovo l'aggiornamento.
 
-**Perché non è possibile visualizzare le informazioni sui processi per le risorse locali in seguito all'aggiornamento?**</br>
-Il monitoraggio dei backup locali (agente MARS, DPM e server di Backup di Azure) è una nuova funzionalità che si ottiene quando si aggiorna l'insieme di credenziali di Backup all'insieme di credenziali di Servizi di ripristino. La sincronizzazione delle informazioni sul monitoraggio con il servizio richiede fino a 12 ore.
+**Perché non è possibile visualizzare le informazioni sui processi per le risorse in seguito all'aggiornamento?**</br>
+Il monitoraggio dei backup (agente MARS e IaaS) è una nuova funzionalità che si ottiene quando si aggiorna l'insieme di credenziali di Backup all'insieme di credenziali di Servizi di ripristino. La sincronizzazione delle informazioni sul monitoraggio con il servizio richiede fino a 12 ore.
 
 **Come si segnala un problema?**</br>
 In caso di errore di una parte dell'aggiornamento dell'insieme di credenziali, annotare il valore OperationId elencato nell'errore. Il supporto tecnico Microsoft si impegnerà in modo proattivo per risolvere il problema. È possibile contattare il supporto tecnico o inviare un messaggio di posta elettronica all'indirizzo rsvaultupgrade@service.microsoft.com indicando l'ID della sottoscrizione, il nome dell'insieme di credenziali e l'ID dell'operazione. Microsoft si impegnerà per cercare di risolvere il problema il prima possibile. Non ripetere l'operazione a meno che non venga esplicitamente richiesto da Microsoft.

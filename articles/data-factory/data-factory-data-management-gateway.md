@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: f1f57404734ad6dc77250b180a9c334de60f0af3
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d032dd38655ef5c7763602739773f9c589cd65a8
 ms.contentlocale: it-it
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="data-management-gateway"></a>Gateway di gestione dati
@@ -137,8 +137,9 @@ A livello di firewall aziendale è necessario configurare le porte in uscita e i
 | Nomi di dominio | Porte | Descrizione |
 | --- | --- | --- |
 | *.servicebus.windows.net |443, 80 |Utilizzato per la comunicazione con il backend Data Movement Service |
-| *.core.windows.net |443 |Utilizzato per la copia a fasi mediante il BLOB di Azure (se configurata)|
+| *.core.windows.net |443 |Utilizzato per la copia di staging mediante il BLOB di Azure (se configurata)|
 | *.frontend.clouddatahub.net |443 |Utilizzato per la comunicazione con il backend Data Movement Service |
+| *.servicebus.windows.net |9350-9354, 5671 |Inoltro del bus di servizio su TCP facoltativo usato dalla Copia guidata |
 
 
 A livello di Windows Firewall queste porte in uscita sono generalmente abilitate. In caso contrario, è possibile configurare le porte e i domini nel modo appropriato nel computer gateway.
@@ -159,7 +160,7 @@ Ad esempio, per eseguire la copia da **un archivio dati locale a un sink di Data
 * Configurare le impostazioni del firewall del server SQL di Azure aggiungendo l'indirizzo IP relativo al computer del gateway all'elenco degli indirizzi IP consentiti.
 
 > [!NOTE]
-> Se il firewall non consente la porta in uscita 1433, il gateway non riesce ad accedere direttamente ad Azure SQL. In questo caso, è possibile usare la [copia a fasi](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) sul database SQL di Azure o SQL Azure DW. In questo scenario è necessario solo HTTPS (porta 443) per lo spostamento dei dati.
+> Se il firewall non consente la porta in uscita 1433, il gateway non riesce ad accedere direttamente ad Azure SQL. In questo caso, è possibile usare la [copia di staging](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) sul database SQL di Azure o SQL Azure DW. In questo scenario è necessario solo HTTPS (porta 443) per lo spostamento dei dati.
 >
 >
 

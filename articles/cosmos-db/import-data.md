@@ -1,6 +1,6 @@
 ---
 title: Strumento di migrazione del database per Azure Cosmos DB | Microsoft Docs
-description: Informazioni sull&quot;uso degli strumenti open source di migrazione dati di Azure Cosmos DB per importare dati in Azure Cosmos DB da varie origini, tra cui file JSON, CSV, MongoDB, SQL Server, archivio tabelle e Amazon DynamoDB. Conversione da CSV a JSON.
+description: Informazioni sull'uso degli strumenti open source di migrazione dati di Azure Cosmos DB per importare dati in Azure Cosmos DB da varie origini, tra cui file JSON, CSV, MongoDB, SQL Server, archivio tabelle e Amazon DynamoDB. Conversione da CSV a JSON.
 keywords: da csv a json, strumenti di migrazione del database, convertire csv in json
 services: cosmos-db
 author: andrewhoh
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 23a4a82dbdb611f4da90562af936fca28da9b24d
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a60c47814da2660f17456f5e662f420adbb9158e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 09/09/2017
 
 ---
-# <a name="how-to-import-data-into-azure-cosmos-db-for-the-documentdb-api"></a>Come importare dati in Azure Cosmos DB per l'API DocumentDB
+# <a name="how-to-import-data-into-azure-cosmos-db-with-the-documentdb-api"></a>Come importare i dati in Azure Cosmos DB con l'API DocumentDB
 
 Questa esercitazione contiene istruzioni per l'uso dello strumento di migrazione dati dell'API DocumentDB di Azure Cosmos DB, che consente di importare dati da varie origini, tra cui file JSON, file CSV, SQL, MongoDB, l'archivio tabelle di Azure, Amazon DynamoDB e raccolte dell'API DocumentDB di Azure Cosmos DB, in raccolte utilizzabili con Azure Cosmos DB e l'API DocumentDB. Lo strumento di migrazione dati può essere usato anche per la migrazione da una raccolta con partizione singola a una raccolta con più partizioni per l'API DocumentDB.
 
@@ -247,7 +247,7 @@ Il formato della stringa di connessione DynamoDB di Amazon è:
     ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
 
 > [!NOTE]
-> Usare il comando Verify per assicurarsi che l'istanza di MongoDB specificata nel campo della stringa di connessione sia accessibile.
+> Usare il comando Verify per assicurarsi che l'istanza di Amazon DynamoDB specificata nel campo della stringa di connessione sia accessibile.
 > 
 > 
 

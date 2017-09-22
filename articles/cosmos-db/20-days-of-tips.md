@@ -1,6 +1,6 @@
 ---
 title: 20 giorni di suggerimenti su Azure Cosmos DB | Microsoft Docs
-description: Informazioni su come individuare tutti i suggerimenti della serie di Twitter "20 days of Azure Cosmos DB tips" (20 giorni di suggerimenti su Azure Cosmos DB) in un'unica posizione.
+description: Tutti i suggerimenti della serie "20 days of Azure Cosmos DB tips" (20 giorni di suggerimenti su Azure Cosmos DB) di Simona Cotin riuniti in un'unica posizione.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/13/2017
 ms.author: mimig
 ms.custom: cda
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 95fe39d8124df9b259967ac361c7df6550091ba2
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 992249949c6bd80e698a0bc21710039c6aa1f67e
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -44,6 +44,46 @@ Provare per credere. Usare l'interfaccia visiva #cosmosDB nel portale di Azure p
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
 [![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905449095648731136)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311218673575088128)
+
+## <a name="tip-3-replicate-data-globally"></a>Suggerimento 3: replicare i dati a livello globale
+
+Suggerimento 3: l'app deve essere distribuita rapidamente in tutto il mondo? La replica dei dati con #cosmosDB è estremamente facile. [https://aka.ms/nimw2g](https://aka.ms/nimw2g)  
+
+> [!VIDEO https://www.youtube.com/embed/i22R7I_Rgdg]
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905783001937833984)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311547372904214528)
+
+## <a name="tip-4-gremlin-graph-support"></a>Suggerimento 4: supporto di grafi Gremlin
+
+Suggerimento 4: i grafi Gremlin sono un problema? Non per #cosmosdb. È possibile visualizzare, eseguire query e modificare il DB di grafi usando il portale di Azure [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
+
+> [!VIDEO https://www.youtube.com/embed/oPUTZbiXffk]
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/906199438737203201)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311965366943834112)
+
+## <a name="tip-5-try-azure-cosmos-db-free"></a>Suggerimento 5: provare gratuitamente Azure Cosmos DB
+
+Suggerimento 5: si desidera provare Azure #CosmosDB gratuitamente? Non occorrono sottoscrizioni o carte di credito. Basta andare alla pagina [https://aka.ms/d81vxr](https://aka.ms/d81vxr) e iniziare a scrivere codice.  
+
+> [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907258302576431107)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313024454544932864)
+
+## <a name="tip-6-migrate-your-mean-app"></a>Suggerimento 6: migrare l'app MEAN
+
+Suggerimento 6: è MEAN l'obiettivo? Ecco le informazioni su come migrare facilmente l'app in Azure #cosmosDB. [https://aka.ms/gfh6i5](https://aka.ms/gfh6i5) Video completo: [https://aka.ms/aoojih](https://aka.ms/aoojih)
+
+> [!VIDEO https://www.youtube.com/embed/1DzwI5HmU5w]
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907634936160559105)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313400758263967744/)
+
+## <a name="tip-7-build-a-nodejs-app-by-using-graph-api"></a>Suggerimento 7: creare un'app Node.js tramite l'API Graph
+
+Suggerimento 7: creare un'app Node.js tramite l'API Graph e Azure #CosmosDB. Ulteriori informazioni sulla pagina di Docs [https://aka.ms/X79feg](https://aka.ms/X79feg)
+
+> [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/907982218353451009)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6313762492686352384)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

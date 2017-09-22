@@ -11,25 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 09/07/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: f1fda3c4192d0dae4fa60788f4d88fb72ddba4ad
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: e5ac068e37d921530272e5eb3dc76d976a86a742
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="understanding-resource-access-in-azure"></a>Informazioni sull'accesso alle risorse in Azure
-> [!IMPORTANT]
-> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo. Il portale di Azure fornisce la funzionalità di [controllo degli accessi in base al ruolo](role-based-access-control-configure.md), che consente di gestire le risorse di Azure con maggiore precisione.
-> 
-> 
 
-Nel mese di ottobre 2013 il portale di Azure classico e le API Gestione dei servizi sono stati integrati con Azure Active Directory per creare i presupposti per migliorare l'esperienza utente per la gestione dell'accesso alle risorse di Azure. Azure Active Directory offre già potenti funzionalità per la gestione degli utenti, per la sincronizzazione della directory locale, per l'autenticazione a più fattori e il controllo di accesso alle applicazioni. Naturalmente, queste funzionalità dovrebbero essere rese disponibili per la gestione delle risorse di Azure a livello generale.
-
-La fatturazione costituisce il punto di partenza per il controllo di accesso in Azure. Il proprietario di un account Azure, a cui si accede tramite il [Centro account di Azure](https://account.windowsazure.com/subscriptions), è l'amministratore account. Le sottoscrizioni sono contenitori per la fatturazione, ma vengono usate anche come limiti per la sicurezza: ogni sottoscrizione ha un Amministratore del servizio (SA) che può aggiungere, rimuovere e modificare le risorse di Azure nella sottoscrizione tramite il [portale di Azure classico](https://manage.windowsazure.com/). L'Amministratore del servizio predefinito di una nuova sottoscrizione è l'Amministratore dell'account, ma quest'ultimo può modificare l'Amministratore del servizio nel Centro account di Azure.
+La fatturazione costituisce il punto di partenza per il controllo di accesso in Azure. Il proprietario di un account Azure, a cui si accede tramite il [Centro account di Azure](https://account.windowsazure.com/subscriptions), è l'amministratore account. Le sottoscrizioni sono contenitori per la fatturazione, ma vengono usate anche come limiti per la sicurezza: ogni sottoscrizione ha un Amministratore del servizio (SA) che può aggiungere, rimuovere e modificare le risorse di Azure nella sottoscrizione tramite il [portale di Azure](https://portal.azure.com/). L'Amministratore del servizio predefinito di una nuova sottoscrizione è l'Amministratore dell'account, ma quest'ultimo può modificare l'Amministratore del servizio nel Centro account di Azure.
 
 <br><br>![Account Azure][1]
 

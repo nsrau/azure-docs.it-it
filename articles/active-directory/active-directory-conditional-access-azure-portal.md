@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 09/10/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 681e91e3581f80c0cda64f95fed5cc01aaac2367
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
 ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
@@ -60,31 +60,22 @@ La combinazione di un'istruzione della condizione con i controlli rappresenta un
 
 In un criterio di accesso condizionale i controlli definiscono che cosa deve accadere dopo che un'istruzione della condizione è stata soddisfatta.  
 Con i controlli, è possibile bloccare o consentire l'accesso con requisiti aggiuntivi.
-Quando si configura un criterio che consente l'accesso, è necessario selezionare almeno un requisito.   
+Quando si configura un criterio che consente l'accesso, è necessario selezionare almeno un requisito.  
 
-### <a name="grant-controls"></a>Controlli di concessione
+Sono disponibili due tipi di controlli: 
+
+- **Controlli concessione**: questi controlli determinano se un utente può completare o meno l'autenticazione e raggiungere la risorsa a cui sta tentando di accedere. Se si dispone di più controlli selezionati, è possibile configurare se sono tutti obbligatori quando vengono elaborati i criteri.
 L'implementazione corrente di Azure Active Directory consente di configurare i requisiti dei controlli di concessione seguenti:
 
-![Controllo](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![Controllo](./media/active-directory-conditional-access-azure-portal/05.png)
 
-- **Autenticazione a più fattori**: è possibile richiedere l'autenticazione avanzata tramite l'autenticazione a più fattori. I provider possono usare Azure Multi-Factor Authentication o un provider di autenticazione a più fattori locale, in combinazione con Active Directory Federation Services (AD FS). L'uso dell'autenticazione a più fattori assicura la protezione delle risorse nel caso in cui un utente non autorizzato abbia avuto l'accesso alle credenziali di un utente valido.
+- **Controlli della sessione**: questi controlli consentono di limitare l'esperienza all'interno di un'app cloud. Questi controlli sono imposti dalle app cloud e si basano sulle informazioni aggiuntive relative alla sessione fornite da Azure AD all'app.
 
-- **Dispositivo conforme**: è possibile configurare criteri di accesso condizionale basati sul dispositivo. Lo scopo di un criterio di accesso condizionale basato sul dispositivo è di concedere l'accesso alle risorse configurate solo da dispositivi considerati attendibili. Richiedere un dispositivo conforme è una delle opzioni disponibili per definire un dispositivo attendibile. Per informazioni dettagliate, vedere [Configurare i criteri di accesso condizionale basati sul dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
+    ![Controllo](./media/active-directory-conditional-access-azure-portal/31.png)
 
-- **Dispositivo aggiunto a un dominio**: richiedere un dispositivo aggiunto a un dominio è un'altra opzione disponibile per configurare un criterio di accesso condizionale basato sul dispositivo. Questo requisito si riferisce a tablet aziendali, laptop e desktop di Windows aggiunti ad Active Directory locale. Per informazioni dettagliate, vedere [Configurare i criteri di accesso condizionale basati sul dispositivo di Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-Se si dispone di più controlli selezionati, è possibile inoltre configurare se tutti gli elementi sono richiesti quando viene elaborato il criterio.
+Per altre informazioni, vedere [Controls in Azure Active Directory Conditional Access](active-directory-conditional-access-controls.md) (Controlli nell'accesso condizionale in Azure Active Directory).
 
-![Controllo](./media/active-directory-conditional-access-azure-portal/06.png)
-
-### <a name="session-controls"></a>Controlli di sessione
-I controlli di sessione consentono di limitare l'esperienza in un'app cloud. Questi controlli sono imposti dalle app cloud e si basano sulle informazioni aggiuntive relative alla sessione fornite da Azure AD all'app.
-
-![Controllo](./media/active-directory-conditional-access-azure-portal/31.png)
-
-#### <a name="use-app-enforced-restrictions"></a>Usa restrizioni imposte dalle app
-È possibile usare questo controllo per chiedere ad Azure AD di passare le informazioni sul dispositivo all'app cloud, che in questo modo può sapere se l'utente proviene da un dispositivo conforme o da un dispositivo aggiunto a un dominio. Questo controllo è attualmente supportato solo con SharePoint come app cloud. SharePoint usa le informazioni sul dispositivo per offrire agli utenti un'esperienza completa o limitata, a seconda dello stato del dispositivo.
-Per altre informazioni su come richiedere l'accesso limitato con SharePoint, vedere [Controllare l'accesso da dispositivi non gestiti](https://aka.ms/spolimitedaccessdocs).
 
 ## <a name="condition-statement"></a>Istruzione della condizione
 

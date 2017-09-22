@@ -1,6 +1,6 @@
 ---
 title: 'Risolvere un problema di Backup di Azure: stato dell''agente guest non disponibile | Microsoft Docs'
-description: "Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all'errore: Non è stato possibile comunicare con l'agente di macchine virtuali"
+description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all'agente, all'estensione e ai dischi
 services: backup
 documentationcenter: 
 author: genlin
@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -67,6 +67,10 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [l'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [non è possibile recuperare lo stato degli snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)
+
+## <a name="the-specified-disk-configuration-is-not-supported"></a>La configurazione di disco specificata non è supportata
+
+Attualmente Backup di Azure non supporta dischi con dimensioni maggiori di 1023 GB. Assicurarsi che le dimensioni dei dischi siano inferiori al limite dividendo i dischi. Per dividere i dischi, è necessario copiare i dati dai dischi di dimensioni maggiori di 1023 GB in nuovi dischi creati con dimensioni minori di 1023 GB.
 
 
 ## <a name="causes-and-solutions"></a>Cause e soluzioni
