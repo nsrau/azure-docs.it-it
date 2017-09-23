@@ -1,6 +1,6 @@
 ---
 title: Analizzare le prestazioni del nodo perimetrale nella rete CDN di Azure | Documentazione Microsoft
-description: Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure. L&quot;analisi delle prestazioni perimetrali fornisce informazioni granulari sul traffico e sull&quot;utilizzo della larghezza di banda per la rete CDN.
+description: Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure. L'analisi delle prestazioni perimetrali fornisce informazioni granulari sul traffico e sull'utilizzo della larghezza di banda per la rete CDN.
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/24/2017
 
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure
@@ -187,10 +188,5 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
 * [Report HTTP avanzati](cdn-advanced-http-reports.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Abilitare l&quot;ottimizzazione automatica per il database SQL di Azure | Microsoft Docs
-description: "È possibile abilitare facilmente l&quot;ottimizzazione automatica nel database SQL di Azure."
+title: Abilitare l'ottimizzazione automatica per il database SQL di Azure | Microsoft Docs
+description: "È possibile abilitare facilmente l'ottimizzazione automatica nel database SQL di Azure."
 services: sql-database
 documentationcenter: 
 author: vvasic
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: b391b1f7aa37c5a06fc320ce892534187deb4959
 ms.contentlocale: it-it
 ms.lasthandoff: 06/13/2017
-
 
 ---
 # <a name="enable-automatic-tuning"></a>Abilitare l'ottimizzazione automatica

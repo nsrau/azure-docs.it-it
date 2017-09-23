@@ -12,10 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
 ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/10/2016
 
 ---
 # <a name="create-an-azure-search-index"></a>Creare un indice di Ricerca di Azure
@@ -65,10 +66,5 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 Durante la progettazione dell'indice, dedicare alla fase di pianificazione il tempo necessario per valutare attentamente ogni decisione. È importante tenere in considerazione l'esperienza di ricerca dell'utente e le esigenze aziendali quando si progetta l'indice, perché a ogni campo devono essere assegnati gli [attributi appropriati](https://docs.microsoft.com/rest/api/searchservice/Create-Index). La modifica di un indice dopo la distribuzione comporta la ricompilazione e il ricaricamento dei dati.
 
 Se i requisiti per l'archiviazione dei dati cambiano nel tempo, è possibile aumentare o ridurre la capacità aggiungendo o spostando le partizioni. Per informazioni dettagliate, vedere [Gestire il servizio di ricerca in Microsoft Azure](search-manage.md) o [Limiti dei servizi](search-limits-quotas-capacity.md) in Ricerca di Azure.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

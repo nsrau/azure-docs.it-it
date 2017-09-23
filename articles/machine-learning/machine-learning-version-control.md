@@ -1,7 +1,7 @@
 ---
 title: ALM in Azure Machine Learning | Documentazione di Microsoft
-description: Applicare le procedure consigliate per la gestione del ciclo di vita dell&quot;applicazione in Azure Machine Learning Studio
-keywords: ALM, AML, Azure ML, Gestione del ciclo di vita dell&quot;applicazione, Controllo delle versioni
+description: Applicare le procedure consigliate per la gestione del ciclo di vita dell'applicazione in Azure Machine Learning Studio
+keywords: ALM, AML, Azure ML, Gestione del ciclo di vita dell'applicazione, Controllo delle versioni
 services: machine-learning
 documentationcenter: 
 author: hning86
@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: haining
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bce4c5bb16f505d2f2f0fc388bdfbeb214a2f8fe
 ms.openlocfilehash: 7dc337c5aa03a9a609b4ca5d811442c99c75878f
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/09/2016
 
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Gestione del ciclo di vita dell'applicazione in Azure Machine Learning Studio
@@ -100,9 +101,4 @@ Un aspetto importante di ALM è la possibilità di automatizzare il processo di 
 * Scaricare il modulo [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) e avviare l'automazione delle attività ALM.
 * Informazioni su come [creare e gestire un numero elevato di modelli ML usando un singolo esperimento](machine-learning-create-models-and-endpoints-with-powershell.md) tramite PowerShell e l'API di ripetizione del training.
 * Altre informazioni sulla [distribuzione di servizi Web di Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

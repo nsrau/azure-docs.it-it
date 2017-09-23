@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fba5384acae53ac416d91ae30840c6cfa04e7c68
 ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/06/2017
 
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure
@@ -45,10 +46,5 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.mic
 1. Il valore della cache configurato di Servizi multimediali di Azure sostituisce il valore predefinito.
 2. Se non è presente alcuna configurazione manuale, vengono applicati i valori predefiniti.
 3. Per impostazione predefinita si applicano le intestazioni di cache di 2 secondi, a prescindere dalla configurazione di servizi multimediali di Azure o archiviazione di Azure, e l'override di questo valore non è disponibile.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: a3eedacac5efb53f82e46a56285713dece56ffe8
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure

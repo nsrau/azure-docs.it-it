@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: acd768c0219ec23c0453a65c575faf5213d9c616
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="passing-credentials-to-the-azure-dsc-extension-handler"></a>Passaggio di credenziali al gestore estensione DSC di Azure

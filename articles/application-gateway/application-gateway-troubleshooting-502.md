@@ -21,7 +21,6 @@ ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
 
-
 ---
 
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione

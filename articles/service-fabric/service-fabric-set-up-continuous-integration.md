@@ -1,6 +1,6 @@
 ---
-title: Impostare l&quot;integrazione continua per i microservizi di Azure | Microsoft Docs
-description: Panoramica di come configurare l&quot;integrazione e la distribuzione continue per un&quot;applicazione di Service Fabric tramite Visual Studio Team Services (VSTS).
+title: Impostare l'integrazione continua per i microservizi di Azure | Microsoft Docs
+description: Panoramica di come configurare l'integrazione e la distribuzione continue per un'applicazione di Service Fabric tramite Visual Studio Team Services (VSTS).
 services: service-fabric
 documentationcenter: na
 author: mthalman-msft
@@ -19,7 +19,6 @@ ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
 ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>Configurare l'integrazione e la distribuzione continue di Service Fabric con Visual Studio Team Services

@@ -20,7 +20,6 @@ ms.openlocfilehash: 98950d72e90b0e178bae2fffa7644fd824a25eea
 ms.contentlocale: it-it
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Aggiungere una macchina virtuale a disposizione degli utenti in un lab in Azure DevTest Labs
 Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è necessario seguire una procedura simile all'[aggiunta di una macchina virtuale standard](devtest-lab-add-vm.md), partendo da una *base* che può essere un'[immagine personalizzata](devtest-lab-create-template.md), una [formula](devtest-lab-manage-formulas.md) o un'[immagine del Marketplace](devtest-lab-configure-marketplace-images.md). In questa esercitazione viene descritto come usare il portale di Azure per aggiungere una macchina virtuale a disposizione degli utenti a un lab in DevTest Labs e viene illustrato il processo che un utente deve seguire per richiedere la macchina virtuale.

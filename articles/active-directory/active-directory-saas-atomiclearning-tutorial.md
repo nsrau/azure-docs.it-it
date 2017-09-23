@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Atomic Learning | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Atomic Learning.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Atomic Learning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 6cce8fc839e60eb6498ab48bf68e9906c98889a2
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Esercitazione: Integrazione di Azure Active Directory con Atomic Learning

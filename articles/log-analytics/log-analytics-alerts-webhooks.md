@@ -1,6 +1,6 @@
 ---
 title: Esempio di azione di allarme webhook in Log Analytics di OMS | Documentazione Microsoft
-description: "Una delle azioni che è possibile eseguire in risposta a un avviso di Log Analytics è la creazione di un *webhook*, che consente di richiamare un processo esterno tramite una singola richiesta HTTP. Questo articolo illustra un esempio di creazione di un&quot;azione webhook in un avviso di Log Analytics tramite Slack."
+description: "Una delle azioni che è possibile eseguire in risposta a un avviso di Log Analytics è la creazione di un *webhook*, che consente di richiamare un processo esterno tramite una singola richiesta HTTP. Questo articolo illustra un esempio di creazione di un'azione webhook in un avviso di Log Analytics tramite Slack."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: bwren
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c8e67f2dcd061e3cd92eec40d6e6bb3de5d73b67
 ms.openlocfilehash: 55b66132f7ec5c26c0a7cac1ec0a5c403dbd1082
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
-
 
 ---
 

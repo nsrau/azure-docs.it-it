@@ -21,7 +21,6 @@ ms.openlocfilehash: 07ca2321852e276502187e768177e7e82bdfd080
 ms.contentlocale: it-it
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Eseguire la migrazione degli schemi a SQL Data Warehouse
 Indicazioni per la migrazione degli schemi SQL a SQL Data Warehouse. 

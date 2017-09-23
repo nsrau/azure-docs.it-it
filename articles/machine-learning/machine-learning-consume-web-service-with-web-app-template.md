@@ -21,7 +21,6 @@ ms.openlocfilehash: 95aa1fa23d83ec0dcd00870179167e803bafbd16
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="consume-an-azure-machine-learning-web-service-with-a-web-app-template"></a>Utilizzare un servizio Web di Azure Machine Learning con un modello di app Web
 

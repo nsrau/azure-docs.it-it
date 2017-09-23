@@ -1,6 +1,6 @@
 ---
 title: "Evento di avvio attività di Azure Batch | Microsoft Docs"
-description: "Riferimento per l&quot;evento di avvio dell&quot;attività batch."
+description: "Riferimento per l'evento di avvio dell'attività batch."
 services: batch
 author: tamram
 manager: timlt

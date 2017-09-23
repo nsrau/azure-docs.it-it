@@ -21,7 +21,6 @@ ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a utilizzare gli strumenti di database elastici
 Questo documento presenta l'esperienza di sviluppo tramite l'esecuzione dell'app di esempio. Nell'esempio viene creata una semplice applicazione partizionata si esplorano le funzionalità chiave degli strumenti di database elastici. L'esempio mostra le funzioni della [libreria client dei database elastici](sql-database-elastic-database-client-library.md).

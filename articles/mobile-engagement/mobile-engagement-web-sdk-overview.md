@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Azure Mobile Engagement SDK per Web | Documentazione Microsoft
-description: Ultimi aggiornamenti e procedure relativi all&quot;SDK per Web per Azure Mobile Engagement
+description: Ultimi aggiornamenti e procedure relativi all'SDK per Web per Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 770a83131a3e661771db50b22ce7de25b2d541cf
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="azure-mobile-engagement-web-sdk"></a>Azure Mobile Engagement Web SDK
@@ -130,10 +131,5 @@ L'oggetto JavaScript globale `window.capptain` è stato rinominato `window.azure
 Ad esempio, `capptain.deviceId` diventa `engagement.deviceId`, `capptain.agent.startActivity` diventa `engagement.agent.startActivity` e così via.
 
 Se nell'applicazione Web è già stata integrata una versione precedente di Azure Mobile Engagement Web SDK, vedere le [procedure di aggiornamento](mobile-engagement-web-upgrade-procedure.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

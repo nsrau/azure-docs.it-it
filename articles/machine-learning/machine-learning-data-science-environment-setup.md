@@ -1,6 +1,6 @@
 ---
 title: Configurare ambienti di analisi scientifica dei dati in Azure | Documentazione Microsoft
-description: Configurare gli ambienti per l&quot;analisi scientifica dei dati in Azure da usare nel processo di analisi scientifica dei dati eseguito dai team.
+description: Configurare gli ambienti per l'analisi scientifica dei dati in Azure da usare nel processo di analisi scientifica dei dati eseguito dai team.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
 ms.openlocfilehash: 4f2f66288428aa0aa41abb40ce0e43c4848543ff
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/08/2017
 
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team
@@ -31,10 +32,5 @@ Questo menu include collegamenti ad argomenti che descrivono come configurare i 
 [!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 La **macchina virtuale per l'analisi scientifica dei dati di Microsoft** è disponibile anche come immagine di macchina virtuale di (VM) Azure. Questa macchina virtuale è pre-installata e configurata con diversi strumenti diffusi, usati comunemente per l'analisi dei dati e l'apprendimento automatico. La macchina virtuale per l'analisi scientifica dei dati è disponibile in Windows e Linux. Per altre informazioni, vedere [Introduzione alla macchina virtuale per l'analisi scientifica dei dati basata su cloud per Linux e Windows](machine-learning-data-science-virtual-machine-overview.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

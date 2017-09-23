@@ -20,7 +20,6 @@ ms.openlocfilehash: deb5ad0495edc969b374795eeb2698326dd4ff4d
 ms.contentlocale: it-it
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-6-set-up-a-vault-for-physical-server-replication-to-azure"></a>Passaggio 6: Configurare un insieme di credenziali per la replica di server fisici in Azure
 

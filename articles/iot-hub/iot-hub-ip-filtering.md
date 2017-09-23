@@ -1,6 +1,6 @@
 ---
-title: Filtri connessioni IP dell&quot;hub IoT di Azure | Microsoft Docs
-description: "Come usare i filtri IP per bloccare le connessioni da indirizzi IP specifici all&quot;hub IoT di Azure. È possibile bloccare le connessioni da singoli indirizzi IP o da intervalli di indirizzi IP."
+title: Filtri connessioni IP dell'hub IoT di Azure | Microsoft Docs
+description: "Come usare i filtri IP per bloccare le connessioni da indirizzi IP specifici all'hub IoT di Azure. È possibile bloccare le connessioni da singoli indirizzi IP o da intervalli di indirizzi IP."
 services: iot-hub
 documentationcenter: 
 author: BeatriceOltean
@@ -19,7 +19,6 @@ ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
 ms.contentlocale: it-it
 ms.lasthandoff: 05/23/2017
-
 
 ---
 

@@ -21,7 +21,6 @@ ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
 ms.contentlocale: it-it
 ms.lasthandoff: 06/21/2017
 
-
 ---
 # <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Accesso e disconnessione all'app Web di Node. js con Azure AD
 Passport viene usato per:

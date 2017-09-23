@@ -20,7 +20,6 @@ ms.openlocfilehash: 53bf33f6027f1f365bd92251490d5c851fb83f8b
 ms.contentlocale: it-it
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Copiare i dati tra Archivio Data Lake e un database SQL di Azure tramite Sqoop
 Informazioni su come usare Apache Sqoop per importare ed esportare dati tra un database SQL di Azure e Archivio Data Lake.

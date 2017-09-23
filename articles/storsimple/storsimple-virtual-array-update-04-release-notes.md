@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione dell&quot;aggiornamento 0.4 per l&quot;array virtuale StorSimple | Documentazione Microsoft
-description: Vengono illustrati i principali problemi in sospeso e le soluzioni per l&quot;array virtuale StorSimple che esegue l&quot;aggiornamento 0.4.
+title: Note sulla versione dell'aggiornamento 0.4 per l'array virtuale StorSimple | Documentazione Microsoft
+description: Vengono illustrati i principali problemi in sospeso e le soluzioni per l'array virtuale StorSimple che esegue l'aggiornamento 0.4.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/05/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: cc2b025b7f3e28954c7f95409ffab03e5cbcf13d
+ms.contentlocale: it-it
 ms.lasthandoff: 04/06/2017
-
 
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>Note sulla versione dell'aggiornamento 0.4 per l'array virtuale StorSimple

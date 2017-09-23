@@ -1,6 +1,6 @@
 ---
 title: Account di accesso e utenti SQL di Azure | Documentazione Microsoft
-description: "Informazioni sulla gestione della sicurezza del database SQL, in particolare la modalità di gestione dell&quot;accesso al database e la sicurezza degli account di accesso tramite l&quot;account delle entità di sicurezza a livello di server."
+description: "Informazioni sulla gestione della sicurezza del database SQL, in particolare la modalità di gestione dell'accesso al database e la sicurezza degli account di accesso tramite l'account delle entità di sicurezza a livello di server."
 keywords: sicurezza del database sql, gestione della sicurezza del database, sicurezza degli account di accesso, sicurezza del database, accesso al database
 services: sql-database
 documentationcenter: 
@@ -22,7 +22,6 @@ ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
 ms.contentlocale: it-it
 ms.lasthandoff: 06/08/2017
-
 
 ---
 # <a name="controlling-and-granting-database-access"></a>Controllo e concessione dell'accesso al database

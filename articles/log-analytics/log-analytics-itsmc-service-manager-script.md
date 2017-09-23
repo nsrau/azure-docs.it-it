@@ -1,6 +1,6 @@
 ---
 title: Script automatico per la creazione di app Web di Service Manager per eseguire la connessione con IT Service Management Connector in OMS | Microsoft Docs
-description: Creare un&quot;app Web di Service Manager usando uno script automatizzato per eseguire la connessione con IT Service Management Connector in OMS e monitorare e gestire in modo centralizzato gli elementi di lavoro ITSM.
+description: Creare un'app Web di Service Manager usando uno script automatizzato per eseguire la connessione con IT Service Management Connector in OMS e monitorare e gestire in modo centralizzato gli elementi di lavoro ITSM.
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
-
 
 ---
 

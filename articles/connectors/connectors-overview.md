@@ -1,6 +1,6 @@
 ---
 title: Panoramica dei connettori per le app per la logica | Documentazione Microsoft
-description: Panoramica dei connettori utilizzabili in un&quot;app per la logica
+description: Panoramica dei connettori utilizzabili in un'app per la logica
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Uso dei connettori in un'app per la logica
@@ -63,9 +64,4 @@ Le connessioni possono essere visualizzate e gestite in Azure facendo clic su **
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
 [2]: ./media/connectors-overview/configureAction.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

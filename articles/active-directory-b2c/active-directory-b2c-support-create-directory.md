@@ -20,7 +20,6 @@ ms.openlocfilehash: 81af4536fc223319369aff262d42149cfbf1a1e9
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="troubleshoot-creating-an-azure-active-directory-or-azure-active-directory-b2c-tenant"></a>Risoluzione dei problemi per la creazione di un tenant di Azure Active Directory o di un tenant di Azure Active Directory B2C 
 

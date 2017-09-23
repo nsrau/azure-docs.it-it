@@ -20,7 +20,6 @@ ms.openlocfilehash: e45b09a62f33fd9811714febd63a74149784980d
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installazione sicura e funzionamento del dispositivo StorSimple
 ![Icona di avviso](./media/storsimple-safety/IC740879.png)

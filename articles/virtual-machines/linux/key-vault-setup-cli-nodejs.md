@@ -1,6 +1,6 @@
 ---
-title: Configurare l&quot;insieme di credenziali delle chiavi per macchine virtuali Linux con l&quot;interfaccia della riga di comando 1.0 di Azure | Documentazione Microsoft
-description: Come configurare un insieme di credenziali delle chiavi da usare con una macchina virtuale di Azure Resource Manager con l&quot;interfaccia della riga di comando 1.0 di Azure.
+title: Configurare l'insieme di credenziali delle chiavi per macchine virtuali Linux con l'interfaccia della riga di comando 1.0 di Azure | Documentazione Microsoft
+description: Come configurare un insieme di credenziali delle chiavi da usare con una macchina virtuale di Azure Resource Manager con l'interfaccia della riga di comando 1.0 di Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
+ms.contentlocale: it-it
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager con l'interfaccia della riga di comando 1.0 di Azure

@@ -19,7 +19,6 @@ ms.openlocfilehash: 1d7e8fbcfc757853ab909bbb05522f3dc387715d
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Esercitazione: Integrazione di Azure Active Directory con Namely
 

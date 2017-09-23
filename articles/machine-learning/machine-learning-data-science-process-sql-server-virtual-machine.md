@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: fashah;garye;bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
 ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/24/2017
 
 ---
-# <a name="a-nameheadingaprocess-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
+# <a name="heading"></a>Elaborazione dei dati della macchina virtuale di SQL Server in Azure
 Questo documento descrive come esplorare i dati e creare funzionalità per i dati archiviati in una VM di SQL Server su Azure. Questa operazione può essere eseguita gestendo i dati tramite SQL o utilizzando un linguaggio di programmazione come Python.
 
 > [!NOTE]
@@ -28,13 +29,13 @@ Questo documento descrive come esplorare i dati e creare funzionalità per i dat
 > 
 > 
 
-## <a name="a-namesqlausing-sql"></a><a name="SQL"></a>Utilizzo di SQL
+## <a name="SQL"></a>Utilizzo di SQL
 In questa sezione, vengono descritte le seguenti attività di gestione dei dati usando SQL:
 
 1. [Esplorazione dei dati](#sql-dataexploration)
 2. [Creazione di funzionalità](#sql-featuregen)
 
-### <a name="a-namesql-dataexplorationadata-exploration"></a><a name="sql-dataexploration"></a>Esplorazione dei dati
+### <a name="sql-dataexploration"></a>Esplorazione dei dati
 Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplorare gli archivi dati in SQL Server.
 
 > [!NOTE]
@@ -55,7 +56,7 @@ Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplor
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="a-namesql-featuregenafeature-generation"></a><a name="sql-featuregen"></a>Creazione di funzionalità
+### <a name="sql-featuregen"></a>Creazione di funzionalità
 In questa sezione viene descritto come creare funzionalità tramite SQL:  
 
 1. [Creazione di funzionalità basate sul conteggio](#sql-countfeature)
@@ -67,7 +68,7 @@ In questa sezione viene descritto come creare funzionalità tramite SQL:
 > 
 > 
 
-### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
+### <a name="sql-countfeature"></a>Creazione di funzionalità basate sul conteggio
 Gli esempi seguenti illustrano due modi per generare funzionalità di conteggio. Nel primo metodo viene usata la somma condizionale e nel secondo la clausola "where". Tali metodi possono essere uniti alla tabella originale (tramite le colonne della chiave primaria) al fine di visualizzare le funzionalità di conteggio insieme ai dati originali.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
@@ -75,13 +76,13 @@ Gli esempi seguenti illustrano due modi per generare funzionalità di conteggio.
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+### <a name="sql-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 L'esempio seguente illustra come generare funzionalità in contenitori, inserendo una colonna numerica (con cinque contenitori) che può essere usata come funzionalità:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
+### <a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
 In questa sezione viene illustrato come implementare una singola colonna in una tabella per generare funzionalità aggiuntive. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
 
 Di seguito è riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow [Come misurare la precisione di latitudine e longitudine?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Ciò è utile per acquisire conoscenze prima di creare una funzionalità dal campo sulla posizione:
@@ -117,12 +118,12 @@ Queste funzionalità basate sulla posizione possono essere usate anche per gener
 > 
 > 
 
-### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Connessione ad Azure Machine Learning
+### <a name="sql-aml"></a>Connessione ad Azure Machine Learning
 La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile generare funzionalità o accedere a quelle già create usando il modulo [Import Data][import-data] (Importazione dati) di Azure Machine Learning, come illustrato di seguito:
 
 ![lettori azureml][1] 
 
-## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
+## <a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
 L'uso di Python per esplorare i dati e generare funzionalità quando i dati si trovano in SQL Server funziona in modo analogo all'elaborazione dei dati nel BLOB di Azure con Python illustrata nell'articolo su come [elaborare i dati BLOB di Azure in un ambiente di analisi scientifica dei dati](machine-learning-data-science-process-data-blob.md). I dati devono essere caricati dal database nei frame di dati Panda. A questo punto, è possibile elaborarli ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
 
 Il seguente formato della stringa di connessione può essere usato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
@@ -146,10 +147,5 @@ Per un esempio della procedura dettagliata end-to-end del processo di analisi sc
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

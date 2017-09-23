@@ -20,7 +20,6 @@ ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="sku-series-unavailable"></a>Serie di SKU non disponibile
 In alcune aree determinati SKU non sono automaticamente disponibili nelle nuove sottoscrizioni.  Questo problema può verificarsi quando [in un'area vengono introdotti SKU più potenti](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) e la popolarità degli SKU legacy diminuisce.

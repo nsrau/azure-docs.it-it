@@ -1,6 +1,6 @@
 ---
-title: Suggerimenti sull&quot;ottimizzazione delle prestazioni del database SQL di Azure | Microsoft Docs
-description: "Questo articolo può essere utile per determinare il livello di servizio da scegliere per l&quot;applicazione. Illustra anche come ottimizzare l&quot;applicazione per ottenere il massimo dal database SQL di Azure."
+title: Suggerimenti sull'ottimizzazione delle prestazioni del database SQL di Azure | Microsoft Docs
+description: "Questo articolo può essere utile per determinare il livello di servizio da scegliere per l'applicazione. Illustra anche come ottimizzare l'applicazione per ottenere il massimo dal database SQL di Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -20,7 +20,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ottimizzazione delle prestazioni del database SQL di Azure

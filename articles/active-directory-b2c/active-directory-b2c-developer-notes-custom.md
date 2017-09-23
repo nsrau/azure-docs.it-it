@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: note per gli sviluppatori sull&quot;uso dei criteri personalizzati | Microsoft Docs'
+title: 'Azure Active Directory B2C: note per gli sviluppatori sull''uso dei criteri personalizzati | Microsoft Docs'
 description: Note per gli sviluppatori sulla configurazione e la gestione di Azure AD B2C con criteri personalizzati
 services: active-directory-b2c
 documentationcenter: 
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Note sulla versione di anteprima pubblica dei criteri personalizzati di Azure Active Directory B2C

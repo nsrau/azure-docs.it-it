@@ -20,7 +20,6 @@ ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
 ms.contentlocale: it-it
 ms.lasthandoff: 06/09/2017
 
-
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Risolvere i problemi di configurazione del cluster di sviluppo locale
 Se si verifica un problema durante l'interazione con il cluster di sviluppo di Service Fabric di Azure locale, esaminare i suggerimenti seguenti per possibili soluzioni.

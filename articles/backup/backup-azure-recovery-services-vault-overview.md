@@ -19,7 +19,6 @@ ms.openlocfilehash: 19e2aafe3de106be32f3d90c63c0ea03c626f272
 ms.contentlocale: it-it
 ms.lasthandoff: 05/16/2017
 
-
 ---
 # <a name="recovery-services-vaults-overview"></a>Panoramica di insiemi di credenziali di Servizi di ripristino
 

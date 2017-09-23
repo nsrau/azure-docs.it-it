@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione delle risorse e dell&quot;account di Automazione | Microsoft Docs
+title: Eseguire la migrazione delle risorse e dell'account di Automazione | Microsoft Docs
 description: "L’articolo illustra come spostare un account di Automazione in Automazione di Azure e le risorse associate da una sottoscrizione all’altra."
 services: automation
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
 ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/21/2016
 
 ---
 # <a name="migrate-automation-account-and-resources"></a>Eseguire la migrazione delle risorse e dell’account di Automazione
@@ -65,9 +66,4 @@ Come per l’esempio precedente, viene chiesto di confermare l’operazione di s
 * Per altre informazioni sul controllo degli accessi in base al ruolo in Automazione di Azure, vedere [Controllo degli accessi in base al ruolo in Automazione di Azure](automation-role-based-access-control.md).
 * Per informazioni sui cmdlet di PowerShell per la gestione della sottoscrizione, vedere [Uso di Azure PowerShell con Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 * Per informazioni sulle funzionalità del portale per la gestione della sottoscrizione, vedere [Gestire le risorse mediante il Portale di Azure](../azure-resource-manager/resource-group-portal.md).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

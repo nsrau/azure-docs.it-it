@@ -21,7 +21,6 @@ ms.openlocfilehash: 16c387fe574243544cf54cf283c7713ddcaa1942
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modellazione dei dati di un documento per un database NoSQL
 Anche se con i database privi di schema, come Azure Cosmos DB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati. 

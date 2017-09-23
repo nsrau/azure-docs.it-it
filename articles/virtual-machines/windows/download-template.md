@@ -1,6 +1,6 @@
 ---
 title: Scaricare il modello per una macchina virtuale di Azure | Microsoft Docs
-description: Scaricare il modello per una macchina virtuale per facilitare l&quot;automazione delle distribuzioni nel modello di distribuzione di Resource Manager
+description: Scaricare il modello per una macchina virtuale per facilitare l'automazione delle distribuzioni nel modello di distribuzione di Resource Manager
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 9e4c0c3cf0e233447369a24b1d5fe27495abd1cf
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="download-the-template-for-a-vm"></a>Scaricare il modello per una VM

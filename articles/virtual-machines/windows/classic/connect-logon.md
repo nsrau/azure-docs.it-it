@@ -21,7 +21,6 @@ ms.openlocfilehash: 43d54de7e875de9212c23c49ad0539bf2272a312
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Accedere a una macchina virtuale di Windows tramite il portale di Azure
 Nel portale di Azure, si utilizza il pulsante **Connetti** per avviare una sessione di Desktop remoto e accedere a una macchina virtuale Windows.

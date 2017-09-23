@@ -1,6 +1,6 @@
 ---
 pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: "Documentazione preliminare per la funzionalità relativa ai sinonimi (anteprima) esposta nell&quot;API REST di Ricerca di Azure."
+description: "Documentazione preliminare per la funzionalità relativa ai sinonimi (anteprima) esposta nell'API REST di Ricerca di Azure."
 services: search
 documentationCenter: 
 authors: mhko

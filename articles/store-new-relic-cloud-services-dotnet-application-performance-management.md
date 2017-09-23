@@ -1,6 +1,6 @@
 ---
 title: Uso di New Relic con Azure | Microsoft Docs
-description: Informazioni sull&quot;uso del servizio New Relic per gestire e monitorare l&quot;applicazione Azure.
+description: Informazioni sull'uso del servizio New Relic per gestire e monitorare l'applicazione Azure.
 services: 
 documentationcenter: .net
 author: nickfloyd
@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: nickfloyd@newrelic.com
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: f4f13c909a6ff640d403f5264004176c087925dd
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="new-relic-application-performance-management-on-azure"></a>Gestione delle prestazioni delle applicazioni con New Relic in Siti Web di Azure
@@ -51,10 +52,5 @@ Per altre informazioni sull'uso di New Relic e Azure, vedere il [sito della docu
 * [New Relic for the Microsoft Azure Cloud platform](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-cloud-services)
 * [New Relic for the Microsoft Azure App Services](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-portal)
 * [New Relic/Azure troubleshooting](https://docs.newrelic.com/docs/agents/net-agent/azure-troubleshooting)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

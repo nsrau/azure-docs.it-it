@@ -20,7 +20,6 @@ ms.openlocfilehash: 7762f8499c67672f0a2ffed99e98baea4c940fa0
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Usare il servizio Gestione dispositivi StorSimple per modificare le password di StorSimple
 

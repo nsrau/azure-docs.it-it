@@ -20,7 +20,6 @@ ms.openlocfilehash: 5ddc02905fbb7f9f7c5deb9b970101788d824642
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
 
-
 ---
 
 # <a name="machine-learning-anomaly-detection-api"></a>API di rilevamento delle anomalie di Machine Learning

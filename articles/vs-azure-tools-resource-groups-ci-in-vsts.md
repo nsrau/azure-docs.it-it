@@ -1,6 +1,6 @@
 ---
 title: Integrazione continua in VS Team Services con i progetti di gruppi di risorse di Azure | Microsoft Docs
-description: Descrive come configurare l&quot;integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure in Visual Studio.
+description: Descrive come configurare l'integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure in Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mlearned
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integrazione continua in Visual Studio Team Services con i progetti di distribuzione Gruppo di risorse di Azure

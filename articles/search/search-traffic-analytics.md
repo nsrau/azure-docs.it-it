@@ -14,9 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/05/2017
 ms.author: betorres
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
+ms.contentlocale: it-it
 ms.lasthandoff: 04/07/2017
 
 ---
@@ -176,11 +177,11 @@ Per creare un'istanza del modello di Power BI Desktop, sono necessarie tre infor
 
 Metriche incluse nel modello di Power BI Desktop:
 
-*    Tasso di clic (CTR): rapporto tra utenti che fanno clic su un documento specifico e numero di ricerche totali.
-*    Ricerche senza clic: termini delle query principali per i quali non sono registrati clic.
-*    Documenti con più clic: documenti con più clic suddivisi per ID nelle ultime 24 ore e negli ultimi 7 e 30 giorni.
-*    Coppie termine-documento più comuni: termini che producono lo stesso documento selezionato, ordinati per clic.
-*    Tempo dei clic: clic con bucket definiti in base al tempo dopo la query di ricerca.
+*   Tasso di clic (CTR): rapporto tra utenti che fanno clic su un documento specifico e numero di ricerche totali.
+*   Ricerche senza clic: termini delle query principali per i quali non sono registrati clic.
+*   Documenti con più clic: documenti con più clic suddivisi per ID nelle ultime 24 ore e negli ultimi 7 e 30 giorni.
+*   Coppie termine-documento più comuni: termini che producono lo stesso documento selezionato, ordinati per clic.
+*   Tempo dei clic: clic con bucket definiti in base al tempo dopo la query di ricerca.
 
 ![Modello di Power BI per la lettura da Application Insights][3]
 

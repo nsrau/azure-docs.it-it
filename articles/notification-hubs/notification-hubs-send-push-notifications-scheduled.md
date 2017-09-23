@@ -1,6 +1,6 @@
 ---
 title: Informazioni su come inviare notifiche pianificate | Microsoft Docs
-description: Questo argomento descrive l&quot;uso di notifiche pianificate con Hub di notifica.
+description: Questo argomento descrive l'uso di notifiche pianificate con Hub di notifica.
 services: notification-hubs
 documentationcenter: .net
 keywords: notifiche push, notifica push, pianificazione notifiche push
@@ -15,10 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Procedura: Inviare le notifiche pianificate
@@ -35,10 +36,5 @@ Per l'invio di una notifica è sufficiente usare la classe [ScheduledNotificatio
     await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
 Non sono previsti limiti al numero di notifiche pianificate che è possibile inviare.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

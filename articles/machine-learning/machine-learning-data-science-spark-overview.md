@@ -1,6 +1,6 @@
 ---
-title: Panoramica dell&quot;analisi scientifica dei dati con Spark in Azure HDInsight | Microsoft Docs
-description: "Il toolkit Spark MLlib introduce importanti funzionalità di modellazione di Machine Learning nell&quot;ambiente distribuito HDInsight."
+title: Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight | Microsoft Docs
+description: "Il toolkit Spark MLlib introduce importanti funzionalità di modellazione di Machine Learning nell'ambiente distribuito HDInsight."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 379b32f4e533f48f1593a97e73737a0c5bfb9135
+ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
-
-
 
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight

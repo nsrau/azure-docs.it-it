@@ -21,7 +21,6 @@ ms.openlocfilehash: 92a8894f24c234fbf38eda086531b524cceccfc1
 ms.contentlocale: it-it
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="service-remoting-with-reliable-services"></a>Servizio remoto con Reliable Services
 Per i servizi che non sono legati a un protocollo di comunicazione o uno stack particolare, ad esempio WebAPI, Windows Communication Foundation (WCF) o altri, il framework Reliable Services fornisce un meccanismo remoto per impostare in modo semplice e rapido una chiamata di procedura remota per i servizi.

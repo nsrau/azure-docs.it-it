@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con BC in the Cloud | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e BC in the Cloud.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e BC in the Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: ebc95d600eca1027331cd92cfe481d0c3ee833a5
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con BC in the Cloud

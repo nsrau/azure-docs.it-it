@@ -48,9 +48,9 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-learning"></a>Suggerimenti importanti per l'assegnazione di utenti a LinkedIn Learning
 
-*    È consigliabile assegnare un singolo utente di Azure AD a LinkedIn Learning per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+*   È consigliabile assegnare un singolo utente di Azure AD a LinkedIn Learning per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-*    Quando si assegna un utente a LinkedIn Learning, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
+*   Quando si assegna un utente a LinkedIn Learning, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-learning"></a>Configurazione del provisioning utenti in LinkedIn Learning
@@ -93,9 +93,9 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 8) Se si è già configurato LinkedIn Learning per l'accesso Single Sign-On, cercare l'istanza di LinkedIn Learning usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **LinkedIn Learning** nella raccolta di applicazioni. Selezionare LinkedIn Learning nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
-9)    Selezionare l'istanza di LinkedIn Learning e quindi la scheda **Provisioning**.
+9)  Selezionare l'istanza di LinkedIn Learning e quindi la scheda **Provisioning**.
 
-10)    Impostare **Modalità di provisioning** su **Automatico**.
+10) Impostare **Modalità di provisioning** su **Automatico**.
 
 ![Provisioning di LinkedIn Learning](./media/active-directory-saas-linkedinlearning-provisioning-tutorial/linkedin_3.PNG)
 

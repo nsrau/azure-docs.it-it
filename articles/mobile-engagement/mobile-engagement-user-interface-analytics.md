@@ -1,6 +1,6 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Analytics
-description: Informazioni su come analizzare i dati storici sull&quot;applicazione usando Azure Mobile Engagement
+description: Informazioni su come analizzare i dati storici sull'applicazione usando Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Come analizzare i dati cronologici sull'applicazione

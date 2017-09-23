@@ -1,6 +1,6 @@
 ---
 title: Stored procedure in SQL Data Warehouse | Documentazione Microsoft
-description: Suggerimenti per l&quot;implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+description: Suggerimenti per l'implementazione delle stored procedure in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="stored-procedures-in-sql-data-warehouse"></a>Stored procedure in SQL Data Warehouse

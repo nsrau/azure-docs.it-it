@@ -20,7 +20,6 @@ ms.openlocfilehash: 0899a49cbfda775017dab7fc6d8963bbeb86d74c
 ms.contentlocale: it-it
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Come effettuare una chiamata tramite Twilio in un ruolo Web in Azure
 In questa guida viene illustrato come usare Twilio per effettuare una chiamata da una pagina Web ospitata in Azure. L'applicazione risultante chiede all'utente di eseguire una chiamata con il numero e il messaggio specificati, come illustrato nella schermata seguente.

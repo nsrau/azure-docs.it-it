@@ -1,6 +1,6 @@
 ---
-title: Creazione di report sul provisioning automatico dell&quot;account utente di Azure Active Directory per le applicazioni SaaS | Microsoft Docs
-description: Informazioni su come controllare lo stato dei processi di provisioning automatico dell&quot;account utente e risolvere i problemi di provisioning di singoli utenti.
+title: Creazione di report sul provisioning automatico dell'account utente di Azure Active Directory per le applicazioni SaaS | Microsoft Docs
+description: Informazioni su come controllare lo stato dei processi di provisioning automatico dell'account utente e risolvere i problemi di provisioning di singoli utenti.
 services: active-directory
 documentationcenter: 
 author: asmalser-msft

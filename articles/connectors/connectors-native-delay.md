@@ -1,6 +1,6 @@
 ---
 title: Aggiungere ritardo nelle app per la logica | Microsoft Docs
-description: Panoramica delle azioni di ritardo e ritardo fino a e di come usarle con un&quot;app per la logica di Azure.
+description: Panoramica delle azioni di ritardo e ritardo fino a e di come usarle con un'app per la logica di Azure.
 services: 
 documentationcenter: 
 author: jeffhollan
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/20/2017
 
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introduzione alle azioni si ritardo e ritardo fino a
@@ -73,10 +74,5 @@ Un asterisco (*) indica che è un campo obbligatorio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -1,7 +1,6 @@
 ---
-
-title: Uso di una VM per la risoluzione dei problemi delle macchine virtuali Linux tramite l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Informazioni su come risolvere i problemi delle VM Linux connettendo il disco del sistema operativo a una VM di ripristino tramite l&quot;interfaccia della riga di comando di Azure 1.0
+title: Uso di una VM per la risoluzione dei problemi delle macchine virtuali Linux tramite l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Informazioni su come risolvere i problemi delle VM Linux connettendo il disco del sistema operativo a una VM di ripristino tramite l'interfaccia della riga di comando di Azure 1.0
 services: virtual-machines-linux
 documentationCenter: 
 authors: iainfoulds
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: d817358211f123c96d899c5cff88cc47aeb5c9c1
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 

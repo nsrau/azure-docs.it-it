@@ -20,7 +20,6 @@ ms.openlocfilehash: 70a4762383d64dc8d568c628cf260ebd8f2d179d
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Come creare una richiesta di supporto in Azure
 ## <a name="summary"></a>Riepilogo

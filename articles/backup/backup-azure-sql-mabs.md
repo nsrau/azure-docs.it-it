@@ -20,7 +20,6 @@ ms.openlocfilehash: 2af9ebaa8f52690ed63406cbd85b77544d2d900d
 ms.contentlocale: it-it
 ms.lasthandoff: 03/27/2017
 
-
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di SQL Server in Azure con il server di Backup di Azure
 Questo articolo descrive la procedura di configurazione per il backup dei database SQL Server mediante il server di Backup di Microsoft Azure (MABS).

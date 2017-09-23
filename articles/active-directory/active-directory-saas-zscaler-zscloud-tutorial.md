@@ -19,7 +19,6 @@ ms.openlocfilehash: 2b6eb113e5725260bc04f50e9218939bf28b1ff0
 ms.contentlocale: it-it
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler ZSCloud
 

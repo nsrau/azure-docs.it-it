@@ -21,7 +21,6 @@ ms.openlocfilehash: 9ff0591741899d65b8274fb14ab3f3c8db9abe36
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>Introduzione al connettore SendGrid
 Il provider di connessione SendGrid consente di inviare messaggi di posta elettronica e gestire elenchi di destinatari.

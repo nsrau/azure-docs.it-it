@@ -21,7 +21,6 @@ ms.openlocfilehash: e222645509640b104410f87e4bcd22834c8d9ec1
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="connect-linux-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>Connettere le macchine virtuali Linux create con il modello di distribuzione classica con un servizio cloud o rete virtuale
 > [!IMPORTANT]

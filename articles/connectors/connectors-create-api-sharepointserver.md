@@ -1,6 +1,6 @@
 ---
 title: Usare il connettore SharePoint Server nelle app per la logica | Microsoft Docs
-description: Introduzione all&quot;uso del connettore SharePoint Server nelle app per la logica
+description: Introduzione all'uso del connettore SharePoint Server nelle app per la logica
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 0f3274816e279a1aa57febaa2f8294914900799a
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Introduzione al connettore SharePoint

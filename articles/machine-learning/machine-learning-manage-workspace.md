@@ -1,6 +1,6 @@
 ---
-title: Gestire un&quot;area di lavoro di Machine Learning | Microsoft Docs
-description: Gestione dell&quot;accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML
+title: Gestire un'area di lavoro di Machine Learning | Microsoft Docs
+description: Gestione dell'accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
 ms.openlocfilehash: 94800f51baf83311c33490cada5f991ff2101da9
+ms.contentlocale: it-it
 ms.lasthandoff: 03/02/2017
-
 
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gestire un'area di lavoro di Azure Machine Learning

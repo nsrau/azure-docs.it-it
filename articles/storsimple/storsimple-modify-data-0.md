@@ -1,6 +1,6 @@
 ---
 title: Modificare le impostazioni dei DATI 0 in un dispositivo StorSimple | Microsoft Docs
-description: Informazioni su come utilizzare Windows PowerShell per StorSimple per riconfigurare l&quot;interfaccia di rete DATI 0 sul dispositivo StorSimple
+description: Informazioni su come utilizzare Windows PowerShell per StorSimple per riconfigurare l'interfaccia di rete DATI 0 sul dispositivo StorSimple
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>Modificare le impostazioni dell'interfaccia di rete DATI 0 sul dispositivo StorSimple
@@ -68,10 +69,5 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare le interfacce di rete diverse da DATA 0, è possibile utilizzare la [pagina di configurazione nel portale di Azure classico](storsimple-modify-device-config.md). 
 * Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

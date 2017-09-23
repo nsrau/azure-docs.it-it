@@ -1,4 +1,4 @@
-﻿---
+---
 title: Sicurezza database - Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come Azure Cosmos DB garantisca la protezione del database e la sicurezza dei dati.
 keywords: sicurezza del database NoSQL, sicurezza delle informazioni, sicurezza dei dati, crittografia del database, protezione del database, criteri di sicurezza, test di sicurezza

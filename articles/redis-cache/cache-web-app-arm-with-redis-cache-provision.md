@@ -1,6 +1,6 @@
 ---
 title: "Eseguire il provisioning dell’app Web con Cache Redis"
-description: Utilizzare il modello di Gestione risorse di Azure per distribuire l&quot;app Web con Cache Redis.
+description: Utilizzare il modello di Gestione risorse di Azure per distribuire l'app Web con Cache Redis.
 services: app-service
 documentationcenter: 
 author: steved0x
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 810c1cedd4fe0bd6ecdf9bd32dfb241f5f345300
 ms.contentlocale: it-it
 ms.lasthandoff: 05/15/2017
-
 
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Creare un’app Web più Cache Redis utilizzando un modello

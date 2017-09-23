@@ -1,6 +1,6 @@
 ---
 title: 'Servizi Web di Azure Machine Learning: distribuzione e utilizzo | Documentazione Microsoft'
-description: Risorse per la distribuzione e l&quot;uso dei servizi Web.
+description: Risorse per la distribuzione e l'uso dei servizi Web.
 services: machine-learning
 documentationcenter: 
 author: vDonGlover
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 18edabe267ec06c08074d7a7a6d71435cedc8489
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning: distribuzione e uso

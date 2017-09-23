@@ -1,6 +1,6 @@
 ---
 title: Esempio introduttivo
-description: Power BI Embedded - Uso di SDK per aggiungere report di Power BI interattivi nell&quot;applicazione di Business Intelligence
+description: Power BI Embedded - Uso di SDK per aggiungere report di Power BI interattivi nell'applicazione di Business Intelligence
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: c3cb1763f807220a4a829f410d7eb77974b25776
 ms.contentlocale: it-it
 ms.lasthandoff: 04/20/2017
-
 
 ---
 # <a name="get-started-with-power-bi-embedded-sample"></a>Introduzione all'esempio di Power BI Embedded

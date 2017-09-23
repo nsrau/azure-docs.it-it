@@ -1,6 +1,6 @@
 ---
-title: "Monitorare l&quot;integrità delle risorse della rete CDN di Azure | Documentazione Microsoft"
-description: "Informazioni su come monitorare l&quot;integrità delle risorse della rete CDN di Azure con Integrità risorse di Azure."
+title: "Monitorare l'integrità delle risorse della rete CDN di Azure | Documentazione Microsoft"
+description: "Informazioni su come monitorare l'integrità delle risorse della rete CDN di Azure con Integrità risorse di Azure."
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/25/2017
 
 ---
 
@@ -65,8 +66,3 @@ Sono stati riscontrati problemi con alcuni provider di servizi di rete CDN | Vis
 - [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md)
 - [Risolvere i problemi di compressione della rete CDN](./cdn-troubleshoot-compression.md)
 - [Risolvere i problemi relativi a errori 404](./cdn-troubleshoot-endpoint.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

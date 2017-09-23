@@ -19,7 +19,6 @@ ms.openlocfilehash: 3879eb3d0c6fa9d74fff01b07f5c07d3991dfbbd
 ms.contentlocale: it-it
 ms.lasthandoff: 04/21/2017
 
-
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Servizio Azure Batch per i processi di Machine Learning
 

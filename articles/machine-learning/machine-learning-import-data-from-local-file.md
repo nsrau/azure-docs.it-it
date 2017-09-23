@@ -1,6 +1,6 @@
 ---
 title: Importare dati da un file in Azure Machine Learning Studio | Microsoft Docs
-description: Informazioni su come caricare un file di dati di training dal disco rigido in Azure Machine Learning Studio. Questa operazione crea un modulo set di dati nell&quot;area di lavoro.
+description: Informazioni su come caricare un file di dati di training dal disco rigido in Azure Machine Learning Studio. Questa operazione crea un modulo set di dati nell'area di lavoro.
 keywords: dati di importazione,formato dati,tipi di dati,origini dati,dati di training
 services: machine-learning
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: 18010864160ceb2d76aea37196e6944bbe426457
+ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
-
 
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Importare dati di training da un file sul disco rigido in Machine Learning Studio

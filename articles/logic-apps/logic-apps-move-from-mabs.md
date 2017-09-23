@@ -20,7 +20,6 @@ ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
 
-
 ---
 
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Spostare da Servizi BizTalk ad App per la logica
@@ -31,8 +30,8 @@ Servizi BizTalk di Microsoft Azure (MABS) verrà ritirato. Usare questo argoment
 
 Servizi BizTalk è costituito da due servizi secondari:
 
-1.    Connessioni ibride di Servizi BizTalk di Microsoft
-2.    Integrazione basata su bridge di EAI ed EDI
+1.  Connessioni ibride di Servizi BizTalk di Microsoft
+2.  Integrazione basata su bridge di EAI ed EDI
 
 Se si intende spostare le connessioni ibride, [Connessioni ibride del Servizio app di Azure](../app-service/app-service-hybrid-connections.md) descrive le modifiche e le funzionalità di questo servizio. Connessioni ibride di Azure sostituisce Connessioni ibride di Servizi BizTalk. Connessioni ibride di Azure è disponibile con il Servizio app di Azure e viene offerto nel portale di Azure. Connessioni ibride di Azure offre anche una nuova gestione per la connessione ibrida che consente di gestire le connessioni ibride di Servizi BizTalk esistenti oltre alle nuove connessioni ibride create nel portale. Connessioni ibride di Servizio app di Azure è disponibile a livello generale.
 

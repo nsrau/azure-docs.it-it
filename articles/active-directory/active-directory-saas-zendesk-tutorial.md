@@ -19,7 +19,6 @@ ms.openlocfilehash: 51c06d838c5ed6286dfb99ea25faaaf33bad5f3c
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Esercitazione: Integrazione di Azure Active Directory con Zendesk
 

@@ -1,6 +1,6 @@
 ---
 title: Opzioni di segnalazione avanzata per Android SDK per Azure Mobile Engagement
-description: Descrive come eseguire la segnalazione avanzata per l&quot;acquisizione di analisi per Android SDK per Azure Mobile Engagement
+description: Descrive come eseguire la segnalazione avanzata per l'acquisizione di analisi per Android SDK per Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,10 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="advanced-reporting-with-engagement-on-android"></a>Segnalazione avanzata con Engagement in Android
@@ -105,9 +106,4 @@ Se si compila il pacchetto dell'applicazione con ProGuard, è necessario mantene
     -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
     <methods>;
      }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

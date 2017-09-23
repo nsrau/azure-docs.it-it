@@ -19,7 +19,6 @@ ms.openlocfilehash: e09fa93038965e4880a23002bac6917ad2a077f7
 ms.contentlocale: it-it
 ms.lasthandoff: 06/26/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Esercitazione: Integrazione di Azure Active Directory con Halogen Software
 

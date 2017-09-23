@@ -1,6 +1,6 @@
 ---
 title: Informazioni sulle immagini delle macchine virtuali Linux in Azure | Documentazione Microsoft
-description: Informazioni sull&quot;uso delle immagini Linux con macchine virtuali in Azure.
+description: Informazioni sull'uso delle immagini Linux con macchine virtuali in Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 187642db18806f4034dcecf4c25b5c71028fdfe3
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>Informazioni sulle immagini per le macchine virtuali Linux

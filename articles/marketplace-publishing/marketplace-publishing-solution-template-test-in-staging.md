@@ -1,6 +1,6 @@
 ---
-title: Test dell&quot;offerta di modello di soluzione per il Marketplace | Documentazione Microsoft
-description: Informazioni su come testare l&quot;offerta di modello di soluzione per Azure Marketplace.
+title: Test dell'offerta di modello di soluzione per il Marketplace | Documentazione Microsoft
+description: Informazioni su come testare l'offerta di modello di soluzione per Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
 ms.author: hascipio; v-divte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Test dell'offerta di modello di soluzione in gestione temporanea
@@ -45,10 +46,5 @@ Se si è soddisfatti dei risultati, è possibile procedere alla fase di pubblica
 > 
 
 Per una guida a tutte le attività del server di pubblicazione, vedere [Come pubblicare un'offerta in Microsoft Azure Marketplace](marketplace-publishing-getting-started.md) .
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

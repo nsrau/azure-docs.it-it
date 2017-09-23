@@ -1,6 +1,6 @@
 ---
 title: Aggiornamenti in sequenza delle applicazioni - Database SQL di Azure | Documentazione Microsoft
-description: Informazioni su come usare la replica geografica del database SQL di Azure per supportare gli aggiornamenti online dell&quot;applicazione cloud.
+description: Informazioni su come usare la replica geografica del database SQL di Azure per supportare gli aggiornamenti online dell'applicazione cloud.
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 4b59c8aa3dea3e8fba692ab66420295a09210d3b
 ms.contentlocale: it-it
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gestione degli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL

@@ -20,7 +20,6 @@ ms.openlocfilehash: 771a96df5cc66bac46e7144785be8cc072b57b31
 ms.contentlocale: it-it
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>Eseguire test e debug di processi U-SQL tramite l'esecuzione locale e l'SDK U-SQL di Azure Data Lake
 

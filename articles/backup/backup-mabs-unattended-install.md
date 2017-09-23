@@ -18,7 +18,6 @@ ms.openlocfilehash: 91778a67f9ef523aa87b7918197e0d0ded0f5702
 ms.contentlocale: it-it
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Eseguire un'installazione automatica del server di Backup di Azure v2
 

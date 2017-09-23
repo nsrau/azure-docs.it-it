@@ -22,7 +22,6 @@ ms.openlocfilehash: ec6256e9c5bb0d9c8d15d0f673cea70b3915eb34
 ms.contentlocale: it-it
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Ottenere i valori richiesti per l'autenticazione di un'applicazione per l'accesso al database SQL dal codice
 Per creare e gestire database SQL dal codice è necessario registrare l'app nel dominio di Azure Active Directory (AAD) nella sottoscrizione in cui sono state create le risorse di Azure.

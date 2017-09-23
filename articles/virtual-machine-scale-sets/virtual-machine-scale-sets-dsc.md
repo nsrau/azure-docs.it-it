@@ -1,6 +1,6 @@
 ---
 title: "Uso di Configurazione dello stato desiderato (DSC) con i set di scalabilità di macchine virtuali | Microsoft Docs"
-description: "Utilizzo dei set di scalabilità di macchine virtuali con l&quot;estensione DSC di Azure"
+description: "Utilizzo dei set di scalabilità di macchine virtuali con l'estensione DSC di Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: zjalexander
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: b61b0acf3072569ab733a13defb465c921d26187
+ms.contentlocale: it-it
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Utilizzo dei set di scalabilità di macchine virtuali con l'estensione DSC di Azure

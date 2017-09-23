@@ -20,7 +20,6 @@ ms.openlocfilehash: f3ac9545a341fc24ca12c9f2547805d6956cd98a
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Failover su un dispositivo StorSimple serie 8000 fisico
 

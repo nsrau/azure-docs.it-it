@@ -1,6 +1,6 @@
 ---
 title: Provider di cache di output ASP.NET della Cache
-description: Informazioni su come memorizzare nella cache l&quot;output della pagina ASP.NET mediante Cache Redis di Azure
+description: Informazioni su come memorizzare nella cache l'output della pagina ASP.NET mediante Cache Redis di Azure
 services: redis-cache
 documentationcenter: na
 author: steved0x
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 845f25637a0e48460fc76c1ee36060274b3cec38
+ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
-
 
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Provider di cache di output ASP.NET per la Cache Redis di Azure

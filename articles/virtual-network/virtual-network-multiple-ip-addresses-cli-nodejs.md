@@ -1,6 +1,6 @@
 ---
-title: "Creare una VM con più indirizzi IP usando l&quot;interfaccia della riga di comando 1.0 di Azure | Microsoft Docs"
-description: "Informazioni su come assegnare più indirizzi IP a una macchina virtuale usando l&quot;interfaccia della riga di comando 1.0 di Azure | Resource Manager."
+title: "Creare una VM con più indirizzi IP usando l'interfaccia della riga di comando 1.0 di Azure | Microsoft Docs"
+description: "Informazioni su come assegnare più indirizzi IP a una macchina virtuale usando l'interfaccia della riga di comando 1.0 di Azure | Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
 ms.openlocfilehash: 9f085dfa1fe4db36d58cb976bb550a46bf241ac7
+ms.contentlocale: it-it
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli-10"></a>Assegnare più indirizzi IP alle macchine virtuali usando l'interfaccia della riga di comando 1.0 di Azure
@@ -122,7 +122,7 @@ Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello
 8. Immettere il comando seguente per visualizzare la scheda di interfaccia di rete e le configurazioni IP associate:
 
     ```azurecli
-    azure network nic show --resource-group $RgName    --name myNic1
+    azure network nic show --resource-group $RgName --name myNic1
     ```
 9. Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale seguendo la procedura per il proprio sistema operativo riportata nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#os-config) di questo articolo.
 
@@ -161,7 +161,7 @@ Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello
         --domain-name-label mypublicdns3
         ```
 
-         Per creare una nuova configurazione IP con un indirizzo IP privato statico e la risorsa indirizzo IP pubblico *myPublicIP3* associata, immettere il comando seguente:
+        Per creare una nuova configurazione IP con un indirizzo IP privato statico e la risorsa indirizzo IP pubblico *myPublicIP3* associata, immettere il comando seguente:
 
         ```azurecli
         azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic --name IPConfig-4 \
@@ -178,7 +178,7 @@ Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello
 
         Cercare una riga simile a quella che segue per IPConfig-3 nell'output restituito:
 
-        ```            
+        ```         
         Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
         default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
         IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2

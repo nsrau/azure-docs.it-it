@@ -1,6 +1,6 @@
 ---
 title: Uso di estensioni VM Docker per Linux | Microsoft Docs
-description: Descrive Docker e le estensioni di Macchine virtuali di Azure e come creare le macchine virtuali di Azure che siano host Docker usando l&quot;interfaccia della riga di comando di Azure nel modello di distribuzione classica.
+description: Descrive Docker e le estensioni di Macchine virtuali di Azure e come creare le macchine virtuali di Azure che siano host Docker usando l'interfaccia della riga di comando di Azure nel modello di distribuzione classica.
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Come usare l'estensione della VM Docker con il portale di Azure classico

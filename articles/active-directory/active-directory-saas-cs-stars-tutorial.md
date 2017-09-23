@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con CS Stars | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e CS Stars.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e CS Stars.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: acc9160f86e58c7af4779a8bab5627dc5c5ad721
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Esercitazione: Integrazione di Azure Active Directory con CS Stars

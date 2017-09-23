@@ -19,7 +19,6 @@ ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
 ms.contentlocale: it-it
 ms.lasthandoff: 05/08/2017
 
-
 ---
 # <a name="develop-u-sql-assemblies-for-azure-data-lake-analytics-jobs"></a>Sviluppare assembly U-SQL per processi di Azure Data Lake Analytics
 Informazioni su come attivare code-behind negli assembly da usare più volte nei processi di Data Lake Analytics. 

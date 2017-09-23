@@ -1,6 +1,6 @@
 ---
-title: Acquisire un&quot;immagine di una macchina virtuale Windows di Azure | Microsoft Docs
-description: Acquisire un&quot;immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico.
+title: Acquisire un'immagine di una macchina virtuale Windows di Azure | Microsoft Docs
+description: Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 6032263848c469ce2f416306e5c91c29f4cb30e4
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico.

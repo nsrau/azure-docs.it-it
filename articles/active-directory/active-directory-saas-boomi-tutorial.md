@@ -19,7 +19,6 @@ ms.openlocfilehash: 1121d22beddf73fd2109a4b410422f76dd37478e
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Esercitazione: Integrazione di Azure Active Directory con Boomi
 

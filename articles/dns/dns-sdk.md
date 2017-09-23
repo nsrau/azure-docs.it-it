@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
 ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
+ms.contentlocale: it-it
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -165,9 +167,4 @@ while (page.NextPageLink != null)
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scaricare il [progetto di esempio Azure .NET SDK per DNS](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), che include altri esempi dell'uso di Azure .NET SDK per DNS, tra cui alcuni esempi per altri tipi di record DNS.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

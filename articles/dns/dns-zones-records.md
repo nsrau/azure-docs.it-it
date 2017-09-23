@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle zone e dei record DNS - DNS di Azure | Documentazione Microsoft
-description: Panoramica del supporto per l&quot;hosting di zone e record DNS in DNS di Microsoft Azure.
+description: Panoramica del supporto per l'hosting di zone e record DNS in DNS di Microsoft Azure.
 services: dns
 documentationcenter: na
 author: jtuliani

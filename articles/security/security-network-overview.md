@@ -20,7 +20,6 @@ ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 Microsoft Azure include una solida infrastruttura di rete per supportare i requisiti di connettività di applicazioni e servizi. La connettività di rete è possibile tra le risorse disponibili in Azure, le risorse locali e quelle ospitate in Azure, nonché da e verso Internet e Azure.

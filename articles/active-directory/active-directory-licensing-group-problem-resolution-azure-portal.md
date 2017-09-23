@@ -1,5 +1,4 @@
 ---
-
 title: Risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory | Microsoft Docs
 description: Come identificare e risolvere problemi di assegnazione delle licenze quando si usano le licenze basate sui gruppi in Azure Active Directory
 services: active-directory
@@ -22,7 +21,6 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
-
 
 ---
 

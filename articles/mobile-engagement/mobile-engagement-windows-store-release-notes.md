@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="windows-universal-apps-sdk-release-notes"></a>Note sulla versione di Windows Universal Apps SDK
@@ -63,10 +64,5 @@ ms.openlocfilehash: dc5529a9e8f4eba867732f719ca8fff718c00d5a
 * Versione iniziale di Azure Mobile Engagement
 * La configurazione di appId/sdkKey viene sostituita da una configurazione della stringa di connessione.
 * Sono stati introdotti miglioramenti per la sicurezza.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

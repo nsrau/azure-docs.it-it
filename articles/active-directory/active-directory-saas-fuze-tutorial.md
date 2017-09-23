@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Fuze | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Fuze.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Fuze.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
 ms.openlocfilehash: c7f7b095aac6202a7ec5248ee2bbb109615287a7
+ms.contentlocale: it-it
 ms.lasthandoff: 04/04/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Esercitazione: Integrazione di Azure Active Directory con Fuze

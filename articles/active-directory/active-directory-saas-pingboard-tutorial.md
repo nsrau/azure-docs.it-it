@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con PingBoard | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e PingBoard.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e PingBoard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 008c670a8043da0c67ccefde48d5ef721c75d97c
+ms.contentlocale: it-it
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Esercitazione: Integrazione di Azure Active Directory con PingBoard
@@ -138,7 +138,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
-9.    Nella pagina **Integrazioni**, trovare e fare clic sul riquadro di **"Azure Active Directory"**.
+9.  Nella pagina **Integrazioni**, trovare e fare clic sul riquadro di **"Azure Active Directory"**.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
@@ -208,7 +208,7 @@ Nel caso di PingBoard, il provisioning è un'attività manuale.
 
     d. Nell'elenco a discesa **Località**, selezionare la località di Britta Simon.
     
-    e. Fare clic su **Aggiungi**.    
+    e. Fare clic su **Aggiungi**.   
 
 4. Verrà visualizzata una schermata di conferma per confermare l'aggiunta dell'utente.
     

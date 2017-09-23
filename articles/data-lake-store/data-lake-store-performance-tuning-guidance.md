@@ -20,7 +20,6 @@ ms.openlocfilehash: e7ea83465328bd4c7479dec4093cd94700463854
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Ottimizzazione delle prestazioni di Azure Data Lake Store
 

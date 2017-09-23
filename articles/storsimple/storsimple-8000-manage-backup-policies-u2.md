@@ -20,7 +20,6 @@ ms.openlocfilehash: 569dbfdeb7dcd526cb5a54b487ea1bfb59b13cc6
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Usare il servizio Gestione dispositivi StorSimple nel portale di Azure per gestire i criteri di backup
 

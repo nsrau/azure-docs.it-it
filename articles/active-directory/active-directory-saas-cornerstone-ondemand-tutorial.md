@@ -19,7 +19,6 @@ ms.openlocfilehash: 8bb32588579a0d40b9ae7e0f823c6daab21c856e
 ms.contentlocale: it-it
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Esercitazione: Integrazione di Azure Active Directory con Cornerstone OnDemand
 

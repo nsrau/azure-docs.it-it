@@ -1,6 +1,6 @@
 ---
 title: Esercitazioni per il ripristino di emergenza del database SQL | Documentazione Microsoft
-description: Istruzioni e procedure consigliate relative all&quot;uso del database SQL di Azure per eseguire esercitazioni per il ripristino di emergenza che consentono di mantenere la resilienza delle applicazioni aziendali cruciali in caso di errori e interruzioni del servizio.
+description: Istruzioni e procedure consigliate relative all'uso del database SQL di Azure per eseguire esercitazioni per il ripristino di emergenza che consentono di mantenere la resilienza delle applicazioni aziendali cruciali in caso di errori e interruzioni del servizio.
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
 ms.contentlocale: it-it
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="performing-disaster-recovery-drill"></a>Esercitazione per il ripristino di emergenza

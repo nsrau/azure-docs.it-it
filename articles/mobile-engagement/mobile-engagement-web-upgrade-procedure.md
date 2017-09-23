@@ -1,6 +1,6 @@
 ---
 title: Procedure di aggiornamento di Azure Mobile Engagement SDK per Web | Documentazione Microsoft
-description: Ultimi aggiornamenti e procedure relativi all&quot;SDK per Web per Azure Mobile Engagement
+description: Ultimi aggiornamenti e procedure relativi all'SDK per Web per Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procedure di aggiornamento di Azure Mobile Engagement SDK per Web
@@ -120,10 +121,5 @@ La stringa di connessione per l'applicazione viene visualizzata nel portale di A
 L'oggetto JavaScript globale `window.capptain` è stato rinominato `window.azureEngagement`, ma è possibile usare l'alias `window.engagement` per le chiamate API. Non è possibile usare l'alias per definire la configurazione dell'SDK.
 
 Ad esempio, `capptain.deviceId` diventa `engagement.deviceId`, `capptain.agent.startActivity` diventa `engagement.agent.startActivity` e così via.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

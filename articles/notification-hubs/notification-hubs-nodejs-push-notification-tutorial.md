@@ -1,6 +1,6 @@
 ---
 title: Invio di notifiche push con Hub di notifica di Azure e Node.js
-description: Informazioni su come usare Hub di notifica per inviare notifiche push da un&quot;applicazione Node.js.
+description: Informazioni su come usare Hub di notifica per inviare notifiche push da un'applicazione Node.js.
 keywords: notifica push,notifiche push,push node.js,push ios
 services: notification-hubs
 documentationcenter: nodejs
@@ -15,11 +15,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: dc4987b16b2e930641c6c90eff8b65c1bf8d573c
+ms.contentlocale: it-it
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js

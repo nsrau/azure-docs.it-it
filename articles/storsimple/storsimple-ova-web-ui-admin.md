@@ -1,6 +1,6 @@
 ---
-title: Amministrazione dell&quot;interfaccia utente Web dell&quot;array virtuale StorSimple | Microsoft Docs
-description: "Viene illustrato come eseguire attività di amministrazione di base del dispositivo tramite l&quot;interfaccia utente Web dell&quot;array virtuale StorSimple."
+title: Amministrazione dell'interfaccia utente Web dell'array virtuale StorSimple | Microsoft Docs
+description: "Viene illustrato come eseguire attività di amministrazione di base del dispositivo tramite l'interfaccia utente Web dell'array virtuale StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/1/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6c5fa51bdaad808d90cac6c8b8adeafe7d1cafc9
 ms.openlocfilehash: 989e7b697f9b527df549fb32be18edd1d3c8d224
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array
@@ -110,10 +111,5 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-virtual-array-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

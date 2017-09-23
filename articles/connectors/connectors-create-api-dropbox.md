@@ -21,7 +21,6 @@ ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Introduzione al connettore Dropbox
 Connettersi a Dropbox per gestire i file. In Dropbox è possibile eseguire diverse azioni, ad esempio caricare, aggiornare, ottenere ed eliminare file.

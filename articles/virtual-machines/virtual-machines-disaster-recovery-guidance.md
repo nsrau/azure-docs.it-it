@@ -1,6 +1,6 @@
 ---
 title: Scenari di ripristino di emergenza per macchine virtuali di Azure | Documentazione Microsoft
-description: Informazioni su cosa fare in caso di un&quot;interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure.
+description: Informazioni su cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure.
 services: virtual-machines
 documentationcenter: 
 author: kmouss
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: fb986a41e33501ee71c93a48457ac4114e33c671
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>Cosa fare in caso di un'interruzione di servizio di Azure che influisce sulle macchine virtuali di Azure

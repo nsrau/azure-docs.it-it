@@ -19,7 +19,6 @@ ms.openlocfilehash: e49960cac868f80af3e9165a9f75e49be87515f4
 ms.contentlocale: it-it
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Esercitazione: Integrazione di Azure Active Directory con LogicMonitor
 

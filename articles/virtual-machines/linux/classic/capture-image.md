@@ -21,7 +21,6 @@ ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
 ms.contentlocale: it-it
 ms.lasthandoff: 06/26/2017
 
-
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Come acquisire una macchina virtuale Linux classica come immagine
 > [!IMPORTANT]

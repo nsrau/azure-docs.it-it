@@ -20,15 +20,10 @@ ms.openlocfilehash: 08364c6c7bea53807844e3b1cc327dc3742e0487
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
-<a id="get-started-with-the-u-sql-catalog" class="xliff"></a>
+# <a name="get-started-with-the-u-sql-catalog"></a>Introduzione al catalogo di U-SQL
 
-# Introduzione al catalogo di U-SQL
-
-<a id="create-a-tvf" class="xliff"></a>
-
-## Creare una funzione con valori di tabella (TVF)
+## <a name="create-a-tvf"></a>Creare una funzione con valori di tabella (TVF)
 
 Nel precedente script U-SQL, è stato usato più volte l'oggetto EXTRACT per leggere da uno stesso file di origine. La funzione con valori di tabella (TVF) U-SQL consente di incapsulare i dati per un riutilizzo futuro.  
 
@@ -80,9 +75,7 @@ OUTPUT @res
     USING Outputters.Csv();
 ```
 
-<a id="create-views" class="xliff"></a>
-
-## Creare viste
+## <a name="create-views"></a>Creare viste
 
 Se si ha una sola espressione di query, anziché una funzione TVF è possibile usare una VISTA U-SQL per incapsulare l'espressione.
 
@@ -120,9 +113,7 @@ OUTPUT @res
     USING Outputters.Csv();
 ```
 
-<a id="create-tables" class="xliff"></a>
-
-## Creare tabelle
+## <a name="create-tables"></a>Creare tabelle
 Analogamente a una tabella di database relazionale, U-SQL consente di creare una tabella con uno schema predefinito oppure di creare una tabella e dedurre lo schema dalla query che popola la tabella (nota anche come istruzione CREATE TABLE AS SELECT o CTAS).
 
 Lo script seguente crea un database e due tabelle:
@@ -156,9 +147,7 @@ CREATE TABLE SearchLog2(
 ) AS SELECT * FROM master.dbo.Searchlog() AS S; // You can use EXTRACT or SELECT here
 ```
 
-<a id="query-tables" class="xliff"></a>
-
-## Eseguire query su tabelle
+## <a name="query-tables"></a>Eseguire query su tabelle
 È possibile eseguire una query su una tabella, come quelle create nello script precedente, nello stesso modo in cui si esegue su un file di dati. Anziché creare un set di righe usando l'istruzione EXTRACT, è possibile ora fare riferimento al nome della tabella.
 
 Modificare lo script di trasformazione usato in precedenza in modo da leggere i dati direttamente dalle tabelle:
@@ -186,9 +175,7 @@ OUTPUT @res
  >[!NOTE]
  >Non è attualmente possibile eseguire un'istruzione SELECT in una tabella presente nello stesso script in cui è stata creata la tabella.
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

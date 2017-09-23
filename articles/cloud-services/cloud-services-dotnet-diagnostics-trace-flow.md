@@ -1,6 +1,6 @@
 ---
-title: Tracciare il flusso in un&quot;applicazione di Servizi cloud con Diagnostica di Azure | Documentazione Microsoft
-description: Aggiungere messaggi di traccia a un&quot;applicazione Azure per consentire operazioni di debug, misurazione delle prestazioni, monitoraggio, analisi del traffico e molto altro.
+title: Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure | Documentazione Microsoft
+description: Aggiungere messaggi di traccia a un'applicazione Azure per consentire operazioni di debug, misurazione delle prestazioni, monitoraggio, analisi del traffico e molto altro.
 services: cloud-services
 documentationcenter: .net
 author: rboucher
@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: robb
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 35b4a4270846c54a1ca760e803ef7adba60cf03b
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Tracciare il flusso in un'applicazione di Servizi cloud con Diagnostica di Azure
@@ -75,10 +76,5 @@ Dopo aver completato i passaggi necessari per aggiungere il listener, è possibi
     ```
 3. Aggiungere istruzioni di traccia nei punti in cui si desidera acquisire informazioni sullo stato dell'applicazione. È possibile usare vari metodi per formattare l'output dell'istruzione di traccia. Per altre informazioni, vedere la [procedura per aggiungere istruzioni di traccia al codice dell'applicazione](https://msdn.microsoft.com/library/zd83saa2.aspx).
 4. Salvare il file di origine.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

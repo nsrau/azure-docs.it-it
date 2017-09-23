@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/22/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
+ms.contentlocale: it-it
 ms.lasthandoff: 04/21/2017
-
 
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>Ripristinare un volume StorSimple da un set di backup (aggiornamento 2)
@@ -53,7 +53,7 @@ Per i dispositivi che eseguono la versione Update 4 o successiva, viene implemen
 Il rilevamento basato su mappa termica è abilitato solo per i volumi a livelli, mentre i volumi aggiunti in locale non sono supportati. Il ripristino basato su mappa termica non è supportato anche quando si clona un volume in un altro dispositivo. In presenza di un ripristino sul posto e se nel dispositivo esiste uno snapshot locale per il volume da ripristinare, la riattivazione non viene eseguita (perché i dati sono già disponibili in locale). Per impostazione predefinita, durante il ripristino vengono avviati i processi di riattivazione, che riattivano in modo proattivo i dati in base alla mappa termica. Nella versione Update 4 è possibile usare i cmdlet di Windows PowerShell per eseguire una query sui processi di riattivazione in esecuzione, annullare un processo di riattivazione e ottenere lo stato del processo di riattivazione.
 
 * `Get-HcsRehydrationJob`: questo cmdlet ottiene lo stato del processo di riattivazione. Viene generato un singolo processo di riattivazione per un volume.
-* `Set-HcsRehydrationJob`: questo cmdlet permette di sospendere, arrestare e riprendere il processo di riattivazione, quando questo è in corso.    
+* `Set-HcsRehydrationJob`: questo cmdlet permette di sospendere, arrestare e riprendere il processo di riattivazione, quando questo è in corso. 
 
 Per altre informazioni sui cmdlet di riattivazione, vedere le [informazioni di riferimento sui cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 

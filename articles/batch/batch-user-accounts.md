@@ -1,6 +1,6 @@
 ---
 title: "Eseguire attività con account utente in Azure Batch | Microsoft Docs"
-description: "Configurare gli account utente per l&quot;esecuzione di attività in Azure Batch"
+description: "Configurare gli account utente per l'esecuzione di attività in Azure Batch"
 services: batch
 author: tamram
 manager: timlt

@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Dow Jones Factiva | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Dow Jones Factiva.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Dow Jones Factiva.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: dab48c24ff25fd68df1ee540bb8f0929e7e81bcb
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Esercitazione: Integrazione di Azure Active Directory con Dow Jones Factiva

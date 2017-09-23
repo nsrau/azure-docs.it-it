@@ -1,6 +1,6 @@
 ---
 title: "Evento di fallimento attività di Azure Batch | Microsoft Docs"
-description: "Riferimento per l&quot;evento di fallimento dell&quot;attività batch."
+description: "Riferimento per l'evento di fallimento dell'attività batch."
 services: batch
 author: tamram
 manager: timlt

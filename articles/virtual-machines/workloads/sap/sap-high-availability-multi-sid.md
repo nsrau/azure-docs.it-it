@@ -23,7 +23,6 @@ ms.openlocfilehash: b48df78df9f53ac7bf0804f55a8d36a2fe2f86b4
 ms.contentlocale: it-it
 ms.lasthandoff: 05/10/2017
 
-
 ---
 
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Creare una configurazione di SAP NetWeaver a più SID

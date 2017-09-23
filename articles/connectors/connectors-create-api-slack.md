@@ -21,7 +21,6 @@ ms.openlocfilehash: fc5fc128efe01bd0727e3ff30d8938918e89ac3a
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-slack-connector"></a>Introduzione al connettore Slack
 Slack è uno strumento di comunicazione del team, che riunisce tutte le comunicazioni del team in un'unica posizione immediatamente disponibile e individuabile in qualsiasi luogo. 

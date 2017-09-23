@@ -1,6 +1,6 @@
 ---
 title: 'Introduzione al server Web ASP.NET per Azure AD v2: uso | Microsoft Docs'
-description: Implementazione di accessi Microsoft in una soluzione ASP.NET con un&quot;applicazione tradizionale basata su Web browser tramite lo standard OpenID Connect
+description: Implementazione di accessi Microsoft in una soluzione ASP.NET con un'applicazione tradizionale basata su Web browser tramite lo standard OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -20,18 +20,17 @@ ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 3b7d29e48c91f40e8782a5e32a52998b815fe331
 ms.contentlocale: it-it
 
-
 ---
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Aggiungere un controller per gestire le richieste di accesso e disconnessione
 
 Questo passaggio illustra come creare un nuovo controller per esporre i metodi di accesso e disconnessione.
 
-1.    Fare clic con il pulsante destro del mouse sulla cartella `Controllers` e scegliere `Add` > `Controller`.
-2.    Selezionare `MVC (.NET version) Controller – Empty`.
-3.    Fare clic su *Aggiungi*.
-4.    Assegnare il nome `HomeController` e fare clic su *Aggiungi*.
-5.    Aggiungere i riferimenti *OWIN* alla classe:
+1.  Fare clic con il pulsante destro del mouse sulla cartella `Controllers` e scegliere `Add` > `Controller`.
+2.  Selezionare `MVC (.NET version) Controller – Empty`.
+3.  Fare clic su *Aggiungi*.
+4.  Assegnare il nome `HomeController` e fare clic su *Aggiungi*.
+5.  Aggiungere i riferimenti *OWIN* alla classe:
 
 ```csharp
 using Microsoft.Owin.Security;
@@ -75,9 +74,9 @@ public void SignOut()
 
 In Visual Studio creare una nuova visualizzazione per aggiungere il pulsante di accesso e mostrare le informazioni relative all'utente dopo l'autenticazione:
 
-1.    Fare clic con il pulsante destro del mouse sulla cartella `Views\Home` e scegliere `Add View`.
-2.    Denominarlo `Index`.
-3.    Aggiungere al file il codice HTML seguente, che include il pulsante di accesso:
+1.  Fare clic con il pulsante destro del mouse sulla cartella `Views\Home` e scegliere `Add View`.
+2.  Denominarlo `Index`.
+3.  Aggiungere al file il codice HTML seguente, che include il pulsante di accesso:
 
 ```html
 <html>
@@ -124,11 +123,11 @@ else
 ## <a name="add-a-controller-to-display-users-claims"></a>Aggiungere un controller per visualizzare le attestazioni dell'utente
 Questo controller illustra gli usi dell'attributo `[Authorize]` per la protezione di un controller. Questo attributo limita l'accesso al controller ai soli utenti autenticati. Il codice seguente usa l'attributo per visualizzare le attestazioni utente recuperate durante l'accesso.
 
-1.    Fare clic con il pulsante destro del mouse sulla cartella `Controllers` e scegliere `Add` > `Controller`.
-2.    Selezionare `MVC {version} Controller – Empty`.
-3.    Fare clic su *Aggiungi*.
-4.    Assegnare il nome `ClaimsController`.
-5.    Sostituire il codice della classe controller con il codice seguente, che aggiunge l'attributo `[Authorize]` alla classe:
+1.  Fare clic con il pulsante destro del mouse sulla cartella `Controllers` e scegliere `Add` > `Controller`.
+2.  Selezionare `MVC {version} Controller – Empty`.
+3.  Fare clic su *Aggiungi*.
+4.  Assegnare il nome `ClaimsController`.
+5.  Sostituire il codice della classe controller con il codice seguente, che aggiunge l'attributo `[Authorize]` alla classe:
 
 ```csharp
 [Authorize]
@@ -167,9 +166,9 @@ public class ClaimsController : Controller
 
 In Visual Studio creare una nuova visualizzazione per mostrare le attestazioni dell'utente in una pagina Web:
 
-1.    Fare clic con il pulsante destro del mouse sulla cartella `Views\Claims` e scegliere `Add View`.
-2.    Denominarlo `Index`.
-3.    Aggiungere il codice HTML seguente al file:
+1.  Fare clic con il pulsante destro del mouse sulla cartella `Views\Claims` e scegliere `Add View`.
+2.  Denominarlo `Index`.
+3.  Aggiungere il codice HTML seguente al file:
 
 ```html
 <html>

@@ -19,7 +19,6 @@ ms.openlocfilehash: 2ceb3c0833edcd4ecd875c5e8006961ed7216c66
 ms.contentlocale: it-it
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Esercitazione: Integrazione di Azure Active Directory con DigiCert
 

@@ -1,6 +1,6 @@
 ---
-title: Configurare MPIO sull&quot;host Linux StorSimple | Microsoft Docs
-description: Configurare MPIO in dispositivi StorSimple connessi all&quot;host Linux che esegue CentOS 6.6
+title: Configurare MPIO sull'host Linux StorSimple | Microsoft Docs
+description: Configurare MPIO in dispositivi StorSimple connessi all'host Linux che esegue CentOS 6.6
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
 ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/07/2016
 
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
@@ -446,10 +447,5 @@ Nella configurazione di MPIO sull'host Linux può anche essere necessario consul
 
 * [Configurazione di MPIO su CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 * [Guida alla formazione Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

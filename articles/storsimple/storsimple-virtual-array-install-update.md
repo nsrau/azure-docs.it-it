@@ -1,6 +1,6 @@
 ---
 title: Installare aggiornamenti su un array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
-description: Viene illustrato come usare l&quot;interfaccia utente Web dell&quot;array virtuale StorSimple per applicare aggiornamenti tramite il portale e gli hotfix.
+description: Viene illustrato come usare l'interfaccia utente Web dell'array virtuale StorSimple per applicare aggiornamenti tramite il portale e gli hotfix.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,9 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 978dde5857344704ce14e2dd090895f1fe541863
 ms.openlocfilehash: c2d081604c0ca01f47c3ff2aab7477859d280963
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
 
 ---

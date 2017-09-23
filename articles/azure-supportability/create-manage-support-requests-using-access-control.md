@@ -7,10 +7,11 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d408dbd55fa667e150bb42ff0d1e4b3236c438e9
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/02/2017
 
 ---
 
@@ -108,9 +109,4 @@ Quando Joe eseguirà l'accesso al portale e tenterà di creare una richiesta di 
 Quando Joe fa clic su "Tutte le richieste di supporto", non sarà visibile nessuna richiesta di supporto
 
 ![Visualizzazione dettagli del caso&2;](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

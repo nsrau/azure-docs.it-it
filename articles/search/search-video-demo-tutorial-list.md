@@ -21,7 +21,6 @@ ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
 ms.contentlocale: it-it
 ms.lasthandoff: 06/08/2017
 
-
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Ricerca di Azure: esempi di codice, demo, video ed esercitazioni
 Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazioni di esempio indicati di seguito.

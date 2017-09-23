@@ -1,6 +1,6 @@
 ---
-title: Crittografare dischi in una macchina virtuale Linux con l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Come crittografare i dischi di una macchina virtuale Linux tramite l&quot;interfaccia della riga di comando di Azure 1.0 e il modello di distribuzione di Resource Manager
+title: Crittografare dischi in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Come crittografare i dischi di una macchina virtuale Linux tramite l'interfaccia della riga di comando di Azure 1.0 e il modello di distribuzione di Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/06/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
 ms.openlocfilehash: b436f2d43c41000f4385889edb3fa3983d4a8c66
+ms.contentlocale: it-it
 ms.lasthandoff: 05/03/2017
-
 
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>Crittografare i dischi di una VM Linux usando l'interfaccia della riga di comando di Azure 1.0

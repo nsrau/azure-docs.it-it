@@ -1,5 +1,5 @@
 ---
-title: Requisiti di sistema dell&quot;array virtuale Microsoft Azure StorSimple | Microsoft Docs
+title: Requisiti di sistema dell'array virtuale Microsoft Azure StorSimple | Microsoft Docs
 description: Scoprire il software e i requisiti di rete per StorSimple Virtual Array
 services: storsimple
 documentationcenter: NA
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: 4a2c86cee40dbd1dc2c37d58e69bdf35b0046c4d
+ms.contentlocale: it-it
 ms.lasthandoff: 04/25/2017
 
 ---

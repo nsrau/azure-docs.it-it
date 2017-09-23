@@ -1,6 +1,6 @@
 ---
 title: Informazioni sulle immagini per le macchine virtuali Windows | Microsoft Docs
-description: Informazioni sull&quot;utilizzo delle immagini con macchine virtuali Windows in Azure.
+description: Informazioni sull'utilizzo delle immagini con macchine virtuali Windows in Azure.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: cynthn
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: d421cee0becabdf81d865036d0c98b12b077152b
+ms.contentlocale: it-it
 ms.lasthandoff: 03/27/2017
-
 
 ---
 # <a name="about-images-for-windows-virtual-machines"></a>Informazioni sulle immagini per le macchine virtuali Windows

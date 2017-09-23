@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Sciforma | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Sciforma.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Sciforma.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 4a04f5b2b5ccb33dddefc063a89118d87a11ebf5
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Esercitazione: Integrazione di Azure Active Directory con Sciforma

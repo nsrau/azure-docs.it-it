@@ -20,7 +20,6 @@ ms.openlocfilehash: 5ee9855e1428c7a2d871d9c215d302c5c3b7101a
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-backup-catalog"></a>Per gestire il catalogo di backup, è possibile usare il servizio StorSimple Manager.
 ## <a name="overview"></a>Panoramica

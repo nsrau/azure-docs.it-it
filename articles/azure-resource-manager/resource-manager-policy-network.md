@@ -20,7 +20,6 @@ ms.openlocfilehash: bca66bbdd9da9b3e4099d0d961f42c9368a17f5e
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="apply-resource-policies-to-network-resources"></a>Applicare i criteri delle risorse alle risorse di rete
 In questo articolo viene illustrato un esempio di [criteri delle risorse](resource-manager-policy.md) che è possibile applicare ai gateway di rete virtuale di Azure. Questi criteri assicurano la coerenza per i gateway distribuiti nell'organizzazione. 

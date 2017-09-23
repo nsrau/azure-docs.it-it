@@ -1,6 +1,6 @@
 ---
 title: Informazioni su come usare il connettore Salesforce nelle app per la logica | Microsoft Docs
-description: Creare app per la logica con Servizio app di Azure. Il connettore Salesforce offre un&quot;API per lavorare con gli oggetti Salesforce.
+description: Creare app per la logica con Servizio app di Azure. Il connettore Salesforce offre un'API per lavorare con gli oggetti Salesforce.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Introduzione al connettore Salesforce

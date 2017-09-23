@@ -18,7 +18,6 @@ ms.openlocfilehash: ca7092a06a9ffce8383ca8bc9f70ce312cdf9de4
 ms.contentlocale: it-it
 ms.lasthandoff: 05/10/2017
 
-
 ---
 # <a name="service-fabric-hosting-model"></a>Modello di hosting di Service Fabric
 Questo articolo offre una panoramica dei modelli di hosting delle applicazioni offerti da Service Fabric e descrive le differenze tra i modelli **Processo condiviso** ed **Exclusive Process** (Processo esclusivo). Descrive l'aspetto di un'applicazione in un nodo di Service Fabric e la relazione tra le repliche (o istanze) del servizio e il processo host del servizio.

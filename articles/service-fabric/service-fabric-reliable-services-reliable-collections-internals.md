@@ -20,7 +20,6 @@ ms.openlocfilehash: d607449a16e886337ab1bd96213fbb4231124353
 ms.contentlocale: it-it
 ms.lasthandoff: 05/04/2017
 
-
 ---
 
 # <a name="azure-service-fabric-reliable-state-manager-and-reliable-collection-internals"></a>Elementi interni delle raccolte Reliable Collections e di Reliable State Manager in Azure Service Fabric

@@ -19,7 +19,6 @@ ms.openlocfilehash: 277c393536615fc8bfe8af0bc6d487115f04776c
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Netsuite per il provisioning utenti automatico
 

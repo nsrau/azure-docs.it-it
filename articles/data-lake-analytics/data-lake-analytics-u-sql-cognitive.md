@@ -1,6 +1,6 @@
 ---
 title: "Uso delle funzionalità cognitive U-SQL in Azure Data Lake Analytics | Documentazione Microsoft"
-description: "Informazioni su come usare l&quot;intelligence delle funzionalità cognitive in U-SQL"
+description: "Informazioni su come usare l'intelligence delle funzionalità cognitive in U-SQL"
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: f77329f9838d6e824afa7234de90f62257a004de
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
-
 
 ---
 

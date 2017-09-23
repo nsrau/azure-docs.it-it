@@ -14,10 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3e2ad6b466ba4885ae14576b83d4c0f3010bab67
 ms.openlocfilehash: 9782454e3bfc697b63cde8aa28a14be0c393c36b
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/13/2017
 
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Aggiornamento ad Azure Search .NET SDK versione 3
@@ -482,10 +483,5 @@ Non è solo un problema ipotetico: si pensi a uno scenario in cui si aggiunge un
 Per questo motivo, è ancora consigliabile usare tipi nullable nelle classi di modelli.
 
 Per altri dettagli sul bug e sulla correzione, vedere [questo problema in GitHub](https://github.com/Azure/azure-sdk-for-net/issues/1063).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -21,7 +21,6 @@ ms.openlocfilehash: 5a47001705531d971d3181df9c0aa8f957168845
 ms.contentlocale: it-it
 ms.lasthandoff: 06/29/2017
 
-
 ---
 
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connettere un'applicazione MongoDB ad Azure Cosmos DB

@@ -20,7 +20,6 @@ ms.openlocfilehash: 51b3519bbba8cb4c768bfdd7dadf92fced434f22
 ms.contentlocale: it-it
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="apply-resource-policies-for-names-and-text"></a>Applicare criteri delle risorse per nomi e testo
 Questo argomento indica diversi [criteri delle risorse](resource-manager-policy.md) che è possibile applicare per stabilire le convenzioni di denominazione e testo. Questi criteri assicurano la coerenza per i nomi delle risorse e i valori dei tag. 

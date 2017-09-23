@@ -1,6 +1,6 @@
 ---
-title: Panoramica dell&quot;array virtuale StorSimple di Microsoft Azure | Microsoft Docs
-description: "Fornisce una descrizione dell&quot;array virtuale StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra un array virtuale locale e la risorsa di archiviazione cloud di Microsoft Azure."
+title: Panoramica dell'array virtuale StorSimple di Microsoft Azure | Microsoft Docs
+description: "Fornisce una descrizione dell'array virtuale StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra un array virtuale locale e la risorsa di archiviazione cloud di Microsoft Azure."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/09/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6ba37cbfc8c92d00cf0ec02dd7b1ea9795946bcd
 ms.openlocfilehash: 100eed4694d2017333ef25eca86034d17cce78d1
+ms.contentlocale: it-it
+ms.lasthandoff: 12/09/2016
 
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduzione a StorSimple Virtual Array
@@ -189,10 +191,5 @@ Le funzionalità di protezione dei dati di StorSimple consentono di creare backu
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [preparare il portale dell'array virtuale](storsimple-virtual-array-deploy1-portal-prep.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

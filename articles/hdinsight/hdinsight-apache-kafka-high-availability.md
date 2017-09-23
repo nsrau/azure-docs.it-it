@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
@@ -21,15 +21,11 @@ ms.contentlocale: it-it
 ms.lasthandoff: 06/29/2017
 
 ---
-<a id="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
-
-# Disponibilità elevata dei dati con Apache Kafka (anteprima) in HDInsight
+# <a name="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight"></a>Disponibilità elevata dei dati con Apache Kafka (anteprima) in HDInsight
 
 Questo articolo illustra come configurare le repliche di partizione per gli argomenti Kafka in modo da sfruttare la configurazione rack hardware sottostante, che garantisce la disponibilità dei dati archiviati in Apache Kafka in HDInsight.
 
-<a id="fault-and-update-domains-with-kafka" class="xliff"></a>
-
-## Domini di errore e di aggiornamento con Kafka
+## <a name="fault-and-update-domains-with-kafka"></a>Domini di errore e di aggiornamento con Kafka
 
 Un dominio di errore è un raggruppamento logico dell'hardware sottostante in un data center di Azure. Ogni dominio di errore condivide una fonte di alimentazione e un commutatore di rete comuni. Le macchine virtuali e i dischi gestiti che implementano i nodi in un cluster HDInsight sono distribuiti tra i domini di errore. Questa architettura limita il potenziale impatto dei guasti dell'hardware fisico.
 
@@ -38,9 +34,7 @@ Ogni area di Azure include un numero specifico di domini di errore. Per un elenc
 > [!IMPORTANT]
 > Kafka non rileva i domini di errore. Quando si crea un argomento in Kafka, tutte le partizioni di replica potrebbero essere archiviate nello stesso dominio di errore. Per risolvere il problema, è disponibile uno [strumento per il ribilanciamento delle partizioni Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).
 
-<a id="when-to-rebalance-partition-replicas" class="xliff"></a>
-
-## Quando ribilanciare le repliche di partizione
+## <a name="when-to-rebalance-partition-replicas"></a>Quando ribilanciare le repliche di partizione
 
 Per garantire la massima disponibilità dei dati Kafka, è consigliabile ribilanciare le repliche di partizione per l'argomento nei momenti seguenti:
 
@@ -48,9 +42,7 @@ Per garantire la massima disponibilità dei dati Kafka, è consigliabile ribilan
 
 * Quando si aumentano le prestazioni di un cluster
 
-<a id="replication-factor" class="xliff"></a>
-
-## Fattore di replica
+## <a name="replication-factor"></a>Fattore di replica
 
 > [!IMPORTANT]
 > È consigliabile usare un'area di Azure contenente tre domini di errore e un fattore di replica di 3.
@@ -59,17 +51,13 @@ Se si deve usare un'area che contiene solo due domini di errore, usare un fattor
 
 Per un esempio della creazione di argomenti e dell'impostazione del fattore di replica, vedere il documento su come [iniziare a usare Kafka in HDInsight](hdinsight-apache-kafka-get-started.md).
 
-<a id="how-to-rebalance-partition-replicas" class="xliff"></a>
-
-## Come ribilanciare le repliche di partizione
+## <a name="how-to-rebalance-partition-replicas"></a>Come ribilanciare le repliche di partizione
 
 Usare lo [strumento per il ribilanciamento delle partizioni Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) per ribilanciare gli argomenti selezionati. Questo strumento deve essere eseguito da una sessione SSH al nodo head del cluster Kafka.
 
 Per altre informazioni sulla connessione a HDInsight con SSH, vedere il documento su come [usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Scalabilità di Kafka in HDInsight](hdinsight-apache-kafka-scalability.md)
 * [Mirroring con Kafka in HDInsight](hdinsight-apache-kafka-mirroring.md)

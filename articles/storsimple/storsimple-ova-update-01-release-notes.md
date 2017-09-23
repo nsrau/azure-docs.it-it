@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione degli aggiornamenti per l&quot;array virtuale StorSimple | Microsoft Docs
-description: Vengono illustrati i principali problemi in sospeso e le soluzioni per l&quot;array virtuale StorSimple che esegue l&quot;Aggiornamento 0.2 e 0.1.
+title: Note sulla versione degli aggiornamenti per l'array virtuale StorSimple | Microsoft Docs
+description: Vengono illustrati i principali problemi in sospeso e le soluzioni per l'array virtuale StorSimple che esegue l'Aggiornamento 0.2 e 0.1.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Note sulla versione dell'Aggiornamento 0.2 e 0.1 per l'array virtuale StorSimple
@@ -83,10 +84,5 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 
 ## <a name="next-step"></a>Passaggio successivo
 [Installare aggiornamenti](storsimple-ova-install-update-01.md) nell'array virtuale StorSimple
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

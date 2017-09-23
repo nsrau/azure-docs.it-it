@@ -20,7 +20,6 @@ ms.openlocfilehash: adc0c4415e10ddd0b4994cecef17f026546e91a1
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="azure-api-management-policy-reference"></a>Informazioni di riferimento per i criteri di Gestione API di Azure
 Questa sezione include un indice dei criteri disponibili in [Informazioni di riferimento per i criteri di Gestione API][API Management policy reference]. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API][Policies in API Management].

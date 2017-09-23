@@ -15,10 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
 ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/20/2017
 
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview
@@ -51,10 +52,5 @@ Per spostare le app per la logica esistenti nel nuovo schema, seguire questa pro
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Che cos&quot;è l&quot;Utilità di pianificazione di Azure? | Documentazione di Microsoft"
-description: "L&quot;Utilità di pianificazione di Azure consente di descrivere in modo dichiarativo le azioni da eseguire nel cloud e quindi pianifica ed esegue tali azioni automaticamente."
+title: "Che cos'è l'Utilità di pianificazione di Azure? | Documentazione di Microsoft"
+description: "L'Utilità di pianificazione di Azure consente di descrivere in modo dichiarativo le azioni da eseguire nel cloud e quindi pianifica ed esegue tali azioni automaticamente."
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="what-is-azure-scheduler"></a>Che cos'è l'Utilità di pianificazione di Azure?
@@ -52,10 +53,5 @@ Con l'Utilità di pianificazione è possibile creare, aggiornare, eliminare, vis
  [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
 
  [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

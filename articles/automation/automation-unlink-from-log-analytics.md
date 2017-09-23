@@ -1,6 +1,6 @@
 ---
-title: Scollegare l&quot;account di Automazione di Azure da Log Analytics | Documentazione Microsoft
-description: Questo articolo offre una panoramica su come scollegare l&quot;account di Automazione di Azure da un&quot;area di lavoro di OMS.
+title: Scollegare l'account di Automazione di Azure da Log Analytics | Documentazione Microsoft
+description: Questo articolo offre una panoramica su come scollegare l'account di Automazione di Azure da un'area di lavoro di OMS.
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 02/07/2017
 ms.author: magoedte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 7cd65cd34846122ff14f6d5df61e4f61a7c1ac4f
 ms.openlocfilehash: 56b09c2cfc14813b5efcb364c580787fec1bf639
+ms.contentlocale: it-it
+ms.lasthandoff: 02/08/2017
 
 ---
 
@@ -53,8 +55,3 @@ Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di min
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per riconfigurare l'account di Automazione per l'integrazione con Log Analytics di OMS, vedere [Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md). 
-
-
-<!--HONumber=Feb17_HO2-->
-
-

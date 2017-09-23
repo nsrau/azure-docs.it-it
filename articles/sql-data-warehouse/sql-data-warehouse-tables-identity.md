@@ -20,7 +20,6 @@ ms.openlocfilehash: 3ab5d159e6eaeb830135fe134e108b0e4de4b7d6
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="create-surrogate-keys-by-using-identity"></a>Creare chiavi surrogate con IDENTITY
 > [!div class="op_single_selector"]

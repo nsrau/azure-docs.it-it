@@ -19,7 +19,6 @@ ms.openlocfilehash: ac73aadcb8205f24f9d2dbce5af76f53bbcb9753
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con Mozy Enterprise
 

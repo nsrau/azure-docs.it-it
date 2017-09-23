@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
+ms.contentlocale: it-it
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuire il servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple
@@ -120,10 +122,5 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [iniziare a usare](storsimple-virtual-array-deploy1-portal-prep.md) un array virtuale StorSimple.
 * Informazioni su come [amministrare il dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

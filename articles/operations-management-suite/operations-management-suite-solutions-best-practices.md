@@ -20,8 +20,6 @@ ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
 ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
-
-
 ---
 # <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Procedure consigliate per la creazione di soluzioni di gestione in Operations Management Suite (OMS) (anteprima)
 > [!NOTE]

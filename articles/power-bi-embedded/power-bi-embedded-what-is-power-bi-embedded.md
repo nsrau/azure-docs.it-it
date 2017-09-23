@@ -1,5 +1,5 @@
 ---
-title: "Cos&quot;è Microsoft Power BI Embedded?"
+title: "Cos'è Microsoft Power BI Embedded?"
 description: "Power BI Embedded consente di integrare report di Power BI in applicazioni Web o applicazioni mobili ed elimina la necessità di compilare soluzioni personalizzate."
 services: power-bi-embedded
 documentationcenter: 
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 0b5f7a2c3fd16ac32b0bc382616ca6600d378bb8
 ms.contentlocale: it-it
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="what-is-microsoft-power-bi-embedded"></a>Cos'è Microsoft Power BI Embedded?

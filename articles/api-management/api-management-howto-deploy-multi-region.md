@@ -1,6 +1,6 @@
 ---
 title: "Distribuire servizi di Gestione API di Azure in più aree di Azure | Documentazione Microsoft"
-description: "Informazioni su come distribuire un&quot;istanza del servizio Gestione API di Azure in più aree di Azure."
+description: "Informazioni su come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 1c39fee739c2f5fd4b928e1e76e1ea57f072b5f8
+ms.contentlocale: it-it
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure
@@ -77,10 +79,5 @@ Confermare l'eliminazione e fare clic su **Salva** per applicare le modifiche.
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

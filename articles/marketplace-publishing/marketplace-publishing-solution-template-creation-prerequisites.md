@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Prerequisiti tecnici per la creazione di un modello di soluzione per Azure Marketplace
@@ -36,9 +37,4 @@ Leggere attentamente le informazioni sul processo prima di iniziare e comprender
 Dopo avere esaminato i prerequisiti e completato le attività necessarie, è possibile procedere alla creazione dell'offerta di un modello di soluzione, come illustrato in dettaglio nella [Guida alla creazione di un modello di soluzione](marketplace-publishing-solution-template-creation.md). Per tornare alla pagina principale dell'attività di pubblicazione, vedere [Guida introduttiva: come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: Installare l&quot;interfaccia della riga di comando 1.0 di Azure | Microsoft Docs
-description: Installare l&quot;interfaccia della riga di comando 1.0 di Azure per Mac, Linux e Windows per iniziare a usare i servizi di Azure
+title: Installare l'interfaccia della riga di comando 1.0 di Azure | Microsoft Docs
+description: Installare l'interfaccia della riga di comando 1.0 di Azure per Mac, Linux e Windows per iniziare a usare i servizi di Azure
 editor: 
 manager: timlt
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: f07b3116d062d5089446fb66d8683aae7024327f
+ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="install-the-azure-cli-10"></a>Installare l'interfaccia della riga di comando 1.0 di Azure

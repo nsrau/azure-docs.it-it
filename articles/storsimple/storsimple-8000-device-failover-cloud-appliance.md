@@ -20,7 +20,6 @@ ms.openlocfilehash: ec8bebf2854e84a37e84b45564e80fc20b63d8d8
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Failover nell'appliance cloud StorSimple
 

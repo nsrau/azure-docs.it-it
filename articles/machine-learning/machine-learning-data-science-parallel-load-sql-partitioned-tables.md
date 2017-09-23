@@ -1,5 +1,5 @@
 ---
-title: Creare e ottimizzare le tabelle per l&quot;importazione parallela rapida dei dati in SQL Server in una macchina virtuale di Azure | Documentazione Microsoft
+title: Creare e ottimizzare le tabelle per l'importazione parallela rapida dei dati in SQL Server in una macchina virtuale di Azure | Documentazione Microsoft
 description: Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 services: machine-learning
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
 ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/30/2017
 
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importazione di dati in blocco utilizzando le tabelle di partizione SQL
@@ -179,10 +180,5 @@ Il seguente script di PowerShell è un esempio di caricamento dei dati parallelo
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Esempio di Advanced Analytics Process and Technology in azione
 Per un esempio della procedura dettagliata end-to-end mediante Cortana Analytics Process con un set di dati pubblico, vedere [Cortana Analytics Process in azione: utilizzo di SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

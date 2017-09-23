@@ -19,7 +19,6 @@ ms.openlocfilehash: 9f061f3f5a0a4825854b893150ceccc8951487de
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-configuring-box-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Box per il provisioning utenti automatico
 

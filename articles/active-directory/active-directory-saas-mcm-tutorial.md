@@ -19,7 +19,6 @@ ms.openlocfilehash: cbbb0f54b7954c0ec7326fb62bb427155527cc84
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Esercitazione: Integrazione di Azure Active Directory con MCM
 

@@ -1,6 +1,6 @@
 ---
 title: Uso di Storage Explorer (anteprima) con Archiviazione file di Azure | Microsoft Docs
-description: Informazioni su come usare Storage Explorer (anteprima) per l&quot;utilizzo con file e condivisioni file.
+description: Informazioni su come usare Storage Explorer (anteprima) per l'utilizzo con file e condivisioni file.
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
+ms.contentlocale: it-it
 ms.lasthandoff: 03/14/2017
 
 ---

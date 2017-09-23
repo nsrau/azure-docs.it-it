@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5590ced0e7d2a68fd525178ee21590b0897b58d7
 ms.openlocfilehash: 9fe3d98cd345aae45722295b6c1b7fc3e9036e95
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/13/2017
 
 ---
 # <a name="track-asynchronous-azure-operations"></a>Tenere traccia delle operazioni asincrone
@@ -196,8 +197,3 @@ Se la richiesta è ancora in esecuzione, viene visualizzato il codice di stato 2
 * Per la documentazione relativa a ogni operazione REST, consultare la [documentazione dell'API REST](/rest/api/).
 * Per informazioni sulla gestione delle risorse tramite Gestione risorse dell'API REST, consultare [Using the Resource Manager REST API](resource-manager-rest-api.md) (Uso di Gestione risorse dell'API REST).
 * Per informazioni sui modelli di distribuzione tramite la Gestione risorse dell'API REST, vedere [Distribuire le risorse con i modelli e l'API REST di Gestione risorse](resource-group-template-deploy-rest.md).
-
-
-<!--HONumber=Jan17_HO2-->
-
-

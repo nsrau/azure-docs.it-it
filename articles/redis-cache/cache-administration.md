@@ -20,7 +20,6 @@ ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Come amministrare Cache Redis di Azure
 Questo argomento descrive come eseguire attività di amministrazione, ad esempio il [riavvio](#reboot) e la [pianificazione degli aggiornamenti](#schedule-updates) per le istanze di Cache Redis di Azure.

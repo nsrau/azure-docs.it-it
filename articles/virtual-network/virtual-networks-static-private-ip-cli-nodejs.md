@@ -1,6 +1,6 @@
 ---
 title: Configurare indirizzi IP privati per le VM - interfaccia della riga di comando 1.0 di Azure | Documentazione Microsoft
-description: Informazioni su come configurare gli indirizzi IP privati per le macchine virtuali usando l&quot;interfaccia della riga di comando 1.0 di Azure.
+description: Informazioni su come configurare gli indirizzi IP privati per le macchine virtuali usando l'interfaccia della riga di comando 1.0 di Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9179319095c31d5eb454860e173ffa7c65fc9f73
+ms.contentlocale: it-it
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-10"></a>Configurare gli indirizzi IP privati per una macchina virtuale usando l'interfaccia della riga di comando 1.0 di Azure

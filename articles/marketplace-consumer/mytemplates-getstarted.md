@@ -1,6 +1,6 @@
 ---
 title: Introduzione ai modelli privati | Documentazione Microsoft
-description: Aggiungere, gestire e condividere modelli privati usando il portale di Azure, l&quot;interfaccia della riga di comando di Azure o PowerShell.
+description: Aggiungere, gestire e condividere modelli privati usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell.
 services: marketplace-customer
 documentationcenter: 
 author: VybavaRamadoss
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Introduzione ai modelli privati nel portale di Azure
@@ -132,10 +133,5 @@ Fare clic su **Seleziona** e quindi su **OK**. Ora è possibile visualizzare gli
 * Per informazioni sulla creazione di modelli di Resource Manager, vedere [Creazione di modelli](../azure-resource-manager/resource-group-authoring-templates.md)
 * Per informazioni sulle funzioni disponibili in un modello di Resource Manager, vedere [Funzioni del modello](../azure-resource-manager/resource-group-template-functions.md)
 * Per informazioni aggiuntive sulla progettazione di modelli, vedere [Procedure consigliate per la progettazione di modelli di Gestione risorse di Azure](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

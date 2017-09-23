@@ -1,7 +1,6 @@
 ---
-
 title: Ottenere assistenza per Collaborazione B2B di Azure Active Directory | Documentazione Microsoft
-description: "Qual è l&quot;esperienza di supporto per Collaborazione B2B di Azure Active Directory?"
+description: "Qual è l'esperienza di supporto per Collaborazione B2B di Azure Active Directory?"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -21,7 +20,6 @@ ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: ce4731966baefa76b72e5a1a065c06379fac065d
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory B2C: acquisire un token mediante un&quot;applicazione Android | Documentazione Microsoft'
-description: "Questo articolo spiega come creare un&quot;app per Android che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e l&quot;autenticazione degli utenti."
+title: 'Azure Active Directory B2C: acquisire un token mediante un''applicazione Android | Documentazione Microsoft'
+description: "Questo articolo spiega come creare un'app per Android che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e l'autenticazione degli utenti."
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
@@ -19,7 +19,6 @@ ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: cd4b8048245be49ea79bcb1b364f2f99c56f8291
 ms.contentlocale: it-it
 ms.lasthandoff: 05/25/2017
-
 
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: accedere mediante un'applicazione Android

@@ -1,6 +1,6 @@
 ---
 title: Esercitazione su REST del bus di servizio usando il servizio di inoltro di Azure | Documentazione Microsoft
-description: Compilare una semplice applicazione host di inoltro del bus di servizio di Azure che espone un&quot;interfaccia basata su REST.
+description: Compilare una semplice applicazione host di inoltro del bus di servizio di Azure che espone un'interfaccia basata su REST.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
-
 
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Esercitazione su REST per l'inoltro WCF di Azure

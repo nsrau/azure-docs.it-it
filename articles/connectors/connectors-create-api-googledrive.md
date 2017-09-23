@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore Google Drive alle app per la logica | Documentazione Microsoft
-description: Panoramica del connettore Google Drive con i parametri dell&quot;API REST.
+description: Panoramica del connettore Google Drive con i parametri dell'API REST.
 services: 
 suite: 
 documentationcenter: 
@@ -21,7 +21,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Introduzione all'API Google Drive

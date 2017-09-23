@@ -20,17 +20,12 @@ ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
-<a id="what-is-event-hubs" class="xliff"></a>
-
-# Che cos'è Hub eventi?
+# <a name="what-is-event-hubs"></a>Che cos'è Hub eventi?
 
 Hub eventi di Azure è una piattaforma di streaming di dati estremamente scalabile e un servizio di inserimento degli eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Con la possibilità di fornire [funzionalità di pubblicazione-sottoscrizione](https://msdn.microsoft.com/library/aa560414.aspx) con una latenza bassa e su larga scala, Hub eventi funge da "rampa di ingresso" per i Big Data.
 
-<a id="why-use-event-hubs" class="xliff"></a>
-
-## Vantaggi dell'uso di Hub eventi
+## <a name="why-use-event-hubs"></a>Vantaggi dell'uso di Hub eventi
 
 Gli eventi e le funzionalità di gestione della telemetria di Hub eventi sono particolarmente utili per:
 
@@ -40,9 +35,7 @@ Gli eventi e le funzionalità di gestione della telemetria di Hub eventi sono pa
 
 Hub eventi consente, ad esempio, il rilevamento del comportamento nelle app per dispositivi mobili, il traffico di informazioni da Web farm, l'acquisizione di eventi nei giochi per console e la raccolta di dati di telemetria da computer industriali, veicoli connessi o altri dispositivi.
 
-<a id="azure-event-hubs-overview" class="xliff"></a>
-
-## Panoramica di Hub eventi di Azure
+## <a name="azure-event-hubs-overview"></a>Panoramica di Hub eventi di Azure
 
 Il ruolo comune svolto da Hub eventi nelle architetture delle soluzioni è la sua funzione di "porta principale" per una pipeline di eventi, spesso denominata *ingestor evento*. Un ingestor evento è un componente o servizio che si trova tra gli autori e i consumer di eventi per separare la produzione di un flusso di eventi dal consumo di tali eventi. Questa architettura è illustrata nella figura seguente:
 
@@ -50,9 +43,7 @@ Il ruolo comune svolto da Hub eventi nelle architetture delle soluzioni è la su
 
 Hub eventi offre funzionalità di gestione del flusso di messaggi, ma presenta caratteristiche diverse da quelle dei servizi di messaggistica aziendale tradizionale. Le funzionalità di Hub eventi sono basate su scenari con velocità effettiva elevata ed elaborazione di eventi. Di conseguenza, Hub eventi è diverso dalla messaggistica del [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) e non implementa alcune delle funzionalità disponibili per le entità di [messaggistica del bus di servizio](/azure/service-bus-messaging/), ad esempio gli argomenti.
 
-<a id="event-hubs-features" class="xliff"></a>
-
-## Funzionalità di Hub eventi
+## <a name="event-hubs-features"></a>Funzionalità di Hub eventi
 
 Hub eventi contiene gli elementi chiave seguenti:
 
@@ -66,9 +57,7 @@ Hub eventi contiene gli elementi chiave seguenti:
 
 Per informazioni tecniche dettagliate su queste e altre funzionalità di Hub eventi, vedere la [panoramica sulle funzionalità di Hub eventi](event-hubs-features.md). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni dettagliate sui prezzi di Hub eventi, vedere [Hub eventi Prezzi](https://azure.microsoft.com/pricing/details/event-hubs/).
 

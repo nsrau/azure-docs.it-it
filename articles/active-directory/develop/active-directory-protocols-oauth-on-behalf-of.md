@@ -1,6 +1,6 @@
 ---
 title: Autenticazione da servizio a servizio di Azure AD tramite la specifica on-behalf-of di OAuth2.0 | Microsoft Docs
-description: Questo articolo illustra come usare i messaggi HTTP per implementare l&quot;autenticazione da servizio a servizio usando il flusso on-behalf-of di OAuth2.0.
+description: Questo articolo illustra come usare i messaggi HTTP per implementare l'autenticazione da servizio a servizio usando il flusso on-behalf-of di OAuth2.0.
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
 ms.contentlocale: it-it
 ms.lasthandoff: 06/08/2017
-
 
 ---
 # Chiamate da servizio a servizio tramite l'identità utente delegato nel flusso on-behalf-of

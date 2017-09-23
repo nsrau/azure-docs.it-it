@@ -1,6 +1,6 @@
 ---
 title: "Configurare un listener esterno per i gruppi di disponibilità AlwaysOn | Microsoft Docs"
-description: "Questa esercitazione illustra in dettaglio la procedura per creare un listener del gruppo di disponibilità AlwaysOn in Azure accessibile dall&quot;esterno con l&quot;indirizzo IP virtuale pubblico del servizio cloud associato."
+description: "Questa esercitazione illustra in dettaglio la procedura per creare un listener del gruppo di disponibilità AlwaysOn in Azure accessibile dall'esterno con l'indirizzo IP virtuale pubblico del servizio cloud associato."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurare un listener esterno per i gruppi di disponibilità AlwaysOn in Azure

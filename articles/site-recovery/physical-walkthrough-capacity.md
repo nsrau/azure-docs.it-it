@@ -20,7 +20,6 @@ ms.openlocfilehash: 971ad6dd39f94aa7944f6ed3b31bc3acc605d9a7
 ms.contentlocale: it-it
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="step-3-plan-capacity-and-scaling-for-physical-server-to-azure-replication"></a>Passaggio 3: Pianificare la capacità e la scalabilità per la replica dei server fisici in Azure
 

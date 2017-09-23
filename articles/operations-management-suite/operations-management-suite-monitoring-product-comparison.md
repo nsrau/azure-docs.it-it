@@ -20,7 +20,6 @@ ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Confronto tra i prodotti per il monitoraggio Microsoft
 Questo articolo offre un confronto tra System Center Operations Manager (SCOM) e Log Analytics in Operations Management Suite (OMS) dal punto di vista dell'architettura, della logica con cui monitorano le risorse e di come eseguono l'analisi dei dati raccolti.  L'obiettivo è quello di fornire una conoscenza di base delle differenze e dei relativi punti di forza.  

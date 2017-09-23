@@ -21,7 +21,6 @@ ms.openlocfilehash: cad0ce8f745f3d6ca14436fd714b08c60de0e459
 ms.contentlocale: it-it
 ms.lasthandoff: 05/25/2017
 
-
 ---
 
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Condivisione esterna di Office 365 e Collaborazione B2B di Azure Active Directory

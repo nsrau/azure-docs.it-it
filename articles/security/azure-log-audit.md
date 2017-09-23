@@ -1,7 +1,6 @@
 ---
-
 title: Registrazione e controllo di Azure | Microsoft Docs
-description: Informazioni sull&quot;uso dei dati di registrazione per ottenere informazioni approfondite sull&quot;applicazione.
+description: Informazioni sull'uso dei dati di registrazione per ottenere informazioni approfondite sull'applicazione.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -21,7 +20,6 @@ ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
 ms.contentlocale: it-it
 ms.lasthandoff: 05/12/2017
 
-
 ---
 # <a name="azure-logging-and-auditing"></a>Registrazione e controllo di Azure
 ## <a name="introduction"></a>Introduzione
@@ -31,11 +29,11 @@ Per consentire ai clienti attuali e potenziali di Azure di comprendere e usare l
 Azure è una piattaforma aperta e flessibile di servizi cloud che supporta la più ampia gamma di sistemi operativi, linguaggi di programmazione, framework, strumenti, database e dispositivi.
 
 Ad esempio, è possibile:
--    Eseguire i contenitori Linux con l'integrazione Docker.
+-   Eseguire i contenitori Linux con l'integrazione Docker.
 
--    Compilare le app con JavaScript, Python, .NET, PHP, Java e Node.js.
+-   Compilare le app con JavaScript, Python, .NET, PHP, Java e Node.js.
 
--    Compilare i back-end per dispositivi iOS, Android e Windows.
+-   Compilare i back-end per dispositivi iOS, Android e Windows.
 
 I servizi cloud pubblici di Azure supportano le stesse tecnologie già considerate affidabili e usate da milioni di sviluppatori e professionisti IT.
 
@@ -59,25 +57,25 @@ Questo white paper offre un'introduzione alle operazioni di creazione, raccolta 
 Le applicazioni cloud sono complesse e hanno molte parti mobili. I log offrono la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di registrazione per ottenere informazioni approfondite sull'applicazione. utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
 
 Azure produce registrazioni complete per ogni servizio di Azure. I log sono classificati nei seguenti tipi principali:
--    **Log di gestione/controllo**, che offrono visibilità sulle operazioni CREATE, UPDATE e DELETE di Azure Resource Manager. [I log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) sono un esempio di questo tipo di log.
+-   **Log di gestione/controllo**, che offrono visibilità sulle operazioni CREATE, UPDATE e DELETE di Azure Resource Manager. [I log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) sono un esempio di questo tipo di log.
 
--    **Log del piano dati**, che offrono visibilità sugli eventi generati come parte dell'uso di una risorsa di Azure. Sono esempi di questo tipo il log eventi di sistema di Windows, il log di sicurezza, il log applicazioni di una macchina virtuale e i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) configurati tramite Monitoraggio di Azure.
+-   **Log del piano dati**, che offrono visibilità sugli eventi generati come parte dell'uso di una risorsa di Azure. Sono esempi di questo tipo il log eventi di sistema di Windows, il log di sicurezza, il log applicazioni di una macchina virtuale e i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) configurati tramite Monitoraggio di Azure.
 
 
--    **Eventi elaborati**, che offrono informazioni sugli eventi o avvisi analizzati dopo essere stati elaborati per conto dell'utente. Esempi di questo tipo sono i brevi [avvisi emessi dal Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) dopo aver eseguito l'[elaborazione e l'analisi della sottoscrizione](https://docs.microsoft.com/azure/security-center/security-center-intro).
+-   **Eventi elaborati**, che offrono informazioni sugli eventi o avvisi analizzati dopo essere stati elaborati per conto dell'utente. Esempi di questo tipo sono i brevi [avvisi emessi dal Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) dopo aver eseguito l'[elaborazione e l'analisi della sottoscrizione](https://docs.microsoft.com/azure/security-center/security-center-intro).
 
 La tabella seguente elenca i più importanti tipi di log disponibili in Azure.
 
 | Categoria di log | Tipo di log | Usi | Integrazione |
 | ------------ | -------- | ------ | ----------- |
-|[Log attività](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Gli eventi del piano di controllo sulle risorse di Azure Resource Manager|    Offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione.|    API REST e [Monitoraggio di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
-|[Log di diagnostica di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|dati frequenti sul funzionamento delle risorse di Azure Resource Manager nella sottoscrizione|    Offrono informazioni approfondite sulle operazioni eseguite dalla risorsa stessa| Monitoraggio di Azure, [Stream](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
+|[Log attività](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Gli eventi del piano di controllo sulle risorse di Azure Resource Manager| Offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione.| API REST e [Monitoraggio di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
+|[Log di diagnostica di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|dati frequenti sul funzionamento delle risorse di Azure Resource Manager nella sottoscrizione|   Offrono informazioni approfondite sulle operazioni eseguite dalla risorsa stessa| Monitoraggio di Azure, [Stream](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Creazione di report in AAD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal)|Log e report|Attività di accesso dell'utente e informazioni sulle attività di sistema riguardo alla gestione di utenti e gruppi|[API Graph](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Macchine virtuali e servizi cloud](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Log eventi di Windows e Syslog Linux|    Acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e li trasferisce all'account di archiviazione desiderato.|    Windows tramite [WAD](https://docs.microsoft.com/en-us/azure/azure-diagnostics) (archiviazione di diagnostica di Windows Azure) e Linux in Monitoraggio di Azure|
-|[Analisi dell'archiviazione](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|Esegue la registrazione di archiviazione e offre i dati delle metriche per un account di archiviazione.|Offre informazioni approfondite per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione.|    API REST o [libreria client](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
+|[Macchine virtuali e servizi cloud](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Log eventi di Windows e Syslog Linux|  Acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e li trasferisce all'account di archiviazione desiderato.|   Windows tramite [WAD](https://docs.microsoft.com/en-us/azure/azure-diagnostics) (archiviazione di diagnostica di Windows Azure) e Linux in Monitoraggio di Azure|
+|[Analisi dell'archiviazione](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|Esegue la registrazione di archiviazione e offre i dati delle metriche per un account di archiviazione.|Offre informazioni approfondite per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione.|  API REST o [libreria client](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
 |[Log dei flussi del gruppo di sicurezza di rete (NSG)](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON e mostra i flussi in ingresso e in uscita in base a ciascuna regola|Visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete|[Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)|Log, eccezioni e diagnostica personalizzata|    Servizio APM di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme.|    API REST, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
-|Dati di elaborazione/avvisi di sicurezza|    Avviso del Centro sicurezza di Azure, avviso OMS|    Informazioni e avvisi sulla sicurezza.|     API REST, JSON|
+|[Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)|Log, eccezioni e diagnostica personalizzata|  Servizio APM di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme.| API REST, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
+|Dati di elaborazione/avvisi di sicurezza| Avviso del Centro sicurezza di Azure, avviso OMS| Informazioni e avvisi sulla sicurezza.|   API REST, JSON|
 
 ### <a name="activity-log"></a>Log attività
 Il [log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) offre informazioni approfondite in merito alle operazioni eseguite sulle risorse nella sottoscrizione. Il log attività era noto in precedenza come "log di controllo" o "log operativi", perché segnala [eventi del piano di controllo](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) per le sottoscrizioni dell'utente. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET)
@@ -90,19 +88,19 @@ I termini PUT, POST, DELETE si riferiscono a tutte le operazioni di scrittura su
 Per recuperare eventi dal log attività è possibile usare il portale di Azure, l'[interfaccia della riga di comando](https://docs.microsoft.com/azure/storage/storage-azure-cli), i cmdlet di PowerShell e l'[API REST di Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Il periodo di conservazione dei dati per i log attività è di 19 giorni.
 
 Scenari di integrazione
--    [Creare un avviso di posta elettronica o webhook che attiva un evento del log attività.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-auditlog-to-webhook-email)
+-   [Creare un avviso di posta elettronica o webhook che attiva un evento del log attività.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-auditlog-to-webhook-email)
 
--    [Trasmetterlo a un hub eventi](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
+-   [Trasmetterlo a un hub eventi](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
 
--    Analizzarlo in Power BI usando il [pacchetto di contenuto di Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+-   Analizzarlo in Power BI usando il [pacchetto di contenuto di Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 
--    [Salvarlo in un account di archiviazione per l'archiviazione o l'ispezione manuale](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-activity-log). È possibile specificare il tempo di conservazione in giorni tramite i profili di log.
+-   [Salvarlo in un account di archiviazione per l'archiviazione o l'ispezione manuale](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-activity-log). È possibile specificare il tempo di conservazione in giorni tramite i profili di log.
 
--    Eseguire query e visualizzarla nel portale di Azure.
+-   Eseguire query e visualizzarla nel portale di Azure.
 
--    Eseguire query tramite l'API REST, i cmdlet di PowerShell o l'interfaccia della riga di comando.
+-   Eseguire query tramite l'API REST, i cmdlet di PowerShell o l'interfaccia della riga di comando.
 
--    Esportare il log attività con i profili di log in [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+-   Esportare il log attività con i profili di log in [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 È possibile usare un account di archiviazione o lo [spazio dei nomi dell'hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) che non sia nella stessa sottoscrizione di quello che crea il log. L'utente che configura l'impostazione deve disporre dell'accesso [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) appropriato a entrambe le sottoscrizioni.
 ### <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
@@ -113,19 +111,19 @@ I log di diagnostica di Azure sono generati da una risorsa che offre dati comple
 I log di diagnostica di Azure offrono più opzioni di configurazione, vale a dire che il portale di Azure può usare l'API REST, PowerShell e l'interfaccia della riga di comando (CLI).
 
 **Scenari di integrazione**
--    Salvarli in un [account di archiviazione](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni tramite le Impostazioni di diagnostica.
+-   Salvarli in un [account di archiviazione](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni tramite le Impostazioni di diagnostica.
 
--    [Trasmetterli a ](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs)Hub eventi per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
+-   [Trasmetterli a ](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs)Hub eventi per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
--    Analizzarli con [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+-   Analizzarli con [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 
 **Servizi supportati, schema per i log di diagnostica e categorie di log supportati per ogni tipo di risorsa**
 
 
 | Servizio | Schema e documenti | Tipo di risorsa | Categoria |
 | ------- | ------------- | ------------- | -------- |
-|Bilanciamento del carico| [Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
-|||Microsoft.Network/loadBalancers|    LoadBalancerProbeHealthStatus
+|Bilanciamento del carico| [Analisi dei log per il servizio di bilanciamento del carico di Azure (anteprima)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|  LoadBalancerAlertEvent|
+|||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
 |Gruppi di sicurezza di rete|[Analisi dei log per i gruppi di sicurezza di rete](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
 |Gateway applicazione|[Registrazione diagnostica per il gateway applicazione](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
@@ -155,13 +153,13 @@ Nei report è incluso il record di controllo per il nome dell'evento, l'attore c
 
 | Report sulla sicurezza | Report sull’attività | Report di controllo |
 | :--------------- | :--------------- | :------------ |
-|Accessi da origini sconosciute|    Utilizzo dell'applicazione: riepilogo|    Report di controllo della Directory|
-|Accessi dopo più errori|    Utilizzo dell'applicazione: dettagliato||
+|Accessi da origini sconosciute| Utilizzo dell'applicazione: riepilogo| Report di controllo della Directory|
+|Accessi dopo più errori|  Utilizzo dell'applicazione: dettagliato||
 |Accessi da più aree geografiche|    Dashboard dell'applicazione||
-|Accessi da indirizzi IP con attività sospette|    Errori di provisioning dell'account||
+|Accessi da indirizzi IP con attività sospette|   Errori di provisioning dell'account||
 |Attività di accesso irregolare|    Dispositivi dell’utente singolo||
-|Accessi da dispositivi potenzialmente infetti|    Attività dell’utente singolo||
-|Utenti con anomalie dell'attività di accesso|    Report attività dei gruppi||
+|Accessi da dispositivi potenzialmente infetti|   Attività dell’utente singolo||
+|Utenti con anomalie dell'attività di accesso| Report attività dei gruppi||
 ||Report attività di registrazione per la reimpostazione password||
 ||Attività di reimpostazione password|||
 
@@ -183,13 +181,13 @@ Per i clienti interessati alla conservazione gli eventi di controllo per periodi
 
 È possibile abilitare la funzionalità Diagnostica di Azure in una macchina virtuale nei modi seguenti:
 
--    Usando Visual Studio (vedere [Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio)](https://docs.microsoft.com/azure/vs-azure-tools-debug-cloud-services-virtual-machines)
+-   Usando Visual Studio (vedere [Debug di un servizio cloud o di una macchina virtuale di Azure in Visual Studio)](https://docs.microsoft.com/azure/vs-azure-tools-debug-cloud-services-virtual-machines)
 
--    [Configurare Diagnostica di Azure in una macchina virtuale Azure da remoto](https://docs.microsoft.com/azure/virtual-machines-dotnet-diagnostics)
+-   [Configurare Diagnostica di Azure in una macchina virtuale Azure da remoto](https://docs.microsoft.com/azure/virtual-machines-dotnet-diagnostics)
 
--    [Usare PowerShell per abilitare Diagnostica di Azure nelle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+-   [Usare PowerShell per abilitare Diagnostica di Azure nelle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-extensions-diagnostics?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
--    [Creare una macchina virtuale Windows con monitoraggio e diagnostica con un modello di Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+-   [Creare una macchina virtuale Windows con monitoraggio e diagnostica con un modello di Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="storage-analytics"></a>di Analisi archiviazione
 L'[Analisi archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) esegue la registrazione e restituisce i dati delle metriche per un account di archiviazione. È possibile utilizzare questi dati per tenere traccia delle richieste, analizzare le tendenze d'uso e diagnosticare i problemi relativi al proprio account di archiviazione. La registrazione di Analisi archiviazione è disponibile per i [servizi BLOB, di accodamento e tabelle](https://docs.microsoft.com/azure/storage/storage-introduction). Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite e non a un servizio di archiviazione.
@@ -217,15 +215,15 @@ Vengono registrati i tipi seguenti di richieste autenticate e anonime.
 | Richieste riuscite | Richieste riuscite |
 |Richieste non riuscite, tra cui errori di timeout, limitazione, rete, autorizzazione e di altro tipo | Richieste tramite una firma di accesso condiviso (SAS), incluse le richieste riuscite e non riuscite |
 | Richieste tramite una firma di accesso condiviso (SAS), incluse le richieste riuscite e non riuscite |Errori di timeout per client e server |
-|     Richieste ai dati di analisi |     Richieste GET non riuscite con codice di errore 304 (non modificate) |
+|   Richieste ai dati di analisi |    Richieste GET non riuscite con codice di errore 304 (non modificate) |
 | Le richieste eseguite dalla stessa Analisi archiviazione, ad esempio, la creazione oppure l'eliminazione di log, non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) e [Formato log Analisi archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). | Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Storage Analytics Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) (Operazioni registrate e messaggi di stato nell'Analisi archiviazione ) e [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) (Formato dei registri di Analisi archiviazione). |
 
 ### <a name="azure-networking-logs"></a>Log di rete di Azure
 Il monitoraggio e la registrazione di rete in Azure comprende due categorie generali:
 
--    [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): tra le funzionalità di questo servizio è incluso il monitoraggio di rete basato su scenari. Il servizio include l'acquisizione pacchetti, l'hop successivo, la verifica del flusso IP, la visualizzazione dei gruppi di sicurezza e i registri dei flussi dei gruppi di sicurezza di rete. A differenza del monitoraggio a livello di singole risorse di rete, il monitoraggio a livello di scenario consente una visualizzazione completa delle risorse di rete.
+-   [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): tra le funzionalità di questo servizio è incluso il monitoraggio di rete basato su scenari. Il servizio include l'acquisizione pacchetti, l'hop successivo, la verifica del flusso IP, la visualizzazione dei gruppi di sicurezza e i registri dei flussi dei gruppi di sicurezza di rete. A differenza del monitoraggio a livello di singole risorse di rete, il monitoraggio a livello di scenario consente una visualizzazione completa delle risorse di rete.
 
--    [Monitoraggio delle risorse](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): il monitoraggio a livello di risorsa include funzionalità di log di diagnostica, metriche, risoluzione dei problemi e integrità delle risorse. Tutte queste funzionalità vengono compilate a livello di risorsa di rete.
+-   [Monitoraggio delle risorse](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): il monitoraggio a livello di risorsa include funzionalità di log di diagnostica, metriche, risoluzione dei problemi e integrità delle risorse. Tutte queste funzionalità vengono compilate a livello di risorsa di rete.
 
 ![Log di rete di Azure](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -257,15 +255,15 @@ Oltre alle precedenti funzionalità di registrazione, Network Watcher dispone at
 
 - [Acquisizione pacchetti variabile](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): acquisisce i dati dei pacchetti all'interno e all'esterno di una macchina virtuale. La versatilità è data dalle opzioni di filtro avanzato e dai controlli ottimizzati, come la possibilità di impostare l'ora e il limite di dimensioni. I dati dei pacchetti possono essere archiviati in un'archiviazione BLOB o in un disco locale nel formato .cap.
 
--    [Verifica flusso IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): verifica se un pacchetto viene accettato o rifiutato in base ai relativi parametri sul flusso di informazioni, costituiti da informazioni a 5 tuple, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo. Se il pacchetto viene rifiutato da un gruppo di sicurezza, vengono restituiti la regola e il gruppo che hanno rifiutato il pacchetto.
+-   [Verifica flusso IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): verifica se un pacchetto viene accettato o rifiutato in base ai relativi parametri sul flusso di informazioni, costituiti da informazioni a 5 tuple, ovvero l'indirizzo IP di destinazione, l'indirizzo IP di origine, la porta di destinazione, la porta di origine e il protocollo. Se il pacchetto viene rifiutato da un gruppo di sicurezza, vengono restituiti la regola e il gruppo che hanno rifiutato il pacchetto.
 
--    [Hop successivo](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): determina l'hop successivo per i pacchetti indirizzati nell'infrastruttura di rete di Azure, permettendo così di diagnosticare eventuali route definite dall'utente non configurate in modo corretto.
+-   [Hop successivo](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): determina l'hop successivo per i pacchetti indirizzati nell'infrastruttura di rete di Azure, permettendo così di diagnosticare eventuali route definite dall'utente non configurate in modo corretto.
 
--    [Visualizzazione dei gruppi di sicurezza](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): ottiene le regole di sicurezza valide e applicate in una macchina virtuale.
+-   [Visualizzazione dei gruppi di sicurezza](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): ottiene le regole di sicurezza valide e applicate in una macchina virtuale.
 
--    [Risoluzione dei problemi di connessione e gateway di rete virtuale](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): permette di risolvere i problemi relativi al gateway di rete virtuale e alle connessioni.
+-   [Risoluzione dei problemi di connessione e gateway di rete virtuale](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): permette di risolvere i problemi relativi al gateway di rete virtuale e alle connessioni.
 
--    [Limite sottoscrizioni di rete](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): permette di visualizzare l'uso delle risorse di rete rispetto ai limiti.
+-   [Limite sottoscrizioni di rete](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): permette di visualizzare l'uso delle risorse di rete rispetto ai limiti.
 
 ### <a name="application-insight"></a>Application Insights
 
@@ -279,25 +277,25 @@ Oltre alle precedenti funzionalità di registrazione, Network Watcher dispone at
 
 Application Insights è destinato al team di sviluppo, a cui consente di comprendere le prestazioni e le modalità d'uso dell'app. Esegue il monitoraggio di:
 
--    **Frequenza delle richieste, tempi di risposta e percentuali di errore**: trovare le pagine più visitate, gli orari di visita e la posizione degli utenti.  Vedere quali pagine abbiano prestazioni migliori. Se i tempi di risposta e le percentuali di errore aumentano di pari passo con le richieste, è probabile che ci sia un problema di assegnazione delle risorse.
+-   **Frequenza delle richieste, tempi di risposta e percentuali di errore**: trovare le pagine più visitate, gli orari di visita e la posizione degli utenti.  Vedere quali pagine abbiano prestazioni migliori. Se i tempi di risposta e le percentuali di errore aumentano di pari passo con le richieste, è probabile che ci sia un problema di assegnazione delle risorse.
 
--    **Tassi di dipendenza, tempi di risposta e percentuali di errore**: trovare quali servizi esterni causino un rallentamento.
+-   **Tassi di dipendenza, tempi di risposta e percentuali di errore**: trovare quali servizi esterni causino un rallentamento.
 
--    **Eccezioni**: analizzare le statistiche aggregate o selezionare istanze specifiche e approfondire l'analisi dello stack e le richieste correlate. Vengono segnalate eccezioni di server e browser.
+-   **Eccezioni**: analizzare le statistiche aggregate o selezionare istanze specifiche e approfondire l'analisi dello stack e le richieste correlate. Vengono segnalate eccezioni di server e browser.
 
--    **Visualizzazioni pagina e prestazioni di carico**, segnalate dai browser degli utenti.
+-   **Visualizzazioni pagina e prestazioni di carico**, segnalate dai browser degli utenti.
 
--    **Chiamate AJAX** dalle pagine Web: tassi, tempi di risposta e percentuali di errore.
+-   **Chiamate AJAX** dalle pagine Web: tassi, tempi di risposta e percentuali di errore.
 
--    **Numeri di utenti e sessioni**.
+-   **Numeri di utenti e sessioni**.
 
--    **Contatori delle prestazioni** dai computer server Windows o Linux, ad esempio l'uso di CPU, memoria e rete.
+-   **Contatori delle prestazioni** dai computer server Windows o Linux, ad esempio l'uso di CPU, memoria e rete.
 
--    **Diagnostica dell'host** da Docker o Azure.
+-   **Diagnostica dell'host** da Docker o Azure.
 
--    **Log di traccia di diagnostica** dall'app, in modo da poter correlare gli eventi di traccia con le richieste.
+-   **Log di traccia di diagnostica** dall'app, in modo da poter correlare gli eventi di traccia con le richieste.
 
--    **Eventi e metriche personalizzati** scritti dall'utente stesso nel codice del client o del server per tracciare eventi aziendali come gli articoli venduti o le partite vinte.
+-   **Eventi e metriche personalizzati** scritti dall'utente stesso nel codice del client o del server per tracciare eventi aziendali come gli articoli venduti o le partite vinte.
 
 **Elenco degli scenari di integrazione e relative descrizioni:**
 
@@ -324,11 +322,11 @@ Il sistema di rilevamento delle minacce del Centro sicurezza funziona mediante l
 
 Il Centro sicurezza si avvale di analisi della sicurezza avanzate, che vanno ben oltre gli approcci basati sulle firme. I progressi tecnologici in ambito Big Data e [Machine Learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) vengono applicati per valutare gli eventi nell'intera l'infrastruttura cloud, rilevando minacce che sarebbe impossibile identificare con approcci manuali e stimando l'evoluzione degli attacchi. Queste analisi della sicurezza includono:
 
--    **Intelligence per le minacce integrata**: cerca gli attori dannosi noti ricorrendo alle informazioni sulle minacce globali da prodotti e servizi Microsoft, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC), nonché da feed esterni.
+-   **Intelligence per le minacce integrata**: cerca gli attori dannosi noti ricorrendo alle informazioni sulle minacce globali da prodotti e servizi Microsoft, Microsoft Digital Crimes Unit (DCU) e Microsoft Security Response Center (MSRC), nonché da feed esterni.
 
--    **Analisi del comportamento**: applica i modelli noti per individuare comportamenti dannosi.
+-   **Analisi del comportamento**: applica i modelli noti per individuare comportamenti dannosi.
 
--    **Rilevamento anomalie**: usa la tecnica di profilatura statistica per creare una baseline cronologica. Genera avvisi sulle deviazioni dalle baseline stabilite che risultano conformi a un potenziale vettore di attacco .
+-   **Rilevamento anomalie**: usa la tecnica di profilatura statistica per creare una baseline cronologica. Genera avvisi sulle deviazioni dalle baseline stabilite che risultano conformi a un potenziale vettore di attacco .
 
 
 Molti team dedicati alle operazioni di sicurezza e alla risposta ai problemi fanno affidamento su una soluzione SIEM (Security Information and Event Management) come punto di partenza per la valutazione e l'analisi degli avvisi di sicurezza. Con l'integrazione dei log di Azure, i clienti possono sincronizzare gli avvisi del Centro sicurezza e gli eventi di sicurezza delle macchine virtuali, raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log quasi in tempo reale.
@@ -347,44 +345,44 @@ Le origini connesse sono i computer e altre risorse che generano dati raccolti d
 [origini dati](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) sono i diversi tipi di dati raccolti da ogni origine connessa. Sono inclusi gli eventi e i [dati sulle prestazioni](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) ricavati dagli agenti [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) e Linux, oltre alle origini quali [log di IIS](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) e [log di testo personalizzati](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). È possibile configurare ciascuna origine dati che si vuole raccogliere e la configurazione viene inviata automaticamente a ogni origine connessa.
 
 Esistono quattro diversi modi per [raccogliere log e metriche per i servizi di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
-1.    Da Diagnostica di Azure direttamente a Log Analytics (Diagnostica nella tabella seguente)
+1.  Da Diagnostica di Azure direttamente a Log Analytics (Diagnostica nella tabella seguente)
 
-2.    Da Diagnostica di Azure ad Archiviazione di Azure a Log Analytics (Archiviazione nella tabella seguente)
+2.  Da Diagnostica di Azure ad Archiviazione di Azure a Log Analytics (Archiviazione nella tabella seguente)
 
-3.    Connettori per i servizi di Azure (Connettori nella tabella seguente)
+3.  Connettori per i servizi di Azure (Connettori nella tabella seguente)
 
-4.    Script per raccogliere e inviare i dati a Log Analytics (spazi vuoti nella tabella seguente e per i servizi non elencati)
+4.  Script per raccogliere e inviare i dati a Log Analytics (spazi vuoti nella tabella seguente e per i servizi non elencati)
 
 | Service | Tipo di risorsa | Log | Metrica | Soluzione |
 | :------ | :------------ | :--- | :------ | :------- |
-|Gateway di applicazione|    Microsoft.Network/<br>applicationGateways|    Diagnostica|Diagnostica|    [Analisi dei ](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)gateway applicazione[ di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
-|Application Insights||         Connettore|    Connettore|    [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (Anteprima)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
-|Account di Automazione|    Microsoft.Automation/<br>AutomationAccounts|    Diagnostica||         [Altre informazioni](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
-|Account Batch|    Microsoft.Batch/<br>batchAccounts|    Diagnostica|    Diagnostica||
-|Servizi cloud classici||         Archiviazione||         [Altre informazioni](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
-|Servizi cognitivi|    Microsoft.CognitiveServices/<br>account|         Diagnostica|||
-|Data Lake Analytics|    Microsoft.DataLakeAnalytics/<br>account|    Diagnostica|||
-|Data Lake Store|    Microsoft.DataLakeStore/<br>account|    Diagnostica|||
-|Spazio dei nomi dell'hub eventi|    Microsoft.EventHub/<br>spazi dei nomi|    Diagnostica|    Diagnostica||
-|Hub IoT|    Microsoft.Devices/<br>Hub IoT||         Diagnostica||
-|Insieme di credenziali di chiave|    Microsoft.KeyVault/<br>insiemi di credenziali|    Diagnostica     ||    [KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
+|Gateway di applicazione|  Microsoft.Network/<br>applicationGateways|  Diagnostica|Diagnostica|    [Analisi dei ](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)gateway applicazione[ di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Application Insights||     Connettore|  Connettore|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (Anteprima)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
+|Account di Automazione|   Microsoft.Automation/<br>AutomationAccounts|    Diagnostica||       [Altre informazioni](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
+|Account Batch|    Microsoft.Batch/<br>batchAccounts|  Diagnostica|    Diagnostica||
+|Servizi cloud classici||       Archiviazione||       [Altre informazioni](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
+|Servizi cognitivi|    Microsoft.CognitiveServices/<br>account|       Diagnostica|||
+|Data Lake Analytics|   Microsoft.DataLakeAnalytics/<br>account|   Diagnostica|||
+|Data Lake Store|   Microsoft.DataLakeStore/<br>account|   Diagnostica|||
+|Spazio dei nomi dell'hub eventi|   Microsoft.EventHub/<br>spazi dei nomi|  Diagnostica|    Diagnostica||
+|Hub IoT|  Microsoft.Devices/<br>Hub IoT||     Diagnostica||
+|Insieme di credenziali di chiave| Microsoft.KeyVault/<br>insiemi di credenziali|  Diagnostica  || [KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
 |Servizi di bilanciamento del carico|    Microsoft.Network/<br>loadBalancers|    Diagnostica|||
-|App per la logica|    Microsoft.Logic/<br>flussi di lavoro|     Diagnostica|    Diagnostica||
+|App per la logica|    Microsoft.Logic/<br>flussi di lavoro|  Diagnostica|    Diagnostica||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Gruppi di sicurezza di rete|    Microsoft.Network/<br>networksecuritygroups|Diagnostica||     [Analisi del gruppo di sicurezza di rete di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
-|Insiemi di credenziali di ripristino|    Microsoft.RecoveryServices/<br>insiemi di credenziali|||[Azure Recovery Services Analytics (Anteprima)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
-|Servizi di ricerca|    Microsoft.Search/<br>searchServices|    Diagnostica|    Diagnostica||
-|Spazio dei nomi del bus di servizio|    Microsoft.ServiceBus/<br>spazi dei nomi|    Diagnostica|Diagnostica|    [Service Bus Analytics (Anteprima)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||         Archiviazione||     [Service Fabric Analytics (anteprima)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
-|SQL (versione 12)|    Microsoft.Sql/<br>servers/<br>database||          Diagnostica||
+|Gruppi di sicurezza di rete|   Microsoft.Network/<br>networksecuritygroups|Diagnostica||   [Analisi del gruppo di sicurezza di rete di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Insiemi di credenziali di ripristino|   Microsoft.RecoveryServices/<br>insiemi di credenziali|||[Azure Recovery Services Analytics (Anteprima)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
+|Servizi di ricerca|   Microsoft.Search/<br>searchServices|    Diagnostica|    Diagnostica||
+|Spazio dei nomi del bus di servizio| Microsoft.ServiceBus/<br>spazi dei nomi|    Diagnostica|Diagnostica|    [Service Bus Analytics (Anteprima)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Service Fabric||       Archiviazione||    [Service Fabric Analytics (anteprima)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
+|SQL (versione 12)| Microsoft.Sql/<br>servers/<br>database||       Diagnostica||
 ||Microsoft.Sql/<br>servers/<br>elasticPools||||
-|Archiviazione|||              Script|    [Azure Storage Analytics (Anteprima)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
-|Macchine virtuali|    Microsoft.Compute/<br>virtualMachines|    Estensione|    Estensione||
+|Archiviazione|||         Script| [Azure Storage Analytics (Anteprima)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
+|Macchine virtuali|  Microsoft.Compute/<br>virtualMachines|  Estensione|  Estensione||
 ||||Diagnostica||
-|Set di scalabilità di macchine virtuali|    Microsoft.Compute/<br>virtualMachines      ||Diagnostica||
+|Set di scalabilità di macchine virtuali|   Microsoft.Compute/<br>virtualMachines    ||Diagnostica||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
-|Server farm Web|Microsoft.Web/<br>serverfarms||     Diagnostica
-|Microsoft Azure|    Microsoft.Web/<br>siti ||         Diagnostica|    [Altre informazioni](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|Server farm Web|Microsoft.Web/<br>serverfarms||   Diagnostica
+|Microsoft Azure| Microsoft.Web/<br>siti ||      Diagnostica|    [Altre informazioni](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>sites/<br>slot|||||
 
 
@@ -402,10 +400,10 @@ L'integrazione dei log di Azure supporta attualmente l'integrazione dei log di a
 | Tipo di log | Log Analytics con supporto JSON (Splunk, ArcSight, Qradar) |
 | :------- | :-------------------------------------------------------- |
 |Log di controllo AAD|    sì|
-|Log attività|    Sì|
-|Avvisi del Centro sicurezza di Azure    |Sì|
-|Log di diagnostica (log di risorse)|    Sì|
-|Log VM|    Sì, tramite Eventi inoltrati e non attraverso JSON|
+|Log attività| Sì|
+|Avvisi del Centro sicurezza di Azure |Sì|
+|Log di diagnostica (log di risorse)|  Sì|
+|Log VM|   Sì, tramite Eventi inoltrati e non attraverso JSON|
 
 
 La tabella seguente illustra la categoria Log e i dettagli dell'integrazione SIEM.
@@ -414,11 +412,11 @@ La tabella seguente illustra la categoria Log e i dettagli dell'integrazione SIE
 
 Scenari di integrazione
 
--    [Passaggi per la configurazione dei partner](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – Questo post di blog mostra come configurare l'integrazione dei log di Azure per lavorare con le soluzioni partner Splunk, HP ArcSight e IBM QRadar.
+-   [Passaggi per la configurazione dei partner](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – Questo post di blog mostra come configurare l'integrazione dei log di Azure per lavorare con le soluzioni partner Splunk, HP ArcSight e IBM QRadar.
 
--    [Domande frequenti sull'integrazione dei log di Azure](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) - Queste domande frequenti riguardano l'integrazione dei log di Azure.
+-   [Domande frequenti sull'integrazione dei log di Azure](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) - Queste domande frequenti riguardano l'integrazione dei log di Azure.
 
--    [Integrazione degli avvisi del Centro sicurezza con l'integrazione dei log di Azure](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) - Questo documento mostra come sincronizzare gli avvisi del Centro sicurezza di Azure, insieme agli eventi di sicurezza delle macchine virtuali raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log.
+-   [Integrazione degli avvisi del Centro sicurezza con l'integrazione dei log di Azure](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) - Questo documento mostra come sincronizzare gli avvisi del Centro sicurezza di Azure, insieme agli eventi di sicurezza delle macchine virtuali raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

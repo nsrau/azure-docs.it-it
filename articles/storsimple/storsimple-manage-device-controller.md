@@ -20,7 +20,6 @@ ms.openlocfilehash: 67dbb0c4066002256efbab6061157c641527e441
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestire i controller del dispositivo StorSimple
 ## <a name="overview"></a>Panoramica

@@ -1,6 +1,6 @@
 ---
 title: "Evento di completamento attività di Azure Batch | Microsoft Docs"
-description: "Riferimento per l&quot;evento di completamento dell&quot;attività batch."
+description: "Riferimento per l'evento di completamento dell'attività batch."
 services: batch
 author: tamram
 manager: timlt

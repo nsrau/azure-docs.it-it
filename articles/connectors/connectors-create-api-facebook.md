@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore Facebook alle app per la logica | Documentazione Microsoft
-description: Panoramica del connettore Facebook con i parametri dell&quot;API REST.
+description: Panoramica del connettore Facebook con i parametri dell'API REST.
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Introduzione al connettore Facebook

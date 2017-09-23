@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore DB2 alle app per la logica | Microsoft Docs
-description: Panoramica del connettore DB2 con i parametri dell&quot;API REST
+description: Panoramica del connettore DB2 con i parametri dell'API REST
 services: 
 documentationcenter: 
 author: gplarsen
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introduzione al connettore DB2

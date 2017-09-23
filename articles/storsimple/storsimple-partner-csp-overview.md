@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d2b55f7be932161b086f0ec395faa16114d4a1f1
 ms.openlocfilehash: 3722fc1198549102bd4fd215b9ede04a3ca1fbf5
+ms.contentlocale: it-it
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -43,9 +45,4 @@ Per altre informazioni, vedere [Distribuire e gestire StorSimple Virtual Array p
 
 - Per altre domande su StorSimple per CSP, passare a [StorSimple per CSP: domande frequenti](storsimple-partner-csp-faq.md).
 - Se si è pronti a distribuire StorSimple, andare a [Distribuire StorSimple per CSP](storsimple-partner-csp-deploy.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

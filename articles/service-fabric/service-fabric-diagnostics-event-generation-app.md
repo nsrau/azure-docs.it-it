@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio dell&quot;applicazione Azure Service Fabric | Microsoft Docs
+title: Monitoraggio dell'applicazione Azure Service Fabric | Microsoft Docs
 description: Informazioni su log ed eventi a livello di servizio e applicazione usati per monitorare e diagnosticare i cluster di Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 3c472904641108b7383cd0f1416c47460f8de11a
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 

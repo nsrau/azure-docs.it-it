@@ -20,7 +20,6 @@ ms.openlocfilehash: c1c9217cf51cef450837bdd255f8c44c14a74ac0
 ms.contentlocale: it-it
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="event-hubs-quotas"></a>Quote di Hub eventi
 Questa sezione elenca le quote e i limiti di base di Hub eventi di Azure.

@@ -20,7 +20,6 @@ ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
 ms.contentlocale: it-it
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="actor-timers-and-reminders"></a>Timer e promemoria degli attori
 Gli attori possono pianificare il relativo lavoro periodico registrando timer o promemoria. Questo articolo illustra come usare timer e promemoria e ne spiega le differenze.

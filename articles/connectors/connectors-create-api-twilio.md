@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore Twilio alle app per la logica di Azure | Microsoft Docs
-description: Panoramica del connettore Twilio con i parametri dell&quot;API REST
+description: Panoramica del connettore Twilio con i parametri dell'API REST
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: a790ac51b0fea7e3fa379d20e0e094e7ce0d7696
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Introduzione al connettore Twilio

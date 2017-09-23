@@ -1,6 +1,6 @@
 ---
-title: Schemi definiti dall&quot;utente in SQL Data Warehouse | Documentazione Microsoft
-description: Suggerimenti per l&quot;uso di schemi Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
+title: Schemi definiti dall'utente in SQL Data Warehouse | Documentazione Microsoft
+description: Suggerimenti per l'uso di schemi Transact-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: dfb58956ad6637cf0f50b4c052ab98fb7c26139d
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="user-defined-schemas-in-sql-data-warehouse"></a>Schemi definiti dall'utente in SQL Data Warehouse

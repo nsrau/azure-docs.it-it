@@ -20,7 +20,6 @@ ms.openlocfilehash: 39761f94efc530452a41ef9f2130976803cff711
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Distribuire un servizio Web di Azure Machine Learning
 Azure Machine Learning consente di compilare, testare e distribuire soluzioni di analisi predittiva.

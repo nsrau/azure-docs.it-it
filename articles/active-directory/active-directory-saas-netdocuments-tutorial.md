@@ -19,7 +19,6 @@ ms.openlocfilehash: 87c3338d611daa837aa5f079c4b68e0e6fc58455
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Esercitazione: Integrazione di Azure Active Directory con NetDocuments
 

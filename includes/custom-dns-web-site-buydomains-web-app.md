@@ -26,8 +26,3 @@ Se si vuole un dominio, è possibile acquistarlo direttamente nel [portale di ge
 
 A questo punto sarà possibile immettere il nome di dominio personalizzato nel browser e verificare che il reindirizzamento all'app Web avvenga correttamente.
 
-
-
-<!--HONumber=Jan17_HO3-->
-
-

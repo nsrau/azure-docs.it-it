@@ -20,7 +20,6 @@ ms.openlocfilehash: 0f3683939ac9646565a0669e19b4c82811d621fc
 ms.contentlocale: it-it
 ms.lasthandoff: 05/02/2017
 
-
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Provider di stato della sessione ASP.NET per Cache Redis di Azure
 Cache Redis di Azure include un provider di stato della sessione che consente di archiviare lo stato della sessione in una cache anziché in memoria o in un database di SQL Server. Per usare il provider di stato della sessione di memorizzazione nella cache, configurare innanzitutto la cache e quindi l'applicazione ASP.NET per la cache usando il pacchetto NuGet dello stato della sessione per Cache Redis.

@@ -1,6 +1,6 @@
 ---
 title: Monitorare dispositivi Surface Hub con Log Analytics di Azure | Documentazione Microsoft
-description: "Usare la soluzione Surface Hub per monitorarne l&quot;integrità e comprenderne la modalità d&quot;uso."
+description: "Usare la soluzione Surface Hub per monitorarne l'integrità e comprenderne la modalità d'uso."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
 ms.contentlocale: it-it
 ms.lasthandoff: 06/09/2017
-
 
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorare dispositivi Surface Hub con Log Analytics per tracciare la loro integrità

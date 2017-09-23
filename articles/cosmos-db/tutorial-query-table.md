@@ -1,6 +1,6 @@
 ---
-title: Procedura per l&quot;esecuzione di query sui dati tabella in Azure Cosmos DB | Microsoft Docs
-description: Informazioni per l&quot;esecuzione di query sui dati tabella in Azure Cosmos DB
+title: Procedura per l'esecuzione di query sui dati tabella in Azure Cosmos DB | Microsoft Docs
+description: Informazioni per l'esecuzione di query sui dati tabella in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: 
 author: kanshiG
@@ -20,7 +20,6 @@ ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 

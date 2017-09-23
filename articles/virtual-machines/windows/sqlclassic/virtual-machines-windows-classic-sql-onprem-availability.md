@@ -21,7 +21,6 @@ ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Estendere i gruppi di disponibilità AlwaysOn locali ad Azure
 I gruppi di disponibilità AlwaysOn garantiscono un disponibilità elevata per i gruppi di database grazie all'aggiunta di repliche secondarie, che consentono il failover dei database in caso di errore. Le repliche possono essere usate anche per l'offload di carichi di lavoro di lettura o attività di backup.

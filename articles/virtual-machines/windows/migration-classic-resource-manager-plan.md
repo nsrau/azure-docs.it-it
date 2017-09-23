@@ -21,7 +21,6 @@ ms.openlocfilehash: db23eba9ff8debd5268cd02bc4f37c4e6501bfac
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager

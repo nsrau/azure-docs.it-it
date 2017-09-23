@@ -1,6 +1,6 @@
 ---
 title: Configurare la conservazione dei backup a lungo termine - Database SQL di Azure | Microsoft Docs
-description: Informazioni su come archiviare i backup automatici nell&quot;insieme di credenziali di Servizi di ripristino di Azure e su come eseguire il ripristino dall&quot;insieme di credenziali di Servizi di ripristino di Azure
+description: Informazioni su come archiviare i backup automatici nell'insieme di credenziali di Servizi di ripristino di Azure e su come eseguire il ripristino dall'insieme di credenziali di Servizi di ripristino di Azure
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
 ms.openlocfilehash: a293c06f2e9bca8790832ecb851c89b04e76bb24
 ms.contentlocale: it-it
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Configurare e ripristinare dalla conservazione dei backup a lungo termine del database SQL di Azure

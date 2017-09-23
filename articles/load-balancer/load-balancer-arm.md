@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
 ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
+ms.contentlocale: it-it
+ms.lasthandoff: 01/05/2017
 
 ---
 
@@ -68,9 +70,4 @@ Introduzione ai cmdlet, agli strumenti da riga di comando e alle API REST di Azu
 È anche possibile [iniziare a creare un bilanciamento del carico con connessione Internet](load-balancer-get-started-internet-arm-ps.md) e configurare il tipo di [modalità di distribuzione](load-balancer-distribution-mode.md) per il comportamento specifico del traffico di rete per il bilanciamento del carico.
 
 Informazioni su come gestire [le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md). Questo è importante quando l'applicazione deve mantenere le connessioni attive per i server di bilanciamento del carico.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

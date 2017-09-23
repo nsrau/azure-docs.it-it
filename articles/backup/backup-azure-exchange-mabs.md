@@ -20,7 +20,6 @@ ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
 ms.contentlocale: it-it
 ms.lasthandoff: 03/27/2017
 
-
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Eseguire il backup di un server Exchange in Backup di Azure con il server di Backup di Azure
 Questo articolo descrive come configurare il server di Backup di Microsoft Azure (MABS) per eseguire il backup di un server Microsoft Exchange in Azure.  

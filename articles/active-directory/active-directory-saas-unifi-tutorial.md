@@ -19,7 +19,6 @@ ms.openlocfilehash: 09074d4628825909f0bb961c8001e53fb06cf7c0
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Esercitazione: Integrazione di Azure Active Directory con UNIFI
 

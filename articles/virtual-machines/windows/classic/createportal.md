@@ -21,7 +21,6 @@ ms.openlocfilehash: 4d7b7a17751cc476d0365cbcbff3fcf23dd0c6ff
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>Creare una macchina virtuale personalizzata che esegue Windows usando il modello di distribuzione classico
 > [!IMPORTANT]

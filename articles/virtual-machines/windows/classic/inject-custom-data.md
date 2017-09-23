@@ -1,6 +1,6 @@
 ---
 title: Inserire dati in macchine virtuali Windows in Azure | Documentazione Microsoft
-description: In questo argomento viene descritto come inserire dati personalizzati in una macchina virtuale di Azure durante la creazione dell&quot;istanza e come individuare i dati personalizzati in Windows o Linux.
+description: In questo argomento viene descritto come inserire dati personalizzati in una macchina virtuale di Azure durante la creazione dell'istanza e come individuare i dati personalizzati in Windows o Linux.
 services: virtual-machines-windows
 documentationcenter: 
 author: squillace
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 7836577f16940b618a2912012ba8a8e7160980e8
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="injecting-custom-data-into-an-azure-virtual-machine"></a>Inserimento di dati personalizzati in una macchina virtuale di Azure

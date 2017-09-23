@@ -1,6 +1,6 @@
 ---
 title: Creare i gruppi di sicurezza di rete - interfaccia della riga di comando 1.0 di Azure | Documentazione Microsoft
-description: Informazioni su come creare e distribuire i gruppi di sicurezza di rete usando l&quot;interfaccia della riga di comando di Azure 1.0.
+description: Informazioni su come creare e distribuire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure 1.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: ca8c182651e3c9f2f1f3a85b94361755d8e638d4
+ms.contentlocale: it-it
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="create-network-security-groups-using-the-azure-cli-10"></a>Creare i gruppi di sicurezza di rete usando l'interfaccia della riga di comando 1.0 di Azure

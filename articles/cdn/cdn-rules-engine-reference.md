@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/25/2017
 
 ---
 # <a name="azure-cdn-rules-engine"></a>Motore regole della rete CDN di Azure
@@ -80,9 +81,4 @@ Spazio | Un carattere di spazio in genere è considerato come un carattere lette
 * [Funzionalità del motore regole](cdn-rules-engine-reference-features.md)
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

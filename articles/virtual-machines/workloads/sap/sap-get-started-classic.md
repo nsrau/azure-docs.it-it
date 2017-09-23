@@ -1,6 +1,6 @@
 ---
 title: Uso di SAP sulle macchine virtuali Linux | Microsoft Docs
-description: Informazioni sull&quot;uso di SAP in macchine virtuali (VM) Linux in Microsoft Azure
+description: Informazioni sull'uso di SAP in macchine virtuali (VM) Linux in Microsoft Azure
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
 author: MSSedusch
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 66eb53f99ce4b30ec283243deb3649c9ca897a2b
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Uso di SAP su macchine virtuali Linux in Azure

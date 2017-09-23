@@ -1,6 +1,6 @@
 ---
 title: Usare la soluzione Mapping dei servizi in Operations Management Suite | Microsoft Docs
-description: "Elenco dei servizi è una soluzione di Operations Management Suite che individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione fra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell&quot;ambiente e su come usarlo in svariati scenari."
+description: "Elenco dei servizi è una soluzione di Operations Management Suite che individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione fra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
 ms.contentlocale: it-it
 ms.lasthandoff: 06/14/2017
-
 
 ---
 

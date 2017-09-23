@@ -1,6 +1,6 @@
 ---
 title: Incorporare un report in Azure Power BI Embedded | Microsoft Docs
-description: Informazioni su come incorporare nell&quot;applicazione un report che si trova in Power BI Embedded.
+description: Informazioni su come incorporare nell'applicazione un report che si trova in Power BI Embedded.
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 3d865af2418c9c557c861a379766a125d75cebf1
+ms.contentlocale: it-it
 ms.lasthandoff: 03/14/2017
-
 
 ---
 # <a name="embed-a-report-in-power-bi-embedded"></a>Incorporare un report in Power BI Embedded

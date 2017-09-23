@@ -1,6 +1,6 @@
 ---
-title: Espandere il disco del sistema operativo in una macchina virtuale Linux con l&quot;interfaccia della riga di comando 1.0 di Azure | Microsoft Docs
-description: Informazioni su come espandere il disco virtuale del sistema operativo di una macchina virtuale Linux tramite l&quot;interfaccia della riga di comando 1.0 di Azure e il modello di distribuzione di Resource Manager
+title: Espandere il disco del sistema operativo in una macchina virtuale Linux con l'interfaccia della riga di comando 1.0 di Azure | Microsoft Docs
+description: Informazioni su come espandere il disco virtuale del sistema operativo di una macchina virtuale Linux tramite l'interfaccia della riga di comando 1.0 di Azure e il modello di distribuzione di Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
 ms.contentlocale: it-it
 ms.lasthandoff: 05/11/2017
-
 
 ---
 

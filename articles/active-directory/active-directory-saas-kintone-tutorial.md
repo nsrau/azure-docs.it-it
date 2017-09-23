@@ -19,7 +19,6 @@ ms.openlocfilehash: e5e847c12cba3611ce7ea2c3e956dbd55b1e0cac
 ms.contentlocale: it-it
 ms.lasthandoff: 06/24/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Esercitazione: Integrazione di Azure Active Directory con Kintone
 

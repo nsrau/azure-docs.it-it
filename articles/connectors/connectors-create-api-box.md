@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore Box alle app per la logica | Documentazione Microsoft
-description: Panoramica del connettore Box con i parametri dell&quot;API REST
+description: Panoramica del connettore Box con i parametri dell'API REST
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-box-connector"></a>Introduzione al connettore Box

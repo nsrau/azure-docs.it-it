@@ -19,7 +19,6 @@ ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
 ms.contentlocale: it-it
 ms.lasthandoff: 06/30/2017
 
-
 ---
 
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Recuperare i dati da Log Analytics con uno script Python

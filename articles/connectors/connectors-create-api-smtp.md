@@ -21,7 +21,6 @@ ms.openlocfilehash: 1cf96bbf8bd215d7ddb3c99860a5cb4e668be3c2
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Introduzione al connettore SMTP
 Connettersi a SMTP per inviare messaggi di posta elettronica.

@@ -20,11 +20,8 @@ ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 8062923b6270ec6253dc231a3db4333cf4666b42
 ms.contentlocale: it-it
 
-
 ---
-<a id="add-sign-in-with-microsoft-to-an-aspnet-web-app" class="xliff"></a>
-
-# Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
+# <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
 Questa guida illustra come implementare l'accesso con Microsoft usando una soluzione ASP.NET MVC con un'applicazione tradizionale basata su Web browser tramite OpenID Connect. 
 
@@ -32,17 +29,13 @@ Al termine di questa guida, l'applicazione sarà in grado di accettare accessi s
 
 > Questa guida richiede Visual Studio 2015 Update 3 o Visual Studio 2017.  Se non lo si ha, è possibile  [scaricare Visual Studio 2017 gratuitamente](https://www.visualstudio.com/downloads/)
 
-<a id="how-this-guide-works" class="xliff"></a>
-
-## Come interpretare questa guida
+## <a name="how-this-guide-works"></a>Come interpretare questa guida
 
 ![Come interpretare questa guida](media/active-directory-serversidewebapp-aspnetwebappowin-intro/aspnetbrowsergeneral.png)
 
 Questa guida si basa su uno scenario in cui un browser accede a un sito Web ASP.NET e chiede agli utenti di eseguire l'autenticazione tramite un pulsante di accesso. In questo scenario, la maggior parte delle operazioni necessarie per il rendering della pagina Web viene eseguita sul lato server.
 
-<a id="libraries" class="xliff"></a>
-
-## Librerie
+## <a name="libraries"></a>Librerie
 
 Questa guida usa le librerie seguenti:
 

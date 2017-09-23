@@ -20,7 +20,6 @@ ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
 ## <a name="overview"></a>Panoramica

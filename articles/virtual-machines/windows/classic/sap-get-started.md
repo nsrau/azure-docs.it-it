@@ -1,6 +1,6 @@
 ---
 title: Uso di SAP in macchine virtuali Windows | Microsoft Docs
-description: Informazioni sull&quot;uso di SAP in macchine virtuali (VM) Windows in Microsoft Azure
+description: Informazioni sull'uso di SAP in macchine virtuali (VM) Windows in Microsoft Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: MSSedusch
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 1d6326d5f79ea4e975abd1aa90b0d4a635f4c31a
+ms.contentlocale: it-it
 ms.lasthandoff: 03/27/2017
-
 
 ---
 # <a name="using-sap-on-windows-virtual-machines-in-azure"></a>Uso di SAP su macchine virtuali Windows in Azure

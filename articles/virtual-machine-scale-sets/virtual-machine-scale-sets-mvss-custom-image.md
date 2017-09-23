@@ -1,6 +1,6 @@
 ---
-title: "Fare riferimento a un&quot;immagine personalizzata in un modello di set di scalabilità di Azure | Microsoft Docs"
-description: "Informazioni su come aggiungere un&quot;immagine personalizzata in un modello di set di scalabilità di macchine virtuali di Azure esistente"
+title: "Fare riferimento a un'immagine personalizzata in un modello di set di scalabilità di Azure | Microsoft Docs"
+description: "Informazioni su come aggiungere un'immagine personalizzata in un modello di set di scalabilità di macchine virtuali di Azure esistente"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil

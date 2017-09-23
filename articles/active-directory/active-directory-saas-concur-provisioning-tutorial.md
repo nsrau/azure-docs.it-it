@@ -19,7 +19,6 @@ ms.openlocfilehash: cd35b6e2dc3171e9cffdb820bbc5b0d45ff58e07
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-configuring-concur-for-user-provisioning"></a>Esercitazione: Configurazione di Concur per il provisioning utenti
 

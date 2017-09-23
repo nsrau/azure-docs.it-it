@@ -19,7 +19,6 @@ ms.openlocfilehash: 97dbb3fa0531f2f679badb6bb9752f2e42fc9cb3
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Esercitazione: Integrazione di Azure Active Directory con Printix
 

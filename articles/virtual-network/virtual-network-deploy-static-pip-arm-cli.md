@@ -1,6 +1,6 @@
 ---
 title: Creare una VM con un indirizzo IP pubblico statico - interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Informazioni su come creare una VM con un indirizzo IP pubblico statico usando l&quot;interfaccia della riga di comando di Azure 2.0.
+description: Informazioni su come creare una VM con un indirizzo IP pubblico statico usando l'interfaccia della riga di comando di Azure 2.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: a4c32694949880037f01bb2b6b9779d2cbb9809c
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>Creare una VM con un IP pubblico statico usando l'interfaccia della riga di comando di Azure 2.0

@@ -1,6 +1,6 @@
 ---
 title: Creare una VM Linux in Azure da un modello | Microsoft Docs
-description: Procedura per usare l&quot;interfaccia della riga di comando 2.0 di Azure per creare una VM Linux da un modello di Resource Manager
+description: Procedura per usare l'interfaccia della riga di comando 2.0 di Azure per creare una VM Linux da un modello di Resource Manager
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 908a8a0c82b2d21fb25c9b33dbd714570d1ac272
 ms.contentlocale: it-it
 ms.lasthandoff: 05/15/2017
-
 
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedura per creare una macchina virtuale Linux con i modelli di Azure Resource Manager

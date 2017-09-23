@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con BenefitHub | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e BenefitHub.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e BenefitHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 8df9c0d8443d6685253207ed1915c780275014fc
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Esercitazione: Integrazione di Azure Active Directory con BenefitHub

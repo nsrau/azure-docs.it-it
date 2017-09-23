@@ -20,11 +20,8 @@ ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 4a695c00fce4deb02261ba58ec95469746bb1486
 ms.contentlocale: it-it
 
-
 ---
-<a id="call-the-microsoft-graph-api-from-a-windows-desktop-app" class="xliff"></a>
-
-# Chiamare l'API Microsoft Graph da un'app Windows Desktop
+# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chiamare l'API Microsoft Graph da un'app Windows Desktop
 
 Questa guida dimostra come un'applicazione .NET per Windows Desktop (XAML) nativa può ottenere un token di accesso e chiamare l'API Microsoft Graph o altre API che richiedono token di accesso dall'endpoint di Azure Active Directory v2.
 
@@ -32,18 +29,14 @@ Al termine di questa guida, l'applicazione sarà in grado di chiamare un'API pro
 
 > Questa guida richiede Visual Studio 2015 Update 3 o Visual Studio 2017.  Se non lo si ha, è possibile [scaricare Visual Studio 2017 gratuitamente](https://www.visualstudio.com/downloads/)
 
-<a id="how-this-guide-works" class="xliff"></a>
-
-### Come interpretare questa guida
+### <a name="how-this-guide-works"></a>Come interpretare questa guida
 
 ![Come interpretare questa guida](media/active-directory-mobileanddesktopapp-windowsdesktop-intro/windesktophowitworks.png)
 
 L'applicazione di esempio creata in questa guida consente a un'applicazione per Windows Desktop di eseguire query nell'API Microsoft Graph o in un'API Web che accetta token dall'endpoint di Azure Active Directory v2. Per questo scenario, viene aggiunto un token a richieste HTTP tramite l'intestazione di autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL).
 
 
-<a id="handling-token-acquisition-for-accessing-protected-web-apis" class="xliff"></a>
-
-### Gestione dell'acquisizione di token per l'accesso ad API Web protette
+### <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Gestione dell'acquisizione di token per l'accesso ad API Web protette
 
 Dopo che l'utente ha eseguito l'autenticazione, l'applicazione di esempio riceve un token che può essere usato per eseguire query nell'API Microsoft Graph o in un'API Web protetta da Microsoft Azure Active Directory v2.
 
@@ -52,9 +45,7 @@ API come Microsoft Graph richiedono un token di accesso per consentire l'accesso
 La memorizzazione nella cache e l'aggiornamento dei token di accesso vengono gestiti dalla libreria MSAL e non devono quindi essere effettuati dall'applicazione.
 
 
-<a id="nuget-packages" class="xliff"></a>
-
-### Pacchetti NuGet
+### <a name="nuget-packages"></a>Pacchetti NuGet
 
 Questa guida usa i pacchetti NuGet seguenti:
 

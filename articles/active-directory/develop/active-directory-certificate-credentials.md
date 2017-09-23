@@ -1,6 +1,6 @@
 ---
 title: Credenziali del certificato in Azure AD | Microsoft Docs
-description: Questo articolo illustra la registrazione e l&quot;uso delle credenziali del certificato per l&quot;autenticazione dell&quot;applicazione
+description: Questo articolo illustra la registrazione e l'uso delle credenziali del certificato per l'autenticazione dell'applicazione
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -20,7 +20,6 @@ ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
-
 
 ---
 

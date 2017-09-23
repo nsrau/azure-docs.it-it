@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sul backup dell&quot;array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
+title: Esercitazione sul backup dell'array virtuale Microsoft Azure StorSimple | Documentazione Microsoft
 description: Si illustra come eseguire il backup delle condivisioni e dei volumi di StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -15,9 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ed759edbf4548bc0d6c041ca825ddb392430795b
 ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
 
 ---

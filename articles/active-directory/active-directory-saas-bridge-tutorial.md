@@ -19,7 +19,6 @@ ms.openlocfilehash: d2b7fd6f73f1b782cfe6337d13f9f22f9c70d389
 ms.contentlocale: it-it
 ms.lasthandoff: 06/22/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>Esercitazione: Integrazione di Azure Active Directory con Bridge
 

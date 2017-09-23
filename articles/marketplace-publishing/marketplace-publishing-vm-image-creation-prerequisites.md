@@ -1,6 +1,6 @@
 ---
-title: Prerequisiti tecnici per la creazione di un&quot;immagine di macchina virtuale per Azure Marketplace | Documentazione Microsoft
-description: Informazioni sui requisiti per la creazione e la distribuzione di un&quot;immagine di macchina virtuale in Azure Marketplace per l&quot;acquisto da parte di altri utenti.
+title: Prerequisiti tecnici per la creazione di un'immagine di macchina virtuale per Azure Marketplace | Documentazione Microsoft
+description: Informazioni sui requisiti per la creazione e la distribuzione di un'immagine di macchina virtuale in Azure Marketplace per l'acquisto da parte di altri utenti.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
 ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Prerequisiti tecnici per la creazione di un'immagine di macchina virtuale per Azure Marketplace

@@ -1,5 +1,5 @@
 ---
-title: Panoramica dell&quot;elaborazione delle transazioni nel bus di servizio di Azure | Documentazione Microsoft
+title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azure | Documentazione Microsoft
 description: Panoramica delle transazioni atomiche del bus di servizio di Azure e invia tramite
 services: service-bus-messaging
 documentationcenter: .net
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: a88f2d81ab43e38c9363a67aaefc178b47bfb259
 ms.contentlocale: it-it
 ms.lasthandoff: 05/18/2017
-
 
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Panoramica dell'elaborazione delle transazioni del bus di servizio

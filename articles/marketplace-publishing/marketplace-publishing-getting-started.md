@@ -1,6 +1,6 @@
 ---
-title: Panoramica su come creare e distribuire un&quot;offerta in Marketplace | Documentazione Microsoft
-description: Informazioni sui passaggi necessari per diventare uno sviluppatore Microsoft approvato e creare e distribuire un&quot;immagine di macchina virtuale, un modello, un servizio dati o un servizio per sviluppatori in Azure Marketplace
+title: Panoramica su come creare e distribuire un'offerta in Marketplace | Documentazione Microsoft
+description: Informazioni sui passaggi necessari per diventare uno sviluppatore Microsoft approvato e creare e distribuire un'immagine di macchina virtuale, un modello, un servizio dati o un servizio per sviluppatori in Azure Marketplace
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -19,7 +19,6 @@ ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
 ms.contentlocale: it-it
 ms.lasthandoff: 05/25/2017
-
 
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Pubblicare e gestire un'offerta in Azure Marketplace

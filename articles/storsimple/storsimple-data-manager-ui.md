@@ -1,6 +1,6 @@
 ---
 title: Interfaccia utente di Microsoft Azure StorSimple Data Manager | Documentazione Microsoft
-description: Questo articolo descrive come usare l&quot;interfaccia utente del servizio StorSimple Data Manager (anteprima privata)
+description: Questo articolo descrive come usare l'interfaccia utente del servizio StorSimple Data Manager (anteprima privata)
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 692f00bf342e2cd6d3d76754d18751c773aeedc5
 ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
+ms.contentlocale: it-it
+ms.lasthandoff: 11/28/2016
 
 ---
 
@@ -109,8 +111,3 @@ Quando si desidera spostare i dati da StorSimple all'account di archiviazione sp
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Usare .NET SDK per avviare i processi di StorSimple Data Manager](storsimple-data-manager-dotnet-jobs.md).
-
-
-<!--HONumber=Nov16_HO4-->
-
-

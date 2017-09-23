@@ -22,7 +22,6 @@ ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
 ms.contentlocale: it-it
 ms.lasthandoff: 06/13/2017
 
-
 ---
 # <a name="manage-domain-joined-hdinsight-clusters-preview"></a>Gestione dei cluster HDInsight aggiunti al dominio (anteprima)
 Informazioni su utenti e ruoli nei cluster HDInsight aggiunti al dominio e su come gestire i cluster HDInsight aggiunti al dominio.

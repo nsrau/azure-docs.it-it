@@ -1,6 +1,6 @@
 ---
 title: Raccogliere prestazioni delle applicazioni Linux in Log Analytics di OMS | Microsoft Docs
-description: Questo articolo fornisce informazioni dettagliate per configurare l&quot;agente OMS per Linux in modo che raccolga i contatori delle prestazioni per il server HTTP Apache e MySQL.
+description: Questo articolo fornisce informazioni dettagliate per configurare l'agente OMS per Linux in modo che raccolga i contatori delle prestazioni per il server HTTP Apache e MySQL.
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
 ms.contentlocale: it-it
 ms.lasthandoff: 05/09/2017
-
 
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Raccogliere i contatori delle prestazioni per applicazioni Linux in Log Analytics 

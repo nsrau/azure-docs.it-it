@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Procore SSO | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Procore SSO.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Procore SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
+ms.contentlocale: it-it
 ms.lasthandoff: 04/12/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Procore SSO
@@ -199,7 +199,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
 Attenersi alla procedura seguente per creare un utente test di Procore sul relativo lato.
 
-1. Accedere al sito aziendale di Procore come amministratore.    
+1. Accedere al sito aziendale di Procore come amministratore.  
 
 2. Nell'elenco a discesa della casella degli strumenti fare clic su **Directory** per aprire la pagina della directory aziendale.
 

@@ -19,7 +19,6 @@ ms.openlocfilehash: 0f2682cf7cd3e11a5a7156938fbe9d4c7f541312
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Esercitazione: Integrazione di Azure Active Directory con M-Files
 

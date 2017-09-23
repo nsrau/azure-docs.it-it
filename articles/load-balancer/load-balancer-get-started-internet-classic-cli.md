@@ -1,6 +1,6 @@
 ---
 title: Creare un servizio di bilanciamento del carico con connessione Internet - Interfaccia della riga di comando di Azure classica | Documentazione Microsoft
-description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante l&quot;interfaccia della riga di comando di Azure
+description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
+ms.contentlocale: it-it
 ms.lasthandoff: 03/21/2017
 
 ---

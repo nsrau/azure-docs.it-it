@@ -1,6 +1,6 @@
 ---
 title: Connettersi a Dynamics 365 (online) dalle app per la logica di Azure | Microsoft Docs
-description: "Creare flussi di lavoro di app per la logica che gestiscono le entità di Dynamics 365 (online) tramite l&quot;API inclusa nel connettore di Dynamics 365"
+description: "Creare flussi di lavoro di app per la logica che gestiscono le entità di Dynamics 365 (online) tramite l'API inclusa nel connettore di Dynamics 365"
 services: logic-apps
 cloud: Azure Stack
 author: Mattp123
@@ -38,27 +38,27 @@ Questo argomento illustra come creare un'app per la logica che crea un'attività
 
 ## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Creare un'attività quando viene creato un nuovo lead in Dynamics 365
 
-1.    [Accedere ad Azure](https://portal.azure.com).
+1.  [Accedere ad Azure](https://portal.azure.com).
 
-2.    Nella casella di ricerca di Azure digitare `Logic apps` e premere INVIO.
+2.  Nella casella di ricerca di Azure digitare `Logic apps` e premere INVIO.
 
       ![Trovare App per la logica](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
-3.    In **App per la logica** fare clic su **Aggiungi**.
+3.  In **App per la logica** fare clic su **Aggiungi**.
 
       ![Aggiungere un'app per la logica](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-4.    Per creare l'app per la logica, completare i campi **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Percorso** e quindi fare clic su **Crea**.
+4.  Per creare l'app per la logica, completare i campi **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Percorso** e quindi fare clic su **Crea**.
 
-5.    Selezionare la nuova app per la logica. Quando viene visualizzata la notifica **La distribuzione è riuscita** fare clic su **Aggiorna**.
+5.  Selezionare la nuova app per la logica. Quando viene visualizzata la notifica **La distribuzione è riuscita** fare clic su **Aggiorna**.
 
-6.    In **Strumenti di sviluppo** fare clic su **Progettazione app per la logica**. Nell'elenco dei modelli fare clic su **App per la logica vuota**.
+6.  In **Strumenti di sviluppo** fare clic su **Progettazione app per la logica**. Nell'elenco dei modelli fare clic su **App per la logica vuota**.
 
-7.    Nella casella di ricerca digitare `Dynamics 365`. Nell'elenco dei trigger di Dynamics 365 selezionare **Dynamics 365 - Quando un record viene creato**.
+7.  Nella casella di ricerca digitare `Dynamics 365`. Nell'elenco dei trigger di Dynamics 365 selezionare **Dynamics 365 - Quando un record viene creato**.
 
-8.    Se viene richiesto di accedere a Dynamics 365, eseguire l'operazione.
+8.  Se viene richiesto di accedere a Dynamics 365, eseguire l'operazione.
 
-9.    Nei dettagli del trigger immettere le informazioni seguenti:
+9.  Nei dettagli del trigger immettere le informazioni seguenti:
 
   * **Nome organizzazione**. Selezionare l'istanza di Dynamics 365 di cui l'app per la logica dovrà essere in ascolto.
 

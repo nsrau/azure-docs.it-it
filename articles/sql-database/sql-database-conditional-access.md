@@ -1,6 +1,6 @@
 ---
 title: Accesso condizionale - Database SQL di Azure e Azure SQL Data Warehouse | Microsoft Docs
-description: Informazioni su come configurare l&quot;accesso condizionale per il database SQL di Azure e Azure SQL Data Warehouse.
+description: Informazioni su come configurare l'accesso condizionale per il database SQL di Azure e Azure SQL Data Warehouse.
 services: sql-database
 author: BYHAM
 manager: jhubbard

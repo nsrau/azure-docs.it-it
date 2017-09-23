@@ -21,7 +21,6 @@ ms.openlocfilehash: f3f69ed8d3a985afe07e648e7512a88b25278ced
 ms.contentlocale: it-it
 ms.lasthandoff: 06/30/2017
 
-
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 

@@ -20,7 +20,6 @@ ms.openlocfilehash: db6f5f95929503e82a529dba26b56af1edb0767f
 ms.contentlocale: it-it
 ms.lasthandoff: 06/29/2017
 
-
 ---
 # <a name="replicate-vmware-vms-to-azure-with-site-recovery"></a>Replicare VM VMware in Azure con Site Recovery
 

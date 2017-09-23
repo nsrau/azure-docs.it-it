@@ -1,5 +1,5 @@
 ---
-title: Come implementare l&quot;esplorazione in base a facet in Ricerca di Azure | Documentazione Microsoft
+title: Come implementare l'esplorazione in base a facet in Ricerca di Azure | Documentazione Microsoft
 description: Aggiungere Esplorazione in base a facet alle applicazioni che si integrano con la Ricerca di Azure, un servizio di ricerca ospitato sul cloud in Microsoft Azure.
 services: search
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 3/10/2017
 ms.author: heidist
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: 413f498eeb0bbc9a971c7a65200ed2fd8caa9aaf
+ms.contentlocale: it-it
 ms.lasthandoff: 03/16/2017
-
 
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Come implementare l'esplorazione in base a facet in Ricerca di Azure

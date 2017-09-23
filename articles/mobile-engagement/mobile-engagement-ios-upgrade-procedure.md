@@ -14,10 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c4b5b8bc05365ddc63b0d7a6a3c63eaee31af957
 ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/14/2016
 
 ---
 # <a name="upgrade-procedures"></a>Procedure di aggiornamento
@@ -214,10 +215,5 @@ Esempi:
 * La classe `CapptainTableViewController` viene rinominata come `EngagementTableViewController`.
 * La classe `CapptainUtils` viene rinominata come `EngagementUtils`.
 * La classe `CapptainViewController` viene rinominata come `EngagementViewController`.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

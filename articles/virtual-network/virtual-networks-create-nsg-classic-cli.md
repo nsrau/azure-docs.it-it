@@ -1,6 +1,6 @@
 ---
-title: "Come creare gruppi di sicurezza di rete in modalità classica mediante l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft"
-description: "Informazioni su come creare e distribuire gruppi di sicurezza di rete in modalità classica mediante l&quot;interfaccia della riga di comando di Azure"
+title: "Come creare gruppi di sicurezza di rete in modalità classica mediante l'interfaccia della riga di comando di Azure | Documentazione Microsoft"
+description: "Informazioni su come creare e distribuire gruppi di sicurezza di rete in modalità classica mediante l'interfaccia della riga di comando di Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 115a1937a4c88ba2b986a40c84b1b759ed5e03b5
+ms.contentlocale: it-it
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="how-to-create-nsgs-classic-in-the-azure-cli"></a>Come creare gruppi di sicurezza di rete (in modalità classica) nell'interfaccia della riga di comando di Azure

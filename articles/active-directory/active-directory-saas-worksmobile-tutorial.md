@@ -19,7 +19,6 @@ ms.openlocfilehash: 139a1968a59424eae278de3e7fa227ad340a1eb8
 ms.contentlocale: it-it
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-works-mobile"></a>Esercitazione: Integrazione di Azure Active Directory con WORKS MOBILE
 

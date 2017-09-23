@@ -1,6 +1,6 @@
 ---
-title: "Trasformare dati usando l&quot;attività Pig in Azure Data Factory | Documentazione Microsoft"
-description: "Informazioni su come usare l&quot;attività Pig in una data factory di Azure per eseguire query Pig in un cluster HDInsight su richiesta o nel proprio cluster HDInsight."
+title: "Trasformare dati usando l'attività Pig in Azure Data Factory | Documentazione Microsoft"
+description: "Informazioni su come usare l'attività Pig in una data factory di Azure per eseguire query Pig in un cluster HDInsight su richiesta o nel proprio cluster HDInsight."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 182a637ab98955129d269e2afc3ba581aa1a7c03
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Pig in Azure Data Factory

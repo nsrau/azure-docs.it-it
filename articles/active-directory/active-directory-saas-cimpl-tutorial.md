@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Cimpl | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Cimpl.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Cimpl.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 24a0c89966c83e1b32367d4519ead98d76f5ac6f
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Esercitazione: Integrazione di Azure Active Directory con Cimpl

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli;anbacker
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b0e763769564eaa191c78df05c008150c9a363f
 ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="contact-microsoft-support-for-your-storsimple"></a>Contattare il supporto tecnico Microsoft per il dispositivo StorSimple in uso

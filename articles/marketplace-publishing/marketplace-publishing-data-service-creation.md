@@ -1,6 +1,6 @@
 ---
 title: Guida alla creazione di un servizio dati per il Marketplace | Documentazione Microsoft
-description: Istruzioni dettagliate su come creare, certificare e distribuire un servizio dati per l&quot;acquisto in Azure Marketplace.
+description: Istruzioni dettagliate su come creare, certificare e distribuire un servizio dati per l'acquisto in Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c0c9362f1c2e15c947aaaf7187f3383ad243140f
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="data-service-publishing-guide-for-the-azure-marketplace"></a>Guida alla pubblicazione del servizio dati per Azure Marketplace
@@ -159,9 +160,4 @@ Una volta creata l'offerta del servizio dati, verificare di aver completato le i
 * Per esaminare gli esempi, leggere questo articolo [Esempi di mapping di OData del servizio dati](marketplace-publishing-data-service-creation-odata-mapping-examples.md) per consultare il codice di esempio e apprendere la sintassi del codice e il contesto.
 
 [link-pubportal]:https://publish.windowsazure.com
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -1,6 +1,6 @@
 ---
-title: Introduzione a DNS Azure con l&quot;interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
-description: Informazioni su come creare una zona e un record DNS in DNS Azure. Si tratta di una guida dettagliata per creare e gestire la prima zona e il primo record DNS usando l&quot;interfaccia della riga di comando di Azure 1.0.
+title: Introduzione a DNS Azure con l'interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
+description: Informazioni su come creare una zona e un record DNS in DNS Azure. Si tratta di una guida dettagliata per creare e gestire la prima zona e il primo record DNS usando l'interfaccia della riga di comando di Azure 1.0.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
+ms.contentlocale: it-it
 ms.lasthandoff: 04/21/2017
 
 ---

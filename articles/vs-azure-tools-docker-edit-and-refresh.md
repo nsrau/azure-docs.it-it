@@ -1,6 +1,6 @@
 ---
 title: Debug di applicazioni in un contenitore Docker locale | Documentazione Microsoft
-description: "Informazioni su come modificare un&quot;app in esecuzione in un contenitore Docker locale, aggiornare il contenitore tramite la funzionalità di modifica e aggiornamento e impostare i punti di interruzione del debug"
+description: "Informazioni su come modificare un'app in esecuzione in un contenitore Docker locale, aggiornare il contenitore tramite la funzionalità di modifica e aggiornamento e impostare i punti di interruzione del debug"
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
 ms.contentlocale: it-it
 ms.lasthandoff: 05/11/2017
-
 
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Debug delle applicazioni in un contenitore Docker locale

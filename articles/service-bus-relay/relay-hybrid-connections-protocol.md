@@ -20,7 +20,6 @@ ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # Protocollo per le connessioni ibride di inoltro di Azure
 L'inoltro di Azure è una delle funzionalità chiave di base della piattaforma Bus di servizio di Azure. La nuova funzionalità *Connessioni ibride* di inoltro è un'evoluzione sicura del protocollo aperto basata su HTTP e WebSocket. Sostituisce la funzionalità precedente, comunemente denominata *Servizi BizTalk*, che è basata su un protocollo di proprietà. L'integrazione di Connessioni ibride nei servizi app di Azure continuerà a funzionare così com'è.

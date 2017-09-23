@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore Utenti di Office 365 alle app per la logica | Documentazione Microsoft
-description: Panoramica del connettore Office 365 Users con i parametri dell&quot;API REST
+description: Panoramica del connettore Office 365 Users con i parametri dell'API REST
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 330f733440932a769eb0fe6031cd0d947a820080
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Introduzione al connettore Office 365 Users

@@ -1,6 +1,6 @@
 ---
-title: Panoramica dell&quot;agente di VM Linux di Azure | Documentazione Microsoft
-description: Informazioni su come installare e configurare l&quot;agente Linux (waagent) per gestire l&quot;interazione della macchina virtuale con il controller di infrastruttura di Azure.
+title: Panoramica dell'agente di VM Linux di Azure | Documentazione Microsoft
+description: Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
 
 ---

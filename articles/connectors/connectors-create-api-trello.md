@@ -21,7 +21,6 @@ ms.openlocfilehash: 526a14710f24ee4a4b61a11873aa6caa0b47dc10
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-trello-connector"></a>Introduzione al connettore Trello
 Trello offre una panoramica di tutti i progetti, al lavoro e a casa.  È un modo semplice, gratuito, flessibile per gestire visivamente i progetti e organizzare qualsiasi cosa.  Connettersi a Trello per gestire bacheche, elenchi e schede.

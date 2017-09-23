@@ -1,6 +1,6 @@
 ---
-title: Creare una VM Linux classica usando l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Informazioni su come creare una macchina virtuale con l&quot;interfaccia della riga di comando di Azure 1.0 usando il modello di distribuzione classica.
+title: Creare una VM Linux classica usando l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Informazioni su come creare una macchina virtuale con l'interfaccia della riga di comando di Azure 1.0 usando il modello di distribuzione classica.
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 8ddbacbbb70c0cf1a2537fab4d981a316610a4d7
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Come creare una VM Linux classica con l'interfaccia della riga di comando di Azure 1.0

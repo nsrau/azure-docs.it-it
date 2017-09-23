@@ -1,6 +1,6 @@
 ---
 title: Configurare un metodo di routing del traffico delle prestazioni con Gestione traffico di Azure | Microsoft Docs
-description: "Questo articolo descrive come configurare Gestione traffico per instradare il traffico all&quot;endpoint con latenza più bassa"
+description: "Questo articolo descrive come configurare Gestione traffico per instradare il traffico all'endpoint con latenza più bassa"
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 014aa646459cd64fca7c697419324caa3edaeeea
+ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
 
 ---
@@ -37,9 +38,9 @@ Il metodo di routing del traffico Prestazioni consente di indirizzare il traffic
         2. In **Percorso** immettere una barra */*. Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Una barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita).
         3. Nella parte superiore della pagina fare clic su **Salva**.
 5.  Verificare le modifiche apportate alla configurazione come indicato di seguito:
-    1.    Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico e fare clic su tale profilo nei risultati visualizzati.
-    2.    Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
-    3.    Nel pannello **Profilo di Gestione traffico** viene visualizzato il nome DNS del profilo di Gestione traffico creato. Questo nome può essere usato da qualsiasi client (ad esempio accedendovi tramite un Web browser) per essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso tutte le richieste vengono indirizzate all'endpoint con latenza più bassa dalla rete del client.
+    1.  Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico e fare clic su tale profilo nei risultati visualizzati.
+    2.  Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
+    3.  Nel pannello **Profilo di Gestione traffico** viene visualizzato il nome DNS del profilo di Gestione traffico creato. Questo nome può essere usato da qualsiasi client (ad esempio accedendovi tramite un Web browser) per essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso tutte le richieste vengono indirizzate all'endpoint con latenza più bassa dalla rete del client.
 6. Dopo aver verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico.
 
 ![Configurazione del metodo di routing del traffico delle prestazioni con Gestione traffico][1]

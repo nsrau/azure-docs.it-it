@@ -1,7 +1,7 @@
 
 ---
-title: Usare Azure AD 2.0 per accedere a risorse sicure senza interazione dell&quot;utente | Documentazione Microsoft
-description: Creare applicazioni Web usando l&quot;implementazione del protocollo di autenticazione OAuth 2.0 definita in Azure AD.
+title: Usare Azure AD 2.0 per accedere a risorse sicure senza interazione dell'utente | Documentazione Microsoft
+description: Creare applicazioni Web usando l'implementazione del protocollo di autenticazione OAuth 2.0 definita in Azure AD.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
 ms.contentlocale: it-it
 ms.lasthandoff: 06/08/2017
-
 
 ---
 # Azure Active Directory v2.0 e il flusso di credenziali client OAuth 2.0

@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Alcumus Info Exchange | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Alcumus Info Exchange.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Alcumus Info Exchange.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 1f67682111de0bea1b18fd97d739492661ebbfd9
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Esercitazione: Integrazione di Azure Active Directory con Alcumus Info Exchange

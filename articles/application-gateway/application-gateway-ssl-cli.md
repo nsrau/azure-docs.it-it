@@ -3,7 +3,7 @@ title: Configurare l'offload SSL - Gateway applicazione di Azure - Interfaccia d
 description: Questo articolo contiene istruzioni per creare un gateway applicazione con offload SSL usando l'interfaccia della riga di comando di Azure 2.0.
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 032a514ddab625e4f7c5ef23a1da03a0162f43e3

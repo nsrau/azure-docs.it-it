@@ -20,7 +20,6 @@ ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
 
-
 ---
 
 # <a name="web-application-firewall-waf"></a>Web application firewall (WAF)

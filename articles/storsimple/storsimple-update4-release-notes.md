@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione dell&quot;aggiornamento 4 di StorSimple serie 8000 | Microsoft Docs
-description: "Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell&quot;aggiornamento 4 per StorSimple serie 8000."
+title: Note sulla versione dell'aggiornamento 4 di StorSimple serie 8000 | Microsoft Docs
+description: "Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 4 per StorSimple serie 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/04/2017
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
 ms.openlocfilehash: 23f1bbb066c5b6481988ee841ad8979d78abf084
+ms.contentlocale: it-it
 ms.lasthandoff: 04/05/2017
-
 
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Note sulla versione dell'aggiornamento 4 di StorSimple serie 8000

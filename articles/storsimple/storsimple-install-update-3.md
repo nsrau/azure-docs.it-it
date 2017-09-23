@@ -1,6 +1,6 @@
 ---
-title: Installare l&quot;aggiornamento 3 nel dispositivo StorSimple | Microsoft Docs
-description: Illustra come installare l&quot;aggiornamento 3 di StorSimple serie 8000 in un dispositivo StorSimple serie 8000.
+title: Installare l'aggiornamento 3 nel dispositivo StorSimple | Microsoft Docs
+description: Illustra come installare l'aggiornamento 3 di StorSimple serie 8000 in un dispositivo StorSimple serie 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f48f9dff289c556aea1912ecf7b6415abb902f33
 ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
+ms.contentlocale: it-it
 ms.lasthandoff: 02/28/2017
-
 
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>Installare l'aggiornamento 3 nel dispositivo StorSimple serie 8000

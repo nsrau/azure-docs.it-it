@@ -1,6 +1,6 @@
 ---
-title: Importare un&quot;API in Gestione API di Azure | Documentazione Microsoft
-description: Informazioni su come importare un&quot;API e le relative operazioni in Gestione API di Azure.
+title: Importare un'API in Gestione API di Azure | Documentazione Microsoft
+description: Informazioni su come importare un'API e le relative operazioni in Gestione API di Azure.
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
+ms.contentlocale: it-it
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>Come importare la definizione di un'API con le operazioni in Gestione API di Azure
@@ -93,9 +95,4 @@ Dopo aver creato un'API ed importato le operazioni, è possibile rivedere e conf
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create APIs]: api-management-howto-create-apis.md
 [How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

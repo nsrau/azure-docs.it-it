@@ -1,6 +1,6 @@
 ---
 title: Pannello di riepilogo servizio array virtuale StorSimple | Documentazione Microsoft
-description: "Descrive il pannello di riepilogo servizio per Gestione dispositivi StorSimple e illustra come usarlo per monitorare l&quot;integrità dell&quot;array virtuale StorSimple."
+description: "Descrive il pannello di riepilogo servizio per Gestione dispositivi StorSimple e illustra come usarlo per monitorare l'integrità dell'array virtuale StorSimple."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 284e404c44505a98d9e0ed5abe87cd945415af56
+ms.contentlocale: it-it
 ms.lasthandoff: 01/26/2017
 
 ---

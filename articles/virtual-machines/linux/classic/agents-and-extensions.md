@@ -1,7 +1,7 @@
 
 ---
 title: Agente ed estensioni di macchine virtuali Linux in Azure | Documentazione Microsoft
-description: Fornisce una panoramica dell&quot;agente e delle estensioni e informazioni su come installare l&quot;agente, usando il modello di distribuzione classica su macchine virtuali Linux.
+description: Fornisce una panoramica dell'agente e delle estensioni e informazioni su come installare l'agente, usando il modello di distribuzione classica su macchine virtuali Linux.
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 06b802c408ea5d1b2b40d05321e1a0014e99ca8b
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>Informazioni sull'agente e sulle estensioni di macchine virtuali per Linux

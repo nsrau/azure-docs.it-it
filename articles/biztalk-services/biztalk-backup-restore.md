@@ -20,7 +20,6 @@ ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="biztalk-services-backup-and-restore"></a>Servizi BizTalk: backup e ripristino
 

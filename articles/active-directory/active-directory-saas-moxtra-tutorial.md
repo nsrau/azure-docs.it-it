@@ -19,7 +19,6 @@ ms.openlocfilehash: db2f041a44b6771b0a4f734e58d899298ef0847b
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Esercitazione: integrazione di Azure Active Directory con Moxtra
 

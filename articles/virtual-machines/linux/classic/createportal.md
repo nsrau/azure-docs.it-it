@@ -21,7 +21,6 @@ ms.openlocfilehash: 385102662ef46d7eca51d6e5e10ed7aa77bb1a43
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="create-a-custom-virtual-machine-running-linux"></a>Creare una macchina virtuale personalizzata che esegue Linux
 > [!IMPORTANT] 

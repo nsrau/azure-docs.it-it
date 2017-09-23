@@ -1,6 +1,6 @@
 ---
 title: 'Gestire risorse di account Batch con la libreria client per .NET: Azure | Microsoft Docs'
-description: Creare, eliminare e modificare le risorse dell&quot;account Batch tramite la libreria Batch Management .NET.
+description: Creare, eliminare e modificare le risorse dell'account Batch tramite la libreria Batch Management .NET.
 services: batch
 documentationcenter: .net
 author: tamram
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
 ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
 ms.contentlocale: it-it
 ms.lasthandoff: 04/28/2017
-
 
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gestire le quote e gli account Batch con la libreria client di gestione Batch per .NET

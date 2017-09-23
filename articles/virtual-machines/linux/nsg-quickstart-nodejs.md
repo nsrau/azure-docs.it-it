@@ -1,6 +1,6 @@
 ---
-title: Aprire le porte per una VM Linux con l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l&quot;interfaccia della riga di comando di Azure versione 1.0
+title: Aprire le porte per una VM Linux con l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Informazioni su come aprire una porta o creare un endpoint per la VM Linux tramite il modello di distribuzione Azure Resource Manager e l'interfaccia della riga di comando di Azure versione 1.0
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds

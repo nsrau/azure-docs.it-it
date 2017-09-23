@@ -20,15 +20,10 @@ ms.openlocfilehash: c704ee189072ce8ed196d1ef0a23edd528a10025
 ms.contentlocale: it-it
 ms.lasthandoff: 06/30/2017
 
-
 ---
-<a id="enable-azure-active-directory-domain-services-preview" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-preview"></a>Abilitare Azure Active Directory Domain Services (anteprima)
 
-# Abilitare Azure Active Directory Domain Services (anteprima)
-
-<a id="task-4-update-dns-settings-for-the-azure-virtual-network" class="xliff"></a>
-
-## Attività 4: Aggiornare le impostazioni DNS per la rete virtuale di Azure
+## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Attività 4: Aggiornare le impostazioni DNS per la rete virtuale di Azure
 Nelle attività di configurazione precedenti è stata completata l'abilitazione di Azure Active Directory Domain Services per la directory. L'attività successiva consiste nell'assicurarsi che i computer della rete virtuale possano connettersi a questi servizi e utilizzarli. In questo articolo si aggiorneranno le impostazioni del server DNS per la rete virtuale in modo che puntino ai due indirizzi IP in cui è disponibile Azure Active Directory Domain Services nella rete virtuale.
 
 Per aggiornare l'impostazione del server DNS per la rete virtuale in cui è stato abilitato Azure Active Directory Domain Services, seguire questa procedura:
@@ -52,8 +47,6 @@ Per aggiornare l'impostazione del server DNS per la rete virtuale in cui è stat
 >
 >
 
-<a id="next-step" class="xliff"></a>
-
-## Passaggio successivo
+## <a name="next-step"></a>Passaggio successivo
 [Attività 5: Abilitare la sincronizzazione password con Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
 

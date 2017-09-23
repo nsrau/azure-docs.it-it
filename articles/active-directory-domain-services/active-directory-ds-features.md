@@ -20,7 +20,6 @@ ms.openlocfilehash: 8005be7ded6ea005af086aeaf594963a5f2d4ac2
 ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
 
-
 ---
 # <a name="azure-ad-domain-services"></a>Servizi di dominio Azure Active Directory
 ## <a name="features"></a>Funzionalità

@@ -20,7 +20,6 @@ ms.openlocfilehash: c33e132037d95fa92fd59a8243a9a8a351ae0224
 ms.contentlocale: it-it
 ms.lasthandoff: 06/17/2017
 
-
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Piattaforme supportate nel Centro sicurezza di Azure
 Il monitoraggio dello stato della sicurezza e le indicazioni in merito sono disponibili per le macchine virtuali create usando i modelli di distribuzione classica e Resource Manager.

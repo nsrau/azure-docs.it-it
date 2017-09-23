@@ -1,6 +1,6 @@
 ---
 title: Soluzioni in Operations Management Suite (OMS) | Microsoft Docs
-description: "Le soluzioni consentono di estendere la funzionalità di Operations Management Suite (OMS) offrendo scenari di gestione in pacchetto che i clienti possono aggiungere all&quot;area di lavoro OMS.  Questo articolo fornisce informazioni dettagliate sulle soluzioni personalizzate create dai clienti e dai partner."
+description: "Le soluzioni consentono di estendere la funzionalità di Operations Management Suite (OMS) offrendo scenari di gestione in pacchetto che i clienti possono aggiungere all'area di lavoro OMS.  Questo articolo fornisce informazioni dettagliate sulle soluzioni personalizzate create dai clienti e dai partner."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 2443dd73fdf441721bd6f6f340da515d9f5a22a2
+ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
-
 
 ---
 # <a name="working-with-management-solutions-in-operations-management-suite-oms-preview"></a>Utilizzo di soluzioni di gestione in Operations Management Suite (OMS) (anteprima)

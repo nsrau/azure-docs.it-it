@@ -20,7 +20,6 @@ ms.openlocfilehash: 974230f349aec46fde58e69658e05a13bff4296f
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="azure-resource-manager-template-deployment---azure-cli-script"></a>Distribuzione di modelli di Azure Resource Manager - Script dell'interfaccia della riga di comando di Azure
 

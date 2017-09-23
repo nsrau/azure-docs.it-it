@@ -20,7 +20,6 @@ ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
 ms.contentlocale: it-it
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Avviso di ritiro della famiglia di sistemi operativi guest 1
 Il ritiro della famiglia di sistemi operativi guest 1 è stato annunciato il 1° giugno 2013.

@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio e ottimizzazione delle prestazioni nel database SQL di Azure | Microsoft Docs
-description: Suggerimenti per l&quot;ottimizzazione delle prestazioni nel database SQL di Azure tramite valutazione e miglioramento.
+description: Suggerimenti per l'ottimizzazione delle prestazioni nel database SQL di Azure tramite valutazione e miglioramento.
 services: sql-database
 documentationcenter: 
 author: v-shysun
@@ -21,7 +21,6 @@ ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 7a2f1199a56e0bd32eafef9f420879c756673e7f
 ms.contentlocale: it-it
 ms.lasthandoff: 06/14/2017
-
 
 ---
 # <a name="monitoring-and-performance-tuning"></a>Monitoraggio e ottimizzazione delle prestazioni

@@ -22,7 +22,6 @@ ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
 ms.contentlocale: it-it
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Come usare ridimensionamento automatico e set di scalabilità di macchine virtuali
 Il ridimensionamento automatico delle macchine virtuali in un set di scalabilità consiste nella creazione o nell'eliminazione di macchine nel set in base alle esigenze per soddisfare i requisiti a livello di prestazioni. Man mano che aumenta il volume di lavoro, è possibile che un'applicazione richieda risorse aggiuntive per poter eseguire le attività in modo efficace.

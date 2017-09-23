@@ -20,7 +20,6 @@ ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo
 ## <a name="overview"></a>Panoramica

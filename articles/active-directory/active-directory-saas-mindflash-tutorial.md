@@ -19,7 +19,6 @@ ms.openlocfilehash: 90de7b6a82d88f9407a35fbfebe8a652928d76cd
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Esercitazione: Integrazione di Azure Active Directory con Mindflash
 

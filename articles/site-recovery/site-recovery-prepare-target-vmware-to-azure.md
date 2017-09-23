@@ -1,6 +1,6 @@
 ---
 title: Preparare la destinazione (da VMware ad Azure) | Documentazione Microsoft
-description: Questo articolo descrive come preparare l&quot;ambiente Azure per avviare la replica di macchine virtuali VMware in Azure.
+description: Questo articolo descrive come preparare l'ambiente Azure per avviare la replica di macchine virtuali VMware in Azure.
 services: site-recovery
 documentationcenter: 
 author: bsiva

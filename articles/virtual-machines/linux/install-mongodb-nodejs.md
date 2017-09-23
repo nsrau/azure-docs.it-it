@@ -1,5 +1,5 @@
 ---
-title: Installare MongoDB in una VM Linux usando l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+title: Installare MongoDB in una VM Linux usando l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
 description: Informazioni su come installare e configurare MongoDB su una macchina virtuale Linux in Azure usando il modello di distribuzione di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: 
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
 ms.contentlocale: it-it
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Come installare e configurare MongoDB in una VM Linux usando l'interfaccia della riga di comando di Azure 1.0

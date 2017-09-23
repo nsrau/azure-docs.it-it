@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: ecb4fb4608628f5a1bd54fac6af19fecfa4508f2
+ms.contentlocale: it-it
 ms.lasthandoff: 02/28/2017
-
 
 ---
 # <a name="manage-network-security-groups-using-the-azure-portal"></a>Gestire i gruppi di sicurezza di rete mediante il portale di Azure

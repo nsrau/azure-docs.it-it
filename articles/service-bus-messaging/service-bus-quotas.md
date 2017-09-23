@@ -20,7 +20,6 @@ ms.openlocfilehash: 9a364adad3342b211a647eb743776a47812b75f4
 ms.contentlocale: it-it
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="service-bus-quotas"></a>Quote del bus di servizio
 In questa sezione vengono elencate le quote di base e le soglie di limitazione della messaggistica del bus di servizio di Microsoft Azure.

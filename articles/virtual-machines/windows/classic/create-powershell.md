@@ -21,7 +21,6 @@ ms.openlocfilehash: bd14d9902f4061965c008454a14f91d3927f5b99
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Creare macchine virtuali Windows con il modello di distribuzione classica e PowerShell
 > [!div class="op_single_selector"]

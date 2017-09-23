@@ -1,6 +1,6 @@
 ---
 title: Interfaccia utente di Azure Mobile Engagement - Dashboard
-description: Informazioni su come visualizzare e gestire i grafici dei dati relativi all&quot;applicazione usando Azure Mobile Engagement
+description: Informazioni su come visualizzare e gestire i grafici dei dati relativi all'applicazione usando Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
-
 
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Come visualizzare e gestire i grafici dei dati relativi all'applicazione

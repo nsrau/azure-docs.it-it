@@ -1,6 +1,6 @@
 ---
-title: "Trasformare dati usando l&quot;attività Hive - Azure | Documentazione Microsoft"
-description: "Informazioni su come usare l&quot;attività Hive in una data factory di Azure per eseguire query Hive in un cluster HDInsight su richiesta o nel proprio cluster HDInsight."
+title: "Trasformare dati usando l'attività Hive - Azure | Documentazione Microsoft"
+description: "Informazioni su come usare l'attività Hive in una data factory di Azure per eseguire query Hive in un cluster HDInsight su richiesta o nel proprio cluster HDInsight."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -19,7 +19,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: a3e9b2d0a8c851939acd228d8086ddfc9f38a4c1
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 

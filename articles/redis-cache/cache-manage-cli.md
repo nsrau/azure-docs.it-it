@@ -1,6 +1,6 @@
 ---
-title: Gestire Cache Redis di Azure con l&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Come installare l&quot;interfaccia della riga di comando di Azure su qualsiasi piattaforma, come utilizzarla per connettersi all&quot;account Azure e come creare e gestire una Cache Redis dall&quot;interfaccia della riga di comando di Azure.
+title: Gestire Cache Redis di Azure con l'interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Come installare l'interfaccia della riga di comando di Azure su qualsiasi piattaforma, come utilizzarla per connettersi all'account Azure e come creare e gestire una Cache Redis dall'interfaccia della riga di comando di Azure.
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
+ms.contentlocale: it-it
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Come creare e gestire Cache Redis di Azure tramite l'interfaccia della riga di comando di Azure (Azure CLI)

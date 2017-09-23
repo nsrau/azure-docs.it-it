@@ -21,7 +21,6 @@ ms.openlocfilehash: 5e9f54a666799147cee8d8b5af5fd8aa3bac1780
 ms.contentlocale: it-it
 ms.lasthandoff: 05/18/2017
 
-
 ---
 # <a name="troubleshoot-access-to-an-application-running-on-a-windows-virtual-machine-in-azure"></a>Risoluzione dei problemi di accesso a un'applicazione in esecuzione in una macchina virtuale Windows in Azure
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]

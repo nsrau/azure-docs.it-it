@@ -19,7 +19,6 @@ ms.openlocfilehash: ce63726d2406d2f1415d29786f0ef92ca95b9b90
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Esercitazione: Integrazione di Azure Active Directory con OpsGenie
 

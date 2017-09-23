@@ -1,6 +1,6 @@
 ---
-title: Informazioni sulla messaggistica da dispositivo a cloud dell&quot;hub IoT di Azure | Microsoft Docs
-description: 'Guida per gli sviluppatori: come usare la messaggistica da dispositivo a cloud con l&quot;hub IoT. Include informazioni sull&quot;invio di dati di telemetria e non e sull&quot;uso del routing per recapitare i messaggi.'
+title: Informazioni sulla messaggistica da dispositivo a cloud dell'hub IoT di Azure | Microsoft Docs
+description: 'Guida per gli sviluppatori: come usare la messaggistica da dispositivo a cloud con l''hub IoT. Include informazioni sull''invio di dati di telemetria e non e sull''uso del routing per recapitare i messaggi.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/19/2017
 ms.author: dobett
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: d856e26084ee79386a2e8e0e527804bda86b477b
 ms.contentlocale: it-it
 ms.lasthandoff: 05/31/2017
-
 
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Inviare messaggi da dispositivo a cloud all'hub IoT

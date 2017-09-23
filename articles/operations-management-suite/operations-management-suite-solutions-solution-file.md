@@ -1,6 +1,6 @@
 ---
 title: Creazione di soluzioni di gestione in Operations Management Suite (OMS) | Documentazione Microsoft
-description: "Le soluzioni di gestione estendono la funzionalità di Operations Management Suite (OMS) offrendo scenari di gestione in pacchetto che i clienti possono aggiungere all&quot;area di lavoro OMS.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti."
+description: "Le soluzioni di gestione estendono la funzionalità di Operations Management Suite (OMS) offrendo scenari di gestione in pacchetto che i clienti possono aggiungere all'area di lavoro OMS.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
 ms.contentlocale: it-it
 ms.lasthandoff: 05/09/2017
-
 
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Creazione di una soluzione di gestione in Operations Management Suite (OMS) (anteprima)

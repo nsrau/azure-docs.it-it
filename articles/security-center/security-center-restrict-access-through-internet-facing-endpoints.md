@@ -1,6 +1,6 @@
 ---
-title: Limitare l&quot;accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure | Documentazione Microsoft
-description: In questo documento viene illustrato come implementare l&quot;indicazione del Centro sicurezza di Azure **Limita l&quot;accesso tramite un endpoint con connessione Internet**.
+title: Limitare l'accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure | Documentazione Microsoft
+description: In questo documento viene illustrato come implementare l'indicazione del Centro sicurezza di Azure **Limita l'accesso tramite un endpoint con connessione Internet**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
 ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
+ms.contentlocale: it-it
 ms.lasthandoff: 02/06/2017
-
 
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Limitare l'accesso tramite endpoint con connessione Internet in Centro sicurezza di Azure

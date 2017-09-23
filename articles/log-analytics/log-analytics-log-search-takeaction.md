@@ -1,5 +1,5 @@
 ---
-title: Operazioni su un runbook di automazione di Azure avviato dall&quot;utente in Log Analytics | Microsoft Docs
+title: Operazioni su un runbook di automazione di Azure avviato dall'utente in Log Analytics | Microsoft Docs
 description: Questo articolo descrive come eseguire un runbook di automazione on demand dai risultati della ricerca di Log Analytics.
 services: log-analytics
 documentationcenter: 

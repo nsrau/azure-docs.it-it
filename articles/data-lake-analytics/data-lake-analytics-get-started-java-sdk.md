@@ -20,7 +20,6 @@ ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
 ms.contentlocale: it-it
 ms.lasthandoff: 06/20/2017
 
-
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Introduzione ad Azure Data Lake Analytics con Java SDK
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]

@@ -1,6 +1,6 @@
 ---
 title: Modificare la password amministratore del dispositivo virtuale StorSimple | Documentazione Microsoft
-description: In questo articolo viene descritto come usare il portale di Azure o l&quot;interfaccia utente Web dell&quot;array virtuale StorSimple per modificare la password amministratore del dispositivo.
+description: In questo articolo viene descritto come usare il portale di Azure o l'interfaccia utente Web dell'array virtuale StorSimple per modificare la password amministratore del dispositivo.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,9 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f37fd4de0d6895f55508d1a51d981a047be15031
 ms.openlocfilehash: 260a23003d705e6598da8c51bb5a96f2539a0014
+ms.contentlocale: it-it
 ms.lasthandoff: 03/01/2017
 
 ---

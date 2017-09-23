@@ -1,6 +1,6 @@
 ---
 title: Gestire i gruppi di sicurezza di rete - interfaccia della riga di comando 1.0 di Azure | Documentazione Microsoft
-description: Informazioni su come gestire i gruppi di sicurezza di rete usando l&quot;interfaccia della riga di comando di Azure 1.0
+description: Informazioni su come gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure 1.0
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
 ms.openlocfilehash: 2e53c3ff2ffbef95d6b72ca6afb3b4de377f0389
+ms.contentlocale: it-it
 ms.lasthandoff: 02/28/2017
-
 
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli-10"></a>Gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando 1.0 di Azure

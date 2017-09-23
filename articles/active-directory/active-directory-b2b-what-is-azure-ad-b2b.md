@@ -23,7 +23,6 @@ ms.openlocfilehash: fbc12a52555b190d43b5e953fd4d19923a25b0ed
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 
 # <a name="what-is-azure-ad-b2b-collaboration"></a>Informazioni su Collaborazione B2B di Azure AD

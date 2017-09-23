@@ -20,7 +20,6 @@ ms.openlocfilehash: 8b580ac239bfb6d7b633fb03d4cfb91b168b0610
 ms.contentlocale: it-it
 ms.lasthandoff: 05/25/2017
 
-
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Pianificare la capacità e la scalabilità per la replica VMware con Azure Site Recovery
 

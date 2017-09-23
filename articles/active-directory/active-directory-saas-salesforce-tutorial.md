@@ -19,7 +19,6 @@ ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
 ms.contentlocale: it-it
 ms.lasthandoff: 06/23/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Esercitazione: Integrazione di Azure Active Directory con Salesforce
 

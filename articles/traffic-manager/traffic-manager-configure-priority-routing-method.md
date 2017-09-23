@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
 ms.openlocfilehash: 0db83cde6facc89b8b8aa72e6419129ec868235c
+ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
 
 ---
@@ -44,9 +45,9 @@ Un modello comune per il failover del servizio consiste nell'invio di traffico a
 8. Fare clic su **Salva** per salvare e modificare le impostazioni dell'endpoint.
 9. Dopo aver completato le modifiche di configurazione, fare clic su **Salva** nella parte inferiore della pagina.
 10. Verificare le modifiche apportate alla configurazione come riportato di seguito:
-    1.    Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico e fare clic su tale profilo nei risultati visualizzati.
-    2.    Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
-    3.    Il pannello **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) per essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso, tutte le richieste vengono instradate al primo endpoint e, se Gestione traffico rileva che tale endpoint non è integro, viene eseguito automaticamente il failover del traffico sull'endpoint successivo.
+    1.  Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico e fare clic su tale profilo nei risultati visualizzati.
+    2.  Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
+    3.  Il pannello **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) per essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso, tutte le richieste vengono instradate al primo endpoint e, se Gestione traffico rileva che tale endpoint non è integro, viene eseguito automaticamente il failover del traffico sull'endpoint successivo.
 11. Dopo aver verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico.
 
 ![Configurare il metodo di routing del traffico Priorità in Gestione traffico][1]

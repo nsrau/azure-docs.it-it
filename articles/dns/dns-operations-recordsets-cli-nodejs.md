@@ -1,6 +1,6 @@
 ---
-title: Gestire record DNS in DNS di Azure usando l&quot;interfaccia della riga di comando 1.0 | Microsoft Docs
-description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi dell&quot;interfaccia della riga di comando 1.0 per le operazioni sui set di record e i record.
+title: Gestire record DNS in DNS di Azure usando l'interfaccia della riga di comando 1.0 | Microsoft Docs
+description: Gestione dei set di record e dei record DNS in DNS di Azure quando si ospita il dominio in DNS di Azure. Tutti i comandi dell'interfaccia della riga di comando 1.0 per le operazioni sui set di record e i record.
 services: dns
 documentationcenter: na
 author: jtuliani

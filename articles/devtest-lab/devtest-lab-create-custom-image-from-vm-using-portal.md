@@ -1,6 +1,6 @@
 ---
-title: Creare un&quot;immagine personalizzata di Azure DevTest Labs da una VM | Documentazione Microsoft
-description: Informazioni su come creare un&quot;immagine personalizzata in Azure DevTest Labs da una VM predisposta usando il portale di Azure
+title: Creare un'immagine personalizzata di Azure DevTest Labs da una VM | Documentazione Microsoft
+description: Informazioni su come creare un'immagine personalizzata in Azure DevTest Labs da una VM predisposta usando il portale di Azure
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 38d70ed302eeab912ce4fe33272f85e96f1b1eda
 ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -61,9 +62,4 @@ ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
 ##<a name="next-steps"></a>Passaggi successivi
 
 - [Aggiungere una macchina virtuale all'ambiente lab](./devtest-lab-add-vm-with-artifacts.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

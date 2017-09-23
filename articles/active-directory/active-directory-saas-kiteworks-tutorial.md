@@ -19,7 +19,6 @@ ms.openlocfilehash: 2fd9b346cb6d838069ef94ee9c2a8d113f22779c
 ms.contentlocale: it-it
 ms.lasthandoff: 06/24/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Esercitazione Integrazione di Azure Active Directory con Kiteworks
 

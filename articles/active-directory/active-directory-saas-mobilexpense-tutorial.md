@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con MobileXpense | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e MobileXpense.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e MobileXpense.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 030a1fc9f36d6fcfa607552d85ce232e36eaa64b
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobilexpense"></a>Esercitazione: Integrazione di Azure Active Directory con MobileXpense

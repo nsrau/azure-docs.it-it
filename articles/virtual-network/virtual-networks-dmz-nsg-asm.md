@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: cb2e480a45871ad0c956dc976de955ca48ecdfd0
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/05/2017
 
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Esempio 1: creare una semplice rete perimetrale usando un NSG con PowerShell classico
@@ -589,10 +590,5 @@ Se si vuole installare un'applicazione di esempio per questo e altri esempi di r
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore Excel | Documentazione Microsoft
-description: Panoramica del connettore Excel con i parametri dell&quot;API REST
+description: Panoramica del connettore Excel con i parametri dell'API REST
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 4d62bee573aba4c8b0445b1f4c44190496fb3a18
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-excel-connector"></a>Introduzione al connettore Excel

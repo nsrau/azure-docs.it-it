@@ -20,7 +20,6 @@ ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
 ms.contentlocale: it-it
 ms.lasthandoff: 05/03/2017
 
-
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migrazione dal modello classico al modello Resource Manager con gateway VPN
 I gateway VPN possono ora essere migrati dal modello di distribuzione classica a quello Resource Manager. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Questo articolo descrive in dettaglio come eseguire la migrazione da distribuzioni classiche al modello più recente basato su Resource Manager. 

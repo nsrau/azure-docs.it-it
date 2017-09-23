@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate e modelli per la sicurezza di Azure | Documentazione Microsoft
-description: L&quot;articolo contiene un&quot;introduzione alle procedure consigliate e ai modelli per la sicurezza di Azure e un elenco dettagliato di procedure consigliate per la sicurezza per diverse risorse di Azure.
+description: L'articolo contiene un'introduzione alle procedure consigliate e ai modelli per la sicurezza di Azure e un elenco dettagliato di procedure consigliate per la sicurezza per diverse risorse di Azure.
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
+ms.contentlocale: it-it
 ms.lasthandoff: 03/07/2017
-
 
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Procedure consigliate e modelli per la sicurezza di Azure

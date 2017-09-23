@@ -1,6 +1,6 @@
 ---
-title: Integrazione degli avvisi del Centro sicurezza di Azure con l&quot;integrazione dei log di Azure | Microsoft Docs
-description: Questo articolo consente di iniziare a usare gli avvisi del Centro sicurezza con l&quot;integrazione dei log di Azure.
+title: Integrazione degli avvisi del Centro sicurezza di Azure con l'integrazione dei log di Azure | Microsoft Docs
+description: Questo articolo consente di iniziare a usare gli avvisi del Centro sicurezza con l'integrazione dei log di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: d13e5b87c446e587091551b22d80fe568d5d8093
+ms.contentlocale: it-it
 ms.lasthandoff: 04/07/2017
-
 
 ---
 # <a name="integrating-azure-security-center-alerts-with-azure-log-integration"></a>Integrazione degli avvisi del Centro sicurezza di Azure con l'integrazione dei log di Azure

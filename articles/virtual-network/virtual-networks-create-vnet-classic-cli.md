@@ -1,6 +1,6 @@
 ---
-title: Creare una rete virtuale usando l&quot;interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come creare una rete virtuale usando l&quot;interfaccia della riga di comando di Azure  in Gestione risorse di Azure | Gestione risorse.
+title: Creare una rete virtuale usando l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come creare una rete virtuale usando l'interfaccia della riga di comando di Azure  in Gestione risorse di Azure | Gestione risorse.
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 457b5a39e3b23497b59558659d7098481aca1e6b
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-cli"></a>Creare una rete virtuale (classica) usando l'interfaccia della riga di comando di Azure
@@ -33,10 +34,5 @@ In questo documento viene illustrata la creazione di una rete virtuale utilizzan
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-classic-cli-include](../../includes/virtual-networks-create-vnet-classic-cli-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

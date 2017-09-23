@@ -20,7 +20,6 @@ ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
 
-
 ---
 # <a name="set-name-and-type-for-child-resource-in-resource-manager-template"></a>Impostare il nome e il tipo di una risorsa figlio in un modello di Resource Manager
 Quando si crea un modello, è spesso necessario includere una risorsa figlio correlata a una risorsa padre. Il modello, ad esempio, potrebbe includere un'istanza di SQL Server e un database. L'istanza di SQL Server è la risorsa padre e il database è la risorsa figlio. 

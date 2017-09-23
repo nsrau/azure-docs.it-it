@@ -1,6 +1,6 @@
 ---
-title: Informazioni sull&quot;endpoint predefinito dell&quot;hub IoT di Azure | Microsoft Docs
-description: 'Guida per gli sviluppatori: descrizione dell&quot;uso dell&quot;endpoint predefinito compatibile con l&quot;hub eventi per la lettura dei messaggi da dispositivo a cloud.'
+title: Informazioni sull'endpoint predefinito dell'hub IoT di Azure | Microsoft Docs
+description: 'Guida per gli sviluppatori: descrizione dell''uso dell''endpoint predefinito compatibile con l''hub eventi per la lettura dei messaggi da dispositivo a cloud.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -18,7 +18,6 @@ ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: fcc3743028e369fdc42b71887d49fb41fba2c0dc
 ms.contentlocale: it-it
 ms.lasthandoff: 06/03/2017
-
 
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito

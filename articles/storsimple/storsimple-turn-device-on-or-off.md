@@ -21,7 +21,6 @@ ms.openlocfilehash: 0577c837e0c47ba37a4f586603b0f5b951f1b549
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Attivare o disattivare il dispositivo StorSimple serie 8000
 ## <a name="overview"></a>Panoramica

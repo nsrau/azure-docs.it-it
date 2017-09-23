@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: jonatul
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bae6cf7f5025936deba301dc4fd05f6fd5fd8fa6
 ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
+ms.contentlocale: it-it
+ms.lasthandoff: 01/20/2017
 
 ---
 
@@ -104,10 +106,5 @@ Nomi di record SRV di esempio ("sip" indica il nome del servizio, "tcp" il proto
 * Informazioni sulle [zone e sui record di DNS di Azure](dns-zones-records.md)
 * Per iniziare a usare DNS di Azure, è necessario sapere come [creare una zona DNS](dns-getstarted-create-dnszone-portal.md) e come [creare record DNS](dns-getstarted-create-recordset-portal.md).
 * Per eseguire la migrazione di una zona DNS esistente, è necessario saper [importare ed esportare un file di zona DNS](dns-import-export.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

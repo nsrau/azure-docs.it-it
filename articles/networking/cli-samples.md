@@ -1,6 +1,6 @@
 ---
-title: Esempi dell&quot;interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Esempi dell&quot;interfaccia della riga di comando di Azure
+title: Esempi dell'interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Esempi dell'interfaccia della riga di comando di Azure
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 7977460f61bfdabd399e45e86d9bbf2e5083992b
 ms.contentlocale: it-it
 ms.lasthandoff: 05/10/2017
-
 
 ---
 # <a name="azure-cli-samples-for-networking"></a>Esempi dell'interfaccia della riga di comando di Azure per la rete

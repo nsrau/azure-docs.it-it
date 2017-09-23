@@ -1,5 +1,5 @@
 ---
-title: Montare Archiviazione file di Azure in VM Linux usando SMB con l&quot;interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
+title: Montare Archiviazione file di Azure in VM Linux usando SMB con l'interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
 description: Come montare Archiviazione file di Azure in VM Linux usando SMB
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/07/2016
 ms.author: v-livech
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 4951860630f0aad107d0846d52ebe4423ee0b91c
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 

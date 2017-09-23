@@ -20,7 +20,6 @@ ms.openlocfilehash: df3ae8bf775370432b3648459a7c942afe69fb17
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>Utilizzare il servizio StorSimple Manager per gestire i modelli di larghezza di banda StorSimple.
 ## <a name="overview"></a>Overview

@@ -1,6 +1,6 @@
 ---
 title: Preparare la destinazione (da fisico ad Azure) | Documentazione Microsoft
-description: Questo articolo descrive come preparare l&quot;ambiente di Azure per avviare la replica di server fisici che eseguono Windows o Linux in Azure.
+description: Questo articolo descrive come preparare l'ambiente di Azure per avviare la replica di server fisici che eseguono Windows o Linux in Azure.
 services: site-recovery
 documentationcenter: 
 author: bsiva

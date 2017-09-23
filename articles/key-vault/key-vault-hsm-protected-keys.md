@@ -20,14 +20,9 @@ ms.openlocfilehash: f481de9d7eb23531b4be82c3b61e4f3850bed72e
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
-<a id="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault" class="xliff"></a>
-
-# Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
-<a id="introduction" class="xliff"></a>
-
-## Introduzione
+# <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure
+## <a name="introduction"></a>Introduzione
 Per una maggiore sicurezza, quando si usa l'insieme di credenziali delle chiavi di Azure è possibile importare o generare le chiavi in moduli di protezione hardware (HSM) che rimangono sempre entro il limite HSM. Questo scenario viene spesso definito con il termine modalità *Bring Your Own Key*o BYOK. I moduli di protezione hardware sono certificati per FIPS 140-2 livello 2. L'insieme di credenziali delle chiavi di Azure usa la famiglia di HSM nShield di Thales per proteggere le chiavi.
 
 Questo argomento include informazioni utili per pianificare, generare e quindi trasferire le proprie chiavi protette da HSM da usare con l'insieme di credenziali delle chiavi di Azure.
@@ -50,21 +45,15 @@ Altre informazioni su generazione e trasferimento di una chiave HSM protetta tra
 * Il set di strumenti include un'attestazione di Thales che dichiara che anche l'ambiente di sicurezza dell'insieme di credenziali delle chiavi di Azure è stato generato in un modulo di protezione hardware originale prodotto da Thales. Questo attestato conferma che Microsoft usa hardware originale.
 * Microsoft usa certificati KEK separati e ambienti di sicurezza separati in ogni area geografica. Questa separazione assicura che la chiave possa essere usata solo nei data center appartenenti all'area in cui è stata crittografata. Una chiave di un cliente europeo, ad esempio, non può essere usata in data center che si trovano in America del Nord o in Asia.
 
-<a id="more-information-about-thales-hsms-and-microsoft-services" class="xliff"></a>
-
-## Altre informazioni sui moduli di protezione hardware di Thales e sui servizi di Microsoft
+## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Altre informazioni sui moduli di protezione hardware di Thales e sui servizi di Microsoft
 Thales e-Security è un fornitore leader a livello mondiale di soluzioni di crittografia dei dati e di sicurezza informatica per i settori finanziario, tecnologico, manifatturiero e pubblico. Basate su un'esperienza di 40 anni nella protezione di informazioni aziendali e degli enti pubblici, le soluzioni Thales vengono usate da quattro delle cinque maggiori società dei settori energetico e aerospaziale, in 22 paesi NATO, e consentono di proteggere più dell'80 percento delle transazioni di pagamento in tutto il mondo.
 
 Microsoft ha collaborato con Thales per migliorare il livello tecnologico dei moduli di protezione hardware per consentire all'utente di sfruttare i vantaggi tipici dei servizi ospitati senza perdere il controllo sulle proprie chiavi. In particolare, tali miglioramenti consentono a Microsoft di gestire i moduli di protezione hardware in modo che questa operazione non debba essere eseguita dall'utente. In quanto servizio cloud, l'insieme di credenziali delle chiavi di Azure è in grado di supportare la scalabilità verticale con breve preavviso per soddisfare i picchi d'uso dell'organizzazione. Contemporaneamente, la chiave è protetta all'interno dei moduli di protezione hardware di Microsoft e l'utente mantiene il controllo sul ciclo di vita della chiave, perché genera la chiave e la trasferisce ai moduli di protezione hardware di Microsoft.
 
-<a id="implementing-bring-your-own-key-byok-for-azure-key-vault" class="xliff"></a>
-
-## Implementazione di BYOK (Bring Your Own Key) per l'insieme di credenziali delle chiavi di Azure
+## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Implementazione di BYOK (Bring Your Own Key) per l'insieme di credenziali delle chiavi di Azure
 Usare le informazioni e le procedure seguenti se si genera una chiave HSM protetta e quindi la si trasferisce all'insieme di credenziali delle chiavi di Azure, ovvero lo scenario BYOK (Bring Your Own Key).
 
-<a id="prerequisites-for-byok" class="xliff"></a>
-
-## Prerequisiti per la modalità BYOK
+## <a name="prerequisites-for-byok"></a>Prerequisiti per la modalità BYOK
 Nella tabella seguente sono elencati i prerequisiti relativi alla modalità BYOK per l'insieme di credenziali delle chiavi di Azure.
 
 | Requisito | Altre informazioni |
@@ -74,9 +63,7 @@ Nella tabella seguente sono elencati i prerequisiti relativi alla modalità BYOK
 | Moduli di protezione hardware Thales, smart card e software di supporto |È necessario avere l'accesso ai moduli di protezione hardware Thales e averne una conoscenza a livello operativo. Per l'elenco dei modelli compatibili o per acquistare un modulo di protezione hardware qualora non se ne sia già in possesso, vedere la pagina relativa ai [moduli di protezione hardware Thales](https://www.thales-esecurity.com/msrms/buy) . |
 | Componenti hardware e software seguenti:<ol><li>Una workstation x64 offline con Windows 7 come versione minima del sistema operativo Windows e software Thales nShield con versione minima 11.50.<br/><br/>Se questa workstation esegue Windows 7, è necessario [installare Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una workstation connessa a Internet con sistema operativo Windows 7 o versione successiva e con [Azure PowerShell](/powershell/azure/overview) **1.1.0** o versione successiva installato.</li><li>Unità USB o un altro dispositivo di archiviazione portatile con almeno 16 MB di spazio disponibile.</li></ol> |Per motivi di sicurezza, si consiglia che la prima workstation non sia connessa a una rete. Questa indicazione tuttavia non viene applicata a livello di codice.<br/><br/>Si noti che nelle istruzioni seguenti questa workstation viene indicata come workstation disconnessa.</p></blockquote><br/>Se inoltre la propria chiave del tenant è destinata a essere usata in una rete di produzione, si consiglia di usare una seconda workstation separata per scaricare il set di strumenti e caricare la chiave del tenant. A scopo di test è comunque possibile usare la prima workstation.<br/><br/>Si noti che nelle istruzioni seguenti la seconda workstation viene indicata come workstation connessa a Internet.</p></blockquote><br/> |
 
-<a id="generate-and-transfer-your-key-to-azure-key-vault-hsm" class="xliff"></a>
-
-## Generare e trasferire la chiave al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure
+## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generare e trasferire la chiave al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure
 Per generare e trasferire la chiave al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure, eseguire i cinque passaggi seguenti:
 
 * [Passaggio 1: Preparare la workstation connessa a Internet](#step-1-prepare-your-internet-connected-workstation)
@@ -85,21 +72,15 @@ Per generare e trasferire la chiave al modulo di protezione hardware dell'insiem
 * [Passaggio 4: Preparare la chiave per il trasferimento](#step-4-prepare-your-key-for-transfer)
 * [Passaggio 5: Trasferire la chiave all'insieme di credenziali delle chiavi di Azure](#step-5-transfer-your-key-to-azure-key-vault)
 
-<a id="step-1-prepare-your-internet-connected-workstation" class="xliff"></a>
-
-## Passaggio 1: Preparare la workstation connessa a Internet
+## <a name="step-1-prepare-your-internet-connected-workstation"></a>Passaggio 1: Preparare la workstation connessa a Internet
 Per questo primo passaggio è necessario eseguire le procedure seguenti nella workstation connessa a Internet.
 
-<a id="step-11-install-azure-powershell" class="xliff"></a>
-
-### Passaggio 1.1: Installare Azure PowerShell
+### <a name="step-11-install-azure-powershell"></a>Passaggio 1.1: Installare Azure PowerShell
 Dalla workstation connessa a Internet scaricare e installare il modulo di Azure PowerShell che include i cmdlet per la gestione dell'insieme di credenziali delle chiavi di Azure. È necessaria la versione minima 0.8.13.
 
 Per le istruzioni di installazione, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-<a id="step-12-get-your-azure-subscription-id" class="xliff"></a>
-
-### Passaggio 1.2: Ottenere l'ID sottoscrizione di Azure
+### <a name="step-12-get-your-azure-subscription-id"></a>Passaggio 1.2: Ottenere l'ID sottoscrizione di Azure
 Avviare una sessione di Azure PowerShell e accedere al proprio account Azure con il comando seguente:
 
         Add-AzureAccount
@@ -110,9 +91,7 @@ Nell'output individuare l'ID della sottoscrizione che si userà per l'insieme di
 
 Non chiudere la finestra di Azure PowerShell.
 
-<a id="step-13-download-the-byok-toolset-for-azure-key-vault" class="xliff"></a>
-
-### Passaggio 1.3: Scaricare il set di strumenti BYOK per l'insieme di credenziali delle chiavi di Azure
+### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>Passaggio 1.3: Scaricare il set di strumenti BYOK per l'insieme di credenziali delle chiavi di Azure
 Accedere all'Area download Microsoft e [scaricare il set di strumenti BYOK per l'insieme di credenziali delle chiavi di Azure](http://www.microsoft.com/download/details.aspx?id=45345) per la propria area geografica o istanza di Azure. Usare le informazioni seguenti per identificare il nome del pacchetto da scaricare e il relativo hash del pacchetto SHA-256:
 
 - - -
@@ -222,14 +201,10 @@ Il set di strumenti include gli elementi seguenti:
 
 Copiare il pacchetto in un'unità USB o in un altro dispositivo di archiviazione portatile.
 
-<a id="step-2-prepare-your-disconnected-workstation" class="xliff"></a>
-
-## Passaggio 2: Preparare la workstation disconnessa
+## <a name="step-2-prepare-your-disconnected-workstation"></a>Passaggio 2: Preparare la workstation disconnessa
 Per questo secondo passaggio eseguire le procedure seguenti nella workstation non connessa alla rete (Internet o la rete interna).
 
-<a id="step-21-prepare-the-disconnected-workstation-with-thales-hsm" class="xliff"></a>
-
-### Passaggio 2.1: Preparare la workstation disconnessa con il modulo di protezione hardware Thales
+### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>Passaggio 2.1: Preparare la workstation disconnessa con il modulo di protezione hardware Thales
 Installare il software di supporto nCipher (Thales) in un computer Windows, quindi collegare un modulo di protezione hardware Thales a tale computer.
 
 Verificare che gli strumenti Thales si trovino nel percorso (**%nfast_home%\bin**). Digitare ad esempio:
@@ -238,29 +213,21 @@ Verificare che gli strumenti Thales si trovino nel percorso (**%nfast_home%\bin*
 
 Per altre informazioni, vedere il manuale dell'utente fornito con il modulo di protezione hardware Thales.
 
-<a id="step-22-install-the-byok-toolset-on-the-disconnected-workstation" class="xliff"></a>
-
-### Passaggio 2.2: Installare il set di strumenti BYOK nella workstation disconnessa
+### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>Passaggio 2.2: Installare il set di strumenti BYOK nella workstation disconnessa
 Copiare il pacchetto del set di strumenti BYOK dall'unità USB o da un altro dispositivo di archiviazione portatile, quindi eseguire le operazioni seguenti:
 
 1. Estrarre i file dal pacchetto scaricato in una cartella qualsiasi.
 2. In tale cartella eseguire vcredist_x64.exe.
 3. Seguire le istruzioni per installare i componenti di runtime di Visual C++ per Visual Studio 2013.
 
-<a id="step-3-generate-your-key" class="xliff"></a>
-
-## Passaggio 3: Generare la chiave
+## <a name="step-3-generate-your-key"></a>Passaggio 3: Generare la chiave
 Per questo terzo passaggio eseguire le procedure seguenti nella workstation disconnessa. Per poter completare questo passaggio, il modulo di protezione hardware deve essere in modalità di inizializzazione. 
 
 
-<a id="step-31-change-the-hsm-mode-to-i" class="xliff"></a>
-
-### Passaggio 3.1: Modificare la modalità del modulo di protezione hardware in 'I'
+### <a name="step-31-change-the-hsm-mode-to-i"></a>Passaggio 3.1: Modificare la modalità del modulo di protezione hardware in 'I'
 Se si usa Thales nShield Edge, per modificare la modalità: 1. Usare il pulsante Modalità per evidenziare la modalità richiesta. 2. Entro pochi secondi, premere e tenere premuto per pochi secondi il pulsante Cancella. Se la modalità viene modificata, il LED della nuova modalità smette di lampeggiare e rimane acceso. È possibile che il LED di stato lampeggi in modo irregolare per pochi secondi e quindi lampeggi in modo regolare quando il dispositivo è pronto. In caso contrario, il dispositivo rimane nella modalità corrente, con il LED della modalità appropriata acceso.
 
-<a id="step-32-create-a-security-world" class="xliff"></a>
-
-### Passaggio 3.2: Creare un ambiente di sicurezza
+### <a name="step-32-create-a-security-world"></a>Passaggio 3.2: Creare un ambiente di sicurezza
 Avviare un prompt dei comandi ed eseguire il programma new-world di Thales.
 
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
@@ -271,15 +238,11 @@ Eseguire quindi le operazioni seguenti:
 
 * Eseguire il backup del file relativo all'ambiente. Proteggere il file relativo all'ambiente, le schede amministrative e i codici PIN relativi e verificare che nessuna singola persona possa accedere a più di una scheda.
 
-<a id="step-33-change-the-hsm-mode-to-o" class="xliff"></a>
-
-### Passaggio 3.3: Modificare la modalità del modulo di protezione hardware in 'O'
+### <a name="step-33-change-the-hsm-mode-to-o"></a>Passaggio 3.3: Modificare la modalità del modulo di protezione hardware in 'O'
 Se si usa Thales nShield Edge, per modificare la modalità: 1. Usare il pulsante Modalità per evidenziare la modalità richiesta. 2. Entro pochi secondi, premere e tenere premuto per pochi secondi il pulsante Cancella. Se la modalità viene modificata, il LED della nuova modalità smette di lampeggiare e rimane acceso. È possibile che il LED di stato lampeggi in modo irregolare per pochi secondi e quindi lampeggi in modo regolare quando il dispositivo è pronto. In caso contrario, il dispositivo rimane nella modalità corrente, con il LED della modalità appropriata acceso.
 
 
-<a id="step-34-validate-the-downloaded-package" class="xliff"></a>
-
-### Passaggio 3.4: Convalidare il pacchetto scaricato
+### <a name="step-34-validate-the-downloaded-package"></a>Passaggio 3.4: Convalidare il pacchetto scaricato
 Questo passaggio è facoltativo, ma è consigliato in modo che sia possibile convalidare gli elementi seguenti:
 
 * Chiave per lo scambio delle chiavi inclusa nel set di strumenti generato da un modulo di protezione hardware Thales originale.
@@ -341,9 +304,7 @@ Questo script consente di convalidare la catena di firmatari fino alla chiave ra
 
 È ora possibile creare una nuova chiave.
 
-<a id="step-35-create-a-new-key" class="xliff"></a>
-
-### Passaggio 3.5: Creare una nuova chiave
+### <a name="step-35-create-a-new-key"></a>Passaggio 3.5: Creare una nuova chiave
 Generare una chiave tramite il programma **generatekey** di Thales.
 
 Eseguire il comando seguente per generare la chiave:
@@ -367,14 +328,10 @@ Eseguire il backup del file di chiave in formato token in un percorso sicuro.
 
 È ora possibile trasferire la chiave all'insieme di credenziali delle chiavi di Azure.
 
-<a id="step-4-prepare-your-key-for-transfer" class="xliff"></a>
-
-## Passaggio 4: Preparare la chiave per il trasferimento
+## <a name="step-4-prepare-your-key-for-transfer"></a>Passaggio 4: Preparare la chiave per il trasferimento
 Per questo quarto passaggio eseguire le procedure seguenti nella workstation disconnessa.
 
-<a id="step-41-create-a-copy-of-your-key-with-reduced-permissions" class="xliff"></a>
-
-### Passaggio 4.1: Creare una copia della chiave con autorizzazioni ridotte
+### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>Passaggio 4.1: Creare una copia della chiave con autorizzazioni ridotte
 
 Aprire un nuovo prompt dei comandi e passare alla directory in cui è stato decompresso il file ZIP BYOK. Per ridurre le autorizzazioni sulla chiave, in un prompt dei comandi eseguire uno dei comandi seguenti in base all'area geografica o all'istanza di Azure:
 
@@ -431,9 +388,7 @@ Al completamento del comando, viene visualizzato il messaggio **Result: SUCCESS*
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
   Quando si eseguono questi comandi, sostituire contosokey con lo stesso valore specificato in **Passaggio 3.5: Creare una nuova chiave** nel passaggio [Generare la chiave](#step-3-generate-your-key).
 
-<a id="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key" class="xliff"></a>
-
-### Passaggio 4.2: Crittografare la chiave tramite la chiave per lo scambio di chiavi di Microsoft
+### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>Passaggio 4.2: Crittografare la chiave tramite la chiave per lo scambio di chiavi di Microsoft
 Eseguire uno di questi comandi, in base all'area geografica o all'istanza di Azure:
 
 * America del Nord
@@ -481,22 +436,16 @@ Quando si esegue il comando, usare le istruzioni seguenti:
 
 Se l'operazione ha esito positivo, viene visualizzato il messaggio **Result: SUCCESS** e nella cartella corrente è presente un nuovo file con il nome: KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
-<a id="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation" class="xliff"></a>
-
-### Passaggio 4.3: Copiare il pacchetto di trasferimento della chiave nella workstation connessa a Internet
+### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Passaggio 4.3: Copiare il pacchetto di trasferimento della chiave nella workstation connessa a Internet
 Usare un'unità USB o un altro dispositivo di archiviazione portatile per copiare il file di output creato nel passaggio precedente (KeyTransferPackage-ContosoFirstHSMkey.byok) nella workstation connessa a Internet.
 
-<a id="step-5-transfer-your-key-to-azure-key-vault" class="xliff"></a>
-
-## Passaggio 5: Trasferire la chiave all'insieme di credenziali delle chiavi di Azure
+## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Passaggio 5: Trasferire la chiave all'insieme di credenziali delle chiavi di Azure
 Per questo passaggio finale, nella workstation connessa a Internet usare il cmdlet [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey), per caricare il pacchetto di trasferimento della chiave copiato dalla workstation disconnessa al modulo di protezione hardware dell'insieme di credenziali delle chiavi di Azure:
 
     Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
 Se il pacchetto viene caricato correttamente, verranno visualizzate le proprietà della chiave aggiunta.
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 È ora possibile usare questa chiave HSM protetta nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere la sezione **Per usare un modulo di protezione hardware (HSM)** nell'esercitazione [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md) .
 

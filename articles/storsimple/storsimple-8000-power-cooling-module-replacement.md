@@ -20,7 +20,6 @@ ms.openlocfilehash: 7d181e6e434c998573dbea4b541cfacf7a28ee66
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Sostituzione di un modulo di alimentazione e raffreddamento nel dispositivo StorSimple
 ## <a name="overview"></a>Panoramica

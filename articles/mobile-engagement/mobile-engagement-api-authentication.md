@@ -1,6 +1,6 @@
 ---
-title: Eseguire l&quot;autenticazione con le API REST di Mobile Engagement
-description: Descrive come eseguire l&quot;autenticazione con le API REST di Azure Mobile Engagement
+title: Eseguire l'autenticazione con le API REST di Mobile Engagement
+description: Descrive come eseguire l'autenticazione con le API REST di Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -19,7 +19,6 @@ ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: bf8cd0d645d8a5992864c8a3820ac2049a3ff630
 ms.contentlocale: it-it
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Eseguire l'autenticazione con le API REST di Mobile Engagement

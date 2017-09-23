@@ -1,6 +1,6 @@
 ---
 title: Creare un nuovo report da un set di dati in Azure Power BI Embedded | Microsoft Docs
-description: "È ora possibile creare report di Power BI Embedded da un set di dati nell&quot;applicazione."
+description: "È ora possibile creare report di Power BI Embedded da un set di dati nell'applicazione."
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
 ms.openlocfilehash: 457f53aa76059dbb2faed6b264102f1f59b9918a
+ms.contentlocale: it-it
 ms.lasthandoff: 03/14/2017
 
 ---

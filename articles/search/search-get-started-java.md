@@ -1,6 +1,6 @@
 ---
 title: Introduzione a Ricerca di Azure in Java | Documentazione Microsoft
-description: Come compilare un&quot;applicazione di ricerca cloud ospitata in Azure usando Java come linguaggio di programmazione.
+description: Come compilare un'applicazione di ricerca cloud ospitata in Azure usando Java come linguaggio di programmazione.
 services: search
 documentationcenter: 
 author: EvanBoyle
@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.contentlocale: it-it
 ms.lasthandoff: 03/29/2017
-
 
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introduzione a Ricerca di Azure in Java

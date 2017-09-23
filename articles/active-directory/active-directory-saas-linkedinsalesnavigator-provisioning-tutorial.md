@@ -48,9 +48,9 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-sales-navigator"></a>Suggerimenti importanti per l'assegnazione di utenti a LinkedIn Sales Navigator
 
-*    È consigliabile assegnare un singolo utente di Azure AD a LinkedIn Sales Navigator per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+*   È consigliabile assegnare un singolo utente di Azure AD a LinkedIn Sales Navigator per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-*    Quando si assegna un utente a LinkedIn Sales Navigator, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
+*   Quando si assegna un utente a LinkedIn Sales Navigator, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-sales-navigator"></a>Configurazione del provisioning utenti in LinkedIn Sales Navigator
@@ -93,9 +93,9 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 8) Se si è già configurato LinkedIn Sales Navigator per l'accesso Single Sign-On, cercare l'istanza di LinkedIn Sales Navigator usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **LinkedIn Sales Navigator** nella raccolta di applicazioni. Selezionare LinkedIn Sales Navigator nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
-9)    Selezionare l'istanza di LinkedIn Sales Navigator e quindi la scheda **Provisioning**.
+9)  Selezionare l'istanza di LinkedIn Sales Navigator e quindi la scheda **Provisioning**.
 
-10)    Impostare **Modalità di provisioning** su **Automatico**.
+10) Impostare **Modalità di provisioning** su **Automatico**.
 
 ![Provisioning in LinkedIn Sales Navigator](./media/active-directory-saas-linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 

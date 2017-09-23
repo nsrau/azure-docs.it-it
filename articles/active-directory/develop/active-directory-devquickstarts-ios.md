@@ -1,6 +1,6 @@
 ---
-title: Integrare Azure AD in un&quot;app iOS | Microsoft Docs
-description: Informazioni su come compilare un&quot;applicazione iOS che si integra con Azure AD per l&quot;accesso e chiama le API protette di Azure AD usando OAuth.
+title: Integrare Azure AD in un'app iOS | Microsoft Docs
+description: Informazioni su come compilare un'applicazione iOS che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
 documentationcenter: ios
 author: brandwe
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
 ms.contentlocale: it-it
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="integrate-azure-ad-into-an-ios-app"></a>Integrare Azure AD in un'app iOS

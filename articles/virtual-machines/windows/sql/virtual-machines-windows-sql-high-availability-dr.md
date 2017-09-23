@@ -21,7 +21,6 @@ ms.openlocfilehash: 27d05c1681f7d7b3090fc7abd4a6b15d1c030e2c
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure
 

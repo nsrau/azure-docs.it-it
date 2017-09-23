@@ -20,7 +20,6 @@ ms.openlocfilehash: 53119244f8f09c0c6c43f43761af1cc074f8d0af
 ms.contentlocale: it-it
 ms.lasthandoff: 04/29/2017
 
-
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Proteggere le comunicazioni per i servizi in Azure Service Fabric
 > [!div class="op_single_selector"]

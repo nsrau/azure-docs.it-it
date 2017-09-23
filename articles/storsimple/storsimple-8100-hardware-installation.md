@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
@@ -247,10 +248,5 @@ Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come [distribuire e configurare un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

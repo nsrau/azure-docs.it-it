@@ -21,8 +21,6 @@ ms.openlocfilehash: 018afaa8b08bd001e55693390e80c8e2c4f33a30
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
-
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 

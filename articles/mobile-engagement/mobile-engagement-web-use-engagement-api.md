@@ -1,6 +1,6 @@
 ---
-title: API dell&quot;SDK per Web per Azure Mobile Engagement | Microsoft Docs
-description: Ultimi aggiornamenti e procedure relativi all&quot;SDK per Web per Azure Mobile Engagement
+title: API dell'SDK per Web per Azure Mobile Engagement | Microsoft Docs
+description: Ultimi aggiornamenti e procedure relativi all'SDK per Web per Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Usare l'API di Azure Mobile Engagement in un'applicazione Web
@@ -215,9 +216,4 @@ Le informazioni sull'applicazione sono limitate a 1.024 caratteri per chiamata, 
 Nell'esempio precedente, il codice JSON inviato al server è lungo 44 caratteri:
 
     {"birthdate":"1983-12-07","gender":"female"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

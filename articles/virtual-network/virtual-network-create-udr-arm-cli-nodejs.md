@@ -1,6 +1,6 @@
 ---
-title: Controllare il routing e i dispositivi virtuali usando l&quot;interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Informazioni su come controllare il routing e i dispositivi virtuali mediante l&quot;interfaccia della riga di comando di Azure 1.0.
+title: Controllare il routing e i dispositivi virtuali usando l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
+description: Informazioni su come controllare il routing e i dispositivi virtuali mediante l'interfaccia della riga di comando di Azure 1.0.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2017
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: 5f21bc7a4fcd9507ea9d6b2b752a2328a7b834f0
+ms.contentlocale: it-it
 ms.lasthandoff: 03/22/2017
-
 
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-10"></a>Creare route definite dall'utente con l'interfaccia della riga di comando di Azure 1.0

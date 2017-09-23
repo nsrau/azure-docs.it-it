@@ -1,6 +1,6 @@
 ---
-title: Esempi dell&quot;interfaccia della riga di comando di Azure per Windows | Documentazione Microsoft
-description: Esempi dell&quot;interfaccia della riga di comando di Azure per Windows
+title: Esempi dell'interfaccia della riga di comando di Azure per Windows | Documentazione Microsoft
+description: Esempi dell'interfaccia della riga di comando di Azure per Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
 ms.openlocfilehash: f4b2e8a5583855df7472af3fbef01ac641caf6bf
 ms.contentlocale: it-it
 ms.lasthandoff: 06/05/2017
-
 
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Esempi dell'interfaccia della riga di comando di Azure per macchine virtuali Windows

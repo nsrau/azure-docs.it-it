@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: sethm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
 ms.openlocfilehash: 95d6f295ba145a55fe4ed3fc7c6f627c9d419a3c
+ms.contentlocale: it-it
 ms.lasthandoff: 04/20/2017
-
 
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modelli di messaggistica asincrona e disponibilità elevata

@@ -1,6 +1,6 @@
 ---
 title: Ottenere la pre-approvazione tramite il programma Microsoft Azure Certified | Microsoft Docs
-description: Informazioni sul programma per i partner Microsoft Azure Certified e su come vendere un&quot;immagine di macchina virtuale, un modello di soluzione, un servizio per sviluppatori o un servizio dati in Azure Marketplace
+description: Informazioni sul programma per i partner Microsoft Azure Certified e su come vendere un'immagine di macchina virtuale, un modello di soluzione, un servizio per sviluppatori o un servizio dati in Azure Marketplace
 services: marketplace-publishing
 documentationcenter: na
 author: HannibalSII
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Ottenere la pre-approvazione tramite il programma Microsoft Azure Certified
@@ -41,9 +42,4 @@ Dopo aver ricevuto la pre-approvazione dal programma Microsoft Azure Certified, 
 
 ## <a name="see-also"></a>Vedere anche
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

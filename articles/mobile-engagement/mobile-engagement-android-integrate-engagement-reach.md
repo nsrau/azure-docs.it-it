@@ -20,7 +20,6 @@ ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
 ms.contentlocale: it-it
 ms.lasthandoff: 06/28/2017
 
-
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Come integrare il servizio di copertura di Engagement in Android
 > [!IMPORTANT]

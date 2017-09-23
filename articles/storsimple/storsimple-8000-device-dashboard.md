@@ -20,7 +20,6 @@ ms.openlocfilehash: 784d3ce9d8f926b00ac1c6fbf48a05c0b04f900a
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Usare il riepilogo del dispositivo nel servizio Gestione dispositivi StorSimple
 

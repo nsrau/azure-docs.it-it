@@ -20,7 +20,6 @@ ms.openlocfilehash: 8c7a2e6ca061bbfa077592efb73d592906c3d070
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-sdk-for-nodejs"></a>Introduzione ad Azure Data Lake Store con Azure SDK per Node.js
 > [!div class="op_single_selector"]

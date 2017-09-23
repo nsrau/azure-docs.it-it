@@ -21,7 +21,6 @@ ms.openlocfilehash: 96fc1347604c0c6cc2c2463a5dbd83b560183a16
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
 
-
 ---
 # <a name="get-started-with-the-sharepoint-online-connector"></a>Introduzione al connettore SharePoint Online
 Usare il connettore SharePoint Online per gestire gli elenchi SharePoint.  

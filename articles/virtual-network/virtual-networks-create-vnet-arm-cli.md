@@ -1,6 +1,6 @@
 ---
 title: Creare una rete virtuale - interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: Informazioni su come creare una rete virtuale usando l&quot;interfaccia della riga di comando di Azure 2.0.
+description: Informazioni su come creare una rete virtuale usando l'interfaccia della riga di comando di Azure 2.0.
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Creare una rete virtuale usando l'interfaccia della riga di comando di Azure 2.0

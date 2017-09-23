@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Asset Bank | Documentazione Microsoft'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Asset Bank.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Asset Bank.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 17bc0082e3721b50269cb4b17884c0e4a4cbcb5d
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>Esercitazione: Integrazione di Azure Active Directory con Asset Bank

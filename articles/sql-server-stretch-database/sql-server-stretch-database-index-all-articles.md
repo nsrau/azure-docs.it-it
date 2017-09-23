@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Tutti gli argomenti per il servizio Estensione database di SQL Server di Azure
@@ -57,10 +58,5 @@ In questo argomento vengono elencati tutti gli argomenti che si applicano dirett
 | ---:|:--- |:--- |
 | 14 |[Eseguire il backup di database con estensione abilitata](sql-server-stretch-database-backup.md) |Informazioni su come eseguire il backup di database\-con estensione abilitata. |
 | 15 |[Ripristinare database con estensione abilitata](sql-server-stretch-database-restore.md) |Informazioni su come eseguire il ripristino di database\-con estensione abilitata. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

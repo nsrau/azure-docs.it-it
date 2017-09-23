@@ -1,6 +1,6 @@
 ---
-title: Clonazione di un backup dell&quot;array virtuale StorSimple | Documentazione Microsoft
-description: Informazioni su come clonare un backup e ripristinare un file dall&quot;array virtuale StorSimple.
+title: Clonazione di un backup dell'array virtuale StorSimple | Documentazione Microsoft
+description: Informazioni su come clonare un backup e ripristinare un file dall'array virtuale StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,9 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
+ms.contentlocale: it-it
+ms.lasthandoff: 01/26/2017
 
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonare da un backup dell'array virtuale StorSimple
@@ -136,10 +138,5 @@ Ogni condivisione dispone di una cartella *.backups* contenente i backup più re
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

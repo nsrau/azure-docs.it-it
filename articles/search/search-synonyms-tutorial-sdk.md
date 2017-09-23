@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sull&quot;anteprima dei sinonimi in Ricerca di Azure | Microsoft Docs
+title: Esercitazione sull'anteprima dei sinonimi in Ricerca di Azure | Microsoft Docs
 description: "Aggiungere la funzionalità di anteprima dei sinonimi a un indice in Ricerca di Azure."
 services: search
 manager: jhubbard
@@ -12,9 +12,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 03/31/2017
 ms.author: heidist
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 014959ed471f796d2184f0f8ff10d15cdc8a2ec6
+ms.contentlocale: it-it
 ms.lasthandoff: 04/17/2017
 
 ---

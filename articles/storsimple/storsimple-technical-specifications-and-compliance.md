@@ -20,7 +20,6 @@ ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
 ## <a name="overview"></a>Panoramica

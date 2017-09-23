@@ -20,7 +20,6 @@ ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
 ms.contentlocale: it-it
 ms.lasthandoff: 04/29/2017
 
-
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurare le impostazioni di FabricTransport per Reliable Actors
 

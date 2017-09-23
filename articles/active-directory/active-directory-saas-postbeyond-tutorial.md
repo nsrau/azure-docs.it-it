@@ -19,7 +19,6 @@ ms.openlocfilehash: 80b920dc99619795cbc86e8cb2e3ac2a78a71932
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-postbeyond"></a>Esercitazione: Integrazione di Azure Active Directory con PostBeyond
 

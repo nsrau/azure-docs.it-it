@@ -48,9 +48,9 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Suggerimenti importanti per l'assegnazione di utenti a LinkedIn Elevate
 
-*    È consigliabile assegnare un singolo utente di Azure AD a LinkedIn Elevate per testare la configurazione di provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+*   È consigliabile assegnare un singolo utente di Azure AD a LinkedIn Elevate per testare la configurazione di provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-*    Quando si assegna un utente a LinkedIn Elevate, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
+*   Quando si assegna un utente a LinkedIn Elevate, è necessario selezionare il ruolo **Utente** nella finestra di dialogo di assegnazione. Il ruolo "Default Access" (Accesso predefinito) non è applicabile per il provisioning.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Configurazione del provisioning di utenti in LinkedIn Elevate
@@ -92,9 +92,9 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 8) Se LinkedIn Elevate è già stato configurato per l'accesso Single Sign-On, cercare l'istanza di LinkedIn Elevate usando il campo di ricerca. Selezionare in caso contrario **Aggiungi** e cercare **LinkedIn Elevate** nella raccolta di applicazioni. Selezionare LinkedIn Elevate nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
-9)    Selezionare l'istanza di LinkedIn Elevate e quindi selezionare la scheda **Provisioning**.
+9)  Selezionare l'istanza di LinkedIn Elevate e quindi selezionare la scheda **Provisioning**.
 
-10)    Impostare **Modalità di provisioning** su **Automatico**.
+10) Impostare **Modalità di provisioning** su **Automatico**.
 
 ![Provisioning di LinkedIn Elevate](./media/active-directory-saas-linkedin-elevate-provisioning-tutorial/linkedin_elevate3.PNG)
 

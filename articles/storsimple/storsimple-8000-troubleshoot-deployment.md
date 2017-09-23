@@ -20,7 +20,6 @@ ms.openlocfilehash: d6642231bf9d012b0015902c82d2bfde3b86285c
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Risoluzione dei problemi di distribuzione del dispositivo StorSimple
 ## <a name="overview"></a>Panoramica

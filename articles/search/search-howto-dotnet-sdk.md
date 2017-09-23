@@ -1,6 +1,6 @@
 ---
-title: Come usare Ricerca di Azure da un&quot;applicazione .NET | Documentazione Microsoft
-description: Come utilizzare Ricerca di Azure da un&quot;applicazione .NET
+title: Come usare Ricerca di Azure da un'applicazione .NET | Documentazione Microsoft
+description: Come utilizzare Ricerca di Azure da un'applicazione .NET
 services: search
 documentationcenter: 
 author: brjohnstmsft
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
 ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
 ms.contentlocale: it-it
 ms.lasthandoff: 05/22/2017
-
 
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Come utilizzare Ricerca di Azure da un'applicazione .NET

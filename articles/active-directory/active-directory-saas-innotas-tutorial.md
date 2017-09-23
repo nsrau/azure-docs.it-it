@@ -19,7 +19,6 @@ ms.openlocfilehash: 674d01b2c0818dc10fdab5844a23c5ebf29bb2d2
 ms.contentlocale: it-it
 ms.lasthandoff: 07/04/2017
 
-
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innotas"></a>Esercitazione: Integrazione di Azure Active Directory con Innotas
 

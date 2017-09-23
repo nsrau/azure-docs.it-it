@@ -1,6 +1,6 @@
 ---
-title: Note sulla versione dell&quot;aggiornamento 0.6 per l&quot;array virtuale StorSimple | Microsoft Docs
-description: Vengono illustrati i principali problemi in sospeso e le soluzioni per l&quot;array virtuale StorSimple che esegue l&quot;aggiornamento 0.6.
+title: Note sulla versione dell'aggiornamento 0.6 per l'array virtuale StorSimple | Microsoft Docs
+description: Vengono illustrati i principali problemi in sospeso e le soluzioni per l'array virtuale StorSimple che esegue l'aggiornamento 0.6.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -19,7 +19,6 @@ ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: af202cf652300ee7897eb2dede33f38058fc2837
 ms.contentlocale: it-it
 ms.lasthandoff: 05/25/2017
-
 
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>Note sulla versione dell'aggiornamento 0.6 per l'array virtuale StorSimple

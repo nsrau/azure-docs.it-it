@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
 ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
-
+ms.contentlocale: it-it
+ms.lasthandoff: 01/31/2017
 
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Recupero di tabelle ARP nel modello di distribuzione classica
@@ -168,10 +169,5 @@ La tabella ARP di un peer può essere usata per convalidare la connettività e l
   * Ottenere la tabella del routing per stabilire i prefissi pubblicati in ExpressRoute.
 * Convalidare il trasferimento dei dati controllando i byte in ingresso e uscita.
 * Aprire una richiesta di supporto con [Guida e supporto di Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se continuano a verificarsi problemi.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

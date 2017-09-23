@@ -20,7 +20,6 @@ ms.openlocfilehash: 61bb5379cd94dd00814e14420947e7783999ff0a
 ms.contentlocale: it-it
 ms.lasthandoff: 06/03/2017
 
-
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]

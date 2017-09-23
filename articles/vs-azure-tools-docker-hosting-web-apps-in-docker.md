@@ -1,6 +1,6 @@
 ---
 title: Distribuire un contenitore Docker ASP.NET Core Linux in un host Docker remoto | Documentazione Microsoft
-description: Informazioni su come usare Visual Studio Tools per Docker per distribuire un&quot;app Web ASP.NET Core in un contenitore Docker in esecuzione in una macchina virtuale Linux host Docker di Azure
+description: Informazioni su come usare Visual Studio Tools per Docker per distribuire un'app Web ASP.NET Core in un contenitore Docker in esecuzione in una macchina virtuale Linux host Docker di Azure
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
@@ -19,7 +19,6 @@ ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
 ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
 ms.contentlocale: it-it
 ms.lasthandoff: 05/23/2017
-
 
 ---
 # <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Distribuire un contenitore ASP.NET in un host Docker remoto

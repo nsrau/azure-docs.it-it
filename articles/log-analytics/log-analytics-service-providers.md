@@ -1,6 +1,6 @@
 ---
 title: "Funzionalità di Log Analytics per i provider di servizi | Documentazione Microsoft"
-description: Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell&quot;infrastruttura cloud o locale del cliente.
+description: Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura cloud o locale del cliente.
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d5e4a19ddb2b60a6796ba48c864d443164de86c1
 ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/23/2016
 
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Funzionalità di Log Analytics per i provider di servizi
@@ -82,10 +83,5 @@ Per i report a livello esecutivo che riepilogano i dati nelle aree di lavoro è 
 * Automatizzare la creazione delle aree di lavoro usando [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Usare la funzione [Avvisi](log-analytics-alerts.md) per l'integrazione con i sistemi esistenti
 * Generare report di riepilogo usando [Power BI](log-analytics-powerbi.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

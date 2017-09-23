@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
 ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
-
+ms.contentlocale: it-it
+ms.lasthandoff: 12/23/2016
 
 ---
 # <a name="network-resource-provider"></a>Provider di risorse di rete
@@ -265,10 +266,5 @@ Il modello di esempio precedente usa la rete virtuale e le risorse della subnet.
 [Distribuzione Azure Resource Manager o classica](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

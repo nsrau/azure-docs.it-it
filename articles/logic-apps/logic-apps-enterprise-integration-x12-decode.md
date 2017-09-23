@@ -20,17 +20,12 @@ ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
 ms.contentlocale: it-it
 ms.lasthandoff: 07/06/2017
 
-
 ---
-<a id="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack" class="xliff"></a>
-
-# Messaggi Decode X12 in App per la logica di Azure con Enterprise Integration Pack
+# <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode X12 in App per la logica di Azure con Enterprise Integration Pack
 
 Il connettore di messaggi Decode X12 convalida la busta in base all'accordo tra partner commerciali, convalida le proprietà EDI e specifiche del partner, suddivide gli interscambi in set di transazioni o mantiene gli interscambi interi, nonché genera riconoscimenti per le transazioni elaborate. Per usare questo connettore, è necessario aggiungerlo a un trigger esistente nell'app per la logica.
 
-<a id="before-you-start" class="xliff"></a>
-
-## Prima di iniziare
+## <a name="before-you-start"></a>Prima di iniziare
 
 Sono necessari gli elementi seguenti:
 
@@ -39,9 +34,7 @@ Sono necessari gli elementi seguenti:
 * Almeno due [partner](logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione.
 * Un [contratto X12](logic-apps-enterprise-integration-x12.md) già definito nell'account di integrazione.
 
-<a id="decode-x12-messages" class="xliff"></a>
-
-## Messaggi Decode X12
+## <a name="decode-x12-messages"></a>Messaggi Decode X12
 
 1. [Creare un'app per la logica](logic-apps-create-a-logic-app.md).
 
@@ -74,9 +67,7 @@ Sono necessari gli elementi seguenti:
 
     ![Selezionare il messaggio con il file flat X12 da decodificare](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
-<a id="x12-decode-details" class="xliff"></a>
-
-## Dettagli Decode X12
+## <a name="x12-decode-details"></a>Dettagli Decode X12
 
 Il connettore Decode X12 esegue queste attività:
 
@@ -104,14 +95,10 @@ Il connettore Decode X12 esegue queste attività:
   * Un riconoscimento tecnico viene generato in seguito alla convalida dell'intestazione. Il riconoscimento tecnico segnala lo stato dell'elaborazione di un'intestazione e finale di interscambio in base all'indirizzo del ricevitore.
   * Un riconoscimento funzionale viene generato in seguito alla convalida del corpo. Il riconoscimento funzionale segnala ogni errore rilevato durante l'elaborazione del documento ricevuto.
 
-<a id="view-the-swagger" class="xliff"></a>
-
-## Visualizzare il file Swagger
+## <a name="view-the-swagger"></a>Visualizzare il file Swagger
 Vedere i [dettagli del file Swagger](/connectors/x12/). 
 
-<a id="next-steps" class="xliff"></a>
-
-## Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack") 
 
 

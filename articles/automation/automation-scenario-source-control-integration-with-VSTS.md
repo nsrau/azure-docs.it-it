@@ -1,6 +1,6 @@
 ---
 title: Integrazione di Automazione di Azure con controllo del codice sorgente di Visual Studio Team Services | Microsoft Docs
-description: Questo scenario illustra l&quot;impostazione dell&quot;integrazione con un account di Automazione di Azure e controllo del codice sorgente di Visual Studio Team Services.
+description: Questo scenario illustra l'impostazione dell'integrazione con un account di Automazione di Azure e controllo del codice sorgente di Visual Studio Team Services.
 services: automation
 documentationcenter: 
 author: eamono
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f68563587d375dde22fd1ca45591fd49042533d0
 ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
+ms.contentlocale: it-it
 ms.lasthandoff: 02/21/2017
 
 ---

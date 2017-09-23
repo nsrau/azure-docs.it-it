@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Cloud Management Portal for Microsoft Azure | Microsoft Docs'
-description: Informazioni su come configurare l&quot;accesso Single Sign-On tra Azure Active Directory e Cloud Management Portal for Microsoft Azure.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Cloud Management Portal for Microsoft Azure.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,7 +18,6 @@ ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: bae5f05a161b2730bf662bcb47f20ab3e1799951
 ms.contentlocale: it-it
 ms.lasthandoff: 06/16/2017
-
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Esercitazione: Integrazione di Azure Active Directory con Cloud Management Portal for Microsoft Azure

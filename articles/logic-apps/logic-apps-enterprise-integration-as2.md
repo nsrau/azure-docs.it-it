@@ -1,6 +1,6 @@
 ---
-title: Messaggi AS2 per l&quot;integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
-description: Scambiare messaggi AS2 per l&quot;integrazione aziendale B2B con App per la logica di Azure
+title: Messaggi AS2 per l'integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
+description: Scambiare messaggi AS2 per l'integrazione aziendale B2B con App per la logica di Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
 ms.contentlocale: it-it
 ms.lasthandoff: 06/10/2017
-
 
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Scambiare messaggi AS2 per l'integrazione aziendale con le app per la logica di Azure

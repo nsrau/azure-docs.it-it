@@ -19,7 +19,6 @@ ms.openlocfilehash: 1ddfcd991431a11e5c3e306bd5905003d094ac18
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="tutorial-configuring-citrix-gotomeeting-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Citrix GoToMeeting per il provisioning utenti automatico
 

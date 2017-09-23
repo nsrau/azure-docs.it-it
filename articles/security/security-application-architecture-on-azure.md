@@ -1,6 +1,6 @@
 ---
 title: Integrare la sicurezza nei progetti di architettura di Azure | Documentazione Microsoft
-description: " In questo articolo consente di comprendere l&quot;architettura di applicazioni e servizi in Azure per semplificare l&quot;integrazione della sicurezza nella progettazione e nell&quot;implementazione. "
+description: " In questo articolo consente di comprendere l'architettura di applicazioni e servizi in Azure per semplificare l'integrazione della sicurezza nella progettazione e nell'implementazione. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
+ms.contentlocale: it-it
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="application-architecture-on-azure"></a>Architettura delle applicazioni in Azure

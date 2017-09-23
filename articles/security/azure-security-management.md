@@ -1,6 +1,6 @@
 ---
 title: Migliorare la sicurezza della gestione remota in Azure | Documentazione Microsoft
-description: Questo articolo illustra i passaggi per il miglioramento della sicurezza della gestione remota nell&quot;amministrazione degli ambienti di Microsoft Azure, inclusi Servizi cloud, Macchine virtuali e applicazioni personalizzate.
+description: Questo articolo illustra i passaggi per il miglioramento della sicurezza della gestione remota nell'amministrazione degli ambienti di Microsoft Azure, inclusi Servizi cloud, Macchine virtuali e applicazioni personalizzate.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
 ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-
+ms.contentlocale: it-it
+ms.lasthandoff: 02/16/2017
 
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
@@ -232,9 +233,4 @@ Le risorse seguenti sono disponibili per fornire altre informazioni generali su 
 [2]: ./media/azure-security-management/stand-alone-hardened-workstation-topology.png
 [3]: ./media/azure-security-management/hardened-workstation-enabled-with-hyper-v.png
 [4]: ./media/azure-security-management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: Linee guida e consigli per Reliable Collections in Azure Service Fabric | Microsoft Docs
-description: Linee guida e consigli per l&quot;uso di Reliable Collections in Service Fabric
+description: Linee guida e consigli per l'uso di Reliable Collections in Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -19,7 +19,6 @@ ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
 ms.contentlocale: it-it
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric

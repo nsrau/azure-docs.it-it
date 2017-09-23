@@ -1,6 +1,6 @@
 ---
-title: Gestire Azure Key Vault tramite l&quot;interfaccia della riga di comando | Microsoft Docs
-description: "Usare questa esercitazione per automatizzare le attività comuni in Key Vault tramite l&quot;interfaccia della riga di comando 2.0"
+title: Gestire Azure Key Vault tramite l'interfaccia della riga di comando | Microsoft Docs
+description: "Usare questa esercitazione per automatizzare le attività comuni in Key Vault tramite l'interfaccia della riga di comando 2.0"
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 5da9f5eceda71ac85259193e0f183c72813e1679
 ms.contentlocale: it-it
 ms.lasthandoff: 05/09/2017
-
 
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Gestire Key Vault tramite l'interfaccia della riga di comando 2.0

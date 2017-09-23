@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore del database SQL di Azure alle app per la logica | Microsoft Docs
-description: Panoramica del connettore del database SQL di Azure con i parametri dell&quot;API REST
+description: Panoramica del connettore del database SQL di Azure con i parametri dell'API REST
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Introduzione al connettore del database SQL di Azure

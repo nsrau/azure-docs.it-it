@@ -21,7 +21,6 @@ ms.openlocfilehash: 6de50c5031db59176bdf17ecc69b934559220f6a
 ms.contentlocale: it-it
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sostituire un componente hardware sul dispositivo StorSimple serie 8000
 

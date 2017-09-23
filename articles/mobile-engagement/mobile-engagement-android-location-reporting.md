@@ -14,10 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
-
+ms.contentlocale: it-it
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Segnalazione della posizione per Android SDK per Azure Mobile Engagement
@@ -159,9 +160,4 @@ Ecco un esempio di codice da utilizzare in un'attività dell'applicazione per ri
       if (requestCode == 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
         getEngagementAgent().refreshPermissions();
     }
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

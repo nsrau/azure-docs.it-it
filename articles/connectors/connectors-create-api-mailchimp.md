@@ -1,6 +1,6 @@
 ---
 title: Connettore MailChimp per App per la logica di Azure | Microsoft Docs
-description: "Creare app per la logica in Servizio app di Azure. MailChimp è un servizio SaaS che consente alle aziende di gestire e automatizzare le attività di marketing via posta elettronica, tra cui l&quot;invio di messaggi di posta elettronica e di messaggi automatizzati, nonché la diffusione di campagne mirate."
+description: "Creare app per la logica in Servizio app di Azure. MailChimp è un servizio SaaS che consente alle aziende di gestire e automatizzare le attività di marketing via posta elettronica, tra cui l'invio di messaggi di posta elettronica e di messaggi automatizzati, nonché la diffusione di campagne mirate."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 46de91881f84183d0359755f49a115e712a7033b
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Introduzione al connettore MailChimp

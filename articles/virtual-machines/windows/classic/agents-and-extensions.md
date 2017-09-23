@@ -1,6 +1,6 @@
 ---
 title: Agente ed estensioni di macchine virtuali Windows in Azure | Documentazione Microsoft
-description: "Fornisce una panoramica dell&quot;agente e delle estensioni, nonché informazioni su come installare l&quot;agente usando il modello di distribuzione classica su macchine virtuali Windows."
+description: "Fornisce una panoramica dell'agente e delle estensioni, nonché informazioni su come installare l'agente usando il modello di distribuzione classica su macchine virtuali Windows."
 services: virtual-machines-windows
 documentationcenter: 
 author: squillace
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: c94332314668dc7e58ed84b20945a548c0443f84
+ms.contentlocale: it-it
 ms.lasthandoff: 03/31/2017
-
 
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-windows-vms"></a>Informazioni sull'agente e sulle estensioni di macchine virtuali per macchine virtuali Windows

@@ -1,6 +1,6 @@
 ---
-title: Creazione di un&quot;immagine di macchina virtuale in locale per Azure Marketplace | Microsoft Docs
-description: Comprendere ed eseguire i passaggi per creare un&quot;immagine di VM in locale e distribuire in Azure Marketplace per l&quot;acquisto da parte di altri utenti.
+title: Creazione di un'immagine di macchina virtuale in locale per Azure Marketplace | Microsoft Docs
+description: Comprendere ed eseguire i passaggi per creare un'immagine di VM in locale e distribuire in Azure Marketplace per l'acquisto da parte di altri utenti.
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 8f6b9a9293dc149586e6e5fd55028170ea825b07
+ms.contentlocale: it-it
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Sviluppare l'immagine di una macchina virtuale in locale per Azure Marketplace

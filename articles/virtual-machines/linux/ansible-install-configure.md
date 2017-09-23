@@ -1,5 +1,5 @@
 ---
-title: Installare e configurare Ansible per l&quot;uso con le macchine virtuali di Azure | Microsoft Docs
+title: Installare e configurare Ansible per l'uso con le macchine virtuali di Azure | Microsoft Docs
 description: Informazioni su come installare e configurare Ansible per la gestione delle risorse di Azure in Ubuntu, CentOS e SLES
 services: virtual-machines-linux
 documentationcenter: virtual-machines

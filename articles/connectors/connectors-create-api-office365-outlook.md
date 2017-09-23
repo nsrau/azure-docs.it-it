@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore Office 365 Outlook nelle app per la logica | Microsoft Docs
-description: Creare app per la logica con il connettore Office 365 per consentire l&quot;interazione con Office 365. Ad esempio, per creare, modificare e aggiornare contatti ed elementi del calendario.
+description: Creare app per la logica con il connettore Office 365 per consentire l'interazione con Office 365. Ad esempio, per creare, modificare e aggiornare contatti ed elementi del calendario.
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Guida introduttiva al connettore Outlook di Office 365

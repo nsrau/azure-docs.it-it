@@ -20,7 +20,6 @@ ms.openlocfilehash: 75b06ddd02da231b7813c609c848c75e42116da5
 ms.contentlocale: it-it
 ms.lasthandoff: 06/07/2017
 
-
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Panoramica del supporto di WebSocket nel gateway dell'applicazione
 

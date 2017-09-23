@@ -20,7 +20,6 @@ ms.openlocfilehash: 9ca33057f6030fdcc233f6053fdc392d62f8f9f4
 ms.contentlocale: it-it
 ms.lasthandoff: 06/20/2017
 
-
 ---
 
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Eseguire la replica delle VM di Azure tra le aree con Azure Site Recovery

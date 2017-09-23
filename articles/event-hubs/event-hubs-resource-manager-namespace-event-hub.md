@@ -1,6 +1,6 @@
 ---
 title: Creare un gruppo di consumer e lo spazio dei nomi di Hub eventi di Azure usando un modello | Documentazione Microsoft
-description: Creare uno spazio dei nomi dell&quot;hub eventi con Hub eventi e un gruppo di consumer usando i modelli di Azure Resource Manager
+description: Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando i modelli di Azure Resource Manager
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: eb9a80eec0326aaa605cb8b21aecbaeec94ff212
 ms.contentlocale: it-it
 ms.lasthandoff: 06/13/2017
-
 
 ---
 

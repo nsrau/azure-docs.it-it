@@ -1,6 +1,6 @@
 ---
 title: Flusso on-behalf-of di Azure AD v2.0 OAuth2.0 | Microsoft Docs
-description: Questo articolo illustra come usare i messaggi HTTP per implementare l&quot;autenticazione da servizio a servizio usando il flusso on-behalf-of di OAuth2.0.
+description: Questo articolo illustra come usare i messaggi HTTP per implementare l'autenticazione da servizio a servizio usando il flusso on-behalf-of di OAuth2.0.
 services: active-directory
 documentationcenter: 
 author: navyasric
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 356083fbaabfcd2ec7581adf319fa22b810df0d3
 ms.contentlocale: it-it
 ms.lasthandoff: 06/08/2017
-
 
 ---
 # Flusso on-behalf-of di Azure Active Directory v2.0 e di OAuth 2.0

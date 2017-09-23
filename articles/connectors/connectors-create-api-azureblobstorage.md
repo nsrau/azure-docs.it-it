@@ -1,6 +1,6 @@
 ---
 title: Aggiungere il connettore di archiviazione BLOB di Azure alle app per la logica | Microsoft Docs
-description: Iniziare a configurare il connettore di archiviazione BLOB di Azure in un&quot;app per la logica
+description: Iniziare a configurare il connettore di archiviazione BLOB di Azure in un'app per la logica
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -20,7 +20,6 @@ ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
 ms.contentlocale: it-it
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Usare il connettore di archiviazione BLOB di Azure in un'app per la logica
