@@ -3,7 +3,7 @@ title: Creare un servizio di bilanciamento del carico interno di Azure - Distrib
 description: Informazioni su come creare un servizio di bilanciamento del carico interno usando PowerShell nel modello di distribuzione classica
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management

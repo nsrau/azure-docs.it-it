@@ -3,7 +3,7 @@ title: Creare un servizio di bilanciamento del carico con connessione Internet -
 description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante il portale di Azure classico
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
