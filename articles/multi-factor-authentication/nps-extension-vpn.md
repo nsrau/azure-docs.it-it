@@ -208,7 +208,7 @@ In questa sezione si configura il server VPN per l'uso dell'autenticazione RADIU
 
  ![Routing e accesso remoto](./media/nps-extension-vpn/image14.png)
  
-4. Nella finestra di dialogo **Proprietà di [Nome server] (locale)** fare clic sulla scheda **Sicurezza**. 
+4. Nella finestra di dialogo **Proprietà di [Nome server} \(locale)** fare clic sulla scheda **Sicurezza**. 
 5. Nella scheda **Sicurezza**, nella sezione Provider di autenticazione, fare clic su **Autenticazione RADIUS** e quindi su **Configura**.
 
  ![Autenticazione RADIUS](./media/nps-extension-vpn/image15.png)
