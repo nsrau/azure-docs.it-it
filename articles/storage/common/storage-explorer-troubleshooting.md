@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: ba8a02e2faaa0affd68feebd2ae5efe64cded93f
 ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -30,7 +30,7 @@ In questa guida sono riepilogate le soluzioni per gli errori comuni riscontrati 
 
 ## <a name="sign-in-issues"></a>Problemi relativi all'accesso
 
-Prima di continuare, provare a riavviare l'applicazione per vedere se i problemi si risolvono.
+Sono supportati solo account AAD (Azure Active Directory). Se si usa un account ADFS, è probabile che l'accesso a Storage Explorer non funzioni. Prima di continuare, provare a riavviare l'applicazione per vedere se i problemi si risolvono.
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>Errore: certificato autofirmato nella catena di certificati
 

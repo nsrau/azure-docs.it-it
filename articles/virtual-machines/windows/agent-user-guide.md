@@ -1,6 +1,6 @@
 ---
-title: Panoramica dell&quot;agente di macchine virtuali di Azure | Documentazione Microsoft
-description: Panoramica dell&quot;agente di macchine virtuali di Azure
+title: Panoramica dell'agente di macchine virtuali di Azure | Documentazione Microsoft
+description: Panoramica dell'agente di macchine virtuali di Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 6cf561b269c4d873a894b47265e39a057cc415c3
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 24ad2c2d2872f844e32d3fae559683c3d992bd00
-
+ms.contentlocale: it-it
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Panoramica dell'agente di macchine virtuali di Azure
@@ -82,8 +83,3 @@ Quando è connesso a una VM di Windows Azure, è possibile usare Gestione attivi
 ## <a name="upgrade-the-vm-agent"></a>Aggiornare l'agente di macchine virtuali
 
 L'agente di macchine virtuali di Azure per Windows viene aggiornato automaticamente. Le nuove macchine virtuali distribuite in Azure ricevono la versione più recente dell'agente di macchine virtuali. Immagini di VM personalizzate devono essere aggiornate manualmente per includere il nuovo agente di macchine virtuali.
-
-
-<!--HONumber=Dec16_HO1-->
-
-
