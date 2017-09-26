@@ -16,16 +16,16 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Caricare i dati in SQL Data Warehouse
 
-È possibile usare Azure Data Factory per caricare dati in Azure SQL Data Warehouse da uno qualsiasi degli [archivi dati di origine supportati](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). Ad esempio, i dati possono essere caricati da un database SQL di Azure o da un database Oracle in SQL Data Warehouse tramite Data Factory. L'esercitazione contenuta in questo articolo mostra come caricare dati da un database di SQL Server locale in SQL Data Warehouse.
+È possibile usare Azure Data Factory per caricare dati in Azure SQL Data Warehouse da uno qualsiasi degli [archivi dati di origine supportati](../data-factory/copy-activity-overview.md). Ad esempio, i dati possono essere caricati da un database SQL di Azure o da un database Oracle in SQL Data Warehouse tramite Data Factory. L'esercitazione contenuta in questo articolo mostra come caricare dati da un database di SQL Server locale in SQL Data Warehouse.
 
 **Tempo stimato**: per completare questa esercitazione sono necessari circa 10-15 minuti una volta soddisfatti i prerequisiti.
 
@@ -72,7 +72,7 @@ Ora indicare alla data factory il database SQL Server locale da cui si desidera 
     > [!NOTE]
     > Se l'archivio dati di origine è locale o in una macchina virtuale IaaS di Azure, è necessario un gateway di gestione dati. Un gateway ha una relazione 1-1 con una data factory. Non può essere usato da un'altra data factory, ma può essere usato da più attività di caricamento dei dati nella stessa data factory. Un gateway consente di connettersi a più archivi di dati durante l'esecuzione di attività di caricamento dei dati.
     >
-    > Per informazioni dettagliate sul gateway, vedere l'articolo [Gateway di gestione dati](../data-factory/data-factory-data-management-gateway.md).
+    > Per informazioni dettagliate sul gateway, vedere l'articolo [Gateway di gestione dati](../data-factory/v1/data-factory-data-management-gateway.md).
 
 3. Verrà visualizzata la finestra di dialogo **Crea gateway**. Come nome immettere **GatewayForDWLoading** e fare clic su **Crea**.
 
@@ -154,9 +154,9 @@ Per eseguire la migrazione del database in SQL Data Warehouse, vedere [Eseguire 
 
 Per altre informazioni su Azure Data Factory e le funzionalità di spostamento dei dati, vedere gli articoli seguenti:
 
-- [Introduzione al servizio Azure Data Factory](../data-factory/data-factory-introduction.md)
-- [Spostare dati con l'attività di copia](../data-factory/data-factory-data-movement-activities.md)
-- [Spostare dati da e verso Azure SQL Data Warehouse con Azure Data Factory](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+- [Introduzione al servizio Azure Data Factory](../data-factory/introduction.md)
+- [Spostare dati con l'attività di copia](../data-factory/copy-activity-overview.md)
+- [Spostare dati da e verso Azure SQL Data Warehouse con Azure Data Factory](../data-factory/connector-azure-sql-data-warehouse.md)
 
 Per esplorare i dati in SQL Data Warehouse, vedere gli articoli seguenti:
 

@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: fc3fc337a305434745e1e5e716ae7bf2096c2b33
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 54c75a4c22f094ca50ab2cbf5449c5fa115b32a7
 ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -422,6 +422,7 @@ Per altre informazioni su questi elementi, vedere gli articoli indicati di segui
 - [Hub eventi](functions-bindings-event-hubs.md)
 - [Bus di servizio](functions-bindings-service-bus.md)
 - [Azure Cosmos DB](functions-bindings-documentdb.md)
+- [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
 - [Hub di notifica](functions-bindings-notification-hubs.md)

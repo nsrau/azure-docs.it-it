@@ -1,9 +1,9 @@
 ---
 title: "Configurare la modalità di distribuzione del bilanciamento del carico |Documentazione Microsoft"
-description: "Come configurare la modalità di distribuzione del bilanciamento del carico di Azure per supportare l&quot;affinità IP di origine"
+description: "Come configurare la modalità di distribuzione del bilanciamento del carico di Azure per supportare l'affinità IP di origine"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
@@ -11,15 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 664e668d6660fae956d4b6bdf0179abf67d743b1
-ms.openlocfilehash: 1bc28b6f2979f47284a27a5a25becb8599b2ffab
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5c08b1361dfd2d13e0e7ca2ce6f9a2cf357a8dff
+ms.contentlocale: it-it
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="configure-the-distribution-mode-for-load-balancer"></a>Configurare la modalità di distribuzione del servizio di bilanciamento del carico
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>Modalità di distribuzione basata su hash
 
@@ -164,9 +168,4 @@ Il valore di LoadBalancerDistribution può essere sourceIP per l'affinità a 2 t
 [Introduzione alla configurazione del bilanciamento del carico Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

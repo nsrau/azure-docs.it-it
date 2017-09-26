@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 9458b3b619649d094ddab1638e146571d9268fb0
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 2fee04ee11210b9081fc7edb64da1f0210f1bd06
 ms.contentlocale: it-it
-ms.lasthandoff: 06/05/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -31,14 +31,14 @@ ms.lasthandoff: 06/05/2017
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Per i modelli di esempio, vedere:
-- [App per le funzioni nel piano a consumo]
-- [App per le funzioni nel piano di servizio app di Azure]
+- [App per le funzioni in un piano a consumo]
+- [App per le funzioni in un piano di servizio app di Azure]
 
 ## <a name="required-resources"></a>Risorse necessarie
 
 Un'app per le funzioni richiede le risorse seguenti:
 
-* Un account di [archiviazione di Azure](../storage/index.md)
+* Un account di [archiviazione di Azure](../storage/index.yml)
 * Un piano di hosting (piano a consumo o piano di servizio app)
 * Un'app per le funzioni 
 
@@ -291,6 +291,6 @@ Altre informazioni su come sviluppare e configurare le Funzioni di Azure.
 
 <!-- LINKS -->
 
-[App per le funzioni nel piano a consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[App per le funzioni nel piano di servizio app di Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[App per le funzioni in un piano a consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[App per le funzioni in un piano di servizio app di Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
 

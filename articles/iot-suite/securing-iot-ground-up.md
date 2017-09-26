@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4e02b55272fee8460886bb807a45cad99612dd86
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -49,7 +49,7 @@ I sistemi offrono prevenzione e rilevamento intrusione continui, prevenzione da 
 
 Microsoft Azure IoT Suite consente di sfruttare la protezione e la privacy integrate nella piattaforma Azure insieme ai processi SDL e OSA per lo sviluppo e il funzionamento sicuro di tutti i tipi di software Microsoft. Queste procedure forniscono funzionalità di protezione dell'infrastruttura, protezione della rete, identità e gestione, essenziali per la sicurezza di qualsiasi soluzione. 
 
-[Hub IoT di Azure](../iot-hub/iot-hub-what-is-iot-hub.md), compreso in [IoT Suite](iot-suite-what-is-azure-iot.md), offre un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra i dispositivi IoT e i servizi di Azure, ad esempio [Azure Machine Learning](../machine-learning/machine-learning-what-is-machine-learning.md) e [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) usando credenziali di sicurezza e controllo di accesso specifici per ogni dispositivo.
+[Hub IoT di Azure](../iot-hub/iot-hub-what-is-iot-hub.md), compreso in [IoT Suite](iot-suite-what-is-azure-iot.md), offre un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra i dispositivi IoT e i servizi di Azure, ad esempio [Azure Machine Learning](../machine-learning/studio/what-is-machine-learning.md) e [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) usando credenziali di sicurezza e controllo di accesso specifici per ogni dispositivo.
 
 Per descrivere al meglio le funzionalità di protezione e privacy incorporate, la soluzione Azure IoT Suite è stata scomposta nelle tre principali aree di sicurezza. 
 
