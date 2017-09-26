@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/26/2017
 ms.author: larryfr
 ms.translationtype: HT
 ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
@@ -206,7 +206,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
 1. Per avviare il client Beeline, dalla sessione SSH usare il comando seguente.
 
     ```bash
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
     Questo comando presuppone che sia stato utilizzato il valore predefinito di **admin** per l'account di accesso del cluster.
