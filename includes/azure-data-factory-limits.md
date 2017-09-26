@@ -16,7 +16,7 @@ Data Factory è un servizio multi-tenant che presenta i seguenti limiti predefin
 
 <sup>2</sup> I core HDInsight su richiesta vengono allocati all'esterno della sottoscrizione che contiene la data factory. Di conseguenza, il limite massimo è il limite principale imposto dalla Data Factory per le memorie centrali HDInsight su richiesta e che è diverso dal limite principale associato alla sottoscrizione Azure.
 
-<sup>3</sup> L'unità di spostamento dati cloud viene usata in un'operazione di copia da cloud a cloud. Si tratta di un'unità di misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità in Data Factory. È possibile ottenere una velocità effettiva di copia maggiore sfruttando un numero maggiore di unità di spostamento dati per alcuni scenari. Per informazioni dettagliate, vedere la sezione [Unità di spostamento dati cloud](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units).
+<sup>3</sup> L'unità di spostamento dati cloud viene usata in un'operazione di copia da cloud a cloud. Si tratta di un'unità di misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità in Data Factory. È possibile ottenere una velocità effettiva di copia maggiore sfruttando un numero maggiore di unità di spostamento dati per alcuni scenari. Per informazioni dettagliate, vedere la sezione [Unità di spostamento dati cloud](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units).
 
 | **Risorsa** | **Limite inferiore predefinito** | **Limite minimo** |
 | --- | --- | --- |

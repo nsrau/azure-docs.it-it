@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Distribuire e gestire un dispositivo virtuale StorSimple in Azure
@@ -64,7 +64,7 @@ La tabella seguente illustra alcune differenze fondamentali tra il dispositivo S
 | **Chiave DEK del servizio** |Rigenerare la chiave nel dispositivo fisico, quindi aggiornare il dispositivo virtuale con la nuova chiave. |Non è possibile rigenerarla dal dispositivo virtuale. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Prerequisiti per il dispositivo virtuale
-Le sezioni seguenti illustrano i prerequisiti di configurazione per il dispositivo StorSimple virtuale. Prima di distribuire un dispositivo virtuale, esaminare le [considerazioni relative alla sicurezza per l'uso di un dispositivo virtuale](storsimple-security.md#storsimple-virtual-device-security).
+Le sezioni seguenti illustrano i prerequisiti di configurazione per il dispositivo StorSimple virtuale. Prima di distribuire un dispositivo virtuale, esaminare le [considerazioni relative alla sicurezza per l'uso di un dispositivo virtuale](storsimple-security.md).
 
 #### <a name="azure-requirements"></a>Requisiti di Azure
 Prima di eseguire il provisioning del dispositivo virtuale, è necessario effettuare le seguenti operazioni preliminari in Azure:

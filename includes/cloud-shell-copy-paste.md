@@ -1,0 +1,3 @@
+* Windows: `Ctrl-insert` per copiare e `Shift-insert` per incollare. Facendo clic con pulsante destro del mouse sull'elenco a discesa è possibile abilitare Copia e Incolla.
+  * FireFox o Internet Explorer potrebbero non supportare correttamente le autorizzazioni per gli appunti.
+* Mac OS: `Cmd-c` per copiare e `Cmd-v` per incollare. Facendo clic con pulsante destro del mouse sull'elenco a discesa è possibile abilitare Copia e Incolla.
