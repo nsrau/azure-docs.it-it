@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 09/22/2017
 ms.author: nitinme
 ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
@@ -66,6 +66,7 @@ Per eseguire le query si useranno i dati di esempio disponibili per impostazione
 
 5. Incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO** per eseguire il codice. Il codice importa i tipi necessari per questo scenario:
 
+        from pyspark.sql import *
         from pyspark.sql.types import *
 
     Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice.

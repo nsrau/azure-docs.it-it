@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/25/2017
 ms.author: subramar
 ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
@@ -41,19 +41,19 @@ I comandi seguenti creano un'applicazione di Service Fabric (denominata `fabric:
 Creare un'applicazione Compose di Service Fabric da un file docker-compose.yml eseguendo il comando seguente in PowerShell:
 
 ```powershell
-New-ServiceFabricComposeApplication -ApplicationName fabric:/TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
+New-ServiceFabricComposeDeployment -DeploymentName fabric:/TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
 `RegistryUserName` e `RegistryPassword` fanno riferimento al nome utente e alla password del registro contenitori. Dopo aver completato l'applicazione, è possibile controllarne lo stato usando il comando seguente:
 
 ```powershell
-Get-ServiceFabricComposeApplicationStatus -ApplicationName fabric:/TestContainerApp -GetAllPages
+Get-ServiceFabricComposeDeploymentStatus -DeploymentName fabric:/TestContainerApp -GetAllPages
 ```
 
 Per eliminare l'applicazione Compose tramite PowerShell, usare il comando seguente:
 
 ```powershell
-Remove-ServiceFabricComposeApplication  -ApplicationName fabric:/TestContainerApp
+Remove-ServiceFabricComposeDeployment  -DeploymentName fabric:/TestContainerApp
 ```
 
 ### <a name="use-azure-service-fabric-cli-sfctl"></a>Usare l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
