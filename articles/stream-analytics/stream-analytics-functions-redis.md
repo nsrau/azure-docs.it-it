@@ -151,8 +151,8 @@ A questo punto è stata creata una funzione di Azure leggibile dalla coda del bu
     private static Lazy<ConnectionMultiplexer> lazyConnection = 
         new Lazy<ConnectionMultiplexer>(() =>
             {
-                var cnn = ConfigurationManager.ConnectionStrings["CONN NAME"].ConnectionString
-                return ConnectionMultiplexer.Connect();
+                var cnn = ConfigurationManager.ConnectionStrings["CONN NAME"].ConnectionString;
+                return ConnectionMultiplexer.Connect(cnn);
             });
 
     public static ConnectionMultiplexer Connection
