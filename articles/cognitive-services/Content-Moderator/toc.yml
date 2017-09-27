@@ -4,6 +4,30 @@
   items:
     - name: Informazioni su Content Moderator
       href: overview.md
+- name: Guide introduttive
+  items:
+    - name: Strumento di revisione
+      href: quick-start.md
+    - name: API per la moderazione
+      items:
+        - name: API per immagini
+          href: try-image-api.md
+        - name: API per elenchi di immagini
+          href: try-image-list-api.md
+        - name: API per testo
+          href: try-text-api.md
+        - name: API per elenchi di termini
+          href: try-terms-list-api.md
+    - name: Verificare le API
+      items:
+        - name: Processi
+          href: try-review-api-job.md
+        - name: Revisioni
+          href: try-review-api-review.md
+        - name: Flussi di lavoro
+          href: try-review-api-workflow.md
+- name: Concetti
+  items:
     - name: Moderazione immagini
       href: image-moderation-api.md
     - name: Moderazione testo
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: Verificare le API
       href: review-api.md
-- name: Attività iniziali
+- name: Guide alle procedure
   items:
     - name: Strumento di revisione
-      href: quick-start.md
-    - name: Provare le API per la moderazione
-      items:
-        - name: Immagini
-          href: try-image-api.md
-        - name: Elenchi di immagini
-          href: try-image-list-api.md
-        - name: Text
-          href: try-text-api.md
-        - name: Elenchi di termini
-          href: try-terms-list-api.md
-    - name: Provare le API per la revisione
-      items:
-        - name: Processi
-          href: try-review-api-job.md
-        - name: Revisioni
-          href: try-review-api-review.md
-        - name: Flussi di lavoro
-          href: try-review-api-workflow.md
-- name: Procedure
-  items:
-    - name: Usare lo strumento di revisione
       items:
         - name: Modello Human-in-the-loop
           href: Review-Tool-User-Guide/human-in-the-loop.md
@@ -60,6 +62,10 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: Visualizzare il dashboard
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: Esercitazioni
+  items:
+    - name: Moderazione di post di Facebook
+      href: facebook-post-moderation.md
 - name: Informazioni di riferimento sulle API
   items:
     - name: Tutte le API
@@ -71,6 +77,6 @@
     - name: Windows SDK
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: Esempi
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: Domande frequenti
       href: FAQs.md

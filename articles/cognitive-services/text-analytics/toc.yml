@@ -4,6 +4,8 @@
   items:
     - name: Informazioni su Analisi del testo
       href: overview.md
+    - name: Lingue supportate
+      href: text-analytics-supported-languages.md
 - name: Guide introduttive
   items:
     - name: 'C#'

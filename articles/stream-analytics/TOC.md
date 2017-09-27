@@ -27,7 +27,7 @@
 ### [Creare output](stream-analytics-define-outputs.md)
 ### [Output in Funzioni di Azure](stream-analytics-functions-redis.md)
 ### [Output in Data Lake Store](stream-analytics-data-lake-output.md)
-### [Output in DocumentDB](stream-analytics-documentdb-output.md)
+### [Output in Cosmos DB](stream-analytics-documentdb-output.md)
 
 ## Monitorare e ottimizzare
 ### [Aggiungere avvisi](stream-analytics-set-up-alerts.md)
@@ -54,11 +54,11 @@
 ## Automazione
 ### [Strumenti per Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Usare .NET SDK per la gestione](stream-analytics-dotnet-management-sdk.md)
-### [PowerShell con un solo clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+### [Azure PowerShell con un clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
-## [PowerShell](/powershell/module/azurerm.streamanalytics)
+## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
 ## [Linguaggio di query](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics)

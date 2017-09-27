@@ -1,4 +1,4 @@
-- name: Documentazione di Azure Stack
+- name: Documentazione dell'operatore di Azure Stack
   href: index.yml
 - name: Panoramica
   items:
@@ -11,16 +11,16 @@
       href: azure-stack-deploy-overview.md
 - name: Esercitazioni
   items:
-    - name: Abilitare le macchine virtuali
+    - name: Offrire macchine virtuali
       href: azure-stack-tutorial-tenant-vm.md
-    - name: Abilitare i database SQL
+    - name: Offrire database SQL
       href: azure-stack-tutorial-sql-server.md
-    - name: Abilitare le app Web
+    - name: Offrire app Web
       href: azure-stack-tutorial-app-service.md
-    - name: Distribuire app in Azure e Azure Stack
-      href: azure-stack-solution-pipeline.md
 - name: Concetti
   items:
+    - name: Criteri di manutenzione
+      href: azure-stack-servicing-policy.md
     - name: Note sulla versione
       href: azure-stack-asdk-release-notes.md
     - name: Funzionalità e concetti principali
@@ -45,11 +45,17 @@
           href: azure-stack-add-default-image.md
         - name: Creare una macchina virtuale di test
           href: azure-stack-provision-vm.md
+    - name: Integrazione di Datacenter
+      items:
+        - name: Integrare DNS
+          href: azure-stack-integrate-dns.md
+        - name: Pubblicare endpoint
+          href: azure-stack-integrate-endpoints.md
     - name: Gestisci
       items:
         - name: Gestione delle aree
           href: azure-stack-region-management.md
-        - name: Uso dei portali
+        - name: Uso del portale dell'amministratore
           href: azure-stack-manage-portals.md
         - name: Connettersi ad Azure Stack
           href: azure-stack-connect-azure-stack.md
@@ -57,7 +63,7 @@
           href: azure-stack-cli-admin.md
         - name: Configurare l'ambiente di gestione
           items:
-            - name: Installare PowerShell
+            - name: Installare PowerShell per Azure Stack
               href: azure-stack-powershell-install.md
             - name: Scaricare gli strumenti
               href: azure-stack-powershell-download.md
@@ -65,8 +71,14 @@
               href: azure-stack-powershell-configure-admin.md
             - name: Iniziare a usare PowerShell
               href: azure-stack-powershell-configure-quickstart.md
+        - name: Endpoint con accesso privilegiato
+          href: azure-stack-privileged-endpoint.md
         - name: Gestire gli aggiornamenti
-          href: azure-stack-updates.md
+          items:
+            - name: Panoramica sulla gestione degli aggiornamenti
+              href: azure-stack-updates.md
+            - name: Applicazione degli aggiornamenti
+              href: azure-stack-apply-updates.md
         - name: Monitorare l'integrità e gli avvisi
           href: azure-stack-monitor-health.md
         - name: Gestire le risorse di rete
@@ -75,18 +87,26 @@
           href: azure-stack-manage-storage-accounts.md
         - name: Gestire macchine virtuali di Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
-    - name: Sicurezza e conformità
+        - name: Sostituire l'hardware
+          items:
+            - name: Sostituire il disco
+              href: azure-stack-replace-disk.md
+    - name: 'Sicurezza, conformità e identità'
       items:
-        - name: Gestire il controllo degli accessi in base al ruolo
-          href: azure-stack-manage-permissions.md
-        - name: Aggiungere utenti per Azure AD
-          href: azure-stack-add-new-user-aad.md
-        - name: Aggiungere utenti ad AD FS
-          href: azure-stack-add-users-adfs.md
-        - name: Creare entità servizio
-          href: Azure-stack-create-service-principals.md
-        - name: Abilitare il multi-tenancy
-          href: azure-stack-enable-multitenancy.md
+        - name: Panoramica della sicurezza
+          href: azure-stack-security-foundations.md
+        - name: Identità
+          items:
+            - name: Gestire il controllo degli accessi in base al ruolo
+              href: azure-stack-manage-permissions.md
+            - name: Aggiungere utenti per Azure AD
+              href: azure-stack-add-new-user-aad.md
+            - name: Aggiungere utenti ad AD FS
+              href: azure-stack-add-users-adfs.md
+            - name: Creare entità servizio
+              href: Azure-stack-create-service-principals.md
+            - name: Abilitare il multi-tenancy
+              href: azure-stack-enable-multitenancy.md
     - name: Offrire servizi
       items:
         - name: Panoramica dei servizi dell'offerta
@@ -127,8 +147,6 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurare le origini di distribuzione
               href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Abilitare FTP nel servizio app in Azure Stack
-              href: azure-stack-app-service-enable-ftp.md
         - name: Popolare Marketplace
           items:
             - name: Panoramica del Marketplace
@@ -159,88 +177,12 @@
               href: azure-stack-tenant-resource-usage-api.md
             - name: Domande frequenti sull'utilizzo
               href: azure-stack-usage-related-faq.md
-    - name: Usare i servizi
-      items:
-        - name: Considerazioni sulle chiavi
-          href: azure-stack-considerations.md
-        - name: Calcolo
+        - name: Connect to Azure
           items:
-            - name: Considerazioni sulle VM
-              href: azure-stack-vm-considerations.md
-            - name: Creare una VM - PowerShell
-              href: azure-stack-quick-create-vm-powershell.md
-        - name: Archiviazione
-          items:
-            - name: Panoramica
-              href: azure-stack-storage-overview.md
-            - name: Considerazioni sulle risorse di archiviazione
-              href: azure-stack-acs-differences.md
-            - name: Strumenti di sviluppo per le risorse di archiviazione
-              href: azure-stack-storage-dev.md
-            - name: Costi di trasferimento dati
-              href: azure-stack-storage-transfer.md
-            - name: Connettere Storage Explorer
-              href: azure-stack-storage-connect-se.md
-        - name: Rete
-          items:
-            - name: Considerazioni sulla rete
-              href: azure-stack-network-differences.md
-            - name: iDNS per Azure Stack
-              href: azure-stack-understanding-dns.md
-            - name: DNS in Azure Stack
-              href: azure-stack-dns.md
-            - name: Informazioni sulle connessioni VPN da sito a sito
-              href: azure-stack-create-vpn-connection-one-node.md
-        - name: Insieme di credenziali delle chiavi
-          items:
-            - name: Panoramica
-              href: azure-stack-kv-intro.md
-            - name: Gestire con il portale
-              href: azure-stack-kv-manage-portal.md
-            - name: Gestire con PowerShell
-              href: azure-stack-kv-manage-powershell.md
-            - name: Creare una VM con un segreto
-              href: azure-stack-kv-deploy-vm-with-secret.md
-            - name: Creare una macchina virtuale con un certificato
-              href: azure-stack-kv-push-secret-into-vm.md
-            - name: App di esempio dell'insieme di credenziali delle chiavi
-              href: azure-stack-kv-sample-app.md
-    - name: Compilare applicazioni
-      items:
-        - name: Sviluppare per Azure Stack
-          href: azure-stack-developer.md
-        - name: Configurare l'ambiente di sviluppo
-          items:
-            - name: Installare PowerShell
-              href: azure-stack-powershell-install.md
-            - name: Scaricare gli strumenti
-              href: azure-stack-powershell-download.md
-            - name: Configurare PowerShell - Utente
-              href: azure-stack-powershell-configure-user.md
-            - name: Iniziare a usare PowerShell
-              href: azure-stack-powershell-configure-quickstart.md
-            - name: Installare e configurare l'interfaccia della riga di comando
-              href: azure-stack-connect-cli.md
-            - name: Installazione di Visual Studio
-              href: azure-stack-install-visual-studio.md
-            - name: Gestire i profili delle versioni dell'API
-              href: azure-stack-version-profiles.md
-        - name: Usare il modulo criteri
-          href: azure-stack-policy-module.md
-        - name: Usare modelli
-          items:
-            - name: Panoramica dei modelli
-              href: azure-stack-arm-templates.md
-            - name: Sviluppare modelli
-              href: azure-stack-develop-templates.md
-            - name: Controllare modelli
-              href: azure-stack-validate-templates.md
-            - name: Eseguire la distribuzione con il portale
-              href: azure-stack-deploy-template-portal.md
-            - name: Distribuire con PowerShell
-              href: azure-stack-deploy-template-powershell.md
-            - name: Distribuire con Visual Studio
-              href: azure-stack-deploy-template-visual-studio.md
+            - name: Connessione tramite VPN
+              href: azure-stack-connect-vpn.md
+            - name: Connessione tramite ExpressRoute
+              href: azure-stack-connect-expressroute.md
     - name: Risoluzione dei problemi
       items:
         - name: Problemi noti
@@ -251,7 +193,7 @@
           href: azure-stack-redeploy.md
 - name: riferimento
   items:
-    - name: PowerShell
+    - name: PowerShell per Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
 - name: Risorse
   items:
@@ -263,3 +205,5 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
+    - name: Formazione e certificazione
+      href: azure-stack-train-and-cert.md

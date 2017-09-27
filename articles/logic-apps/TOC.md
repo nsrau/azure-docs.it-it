@@ -19,8 +19,19 @@
 ### [Messaggi dei processi batch](logic-apps-batch-process-send-receive-messages.md)
 ### [Creare definizioni di app per la logica](logic-apps-author-definitions.md)
 ### [Chiamare, attivare o annidare app per la logica](logic-apps-http-endpoint.md)
-### [Creare API personalizzate per app per la logica](logic-apps-create-api-app.md)
-### [Chiamare API personalizzate per app per la logica](logic-apps-custom-hosted-api.md)
+### Sviluppare connettori personalizzati
+#### [Panoramica dei connettori personalizzati](custom-connector-overview.md)
+#### [Creare i connettori dalle API Web](custom-connector-build-web-api-app-tutorial.md)
+#### [Proteggere i connettori con Azure AD](custom-connector-azure-active-directory-authentication.md)
+#### [Descrivere le API con Postman](custom-connector-api-postman-collection.md)
+#### [Estendere OpenAPI per i connettori personalizzati](custom-connector-openapi-extensions.md)
+#### [Registrare il connettore](logic-apps-custom-connector-register.md)
+#### [Certificare il connettore](custom-connector-submit-certification.md)
+#### [Domande frequenti sui connettori personalizzati](custom-connector-faq.md)
+### Sviluppare le API personalizzate
+#### [Creare API personalizzate per app per la logica](logic-apps-create-api-app.md)
+#### [Chiamate protette ad API personalizzate](logic-apps-custom-api-authentication.md)
+#### [Distribuire e chiamare le API personalizzate](logic-apps-custom-api-host-deploy-call.md)
 ### [Gestire errori ed eccezioni](logic-apps-exception-handling.md)
 ### [Gestire i tipi di contenuti](logic-apps-content-type.md)
 ### [Proteggere le app per la logica](logic-apps-securing-a-logic-app.md)
@@ -73,8 +84,7 @@
 #### [Schema di rilevamento X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [Schema di rilevamento personalizzato](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## Esempi, scenari e procedure dettagliate
-### [Panoramica](logic-apps-examples-and-scenarios.md)
+## [Esempi, scenari e procedure dettagliate](logic-apps-examples-and-scenarios.md)
 ### [Creare un dashboard social senza server](logic-apps-scenario-social-serverless.md)
 ### [Chiamare le app per la logica con Funzioni di Azure](logic-apps-scenario-function-sb-trigger.md)
 ### [Aggiungere la gestione di errori ed eccezioni](logic-apps-scenario-error-and-exception-handling.md)
@@ -98,7 +108,7 @@
 ## [Linguaggio di definizione del flusso di lavoro](logic-apps-workflow-definition-language.md)
 ## [Azioni e trigger del flusso di lavoro](logic-apps-workflow-actions-triggers.md)
 ## [API REST](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## Connettori: argomenti dettagliati
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Archiviazione BLOB di Azure](../connectors/connectors-create-api-azureblobstorage.md)

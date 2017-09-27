@@ -1,0 +1,82 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Archiviazione di Azure
+metadata:
+  title: Documentazione di Archiviazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
+  description: 'Archiviazione di Microsoft Azure è un servizio cloud gestito da Microsoft che offre risorse di archiviazione a disponibilità, sicurezza, durabilità, scalabilità e ridondanza elevate. Archiviazione di Azure è costituito dai servizi di archiviazione BLOB, archiviazione file e archiviazione code.'
+  services: storage
+  author: czeumault
+  manager: carolz
+  ms.service: storage
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/20/2017
+  ms.author: carolz
+abstract:
+  description: 'Archiviazione di Microsoft Azure è un servizio cloud gestito da Microsoft che offre risorse di archiviazione a disponibilità, sicurezza, durabilità, scalabilità e ridondanza elevate. Archiviazione di Azure è costituito dai servizi di archiviazione BLOB, archiviazione file e archiviazione code.  Questo articolo contiene informazioni su come usare Archiviazione di Azure nelle applicazioni con esercitazioni e guide introduttive.'
+sections:
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: Creare uno spazio dei nomi univoco per archiviare e accedere a oggetti dati di Archiviazione di Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/powershell.svg'
+            text: Azure Powershell
+            href: /azure/storage/common/storage-quickstart-create-storage-account-powershell
+          - image:
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: Interfaccia della riga di comando di Azure
+            href: /azure/storage/common/storage-quickstart-create-storage-account-cli
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: Informazioni su come caricare ed elaborare i dati di immagini nel cloud.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/storage/blobs/storage-upload-process-images">Caricare e recuperare i dati di immagini nel cloud</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Attivare le funzioni di Azure per elaborare i BLOB</a>
+          - html: <a href="/azure/storage/blobs/storage-secure-access-application">Proteggere i dati dell'applicazione</a>
+          - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitorare e risolvere i problemi relativi alle risorse di archiviazione</a>
+  - title: Esempi
+    items:
+      - type: paragraph
+        text: Trovare script per le attività di gestione comuni.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
+          - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Interfaccia della riga di comando di Azure</a>
+  - title: Video di formazione gratuiti su PluralSight
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Sviluppo con .NET in Azure
+            href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
+          - title: Sviluppo con Node.js in Azure
+            href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Interfaccia della riga di comando di Azure</a></p>
+          - title: Lingue
+            html: '<p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>'
+          - title: REST
+            html: '<p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">BLOB, code, tabelle e file</a></p><p><a href="/rest/api/storagerp">Provider di risorse</a></p><p><a href="/rest/api/storageimportexport">Importazione/Esportazione</a></p><p><a href="/rest/api/storageservices">API REST per i dati di archiviazione</a></p>'

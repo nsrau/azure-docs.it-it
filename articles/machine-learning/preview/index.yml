@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Azure Machine Learning (anteprima)
+metadata:
+  title: Documentazione di Azure Machine Learning (anteprima)
+  meta.description: Learn how to use Azure Machine Learning public preview features.
+  services: machine-learning
+  author: czeumault
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/06/2017
+  ms.author: carolz
+abstract:
+  description: 'Informazioni su come preparare i dati e compilare e distribuire i modelli con esercitazioni e guide introduttive. Le funzionalità di anteprima di Azure Machine Learning permettono di compilare, distribuire e gestire modelli di ML e AI con qualsiasi strumento e libreria Python. In Azure è possibile usare un''ampia gamma di dati e servizi di calcolo per archiviare ed elaborare i dati.'
+sections:
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: Creare il primo progetto di Machine Learning
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: Installare e creare
+            href: quickstart-installation
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: 'Informazioni su come preparare i dati, configurare un esperimento e rendere operativi i modelli'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-classifying-iris-part-1">Dettagli sulle nozioni di base dei servizi di Machine Learning (anteprima)</a>
+          - html: <a href="tutorial-classifying-iris-part-2">Usare Machine Learning Workbench per compilare un modello con il set di dati del fiore Iris</a>
+          - html: <a href="tutorial-classifying-iris-part-3">Informazioni su come distribuire un modello di Machine Learning</a>
+          - html: <a href="tutorial-bikeshare-dataprep">Usare Azure Machine Learning Workbench per la preparazione avanzata dei dati</a>
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Lingue
+            html: '<p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
+          - title: REST
+            html: <p><a href="model-management-api-reference">API REST di Gestione modelli</a></p>

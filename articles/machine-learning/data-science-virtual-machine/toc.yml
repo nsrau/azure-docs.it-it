@@ -1,0 +1,52 @@
+- name: Documentazione sulle macchine virtuali per data science
+  items: null
+- name: Panoramica
+  items:
+    - name: Definizione di macchina virtuale di data science
+      href: overview.md
+    - name: Definizione di macchine virtuale per l'apprendimento avanzato
+      href: deep-learning-dsvm-overview.md
+- name: Attività iniziali
+  items:
+    - name: Creare una macchina virtuale data science Windows
+      href: provision-vm.md
+    - name: Creare una macchina virtuale data science Ubuntu
+      href: dsvm-ubuntu-intro.md
+    - name: Creare una macchina virtuale data science CentOS
+      href: linux-dsvm-intro.md
+    - name: Creare una macchina virtuale per l'apprendimento avanzato
+      href: provision-deep-learning-dsvm.md
+- name: Procedure
+  items:
+    - name: Usare una macchina virtuale data science Windows
+      href: vm-do-ten-things.md
+    - name: Usare una macchina virtuale data science Linux
+      href: linux-dsvm-walkthrough.md
+    - name: Usare una macchina virtuale per l'apprendimento avanzato
+      href: use-deep-learning-dsvm.md
+- name: riferimento
+  items:
+    - name: Apprendimento avanzato e framework AI
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Strumenti di data science e ML
+      href: dsvm-ml-data-science-tools.md
+    - name: Lingue
+      href: dsvm-languages.md
+    - name: Strumenti di sviluppo
+      href: dsvm-tools-development.md
+    - name: Strumenti per l'inserimento di dati
+      href: dsvm-tools-ingestion.md
+    - name: Strumenti per la visualizzazione e l'esplorazione dei dati
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Piattaforme di dati
+      href: dsvm-data-platforms.md
+    - name: Esempi e procedure dettagliate
+      href: dsvm-samples-and-walkthroughs.md
+- name: Risorse
+  items:
+    - name: Blog
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: Forum MSDN
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=dsvm'

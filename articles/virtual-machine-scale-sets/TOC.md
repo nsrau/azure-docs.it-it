@@ -2,7 +2,7 @@
 ## [Informazioni sui set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md)
 
 # Attività iniziali
-## [Distribuire un set di scalabilità nel portale](virtual-machine-scale-sets-portal-create.md)
+## [Distribuire un set di scalabilità nel portale di Azure](virtual-machine-scale-sets-portal-create.md)
 ## [Distribuire un set di scalabilità con PowerShell o l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
 ## [Distribuire un'app di scalabilità automatica usando un modello](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -16,10 +16,10 @@
 ### [Usare un'immagine personalizzata](virtual-machine-scale-sets-mvss-custom-image.md)
 ### [Usare la scalabilità automatica basata su guest con un modello di set di scalabilità Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
-## Distribuisci
-### [Creare con il portale](virtual-machine-scale-sets-portal-create.md)
+## Distribuire
+### [Creare con il portale di Azure](virtual-machine-scale-sets-portal-create.md)
 ### [Creare con Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Creare con PowerShell o l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
+### [Creare con Azure PowerShell o con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
 ### [Set di scalabilità con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Set di scalabilità Linux con scalabilità automatica](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Set di scalabilità Windows con scalabilità automatica](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## Gestisci
-### [Set di scalabilità Windows con PowerShell](virtual-machine-scale-sets-windows-manage.md)
+### [Set di scalabilità di Windows con Azure PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Scalabilità automatica e set di scalabilità](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Scalabilità automatica avanzata](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Ridimensionamento verticale in un set di scalabilità](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -46,8 +46,8 @@
 ## Domande frequenti
 ### [Domande frequenti sui set di scalabilità](virtual-machine-scale-sets-faq.md)
 
-# Riferimento
-## [PowerShell](/powershell/azure/overview)
+# riferimento
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

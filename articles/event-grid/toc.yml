@@ -12,6 +12,8 @@
   items:
     - name: Monitorare le modifiche alle VM con le app per la logica
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: Ridimensionare le immagini caricate
+      href: resize-images-on-storage-blob-upload-event.md
 - name: Concetti
   items:
     - name: Concetti relativi a Griglia di eventi

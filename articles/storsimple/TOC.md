@@ -36,6 +36,7 @@
 #### [Gestire i processi](storsimple-virtual-array-manage-jobs.md)
 #### [Modificare la password del dispositivo](storsimple-virtual-array-change-device-admin-password.md)
 #### [Configurare MPIO in un host Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Monitorare con gli avvisi](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnosi e risoluzione dei problemi](storsimple-virtual-array-diagnose-problems.md)
 #### [Registrare una richiesta di supporto](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [In cosa consiste la soluzione?](storsimple-overview.md)
 ### [Mappa di apprendimento per StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Considerazioni relative alla sicurezza](storsimple-8000-security.md)
+### [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md)
 
 ## Attività iniziali
 

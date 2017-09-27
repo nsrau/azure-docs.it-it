@@ -16,7 +16,7 @@
 # Procedure
 ## Aggiungere un dominio gestito
 ### [Aggiungere una VM Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Aggiungere una VM Windows tramite PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Aggiungere una macchina virtuale Windows tramite Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
 ### [Aggiungere una VM Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 ## Amministrare un dominio gestito
 ### [Amministrare un dominio gestito](active-directory-ds-admin-guide-administer-domain.md)

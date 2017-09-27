@@ -20,8 +20,8 @@
 ## Proteggere
 ### [Autenticazione in uscita](scheduler-outbound-authentication.md)
 
-# Riferimento
-## [PowerShell](/powershell/module/azurerm.scheduler)
+# riferimento
+## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # Risorse
