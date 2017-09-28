@@ -17,15 +17,15 @@ ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 52113e1240b81299ae3338f35b2934891017adbf
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 2944021cbaf777137512f4bfe0eb4cf5e6f996dc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Panoramica delle macchine virtuali Windows in Azure
 
-Le macchine virtuali (VM) di Azure sono uno dei vari tipi di [risorse di calcolo scalabili e su richiesta](../../app-service-web/choose-web-site-cloud-service-vm.md) offerte da Azure. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Questo articolo fornisce informazioni sugli aspetti da tenere in considerazione prima di creare una VM e sulla relativa modalità di creazione e gestione.
+Le macchine virtuali (VM) di Azure sono uno dei vari tipi di [risorse di calcolo scalabili e su richiesta](../../app-service/choose-web-site-cloud-service-vm.md) offerte da Azure. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Questo articolo fornisce informazioni sugli aspetti da tenere in considerazione prima di creare una VM e sulla relativa modalità di creazione e gestione.
 
 Una VM di Azure offre la flessibilità della virtualizzazione senza dover acquistare e gestire l'hardware fisico su cui è in esecuzione la macchina virtuale. È comunque necessario gestire la VM eseguendo determinate attività, ovvero configurazione, applicazione di patch e installazione del software in esecuzione sulla macchina virtuale.
 
@@ -38,7 +38,7 @@ Una VM di Azure offre la flessibilità della virtualizzazione senza dover acquis
 È possibile aumentare o ridurre il numero di VM usate dall'applicazione in base alle proprie esigenze.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Aspetti da tenere in considerazione prima della creazione di una VM
-Quando si compila l'infrastruttura di un'applicazione in Azure, ci sono sempre numerose [considerazioni di progettazione](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) di cui tener conto. Prima di iniziare, è quindi importante analizzare gli aspetti seguenti di una VM:
+Quando si compila l'infrastruttura di un'applicazione in Azure, ci sono sempre numerose [considerazioni di progettazione](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) di cui tener conto. Prima di iniziare, è quindi importante analizzare gli aspetti seguenti di una VM:
 
 * Nomi delle risorse dell'applicazione
 * Posizione in cui sono archiviate le risorse
@@ -49,7 +49,7 @@ Quando si compila l'infrastruttura di un'applicazione in Azure, ci sono sempre n
 * Risorse correlate richieste dalla VM
 
 ### <a name="naming"></a>Denominazione
-Una macchina virtuale dispone di un [nome](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) assegnato e di un nome computer configurato come parte del sistema operativo. Il nome di una VM può essere composto da un massimo di 15 caratteri.
+Una macchina virtuale dispone di un [nome](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) assegnato e di un nome computer configurato come parte del sistema operativo. Il nome di una VM può essere composto da un massimo di 15 caratteri.
 
 Se si usa Azure per creare il disco del sistema operativo, il nome del computer e il nome della macchina virtuale sono uguali. Se si [carica la propria immagine](upload-generalized-managed.md) contenente un sistema operativo configurato in precedenza e la si usa per creare una macchina virtuale, i nomi possono differire. Quando si carica il proprio file di immagine, è consigliabile far coincidere il nome computer nel sistema operativo con il nome della macchina virtuale.
 
