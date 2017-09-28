@@ -76,14 +76,14 @@ In questa sezione si scrive un'app C per inviare eventi all'hub eventi. Il codic
     #include <unistd.h>
     #include <stdlib.h>
    
-    #define check(messenger)                                                     
-      {                                                                          
-        if(pn_messenger_errno(messenger))                                        
-        {                                                                        
-          printf("check\n");                                                     
-          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); 
-        }                                                                        
-      }  
+    #define check(messenger)                                                     \
+      {                                                                          \
+        if(pn_messenger_errno(messenger))                                        \
+        {                                                                        \
+          printf("check\n");                                                     \
+          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
+        }                                                                        \
+      }
    
     pn_timestamp_t time_now(void)
     {
@@ -100,7 +100,7 @@ In questa sezione si scrive un'app C per inviare eventi all'hub eventi. Il codic
     }
    
     int sendMessage(pn_messenger_t * messenger) {
-        char * address = (char *) "amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/{event hub name}";
+        char * address = (char *) "amqps://{SAS Key Name}:{SAS key}@{namespace name}.servicebus.windows.net/{event hub name}";
         char * msgtext = (char *) "Hello from C!";
    
         pn_message_t * message;

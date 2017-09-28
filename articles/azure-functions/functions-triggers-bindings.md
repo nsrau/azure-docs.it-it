@@ -349,7 +349,7 @@ Ad esempio, la seguente *function.json* usa una proprietà denominata `BlobName`
       "name": "info",
       "type": "httpTrigger",
       "direction": "in",
-      "webHookType": "genericJson",
+      "webHookType": "genericJson"
     },
     {
       "name": "blobContents",
