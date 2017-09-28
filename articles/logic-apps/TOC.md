@@ -43,6 +43,7 @@
 ### [Partner](logic-apps-enterprise-integration-partners.md)
 ### [Contratti](logic-apps-enterprise-integration-agreements.md)
 ### [Elaborazione B2B](logic-apps-enterprise-integration-b2b.md)
+### [Inviare messaggi EDI come batch](logic-apps-scenario-edi-send-batch-messages.md)
 ### [Elaborazione XML](logic-apps-enterprise-integration-xml.md)
 ### [Elaborazione file flat](logic-apps-enterprise-integration-flatfile.md)
 ### [Convalidare XML](logic-apps-enterprise-integration-xml-validation.md)
@@ -88,7 +89,7 @@
 ### [Creare un dashboard social senza server](logic-apps-scenario-social-serverless.md)
 ### [Chiamare le app per la logica con Funzioni di Azure](logic-apps-scenario-function-sb-trigger.md)
 ### [Aggiungere la gestione di errori ed eccezioni](logic-apps-scenario-error-and-exception-handling.md)
-### [Elaborazione B2B](logic-apps-enterprise-integration-b2b.md)
+### [Elaborazione B2B](logic-apps-enterprise-integration-b2b.md) 
 
 ## Prezzi e fatturazione
 ### [Prezzi](https://azure.microsoft.com/pricing/details/logic-apps/)

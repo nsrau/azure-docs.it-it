@@ -9,6 +9,8 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
 ## [Inoltro WCF](relay-wcf-dotnet-get-started.md)
+## [Esercitazione sull'inoltro WCF](service-bus-relay-tutorial.md)
+## [Esercitazione su REST per l'inoltro WCF](service-bus-relay-rest-tutorial.md)
 
 # Procedure
 ## Pianificare e progettare

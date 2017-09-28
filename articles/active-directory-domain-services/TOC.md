@@ -24,8 +24,7 @@
 ### Configurare l'accesso LDAP sicuro per un dominio gestito
 #### [Attività 1: Ottenere un certificato per l'accesso LDAP sicuro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Attività 2: Esportare il certificato LDAP sicuro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito tramite il portale di Azure classico](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito tramite il portale di Azure (anteprima)](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito tramite il portale di Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Creare un'unità organizzativa in un dominio gestito](active-directory-ds-admin-guide-create-ou.md)
 ### [Amministrare criteri di gruppo in un dominio gestito](active-directory-ds-admin-guide-administer-group-policy.md)

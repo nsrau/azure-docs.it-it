@@ -43,6 +43,7 @@
 ### [Code di messaggi non recapitabili](service-bus-dead-letter-queues.md)
 ### [Elaborazione di transazioni](service-bus-transactions.md)
 ### [Log di diagnostica](service-bus-diagnostic-logs.md)
+### [Implementazione dello spazio dei nomi associato](service-bus-paired-namespaces.md)
 ### AMQP
 #### [Panoramica di AMQP](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)

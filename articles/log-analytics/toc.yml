@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: Concetti
   items:
-    - name: domande frequenti
+    - name: Domande frequenti su Log Analytics
       href: log-analytics-faq.md
     - name: Uso dei dati
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: Funzionalità per i provider di servizi
       href: log-analytics-service-providers.md
+    - name: Ricerca log
+      items:
+        - name: Domande frequenti sulla ricerca log
+          href: log-analytics-log-search-faq.md
+        - name: Panoramica delle ricerche nei log
+          href: log-analytics-log-search-new.md
+        - name: Portali per la ricerca log
+          href: log-analytics-log-search-portals.md
 - name: Procedure
   items:
     - name: Raccogliere i dati
@@ -92,15 +100,6 @@
       items:
         - name: Aggiornare l'area di lavoro
           href: log-analytics-log-search-upgrade.md
-        - name: domande frequenti
-          href: log-analytics-log-search-faq.md
-        - name: Panoramica delle ricerche nei log
-          href: log-analytics-log-search-new.md
-        - name: Portali per la ricerca log
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: Usare il portale per la ricerca log
-              href: log-analytics-log-search-log-search-portal.md
         - name: Transizione dal linguaggio legacy
           href: log-analytics-log-search-transition.md
         - name: Connettore di flusso

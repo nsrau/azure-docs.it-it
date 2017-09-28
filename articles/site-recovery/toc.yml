@@ -82,6 +82,8 @@
   items:
     - name: Ripristino di emergenza
       items:
+        - name: In Azure per le macchine virtuali VMware con supporto multi-tenant
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: In Azure per le macchine virtuali Hyper-V
           href: tutorial-hyper-v-to-azure.md
         - name: In Azure per i server fisici

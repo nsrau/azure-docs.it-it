@@ -81,7 +81,7 @@
           href: deployment-setup-configuration.md
         - name: Distribuire un servizio Web
           href: model-management-service-deploy.md
-        - name: Utilizzare un servizio Web
+        - name: Usare un servizio Web
           href: model-management-consumption.md
         - name: Come usare la raccolta di dati del modello
           href: how-to-use-model-data-collection.md
@@ -141,6 +141,8 @@
       items:
         - name: Configurazione dell'esecuzione
           href: experiment-execution-configuration-reference.md
+        - name: API di registrazione
+          href: reference-logging-api.md
     - name: Gestione modelli
       items:
         - name: API di Gestione modelli

@@ -172,22 +172,34 @@
           href: control-flow-expression-language-functions.md
         - name: Variabili di sistema
           href: control-flow-system-variables.md
-    - name: Archiviare le credenziali nell'insieme di credenziali delle chiavi
-      href: store-credentials-in-key-vault.md
+    - name: Sicurezza
+      items:
+        - name: Considerazioni relative alla sicurezza per lo spostamento dei dati
+          href: data-movement-security-considerations.md
+        - name: Archiviare le credenziali in Azure Key Vault
+          href: store-credentials-in-key-vault.md
+        - name: Crittografare le credenziali per il runtime di integrazione self-hosted
+          href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Monitorare e gestire
       items:
         - name: Usare .NET
           href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
         - name: Usare Monitoraggio di Azure
           href: monitor-using-azure-monitor.md
+        - name: Gestire il runtime di integrazione SSIS di Azure
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Monitorare il runtime di integrazione
+          href: monitor-integration-runtime.md
     - name: Creare il runtime di integrazione
       items:
         - name: Runtime di integrazione di Azure
           href: create-azure-integration-runtime.md
-        - name: Runtime di integrazione SSIS di Azure
-          href: create-azure-ssis-integration-runtime.md
         - name: Runtime di integrazione self-hosted
           href: create-self-hosted-integration-runtime.md
+        - name: Runtime di integrazione SSIS di Azure
+          href: create-azure-ssis-integration-runtime.md
+        - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
+          href: join-azure-ssis-integration-runtime-virtual-network.md
 - name: riferimento
   items:
     - name: .NET
@@ -200,6 +212,8 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Risorse
   items:
+    - name: domande frequenti
+      href: frequently-asked-questions.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Prezzi
