@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 3eaa0535222a4a91c36abfff79dd4c134fa8352e
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
 ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
@@ -148,4 +148,9 @@ Prima di poter scaricare i file dall'app per le funzioni con FTP o l'archivio GI
     Se richiesto inserire le [credenziali di distribuzione configurate](#credentials).  
 
 [GitHub]: https://github.com/
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Best Practices for Azure Functions](functions-best-practices.md) (Procedure consigliate per Funzioni di Azure)
 

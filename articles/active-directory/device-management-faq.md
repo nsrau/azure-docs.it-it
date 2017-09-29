@@ -15,10 +15,10 @@ ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 3b37033e0c96e01c73bef15af1b85116f404c354
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
@@ -34,7 +34,7 @@ ms.lasthandoff: 09/14/2017
 
 **Osservazioni:**
 
-- Gli utenti che vengono inclusi nei criteri di accesso condizionale necessitano di una [versione di Office supportata per macOS](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) per accedere alle risorse. 
+- Gli utenti che vengono inclusi nei criteri di accesso condizionale necessitano di una [versione di Office supportata per macOS](active-directory-conditional-access-technical-reference.md#client-apps-condition) per accedere alle risorse. 
 
 - Durante il primo tentativo di accesso, agli utenti viene richiesto di registrare il dispositivo tramite il portale aziendale.
 
@@ -153,10 +153,20 @@ Per altre piattaforme Windows aggiunte a un dominio AD locale:
 
 ---
 
-**D: Dove reperire le istruzioni per la configurazione di dispositivi aggiunti all'entità ibrida di Azure AD?**
+**D: Dove reperire le istruzioni per la configurazione della registrazione automatica del dispositivo?**
 
-**R:** Per informazioni dettagliate, vedere [Configurare dispositivi aggiunti all'entità ibrida di Azure Active Directory](device-management-hybrid-azuread-joined-devices-setup.md).
+**R:**Per altre informazioni, vedere [Come configurare la registrazione automatica dei dispositivi Windows con Azure Active Directory aggiunti a un dominio](active-directory-conditional-access-automatic-device-registration-setup.md).
 
+---
+
+**D: Dove è possibile trovare informazioni sulla risoluzione dei problemi legati alla registrazione automatica del dispositivo?**
+
+**R:** Per informazioni sulla risoluzione dei problemi, vedere:
+
+- [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD - Windows 10 e Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
+
+- [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD per client di livello inferiore di Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+ 
 ---
 
 

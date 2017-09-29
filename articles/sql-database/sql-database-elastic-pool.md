@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 4e4483ce7473070591128375960daa2b2c26a55d
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 2af5be1c2250c3ec363b97c21bc3fa05c8ace984
 ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -369,13 +369,13 @@ Per creare e gestire i pool di database SQL elastici usare queste richieste API 
 |[Attività del pool elastico](/rest/api/sql/elasticpoolactivities)|Restituisce le attività del pool elastico.|
 |[Attività del database del pool elastico](/rest/api/sql/elasticpooldatabaseactivities)|Restituisce l'attività sul database all'interno di un pool elastico.|
 |[Database: crea o aggiorna](/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
-|[Database: ottieni](/rest/api/sql/databases/get)|Ottiene un database.|
+|[Databases - Get](/rest/api/sql/databases/get)|Ottiene un database.|
 |[Database: ottieni da pool elastico](/rest/api/sql/databases/getbyelasticpool)|Ottiene un database all'interno di un pool elastico.|
 |[Database: ottieni da pool elastico consigliato](/rest/api/sql/databases/getbyrecommendedelasticpool)|Ottiene un database all'interno di un pool elastico consigliato.|
 |[Database: elenca da pool elastico](/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
 |[Database: elenca da pool elastico consigliato](/rest/api/sql/databases/listbyrecommendedelasticpool)|Restituisce un elenco di database in un pool elastico consigliato.|
-|[Database: elenca dal server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
-|[Database: aggiorna](/api/sql/databases/update)|Aggiorna un database esistente.|
+|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
+|[Databases - Update](/rest/api/sql/databases/update)|Aggiorna un database esistente.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c76870c49f5c8e51f521fd4be920d976e4cdbcef
-ms.openlocfilehash: 7100856b02935fba7bbf1427d86859ddb7a2b5f3
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9a73c25724a239e56c3ea62a8452bb7c3a2b51be
 ms.contentlocale: it-it
-ms.lasthandoff: 03/02/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>Usare i metodi diretti sul dispositivo IoT con Node. js
@@ -37,7 +37,7 @@ Al termine di questa esercitazione si avranno due app console Node.js:
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Node.js 0.10.x o versione successiva.
+* Node.js 4.0.x o versione successiva.
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

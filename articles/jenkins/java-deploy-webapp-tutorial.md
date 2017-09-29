@@ -12,16 +12,16 @@ ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 22288cd1468b410df77b27721ccda32c3d033e47
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: dcc60feb4c0b3a961689f3d365d49ac1690696a6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurare l'integrazione e la distribuzione continue in Servizio App di Azure con Jenkins
 
-Questa esercitazione consente di impostare l'integrazione e la distribuzione continue di un'app Web Java di esempio sviluppata con il framework [Spring Boot](http://projects.spring.io/spring-boot/) nell'[app Web di Servizio app di Azure in Linux](/azure/app-service-web/app-service-linux-intro) con Jenkins.
+Questa esercitazione consente di impostare l'integrazione e la distribuzione continue di un'app Web Java di esempio sviluppata con il framework [Spring Boot](http://projects.spring.io/spring-boot/) nell'[app Web di Servizio app di Azure in Linux](/azure/app-service/containers/app-service-linux-intro) con Jenkins.
 
 In questa esercitazione si imparerà a:
 
@@ -78,12 +78,12 @@ Impostare Jenkins per la ricezione di [webhook GitHub](https://developer.github.
 2. Nella sezione **General** selezionare il progetto **GitHub** e immettere l'URL della copia del repository creata tramite fork, ad esempio https://github.com/raisa/gs-spring-boot-docker
 3. Nella sezione **Source code management** selezionare **Git** e immettere l'URL `.git` della copia del repository creata tramite fork, ad esempio https://github.com/raisa/gs-spring-boot-docker.git
 4. Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
-5. Nella sezione **Build** selezionare **Add build step** e scegliere **Invoke top-level Maven targets**. Immettere `package` nel campo **Goals**.
+5. Nella sezione **Build** selezionare **Add build step** e scegliere **Invoke top-level Maven targets**. Immettere `package` nel campo **Obiettivi**.
 6. Selezionare **Salva**. Per testare il processo, selezionare **Build Now** dalla pagina del progetto.
 
 ## <a name="configure-azure-app-service"></a>Configurare Servizio app di Azure 
 
-1. Usando l'interfaccia della riga di comando di Azure o [Cloud Shell](/azure/cloud-shell/overview), creare una nuova [app Web in Linux](/azure/app-service-web/app-service-linux-intro). Il nome dell'app Web in questa esercitazione è `myJavaApp`, ma è necessario usare un nome univoco per la propria app.
+1. Usando l'interfaccia della riga di comando di Azure o [Cloud Shell](/azure/cloud-shell/overview), creare una nuova [app Web in Linux](/azure/app-service/containers/app-service-linux-intro). Il nome dell'app Web in questa esercitazione è `myJavaApp`, ma è necessario usare un nome univoco per la propria app.
    
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus
@@ -124,7 +124,7 @@ Impostare Jenkins per la ricezione di [webhook GitHub](https://developer.github.
         "tenant": "CCCCCCCC-CCCC-CCCC-CCCCCCCCCCC"
     }
     ```
-6. Immettere le credenziali dall'entità servizio nella finestra di dialogo **Add credentials**. Se non si conosce l'ID sottoscrizione di Azure, è possibile eseguire una query dall'interfaccia della riga di comando:
+6. Immettere le credenziali dall'entità servizio nella finestra di dialogo **Aggiungi credenziali**. Se non si conosce l'ID sottoscrizione di Azure, è possibile eseguire una query dall'interfaccia della riga di comando:
      
      ```azurecli-interactive
      az account list

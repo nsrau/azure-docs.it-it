@@ -1,6 +1,6 @@
 ---
-title: Binding HTTP e webhook in Funzioni di Azure | Microsoft Docs
-description: Informazioni su come usare trigger e binding HTTP e webhookin Funzioni di Azure.
+title: Associazioni HTTP e webhook in Funzioni di Azure | Microsoft Docs
+description: Informazioni su come usare trigger e associazioni HTTP e webhookin Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: mattchenderson
@@ -17,21 +17,21 @@ ms.workload: na
 ms.date: 08/26/2017
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: cac0f437cee86aa933763e5133ac1a0e892ffb52
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 3c3247592cbe2bc382d220264b0c646ee566b8a7
 ms.contentlocale: it-it
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
-# <a name="azure-functions-http-and-webhook-bindings"></a>Binding HTTP e webhook in Funzioni di Azure
+# <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e usare trigger e binding HTTP in Funzioni di Azure.
+Questo articolo illustra come configurare e usare trigger e associazioni HTTP in Funzioni di Azure.
 In questo modo è possibile usare Funzioni di Azure per compilare API senza server e rispondere ai webhook.
 
-Funzioni di Azure fornisce i binding seguenti:
+Funzioni di Azure fornisce le associazioni seguenti:
 - Un [trigger HTTP](#httptrigger) consente di richiamare una funzione con una richiesta HTTP e può essere personalizzato per rispondere ai [webhook](#hooktrigger).
-- Un [binding di output HTTP](#output) consente di rispondere alla richiesta.
+- Un'[associazione di output HTTP](#output) consente di rispondere alla richiesta.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -44,7 +44,7 @@ Il trigger HTTP esegue la funzione in risposta a una richiesta HTTP. È possibil
 
 Se si usa il portale di Funzioni, è anche possibile iniziare subito a usare un modello predefinito. Selezionare **Nuova funzione** e scegliere "API e webhook" dal menu a discesa **Scenario**. Selezionare uno dei modelli e fare clic su **Crea**.
 
-Per impostazione predefinita, un trigger HTTP risponde alla richiesta con un codice di stato HTTP 200 OK e un corpo vuoto. Per modificare la risposta, configurare un [binding di output HTTP](#output)
+Per impostazione predefinita, un trigger HTTP risponde alla richiesta con un codice di stato HTTP 200 OK e un corpo vuoto. Per modificare la risposta, configurare un'[associazione di output HTTP](#output)
 
 ### <a name="configuring-an-http-trigger"></a>Configurazione di un trigger HTTP
 Un trigger HTTP è definito da un oggetto JSON nella matrice `bindings` di function.json, come illustrato nell'esempio seguente:
@@ -59,7 +59,7 @@ Un trigger HTTP è definito da un oggetto JSON nella matrice `bindings` di funct
     "route": "values/{id}"
 },
 ```
-Il binding supporta le proprietà seguenti:
+L'associazione supporta le proprietà seguenti:
 
 |Proprietà  |Descrizione  |
 |---------|---------|
@@ -79,10 +79,10 @@ Per le funzioni Node.js, il runtime di Funzioni fornisce il corpo della richiest
 
 
 <a name="output"></a>
-## <a name="http-response-output-binding"></a>Binding di output della risposta HTTP
-Usare il binding di output HTTP per rispondere al mittente della richiesta HTTP. Questo binding richiede un trigger HTTP e consente di personalizzare la risposta associata alla richiesta del trigger. Se non viene specificato un binding di output HTTP, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto. 
+## <a name="http-response-output-binding"></a>Associazione di output della risposta HTTP
+Usare l'associazione di output HTTP per rispondere al mittente della richiesta HTTP. Questa associazione richiede un trigger HTTP e consente di personalizzare la risposta associata alla richiesta del trigger. Se non viene specificato un binding di output HTTP, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto. 
 
-### <a name="configuring-an-http-output-binding"></a>Configurazione di un binding di output HTTP
+### <a name="configuring-an-http-output-binding"></a>Configurazione di un'associazione di output HTTP
 Un binding di output HTTP è definito da un oggetto JSON nella matrice `bindings` di function.json, come illustrato nell'esempio seguente:
 
 ```json
@@ -96,12 +96,12 @@ Il binding supporta le proprietà obbligatorie seguenti:
 
 |Proprietà  |Descrizione  |
 |---------|---------|
-|**nome** | Nome della variabile usato nel codice della funzione per la risposta. Vedere [Uso di un binding di output HTTP dal codice](#outputusage). |
+|**nome** | Nome della variabile usato nel codice della funzione per la risposta. Vedere [Uso di un'associazione di output HTTP dal codice](#outputusage). |
 | **type** |Il valore deve essere impostato su `http`. |
 | **direction** | Il valore deve essere impostato su `out`. |
 
 <a name="outputusage"></a>
-### <a name="working-with-an-http-output-binding-from-code"></a>Uso di un binding di output HTTP dal codice
+### <a name="working-with-an-http-output-binding-from-code"></a>Uso di un'associazione di output HTTP dal codice
 È possibile usare il parametro di output per rispondere al chiamante HTTP o webhook. È anche possibile usare modelli di risposta standard del linguaggio. Per esempi di risposte, vedere [Esempi di trigger HTTP](#httptriggersample) ed [Esempi di webhook](#hooktriggersample).
 
 
@@ -127,7 +127,7 @@ Per impostazione predefinita, quando si crea una funzione per un trigger HTTP o 
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
-È possibile personalizzare questa route tramite la proprietà `route` facoltativa nel binding di input del trigger HTTP. Ad esempio, il file *function.json* seguente definisce una proprietà `route` per un trigger HTTP:
+È possibile personalizzare questa route tramite la proprietà `route` facoltativa nell'associazione di input del trigger HTTP. Ad esempio, il file *function.json* seguente definisce una proprietà `route` per un trigger HTTP:
 
 ```json
 {
@@ -202,7 +202,7 @@ Per impostazione predefinita, tutte le route di funzione sono precedute da *api*
 
 Per informazioni dettagliate su come aggiornare il file *host.json* per la funzione, vedere [Come aggiornare i file nelle app per le funzioni](functions-reference.md#fileupdate). 
 
-Per informazioni su altre proprietà che è possibile configurare nel file *host.json*, vedere il [riferimento su host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+Per informazioni su altre proprietà che è possibile configurare nel file *host.json*, vedere il [riferimento su host.json](functions-host-json.md).
 
 
 <a name="keys"></a>

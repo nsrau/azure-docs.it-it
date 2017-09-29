@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: e5242b5f76866ca382b31005deca07cd722af423
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 535dcd8b03a0fd92eaa5800a924ca17fc958d630
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
@@ -64,7 +64,7 @@ Per eseguire il failover in un database secondario con replica geografica, segui
 
 * [Failover in un database secondario con replica geografica tramite il portale di Azure](sql-database-geo-replication-portal.md)
 * [Failover in un database secondario con replica geografica tramite PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [Failover in un database secondario con replica geografica tramite T-SQL](/sql/t-sql/statements/alter-database-azure-sql-database.md)
+* [Failover in un database secondario con replica geografica tramite T-SQL](/sql/t-sql/statements/alter-database-azure-sql-database)
 
 ## <a name="recover-using-geo-restore"></a>Ripristino tramite il ripristino geografico
 Se i tempi di inattività dell'applicazione non comportano una responsabilità aziendale è possibile usare il [ripristino geografico](sql-database-recovery-using-backups.md) come metodo per il ripristino dei database dell'applicazione. Questo metodo crea una copia del database dal backup con ridondanza geografica più recente.

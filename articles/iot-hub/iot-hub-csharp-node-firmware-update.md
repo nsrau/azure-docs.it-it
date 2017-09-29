@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: juanpere
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 940be2b50fb08d5ed8fb709d979e609152628645
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 157f112869f0042e330e6b281367632ca015e890
 ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>Usare la gestione dei dispositivi per avviare un aggiornamento del firmware del dispositivo (.NET/Node)
@@ -40,7 +40,7 @@ Al termine dell'esercitazione saranno disponibili un'app per il dispositivo cons
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Visual Studio 2015 o Visual Studio 2017.
-* Node.js 0.12.x o versione successiva. <br/>  [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
+* Node.js 4.0.x o versione successiva. <br/>  [Prepare your development environment][lnk-dev-setup] (Preparare l'ambiente di sviluppo) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 * Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito][lnk-free-trial] in pochi minuti.
 
 Vedere l'articolo [Introduzione alla gestione dei dispositivi](iot-hub-csharp-node-device-management-get-started.md) per creare l'hub IoT e ottenere la stringa di connessione relativa.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: f47ee59d72ea49d62be2cb435ebaf8bc841e4198
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: b087003b3a1e236e4a306678904107b8bf99395e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -232,7 +232,7 @@ In questa sezione si crea un'entità servizio di Azure che verrà usata dal plug
    `<azure.containerRegistry>` | Specifica il nome del registro contenitori privato di Azure.
    `<docker.image.prefix>` | Specifica l'URL del registro contenitori privato di Azure, ottenuto accodando ".azurecr.io" al nome del registro contenitori privato.
 
-1. Verificare che l'elemento `<plugin>` per il plug-in Docker nel file *pom.xml* contenga le proprietà corrette per l'indirizzo del server di accesso e il nome del registro dal passaggio precedente di questa esercitazione. Ad esempio:
+1. Verificare che l'elemento `<plugin>` per il plug-in Docker nel file *pom.xml* contenga le proprietà corrette per l'indirizzo del server di accesso e il nome del registro dal passaggio precedente di questa esercitazione. ad esempio:
 
    ```xml
    <plugin>
@@ -382,7 +382,7 @@ Per altre informazioni sulle varie tecnologie illustrate in questo articolo, ved
 [portale di Azure]: https://portal.azure.com/
 [plug-in Maven per App Web di Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
-[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
+[Using a custom Docker image for Azure Web App on Linux]: tutorial-custom-docker-image.md
 [Docker]: https://www.docker.com/
 [Plug-in Docker per Maven]: https://github.com/spotify/docker-maven-plugin
 [account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/

@@ -17,10 +17,10 @@ ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 2a14c9539e46bffbe3e11ff372f37190a562e199
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 10795d59b019d7c683abfeea611d5909b88891ec
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Usare un'immagine Docker personalizzata per App Web di Azure per contenitori
@@ -529,16 +529,16 @@ Il comando mostra due password che possono essere usate con il nome utente.
 }
 ```
 
-Dopo avere ottenuto le credenziali necessarie, accedere a Registro contenitori di Azure usando il comando `docker login`. Per accedere al registro, è necessario l'URL. Usare il formato `http://{azure-container-registry-name>.azureacr.io`.
+Dopo avere ottenuto le credenziali necessarie, accedere a Registro contenitori di Azure usando il comando `docker login`. Per accedere al registro, è necessario l'URL. Usare il formato `http://{azure-container-registry-name>.azurecr.io`.
 
 ```bash
-docker login <azure-container-registry-name>.azureacr.io --username <azure-container-registry-name> --password <password> 
+docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
 Verificare che l'accesso sia riuscito. Eseguire il push dell'immagine usando il comando `docker push` e contrassegnando l'immagine con l'URL completo del registro seguito dal nome dell'immagine e dal tag.
 
 ```bash
-docker push http://<azure-container-registry-name>.azureacr.io/mydockerimage:v1.0.0
+docker push http://<azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 Verificare che il push abbia aggiunto un contenitore al registro elencando i repository di record di controllo di accesso. 

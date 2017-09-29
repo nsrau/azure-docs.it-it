@@ -1,6 +1,6 @@
 ---
-title: Esercitazione sull&quot;inoltro WCF del bus di servizio di Azure | Microsoft Docs
-description: Creare un&quot;applicazione client e un servizio del bus di servizio usando Inoltro WCF.
+title: Esercitazione sull'inoltro WCF del bus di servizio di Azure | Microsoft Docs
+description: Creare un'applicazione client e un servizio del bus di servizio usando Inoltro WCF.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 5347bf85cad32b59677369d51a1f36529aef6662
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
 ms.contentlocale: it-it
-ms.lasthandoff: 06/05/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Esercitazione sull'inoltro WCF di Azure
@@ -695,13 +694,11 @@ namespace Microsoft.ServiceBus.Samples
 
     Ecco un esempio dell'output dalla finestra della console. Si noti che i valori specificati hanno semplicemente scopo esemplificativo.
 
-    `Your Service Namespace: myNamespace`
-    `Your SAS Key: <SAS key value>`
+    `Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
     L'applicazione di servizio stampa l'indirizzo su cui è in ascolto nella finestra della console, come illustrato nell'esempio seguente.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
 10. Nella finestra della console **EchoClient** immettere le stesse informazioni immesse precedentemente per l'applicazione di servizio. Eseguire la procedura precedente per immettere gli stessi valori di spazio dei nomi del servizio e chiave di firma di accesso condiviso per l'applicazione client.
 11. Dopo l'immissione di questi valori, il client aprirà un canale per il servizio e richiederà l'immissione dello stesso testo, come mostrato nell'esempio di output della console seguente.
 
@@ -725,8 +722,6 @@ Per altre informazioni sul servizio d'inoltro di Azure, vedere gli argomenti seg
 * [Panoramica dell'architettura del bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Panoramica del servizio di inoltro di Azure](relay-what-is-it.md)
 * [Come usare il servizio di inoltro WCF con .NET](relay-wcf-dotnet-get-started.md)
-
-[Azure classic portal]: http://manage.windowsazure.com
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

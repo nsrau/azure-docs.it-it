@@ -17,10 +17,10 @@ ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 1c39b2d9943532c8ccf0a11d3cf4bc8896669cfb
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: cec9660ee068b33a114748813f0c7ffa3821d973
 ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Scegliere tra Flow, App per la logica, Funzioni e Processi Web
@@ -29,7 +29,7 @@ Questo articolo mette a confronto i servizi seguenti, disponibili in Microsoft C
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/)
 * [Funzioni di Azure](https://azure.microsoft.com/services/functions/)
-* [Processi Web del servizio app di Azure](../app-service-web/web-sites-create-web-jobs.md)
+* [Processi Web del servizio app di Azure](../app-service/web-sites-create-web-jobs.md)
 
 Tutti questi servizi risultano utili quando si "mettono insieme" sistemi diversi. Possono definire input, azioni, condizioni e output e ognuno può essere eseguito in base a una pianificazione o un trigger. Tuttavia, ogni servizio offre vantaggi esclusivi e il confronto non è finalizzato a stabilire qual è il servizio migliore, ma qual è il servizio più adatto per una determinata situazione. Una combinazione di questi servizi è spesso il modo migliore per creare rapidamente una soluzione di integrazione scalabile e con funzionalità complete.
 
