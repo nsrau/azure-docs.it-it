@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 34f4af31773097eafe2613eb7f3400655c387a84
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Informazioni sulle ricerche log in Log Analytics
@@ -77,6 +77,13 @@ Potrebbe anche essere utile un grafico a linee con l'utilizzo del processore per
     | render timechart    
 
 Da questi semplici esempi è possibile notare che la struttura della query è simile, indipendentemente dal tipo di dati in uso.  È possibile suddividerla in passaggi distinti, in cui i dati risultanti da un comando vengono inviati tramite la pipeline al comando successivo.
+
+È anche possibile eseguire query sui dati nelle aree di lavoro di Log Analytics nella sottoscrizione.
+
+    union Update, workspace("contoso-workspace").Update
+    | where TimeGenerated >= ago(1h)
+    | summarize dcount(Computer) by Classification 
+
 
 Per una documentazione completa sul linguaggio di query di Azure Log Analytics, incluse esercitazioni e informazioni di riferimento sul linguaggio, vedere la [documentazione del linguaggio di query di Azure Log Analytics](https://docs.loganalytics.io/).
 

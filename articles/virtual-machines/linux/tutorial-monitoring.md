@@ -1,6 +1,6 @@
 ---
-title: Monitorare le macchine virtuali Linux in Azure | Microsoft Docs
-description: Informazioni su come monitorare la diagnostica di avvio e le metriche delle prestazioni in una macchina virtuale Linux in Azure
+title: Monitorare e aggiornare le macchine virtuali Linux in Azure | Microsoft Docs
+description: Informazioni su come monitorare la diagnostica di avvio e le metriche delle prestazioni e gestire gli aggiornamenti dei pacchetti in una macchina virtuale Linux in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -17,15 +17,15 @@ ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: c5eab88f1b2311d52e582a0aa1121c8001437376
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
 ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>Come monitorare una macchina virtuale Linux in Azure
+# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Come monitorare e aggiornare una macchina virtuale Linux in Azure
 
-Per verificare che le macchine virtuali in Azure funzionino correttamente, è possibile esaminare le metriche delle prestazioni e la diagnostica di avvio. In questa esercitazione si apprenderà come:
+Per assicurarsi che le macchine virtuali in Azure vengano eseguite correttamente, è possibile esaminare la diagnostica di avvio e le metriche delle prestazioni e gestire gli aggiornamenti dei pacchetti. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Abilitare la diagnostica di avvio in una macchina virtuale
@@ -34,6 +34,7 @@ Per verificare che le macchine virtuali in Azure funzionino correttamente, è po
 > * Abilitare l'estensione della diagnostica nella macchina virtuale
 > * Visualizzare le metriche della macchina virtuale
 > * Creare avvisi basati sulle metriche di diagnostica
+> * Gestire gli aggiornamenti dei pacchetti
 > * Configurare il monitoraggio avanzato
 
 
@@ -163,6 +164,92 @@ L'esempio seguente crea un avviso per l'uso medio della CPU.
 6. Facoltativamente, è possibile selezionare la casella per *Invia messaggio di posta elettronica a proprietari, collaboratori e lettori* per inviare una notifica tramite posta elettronica. L'azione predefinita è di presentare una notifica nel portale.
 7. Fare clic sul pulsante **OK**.
 
+## <a name="manage-package-updates"></a>Gestire gli aggiornamenti dei pacchetti
+
+Usando Gestione aggiornamenti è possibile gestire gli aggiornamenti dei pacchetti e le patch per le macchine virtuali Linux di Azure. Direttamente dalla macchina virtuale è possibile valutare in modo rapido lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente alla macchina virtuale.
+
+Per informazioni sui prezzi, vedere [Prezzi di Automazione per la gestione degli aggiornamenti](https://azure.microsoft.com/pricing/details/automation/)
+
+### <a name="enable-update-management-preview"></a>Abilitare Gestione aggiornamenti (anteprima)
+
+Abilitare Gestione aggiornamenti per la macchina virtuale
+
+1. Sul lato sinistro della schermata selezionare **Macchine virtuali**.
+1. Selezionare una macchina virtuale dall'elenco.
+1. Nella schermata della macchina virtuale nella sezione **Operazioni** fare clic su **Gestione aggiornamenti**. Viene visualizzata la schermata **Abilita Gestione aggiornamenti**.
+
+Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitata per la macchina virtuale. La convalida include controlli per un'area di lavoro di Log Analytics e un account di Automazione collegato e verifica se la soluzione è presente nell'area di lavoro.
+
+L'area di lavoro di Log Analytics consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Gestione aggiornamenti. L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini. Per eseguire altre operazioni nelle macchine virtuali che richiedono gli aggiornamenti, Automazione di Azure consente di eseguire script nelle macchine virtuali, ad esempio per scaricare e applicare gli aggiornamenti.
+
+Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido. L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sullo stato dell'aggiornamento. 
+
+Se non vengono soddisfatti questi prerequisiti, viene visualizzato un banner che offre l'opzione per abilitare la soluzione.
+
+![Banner di configurazione di caricamento di Gestione aggiornamenti](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
+
+Fare clic sul banner per abilitare la soluzione. Se risultano mancanti dopo la convalida, i prerequisiti seguenti vengono aggiunti automaticamente:
+
+* Area di lavoro di [Log Analytics](../../log-analytics/log-analytics-overview.md)
+* [Automazione](../../automation/automation-offering-get-started.md)
+* [Ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md) abilitato nella macchina virtuale
+
+Viene visualizzata la schermata **Abilita Gestione aggiornamenti**. Configurare le impostazioni e fare clic su **Abilita**.
+
+![Abilitare la soluzione Gestione aggiornamenti](./media/tutorial-monitoring/manage-updates-update-enable.png)
+
+L'abilitazione della soluzione può richiedere fino a 15 minuti. Non chiudere la finestra del browser in questo periodo di tempo. Dopo l'abilitazione della soluzione, le informazioni sugli aggiornamenti mancanti dalla gestione dei pacchetti nella macchina virtuale passano a Log Analytics.
+Affinché i dati diventino disponibili per l'analisi, sarà necessario attendere da 30 minuti a 6 ore.
+
+### <a name="view-update-assessment"></a>Visualizzare la valutazione degli aggiornamenti
+
+Dopo aver abilitato la soluzione **Gestione aggiornamenti**, viene visualizzata la schermata **Gestione aggiornamenti**. È possibile visualizzare un elenco degli aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
+
+![Visualizzare lo stato degli aggiornamenti](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
+
+### <a name="schedule-an-update-deployment"></a>Pianificare la distribuzione degli aggiornamenti
+
+Per installare gli aggiornamenti, pianificare una distribuzione che rispetti la pianificazione dei rilasci e la finestra di manutenzione.
+
+Pianificare una nuova distribuzione di aggiornamenti per la macchina virtuale facendo clic su **Pianifica la distribuzione di aggiornamenti** nella parte superiore della schermata **Gestione aggiornamenti**. Nella schermata **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti:
+
+* **Nome**: specificare un nome univoco per identificare la distribuzione di aggiornamenti.
+* **Aggiornamenti da escludere**: selezionare questa opzione per specificare i nomi dei pacchetti da escludere dall'aggiornamento.
+* **Impostazioni di pianificazione**: è possibile accettare la data e l'ora predefinite, ovvero 30 minuti dopo l'ora corrente o specificare un'ora diversa. È anche possibile specificare se eseguire la distribuzione una sola volta o impostare una pianificazione ricorrente. Per impostare una pianificazione ricorrente, fare clic sull'opzione Ricorrente in Ricorrenza.
+
+  ![Schermata di impostazioni della pianificazione di aggiornamenti](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
+
+* **Finestra di manutenzione (minuti)**: specificare il periodo di tempo nel quale eseguire la distribuzione di aggiornamenti.  In questo modo è possibile garantire che le modifiche vengano eseguite nelle finestre di manutenzione definite. 
+
+Dopo aver configurato la pianificazione, fare clic sul pulsante **Crea**. Viene nuovamente visualizzato il dashboard di stato.
+Si noti che la tabella **Pianificata** mostra la pianificazione della distribuzione creata.
+
+> [!WARNING]
+> La macchina virtuale viene riavviata automaticamente dopo l'installazione degli aggiornamenti se il tempo della finestra di manutenzione è sufficiente.
+
+Gestione aggiornamenti usa la gestione dei pacchetti esistente nella macchina virtuale per installare i pacchetti.
+
+### <a name="view-results-of-an-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti
+
+Dopo aver avviato la distribuzione pianificata, è possibile visualizzare lo stato della distribuzione nella scheda **Distribuzioni di aggiornamenti** nella schermata **Gestione aggiornamenti**.
+Se la distribuzione è in corso, viene visualizzato lo stato **In corso**. Quando la distribuzione viene completata correttamente, lo stato diventa **Completato**.
+Se si verifica un errore in uno o più aggiornamenti della distribuzione, lo stato sarà **Non riuscito**.
+Fare clic sulla distribuzione di aggiornamenti completata per visualizzare il dashboard della distribuzione.
+
+![Dashboard di stato di una distribuzione di aggiornamenti specifica](./media/tutorial-monitoring/manage-updates-view-results.png)
+
+Il riquadro **Risultati aggiornamento** include un riepilogo del numero totale di aggiornamenti e dei risultati della distribuzione nella macchina virtuale.
+La tabella di destra visualizza una descrizione dettagliata di ogni aggiornamento e i risultati dell'installazione che possono corrispondere a uno dei valori seguenti:
+
+* **Tentativo non eseguito**: l'aggiornamento non è stato installato a causa di tempo disponibile non sufficiente basato sulla durata della finestra di manutenzione specificata.
+* **Completato**: l'aggiornamento è stato scaricato e installato correttamente nella macchina virtuale
+* **Non riuscito**: l'aggiornamento non è stato scaricato e installato nella macchina virtuale.
+
+Fare clic su **Tutti i log** per visualizzare tutte le voci di log create dalla distribuzione.
+
+Fare clic sul riquadro **Output** per visualizzare il flusso del processo del runbook responsabile della gestione della distribuzione di aggiornamenti nella macchina virtuale di destinazione.
+
+Fare clic su **Errori** per visualizzare informazioni dettagliate sugli errori della distribuzione.
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato 
 
@@ -187,7 +274,7 @@ Nel pannello Ricerca log del portale OMS si dovrebbe vedere *myVM* come mostrato
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione le macchine virtuali sono state configurate ed esaminate con il Centro sicurezza di Azure. Si è appreso come:
+In questa esercitazione sono stati configurati, esaminati e gestiti gli aggiornamenti per una macchina virtuale. Si è appreso come:
 
 > [!div class="checklist"]
 > * Abilitare la diagnostica di avvio in una macchina virtuale
@@ -196,9 +283,11 @@ In questa esercitazione le macchine virtuali sono state configurate ed esaminate
 > * Abilitare l'estensione della diagnostica nella macchina virtuale
 > * Visualizzare le metriche della macchina virtuale
 > * Creare avvisi basati sulle metriche di diagnostica
+> * Gestire gli aggiornamenti dei pacchetti
 > * Configurare il monitoraggio avanzato
 
 Passare all'esercitazione successiva per informazioni sul Centro sicurezza di Azure.
 
 > [!div class="nextstepaction"]
 > [Gestire la sicurezza delle VM](./tutorial-azure-security.md)
+

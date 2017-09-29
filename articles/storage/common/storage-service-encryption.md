@@ -3,7 +3,7 @@ title: Crittografia del servizio di archiviazione di Azure per dati inattivi | M
 description: "La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare l'archivio BLOB di Azure sul lato del servizio durante l'archiviazione dei dati e di decrittografarlo durante il recupero dei dati."
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bac7b3292f21aa97d02a18dd58f79a4f10485b7d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f3486ca87a1797c312caa3fe27f692037c80b747
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
@@ -84,7 +84,7 @@ AzCopy è un'utilità della riga di comando di Windows progettata la copia dei d
 Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
 #### <a name="using-smb"></a>Con SMB
-L'archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. È possibile montare una condivisione di file da un client in locale o in Azure. Dopo aver montato la condivisione è possibile usare strumenti come Robocopy per copiare i file in condivisioni file di Azure. Per altre informazioni, vedere [Come montare condivisioni file di Azure in Windows](../files/storage-how-to-use-files-windows.md) e [Come montare condivisioni file di Azure in Linux](../storage-how-to-use-files-linux.md).
+File di Azure offre condivisioni file nel cloud usando il protocollo SMB standard. È possibile montare una condivisione di file da un client in locale o in Azure. Dopo aver montato la condivisione è possibile usare strumenti come Robocopy per copiare i file in condivisioni file di Azure. Per altre informazioni, vedere [Come montare condivisioni file di Azure in Windows](../files/storage-how-to-use-files-windows.md) e [Come montare condivisioni file di Azure in Linux](../files/storage-how-to-use-files-linux.md).
 
 
 #### <a name="using-the-storage-client-libraries"></a>Con le librerie dei client di archiviazione

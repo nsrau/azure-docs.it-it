@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/06/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 8d7f397145bbecf0c651872f04b81cf44e25dbff
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8517c09d4dc4bd7907fc6e5260de119fbdd8f5e9
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurare i cluster di HDInsight con Hadoop, Spark, Kafka e altro ancora
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Informazioni su come impostare e configurare i cluster di HDInsight con Hadoop, Spark, Kafka, Interactive Hive, HBase, R Server o Storm. Informazioni su come personalizzare i cluster e proteggerli aggiungendoli a un dominio.
+Informazioni su come impostare e configurare i cluster di HDInsight con Hadoop, Spark, Kafka, Interactive Query, HBase, R Server o Storm. Informazioni su come personalizzare i cluster e proteggerli aggiungendoli a un dominio.
 
 Un cluster Hadoop è costituito da alcune macchine virtuali (nodi) che vengono usate per l'elaborazione distribuita di attività. Azure HDInsight gestisce i dettagli di implementazione dell'installazione e della configurazione dei singoli nodi. È quindi necessario specificare solo le informazioni di configurazione generali. 
 
@@ -83,7 +83,7 @@ In Azure HDInsight sono attualmente disponibili i tipi di cluster seguenti, ognu
 | [Spark](hdinsight-apache-spark-overview.md) |Elaborazione in memoria, query interattive, elaborazione di flussi di micro batch |
 | [Kafka (anteprima)](hdinsight-apache-kafka-introduction.md) | Piattaforma di streaming open source distribuita che può essere usata per compilare applicazioni e pipeline di dati in streaming in tempo reale. |
 | [R Server](hdinsight-hadoop-r-server-overview.md) |Ampia gamma di statistiche di Big Data, modellazione predittiva e funzionalità di Machine Learning |
-| [Interactive Hive (anteprima)](hdinsight-hadoop-use-interactive-hive.md) |Caching in memoria per query Hive interattive e più rapide |
+| [Interactive Query](hdinsight-hadoop-use-interactive-hive.md) |Caching in memoria per query Hive interattive e più rapide |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Numero di nodi per ogni tipo di cluster
 Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica per i nodi e dimensioni predefinite delle macchine virtuali. Nella tabella seguente, il numero di nodi per ogni tipo di nodo è indicato tra parentesi.

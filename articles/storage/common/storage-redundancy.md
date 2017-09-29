@@ -3,7 +3,7 @@ title: Replica dei dati in Archiviazione di Azure | Documentazione Microsoft
 description: "I dati nell'account di archiviazione di Microsoft Azure vengono replicati per durabilità e disponibilità elevata. Le opzioni di replica includono archiviazione con ridondanza locale (LRS), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)."
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 86bdb6d4-da59-4337-8375-2527b6bdf73f
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c35f53c5c80a67cb33b457e9e3235d0e745536cf
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 09c6f525bb608d95c60ba7907aae4b4e70923544
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
 
+# <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
 I dati nell'account di archiviazione di Microsoft Azure vengono sempre replicati per assicurarne la durabilità e la disponibilità elevata. La replica copia i dati nello stesso data center o in uno secondario, a seconda dell'opzione di replica scelta. Consente di proteggere i dati e mantiene operativa l'applicazione in caso di errori hardware temporanei. Se i dati vengono replicati in un secondo data center, la replica li protegge da un errore irreversibile nella posizione primaria.
 
 Garantisce infine che l'account di archiviazione soddisfi il [Contratto di servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/) anche in caso di errori. Altre informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure sono reperibili nel Contratto di servizio.
@@ -51,17 +51,7 @@ Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di
 >
 
 ## <a name="locally-redundant-storage"></a>Archiviazione con ridondanza locale
-L'archiviazione con ridondanza locale (LRS) replica i dati tre volte all'interno di un'unità di scala di archiviazione, che è ospitata in un data center nell'area in cui è stato creato l'account di archiviazione. Una richiesta di scrittura viene restituita correttamente dopo che è stata scritta in tutte e tre le repliche. Queste tre repliche risiedono ognuna in domini di errore e domini di aggiornamento distinti all'interno di un'unità di scala di archiviazione.
-
-Un'unità di scala di archiviazione è una raccolta di rack di nodi di archiviazione. Un dominio di errore è un gruppo di nodi che rappresentano un'unità di errore fisica e possono essere considerati come nodi appartenenti allo stesso rack fisico. Un dominio di aggiornamento è un gruppo di nodi che vengono aggiornati contemporaneamente durante il processo di aggiornamento del servizio (implementazione). Le tre repliche vengono distribuite tra domini di aggiornamento e domini di errore all'interno di un'unità di scala di archiviazione per assicurare la disponibilità dei dati anche in caso di errori hardware che influiscono su un singolo rack o quando i nodi vengono aggiornati durante un'implementazione.
-
-L'archiviazione con ridondanza locale è l'opzione più economica e offre meno durata rispetto alle altre opzioni. In caso di emergenza a livello di data center (incendio, saturazione e così via) tutte e tre le repliche potrebbero essere perse o non essere recuperabili. Per ridurre questo rischio, per la maggior parte delle applicazioni è consigliabile l'archiviazione con ridondanza geografica (GRS).
-
-L'archiviazione con ridondanza locale potrebbe comunque essere utile in determinati scenari:
-
-* Fornisce la larghezza di banda massima più alta delle opzioni di replica di Archiviazione di Azure.
-* Se l'applicazione archivia dati che possono essere ricostruiti facilmente, è consigliabile scegliere l'archiviazione con ridondanza locale.
-* Per alcune applicazioni è necessario replicare i dati solo all'interno di un paese a causa di requisiti di governance dei dati. Un'area abbinata può trovarsi in un altro paese. Per altre informazioni sulle coppie di aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
+[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Archiviazione con ridondanza della zona
 L'archiviazione con ridondanza della zona (ZRS) replica i dati in modo asincrono nei data center all'interno di uno o due aree oltre a memorizzare tre repliche come nell'archiviazione con ridondanza locale, fornendo così una durabilità maggiore rispetto a quest'ultima. I dati archiviati nell'archiviazione con ridondanza della zona sono assicurati anche se il data center principale non è disponibile o recuperabile.
@@ -74,61 +64,7 @@ I clienti che intendono usare l'archiviazione con ridondanza della zona devono t
 * Gli account di archiviazione con ridondanza della zona non dispongono di metriche o funzionalità di registrazione.
 
 ## <a name="geo-redundant-storage"></a>Archiviazione con ridondanza geografica
-Con l'archiviazione con ridondanza geografica (GRS) i dati vengono replicati in un'area secondaria a centinaia di chilometri di distanza dall'area primaria. Se per l'account di archiviazione è stata abilitata l'archiviazione con ridondanza geografica, la durabilità dei dati è assicurata anche in caso di un'interruzione completa dell'alimentazione locale o in situazioni di emergenza in cui l'area primaria non è recuperabile.
-
-Per un account di archiviazione con l'archiviazione con ridondanza geografica abilitata, il commit di un aggiornamento viene eseguito prima nell'area primaria, dove viene replicato per tre volte. Quindi l'aggiornamento viene replicato in modo asincrono nell'area secondaria, dove viene inoltre replicato tre volte.
-
-Con l'archiviazione con ridondanza geografica, entrambe le aree primaria e secondaria gestiscono repliche tra domini di errore e domini di aggiornamento separati all'interno di un'unità di scala di archiviazione, come descritto per l'archiviazione con ridondanza locale.
-
-Considerazioni:
-
-* Poiché la replica asincrona implica un ritardo, in caso di un'emergenza a livello di area è possibile che le modifiche non ancora replicate nell'area secondaria vadano perse se non è possibile recuperare i dati dall'area primaria.
-* La replica non è disponibile a meno che Microsoft non avvii il failover all'area secondaria. Se Microsoft avvia un failover nell'area secondaria, al termine del failover si avrà accesso in lettura e scrittura a tali dati. Per altre informazioni, vedere le [indicazioni sul ripristino di emergenza](../storage-disaster-recovery-guidance.md). 
-* Per consentire a un'applicazione la lettura dall'area secondaria, l'utente deve abilitare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS).
-
-L'area primaria viene selezionata durante la creazione di un account di archiviazione. L'area secondaria viene invece determinata in base a quella primaria e non è possibile modificarla. Nella tabella seguente vengono illustrate le associazioni di aree primarie e secondarie:
-
-| Primario | Secondario |
-| --- | --- |
-| Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
-| Stati Uniti centro-meridionali |Stati Uniti centro-settentrionali |
-| Stati Uniti orientali |Stati Uniti occidentali |
-| Stati Uniti occidentali |Stati Uniti orientali |
-| Stati Uniti orientali 2 |Stati Uniti centrali |
-| Stati Uniti centrali |Stati Uniti orientali 2 |
-| Europa settentrionale |Europa occidentale |
-| Europa occidentale |Europa settentrionale |
-| Asia sudorientale |Asia orientale |
-| Asia orientale |Asia sudorientale |
-| Cina orientale |Cina settentrionale |
-| Cina settentrionale |Cina orientale |
-| Giappone orientale |Giappone occidentale |
-| Giappone occidentale |Giappone orientale |
-| Brasile meridionale |Stati Uniti centro-meridionali |
-| Australia orientale |Australia sudorientale |
-| Australia sudorientale |Australia orientale |
-| India meridionale |India centrale |
-| India centrale |India meridionale |
-| India occidentale |India meridionale |
-| Governo degli Stati Uniti - Iowa |Governo degli Stati Uniti - Virginia |
-| Governo degli Stati Uniti - Virginia |Governo degli Stati Uniti - Texas |
-| Governo degli Stati Uniti - Texas |Governo degli Stati Uniti - Arizona |
-| Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
-| Canada centrale |Canada orientale |
-| Canada orientale |Canada centrale |
-| Regno Unito occidentale |Regno Unito meridionale |
-| Regno Unito meridionale |Regno Unito occidentale |
-| Germania centrale |Germania nord-orientale |
-| Germania nord-orientale |Germania centrale |
-| Stati Uniti occidentali 2 |Stati Uniti centro-occidentali |
-| Stati Uniti centro-occidentali |Stati Uniti occidentali 2 |
-
-Per informazioni aggiornate sulle aree supportate da Azure, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
-
->[!NOTE]  
-> L'area secondaria di US Gov Virginia è US Gov Texas. In precedenza, US Gov Virginia usava come area secondaria US Gov Iowa. È in corso la migrazione degli account di archiviazione che usano ancora US Gov Iowa all'area secondaria US Gov Texas. 
-> 
-> 
+[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>Archiviazione con ridondanza geografica e accesso in lettura
 L'archiviazione con ridondanza geografica e accesso in lettura(RA-GRS) massimizza la disponibilità dell'account di archiviazione fornendo l'accesso in sola lettura ai dati nella posizione secondaria, oltre alla replica tra due aree assicurata dall'archiviazione con ridondanza geografica.

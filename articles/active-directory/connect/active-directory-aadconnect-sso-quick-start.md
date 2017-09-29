@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
 ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -27,9 +27,6 @@ ms.lasthandoff: 08/07/2017
 ## <a name="how-to-deploy-seamless-sso"></a>Come distribuire l'accesso Single Sign-On facile
 
 La funzionalità Accesso Single Sign-On facile (Accesso SSO facile) di Azure Active Directory consente agli utenti di eseguire l'accesso automaticamente dai desktop di proprietà dell'azienda connessi alla rete aziendale. Consente agli utenti di accedere facilmente alle applicazioni basate su cloud senza la necessità di componenti aggiuntivi in locale.
-
->[!IMPORTANT]
->La funzionalità Accesso Single Sign-On facile è attualmente in fase di anteprima.
 
 Per distribuire l'accesso SSO facile, è necessario seguire questa procedura:
 
@@ -73,7 +70,7 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 
 ## <a name="step-3-roll-out-the-feature"></a>Passaggio 3: Distribuire la funzionalità
 
-Per distribuire la funzionalità agli utenti, è necessario aggiungere due URL di Azure AD, https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net, alle impostazioni dell'area Intranet degli utenti tramite Criteri di gruppo in Active Directory.
+Per distribuire la funzionalità agli utenti, è necessario aggiungere due URL di Azure AD alle impostazioni dell'area Intranet degli utenti tramite Criteri di gruppo in Active Directory.
 
 >[!NOTE]
 > Le istruzioni seguenti valgono solo per Internet Explorer e Google Chrome in Windows, se condivide l'insieme di URL di siti attendibili con Internet Explorer. Vedere la sezione successiva per istruzioni sulla configurazione di Mozilla Firefox e Google Chrome su Mac.
@@ -122,7 +119,7 @@ Per Google Chrome su Mac OS e altre piattaforme non Windows, fare riferimento a 
 
 L'uso delle estensioni dei Criteri di gruppo di Active Directory di terze parti per distribuire gli URL di Azure AD in Firefox e Google Chrome su Mac esula dall'ambito di questo articolo.
 
-#### <a name="known-limitations"></a>Limitazioni note
+#### <a name="known-browser-limitations"></a>Limitazioni note dei browser
 
 L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox e nel browser Edge. Non funziona inoltre in Internet Explorer se il browser è in esecuzione in modalità di protezione avanzata.
 
@@ -146,7 +143,7 @@ Per testare lo scenario in cui l'utente non è obbligato a immettere nome utente
 
 ## <a name="step-5-roll-over-keys"></a>Passaggio 5: Rinnovare le chiavi
 
-Nel passaggio 2, Azure AD Connect crea gli account computer, che rappresentano Azure AD, in tutte le foreste di AD in cui è stato abilitato l'accesso SSO facile. [Qui](active-directory-aadconnect-sso-how-it-works.md) sono disponibili informazioni dettagliate a riguardo. Per una maggiore sicurezza, è consigliabile rinnovare spesso le chiavi di decrittografia di Kerberos di questi account computer.
+Nel passaggio 2, Azure AD Connect crea gli account computer, che rappresentano Azure AD, in tutte le foreste di AD in cui è stato abilitato l'accesso SSO facile. [Qui](active-directory-aadconnect-sso-how-it-works.md) sono disponibili informazioni dettagliate a riguardo. Per una maggiore sicurezza, è consigliabile rinnovare periodicamente le chiavi di decrittografia Kerberos di questi account computer. Le istruzioni per eseguire il rinnovo sono disponibili [qui](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
 
 >[!IMPORTANT]
 >Non è necessario farlo _subito_ dopo aver abilitato la funzionalità. Rinnovare le chiave di decrittografia di Kerberos almeno ogni 30 giorni.

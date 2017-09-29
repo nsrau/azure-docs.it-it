@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: d3e373adeaa2ae01c8e3cbaffccf0ddb5310126d
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: fc0cc37794ef291c9d27b094211b38cec90da55c
 ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Installare un certificato client per connessioni con autenticazione del certificato di Azure da punto a sito
@@ -36,8 +36,10 @@ Per tutti i client che si connettono a una rete virtuale usando l'autenticazione
 
 ## <a name="installmac"></a>Installare un certificato in client Mac
 
+I client VPN Mac sono supportati solo per il modello di distribuzione Resource Manager. Non sono supportati per il modello di distribuzione classica.
+
 > [!NOTE]
-> I client VPN Mac sono supportati solo per il modello di distribuzione Resource Manager. Non sono supportati per il modello di distribuzione classica.
+>  IKEv2 è attualmente in fase di anteprima.
 >
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]

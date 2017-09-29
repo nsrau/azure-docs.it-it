@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
 ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -189,6 +189,13 @@ Ogni interfaccia di rete deve avere una configurazione IP [primaria](#primary) a
 > Anche se è possibile creare un'interfaccia di rete con un indirizzo IPv6 tramite il portale, il portale non consente di aggiungere un'interfaccia di rete esistente a una macchina virtuale nuova o esistente. Usare PowerShell o l'interfaccia della riga di comando di Azure 2.0 per creare un'interfaccia di rete con un indirizzo IPv6 privato e quindi collegare l'interfaccia di rete durante la creazione di una macchina virtuale. Non è possibile collegare un'interfaccia di rete con un indirizzo IPv6 privato ad essa assegnato in una macchina virtuale esistente. Non è possibile aggiungere un indirizzo IPv6 privato a una configurazione IP per qualsiasi interfaccia di rete associata a una macchina virtuale usando gli strumenti (portale, interfaccia della riga di comando o PowerShell).
 
 Non è possibile assegnare un indirizzo IPv6 pubblico a una configurazione IP primaria o secondaria.
+
+## <a name="skus"></a>SKU
+
+Viene creato un indirizzo IP pubblico con lo SKU di base o standard.  Per altre informazioni sulle differenze tra gli SKU, vedere [Gestire gli indirizzi IP pubblici](virtual-network-public-ip-address.md).
+
+> [!NOTE]
+> Quando si assegna un indirizzo IP pubblico con SKU Standard all'interfaccia di rete di una macchina virtuale, è necessario consentire in modo esplicito il traffico previsto con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups). La comunicazione con la risorsa non riesce finché non si crea e si associa un gruppo di sicurezza di rete e si consente in modo esplicito il traffico desiderato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per creare una macchina virtuale con diverse configurazioni IP, vedere gli articoli seguenti:

@@ -17,10 +17,10 @@ ms.date: 08/22/2017
 ms.author: adegeo
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7489c3d0534a695c6fc39ad95890db7ba2a52f25
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fee02a5fd8aa27ac2c75a362c66d1dbcc395fa34
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,9 +28,15 @@ ms.lasthandoff: 08/24/2017
 
 La tabella seguente include collegamenti a esempi di script dell'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md) che gestiscono servizi, applicazioni e cluster di Service Fabric.
 
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
+
 | | |
 |-|-|
+| **Creare cluster** ||
+| [Creare un cluster Linux protetto](./scripts/cli-create-cluster.md)| Crea un cluster di Azure Service Fabric. |
 | **Gestire le applicazioni** ||
+| [Elenco applicazioni](./scripts/sfctl-list-applications.md)| Elencare le applicazioni di cui è stato eseguito il provisioning in un cluster.|
 | [Distribuire un'applicazione](./scripts/cli-deploy-application.md)| Distribuire un'applicazione in un cluster.|
 | [Rimuovere un'applicazione](./scripts/cli-remove-application.md)| Rimuovere un'applicazione da un cluster.|
+| [Aggiornare un'applicazione](./scripts/sfctl-upgrade-application.md)| Aggiornare un'applicazione già distribuita.|
 

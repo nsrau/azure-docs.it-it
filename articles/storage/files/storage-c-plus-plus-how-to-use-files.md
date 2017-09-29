@@ -1,6 +1,6 @@
 ---
-title: Eseguire lo sviluppo per l'archiviazione file di Azure con C++ | Microsoft Docs
-description: Informazioni su come sviluppare applicazioni e servizi C++ che usano l'archiviazione file di Azure per archiviare i dati dei file.
+title: Sviluppare per File di Azure con C++ | Microsoft Docs
+description: Informazioni su come sviluppare applicazioni e servizi C++ che usano File di Azure per archiviare i dati dei file.
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 86c3714327074f5576e535f67a0a2a8e761ffb46
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-c"></a>Eseguire lo sviluppo per l'archiviazione file di Azure con C++
+# <a name="develop-for-azure-files-with-c"></a>Sviluppare per File di Azure con C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Informazioni sull'esercitazione
 
-In questa esercitazione verrà illustrato come eseguire operazioni di base nell'archiviazione file di Azure. Gli esempi scritti in C++ consentono di apprendere come creare condivisioni e directory, caricare, elencare ed eliminare file. Se non si ha familiarità con l'archiviazione file di Azure, leggere le sezioni seguenti per comprendere gli esempi.
+In questa esercitazione verrà illustrato come eseguire operazioni di base in File di Azure. Gli esempi scritti in C++ consentono di apprendere come creare condivisioni e directory, caricare, elencare ed eliminare file. Se non si ha familiarità con File di Azure, leggere le sezioni seguenti per comprendere gli esempi.
 
 
 * Creare ed eliminare condivisioni file di Azure
@@ -40,7 +40,7 @@ In questa esercitazione verrà illustrato come eseguire operazioni di base nell'
 * Creare una firma di accesso condiviso (chiave di firma di accesso condiviso) per un file che usa criteri di accesso condiviso definiti nella condivisione.
 
 > [!Note]  
-> Poiché l'archiviazione file di Azure è accessibile tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione file di Azure usando le classi e le funzioni standard I/O di C++. Questo articolo descrive come scrivere applicazioni basate su Azure Storage .NET SDK, che usa l'[API REST dell'archiviazione file Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) per comunicare con l'archiviazione file di Azure.
+> Poiché è possibile accedere a File di Azure tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione di File di Azure usando le classi e le funzioni standard I/O di C++. Questo articolo illustra come scrivere applicazioni che usano l'SDK C++ Archiviazione di Azure che a sua volta usa l'[API REST del servizio file](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) per comunicare con File di Azure.
 
 ## <a name="create-a-c-application"></a>Creazione di un’applicazione C++
 Per compilare gli esempi, è necessario installare la libreria client di archiviazione di Azure 2.4.0 per C++. È inoltre necessario aver creato un account di archiviazione di Azure.
@@ -54,8 +54,8 @@ Per installare il client di archiviazione di Azure 2.4.0 per C++, è possibile u
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-file-storage"></a>Configurare l'applicazione per usare l'archiviazione file di Azure
-Aggiungere le istruzioni include seguenti all'inizio del file di origine C++ in cui si vuole modificare l'archiviazione file di Azure:
+## <a name="set-up-your-application-to-use-azure-files"></a>Configurare l'applicazione per usare File di Azure
+Aggiungere le istruzioni include seguenti all'inizio del file di origine C++ in cui si vuole modificare File di Azure:
 
 ```cpp
 #include <was/storage_account.h>
@@ -81,10 +81,10 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
-Tutti i file e le directory nell'archiviazione file di Azure si trovano in un contenitore denominato **Share**. L'account di archiviazione può disporre del numero di condivisioni consentite dalla capacità dell'account. Per ottenere l'accesso a una condivisione e ai suoi contenuti, è necessario usare un client per l'archiviazione file di Azure.
+Tutti i file e le directory nella condivisione di File di Azure si trovano in un contenitore denominato **condivisione**. L'account di archiviazione può disporre del numero di condivisioni consentite dalla capacità dell'account. Per ottenere l'accesso a una condivisione e ai relativi contenuti, è necessario usare un client di File di Azure.
 
 ```cpp
-// Create the Azure File storage client.
+// Create the Azure Files client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
@@ -120,7 +120,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>Creare una directory
-È possibile organizzare l'archiviazione inserendo i file all'interno di sottodirectory anziché inserirli tutti nella directory radice. L'archiviazione file di Azure consente di creare tutte le directory consentite dall'account. Il codice seguente creerà una directory denominata **my-sample-directory** sotto la directory radice e una sottodirectory denominata **my-sample-subdirectory**.
+È possibile organizzare l'archiviazione inserendo i file all'interno di sottodirectory anziché inserirli tutti nella directory radice. In File di Azure è possibile creare tutte le directory consentite dall'account. Il codice seguente creerà una directory denominata **my-sample-directory** sotto la directory radice e una sottodirectory denominata **my-sample-subdirectory**.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -241,7 +241,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>Eliminare un file
-Un'altra operazione comunemente eseguita nell'archiviazione file di Azure è l'eliminazione dei file. Il codice seguente elimina un file denominato my-sample-file-3 archiviato nella directory radice.
+Un'altra operazione comunemente eseguita in File di Azure è l'eliminazione dei file. Il codice seguente elimina un file denominato my-sample-file-3 archiviato nella directory radice.
 
 ```cpp
 // Get a reference to the root directory for the share.    

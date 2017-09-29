@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 484db494e7975df950543d19bf841a4df7cdd139
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
 ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -131,11 +131,11 @@ Per preparare l'applicazione per l'esecuzione in Service Fabric di Azure, è nec
 ### <a name="expose-the-port-for-the-app"></a>Esporre la porta per l'app
 Il cluster di Service Fabric configurato presenta la porta *80* aperta per impostazione predefinita in Azure Load Balancer, che consente di bilanciare il traffico in ingresso nel cluster. È possibile esporre il contenitore su questa porta tramite il file docker-compose.ym.
 
-In Visual Studio aprire **Esplora soluzioni**, trovare **docker-compose** e aprire il file **docker-compose.override.yml**.
+In Visual Studio aprire **Esplora soluzioni**, trovare **docker-compose** e aprire il file **docker-compose.yml**.
 
 Modificare il nodo `fabrikamfiber.web:` e aggiungere un nodo figlio denominato `ports:`.
 
-Aggiungere una voce di stringa `- "80:80"`.
+Aggiungere una voce di stringa `- "80:80"`. Il file docker-compose.yml dovrebbe essere simile al seguente:
 
 ```yml
   version: '3'
@@ -216,6 +216,8 @@ In questa esercitazione si è appreso come:
 > * Creare un progetto Docker in Visual Studio
 > * Distribuire un'applicazione esistente in un contenitore
 > * Configurare l'integrazione continua con Visual Studio e VSTS
+
+La parte successiva dell'esercitazione comprende informazioni su come configurare il [monitoraggio del contenitore](service-fabric-tutorial-monitoring-wincontainers.md).
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 

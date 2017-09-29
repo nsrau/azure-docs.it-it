@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5ff4d86082c03dcd7098743a984a97aa70232d1d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c7b4d0e7d7d95f2e3f8c5a97b78c60c52cc862a0
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Come usare l'archiviazione BLOB da Xamarin
@@ -245,10 +245,9 @@ Dopo aver eseguito l'applicazione, verrà creato il contenitore `mycontainer` ne
 In questa esercitazione è stato illustrato come creare un'applicazione multipiattaforma in Xamarin che usa Archiviazione di Azure, con particolare attenzione a uno scenario di archiviazione BLOB. È tuttavia possibile svolgere molte altre operazioni, non solo con l'archiviazione BLOB, ma anche con archiviazione tabelle, archiviazione file e archiviazione code. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Introduzione all'archiviazione BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md)
+* [Introduzione a File di Azure](../files/storage-files-introduction.md)
+* [Sviluppare per File di Azure con .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Introduzione all'archiviazione tabelle di Azure con .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Introduzione all'archiviazione code di Azure con .NET](../queues/storage-dotnet-how-to-use-queues.md)
-* [Introduzione ad Archiviazione file di Azure in Windows](../files/storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-

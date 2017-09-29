@@ -3,7 +3,7 @@ title: "Disponibilità elevata e ripristino di emergenza di SAP HANA in Azure (i
 description: "Implementare la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze Large)"
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
+author: saghorpa
 manager: timlt
 editor: 
 ms.service: virtual-machines-linux
@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2016
-ms.author: rclaus
+ms.date: 09/15/2016
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87ea8b808c0b7e5fe79a5bee038a3d34ed59a1e6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 293ac7a275398f05e3abe815413403efeaadc6e0
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure 
@@ -41,9 +41,9 @@ La tabella seguente mostra i metodi di disponibilità elevata e ripristino di em
 | Failover automatico dell'host: N+m<br /> incluso 1+1 | Possibile con il nodo di standby che acquisisce il ruolo attivo.<br /> Cambio di ruolo controllato da HANA. | Configurazione di ripristino di emergenza dedicata.<br /> Configurazione di ripristino di emergenza multifunzione.<br /> Sincronizzazione di ripristino di emergenza tramite replica di archiviazione. | Set di volumi HANA collegati a tutti i nodi (n+m).<br /> Il sito di ripristino di emergenza deve avere lo stesso numero di nodi. |
 | Replica di sistema HANA | Possibile con la configurazione del nodo primario o secondario.<br /> Il nodo secondario assume il ruolo primario in caso di failover.<br /> Replica di sistema HANA e failover controllato dal sistema operativo. | Configurazione di ripristino di emergenza dedicata.<br /> Configurazione di ripristino di emergenza multifunzione.<br /> Sincronizzazione di ripristino di emergenza tramite replica di archiviazione.<br /> Il ripristino di emergenza tramite la replica di sistema HANA non è ancora possibile senza componenti di terze parti. | Set separato di volumi di dischi collegati a ogni nodo.<br /> Solo i volumi di dischi di replica secondaria nel sito di produzione vengono replicati nella posizione di ripristino di emergenza.<br /> Nel sito di ripristino di emergenza è necessario un set di volumi. | 
 
-In una configurazione di ripristino di emergenza dedicata, l'unità di istanze Large di HANA nel sito di ripristino di emergenza non viene usata per eseguire altri carichi di lavoro o sistemi non di produzione. L'unità è passiva e viene distribuita solo in caso di failover di emergenza. Al momento non sono presenti clienti con questa configurazione.
+In una configurazione di ripristino di emergenza dedicata, l'unità di istanze Large di HANA nel sito di ripristino di emergenza non viene usata per eseguire altri carichi di lavoro o sistemi non di produzione. L'unità è passiva e viene distribuita solo in caso di failover di emergenza. Tuttavia, per molti clienti questa non è la scelta migliore.
 
-In una configurazione di ripristino di emergenza multifunzione, l'unità di istanze Large di HANA nel sito di ripristino di emergenza esegue un carico di lavoro non di produzione. In caso di emergenza, è necessario arrestare il sistema non di produzione e avviare sia i set di volumi (aggiuntivi) con replica di archiviazione sia l'istanza di produzione di HANA. Al momento, tutti i clienti che usano la funzionalità di ripristino di emergenza di istanze Large di HANA usano questa alternativa di configurazione. 
+In una configurazione di ripristino di emergenza multifunzione, l'unità di istanze Large di HANA nel sito di ripristino di emergenza esegue un carico di lavoro non di produzione. In caso di emergenza, è necessario arrestare il sistema non di produzione e avviare sia i set di volumi (aggiuntivi) con replica di archiviazione sia l'istanza di produzione di HANA. Molti clienti che usano la funzionalità di ripristino di emergenza di istanze Large di HANA usano questa configurazione. 
 
 
 Per altre informazioni sulla disponibilità elevata di SAP HANA, vedere gli articoli SAP seguenti: 
@@ -221,7 +221,15 @@ In questo passaggio si autorizza l'account utente SAP HANA creato in modo che gl
 
 Immettere il comando `hdbuserstore` come segue:
 
-![Immettere il comando hdbuserstore](./media/hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+**Per installazione HANA non MDC**
+```
+hdbuserstore set <key> <host><3[instance]15> <user> <password>
+```
+
+**Per installazione HANA MDC**
+```
+hdbuserstore set <key> <host><3[instance]13> <user> <password>
+```
 
 Nell'esempio seguente, l'utente è **SCADMIN01**, il nome host è **lhanad01** e il numero di istanza è **01**:
 ```
@@ -231,8 +239,8 @@ Se si ha una configurazione di SAP HANA con scalabilità orizzontale, è necessa
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
-hdbuserstore set SCADMIN02 lhanad02:30215 SCADMIN <password>
-hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Passaggio 6: Ottenere gli script degli snapshot, configurare gli snapshot e testare la configurazione e la connettività
@@ -285,7 +293,7 @@ Storage IP Address: 10.240.20.31
 #hdbuserstore utility.
 Node 1 IP Address: 
 Node 1 HANA instance number:
-Node 1 HANA Backup Name:
+Node 1 HANA userstore Name:
 ```
 
 >[!NOTE]
@@ -376,28 +384,28 @@ Se lo snapshot di test è stato eseguito correttamente con lo script, è possibi
 Al termine di tutti i passaggi di preparazione, è possibile iniziare a definire la configurazione effettiva degli snapshot di archiviazione. Lo script da pianificare funziona con le configurazioni con scalabilità verticale e con scalabilità orizzontale di SAP HANA. È consigliabile pianificare l'esecuzione degli script tramite Cron. 
 
 È possibile creare tre tipi di backup di snapshot:
-- **HANA**: backup di snapshot combinato che copre i volumi che contengono /hana/data, /hana/log e /hana/shared (che contiene anche /usr/sap). Da questo snapshot è possibile eseguire il ripristino di un singolo file.
+- **HANA**: backup di snapshot combinato che copre i volumi che contengono /hana/data e /hana/shared, che contiene anche /usr/sap. Da questo snapshot è possibile eseguire il ripristino di un singolo file.
 - **Logs**: backup di snapshot del volume /hana/logbackups. Non viene attivato nessuno snapshot HANA per eseguire questo snapshot di archiviazione. Questo volume di archiviazione è il volume progettato per contenere i backup del log delle transazioni SAP HANA, che vengono eseguiti più spesso per limitare l'aumento delle dimensioni dei log e impedire la potenziale perdita di dati. Da questo snapshot è possibile eseguire il ripristino di un singolo file. Non è consigliabile ridurre la frequenza al di sotto di cinque minuti.
 - **Boot**: snapshot del volume che contiene il numero di unità logica (LUN, Logical Unit Number) di avvio dell'istanza Large di HANA. Questo backup di snapshot è possibile solo con SKU di tipo I di istanze Large di HANA. Non è possibile eseguire ripristini di file singoli dallo snapshot del volume che contiene il LUN di avvio.  
 
 
 La sintassi di chiamata per questi tre diversi tipi di snapshot è simile alla seguente:
 ```
-HANA backup covering /hana/data, /hana/log, /hana/shared (includes/usr/sap)
+HANA backup covering /hana/data and /hana/shared (includes/usr/sap)
 ./azure_hana_backup.pl hana <HANA SID> manual 30
 
 For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot manual 30
+./azure_hana_backup.pl boot none manual 30
 
 ```
 
 È possibile specificare i parametri seguenti:
 
 - Il primo parametro caratterizza il tipo di backup di snapshot. I valori consentiti sono **hana**, **logs** e **boot**. 
-- Il secondo valore è il SID HANA (ad esempio HM3). Questo parametro non è necessario per eseguire un backup del volume di avvio.
+- Il secondo parametro è **HANA SID** (come HM3) oppure **none**. Se il primo valore del parametro specificato è **hana** o **logs**, il valore di questo parametro è **HANA SID** (come HM3). In caso contrario, per il backup di volumi di avvio, il valore è **none**. 
 - Il terzo parametro è un'etichetta di snapshot o di backup per il tipo di snapshot e ha un duplice obiettivo: assegnare un nome agli snapshot, in modo da poterli facilmente identificare in qualsiasi momento, e consentire allo script azure\_hana\_backup.pl di determinare il numero di snapshot di archiviazione mantenuti all'interno dell'etichetta. Se si pianificano due backup di snapshot di archiviazione dello stesso tipo (ad esempio **hana**), con due diverse etichette, e si stabilisce che per ogni etichetta devono essere conservati 30 snapshot, in totale saranno interessati 60 snapshot di archiviazione dei volumi. 
 - Il quarto parametro definisce la conservazione degli snapshot in modo indiretto, definendo il numero di snapshot con lo stesso prefisso (etichetta) da conservare. Questo parametro è importante per un'esecuzione pianificata tramite Cron. 
 
@@ -428,7 +436,7 @@ Le considerazioni e i suggerimenti seguenti presuppongono che *non* si usi la fu
 - Il numero massimo di snapshot per volume è 255.
 
 
-Per i clienti che non usano la funzionalità di ripristino di emergenza di istanze Large di HANA, il periodo degli snapshot è meno frequente. In questi casi, alcuni clienti eseguono snapshot combinati su /hana/data, /hana/log e /hana/shared (che include /usr/sap) in periodi di 12 o 24 ore e conservano questi snapshot per coprire un intero mese. Lo stesso vale per gli snapshot del volume di backup del log. L'esecuzione dei backup del log delle transazioni SAP HANA sul volume di backup del log avviene invece in periodi da 5 a 15 minuti.
+Per i clienti che non usano la funzionalità di ripristino di emergenza di istanze Large di HANA, il periodo degli snapshot è meno frequente. In questi casi, alcuni clienti eseguono snapshot combinati su /hana/data e /hana/shared (che include /usr/sap) in periodi di 12 o 24 ore e mantengono tali snapshot per coprire un intero mese. Lo stesso vale per gli snapshot del volume di backup del log. L'esecuzione dei backup del log delle transazioni SAP HANA sul volume di backup del log avviene invece in periodi da 5 a 15 minuti.
 
 Si consiglia di eseguire snapshot di archiviazione pianificati tramite cron, nonché di usare lo stesso script per tutti i backup e le esigenze di ripristino di emergenza. A questo scopo, è necessario modificare gli input in base ai vari orari di backup richiesti. Gli snapshot sono tutti pianificati in modo diverso in Cron, in base alla frequenza di esecuzione: oraria, ogni 12 ore, giornaliera o settimanale. 
 
@@ -440,9 +448,9 @@ Di seguito è illustrata una pianificazione Cron di esempio in /etc/crontab:
 22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 28
 30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
 ```
-Nell'esempio precedente è riportato uno snapshot orario combinato che copre i volumi contenenti i percorsi /hana/data, /hana/log e /hana/shared (che include /usr/sap). Questo tipo di snapshot può essere usato per un recupero temporizzato più rapido entro i due giorni precedenti. Su questi volumi c'è inoltre uno snapshot giornaliero. Si ottengono così due giorni di copertura tramite gli snapshot orari, più quattro settimane di copertura tramite gli snapshot giornalieri. Per il volume di backup del log delle transazioni viene inoltre eseguito il backup una volta al giorno. Anche questi backup vengono conservati per quattro settimane. Come è possibile vedere nella terza riga di crontab, il backup del log delle transazioni HANA è pianificato per l'esecuzione ogni cinque minuti e i minuti di avvio dei diversi processi Cron che eseguono snapshot di archiviazione sono scaglionati, in modo che gli snapshot non vengano eseguiti tutti contemporaneamente in un determinato momento. 
+Nell'esempio precedente è riportato uno snapshot orario combinato che copre i volumi contenenti i percorsi /hana/data e /hana/shared (che include /usr/sap). Questo tipo di snapshot può essere usato per un recupero temporizzato più rapido entro i due giorni precedenti. Su questi volumi c'è inoltre uno snapshot giornaliero. Si ottengono così due giorni di copertura tramite gli snapshot orari, più quattro settimane di copertura tramite gli snapshot giornalieri. Per il volume di backup del log delle transazioni viene inoltre eseguito il backup una volta al giorno. Anche questi backup vengono conservati per quattro settimane. Come è possibile vedere nella terza riga di crontab, il backup del log delle transazioni HANA è pianificato per l'esecuzione ogni cinque minuti e i minuti di avvio dei diversi processi Cron che eseguono snapshot di archiviazione sono scaglionati, in modo che gli snapshot non vengano eseguiti tutti contemporaneamente in un determinato momento. 
 
-Nell'esempio seguente si esegue uno snapshot combinato che copre i volumi contenenti i percorsi /hana/data, /hana/log e /hana/shared (che include /usr/sap) su base oraria. Questi snapshot vengono conservati per due giorni. Gli snapshot dei volumi di backup del log delle transazioni vengono eseguiti ogni cinque minuti e conservati per quattro ore. Come prima, il backup del file di log delle transazioni HANA è pianificato per l'esecuzione ogni cinque minuti. Lo snapshot del volume di backup del log delle transazioni viene eseguito con un ritardo di due minuti dopo l'avvio del backup del log delle transazioni. In questi due minuti, in circostanze normali il backup del log delle transazioni SAP HANA viene completato. Come prima, il backup del volume contenente il LUN di avvio viene eseguito una volta al giorno tramite uno snapshot di archiviazione e conservato per quattro settimane.
+Nell'esempio seguente viene eseguito uno snapshot combinato che copre i volumi contenenti i percorsi /hana/data e /hana/shared (che include /usr/sap) su base oraria. Questi snapshot vengono conservati per due giorni. Gli snapshot dei volumi di backup del log delle transazioni vengono eseguiti ogni cinque minuti e conservati per quattro ore. Come prima, il backup del file di log delle transazioni HANA è pianificato per l'esecuzione ogni cinque minuti. Lo snapshot del volume di backup del log delle transazioni viene eseguito con un ritardo di due minuti dopo l'avvio del backup del log delle transazioni. In questi due minuti, in circostanze normali il backup del log delle transazioni SAP HANA viene completato. Come prima, il backup del volume contenente il LUN di avvio viene eseguito una volta al giorno tramite uno snapshot di archiviazione e conservato per quattro settimane.
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
@@ -453,9 +461,9 @@ Nell'esempio seguente si esegue uno snapshot combinato che copre i volumi conten
 
 Il grafico seguente illustra le sequenze dell'esempio precedente, escluso il LUN di avvio:
 
-![Relazione tra backup e snapshot](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot.PNG)
+![Relazione tra backup e snapshot](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
-SAP HANA esegue regolari operazioni di scrittura sul volume /hana/log per documentare le modifiche di cui viene eseguito il commit nel database. A intervalli regolari, SAP HANA scrive un punto di salvataggio nel volume /hana/data. Come specificato in crontab, viene eseguito un backup del log delle transazioni SAP HANA ogni cinque minuti. È anche possibile vedere che viene eseguito uno snapshot SAP HANA ogni ora, dopo l'attivazione di uno snapshot di archiviazione combinato sui volumi /hana/data, /hana/log e /hana/shared. Dopo la corretta esecuzione dello snapshot HANA, viene eseguito lo snapshot di archiviazione combinato. Come indicato in crontab, viene eseguito lo snapshot di archiviazione sul volume /hana/logbackup ogni cinque minuti, circa due minuti dopo il backup del log delle transazioni HANA.
+SAP HANA esegue regolari operazioni di scrittura sul volume /hana/log per documentare le modifiche di cui viene eseguito il commit nel database. A intervalli regolari, SAP HANA scrive un punto di salvataggio nel volume /hana/data. Come specificato in crontab, viene eseguito un backup del log delle transazioni SAP HANA ogni cinque minuti. È anche possibile vedere che viene eseguito uno snapshot SAP HANA ogni ora, in seguito all'attivazione di uno snapshot di archiviazione combinato sui volumi /hana/data e /hana/shared. Dopo la corretta esecuzione dello snapshot HANA, viene eseguito lo snapshot di archiviazione combinato. Come indicato in crontab, viene eseguito lo snapshot di archiviazione sul volume /hana/logbackup ogni cinque minuti, circa due minuti dopo il backup del log delle transazioni HANA.
 
 
 >[!IMPORTANT]
@@ -463,7 +471,7 @@ SAP HANA esegue regolari operazioni di scrittura sul volume /hana/log per docume
 
 Se agli utenti si è garantito un ripristino temporizzato di 30 giorni, è necessario che siano soddisfatti i requisiti seguenti:
 
-- In casi estremi, possibilità di accedere a uno snapshot di archiviazione combinato su hana/data, /hana/log e /hana/shared che non risalga a più di 30 giorni prima.
+- In casi estremi, possibilità di accedere a uno snapshot di archiviazione combinato su hana/data e /hana/shared datato fino a un massimo di 30 giorni prima.
 - Backup del log delle transazioni contigui che coprono il tempo tra gli snapshot di archiviazione combinati. Lo snapshot meno recente del volume di backup del log delle transazioni deve quindi risalire a 30 giorni prima, a meno che non si siano copiati i backup del log delle transazioni in un'altra condivisione NFS in Archiviazione di Azure. In questo caso, è possibile eseguire il pull dei backup del log delle transazioni precedenti dalla condivisione NFS.
 
 Per poter usufruire di snapshot di archiviazione e della successiva replica di archiviazione dei backup del log delle transazioni, è necessario modificare la posizione in cui SAP HANA scrive i backup del log delle transazioni. Questa modifica può essere eseguita in HANA Studio. Anche se SAP HANA esegue il backup automatico di segmenti di log completi, è necessario specificare un intervallo di backup del log in modo deterministico. Questo vale soprattutto quando si usa l'opzione di ripristino di emergenza poiché, in questo caso, è preferibile eseguire i backup del log con un periodo deterministico. Nel caso seguente, è stato scelto un intervallo di backup del log di 15 minuti.

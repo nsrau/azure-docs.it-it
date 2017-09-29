@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 08/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7818093e42c34ee671a035cde783a6622fb2a798
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a0563af9a7fc62fe3923562dd352d756f4945287
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connettere Excel a Hadoop in HDInsight mediante Microsoft Hive ODBC Driver
@@ -104,9 +104,12 @@ La procedura seguente descrive come importare dati da una tabella Hive in una ca
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato illustrato come usare Microsoft Hive ODBC Driver per recuperare dati dal servizio HDInsight in Excel. È analogamente possibile recuperare dati dal servizio HDInsight nel database SQL. È inoltre possibile caricare dati in un servizio HDInsight. Per altre informazioni, vedere:
 
-* [Analizzare i dati sui ritardi dei voli con HDInsight][hdinsight-analyze-flight-data]
-* [Caricare dati in HDInsight][hdinsight-upload-data]
-* [Usare Sqoop con Hadoop in HDInsight][hdinsight-use-sqoop]
+* [Visualizzare i dati Hive con Microsoft Power BI in Azure HDInsight](./hdinsight-connect-hive-power-bi.md).
+* [Usare Zeppelin per eseguire query Hive in Azure HDInsight](./hdinsight-connect-hive-zeppelin.md).
+* [Connettere Excel a Hadoop mediante Power Query](./hdinsight-connect-excel-power-query.md).
+* [Connettersi ad Azure HDInsight ed eseguire query Hive usando Strumenti Data Lake per Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+* [Usare Visual Studio Code per Hive, LLAP o pySpark](hdinsight-for-vscode.md).
+* [Caricare dati in HDInsight](./hdinsight-upload-data.md).
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
