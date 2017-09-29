@@ -1,6 +1,6 @@
 ---
-title: Gestione dei proprietari di un gruppo in Azure Active Directory | Microsoft Docs
-description: Informazioni sulla gestione dei proprietari di un gruppo e su come usare questi gruppi per gestire l'accesso a una risorsa.
+title: Passaggi successivi per la gestione dell'accesso mediante i gruppi | Documentazione Microsoft
+description: Procedura avanzata per la gestione dei gruppi di sicurezza e l'uso di questi gruppi per gestire l'accesso a una risorsa.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,39 +12,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 09/12/2017
 ms.author: curtand
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 70be82fdd673c4f245e306b1e1cfdcd94d4dac53
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e1b88f7d43ba29589e5f1f4a8036c716ae984ae4
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-owners-for-a-group"></a>Gestione dei proprietari di un gruppo
-Quando un proprietario di risorse assegna l'accesso a una risorsa a un gruppo di Azure AD, l'appartenenza al gruppo viene gestita dal proprietario del gruppo. Il proprietario della risorsa delega in modo efficace l'autorizzazione ad assegnare agli utenti la loro risorsa al proprietario del gruppo.
+Quando il proprietario delle risorse ha assegnato l'accesso a una risorsa a un gruppo di Azure AD, l'appartenenza al gruppo viene gestita dal proprietario del gruppo. Il proprietario della risorsa delega in modo efficace l'autorizzazione ad assegnare agli utenti la loro risorsa al proprietario del gruppo.
 
 ## <a name="add-an-owner-to-a-group"></a>Aggiungere un proprietario a un gruppo
 
 1. Nell'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) selezionare **Utenti e gruppi**.
 2. Selezionare la scheda **Tutti i gruppi** e aprire il gruppo a cui si desidera aggiungere proprietari.
-3. Selezionare **Proprietari** e quindi **Aggiungi proprietari**.
-4. Nella pagina **Aggiungi proprietari** selezionare l'utente che si desidera aggiungere come proprietario del gruppo e quindi toccare o fare clic su **Seleziona**. 
+3. Selezionare **Aggiungi proprietari**.
+4. Nella pagina **Aggiungi proprietari** selezionare l'utente che si desidera aggiungere come proprietario del gruppo e verificare che questo nome venga aggiunto al riquadro **Selezionato**.
 
 ## <a name="remove-an-owner-from-a-group"></a>Per rimuovere un proprietario da un gruppo
 
 1. Nell'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) selezionare **Utenti e gruppi**.
 2. Selezionare **Tutti i gruppi** e quindi aprire il gruppo da cui si desidera rimuovere proprietari.
-3. Selezionare **Proprietari**, selezionare il proprietario che si desidera rimuovere dal gruppo, quindi toccare o fare clic su **Seleziona**.
-4. Nel riquadro aperto per il proprietario selezionato, selezionare **Rimuovi**.
+3. Selezionare la scheda **Proprietari** .
+4. Selezionare il proprietario da rimuovere dal gruppo e quindi scegliere **Rimuovi**.
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
-Questi articoli contengono informazioni aggiuntive sui gruppi di Azure Active Directory.
+Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
-* [Vedere i gruppi esistenti](active-directory-groups-view-azure-portal.md)
-* [Creare un nuovo gruppo e aggiunta di membri](active-directory-groups-create-azure-portal.md)
-* [Gestire le impostazioni di un gruppo](active-directory-groups-settings-azure-portal.md)
-* [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
-* [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)
+* [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
+* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+* [Informazioni su Azure Active Directory](active-directory-whatis.md)
+* [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
 

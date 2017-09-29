@@ -12,10 +12,10 @@ ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1b4ef5dc0af6bea8af02ad63843acc91713666ad
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -72,7 +72,7 @@ Nella sezione successiva si esporrà l'API tramite un proxy. I proxy di Funzioni
 
 Un proxy può puntare a qualsiasi risorsa HTTP, ad esempio:
 - Funzioni di Azure 
-- App per le API in [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
+- App per le API in [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 - Contenitori docker in [Servizio App in Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Qualsiasi altra API in hosting
 
@@ -189,10 +189,10 @@ In questa esercitazione è stato illustrato come creare e personalizzare un'API 
 I riferimenti seguenti possono essere utili quando si sviluppa ulteriormente l'API:
 
 - [Binding HTTP e webhook di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Uso di proxy in Funzioni di Azure (anteprima)]
+- [Uso dei proxy di Funzioni di Azure (anteprima)]
 - [Documentazione di un'API di Funzioni di Azure (anteprima)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Uso di proxy in Funzioni di Azure (anteprima)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Uso dei proxy di Funzioni di Azure (anteprima)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
 

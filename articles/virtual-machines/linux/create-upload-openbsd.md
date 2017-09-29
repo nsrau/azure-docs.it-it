@@ -3,7 +3,7 @@ title: Creare e caricare un'immagine di VM OpenBSD in Azure | Microsoft Docs
 description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) che contiene il sistema operativo OpenBSD per creare una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: kyliel
+ms.author: huishao
 ms.translationtype: HT
 ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: 716c07f6a738189d6cf2b3caafa16b753927d182
@@ -178,3 +178,4 @@ ssh azureuser@<ip address>
 Per altre informazioni sul supporto di Hyper-V in OpenBSD 6.1, vedere [OpenBSD 6.1](https://www.openbsd.org/61.html) e [hyperv.4](http://man.openbsd.org/hyperv.4).
 
 Per creare una macchina virtuale dal disco gestito, vedere [az disk](/cli/azure/disk). 
+

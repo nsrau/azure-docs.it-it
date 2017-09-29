@@ -3,7 +3,7 @@ title: Come usare l'archiviazione BLOB da Node.js | Microsoft Docs
 description: Archiviare i dati non strutturati nel cloud con l'archivio BLOB (archivio di oggetti) di Azure.
 services: storage
 documentationcenter: nodejs
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 8b0df222-1ca8-4967-8248-6d6d720947b8
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
