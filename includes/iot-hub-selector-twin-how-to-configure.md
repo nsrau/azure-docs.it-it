@@ -2,6 +2,7 @@
 > * [Node.JS](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md)
+> * [Java](../articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md)
 > 
 > 
 
@@ -11,7 +12,7 @@ In [Introduzione ai dispositivi gemelli dell'hub IoT][lnk-twin-tutorial] è stat
 
 In questa esercitazione verrà illustrato come usare le *proprietà desiderate* del dispositivo gemello con le *proprietà segnalate* per configurare in remoto le app per dispositivi. In particolare, questa esercitazione descrive come le proprietà segnalate e desiderate di un dispositivo gemello supportano la configurazione in più passaggi di un'applicazione per dispositivi e come ottenere nel back-end della soluzione la visibilità dello stato di tale operazione in tutti i dispositivi. Per altre informazioni sul ruolo delle configurazioni del dispositivo, vedere [Panoramica della gestione dei dispositivi con l'hub IoT][lnk-dm-overview].
 
-In genere, l'uso di dispositivi gemelli abilita il back-end della soluzione per specificare la configurazione voluta per i dispositivi gestiti, invece di inviare comandi specifici. Il dispositivo ha quindi la responsabilità di configurare il modo migliore per aggiornare la propria configurazione (molto importante negli scenari IoT in cui le condizioni specifiche del dispositivo influiscono sulla possibilità di eseguire immediatamente determinati comandi) segnalando continuamente al back-end della soluzione lo stato corrente e le potenziali condizioni di errore del processo di aggiornamento. Questo modello è determinante per gestire grandi set di dispositivi, perché offre al back-end della soluzione la visibilità completa dello stato del processo di configurazione in tutti i dispositivi.
+In genere, l'uso di dispositivi gemelli abilita il back-end della soluzione per specificare la configurazione voluta per i dispositivi gestiti, invece di inviare comandi specifici. Il dispositivo ha quindi la responsabilità di configurare il modo migliore per aggiornare la propria configurazione (importante negli scenari IoT in cui le condizioni specifiche del dispositivo influiscono sulla possibilità di eseguire immediatamente determinati comandi) segnalando continuamente al back-end della soluzione lo stato corrente e le potenziali condizioni di errore del processo di aggiornamento. Questo modello è determinante per gestire grandi set di dispositivi, perché offre al back-end della soluzione la visibilità completa dello stato del processo di configurazione in tutti i dispositivi.
 
 > [!NOTE]
 > Negli scenari in cui i dispositivi sono controllati in modo più interattivo (come nel caso dell'attivazione di una ventola da un'app controllata dall'utente), può essere opportuno usare [metodi diretti][lnk-methods].
@@ -38,7 +39,7 @@ Il back-end della soluzione archivia la configurazione nelle proprietà desidera
         }
 
 > [!NOTE]
-> Dato che le configurazioni possono essere oggetti complessi, per semplificarne il confronto vengono in genere assegnati ID univoci (hash o [GUID][lnk-guid]).
+> Dato che le configurazioni possono essere oggetti complessi, per semplificarne il confronto vengono assegnati ID univoci (hash o [GUID][lnk-guid]).
 > 
 > 
 
@@ -80,7 +81,7 @@ Quando viene ricevuta una nuova configurazione desiderata, l'app per dispositivi
             }
         }
 
-In un secondo momento, l'app per dispositivi segnalerà l'esito positivo o negativo dell'operazione aggiornando la proprietà sopra indicata.
+In un secondo momento l'app per dispositivi segnala l'esito positivo o negativo dell'operazione aggiornando la proprietà sopra indicata.
 Si noti che il back-end della soluzione può eseguire in qualsiasi momento query sullo stato del processo di configurazione in tutti i dispositivi.
 
 Questa esercitazione illustra come:

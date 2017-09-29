@@ -2,7 +2,7 @@ In Cloud Shell creare credenziali di distribuzione con il comando [az webapp dep
 
 Un utente della distribuzione è necessario per la distribuzione con FTP e l'istanza Git locale in un'app Web. Nome utente e password sono a livello di account. _Sono quindi diversi dalle credenziali della sottoscrizione di Azure._
 
-Nel comando seguente sostituire *\<user-name>* e *\<password>* con un nuovo nome utente e una nuova password. Il nome utente deve essere univoco. La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli. 
+Nel comando seguente sostituire *\<username>* e *\<password>* con un nuovo nome utente e una nuova password. Il nome utente deve essere univoco. La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli. 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>

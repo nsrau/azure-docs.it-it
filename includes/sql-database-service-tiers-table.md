@@ -19,7 +19,7 @@ sql-database-single-database-resources.md
 ### <a name="standard-service-tier"></a>Livello di servizio Standard
 | **Livello di prestazioni** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| Max DTU | 10 | 20 | 50 | 100 |
+| Numero max DTU** | 10 | 20 | 50 | 100 |
 | Risorse di archiviazione incluse (GB) | 250 | 250 | 250 | 250 |
 | Opzioni per lo spazio di archiviazione massimo (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D  |
@@ -31,7 +31,7 @@ sql-database-single-database-resources.md
 ### <a name="standard-service-tier-continued"></a>Livello di servizio Standard (continua)
 | **Livello di prestazioni** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| Max DTU | 200 | 400 | 800 | 1600 | 3000 |
+| Numero max DTU** | 200 | 400 | 800 | 1600 | 3000 |
 | Risorse di archiviazione incluse (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opzioni per lo spazio di archiviazione massimo (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D |N/D  |
@@ -69,3 +69,5 @@ sql-database-single-database-resources.md
 >
 >\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia, Europa occidentale, Germania centrale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Vedere [Limitazioni correnti per P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
+>\*\* Il numero massimo di DTU per database uguale o superiore a 200 nei siti Web Standard è disponibile in anteprima.
+>

@@ -1,5 +1,5 @@
 
-Creare un'[app per le API](../articles/app-service-api/app-service-api-apps-why-best-platform.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/appservice/web#create). 
+Creare un'app nel `myAppServicePlan`piano di servizio app con il comando [az webapp create](/cli/azure/appservice/web#create). 
 
 L'app Web fornisce uno spazio host per l'API e un URL per visualizzare l'app distribuita.
 
