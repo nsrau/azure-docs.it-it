@@ -16,10 +16,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="manage-your-azure-ad-directory"></a>Gestire la directory di Azure AD
@@ -59,12 +59,14 @@ Se non si ha ancora una sottoscrizione a un servizio cloud Microsoft, è possibi
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>Come modificare la directory predefinita per una sottoscrizione
 
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Home/Index) con un account amministratore della sottoscrizione per trasferirne la proprietà.
+1. Accedere al [Centro account di Azure](https://account.azure.com/Subscriptions) con un account amministratore della sottoscrizione per trasferirne la proprietà.
 2. Assicurarsi che l'utente che si vuole impostare come proprietario della sottoscrizione sia incluso nella directory di destinazione.
 3. Fare clic su **Trasferisci sottoscrizione**.
 4. Specificare il destinatario. Il destinatario riceve automaticamente un messaggio e-mail con un link per l'accettazione.
 5. Il destinatario deve fare clic sul link e seguire le istruzioni, inclusa l'immissione delle informazioni sul pagamento. Quando il destinatario ha esito positivo, la sottoscrizione viene trasferita. 
 6. In caso di esito positivo del trasferimento di proprietà, la directory predefinita della sottoscrizione viene modificata alla directory in cui si trova l'utente.
+
+Per altre informazioni, vedere [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
 
 ### <a name="manage-the-default-directory-in-azure"></a>Gestire la directory predefinita in Azure
 Quando si effettua l'iscrizione ad Azure, alla sottoscrizione viene associata una directory di Azure AD predefinita. L'uso di Azure AD non comporta alcun costo e le directory sono una risorsa gratuita. Sono disponibili servizi di Azure AD a pagamento, concessi in licenza separatamente, che offrono funzionalità aggiuntive come le informazioni personalizzate distintive dell'azienda all'accesso e la reimpostazione password self-service. È anche possibile creare un dominio personalizzato usando un nome DNS di cui si è proprietari invece del dominio *.onmicrosoft.com predefinito.

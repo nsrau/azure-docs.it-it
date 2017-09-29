@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
 ms.contentlocale: it-it
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>Iniziare a usare Apache Kafka (anteprima) in HDInsight
@@ -47,6 +47,9 @@ Per creare un cluster Kafka in HDInsight seguire questa procedura:
     * **Secure Shell (SSH) username** (Nome utente SSH): account di accesso usato per il cluster su SSH. Per impostazione predefinita, la password corrisponde alla password di accesso al cluster.
     * **Gruppo di risorse**: il gruppo di risorse nel quale viene creato il cluster.
     * **Posizione**: area di Azure in cui creare il cluster.
+
+        > [!IMPORTANT]
+        > Per una disponibilità elevata dei dati, è consigliabile selezionare una posizione (area) contenente __tre domini di errore__. Per altre informazioni, vedere la sezione [Disponibilità elevata dei dati](#data-high-availability).
    
  ![Selezionare la sottoscrizione](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
@@ -73,12 +76,12 @@ Per creare un cluster Kafka in HDInsight seguire questa procedura:
 7. In __Dimensioni del cluster__ selezionare __Avanti__ per continuare.
 
     > [!WARNING]
-    > Per garantire la disponibilità di Kafka in HDInsight, il cluster deve contenere almeno tre nodi del ruolo di lavoro.
+    > Per garantire la disponibilità di Kafka in HDInsight, il cluster deve contenere almeno tre nodi del ruolo di lavoro. Per altre informazioni, vedere la sezione [Disponibilità elevata dei dati](#data-high-availability).
 
     ![Configurare le dimensioni del cluster di Kafka](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > La voce relativa ai **dischi per nodo di lavoro** controlla la scalabilità di Kafka in HDInsight. Per altre informazioni, vedere [Configurare l'archiviazione e la scalabilità per Apache Kafka in HDInsight](hdinsight-apache-kafka-scalability.md).
+    > [!IMPORTANT]
+    > La voce relativa ai **dischi per nodo di lavoro** controlla la scalabilità di Kafka in HDInsight. Kafka in HDInsight usa il disco locale delle macchine virtuali nel cluster. Dal momento che in Kafka i processi I/O sono intensivi, viene usato il servizio [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) per assicurare una velocità effettiva elevata e fornire maggiore spazio di archiviazione per ogni nodo. Il tipo di disco gestito può essere __Standard__ (HDD) o __Premium__ (SSD). I dischi Premium sono usati con le macchine virtuali serie DS e GS. Tutti gli altri tipi di macchine virtuali usano dischi Standard.
 
 8. In __Impostazioni avanzate__ selezionare __Avanti__ per continuare.
 
@@ -340,6 +343,27 @@ L'API di streaming è stata aggiunta a Kafka nella versione 0.10.0; le versioni 
 
 7. Usare __Ctrl + C__ per uscire dal consumer, quindi usare il comando `fg` per riportare in primo piano l'attività di streaming in background. Usare __Ctrl + C__ anche per uscire dall'attività.
 
+## <a name="data-high-availability"></a>Disponibilità elevata dei dati
+
+Ogni area (posizione) di Azure fornisce _domini di errore_. Un dominio di errore è un raggruppamento logico dell'hardware sottostante in un data center di Azure. Ogni dominio di errore condivide una fonte di alimentazione e un commutatore di rete comuni. Le macchine virtuali e i dischi gestiti che implementano i nodi in un cluster HDInsight sono distribuiti tra i domini di errore. Questa architettura limita il potenziale impatto dei guasti dell'hardware fisico.
+
+Per informazioni sul numero di domini di errore in un'area, vedere il documento [Disponibilità delle macchine virtuali Linux](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+
+> [!IMPORTANT]
+> È consigliabile usare un'area di Azure contenente tre domini di errore e un fattore di replica di 3.
+
+Se si deve usare un'area che contiene solo due domini di errore, usare un fattore di replica di 4 per distribuire uniformemente le repliche tra i due domini di errore.
+
+### <a name="kafka-and-fault-domains"></a>Kafka e domini di errore
+
+Kafka non rileva i domini di errore. Quando si creano le repliche di partizione per gli argomenti, è possibile che le repliche non vengano distribuite in modo corretto per la disponibilità elevata. Per garantire la disponibilità elevata, usare lo [strumento per il ribilanciamento delle partizioni Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Questo strumento deve essere eseguito da una sessione SSH al nodo head del cluster Kafka.
+
+Per garantire la massima disponibilità dei dati Kafka, è consigliabile ribilanciare le repliche di partizione per l'argomento nei momenti seguenti:
+
+* Quando viene creato un nuovo argomento o una nuova partizione
+
+* Quando si aumentano le prestazioni di un cluster
+
 ## <a name="delete-the-cluster"></a>Eliminazione del cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -352,11 +376,10 @@ Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisit
 
 In questo documento sono state illustrate le nozioni di base per l'uso di Apache Kafka in HDInsight. Per altre informazioni sull'uso di Kafka, vedere:
 
-* [Garantire la disponibilità elevata dei dati con Kafka in HDInsight](hdinsight-apache-kafka-high-availability.md)
-* [Aumentare la scalabilità configurando dischi gestiti con Kafka in HDInsight](hdinsight-apache-kafka-scalability.md)
-* [Documentazione di Apache Kafka](http://kafka.apache.org/documentation.html) in kafka.apache.org.
-* [Usare MirrorMaker per creare una replica di Kafka in HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Analizzare i log di Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Replicare i dati tra cluster Kafka](hdinsight-apache-kafka-mirroring.md)
+* [Usare lo streaming Apache Spark (DStream) con Kafka in HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Usare lo streaming strutturato Apache Spark con Kafka in HDInsight](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [Usare Apache Storm (anteprima) con Kafka in HDInsight](hdinsight-apache-storm-with-kafka.md)
-* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md) (Usare Apache Spark con Kafka in HDInsight)
 * [Connect to Kafka through an Azure Virtual Network](hdinsight-apache-kafka-connect-vpn-gateway.md) (Connettersi a Kafka tramite una rete virtuale di Azure)
 

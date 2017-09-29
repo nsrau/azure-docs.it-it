@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Associare le sottoscrizioni di Azure ad Azure Active Directory
@@ -48,13 +48,14 @@ Quando si effettua l'iscrizione a uno di questi servizi cloud Microsoft, si otti
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Per aggiungere una sottoscrizione esistente alla directory di Azure AD
 È necessario eseguire l'accesso con un account che esiste sia nella directory corrente a cui è associata la sottoscrizione che nella directory a cui la si vuole aggiungere. 
 
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Home/Index) con un account amministratore della sottoscrizione di cui si vuole trasferire la proprietà.
+1. Accedere al [Centro account di Azure](https://account.azure.com/Subscriptions) con un account amministratore della sottoscrizione di cui si vuole trasferire la proprietà.
 2. Assicurarsi che l'utente che si vuole impostare come proprietario della sottoscrizione sia incluso nella directory di destinazione.
 3. Fare clic su **Trasferisci sottoscrizione**.
 4. Specificare il destinatario. Il destinatario riceve automaticamente un messaggio e-mail con un link per l'accettazione.
 5. Il destinatario deve fare clic sul link e seguire le istruzioni, inclusa l'immissione delle informazioni sul pagamento. Quando il destinatario ha esito positivo, la sottoscrizione viene trasferita. 
 6. La directory predefinita della sottoscrizione viene modificata nella directory in cui si trova l'utente.
 
+Per altre informazioni, vedere [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Suggerimenti per gestire sia una sottoscrizione che una directory
 Le risorse associate a una sottoscrizione di Azure vengono gestite dai ruoli amministrativi della sottoscrizione stessa. Questa sezione illustra le differenze tra gli amministratori di una sottoscrizione di Azure e gli amministratori di una directory di Azure AD. I ruoli amministrativi e gli altri suggerimenti su come usarli per gestire la sottoscrizione sono descritti in [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles.md).
