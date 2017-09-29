@@ -3,7 +3,7 @@ title: API per clienti Enterprise per la fatturazione di Azure - Saldi e riepilo
 description: Informazioni sull'utilizzo dell'API di fatturazione e dell'API RestCard di Azure, utilizzate per offrire informazioni sul consumo di risorse e sulle tendenze di Azure.
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing

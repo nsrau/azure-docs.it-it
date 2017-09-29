@@ -3,7 +3,7 @@ title: API per clienti Enterprise per la fatturazione di Azure - Periodi di fatt
 description: Informazioni sulle API di creazione di report che consentono ai clienti Enterprise di Azure di estrarre i dati sull'uso a livello di codice.
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing
