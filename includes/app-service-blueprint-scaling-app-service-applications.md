@@ -1,4 +1,4 @@
-* [Scalabilità del Servizio app di Azure](../articles/app-service-web/web-sites-scale.md)
+* [Scalabilità del Servizio app di Azure](../articles/app-service/web-sites-scale.md)
   
   * Informazioni su ridondanza e affidabilità
   * Applicazioni CON stato vs applicazioni SENZA stato

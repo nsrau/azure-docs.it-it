@@ -3,7 +3,7 @@ title: Introduzione all'archiviazione code di Azure con .NET | Documentazione Mi
 description: Le code di Azure forniscono una messaggistica asincrona affidabile tra i componenti dell'applicazione. La messaggistica cloud consente di ridimensionare i componenti dell'applicazione in modo indipendente.
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: c0f82537-a613-4f01-b2ed-fc82e5eea2a7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: aa292c1eb048444f988a641df44183312cf39d28
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ff950b3ba5ad47aea60af9355f35a36aa4024b96
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -276,7 +276,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accod
 * Per informazioni dettagliate sulle API disponibili, vedere la documentazione di riferimento del servizio di accodamento:
   * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   * [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
-* Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](../../app-service-web/websites-dotnet-webjobs-sdk.md).
+* Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
   * [Introduzione all'archiviazione tabelle di Azure con .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) .
   * [Introduzione all'archivio BLOB di Azure con .NET](../blobs/storage-dotnet-how-to-use-blobs.md) .

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 09/20/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 18ae6a970455646b7a25170f5abefa52a98b0ba2
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure (anteprima)
@@ -33,6 +33,9 @@ I controlli delle applicazioni adattivi consentono di controllare quali applicaz
 - Evitare l'esecuzione di app obsolete e non supportate.
 - Impedire l'uso di strumenti software specifici non consentiti nell'organizzazione.
 - Consentire al personale IT di controllare l'accesso ai dati sensibili tramite l'utilizzo delle app.
+
+> [!NOTE]
+> I controlli delle applicazioni adattivi sono disponibili per i clienti Standard del Centro sicurezza di Azure come anteprima pubblica limitata. Inviare un messaggio di posta elettronica con l'ID sottoscrizione a [Microsoft](mailto:ASC_appcontrol@microsoft.com) per accedere all'anteprima.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Come si abilitano i controlli delle applicazioni adattivi?
 I controlli delle applicazioni adattivi aiutano a definire un set di applicazioni che è possibile eseguire in gruppi di risorse configurati. Questa funzionalità è disponibile solo per computer Windows (tutte le versioni, modalità classica o Azure Resource Manager). Seguire questa procedura per configurare l'inserimento delle applicazioni nell'elenco elementi consentiti nel Centro sicurezza:
@@ -106,7 +109,7 @@ Come indicato in precedenza, per impostazione predefinita i nuovi criteri di con
 
 ![Problemi](./media/security-center-adaptive-application/security-center-adaptive-application-fig7.png)
 
-L'elenco include:
+inclusi i seguenti:
 
 - **PROBLEMI**: le violazioni che sono state registrate e che possono includere quanto segue:
     - **ViolationsBlocked**: quando la soluzione è attivata in modalità Applica e un'applicazione non inserita nell'elenco elementi consentiti prova ad avviare l'esecuzione.
@@ -144,10 +147,6 @@ Il Centro sicurezza propone l'inserimento delle applicazioni nell'elenco element
 L'elenco contiene:
 - **NOME**: nome della sottoscrizione e del gruppo di risorse.
 - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo di risorse.
-
-## <a name="preview-registration"></a>Registrazione dell'anteprima
-
-I controlli delle applicazioni adattivi sono disponibili per i clienti Standard del Centro sicurezza di Azure come anteprima pubblica limitata. Inviare un messaggio di posta elettronica con l'ID sottoscrizione a [Microsoft](mailto:ASC_appcontrol@microsoft.com) per accedere all'anteprima.
 
 ## <a name="see-also"></a>Vedere anche
 In questo documento si è appreso come usare il controllo delle applicazioni adattivo nel Centro sicurezza di Azure per inserire nell'elenco elementi consentiti le applicazioni in esecuzione nelle macchine virtuali di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
