@@ -33,6 +33,7 @@
 
 ## Eseguire il debug di programmi U-SQL
 ### [Monitorare e risolvere i problemi relativi ai processi](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [Risolvere i problemi relativi a un processo ricorrente anomalo](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [Debug del codice C# in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Usare Job Browser e Job View (Visualizzazione processo)](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Usare Vertex execution view (Visualizzazione esecuzioni vertici)](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

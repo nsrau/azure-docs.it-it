@@ -148,13 +148,14 @@
 ### [Attività iniziali](active-directory-integrating-applications-getting-started.md)
 ### [Esercitazioni sull'integrazione di app SaaS](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [Definizione di Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
-#### [Procedura di configurazione](cloudappdiscovery-get-started.md)
+#### [Configurare l'individuazione senza agente](cloudappdiscovery-get-started.md)
 #### [Creare report di snapshot](cloudappdiscovery-set-up-snapshots.md)
 #### [Configurare la creazione di report continua](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Usare un parser di log personalizzato](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [Aggiornare le impostazioni del Registro di sistema](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Informazioni sulla sicurezza e sulla privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### Individuazione basata su agenti
+##### [Definizione di Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+##### [Aggiornare le impostazioni del Registro di sistema](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [Informazioni sulla sicurezza e sulla privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Accedere alle app in remoto con il proxy delle app](active-directory-application-proxy-get-started.md)

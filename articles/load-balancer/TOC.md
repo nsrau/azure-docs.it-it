@@ -26,9 +26,8 @@
 ### [Configurare il servizio di bilanciamento del carico con connessione Internet (interfaccia della riga di comando)](load-balancer-get-started-internet-arm-cli.md)
 ### [Configurare il servizio di bilanciamento del carico con connessione Internet (modello)](load-balancer-get-started-internet-arm-template.md)
 
-## [Configurare il servizio di bilanciamento del carico con connessione Internet (portale classico)](load-balancer-get-started-internet-classic-portal.md)
+## [Configurare il servizio di bilanciamento del carico con connessione Internet (PowerShell classico)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configurare il servizio di bilanciamento del carico con connessione Internet (cloud classico)](load-balancer-get-started-internet-classic-cloud.md)
-### [Configurare il servizio di bilanciamento del carico con connessione Internet (PowerShell classico)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configurare il servizio di bilanciamento del carico con connessione Internet (interfaccia della riga di comando classica)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [Creare un servizio di bilanciamento del carico Internet con IPv6](load-balancer-ipv6-internet-ps.md)

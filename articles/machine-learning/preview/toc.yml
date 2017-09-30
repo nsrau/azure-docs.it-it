@@ -45,6 +45,8 @@
       items:
         - name: Configurare le destinazioni di esecuzione
           href: experiment-execution-configuration.md
+        - name: Creare la DSVM e il cluster Spark per HDI
+          href: how-to-create-dsvm-hdi.md
         - name: Eseguire il training con GPU
           href: how-to-use-gpu.md
     - name: Acquisire e comprendere dati
