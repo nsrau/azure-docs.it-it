@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: bb058b11d211c4c41ff8f8c3849a4630886c78d5
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: d555f7a93a980a35c6b50d480c43de6bdc5c86df
 ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
@@ -32,9 +32,13 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="backup"></a>Backup
 
-## <a name="error-the-specified-disk-configuration-is-not-supported"></a>Errore: la configurazione di disco specificata non è supportata
+### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Errore: la configurazione di disco specificata non è supportata
 
-Attualmente Backup di Azure non supporta dischi con dimensioni maggiori di 1023 GB. Assicurarsi che le dimensioni dei dischi siano inferiori al limite dividendo i dischi. Per dividere i dischi, è necessario copiare i dati dai dischi di dimensioni maggiori di 1023 GB in nuovi dischi creati con dimensioni minori di 1023 GB.
+Attualmente Backup di Azure non supporta dischi di dimensioni [maggiori di 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- Se la dimensione dei dischi è maggiore di 1 TB, [collegare nuovi dischi](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) di dimensione inferiore a 1 TB <br>
+- Copiare quindi i dati dal disco di dimensione superiore a 1 TB nei dischi appena creati di dimensione inferiore a 1 TB. <br>
+- Verificare che tutti i dati siano stati copiati e rimuovere i dischi di dimensione superiore a 1 TB
+- Avviare il backup.
 
 | Dettagli errore | Soluzione alternativa |
 | --- | --- |

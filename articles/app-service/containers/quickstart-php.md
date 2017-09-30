@@ -16,15 +16,15 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1b10636848198ab0ff46e6a492373ecf42a96202
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Creare un'app Web PHP in un contenitore Linux in Azure
 
-[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web a scalabilità elevata e con correzione automatica basato sul sistema operativo Linux. Questa esercitazione introduttiva mostra come distribuire un'app PHP in App Web di Azure per contenitori. È necessario creare l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell e Git per distribuire il codice PHP nell'app Web.
+[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web ad alta scalabilità e con correzione automatica basato sul sistema operativo Linux. Questa esercitazione introduttiva mostra come distribuire un'app PHP in App Web di Azure per contenitori. È necessario creare l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell e Git per distribuire il codice PHP nell'app Web.
 
 !![App di esempio in esecuzione in Azure]](media/quickstart-php/hello-world-in-browser.png)
 
@@ -56,7 +56,7 @@ Per eseguire l'applicazione in locale, aprire una finestra del terminale e usare
 php -S localhost:8080
 ```
 
-Aprire un Web browser e passare all'app di esempio all'indirizzo http://localhost:8080.
+Aprire un Web browser e passare all'app di esempio all'indirizzo `http://localhost:8080`.
 
 Nella pagina verrà visualizzato il messaggio **Hello World!** dell'app di esempio.
 

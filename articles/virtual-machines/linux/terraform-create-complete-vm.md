@@ -1,10 +1,10 @@
 ---
-title: Creare un'infrastruttura di base in Azure usando Terraform | Microsoft Docs
-description: Informazioni su come creare risorse di Azure usando Terraform
+title: Usare Terraform per creare una VM Linux completa in Azure | Microsoft Docs
+description: Informazioni su come usare Terraform per creare e gestire un ambiente completo per la macchina virtuale Linux in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: jtalkar
+manager: timlt
 editor: na
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,261 +13,277 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/14/2017
+ms.date: 09/14/2017
 ms.author: echuvyrov
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: aa0926de32dd85f4460bbfa84b7a6007e2199d51
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: a4a418a3b277d41b62aa049941a4c65e3bb82808
 ms.contentlocale: it-it
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 
-# <a name="create-basic-infrastructure-in-azure-by-using-terraform"></a>Creare un'infrastruttura di base in Azure usando Terraform
-Questo articolo illustra i passaggi necessari per eseguire il provisioning di una macchina virtuale in Azure e descrive l'infrastruttura sottostante. Spiega come creare script Terraform e come visualizzare le modifiche prima di implementarle nell'infrastruttura cloud. Spiega anche come creare l'infrastruttura in Azure usando Terraform.
+# <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Creare un'infrastruttura completa per la macchina virtuale Linux in Azure con Terraform
+Terraform consente di definire e creare distribuzioni di infrastrutture complete in Azure. I modelli Terrraform, compilati dall'utente in un formato leggibile, creano e configurano le risorse di Azure in modo coerente e riproducibile. In questo articolo viene illustrato come creare un ambiente Linux completo e le risorse di supporto con Terraform. È anche possibile apprendere come [installare e configurare Terraform](terraform-install-configure.md).
 
-Per iniziare, nell'editor di testo desiderato (Visual Studio Code/Sublime/Vim/e così via) creare il file \terraform_azure101.tf. Il nome esatto del file non è importante, perché Terraform accetta come parametro il nome della cartella e vengono eseguiti tutti gli script presenti nella cartella. Incollare il codice seguente nel nuovo file:
 
-~~~~
-# Configure the Microsoft Azure Provider
-# NOTE: if you defined these values as environment variables, you do not have to include this block
+## <a name="create-azure-connection-and-resource-group"></a>Creare una connessione ad Azure e il gruppo di risorse
+Verranno ora esaminate le singole sezioni di un modello Terraform. È anche disponibile una versione completa del [modello Terraform](#complete-terraform-script) che può essere copiata e incollata.
+
+La sezione `provider` indica a Terraform di usare un provider di Azure. Per ottenere i valori per *subscription_id*, *client_id*, *client_secret* e *tenant_id*, vedere [Installare e configurare Terraform per eseguire il provisioning di macchine virtuali e altra infrastruttura in Azure](terraform-install-configure.md). Se si creano variabili di ambiente per i valori, non includere questa sezione.
+
+```tf
 provider "azurerm" {
-  subscription_id = "your_subscription_id_from_script_execution"
-  client_id       = "your_appId_from_script_execution"
-  client_secret   = "your_password_from_script_execution"
-  tenant_id       = "your_tenant_id_from_script_execution"
+    subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
-
-# create a resource group if it doesn't exist
-resource "azurerm_resource_group" "helloterraform" {
-    name = "terraformtest"
-    location = "West US"
-}
-~~~~
-Nella sezione `provider` dello script si indica a Terraform di usare un provider di Azure per eseguire il provisioning delle risorse nello script. Per ottenere i valori per subscription_id, appId, password e tenant_id, vedere [Installare e configurare Terraform per eseguire il provisioning di macchine virtuali e altra infrastruttura in Azure](terraform-install-configure.md). Se sono state create variabili di ambiente per i valori in questo blocco, non è necessario includere il blocco. 
-
-La risorsa `azurerm_resource_group` indica a Terraform di creare un nuovo gruppo di risorse. Altri tipi di risorse disponibili in Terraform sono elencati più avanti in questo articolo.
-
-## <a name="execute-the-script"></a>Eseguire lo script
-Dopo avere salvato lo script passare alla console o alla riga di comando e digitare:
 ```
-terraform init
-```
- per inizializzare il provider di Terraform per Azure. Quindi passare alla directory **terraformscripts**e digitare il comando seguente:
-```
-terraform plan
-```
-È stato usato il comando Terraform `plan`, che esamina le risorse definite negli script. Il comando confronta le risorse con le informazioni sullo stato salvate da Terraform e restituisce l'esecuzione pianificata _senza_ creare di fatto risorse in Azure. 
 
-Dopo l'esecuzione del comando viene visualizzata una schermata simile alla seguente:
+La sezione seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
-![Piano Terraform](./media/terraform/tf_plan2.png)
-
-Se tutti i dati sono corretti effettuare il provisioning di questo nuovo gruppo di risorse in Azure eseguendo quanto segue: 
-```
-terraform apply
-```
-Nel portale di Azure viene visualizzato un nuovo gruppo di risorse vuoto con nome `terraformtest`. Nella sezione seguente si aggiunge una VM e l'infrastruttura di supporto al gruppo di risorse.
-
-## <a name="provision-an-ubuntu-vm-with-terraform"></a>Eseguire il provisioning di una VM Ubuntu con Terraform
-È possibile estendere lo script di Terraform creato in precedenza con i dettagli necessari per il provisioning di una macchina virtuale che esegue Ubuntu. Le risorse di cui viene effettuato il provisioning nelle sezioni seguenti sono:
-
-* Una rete con una singola subnet
-* Una scheda di interfaccia di rete 
-* Un account di archiviazione per la diagnostica della macchina virtuale
-* Un indirizzo IP pubblico
-* Una macchina virtuale che usa tutte le risorse precedenti 
-
-Per informazioni approfondite sulle singole risorse di Azure Terraform, vedere la [documentazione di Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
-
-Per comodità viene fornita anche la versione completa dello [script di provisioning](#complete-terraform-script).
-
-### <a name="extend-the-terraform-script"></a>Estendere lo script Terraform
-Estendere lo script creato in precedenza con le risorse seguenti: 
-~~~~
-# create a virtual network
-resource "azurerm_virtual_network" "helloterraformnetwork" {
-    name = "acctvn"
-    address_space = ["10.0.0.0/16"]
-    location = "West US"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
+```tf
+resource "azurerm_resource_group" "myResourceGroup" {
+    name     = "myResourceGroup"
+    location = "East US"
 
     tags {
         environment = "Terraform Demo"
     }
 }
+```
 
-# create subnet
-resource "azurerm_subnet" "helloterraformsubnet" {
-    name = "acctsub"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    virtual_network_name = "${azurerm_virtual_network.helloterraformnetwork.name}"
-    address_prefix = "10.0.2.0/24"
+In altre sezioni si fa riferimento al gruppo di risorse con *${azurerm_resource_group.myterraform.name}*.
+
+
+## <a name="create-virtual-network"></a>Creare una rete virtuale
+La sezione seguente crea una rete virtuale denominata *myVnet* nello spazio di indirizzi *10.0.0.0/16*:
+
+```tf
+resource "azurerm_virtual_network" "myterraformnetwork" {
+    name                = "myVnet"
+    address_space       = ["10.0.0.0/16"]
+    location            = "East US"
+    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+
+    tags {
+        environment = "Terraform Demo"
+    }
 }
-~~~~
-Lo script precedente crea una rete virtuale e una subnet al suo interno. Si noti il riferimento al gruppo di risorse già creato tramite "${azurerm_resource_group.helloterraform.name}" sia nella definizione della rete virtuale che nella definizione della subnet.
+```
 
-~~~~
-# create public IP
-resource "azurerm_public_ip" "helloterraformips" {
-    name = "terraformtestip"
-    location = "West US"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
+La sezione seguente crea una subnet denominata *mySubnet* nella rete virtuale *myVnet*
+
+```tf
+resource "azurerm_subnet" "myterraformsubnet" {
+    name                 = "mySubnet"
+    resource_group_name  = "${azurerm_resource_group.myterraform.name}"
+    virtual_network_name = "${azurerm_virtual_network.myterraformnetwork.name}"
+    address_prefix       = "10.0.2.0/24"
+}
+```
+
+
+## <a name="create-public-ip-address"></a>Creare un indirizzo IP pubblico
+Per accedere alle risorse in Internet, creare e assegnare un indirizzo IP pubblico alla macchina virtuale. La sezione seguente crea un indirizzo IP pubblico denominato *myPublicIP*:
+
+```tf
+resource "azurerm_public_ip" "myterraformpublicip" {
+    name                         = "myPublicIP"
+    location                     = "East US"
+    resource_group_name          = "${azurerm_resource_group.myterraform.name}"
     public_ip_address_allocation = "dynamic"
 
     tags {
         environment = "Terraform Demo"
     }
 }
+```
 
-# create network interface
-resource "azurerm_network_interface" "helloterraformnic" {
-    name = "tfni"
-    location = "West US"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
+
+## <a name="create-network-security-group"></a>Creare un gruppo di sicurezza di rete
+I gruppi di sicurezza di rete consentono di controllare il flusso del traffico di rete in ingresso e in uscita dalla macchina virtuale. La sezione seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup* e definisce una regola per consentire il traffico SSH sulla porta TCP 22:
+
+```tf
+resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
+    name                = "myNetworkSecurityGroup"
+    location            = "East US"
+    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    
+    security_rule {
+        name                       = "SSH"
+        priority                   = 1001
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "22"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
+
+    tags {
+        environment = "Terraform Demo"
+    }
+}
+```
+
+
+## <a name="create-virtual-network-interface-card"></a>Creare la scheda di interfaccia di rete virtuale
+Una scheda di interfaccia di rete virtuale, NIC, connette la macchina virtuale a una rete virtuale specifica, a un indirizzo IP pubblico e a un gruppo di sicurezza di rete. La sezione seguente in un playbook Ansible crea una scheda di rete virtuale denominata *myNIC* connessa alle risorse di rete virtuale create:
+
+```tf
+resource "azurerm_network_interface" "myterraformnic" {
+    name                = "myNIC"
+    location            = "East US"
+    resource_group_name = "${azurerm_resource_group.myterraform.name}"
 
     ip_configuration {
-        name = "testconfiguration1"
-        subnet_id = "${azurerm_subnet.helloterraformsubnet.id}"
-        private_ip_address_allocation = "static"
-        private_ip_address = "10.0.2.5"
-        public_ip_address_id = "${azurerm_public_ip.helloterraformips.id}"
+        name                          = "myNicConfiguration"
+        subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+        private_ip_address_allocation = "dynamic"
+        public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
     }
 
     tags {
         environment = "Terraform Demo"
     }
 }
-~~~~
-I frammenti di script precedenti creano un indirizzo IP pubblico e un'interfaccia di rete che usa l'indirizzo IP pubblico creato. Tenere presenti i riferimenti a subnet_id e public_ip_address_id. L'intelligence integrata di Terraform rileva che l'interfaccia di rete presenta una dipendenza dalle risorse che vanno create prima della creazione dell'interfaccia di rete.
+```
 
-~~~~
-# create a random id
+
+## <a name="create-storage-account-for-diagnostics"></a>Creare un account di archiviazione per la diagnostica
+Per archiviare la diagnostica di avvio per una macchina virtuale, è necessario un account di archiviazione. La diagnostica di avvio può aiutare a risolvere i problemi e a monitorare lo stato della macchina virtuale. L'account di archiviazione creato viene usato solo per archiviare i dati della diagnostica di avvio. Poiché ogni account di archiviazione deve avere un nome univoco, la sezione seguente genera un testo casuale:
+
+```tf
 resource "random_id" "randomId" {
-  keepers = {
-    # Generate a new id only when a new resource group is defined
-    resource_group = "${azurerm_resource_group.helloterraform.name}"
-  }
-
-  byte_length = 8
+    keepers = {
+        # Generate a new ID only when a new resource group is defined
+        resource_group = "${azurerm_resource_group.myterraform.name}"
+    }
+    
+    byte_length = 8
 }
+```
 
-# create storage account
-resource "azurerm_storage_account" "helloterraformstorage" {
+A questo punto è possibile creare un account di archiviazione. La sezione seguente crea un account di archiviazione con il nome basato sul testo casuale generato nel passaggio precedente:
+
+```tf
+resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    location = "West US"
-    account_type = "Standard_LRS"
+    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    location            = "East US"
+    account_type        = "Standard_LRS"
 
     tags {
         environment = "Terraform Demo"
     }
 }
-~~~~
-Qui viene creato un account di archiviazione. L'account di archiviazione è il punto in cui la macchina virtuale archivia i propri dettagli di diagnostica.
+```
 
-~~~~
-# create virtual machine
-resource "azurerm_virtual_machine" "helloterraformvm" {
-    name = "terraformvm"
-    location = "West US"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    network_interface_ids = ["${azurerm_network_interface.helloterraformnic.id}"]
-    vm_size = "Standard_DS1_v2"
 
-    os_profile {
-        computer_name = "hostname"
-        admin_username = "azureuser"
-        admin_password = ""
-    }
+## <a name="create-virtual-machine"></a>Crea macchina virtuale
+Il passaggio finale consiste nel creare una macchina virtuale e usare tutte le risorse create. La sezione seguente crea una macchina virtuale denominata *myVM* e associa la scheda di rete virtuale denominata *myNIC*. Viene usata l'immagine più recente di *Ubuntu 16.04-LTS* e viene creato un nome utente *azureuser* con autenticazione della password disabilitata. I dati della chiave SSH vengono indicati nella sezione *ssh_keys*.
 
-    os_profile_linux_config {
-        disable_password_authentication = true
+```tf
+resource "azurerm_virtual_machine" "myterraformvm" {
+    name                  = "myVM"
+    location              = "East US"
+    resource_group_name   = "${azurerm_resource_group.myterraform.name}"
+    network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
+    vm_size               = "Standard_DS1_v2"
 
-        ssh_keys {
-            path = "/home/azureuser/.ssh/authorized_keys"
-            key_data = "... INSERT OPENSSH PUBLIC KEY HERE ..."
-        }
+    storage_os_disk {
+        name              = "myOsDisk"
+        caching           = "ReadWrite"
+        create_option     = "FromImage"
+        managed_disk_type = "Premium_LRS"
     }
 
     storage_image_reference {
         publisher = "Canonical"
-        offer = "UbuntuServer"
-        sku = "16.04.0-LTS"
-        version = "latest"
+        offer     = "UbuntuServer"
+        sku       = "16.04.0-LTS"
+        version   = "latest"
     }
 
-    storage_os_disk {
-        name = "myosdisk"
-        managed_disk_type = "Premium_LRS"
-        create_option = "FromImage"
-    } 
+    os_profile {
+        computer_name  = "myvm"
+        admin_username = "azureuser"
+    }
+
+    os_profile_linux_config {
+        disable_password_authentication = true
+        ssh_keys {
+            path     = "/home/azureuser/.ssh/authorized_keys"
+            key_data = "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
+        }
+    }
 
     boot_diagnostics {
-        enabled = "true"
-        storage_uri = "${azurerm_storage_account.helloterraformstorage.primary_blob_endpoint}"
+        enabled     = "true"
+        storage_uri = "${azurerm_storage_account.mystorageaccount.primary_blob_endpoint}"
     }
 
     tags {
         environment = "Terraform Demo"
     }
 }
-~~~~
-Infine il frammento precedente crea una macchina virtuale che usa tutte le risorse già specificate. Si tratta di un account di archiviazione per la diagnostica della macchina virtuale, un'interfaccia di rete con subnet e indirizzo IP pubblico specificati e il gruppo di risorse già creato. Si noti la proprietà vm_size, in cui lo script specifica uno SKU DS1v2 Standard di Azure.
-
-È necessario fornire una chiave pubblica SSH. Inserire il valore di chiave pubblica nella sezione **... INSERT OPENSSH PUBLIC KEY HERE ...**, visualizzata nell'esempio di codice precedente. È possibile usare una coppia di chiavi SSH esistente o seguire la documentazione per [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) o [Linux/macOS](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) per generare la coppia di chiavi.
-
-### <a name="execute-the-script"></a>Eseguire lo script
-Dopo aver salvato l'intero script chiudere la riga di comando o la console e digitare:
 ```
-terraform apply
-```
-Dopo qualche istante le risorse, compresa la VM, appaiono nel gruppo di risorse `terraformtest` nel portale di Azure.
 
 ## <a name="complete-terraform-script"></a>Completare lo script Terraform
 
-Per praticità, di seguito è riportato lo script Terraform completo che esegue il provisioning dell'intera infrastruttura descritta in questo articolo.
+Per riunire tutte queste sezioni e vedere Terraform in azione, creare un file denominato *terraform_azure.tf* e incollarvi il contenuto seguente:
 
-```
+```tf
+variable "resourcename" {
+  default = "myResourceGroup"
+}
+
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
-  subscription_id = "XXX"
-  client_id       = "XXX"
-  client_secret   = "XXX"
-  tenant_id       = "XXX"
+    subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 
-# create a resource group if it doesn't exist
-resource "azurerm_resource_group" "helloterraform" {
-    name = "terraformtest"
-    location = "West US"
-}
-
-# create a virtual network
-resource "azurerm_virtual_network" "helloterraformnetwork" {
-    name = "acctvn"
-    address_space = ["10.0.0.0/16"]
-    location = "West US"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
+# Create a resource group if it doesn’t exist
+resource "azurerm_resource_group" "myterraform" {
+    name     = "myResourceGroup"
+    location = "East US"
 
     tags {
         environment = "Terraform Demo"
     }
 }
 
-# create subnet
-resource "azurerm_subnet" "helloterraformsubnet" {
-    name = "acctsub"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    virtual_network_name = "${azurerm_virtual_network.helloterraformnetwork.name}"
-    address_prefix = "10.0.2.0/24"
+# Create virtual network
+resource "azurerm_virtual_network" "myterraformnetwork" {
+    name                = "myVnet"
+    address_space       = ["10.0.0.0/16"]
+    location            = "East US"
+    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+
+    tags {
+        environment = "Terraform Demo"
+    }
 }
 
-# create public IP
-resource "azurerm_public_ip" "helloterraformips" {
-    name = "terraformtestip"
-    location = "West US"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
+# Create subnet
+resource "azurerm_subnet" "myterraformsubnet" {
+    name                 = "mySubnet"
+    resource_group_name  = "${azurerm_resource_group.myterraform.name}"
+    virtual_network_name = "${azurerm_virtual_network.myterraformnetwork.name}"
+    address_prefix       = "10.0.1.0/24"
+}
+
+# Create public IPs
+resource "azurerm_public_ip" "myterraformpublicip" {
+    name                         = "myPublicIP"
+    location                     = "East US"
+    resource_group_name          = "${azurerm_resource_group.myterraform.name}"
     public_ip_address_allocation = "dynamic"
 
     tags {
@@ -275,18 +291,41 @@ resource "azurerm_public_ip" "helloterraformips" {
     }
 }
 
-# create network interface
-resource "azurerm_network_interface" "helloterraformnic" {
-    name = "tfni"
-    location = "West US"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
+# Create Network Security Group and rule
+resource "azurerm_network_security_group" "myterraformnsg" {
+    name                = "myNetworkSecurityGroup"
+    location            = "East US"
+    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    
+    security_rule {
+        name                       = "SSH"
+        priority                   = 1001
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "22"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
+
+    tags {
+        environment = "Terraform Demo"
+    }
+}
+
+# Create network interface
+resource "azurerm_network_interface" "myterraformnic" {
+    name                      = "myNIC"
+    location                  = "East US"
+    resource_group_name       = "${azurerm_resource_group.myterraform.name}"
+    network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
     ip_configuration {
-        name = "testconfiguration1"
-        subnet_id = "${azurerm_subnet.helloterraformsubnet.id}"
-        private_ip_address_allocation = "static"
-        private_ip_address = "10.0.2.5"
-        public_ip_address_id = "${azurerm_public_ip.helloterraformips.id}"
+        name                          = "myNicConfiguration"
+        subnet_id                     = "${azurerm_subnet.myterraformsubnet.id}"
+        private_ip_address_allocation = "dynamic"
+        public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
     }
 
     tags {
@@ -294,75 +333,144 @@ resource "azurerm_network_interface" "helloterraformnic" {
     }
 }
 
-# create a random id
+# Generate random text for a unique storage account name
 resource "random_id" "randomId" {
-  keepers = {
-    # Generate a new id only when a new resource group is defined
-    resource_group = "${azurerm_resource_group.helloterraform.name}"
-  }
-
-  byte_length = 8
+    keepers = {
+        # Generate a new ID only when a new resource group is defined
+        resource_group = "${azurerm_resource_group.myterraform.name}"
+    }
+    
+    byte_length = 8
 }
 
-# create storage account
-resource "azurerm_storage_account" "helloterraformstorage" {
+# Create storage account for boot diagnostics
+resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    location = "West US"
-    account_type = "Standard_LRS"
+    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    location            = "East US"
+    account_type        = "Standard_LRS"
 
     tags {
         environment = "Terraform Demo"
     }
 }
 
-# create virtual machine
-resource "azurerm_virtual_machine" "helloterraformvm" {
-    name = "terraformvm"
-    location = "West US"
-    resource_group_name = "${azurerm_resource_group.helloterraform.name}"
-    network_interface_ids = ["${azurerm_network_interface.helloterraformnic.id}"]
-    vm_size = "Standard_DS1_v2"
+# Create virtual machine
+resource "azurerm_virtual_machine" "myterraformvm" {
+    name                  = "myVM"
+    location              = "East US"
+    resource_group_name   = "${azurerm_resource_group.myterraform.name}"
+    network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
+    vm_size               = "Standard_DS1_v2"
 
-    os_profile {
-        computer_name = "hostname"
-        admin_username = "azureuser"
-        admin_password = ""
-    }
-
-    os_profile_linux_config {
-        disable_password_authentication = true
-
-        ssh_keys {
-            path = "/home/azureuser/.ssh/authorized_keys"
-            key_data = "... INSERT OPENSSH PUBLIC KEY HERE ..."
-        }
+    storage_os_disk {
+        name              = "myOsDisk"
+        caching           = "ReadWrite"
+        create_option     = "FromImage"
+        managed_disk_type = "Premium_LRS"
     }
 
     storage_image_reference {
         publisher = "Canonical"
-        offer = "UbuntuServer"
-        sku = "16.04.0-LTS"
-        version = "latest"
+        offer     = "UbuntuServer"
+        sku       = "16.04.0-LTS"
+        version   = "latest"
     }
 
-    storage_os_disk {
-        name = "myosdisk"
-        managed_disk_type = "Premium_LRS"
-        create_option = "FromImage"
-    } 
+    os_profile {
+        computer_name  = "myvm"
+        admin_username = "azureuser"
+    }
+
+    os_profile_linux_config {
+        disable_password_authentication = true
+        ssh_keys {
+            path     = "/home/azureuser/.ssh/authorized_keys"
+            key_data = "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
+        }
+    }
 
     boot_diagnostics {
         enabled = "true"
-        storage_uri = "${azurerm_storage_account.helloterraformstorage.primary_blob_endpoint}"
+        storage_uri = "${azurerm_storage_account.mystorageaccount.primary_blob_endpoint}"
     }
 
     tags {
         environment = "Terraform Demo"
     }
 }
+```
+
+
+## <a name="build-and-deploy-the-infrastructure"></a>Compilare e distribuire l'infrastruttura
+Con il modello Terraform creato, il primo passaggio consiste nell'inizializzare Terraform. Questo passaggio assicura che Terraform disponga di tutti i prerequisiti necessari per compilare il modello in Azure.
+
+```bash
+terraform init
+```
+
+Il passaggio successivo riguarda la revisione di Terraform e la convalida del modello. Questo passaggio confronta le risorse richieste con le informazioni sullo stato salvate da Terraform e quindi restituisce l'esecuzione pianificata. *Non* vengono create risorse in Azure.
+
+```bash
+terraform plan
+```
+
+Dopo l'esecuzione del comando viene visualizzata una schermata simile alla seguente:
+
+```bash
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+azurerm_resource_group.myterraform: Refreshing state... (ID: /subscriptions/guid/resourceGroups/myResourceGroup)
+azurerm_public_ip.myterraformips: Refreshing state... (ID: /subscriptions/guid...t.Network/publicIPAddresses/myPublicIP)
+azurerm_virtual_network.myterraformnetwork: Refreshing state... (ID: /subscriptions/guid...crosoft.Network/virtualNetworks/myVnet)
+azurerm_subnet.myterraformsubnet: Refreshing state... (ID: /subscriptions/guid...irtualNetworks/myVnet/subnets/mySubnet)
+azurerm_network_interface.myterraformnic: Refreshing state... (ID: /subscriptions/guid...rosoft.Network/networkInterfaces/myNIC)
+azurerm_virtual_machine.myterraformvm: Refreshing state... (ID: /subscriptions/guid...Microsoft.Compute/virtualMachines/myVM)
+
+The Terraform execution plan has been generated and is shown below.
+Resources are shown in alphabetical order for quick scanning. Green resources
+will be created (or destroyed and then created if an existing resource
+exists), yellow resources are being changed in-place, and red resources
+will be destroyed. Cyan entries are data sources to be read.
+
+Note: You didn’t specify an “-out” parameter to save this plan, so when
+“apply” is called, Terraform can’t guarantee this is what will execute.
+  + azurerm_resource_group.myterraform
+      <snip>
+  + azurerm_virtual_network.myterraformnetwork
+      <snip>
+  + azurerm_network_interface.myterraformnic
+      <snip>
+  + azurerm_network_security_group.myterraformnsg
+      <snip>
+  + azurerm_public_ip.myterraformpublicip
+      <snip>
+  + azurerm_subnet.myterraformsubnet
+      <snip>
+  + azurerm_virtual_machine.myterraformvm
+      <snip>
+Plan: 7 to add, 0 to change, 0 to destroy.
+```
+
+Se tutti i dati sono corretti e si è pronti a compilare l'infrastruttura in Azure, applicare il modello in Terraform:
+
+```bash
+terraform apply
+```
+
+Al termine, l'infrastruttura per la macchina virtuale è pronta. Ottenere l'indirizzo IP pubblico della VM con [az vm show](/cli/azure/vm#show):
+
+```azurecli
+az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
+```
+
+È quindi possibile usare la connessione SSH alla VM nel modo usuale:
+
+```bash
+ssh azureuser@<publicIps>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 È stata creata un'infrastruttura di base in Azure usando Terraform. Per scenari più complessi, inclusi esempi d'uso di servizi di bilanciamento del carico e set di scalabilità delle macchine virtuali, vedere i numerosi [esempi di Terraform per Azure](https://github.com/hashicorp/terraform/tree/master/examples). La [documentazione di Terraform](https://www.terraform.io/docs/providers/azurerm/index.html) include un elenco completo e aggiornato dei provider di Azure supportati.
-

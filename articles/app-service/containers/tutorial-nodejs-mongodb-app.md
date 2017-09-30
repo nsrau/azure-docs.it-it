@@ -16,15 +16,15 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1203a77ebc117c646f587f0d64466364f0e47751
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-apps-for-containers"></a>Compilare un'app Web Node.js e MongoDB in App Web di Azure per contenitori
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>Compilare un'app Web Node.js e MongoDB in App Web di Azure per contenitori
 
-[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web a scalabilità elevata e con correzione automatica basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web Node.js e connetterla a un database MongoDB. Al termine, si avrà un'applicazione MEAN (MongoDB, Express, AngularJS e Node.js) in esecuzione in App Web per contenitori. Per semplicità, l'applicazione di esempio usa il [framework Web MEAN.js](http://meanjs.org/).
+[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web ad alta scalabilità e con correzione automatica basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web Node.js e connetterla a un database MongoDB. Al termine, si avrà un'applicazione MEAN (MongoDB, Express, AngularJS e Node.js) in esecuzione in App Web per contenitori. Per semplicità, l'applicazione di esempio usa il [framework Web MEAN.js](http://meanjs.org/).
 
 ![App MEAN.js in esecuzione nel Servizio app di Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -103,7 +103,7 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-Passare a http://localhost:3000 in un browser. Fare clic su **Iscriviti** nel menu in alto e creare un utente test. 
+Andare a `http://localhost:3000` in un browser. Fare clic su **Iscriviti** nel menu in alto e creare un utente test. 
 
 L'applicazione di esempio MEAN.js archivia i dati utente nel database. Dopo aver creato un utente e aver eseguito l'accesso, l'app scriverà i dati nel database MongoDB locale.
 
@@ -228,7 +228,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-Passare a http://localhost:8443 in un browser. Fare clic su **Iscriviti** nel menu in alto e creare un utente test. Dopo aver creato un utente e aver eseguito l'accesso, l'app scriverà i dati nel database Cosmos DB in Azure. 
+Andare a `http://localhost:8443` in un browser. Fare clic su **Iscriviti** nel menu in alto e creare un utente test. Dopo aver creato un utente e aver eseguito l'accesso, l'app scriverà i dati nel database Cosmos DB in Azure. 
 
 Nel terminale arrestare Node.js digitando `Ctrl+C`. 
 
@@ -479,5 +479,5 @@ Contenuto dell'esercitazione:
 Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app Web.
 
 > [!div class="nextstepaction"] 
-> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../app-service-web-tutorial-custom-domain.md)
 

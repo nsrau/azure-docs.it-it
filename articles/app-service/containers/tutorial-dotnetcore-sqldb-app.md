@@ -1,6 +1,6 @@
 ---
 title: Compilare un'app Web .NET Core e database SQL in App Web di Azure per contenitori | Microsoft Docs
-description: "Informazioni su come ottenere un'app .NET Core che è possibile usare in App Web di Azure per contenitori con connessione a un database SQL."
+description: Informazioni su come ottenere un'app .NET Core da usare in App Web di Azure per contenitori con connessione a un database SQL.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -16,15 +16,15 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7683856e5ad7bf19b38d51f019e4eef106f1800c
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 365747f9f9c765e8db1ab86946ba578c321ec732
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-apps-for-containers"></a>Compilare un'app Web .NET Core e database SQL in App Web di Azure per contenitori
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-app-for-containers"></a>Compilare un'app Web .NET Core e database SQL in App Web di Azure per contenitori
 
-[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web a scalabilità elevata e con correzione automatica basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web .NET Core e connetterla a un database SQL. Al termine, sarà disponibile un'app .NET Core MVC in esecuzione in App Web per contenitori. 
+[App Web per contenitori](app-service-linux-intro.md) offre un servizio di hosting Web a scalabilità elevata con applicazione automatica delle patch basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web .NET Core e connetterla a un database SQL. Al termine, sarà disponibile un'app .NET Core MVC in esecuzione in App Web per contenitori. 
 
 ![App in esecuzione in App Web per contenitori](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
@@ -74,7 +74,7 @@ dotnet ef database update
 dotnet run
 ```
 
-Passare a http://localhost:5000 in un browser. Selezionare il collegamento **Crea nuovo** e creare due elementi _Attività_.
+Andare a `http://localhost:5000` in un browser. Selezionare il collegamento **Crea nuovo** e creare due elementi _Attività_.
 
 ![Connessione al database SQL riuscita](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -335,7 +335,7 @@ Eseguire l'app in locale.
 dotnet run
 ```
 
-Nel browser passare a http://local:5000/. È ora possibile aggiungere un'attività e selezionare **Fine**. L'attività viene visualizzata come completata nella home page. Tenere presente che la visualizzazione `Edit` non mostra il campo `Done` poiché non è stata modificata la visualizzazione `Edit`.
+Nel browser passare a `http://localhost:5000/`. È ora possibile aggiungere un'attività e selezionare **Fine**. L'attività viene visualizzata come completata nella home page. Tenere presente che la visualizzazione `Edit` non mostra il campo `Done` poiché non è stata modificata la visualizzazione `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Pubblicare le modifiche in Azure
 
@@ -381,5 +381,5 @@ Contenuto dell'esercitazione:
 Passare all'esercitazione successiva per apprendere come eseguire il mapping di un nome DNS personalizzato all'app Web.
 
 > [!div class="nextstepaction"] 
-> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure](../app-service-web-tutorial-custom-domain.md)
 

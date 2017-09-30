@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 53c142217c67465d29fa413f4edb4f96fcb4c6cc
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: d90b8c41d130526607adb035c5c6d4c02c5f7c4f
 ms.contentlocale: it-it
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Perché usare un approccio ai microservizi per la compilazione di applicazioni
@@ -156,7 +156,7 @@ Un approccio chiave a Service Fabric è il riuso del codice esistente, aggiornab
 
 ![Migrazione ai microservizi][Image3]
 
-È importante sottolineare ancora una volta che è possibile **iniziare e terminare con una qualsiasi di queste fasi** e non è obbligatorio passare alla fase successiva. Di seguito sono elencati esempi per ogni fase.
+È importante sottolineare di nuovo che è possibile **eseguire l'avvio e l'interruzione in una qualsiasi di queste fasi**. Non è obbligatorio passare alla fase successiva. Di seguito sono elencati esempi per ogni fase.
 
 **Trasferimento in modalità lift-and-shift**: un numero crescente di aziende esegue la conversione delle applicazioni monolitiche esistenti in strutture a contenitori per due motivi:
 

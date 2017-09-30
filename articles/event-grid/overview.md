@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/11/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 20c22bdbefe238781242ee26e648a77da02a21d2
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -78,6 +78,7 @@ Attualmente i servizi di Azure seguenti hanno il supporto predefinito dei gestor
 * App per la logica
 * Automazione di Azure
 * Webhook
+* Microsoft Flow
 
 Quest'anno verranno aggiunti altri servizi di Azure.
 

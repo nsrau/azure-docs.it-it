@@ -1,34 +1,34 @@
 ---
 title: Schema di eventi di Griglia di eventi di Azure
-description: "Vengono descritte le proprietà disponibili per gli eventi con Griglia di eventi di Azure."
+description: "Descrive le proprietà disponibili per gli eventi con Griglia di eventi di Azure."
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6736c6a60021b51db612f0a596086a9e988d7aef
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
 ms.contentlocale: it-it
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="event-grid-event-schema"></a>Schema di eventi di Griglia di eventi
+# <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
-Questo articolo illustra le proprietà e lo schema per gli eventi. Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto **data** obbligatorio. Le proprietà sono comuni a tutti gli eventi di tutti gli autori. L'oggetto **data** contiene le proprietà specifiche per ogni autore. Per gli argomenti di sistema, le proprietà sono specifiche del provider di risorse, ad esempio Archiviazione o Hub eventi.
+Questo articolo illustra le proprietà e lo schema per gli eventi. Gli eventi sono costituiti da un set di cinque proprietà di tipo stringa obbligatorie e un oggetto data obbligatorio. Le proprietà sono comuni a tutti gli eventi di tutti gli autori. L'oggetto data contiene le proprietà specifiche per ogni editore. Per gli argomenti di sistema, le proprietà sono specifiche del provider di risorse, ad esempio Archiviazione di Azure o Hub eventi di Azure.
 
-Gli eventi vengono inviati a Griglia di eventi di Azure in una matrice, che può contenere più oggetti evento. Se c'è un unico evento, la matrice ha una lunghezza pari a 1. 
+Gli eventi vengono inviati a Griglia di eventi di Azure in una matrice, che può contenere più oggetti evento. Se c'è un unico evento, la matrice ha una lunghezza pari a 1. La matrice può avere una dimensione totale massima di 1 MB. Per ogni evento nella matrice il limite è 64 KB.
  
 ## <a name="event-properties"></a>Proprietà degli eventi
 
-Tutti gli eventi contengono gli stessi dati di livello principale indicati di seguito.
+Tutti gli eventi contengono gli stessi dati di livello principale indicati di seguito:
 
 | Proprietà | Tipo | Descrizione |
 | -------- | ---- | ----------- |
-| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
@@ -44,7 +44,7 @@ Le origini evento seguenti pubblicano gli eventi per l'utilizzo tramite Griglia 
 * Hub eventi
 * Argomenti personalizzati
 
-## <a name="azure-subscriptions"></a>Sottoscrizioni di Azure
+## <a name="azure-subscriptions"></a>Sottoscrizioni Azure
 
 Le sottoscrizioni di Azure possono ora generare eventi di gestione da Azure Resource Manager, ad esempio quando viene creata una VM o viene eliminato un account di archiviazione.
 
@@ -55,7 +55,7 @@ Le sottoscrizioni di Azure possono ora generare eventi di gestione da Azure Reso
 - **Microsoft.Resources.ResourceWriteCancel**: generato quando un'operazione di creazione o aggiornamento di una risorsa viene annullata.  
 - **Microsoft.Resources.ResourceDeleteSuccess**: generato quando un'operazione di eliminazione di una risorsa ha esito positivo.  
 - **Microsoft.Resources.ResourceDeleteFailure**: generato quando un'operazione di eliminazione di una risorsa ha esito negativo.  
-- **Microsoft.Resources.ResourceDeleteCancel**: generato quando un'operazione di eliminazione di una risorsa viene annullata. Ciò si verifica quando viene annullata la distribuzione dei modelli.
+- **Microsoft.Resources.ResourceDeleteCancel**: generato quando un'operazione di eliminazione di una risorsa viene annullata. Ciò si verifica quando viene annullata la distribuzione di un modello.
 
 ### <a name="example-event-schema"></a>Schema di eventi di esempio
 
@@ -96,7 +96,7 @@ I gruppi di risorse possono ora generare eventi di gestione da Azure Resource Ma
 - **Microsoft.Resources.ResourceWriteCancel**: generato quando un'operazione di creazione o aggiornamento di una risorsa viene annullata.  
 - **Microsoft.Resources.ResourceDeleteSuccess**: generato quando un'operazione di eliminazione di una risorsa ha esito positivo.  
 - **Microsoft.Resources.ResourceDeleteFailure**: generato quando un'operazione di eliminazione di una risorsa ha esito negativo.  
-- **Microsoft.Resources.ResourceDeleteCancel**: generato quando un'operazione di eliminazione di una risorsa viene annullata. Ciò si verifica quando viene annullata la distribuzione dei modelli.
+- **Microsoft.Resources.ResourceDeleteCancel**: generato quando un'operazione di eliminazione di una risorsa viene annullata. Ciò si verifica quando viene annullata la distribuzione di un modello.
 
 ### <a name="example-event"></a>Evento di esempio
 
@@ -136,7 +136,7 @@ Gli eventi di Hub eventi vengono attualmente generati solo quando un file viene 
 
 ### <a name="example-event"></a>Evento di esempio
 
-Questo evento di esempio mostra lo schema di un evento di Hub eventi generato quando la funzionalità di acquisizione archivia un file. 
+Questo evento di esempio mostra lo schema di un evento di Hub eventi generato quando la funzionalità di acquisizione archivia un file: 
 
 ```json
 [
@@ -163,10 +163,11 @@ Questo evento di esempio mostra lo schema di un evento di Hub eventi generato qu
 ```
 
 
+## <a name="azure-blob-storage"></a>Archivio BLOB di Azure
 
-## <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
+>[!IMPORTANT]
+>Per usare eventi di archiviazione BLOB, è necessario avere eseguito la registrazione all'anteprima degli eventi di archiviazione BLOB. Per altre informazioni sul programma di anteprima, vedere [eventi di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview).  
 
-Archiviazione BLOB di Azure in anteprima privata con registrazione per l'integrazione con Griglia di eventi.
 
 ### <a name="available-event-types"></a>Tipi di evento disponibili
 
@@ -175,7 +176,7 @@ Archiviazione BLOB di Azure in anteprima privata con registrazione per l'integra
 
 ### <a name="example-event"></a>Evento di esempio
 
-Questo evento di esempio mostra lo schema di un evento di archiviazione generato quando viene creato un BLOB. 
+Questo evento di esempio mostra lo schema di un evento di archiviazione generato quando viene creato un BLOB: 
 
 ```json
 [
@@ -208,7 +209,7 @@ Questo evento di esempio mostra lo schema di un evento di archiviazione generato
 
 ## <a name="custom-topics"></a>Argomenti personalizzati
 
-Il payload di dati degli eventi personalizzati è definito dall'utente e può essere qualsiasi elemento JSON ben formattato. I dati di livello principale devono contenere gli stessi campi degli eventi standard definiti dalle risorse. Quando si pubblicano eventi in argomenti personalizzati, prendere in considerazione la modellazione dell'oggetto degli eventi in modo da supportare le operazioni di instradamento e filtro.
+Il payload di dati degli eventi personalizzati è definito dall'utente e può essere qualsiasi oggetto JSON ben formattato. I dati di livello principale devono contenere gli stessi campi degli eventi standard definiti dalle risorse. Quando si pubblicano eventi in argomenti personalizzati, prendere in considerazione la modellazione dell'oggetto degli eventi in modo da supportare le operazioni di instradamento e filtro.
 
 ### <a name="example-event"></a>Evento di esempio
 
@@ -232,6 +233,6 @@ L'esempio seguente mostra un evento per un argomento personalizzato:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione a Griglia di eventi, vedere [Informazioni su Griglia di eventi](overview.md)
-* Per informazioni sulla creazione di una sottoscrizione di Griglia di eventi, vedere [Schema di sottoscrizione per Griglia di eventi](subscription-creation-schema.md).
+* Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](overview.md).
+* Per altre informazioni sulla creazione di una sottoscrizione di Griglia di eventi di Azure, vedere [Schema di sottoscrizione per Griglia di eventi](subscription-creation-schema.md).
 

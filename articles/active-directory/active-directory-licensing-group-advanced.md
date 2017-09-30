@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -199,6 +199,16 @@ Questo output di esempio mostra l'inizio dell'elaborazione, tutte le modifiche u
 
 >[!TIP]
 > Facendo clic sugli elementi correlati a *Change user license* (Modifica licenza utente) verranno visualizzati i dettagli delle modifiche di licenza applicate a ciascun utente.
+
+## <a name="deleting-a-group-with-an-assigned-license"></a>Eliminazione di un gruppo con una licenza assegnata
+
+Non è possibile eliminare un gruppo con una licenza attiva assegnata. Un amministratore può eliminare un gruppo senza avere la consapevolezza che questa operazione implica la rimozione delle licenze dagli utenti; per questo motivo viene richiesto di rimuovere le licenze dal gruppo prima di poter eliminare il gruppo.
+
+Quando si tenta di eliminare un gruppo nel portale di Azure, è possibile che venga visualizzata una notifica di errore simile alla seguente: ![schermata con eliminazione del gruppo non riuscita.](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+Passare alla scheda **Licenze** per il gruppo e verificare se sono presenti licenze assegnate. In caso affermativo, rimuovere le licenze e provare di nuovo a eliminare il gruppo.
+
+È possibile che vengano visualizzati errori simili quando si tenta di eliminare il gruppo tramite PowerShell o l'API Graph. Se si usa un gruppo sincronizzato da locale, Azure AD Connect può segnalare errori se non riesce a eliminare il gruppo in Azure AD. In tutti questi casi verificare se sono presenti licenze assegnate al gruppo e procedere prima alla rimozione.
 
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 

@@ -12,14 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 1eb8c05f24fcf41f9c188e1153f96a53d8828a39
 ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -70,8 +70,11 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>La configurazione di disco specificata non è supportata
 
-Attualmente Backup di Azure non supporta dischi con dimensioni maggiori di 1023 GB. Assicurarsi che le dimensioni dei dischi siano inferiori al limite dividendo i dischi. Per dividere i dischi, è necessario copiare i dati dai dischi di dimensioni maggiori di 1023 GB in nuovi dischi creati con dimensioni minori di 1023 GB.
-
+Attualmente Backup di Azure non supporta dischi di dimensioni [maggiori di 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
+- Se la dimensione dei dischi è maggiore di 1 TB, [collegare nuovi dischi](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) di dimensione inferiore a 1 TB <br>
+- Copiare quindi i dati dal disco di dimensione superiore a 1 TB nei dischi appena creati di dimensione inferiore a 1 TB. <br>
+- Verificare che tutti i dati siano stati copiati e rimuovere i dischi di dimensione superiore a 1 TB
+- Avviare il backup.
 
 ## <a name="causes-and-solutions"></a>Cause e soluzioni
 

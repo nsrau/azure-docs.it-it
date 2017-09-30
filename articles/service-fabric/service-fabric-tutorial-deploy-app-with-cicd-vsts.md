@@ -16,10 +16,10 @@ ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 07e55117d92e2780ea0c2ec24af04832f3f704a7
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: d0f67b1a63c36e878ed5f7c9aa1c45267e5b156c
 ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -39,6 +39,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md)
 > * [Distribuire l'applicazione in un cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Configurare l'integrazione continua e la distribuzione continua usando Visual Studio Team Services
+> * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione:
@@ -159,10 +160,9 @@ In questa esercitazione si è appreso come:
 > * Creare una definizione di versione
 > * Distribuire automaticamente e aggiornare un'applicazione
 
-Dopo aver distribuito un'applicazione e configurato l'integrazione continua, provare le attività seguenti:
-- [Aggiornare un'app](service-fabric-application-upgrade.md)
-- [Testare un'app](service-fabric-testability-overview.md) 
-- [Monitorare e diagnosticare](service-fabric-diagnostics-overview.md)
+Passare all'esercitazione successiva:
+> [!div class="nextstepaction"]
+> [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md) 
 
 
 <!-- Image References -->

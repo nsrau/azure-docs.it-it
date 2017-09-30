@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/15/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 46efcfc9dfc0f56378c6ae6e9e04e0a4672f6d4a
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 97660436d29dd8d9b7547a2bf71e9fc06b09624f
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Manutenzione pianificata per macchine virtuali in Azure
@@ -28,8 +28,7 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il [Servizio metadati di Azure](instance-metadata-service.md) consente di scoprire informazioni sulla macchina virtuale dell'utente ospitata in Azure. 
-
+Per informazioni sulla gestione della manutenzione pianificata, vedere [Gestione degli avvisi di manutenzione pianificata](maintenance-notifications.md).
 
 
 

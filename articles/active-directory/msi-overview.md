@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/15/2017
 ms.author: skwan
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 891a895419a4fe882e01495231f33a1d79eb42a9
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: c18fd5d5b528dfbafa456b3702996b80c3a60a02
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -57,7 +57,6 @@ I servizi di Azure seguenti supportano Identità del servizio gestito.
 | Service | Stato | Date |
 | --- | --- | --- |
 | Macchine virtuali di Azure | Preview | Settembre 2017 |
-| Set di scalabilità delle macchine virtuali di Azure | Preview | Settembre 2017 |
 | Servizio app di Azure | Preview | Settembre 2017 |
 | Funzioni di Azure | Preview | Settembre 2017 |
 
@@ -69,7 +68,6 @@ I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati 
 | --- | --- | --- | --- |
 | Gestione risorse di Azure | https://management.azure.com/ | Disponibile | Settembre 2017 |
 | Insieme di credenziali chiave Azure | https://vault.azure.net/ | Disponibile | Settembre 2017 |
-| SQL di Azure | https://database.windows.net/ | Disponibile | Settembre 2017 |
 | Azure Data Lake | https://datalake.azure.net/ | Disponibile | Settembre 2017 |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Quanto costa Identità del servizio gestito?
@@ -85,28 +83,35 @@ I commenti degli utenti sono molto apprezzati.
 
 ## <a name="try-managed-service-identity"></a>Provare l'Identità del servizio gestito
 
-Dopo avere appreso le nozioni di base, provare a seguire un'esercitazione sull'Identità del servizio gestito per informazioni su come accedere alle diverse risorse di Azure.
+Eseguire un'esercitazione relativa a Identità del servizio gestito per informazioni sugli scenari end-to-end per l'accesso alle diverse risorse di Azure:
 
-- [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md)
-- [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md)
-- [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure](msi-tutorial-windows-vm-access-storage.md)
-- [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere ad Archiviazione di Azure](msi-tutorial-linux-vm-access-storage.md)
-- [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere a una risorsa diversa da Azure AD](msi-tutorial-windows-vm-access-nonaad.md)
-- [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere a una risorsa diversa da Azure AD](msi-tutorial-linux-vm-access-nonaad.md)
-- [Identità del servizio gestito dell'utente con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity)
+| Da risorse basate su Identità del servizio gestito | Scopri come |
+| ------- | -------- |
+| Macchina virtuale Azure (Windows) | [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Windows e Azure Key Vault per accedere a una risorsa diversa da Azure AD](msi-tutorial-windows-vm-access-nonaad.md) |
+| Macchina virtuale Azure (Linux)   | [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere ad Archiviazione di Azure](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [Usare un'Identità del servizio gestito per una macchina virtuale Linux per accedere a una risorsa diversa da Azure AD](msi-tutorial-linux-vm-access-nonaad.md) |
+| Servizio app di Azure  | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
+| Funzione di Azure     | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
 
+Per apprendere le informazioni di base per abilitare l'estensione Identità del servizio gestito in una risorsa di Azure:
 
+| Per una risorsa di Azure | Abilitare/rimuovere Identità del servizio gestito usando |
+| ------------------ | ------------------------------------ |
+| Macchina virtuale Azure (Windows) | [Il portale di Azure](msi-qs-configure-portal-windows-vm.md) |
+|                    | [PowerShell](msi-qs-configure-powershell-windows-vm.md) |
+|                    | [Interfaccia della riga di comando di Azure](msi-qs-configure-cli-windows-vm.md)|
+|                    | [Modelli di Gestione risorse di Azure](msi-qs-configure-template-windows-vm.md) |
 
+Apprendere quindi a usare il controllo di accesso basato su ruolo per concedere un'autorizzazione Identità del servizio gestito per accedere a un'altra risorsa di Azure:
 
-
-
-
-
-
-
-
-
-
+| Da risorse basate su Identità del servizio gestito | Assegnare l'accesso a un'altra risorsa di Azure usando |
+| ------------------------ | ---------------------------------------------------------- |
+| Macchina virtuale Azure (Windows) | [Il portale di Azure](msi-howto-assign-access-portal.md) |
+|                    | [PowerShell](msi-howto-assign-access-powershell.md) |
+|                    | [Interfaccia della riga di comando di Azure](msi-howto-assign-access-CLI.md) |
 
 
 

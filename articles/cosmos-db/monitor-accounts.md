@@ -1,6 +1,6 @@
 ---
-title: Monitorare le richieste e l&quot;archiviazione di Azure Cosmos DB | Microsoft Docs
-description: Informazioni su come monitorare l&quot;account Azure Cosmos DB per le metriche relative alle prestazioni, ad esempio richieste ed errori del server, e all&quot;utilizzo, ad esempio l&quot;utilizzo di risorse di archiviazione.
+title: Monitorare le richieste e l'archiviazione di Azure Cosmos DB | Microsoft Docs
+description: Informazioni su come monitorare l'account Azure Cosmos DB per le metriche relative alle prestazioni, ad esempio richieste ed errori del server, e all'utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -12,81 +12,54 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 09/19/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 0ca652d31d6c50124f87916b4486d8279075f106
+ms.translationtype: HT
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
 ms.contentlocale: it-it
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 09/21/2017
 
 ---
-# <a name="monitor-azure-cosmos-db-requests-usage-and-storage"></a>Monitorare le richieste, l'utilizzo e le risorse di archiviazione di Azure Cosmos DB
-È possibile monitorare gli account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/). Per ogni account Azure Cosmos DB sono disponibili metriche delle prestazioni, quali le richieste e gli errori del server, e metriche di utilizzo, ad esempio l'utilizzo di risorse di archiviazione.
+# <a name="monitor-azure-cosmos-db"></a>Monitorare Azure Cosmos DB
+È possibile monitorare gli account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/). Per ogni account di Azure Cosmos DB, è disponibile un set completo di metriche per il monitoraggio di velocità effettiva, archiviazione, disponibilità, latenza e coerenza.
 
-È possibile esaminare le metriche nel pannello Account, nel nuovo pannello Metriche o in Monitoraggio di Azure.
+È possibile esaminare le metriche nella pagina Account, nella nuova pagina Metriche o in Monitoraggio di Azure.
 
-## <a name="view-performance-metrics-on-the-metrics-blade"></a>Visualizzare le metriche delle prestazioni nel pannello Metriche
+## <a name="view-performance-metrics-on-the-metrics-page"></a>Visualizzare le metriche delle prestazioni nella pagina Metriche
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Altri servizi**, scorrere fino a **Database**, fare clic su **Azure Cosmos DB** e quindi fare clic sul nome dell'account Azure Cosmos DB per il quale si vogliono visualizzare le metriche delle prestazioni.
-2. Nel menu delle risorse, sotto **Monitoraggio**, fare clic su **Metriche**.
+2. Una volta caricata la nuova pagina, nel menu delle risorse, sotto **Monitoraggio**, fare clic su **Metriche**.
+3. Nella pagina Metriche selezionare la raccolta da esaminare dall'elenco a discesa **Raccolte**.
 
-Viene visualizzato il pannello Metriche, in cui è possibile selezionare la raccolta da esaminare. È possibile esaminare le metriche di disponibilità, richieste, velocità effettiva e archiviazione e confrontarle con i contratti di servizio di Azure Cosmos DB.
+   Il portale di Azure visualizza l'insieme delle metriche di raccolta disponibili. Si noti che velocità effettiva, archiviazione, disponibilità, latenza e coerenza delle metriche vengono fornite in schede separate. Per ottenere altre informazioni sulle metriche fornite, fare clic sulla doppia freccia nella parte superiore destra del riquadro di ogni metrica.
+
+   ![Schermata della sezione Monitoraggio che mostra la suite di metriche disponibili](./media/monitor-accounts/metrics-suite.png)
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Visualizzare le metriche delle prestazioni utilizzando Monitoraggio di Azure
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Monitoraggio** sull'indice.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Monitoraggio** nella barra degli strumenti a sinistra.
 2. Nel menu delle risorse fare clic su **Metriche**.
 3. Nella finestra **Monitoraggio - Metriche** selezionare dal menu a discesa **Gruppo di risorse** il gruppo di risorse associato all'account Azure Cosmos DB da monitorare. 
 4. Nel menu a discesa **Risorsa** selezionare l'account di database da monitorare.
 5. Nell'elenco delle **Metriche disponibili** selezionare le metriche da visualizzare. Utilizzare il tasto CTRL per selezionare più voci. 
 
-    Le metriche vengono visualizzate nella finestra **Grafico**. 
-
-## <a name="view-performance-metrics-on-the-account-blade"></a>Visualizzare le metriche delle prestazioni nel pannello Account
+## <a name="view-performance-metrics-on-the-account-page"></a>Visualizzare le metriche delle prestazioni nella pagina Account
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Altri servizi**, scorrere fino a **Database**, fare clic su **Azure Cosmos DB** e quindi fare clic sul nome dell'account Azure Cosmos DB per il quale si vogliono visualizzare le metriche delle prestazioni.
 2. La sezione **Monitoraggio** visualizza i seguenti riquadri per impostazione predefinita:
    
    * Richieste totali per il giorno corrente.
    * Spazio di archiviazione usato.
    
-   Se la tabella visualizza il messaggio **Nessun dato disponibile** e si ritiene che siano presenti dati nel database, vedere la sezione [Risoluzione dei problemi](#troubleshooting).
-   
    ![Schermata della sezione Monitoraggio che mostra le richieste e l'uso delle risorse di archiviazione](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
-3. Se si fa clic sul riquadro **Richieste** o **Quota di utilizzo**, viene visualizzato un pannello **Metrica** dettagliato.
-4. Il pannello **Metrica** mostra i dettagli relativi alle metriche selezionate.  Nella parte superiore del pannello è riportato un grafico delle richieste rilevate su base oraria, mentre sotto il grafico è riportata una tabella che mostra i valori aggregati per le richieste limitate e totali.  Nel pannello Metrica viene anche visualizzato l'elenco degli avvisi definiti, filtrato in base alle metriche visualizzate nel pannello Metrica corrente. In questo modo, se sono presenti più avvisi, nel pannello verranno presentati solo quelli pertinenti.   
-   
-   ![Schermata del pannello Metrica che include le richieste limitate](./media/monitor-accounts/documentdb-metric-blade.png)
-
-## <a name="customize-performance-metric-views-in-the-portal"></a>Personalizzare le visualizzazioni delle metriche sulle prestazioni nel portale
-1. Per personalizzare le metriche visualizzate in un grafico specifico, fare clic sul grafico per aprirlo nel pannello **Metrica** e quindi scegliere **Modifica grafico**.  
-   ![Schermata dei comandi del pannello Metrica, con Modifica grafico evidenziato](./media/monitor-accounts/madocdb3.png)
-2. Nel pannello **Modifica grafico** sono disponibili le opzioni per modificare le metriche visualizzate all'interno del grafico, nonché il relativo intervallo di tempo.  
-   ![Schermata del pannello Modifica grafico](./media/monitor-accounts/madocdb4.png)
-3. Per modificare le metriche visualizzate nel grafico, selezionare/deselezionare le metriche delle prestazioni disponibili e quindi fare clic su **OK** nella parte inferiore del pannello.  
-4. Per modificare l'intervallo di tempo, scegliere un intervallo diverso, ad esempio **Personalizzato** e fare clic su **OK** nella parte inferiore del pannello.  
-   
-   ![Schermata della parte Intervallo di tempo del pannello Modifica grafico che mostra come immettere un intervallo di tempo personalizzato](./media/monitor-accounts/madocdb5.png)
-
-## <a name="create-side-by-side-charts-in-the-portal"></a>Creare grafici affiancati nel portale
-Il portale di Azure consente di creare grafici di metriche affiancati.  
-
-1. Fare clic con il pulsante destro del mouse sul grafico dal quale si intende copiare e scegliere **Personalizza**.
-   
-   ![Schermata del grafico Richieste totali con l'opzione Personalizza evidenziata](./media/monitor-accounts/madocdb6.png)
-2. Scegliere **Clona** dal menu per copiare la parte e quindi fare clic su **Fine personalizzazione**.
-   
-   ![Schermata del grafico Richieste totali con le opzioni Clona e La personalizzazione è completata evidenziate](./media/monitor-accounts/madocdb7.png)  
-
-Sarà possibile considerare questa parte come tutte le altre parti delle metriche e personalizzare le metriche e l'intervallo di tempo in essa visualizzato.  Questa operazione consente di visualizzare contemporaneamente due grafici di metriche affiancati.  
-    ![Schermata del grafico Richieste totali e nuovo grafico Richieste totali ora precedente](./media/monitor-accounts/madocdb8.png)  
+3. Fare clic sulla doppia freccia in alto a destra del riquadro **Richieste**  per aprire una pagina **Metrica** dettagliata.
+4. La pagina **Metrica** mostra i dettagli relativi alle richieste totali. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Configurare gli avvisi nel portale
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Altri servizi**, **Azure Cosmos DB** e infine sul nome dell'account Azure Cosmos DB per cui si vogliono configurare gli avvisi relativi alle metriche delle prestazioni.
-2. Nel menu delle risorse fare clic su **Regole di avviso** per aprire il relativo pannello.  
+2. Nel menu delle risorse fare clic su **Regole di avviso** per aprire la relativa pagina.  
    ![Screenshot della parte di regole di avviso selezionata](./media/monitor-accounts/madocdb10.5.png)
-3. Nel pannello **Regole di avviso** fare clic su **Aggiungi avviso**.  
-   ![Schermata del pannello Regole di avviso, con il pulsante Aggiungi avviso evidenziato](./media/monitor-accounts/madocdb11.png)
-4. Nel pannello **Aggiungi una regola di avviso** specificare:
+3. Nella pagina **Regole di avviso** fare clic su **Aggiungi avviso**.  
+   ![Schermata della pagina Regole di avviso, con il pulsante Aggiungi avviso evidenziato](./media/monitor-accounts/madocdb11.png)
+4. Nella pagina **Aggiungi una regola di avviso** specificare:
    
    * Il nome della regola di avviso che si sta configurando.
    * Una descrizione della nuova regola di avviso.
@@ -94,9 +67,9 @@ Sarà possibile considerare questa parte come tutte le altre parti delle metrich
    * Condizione, soglia e periodo per l'attivazione della regola. Ad esempio, un numero di errori del server maggiore di 5 negli ultimi 15 minuti.
    * Se deve essere inviato un messaggio di posta elettronica all'amministratore del servizio e ai coamministratori quando viene attivata la regola.
    * Indirizzi di posta elettronica aggiuntivi per le notifiche degli avvisi.  
-     ![Schermata del pannello Aggiungi una regola di avviso](./media/monitor-accounts/madocdb12.png)
+     ![Schermata della pagina Aggiungi una regola di avviso](./media/monitor-accounts/madocdb12.png)
 
-## <a name="monitor-azure-cosmos-db-programatically"></a>Monitorare Azure Cosmos DB a livello di codice
+## <a name="monitor-azure-cosmos-db-programmatically"></a>Monitorare Azure Cosmos DB a livello di codice
 Le metriche a livello account disponibili nel portale, ad esempio l'utilizzo delle risorse di archiviazione dell'account e le richieste totali, non sono disponibili tramite le interfacce API di DocumentDB. È tuttavia possibile recuperare dati relativi all'uso a livello di raccolta tramite le API di DocumentDB. Per recuperare i dati a livello di raccolta, eseguire le operazioni seguenti:
 
 * Per usare l'API REST, [eseguire il comando GET sulla raccolta](https://msdn.microsoft.com/library/mt489073.aspx). Nelle intestazioni x-ms-resource-quota e x-ms-resource-usage della risposta verranno restituite le informazioni relative alla quota e all'utilizzo per la raccolta.
@@ -111,17 +84,6 @@ Le query per recuperare le singole metriche usano il formato seguente:
     https://management.azure.com/subscriptions/{SubecriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 
 Per altre informazioni, vedere [Retrieving Resource Metrics via the Azure Insights API](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/)(Recupero delle metriche delle risorse tramite l'API REST del Monitoraggio di Azure). Si noti che il nuovo nome di Azure Insights è Monitoraggio di Azure.  Nel blog si usa ancora il nome precedente.
-
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-Se i riquadri di monitoraggio visualizzano il messaggio **Nessun dato disponibile** e recentemente si sono eseguite richieste o si sono aggiunti dati al database, è possibile modificare il riquadro in modo da riflettere l'uso recente.
-
-### <a name="edit-a-tile-to-refresh-current-data"></a>Modificare un riquadro per aggiornare i dati correnti
-1. Per personalizzare le metriche visualizzate in una parte specifica, fare clic sul grafico per aprire il pannello **Metrica** e quindi scegliere **Modifica grafico**.  
-   ![Schermata dei comandi del pannello Metrica, con Modifica grafico evidenziato](./media/monitor-accounts/madocdb3.png)
-2. Nella sezione **Intervallo di tempo** del pannello **Modifica grafico** fare clic su **ora precedente** e quindi su **OK**.  
-   ![Schermata del pannello Modifica grafico con l'opzione relativa all'ora precedente selezionata](./media/monitor-accounts/documentdb-no-available-data-past-hour.png)
-3. Il riquadro verrà aggiornato con i dati e l'uso correnti.  
-   ![Schermata del riquadro Richieste totali aggiornato all'ora precedente](./media/monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla pianificazione della capacità di Azure Cosmos DB, vedere lo [strumento di calcolo Capacity Planner di Azure Cosmos DB](https://www.documentdb.com/capacityplanner).

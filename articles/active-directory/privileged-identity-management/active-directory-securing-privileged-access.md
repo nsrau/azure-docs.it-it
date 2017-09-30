@@ -1,10 +1,10 @@
 ---
-title: Protezione dell&quot;accesso con privilegi in Azure AD | Documentazione Microsoft
-description: Argomento che descrive gli approcci per la protezione dell&quot;accesso con privilegi ai servizi Azure, Azure Active Directory e Microsoft Online Services.
+title: Protezione dell'accesso con privilegi in Azure AD | Documentazione Microsoft
+description: Argomento che descrive gli approcci per la protezione dell'accesso con privilegi ai servizi Azure, Azure Active Directory e Microsoft Online Services.
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: barclayn
+manager: mbaldwin
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: c96a0bd6710d60629bc631fe7e1f642cdb2bada6
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 849637fb391576954307bc84bb02e1d8579bf1cf
 ms.contentlocale: it-it
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protezione dell'accesso con privilegi in Azure AD
@@ -52,7 +51,7 @@ Per altre informazioni, vedere [MFA for Office 365 and MFA for Azure](https://bl
 ## <a name="time-bound-privileges"></a>Privilegi con vincoli di tempo
 Per alcune organizzazioni, il numero di utenti assegnati a ruoli con privilegi elevati potrebbe essere ritenuto eccessivo. Un utente potrebbe essere stato aggiunto al ruolo per un'attività specifica, ad esempio l'iscrizione a un servizio, ma aver usato tali privilegi raramente in seguito.
 
-Per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità sul relativo utilizzo, è possibile vincolare gli utenti all'uso dei privilegi in modalità JIT (Just-In-Time) solo quando devono eseguire un'attività. Per Azure Active Directory e Microsoft Online Services è possibile usare [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
+Per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità del relativo utilizzo, limitare gli utenti a prendere solo i propri privilegi "just in time" (JIT), oppure ad assegnare questi ruoli per un periodo di tempo ridotto sapendo che i privilegi verranno revocati automaticamente. Per Azure Active Directory, Risorse di Azure (Anteprima) e Microsoft Online Services è possibile usare [Azure Active Directory Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
 
 ![Dashboard di PIM][2]
 

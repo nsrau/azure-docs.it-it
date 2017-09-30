@@ -1,6 +1,6 @@
 ---
-title: Supporto SSH per App Web del Servizio app di Azure per contenitori | Microsoft Docs
-description: Informazioni sull'uso di SSH con App Web di Azure per contenitori.
+title: Supporto SSH per l'app Web per i contenitori del Servizio app di Azure | Microsoft Docs
+description: Informazioni sull'uso di SSH con l'app Web di Azure per i contenitori.
 keywords: Servizio app di Azure, app Web, Linux, OSS
 services: app-service
 documentationcenter: 
@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7cbdbc65bac97aef5d4215fd6b188830795a86f2
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7ce9b23e8925d4c79827c7c4e8bec63067ce33e0
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="ssh-support-for-azure-web-apps-for-containers"></a>Supporto SSH per App Web di Azure per contenitori
+# <a name="ssh-support-for-azure-web-app-for-containers"></a>Supporto SSH per l'app Web di Azure per i contenitori
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) è un protocollo di rete di crittografia per l'uso di servizi di rete in modo sicuro. Più comunemente viene usato per accedere in modo sicuro a un sistema da una riga di comando ed eseguire comandi amministrativi in remoto.
 
-App Web per contenitori offre il supporto SSH nel contenitore di app con ognuna delle immagini Docker predefinite usate per lo stack di runtime di nuove app web. 
+L'app Web per i contenitori offre il supporto SSH nel contenitore di app con ognuna delle immagini Docker predefinite usate per lo stack di runtime di nuove app web. 
 
 ![Stack di runtime](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -67,7 +67,7 @@ Questa procedura viene mostrata nell'archivio del Servizio app di Azure come ese
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Aggiungere un'[istruzione `COPY`](https://docs.docker.com/engine/reference/builder/#copy) a Dockerfile per copiare un file [sshd_config](http://man.openbsd.org/sshd_config) nella directory */etc/ssh/*. Il file di configurazione deve essere basato sul file sshd_config nell'archivio GitHub di Azure-App-Service [qui](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+1. Aggiungere un'[istruzione `COPY`](https://docs.docker.com/engine/reference/builder/#copy) a Dockerfile per copiare un file [sshd_config](http://man.openbsd.org/sshd_config) nella directory */etc/ssh/*. Il file di configurazione deve essere basato sul file sshd_config nell'archivio GitHub di Azure-App-Service [qui](https://github.com/Azure-App-Service/node/blob/master/6.11.0/sshd_config).
 
     > [!NOTE]
     > Per fare in modo che la connessione abbia esito positivo, il file *sshd_config* deve includere quanto segue: 
@@ -103,9 +103,9 @@ Dockerfile usa l'[istruzione `CMD`](https://docs.docker.com/engine/reference/bui
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su App Web per contenitori, vedere i collegamenti seguenti. È possibile pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Per altre informazioni sull'app Web per i contenitori, vedere i collegamenti seguenti. È possibile pubblicare domande e dubbi nel [forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Come usare un'immagine Docker personalizzata per App Web di Azure per contenitori](quickstart-custom-docker-image.md)
-* [Uso di .NET Core nelle app Web di Azure per contenitori](quickstart-dotnetcore.md)
-* [Uso di Ruby nelle app Web di Azure per contenitori](quickstart-ruby.md)
-* [Domande frequenti sulle app Web per contenitori del servizio app di Azure](app-service-linux-faq.md)
+* [Come usare un'immagine Docker personalizzata per l'app Web di Azure per i contenitori](quickstart-custom-docker-image.md)
+* [Uso di .NET Core nell'app Web di Azure per i contenitori](quickstart-dotnetcore.md)
+* [Uso di Ruby nell'app Web di Azure per i contenitori](quickstart-ruby.md)
+* [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](app-service-linux-faq.md)

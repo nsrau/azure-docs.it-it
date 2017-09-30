@@ -11,29 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 9fec51528d1203a7107558408ced42fa2b2b884a
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8e4b3466143dc8b19df399913baca864b0af9bc0
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
 
-# <a name="use-managed-service-identity-msi-with-a-linux-vm-to-access-storage-credentials"></a>Usare un'Identità del servizio gestito con una macchina virtuale Linux per accedere alle credenziali di archiviazione
+# <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage"></a>Usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Archiviazione di Azure
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come abilitare Identità del servizio gestito (MSI, Managed Service Identity) in una macchina virtuale Linux e quindi usare l'identità per accedere alle chiavi di archiviazione. È possibile usare le chiavi di archiviazione come di consueto durante le operazioni di archiviazione, ad esempio quando si usa Storage SDK. In questa esercitazione si caricheranno e scaricheranno oggetti BLOB usando l'interfaccia della riga di comando di Azure. Si apprenderà come:
+Questa esercitazione illustra come abilitare Identità del servizio gestita (MSI, Managed Service Identity) in una macchina virtuale Windows e quindi usare l'identità per accedere alle chiavi di archiviazione. È possibile usare le chiavi di archiviazione come di consueto durante le operazioni di archiviazione, ad esempio quando si usa Storage SDK. In questa esercitazione si caricheranno e scaricheranno oggetti BLOB usando l'interfaccia della riga di comando di Azure. Si apprenderà come:
 
 
 > [!div class="checklist"]
 > * Abilitare Identità del servizio gestito in una macchina virtuale Linux 
-> * Creare un nuovo account di archiviazione
-> * Concedere alla macchina virtuale l'accesso ad Archiviazione
-> * Ottenere un token di accesso per il proprio account di archiviazione usando l'identità della macchina virtuale per accedere alle chiavi di archiviazione 
+> * Concedere a macchina virtuale l'accesso alle chiavi di archiviazione in Gestione risorse
+> * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per ottenere le chiavi di archiviazione da Gestione risorse 
 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -48,7 +47,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anc
 
 1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
-3. Immettere le informazioni relative alla macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH** o **Password**. Le credenziali create consentiranno di effettuare l'accesso alla macchina virtuale.
+3. Immettere le informazioni relative alla macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH** o **Password**. Le credenziali create consentono di eseguire l'accesso alla macchina virtuale.
 
     ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
@@ -60,32 +59,44 @@ Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anc
 
 Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. A livello sottostante, quando si abilita Identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione di Identità del servizio gestito nella macchina virtuale e si abilita la funzionalità per tale macchina.  
 
-1. Selezionare la **macchina virtuale** in cui si vuole abilitare l'Identità del servizio gestito.
-2. Nella barra di spostamento a sinistra fare clic su **Configurazione**.
-3. Verrà visualizzata la schermata **Managed Service Identity** (Identità del servizio gestito). Per registrare e abilitare l'Identità del servizio gestito, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No.
+1. Passare al gruppo di risorse della nuova macchina virtuale e selezionare la macchina virtuale creata nel passaggio precedente.
+2. Nella sezione Impostazioni della macchina virtuale a sinistra, fare clic su **Configurazione**.
+3. Per registrare e abilitare l'Identità del servizio gestito, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No.
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.
 
     ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Per verificare le estensioni installate nella **macchina virtuale Linux**, fare clic su **Estensioni**. Se Identità del servizio gestito è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforLinux**.
+5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se Identità del servizio gestito è abilitata, nell'elenco è inclusa la voce **ManagedIdentityExtensionforLinux**.
 
     ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
+## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
 
-## <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione 
+Se non ne è già disponibile uno, creare un account di archiviazione.  È anche possibile ignorare questo passaggio e concedere alla macchina virtuale l'accesso Identità del servizio gestito alle chiavi di un account di archiviazione esistente. 
 
-È possibile usare le chiavi di archiviazione come di consueto per le operazioni di archiviazione. Questo esempio illustra in particolare la procedura per caricare e scaricare oggetti BLOB usando l'interfaccia della riga di comando di Azure. 
+1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+2. Fare clic su **Archiviazione**, quindi **Account di archiviazione**. Viene visualizzato un nuovo pannello "Crea account di archiviazione".
+3. Immettere un **nome** per l'account di archiviazione, che verrà usato in un secondo momento.  
+4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su "Gestione di risorse" e "Utilizzo generico". 
+5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
+6. Fare clic su **Crea**.
 
-1. Passare alla barra laterale e selezionare **Archiviazione**.  
-2. Creare un nuovo **account di archiviazione**.  
-3. In **Modello di distribuzione** selezionare **Gestione risorse** e per **Tipologia account** selezionare **Utilizzo generico**.  
-4. Verificare che i valori di **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelli usati per creare la **macchina virtuale Linux** nel passaggio precedente.
+    ![Creare un nuovo account di archiviazione](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+## <a name="create-a-blob-container-in-the-storage-account"></a>Creare un contenitore BLOB nell'account di archiviazione
 
-## <a name="grant-your-vm-identity-access-to-use-storage-keys"></a>Concedere all'identità della macchina virtuale l'accesso per l'uso delle chiavi di archiviazione 
+Successivamente verrà caricato e scaricato un file per il nuovo account di archiviazione. Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenitore BLOB in cui archiviare il file.
 
-Usando Identità del servizio gestito, il codice può ottenere i token di accesso per autenticarsi nelle risorse che supportano l'autenticazione di Azure AD.   
+1. Tornare all'account di archiviazione appena creato.
+2. Fare clic sul collegamento **Contenitori** nella barra di spostamento a sinistra, in "Servizio BLOB".
+3. Fare clic su **+ Contenitore** nella parte superiore della pagina e verrà visualizzato il pannello "Nuovo contenitore".
+4. Assegnare un nome al contenitore, selezionare un livello di accesso, quindi fare clic su **OK**. Il nome specificato verrà usato più avanti nell'esercitazione. 
+
+    ![Creare un contenitore di archiviazione](media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+
+## <a name="grant-your-vms-identity-access-to-use-storage-keys"></a>Concedere all'identità della macchina virtuale l'accesso per l'uso delle chiavi di archiviazione 
+
+Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.  Tuttavia, è possibile usare un'Identità di servizio gestito per recuperare le chiavi di archiviazione da Gestione risorse e usarle per accedere all'archiviazione.  In questo passaggio alla macchina virtuale viene concesso l'accesso Identità di servizio gestito alle chiavi dell'account di archiviazione.   
 
 1. Passare alla scheda **Archiviazione**.  
 2. Selezionare l'**account di archiviazione** specifico creato in precedenza.   
@@ -96,31 +107,32 @@ Usando Identità del servizio gestito, il codice può ottenere i token di access
 7. Scegliere infine la macchina virtuale Linux nell'elenco a discesa **Seleziona** e fare clic su **Salva**. 
     ![Testo immagine alt](media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per chiamare Azure Resource Manager
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per chiamare Azure Resource Manager
 
-È necessario usare il terminale Bash, scegliere e quindi scaricare la distribuzione di Linux [qui](https://msdn.microsoft.com/commandline/wsl/install_guide).
-
+Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/install_guide).
 
 1. Nel portale, passare a una macchina virtuale Linux e in **Panoramica** fare clic su **Connetti**. Verrà richiesto di usare Bash, prendere nota delle SSH e dell'indirizzo IP della macchina virtuale indicati nell'avviso. 
 2. Aprire e connettersi a Bash.  
 3. Nella finestra terminale immettere l'**SSH** e la **Macchina virtuale** a cui si desidera connettersi, ad esempio, "ssh admin@12.61.219.35".  
 4. Successivamente, verrà richiesto di immettere la **Password** aggiunta durante la creazione della **macchina virtuale Linux**. A questo punto l'accesso è stato eseguito correttamente.  
-5. È quindi possibile effettuare una richiesta usando CURL per ottenere il token di autorizzazione per la macchina virtuale Linux a cui si è connessi. L'endpoint di **Azure Resource Manager** è https://management.azure.com.  
+5. Usare CURL per ottenere il token di accesso per Azure Resource Manager.  
 
     La richiesta CURL per il token di accesso è mostrata di seguito:
     
     ```bash
-    curl --data "authority= https://login.microsoftonline.com/<TENANT ID>&&resource=https://management.azure.com/"  -H Metadata:true http://localhost:50432/oauth2/token   
+    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true    
     ```
     
     > [!NOTE]
-    > Verificare che l'URL per la risorsa per cui si sta tentando di richiedere l'accesso contenga la corretta formattazione con una barra alla fine, ad esempio "https:<RESOURCE>/"
+    > Il valore del parametro "risorsa" deve corrispondere esattamente a quello previsto da Azure AD. Quando si usa l'ID risorsa di Azure Resource Manager, è necessario includere la barra finale nell'URI.
     
-    ```powershell
+    ```bash
     {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEP"}
      ```
     
-## <a name="the-curl-request-to-get-storage-keys-from-azure-resource-manager"></a>Richiesta CURL per ottenere le chiavi di archiviazione da Azure Resource Manager  
+## <a name="use-curl-to-get-storage-keys-from-azure-resource-manager"></a>Usare CURL per ottenere le chiavi di archiviazione da Azure Resource Manager  
+
+Di seguito viene usato CURL per eseguire una chiamata a Gestione risorse usando il token di accesso recuperato nella sezione precedente, per recuperare la chiave di accesso alle risorse di archiviazione. Una volta recuperata la chiave di accesso alle risorse di archiviazione, è possibile chiamare le operazioni di caricamento/scaricamento.
 
 > [!NOTE]
 > Il testo nell'URL fa distinzione tra maiuscole e minuscole. Assicurarsi quindi di usare la stessa combinazione di maiuscole e minuscole usata per i gruppi di risorse. Inoltre, è importante sapere che si tratta di una richiesta POST, non di una richiesta GET, e verificare di passare un valore per acquisire un limite di lunghezza con -d che può essere NULL.  
@@ -136,14 +148,13 @@ La risposta CURL restituisce l'elenco di chiavi:
 ```
 
 
-Creare un file da caricare, ovvero un file BLOB di esempio che è possibile caricare con le chiavi di archiviazione nell'account di archiviazione all'interno del contenitore creato. 
-
-A tale scopo, in una macchina virtuale Linux eseguire il comando seguente. 
+Creare un file di BLOB esempio da caricare nel contenitore di archiviazione BLOB. A tale scopo, in una macchina virtuale Linux eseguire il comando seguente. 
 
 ```bash
 echo "This is a test file." > test.txt
 ```
- Successivamente, è possibile caricare il file usando l'interfaccia della riga di comando di Azure ed eseguendo l'autenticazione con la chiave di archiviazione.
+
+Quindi caricare il file usando l'interfaccia della riga di comando di Azure ed eseguendo l'autenticazione con la chiave di archiviazione.
  
 
 ```azurecli-interactive

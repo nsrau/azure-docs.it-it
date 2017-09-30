@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 69eb021014c2ae04fc71a03cd27c0e113a2b062b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-for-containers"></a>Distribuzione continua con App Web di Azure per contenitori
@@ -88,9 +88,9 @@ Quando l'immagine viene aggiornata, l'app Web viene aggiornata automaticamente c
 
 * [Che cos'è App Web di Azure per contenitori?](./app-service-linux-intro.md)
 * [Registro contenitori di Azure](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Uso di .NET Core nelle app Web di Azure per contenitori](quickstart-dotnetcore.md)
-* [Uso di Ruby nelle app Web di Azure per contenitori](quickstart-ruby.md)
-* [Come usare un'immagine Docker personalizzata per App Web di Azure per contenitori](quickstart-custom-docker-image.md)
-* [Domande frequenti sulle app Web per contenitori del servizio app di Azure](./app-service-linux-faq.md) 
-* [Gestire App Web per contenitori tramite l'interfaccia della riga di comando di Azure 2.0](./app-service-linux-cli.md)
+* [Uso di .NET Core nell'app Web di Azure per i contenitori](quickstart-dotnetcore.md)
+* [Uso di Ruby nell'app Web di Azure per i contenitori](quickstart-ruby.md)
+* [Come usare un'immagine Docker personalizzata per l'app Web di Azure per i contenitori](quickstart-custom-docker-image.md)
+* [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](./app-service-linux-faq.md) 
+* [Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure 2.0](./app-service-linux-cli.md)
 
