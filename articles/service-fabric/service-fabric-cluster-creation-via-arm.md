@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8d876a0f2168ee9375a3905d5d5a562ab1194cf3
-ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 47152d05eb7e31e7fe1f35e33a10fe8e903e21e2
 ms.contentlocale: it-it
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Creare un cluster di Service Fabric usando Azure Resource Manager
@@ -591,7 +591,7 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
 Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al cluster di Service Fabric. Questa corrispondenza è necessaria per fornire un certificato SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da una CA per il dominio `.cloudapp.azure.com`. È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
-Questi nomi di soggetto sono le voci necessarie per creare un cluster di Service Fabric sicuro (senza Azure AD), come descritto in [Configurare i parametri del modello di Resource Manager](#configure-arm). È possibile connettersi al cluster sicuro seguendo le istruzioni per [autenticare l'accesso client a un cluster](service-fabric-connect-to-secure-cluster.md). I cluster di anteprima Linux non supportano l'autenticazione di Azure AD. È possibile assegnare ruoli amministratore e client come descritto nella sezione [Assegnare utenti ai ruoli](#assign-roles). Quando si specificano ruoli amministrativi e client per un cluster di anteprima Linux, è necessario fornire le identificazioni personali del certificato per l'autenticazione. Non si specifica il nome del soggetto perché non vengono eseguite convalide o revoche della catena in questa versione di anteprima.
+Questi nomi di soggetto sono le voci necessarie per creare un cluster di Service Fabric sicuro (senza Azure AD), come descritto in [Configurare i parametri del modello di Resource Manager](#configure-arm). È possibile connettersi al cluster sicuro seguendo le istruzioni per [autenticare l'accesso client a un cluster](service-fabric-connect-to-secure-cluster.md). I cluster Linux non supportano l'autenticazione di Azure AD. È possibile assegnare ruoli amministratore e client come descritto nella sezione [Assegnare utenti ai ruoli](#assign-roles). Quando si specificano ruoli amministrativi e client per un cluster Linux, è necessario fornire le identificazioni personali del certificato per l'autenticazione. Non si specifica il nome del soggetto perché non vengono eseguite convalide o revoche della catena.
 
 Per usare un certificato autofirmato per il test, è possibile usare lo stesso script per generarne uno. È quindi possibile caricare il certificato nell'insieme di credenziali delle chiavi specificando il flag `ss` invece del percorso e del nome del certificato. Per la creazione e il caricamento di un certificato autofirmato, vedere ad esempio il comando seguente:
 

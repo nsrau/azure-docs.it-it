@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio delle prestazioni del database nel database SQL di Azure | Documentazione Microsoft
+title: Monitoraggio delle prestazioni del database nel database SQL di Azure | Microsoft Docs
 description: Informazioni sulle opzioni per il monitoraggio del database con gli strumenti di Azure e le viste a gestione dinamica.
 keywords: monitoraggio database, prestazioni database cloud
 services: sql-database
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/10/2017
+ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: e11ed3275413b428523eef78a5a89b537f6a4afc
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 50d635191ff65f8b892595c954673b2820b22ecb
 ms.contentlocale: it-it
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitoraggio delle prestazioni del database nel database SQL di Azure
 Il monitoraggio delle prestazioni di un database SQL in Azure inizia con il monitoraggio dell'utilizzo delle risorse rispetto al livello di prestazioni scelto per il database. Il monitoraggio consente di determinare se il database ha capacità in eccesso o se presenta problemi perché è stato superato il limite massimo di risorse e quindi decidere se è opportuno modificare il livello di prestazioni e il [livello di servizio](sql-database-service-tiers.md) del database. È possibile monitorare il database con strumenti grafici nel [portale di Azure](https://portal.azure.com) o con le [viste a gestione dinamica di SQL](https://msdn.microsoft.com/library/ms188754.aspx).
+
+> [!TIP]
+> Usare [Intelligent Insights SQL di Azure](sql-database-intelligent-insights.md) per il monitoraggio automatico delle prestazioni del database. Dopo aver rilevato un problema di prestazioni, viene generato un log di diagnostica con i dettagli e l'analisi della causa radice del problema. Quando possibile viene fornita un'indicazione di miglioramento delle prestazioni.
+>
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Monitorare i database tramite il portale di Azure
 Nel [portale di Azure](https://portal.azure.com/)è possibile monitorare l'utilizzo di un database singolo selezionandolo e facendo clic sul grafico **Monitoraggio** . Verrà visualizzata una finestra della **metrica** in cui è possibile apportare modifiche facendo clic su l pulsante **Modifica grafico**. Aggiungere le metriche seguenti
@@ -208,4 +212,9 @@ Se si analizza un carico di lavoro di SQL Server locale, modificare la query per
 Queste query restituiscono un conteggio temporizzato. Se si raccolgono più campioni nel tempo, si otterrà una comprensione ottimale dell'uso della sessione.
 
 Per l'analisi del database SQL, è possibile anche ottenere dati statistici cronologici sulle sessioni eseguendo query della visualizzazione [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ed esaminando la colonna **active_session_count**. 
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Ottimizzare automaticamente gli indici di database e dei piani di esecuzione delle query usando [Ottimizzazione automatica del database SQL di Azure](sql-database-automatic-tuning.md).
+- Monitorare le prestazioni del database automaticamente usando [Intelligent Insights SQL di Azure](sql-database-intelligent-insights.md). Questa funzionalità offre informazioni di diagnostica e analisi della causa radice dei problemi di prestazioni.
 

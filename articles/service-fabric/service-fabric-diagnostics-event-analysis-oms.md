@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: f52988f2a67f2cafe93a7e0a358c599658d068b2
 ms.contentlocale: it-it
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -57,7 +57,7 @@ Se si desidera aggiungere un'area di lavoro OMS dopo aver distribuito un cluster
 
 ![Analisi SF OMS in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-Se si fa clic su **Crea** viene richiesta un'area di lavoro OMS. Fare clic su **Selezionare un'area di lavoro** e quindi **Crea una nuova area di lavoro**. Compilare le voci necessarie: l'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro OMS devono essere gli stessi. Dopo aver convalidato le voci, l'area di lavoro OMS verrà distribuita in pochi minuti. Mentre viene completata la distribuzione, la creazione del pannello di soluzioni di Service Fabric rimarrà aperto. Assicurarsi che la stessa area di lavoro venga visualizzata nell'*area di lavoro OMS* e fare clic su **Crea** in basso per aggiungere la soluzione Service Fabric all'area di lavoro.
+Se si fa clic su **Crea** viene richiesta un'area di lavoro OMS. Fare clic su  **	Selezionare un'area di lavoro** e quindi **Crea una nuova area di lavoro**. Compilare le voci necessarie: l'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro OMS devono essere gli stessi. Dopo aver convalidato le voci, l'area di lavoro OMS verrà distribuita in pochi minuti. Mentre viene completata la distribuzione, la creazione del pannello di soluzioni di Service Fabric rimarrà aperto. Assicurarsi che la stessa area di lavoro venga visualizzata nell'*area di lavoro OMS* e fare clic su **Crea** in basso per aggiungere la soluzione Service Fabric all'area di lavoro.
 
 ## <a name="using-the-oms-agent"></a>Uso dell'agente OMS
 
@@ -92,7 +92,7 @@ Questo articolo illustra i passaggi necessari per configurare il monitoraggio de
 
 Per configurare la soluzione del contenitore nell'area di lavoro, assicurarsi che l'agente OMS sia stato distribuito nei nodi del cluster seguendo i passaggi indicati in precedenza. Quando il cluster è pronto, distribuirvi un contenitore. Tenere presente che la prima volta che un'immagine del contenitore viene distribuita in un cluster, sono necessari alcuni minuti per scaricare l'immagine, a seconda delle dimensioni.
 
-In Azure Marketplace cercare *Contenitori* e creare una risorsa Contenitori, nella categoria Monitoraggio e gestione.
+In Azure Marketplace cercare *Soluzione Monitoraggio contenitori* e creare il risultato **Soluzione Monitoraggio contenitori** che dovrebbe comparire nella categoria Monitoraggio e gestione.
 
 ![Aggiunta della soluzione Contenitori](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla terminologia di Azure Service Fabric | Documentazione Microsoft
+title: Informazioni sulla terminologia di Azure Service Fabric | Microsoft Docs
 description: Panoramica della terminologia di Service Fabric. Illustra i concetti chiave relativi alla terminologia e i termini usati nel resto della documentazione.
 services: service-fabric
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 2d90baf42d067ad8476995fba524a46f0815b6d5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 204c415a6dc77af1be78f8b28a1a5cbcd2fa7883
 ms.contentlocale: it-it
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="service-fabric-terminology-overview"></a>Panoramica della terminologia di Service Fabric
@@ -48,6 +48,10 @@ Sono disponibili due tipi di servizi:
 
 * **Senza stato:** usare un servizio senza stato quando lo stato permanente del servizio è archiviato in un servizio di archiviazione esterno, ad esempio Archiviazione di Azure, database SQL di Azure o Azure Cosmos DB. Usare un servizio senza stato nei casi in cui il servizio non prevede alcun tipo di archivio permanente. Ad esempio, un servizio di calcolo in cui i valori sono passati al servizio, viene eseguito un calcolo usando tali valori e viene restituito un risultato.
 * **Con stato:** usare un servizio con stato quando si vuole che Service Fabric gestisca lo stato del servizio tramite i modelli di programmazione Reliable Collections o Reliable Actors. Per la scalabilità specificare il numero di partizioni su cui distribuire lo stato durante la creazione di un servizio denominato. Specificare inoltre quante volte replicare lo stato tra i nodi, per l'affidabilità. Ogni servizio denominato ha un'unica replica primaria e più repliche secondarie. Per modificare lo stato del servizio denominato, scrivere nella replica primaria. Service Fabric replica quindi questo stato in tutte le repliche secondarie, mantenendo lo stato sincronizzato. Quando si verifica un errore nella replica primaria, Service Fabric lo rileva automaticamente e alza di livello una delle repliche secondarie rendendola così la replica primaria. Crea quindi una nuova replica secondaria.  
+
+Le **repliche o istanze** fanno riferimento al codice (e allo stato per i servizi con stato) di un servizio distribuito e in esecuzione. Vedere [Istanze e repliche](service-fabric-concepts-replica-lifecycle.md)
+
+**Riconfigurazione** fa riferimento al processo di qualsiasi modifica nel set di repliche di un servizio. Vedere [Riconfigurazione](service-fabric-concepts-reconfiguration.md)
 
 **Pacchetto del servizio**: una directory del disco contenente il file `ServiceManifest.xml` del tipo di servizio. Questo file fa riferimento al codice, ai dati statici e ai pacchetti di configurazione per il tipo di servizio. Il file `ApplicationManifest.xml` del tipo di applicazione fa riferimento ai file nella directory del pacchetto del servizio. Ad esempio, un pacchetto del servizio può fare riferimento al codice, ai dati statici e ai pacchetti di configurazione che costituiscono un servizio di database.
 
@@ -80,6 +84,8 @@ Per altre informazioni sulle API di comunicazione del client e del servizio che 
 Per altre informazioni sul servizio Image Store leggere [Informazioni sull'impostazione ImageStoreConnectionString](service-fabric-image-store-connection-string.md).
 
 Per altre informazioni sulla distribuzione di applicazioni nel servizio Image Store, vedere [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md) .
+
+**Servizio di Gestione failover**: ogni cluster di Service Fabric dispone di un servizio di Gestione failover che è responsabile dell'esecuzione di funzioni correlate all'elevata disponibilità e alla coerenza dei servizi, nonché dell'orchestrazione dell'applicazione e degli aggiornamenti del cluster e dell'interazione con altri componenti del sistema.
 
 ## <a name="built-in-programming-models"></a>Modelli di programmazione predefiniti
 Sono disponibili modelli di programmazione di .NET Framework per creare servizi di Service Fabric:

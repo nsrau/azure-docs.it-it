@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/10/2017
+ms.date: 09/20/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9424f43db504964ba5ea3cbd84f305d1a6697208
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
@@ -67,7 +67,7 @@ Sono disponibili due tipi di controlli:
 - **Controlli concessione**: questi controlli determinano se un utente può completare o meno l'autenticazione e raggiungere la risorsa a cui sta tentando di accedere. Se si dispone di più controlli selezionati, è possibile configurare se sono tutti obbligatori quando vengono elaborati i criteri.
 L'implementazione corrente di Azure Active Directory consente di configurare i requisiti dei controlli di concessione seguenti:
 
-    ![Controllo](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![Controllo](./media/active-directory-conditional-access-azure-portal/73.png)
 
 - **Controlli della sessione**: questi controlli consentono di limitare l'esperienza all'interno di un'app cloud. Questi controlli sono imposti dalle app cloud e si basano sulle informazioni aggiuntive relative alla sessione fornite da Azure AD all'app.
 
@@ -108,7 +108,7 @@ Per un elenco completo delle app cloud che è possibile usare nel criterio di ac
 
 Purché l'accesso alle app avvenga in condizioni controllabili, non è necessario imporre altri controlli sull'accesso degli utenti alle app per cloud. Le cose tuttavia cambiano se l'accesso alle app per cloud viene eseguito, ad esempio, da reti non considerate attendibili o da dispositivi non conformi. In un'istruzione della condizione è possibile definire alcune condizioni di accesso con requisiti aggiuntivi per l'esecuzione dell'accesso alle app.
 
-![Condizioni](./media/active-directory-conditional-access-azure-portal/21.png)
+![Condizioni](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
 ## <a name="conditions"></a>Condizioni
@@ -119,12 +119,13 @@ Nell'implementazione corrente di Azure Active Directory è possibile definire co
 - Piattaforme del dispositivo
 - Località
 - App client
+- Tempo
 
-![Condizioni](./media/active-directory-conditional-access-azure-portal/21.png)
+![Condizioni](./media/active-directory-conditional-access-azure-portal/01.png)
 
 ### <a name="sign-in-risk"></a>Rischio di accesso
 
-Un rischio di accesso è un oggetto usato da Azure Active Directory per tenere traccia della probabilità che un tentativo di accesso non sia eseguito dal proprietario legittimo di un account utente. In questo oggetto la probabilità (alta, media o bassa) viene archiviata sotto forma di attributo denominato [livello di rischio di accesso](active-directory-reporting-risk-events.md#risk-level). L'oggetto viene generato durante l'accesso di un utente se vengono rilevati rischi di accesso da Azure Active Directory. Per informazioni dettagliate, vedere [Accessi a rischio](active-directory-identityprotection.md#risky-sign-ins).  
+Un rischio di accesso è un oggetto usato da Azure Active Directory per tenere traccia della probabilità che un tentativo di accesso non sia eseguito dal proprietario legittimo di un account utente. In questo oggetto la probabilità (alta, media o bassa) viene archiviata sotto forma di attributo denominato [livello di rischio di accesso](active-directory-reporting-risk-events.md#risk-level). L'oggetto viene generato durante l'accesso di un utente se vengono rilevati rischi di accesso da Azure Active Directory. Per altre informazioni, vedere [Accessi a rischio](active-directory-identityprotection.md#risky-sign-ins).  
 È possibile usare il livello di rischio di accesso calcolato come condizione nei criteri di accesso condizionale. 
 
 ![Condizioni](./media/active-directory-conditional-access-azure-portal/22.png)
@@ -147,22 +148,35 @@ Per usare le piattaforme del dispositivo, impostare prima i controlli di configu
 
 ### <a name="locations"></a>Località
 
-La località è identificata dall'indirizzo IP del client usato per la connessione ad Azure Active Directory. Questa condizione richiede familiarità con le **località denominate** e gli **indirizzi IP attendibili MFA**.  
+Le località consentono di definire le condizioni che dipendono dal punto in cui è stato avviato un tentativo di connessione. Nell'elenco delle località le voci sono suddivise tra **località denominate** e **indirizzi IP attendibili MFA**.  
 
-**Località denominate** è una funzionalità di Azure Active Directory che consente di etichettare gli intervalli di indirizzi IP attendibili nelle organizzazioni. Nell'ambiente in uso si possono usare le località denominate nel contesto del rilevamento degli [eventi di rischio](active-directory-reporting-risk-events.md), oltre che per l'accesso condizionale. Per altre informazioni sulla configurazione delle località denominate in Azure Active Directory, vedere [Località denominate in Azure Active Directory](active-directory-named-locations.md).
+**Località denominate** è una funzionalità di Azure Active Directory che consente di definire etichette per le località da cui sono stati eseguiti tentativi di connessione. Per definire una località, è possibile configurare un intervallo di indirizzi IP oppure selezionare un paese o un'area geografica.  
 
-Il numero di località che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare:
+![Condizioni](./media/active-directory-conditional-access-azure-portal/42.png)
+
+È possibile anche contrassegnare una località denominata come località attendibile. Per i criteri di accesso condizionale, la località attendibile è un'altra opzione di filtro che consente di selezionare *Tutte le posizioni attendibili* nella condizione delle località.
+Le località denominate sono importanti anche nel contesto del rilevamento di [eventi di rischio](active-directory-reporting-risk-events.md) per ridurre il numero di falsi positivi per eventi di rischio di tipo Trasferimento impossibile a posizioni atipiche. 
+
+Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare:
  
  - Una località denominata con un massimo di 500 intervalli IP
  - Un massimo di 60 località denominate (anteprima), ognuna con un intervallo IP assegnato 
 
-
-Gli **IP attendibili MFA** sono una funzionalità di Multi-Factor Authentication che consente di definire intervalli di indirizzi IP attendibili che rappresentano la Intranet locale dell'organizzazione. Quando si configurano le condizioni di una località, Indirizzi IP attendibili consente di distinguere le connessioni stabilite dalla rete dell'organizzazione da quelle stabilite da tutte le altre località. Per altre informazioni, vedere [Indirizzi IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
-
+Per altre informazioni, vedere [Località denominate in Azure Active Directory](active-directory-named-locations.md).
 
 
-È possibile includere tutte le località o tutti gli IP attendibili ed escludere tutti gli IP attendibili.
+Gli **IP attendibili MFA** sono una funzionalità di Multi-Factor Authentication che consente di definire intervalli di indirizzi IP attendibili che rappresentano la Intranet locale dell'organizzazione. Quando si configura la condizione di una località, Indirizzi IP attendibili consente di distinguere le connessioni stabilite dalla rete dell'organizzazione da quelle stabilite da tutte le altre località. Per altre informazioni, vedere [IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
 
+Nei criteri di accesso condizionale, è possibile:
+
+- Includere
+    - Qualsiasi località
+    - Tutte le località attendibili
+    - Le località selezionate
+- Escludere
+    - Tutte le località attendibili
+    - Le località selezionate
+     
 ![Condizioni](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
@@ -175,6 +189,7 @@ L'autenticazione legacy fa riferimento ai client che usano l'autenticazione di b
 
 
 Per un elenco completo delle app client che è possibile usare nel criterio di accesso condizionale, vedere [Documentazione tecnica sull'accesso condizionale di Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+
 
 
 

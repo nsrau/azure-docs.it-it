@@ -1,5 +1,5 @@
 ---
-title: Regole del firewall per il database SQL di Azure | Documentazione Microsoft
+title: Regole del firewall per il database SQL di Azure | Microsoft Docs
 description: Informazioni su come configurare un firewall del database SQL con regole del firewall a livello di server e a livello di database per la gestione dell'accesso.
 keywords: firewall del database
 services: sql-database
@@ -15,18 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/12/2017
+ms.date: 09/15/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 6ba04cd62aff587e56308bb332e31b2da75398cb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 445689cb067d33b0da45d63730e5e755bc799909
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Regole firewall a livello di server e di database per il database SQL di Azure 
 
 Il database SQL di Microsoft Azure fornisce un servizio di database relazionale per Azure e altre applicazioni basate su Internet. Per proteggere i dati, il firewall impedisce qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta.
+
+#### <a name="virtual-netowrk-rules-as-alternatives-to-ip-rules"></a>Regole della rete virtuale come alternative alle regole IP
+
+Oltre alle regole IP, il firewall gestisce anche le *regole della rete virtuale*. Le regole della rete virtuale si basano sugli endpoint di servizio di Rete virtuale. In alcuni casi le regole della rete virtuale potrebbero essere preferibili alle regole IP. Per altre informazioni, vedere [Endpoint del servizio Rete virtuale e regole per il database SQL di Azure](sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="overview"></a>Panoramica
 
@@ -223,4 +227,3 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-

@@ -1,6 +1,6 @@
 ---
-title: IT Service Management Connector in OMS | Microsoft Docs
-description: Usare IT Service Management Connector per monitorare e gestire centralmente gli elementi di lavoro di ITSM in OMS e risolvere rapidamente eventuali problemi.
+title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
+description: Usare IT Service Management Connector per monitorare e gestire centralmente gli elementi di lavoro di ITSM in Azure Log Analytics e risolvere rapidamente eventuali problemi.
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,40 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 54974ef06efdae69ddbfa12b1ba9278b48b113d3
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector (anteprima)
 
 ![Simbolo di IT Service Management Connector](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-È possibile usare IT Service Management Connector (ITSMC) in Log Analytics di OMS per monitorare e gestire centralmente gli elementi di lavoro nei prodotti o servizi di ITSM.
-
-IT Service Management Connector integra i prodotti e i servizi di gestione IT (ITSM) esistenti con Log Analytics di OMS.  La soluzione presenta un'integrazione bidirezionale con i prodotti e i servizi ITSM, in cui offre agli utenti OMS un'opzione per creare eventi imprevisti, avvisi o eventi nella soluzione ITSM. Il connettore importa anche dati, ad esempio eventi imprevisti e richieste di modifica dalla soluzione ITSM in Log Analytics di OMS.
+IT Service Management Connector offre un'integrazione bidirezionale tra un prodotto/ servizio IT Service Management (ITSM) supportato e Log Analytics.  Grazie a questa connessione, è possibile creare eventi imprevisti, avvisi o eventi in un prodotto ITSM in base ad avvisi di Log Analytics o record di log. Il connettore importa anche dati, ad esempio eventi imprevisti e richieste di modifica dal prodotto ITSM in Log Analytics di OMS.
 
 Con IT Service Management Connector è possibile:
 
-  - Monitorare e gestire centralmente gli elementi di lavoro per i prodotti e i servizi ITSM usati nell'organizzazione.
-  - Creare elementi di lavoro ITSM, ad esempio avvisi, eventi, eventi imprevisto, in ITSM dagli avvisi OMS e tramite la ricerca log.
-  - Leggere gli eventi imprevisti e richieste di modifica dalla soluzione ITSM e correlare i dati di log rilevanti nell'area di lavoro di Log Analytics.
-  - Trovare tutti gli eventi imprevisti e non comuni e risolverli, anche prima che gli utenti finali si rivolgano e li segnalino al supporto tecnico.
-  - Importare i dati degli elementi di lavoro in Log Analytics e creare report indicatori di prestazioni chiave.  Grazie all'uso di questi report, è possibile individuare, valutare e agire su diversi elementi importanti, ad esempio la valutazione della presenza di malware.
-  - Visualizzare i dashboard curati per ottenere informazioni approfondite su eventi imprevisti, richieste di modifica e sistemi interessati.
-  - Risolvere i problemi più rapidamente tramite correlazione con altre soluzioni di gestione nell'area di lavoro Log Analytics.
+  - Integrare la creazione di avvisi operativi con le procedure di gestione degli eventi imprevisti nello strumento ITSM di propria scelta.
+    - Creare elementi di lavoro, ad esempio avvisi, eventi, eventi imprevisti, in ITSM dagli avvisi OMS e tramite la ricerca log.
+    - Creare elementi di lavoro basati sugli avvisi del log attività di Azure tramite un'azione ITSM nei gruppi di azioni. 
+  
+  - Unificare i dati di monitoraggio, dei log e di gestione dei servizi usati nell'organizzazione.
+    - Correlare i dati degli eventi imprevisti e delle richieste di modifica dagli strumenti ITSM con i dati di log rilevanti nell'area di lavoro di Log Analytics.   
+    - Visualizzare i dashboard di primo livello per una panoramica di eventi imprevisti, richieste di modifica e sistemi interessati.
+    - Scrivere query di Log Analytics per ottenere informazioni dettagliate sui dati di gestione dei servizi.
+      
+## <a name="adding-the-it-service-management-connector-solution"></a>Aggiunta della soluzione IT Service Management Connector
 
-
-## <a name="prerequisites"></a>Prerequisiti
-
-Per importare gli elementi di lavoro ITSM in Log Analytics di OMS, la soluzione richiede una connessione tra IT Service Management Connector in OMS e i prodotti o i servizi ITSM da cui si importano gli elementi di lavoro.
-
-
-## <a name="configuration"></a>Configurazione
-
-Aggiungere la soluzione IT Service Management Connector all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md).
+Aggiungere la soluzione IT Service Management Connector all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md).
 
 Riquadro di IT Service Management Connector come appare nella raccolta soluzioni:
 
@@ -63,12 +56,10 @@ Dopo averlo aggiunto correttamente, IT Service Management Connector viene visual
 
  ![Aggiornamento di ITSMC refresh](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
-## <a name="management-packs"></a>Management Pack
-Questa soluzione non richiede alcun pacchetto di gestione.
 
-## <a name="connected-sources"></a>Origini connesse
+## <a name="configuring-the-connection-with-your-itsm-software"></a>Configurazione della connessione con il software ITSM
 
-I seguenti prodotti o servizi ITSM sono supportati da IT Service Management Connector:
+La soluzione IT Service Management Connector supporta le connessioni a **System Center Service Manager**, **ServiceNow**, **Provance** e **Cherwell**. Configurare la connessione con:
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -80,16 +71,14 @@ I seguenti prodotti o servizi ITSM sono supportati da IT Service Management Conn
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 
-Dopo aver collegato OMS IT Service Management Connector al servizio ITSM, il servizio Log Analytics inizia a raccogliere i dati dal servizio/prodotto ITSM connesso.
+Dopo che IT Service Management Connector è stato configurato con i dettagli del software ITSM, il connettere avvia la raccolta dei dati dal prodotto/servizio ITSM connesso. A seconda del numero di eventi imprevisti e di richieste di modifica nel prodotto/servizio ITSM, la sincronizzazione iniziale verrà completata entro pochi minuti. 
 
 > [!NOTE]
-> - I dati importati dalla soluzione IT Service Management Connector vengono visualizzati in Log Analytics come eventi denominati **ServiceDesk_CL**.
-- L'evento contiene un campo denominato **ServiceDeskWorkItemType_s**. che può prendere il proprio valore come evento imprevisto o richiesta di modifica, a seconda dei dati dell'elemento di lavoro contenuti nell'evento **ServiceDesk_CL**.
+> - I dati importati dal prodotto ITSM con la soluzione IT Service Management Connector vengono visualizzati in Log Analytics come record di log di tipo **ServiceDesk_CL**.
+> - Un record di log contiene un campo denominato **ServiceDeskWorkItemType_s**, che è un evento imprevisto o una richiesta di modifica, i due tipi di dati importati dal prodotto ITSM
 
-## <a name="input-data"></a>Dati di input
-Elementi di lavoro importati dai prodotti/servizi ITSM.
-
-Le informazioni seguenti mostrano esempi di dati raccolti da IT Service Management Connector:
+## <a name="data-synced-from-itsm-product"></a>Dati sincronizzati dal prodotto ITSM
+La sincronizzazione di eventi imprevisti e richieste di modifica viene eseguita dal prodotto ITSM all'area di lavoro di Log Analytics. Le informazioni seguenti mostrano esempi di dati raccolti da IT Service Management Connector:
 
 > [!NOTE]
 > A seconda del tipo di elemento di lavoro importato in Log Analytics, **ServiceDesk_CL** contiene i campi seguenti:
@@ -207,16 +196,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="it-service-management-connector--integration-with-other-oms-solutions"></a>IT Service Management connector: integrazione con altre soluzioni OMS
 
-IT Service Management connector supporta attualmente l'integrazione con la soluzione Elenco dei servizi.
+IT Service Management Connector supporta attualmente l'integrazione con la soluzione Mapping dei servizi.
 
 Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. L'elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. Altre informazioni: [Elenco dei servizi](../operations-management-suite/operations-management-suite-service-map.md).
 
-Con questa integrazione, è possibile visualizzare gli elementi del service desk creati nelle soluzioni ITSM come illustrato nell'esempio seguente:
+Se si usa anche la soluzione Mapping dei servizi, è possibile visualizzare gli elementi del service desk creati nelle soluzioni ITSM come illustrato nell'esempio seguente:
 
-![Soluzione integrata ](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
+![Integrazione di Mapping dei servizi](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
 ## <a name="create-itsm-work-items-for-oms-alerts"></a>Creare elementi di lavoro ITSM per avvisi di OMS
 
-Per gli avvisi OMS, è possibile creare elementi di lavoro associati nelle origini ITSM connesse.  A tale scopo, usare la procedura seguente:
+Con la soluzione ITSM Connector disponibile, è possibile configurare Avvisi OMS per attivare la creazione di elementi di lavoro nello strumento connesso, come segue:
 
 1. Dalla finestra **Ricerca Log** eseguire una query di ricerca log per visualizzare i dati. I risultati della query sono l'origine degli elementi di lavoro.
 2. In **Ricerca Log** fare clic su **Avviso** per aprire la pagina **Aggiungi regola di avviso**.
@@ -233,13 +222,13 @@ Per gli avvisi OMS, è possibile creare elementi di lavoro associati nelle origi
 
     non selezionare questa casella di controllo per creare un solo elemento di lavoro per il numero di voci di log in questo avviso.
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
-In **avvisi** verrà creato l'avviso OMS. Gli elementi di lavoro della connessione ITSM corrispondente vengono creati quando viene soddisfatta la condizione dell'avviso specificata.
+L'avviso OMS creato può essere visualizzato in **Impostazioni**>**Avvisi**. Gli elementi di lavoro della connessione ITSM corrispondente vengono creati quando viene soddisfatta la condizione dell'avviso specificata.
 
 ## <a name="create-itsm-work-items-from-oms-logs"></a>Creare elementi di lavoro ITSM da log di OMS
 
-È possibile creare elementi di lavoro nelle origini ITSM connesse tramite Ricerca log di OMS. A tale scopo, usare la procedura seguente:
+È anche possibile creare elementi di lavoro nelle origini ITSM connesse direttamente da un record di log, come segue:
 
 1. Da **Ricerca Log** cercare i dati richiesti, selezionare i dettagli e fare clic su **Crea elemento di lavoro**.
 
@@ -263,22 +252,53 @@ In **avvisi** verrà creato l'avviso OMS. Gli elementi di lavoro della connessio
 
 4. Inserire i valori appropriati nelle caselle di testo **Tipo di contatto**, **Impatto**, **Urgenza**, **Categoria** e **Sottocategoria** e quindi fare clic su **Crea**.
 
-Verrà creato l'elemento di lavoro in ITSM, che può essere visualizzato anche in OMS.
+## <a name="create-itsm-work-items-from-azure-alerts"></a>Creare elementi di lavoro ITSM da avvisi di Azure
+ITSM Connector è ora integrato con i gruppi di azioni. I [gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md) consentono di attivare azioni modulari e riutilizzabili per gli avvisi di Azure. L'azione ITSM nei gruppi di azioni crea elementi di lavoro nel prodotto ITSM usando una soluzione ITSM Connector esistente.
+
+1. Nel portale di Azure fare clic su **Monitoraggio**
+2. Nel riquadro sinistro fare clic su **Gruppi di azioni**
+
+    ![Gruppi di azioni](media/log-analytics-itsmc/ActionGroups.png)
+
+3. Specificare il **nome** e il **nome breve** per il gruppo di azioni. Selezionare il **gruppo di risorse** e la **sottoscrizione** in cui si vuole creare il gruppo di azioni.
+
+    ![Dettaglio dei gruppi di azioni](media/log-analytics-itsmc/ActionGroupsDetail.png)
+
+4. Nell'elenco Azioni selezionare **ITSM** dall'elenco a discesa **Tipo di azione**. Specificare un **nome** per l'azione e fare clic su **Modifica dettagli**.
+
+
+5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro di Log Analytics. Selezionare la **connessione**, ovvero il nome del connettore ITSM seguito dal nome dell'area di lavoro, ad esempio "MyITSMMConnector(MyWorkspace)".
+
+    ![Informazioni dettagliate sulle azioni ITSM](./media/log-analytics-itsmc/ITSMActionDetails.png)
+
+6. Selezionare il tipo di **elemento di lavoro** dall'elenco a discesa.
+7. Scegliere di usare un modello esistente o compilare i campi necessari per il prodotto ITSM.
+8. Fare clic su **OK**
+
+Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione ITSM. Quando l'avviso viene attivato, nello strumento ITSM viene creato l'elemento di lavoro. 
+
+>[!NOTE]
+>Attualmente solo gli avvisi del log attività supportano l'azione ITSM. Per gli altri avvisi di Azure, questa azione è no-op.
+>
+
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Risolvere i problemi delle connessioni ITSM in OMS
-1.  Se si verifica un errore di connessione nell'interfaccia utente dell'origine connessa e viene visualizzato il messaggio **Errore durante il salvataggio della connessione**, eseguire le operazioni seguenti:
- - In caso di connessioni ServiceNow, Cherwell e Provance, assicurarsi di immettere correttamente il nome utente e la password, nonché l'ID e il segreto client per ognuna delle connessioni. Se l'errore persiste, controllare se si dispone di privilegi sufficienti all'interno del prodotto ITSM corrispondente per stabilire la connessione.
- - In caso di Service Manager, verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione sia stata stabilita con il computer Service Manager on-premises, visitare l'URL dell'app Web come descritto nella documentazione per la creazione della [connessione ibrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-
-2.  Se i dati provenienti da ServiceNow non vengono sincronizzati in OMS, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Questo potrebbe accadere nelle istanze di ServiceNow Dev, quando si trova nello stato inattivo. In caso contrario, segnalare il problema.
-3.  Se gli avvisi vengono generati da OMS, ma gli elementi di lavoro non vengono creati nel prodotto ITSM o gli elementi di configurazione non vengono creati/collegati a elementi di lavoro o per qualsiasi informazione generica, eseguire le seguenti operazioni:
- -  La soluzione IT Service Management Connector nel portale OMS può essere usata per ottenere un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul messaggio di errore nel pannello di stato, passare a **Ricerca log** e visualizzare la connessione con l'errore usando i dettagli nel messaggio di errore.
- - È possibile visualizzare direttamente gli errori/le informazioni correlate nella pagina **Ricerca log** usando *Type = ServiceDeskLog_CL*.
+1.  Se si verifica un errore di connessione nell'interfaccia utente dell'origine connessa con un messaggio **Errore durante il salvataggio della connessione**, seguire questa procedura:
+ - Per le connessioni ServiceNow, Cherwell e Provance,
+    - assicurarsi di immettere correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.
+    - controllare se si hanno privilegi sufficienti nel prodotto ITSM corrispondente per stabilire la connessione.
+ - Per le connessioni Service Manager,
+     - verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione sia stata stabilita con il computer Service Manager on-premises, visitare l'URL dell'app Web come descritto nella documentazione per la creazione della [connessione ibrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+     
+2.  Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
+3.  Se gli avvisi OMS vengono generati, ma gli elementi di lavoro non vengono creati nel prodotto ITSM o gli elementi di configurazione non vengono creati/collegati a elementi di lavoro o per qualsiasi altra informazione generica, esaminare le posizioni seguenti:
+ -  **Soluzione IT Service Management Connector**: la soluzione visualizza un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro contenente **Stato connettore** per passare a **Ricerca log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
+ - In alternativa visualizzare gli errori o le informazioni correlate direttamente nella pagina **Ricerca log** usando la query *Type = ServiceDeskLog_CL*.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di distribuzione dell’app Web Service Manager
-1.  In caso di problemi con la distribuzione dell’app Web, assicurarsi di disporre di autorizzazioni sufficienti nella sottoscrizione indicata per creare/distribuire risorse.
-2.  Se viene visualizzato il messaggio di errore **Riferimento a oggetto non impostato sull’istanza di un oggetto** durante l’esecuzione dello [script](log-analytics-itsmc-service-manager-script.md), assicurarsi di aver immesso valori validi nella sezione **Configurazione utente**.
-3.  Se non è possibile creare lo spazio dei nomi di inoltro del bus di servizio, assicurarsi che il provider di risorse richiesto sia registrato nella sottoscrizione. Qualora non fosse registrato, crearlo manualmente dal portale di Azure. È inoltre possibile crearlo durante [la creazione della connessione ibrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) dal portale di Azure.
+1.  Se si verificano problemi con la distribuzione dell'app Web, assicurarsi di avere autorizzazioni sufficienti nella sottoscrizione indicata per creare/distribuire risorse.
+2.  Se viene visualizzato un errore **"Riferimento a oggetto non impostato sull'istanza di un oggetto"** quando si esegue lo [script](log-analytics-itsmc-service-manager-script.md), assicurarsi di aver immesso valori validi nella sezione **Configurazione utente**.
+3.  Se non è possibile creare lo spazio dei nomi di inoltro del bus di servizio, assicurarsi che il provider di risorse richiesto sia registrato nella sottoscrizione. Qualora non fosse registrato, creare manualmente lo spazio dei nomi di inoltro del bus di servizio dal portale di Azure. È inoltre possibile crearlo durante [la creazione della connessione ibrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) dal portale di Azure.
 
 
 ## <a name="contact-us"></a>Contatti

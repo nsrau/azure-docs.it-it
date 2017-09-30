@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 3ff04f031b2d170ac63fc1c6f4e2b6ba6a6c46bd
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6cfdeacb788db2e2f940ef1100eb03dc7e496ea6
 ms.contentlocale: it-it
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -47,7 +47,7 @@ Il ciclo di vita di un servizio senza stato è piuttosto semplice. Di seguito è
 
 1. Il servizio viene costruito
 2. Quindi si verificano due cose in parallelo:
-    - Viene richiamato `StatelessService.CreateServiceInstanceListeners()` ed eventuali listener restituito hanno lo stato Aperto. Viene chiamato `ICommunicationListener.OpenAsync()` su ciascun listener.
+    - Viene richiamato `StatelessService.CreateServiceInstanceListeners()` e gli eventuali listener restituiti sono aperti. Viene chiamato `ICommunicationListener.OpenAsync()` su ciascun listener.
     - Viene chiamato il metodo `StatelessService.RunAsync()` del servizio.
 3. Se presente, viene chiamato il metodo `StatelessService.OnOpenAsync()` del servizio. Si tratta di un override insolito ma comunque disponibile.
 
@@ -131,4 +131,4 @@ La gestione delle eccezioni che derivano dall'uso di `ReliableCollections` in co
 - [Introduzione a Reliable Services](service-fabric-reliable-services-introduction.md)
 - [Guida introduttiva a Reliable Services di Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md)
 - [Uso avanzato del modello di programmazione Reliable Services](service-fabric-reliable-services-advanced-usage.md)
-
+- [Istanze e repliche](service-fabric-concepts-replica-lifecycle.md)

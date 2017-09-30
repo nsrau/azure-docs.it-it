@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 37c0ea094d02208f2516a4a040f75894e046c670
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e193efe391c614a17d2861d4ba7d7776a7d441c
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory - Limitazioni correnti
 
 >[!IMPORTANT]
->L'autenticazione pass-through di Azure AD è attualmente in fase di anteprima. È una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per utilizzarla. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale, non in [Microsoft Cloud per la Germania](http://www.microsoft.de/cloud-deutschland) o nel [cloud di Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/).
+>L'autenticazione pass-through di Azure AD è una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per poterla usare. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale, non in [Microsoft Cloud per la Germania](http://www.microsoft.de/cloud-deutschland) o nel [cloud di Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/).
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-Gli scenari seguenti sono completamente supportati in fase di anteprima:
+Sono completamente supportati gli scenari seguenti:
 
 - L'utente accede a tutte le applicazioni basate su Web browser.
 - L'utente accede ad applicazioni client di Office 365 che supportano l'[autenticazione moderna](https://aka.ms/modernauthga).
@@ -38,14 +38,16 @@ Gli scenari seguenti sono completamente supportati in fase di anteprima:
 
 ## <a name="unsupported-scenarios"></a>Scenari non supportati
 
-Gli scenari seguenti _non_ sono supportati in fase di anteprima:
+_Non_ sono supportati gli scenari seguenti:
 
 - Accesso degli utenti ad applicazioni client legacy di Office (Office 2013 o versioni precedenti). Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna permette di supportare l'autenticazione pass-through e contribuisce anche a proteggere gli account utente tramite le funzionalità di [accesso condizionale](../active-directory-conditional-access.md), come l'autenticazione a più fattori.
 - Accesso degli utenti ad applicazioni client Skype for Business, incluso Skype for Business 2016.
 - L'utente accede a PowerShell v 1.0. È consigliabile tuttavia usare PowerShell 2.0.
+- Password di app per MFA.
+- Rilevamento di utenti con [credenziali perse](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->Come soluzione alternativa per gli scenari non supportati, abilitare la sincronizzazione dell'hash della password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect. La sincronizzazione dell'hash della password funziona come fallback _solo_ per gli scenari precedenti (e _non_ come fallback generico per l'autenticazione pass-through). Se questi scenari non sono necessari, disabilitare la sincronizzazione dell'hash della password.
+>Come soluzione alternativa per gli scenari non supportati, abilitare la sincronizzazione dell'hash della password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect. La sincronizzazione dell'hash della password funziona come fallback _solo_ per gli scenari precedenti (e _non_ come fallback generico per l'autenticazione pass-through). Consente inoltre di eseguire il failover dell'autenticazione (tramite il supporto tecnico Microsoft) se viene interrotto il funzionamento dell'infrastruttura locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [**Guida introduttiva**](active-directory-aadconnect-pass-through-authentication-quick-start.md): avvio ed esecuzione dell'autenticazione pass-through di Azure AD.

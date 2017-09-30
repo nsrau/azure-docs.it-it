@@ -1,5 +1,5 @@
 ---
-title: "Panoramica sulle funzionalità di database SQL di Azure | Documentazione Microsoft"
+title: "Panoramica sulle funzionalità di database SQL di Azure | Microsoft Docs"
 description: "Questa pagina fornisce una panoramica dei database e server logici del database SQL di Azure e include una matrice di supporto delle funzionalità con collegamenti per ogni funzionalità elencata."
 services: sql-database
 documentationcenter: na
@@ -16,12 +16,13 @@ ms.workload: data-management
 ms.date: 09/22/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 75575fec0047dd653dca86df1daf234676859600
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 59bb9778c89142212708b660fb200de3f0f1f9d4
 ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
+
 # <a name="azure-sql-database-features"></a>Funzionalità di database SQL di Azure
 
 Il database SQL di Azure condivide con SQL Server una base codici comune e, a livello di database, supporta la maggior parte delle stesse funzionalità. La differenza più rilevante tra il database SQL di Azure e SQL Server è a livello di istanza. 
@@ -93,7 +94,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | No |
 | [Gestione basata su criteri](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No |
 | [Predicati](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Supportati per la maggior parte. Vedere i singoli predicati |
-| [Servizi R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | No |
+| [Servizi R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Versione di anteprima; vedere [Novità di Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
 | [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | No |
 | [Istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | 
 | [Ripristino del database da backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Solo da backup predefiniti. Vedere [Ripristino di un database SQL](sql-database-recovery-using-backups.md) |

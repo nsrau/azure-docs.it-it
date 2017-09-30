@@ -3,7 +3,7 @@ title: Come monitorare un account di archiviazione di Azure | Microsoft Docs
 description: Informazioni su come monitorare un account di archiviazione in Azure usando il portale di Azure.
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e8fbc4ecdffe62806019f494e1412cfedbccf71f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bb2d019a751131e031f244e09b524227348bc190
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/21/2017
 > [!NOTE]
 > All'esame dei dati di monitoraggio nel portale di Azure sono associati costi. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
-> L’archiviazione file di Azure attualmente supporta la metrica di analisi di archiviazione, ma non supporta ancora l'accesso.
+> File di Azure attualmente supporta la metrica di Analisi archiviazione, ma non supporta ancora la registrazione.
 >
 > Le funzionalità di metrica e registrazione non sono attualmente abilitate per gli account di archiviazione con replica di tipo archiviazione con ridondanza della zona (ZRS).
 > 
@@ -138,7 +138,7 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
 È possibile impostare Archiviazione di Azure in modo da salvare i log di diagnostica per le richieste di lettura, scrittura ed eliminazione per i servizi BLOB, tabelle e di accodamento. I criteri di conservazione dati impostati si applicano anche a questi log.
 
 > [!NOTE]
-> L’archiviazione file di Azure attualmente supporta la metrica di analisi di archiviazione, ma non supporta ancora l'accesso.
+> File di Azure attualmente supporta la metrica di Analisi archiviazione, ma non supporta ancora la registrazione.
 >
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Account di archiviazione** e quindi il nome dell'account di archiviazione per aprire il relativo pannello.

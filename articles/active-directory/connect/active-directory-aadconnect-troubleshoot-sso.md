@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 1dbb1d5aae55a4c926b9d8632b416a740a375684
-ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4d96f96d6b9d6808d6a7c7ad8d720c2c2773d7d5
 ms.contentlocale: it-it
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,12 +28,14 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 
 ## <a name="known-issues"></a>Problemi noti
 
+- In alcuni casi, l'abilitazione dell'accesso Single Sign-On facile può richiedere fino a 30 minuti.
+- Non è disponibile il supporto per il browser Edge.
+- L'attivazione della licenza in client Office, soprattutto in scenari di computer condivisi, prevede procedure di accesso aggiuntive per gli utenti.
+- L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox. e 
+- L'accesso Single Sign-On facile non funziona in Internet Explorer quando è attiva la modalità di protezione avanzata.
+- L'accesso Single Sign-On facile non funziona nei browser per dispositivi mobili basati su iOS e Android.
 - Se si esegue la sincronizzazione di 30 o più foreste di Active Directory, non è possibile abilitare l'accesso SSO facile usando Azure AD Connect. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-azure-ad-seamless-sso) la funzionalità nel tenant in uso.
 - L'aggiunta degli URL del servizio Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) alla zona "Siti attendibili" invece che alla zona "Intranet locale" **impedisce agli utenti di eseguire l'accesso**.
-- L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox e in Microsoft Edge, ma nemmeno in Internet Explorer quando la modalità di protezione avanzata è attivata.
-
->[!IMPORTANT]
->Di recente è stato eseguito il rollback del supporto per Microsoft Edge per analizzare i problemi segnalati dai clienti.
 
 ## <a name="check-status-of-the-feature"></a>Controllare lo stato della funzionalità
 

@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Monitoraggio di Azure | Documentazione Microsoft
+title: Panoramica di Monitoraggio di Azure | Microsoft Docs
 description: "Monitoraggio di Azure raccoglie dati statistici da usare in avvisi, webhook, scalabilità automatica e automazione. L'articolo elenca anche altre opzioni di monitoraggio di Microsoft."
 author: rboucher
 manager: carmonm
@@ -12,29 +12,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 09/23/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 619a004b9aff99be68988e1f7be3ccad400a8a0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="overview-of-azure-monitor"></a>Panoramica di Monitoraggio di Azure
 Questo articolo fornisce una panoramica del servizio Monitoraggio di Azure in Microsoft Azure. Illustra il funzionamento di Monitoraggio di Azure e fornisce collegamenti a informazioni aggiuntive su come usare Monitoraggio di Azure.  Per un'introduzione video, vedere i collegamenti della sezione Passaggi successivi alla fine dell'articolo. 
 
-## <a name="why-monitor-your-application-or-system"></a>Perché monitorare l'applicazione o il sistema
-Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
-
-
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Monitoraggio di Azure e altri prodotti per il monitoraggio di Microsoft
-Attualmente Monitoraggio di Azure offre metriche e log dell'infrastruttura di livello base per la maggior parte dei servizi in Microsoft Azure, ma in futuro tutti i servizi di Azure inseriranno i dati in Monitoraggio di Azure.
+Attualmente Monitoraggio di Azure offre log e metriche dell'infrastruttura di livello base per la maggior parte dei servizi in Microsoft Azure ma in futuro tutti i servizi di Azure inseriranno i dati in Monitoraggio di Azure.
 
 Microsoft offre altri prodotti e servizi con funzionalità di monitoraggio aggiuntive per sviluppatori, DevOps o ITOps, che hanno anche installazioni locali. Per una panoramica e per informazioni sull'integrazione di questi diversi prodotti e servizi, vedere [Monitoraggio in Microsoft Azure](monitoring-overview.md).
 
-## <a name="monitoring-sources---compute"></a>Monitoraggio delle origini: calcolo
+## <a name="portal-overview-page"></a>Pagina di panoramica del portale
+
+Monitoraggio di Azure ha una pagina di destinazione che consente agli utenti di: 
+- Comprendere le funzionalità di monitoraggio offerte da Azure.
+- Individuare, configurare e caricare la piattaforma e le funzionalità premium di monitoraggio di Azure.
+
+Mentre il servizio Monitoraggio di Azure viene rilasciato, la pagina di panoramica di destinazione è in anteprima. 
+
+La pagina è un punto di partenza per la navigazione, incluso il caricamento. Mostra i problemi dettagliati rilevanti dei vari servizi e consente all'utente di accedervi con il relativo contesto.
+ 
+![Modello di monitoraggio e diagnostica per risorse non di calcolo](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
+
+Quando si apre la pagina, è possibile scegliere tra le sottoscrizioni per cui si dispone di accesso in lettura. Per una sottoscrizione selezionata, è possibile vedere:
+
+- **Avvisi attivati e origini degli avvisi**: questa tabella mostra il riepilogo conteggi, le origini degli avvisi e quante volte sono stati generati gli avvisi per la durata di tempo selezionata. Si applica sia agli avvisi metrica che agli avvisi del log attività.
+- **Errori log attività**: se una delle risorse di Azure registra eventi con gravità a livello di errore, è possibile visualizzare un conteggio di alto livello e andare alla pagina log attività per esaminare ogni evento.
+- **Integrità dei servizi di Azure**: è possibile visualizzare un conteggio di problemi di integrità del servizio, eventi pianificati di manutenzione e avvisi sull'integrità. Integrità dei servizi di Azure offre informazioni personalizzate quando nell'infrastruttura di Azure si verificano problemi che influiscono sui servizi.  Per altre informazioni, vedere [Integrità dei servizi di Azure](../service-health/service-health-overview.md).  
+- **Application Insights**: vedere gli indicatori KPI per ogni risorsa AppInsights nella sottoscrizione corrente. Gli indicatori KPI sono ottimizzati affinché l'applicazione sul lato server monitori le applicazioni web ASP.NET e i tipi di applicazione Java, Node e generali. Gli indicatori KPI includono metriche per la frequenza di richieste, la durata di risposta, la percentuale di errori e di disponibilità. 
+
+Se non sono state caricate Log Analytics o Application Insights o se non è stato configurato alcun avviso di Azure nella sottoscrizione corrente, la pagina indica collegamenti per iniziare il processo di caricamento.
+
+
+
+## <a name="azure-monitor-sources---compute-subset"></a>Origini di Monitoraggio di Azure: subset di calcolo
 
 ![Modello di monitoraggio e diagnostica per risorse non di calcolo](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
@@ -64,7 +83,7 @@ Le risorse di calcolo elencate sopra hanno una VM host dedicata e un sistema ope
 ### <a name="activity-log"></a>Log attività
 Nei log attività, in precedenza chiamati log operativi o di controllo, è possibile cercare informazioni relative alla risorsa così come visualizzate dall'infrastruttura di Azure. I log contengono informazioni quali gli orari di creazione ed eliminazione delle risorse.  Per altre informazioni, vedere [Panoramica del log attività di Azure](monitoring-overview-activity-logs.md). 
 
-## <a name="monitoring-sources---everything-else"></a>Monitoraggio delle origini: altro
+## <a name="azure-monitor-sources---everything-else"></a>Origini di Monitoraggio di Azure: altro
 
 ![Modello di monitoraggio e diagnostica per risorse di calcolo](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-non-compute_v6.png)
 
@@ -79,10 +98,10 @@ Non esiste necessariamente una corrispondenza 1:1 tra la risorsa e una determina
 Il log attività è identico a quello delle risorse di calcolo.  
 
 ## <a name="uses-for-monitoring-data"></a>Uso dei dati di monitoraggio
-Dopo avere raccolto i dati, è possibile eseguire le operazioni seguenti in Monitoraggio di Azure
+Dopo avere raccolto i dati, è possibile eseguire le operazioni seguenti in Monitoraggio di Azure.
 
 ### <a name="route"></a>Route
-È possibile trasmettere i dati di monitoraggio ad altre posizioni in tempo reale.
+È possibile trasmettere i dati di monitoraggio ad altre posizioni. 
 
 Tra gli esempi sono inclusi:
 
@@ -142,7 +161,8 @@ In generale, è possibile modificare il rilevamento, il routing e il recupero de
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su:
 - Una procedura dettagliata video solo di Monitoraggio di Azure è disponibile alla pagina  
-[Introduzione a Monitoraggio di Azure](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Un altro video che illustra uno scenario in cui è possibile usare Monitoraggio di Azure è disponibile alle pagine [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure) e [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977) (Monitoraggio di Azure in un video di Ignite 2016)
+[Introduzione a Monitoraggio di Azure](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 
+- Un video che illustra uno scenario in cui è possibile usare Monitoraggio di Azure è disponibile alle pagine [Explore Microsoft Azure monitoring and diagnostics](https://channel9.msdn.com/events/Ignite/2016/BRK2234) (Esplorare le funzionalità Diagnostica e Monitoraggio di Microsoft Azure) e [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977) (Monitoraggio di Azure in un video di Ignite 2016).
 - Riesaminare l'interfaccia di Monitoraggio di Azure in [Introduzione a Monitoraggio di Azure](monitoring-get-started.md)
 - Configurare le [estensioni di Diagnostica di Azure](../azure-diagnostics.md), per diagnosticare problemi nell'applicazione di servizio cloud, macchina virtuale, set di scalabilità di macchine virtuali o Service Fabric.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) , utili per la diagnosi di problemi nell'app Web del servizio app.

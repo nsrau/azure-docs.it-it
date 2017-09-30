@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0f7d847c98e790c542f3a3e666b9a887099a6cbc
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 09/13/2017
 Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Nei criteri di accesso condizionale si definisce la risposta ("fare questo") a una specifica condizione ("quando accade questo"). Nel contesto dell'accesso condizionale, 
 
 - "**Quando accade questo**" è l'**istruzione della condizione**
+
 - "**Fare questo**" sono i **controlli**
 
 ![Controllo](./media/active-directory-conditional-access-controls/11.png)
@@ -54,7 +55,7 @@ Con i controlli di concessione è possibile bloccare completamente l'accesso o c
 - Richiedere che tutti i controlli selezionati siano soddisfatti (*AND*) 
 - Richiedere che un solo controllo selezionato sia soddisfatto (*OR*)
 
-![Controllo](./media/active-directory-conditional-access-controls/51.png)
+![Controllo](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -89,6 +90,63 @@ Poiché i dipendenti di un'azienda usano i dispositivi mobili per attività sia 
 
 
 Con le app client approvate, è possibile richiedere a un'app client che prova ad accedere alle app cloud di supportare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy). È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook. I criteri di accesso condizionale che richiedono app client approvate sono noti anche come [criteri di accesso condizionale basato su app](active-directory-conditional-access-mam.md). Per un elenco di app client approvate supportate, vedere [Requisito per le app client approvate](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+
+
+### <a name="terms-of-use"></a>Condizioni per l'utilizzo
+
+È possibile richiedere a un utente nel tenant di accettare le condizioni per l'utilizzo prima di concedergli il permesso di accedere a una risorsa. Gli amministratori possono configurare e personalizzare le condizioni per l'utilizzo caricando un documento PDF. Se un utente rientra nell'ambito di questo controllo, gli viene concesso l'accesso a un'applicazione solo se ha accettato le condizioni per l'utilizzo. 
+
+
+### <a name="custom-controls"></a>Controlli personalizzati 
+
+Nell'accesso condizionale è possibile creare controlli personalizzati che comportano il reindirizzamento degli utenti a un servizio compatibile per soddisfare altri requisiti esterni ad Azure Active Directory. In questo modo, è possibile usare determinati provider di verifica e autenticazione a più fattori esterni per applicare le regole di accesso condizionale o per creare un servizio personalizzato. Per soddisfare questo controllo, il browser dell'utente viene reindirizzato al servizio esterno, esegue le eventuali attività di autenticazione e convalida richieste e viene quindi reindirizzato ad Azure Active Directory. Se l'utente è stato correttamente autenticato o convalidato, può proseguire nel flusso di accesso condizionale. 
+
+## <a name="custom-controls"></a>Controlli personalizzati
+
+I controlli personalizzati creati nell'accesso condizionale comportano il reindirizzamento degli utenti a un servizio compatibile per soddisfare altri requisiti esterni ad Azure Active Directory. Per soddisfare questo controllo, il browser dell'utente viene reindirizzato al servizio esterno, esegue le eventuali attività di autenticazione e convalida richieste e viene quindi reindirizzato ad Azure Active Directory. Azure Active Directory verifica la risposta e, se l'utente è stato correttamente autenticato o convalidato, può proseguire nel flusso di accesso condizionale.
+
+Questi controlli consentono l'utilizzo di determinati servizi esterni o personalizzati come controlli di accesso condizionale e, in genere, estendono le funzionalità dell'accesso condizionale.
+
+Di seguito sono elencati i provider che attualmente offrono un servizio compatibile:
+
+- Duo Security
+
+- RSA
+
+- Trusona
+
+Per altre informazioni su questi servizi, contattare direttamente i provider.
+
+### <a name="creating-custom-controls"></a>Creazione di controlli personalizzati
+
+Per creare un controllo personalizzato, è opportuno prima contattare il provider a cui ci si vuole rivolgere. Ogni provider diverso da Microsoft presenta specifici processi e requisiti da soddisfare per poter iscriversi a un servizio, sottoscriverlo o entrare a far parte di esso o per specificare che si intende integrarlo con l'accesso condizionale. A questo punto, il provider fornirà un blocco di dati in formato JSON. Questi dati consentono al provider di interagire con l'accesso condizionale per il tenant e permettono di creare il nuovo controllo e di definire le modalità con cui l'accesso condizionale specifica se gli utenti hanno eseguito correttamente la verifica con il provider.
+
+Copiare i dati JSON e incollarli nella casella di testo corrispondente. Non apportare modifiche ai dati JSON a meno di non aver compreso in modo esplicito la modifica che si sta apportando. L'introduzione di una modifica potrebbe interrompere la connessione tra il provider e Microsoft e potenzialmente bloccare gli utenti fuori dai rispettivi account.
+
+L'opzione che consente di creare un controllo personalizzato si trova nella sezione **Gestisci** della pagina **Accesso condizionale**.
+
+![Controllo](./media/active-directory-conditional-access-controls/82.png)
+
+Facendo clic su **Nuovo controllo personalizzato** si apre un pannello con una casella di testo per i dati JSON relativi al controllo.  
+
+
+![Controllo](./media/active-directory-conditional-access-controls/81.png)
+
+
+### <a name="deleting-custom-controls"></a>Eliminazione di controlli personalizzati
+
+Per eliminare un controllo personalizzato, è necessario prima accertarsi che non sia in uso in nessuno dei criteri di accesso condizionale. Al termine della procedura:
+
+1. Passare all'elenco di controlli personalizzati
+
+2. Fare clic su ...  
+
+3. Selezionare **Elimina**.
+
+### <a name="editing-custom-controls"></a>Modifica di controlli personalizzati
+
+Per modificare un controllo personalizzato, è necessario eliminare il controllo corrente e creare un nuovo controllo con le informazioni aggiornate.
+
 
 
 

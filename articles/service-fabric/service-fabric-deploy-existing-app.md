@@ -1,5 +1,5 @@
 ---
-title: Distribuire un eseguibile esistente in Azure Service Fabric | Documentazione Microsoft
+title: Distribuire un eseguibile esistente in Azure Service Fabric | Microsoft Docs
 description: Procedura dettagliata su come creare il pacchetto di un'applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a1db3dda674ffe43587333d88f3816549af3019c
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a8579c66cbfb0968a3659316aa5f03b798f4e332
 ms.contentlocale: it-it
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>Distribuire un eseguibile guest in Service Fabric
@@ -101,7 +100,7 @@ Visual Studio include un modello di servizio di Service Fabric che consente di d
 6. È ora possibile usare l'azione di creazione del pacchetto e di pubblicazione sul cluster locale eseguendo il debug della soluzione in Visual Studio. Quando si è pronti, pubblicare l'applicazione in un cluster remoto o archiviare la soluzione nel controllo del codice sorgente.
 7. Per informazioni su come visualizzare il servizio dell'eseguibile guest in esecuzione in Service Fabric Explorer, andare alla fine di questo articolo.
 
-## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>Usare Yoeman per creare il pacchetto e distribuire un eseguibile esistente in Linux
+## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Usare Yeoman per creare il pacchetto e distribuire un eseguibile esistente in Linux
 
 La procedura per la creazione e distribuzione di un eseguibile guest in Linux è analoga alla distribuzione di un'applicazione java o csharp.
 
