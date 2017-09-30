@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 78a6164e76f6ceab936874e68bd38bb4eb387e00
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-In questo articolo si apprende come abilitare e rimuovere l'Identità del servizio gestito per una macchina virtuale Windows di Azure tramite l'interfaccia della riga di comando di Azure.
+In questo articolo si apprende come abilitare e rimuovere l'Identità del servizio gestito per una VM di Azure tramite l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,7 +43,7 @@ Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono d
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Abilitare l'Identità del servizio gestito durante la creazione di una macchina virtuale di Azure
 
-Viene creata una nuova risorsa della macchina virtuale Windows abilitata per l'Identità del servizio gestito in un nuovo gruppo di risorse, usando i parametri di configurazione specificati. Si noti anche che l'esecuzione di molte di queste funzioni può richiedere diversi secondi o minuti prima di restituire un risultato.
+Per creare una VM abilitata per MSI:
 
 1. Se non si usa Azure Cloud Shell dal portale di Azure, accedere innanzitutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
 
@@ -67,7 +67,7 @@ Viene creata una nuova risorsa della macchina virtuale Windows abilitata per l'I
 
 Se è necessario abilitare l'Identità del servizio gestito su una macchina virtuale esistente:
 
-1. Se non si usa Azure Cloud Shell dal portale di Azure, accedere innanzitutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
+1. Se non si usa Azure Cloud Shell dal portale di Azure, accedere innanzitutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
 
    ```azurecli-interactive
    az login
@@ -83,13 +83,13 @@ Se è necessario abilitare l'Identità del servizio gestito su una macchina virt
 
 Se si dispone di una macchina virtuale per cui non è più necessaria un'Identità del servizio gestito:
 
-1. Se non si usa Azure Cloud Shell dal portale di Azure, accedere innanzitutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
+1. Se non si usa Azure Cloud Shell dal portale di Azure, accedere innanzitutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
 
    ```azurecli-interactive
    az login
    ```
 
-2. Usare il commutatore `-n ManagedIdentityExtensionForWindows` con il comando [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) per rimuovere l'Identità del servizio gestito:
+2. Utilizzare il parametro `-n ManagedIdentityExtensionForWindows` o `-n ManagedIdentityExtensionForLinux` (a seconda del tipo di VM) con [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity) per rimuovere MSI:
 
    ```azurecli-interactive
    az vm extension delete --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -98,7 +98,10 @@ Se si dispone di una macchina virtuale per cui non è più necessaria un'Identit
 ## <a name="related-content"></a>Contenuti correlati
 
 - [Panoramica dell'Identità del servizio gestito](msi-overview.md)
-- Questo articolo è stato adattato dalla guida rapida [Creare una macchina virtuale Windows con l'interfaccia della riga di comando](../virtual-machines/windows/quick-create-cli.md), modificata per includere le istruzioni specifiche dell'Identità di servizio gestito. 
+- Per la guida introduttiva completa sulla creazione di VM di Azure, vedere: 
+
+  - [Creare una macchina virtuale Windows con l'interfaccia della riga di comando](../virtual-machines/windows/quick-create-cli.md)  
+  - [Creare una macchina virtuale Linux con l'interfaccia della riga di comando](../virtual-machines/linux/quick-create-cli.md) 
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

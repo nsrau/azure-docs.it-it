@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 09/21/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: bcfffe05dbce2824ea4933997865e8c7e86610b6
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
 ms.contentlocale: it-it
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -42,9 +42,9 @@ Se i criteri di sicurezza IT non consentono ai computer nella rete di connetters
 ## <a name="system-requirements"></a>Requisiti di sistema
 Prima di iniziare, esaminare i dettagli seguenti per verificare che i prerequisiti siano soddisfatti.
 
-* OMS supporta solo Operations Manager 2016, Operations Manager 2012 SP1 UR6 e versioni successive e Operations Manager 2012 R2 UR2 e versioni successive.  Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
+* OMS supporta solo Operations Manager 2016, Operations Manager 2012 SP1 UR10 e versioni successive e Operations Manager 2012 R2 UR11 e versioni successive.
 * Tutti gli agenti di Operations Manager devono soddisfare i requisiti di supporto minimo. Verificare che gli agenti dispongano dell'aggiornamento minimo richiesto, altrimenti il traffico degli agenti di Windows può avere esito negativo e nel log eventi di Operations Manager potrebbero essere presenti molti errori.
-* Una sottoscrizione di OMS.  Per ulteriori informazioni, vedere [Introduzione a Log Analytics](log-analytics-get-started.md).
+* Una sottoscrizione di Log Analytics di Azure.  Per ulteriori informazioni, vedere [Introduzione a Log Analytics](log-analytics-get-started.md).
 
 ### <a name="network"></a>Rete
 Nella tabella seguente sono elencate le informazioni di configurazione del proxy e del firewall necessarie all'agente di Operations Manager, ai server di gestione e alla console operatore per comunicare con OMS.  Il traffico in uscita da ogni componente di rete viene indirizzato al servizio OMS.     

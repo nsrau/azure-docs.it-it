@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
@@ -138,6 +138,9 @@ Di seguito è riportato un esempio ApplicationManifest che è necessario imposta
   </Certificates>
 </ApplicationManifest>
 ```
+
+Per i cluster Linux, l'archivio **MY** predefinito è la cartella **/var/lib/sfcerts**.
+
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Override degli endpoint in ServiceManifest.xml
 

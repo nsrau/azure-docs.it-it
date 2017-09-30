@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 36da8c7d0f3ace194522e5288f26069cf46d470e
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -26,15 +26,19 @@ ms.lasthandoff: 06/30/2017
 
 Il server di configurazione funge da coordinatore tra i servizi di Site Recovery e l'infrastruttura locale in uso. Questo articolo illustra come impostare, configurare e gestire il server di configurazione.
 
-## <a name="prerequisites"></a>Prerequisiti
-La tabella seguente elenca i requisiti minimi hardware, software e di rete richiesti per impostare un server di configurazione.
-
 > [!NOTE]
 > La [pianificazione della capacità](site-recovery-capacity-planner.md) è un passaggio importante per assicurarsi di distribuire un server di configurazione con una configurazione adatta ai requisiti di carico. Per altre informazioni, vedere la sezione [Requisiti di dimensione per un server di configurazione](#sizing-requirements-for-a-configuration-server).
+
+
+## <a name="prerequisites"></a>Prerequisiti
+La tabella seguente elenca i requisiti minimi hardware, software e di rete richiesti per impostare un server di configurazione.
+> [!IMPORTANT]
+> Quando si distribuisce un server di configurazione per la protezione di macchine virtuali VMware, è consigliabile distribuirlo come una macchina virtuale a **disponibilità elevata**.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="downloading-the-configuration-server-software"></a>Download del software del server di configurazione
+
 1. Accedere al portale di Azure e passare all'insieme di credenziali di Servizi di ripristino.
 2. Passare a **Infrastruttura di Site Recovery** > **Server di configurazione** (in For VMware & Physical Machines (Computer VMware e fisici)).
 
@@ -131,10 +135,10 @@ ProxyPassword="Password"
 1. Accedere al server di configurazione.
 2. Al prompt dei comandi dell'amministratore, eseguire il comando
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. Avviare il file cspsconfigtool.exe usando il relativo collegamento.
 4. Fare clic sulla scheda **Vault Registration** (Registrazione dell'insieme di credenziali).
 5. Scaricare un nuovo file di registrazione dal portale e fornirlo come input allo strumento.
@@ -149,6 +153,17 @@ net stop dra
     net stop obengine
     net start obengine
     ```
+
+## <a name="updating-a-configuration-server"></a>Aggiornamento di un server di configurazione
+
+> [!WARNING]
+> Gli aggiornamenti sono supportati solo fino alla versione N-4th. Ad esempio, se la versione più recente sul mercato è la 9.11, è possibile eseguire l'aggiornamento dalla versione 9.10, 9.9, 9.8 o 9.7 direttamente alla versione 9.11. Ma ci si trova in qualsiasi versione minore o uguale alla 9.6, sarà necessario eseguire l'aggiornamento almeno alla versione 9.7 prima di applicare gli aggiornamenti più recenti al server di configurazione. I collegamenti per il download della versione precedente sono reperibili in [Aggiornamenti di servizio di Azure Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)
+
+1. Scaricare il programma di installazione dell'aggiornamento nel server di configurazione.
+2. Avviare il programma di installazione facendo doppio clic su esso.
+3. Il programma di installazione individuerà la versione dei componenti di Site Recovery presenti nel computer e chiedeà conferma. 
+4. Fare clic sul pulsante OK per confermare e continuare con l'aggiornamento.
+
 
 ## <a name="decommissioning-a-configuration-server"></a>Rimozione delle autorizzazioni per un server di configurazione
 Prima di iniziare a rimuovere le autorizzazioni per il server di configurazione, assicurarsi di eseguire queste operazioni.

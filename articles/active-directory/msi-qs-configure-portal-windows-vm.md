@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 9406ba2bbbea41f4677cd0d5aaddf16b0f4f26c8
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 169417530da21e0c8c58cbf770fd1d26660387f7
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-In questo articolo si apprende come abilitare e rimuovere l'Identità del servizio gestito per una macchina virtuale Windows di Azure tramite il portale di Azure.
+In questo articolo si apprende come abilitare e rimuovere l'Identità del servizio gestito per una VM di Azure tramite il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,13 +35,18 @@ In questo articolo si apprende come abilitare e rimuovere l'Identità del serviz
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Abilitare l'Identità del servizio gestito durante la creazione di una macchina virtuale di Azure
 
-Al momento della redazione del presente documento, l'abilitazione dell'Identità del servizio gestito durante la creazione di una macchina virtuale nel portale di Azure non è supportata. Al contrario, consultare la guida rapida [Creare una macchina virtuale Windows con il portale di Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) per informazioni dettagliate sulla creazione di una macchina virtuale. Procedere quindi alla sezione successiva per informazioni dettagliate sull'abilitazione dell'Identità del servizio gestito.
+Al momento della redazione del presente documento, l'abilitazione dell'Identità del servizio gestito durante la creazione di una macchina virtuale nel portale di Azure non è supportata. In alternativa, prima di creare una VM, vedere uno dei seguenti articoli di guida introduttiva sulla creazione di VM:
+
+- [Creare una macchina virtuale Windows con il portale di Azure](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Creare una macchina virtuale Linux con il portale di Azure](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+
+Procedere quindi alla sezione successiva per informazioni dettagliate sull'abilitazione di MSI nella VM.
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>Abilitare l'Identità del servizio gestito in una macchina virtuale di Azure esistente
 
 Se si dispone di una macchina virtuale su cui è stato originariamente è stato eseguito il provisioning senza un'Identità del servizio gestito:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale.
+1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali".
 
 2. Passare alla macchina virtuale desiderata.
 
@@ -53,7 +58,7 @@ Se si dispone di una macchina virtuale su cui è stato originariamente è stato 
 
 Se si dispone di una macchina virtuale per cui non è più necessaria un'Identità del servizio gestito:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale.
+1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali".
 
 2. Passare alla macchina virtuale desiderata.
 
@@ -63,8 +68,7 @@ Se si dispone di una macchina virtuale per cui non è più necessaria un'Identit
 
 ## <a name="related-content"></a>Contenuti correlati
 
-- Per una panoramica dell'Identità del servizio gestito, vedere [Panoramica dell'Identità del servizio gestito](msi-overview.md).
-- Questo articolo è stato adattato dalla guida rapida [Creare una macchina virtuale Windows con il portale di Azure](../virtual-machines/windows/quick-create-portal.md), modificata per includere le istruzioni specifiche dell'Identità di servizio gestito. 
+- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](msi-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

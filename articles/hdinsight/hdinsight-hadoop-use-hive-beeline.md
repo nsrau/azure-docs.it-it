@@ -15,25 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: db5dff01c0459db746eace0c9a4535aeccd4dcfa
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: eb67f33eb29bdfdbc5589561be481460510b07ee
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Usare il client Beeline con Apache Hive
 
 Informazioni su come usare [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) per eseguire query Hive in HDInsight.
 
-Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline usa JDBC per connettersi a HiveServer2, un servizio ospitato nel cluster HDInsight. È anche possibile usare Beeline per accedere in remoto a Hive in HDInsight tramite Internet. Nella tabella seguente vengono elencate le stringhe di connessione da usare con Beeline:
+Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline usa JDBC per connettersi a HiveServer2, un servizio ospitato nel cluster HDInsight. È anche possibile usare Beeline per accedere in remoto a Hive in HDInsight tramite Internet. Di seguito sono riportate le più comuni stringhe di connessione utilizzate per connettersi a HDInsight da Beeline:
 
-| Esecuzione di Beeline da | Parametri |
-| --- | --- | --- |
-| Una connessione SSH a un nodo head o a un nodo perimetrale | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
-| All'esterno del cluster | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
+* __Utilizzo di Beeline da una connessione SSH a un nodo head o a un nodo perimetrale__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+* __Utilizzo di Beeline in un client, connessione ad HDInsight tramite una rete virtuale di Azure__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Utilizzo di Beeline in un client, connessione ad HDInsight tramite la rete Internet pubblica__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]
 > Sostituire `admin` con l'account di accesso del cluster.
@@ -41,6 +40,8 @@ Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline u
 > Sostituire `password` con la password dell'account di accesso del cluster.
 >
 > Sostituire `clustername` con il nome del cluster HDInsight.
+>
+> Quando ci si connette al cluster tramite una rete virtuale, sostituire `<headnode-FQDN>` con il nome di dominio completo di un nodo head del cluster.
 
 ## <a id="prereq"></a>Prerequisiti
 
@@ -55,20 +56,25 @@ Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline u
 
 ## <a id="beeline"></a>Usare Beeline
 
-1. Quando si avvia Beeline, è necessario fornire una stringa di connessione per HiveServer2 nel cluster HDInsight. Per eseguire il comando dall'esterno del cluster, è necessario fornire anche il nome account (predefinito: `admin`) e la password dell'account di accesso del cluster. Usare la tabella seguente per trovare il formato della stringa di connessione e i parametri da usare:
+1. Quando si avvia Beeline, è necessario fornire una stringa di connessione per HiveServer2 nel cluster HDInsight:
 
-    | Esecuzione di Beeline da | Parametri |
-    | --- | --- | --- |
-    | Una connessione SSH a un nodo head o a un nodo perimetrale | `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'` |
-    | All'esterno del cluster | `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password` |
+    * Durante la connessione mediante la rete Internet pubblica, è necessario fornire il nome di account di accesso del cluster (impostazione predefinita `admin`) e la password. Ad esempio, l'uso di Beeline da un sistema client per connettersi all'indirizzo `<clustername>.azurehdinsight.net`. Questa connessione viene eseguita tramite la porta `443` e viene crittografata mediante SSL:
 
-    Il comando seguente, ad esempio, può essere usato per avviare Beeline da una sessione SSH al cluster:
+        ```bash
+        beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+        ```
 
-    ```bash
-    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
-    ```
+    * Quando la connessione viene eseguita da una sessione SSH a un nodo head del cluster, è possibile connettersi all'indirizzo `headnodehost` sulla porta `10001`:
 
-    Questo comando avvia il client Beeline ed esegue la connessione a HiveServer2 nel nodo head del cluster. Al termine dell'esecuzione del comando, si aprirà il prompt `jdbc:hive2://headnodehost:10001/>`.
+        ```bash
+        beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+        ```
+
+    * Quando la connessione viene eseguita tramite una rete virtuale di Azure, è necessario fornire il nome di dominio completo di un nodo head del cluster. Poiché questa connessione viene eseguita direttamente ai nodi del cluster, la connessione usa la porta `10001`:
+
+        ```bash
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
 
 2. I comandi di Beeline iniziano di solito con un carattere `!`, ad esempio `!help` visualizza la Guida. Tuttavia il carattere `!` può essere omesso per alcuni comandi. Ad esempio, anche `help` funziona.
 
@@ -218,7 +224,7 @@ Usare la procedura seguente per creare un file, quindi eseguirlo tramite Beeline
 
 ## <a id="remote"></a>Usare Beeline da remoto
 
-Se Beeline è installato localmente o se viene usato tramite un'immagine Docker, ad esempio [sutoiku/beeline](https://hub.docker.com/r/sutoiku/beeline/), è necessario usare i parametri seguenti:
+Se Beeline è installato in locale e si esegue la connessione tramite la rete Internet pubblica, usare i parametri seguenti:
 
 * __Stringa di connessione__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
 
@@ -229,6 +235,12 @@ Se Beeline è installato localmente o se viene usato tramite un'immagine Docker,
 Sostituire `clustername` nella stringa di connessione con il nome del cluster HDInsight.
 
 Sostituire `admin` con il nome dell'account di accesso del cluster e `password` con la password per l'account di accesso del cluster.
+
+Se Beeline è installato in locale e si esegue la connessione tramite una rete virtuale di Azure, usare i parametri seguenti:
+
+* __Stringa di connessione__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+
+Per trovare il nome di dominio completo di un nodo head, usare le informazioni contenute nel documento [Gestire i cluster HDInsight mediante l'API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 ## <a id="sparksql"></a>Usare Beeline con Spark
 

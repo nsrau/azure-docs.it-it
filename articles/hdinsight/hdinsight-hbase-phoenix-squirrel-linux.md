@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 2c7431723906c912eb2a38fb0600dd13d5bc46a5
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 07646927f7f2e829e4f4cc6ac5f51b2b381e9c5a
 ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Usare Apache Phoenix con cluster HBase basati su Linux in HDinsight
@@ -36,14 +36,13 @@ Questo articolo fornisce informazioni su come usare [Apache Phoenix](http://phoe
 ### <a name="prerequisites"></a>Prerequisiti
 Per usare SQLLine sono necessari gli elementi seguenti:
 
-* **Un cluster HBase in HDInsight**. Per informazioni sul provisioning di un cluster HBase, vedere [Introduzione ad Apache HBase in HDInsight][hdinsight-hbase-get-started].
-* **Connessione al cluster HBase tramite il file RDP (Remote Desktop Protocol)**. Per altre informazioni, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure][hdinsight-manage-portal].
+* **Un cluster HBase in HDInsight**. Per crearne uno, vedere [Introduzione ad Apache HBase in HDInsight](./hdinsight-hbase-tutorial-get-started.md).
 
 Quando ci si connette a un cluster HBase, è necessario connettersi a una delle macchine virtuali ZooKeeper. Ogni cluster HDInsight ha tre macchine virtuali ZooKeeper.
 
 **Per ottenere il nome host ZooKeeper**
 
-1. Aprire Ambari passando a **https://\<nome cluster\>.azurehdinsight.net**.
+1. Aprire Ambari passando ad **https://\<nome cluster\>.azurehdinsight.net**.
 2. Per accedere, immettere nome utente e password HTTP (cluster).
 3. Nel menu a sinistra selezionare **ZooKeeper**. Vengono elencate tre istanze di **ZooKeeper Server**.
 4. Selezionare una delle istanze di **ZooKeeper Server**. Nel riquadro **Riepilogo** trovare **Nome host**. Il nome è simile a *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
@@ -55,7 +54,7 @@ Quando ci si connette a un cluster HBase, è necessario connettersi a una delle 
 2. In SSH usare i comandi seguenti per eseguire SQLLine:
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
-        ./sqlline.py <ClusterName>:2181:/hbase-unsecure
+        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. Per creare una tabella HBase e inserire alcuni dati, eseguire questi comandi:
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
@@ -84,7 +83,6 @@ In questo articolo si è appreso come usare Apache Phoenix in HDInsight. Per alt
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md

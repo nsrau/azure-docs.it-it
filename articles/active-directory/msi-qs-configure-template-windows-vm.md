@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 266458323ca54d9805aea12108faed79e69d30b0
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 8b599c3e0e7d4fa3ae5bdb156191bff0553249ee
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-In questo articolo si apprende come abilitare e rimuovere l'Identità del servizio gestito per una macchina virtuale Windows di Azure tramite un modello di distribuzione di Azure Resource Manager.
+In questo articolo si apprende come abilitare e rimuovere l'Identità del servizio gestito per una VM di Azure tramite un modello di distribuzione di Azure Resource Manager.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,15 +44,17 @@ Analogamente ad Azure portale e all'esecuzione dello script, i modelli di gestio
 
 Indipendentemente dal percorso che si segue, la sintassi del modello è la stessa durante la distribuzione iniziale e la ridistribuzione, pertanto l'abilitazione dell'Identità del servizio gestito in una macchina virtuale nuova o esistente viene eseguita nello stesso modo. Per impostazione predefinita, in aggiunta, Azure Resource Manager esegue un [aggiornamento incrementale](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) per le distribuzioni:
 
-1. Dopo avere caricato il modello in un editor, individuare la risorsa `Microsoft.Compute/virtualMachines` interessata all'interno della sezione `resources`. Quelle in uso potrebbe avere un aspetto leggermente diverso da quelle mostrate in questa schermata, a seconda l'editor usato o del fatto che si stia modificando un modello per una distribuzione nuova o esistente:
+1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM. È necessario anche assicurarsi che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali".
+
+2. Dopo avere caricato il modello in un editor, individuare la risorsa `Microsoft.Compute/virtualMachines` interessata all'interno della sezione `resources`. Quelle in uso potrebbe avere un aspetto leggermente diverso da quelle mostrate in questa schermata, a seconda l'editor usato o del fatto che si stia modificando un modello per una distribuzione nuova o esistente:
 
    >[!NOTE] 
-   > Il passaggio 2 presuppone anche che le variabili `vmName`, `storageAccountName` e `nicName` siano definite nel modello.
+   > In questo esempio si presuppone che le variabili, ad esempio `vmName`, `storageAccountName` e `nicName`, siano state definite nel modello.
    >
 
    ![Modello prima della schermata di rilevamento della macchina virtuale](./media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
-2. Aggiungere la proprietà `"identity"` allo stesso livello della proprietà `"type": "Microsoft.Compute/virtualMachines"` usando la sintassi seguente:
+3. Aggiungere la proprietà `"identity"` allo stesso livello della proprietà `"type": "Microsoft.Compute/virtualMachines"` usando la sintassi seguente:
 
    ```JSON
    "identity": { 
@@ -60,10 +62,10 @@ Indipendentemente dal percorso che si segue, la sintassi del modello è la stess
    },
    ```
 
-3. Quindi aggiungere l'estensione dell'Identità di servizio gestito della macchina virtuale come elemento `resources` usando la sintassi seguente:
+4. Quindi aggiungere l'estensione dell'Identità di servizio gestito della macchina virtuale come elemento `resources` usando la sintassi seguente:
 
    >[!NOTE] 
-   > Nell'esempio seguente si presuppone la distribuzione di un'estensione della macchina virtuale Windows (`ManagedIdentityExtensionForWindows`). È anche possibile configurare per Linux usando `ManagedIdentityExtensionForLinux`.
+   > Nell'esempio seguente si presuppone la distribuzione di un'estensione della macchina virtuale Windows (`ManagedIdentityExtensionForWindows`). È anche possibile eseguire la configurazione anche per Linux usando `ManagedIdentityExtensionForLinux` al suo posto, per gli elementi `"name"` e `"type"`.
    >
 
    ```JSON
@@ -88,13 +90,17 @@ Indipendentemente dal percorso che si segue, la sintassi del modello è la stess
    }
    ```
 
-4. Al termine il modello dovrebbe essere simile all'esempio seguente:
+5. Al termine il modello dovrebbe essere simile all'esempio seguente:
 
    ![Modello dopo l'immagine](./media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Rimuovere l'Identità del servizio gestito da una macchina virtuale di Azure
 
-Se si dispone di una macchina virtuale per cui l'Identità del servizio gestito non è più necessaria, rimuovere i due elementi aggiunti nell'esempio precedente: la proprietà `"identity"` della macchina virtuale e la risorsa `"Microsoft.Compute/virtualMachines/extensions"`.
+Se si dispone di una macchina virtuale per cui non è più necessaria un'Identità del servizio gestito:
+
+1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali".
+
+2. Rimuovere i due elementi che sono stati aggiunti nella sezione precedente: la proprietà `"identity"` della VM e la risorsa `"Microsoft.Compute/virtualMachines/extensions"`.
 
 ## <a name="related-content"></a>Contenuti correlati
 
