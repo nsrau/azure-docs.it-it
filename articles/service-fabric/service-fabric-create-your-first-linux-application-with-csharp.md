@@ -12,32 +12,33 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/21/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: adcafaa5522fcddc0a01eb1dc8deba04ebfc38f2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e18dcad73486ab7610c53c269fbc81de73b5147e
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creare la prima applicazione di Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
-> * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [Java - Linux (Anteprima)](service-fabric-create-your-first-linux-application-with-java.md)
+> * [C# - Linux (Anteprima)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
-Service Fabric mette a disposizione SDK per la compilazione di servizi su Linux in .NET Core e Java. In questa esercitazione verrà esaminata la creazione di un'applicazione per Linux e la compilazione di un servizio con C# (.NET Core).
+Service Fabric mette a disposizione SDK per la compilazione di servizi su Linux in .NET Core e Java. In questa esercitazione verrà esaminata la creazione di un'applicazione per Linux e la compilazione di un servizio con C# in .NET Core 2.0.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di avere [configurato l'ambiente di sviluppo di Linux](service-fabric-get-started-linux.md). Se si usa Mac OS X è possibile [configurare un ambiente con un solo computer Linux in una macchina virtuale usando Vagrant](service-fabric-get-started-mac.md).
 
 È consigliabile installare anche l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md).
 
-### <a name="install-and-set-up-the-generators-for-csharp"></a>Installare e configurare i generatori per CSharp
-Service Fabric offre gli strumenti di scaffolding che consentono di creare un'applicazione CSharp per Service Fabric dal terminale tramite il generatore di modelli Yeoman. Seguire questa procedura per assicurarsi che nella macchina virtuale sia disponibile il generatore di modelli Yeoman di Service Fabric per CSharp.
+### <a name="install-and-set-up-the-generators-for-c"></a>Installare e configurare i generatori per C#
+Service Fabric offre gli strumenti di scaffolding che consentono di creare applicazioni Service Fabric dal terminale tramite i generatori di modelli Yeoman. Seguire questi passaggi per configurare i generatori di modelli Yeoman di Service Fabric per C#:
+
 1. Installare nodejs e NPM nella macchina virtuale
 
   ```bash
@@ -56,7 +57,7 @@ Service Fabric offre gli strumenti di scaffolding che consentono di creare un'ap
   ```
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
-Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ognuno dei quali contribuisce alle funzionalità dell'applicazione con un ruolo specifico. Il generatore [Yeoman](http://yeoman.io/) di Service Fabric per CSharp, installato nell'ultimo passaggio, semplifica la creazione del primo servizio e l'aggiunta di altri servizi in un secondo momento. Verrà usato Yeoman per creare un'applicazione con un solo servizio.
+Un'applicazione Infrastruttura di servizi può contenere uno o più servizi, ognuno dei quali contribuisce alle funzionalità dell'applicazione con un ruolo specifico. Il generatore [Yeoman](http://yeoman.io/) di Service Fabric per C#, installato nell'ultimo passaggio, semplifica la creazione del primo servizio e l'aggiunta di altri servizi in un secondo momento. Verrà usato Yeoman per creare un'applicazione con un solo servizio.
 
 1. In un terminale, digitare il comando seguente per iniziare a creare lo scaffolding: `yo azuresfcsharp`
 2. Assegnare un nome all'applicazione.
@@ -126,7 +127,6 @@ Per aggiungere un altro servizio a un'applicazione già creata mediante `yo`, se
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni su Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagire con un cluster di Service Fabric usando l'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)

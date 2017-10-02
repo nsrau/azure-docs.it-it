@@ -3,7 +3,7 @@ title: Creare un servizio di bilanciamento del carico con connessione Internet -
 description: Informazioni su come creare un servizio di bilanciamento del carico Internet nel modello di distribuzione classica mediante l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: da3a908f17ff5c6d3923549a884ecc0a13cb8e9e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0813cb0ccf976b7e47420b33ec65714fd8e60ac1
 ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/21/2017
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>Procedura dettagliata sulla creazione di un servizio di bilanciamento del carico Internet tramite CLI
+## <a name="create-an-internet-facing-load-balancer-using-cli"></a>Creare un servizio di bilanciamento del carico con connessione Internet usando l'interfaccia della riga di comando
 
 In questa guida viene illustrato come creare un servizio di bilanciamento del carico Internet in base allo scenario precedente.
 
@@ -65,7 +65,7 @@ Creare il primo endpoint e il set del servizio di bilanciamento del carico utili
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-2"></a>Passaggio 2
+### <a name="step-2"></a>Passaggio 2
 
 Aggiungere una seconda macchina virtuale "web2" al set del servizio di bilanciamento del carico.
 
@@ -73,7 +73,7 @@ Aggiungere una seconda macchina virtuale "web2" al set del servizio di bilanciam
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-3"></a>Passaggio 3
+### <a name="step-3"></a>Passaggio 3
 
 Verificare la configurazione del servizio di bilanciamento del carico utilizzando `azure vm show` .
 

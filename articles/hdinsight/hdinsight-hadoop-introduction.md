@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b413b6f1a6c73251dfdbe6bf9d23cdfa6510839a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
 ms.contentlocale: it-it
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Introduzione ad Azure HDInsight, allo stack di tecnologie Hadoop e ai cluster Hadoop
@@ -53,7 +53,7 @@ I Big Data vengono raccolti in volumi sempre più elevati, a velocità crescenti
 ## <a name="overview"></a>Tipi di cluster in HDInsight
 HDInsight include tipi di cluster specifici e funzionalità di personalizzazione dei cluster, ad esempio l'aggiunta di componenti, utilità e linguaggi.
 
-### <a name="spark-kafka-interactive-hive-hbase-customized-and-other-cluster-types"></a>Tipi di cluster Spark, Kafka, Interactive Hive, HBase, personalizzati e di altro tipo
+### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Tipi di cluster Spark, Kafka, Interactive Query, HBase, personalizzati e di altro tipo
 HDInsight offre i seguenti tipi di cluster:
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: usa [HDFS](#hdfs), la gestione risorse [YARN](#yarn) e un semplice modello di programmazione [MapReduce](#mapreduce) per elaborare e analizzare i dati batch in parallelo.
@@ -61,7 +61,7 @@ HDInsight offre i seguenti tipi di cluster:
 * **[Apache HBase](http://hbase.apache.org/)**: un database NoSQL basato su Hadoop che fornisce accesso casuale e coerenza assoluta per quantità elevate di dati non strutturati e semistrutturati. Può gestire potenzialmente milioni di righe e colonne. Vedere [Informazioni su HBase in HDInsight](hdinsight-hbase-overview.md)
 * **[Microsoft R Server](https://msdn.microsoft.com/microsoft-r/rserver)**: un server che ospita e gestisce processi R paralleli e distribuiti. Offre ai data scientist, agli statistici e ai programmatori R l'accesso su richiesta a metodi di analisi scalabili e distribuiti su HDInsight. Vedere [Panoramica di R Server su HDInsight](hdinsight-hadoop-r-server-overview.md).
 * **[Apache Storm](https://storm.incubator.apache.org/)**: un sistema di calcolo distribuito e in tempo reale per l'elaborazione rapida di grandi flussi di dati. Storm viene offerto come cluster gestito in HDInsight. Vedere [Analizzare i dati del sensore in tempo reale con Storm e Hadoop](hdinsight-storm-sensor-data-analysis.md).
-* **[Anteprima di Apache Interactive Hive (cioè lunga durata e funzionamento)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: la memorizzazione nella cache integrata per query Hive interattive e più veloci. Vedere [Usare Interactive Hive in HDInsight](hdinsight-hadoop-use-interactive-hive.md).
+* **[Anteprima di Apache Interactive Query (lunga durata e funzionamento)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: la memorizzazione nella cache integrata per query Hive interattive e più veloci. Vedere [Usare Interactive Query in HDInsight](hdinsight-hadoop-use-interactive-hive.md).
 * **[Apache Kafka](https://kafka.apache.org/)**: una piattaforma open source usata per creare applicazioni e pipeline di dati di streaming. Kafka fornisce inoltre funzionalità di code di messaggi che consentono di pubblicare e sottoscrivere i flussi di dati. Vedere [Introduction to Apache Kafka on HDInsight](hdinsight-apache-kafka-introduction.md) (Introduzione ad Apache Kafka in HDInsight).
 
 I cluster possono anche essere configurati nei modi seguenti:

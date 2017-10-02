@@ -16,8 +16,8 @@ Si ha una definizione OpenAPI per la funzione, ottenuta in [Creare una definizio
 
     |Impostazione|Descrizione|
     |--------|------------|
-    |**Modalità di esportazione**|Selezionare **Rapida** per generare automaticamente l'API personalizzata. Se si seleziona **Manuale**, la definizione API viene esportata, ma è quindi necessario importarla manualmente in PowerApps e Microsoft Flow. Per altre informazioni, vedere [Esportare in PowerApps e Microsoft Flow](https://docs.microsoft.com/azure/app-service/app-service-export-api-to-powerapps-and-flow?toc=%2fazure%2fazure-functions%2ftoc.json).|
-    |**Environment**|Selezionare l'ambiente in cui salvare l'API personalizzata. Per altre informazioni, vedere [Panoramica degli ambienti (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) o [Uso di ambienti in Microsoft Flow](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
+    |**Modalità di esportazione**|Selezionare **Rapida** per generare automaticamente l'API personalizzata. Se si seleziona **Manuale**, la definizione API viene esportata, ma è quindi necessario importarla manualmente in PowerApps e Microsoft Flow. Per altre informazioni, vedere [Esportare in PowerApps e Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md).|
+    |**Environment**|Selezionare l'ambiente in cui salvare l'API personalizzata. Per altre informazioni, vedere [Panoramica degli ambienti (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) o [Panoramica degli ambienti (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/).|
     |**Nome dell'API personalizzata**|Immettere un nome, ad esempio `Turbine Repair`.|
     |**Nome chiave API**|Immettere il nome che i creatori di app e flussi vedranno nell'interfaccia utente dell'API personalizzata. Si noti che l'esempio include informazioni utili.|
  

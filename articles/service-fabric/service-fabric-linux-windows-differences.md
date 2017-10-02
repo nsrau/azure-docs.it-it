@@ -1,6 +1,6 @@
 ---
 title: Differenze di Azure Service Fabric in Linux e Windows | Microsoft Docs
-description: Differenze tra l'anteprima di Azure Service Fabric in Linux e Azure Service Fabric in Windows.
+description: Differenze tra Azure Service Fabric in Linux e Azure Service Fabric in Windows.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,36 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Differenze tra Service Fabric in Linux (anteprima) e in Windows (disponibile a livello generale)
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Differenze tra Service Fabric in Linux e in Windows
 
-Poiché Service Fabric in Linux è un'anteprima, alcune funzionalità sono supportate in Windows, ma non ancora in Linux. Quando Service Fabric in Linux sarà disponibile a livello generale, i set di funzionalità saranno gli stessi. Con le versioni future, questo gap di funzionalità verrà ridotto. Tra le versioni disponibili più recenti, ovvero tra la versione 5.6 in Windows e la versione 5.5 in Linux, esistono le differenze seguenti: 
+Alcune funzionalità sono supportate in Windows ma non ancora in Linux. Questo gap di funzionalità verrà ridotto con ogni versione e i set di funzionalità saranno infine gli stessi. Tra le versioni disponibili più recenti, ossia tra la versione 6.0 in Windows e la versione 6.0 in Linux, esistono le differenze seguenti: 
 
-* Reliable Collections e Reliable Stateful Services 
-* ReverseProxy 
-* Programma di installazione autonomo 
-* Convalida XML Schema per i file manifesto 
-* Reindirizzamento della console 
-* Servizio di analisi degli errori
-* Docker Compose e driver di volume e registrazione per i contenitori 
-* Governance delle risorse per contenitori e servizi 
-* Servizio DNS
-* Supporto di Azure Active Directory
-* Comandi dell'interfaccia della riga di comando equivalenti ad alcuni comandi di Powershell 
-* Solo un subset di comandi di Powershell può essere eseguito in un cluster Linux, come illustrato nella sezione successiva.
+* Tutti i modelli di programmazione disponibili in anteprima (Reliable Services senza stato, Reliable Services con stato e Reliable Actors Java/C#)
+* Envoy (ReverseProxy) disponibile in anteprima in Linux
+* Programma di installazione autonomo per Linux non ancora disponibile in Linux
+* Reindirizzamento della console (non supportato nei cluster di produzione Windows o Linux)
+* Servizio di analisi degli errori in Linux
+* Servizio DNS per i servizi di Service Fabric (il servizio DNS è supportato per i contenitori in Linux)
+* Comandi dell'interfaccia della riga di comando equivalenti ad alcuni comandi di Powershell (vedere l'elenco seguente, che si applica per la maggior parte solo a cluster autonomi)
 
->[!NOTE]
->Il reindirizzamento della console non è supportato nei cluster di produzione, nemmeno in Windows.
-
-Anche gli strumenti di sviluppo presentano differenze tra Windows e Linux. VisualStudio, Powershell, VSTS e ETW vengono usati in Windows mentre Yeoman, Eclipse, Jenkins, e LTTng vengono usati in Linux.
+Anche gli strumenti di sviluppo presentano differenze tra Windows e Linux. Visual Studio, Powershell, VSTS ed ETW vengono usati in Windows, mentre Yeoman, Eclipse, Jenkins e LTTng vengono usati in Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlet di Powershell che non funzionano in un cluster di Service Fabric in Linux
 
@@ -67,7 +59,6 @@ Anche gli strumenti di sviluppo presentano differenze tra Windows e Linux. Visua
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus

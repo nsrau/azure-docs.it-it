@@ -3,7 +3,7 @@ title: Creare un servizio di bilanciamento del carico interno - Interfaccia dell
 description: "Informazioni su come creare un servizio di bilanciamento del carico interno usando l’interfaccia della riga di comando di Azure nel modello di distribuzione classica"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
 ms.contentlocale: it-it
-ms.lasthandoff: 03/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -39,11 +39,11 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Per creare un set con servizio di bilanciamento del carico interno per le macchine virtuali
 
-Per creare un set con servizio di bilanciamento del carico e i server che invieranno il traffico a esso, è necessario eseguire le operazioni seguenti:
+Per creare un set di bilanciamento del carico interno e i server che gli inviano il traffico, è necessario eseguire queste operazioni:
 
-1. Creare un'istanza della funzionalità di bilanciamento del carico interno che sarà l'endpoint del traffico in ingresso da configurare con carico bilanciato tra i server di un set con carico bilanciato.
-2. Aggiungere gli endpoint corrispondenti alle macchine virtuali che riceveranno il traffico in ingresso.
-3. Configurare i server che invieranno il traffico con carico bilanciato all'indirizzo IP virtuale (indirizzo VIP) dell'istanza del bilanciamento del carico interno.
+1. Creare un'istanza della funzionalità di bilanciamento del carico interno che è l'endpoint del traffico in ingresso da configurare con carico bilanciato tra i server di un set con carico bilanciato.
+2. Aggiungere gli endpoint corrispondenti alle macchine virtuali che possono ricevere il traffico in ingresso.
+3. Configurare i server per inviare il traffico all'indirizzo IP virtuale (indirizzo VIP) dell'istanza del bilanciamento del carico interno.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Procedura dettagliata sulla creazione di un servizio di bilanciamento del carico interno tramite CLI
 
@@ -64,7 +64,7 @@ In questa guida viene illustrato come creare un servizio di bilanciamento del ca
 
 Lo scenario presuppone le macchine virtuali "DB1" e "DB2" in un servizio cloud denominato "mytestcloud". Entrambe le macchine virtuali utilizzano una rete virtuale denominata "my testvnet" con subnet "subnet-1".
 
-In questa guida verrà creato un set del servizio di bilanciamento del carico interno utilizzando la porta 1433 come porta privata e la porta 1433 come porta locale.
+In questa guida viene creato un set di bilanciamento del carico interno usando la porta 1433 come porta privata e la porta 1433 come porta locale.
 
 Si tratta di uno scenario comune in cui si dispone di macchine virtuali di SQL nel back-end che utilizzano un servizio di bilanciamento del carico interno per garantire che i server di database non siano esposti direttamente tramite un indirizzo IP pubblico.
 
@@ -93,7 +93,7 @@ Qui di seguito un esempio di output:
 
 ### <a name="step-2"></a>Passaggio 2
 
-Configurare il set di bilanciamento del carico interno quando si aggiunge il primo endpoint. Associare l'endpoint, la macchina virtuale e la porta probe per il set di bilanciamento del carico interno in questo passaggio.
+Configurare il set di bilanciamento del carico interno quando si aggiunge il primo endpoint. È possibile associare l'endpoint, la macchina virtuale e la porta probe al set di bilanciamento del carico interno in questo passaggio.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -107,7 +107,7 @@ Verificare la configurazione del servizio di bilanciamento del carico utilizzand
 azure vm show DB1
 ```
 
-L'output sarà:
+L'output è il seguente:
 
     azure vm show DB1
     info:    Executing command vm show

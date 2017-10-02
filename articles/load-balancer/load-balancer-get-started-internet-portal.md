@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
 ms.contentlocale: it-it
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -31,11 +31,13 @@ ms.lasthandoff: 02/16/2017
 > * [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Modello](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet tramite la distribuzione classica](load-balancer-get-started-internet-classic-portal.md)
+Questo articolo illustra il modello di distribuzione Gestione risorse.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -63,7 +65,7 @@ In questa sede viene illustrata la sequenza delle singole attività da eseguire 
 3. Nel pannello **Crea bilanciamento del carico** digitare un nome per il servizio di bilanciamento del carico. Qui viene chiamato **myLoadBalancer**.
 4. In **Tipo** selezionare **Pubblica**.
 5. In **Indirizzo IP pubblico** creare un nuovo indirizzo IP pubblico denominato **myPublicIP**.
-6. In Gruppo di risorse, selezionare **myRG**. Selezionare quindi un **Percorso** appropriato e fare clic su **OK**. Il bilanciamento del carico verrà avviato per la distribuzione e richiederà alcuni minuti per completare correttamente la distribuzione.
+6. In Gruppo di risorse, selezionare **myRG**. Selezionare quindi un **Percorso** appropriato e fare clic su **OK**. Il servizio di bilanciamento del carico avvia la distribuzione e richiede alcuni minuti per completare correttamente la distribuzione.
 
     ![Aggiornamento del gruppo di risorse di bilanciamento del carico](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -83,7 +85,7 @@ In questa sede viene illustrata la sequenza delle singole attività da eseguire 
     In impostazioni di bilanciamento del carico, selezionare Probe, quindi fare clic su **Aggiungi** nella parte superiore del pannello.
 
     Esistono due modi per configurare un probe: HTTP o TCP. In questo esempio viene utilizzato HTTP, ma TCP può essere configurato in modo anaolo.
-    Aggiornare le informazioni necessarie. Come accennato, **myLoadBalancer** caricherà il traffico bilanciato sulla porta 80. Il percorso selezionato è HealthProbe.aspx, l'intervallo è di 15 secondi e il valore impostato per la soglia non integra è 2. Al termine, fare clic su **OK** per creare il probe.
+    Aggiornare le informazioni necessarie. Come accennato, **myLoadBalancer** bilancia il carico del traffico sulla porta 80. Il percorso selezionato è HealthProbe.aspx, l'intervallo è di 15 secondi e il valore impostato per la soglia non integra è 2. Al termine, fare clic su **OK** per creare il probe.
 
     Spostare il puntatore del mouse sull'icona "i" per ottenere maggiori informazioni sulle singole configurazioni e su come possono essere modificate per soddisfare i requisiti.
 
