@@ -205,7 +205,7 @@ L'app è ora completa. L'app può archiviare un insieme di categorie nell'archiv
    
     ![App delle ultime notizie][1]
 
-2. Abilitare uno o più interruttori delle categorie e quindi fare clic sul pulsante**** di sottoscrizione.
+2. Abilitare uno o più interruttori delle categorie e quindi fare clic sul pulsante di **sottoscrizione**.
    
     L'app converte le categorie selezionate in tag e richiede una nuova registrazione del dispositivo per i tag selezionati dall'hub di notifica. Le categorie registrate vengono restituite e visualizzate in una finestra di dialogo.
    

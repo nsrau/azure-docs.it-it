@@ -124,7 +124,7 @@ Azure Cosmos DB offre un modello di programmazione ben definito che consente di 
 
 Il contratto di servizio per la coerenza di Azure Cosmos DB garantisce che il 100% delle richieste di lettura soddisferà la garanzia di coerenza per il livello di coerenza necessario all'utente o il livello di coerenza predefinito per l'account del database o per il valore sostituito nella richiesta. Si considera che una richiesta abbia soddisfatto il contratto di servizio per la coerenza se sono state soddisfatte tutte le garanzie di coerenza associate al livello di coerenza. La tabella seguente mostra le garanzie di coerenza corrispondenti ai livelli di coerenza specifici offerti da Azure Cosmos DB.
 
-**Garanzie di coerenza associate ai livelli di coerenza specifici in Azure Cosmos DB **
+**Garanzie di coerenza associate ai livelli di coerenza specifici in Azure Cosmos DB**
 
 <table>
     <tr>
@@ -179,7 +179,7 @@ Il Prof. Daniel Abadi ha proposto una variante più completa del teorema CAP den
 ### <a id="ConsistencyAndThroughput"></a>Relazione tra coerenza e velocità effettiva
 Poiché l'implementazione di un modello di coerenza specifico dipende dalla scelta di un [tipo di quorum](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), anche la velocità effettiva varia in base al tipo di coerenza scelto. In Azure Cosmos DB, ad esempio, la velocità effettiva con le letture con coerenza assoluta è pari alla metà di quella delle letture con coerenza finale. 
  
-**Relazione della capacità di lettura per un livello di coerenza specifico in Azure Cosmos DB **
+**Relazione della capacità di lettura per un livello di coerenza specifico in Azure Cosmos DB**
 
 ![Relazione tra coerenza e velocità effettiva](./media/distribute-data-globally/consistency-and-throughput.png)
 

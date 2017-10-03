@@ -134,7 +134,7 @@ Impostare un avviso per il pool da attivare quando l'utilizzo è \>75%, come ind
 1. Specificare un nome, ad esempio **DTU elevate**.
 1. Impostare i valori seguenti:
    * **Metrica = Percentuale eDTU**
-   * **Condizione = maggiore di **.
+   * **Condizione = maggiore di**.
    * **Soglia = 75**.
    * **Periodo = Negli ultimi 30 minuti**.
 1. Aggiungere un indirizzo e-mail alla casella *Indirizzi di posta elettronica aggiuntivi dell'amministratore* e fare clic su **OK**.

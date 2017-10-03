@@ -119,7 +119,7 @@ Il modello di Resource Manager è disponibile nella cartella …\Learning Module
 
 Dopo la creazione, il database tenant viene **inizializzato con il nome e il tipo della sede di eventi (tenant)**. In questa posizione è possibile eseguire anche altre inizializzazioni.
 
-Il** database tenant viene registrato nel catalogo** con *Add-TenantDatabaseToCatalog* usando la chiave del tenant. Usare **F11** per esaminare i dettagli:
+Il **database tenant viene registrato nel catalogo** con *Add-TenantDatabaseToCatalog* usando la chiave del tenant. Usare **F11** per esaminare i dettagli:
 
 * Il database del catalogo viene aggiunto alla mappa partizioni (elenco dei database noti).
 * Viene creato il mapping che collega il valore della chiave alla partizione.
