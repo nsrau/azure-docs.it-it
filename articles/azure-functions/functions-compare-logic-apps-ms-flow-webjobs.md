@@ -3,7 +3,7 @@ title: Scegliere tra Flow, App per la logica, Funzioni e Processi Web | Microsof
 description: "Mettere a confronto i servizi di integrazione cloud di Microsoft e decidere quali è consigliabile usare."
 services: functions,app-service\logic
 documentationcenter: na
-author: cephalin
+author: ggailey777
 manager: wpickett
 tags: 
 keywords: microsoft flow, flow, app per la logica, funzioni di azure, funzioni, processi web di azure, processi web, elaborazione di eventi, calcolo dinamico, architettura senza server

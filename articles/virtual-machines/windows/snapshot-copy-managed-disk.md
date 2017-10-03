@@ -54,7 +54,7 @@ La procedura seguente mostra come ottenere il disco rigido virtuale da copiare, 
 
 1. Impostare alcuni parametri. 
 
- ```powershell
+ ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
 $location = 'southeastasia' 
 $dataDiskName = 'ContosoMD_datadisk1' 
@@ -68,17 +68,17 @@ $snapshotName = 'ContosoMD_datadisk1_snapshot1'
 
 2. Ottenere il disco rigido virtuale da copiare.
 
- ```powershell
+ ```azurepowershell-interactive
 $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
 ```
 3. Creare le configurazioni di snapshot. 
 
- ```powershell
+ ```azurepowershell-interactive
 $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
 ```
 4. Ottenere lo snapshot.
 
- ```powershell
+ ```azurepowershell-interactive
 New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
 ```
 Se si prevede di usare lo snapshot per creare un disco gestito e associarlo a una macchina virtuale a prestazioni elevate, usare il parametro `-AccountType Premium_LRS` con il comando New-AzureRmSnapshot. Il parametro crea lo snapshot in modo tale che venga archiviato come un disco gestito Premium. I dischi gestiti Premium sono più costosi di quelli Standard. Pertanto, assicurarsi che l'opzione Premium sia realmente necessaria prima di usare tale parametro.

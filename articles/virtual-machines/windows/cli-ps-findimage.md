@@ -65,21 +65,21 @@ Se è necessario determinare questi valori, è possibile eseguire i cmdlet [Get-
 
 In primo luogo, elencare gli editori con i seguenti comandi:
 
-```powershell
+```azurepowershell-interactive
 $locName="<Azure location, such as West US>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
 Specificare il nome dell'editore prescelto ed eseguire i seguenti comandi:
 
-```powershell
+```azurepowershell-interactive
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
 Specificare il nome dell'offerta prescelta ed eseguire i seguenti comandi:
 
-```powershell
+```azurepowershell-interactive
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
@@ -88,7 +88,7 @@ Nell'output del comando `Get-AzureRMVMImageSku` ci sono tutte le informazioni ne
 
 Di seguito è riportato un esempio completo:
 
-```powershell
+```azurepowershell-interactive
 $locName="West US"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
@@ -114,7 +114,7 @@ Canonical
 
 Per l'editore "MicrosoftWindowsServer":
 
-```powershell
+```azurepowershell-interactive
 $pubName="MicrosoftWindowsServer"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
@@ -131,7 +131,7 @@ WindowsServer-HUB
 
 Per l'offerta "WindowsServer":
 
-```powershell
+```azurepowershell-interactive
 $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
