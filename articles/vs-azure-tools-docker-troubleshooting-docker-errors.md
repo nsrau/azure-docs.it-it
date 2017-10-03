@@ -62,7 +62,7 @@ Di seguito sono elencati i possibili errori che possono verificarsi durante il d
 
 Si tratta di un problema noto con il debugger di Visual Studio (msvsmon.exe), attualmente non progettato per questo scenario. Il supporto per questo scenario potrà essere incluso in una versione futura. Per visualizzare l'output dell'applicazione console in Visual Studio, usare **Docker: Avvia progetto**, che equivale a **Avvia senza eseguire debug**.
 
-#### <a name="debugging-web-applications-with-the-release-configuration-fails-with-403-forbidden-error"></a>Il debug di applicazioni Web con la configurazione di rilascio ha esito negativo con l'errore&403; - Accesso negato
+#### <a name="debugging-web-applications-with-the-release-configuration-fails-with-403-forbidden-error"></a>Il debug di applicazioni Web con la configurazione di rilascio ha esito negativo con l'errore 403 - Accesso negato
 
 Per risolvere il problema, aprire web.release.config nella soluzione ed eliminare o impostare come commento le righe seguenti:
 

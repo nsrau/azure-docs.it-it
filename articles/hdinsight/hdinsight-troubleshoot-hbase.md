@@ -226,7 +226,7 @@ Per connettersi con Phoenix, è necessario specificare l'indirizzo IP di un nodo
    ```
 
    > [!Note] 
-   > È possibile ottenere l'indirizzo IP del nodo ZooKeeper attivo nell'interfaccia utente di Ambari. Passare a **HBase** > **Quick Links** > **ZK\* (Active)** > **Zookeeper Info** (HBase > Collegamenti rapidi > ZK* - attivo > Info su Zookeeper). 
+   > È possibile ottenere l'indirizzo IP del nodo ZooKeeper attivo nell'interfaccia utente di Ambari. Passare a **HBase** > **Quick Links** > **ZK\* (Active)** > **Zookeeper Info** (HBase > Collegamenti rapidi > ZK - attivo > Info su Zookeeper). 
 
 3. Se sqlline.py si connette a Phoenix senza timeout, eseguire questo comando per convalidare la disponibilità e l'integrità di Phoenix:
 
