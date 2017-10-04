@@ -32,6 +32,8 @@
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/eventgrid
+    - name: PowerShell
+      href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
     - name: Schema di sottoscrizione

@@ -1,11 +1,5 @@
 # Panoramica
 ## [Guida per sviluppatori](azure-developer-guide.md) 
-### [Informazioni su Azure](azure-developer-guide.md#what-is-azure)
-### [Da dove iniziare](azure-developer-guide.md#where-do-i-start)
-### [Aree di Azure](azure-developer-guide.md#azure-regions)
-### [Come gestire le applicazioni e i progetti](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Informazioni su account, sottoscrizioni e fatturazione](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Panoramica dei servizi di Azure](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [Panoramica del portale](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK e strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools)

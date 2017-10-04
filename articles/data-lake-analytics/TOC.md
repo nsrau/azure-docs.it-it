@@ -9,7 +9,7 @@
 
 # Procedure
 
-## Gestire gli account di Data Lake Analytics
+## Gestire Data Lake Analytics
 ### [Portale di Azure](data-lake-analytics-manage-use-portal.md)
 ### [Interfaccia della riga di comando di Azure](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
