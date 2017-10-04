@@ -257,7 +257,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 Per altre informazioni sulle varie tecnologie illustrate in questo articolo, vedere gli articoli seguenti:
 
-* [Maven Plugin for Azure Web Apps (Plug-in Maven per App Web di Azure)]
+* [plug-in Maven per App Web di Azure]
 
 * [Accedere ad Azure dall'interfaccia della riga di comando di Azure](/azure/xplat-cli-connect)
 
@@ -271,17 +271,17 @@ Per altre informazioni sulle varie tecnologie illustrate in questo articolo, ved
 
 [Interfaccia della riga di comando di Azure]: /cli/azure/overview
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Portale di Azure]: https://portal.azure.com/
-[Account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/
+[portale di Azure]: https://portal.azure.com/
+[account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[Vantaggi per gli abbonati MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[vantaggi per i sottoscrittori di MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Introduzione a Spring Boot]: https://github.com/microsoft/gs-spring-boot
+[introduzione a Spring Boot]: https://github.com/microsoft/gs-spring-boot
 [Spring Framework]: https://spring.io/
-[Maven Plugin for Azure Web Apps (Plug-in Maven per App Web di Azure)]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[plug-in Maven per App Web di Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 
