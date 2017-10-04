@@ -185,7 +185,7 @@ Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il trainin
 <!-- internal links -->
 [Creare un esperimento di training]: #create-a-training-experiment
 [Eseguire la conversione in un esperimento predittivo]: #convert-the-training-experiment-to-a-predictive-experiment
-[Distribuire l'esperimento predittivo come servizio Web]: #deploy-it-as-a-web-service
+[Distribuire come servizio Web]: #deploy-it-as-a-web-service
 [nuovo]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [classico]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service
