@@ -305,7 +305,7 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 Per altre informazioni sulle varie tecnologie illustrate in questo articolo, vedere gli articoli seguenti:
 
-* [Maven Plugin for Azure Web Apps (Plug-in Maven per App Web di Azure)]
+* [plug-in Maven per App Web di Azure]
 
 * [Accedere ad Azure dall'interfaccia della riga di comando di Azure](/azure/xplat-cli-connect)
 
@@ -315,25 +315,25 @@ Per altre informazioni sulle varie tecnologie illustrate in questo articolo, ved
 
 * [Informazioni di riferimento sulle impostazioni di Maven](https://maven.apache.org/settings.html)
 
-* [Plug-in Docker per Maven]
+* [plug-in Docker per Maven]
 
 <!-- URL List -->
 
 [Interfaccia della riga di comando di Azure]: /cli/azure/overview
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[Portale di Azure]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 [Docker]: https://www.docker.com/
-[Plug-in Docker per Maven]: https://github.com/spotify/docker-maven-plugin
-[Account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/
+[plug-in Docker per Maven]: https://github.com/spotify/docker-maven-plugin
+[account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[Vantaggi per gli abbonati MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[vantaggi per i sottoscrittori di MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker (Introduzione a Spring Boot in Docker)
 [Spring Framework]: https://spring.io/
-[Maven Plugin for Azure Web Apps (Plug-in Maven per App Web di Azure)]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[plug-in Maven per App Web di Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 

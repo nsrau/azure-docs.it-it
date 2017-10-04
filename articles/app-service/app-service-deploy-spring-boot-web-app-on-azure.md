@@ -52,7 +52,7 @@ I passaggi seguenti illustrano i passaggi necessari per creare una semplice appl
    cd /users/robert/SpringBoot
    ```
 
-1. Clonare il progetto di esempio [Introduzione a Spring Boot] nella directory appena creata, ad esempio:
+1. Clonare il progetto di esempio [Introduzione a Spring Boot ] nella directory appena creata, ad esempio:
    ```
    git clone https://github.com/spring-guides/gs-spring-boot.git
    ```
@@ -215,18 +215,18 @@ Per altre informazioni sulla configurazione delle impostazioni aggiuntive per l'
 [servizio app di Azure]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Centro per sviluppatori Java di Azure]: https://azure.microsoft.com/develop/java/
-[Portale di Azure]: https://portal.azure.com/
-[Configurare app Web nel servizio app di Azure]: /azure/app-service/web-sites-configure
+[portale di Azure]: https://portal.azure.com/
+[Configurare app Web in Servizio app di Azure]: /azure/app-service/web-sites-configure
 [Distribuire l'app nel servizio app di Azure usando FTP/S]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
-[Account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/
+[account Azure gratuito]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java Developer Kit (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/
-[Strumenti Java per Visual Studio Team Services]: https://java.visualstudio.com/
+[strumenti Java per Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[Vantaggi per gli abbonati MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[vantaggi per i sottoscrittori di MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Introduzione a Spring Boot]: https://github.com/spring-guides/gs-spring-boot
-[Framework di Spring]: https://spring.io/
+[Introduzione a Spring Boot ]: https://github.com/spring-guides/gs-spring-boot
+[Spring Framework]: https://spring.io/
 
 <!-- IMG List -->
 

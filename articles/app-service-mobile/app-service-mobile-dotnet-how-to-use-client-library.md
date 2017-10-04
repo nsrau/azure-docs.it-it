@@ -628,7 +628,7 @@ Sono supportati due flussi di autenticazione: flusso *gestito dal client* e flus
 > [!NOTE]
 > Nelle app di produzione è consigliabile usare un flusso gestito dal client.
 
-Per configurare l'autenticazione, è necessario registrare l'app con uno o più provider di identità.  Il provider di identità genera un ID client e un segreto client per l'app.  Questi valori vengono quindi impostati nel back-end per abilitare l'autenticazione/l'autorizzazione del Servizio app di Azure.  Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app di Windows].
+Per configurare l'autenticazione, è necessario registrare l'app con uno o più provider di identità.  Il provider di identità genera un ID client e un segreto client per l'app.  Questi valori vengono quindi impostati nel back-end per abilitare l'autenticazione/l'autorizzazione del Servizio app di Azure.  Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili].
 
 Questo articolo descrive gli argomenti seguenti:
 
@@ -1093,11 +1093,11 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Aggiungere l'autenticazione all'app Xamarin.Forms]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
+[Aggiungere l'autenticazione all'app di Servizi mobili]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Sincronizzazione di dati offline nelle App per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [Aggiungere notifiche push all'app]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Come configurare l'applicazione del servizio app per usare l'account di accesso Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Come configurare il servizio app per l'account di accesso di Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
