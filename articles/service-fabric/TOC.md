@@ -26,8 +26,8 @@
 
 ## Creare e gestire un cluster
 ### 1- Creare un cluster in Azure
-#### [1a- Creare un cluster Windows protetto in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b- Creare un cluster Linux protetto in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a- Creare un cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- Creare un cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Esempi
@@ -198,7 +198,6 @@
 ### Creare un servizio di Reliable Actors
 #### Attività iniziali
 ##### [C# su Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java su Linux](service-fabric-reliable-actors-get-started-java.md)
 ##### [Attore Java in Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Inviare notifiche](service-fabric-reliable-actors-events.md)
 #### [Configurare timer e promemoria](service-fabric-reliable-actors-timers-reminders.md)

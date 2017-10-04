@@ -12,6 +12,7 @@
 ### [Archiviazione](hdinsight-release-notes-archive.md)
 
 # Attività iniziali
+## [Pianificare la capacità del cluster HDInsight](hdinsight-capacity-planning.md)
 ## [Iniziare a usare Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## Iniziare a usare Spark
 ### [Creare un cluster Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
@@ -167,7 +168,9 @@
 ### [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [Usare il tunneling SSH](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [Limitare l'accesso ai dati](hdinsight-storage-sharedaccesssignature-permissions.md)
-## Gestire
+### [Autorizzare utenti per le viste di Ambari](hdinsight-authorize-users-to-ambari.md)
+### [Gestire le autorizzazioni utente a livello di file e di cartella](hdinsight-add-acls-at-file-folder-levels.md)
+## Gestisci
 ### [Creare cluster Linux](hdinsight-hadoop-provision-linux-clusters.md)
 #### [Usare Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 #### [Usare cURL e l'API REST di Azure](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
@@ -200,6 +203,7 @@
 ### [Usare Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 ### [Dashboard specifici per i cluster](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
 ### [Usare query con Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+### [Monitorare le prestazioni del cluster](hdinsight-key-scenarios-to-monitor.md)
 ## [Risolvere i problemi](hdinsight-troubleshoot-guide.md)
 ### [Risoluzione dei problemi di HBASE](hdinsight-troubleshoot-hbase.md)
 ### [Risoluzione dei problemi di HDFS](hdinsight-troubleshoot-hdfs.md)

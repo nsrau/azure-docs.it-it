@@ -1,4 +1,4 @@
-- name: Documentazione su Backup di Azure
+- name: Documentazione di Backup di Azure
   href: index.yml
 - name: Panoramica
   items:
@@ -39,6 +39,8 @@
           href: backup-azure-vm-backup-faq.md
         - name: Domande frequenti sul backup di file-cartelle tramite l'agente di Backup di Azure
           href: backup-azure-file-folder-backup-faq.md
+        - name: Domande frequenti sull'aggiornamento automatico dell'insieme di credenziali di backup
+          href: backup-upgrade-backup-vault.md
     - name: Controllo degli accessi in base al ruolo
       href: backup-rbac-rs-vault.md
     - name: Sicurezza per i backup ibridi

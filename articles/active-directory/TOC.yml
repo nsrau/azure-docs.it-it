@@ -40,6 +40,8 @@
 - name: Identità dei servizi gestiti
   href: msi-overview.md
   items:
+    - name: Come accedere o acquisire un token
+      href: msi-how-to-get-access-token-using-msi.md
     - name: Configurare MSI per macchine virtuali di Azure
       items:
         - name: Con il portale di Azure
@@ -50,6 +52,8 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: Con un modello di Azure Resource Manager
           href: msi-qs-configure-template-windows-vm.md
+        - name: Con Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
     - name: Assegnare un accesso tramite MSI a una risorsa di Azure
       items:
         - name: Con il portale di Azure

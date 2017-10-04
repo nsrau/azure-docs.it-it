@@ -25,7 +25,6 @@
 ### [Integrare funzioni UDF di JavaScript](stream-analytics-javascript-user-defined-functions.md)
 ### [Integrare API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Creare output](stream-analytics-define-outputs.md)
-### [Output in Funzioni di Azure](stream-analytics-functions-redis.md)
 ### [Output in Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Output in Cosmos DB](stream-analytics-documentdb-output.md)
 
@@ -39,7 +38,8 @@
 ### [Monitorare i processi](stream-analytics-monitoring.md)
 ### [Monitorare i processi a livello di codice](stream-analytics-monitor-jobs.md)
 ### [Monitorare i processi con PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Ottimizzare le unità di streaming](stream-analytics-streaming-unit-consumption.md)
+### [Informazioni e modifica delle unità di streaming](stream-analytics-streaming-unit-consumption.md)
+### [Sfruttare i vantaggi della parallelizzazione delle query](stream-analytics-parallelization.md)
 ### [Ridimensionare la capacità per aumentare la velocità effettiva](stream-analytics-scale-jobs.md)
 ### [Ridimensionare la capacità per le funzioni di Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 

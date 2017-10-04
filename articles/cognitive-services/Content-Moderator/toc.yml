@@ -66,6 +66,8 @@
   items:
     - name: Moderazione di post di Facebook
       href: facebook-post-moderation.md
+    - name: Moderazione del catalogo di e-commerce
+      href: ecommerce-retail-catalog-moderation.md
 - name: Informazioni di riferimento sulle API
   items:
     - name: Tutte le API

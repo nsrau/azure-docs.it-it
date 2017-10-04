@@ -1,13 +1,13 @@
-- name: Servizio contenitore di Azure con Kubernetes
+- name: Kubernetes in Azure
   href: ./index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sul servizio contenitore
+    - name: Kubernetes in Azure
       href: container-service-intro-kubernetes.md
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Linux con Kubernetes
+    - name: Kubernetes in Azure
       href: container-service-kubernetes-walkthrough.md
 - name: Esercitazioni
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: '7: Monitorare con OMS'
       href: container-service-tutorial-kubernetes-monitor.md
-- name: Esempi
-  items:
-    - name: Interfaccia della riga di comando di Azure
-      href: cli-samples.md
 - name: Concetti
   items:
-    - name: Proteggere i contenitori
-      href: container-service-security.md
     - name: 'Entità servizio: Kubernetes'
       href: container-service-kubernetes-service-principal.md
 - name: Guide alle procedure
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Interfaccia Web di Kubernetes
       href: container-service-kubernetes-ui.md
-    - name: Distribuire grafici Helm
+    - name: Usare grafici Helm
       href: container-service-kubernetes-helm.md
-    - name: Jenkins e Kubernetes ACS
+    - name: Usare Jenkins con il servizio contenitore di Azure
       href: container-service-kubernetes-jenkins.md
-    - name: Usare la bozza con il record di controllo di accesso e il servizio contenitore di Azure
+    - name: Usare la bozza con servizio contenitore di Azure
       href: container-service-draft-up.md
-    - name: Connettersi con un cluster del servizio contenitore di Azure
-      href: container-service-connect.md
-    - name: Ridimensionare un cluster del servizio contenitore di Azure
+    - name: Ridimensionare un cluster
       href: container-service-scale.md
-    - name: Bilanciare il carico di un cluster Kubernetes del servizio contenitore di Azure
-      href: container-service-kubernetes-load-balancing.md
     - name: Monitorare
       items:
         - name: Monitorare con OMS
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: riferimento
   items:
-    - name: Interfaccia della riga di comando di Azure 2.0
+    - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: Risorse
   items:
     - name: Roadmap per Azure

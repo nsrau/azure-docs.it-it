@@ -1,22 +1,18 @@
 # Panoramica
 ## [Panoramica di Azure Data Lake Store](data-lake-store-overview.md)
 ## [Confrontare Azure Data Lake Store e Archiviazione di Azure](data-lake-store-comparison-with-blob-storage.md)
-## [Usare Azure Data Lake Store per l'elaborazione di Big Data](data-lake-store-data-scenarios.md)
+## [Azure Data Lake Store per l'elaborazione di Big Data](data-lake-store-data-scenarios.md)
 ## [Applicazioni open source che usano Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Attività iniziali
-## [Uso del portale di Azure](data-lake-store-get-started-portal.md)
-## [Uso di Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Uso di .NET SDK](data-lake-store-get-started-net-sdk.md)
-## [Uso di Java SDK](data-lake-store-get-started-java-sdk.md)
-## [Uso dell'API REST](data-lake-store-get-started-rest-api.md)
-## [Uso dell'interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)
-## [Uso di Node.js](data-lake-store-manage-use-nodejs.md)
-## [Uso di Python](data-lake-store-get-started-python.md)
+## [Uso del portale](data-lake-store-get-started-portal.md)
+## [Uso di PowerShell](data-lake-store-get-started-powershell.md)
+## [Uso dell'interfaccia della riga di comando di Azure 2.0](data-lake-store-get-started-cli-2.0.md)
+
 
 # Procedure
-## Copiare dati
-### [Uso di Data factory di Azure](../data-factory/connector-azure-data-lake-store.md)
+## Caricare e spostare dati
+### [Uso di Data factory di Azure](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Con AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Con DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Uso di Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -27,12 +23,35 @@
 ### [Panoramica della sicurezza](data-lake-store-security-overview.md)
 ### [Controllo di accesso in Data Lake Store](data-lake-store-access-control.md)
 ### [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
-### [Autenticazione da servizio a servizio](data-lake-store-authenticate-using-active-directory.md)
-### [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md)
 ### [Crittografia](data-lake-store-encryption.md)
+
+## Autenticazione con Data Lake Store
+### [Opzioni di autenticazione](data-lakes-store-authentication-using-azure-active-directory.md)
+### [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md)
+#### [Uso di Java](data-lake-store-end-user-authenticate-java-sdk.md)
+#### [Uso di .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+#### [Uso dell'API REST](data-lake-store-end-user-authenticate-rest-api.md)
+#### [Uso di Python](data-lake-store-end-user-authenticate-python.md)
+### [Autenticazione da servizio a servizio](data-lake-store-service-to-service-authenticate-using-active-directory.md)
+#### [Uso di Java](data-lake-store-service-to-service-authenticate-java.md)
+#### [Uso di .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+#### [Uso dell'API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+#### [Uso di Python](data-lake-store-service-to-service-authenticate-python.md)
+
+## Usare Data Lake Store
+### Operazioni di gestione dell'account
+#### [Uso di .NET SDK](data-lake-store-get-started-net-sdk.md)
+#### [Uso dell'API REST](data-lake-store-get-started-rest-api.md)
+#### [Uso di Python](data-lake-store-get-started-python.md)
+### Operazioni per file system
+#### [Uso di .NET SDK](data-lake-store-data-operations-net-sdk.md)
+#### [Uso di Java SDK](data-lake-store-get-started-java-sdk.md)
+#### [Uso dell'API REST](data-lake-store-data-operations-rest-api.md)
+#### [Uso di Python](data-lake-store-data-operations-python.md)
 
 ## Prestazioni
 ### [Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 ### [Linee guida per l'ottimizzazione delle prestazioni di Spark in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
 ### [Linee guida per l'ottimizzazione delle prestazioni di Hive in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
 ### [Linee guida per l'ottimizzazione delle prestazioni di MapReduce in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)

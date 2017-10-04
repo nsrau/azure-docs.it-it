@@ -16,8 +16,9 @@
 # Procedure
 ## Aggiungere un dominio gestito
 ### [Aggiungere una VM Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Aggiungere una macchina virtuale Windows tramite Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Aggiungere una VM Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Aggiungere una VM Windows tramite PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Amministrare un dominio gestito
 ### [Amministrare un dominio gestito](active-directory-ds-admin-guide-administer-domain.md)
 ### [Amministrare DNS in un dominio gestito](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Risolvere problemi
 ### [Domande frequenti](active-directory-ds-faqs.md)
 ### [Guida per la risoluzione dei problemi](active-directory-ds-troubleshooting.md)
-### [Abilitare l'anteprima dell'esperienza del portale di Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)
 
 # riferimento
