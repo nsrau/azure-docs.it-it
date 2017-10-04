@@ -67,7 +67,7 @@ Questa sezione descrive come abilitare l'integrazione dell'applicazione per Cisc
 
 Questa sezione descrive come consentire agli utenti di eseguire l'autenticazione a Cisco Webex tramite il proprio account in Azure AD usando la federazione basata sul protocollo SAML.  
 
-Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base&64;. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
+Come parte di questa procedura, verrà richiesto di creare un file di certificato con codifica Base 64. Se non si ha familiarità con questa procedura, vedere il video che descrive [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
 
 **Per configurare l'accesso Single Sign-On, seguire questa procedura:**
 
@@ -96,12 +96,12 @@ Come parte di questa procedura, verrà richiesto di creare un file di certificat
    
    ![Federated SSO Configuration](./media/active-directory-saas-cisco-webex-tutorial/IC777623.png "Federated SSO Configuration")  
    1. Nell'elenco **Federation Protocol** (Protocollo federazione) selezionare **SAML 2.0**.
-   2. Creare un file **con codifica Base&64;** dal certificato scaricato.  
+   2. Creare un file **con codifica Base 64** dal certificato scaricato.  
     >[!TIP]
     >Per informazioni dettagliate, vedere [come convertire un certificato binario in un file di testo](http://youtu.be/PlgrzUZ-Y1o)
     >  
-   3. Aprire il certificato con codifica Base&64; nel Blocco note e quindi copiarne il contenuto.
-   4. Fare clic su **Import SAML Metadata**e quindi incollare il certificato con codifica Base&64;.
+   3. Aprire il certificato con codifica Base 64 nel Blocco note e quindi copiarne il contenuto.
+   4. Fare clic su **Import SAML Metadata**e quindi incollare il certificato con codifica Base 64.
    5. Nella finestra di dialogo **Configura accesso Single Sign-On in Cisco Webex** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Issuer for SAML (IdP ID)** (Autorità di certificazione per SAML - ID IdP).
    6. Nella finestra di dialogo **Configura accesso Single Sign-On in Cisco Webex** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Customer SSO Service Login URL** (URL di accesso al servizio clienti SSO).
    7. Nell'elenco **NameID Format** (Formato NameID) selezionare **Email address** (Indirizzo di posta elettronica).

@@ -42,8 +42,8 @@ Quando si definisce lo schema, è necessario specificare il nome, tipo e gli att
 | *Edm.String* |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | *Collection(Edm.String)* |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |
 | *Edm.Boolean* |Contiene valori true/false. |
-| *Edm.Int32* |Valori integer a&32; bit. |
-| *Edm.Int64* |Valori integer a&64; bit. |
+| *Edm.Int32* |Valori integer a 32 bit. |
+| *Edm.Int64* |Valori integer a 64 bit. |
 | *Edm.Double* |Dati numerici a precisione doppia. |
 | *Edm.DateTimeOffset* |Valori di ora rappresentati in formato OData V4 (ad esempio `yyyy-MM-ddTHH:mm:ss.fffZ` o `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Punto che rappresenta una località geografica del mondo. |
