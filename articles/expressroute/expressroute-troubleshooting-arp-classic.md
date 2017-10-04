@@ -140,7 +140,7 @@ La tabella ARP di un peer può essere usata per convalidare la connettività e l
 * La tabella ARP contiene una voce per il lato locale con gli indirizzi IP e MAC validi e una voce simile per il lato Microsoft.
 * L'ultimo ottetto dell'indirizzo IP locale è sempre un numero dispari.
 * L'ultimo ottetto dell'indirizzo IP Microsoft è sempre un numero pari.
-* Lo stesso indirizzo MAC viene visualizzato sul lato Microsoft per tutti i&3; peer (principale/secondario).
+* Lo stesso indirizzo MAC viene visualizzato sul lato Microsoft per tutti i 3 peer (principale/secondario).
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
