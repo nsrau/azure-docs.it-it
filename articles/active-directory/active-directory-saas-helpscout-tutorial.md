@@ -106,9 +106,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per Single Sign-On di Help Scout](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
 
-    a. L'**Identificatore** è il **"Audience URI (ID entità di Service Provider)"** (URI pubblico (ID entità provider servizi)) dalla Help Scout, inizia con `urn:`
+    a. L'**Identificatore** è il **"Audience URI (ID entità di Service Provider)"**(URI destinatario - ID entità provider di servizi) dalla Help Scout, inizia con `urn:`
 
-    b. L'**URL di risposta** è il **"Post-back URL (Assertion Consumer Service URL)"** (URL di postback (URL del servizio consumer di asserzione)) dalla Guida Scout, inizia con `https://` 
+    b. L'**URL di risposta** è il **"Post-back URL (Assertion Consumer Service URL)"** (URL postback - URL del servizio consumer di asserzione) dalla Guida Scout, inizia con `https://` 
 
     > [!NOTE] 
     > I valori in questi URL sono forniti solo a scopo dimostrativo. È necessario aggiornare questi valori dall'URL di risposta e dall'identificatore effettivi. Si ottengono questi valori dalla scheda **Single Sign-On** nella sezione Autenticazione, che è illustrata più avanti nell'esercitazione.
@@ -146,9 +146,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
  
-    a. Copiare il valore **Post-back URL (Assertion Consumer Service URL)** (URL di postback (URL del servizio consumer di asserzione)) e incollare il valore nella casella **URL di risposta** nel portale di Azure, nella sezione Guida Scout **Dominio e URL**.
+    a. Copiare il valore **Post-back URL (Assertion Consumer Service URL)** (URL postback - URL del servizio consumer di asserzione) e incollare il valore nella casella **URL di risposta** nel portale di Azure, nella sezione Guida Scout **Dominio e URL**.
     
-    b. Copiare il valore **Audience URI (ID entità di Service Provider)** (URI pubblico (ID entità provider servizi)) e incollare il valore nella casella **Identificatore** nel portale di Azure, nella sezione Guida Scout **Dominio e URL**.
+    b. Copiare il valore **Audience URI (ID entità di Service Provider)** (URI destinatario - ID entità provider di servizi) e incollare il valore nella casella **Identificatore** nel portale di Azure, nella sezione Guida Scout **Dominio e URL**.
 
 12. Attiva **Abilita SAML** ed esegui la procedura seguente:
 
@@ -160,7 +160,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Immettere i domini di posta elettronica domini, ad esempio `contoso.com` nella casella di testo **Email Domains** (Domini di posta elettronica). È possibile separare più domini con una virgola. In qualsiasi momento un utente di Scout Guida o un amministratore che entra in tale dominio specifico nella [pagina di accesso della Guida Scout](https://secure.helpscout.net/members/login/) verrà indirizzato al provider di identità per l'autenticazione con le proprie credenziali.
 
-    d. Infine, è possibile attivare o disattivare **Force SAML Sign-on** (Forza Sign-On SAML) se si desidera che gli utenti accedano a Guida Scout solo tramite questo metodo. Se si desidera lasciare l'opzione per poter accedere con le proprie credenziali di Scout Guida, è possibile lasciarla disattivata. Anche se questa opzione è abilitata, il proprietario dell'account sarà sempre in grado di accedere a Scout Guida con la password dell'account.
+    d. Infine, è possibile attivare o disattivare **Force SAML Sign-on** (Forza accesso SAML) se si desidera che gli utenti accedano a Guida Scout solo tramite questo metodo. Se si desidera lasciare l'opzione per poter accedere con le proprie credenziali di Scout Guida, è possibile lasciarla disattivata. Anche se questa opzione è abilitata, il proprietario dell'account sarà sempre in grado di accedere a Scout Guida con la password dell'account.
 
     e. Fare clic su **Salva**.
 
