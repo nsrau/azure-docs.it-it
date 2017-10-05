@@ -89,6 +89,6 @@ Dopo avere imparato a usare i moduli Node.js con Azure, per altre informazioni v
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](/nodejs/azure/).
 
 [specificare una versione di Node.js]: nodejs-specify-node-version-azure-apps.md
-[usare l'interfaccia della riga di comando Azure per Mac e Linux]:cli-install-nodejs.md
-[script di distribuzione di un sito Web personalizzato con Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
+[usare l'interfaccia della riga di comando di Azure per Mac e Linux]:cli-install-nodejs.md
+[Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
 

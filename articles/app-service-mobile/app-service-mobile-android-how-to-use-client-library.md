@@ -1290,7 +1290,7 @@ Questo codice deve essere eseguito prima di creare un riferimento al client per 
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
+[Aggiungere l'autenticazione all'app Android]: app-service-mobile-android-get-started-users.md
 [1]: http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html
 [2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: http://go.microsoft.com/fwlink/p/?LinkId=290801

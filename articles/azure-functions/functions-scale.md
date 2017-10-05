@@ -108,5 +108,5 @@ La fatturazione per il piano a consumo viene illustrata in modo dettagliato nell
 * **Utilizzo delle risorse in gigabyte al secondo (GB-s)**. Calcolato come combinazione di dimensioni di memoria e tempo di esecuzione per tutte le funzioni in un'app per le funzioni. 
 * **Esecuzioni**. Conteggiate ogni volta che una funzione viene eseguita in risposta a un evento attivato da un binding.
 
-[Pagina dei prezzi di Funzioni di Azure]: https://azure.microsoft.com/pricing/details/functions
+[pagina relativa ai prezzi per Funzioni di Azure]: https://azure.microsoft.com/pricing/details/functions
 

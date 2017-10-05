@@ -189,10 +189,10 @@ In questa esercitazione è stato illustrato come creare e personalizzare un'API 
 I riferimenti seguenti possono essere utili quando si sviluppa ulteriormente l'API:
 
 - [Binding HTTP e webhook di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Uso dei proxy di Funzioni di Azure (anteprima)]
+- [Uso di proxy in Funzioni di Azure (anteprima)]
 - [Documentazione di un'API di Funzioni di Azure (anteprima)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Uso dei proxy di Funzioni di Azure (anteprima)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Uso di proxy in Funzioni di Azure (anteprima)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
 

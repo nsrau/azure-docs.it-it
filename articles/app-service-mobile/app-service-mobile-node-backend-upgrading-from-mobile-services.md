@@ -160,12 +160,12 @@ Quando la nuova versione del client è pronta, provarla con il progetto server a
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Prezzi del servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[prezzi del servizio app]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Concetti relativi all'autenticazione]: ../app-service/app-service-authentication-overview.md
+[concetti dell'autenticazione]: ../app-service/app-service-authentication-overview.md
 [guida introduttiva all'autenticazione]: app-service-mobile-auth.md
 
-[Portale di Azure]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

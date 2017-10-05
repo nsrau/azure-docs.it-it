@@ -846,7 +846,7 @@ if (error.code == MSErrorPreconditionFailed) {
 <!-- Images. -->
 
 <!-- URLs. -->
-[Avvio rapido alle app per dispositivi mobili di Azure]: app-service-mobile-ios-get-started.md
+[Azure Mobile App Quick Start]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios

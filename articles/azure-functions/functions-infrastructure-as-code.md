@@ -31,8 +31,8 @@ ms.lasthandoff: 09/25/2017
 Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Per i modelli di esempio, vedere:
-- [App per le funzioni in un piano a consumo]
-- [App per le funzioni in un piano di servizio app di Azure]
+- [App per le funzioni nel piano a consumo]
+- [App per le funzioni nel piano di servizio app di Azure]
 
 ## <a name="required-resources"></a>Risorse necessarie
 
@@ -291,6 +291,6 @@ Altre informazioni su come sviluppare e configurare le Funzioni di Azure.
 
 <!-- LINKS -->
 
-[App per le funzioni in un piano a consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[App per le funzioni in un piano di servizio app di Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[App per le funzioni nel piano a consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[App per le funzioni nel piano di servizio app di Azure]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
 
