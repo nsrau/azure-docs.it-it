@@ -327,7 +327,7 @@ A questo punto, dopo aver appreso le nozioni di base degli argomenti del bus di 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Creare e distribuire un'applicazione Node.js in un sito Web Azure]: ../app-service/app-service-web-get-started-nodejs.md
+[Creare un'app Web Node.js nel servizio app di Azure]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 
