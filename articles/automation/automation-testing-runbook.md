@@ -3,7 +3,7 @@ title: Test di un runbook in Automazione di Azure | Documentazione Microsoft
 description: "Prima di pubblicare un runbook in automazione di Azure, è possibile eseguirne il test per assicurarsi che funzioni come previsto.  In questo articolo viene descritto come verificare un runbook e visualizzarne l'output."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182

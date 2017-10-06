@@ -3,7 +3,7 @@ title: Impostazioni dei runbook | Documentazione Microsoft
 description: Illustra le impostazioni di configurazione per un runbook in Automazione di Azure e come modificarle usando il portale di gestione di Azure e Windows PowerShell.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61

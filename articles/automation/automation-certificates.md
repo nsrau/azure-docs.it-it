@@ -3,7 +3,7 @@ title: Asset di tipo certificato in Automazione di Azure | Documentazione Micros
 description: I certificati possono essere archiviati in modo sicuro in Automazione di Azure, in modo che i runbook o le configurazioni DSC possano accedervi per eseguire l'autenticazione rispetto a risorse di Azure e di terze parti.  Questo articolo illustra nel dettaglio i certificati e spiega come usarli nella creazione testuale e grafica.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: ac9c22ae-501f-42b9-9543-ac841cf2cc36

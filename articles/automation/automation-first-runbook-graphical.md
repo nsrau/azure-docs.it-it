@@ -3,7 +3,7 @@ title: Il primo runbook grafico in Automazione di Azure | Documentazione Microso
 description: Esercitazione che illustra la creazione, i test e la pubblicazione di un semplice runbook grafico .
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: runbook, modello di runbook, automazione runbook, runbook di Azure

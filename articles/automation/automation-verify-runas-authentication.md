@@ -3,7 +3,7 @@ title: Convalidare la configurazione dell'account di Automazione di Azure | Micr
 description: Questo articolo descrive come verificare che la configurazione dell'account di Automazione sia impostata correttamente.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

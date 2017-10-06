@@ -3,7 +3,7 @@ title: Integrazione del controllo del codice sorgente di Automazione di Azure co
 description: Descrive nei dettagli come configurare l'integrazione con GitHub Enterprise per il controllo del codice sorgente dei runbook di Automazione.
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: jwhit
 editor: 
 ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4

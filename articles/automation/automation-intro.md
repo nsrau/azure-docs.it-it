@@ -3,7 +3,7 @@ title: Informazioni su Automazione di Azure | Microsoft Docs
 description: "Informazioni sui vantaggi offerti da Automazione di Azure e risposte alle domande più comuni per iniziare a creare e usare runbook e Automation DSC per Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "che cos'è l'automazione, Automazione di Azure, esempi di Automazione di Azure"

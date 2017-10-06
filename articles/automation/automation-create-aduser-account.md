@@ -3,7 +3,7 @@ title: Creare un account utente di Azure AD | Microsoft Docs
 description: Questo articolo descrive come creare le credenziali di un account utente di Azure AD per i runbook di Automazione di Azure ai fini dell'autenticazione in Azure e nella distribuzione classica di Azure.
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: utente di Azure Active Directory, Azure Service Management, account utente Azure AD

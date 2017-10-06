@@ -3,7 +3,7 @@ title: Gestione degli errori nei runbook grafici di Automazione di Azure | Docum
 description: Questo articolo descrive come implementare la logica di gestione degli errori nei runbook grafici di Automazione di Azure.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 

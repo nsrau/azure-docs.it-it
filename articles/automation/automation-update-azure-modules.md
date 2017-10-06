@@ -3,7 +3,7 @@ title: Aggiornare i moduli di Azure in Automazione di Azure | Microsoft Docs
 description: "L'articolo descrive in che modo è ora possibile aggiornare i moduli di Azure PowerShell comuni disponibili per impostazione predefinita in Automazione di Azure."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 

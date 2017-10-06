@@ -3,7 +3,7 @@ title: Creare un account di Automazione di Azure autonomo | Microsoft Docs
 description: "Esercitazione che illustra come creare, testare e usare l'autenticazione dell'entità di sicurezza in Automazione di Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3

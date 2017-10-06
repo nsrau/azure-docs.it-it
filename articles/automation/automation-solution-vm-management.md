@@ -3,7 +3,7 @@ title: "Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore
 description: La soluzione Virtual Machine Management permette di avviare e arrestare le macchine virtuali di Azure Resource Manager in base a una pianificazione e di monitorare in modo attivo tramite Log Analytics.
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883

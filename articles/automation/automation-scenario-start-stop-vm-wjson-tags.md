@@ -3,7 +3,7 @@ title: Usare tag in formato JSON per pianificare lo stato delle VM di Azure | Do
 description: Questo articolo illustra come usare stringhe JSON nei tag per automatizzare la pianificazione di arresto e avvio delle macchine virtuali.
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2

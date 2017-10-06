@@ -3,7 +3,7 @@ title: Risolvere i problemi del ruolo di lavoro ibrido per runbook di Automazion
 description: "Descrive i sintomi, le cause e la risoluzione dei problemi più comuni del ruolo di lavoro ibrido per runbook in Automazione di Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9

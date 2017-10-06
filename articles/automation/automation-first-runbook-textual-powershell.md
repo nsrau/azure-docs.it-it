@@ -3,7 +3,7 @@ title: Il primo runbook PowerShell in Automazione di Azure | Documentazione Micr
 description: Esercitazione che illustra la creazione, i test e la pubblicazione di un semplice runbook PowerShell.
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: Azure PowerShell, esercitazione sugli script di PowerShell, automazione di PowerShell
