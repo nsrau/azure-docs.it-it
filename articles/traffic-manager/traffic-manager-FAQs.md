@@ -1,9 +1,9 @@
 ---
-title: Gestione traffico di Azure - Domande frequenti | Documentazione Microsoft
+title: Gestione traffico di Azure - Domande frequenti | Microsoft Docs
 description: Questo articolo risponde ad alcune domande frequenti su Gestione traffico
 services: traffic-manager
 documentationcenter: 
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 09/18/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 44762864e0a5adf568fcd4928b48661196f05b9e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 06/16/2017
 
 Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Gestione traffico funziona a livello di DNS. Invia le risposte DNS per indirizzare i client all'endpoint di servizio appropriato. I client si connettono quindi all'endpoint di servizio in modo diretto, senza passare per Gestione traffico.
 
-Gestione traffico non prevede quindi un endpoint o indirizzo IP per la connessione dei client. Pertanto, se si vuole un indirizzo IP statico, per il servizio, questo deve essere configurato nel servizio, non in Gestione traffico.
+Gestione traffico non prevede quindi un endpoint o indirizzo IP per la connessione dei client. Se si intende avere un indirizzo IP statico per un servizio, è necessario configurarlo nel servizio, non in Gestione traffico.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Gestione traffico supporta sessioni "permanenti"?
 
@@ -44,7 +44,7 @@ Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](..
 
 Eventuali verifiche più approfondite dovranno quindi concentrarsi sull'applicazione.
 
-L'intestazione host HTTP inviata dal browser del client è l'origine dei problemi più comune. Assicurarsi che l'applicazione sia configurata per accettare l'intestazione host corretta per il nome di dominio in uso. Per gli endpoint che usano il Servizio app di Azure, vedere [Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
+L'intestazione host HTTP inviata dal browser del client è l'origine dei problemi più comune. Assicurarsi che l'applicazione sia configurata per accettare l'intestazione host corretta per il nome di dominio in uso. Per gli endpoint che usano il Servizio app di Azure, vedere [Configurazione di un nome di dominio personalizzato per un'app Web nel servizio app di Azure con Gestione traffico](../app-service/web-sites-traffic-manager-custom-domain-name.md).
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Qual è l'impatto sulle prestazioni dell'uso di Gestione traffico?
 
@@ -69,9 +69,8 @@ Per risolvere questo problema, è consigliabile usare un reindirizzamento HTTP p
 Il supporto completo per i domini naked in Gestione traffico è riportato nel backlog delle funzionalità. È possibile registrare il supporto per questa funzionalità [votandolo sul sito dei commenti della community](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Gestione traffico tiene conto dell'indirizzo della subnet client quando si gestiscono query DNS? 
-No, attualmente Gestione traffico tiene conto solo dell'indirizzo IP di origine della query DNS che riceve, che in genere è l'indirizzo IP del resolver DNS, durante l'esecuzione di ricerche dei metodi di routing Geografico e Prestazioni.  
-In particolare, in [RFC7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) (RFC7871 – Subnet client nelle query DNS), che indica un [meccanismo di estensione per DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) che può trasferire l'indirizzo della subnet client dai resolver che lo supportano ai server DNS, non è attualmente supportata in Gestione traffico. È possibile registrare il supporto per la richiesta di questa funzionalità sul [sito di commenti e suggerimenti della community](https://feedback.azure.com/forums/217313-networking).
-
+Sì, oltre all'indirizzo IP di origine della query DNS che riceve (che è in genere l'indirizzo IP del sistema di risoluzione DNS), quando si eseguono ricerche per i metodi di routing geografico e le prestazioni, Gestione traffico considera anche l'indirizzo di subnet del client se viene incluso nella query dal resolver che effettua la richiesta per conto dell'utente finale.  
+Per altri dettagli, vedere la [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) (RFC 7871 - Subnet client nelle query DNS), che indica un [meccanismo di estensione per DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) che può trasferire l'indirizzo della subnet client dai resolver che lo supportano.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Cos'è la durata TTL del DNS e che impatto ha sugli utenti?
 
@@ -118,13 +117,119 @@ Deve esserci almeno un'area mappata per tutti gli endpoint in un profilo con rou
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Perché è decisamente consigliato che i clienti creino profili nidificati anziché endpoint in un profilo con il routing geografico abilitato? 
 
-Un'area può essere assegnata a un solo endpoint all'interno di un profilo se usa il tipo di routing geografico. Se tale endpoint non è un tipo annidato con un profilo figlio collegato, nel caso l'endpoint perdesse l'integrità, Gestione traffico continuerà a inviare traffico a esso in quanto l'alternativa di non inviare alcun traffico non è migliore. Gestione traffico non esegue il failover su un altro endpoint, anche quando l'area assegnata è "padre" dell'area assegnata all'endpoint danneggiato. Ad esempio, se un endpoint che include l'area Spagna perde la sua integrità, non si eseguirà il failover su un altro endpoint con assegnata l'area Europa. Lo scopo di tutto questo è garantire che Gestione traffico rispetti i confini geografici che un cliente ha stabilito nel proprio profilo. Per ottenere il vantaggio del failover su un altro endpoint quando un endpoint perde la sua integrità, è consigliabile assegnare le aree geografiche a profili annidati con più endpoint all'interno invece di singoli endpoint. In questo modo se un endpoint nel profilo figlio annidato non funziona, il traffico può eseguire il failover su un altro endpoint all'interno dello stesso profilo figlio annidato.
+Un'area può essere assegnata a un solo endpoint all'interno di un profilo se usa il tipo di routing geografico. Se tale endpoint non è un tipo annidato con un profilo figlio collegato, nel caso l'endpoint perdesse l'integrità, Gestione traffico continuerà a inviare traffico a esso in quanto l'alternativa di non inviare alcun traffico non è migliore. Gestione traffico non esegue il failover su un altro endpoint, anche quando l'area assegnata è "padre" dell'area assegnata all'endpoint danneggiato. Se, ad esempio, un endpoint che include l'area Spagna viene danneggiato, non si eseguirà il failover su un altro endpoint a cui è assegnata l'area Europa. Lo scopo di tutto questo è garantire che Gestione traffico rispetti i confini geografici che un cliente ha stabilito nel proprio profilo. Per ottenere il vantaggio del failover su un altro endpoint quando un endpoint perde la sua integrità, è consigliabile assegnare le aree geografiche a profili annidati con più endpoint all'interno invece di singoli endpoint. In questo modo se un endpoint nel profilo figlio annidato non funziona, il traffico può eseguire il failover su un altro endpoint all'interno dello stesso profilo figlio annidato.
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Ci sono restrizioni sulla versione API che supporta questo tipo di routing?
 
 Sì, solo l'API versione 2017-03-01 e versioni successive supportano il routing di tipo geografico. Le versioni precedenti dell'API non possono essere usate per creare profili con routing di tipo Geografico o assegnare aree geografiche agli endpoint. Se viene usata una versione precedente dell'API per recuperare i profili da una sottoscrizione di Azure, non vengono restituiti profili con routing di tipo Geografico. Inoltre, quando si usano versioni precedenti dell'API, tutti i profili restituiti che hanno endpoint con un'area geografica assegnata non mostreranno l'area geografica assegnata.
 
+## <a name="real-user-measurements"></a>Misurazioni utente reale
 
+>[!NOTE]
+>La funzionalità Misurazioni utente reale in Gestione traffico è attualmente in versione di anteprima pubblica e potrebbe non offrire lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. La funzionalità non è supportata, potrebbe avere funzioni vincolate e potrebbe non essere disponibile in tutte le località di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato di questa funzionalità, vedere la pagina [Aggiornamenti di Gestione traffico di Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
+
+### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quali sono i vantaggi offerti dall'utilizzo di Misurazioni utente reale?
+Quando si usa il metodo di routing basato sulle prestazioni, Gestione traffico seleziona l'area di Azure migliore a cui l'utente finale può connettersi, controllando l'IP di origine e la subnet client EDNS (se passata) e confrontandoli con l'intelligence di latenza di rete gestita dal servizio. La funzionalità Misurazioni utente reale migliora questo scenario facendo in modo che le esperienze della base di utenti finali contribuiscano a questa tabella di latenza e assicurando che la tabella includa adeguatamente le reti degli utenti finali da cui gli utenti finali si connettono ad Azure. In questo modo si ottiene una maggiore precisione nel routing degli utenti finali.
+
+### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>È possibile usare Misurazioni utente reale con aree non di Azure?
+La funzionalità Misurazioni utente finale misura e riporta solo la latenza per raggiungere le aree di Azure. Se si usa il routing basato sulle prestazioni con endpoint ospitati in aree non di Azure, è comunque possibile beneficiare di questa funzionalità facendo in modo che le informazioni di latenza aumentata sull'area di Azure rappresentativa precedentemente selezionata vengano associate a questi endpoint.
+
+### <a name="which-routing-method-benefits-from-real-user-measurements"></a>Quale metodo di routing trae vantaggio dalla funzionalità Misurazioni utente reale?
+Le informazioni aggiuntive ottenute tramite Misurazioni utente reale sono applicabili solo ai profili che usano il metodo di routing basato sulle prestazioni. Si noti che il collegamento Misurazioni utente reale è disponibile da tutti i profili quando lo si visualizza tramite il portale di Azure.
+
+### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>È necessario abilitare Misurazioni utente reale per ogni profilo separatamente?
+No, basta abilitare la funzionalità una sola volta per ogni sottoscrizione e tutte le informazioni di latenza misurate e riportate diventano disponibili per tutti i profili.
+
+### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Come si disattiva Misurazioni utente reale in una sottoscrizione?
+È possibile interrompere gli addebiti dei costi relativi a Misurazioni utente reale quando si smette di raccogliere e restituire le misure di latenza dall'applicazione client. Quando il codice JavaScript di misurazione è integrato in pagine Web, ad esempio, è possibile arrestare la funzionalità rimuovendo il codice JavaScript o disattivando la chiamata durante il rendering della pagina.
+Un altro modo per disattivare Misurazioni utente reale consiste nell'eliminare la chiave. Dopo che la funzionalità è stata disabilitata, tutte le misurazioni inviate a Gestione traffico con tale chiave vengono rimosse.
+
+### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>È possibile usare Misurazioni utente reale con applicazioni client diverse dalle pagine Web?
+Sì, Misurazioni utente reale è progettata per inserire i dati raccolti tramite tipi diversi di client utente finale. Queste domande frequenti verranno aggiornate man mano che verranno supportati nuovi tipi di applicazioni client.
+
+### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Quante misurazioni vengono effettuate ogni volta che viene eseguito il rendering di una pagina Web con Misurazioni utente reale abilitata?
+Quando Misurazioni utente reale viene usata con il codice JavaScript di misurazione specificato, ogni rendering di pagina restituisce sei misurazioni. Queste misurazioni vengono quindi riportate al servizio Gestione traffico. Si noti che l'addebito per questa funzionalità avviene in base al numero di misurazioni riportate al Gestione traffico. Se, ad esempio, l'utente esce dalla pagina Web durante le misurazioni ma prima che queste siano riportate al servizio,tali misurazioni non vengono considerate per la fatturazione.
+
+### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>È presente un ritardo prima dell'esecuzione dello script di Misurazioni utente reale nella pagina Web?
+No, non vi sono ritardi programmati prima che lo script venga richiamato.
+
+### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>È possibile configurare Misurazioni utente reale solo con le aree di Azure che si intende misurare?
+No, ogni volta che viene chiamato, lo script di Misurazioni utente reale misura un set di sei aree di Azure determinato dal servizio. Questo set cambia tra una chiamata e l'altra e, quando si verificano tante chiamate, la copertura delle misurazioni spazia tra aree di Azure diverse.
+
+### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>È possibile limitare il numero di misurazioni effettuate a un numero specifico?
+Il codice JavaScript di misurazione è integrato nella pagina Web, pertanto si ha il controllo completo su quando iniziare e arrestare l'uso del servizio. Il set di aree viene restituito fino a quando il servizio Gestione traffico riceve una richiesta di misurazione di un elenco di aree di Azure. Occorre inoltre sapere che, durante il periodo di anteprima, non verrà addebitato alcuno costo per le misurazioni riportate a Gestione traffico.
+
+### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>È possibile visualizzare le misurazioni effettuate dall'applicazione client nell'ambito di Misurazioni utente reale?
+Poiché la logica di misurazione viene eseguita dall'applicazione client, si ha il controllo completo di ciò che accade, inclusa la visualizzazione delle misurazioni di latenza. Gestione traffico non mostra una vista aggregata delle misurazioni ricevute nella chiave collegata alla sottoscrizione in uso.
+
+### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>È possibile modificare lo script di misurazione di Gestione traffico?
+È possibile controllare ciò che è integrato nella pagina Web, ma è fortemente sconsigliato modificare lo script di misurazione per garantire che misuri e riporti le latenze correttamente.
+
+### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Gli altri utenti sono in grado di vedere la chiave di un utente che viene usata con Misurazioni utente reale?
+Quando si incorpora lo script di misurazione in una pagina Web, gli altri utenti possono visualizzare lo script e la chiave di Misurazioni utente reale. È tuttavia importante sapere che questa chiave è diversa dall'ID sottoscrizione e viene generata da Gestione traffico per essere usata solo a questo scopo. Il fatto che altri utenti conoscano la chiave di Misurazioni utente reale di un utente non compromette la sicurezza dell'account di Azure che la usa.
+
+### <a name="can-others-abuse-my-rum-key"></a>È possibile che altri utenti usino la chiave di Misurazioni utente reale di un utente senza autorizzazione?
+Sebbene sia possibile che altri utenti usino la chiave di un utente per inviare informazioni errate ad Azure, la presenza di alcune misurazioni errate non cambia il routing, in quanto viene preso in considerazione insieme a tutte le altre misurazioni ricevute. Se è necessario modificare le chiavi, è possibile generare la chiave nuovamente e a quel punto la chiave precedente viene eliminata.
+
+###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>È necessario inserire il codice JavaScript di misurazione in tutte le pagine Web?
+Il servizio Misurazioni utente reale diventa più prezioso man mano che il numero delle misurazioni aumenta. Spetta comunque all'utente valutare se è necessario inserirlo in tutte le pagine Web o solo in alcune. Si consiglia di iniziare inserendolo nella pagina più visitata, dove si presume che gli utenti vi rimangano per almeno cinque secondi.
+
+### <a name="can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements"></a>Gestione traffico è in grado di identificare le informazioni sugli utenti finali se si usa Misurazioni utente reale?
+Quando si usa il codice JavaScript di misurazione, Gestione traffico può vedere l'indirizzo IP del client dell'utente finale e l'indirizzo IP di origine del resolver DNS locale usati. Gestione traffico usa l'indirizzo IP del client solo dopo averlo troncato per non consentire l'identificazione dell'utente finale specifico che ha inviato le misurazioni. 
+
+### <a name="does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing"></a>La pagina Web che misura con Misurazioni utente reale deve usare Gestione traffico per il routing?
+No, non deve necessariamente usare Gestione traffico. Il lato routing di Gestione traffico opera separatamente dal lato Misurazioni utente reale e, sebbene sia molto utile usarli entrambi nella stessa proprietà Web, non è obbligatorio.
+
+### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>È necessario ospitare un qualsiasi servizio nelle aree di Azure da usare con Misurazioni utente reale?
+No, non è necessario ospitare alcun componente lato server in Azure perché Misurazioni utente reale funzioni. L'immagine a pixel singolo scaricata dal codice JavaScript di misurazione e il servizio che lo esegue in aree di Azure diverse sono ospitati e gestiti da Azure. 
+
+### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>L'utilizzo della larghezza di banda di Azure aumenta quando si usa Misurazioni utente reale?
+Come indicato nella risposta precedente, i componenti lato server di Misurazioni utente reale sono di proprietà e gestiti da Azure. Questo significa che l'uso di Misurazioni utente reale non determina un aumento dell'utilizzo della larghezza di banda. Si noti che questo non include qualsiasi utilizzo della larghezza di banda al di fuori di quanto viene addebitato da Azure. La larghezza di banda usata per scaricare solo un'immagine a pixel singolo viene limitata alla misurazione della latenza a un'area di Azure. 
+
+## <a name="traffic-view"></a>Visualizzazione traffico
+
+>[!NOTE]
+>La funzionalità Visualizzazione traffico di Gestione traffico è attualmente in versione di anteprima pubblica e potrebbe non offrire lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. La funzionalità non è supportata, potrebbe avere funzioni vincolate e potrebbe non essere disponibile in tutte le località di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato di questa funzionalità, vedere la pagina [Aggiornamenti di Gestione traffico di Azure](https://azure.microsoft.com/updates/?product=traffic-manager).
+
+### <a name="what-does-traffic-view-do"></a>A cosa serve Visualizzazione traffico?
+Visualizzazione traffico è una funzionalità di Gestione traffico che consente di comprendere a fondo gli utenti e le relative esperienze. Usa le query che riceve da Gestione traffico e le tabelle di intelligence di latenza di rete che il servizio gestisce per offrire le informazioni seguenti:
+- Le aree da cui gli utenti si connettono agli endpoint in Azure.
+- Il volume di utenti che si connettono da tali aree.
+- Le aree di Azure a cui gli utenti vengono instradati.
+- L'esperienza di latenza per queste aree di Azure.
+
+Queste informazioni sono disponibili all'utente tramite una vista tabulare nel portale. Sono inoltre disponibili come dati non elaborati da scaricare.
+
+### <a name="how-can-i-benefit-from-using-traffic-view"></a>Quali sono i vantaggi dell'utilizzo di Visualizzazione traffico?
+
+Visualizzazione traffico offre una visione complessiva del traffico ricevuto dai profili di Gestione traffico. Può essere usata, in particolare, per comprendere da dove si connette la base utente e, non meno importante, qual è l'esperienza di latenza media. È quindi possibile usare queste informazioni per individuare le aree su cui è necessario concentrarsi, ad esempio, espandendo il footprint di Azure a un'area che può gestire gli utenti con una latenza più bassa. Un'altra informazione che è possibile derivare da Visualizzazione traffico riguarda i modelli di traffico verso aree diverse. Questa informazione può aiutare a prendere decisioni in merito all'aumento o alla diminuzione dell'inventario in quelle aree.
+
+### <a name="how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor"></a>In che modo Visualizzazione traffico differisce dalle metriche di Gestione traffico disponibili tramite Monitoraggio di Azure?
+
+Monitoraggio di Azure aiuta a comprendere, a livello di aggregazione, il traffico ricevuto dal proprio profilo e dai relativi endpoint. Il servizio consente di tenere traccia dello stato di integrità degli endpoint tramite l'esposizione dei risultati del controllo di integrità. Quando occorre andare oltre questi dati e studiare l'esperienza dei propri utenti finali che si connettono ad Azure a livello di area, Visualizzazione traffico è lo strumento giusto.
+
+### <a name="does-traffic-view-use-edns-client-subnet-information"></a>Visualizzazione traffico usa le informazioni della subnet client EDNS?
+
+Visualizzazione traffico non considera le informazioni della subnet client EDNS quando genera il proprio output. Usa l'indirizzo IP del resolver DNS locale degli utenti per raggrupparli.
+
+### <a name="how-many-days-of-data-does-traffic-view-use"></a>Quanti giorni di dati usa Visualizzazione traffico?
+
+Visualizzazione traffico genera il proprio output elaborando i dati dei sette giorni che precedono quello prima del giorno in cui l'utente visualizza l'output. Si tratta di una finestra mobile e a ogni visita vengono usati i dati più recenti.
+
+### <a name="how-does-traffic-view-handle-external-endpoints"></a>In che modo Visualizzazione traffico gestisce gli endpoint esterni?
+
+Quando si usano endpoint esterni ospitati all'esterno di aree di Azure in un profilo di Gestione traffico, è possibile scegliere che venga eseguito il mapping a un'area di Azure che è un proxy per le relative caratteristiche di latenza (che è in effetti necessario se si usa il metodo di routing basato sulle prestazioni). Con questo mapping dell'area di Azure, verranno usate le metriche di latenza di quell'area di Azure per generare l'output di Visualizzazione traffico. Se non viene specificata alcuna area di Azure, le informazioni sulla latenza saranno vuote nei dati per quegli endpoint esterni.
+
+### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>È necessario abilitare Visualizzazione traffico per ogni profilo della sottoscrizione?
+Durante il periodo di anteprima, la funzionalità Visualizzazione traffico è abilitata a livello di sottoscrizione ed è disponibile per tutti i profili di Gestione traffico in tale sottoscrizione.
+
+### <a name="how-can-i-turn-off-traffic-view"></a>Come si disabilita Visualizzazione traffico?
+Durante il periodo di anteprima, è necessario creare un ticket di supporto per richiederne la disabilitazione nella propria sottoscrizione.
+
+### <a name="how-does-traffic-view-billing-work"></a>Come funziona la fatturazione di Visualizzazione traffico?
+
+La determinazione dei prezzi di Visualizzazione traffico è basata sul numero di punti dati usati per creare l'output. L'unico tipo di dati supportato al momento sono le query che vengono ricevute dal proprio profilo. Viene addebitata inoltre solo l'elaborazione eseguita quando Visualizzazione traffico è abilitata. Ciò significa che, se si abilita Visualizzazione traffico per un periodo di tempo specifico in un mese e la si disabilita in altri periodi, vengono considerati per la fatturazione solo i punti dati elaborati mentre la funzionalità era abilitata.
+Durante il periodo di anteprima, l'uso di Visualizzazione traffico non viene fatturato.
 
 ## <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 
@@ -236,6 +341,16 @@ L'elenco seguente contiene gli indirizzi IP da cui possono provenire i controlli
 * 13.75.152.253
 * 104.41.187.209
 * 104.41.190.203
+* 52.173.90.107
+* 52.173.250.232
+* 104.45.149.110
+* 40.114.5.197
+* 52.240.151.125
+* 52.240.144.45
+* 13.65.95.152
+* 13.65.92.252
+* 40.78.67.110
+* 104.42.192.195
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Qual è il numero di controlli di integrità previsto per un endpoint da parte di Gestione traffico?
 

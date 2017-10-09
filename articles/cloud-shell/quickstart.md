@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva ad Azure Cloud Shell (anteprima) | Microsoft Docs
-description: Guida introduttiva per Azure Cloud Shell
+title: Guida introduttiva a Bash in Azure Cloud Shell (anteprima) | Documentazione Microsoft
+description: Guida introduttiva a Bash in Cloud Shell
 services: 
 documentationcenter: 
 author: jluk
@@ -12,28 +12,36 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
 ms.contentlocale: it-it
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="quickstart-for-using-the-azure-cloud-shell"></a>Guida introduttiva all'uso di Azure Cloud Shell
+# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
-Questo documento illustra dettagliatamente come usare Azure Cloud Shell nel [portale di Azure](https://ms.portal.azure.com/).
+Questo documento illustra dettagliatamente come usare Bash in Azure Cloud Shell nel [portale di Azure](https://ms.portal.azure.com/).
+
+> [!NOTE]
+> È disponibile anche una guida introduttiva a [PowerShell in Azure Cloud Shell](quickstart-powershell.md).
 
 ## <a name="start-cloud-shell"></a>Avviare Cloud Shell
 1. Avviare **Cloud Shell** dalla barra di spostamento in alto nel portale di Azure <br>
-![](media/shell-icon.png)
+![](media/quickstart/shell-icon.png)
 2. Selezionare una sottoscrizione per creare un account di archiviazione e una condivisione file di Azure
 3. Fare clic su "Create storage" (Crea risorsa di archiviazione)
 
 > [!TIP]
 > Si viene automaticamente autenticati per l'interfaccia della riga di comando di Azure 2.0 in ogni sessione.
+
+### <a name="select-the-bash-environment"></a>Selezionare l'ambiente Bash
+1. Selezionare l’elenco a discesa degli ambienti dal lato sinistro della finestra della shell <br>
+![](media/quickstart/env-selector.png)
+2. Selezionare Bash
 
 ### <a name="set-your-subscription"></a>Impostare la sottoscrizione
 1. Elencare le sottoscrizioni a cui si ha accesso: <br>
@@ -61,16 +69,16 @@ Il nome utente in questa VM sarà quello usato in Cloud Shell ($User@Azure:).
 1. Cercare il nome della VM nella barra di ricerca del portale di Azure
 2. Fare clic su "Connetti" ed eseguire: `ssh username@ipaddress`
 
-![](media/sshcmd-copy.png)
+![](media/quickstart/sshcmd-copy.png)
 
-Quando viene stabilita la connessione SSH, verrà visualizzato il prompt di benvenuto di Ubuntu.
-![](media/ubuntu-welcome.png)
+Quando viene stabilita la connessione SSH, verrà visualizzato il prompt di benvenuto di Ubuntu. <br>
+![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>+ Cleaning up 
 Eliminare il gruppo di risorse e tutte le risorse al suo interno: <br>
 Eseguire `az group delete -n MyRG`
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni sull'archiviazione permanente su Cloud Shell](persisting-shell-storage.md) <br>
+[Informazioni sulla persistenza dei file per Bash all’interno di Cloud Shell.](persisting-shell-storage.md) <br>
 [Informazioni sull'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Informazioni sull'archiviazione file di Azure](../storage/files/storage-files-introduction.md) <br>
