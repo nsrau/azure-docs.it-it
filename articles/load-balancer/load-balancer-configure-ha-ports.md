@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17fee798661b7db4f9933684fceefbfed51409cd
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Come configurare le porte a disponibilità elevata per il servizio di bilanciamento del carico interno
 
 Questo articolo fornisce una distribuzione di esempio delle porte a disponibilità elevata in un servizio di bilanciamento del carico interno. Per le configurazioni specifiche delle appliance virtuali di rete, vedere i siti Web dei relativi provider.
+
+>[!NOTE]
+> La funzionalità Porte a disponibilità elevata è attualmente disponibile in anteprima. Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 La figura 1 illustra la configurazione seguente dell'esempio di distribuzione descritto in questo articolo:
 - Le appliance virtuali di rete vengono distribuite nel pool back-end di un servizio di bilanciamento del carico interno dietro la configurazione delle porte a disponibilità elevata. 
@@ -37,6 +40,22 @@ La figura 1 illustra la configurazione seguente dell'esempio di distribuzione de
 ![Distribuzione di esempio di porte a disponibilità elevata](./media/load-balancer-configure-ha-ports/haports.png)
 
 Figura 1: Appliance virtuali di rete distribuite dietro un servizio di bilanciamento del carico interno con porte a disponibilità elevata 
+
+## <a name="preview-sign-up"></a>Iscrizione all'anteprima
+
+Per partecipare all'anteprima della funzionalità Porte a disponibilità elevata in Load Balancer Standard SKU, registrare la propria sottoscrizione per ottenere l'accesso tramite PowerShell o l'interfaccia della riga di comando di Azure 2.0.
+
+- Iscrizione tramite PowerShell
+
+   ```powershell
+   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Iscrizione tramite l'interfaccia della riga di comando di Azure 2.0
+
+    ```cli
+  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
+    ```
 
 ## <a name="configuring-ha-ports"></a>Configurazione di porte a disponibilità elevata
 

@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 415ecc7398e9fc5b29522265e17084000ad4588b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: c8ba8743fbadc2c40762d555a8c573c741a75282
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Connettere Excel a Hadoop mediante Power Query
@@ -79,7 +79,7 @@ In questo articolo è stato illustrato come usare Power Query per recuperare dat
 * [Usare Zeppelin per eseguire query Hive in Azure HDInsight](./hdinsight-connect-hive-zeppelin.md).
 * [Connettere Excel a HDInsight mediante Microsoft Hive ODBC Driver](./hdinsight-connect-excel-hive-odbc-driver.md).
 * [Connettersi ad Azure HDInsight ed eseguire query Hive usando Strumenti Data Lake per Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Usare Visual Studio Code per Hive, LLAP o pySpark](hdinsight-for-vscode.md).
+* [Usare gli strumenti di Azure HDInsight per Visual Studio Code](hdinsight-for-vscode.md).
 * [Caricare dati in HDInsight](./hdinsight-upload-data.md).
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.png

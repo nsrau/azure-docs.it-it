@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 354eec1b0850edc1b2039e0c736b129936a27381
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
 ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Modificare la sottoscrizione con pagamento in base al consumo in un'offerta diversa
@@ -106,7 +106,7 @@ Il giorno del passaggio viene generata una fattura per tutti gli addebiti in sos
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>È possibile eseguire la migrazione dalla sottoscrizione con pagamento in base al consumo a [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) o al [Contratto Enterprise ](https://azure.microsoft.com/pricing/enterprise-agreement/)?
 
-* Per eseguire la migrazione all'offerta CSP, vedere l'argomento relativo alla [migrazione della sottoscrizione di Azure all'offerta CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
+* Per eseguire la migrazione all'offerta CSP, vedere l'argomento relativo alla [migrazione della sottoscrizione di Azure con pagamento in base al consumo all'offerta CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Per migrare la sottoscrizione esistente a un contratto Enterprise, chiedere all'amministratore dell'iscrizione di aggiungere l'account al contratto Enterprise. Seguire le istruzioni incluse nell'invito ricevuto tramite posta elettronica per lo spostamento delle sottoscrizioni nell'ambito dell'iscrizione al contratto Enterprise. Per altre informazioni, vedere [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Associare un account esistente) nel portale EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>È possibile eseguire la migrazione di dati e servizi a una nuova sottoscrizione?
@@ -117,3 +117,4 @@ Il giorno del passaggio viene generata una fattura per tutti gli addebiti in sos
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+

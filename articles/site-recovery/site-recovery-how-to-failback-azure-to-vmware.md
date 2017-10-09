@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 622604dc3ce69085feff6705168d58ad9938c429
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
 ms.contentlocale: it-it
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Eseguire il failback da Azure a un sito locale
@@ -27,7 +26,7 @@ ms.lasthandoff: 06/16/2017
 Questo articolo descrive come eseguire il failback da Macchine virtuali di Azure al sito locale. Seguire le istruzioni riportate in questo articolo per eseguire il failback delle macchine virtuali VMware o dei server fisici Windows/Linux dopo aver eseguito il failover dal sito locale in Azure usando l'esercitazione [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-vmware-to-azure-classic.md).
 
 > [!WARNING]
-> Se è stata [completata la migrazione](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), la macchina virtuale è stata spostata in un altro gruppo di risorse o la macchina virtuale di Azure è stata eliminata, non è possibile eseguire il failback.
+> Non è possibile eseguire il failback se è stata [completata la migrazione](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), la macchina virtuale è stata spostata in un altro gruppo di risorse o la macchina virtuale di Azure è stata eliminata. Se si disabilita la protezione della macchina virtuale, non è possibile eseguire il failback.
 
 > [!NOTE]
 > Se è stato eseguito il failover delle macchine virtuali VMware, non è possibile eseguire il failback a un host Hyper-V.
@@ -65,9 +64,9 @@ Se si esegue il failback nella macchina virtuale originaria è necessario rispet
 Se la macchina virtuale locale non esiste prima della riprotezione della macchina virtuale, lo scenario è denominato ripristino del percorso alternativo. Il flusso di lavoro della riprotezione crea nuovamente la macchina virtuale locale. Verrà anche eseguito un download completo dei dati.
 
 * Quando si esegue il failback in una posizione alternativa, la macchina virtuale verrà ripristinata nello stesso host ESX in cui è stato distribuito il server di destinazione master. L'archivio dati usato per creare il disco sarà lo stesso archivio selezionato durante la riprotezione della macchina virtuale.
-* È possibile eseguire il failback solo in un archivio dati VMFS. Con vSAN o RDM, la riprotezione e il failback avranno esito negativo.
+* È possibile eseguire il failback solo in un file system di macchina virtuale (VMFS) oppure vSAN. Con RDM, la riprotezione e il failback avranno esito negativo.
 * La riprotezione comporta un trasferimento di dati iniziale di grandi dimensioni, a cui fanno seguito le modifiche. Questo processo avviene perché la macchina virtuale non esiste in locale. È necessario eseguire di nuovo la replica dei dati completi. La riprotezione impiegherà quindi più tempo rispetto al ripristino nel percorso originale.
-* Non è possibile eseguire il failback in una rete vSAN o in dischi basati su RDM. In un archivio dati VMFS è possibile creare solo nuovi dischi VMDK.
+* Non è possibile eseguire il failback in dischi basati su RDM. In un archivio dati VMFS/vSAN è possibile creare solo nuovi dischi VMDK.
 
 In seguito al failover in Azure, è possibile eseguire il failback di una macchina fisica solo come macchina virtuale VMware, un'operazione chiamata anche P2A2V. Questo flusso di lavoro è considerato come ripristino in un percorso alternativo.
 
@@ -79,8 +78,11 @@ Prima di proseguire, completare i passaggi di riprotezione in modo che le macchi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Quando si esegue un failback, è necessario un server di configurazione locale. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione; in caso contrario il failback non ha esisto negativo. Assicurarsi quindi di pianificare backup regolari del server. In caso di emergenza, è necessario ripristinare il server con lo stesso indirizzo IP in modo che il failback funzioni.
-* Il server di destinazione master non deve avere snapshot prima di attivare il failback.
+> [!IMPORTANT]
+> Durante il failover in Azure, il sito locale potrebbe non essere accessibile e pertanto il server di configurazione può essere non disponibile o venire arrestato. Durante la riprotezione e il failback, il server di configurazione locale deve essere in esecuzione e in stato OK connesso.
+
+* Quando si esegue un failback, è necessario un server di configurazione locale. Il server deve essere in stato di esecuzione e connesso al servizio in modo che la relativa integrità sia OK. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione; in caso contrario il failback non ha esisto negativo. Assicurarsi quindi di pianificare backup regolari del server. In caso di emergenza, è necessario ripristinare il server con lo stesso indirizzo IP in modo che il failback funzioni.
+* Il server di destinazione master non deve avere snapshot prima di attivare la riprotezione o il failback.
 
 ## <a name="steps-to-fail-back"></a>Passaggi per eseguire il failback
 

@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2e41c70b982b97c6aab7b6c0322c193c61370a26
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
-# <a name="high-availability-ports-overview"></a>Panoramica delle porta a disponibilità elevata
+# <a name="high-availability-ports-overview-preview"></a>Panoramica delle porte a disponibilità elevata (anteprima)
 
 Lo SKU Standard di Azure Load Balancer introduce le porte a disponibilità elevata, una funzionalità per la distribuzione del traffico da tutte le porte e per tutti i protocolli supportati. Durante la configurazione di un servizio di bilanciamento del carico interno, gli utenti possono configurare una regola per le porte a disponibilità elevata con cui impostare le porte front-end e back-end su **0** e il protocollo su **all**, consentendo in tal modo a tutto il traffico di passare dal servizio di bilanciamento del carico interno.
+
+>[!NOTE]
+> La funzionalità Porte a disponibilità elevata è attualmente disponibile in anteprima. Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L'algoritmo di bilanciamento del carico rimane lo stesso e la destinazione viene selezionata in base alle cinque tuple <Indirizzo IP di origine, Porta di origine, Indirizzo IP di destinazione, Porta di destinazione, Protocollo>. Questa configurazione tuttavia consente una sola regola di bilanciamento del carico per elaborare tutto il traffico disponibile e riduce la complessità della configurazione, ma anche i limiti imposti dal numero massimo di regole di bilanciamento del carico che è possibile aggiungere.
 
@@ -43,6 +46,32 @@ L'esempio seguente presenta una distribuzione della rete virtuale hub e spoke, i
 
 Figura 1: Rete virtuale hub e spoke con appliance virtuali di rete distribuite in modalità a disponibilità elevata
 
+
+## <a name="region-availability"></a>Aree di disponibilità
+
+Le porte a disponibilità elevata sono attualmente disponibili nelle aree seguenti:
+- Stati Uniti orientali 2
+- Stati Uniti centrali
+- Europa settentrionale
+- Stati Uniti centro-occidentali
+- Europa occidentale
+- Asia sudorientale 
+
+## <a name="preview-sign-up"></a>Iscrizione all'anteprima
+
+Per partecipare all'anteprima della funzionalità Porte a disponibilità elevata in Load Balancer Standard SKU, registrare la propria sottoscrizione per ottenere l'accesso tramite PowerShell o l'interfaccia della riga di comando di Azure 2.0.
+
+- Iscrizione tramite PowerShell
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Iscrizione tramite l'interfaccia della riga di comando di Azure 2.0
+
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
+    ```
 ## <a name="caveats"></a>Avvertenze
 
 Di seguito sono elencate le configurazioni supportate o le eccezioni per le porte a disponibilità elevata:

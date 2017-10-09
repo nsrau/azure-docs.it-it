@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/15/2017
+ms.date: 09/27/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: eb409b6e5cb0f6bfbf6bfa8103c01482abf928cf
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: e4ee69abe0b3b5d594ee191cc8210d25c325efaa
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Usare gli endpoint del servizio Rete virtuale e le regole per il database SQL di Azure
 
-Le *regole della rete virtuale* di Microsoft Azure rappresentano una funzionalità firewall che consente di verificare se il server del database SQL di Azure accetta le comunicazioni inviate da subnet specifiche in reti virtuali. Questo articolo spiega i motivi per cui la funzione delle regole della rete virtuale rappresenti a volte la scelta ideale per consentire le comunicazioni con il database SQL di Azure in modo sicuro.
+Le *regole della rete virtuale* rappresentano una funzionalità di sicurezza firewall che consente di definire se il server del database SQL di Azure accetta le comunicazioni inviate da subnet specifiche nelle reti virtuali. Questo articolo spiega i motivi per cui la funzione delle regole della rete virtuale rappresenti a volte la scelta ideale per consentire le comunicazioni con il database SQL di Azure in modo sicuro.
+
+Per creare una regola della rete virtuale, deve essere disponibile un [endpoint del servizio Rete virtuale][vm-virtual-network-service-endpoints-overview-649d] al quale la regola possa fare riferimento.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Come creare una regola della rete virtuale
 
@@ -44,7 +46,7 @@ Se si crea solo una regola della rete virtuale, è possibile procedere direttame
 
 **Subnet:** una rete virtuale contiene **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint del servizio Rete virtuale:** un endpoint del servizio Rete virtuale è una subnet in cui i valori di proprietà includono uno o più nomi formali di tipi di servizi Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
+**Endpoint del servizio Rete virtuale:** un [endpoint del servizio Rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori di proprietà includono uno o più nomi formali di tipi di servizi Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
 
 **Regola della rete virtuale:** una regola della rete virtuale per il server di database SQL è una subnet presente nell'elenco di controllo di accesso (ACL) del server di database SQL. Per essere nell'elenco ACL del database SQL, la subnet deve contenere il nome del tipo **Microsoft.Sql**.
 
@@ -118,15 +120,21 @@ I ruoli di amministratore di rete e amministratore di database hanno più funzio
 
 #### <a name="limitations"></a>Limitazioni
 
-La funzionalità delle regole della rete virtuale presenta le limitazioni seguenti:
+Per il database SQL di Azure, la funzionalità delle regole della rete virtuale presenta le limitazioni seguenti:
 
-- Ogni server di database SQL di Azure può includere fino a 128 voci ACL di IP per qualsiasi rete virtuale specificata.
+- Ogni server di database SQL di Azure può includere fino a 128 voci ACL per qualsiasi rete virtuale specificata.
 
 - Le regole della rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][arm-deployment-model-568f].
 
-- Le regole della rete virtuale non si estendono agli elementi di rete seguenti:
-    - In locale mediante [Expressroute][expressroute-indexmd-744v]
+- Nel firewall, gli intervalli di indirizzi IP si applicano ai seguenti elementi di rete, ma non le regole della rete virtuale:
     - [VPN (rete privata virtuale) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
+    - Ambiente locale tramite [ExpressRoute][expressroute-indexmd-744v]
+
+#### <a name="expressroute"></a>ExpressRoute
+
+Se la rete è connessa alla rete di Azure con [ExpressRoute][expressroute-indexmd-744v], ogni circuito è configurato con due indirizzi IP pubblici in Microsoft Edge. I due indirizzi IP vengono usati per connettersi ai servizi Microsoft, ad esempio ad Archiviazione di Azure, usando il peering pubblico di Azure.
+
+Per consentire la comunicazione tra il circuito e il database SQL di Azure, è necessario creare regole di rete IP per gli indirizzi IP pubblici dei circuiti. Per trovare gli indirizzi IP pubblici del circuito ExpressRoute, aprire un ticket di supporto in ExpressRoute tramite il portale di Azure.
 
 
 <!--
@@ -195,6 +203,7 @@ Anche uno script di PowerShell può creare regole della rete virtuale. Ad esempi
 ## <a name="related-articles"></a>Articoli correlati
 
 - [Usare PowerShell per creare un endpoint del servizio virtuale e una regola per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Endpoint del servizio Rete virtuale di Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Regole firewall a livello di server e di database per il database SQL di Azure][sql-db-firewall-rules-config-715d]
 
 La funzionalità di endpoint del servizio Rete virtuale di Microsoft Azure e la funzionalità di regole della rete virtuale per il database SQL di Azure sono entrambe disponibili a partire dalla fine di settembre 2017.
@@ -228,6 +237,8 @@ La funzionalità di endpoint del servizio Rete virtuale di Microsoft Azure e la 
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+
+[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
 

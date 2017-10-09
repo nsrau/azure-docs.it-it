@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5c08b1361dfd2d13e0e7ca2ce6f9a2cf357a8dff
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -99,7 +99,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ### <a name="cloud-service-configuration-to-change-distribution-mode"></a>Configurazione del servizio cloud per modificare la modalità di distribuzione
 
-È possibile usare Azure SDK per .NET 2.5 (in arrivo a novembre) per aggiornare il servizio cloud. Le impostazioni degli endpoint per i servizi cloud vengono effettuate nel file con estensione csdef. Per aggiornare la modalità di distribuzione del servizio di bilanciamento del carico per una distribuzione di servizi cloud, è necessario un aggiornamento della distribuzione.
+È possibile usare Azure SDK per .NET 2.5 per aggiornare il servizio cloud. Le impostazioni degli endpoint per i servizi cloud vengono effettuate nel file con estensione csdef. Per aggiornare la modalità di distribuzione del servizio di bilanciamento del carico per una distribuzione di servizi cloud, è necessario un aggiornamento della distribuzione.
 Di seguito è riportato un esempio di modifiche del file con estensione csdef alle impostazioni degli endpoint:
 
 ```xml

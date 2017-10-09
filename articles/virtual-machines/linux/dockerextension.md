@@ -4,7 +4,7 @@ description: Informazioni su come usare l'estensione di VM Docker per distribuir
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 63d0d80999fd57d014c74d5c6aef3733ec2afe85
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 0cef78edaeec9d45aa733b1912d82d5a058ba289
 ms.contentlocale: it-it
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Creare un ambiente Docker in Azure usando l'estensione di VM Docker
@@ -35,13 +35,13 @@ Per altre informazioni sui diversi metodi di distribuzione, incluso l'uso di Doc
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Distribuire un modello con l'estensione di VM Docker di Azure
 Usare un modello di avvio rapido esistente per creare una macchina virtuale Ubuntu che usa l'estensione di VM Docker di Azure per installare e configurare l'host Docker. Per visualizzare il modello, vedere [Distribuzione semplice di una VM Ubuntu con Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). È necessario aver installato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#login).
 
-Creare prima un gruppo di risorse con [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *westus*:
+Creare prima un gruppo di risorse con [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Specificare i propri valori per *newStorageAccountName*, *adminUsername*, *adminPassword* e *dnsNameForPublicIP* come segue:
+Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Specificare i propri univoci valori per *newStorageAccountName*, *adminUsername*, *adminPassword* e *dnsNameForPublicIP* come segue:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -68,20 +68,31 @@ az vm show \
 
 Quando questo comando restituisce *Succeeded*, la distribuzione è stata completata ed è possibile configurare SSH sulla macchina virtuale nel passaggio seguente.
 
-## <a name="deploy-your-first-nginx-container"></a>Distribuire il primo contenitore nginx
-Per visualizzare i dettagli della VM, incluso il nome DNS, usare `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`. Accedere tramite SSH al nuovo host Docker dal computer locale, come indicato di seguito:
+## <a name="deploy-your-first-nginx-container"></a>Distribuire il primo contenitore NGINX
+Per visualizzare i dettagli della VM, incluso il nome DNS, usare [az vm show](/cli/azure/vm#show):
 
-```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
 ```
 
-Dopo aver effettuato l'accesso all'host Docker, eseguire un contenitore nginx:
+SSH per il nuovo host Docker. Specificare il proprio nome DNS, come illustrato di seguito:
+
+```bash
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+```
+
+Dopo aver effettuato l'accesso all'host Docker, eseguire un contenitore NGINX:
 
 ```bash
 sudo docker run -d -p 80:80 nginx
 ```
 
-L'output è simile all'esempio seguente quando l'immagine nginx viene scaricata e un contenitore viene avviato:
+L'output è simile all'esempio seguente quando l'immagine NGINX viene scaricata e un contenitore viene avviato:
 
 ```bash
 Unable to find image 'nginx:latest' locally
@@ -101,7 +112,7 @@ Per controllare lo stato dei contenitori in esecuzione sull'host Docker, fare co
 sudo docker ps
 ```
 
-L'output è simile all'esempio seguente, in cui viene mostrato che il contenitore nginx è in esecuzione e viene eseguito l'inoltro alle porte TCP 80 e 443:
+L'output è simile all'esempio seguente, in cui viene mostrato che il contenitore NGINX è in esecuzione e viene eseguito l'inoltro alle porte TCP 80 e 443:
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES

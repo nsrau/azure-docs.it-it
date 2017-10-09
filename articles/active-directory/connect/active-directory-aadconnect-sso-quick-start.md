@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -70,7 +70,10 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 
 ## <a name="step-3-roll-out-the-feature"></a>Passaggio 3: Distribuire la funzionalità
 
-Per distribuire la funzionalità agli utenti, è necessario aggiungere due URL di Azure AD alle impostazioni dell'area Intranet degli utenti tramite Criteri di gruppo in Active Directory.
+Per distribuire la funzionalità agli utenti, è necessario aggiungere gli URL di Azure AD seguenti alle impostazioni dell'area Intranet degli utenti usando Criteri di gruppo in Active Directory:
+
+- https://autologon.microsoftazuread-sso.com
+- https://aadg.windows.net.nsatc.net
 
 >[!NOTE]
 > Le istruzioni seguenti valgono solo per Internet Explorer e Google Chrome in Windows, se condivide l'insieme di URL di siti attendibili con Internet Explorer. Vedere la sezione successiva per istruzioni sulla configurazione di Mozilla Firefox e Google Chrome su Mac.

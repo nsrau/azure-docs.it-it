@@ -15,16 +15,28 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 5672bb1e17dac4ae0aaa67f936676d6c2fc5ef12
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 71da98bf6d53ab50df4f6e40cf0b548752d10f93
 ms.contentlocale: it-it
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="troubleshoot-azure-backup-server"></a>Risolvere i problemi del server di Backup di Azure
 
 È possibile risolvere gli errori rilevati durante l'uso di server di Backup di Azure con le informazioni elencate nella tabella seguente.
+
+## <a name="error-invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>Errore: È stato fornito un insieme di credenziali non valido. Il file è danneggiato o non ha le credenziali più recenti associate al servizio di ripristino 
+
+Per la risoluzione del problema, seguire questa [procedura] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
+
+## <a name="error-the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-server"></a>Errore: Operazione dell'agente protezione non riuscita. Errore di comunicazione con il servizio Coordinatore agenti Data Protection Manager in <Server> 
+
+Per la risoluzione del problema, seguire questa [procedura] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
+
+## <a name="error-setup-could-not-update-registry-metadata"></a>Errore: Non è stato possibile aggiornare i metadati del Registro di sistema
+
+Per la risoluzione del problema, seguire questa [procedura] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues).
 
 
 ## <a name="installation-issues"></a>Problemi di installazione

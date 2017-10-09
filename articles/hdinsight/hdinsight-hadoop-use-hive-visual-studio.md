@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 3411c59fee73aa2e26a05d70e1dae11cdfc865ff
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: b9a8f857f42f16ec7735a79ec29e77e3c99c8ba7
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Hive usando gli strumenti Data Lake per Visual Studio
@@ -72,7 +72,7 @@ Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguir
 
    * `ROW FORMAT`: indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.
 
-   * `STORED AS TEXTFILE LOCATION`: indica a Hive dove sono archiviati i dati (la directory example/data) e che sono archiviati come testo.
+   * `STORED AS TEXTFILE LOCATION`: indica a Hive che i dati sono archiviati nella directory example/data e che sono archiviati come testo.
 
    * `SELECT`: seleziona un numero di tutte le righe in cui la colonna `t4` include il valore `[ERROR]`. L'istruzione dovrebbe restituire un valore pari a `3`, poiché sono presenti tre righe contenenti questo valore.
 

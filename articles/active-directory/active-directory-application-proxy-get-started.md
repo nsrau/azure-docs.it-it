@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
 ms.contentlocale: it-it
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -81,7 +81,7 @@ Il proxy dell'applicazione di Azure AD fornisce l'accesso Single Sign-On (SSO) a
 Per altre informazioni su Kerberos, vedere [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tutto quello che si desidera sapere sulla delega vincolata Kerberos (KCD)).
 
 ### <a name="managing-apps"></a>Gestione delle app
-Quando l'app viene pubblicata con Proxy di applicazione, è possibile gestirla come qualsiasi altra app aziendale nel portale di Azure. È possibile usare funzioni di sicurezza di Azure Active Directory come la verifica in due passaggi e l'accesso condizionale, controllare le autorizzazioni utente e personalizzare il branding dell'app. 
+Dopo che è stata pubblicata con il proxy di applicazione, l'app può essere gestita come qualsiasi altra app aziendale nel portale di Azure. È possibile usare funzioni di sicurezza di Azure Active Directory come la verifica in due passaggi e l'accesso condizionale, controllare le autorizzazioni utente e personalizzare il branding dell'app. 
 
 ## <a name="get-started"></a>Introduzione
 

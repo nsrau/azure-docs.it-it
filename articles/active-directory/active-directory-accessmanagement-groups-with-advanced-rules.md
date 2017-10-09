@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b136d3841243ad7aa88786f76b2d31e5dfae9079
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
 ms.contentlocale: it-it
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -239,7 +239,8 @@ Ecco un esempio di regola che usa un attributo personalizzato:
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-È possibile trovare il nome dell'attributo personalizzato nella directory eseguendo una query sull'attributo nell'utente con Esplora grafico e cercando il nome dell'attributo. Non sono attualmente supportati attributi multivalore sincronizzati da Active Directory locale. 
+È possibile trovare il nome dell'attributo personalizzato nella directory eseguendo una query sull'attributo nell'utente con Esplora grafico e cercando il nome dell'attributo.
+Non sono attualmente supportati attributi multivalore sincronizzati da Active Directory locale.
 
 ## <a name="direct-reports-rule"></a>Regola per i dipendenti diretti
 È possibile creare un gruppo contenente tutti i dipendenti diretti di un manager. Quando i dipendenti diretti del manager cambieranno, l'appartenenza al gruppo verrà automaticamente modificata.
@@ -287,6 +288,19 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 > Impossibile creare le regole di dispositivo usando l'elenco a discesa "regola semplice" nel portale di Azure classico.
 >
 >
+
+## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Modifica dell'appartenenza dinamica in statica e viceversa
+È possibile modificare il modo in cui viene gestita l'appartenenza in un gruppo. Ciò è utile per mantenere lo stesso ID e nome di gruppo nel sistema in modo che i riferimenti al gruppo esistenti restino validi. Creando un nuovo gruppo sarebbe infatti necessario aggiornare tali riferimenti.
+
+> [!WARNING]
+> Quando si modifica un gruppo statico esistente in gruppo dinamico, tutti i membri esistenti verranno rimossi dal gruppo e verrà quindi elaborata la regola di appartenenza per aggiungere nuovi membri. Se il gruppo viene usato per controllare l'accesso alle app o alle risorse, i membri originali potrebbero perdere l'accesso finché non viene completata l'elaborazione della regola di appartenenza.
+>
+> È consigliabile testare prima la nuova regola per verificare che la nuova appartenenza nel gruppo sia quella prevista.
+
+1. Nel [portale di Azure classico](https://manage.windowsazure.com) aprire il gruppo.
+2. Selezionare la scheda **Configura** per visualizzare lo stato corrente di appartenenza dinamica.
+3. Per rendere statico un gruppo, impostare semplicemente **Abilita appartenenze dinamiche** su **NO**. Fare clic sul pulsante **Salva** sulla barra degli strumenti in basso per confermare. I membri esistenti verranno mantenuti nel gruppo e da ora in poi la regola di appartenenza non verrà elaborata.
+4. Per rendere dinamico un gruppo, modificare l'impostazione in **SÌ**, specificare la regola di appartenenza desiderata e fare clic su **Salva**. I membri esistenti verranno rimossi e verrà avviata l'elaborazione della nuova regola per l'aggiunta di nuovi membri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.

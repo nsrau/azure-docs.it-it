@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: mimig
 ms.custom: cda
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 947920783be3e2a8cd299cdcc667456adf140b57
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: fccf0e3d8cb5d0f0adfb53a06b95aa1090451915
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -140,6 +140,24 @@ Suggerimento 15: creare nuovi account di Azure #CosmosDB senza mai lasciare @cod
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
 [![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
+
+
+## <a name="tip-16-functions-and-twilio-demo"></a>Suggerimento 16: funzioni e demo di Twilio
+
+Suggerimento 16: interessante demo su come integrare Azure #CosmosDB, funzioni e @twilio per inviare un SMS per qualsiasi modifica al database. Vedere l'articolo all'indirizzo [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+
+> [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+
+
+## <a name="tip-17-using-mongoose-discriminators"></a>Suggerimento 17: uso di discriminatori Mongoose
+
+Suggerimento 17: ottimizzare il costo usando discriminatori Mongoose per archiviare più entità in un'unica raccolta #CosmosDB ([https://aka.ms/M488jm](https://aka.ms/M488jm))
+
+Post di blog: [Using Mongoose Discriminators to Store Multiple Entities in a Single Cosmos DB Collection](https://aka.ms/M488jm) (Uso di discriminatori Mongoose per archiviare più entità in un'unica raccolta Cosmos DB) di Anthony Chu
+
+[![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Regole del firewall per il database SQL di Azure | Microsoft Docs
+title: Regole del firewall per il database SQL di Azure | Documentazione Microsoft
 description: Informazioni su come configurare un firewall del database SQL con regole del firewall a livello di server e a livello di database per la gestione dell'accesso.
 keywords: firewall del database
 services: sql-database
@@ -18,10 +18,10 @@ ms.workload: data-management
 ms.date: 09/15/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 445689cb067d33b0da45d63730e5e755bc799909
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: a683481c9ebcdb8be6f9fefe442541e222482823
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Regole firewall a livello di server e di database per il database SQL di Azure 
@@ -227,3 +227,4 @@ Quando l'accesso al servizio di database SQL di Microsoft Azure non si comporta 
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
+

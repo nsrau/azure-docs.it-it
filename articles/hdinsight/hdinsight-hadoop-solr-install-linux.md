@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c7a911474d6fb90f45565c90a72bfd407898ceba
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installare e usare Solr nei cluster Hadoop di HDInsight
@@ -59,7 +59,7 @@ Uno script di esempio per l'installazione di Solr in un cluster HDInsight è dis
 
 Per creare un cluster con Solr installato, usare la procedura nel documento [Creare cluster basati su Linux in HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Durante il processo di creazione, usare la procedura seguente per installare Solr:
 
-1. Dal pannello __Riepilogo cluster__, selezionare__Impostazioni avanzate__ e quindi __Azioni script__. Usare le seguenti informazioni per popolare il modulo:
+1. Dal pannello __Riepilogo cluster__ selezionare__Impostazioni avanzate__ e quindi __Azioni script__. Usare le seguenti informazioni per popolare il modulo:
 
    * **NOME**: immettere un nome descrittivo per l'azione script.
    * **URI SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -68,7 +68,7 @@ Per creare un cluster con Solr installato, usare la procedura nel documento [Cre
    * **ZOOKEEPER**: selezionare questa opzione per l'installazione nel nodo Zookeeper
    * **PARAMETRI**: lasciare questo campo vuoto
 
-2. Nella parte inferiore del pannello **Azioni script** usare il pulsante **Seleziona** per salvare la configurazione. Infine, usare il pulsante **Avanti** per tornare al __Riepilogo cluster__
+2. Nella parte inferiore della sezione **Azioni script** usare il pulsante **Seleziona** per salvare la configurazione. Infine, usare il pulsante **Avanti** per tornare al __Riepilogo cluster__
 
 3. Dalla pagina __Riepilogo cluster__ selezionare __Crea__ per creare il cluster.
 

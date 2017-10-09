@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 87f4d219a678cab78980af2ff8b98ae55739f04c
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d1b629ad05f45efc8d01799616c82b4a11ecaab
 ms.contentlocale: it-it
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster HBase nelle reti virtuali di Azure
@@ -130,7 +130,11 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
   3.  **Head**: assicurarsi che questa opzione sia selezionata. Deselezionare gli altri tipi di nodo.
   4. **Parametri**: i parametri di esempio seguenti abilitano la replica per tutte le tabelle esistenti e quindi copiano tutti i dati dal cluster di origine al cluster di destinazione:
 
-            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+    
+    >[!note]
+    >
+    > Usare il nome host invece di FQDN per il nome DNS del cluster di origine e di destinazione.
 
 6. Selezionare **Crea**. L'esecuzione dello script può richiedere tempo, in particolare se si usa l'argomento **-copydata**.
 
@@ -168,7 +172,7 @@ L'elenco seguente illustra alcuni casi di utilizzo generale e le relative impost
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
-- **Abilitare la replica in tabelle specifiche**. Per abilitare la replica in table1, table2 e table3, usare i parametri seguenti:
+- **Abilitare la replica su tabelle specifiche**. Per abilitare la replica in table1, table2 e table3, usare i parametri seguenti:
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 

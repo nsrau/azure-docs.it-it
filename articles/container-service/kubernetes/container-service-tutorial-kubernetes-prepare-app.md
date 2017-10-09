@@ -18,10 +18,10 @@ ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 2c7c8e241010e86bf9ffe5b70921da71b8ace9da
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: d09f59715ac4dac1482e6ca5f79e8426f1f01ced
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -45,6 +45,8 @@ Nelle esercitazioni successive, l'immagine del contenitore verrà caricata in un
 Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, come contenitori, immagini dei contenitore e comandi essenziali. Se necessario, vedere [Introduzione a Docker]( https://docs.docker.com/get-started/) per una panoramica sui concetti fondamentali relativi al contenitore. 
 
 Per completare questa esercitazione è necessario un ambiente di sviluppo Docker. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+
+Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. È pertanto consigliabile usare un ambiente di sviluppo completo di Docker.
 
 ## <a name="get-application-code"></a>Ottenere il codice dell'applicazione
 

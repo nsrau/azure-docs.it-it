@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/25/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: e6eede1c093145894f4330a0c4385969cd4dd7da
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -43,7 +43,7 @@ Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono d
 
 Dopo aver abilitato l'Identità del servizio gestito in una risorsa di Azure, [ad esempio in una macchina virtuale di Azure](msi-qs-configure-cli-windows-vm.md): 
 
-1. Se non si usa Azure Cloud Shell dal portale di Azure, accedere innanzitutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
 
    ```azurecli-interactive
    az login
@@ -52,7 +52,7 @@ Dopo aver abilitato l'Identità del servizio gestito in una risorsa di Azure, [a
 2. In questo esempio, viene concesso l'accesso alla macchina virtuale di Azure in un account di archiviazione. Prima di tutto viene usato il comando [az resource list](/cli/azure/resource/#list) per ottenere l'entità servizio per la macchina virtuale denominata "myVM", che è stata creata quando è stata abilitata l'Identità del servizio gestito nella macchina virtuale:
 
    ```azurecli-interactive
-   $spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
+   spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
 
 3. Dopo aver ottenuto l'ID dell'entità servizio, viene usato il comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) per concedere alla macchina virtuale l'accesso "Lettura" a un account di archiviazione denominato "myStorageAcct":
@@ -72,7 +72,7 @@ Se una delle due opzioni è errata, è necessario ridistribuire l'Identità del 
 
 ## <a name="related-content"></a>Contenuti correlati
 
-- Per una panoramica dell'Identità del servizio gestito, vedere [Panoramica dell'Identità del servizio gestito](msi-overview.md).
+- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](msi-overview.md).
 - Per abilitare l'Identità del servizio gestito in una macchina virtuale di Azure, vedere [Configurare un'Identità del servizio gestito della macchina virtuale di Azure mediante l'interfaccia della riga di comando di Azure](msi-qs-configure-cli-windows-vm.md).
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.

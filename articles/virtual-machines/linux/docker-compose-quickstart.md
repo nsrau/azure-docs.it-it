@@ -4,7 +4,7 @@ description: Come usare Docker e Compose in macchine virtuali Linux con l'interf
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 02ab8cf9-318d-4a28-9d0c-4a31dccc2a84
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 541722cb02dd991228726e62a2304b49cdd806f2
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introduzione a Docker e Compose per la definizione e l'esecuzione di un'applicazione multi-contenitore in Azure
@@ -35,13 +35,13 @@ Quando si usa l'estensione di VM Docker, la macchina virtuale viene automaticame
 ### <a name="create-docker-host-with-azure-cli-20"></a>Creare un host Docker con l'interfaccia della riga di comando di Azure 2.0
 Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure tramite il comando [az login](/cli/azure/#login).
 
-Innanzitutto, creare un gruppo di risorse per l'ambiente di Docker con il comando [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *westus*:
+Innanzitutto, creare un gruppo di risorse per l'ambiente di Docker con il comando [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Specificare i propri valori per *newStorageAccountName*, *adminUsername*, *adminPassword* e *dnsNameForPublicIP*:
+Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Specificare i propri valori univoci per *newStorageAccountName*, *adminUsername*, *adminPassword* e *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -68,10 +68,21 @@ Quando questo comando restituisce *Succeeded*, la distribuzione è stata complet
 
 
 ## <a name="verify-that-compose-is-installed"></a>Verificare che Compose sia installato
-Al termine della distribuzione, stabilire una connessione SSH al nuovo host Docker con il nome DNS specificato durante la distribuzione. È possibile usare `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` per visualizzare i dettagli della VM, incluso il nome DNS.
+Per visualizzare i dettagli della VM, incluso il nome DNS, usare [az vm show](/cli/azure/vm#show):
+
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
+```
+
+SSH per il nuovo host Docker. Specificare il proprio nome DNS, come illustrato di seguito:
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
 Per verificare l'installazione di Compose nella macchina virtuale, eseguire il comando seguente:
@@ -89,19 +100,13 @@ Si ottiene un output simile a *docker-compose 1.6.2, build 4d72027*.
 ## <a name="create-a-docker-composeyml-configuration-file"></a>Creare un file di configurazione docker-compose.yml
 In seguito viene creato un file `docker-compose.yml` , che è semplicemente un file di configurazione di testo, per definire i contenitori Docker ed eseguirli nella macchina virtuale. Il file specifica l'immagine da eseguire su ciascun contenitore (o può essere una compilazione da un file Docker), le variabili d'ambiente, le dipendenze necessarie, le porte e i collegamenti tra i contenitori. Per informazioni dettagliate sulla sintassi dei file YML, vedere [Compose file reference](https://docs.docker.com/compose/compose-file/)(Informazioni di riferimento sui file di Compose).
 
-Creare il file *docker-compose.yml* come segue:
+Creare un file *docker-compose.yml*. Usare un editor di testo per aggiungere dati al file. L'esempio seguente crea il file con un prompt per `sensible-editor` per la selezione dell'editor da usare:
 
 ```bash
-touch docker-compose.yml
+sensible-editor docker-compose.yml
 ```
 
-Usare un editor di testo per aggiungere dati al file. L'esempio seguente usa l'editor *vi*:
-
-```bash
-vi docker-compose.yml
-```
-
-Incollare l'esempio seguente nel file di testo. Questa configurazione utilizza le immagini del [Registro di sistema DockerHub](https://registry.hub.docker.com/_/wordpress/) per installare WordPress (il sistema di creazione blog e gestione del contenuto open source) e un database SQL MariaDB back-end collegato. Immettere il proprio valore *MYSQL_ROOT_PASSWORD* come segue:
+Incollare l'esempio seguente nel file di Docker Compose. Questa configurazione utilizza le immagini del [Registro di sistema DockerHub](https://registry.hub.docker.com/_/wordpress/) per installare WordPress (il sistema di creazione blog e gestione del contenuto open source) e un database SQL MariaDB back-end collegato. Immettere il proprio valore *MYSQL_ROOT_PASSWORD* come segue:
 
 ```sh
 wordpress:
@@ -145,7 +150,7 @@ azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-Ora è possibile connettersi a WordPress direttamente nella VM dalla porta 80. Aprire un Web browser e immettere il nome DNS della VM (ad esempio `http://mypublicdns.westus.cloudapp.azure.com`). Viene visualizzata la schermata di avvio di WordPress, in cui è possibile completare l'installazione e iniziare a utilizzare l’applicazione.
+Ora è possibile connettersi a WordPress direttamente nella VM dalla porta 80. Aprire un Web browser e immettere il nome DNS della VM (ad esempio `http://mypublicdns.eastus.cloudapp.azure.com`). Viene visualizzata la schermata di avvio di WordPress, in cui è possibile completare l'installazione e iniziare a utilizzare l’applicazione.
 
 ![Schermata iniziale di WordPress][wordpress_start]
 

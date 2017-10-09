@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f72ee8b6ef51046a64e794b17d1c389a25246358
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
@@ -123,7 +123,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 | name                | Nome dell'attività nella pipeline     | Sì      |
 | Descrizione         | Testo che descrive l'attività.  | No       |
 | type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | Sì      |
-| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |          |
+| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |Sì       |
 | scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | Sì      |
 | scriptLinkedService | Servizi collegati che collegano la risorsa di archiviazione contenente lo script alla Data factory | Sì      |
 | degreeOfParallelism | Il numero massimo di nodi usati contemporaneamente per eseguire il processo. | No       |
@@ -194,7 +194,7 @@ Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione d
 * [Attività Hive](transform-data-using-hadoop-hive.md)
 * [Attività Pig](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività Hadoop Streaming](transform-data-using-hadoop-streaming.md)
+* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)

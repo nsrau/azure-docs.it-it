@@ -16,16 +16,16 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2943e0b119726b31dd6e6507d279f6c8f74df98b
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
-# <a name="get-started-using-cloud-app-discovery-in-azure-ad"></a>Introduzione all'uso di Cloud App Discovery in Azure AD
+# <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurare Cloud App Discovery in Azure AD
 
-La versione di anteprima pubblica dei miglioramenti di Cloud App Discovery in Azure AD è ora disponibile per i titolari di una licenza di Azure Active Directory Premium P1. Questi miglioramenti sono basati sull'integrazione con Microsoft Cloud App Security. Cloud App Discovery confronta i log sul traffico con il catalogo di Cloud App Security di oltre 15.000 app cloud per fornire informazioni aggiornate sull'uso del cloud e sullo shadow IT. 
+I nuovi miglioramenti per Cloud App Discovery in Azure AD sono ora disponibili con una licenza di Azure Active Directory Premium P1. Questi miglioramenti sono basati sull'integrazione con Microsoft Cloud App Security. Cloud App Discovery confronta i log sul traffico con il catalogo di Cloud App Security di oltre 15.000 app cloud per fornire informazioni aggiornate sull'uso del cloud e sullo shadow IT. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,14 +33,14 @@ Per poter usare il prodotto, l'organizzazione deve avere una licenza di Azure AD
 
 Per configurare Cloud App Discovery, è necessario essere un amministratore globale o avere un ruolo con autorizzazioni di lettura per la sicurezza in Azure Active Directory. Un utente cui è assegnato un ruolo amministrativo ha le stesse autorizzazioni per tutte le app cloud sottoscritte dall'organizzazione.
 
-## <a name="snapshot-and-continuous-reports"></a>Report snapshot e continui
+## <a name="setup-steps"></a>Procedura di configurazione
 
-È possibile generare due tipi di report:
+1. [Configurare report snapshot](cloudappdiscovery-set-up-snapshots.md) per verificare il formato del log e assicurarsi che i log forniscano informazioni utilizzabili in Cloud App Discovery. Forniscono anche visibilità ad hoc dei log sul traffico caricati manualmente dai firewall e dai server proxy.
 
-* I **report snapshot** forniscono visibilità ad hoc dei log sul traffico caricati manualmente dai firewall e dai server proxy. È possibile usarli per assicurarsi che i log forniscano informazioni utilizzabili a Cloud App Discovery.
+2. [Configurare report continui](https://docs.microsoft.com/cloud-app-security/discovery-docker) per analizzare tutti i log inoltrati dalla rete usando l'agente di raccolta log di Cloud App Security. È possibile usarli per identificare le nuove app e le tendenze di utilizzo.
 
-* I **report continui** analizzano tutti i log inoltrati dalla rete usando l'[agente di raccolta log di Cloud App Security](https://docs.microsoft.com/cloud-app-security/discovery-docker). È possibile usarli per identificare le nuove app e le tendenze di utilizzo.
-
+3. Se i log non sono attualmente supportati, [configurare un parser di log personalizzato](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser), in modo che Cloud App Discovery possa analizzarli.
+  
 ## <a name="log-processing-flow"></a>Flusso di elaborazione dei log
 
 La generazione di report può richiedere da pochi minuti a diverse ore, a seconda della quantità di dati. Ecco che cosa avviene:
@@ -108,7 +108,7 @@ Se il log non è supportato, selezionare **Altro** come **Origine dati** e speci
 
 ## <a name="data-attributes-according-to-vendor-documentation"></a>Attributi dei dati (in base alla documentazione del fornitore)
 
-| Origine dati         | URL dell'app di destinazione | Indirizzo IP dell'app di destinazione | Nome utente | Indirizzo IP di origine | Traffico totale | Byte caricati |
+| Origine dati         | URL dell'app di destinazione | Indirizzo IP dell'app di destinazione | Username | Indirizzo IP di origine | Traffico totale | Byte caricati |
 |-----------------------------------------|----------------|---------------|----------|-----------|---------------|----------------|
 | Barracuda                               | **Sì**        | **Sì**       | **Sì**  | **Sì**   | No            | No             |
 | Blue Coat                               | **Sì**        | No            | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
@@ -134,8 +134,8 @@ Se il log non è supportato, selezionare **Altro** come **Origine dati** e speci
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Usare i collegamenti seguenti per continuare a configurare la versione migliorata di Cloud App Discovery in Azure AD.
+Usare i collegamenti seguenti per continuare a configurare la versione di Cloud App Discovery in Azure AD.
 
-* [Creare report snapshot di Cloud App Discovery](cloudappdiscovery-set-up-snapshots.md)
-* [Configurare il caricamento automatico dei log per i report continui](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Creare report di snapshot](cloudappdiscovery-set-up-snapshots.md)
+* [Configurare la creazione di report continua](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Usare un parser di log personalizzato](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

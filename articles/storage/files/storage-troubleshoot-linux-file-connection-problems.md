@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4f46c0ee94cbeb39bc7b28874cd41f1faf5deb5
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: bef3e7bf8b1fd9199d0c8a083d94660b8eed3365
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
@@ -129,6 +129,32 @@ Usare l'account utente di archiviazione per copiare i file:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-or-mount-an-azure-file-share"></a>Non è possibile connettere o montare una condivisione file di Azure
+
+### <a name="cause"></a>Causa
+
+Le cause comuni di questo problema sono le seguenti:
+
+
+- Si sta usando un client di distribuzione Linux incompatibile. Si consiglia di usare le distribuzioni Linux seguenti per connettersi alla condivisione file di Azure:
+
+    - Ubuntu Server 14.04+ 
+    - RHEL 7+ 
+    - CentOS 7+ 
+    - Debian 8 
+    - openSUSE 13.2+ 
+    - SUSE Linux Enterprise Server 12
+
+- Il pacchetto di strumenti CIFS-utils non è installato nel client.
+- La versione SMB/CIFS minima 2.1 non è installata nel client.
+- La crittografia SMB 3.0 non è supportata nel client. La crittografia SMB 3.0 è disponibile in Ubuntu 16.4 e versione successiva, SUSE 12.3 e versione successiva. Altre distribuzioni richiedono kernel 4.11 e versione successiva.
+- Si sta tentando di connettersi a un account di archiviazione tramite la porta TCP 445, che non è supportata.
+- Si sta tentando di connettersi alla condivisione file di Azure da una macchina virtuale di Azure e la macchina virtuale non si trova nella stessa area dell'account di archiviazione.
+
+### <a name="solution"></a>Soluzione
+
+Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per gli errori di montaggio di File di Azure in Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Questo strumento consente di convalidare l'ambiente che esegue il client, di rilevare la configurazione client incompatibile che provocherebbe un errore di accesso per File di Azure, fornisce indicazioni sulla correzione autonoma da parte dell'utente e raccoglie le tracce di diagnostica.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

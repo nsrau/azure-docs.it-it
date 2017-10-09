@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -58,6 +58,18 @@ Di seguito viene riportata una query di esempio per creare un nuovo gruppo di co
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Domanda: Perché i risultati della query non sono ordinati?
 Nel nuovo linguaggio di query, i risultati non sono ordinati per impostazione predefinita.  Usare il comando [Operatore sort](https://go.microsoft.com/fwlink/?linkid=856079) per ordinare i risultati in base a una o più proprietà.
+
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>Domanda: Dove è stata spostata la funzionalità minify dopo l'aggiornamento?
+Minify è una funzionalità che offre una visualizzazione riepilogata dei risultati della ricerca.  Dopo l'aggiornamento,l'opzione Minify non viene più visualizzata nel portale Ricerca log.  È possibile ottenere funzionalità simili con il nuovo linguaggio di ricerca tramite [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) o [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problema noto: I risultati della ricerca in un elenco possono includere proprietà senza dati
 I risultati della ricerca log in un elenco possono includere proprietà senza dati.  Prima dell'aggiornamento, queste proprietà non sono incluse.  Questo problema verrà corretto in modo che le proprietà vuote non vengano visualizzate.
@@ -124,9 +136,6 @@ Tutte le soluzioni continueranno a funzionare in un'area di lavoro aggiornata, a
 
 ### <a name="known-issue-capacity-and-performance-solution"></a>Problema noto: Soluzione Capacità e prestazioni
 Alcune parti della vista [Capacità e prestazioni](log-analytics-capacity.md) possono risultare vuote.  Una soluzione a questo problema sarà disponibile a breve.
-
-### <a name="known-issue-device-health-solution"></a>Problema noto: Soluzione Integrità del dispositivo
-La [soluzione Integrità del dispositivo](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) non raccoglie alcun dato in un'area di lavoro aggiornata.  Una soluzione a questo problema sarà disponibile a breve.
 
 ### <a name="known-issue-application-insights-connector"></a>Problema noto: Connettore di Application Insights
 Le prospettive nella [soluzione Connettore di Application Insights](log-analytics-app-insights-connector.md) non sono attualmente supportate in un'area di lavoro aggiornata.  Una soluzione per questo problema è attualmente in fase di analisi.

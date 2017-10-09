@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
 ms.contentlocale: it-it
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Uso di librerie di classi .NET con Funzioni di Azure
@@ -36,7 +36,7 @@ I prerequisiti di questo articolo sono i seguenti:
 
 ## <a name="functions-class-library-project"></a>Progetto di libreria di classi per Funzioni
 
-Creare un progetto per Funzioni di Azure in Visual Studio. Il modello del nuovo progetto crea i file *host.json* e *local.settings.json*. È possibile [personalizzare le impostazioni di runtime di Funzioni di Azure nel file host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json). 
+Creare un progetto per Funzioni di Azure in Visual Studio. Il modello del nuovo progetto crea i file *host.json* e *local.settings.json*. È possibile [personalizzare le impostazioni di runtime di Funzioni di Azure nel file host.json](functions-host-json.md). 
 
 Nel file *local.settings.json* vengono archiviate le impostazioni dell'app, le stringhe di connessione e le impostazioni per Strumenti di base di Funzioni di Azure. Per altre informazioni sulla struttura, vedere [Scrivere codice per le funzioni di Azure e testarle in locale](functions-run-local.md#local-settings).
 
@@ -46,7 +46,7 @@ L'attributo [`FunctionNameAttribute`](https://github.com/Azure/azure-webjobs-sdk
 
 ### <a name="conversion-to-functionjson"></a>Conversione in function.json
 
-Quando viene compilato un progetto di Funzioni di Azure, viene generato un file `function.json` nella directory, che corrisponde al nome della funzione definito da `[FunctionName]`. Specifica i trigger, le associazioni e i punti che si riferiscono al file di assembly del progetto.
+Quando si compila un progetto di Funzioni di Azure, viene creato un file *function.json* nella directory della funzione. Il nome della directory è lo stesso del nome funzione specificato dall’attributo `[FunctionName]`. Il file *function.json* contiene i trigger, le associazioni e i punti che si riferiscono al file di assembly del progetto.
 
 Questa conversione viene eseguita dal pacchetto NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). L'origine è disponibile nel repository di GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

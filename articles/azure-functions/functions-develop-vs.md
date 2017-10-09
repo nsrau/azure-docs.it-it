@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: b69bbd00b85fdf093ac1ccf021515d9b44ea7f55
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 5f0b346ec1c4a42d11ef74ab8ac8701dd45b00eb
 ms.contentlocale: it-it
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
@@ -57,7 +57,7 @@ Per creare e distribuire funzioni, è necessario disporre anche di quanto segue:
 
 Quando si crea un nuovo progetto usando il modello di Funzioni di Azure, si ottiene un progetto C# vuoto che contiene i file seguenti:
 
-* **host.json**: consente di configurare l'host di Funzioni. Queste impostazioni si applicano sia durante l'esecuzione in locale che nell'esecuzione in Azure. Per altre informazioni, vedere l'articolo di riferimento su [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+* **host.json**: consente di configurare l'host di Funzioni. Queste impostazioni si applicano sia durante l'esecuzione in locale che nell'esecuzione in Azure. Per altre informazioni, vedere il [riferimento su host.json](functions-host-json.md).
     
 * **local.settings.json**: mantiene le impostazioni usate quando si esegue Funzioni localmente. Queste impostazioni non vengono usate da Azure, bensì dagli [strumenti di base di Funzioni di Azure](functions-run-local.md). Usare questo file per specificare le impostazioni, ad esempio le stringhe di connessione ad altri servizi di Azure. Aggiungere una nuova chiave alla matrice di **Valori** per ogni connessione richiesta dalle funzioni nel progetto. Per altre informazioni, vedere [Local settings file](functions-run-local.md#local-settings-file) (File delle impostazioni locali) nell'argomento sugli strumenti di base di Funzioni di Azure.
 

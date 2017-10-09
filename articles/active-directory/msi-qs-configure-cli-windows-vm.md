@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: fe276fe802eceb1f062ed8bda685dd44a1e3d175
 ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -45,7 +45,7 @@ Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono d
 
 Per creare una VM abilitata per MSI:
 
-1. Se non si usa Azure Cloud Shell dal portale di Azure, accedere innanzitutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
 
    ```azurecli-interactive
    az login
@@ -67,7 +67,7 @@ Per creare una VM abilitata per MSI:
 
 Se è necessario abilitare l'Identità del servizio gestito su una macchina virtuale esistente:
 
-1. Se non si usa Azure Cloud Shell dal portale di Azure, accedere innanzitutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
 
    ```azurecli-interactive
    az login
@@ -83,7 +83,7 @@ Se è necessario abilitare l'Identità del servizio gestito su una macchina virt
 
 Se si dispone di una macchina virtuale per cui non è più necessaria un'Identità del servizio gestito:
 
-1. Se non si usa Azure Cloud Shell dal portale di Azure, accedere innanzitutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali":
 
    ```azurecli-interactive
    az login

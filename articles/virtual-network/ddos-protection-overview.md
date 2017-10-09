@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0fa58c8bf0e50314c61272eb221878eca2c3def
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
 >[!IMPORTANT]
->Protezione DDoS di Azure Standard è attualmente in versione di anteprima. Il servizio Protezione DDoS Standard è supportato da un numero limitato di risorse di Azure e solo in aree specifiche. Per abilitare Protezione DDoS Standard per la sottoscrizione, è necessario [eseguire la registrazione per il servizio](http://aka.ms/ddosprotection) durante la fase di anteprima limitata. Dopo la registrazione, si verrà contattati dal team di Protezione DDoS di Azure che fornirà supporto per il processo di abilitazione. Protezione DDoS Standard è disponibile nelle aree Stati Uniti orientali, Stati Uniti occidentali e Stati Uniti centrali. Durante la fase di anteprima non verrà addebitato alcun costo per l'uso del servizio.
+>Protezione DDoS di Azure Standard è attualmente in versione di anteprima. Il servizio Protezione DDoS Standard è supportato da un numero limitato di risorse di Azure e solo in aree specifiche. Per abilitare Protezione DDoS Standard per la sottoscrizione, è necessario [eseguire la registrazione per il servizio](http://aka.ms/ddosprotection) durante la fase di anteprima limitata. Dopo la registrazione, si verrà contattati dal team di Protezione DDoS di Azure che fornirà supporto per il processo di abilitazione. Protezione DDoS Standard è disponibile nelle aree Stati Uniti orientali, Stati Uniti occidentali e Stati Uniti centro-occidentali. Durante la fase di anteprima non verrà addebitato alcun costo per l'uso del servizio.
 
 Gli attacchi Distributed Denial of Service (DDoS) rappresentano una delle principali preoccupazioni in relazione alla disponibilità e alla sicurezza per i clienti che spostano le applicazioni nel cloud. Un attacco DDoS tenta di esaurire le risorse di un'applicazione, che quindi non risulta più disponibile per gli utenti legittimi. Gli attacchi DDoS possono avere come obiettivo qualsiasi endpoint raggiungibile pubblicamente tramite Internet.
 

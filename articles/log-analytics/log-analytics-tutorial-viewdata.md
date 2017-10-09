@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ac702c356f0adc172674b2a3669de2a8d5dfd6ed
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualizzare o analizzare i dati raccolti con la ricerca log di Log Analytics
@@ -30,6 +30,10 @@ In Log Analytics è possibile usare ricerche log creando query per analizzare i 
 > * Usare i dati sulle prestazioni
 
 Per completare l'esempio contenuto in questa esercitazione, è necessario disporre di una macchina virtuale esistente [connessa all'area di lavoro di Log Analytics](log-analytics-quick-collect-azurevm.md).  
+
+Oltre a usare in modo interattivo i dati restituiti, è possibile creare e modificare le query in due modi.  Per le query di base, usare la pagina Ricerca log nel portale di Azure. Per le query avanzate, è possibile usare il portale Advanced Analytics. Per altre informazioni sulla differenze di funzionalità tra i due portali, vedere [Portali per la creazione e la modifica di query di log in Azure Log Analytics](log-analytics-log-search-portals.md)
+
+In questa esercitazione verrà usato Ricerca log nel portale di Azure. 
 
 ## <a name="log-in-to-azure-portal"></a>Accedere al portale di Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
@@ -44,7 +48,7 @@ Potrebbe essere apparso il banner nella parte superiore della pagina delle risor
 
 Di recente Log Analytics ha introdotto un nuovo linguaggio di query per semplificare la costruzione di query, la correlazione di dati da diverse origini e l'analisi per identificare rapidamente tendenze o problemi.
 
-Eseguire un aggiornamento è semplice.  Avviare il processo facendo clic nel banner viola indicante **Altre informazioni e aggiorna**.  Leggere le informazioni aggiuntive sull'aggiornamento nella pagina delle informazioni sull'aggiornamento e fare clic su **Aggiorna ora**.
+Eseguire un aggiornamento è semplice.  Avviare il processo facendo clic sul banner indicante **Altre informazioni e aggiorna**.  Leggere le informazioni aggiuntive sull'aggiornamento nella pagina delle informazioni sull'aggiornamento e fare clic su **Aggiorna ora**.
 
 Questo processo richiederà alcuni minuti. Nel frattempo è possibile tenere traccia dello stato di avanzamento alla voce **Notifiche** nel menu. Altre informazioni sui [Vantaggi del nuovo linguaggio di query](log-analytics-log-search-upgrade.md#why-the-new-language).
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 5a5fc9bac4f0ee54532f34fe957e3722123df178
 ms.contentlocale: it-it
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -30,7 +30,7 @@ Il Servizio Mobility di Azure Site Recovery acquisisce le scritture dei dati in 
 * [Installare il Servizio Mobility tramite Automazione di Azure e la configurazione dello stato desiderato (Automation DSC)](site-recovery-automate-mobility-service-install.md)
 * [Installare manualmente il Servizio Mobility tramite interfaccia utente grafica (GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
 * [Installare manualmente il Servizio Mobility tramite un prompt di comando](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt)
-* [Installare il Servizio Mobility tramite installazione push da Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
+* [Installare il Servizio Mobility tramite installazione push da Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 
 >[!IMPORTANT]
@@ -78,7 +78,7 @@ Completare questa procedura per i prerequisiti prima di iniziare a installare ma
 
 
 ## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Installare il Servizio Mobility tramite installazione push da Azure Site Recovery
-Per eseguire un'installazione push del Servizio Mobility tramite Site Recovery, tutti i computer di destinazione devono soddisfare i prerequisiti seguenti.
+Per eseguire un'installazione push del Servizio Mobility tramite Site Recovery, tutti i computer di destinazione devono soddisfare i prerequisiti seguenti:
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -86,7 +86,21 @@ Per eseguire un'installazione push del Servizio Mobility tramite Site Recovery, 
 
 
 > [!NOTE]
-Dopo l'installazione del Servizio Mobility, nel portale di Azure, selezionare il pulsante **Replica** per iniziare a proteggere le macchine virtuali.
+Dopo l'installazione del Servizio Mobility, nel portale di Azure, selezionare il pulsante **+Replica** per iniziare a proteggere le macchine virtuali.
+
+## <a name="update-mobility-service"></a>Aggiorna servizio Mobility
+
+> [!WARNING]
+> Verificare che il server di configurazione, i server di scalabilità orizzontale e i server di destinazione Master che sono parte della distribuzione siano aggiornati prima di iniziare l'aggiornamento del servizio di mobilità nei server protetti. Altre informazioni su [come aggiornare il server di configurazione](site-recovery-vmware-to-azure-manage-configuration-server.md#updating-a-configuration-server) e [come aggiornare i server di scalabilità orizzontale](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+
+1. Nel portale di Azure sfoglia <Your Vault> -> Visualizzazione degli elementi replicati.
+2. Se il **server di configurazione** è già stato aggiornato alla versione più recente, è possibile vedere una notifica che riporta il seguente messaggio *New Site recovery replication agent update is available (Disponibile aggiornamento dell'agente di replica per il ripristino sito). Fare clic per l'installazione*
+3. Fare clic sulla notifica per aprire la pagina di selezione della macchina virtuale.
+4. Selezionare le macchine virtuali su cui si desidera aggiornare il servizio di mobilità e fare clic sul pulsante OK.
+5. Verrà avviato il processo di aggiornamento del servizio di mobilità per ognuna delle macchine virtuali selezionate.
+
+> [!NOTE]
+> [Altre informazioni](site-recovery-vmware-to-azure-manage-configuration-server.md) su come aggiornare la password per l'account usato per installare il servizio di mobilità 
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Disinstallare il servizio Mobility in un computer Windows Server
 Usare uno dei metodi seguenti per disinstallare il Servizio Mobility in un computer Windows Server.

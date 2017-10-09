@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cfc95726c535aa49add98d700740b24bde5ea0f7
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 79d2f5265c05a1e5f83325295d3d750e1796e1cc
 ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -97,11 +97,11 @@ Se ADFS è stato configurato come metodo di accesso _esternamente_ alla procedur
 
 Sì. Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste AD e se il routing del suffisso del nome è configurato correttamente.
 
-## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>Gli agenti di autenticazione pass-through includono la funzionalità di bilanciamento del carico?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Quanti agenti di autenticazione pass-through è necessario installare?
 
-No, l'installazione di più agenti di autenticazione pass-through assicura la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability) ma non il bilanciamento del carico. Uno o due degli agenti di autenticazione possono finire per gestire la maggior parte delle richieste di accesso.
+L'installazione di più agenti di autenticazione pass-through garantisce la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), ma non il bilanciamento del carico. Uno o due degli agenti di autenticazione possono finire per gestire la maggior parte delle richieste di accesso.
 
-Le richieste di convalida delle password che gli agenti di autenticazione devono gestire sono leggere. I carichi medio e di punta per la maggior parte dei clienti sono pertanto facilmente gestibili con due o tre agenti di autenticazione in totale.
+Considerare il carico massimo e medio di richieste di accesso previsto nel tenant. Come benchmark, un singolo agente di autenticazione può gestire da 300.000 a 400.000 autenticazioni al secondo in un server standard con CPU a 4 core e 16 GB di RAM. Per la maggior parte dei clienti, un totale di due o tre agenti di autenticazione è sufficiente ai fini della capacità e della disponibilità elevata.
 
 È consigliabile installare gli agenti di autenticazione vicino al controller di dominio per migliorare la latenza di accesso.
 
