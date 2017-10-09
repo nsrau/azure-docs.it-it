@@ -12,19 +12,19 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/12/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 38742fd84dafc3fb68829a55ab7be0827ad0b451
 ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi
 
-È possibile modificare l'amministratore di Azure che gestisce la sottoscrizione di Azure o i servizi Azure usati nella sottoscrizione. Per visualizzare le informazioni di fatturazione di Azure e gestire le sottoscrizioni, è necessario accedere al [Centro account](https://account.windowsazure.com/Home/Index) come amministratore account. 
+È possibile modificare l'amministratore di Azure che gestisce la sottoscrizione di Azure o i servizi Azure usati nella sottoscrizione. Per visualizzare le informazioni di fatturazione di Azure e gestire le sottoscrizioni, è necessario accedere al Centro account come amministratore account. 
 
 <a name="add-an-admin-for-a-subscription"></a>
 
@@ -101,7 +101,7 @@ Per modificare l'amministratore account di una sottoscrizione, vedere [Trasferim
 
 | Ruolo amministrativo | Limite | Descrizione |
 | --- | --- | --- |
-| Amministratore dell'account |1 per ogni account di Azure |Indica la persona che si è iscritta o ha acquistato le sottoscrizioni di Azure ed è autorizzata ad accedere al [Centro account](https://account.windowsazure.com/Home/Index) ed eseguire diverse attività di gestione. Queste includono la possibilità di creare sottoscrizioni, annullare sottoscrizioni, modificare la fatturazione per una sottoscrizione e modificare l'amministratore del servizio. |
+| Amministratore dell'account |1 per ogni account di Azure |Indica la persona che si è iscritta o ha acquistato le sottoscrizioni di Azure ed è autorizzata ad accedere al [Centro account](https://account.azure.com/Subscriptions) ed eseguire diverse attività di gestione. Queste includono la possibilità di creare sottoscrizioni, annullare sottoscrizioni, modificare la fatturazione per una sottoscrizione e modificare l'amministratore del servizio. |
 | Amministratore del servizio |1 per ogni sottoscrizione di Azure |Questo ruolo è autorizzato a gestire i servizi nel [portale di Azure](https://portal.azure.com). Per impostazione predefinita, per una nuova sottoscrizione l'amministratore account è anche amministratore del servizio. |
 | Coamministratore (CA) del [portale di Azure classico](https://manage.windowsazure.com) |200 per ogni sottoscrizione |Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure. |
 
