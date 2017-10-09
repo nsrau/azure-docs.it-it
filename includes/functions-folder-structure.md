@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-Il file *host.json* contiene alcune configurazioni specifiche del runtime e si trova nella cartella radice dell'app per le funzioni. Per informazioni sulle impostazioni disponibili vedere [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) nella wiki del repository WebJobs.Script.
+Il file *host.json* contiene alcune configurazioni specifiche del runtime e si trova nella cartella radice dell'app per le funzioni. Per informazioni sulle impostazioni disponibili vedere il [riferimento host.json](../articles/azure-functions/functions-host-json.md).
 
 Ogni funzione ha una cartella che contiene uno o più file di codice, la configurazione function.json e altre dipendenze.
 
