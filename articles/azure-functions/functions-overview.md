@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Funzioni di Azure | Microsoft Docs
+title: Panoramica di Funzioni di Azure | Documentazione Microsoft
 description: Informazioni su come usare Funzioni di Azure per ottimizzare i carichi di lavoro asincroni in pochi minuti.
 services: functions
 documentationcenter: na
@@ -18,10 +18,10 @@ ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 77538db308c657392ac8bc6a0b7665f9b8427256
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 891640526b25c030f7e01d79e981aad517dfafb4
 ms.contentlocale: it-it
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introduzione a Funzioni di Azure  
@@ -37,7 +37,7 @@ Ecco alcune delle principali funzionalità di Funzioni di Azure:
 * **Trasferimento delle dipendenze** : Funzioni supporta NuGet e NPM, quindi è possibile usare le librerie preferite.  
 * **Sicurezza integrata** : è possibile proteggere le funzioni attivate da HTTP con provider OAuth, ad esempio Azure Active Directory, Facebook, Google, Twitter e account Microsoft.  
 * **Integrazione semplificata** : è possibile sfruttare facilmente i servizi di Azure e le offerte di software come un servizio (SaaS). Per alcuni esempi, vedere la [sezione relativa alle integrazioni](#integrations).  
-* **Sviluppo flessibile** : è possibile creare le funzioni direttamente nel portale o configurare l'integrazione continua e distribuire il codice con GitHub, Visual Studio Team Services e altri [strumenti di sviluppo supportati](../app-service-web/web-sites-deploy.md#deploy-using-an-ide).  
+* **Sviluppo flessibile**: è possibile creare le funzioni direttamente nel portale o configurare l'integrazione continua e distribuire il codice con [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md), [Visual Studio Team Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md) e altri [strumenti di sviluppo supportati](../app-service/app-service-deploy-local-git.md).  
 * **Open source** : il runtime di Funzioni è open source e [disponibile in GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>Quali operazioni si possono eseguire con Funzioni?
@@ -47,7 +47,7 @@ Funzioni fornisce modelli per iniziare con scenari chiave, inclusi i seguenti:
 
 * **HTTPTrigger** : attiva l'esecuzione del codice usando una richiesta HTTP. Per un esempio, vedere [Creare la prima funzione](functions-create-first-azure-function.md).
 * **TimerTrigger** : esegue attività di pulizia o altre attività batch secondo una pianificazione predefinita. Per un esempio, vedere [Create a function triggered by a timer](functions-create-scheduled-function.md) (Creare una funzione attivata da un timer).
-* **Webhook GitHub** : risponde a eventi che si verificano nei repository GitHub. Per un esempio, vedere [Creare una funzione attivata da un webhook GitHub](functions-create-a-web-hook-or-api-function.md).
+* **Webhook GitHub** : risponde a eventi che si verificano nei repository GitHub. Per un esempio, vedere [Creare una funzione attivata da un webhook GitHub](functions-create-github-webhook-triggered-function.md).
 * **Webhook generico** : elabora le richieste HTTP di webhook da qualsiasi servizio che supporti webhook. Per un esempio, vedere [Creare una funzione attivata da un webhook generico](functions-create-generic-webhook-triggered-function.md).
 * **BlobTrigger** : elabora i BLOB di archiviazione di Azure quando vengono aggiunti ai contenitori. Questa funzione può essere usata per il ridimensionamento delle immagini. Per altre informazioni, vedere [Blob storage bindings](functions-bindings-storage-blob.md) (Binding dell'archiviazione BLOB).
 * **QueueTrigger** : risponde ai messaggi che arrivano in una coda di archiviazione di Azure. Per un esempio, vedere [Create a function that connects to other Azure services](functions-create-an-azure-connected-function.md) (Creare una funzione che connette ad altri servizi di Azure).
@@ -87,7 +87,7 @@ Per altre informazioni sui piani di hosting, vedere [Confronto di piani di hosti
   Descrive diversi strumenti e tecniche per il test delle funzioni.
 * [Come aumentare le prestazioni di Funzioni di Azure](functions-scale.md)  
   Presenta i piani di servizio disponibili con Funzioni di Azure, tra cui il piano di hosting A consumo, e spiega come scegliere quello più appropriato. 
-* [Informazioni sul servizio app di Azure](../app-service/app-service-value-prop-what-is.md)  
+* [Informazioni sul servizio app di Azure](../app-service/app-service-web-overview.md)  
   Funzioni di Azure sfrutta il servizio app di Azure per le funzionalità di base, ad esempio distribuzioni, variabili di ambiente e diagnostica. 
 
 

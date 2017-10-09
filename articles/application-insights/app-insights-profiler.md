@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ddfed2be315ae261e9c3015aa21d0b44405d6109
 ms.contentlocale: it-it
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Profilatura delle app Web di Azure attive con Application Insights
@@ -50,6 +50,7 @@ Usare i pulsanti *Enable Profiler* (Abilita profiler) o *Disable Profiler* (Disa
 
 ![Pannello Configura][linked app services]
 
+## <a name="disable-the-profiler"></a>Disabilitare Profiler
 Per arrestare o riavviare il profiler per una singola istanza del servizio app, è possibile trovarlo nella **risorsa del servizio app** in **Processi Web**. Per eliminarlo, cercare in **Estensioni**.
 
 ![Disabilitare il profiler per un processo Web][disable-profiler-webjob]
@@ -91,9 +92,13 @@ Le colonne nella tabella sono:
 * **Conteggio**: il numero di queste richieste nell'intervallo di tempo del pannello.
 * **Mediana**: il tempo tipico che l'app impiega per rispondere a una richiesta. La metà di tutte le risposte è più veloce rispetto a questo valore.
 * **95° percentile**: il 95% delle risposte ha una velocità superiore rispetto a questo valore. Se questo valore è molto diverso da quello mediano, potrebbe essersi verificato un problema intermittente con l'app. In alternativa la causa potrebbe essere una funzione di progettazione, ad esempio la memorizzazione nella cache.
-* **Esempi**: un'icona indica che il profiler ha acquisito le analisi dello stack per questa operazione.
+* **Tracce Profiler**: un'icona indica che il profiler ha acquisito le analisi dello stack per questa operazione.
 
-Fare clic sull'icona degli esempi per aprire l'Explorer di analisi, che mostra alcuni esempi acquisiti dal profiler, classificati in base al tempo di risposta.
+Fare clic sul pulsante Visualizza per aprire l'Explorer di analisi, che mostra alcuni esempi acquisiti dal profiler, classificati in base al tempo di risposta.
+
+Se si usa il pannello di anteprima delle prestazioni, passare alla sezione **Take Actions** (Esegui azioni) nell'angolo inferiore destro per visualizzare le tracce del profiler. Fare clic sul pulsante Tracce Profiler.
+
+![Pannello di anteprima delle prestazioni per Tracce Profiler in Application Insights][performance-blade-v2-examples]
 
 Selezionare un esempio per mostrare i dettagli a livello di codice del tempo impiegato per l'esecuzione della richiesta.
 
@@ -158,6 +163,10 @@ Si tratta di una visualizzazione della variazione nel tempo degli esempi INCLUSI
 
 ## <a id="troubleshooting"></a>Risoluzione dei problemi
 
+### <a name="too-many-active-profiling-sessions"></a>Troppe sessioni di profilatura attive
+
+È attualmente possibile abilitare il profiler su un massimo di 4 app Web di Azure e di slot di distribuzione in esecuzione nello stesso piano di servizio. Se il processo Web del profiler segnala un numero eccessivo di sessioni di profilatura attive, è necessario spostare alcune app Web in un piano di servizio diverso.
+
 ### <a name="how-can-i-know-whether-application-insights-profiler-is-running"></a>Come è possibile verificare se il profiler di Application Insights è in esecuzione?
 
 Il profiler viene eseguito come processo Web continuo in App Web. È possibile aprire la risorsa App Web in https://portal.azure.com e controllare lo stato di "ApplicationInsightsProfiler" nel pannello dei processi Web. Se non è in esecuzione, aprire **Log** per altre informazioni.
@@ -204,10 +213,7 @@ Se si intende ridistribuire l'app Web a una risorsa di Servizi app con il profil
 Per risolvere questo problema aggiungere i seguenti parametri di distribuzione all'attività di Distribuzione Web:
 
 ```
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
 Ciò elimina la cartella usata da App Insights Profiler e sblocca il processo di ridistribuzione. Non ha impatto sull'istanza del profiler attualmente in esecuzione.
@@ -237,6 +243,7 @@ L'applicazione ASP.NET Core deve installare il pacchetto NuGet Microsoft.Applica
 
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
+[performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
 [trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
 [trace-explorer-toolbar]: ./media/app-insights-profiler/trace-explorer-toolbar.png
 [trace-explorer-hint-tip]: ./media/app-insights-profiler/trace-explorer-hint-tip.png

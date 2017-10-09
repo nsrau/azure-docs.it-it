@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: e6f5798b260c4923452dcc96c18d4839f5c34bfc
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3229fe0b5aacbbc716039a4a6abfd235dbc4c4f7
 ms.contentlocale: it-it
-ms.lasthandoff: 04/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Come gestire un'app per le funzioni nel portale di Azure 
@@ -57,7 +57,7 @@ La restante parte di questo argomento illustra le seguenti funzionalità di serv
 + [Autenticazione](#auth)
 + [Definizione dell'API](#swagger)
 
-Per altre informazioni su come usare le impostazioni del servizio app, vedere [Configurare le impostazioni di del servizio app di Azure](../app-service-web/web-sites-configure.md).
+Per altre informazioni su come usare le impostazioni del servizio app, vedere [Configurare le impostazioni di del servizio app di Azure](../app-service/web-sites-configure.md).
 
 ### <a name="editor"></a>Editor del servizio app
 
@@ -120,7 +120,7 @@ Per altre informazioni su come usare le impostazioni del servizio app, vedere [C
 
 | | |
 |-|-|
-| ![Definizione dello swagger API dell'app per le funzioni nel portale di Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Funzioni supporta Swagger per consentire ai client di usare più facilmente le funzioni attivate da HTTP. Per altre informazioni sulla creazione di definizioni API con Swagger, visitare [Introduzione alle app per le API, ad ASP.NET e a Swagger in Azure](../app-service-api/app-service-api-dotnet-get-started.md). È anche possibile usare Proxy di Funzioni per definire una singola superficie API per le funzioni multiple. Per altre informazioni, vedere [Uso di proxy in Funzioni di Azure](functions-proxies.md). |
+| ![Definizione dello swagger API dell'app per le funzioni nel portale di Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Funzioni supporta Swagger per consentire ai client di usare più facilmente le funzioni attivate da HTTP. Per altre informazioni sulla creazione di definizioni di API con Swagger, vedere l'[introduzione alle app per le API e a Swagger in Azure](../app-service/app-service-web-tutorial-rest-api.md). È anche possibile usare Proxy di Funzioni per definire una singola superficie API per le funzioni multiple. Per altre informazioni, vedere [Uso di proxy in Funzioni di Azure](functions-proxies.md). |
 
 ![Configurare l'API per l'app per le funzioni](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
@@ -128,7 +128,7 @@ Per altre informazioni su come usare le impostazioni del servizio app, vedere [C
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ [Configurare le impostazioni del servizio app di Azure](../app-service-web/web-sites-configure.md)
++ [Configurare le impostazioni del servizio app di Azure](../app-service/web-sites-configure.md)
 + [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md)
 
 

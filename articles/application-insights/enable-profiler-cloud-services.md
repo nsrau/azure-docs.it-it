@@ -1,5 +1,5 @@
 ---
-title: Abilitare Azure Application Insights Profiler in una risorsa di Servizi cloud | Microsoft Docs
+title: Abilitare Azure Application Insights Profiler per le risorse di calcolo di Azure | Microsoft Docs
 description: Informazioni su come configurare il profiler in un'applicazione ASP.NET ospitata da una risorsa di Servizi Cloud di Azure.
 services: application-insights
 documentationcenter: 
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c2cae6129386260f2bf35f75d44fa001f7541d40
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 65ba755f35df7bd09dd652ac6fccf96a878c6ca9
 ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -113,13 +113,15 @@ Esistono diversi modi per pubblicare un'applicazione in una macchina virtuale di
 
 
 ## <a name="enable-the-profiler"></a>Abilitare il profiler
-1. Passare al pannello **Prestazioni** di Application Insights e selezionare **Configura**.
-   
-   ![Icona Configura](./media/enable-profiler-compute/enableprofiler1.png)
- 
+
+1. Passare al pannello **Performance** (Prestazioni) di Application Insights e fare clic su **Profiler** nell'angolo superiore destro per configurare il profiler.
+
+   ![Pulsante di configurazione del profiler](./media/enable-profiler-compute/PerformanceTriageViewPofilerButton.png)
+
 2. Selezionare **Abilita profiler**.
-   
-   ![Icona Abilita profiler](./media/enable-profiler-compute/enableprofiler2.png)
+
+   ![Pulsante di abilitazione del profiler](./media/enable-profiler-compute/enableprofiler2.png)
+
 
 ## <a name="add-a-performance-test-to-your-application"></a>Aggiungere un test delle prestazioni all'applicazione
 Seguire questa procedura per poter raccogliere alcuni dati di esempio da visualizzare in Application Insights Profiler:
@@ -134,9 +136,15 @@ Seguire questa procedura per poter raccogliere alcuni dati di esempio da visuali
 
 1. Attendere 10-15 minuti mentre il profiler raccoglie e analizza i dati. 
 
-2. Passare al pannello **Prestazioni** nella risorsa di Application Insights e visualizzare le prestazioni dell'applicazione sotto carico.
+2. Passare al pannello **Prestazioni** nella risorsa di Application Insights e visualizzare le prestazioni dell'applicazione sotto carico. Concentrarsi sull'operazione lenta desiderata con un utilizzo sufficiente, ordinando la griglia in base alla colonna del conteggio. Notare quali intervalli di durata hanno tracce del profiler osservando la sezione del profiler sopra la distribuzione della durata. Si noti che più a lungo si monitora l'applicazione, maggiore sarà il numero di tracce raccolte dal profiler e di conseguenza maggiore sarà la parte di distribuzione considerata negli esempi a livello di codice avanzato supportati dalle tracce del profiler. 
 
-   ![Visualizzazione delle prestazioni](./media/enable-profiler-compute/aiperformance.png)
+   ![Tracce del profiler nella visualizzazione di valutazione delle prestazioni](./media/enable-profiler-compute/PerformanceTriageViewProfilerTraces.png)
+
+    È possibile concentrare la visualizzazione sull'intervallo di durata di interesse, ad esempio il terzo picco attorno al 95° percentile. In questo modo, si vincolerà il numero di campioni e di tracce del profiler per i pulsanti Take Actions (Esegui azioni). 
+
+    ![Ingrandimento dell'intervallo di durata](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
+
+    Fare clic sul pulsante **Profiler traces** (Tracce profiler) per aprire il profiler con la traccia appropriata.
 
 3. Selezionare l'icona sotto **Esempi** per aprire il pannello **Trace View** (Visualizzazione traccia).
 

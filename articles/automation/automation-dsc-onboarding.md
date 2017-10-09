@@ -13,12 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 581bee11729e6fef5dbe7e752962f7ab9896066b
 ms.contentlocale: it-it
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Caricamento di computer per la gestione con Automation DSC per Azure
@@ -36,6 +35,10 @@ Come [PowerShell DSC (Desired State Configuration)](https://technet.microsoft.co
 * Computer fisici/macchine virtuali Linux locali, in Azure o in un cloud diverso da Azure
 
 Inoltre, se non si è pronti a gestire la configurazione delle macchina virtuali dal cloud, Automation DSC per Azure può anche essere usato come endpoint solo per i report. In questo modo è possibile impostare (push) la configurazione desiderata tramite DSC locale e visualizzare i dettagli dei report sulla conformità dei nodi con lo stato scelto in Automazione di Azure.
+
+> [!NOTE]
+> La gestione di macchine virtuali di Azure con DSC è inclusa senza alcun costo aggiuntivo se la versione dell'estensione DSC per le macchine virtuali installata è successiva alla 2.7.  Per altri dettagli, vedere la pagina [**Prezzi di Automazione**](https://azure.microsoft.com/en-us/pricing/details/automation/).
+
 
 Le sezioni seguenti illustrano come caricare ogni tipo di computer in Automation DSC per Azure.
 
@@ -123,13 +126,13 @@ Automation DSC per Azure consente di caricare facilmente macchine virtuali di Az
 
 Nel [portale di Azure](https://portal.azure.com/)passare all'account di Automazione di Azure in cui caricare le macchine virtuali. Nel dashboard dell'account di automazione fare clic su **Nodi DSC** -> **Aggiungi macchina virtuale di Azure**.
 
-In **Seleziona macchine virtuali da caricare**selezionare una o più macchine virtuali di Azure da caricare.
+Selezionare una macchina virtuale di Azure da caricare.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
+Se nel computer non è installata l'estensione di stato PowerShell desiderata e tramite il PowerShell e lo stato di alimentazione è "in esecuzione", fare clic su **Connetti**.
 
-In **Configura dati di registrazione**immettere i [valori di Gestione configurazione locale per PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necessari per il proprio caso d'uso e facoltativamente una configurazione del nodo da assegnare alla VM.
+In **Registrazione** immettere i [valori di Gestione configurazione locale per PowerShell DSC](https://msdn.microsoft.com/powershell/dsc/metaconfig4) necessari per il proprio caso d'uso e facoltativamente una configurazione del nodo da assegnare alla VM.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
+![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
