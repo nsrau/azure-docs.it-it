@@ -94,7 +94,7 @@ Dopo avere appreso come specificare la versione di Node.js usata dall'applicazio
 
 Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js](https://azure.microsoft.com/develop/nodejs/).
 
-[Come utilizzare gli strumenti da riga di comando di Azure per Mac e Linux]:cli-install-nodejs.md
+[usare gli strumenti da riga di comando di Azure per Mac e Linux]:cli-install-nodejs.md
 [strumenti da riga di comando di Azure]:cli-install-nodejs.md
 [usare i moduli]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
