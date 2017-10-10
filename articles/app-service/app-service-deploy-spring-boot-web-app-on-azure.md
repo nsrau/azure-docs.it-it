@@ -121,7 +121,7 @@ I passaggi seguenti illustrano la creazione di un'app Web di Azure, la configura
 
    c. Scegliere **Più recenti** per la versione di Java.
 
-   d. Scegliere **Newest Tomcat 8.5** [Tomcat 8.5 più recente] per il contenitore Web. (Questo contenitore non verrà effettivamente usato; Azure userà il contenitore dall'app Spring Boot.)
+   d. Scegliere **Newest Tomcat 8.5** \(Tomcat 8.5 più recente) per il contenitore Web. (Questo contenitore non verrà effettivamente usato; Azure userà il contenitore dall'app Spring Boot.)
 
    e. Fare clic su **Salva**.
 
