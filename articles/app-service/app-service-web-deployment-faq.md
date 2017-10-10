@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ae17a712b0b2a6ba0b9cdf4749fe2aa8b7f535fb
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: daecef7962ddee2f5e4b6a36c418619285f3ba5a
 ms.contentlocale: it-it
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla distribuzione per app Web in Azure
@@ -46,7 +46,7 @@ Per risolvere questo errore, eseguire l'aggiornamento all'[SDK più recente](htt
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Come si distribuisce un'applicazione ASP.NET da Visual Studio al servizio app?
 <a id="deployasp"></a>
 
-L'esercitazione [Creare la prima app Web ASP.NET in Azure in cinque minuti](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) illustra come distribuire un'applicazione Web ASP.NET in un'app Web del servizio app usando Visual Studio 2015.
+L'esercitazione [Creare la prima app Web ASP.NET in Azure in cinque minuti](app-service-web-get-started-dotnet.md) illustra come distribuire un'applicazione Web ASP.NET in un'app Web del servizio app usando Visual Studio 2017.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quali sono i diversi tipi di servizi di credenziali di distribuzione?
 

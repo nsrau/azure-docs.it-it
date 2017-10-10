@@ -11,14 +11,14 @@ ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: ba8a02e2faaa0affd68feebd2ae5efe64cded93f
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
 ms.contentlocale: it-it
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -150,7 +150,7 @@ Se si dispone di strumenti di rete, ad esempio Fiddler per Windows, è possibile
 
 - Controllare il numero della porta usato dallo strumento di rete.
 
-- Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Se questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete fatte da Storage Explorer agli endpoint del servizio e alla gestione. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint BLOB in un browser. Si riceverà una risposta simile alla seguente, che suggerisce che la risorsa è disponibile, anche se non è possibile accedervi.
+- Immettere l'URL dell'host locale e il numero della porta dello strumento di rete come impostazioni proxy in Storage Explorer. Se questa operazione viene eseguita correttamente, lo strumento di rete inizia la registrazione delle richieste di rete effettuate da Storage Explorer agli endpoint di gestione e del servizio. Ad esempio, immettere https://cawablobgrs.blob.core.windows.net/ per l'endpoint BLOB in un browser. Si riceverà una risposta simile alla seguente, che suggerisce che la risorsa è disponibile, anche se non è possibile accedervi.
 
 ![esempio di codice](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 

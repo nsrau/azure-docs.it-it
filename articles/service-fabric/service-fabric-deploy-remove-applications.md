@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/01/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: c7e8d7a53623219864dc2d5c9ace86f36f3db889
+ms.translationtype: HT
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: e0e7bcee2697555b49455a414eabd02e3f573c40
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuire e rimuovere applicazioni con PowerShell
@@ -27,8 +26,7 @@ ms.lasthandoff: 07/08/2017
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 > * [API client Fabric](service-fabric-deploy-remove-applications-fabricclient.md)
-> 
-> 
+> * [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 
 <br/>
 
@@ -233,7 +231,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Annullare la registrazione di un tipo di applicazione
-Quando una determinata versione di un tipo di applicazione non è più necessaria, è consigliabile annullare la registrazione del tipo di applicazione usando il cmdlet [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps). L'annullamento della registrazione dei tipi di applicazione inutilizzati rilascia lo spazio di archiviazione utilizzato dell'archivio di immagini. È possibile annullare la registrazione di un tipo di applicazione solo se non sono state create istanze di applicazioni basate su di esso o non vi sono aggiornamenti di applicazioni in sospeso che vi fanno riferimento.
+Quando una determinata versione di un tipo di applicazione non è più necessaria, è consigliabile annullare la registrazione del tipo di applicazione usando il cmdlet [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps). L'annullamento della registrazione dei tipi di applicazione inutilizzati rilascia lo spazio di archiviazione usato dall'archivio di immagini rimuovendo i file binari dell'applicazione. L'annullamento della registrazione di un tipo di applicazione non rimuove il pacchetto dell'applicazione. È possibile annullare la registrazione di un tipo di applicazione solo se non sono state create istanze di applicazioni basate su di esso o non vi sono aggiornamenti di applicazioni in sospeso che vi fanno riferimento.
 
 Eseguire [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) per vedere i tipi di applicazione attualmente registrati nel cluster:
 
@@ -297,8 +295,7 @@ Soluzione:
 Se il computer client si trova in un'area diversa dal cluster, si consiglia di usare un computer cliente in un'area più vicina o nella stessa area del cluster.
 - Controllare se si stiano raggiungendo le limitazioni esterne. Ad esempio, quando l'archivio immagini è configurato per usare l'archiviazione di Azure, il caricamento potrebbe essere limitato.
 
-Problema: Il pacchetto è stato caricato completamente ma si è verificato un timeout di [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps).
-Soluzione:
+Problema: Il pacchetto è stato caricato completamente ma si è verificato un timeout di [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Soluzione:
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini.
 La compressione riduce le dimensioni e il numero di file, cosa che a sua volta riduce il traffico e le operazioni di Service Fabric. L'operazione di caricamento potrebbe risultare più lenta (specialmente se si include il tempo di compressione), ma registrazione e relativo annullamento del tipo dell'applicazione saranno più veloci.
 - Specificare un timeout maggiore per il comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps), con il parametro `TimeoutSec`.

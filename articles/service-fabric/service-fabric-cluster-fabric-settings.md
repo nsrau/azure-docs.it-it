@@ -16,26 +16,26 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: d71fdcf2a054a9b9ac1d74ddd3a6b43d151fa87d
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: cedfba78d8d1186618cf4f61154c5d88a00eb12b
 ms.contentlocale: it-it
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizzare le impostazioni del cluster Service Fabric e dei criteri di aggiornamento dell'infrastruttura
-Questo documento illustra come personalizzare le varie impostazioni dell'infrastruttura e i criteri di aggiornamento della stessa per il cluster di Service Fabric. Le impostazioni possono essere personalizzate nel portale o con un modello di Azure Resource Manager.
+Questo documento illustra come personalizzare le varie impostazioni dell'infrastruttura e i criteri di aggiornamento della stessa per il cluster di Service Fabric. Le impostazioni possono essere personalizzate nel [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager.
 
 > [!NOTE]
-> Non tutte le impostazioni potrebbero essere disponibili tramite il portale. Se una delle impostazioni elencate di seguito non è disponibile tramite il portale, personalizzarlo usando un modello di Azure Resource Manager.
+> Non tutte le impostazioni sono disponibili nel portale. Se una delle impostazioni elencate di seguito non è disponibile tramite il portale, personalizzarlo usando un modello di Azure Resource Manager.
 > 
 
-## <a name="customizing-service-fabric-cluster-settings-using-azure-resource-manager-templates"></a>Personalizzazione delle impostazioni del cluster di Service Fabric mediante modelli di Azure Resource Manager
+## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalizzare le impostazioni del cluster usando i modelli di Gestione risorse
 I passaggi riportati di seguito illustrano come aggiungere una nuova impostazione *MaxDiskQuotaInMB* alla sezione *Diagnostica*.
 
 1. Passare ad https://resources.azure.com
-2. Passare alla sottoscrizione espandendo sottoscrizioni-> gruppi di risorse-> Microsoft.ServiceFabric-> nome del cluster
-3. Nell'angolo superiore destro selezionare "Lettura/Scrittura"
-4. Selezionare Modifica, aggiornare l'elemento JSON `fabricSettings` e aggiungere un nuovo elemento
+2. Passare alla sottoscrizione espandendo **sottoscrizioni** -> **gruppi di risorse** -> **Microsoft.ServiceFabric** -> **\<nome del cluster>**
+3. Nell'angolo in alto a destra selezionare **Lettura/Scrittura**.
+4. Selezionare **Modifica**, aggiornare l'elemento JSON `fabricSettings` e aggiungere un nuovo elemento:
 
 ```
       {
@@ -49,10 +49,9 @@ I passaggi riportati di seguito illustrano come aggiungere una nuova impostazion
       }
 ```
 
-## <a name="fabric-settings-that-you-can-customize"></a>Impostazioni di infrastruttura che è possibile personalizzare
-Di seguito sono riportate le impostazioni di infrastruttura che è possibile personalizzare.
+Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è possibile personalizzare, organizzate per sezione.
 
-### <a name="section-name-diagnostics"></a>Nome della sezione: Diagnostics
+## <a name="diagnostics"></a>Diagnostica
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | ConsumerInstances |String |L'elenco delle istanze di consumer DCA. |
@@ -66,12 +65,12 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | EnableTelemetry |Bool, valore predefinito: true |Parametro per abilitare o disabilitare la telemetria. |
 | EnableCircularTraceSession |Bool, valore predefinito: false |Il flag indica se devono essere usate le sessioni di traccia circolari. |
 
-### <a name="section-name-traceetw"></a>Nome della sezione: Trace/Etw
+## <a name="traceetw"></a>Traccia/Etw
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | Level |Int, valore predefinito: 4 |Il livello di traccia ETW può accettare valori 1, 2, 3 e 4. Per assicurare il supporto è necessario mantenere il livello di traccia a 4 |
 
-### <a name="section-name-performancecounterlocalstore"></a>Nome della sezione: PerformanceCounterLocalStore
+## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | IsEnabled |Bool, valore predefinito: true |Il flag indica se è abilitata la raccolta dei contatori delle prestazioni nel nodo locale. |
@@ -80,7 +79,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | MaxCounterBinaryFileSizeInMB |Int, valore predefinito: 1 |Dimensione massima (in MB) per ogni file binario del contatore delle prestazioni. |
 | NewCounterBinaryFileCreationIntervalInMinutes |Int, valore predefinito: 10 |Intervallo massimo (in secondi) dopo il quale viene creato un nuovo file binario di contatore delle prestazioni. |
 
-### <a name="section-name-setup"></a>Nome della sezione: Setup
+## <a name="setup"></a>Configurazione
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | FabricDataRoot |string |La directory radice dei dati di Service Fabric. L'impostazione predefinita per Azure è d:\svcfab |
@@ -89,7 +88,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | ServiceStartupType |string |Il tipo di avvio del servizio host infrastruttura. |
 | SkipFirewallConfiguration |Bool, valore predefinito: false |Specifica se le impostazioni del firewall devono essere impostate dal sistema. Si applica solo se si usa Windows Firewall. Se si usano firewall di terze parti, è necessario aprire le porte per il sistema e le applicazioni da usare |
 
-### <a name="section-name-transactionalreplicator"></a>Nome della sezione: TransactionalReplicator
+## <a name="transactionalreplicator"></a>TransactionalReplicator
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | MaxCopyQueueSize |Uint, valore predefinito: 16384 |Valore massimo che definisce la dimensione iniziale per la coda che gestisce le operazioni di replica. Si noti che deve essere una potenza di 2. Se durante il runtime la coda raggiunge tale dimensione, le operazioni verranno limitate tra i replicatori primario e secondario. |
@@ -113,7 +112,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | SlowApiMonitoringDuration |Tempo in secondi, il valore predefinito è 300 | Specificare la durata per l'API prima che venga generato l'evento di integrità dell'avviso.|
 | MinLogSizeInMB |Int, valore predefinito: 0 |Dimensioni minime del log delle transazioni. Il log non potrà essere troncato a una dimensione inferiore a quella impostata. 0 indica che il Replicator determinerà le dimensioni del log minimo in base alle altre impostazioni. Aumentando il valore si aumenta la possibilità di eseguire copie parziali e backup incrementali poiché le probabilità di troncamento dei record dei log rilevanti si riducono. |
 
-### <a name="section-name-fabricclient"></a>Nome della sezione: FabricClient
+## <a name="fabricclient"></a>FabricClient
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | NodeAddresses |stringa, il valore predefinito è "" |Un insieme di indirizzi (stringhe di connessione) in nodi diversi usabile per comunicare con il Naming Service. Inizialmente, il client si connette scegliendo casualmente uno degli indirizzi. Se viene specificata più di una stringa e una connessione non riesce a causa di un errore di comunicazione o timeout, il client usa l'indirizzo successivo in maniera sequenziale. Per i dettagli di semantica sui nuovi tentativi, vedere la sezione relativa del Naming Service. |
@@ -127,38 +126,38 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | RetryBackoffInterval |Tempo in secondi, valore predefinito: 3 |Specificare l'intervallo di tempo in secondi. L'intervallo di backoff prima di ritentare l'operazione. |
 | MaxFileSenderThreads |Uint, valore predefinito: 10 |Il numero massimo di file trasferiti in parallelo. |
 
-### <a name="section-name-common"></a>Nome della sezione: Common
+## <a name="common"></a>Comune
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | PerfMonitorInterval |Tempo in secondi, valore predefinito: 1 |Specificare l'intervallo di tempo in secondi. Intervallo del monitoraggio delle prestazioni. Con valore 0 o negativo, il monitoraggio è disabilitato. |
 
-### <a name="section-name-healthmanager"></a>Nome della sezione: HealthManager
+## <a name="healthmanager"></a>HealthManager
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | EnableApplicationTypeHealthEvaluation |Bool, valore predefinito: false |Criteri di valutazione dell'integrità del cluster: abilitare il parametro per la valutazione dell'integrità del tipo di applicazione. |
 
-### <a name="section-name-fabricnode"></a>Nome della sezione: FabricNode
+## <a name="fabricnode"></a>FabricNode
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | StateTraceInterval |Tempo in secondi, il valore predefinito è 300 |Specificare l'intervallo di tempo in secondi. L'intervallo per la traccia dello stato di nodo in ogni nodo e dei nodi in FM/FMM. |
 
-### <a name="section-name-nodedomainids"></a>Nome della sezione: NodeDomainIds
+## <a name="nodedomainids"></a>NodeDomainIds
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | UpgradeDomainId |stringa, il valore predefinito è "" |Descrivi il dominio di aggiornamento a cui appartiene un nodo. |
 | PropertyGroup |NodeFaultDomainIdCollection |Descrive il dominio di errore a cui appartiene un nodo. Il dominio di errore viene definito tramite un URI che descrive la posizione del nodo nel data center.  Gli URI dei domini di errore sono nel formato fd:/fd/ seguito da un segmento di percorso URI.|
 
-### <a name="section-name-nodeproperties"></a>Nome della sezione: NodeProperties
+## <a name="nodeproperties"></a>NodeProperties
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | PropertyGroup |NodePropertyCollectionMap |Una raccolta di coppie di stringhe chiave-valore per le proprietà del nodo. |
 
-### <a name="section-name-nodecapacities"></a>Nome della sezione: NodeCapacities
+## <a name="nodecapacities"></a>NodeCapacities
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | PropertyGroup |NodeCapacityCollectionMap |Una raccolta di capacità dei nodi per diverse metriche. |
 
-### <a name="section-name-fabricnode"></a>Nome della sezione: FabricNode
+## <a name="fabricnode"></a>FabricNode
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | StartApplicationPortRange |Int, valore predefinito: 0 |Avvio delle porte di applicazione gestite dal sottosistema di hosting. Obbligatorio se EndpointFilteringEnabled è impostato su true in Hosting. |
@@ -180,12 +179,12 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | UserRoleClientX509FindValue |stringa, il valore predefinito è "" |Valore di filtro di ricerca usato per individuare un certificato per il ruolo di utente predefinito FabricClient. |
 | UserRoleClientX509FindValueSecondary |stringa, il valore predefinito è "" |Valore di filtro di ricerca usato per individuare un certificato per il ruolo di utente predefinito FabricClient. |
 
-### <a name="section-name-paas"></a>Nome della sezione: Paas
+## <a name="paas"></a>PaaS
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | ClusterId |stringa, il valore predefinito è "" |Archivio certificati X.509 usato da Service Fabric per la protezione della configurazione. |
 
-### <a name="section-name-fabrichost"></a>Nome della sezione: FabricHost
+## <a name="fabrichost"></a>FabricHost
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | StopTimeout |Tempo in secondi, il valore predefinito è 300 |Specificare l'intervallo di tempo in secondi. Il timeout per l'attivazione, la disattivazione e l'aggiornamento del servizio ospitato. |
@@ -198,7 +197,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | EnableRestartManagement |Bool, valore predefinito: false |Parametro per abilitare il riavvio del server. |
 
 
-### <a name="section-name-failovermanager"></a>Nome della sezione: FailoverManager
+## <a name="failovermanager"></a>FailoverManager
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | UserReplicaRestartWaitDuration |Tempo in secondi, valore predefinito: 60,0 * 30 |Specificare l'intervallo di tempo in secondi. Quando una replica persistente va offline, Windows Fabric attende che torni online per questo intervallo di tempo, passato il quale crea nuove repliche sostitutive, che richiederanno una copia dello stato. |
@@ -206,7 +205,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | UserStandByReplicaKeepDuration |Tempo in secondi, il valore predefinito è 3600.0 * 24 * 7 |Specificare l'intervallo di tempo in secondi. Quando una replica persistente torna online, potrebbe già essere stata sostituita. Questo timer determina per quanto tempo FM manterrà la replica in standby prima di rimuoverla. |
 | UserMaxStandByReplicaCount |Int, valore predefinito: 1 |Il numero massimo predefinito di repliche in standby che il sistema conserva per i servizi utente. |
 
-### <a name="section-name-namingservice"></a>Nome della sezione: NamingService
+## <a name="namingservice"></a>NamingService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, valore predefinito: 7 |Il numero di set di repliche per ogni partizione dell'archivio di Naming Service. L'aumento del numero di set di repliche rafforzerà l'affidabilità delle informazioni nell'archivio di Naming Service, riducendo i rischi di perdita di tali informazioni in caso di errori nei nodi. Tutto ciò comporterà tuttavia un carico maggiore per Windows Fabric, nonché un aumento del tempo necessario per aggiornare i dati di denominazione.|
@@ -228,35 +227,35 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | GatewayServiceDescriptionCacheLimit |Int, valore predefinito: 0 |Numero massimo di voci conservate nella cache della descrizione del servizio LRU nell'archivio di Naming Gateway. Impostarlo su 0 per non avere limiti. |
 | PartitionCount |Int, valore predefinito: 3 |Numero di partizioni dell'archivio Naming Service da creare. Ogni partizione possiede una chiave di partizione singola che corrisponde al relativo indice. Esistono quindi chiavi di partizione [0; PartitionCount). Aumentando il numero di partizioni Naming Service, verrà aumentata anche la scalabilità delle relative operazioni riducendo la quantità media di dati presenti in un dato set di repliche di riserva. Tutto questo comporterà però un maggiore uso di risorse, dato che devono essere conservate repliche di servizio pari a PartitionCount*ReplicaSetSize.|
 
-### <a name="section-name-runas"></a>Nome della sezione: RunAs
+## <a name="runas"></a>RunAs
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | RunAsAccountName |stringa, il valore predefinito è "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
 |RunAsAccountType|stringa, il valore predefinito è "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|stringa, il valore predefinito è "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
-### <a name="section-name-runasfabric"></a>Nome della sezione: RunAs_Fabric
+## <a name="runasfabric"></a>RunAs_Fabric
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | RunAsAccountName |stringa, il valore predefinito è "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
 |RunAsAccountType|stringa, il valore predefinito è "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|stringa, il valore predefinito è "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
-### <a name="section-name-runashttpgateway"></a>Nome della sezione: RunAs_HttpGateway
+## <a name="runashttpgateway"></a>RunAs_HttpGateway
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | RunAsAccountName |stringa, il valore predefinito è "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
 |RunAsAccountType|stringa, il valore predefinito è "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|stringa, il valore predefinito è "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
-### <a name="section-name-runasdca"></a>Nome della sezione: RunAs_DCA
+## <a name="runasdca"></a>RunAs_DCA
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | RunAsAccountName |stringa, il valore predefinito è "" |Indica il nome dell'account RunAs. Parametro necessario solo per i tipi di account "DomainUser" o "ManagedServiceAccount". I valori validi sono "dominio\utente" o "user@domain". |
 |RunAsAccountType|stringa, il valore predefinito è "" |Indica il tipo di account RunAs. Parametro necessario per ogni sezione RunAs. I valori validi sono: "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|stringa, il valore predefinito è "" |Indica la password dell'account RunAs. Parametro necessario solo per il tipo di account "DomainUser". |
 
-### <a name="section-name-httpgateway"></a>Nome della sezione: HttpGateway
+## <a name="httpgateway"></a>HttpGateway
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 |IsEnabled|Bool, valore predefinito: false | Abilita/disabilita httpgateway. Httpgateway è disabilitato per impostazione predefinita. È necessario impostare questa configurazione per abilitarlo. |
@@ -264,7 +263,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |MaxEntityBodySize |Uint, valore predefinito: 4194304 |  Indica la dimensione massima del corpo prevista in una richiesta http. Il valore predefinito è 4 MB. Httpgateway non porterà a termine una richiesta se questa ha un corpo di dimensioni superiori al valore indicato. La dimensione minima dei blocchi di lettura è di 4096 byte. Il valore deve pertanto essere >= 4096. |
 |HttpGatewayHealthReportSendInterval |Tempo in secondi, il valore predefinito è 30 | Specificare l'intervallo di tempo in secondi. Intervallo dopo il quale l'Http gateway invia i report sull'integrità accumulati a Health Manager. |
 
-### <a name="section-name-ktllogger"></a>Nome della sezione: KtlLogger
+## <a name="ktllogger"></a>KtlLogger
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int, valore predefinito: 1 | Flag che indica se le impostazioni di memoria devono essere configurate in modo dinamico e automatico. Se il valore è 0, le impostazioni vengono usate direttamente e non vengono modificate in base alle condizioni di sistema. Se il valore è 1, le impostazioni vengono configurate automaticamente e possono cambiare in base alle condizioni di sistema. |
@@ -275,7 +274,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |SharedLogId |stringa, il valore predefinito è "" |GUID univoco per il contenitore di log condivisi. Usare "" se si usa il percorso predefinito nella radice dati di Service Fabric. |
 |SharedLogSizeInMB |Int, valore predefinito: 8192 | Il numero di MB da allocare nel contenitore di log condivisi. |
 
-### <a name="section-name-applicationgatewayhttp"></a>Nome della sezione: ApplicationGateway/Http
+## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 |IsEnabled |Bool, valore predefinito: false | Abilita/disabilita HttpApplicationGateway. HttpApplicationGateway è disabilitato per impostazione predefinita. È necessario impostare questa configurazione per abilitarlo. |
@@ -289,7 +288,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |GatewayX509CertificateFindValue | stringa, il valore predefinito è "" | Valore del filtro di ricerca usato per individuare il certificato del gateway applicazione http. Il certificato è configurato nell'endpoint https e può essere usato anche per verificare l'identità dell'app se richiesto dai servizi. Viene prima cercato FindValue. Se non esiste, viene cercato FindValueSecondary. |
 |GatewayX509CertificateFindValueSecondary | stringa, il valore predefinito è "" |Valore del filtro di ricerca usato per individuare il certificato del gateway applicazione http. Il certificato è configurato nell'endpoint https e può essere usato anche per verificare l'identità dell'app se richiesto dai servizi. Viene prima cercato FindValue. Se non esiste, viene cercato FindValueSecondary.|
 
-### <a name="section-name-management"></a>Nome della sezione: Management
+## <a name="management"></a>gestione
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | ImageStoreConnectionString |SecureString | Stringa di connessione per la radice di ImageStore. |
@@ -301,7 +300,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |DisableChecksumValidation | Bool, valore predefinito: false | Questa configurazione consente di abilitare o disabilitare la convalida di checksum durante il provisioning dell'applicazione. |
 |DisableServerSideCopy | Bool, valore predefinito: false | Questa configurazione consente di abilitare o disabilitare la copia sul lato server del pacchetto dell'applicazione in ImageStore durante il provisioning dell'applicazione. |
 
-### <a name="section-name-healthmanagerclusterhealthpolicy"></a>Nome della sezione: HealthManager/ClusterHealthPolicy
+## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | ConsiderWarningAsError |Bool, valore predefinito: false |Criteri di valutazione dell'integrità del cluster: gli avvisi vengano considerati come errori. |
@@ -310,7 +309,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |MaxPercentDeltaUnhealthyNodes | Int, valore predefinito: 10 |Criteri di valutazione dell'integrità dell'aggiornamento del cluster: la percentuale massima di nodi non integri consentita per indicare come integro il cluster stesso. |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes | Int, valore predefinito: 15 |Criteri di valutazione dell'integrità dell'aggiornamento del cluster: la percentuale massima di nodi non integri consentita in un dominio di aggiornamento per indicare come integro il cluster stesso.|
 
-### <a name="section-name-faultanalysisservice"></a>Nome della sezione: FaultAnalysisService
+## <a name="faultanalysisservice"></a>FaultAnalysisService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, valore predefinito: 0 |NOT_PLATFORM_UNIX_START TargetReplicaSetSize per FaultAnalysisService. |
@@ -323,7 +322,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | CompletedActionKeepDurationInSeconds | Int, valore predefinito: 604800 | Tempo di conservazione approssimativo delle azioni in stato terminale.  Dipende inoltre StoredActionCleanupIntervalInSeconds, poiché l'operazione di pulizia è eseguita solo in quell'intervallo. 604800 equivale a 7 giorni. |
 | StoredChaosEventCleanupIntervalInSeconds | Int, valore predefinito: 3600 |Frequenza con cui l'archivio verrà controllato per eseguire eventualmente la pulizia. Se il numero di eventi è superiore a 30.000, la pulizia verrà avviata. |
 
-### <a name="section-name-filestoreservice"></a>Nome della sezione: FileStoreService
+## <a name="filestoreservice"></a>FileStoreService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | NamingOperationTimeout |Tempo in secondi, il valore predefinito è 60 |Specificare l'intervallo di tempo in secondi. Il timeout per eseguire un'operazione di denominazione. |
@@ -349,7 +348,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | SecondaryAccountNTLMX509StoreName | stringa, il valore predefinito è "MY" |Il nome dell'archivio del certificato X509 usato per generare HMAC in SecondaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
 | SecondaryAccountNTLMX509Thumbprint | stringa, il valore predefinito è ""| L'identificazione personale dell'archivio del certificato X509 usato per generare HMAC in SecondaryAccountNTLMPasswordSecret quando si usa l'autenticazione NTLM. |
 
-### <a name="section-name-imagestoreservice"></a>Nome della sezione: ImageStoreService
+## <a name="imagestoreservice"></a>ImageStoreService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | Enabled |Bool, valore predefinito: false |Flag Enabled per ImageStoreService. |
@@ -365,7 +364,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | ClientListTimeout | Tempo in secondi, valore predefinito: 600 | Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di elenco principale al servizio di archivio immagini. |
 | ClientDefaultTimeout | Tempo in secondi, valore predefinito: 180 | Specificare l'intervallo di tempo in secondi. Valore di timeout per tutte le richieste non di caricamento o download (ad esempio richieste exists o di eliminazione) al servizio di archivio immagini. |
 
-### <a name="section-name-imagestoreclient"></a>Nome della sezione: ImageStoreClient
+## <a name="imagestoreclient"></a>ImageStoreClient
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | ClientUploadTimeout |Tempo in secondi, valore predefinito: 1800 | Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di caricamento principale al servizio di archivio immagini. |
@@ -374,12 +373,12 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |ClientListTimeout | Tempo in secondi, valore predefinito: 600 |Specificare l'intervallo di tempo in secondi. Valore di timeout per la richiesta di elenco principale al servizio di archivio immagini. |
 |ClientDefaultTimeout | Tempo in secondi, valore predefinito: 180 | Specificare l'intervallo di tempo in secondi. Valore di timeout per tutte le richieste non di caricamento o download (ad esempio richieste exists o di eliminazione) al servizio di archivio immagini. |
 
-### <a name="section-name-tokenvalidationservice"></a>Nome della sezione: TokenValidationService
+## <a name="tokenvalidationservice"></a>TokenValidationService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | Providers |stringa, il valore predefinito è "DSTS" |Elenco separato da virgole dei provider di convalida dei token per l'abilitazione. I provider validi sono: DSTS, AAD. Attualmente è possibile abilitare un singolo provider alla volta. |
 
-### <a name="section-name-upgradeorchestrationservice"></a>Nome della sezione: UpgradeOrchestrationService
+## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | TargetReplicaSetSize |Int, valore predefinito: 0 |TargetReplicaSetSize per UpgradeOrchestrationService. |
@@ -391,7 +390,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | AutoupgradeEnabled | Bool, valore predefinito: true | Polling e aggiornamenti automatici in base a un file di stato obiettivo. |
 | UpgradeApprovalRequired | Bool, valore predefinito: false | Impostazione per richiedere l'approvazione di un amministratore prima di procedere con l'aggiornamento del codice. |
 
-### <a name="section-name-upgradeservice"></a>Nome della sezione: UpgradeService
+## <a name="upgradeservice"></a>UpgradeService
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | PlacementConstraints |stringa, il valore predefinito è "" |PlacementConstraints per UpgradeService. |
@@ -408,7 +407,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | OnlyBaseUpgrade | Bool, valore predefinito: false | OnlyBaseUpgrade per UpgradeService. |
 | TestCabFolder | stringa, il valore predefinito è "" | TestCabFolder per UpgradeService. |
 
-### <a name="section-name-securityclientaccess"></a>Nome della sezione: Security/ClientAccess
+## <a name="securityclientaccess"></a>Security/ClientAccess
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | CreateName |stringa, il valore predefinito è "Admin" |Configurazione di sicurezza per creare un URI di denominazione. |
@@ -495,7 +494,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | GetClusterConfigurationUpgradeStatus | stringa, il valore predefinito è "Admin\|\|User" | Provoca GetClusterConfigurationUpgradeStatus in una partizione. |
 | GetClusterConfiguration | stringa, il valore predefinito è "Admin\|\|User" | Provoca GetClusterConfiguration in una partizione. |
 
-### <a name="section-name-reconfigurationagent"></a>Nome della sezione: ReconfigurationAgent
+## <a name="reconfigurationagent"></a>ReconfigurationAgent
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | ApplicationUpgradeMaxReplicaCloseDuration | Tempo in secondi, valore predefinito: 900 |Specificare l'intervallo di tempo in secondi. La durata dell'attesa massima del sistema prima di arrestare gli host di servizi che dispongono di repliche bloccate nello stato di chiusura. |
@@ -506,7 +505,7 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | FabricUpgradeMaxReplicaCloseDuration | Tempo in secondi, valore predefinito: 900 | Specificare l'intervallo di tempo in secondi. L'attesa massima da parte di RA prima di terminare l'host di servizio di una replica che non riesce a chiudersi correttamente. |
 | IsDeactivationInfoEnabled | Bool, valore predefinito: true | Determina se RA userà le informazioni di disattivazione per eseguire nuovamente l'elezione primaria. Per i nuovi cluster, si consiglia di impostare la configurazione su true. Per i cluster esistenti e in aggiornamento, vedere le note di rilascio per altri dettagli su questa configurazione. |
 
-### <a name="section-name-placementandloadbalancing"></a>Nome della sezione: PlacementAndLoadBalancing
+## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | TraceCRMReasons |Bool, valore predefinito: true |Specifica se tracciare i motivi dei movimenti indicati da CRM al canale degli eventi operativi. |
@@ -558,12 +557,12 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 |PartiallyPlaceServices | Bool, valore predefinito: true | Determina se tutte le repliche servizio nel cluster verranno posizionate in modo "tutto o niente" in caso di nodi appropriati limitati.|
 |InterruptBalancingForAllFailoverUnitUpdates | Bool, valore predefinito: false | Determina se qualsiasi tipo di aggiornamento di un'unità di failover deve interrompere un'esecuzione di un bilanciamento rapido o lento. Specificare "false" per interrompere l'esecuzione del bilanciamento se FailoverUnit: viene creata/eliminata; ha repliche mancanti; ha modificato il percorso di replica primario o il numero di repliche. L'esecuzione del bilanciamento NON verrà interrotta in altri casi, ossia se FailoverUnit: ha repliche extra; ha modificato flag della replica; ha modificato solo la versione della partizione e tutti gli altri casi. |
 
-### <a name="section-name-security"></a>Nome della sezione: Security
+## <a name="security"></a>Sicurezza
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | ClusterProtectionLevel |Nessuno o EncryptAndSign |Nessuno (predefinito) per i cluster non protetti, EncryptAndSign per i cluster protetti. |
 
-### <a name="section-name-hosting"></a>Nome della sezione: Hosting
+## <a name="hosting"></a>Hosting
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | ServiceTypeRegistrationTimeout |Tempo in secondi, il valore predefinito è 300 |Tempo massimo consentito per la registrazione di ServiceType nell'infrastruttura |
@@ -572,18 +571,18 @@ Di seguito sono riportate le impostazioni di infrastruttura che è possibile per
 | ActivationMaxRetryInterval |Tempo in secondi, il valore predefinito è 300 |In ogni caso di errore di attivazione continua, il sistema ritenta l'attivazione fino al massimo valore definito in ActivationMaxFailureCount. ActivationMaxRetryInterval specifica l'intervallo di tempo di attesa prima di un nuovo tentativo dopo ogni errore di attivazione |
 | ActivationMaxFailureCount |Numero intero, il valore predefinito è 10 |Numero di volte che il sistema ritenta l'attivazione non riuscita prima di rinunciare |
 
-### <a name="section-name-failovermanager"></a>Nome della sezione: FailoverManager
+## <a name="failovermanager"></a>FailoverManager
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | PeriodicLoadPersistInterval |Tempo in secondi, il valore predefinito è 10 |Determina la frequenza con cui FM controlla i nuovi report di carico |
 
-### <a name="section-name-federation"></a>Nome della sezione: Federation
+## <a name="federation"></a>Federazione
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | LeaseDuration |Tempo in secondi, il valore predefinito è 30 |Durata di un lease tra un nodo e gli elementi adiacenti. |
 | LeaseDurationAcrossFaultDomain |Tempo in secondi, il valore predefinito è 30 |Durata di un lease tra un nodo e gli elementi adiacenti nei domini di errore. |
 
-### <a name="section-name-clustermanager"></a>Nome della sezione: ClusterManager
+## <a name="clustermanager"></a>ClusterManager
 | **Parametro** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- |
 | UpgradeStatusPollInterval |Tempo in secondi, il valore predefinito è 60 |Frequenza di polling sullo stato di aggiornamento dell'applicazione. Questo valore determina la frequenza di aggiornamento di qualsiasi chiamata GetApplicationUpgradeProgress |

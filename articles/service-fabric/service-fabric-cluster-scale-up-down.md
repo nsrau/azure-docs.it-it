@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 32d8fca81c20e77db4ed3aae05d017ccc2ce1be3
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: f5ffcb5be1c52f27948414304f1fc2e82c76709b
 ms.contentlocale: it-it
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di scalabilità automatica
@@ -100,7 +100,7 @@ I nodi elencati in Service Fabric Explorer riflettono le informazioni a disposiz
 
 Per assicurarsi che un nodo venga rimosso quando si rimuove una VM, sono disponibili due opzioni:
 
-1) Scegliere un livello di durabilità Gold o Silver (disponibile a breve) per i tipi di nodo del cluster, che fornisce l'integrazione dell'infrastruttura. In questo caso i nodi saranno rimossi automaticamente dallo stato dei servizi di sistema (FM) quando si riducono le istanze.
+1) Scegliere un livello di durabilità Gold o Silver per i tipi di nodo del cluster, che offre l'integrazione dell'infrastruttura. In questo caso i nodi saranno rimossi automaticamente dallo stato dei servizi di sistema (FM) quando si riducono le istanze.
 Fare riferimento ai [i dettagli sui livelli di durabilità qui](service-fabric-cluster-capacity.md)
 
 2) Dopo aver ridotto le istanze della VM, chiamare il [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).

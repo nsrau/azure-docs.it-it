@@ -3,7 +3,7 @@ title: Introduzione all'archiviazione BLOB di Azure | Microsoft Docs
 description: Introduzione all'archiviazione BLOB di Azure
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: robinsh
+ms.date: 09/28/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 051f1b37eab254d4ab4f806166ac8d0b8cab944d
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 7fe3db3d31dc7212c47a0f8dd48c86c98fb498c1
 ms.contentlocale: it-it
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="introduction-to-blob-storage"></a>Introduzione all'archiviazione BLOB
@@ -47,7 +47,7 @@ Il servizio BLOB è composto dai componenti seguenti:
   
     *BLOB in blocchi* sono ideali per l'archiviazione di file di testo o file binari, ad esempio i documenti e i file multimediali. *BLOB di accodamento* sono simili ai BLOB in blocchi in quanto sono costituiti da blocchi, ma sono ottimizzati per le operazioni di accodamento, in modo che siano utili per gli scenari di registrazione. Un singolo BLOB in blocchi può contenere fino a 50.000 blocchi da al massimo 100 MB ognuno, per una dimensione totale leggermente superiore a 4,75 TB (100 MB X 50.000). Un singolo BLOB di accodamento può contenere fino a 50.000 blocchi da al massimo 4 MB ognuno, per una dimensione totale leggermente superiore a 195 GB (4 MB X 50.000).
   
-    *BLOB di pagine* possono avere un dimensione di al massimo 1 TB e sono più efficienti per operazioni di lettura/scrittura frequenti. Le macchine virtuali di Azure usano BLOB di pagine come dischi di dati e del sistema operativo.
+    I *BLOB di pagine* possono avere un dimensione di 8 TB al massimo e sono più efficienti per operazioni di lettura/scrittura frequenti. Le Macchine virtuali di Azure utilizzano i BLOB di pagine come dischi del sistema operativo e dati.
   
     Per informazioni sulla denominazione di contenitori e BLOB, vedere l'articolo relativo alla [denominazione e riferimento a contenitori, BLOB e metadati](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
@@ -55,3 +55,4 @@ Il servizio BLOB è composto dai componenti seguenti:
 
 * [Creare un account di archiviazione](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Introduzione all'archivio BLOB di Azure con .NET](storage-dotnet-how-to-use-blobs.md)
+

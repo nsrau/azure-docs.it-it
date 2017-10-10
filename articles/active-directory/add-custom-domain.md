@@ -10,15 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 07aaefc0b2f806178651c2192f6abcbae9a31f83
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
 ms.contentlocale: it-it
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Guida introduttiva: Aggiungere un nome di dominio personalizzato ad Azure Active Directory
@@ -62,7 +62,7 @@ Dopo aver aggiunto la voce DNS, è possibile verificare il nome di dominio con A
 A questo punto è possibile [assegnare nomi utente che includono il nome di dominio personalizzato](active-directory-users-create-azure-portal.md). Usando il nome di dominio personalizzato, è possibile creare account utente basati sul cloud oppure aggiornare le informazioni sugli account utente locali sincronizzate in precedenza. È anche possibile modificare le informazioni relative al suffisso di dominio degli account utente sincronizzate in precedenza usando [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) o l'[API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
 > [!TIP]
-> È possibile aggiungere fino a 900 nomi di dominio personalizzati, ma solo uno può essere [impostato come nome di dominio primario per la directory di Azure AD](active-directory-domains-manage-azure-portal.md#set-the-primary-domain-name-for-your-azure-ad-directory), che verrà usato per impostazione predefinita quando si creano nuovi account.
+> È possibile aggiungere fino a un massimo di 900 nomi di dominio gestiti. Se si intende configurare tutti i domini per la federazione locale di Active Directory, è possibile aggiungere fino a 450 nomi di dominio in ogni directory. Per altre informazioni, vedere [Nomi di dominio federati e gestiti](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 Se non è possibile verificare un nome di dominio personalizzato, provare a eseguire questi passaggi per la risoluzione dei problemi:

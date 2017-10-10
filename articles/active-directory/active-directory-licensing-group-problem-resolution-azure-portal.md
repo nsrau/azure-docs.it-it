@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: bfa951a897c9b383072c0d29c9a4266c163fe753
+ms.translationtype: HT
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 955efc9e6b209195935d1f7c13f96c6a42536b2a
 ms.contentlocale: it-it
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -106,6 +106,35 @@ Per risolvere questo problema, rimuovere gli utenti di località non supportate 
 Azure AD prova ad assegnare a ogni utente tutte le licenze specificate nel gruppo. Se Azure AD non può assegnare uno dei prodotti a causa di problemi di logica di business, ad esempio in caso di licenze insufficienti per tutti o in caso di conflitto con altri servizi abilitati per l'utente, non verranno assegnate neanche le altre licenze nel gruppo.
 
 Sarà possibile visualizzare gli utenti per i quali l'assegnazione non è riuscita e i relativi prodotti interessati.
+
+## <a name="how-to-manage-licenses-for-products-with-prerequisites"></a>Gestione delle licenze per prodotti con prerequisiti
+
+Alcuni prodotti di Microsoft Online sono "componenti aggiuntivi": richiedono un piano di servizio dei prerequisiti per essere abilitati per un utente o un gruppo, prima di poter essere assegnati. Con le licenze basate su gruppo, il sistema prevede che i piani di servizio dei prerequisiti e dei componenti aggiuntivi si trovino nello stesso gruppo. Questa operazione viene eseguita per garantire che tutti gli utenti aggiunti al gruppo possano ricevere il prodotto completamente funzionante. Si consideri l'esempio seguente:
+
+*Microsoft Workplace Analytics* è un componente aggiuntivo. Contiene un unico piano di servizio con lo stesso nome. Può essere assegnato a un utente o a gruppo, solo quando viene assegnato anche uno dei seguenti prerequisiti:
+- *Exchange Online (piano 1)*
+- oppure *Exchange Online (piano 2)*
+
+Se si tenta di assegnare il prodotto solo a un gruppo, il portale restituirà un errore. Facendo clic sulla notifica di errore vengono visualizzati i dettagli seguenti:
+
+![Prerequisito del gruppo mancante](media/active-directory-licensing-group-problem-resolution-azure-portal/group-prerequisite-required.png)
+
+Facendo clic sui dettagli viene visualizzato il messaggio di errore seguente:
+
+*L'operazione relativa alla licenza non è riuscita. Assicurarsi che il gruppo abbia i servizi necessari prima di aggiungere o rimuovere un servizio dipendente. **Il servizio Microsoft Workplace Analytics richiede che sia anche abilitato il servizio Exchange Online (piano 2).***
+
+Per assegnare la licenza del componente aggiuntivo a un gruppo, è necessario assicurarsi che anche il gruppo contenga il piano di servizio del prerequisito. Ad esempio, è possibile aggiornare un gruppo esistente che contiene già il prodotto completo *Office 365 E3* e aggiungervi il componente aggiuntivo.
+
+È anche possibile creare un gruppo autonomo che contenga solo i prodotti minimi richiesti per far funzionare il componente aggiuntivo: può essere usato per concedere la licenza del componente aggiuntivo solo agli utenti selezionati. In questo esempio i prodotti seguenti sono stati assegnati allo stesso gruppo:
+- *Office 365 Enterprise E3* solo con il piano di servizio *Exchange Online (piano 2)*
+- *Microsoft Workplace Analytics*
+
+![Prerequisito del gruppo incluso](media/active-directory-licensing-group-problem-resolution-azure-portal/group-addon-with-prerequisite.png)
+
+Da questo momento in poi gli utenti aggiunti a questo gruppo useranno una licenza del prodotto E3 e una licenza del prodotto Workplace Analytics. Allo stesso tempo gli utenti possono essere membri di un altro gruppo che conceda loro il prodotto E3 completo e verrà usata solo una licenza per il prodotto in questione.
+
+> [!TIP]
+> È possibile creare più gruppi, per ogni piano di servizio dei prerequisiti. Ad esempio, se si usano *Office 365 Enterprise **E1*** e *Office 365 Enterprise **E3*** per gli utenti, è possibile creare due gruppi per la licenza di *Microsoft Workplace Analytics*; uno usando E1 come prerequisito e l'altro usando E3. Ciò consentirà di distribuire il componente aggiuntivo agli utenti di E1 ed E3 senza usare altre licenze.
 
 ## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>L'assegnazione delle licenze non riesce in modo silenzioso per un utente a causa di indirizzi proxy duplicati in Exchange Online
 
