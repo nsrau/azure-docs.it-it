@@ -71,7 +71,7 @@ Quando si eseguono backup nel servizio di archiviazione BLOB di Azure, vengono u
 2. Eseguire quindi una delle esercitazioni seguenti, in cui vengono fornite informazioni dettagliate sulla creazione di un account di archiviazione e sull'esecuzione di un ripristino.
    
    * **SQL Server 2014** - [Esercitazione: Backup e ripristino di SQL Server 2014 nel servizio di archiviazione BLOB di Microsoft Azure](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-   * **SQL Server 2016**- [Tutorial- Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx)
+   * **SQL Server 2016**: [Esercitazione: Uso del servizio archiviazione BLOB di Microsoft Azure con database di SQL Server 2016](https://msdn.microsoft.com/library/dn466438.aspx)
 3. Esaminare la documentazione aggiuntiva, a partire da [Backup e ripristino di SQL Server con il servizio di archiviazione BLOB di Microsoft Azure](https://msdn.microsoft.com/library/jj919148.aspx).
 
 Se si verificano problemi, consultare l'argomento [Procedure consigliate e risoluzione dei problemi per il backup di SQL Server nell'URL](https://msdn.microsoft.com/library/jj919149.aspx).
